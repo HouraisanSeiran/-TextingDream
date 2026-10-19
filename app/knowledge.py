@@ -190,12 +190,39 @@ def extract_notes(text, source, vocabulary=()):
         notes.append({'id': 'note_' + identity, 'title': ' / '.join(keys[:3]) or '对话见闻',
                       'keywords': keys, 'summary': summary, 'content': paragraph,
                       'status': '对话所闻，未独立核实', 'source': source,
+                      'origin': 'prose',
                       'visibility': 'player' if source['scope'] == 'surface' else 'author'})
     return notes
 
 
+def confirmed_notes(session):
+    """Records the rules engine itself wrote and marked as confirmed.
+
+    Only `distortion == 0` with an explicit `source` qualifies; speech, rumors and
+    notices carry their distortion and stay unverified narrative. These come back
+    before prose-derived notes because they have the same authority as the state
+    they came from, while a reply is only evidence of what was said.
+    """
+    result, seen = [], set()
+    for record in session.get('heard', []):
+        text = record.get('text')
+        if record.get('distortion') != 0 or not record.get('source') or not isinstance(text, str):
+            continue
+        if text in seen:
+            continue
+        seen.add(text)
+        keys = list(dict.fromkeys(re.findall(r'[\u4e00-\u9fff]{2,6}|[A-Za-z]{3,}', text)))[:6]
+        result.append({'id': 'confirmed_' + str(record.get('id') or hashlib.sha256(text.encode()).hexdigest()[:20]),
+                       'title': ' / '.join(keys[:3]) or '已确认记录',
+                       'keywords': keys, 'summary': text, 'content': text,
+                       'status': '状态层已确认', 'origin': 'confirmed',
+                       'source': {'id': record['source'], 'scope': 'state', 'event': '状态层记录'},
+                       'visibility': 'player'})
+    return result
+
+
 def notebook(session):
-    result = []
+    result = confirmed_notes(session)
     for event in session['archives'] + ([session['active']] if session['active'] else []):
         for index, turn in enumerate(event['turns']):
             source = {'id': event['id'] + ':' + str(index), 'scope': 'surface',

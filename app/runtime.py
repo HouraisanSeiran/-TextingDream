@@ -11,6 +11,7 @@ from .models import StoryAssembly
 from .knowledge import PackageFiles, retrieve, notebook, validate_points, atomic_text
 from .recall import Recall, dialogue_records, vector
 from .context_stage import stage_history
+from .summary import event_summary, has_excerpt, strip_excerpt, with_stage
 from .drama import resolve_check, outcome_cues, validate_cues, public_voice, cast_projection
 from . import local_rules
 from .state_anchor import state_anchor
@@ -25,6 +26,30 @@ def uid():
 
 def now():
     return datetime.now(timezone.utc).isoformat()
+
+
+def chars(value):
+    return len(json.dumps(value, ensure_ascii=False))
+
+
+# Drop model-derived material first, engine-sourced material last: the model's own
+# prose is re-derivable from the replies still kept in `history`, whereas the world
+# canon in `knowledge` and the settlement in `last_summary` have no other copy in
+# the prompt. Whole entries only; a cut line would be a malformed claim.
+TRIM_ORDER = ('dialogue_knowledge', 'recalled_dialogue', 'history', 'memories', 'elements', 'knowledge')
+
+
+def trim_context(result, budget):
+    for key in TRIM_ORDER:
+        result.setdefault(key, [])
+        while result[key] and chars(result) > budget:
+            result[key].pop(0 if key in ('history', 'dialogue_knowledge') else -1)
+    if chars(result) > budget and has_excerpt(result.get('last_summary')):
+        result['last_summary'] = strip_excerpt(result['last_summary'])
+    if chars(result) > budget:
+        # The archive keeps every turn; the prompt copy is only a convenience.
+        result['last_summary'] = ''
+    return result
 
 
 class Runtime:
@@ -363,7 +388,8 @@ class Runtime:
             selected, stage_summary, stage = stage_history(
                 [{k:v for k,v in t.items() if k != '_conversation'} for t in current_turns],preferences)
             result['history'] = selected
-            result['last_summary'] = stage_summary
+            # Settlement of the last closed event, then the fixed stage excerpt.
+            result['last_summary'] = with_stage(result['last_summary'], stage_summary)
             # Retrieve a few exact older exchanges, including player statements.
             # These are evidence of speech, never new objective facts.
             result['recalled_dialogue'] = []
@@ -407,15 +433,20 @@ class Runtime:
         relevant = [n for n in notes if any(k in query for k in n['keywords'])]
         # Exact evidence deduplication only; never rewrite negation or uncertain claims.
         already = '\n'.join(t['reply'] for t in result['history']) + '\n' + result['last_summary']
+        # Engine-confirmed records first: they are the only notes the rules engine
+        # verified itself. Model-derived prose fills the remaining slots and keeps
+        # its unverified status label.
+        ordered = ([n for n in relevant if n.get('origin') == 'confirmed'][-2:] +
+                   [n for n in relevant if n.get('origin') != 'confirmed'][::-1])
         unique = []
-        for n in reversed(relevant):
+        for n in ordered:
             summary = n['summary']
             if summary in already or any(summary == x['summary'] for x in unique):
                 continue
             unique.append({'summary': summary, 'status': n['status']})
             if len(unique) == 3:
                 break
-        result['dialogue_knowledge'] = list(reversed(unique))
+        result['dialogue_knowledge'] = unique
         if audience != 'player':
             c = next((c for c in p['characters']['characters'] if c['id'] == audience), None)
             if c is None:
@@ -451,11 +482,9 @@ class Runtime:
                 result['current_anchor']['clock']['calendar']='类地365日历；solar给出年内日与统一游戏UTC偏移，不自动切换时区'
                 result['current_anchor']['unspecified']='日出日落按solar近似值；房间、天气与地形遮挡未确认'
         # Remove oldest contextual material first, never truncate malformed JSON.
-        for key in ('memories', 'dialogue_knowledge', 'knowledge', 'elements', 'history', 'recalled_dialogue'):
-            result.setdefault(key, [])
-            while result[key] and len(json.dumps(result, ensure_ascii=False)) > preferences['context_chars'] - 3000:
-                result[key].pop(-1 if key in ('recalled_dialogue', 'memories', 'knowledge') else 0)
-        if len(json.dumps(result, ensure_ascii=False)) > preferences['context_chars'] - 3000:
+        budget = preferences['context_chars'] - 3000
+        trim_context(result, budget)
+        if chars(result) > budget:
             raise ValueError('事件基础上下文超出预算，请缩短输入或提高设置中的预算')
         return result
 
@@ -610,7 +639,8 @@ class Runtime:
         exit_flag = self.node(s).get('exit_flag')
         if exit_flag:
             s['flags'][exit_flag] = True
-        summary = '\n'.join(t['reply'] for t in active['turns'])[-1600:]
+        # Settle the event from the committed state diff; the replies stay intact in `turns`.
+        summary = event_summary(s, active, self.package(s['revision']))
         archive = {**active, 'summary': summary, 'after': self.snapshot(s)}
         s['archives'].append(archive)
         s['active'] = None
