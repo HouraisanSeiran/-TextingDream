@@ -1,0 +1,11 @@
+{
+  "source": "Natural Earth",
+  "scale": "1:50m",
+  "license": "Public domain",
+  "urls": [
+    "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_50m_land.geojson",
+    "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_50m_lakes.geojson",
+    "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_50m_rivers_lake_centerlines.geojson"
+  ],
+  "note": "现代自然地理仅用于测试底图，不表示架空世界的精确地形或历史疆域。"
+}

@@ -1,0 +1,20 @@
+__pycache__/
+*.pyc
+.venv/
+
+# 本地机密：绝不入库（见 .env.example）
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+api用后即删.txt
+
+# 运行期产生的数据与产物
+data/
+logs/
+artifacts/
+
+# 由旅程临时生成的记录，属于派生数据而不是世界设定
+StoryPackage/*/生成记录/
+StoryPackage/*/历史文档/

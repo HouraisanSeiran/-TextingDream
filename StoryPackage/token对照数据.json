@@ -1,0 +1,59 @@
+[
+  {
+    "sample": "关城文书",
+    "retrieved_ids": [
+      "xuanlu_042",
+      "xuanlu_012"
+    ],
+    "point_count": 2,
+    "full_input": 6255,
+    "retrieved_input": 730,
+    "old_compact_input": 386,
+    "saved_tokens": 5525,
+    "saved_percent": 88.3
+  },
+  {
+    "sample": "绿洲商队",
+    "retrieved_ids": [
+      "xuanlu_013",
+      "xuanlu_014",
+      "xuanlu_043"
+    ],
+    "point_count": 3,
+    "full_input": 6259,
+    "retrieved_input": 861,
+    "old_compact_input": 390,
+    "saved_tokens": 5398,
+    "saved_percent": 86.2
+  },
+  {
+    "sample": "港口契约",
+    "retrieved_ids": [
+      "xuanlu_034",
+      "xuanlu_021",
+      "xuanlu_030",
+      "xuanlu_035"
+    ],
+    "point_count": 4,
+    "full_input": 6261,
+    "retrieved_input": 1018,
+    "old_compact_input": 392,
+    "saved_tokens": 5243,
+    "saved_percent": 83.7
+  },
+  {
+    "sample": "术法社会",
+    "retrieved_ids": [
+      "xuanlu_040",
+      "xuanlu_005",
+      "xuanlu_006",
+      "xuanlu_008"
+    ],
+    "point_count": 4,
+    "full_input": 6261,
+    "retrieved_input": 1017,
+    "old_compact_input": 392,
+    "saved_tokens": 5244,
+    "saved_percent": 83.8
+  }
+]

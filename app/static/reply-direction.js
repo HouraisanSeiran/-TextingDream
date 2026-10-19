@@ -1,0 +1,16 @@
+'use strict';
+const directionPanel=el('details');directionPanel.id='reply-direction-panel';
+directionPanel.innerHTML='<summary>确认回答方向 · AI 起草我的台词</summary><p class="muted">选 1—3 个方向，或填写自定义要求。草稿生成后可修改，点击“发送”才会进入故事。</p><div id="reply-direction-options" class="reply-direction-options"></div><label>补充方向<input id="reply-direction-instruction" maxlength="800" placeholder="例如：语气轻松一点，问清风险，不答应付款"></label><button id="draft-player-reply" type="button">按所选方向起草</button><p id="reply-direction-status" role="status" class="muted"></p><div id="reply-direction-result" hidden><p id="reply-direction-text" class="prose"></p><button id="use-player-reply" type="button">放入输入框</button></div>';
+$('chat-form').before(directionPanel);
+let replyDraft=null,directionBusy=false;
+const replyState=()=>JSON.stringify([current?.id,current?.revision,current?.conversation_id,current?.event,current?.local_state,current?.conversations]);
+function directionAvailability(){directionPanel.hidden=!current||$('chat-form').hidden||!current.event||current.mode==='observer';if(replyDraft&&replyDraft.state!==replyState()){replyDraft=null;$('reply-direction-result').hidden=true;$('reply-direction-status').textContent='旅程已更新，可按当前情境重新起草。'}}
+const beforeReplyDirectionRender=render;render=function(){beforeReplyDirectionRender();directionAvailability()};
+directionPanel.addEventListener('toggle',()=>{if(directionPanel.open&&!$('reply-direction-options').children.length)safe(async()=>{const choices=await api('/reply-directions');for(const [i,c]of choices.entries()){const label=el('label',undefined,'reply-choice'),input=el('input');input.type='checkbox';input.value=c.id;const title=el('strong',(i+1)+' · '+c.title);label.append(input,title,el('small',c.description));$('reply-direction-options').append(label)}})});
+$('draft-player-reply').onclick=()=>safe(async()=>{if(directionBusy)return;const directions=[...$('reply-direction-options').querySelectorAll('input:checked')].map(x=>x.value),instruction=$('reply-direction-instruction').value.trim();if(directions.length>3)throw Error('最多组合三个方向');if(!directions.length&&!instruction)throw Error('请选择方向或填写自定义要求');if(!current||!current.event||$('chat-form').hidden)throw Error('请回到当前可交互事件');
+ const state=replyState(),id=current.id,original=$('message').value;directionBusy=true;$('draft-player-reply').disabled=true;$('reply-direction-status').textContent='正在起草台词…';$('reply-direction-result').hidden=true;
+ try{const r=await api('/sessions/'+id+'/reply-draft','POST',{directions,instruction,original});if(state!==replyState()||$('chat-form').hidden){$('reply-direction-status').textContent='旅程已变化，已丢弃旧情境草稿。';return}replyDraft={text:r.text,state};$('reply-direction-text').textContent=r.text;$('reply-direction-result').hidden=false;$('reply-direction-status').textContent=r.usage.mode==='offline'?'离线示例（未理解自定义要求），尚未发送。':'已起草，尚未发送。可放入输入框修改。'}finally{directionBusy=false;$('draft-player-reply').disabled=false}
+});
+$('use-player-reply').onclick=()=>safe(async()=>{if(!replyDraft||replyDraft.state!==replyState()||$('chat-form').hidden)throw Error('草稿已过期，请重新生成');if($('message').value.trim()&&!confirm('用台词草稿替换输入框现有文字？'))return;$('message').value=replyDraft.text;$('input-channel').value='speech';$('message').focus();notice('台词已放入输入框；确认后点击发送')});
+$('trace-filter').append(new Option('玩家台词草稿','player_reply'));
+directionAvailability();

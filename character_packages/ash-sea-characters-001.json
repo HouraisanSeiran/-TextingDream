@@ -1,0 +1,148 @@
+{
+  "id": "ash-sea-characters-001",
+  "title": "灰烬海：远征角色",
+  "description": "星炬远征的原创角色包。",
+  "generation_constraints": {
+    "allowed_roles": [
+      "旅人",
+      "守烽人",
+      "商人",
+      "渡船人",
+      "守堡人"
+    ],
+    "max_power_level": 3
+  },
+  "characters": [
+    {
+      "id": "wayfarer",
+      "name": "行路人",
+      "role": "主角",
+      "traits": [
+        "好奇",
+        "耐心",
+        "不轻信权威"
+      ],
+      "personality": {
+        "求知": 0.8,
+        "谨慎": 0.7,
+        "同理心": 0.6
+      },
+      "state": {
+        "疲劳": 0.1
+      },
+      "location_id": "lumen_gate",
+      "attributes": {
+        "talent": 55,
+        "strength": 45,
+        "agility": 55,
+        "wisdom": 65,
+        "social": 55,
+        "resilience": 60
+      }
+    },
+    {
+      "id": "pass_warden",
+      "name": "伊岚守烽人",
+      "role": "次要角色",
+      "traits": [
+        "守规矩",
+        "不安",
+        "熟悉山路"
+      ],
+      "personality": {
+        "谨慎": 0.8,
+        "责任": 0.8
+      },
+      "state": {
+        "警惕": 0.6
+      },
+      "location_id": "cinder_pass",
+      "attributes": {
+        "talent": 35,
+        "strength": 65,
+        "agility": 55,
+        "wisdom": 60,
+        "social": 40,
+        "resilience": 70
+      }
+    },
+    {
+      "id": "reed_trader",
+      "name": "芦原商人萨芙",
+      "role": "次要角色",
+      "traits": [
+        "圆滑",
+        "记账准确",
+        "害怕欠债"
+      ],
+      "personality": {
+        "社交": 0.8,
+        "谨慎": 0.6
+      },
+      "state": {
+        "好感": 0.2
+      },
+      "location_id": "reed_expanse",
+      "attributes": {
+        "talent": 40,
+        "strength": 40,
+        "agility": 60,
+        "wisdom": 65,
+        "social": 80,
+        "resilience": 50
+      }
+    },
+    {
+      "id": "delta_ferryman",
+      "name": "璃潮渡船人赫岚",
+      "role": "次要角色",
+      "traits": [
+        "沉默",
+        "守约",
+        "熟悉潮汐"
+      ],
+      "personality": {
+        "责任": 0.8,
+        "谨慎": 0.7
+      },
+      "state": {
+        "警惕": 0.4
+      },
+      "location_id": "glass_delta",
+      "attributes": {
+        "talent": 45,
+        "strength": 55,
+        "agility": 65,
+        "wisdom": 60,
+        "social": 45,
+        "resilience": 65
+      }
+    },
+    {
+      "id": "keep_keeper",
+      "name": "守堡者欧洛",
+      "role": "次要角色",
+      "traits": [
+        "孤独",
+        "重视证据",
+        "不再效忠王室"
+      ],
+      "personality": {
+        "求真": 0.9,
+        "谨慎": 0.7
+      },
+      "state": {
+        "警惕": 0.5
+      },
+      "location_id": "starfall_keep",
+      "attributes": {
+        "talent": 75,
+        "strength": 35,
+        "agility": 40,
+        "wisdom": 85,
+        "social": 50,
+        "resilience": 45
+      }
+    }
+  ]
+}

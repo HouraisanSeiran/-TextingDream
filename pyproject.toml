@@ -1,0 +1,37 @@
+[project]
+name = "textingdream"
+version = "0.1.0"
+description = "织梦 · TextingDream 本地叙事工作台（FastAPI + SQLite）"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.115",
+    "uvicorn[standard]>=0.30",
+    "pydantic>=2.8",
+    "httpx>=0.27",
+    "jinja2>=3.1",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8",
+    "ruff>=0.6",
+]
+
+[tool.setuptools]
+packages = ["app"]
+
+[tool.pytest.ini_options]
+# 让 pytest 把项目根加入 sys.path，测试才能 `from app...` 导入。
+pythonpath = ["."]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 160
+target-version = "py311"
+exclude = ["artifacts", "app/static", "tools/tokenizers"]
+
+[tool.ruff.lint]
+# 先只启用会真正藏住 bug 的规则：未使用的导入/变量、未定义名字、语法错误。
+# 代码风格是刻意紧凑的（大量单行语句），所以不启用 E5xx/E7xx 之类的排版规则。
+select = ["F", "E9"]

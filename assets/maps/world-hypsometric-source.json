@@ -1,0 +1,79 @@
+{
+  "source": "https://oceania.generic-mapping-tools.org/server/earth/earth_relief/earth_relief_10m_g.grd",
+  "source_sha256": "4b64b4dd46d26d07c8542a46edec205c08a7b248ac8ab53610407ae4ebf2af57",
+  "dataset": "GMT IGPP Earth Relief 10 arc-minute, derived from SRTM15+V2.7 (Tozer et al., 2019)",
+  "documentation": "https://www.generic-mapping-tools.org/remote-datasets/earth-relief.html",
+  "license_documentation": "https://www.generic-mapping-tools.org/remote-datasets/",
+  "land_mask": "Natural Earth 1:50m land (public domain)",
+  "projection": "equirectangular EPSG:4326, bounds [-180,-90,180,90]",
+  "size": [
+    2160,
+    1080
+  ],
+  "sampling": "nearest; elevation/depth in metres, discrete colour bands, no hillshade",
+  "land_bands": [
+    [
+      -500,
+      "#77ad78"
+    ],
+    [
+      0,
+      "#79b76c"
+    ],
+    [
+      200,
+      "#b3ce7c"
+    ],
+    [
+      500,
+      "#e1db91"
+    ],
+    [
+      1000,
+      "#dfbb78"
+    ],
+    [
+      2000,
+      "#c99260"
+    ],
+    [
+      3000,
+      "#ab7558"
+    ],
+    [
+      4000,
+      "#8f695b"
+    ],
+    [
+      5000,
+      "#d1c3b6"
+    ],
+    [
+      6000,
+      "#f3eee5"
+    ]
+  ],
+  "sea_bands": [
+    [
+      -12000,
+      "#315d98"
+    ],
+    [
+      -6000,
+      "#427aae"
+    ],
+    [
+      -4000,
+      "#5997c2"
+    ],
+    [
+      -2000,
+      "#7eb8d6"
+    ],
+    [
+      -200,
+      "#aad9e5"
+    ]
+  ],
+  "note": "现实高程仅作世界测试底图，不改变架空故事海拔/资源；约10角分分辨率，不是精细测绘。"
+}

@@ -1,0 +1,738 @@
+{
+  "id": "xuanlu-world-001",
+  "title": "玄陆：万国灵潮",
+  "premise": "这是一个以东方天朝为起点、向西探索的奇幻史诗世界。主角携带能够学习异文明语言的魔法机器，从天朝出发踏上旅途。",
+  "character_package_id": "xuanlu-characters-001",
+  "locations": [
+    {
+      "id": "tianchao_capital",
+      "name": "天朝都城",
+      "description": "东方大陆的政治与学术中心，主角旅途的起点。",
+      "neighbors": [
+        "western_pass"
+      ],
+      "scenes": [
+        "departure"
+      ],
+      "coordinates": [
+        108.9,
+        34.3
+      ],
+      "environment": {
+        "elevation_m": 420.0,
+        "slope_deg": 3.0,
+        "precipitation_mm": 650.0,
+        "temperature_c": 14.0,
+        "freshwater": 0.85,
+        "soil_fertility": 0.85,
+        "flood_risk": 0.2,
+        "irrigation": 0.65,
+        "transport": 0.8,
+        "governance": 0.5,
+        "area_km2": 2500.0,
+        "basin": "东部大河中游",
+        "river_path": [
+          [
+            107.5,
+            35.2
+          ],
+          [
+            108.9,
+            34.3
+          ],
+          [
+            110.0,
+            34.0
+          ]
+        ],
+        "river_elevations_m": [
+          750.0,
+          420.0,
+          260.0
+        ],
+        "deposits": [
+          {
+            "kind": "iron",
+            "abundance": 0.65,
+            "accessibility": 0.7,
+            "technology": 0.6,
+            "surveyed": true
+          },
+          {
+            "kind": "coal",
+            "abundance": 0.6,
+            "accessibility": 0.6,
+            "technology": 0.3,
+            "surveyed": true
+          }
+        ],
+        "source": "玄陆架空地理设计v1；参考类似地貌规律，非现实矿床/人口测绘"
+      }
+    },
+    {
+      "id": "western_pass",
+      "name": "西行关城",
+      "description": "连接天朝与西方商路的关城。",
+      "neighbors": [
+        "tianchao_capital",
+        "crescent_oasis"
+      ],
+      "scenes": [
+        "translation_test"
+      ],
+      "coordinates": [
+        94.7,
+        40.1
+      ],
+      "environment": {
+        "elevation_m": 1450.0,
+        "slope_deg": 8.0,
+        "precipitation_mm": 110.0,
+        "temperature_c": 9.0,
+        "freshwater": 0.4,
+        "soil_fertility": 0.4,
+        "flood_risk": 0.2,
+        "irrigation": 0.7,
+        "transport": 0.35,
+        "governance": 0.5,
+        "area_km2": 2500.0,
+        "basin": "西关内流绿洲",
+        "river_path": [
+          [
+            95.5,
+            39.1
+          ],
+          [
+            94.7,
+            40.1
+          ],
+          [
+            94.2,
+            40.5
+          ]
+        ],
+        "river_elevations_m": [
+          3200.0,
+          1450.0,
+          1200.0
+        ],
+        "deposits": [
+          {
+            "kind": "copper",
+            "abundance": 0.5,
+            "accessibility": 0.35,
+            "technology": 0.6,
+            "surveyed": true
+          },
+          {
+            "kind": "rare_metals",
+            "abundance": 0.6,
+            "accessibility": 0.2,
+            "technology": 0.05,
+            "surveyed": false
+          }
+        ],
+        "source": "玄陆架空地理设计v1；参考类似地貌规律，非现实矿床/人口测绘"
+      }
+    },
+    {
+      "id": "crescent_oasis",
+      "name": "新月沃土商驿",
+      "description": "商旅、使节和传闻交汇的绿洲城市。",
+      "neighbors": [
+        "western_pass",
+        "western_port"
+      ],
+      "scenes": [
+        "rumor_market"
+      ],
+      "coordinates": [
+        44.4,
+        33.3
+      ],
+      "environment": {
+        "elevation_m": 45.0,
+        "slope_deg": 2.0,
+        "precipitation_mm": 180.0,
+        "temperature_c": 23.0,
+        "freshwater": 0.85,
+        "soil_fertility": 0.8,
+        "flood_risk": 0.5,
+        "irrigation": 0.8,
+        "transport": 0.75,
+        "governance": 0.5,
+        "area_km2": 2500.0,
+        "basin": "新月两河灌溉区",
+        "river_path": [
+          [
+            43.5,
+            35.0
+          ],
+          [
+            44.4,
+            33.3
+          ],
+          [
+            46.0,
+            31.0
+          ]
+        ],
+        "river_elevations_m": [
+          400.0,
+          45.0,
+          10.0
+        ],
+        "deposits": [],
+        "source": "玄陆架空地理设计v1；参考类似地貌规律，非现实矿床/人口测绘"
+      }
+    },
+    {
+      "id": "western_port",
+      "name": "西方海港",
+      "description": "通往西方诸国的海路起点。",
+      "neighbors": [
+        "crescent_oasis",
+        "south_lantern_port"
+      ],
+      "scenes": [
+        "first_contact"
+      ],
+      "coordinates": [
+        28.9,
+        41.0
+      ],
+      "environment": {
+        "elevation_m": 40.0,
+        "slope_deg": 6.0,
+        "precipitation_mm": 760.0,
+        "temperature_c": 15.0,
+        "freshwater": 0.65,
+        "soil_fertility": 0.6,
+        "flood_risk": 0.2,
+        "irrigation": 0.2,
+        "transport": 0.9,
+        "governance": 0.5,
+        "area_km2": 2500.0,
+        "basin": "海峡沿岸集水区",
+        "river_path": [],
+        "river_elevations_m": [],
+        "deposits": [
+          {
+            "kind": "iron",
+            "abundance": 0.35,
+            "accessibility": 0.6,
+            "technology": 0.5,
+            "surveyed": true
+          }
+        ],
+        "source": "玄陆架空地理设计v1；参考类似地貌规律，非现实矿床/人口测绘"
+      }
+    },
+    {
+      "id": "south_lantern_port",
+      "name": "南岸灯港",
+      "description": "海风吹过灯塔与译信铺，旅人在此等待航期。",
+      "neighbors": [
+        "western_port"
+      ],
+      "scenes": [
+        "letters",
+        "harbor_oath"
+      ],
+      "coordinates": [
+        29.9,
+        31.2
+      ],
+      "environment": {
+        "elevation_m": 8.0,
+        "slope_deg": 1.0,
+        "precipitation_mm": 180.0,
+        "temperature_c": 21.0,
+        "freshwater": 0.9,
+        "soil_fertility": 0.9,
+        "flood_risk": 0.65,
+        "irrigation": 0.75,
+        "transport": 0.85,
+        "governance": 0.5,
+        "area_km2": 2500.0,
+        "basin": "南岸大河三角洲",
+        "river_path": [
+          [
+            30.0,
+            29.0
+          ],
+          [
+            30.0,
+            30.0
+          ],
+          [
+            29.9,
+            31.2
+          ]
+        ],
+        "river_elevations_m": [
+          80.0,
+          35.0,
+          8.0
+        ],
+        "deposits": [],
+        "source": "玄陆架空地理设计v1；参考类似地貌规律，非现实矿床/人口测绘"
+      }
+    }
+  ],
+  "events": [
+    {
+      "id": "departure",
+      "title": "离开天朝",
+      "location_id": "tianchao_capital",
+      "scene_id": "departure",
+      "premise": "主角获得出行许可与语言机器。",
+      "participants": [
+        "protagonist"
+      ],
+      "player_goal": "决定第一站并整理行装",
+      "hidden_goal": "埋下天朝对西方的片面认知",
+      "next_events": [
+        "pass_translation"
+      ],
+      "actions": [
+        {
+          "id": "pack",
+          "label": "整理行装，带上万言机",
+          "effects": [
+            {
+              "op": "take",
+              "id": "translation_machine"
+            }
+          ],
+          "ends_event": true,
+          "success_text": "我将万言机收进行囊，踏上西行的路。"
+        }
+      ],
+      "max_turns": 20,
+      "exit_flag": "completed_departure",
+      "player_enters": true,
+      "major_scene_id": "capital_chapter"
+    },
+    {
+      "id": "pass_translation",
+      "title": "关城试译",
+      "location_id": "western_pass",
+      "scene_id": "translation_test",
+      "premise": "语言机器第一次面对未收录的方言。",
+      "participants": [
+        "protagonist",
+        "pass_guard"
+      ],
+      "player_goal": "取得通行许可",
+      "hidden_goal": "让玩家意识到翻译结果并不等于真实理解",
+      "next_events": [
+        "oasis_rumor"
+      ],
+      "actions": [
+        {
+          "id": "translate",
+          "label": "尝试翻译通关文书",
+          "check": {
+            "attribute": "wisdom",
+            "difficulty": 0.55
+          },
+          "success": [
+            {
+              "op": "flag",
+              "id": "translated",
+              "value": true
+            }
+          ],
+          "failure": [
+            {
+              "op": "flag",
+              "id": "needs_help",
+              "value": true
+            }
+          ],
+          "ends_event": true,
+          "success_text": "我认出了文书的关键语句，守卫让开道路。",
+          "failure_text": "译文中仍有歧义。守卫指向商驿：那里或许有人能教我。"
+        }
+      ],
+      "max_turns": 20,
+      "exit_flag": "completed_pass_translation",
+      "player_enters": true,
+      "major_scene_id": "road_chapter"
+    },
+    {
+      "id": "oasis_rumor",
+      "title": "商驿传闻",
+      "location_id": "crescent_oasis",
+      "scene_id": "rumor_market",
+      "premise": "商人讲述西方圣者与王朝继承的消息。",
+      "participants": [
+        "protagonist",
+        "oasis_merchant"
+      ],
+      "player_goal": "判断一条传闻是否可信",
+      "hidden_goal": "建立第一条可追溯失真信息",
+      "next_events": [
+        "port_contact"
+      ],
+      "actions": [
+        {
+          "id": "listen",
+          "label": "听商人讲述道路上的消息",
+          "effects": [
+            {
+              "op": "rumor",
+              "truth": "西行道路封闭3天；东侧便道仍然开放",
+              "character": "oasis_merchant",
+              "transform": "number_scale",
+              "factor": 3,
+              "source": "驿站转述时夸大数字"
+            }
+          ],
+          "ends_event": true,
+          "success_text": "我听见商人说：“西行道路封闭9天，东侧便道仍然开放。”这只是他的说法。"
+        }
+      ],
+      "max_turns": 20,
+      "exit_flag": "completed_oasis_rumor",
+      "player_enters": true,
+      "major_scene_id": "oasis_chapter"
+    },
+    {
+      "id": "port_contact",
+      "title": "海港初见",
+      "location_id": "western_port",
+      "scene_id": "first_contact",
+      "premise": "主角第一次接触西方诸国的港口社会。",
+      "participants": [
+        "protagonist",
+        "port_scholar"
+      ],
+      "player_goal": "找到继续西行的路线",
+      "hidden_goal": "让三种文明的称谓差异进入正文",
+      "next_events": [
+        "south_letters"
+      ],
+      "actions": [
+        {
+          "id": "ask",
+          "label": "向学者询问下一段旅程",
+          "effects": [
+            {
+              "op": "fact",
+              "text": "港口提供继续西行的航路。",
+              "visible": true
+            }
+          ],
+          "ends_event": true,
+          "success_text": "我在学者指引下记下航路。旅程尚未结束，陌生的海岸正在前方。"
+        }
+      ],
+      "max_turns": 20,
+      "exit_flag": "completed_port_contact",
+      "player_enters": true,
+      "major_scene_id": "port_chapter"
+    },
+    {
+      "id": "south_letters",
+      "title": "译信铺的两种说法",
+      "major_scene_id": "south_chapter",
+      "location_id": "south_lantern_port",
+      "participants": [],
+      "player_goal": "对照书信与转述，区分遗漏与谎言",
+      "hidden_goal": "演示同一城市场景中的连续事件",
+      "entry_flags": {},
+      "next_events": [
+        "south_oath"
+      ],
+      "max_turns": 20,
+      "player_enters": true,
+      "actions": [
+        {
+          "id": "read_letter",
+          "label": "对照书信中的措辞",
+          "effects": [
+            {
+              "op": "fact",
+              "text": "船队延航的正式理由是季风，书信没有提到战争。",
+              "visible": true
+            }
+          ],
+          "ends_event": true,
+          "success_text": "我读到书信只说季风延误。它没有证明所有街头传闻都是假的，却足以让我暂缓判断。"
+        }
+      ]
+    },
+    {
+      "id": "south_oath",
+      "title": "灯塔下的旅人契约",
+      "major_scene_id": "south_chapter",
+      "location_id": "south_lantern_port",
+      "participants": [],
+      "player_goal": "了解出海契约，决定今后的旅行方向",
+      "hidden_goal": "同一主要场景沿用上一段对话",
+      "entry_flags": {},
+      "next_events": [],
+      "max_turns": 20,
+      "player_enters": true,
+      "actions": [
+        {
+          "id": "record_oath",
+          "label": "记下港口的契约规则",
+          "effects": [
+            {
+              "op": "fact",
+              "text": "港口契约要求写明货物、见证人和失约责任。",
+              "visible": true
+            }
+          ],
+          "ends_event": true,
+          "success_text": "我把见证人与失约责任记在册页上。力量能越过高墙，却不能替代一句经人见证的承诺。"
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "translation_machine",
+      "name": "万言机",
+      "description": "可学习其他文明语言的魔法机器。",
+      "authority": "engine",
+      "location_id": "tianchao_capital"
+    }
+  ],
+  "mechanics": {
+    "energy_name": {
+      "east": "灵气",
+      "west": "气"
+    },
+    "narrative_person": "first",
+    "player_position": "protagonist",
+    "visibility_pipeline": "inner_complete_then_surface_projection",
+    "attributes": {
+      "version": 1,
+      "scale": [
+        0,
+        100
+      ],
+      "axes": [
+        {
+          "id": "talent",
+          "name": "天赋",
+          "keywords": {
+            "low": [
+              "感应迟缓",
+              "按步骤练习",
+              "谨慎引导"
+            ],
+            "medium": [
+              "感知灵力",
+              "稳定引导",
+              "熟练需训练"
+            ],
+            "high": [
+              "灵力敏感",
+              "精细引导",
+              "易察能量变化"
+            ]
+          }
+        },
+        {
+          "id": "strength",
+          "name": "力量",
+          "keywords": {
+            "low": [
+              "借助工具",
+              "节省力气",
+              "避免硬扛"
+            ],
+            "medium": [
+              "稳妥发力",
+              "常规负重",
+              "调整支点"
+            ],
+            "high": [
+              "有力支撑",
+              "重物搬运",
+              "控制力道"
+            ]
+          }
+        },
+        {
+          "id": "agility",
+          "name": "敏捷",
+          "keywords": {
+            "low": [
+              "提前避让",
+              "缓步试探",
+              "留足距离"
+            ],
+            "medium": [
+              "及时闪避",
+              "协调动作",
+              "保持平衡"
+            ],
+            "high": [
+              "迅速变向",
+              "精细动作",
+              "快速撤步"
+            ]
+          }
+        },
+        {
+          "id": "wisdom",
+          "name": "智慧",
+          "keywords": {
+            "low": [
+              "先问清楚",
+              "单步判断",
+              "需要明确线索"
+            ],
+            "medium": [
+              "比较线索",
+              "识别明显危险",
+              "选择应变"
+            ],
+            "high": [
+              "识别矛盾",
+              "多步预判",
+              "察觉陷阱线索"
+            ]
+          }
+        },
+        {
+          "id": "social",
+          "name": "社交",
+          "keywords": {
+            "low": [
+              "直述需要",
+              "简短回应",
+              "少用言外之意"
+            ],
+            "medium": [
+              "接住话题",
+              "解释立场",
+              "适度转折"
+            ],
+            "high": [
+              "调整措辞",
+              "试探需求",
+              "协商让步"
+            ]
+          }
+        },
+        {
+          "id": "resilience",
+          "name": "韧性",
+          "keywords": {
+            "low": [
+              "及时休息",
+              "承认疲惫",
+              "规避消耗"
+            ],
+            "medium": [
+              "保持节奏",
+              "承受压力",
+              "恢复呼吸"
+            ],
+            "high": [
+              "耐受消耗",
+              "逆境坚持",
+              "缓慢释放紧张"
+            ]
+          }
+        }
+      ],
+      "hp": {
+        "base": 50,
+        "per_resilience": 2
+      },
+      "note": "天赋仅为原灵力亲合度的显示改名。属性约束能力，不等于性格、道德或已知秘密。"
+    },
+    "calendar": {
+      "start_day_of_year": 100,
+      "utc_offset": 8.0,
+      "axial_tilt_deg": 23.44,
+      "enabled": true
+    }
+  },
+  "major_scenes": [
+    {
+      "id": "capital_chapter",
+      "title": "天朝都城 · 离乡前夜",
+      "kind": "city",
+      "location_ids": [
+        "tianchao_capital"
+      ],
+      "expected_turns": 20,
+      "information_scope": [
+        "出行准备",
+        "文化常识",
+        "语言机器"
+      ]
+    },
+    {
+      "id": "road_chapter",
+      "title": "西行商路 · 关城见闻",
+      "kind": "journey",
+      "location_ids": [
+        "western_pass"
+      ],
+      "expected_turns": 16,
+      "information_scope": [
+        "通关",
+        "方言",
+        "商路规则"
+      ]
+    },
+    {
+      "id": "oasis_chapter",
+      "title": "新月商驿 · 流言与交易",
+      "kind": "city",
+      "location_ids": [
+        "crescent_oasis"
+      ],
+      "expected_turns": 24,
+      "information_scope": [
+        "王朝商贸",
+        "消息来源",
+        "真假传闻"
+      ]
+    },
+    {
+      "id": "port_chapter",
+      "title": "西方海港 · 异文明初见",
+      "kind": "city",
+      "location_ids": [
+        "western_port"
+      ],
+      "expected_turns": 24,
+      "information_scope": [
+        "诸国关系",
+        "航线",
+        "四元素学说"
+      ]
+    },
+    {
+      "id": "south_chapter",
+      "title": "南岸灯港 · 潮汐与书信",
+      "kind": "city",
+      "location_ids": [
+        "south_lantern_port"
+      ],
+      "expected_turns": 24,
+      "information_scope": [
+        "南方海路",
+        "信件转述",
+        "港口契约"
+      ]
+    }
+  ],
+  "authoring_status": {
+    "source": "世界观.docx",
+    "revision_label": "世界观扩充与主要场景 v0.2",
+    "unconfirmed": "source_notes 中的补充草案与待定项可继续修改"
+  },
+  "knowledge_schema": 1
+}
