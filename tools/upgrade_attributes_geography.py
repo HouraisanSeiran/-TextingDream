@@ -1,5 +1,4 @@
 """Idempotent authored default-world migration, retaining a reviewable backup."""
-import copy
 import json
 import sys
 from pathlib import Path

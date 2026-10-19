@@ -1,6 +1,5 @@
 import copy
 import asyncio
-import json
 import tempfile
 import unittest
 from pathlib import Path
@@ -10,7 +9,6 @@ from app.service import Service
 from app.storage import Store
 from app.recall import Recall
 from app.atlas import project_atlas
-from app.contracts import Turn
 
 ROOT=Path(__file__).resolve().parents[1]
 

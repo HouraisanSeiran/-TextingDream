@@ -1,12 +1,10 @@
 """Browser smoke test against an isolated temporary database."""
-import json
 from pathlib import Path
 import socket
 import sys
 import tempfile
 import threading
 import time
-import urllib.request
 import uvicorn
 from playwright.sync_api import sync_playwright, expect
 

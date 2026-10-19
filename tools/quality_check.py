@@ -1,10 +1,8 @@
 """Real quality probes in isolated saves; persist visible evidence, never credentials."""
 import asyncio
 import argparse
-import copy
 import json
 import re
-import sqlite3
 import sys
 import tempfile
 from datetime import datetime

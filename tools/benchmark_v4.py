@@ -6,7 +6,6 @@ not retried or rebilled. Invalid/failed calls remain in denominators.
 import argparse
 import asyncio
 import csv
-import hashlib
 import json
 import random
 import re
@@ -19,7 +18,7 @@ ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT))
 from app.storage import Store
 from app.provider import Provider
-from app.prompts import template, stable_json, context_json
+from app.prompts import template, context_json
 from app.contracts import DevelopmentProposal
 from app.development import Development
 

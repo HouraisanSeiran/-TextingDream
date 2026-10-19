@@ -9,11 +9,9 @@ import csv
 import gzip
 import hashlib
 import json
-import math
 import random
 import re
 import statistics
-import sys
 import time
 from datetime import datetime, timezone
 from pathlib import Path

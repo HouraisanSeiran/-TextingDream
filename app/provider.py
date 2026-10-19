@@ -8,7 +8,7 @@ import asyncio
 from .contracts import ApiSettings
 from .cache_metrics import cache_usage, context_stats
 from datetime import datetime, timezone
-from .prompts import stable_json, context_json
+from .prompts import context_json
 from urllib.parse import urlparse
 import httpx
 

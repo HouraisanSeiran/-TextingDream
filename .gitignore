@@ -1,6 +1,9 @@
 __pycache__/
 *.pyc
 .venv/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
 
 # 本地机密：绝不入库（见 .env.example）
 .env

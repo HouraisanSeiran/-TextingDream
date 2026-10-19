@@ -5,10 +5,8 @@ No production preferences, story documents or saves are modified.
 """
 import asyncio
 import copy
-import hashlib
 import json
 import re
-import statistics
 import sys
 from datetime import datetime
 from pathlib import Path
@@ -17,9 +15,6 @@ import httpx
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT))
 from app.web import create_app
-from app.prompts import surface_prefix
-from app.storage import Store
-from app.contracts import ApiSettings
 
 STOPS=[('tianchao_capital','天朝都城','pack'),('western_pass','西行关城','translate'),
        ('crescent_oasis','新月沃土商驿','listen'),('western_port','西方海港','ask'),

@@ -52,7 +52,7 @@ class LocalRulesTests(unittest.TestCase):
             with self.assertRaises(ValueError):asyncio.run(self.svc.turn(s['id'],Turn(message='拿',action_id='pack')))
         self.assertEqual(before,self.svc.store.session(s['id']))
     def test_thought_and_private_speech(self):
-        p=self.rt.package();s=copy.deepcopy(self.s)
+        s=copy.deepcopy(self.s)
         node={'participants':['protagonist','pass_guard','oasis_merchant'],'player_enters':True}
         for cid in node['participants']:s['characters'][cid]['location']=s['location']
         self.assertEqual(local.communicate(s,node,Turn(message='秘密',channel='thought'),20),[])

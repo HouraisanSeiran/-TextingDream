@@ -2,7 +2,6 @@
 import copy
 import json
 import math
-from typing import Literal
 from pydantic import Field, model_validator
 from .contracts import Strict
 from .geography import Environment, Deposit, estimate, environment_features

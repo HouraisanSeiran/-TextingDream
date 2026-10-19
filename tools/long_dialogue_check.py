@@ -9,7 +9,6 @@ import sys
 import tempfile
 from datetime import datetime
 from pathlib import Path
-from statistics import mean
 import httpx
 
 ROOT = Path(__file__).resolve().parents[1]

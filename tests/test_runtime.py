@@ -112,7 +112,6 @@ class RuntimeTests(unittest.TestCase):
 
     def test_provider_request_and_structured_draft(self):
         import httpx
-        from app.provider import Provider
         self.service.provider.configure({'base_url':'https://api.deepseek.com','model':'deepseek-chat','api_key':'test-only','offline':False,'max_tokens':1200})
         example = self.service.example('item', self.rt.package())
         requests = []
@@ -130,7 +129,7 @@ class RuntimeTests(unittest.TestCase):
     def test_empty_projection_and_character_memory_isolation(self):
         p=copy.deepcopy(self.rt.package())
         p['story']['elements']=[{'kind':'fact','data':{'title':'可见外观','secret':'禁止泄露'},'public_fields':['title'],'location_id':self.s['location'],'known_by':['player'],'reveal_flag':'unlocked'}]
-        revision=self.rt.commit_package(p['story'],p['characters'],'测试投影')
+        self.rt.commit_package(p['story'],p['characters'],'测试投影')
         s=self.rt.new_session('投影','protagonist')
         self.assertEqual(self.rt.project_elements(s,'player'),[])
         s['flags']['unlocked']=True

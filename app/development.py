@@ -24,7 +24,6 @@ class Development:
         evidence=[]
         nodes={e['id']:e for e in p['story']['events']}
         for event in session['archives']+([session['active']] if session['active'] else []):
-            before=event.get('before',{})
             if character_id not in nodes[event['node']]['participants']:
                 continue
             for i,t in enumerate(event['turns']):

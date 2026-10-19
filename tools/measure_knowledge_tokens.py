@@ -1,5 +1,4 @@
 """Reproducible input comparison; official DeepSeek-V3 tokenizer when available."""
-import copy
 import json
 from pathlib import Path
 import sys

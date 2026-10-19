@@ -1,5 +1,4 @@
 import asyncio
-import copy
 import json
 from .contracts import Element, Preferences
 from .provider import Provider

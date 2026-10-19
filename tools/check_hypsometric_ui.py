@@ -1,6 +1,5 @@
 """Exercise map rendering without touching real sessions or story documents."""
 import hashlib
-import json
 import socket
 import sys
 import tempfile
