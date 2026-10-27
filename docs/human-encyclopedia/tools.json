@@ -1,0 +1,1073 @@
+{
+  "schema_version": 1,
+  "group": "tools",
+  "status": "candidate",
+  "sources": [
+    {
+      "id": "tools_src_britannica_plow",
+      "title": "Plow (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/technology/plow",
+      "access": "read",
+      "supports": "犁的定义、掘土棒到有壁犁的演变、罗马铁刃轻犁与西北欧重土不适配、轮式犁与18世纪壁刀、19世纪全钢犁",
+      "rights_note": "Britannica 版权内容，仅作事实核对与背景参考，不复制原文；条目文字为原创归纳"
+    },
+    {
+      "id": "tools_src_britannica_quern",
+      "title": "Quern (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/technology/quern",
+      "access": "read",
+      "supports": "磨石的定义、鞍形磨与旋转磨两类、新石器起源、磨石石材选择与凿毛维护、印度 silbatta 与墨西哥 metate 的延续",
+      "rights_note": "Britannica 版权内容，仅作事实核对与背景参考，不复制原文"
+    },
+    {
+      "id": "tools_src_britannica_mortar_pestle",
+      "title": "Mortar and pestle (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/technology/mortar-and-pestle",
+      "access": "read",
+      "supports": "臼杵的定义与材料、与鞍形磨同为最早的谷物研磨手段、近现代在厨房与药房的延续",
+      "rights_note": "Britannica 版权内容，仅作事实核对与背景参考"
+    },
+    {
+      "id": "tools_src_britannica_cereal_processing",
+      "title": "Cereal processing (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/technology/cereal-processing",
+      "access": "read",
+      "supports": "谷物不宜生食、碾磨与筛分的加工逻辑、磨粉与去皮抛光、储藏需低湿与通风",
+      "rights_note": "Britannica 版权内容，仅作事实核对与背景参考"
+    },
+    {
+      "id": "tools_src_britannica_hoe",
+      "title": "Hoe (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/technology/hoe",
+      "access": "read",
+      "supports": "锄的定义与刃与柄成直角的结构、石刃木刃早期形态、锄被犁耙取代但仍用于园艺",
+      "rights_note": "Britannica 版权内容，仅作事实核对与背景参考"
+    },
+    {
+      "id": "tools_src_britannica_harrow",
+      "title": "Harrow (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/technology/harrow-agriculture",
+      "access": "read",
+      "supports": "耙的碎土除草覆种功能、新石器用树枝、埃及木耙、罗马铁齿耙",
+      "rights_note": "Britannica 版权内容，仅作事实核对与背景参考"
+    },
+    {
+      "id": "tools_src_britannica_flail",
+      "title": "Flail (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/technology/flail",
+      "access": "read",
+      "supports": "连枷两段木件以皮条相连的结构、单人日脱粒量差异、19世纪中期前为主要脱粒法",
+      "rights_note": "Britannica 版权内容，仅作事实核对与背景参考"
+    },
+    {
+      "id": "tools_src_britannica_basketry",
+      "title": "Basketry (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/technology/basketry",
+      "access": "read",
+      "supports": "编篮的材料与技法分类、簸箕与鱼篓、大型篮可作粮囤、材质随气候带差异",
+      "rights_note": "Britannica 版权内容，仅作事实核对与背景参考"
+    },
+    {
+      "id": "tools_src_britannica_granary",
+      "title": "Granary (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/technology/granary",
+      "access": "read",
+      "supports": "粮仓为存放已脱粒谷物的建筑、常平仓一类稳定粮价制度、印度河文明砖砌粮仓基址",
+      "rights_note": "Britannica 版权内容，仅作事实核对与背景参考"
+    },
+    {
+      "id": "tools_src_britannica_watermill",
+      "title": "Waterwheel (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/technology/waterwheel-engineering",
+      "access": "read",
+      "supports": "水轮三类（立式/卧式/齿轮式）、下击中击上击的取水方式、Barbegal 十六轮磨坊、缩绒与鼓风等非磨粉用途",
+      "rights_note": "Britannica 版权内容，仅作事实核对与背景参考"
+    },
+    {
+      "id": "tools_src_britannica_windmill",
+      "title": "Windmill (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/technology/windmill",
+      "access": "read",
+      "supports": "风磨的帆、风轴、传动、尾风扇结构、波斯卧式风磨与欧洲立式风磨、排水与提水用途",
+      "rights_note": "Britannica 版权内容，仅作事实核对与背景参考"
+    },
+    {
+      "id": "tools_src_britannica_wheel",
+      "title": "Wheel (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/technology/wheel",
+      "access": "read",
+      "supports": "轮的定义与轴、约公元前3500年苏美尔图像、三块木板拼合的早期实心轮、辐条轮与铁箍、轮在磨与提水上的转用",
+      "rights_note": "Britannica 版权内容，仅作事实核对与背景参考"
+    },
+    {
+      "id": "tools_src_britannica_sledge",
+      "title": "Sledge (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/technology/sledge-carrying-device",
+      "access": "read",
+      "supports": "无轮拖运器的定义、北美 travois、亚述与埃及浮雕拖运雕像、轮轴出现后用途收窄为雪橇",
+      "rights_note": "Britannica 版权内容，仅作事实核对与背景参考"
+    },
+    {
+      "id": "tools_src_britannica_rope",
+      "title": "Rope (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/technology/rope",
+      "access": "read",
+      "supports": "绳的定义与抗拉强度、纤维梳纺成纱再绞成股与绳的四阶段、反向捻的扭转稳定、绳道与手工制绳、天然纤维受霉害",
+      "rights_note": "Britannica 版权内容，仅作事实核对与背景参考"
+    },
+    {
+      "id": "tools_src_britannica_pulley",
+      "title": "Pulley (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/technology/pulley",
+      "access": "read",
+      "supports": "滑轮的定义与绳槽、定滑轮与滑轮组、作为五种简单机械之一、阿基米德复合滑轮的记载",
+      "rights_note": "Britannica 版权内容，仅作事实核对与背景参考"
+    },
+    {
+      "id": "tools_src_britannica_lever",
+      "title": "Lever (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/technology/lever",
+      "access": "read",
+      "supports": "杠杆原理与力臂比、桔槔（swape/shaduf）的配重提水、约公元前5000年埃及天平梁、早期杠杆用于移石与掘土",
+      "rights_note": "Britannica 版权内容，仅作事实核对与背景参考"
+    },
+    {
+      "id": "tools_src_britannica_balance",
+      "title": "Balance (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/technology/balance-measuring-instrument",
+      "access": "read",
+      "supports": "等臂天平的定义与古埃及起源、罗马中轴销改进、18世纪刀口、替代称量法消除臂长不等误差",
+      "rights_note": "Britannica 版权内容，仅作事实核对与背景参考"
+    },
+    {
+      "id": "tools_src_britannica_spinning_wheel",
+      "title": "Spinning wheel (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/technology/spinning-wheel",
+      "access": "read",
+      "supports": "纺车的起源推测与经中东传入欧洲、取代手持纺杆与纺锤的手纺、把锭子横置于轴承并用绳传动、萨克森轮与脚踏",
+      "rights_note": "Britannica 版权内容，仅作事实核对与背景参考"
+    },
+    {
+      "id": "tools_src_britannica_loom",
+      "title": "Loom (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/technology/loom",
+      "access": "read",
+      "supports": "织机的最早年代与经线纬线原理、梭与综杆的作用、提花机与穿孔卡、背带织机与双杆织机",
+      "rights_note": "Britannica 版权内容，仅作事实核对与背景参考"
+    },
+    {
+      "id": "tools_src_britannica_hand_tool",
+      "title": "Hand tool (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/technology/hand-tool",
+      "access": "read",
+      "supports": "手工工具的分类（击打/切削/钻孔/磨削/量测）、装柄对效率的关键作用、石铜铁材料递进与三时代体系的局限",
+      "rights_note": "Britannica 版权内容，仅作事实核对与背景参考"
+    },
+    {
+      "id": "tools_src_britannica_hammer",
+      "title": "Hand tool: hammers and hammerlike tools (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/technology/hand-tool/Hammers-and-hammerlike-tools",
+      "access": "read",
+      "supports": "锤、槌、杵、大槌的形态分化、装柄的冲击与榫孔解决方案、软锤与石凿配合、斧与锛的刃口与柄夹角差别",
+      "rights_note": "Britannica 版权内容，仅作事实核对与背景参考"
+    },
+    {
+      "id": "tools_src_britannica_chisel",
+      "title": "Chisel (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/technology/chisel",
+      "access": "read",
+      "supports": "凿的定义与刃口在金属杆末端、需槌或锤击打、燧石祖型可溯源至公元前8000年、埃及铜与青铜凿",
+      "rights_note": "Britannica 版权内容，仅作事实核对与背景参考"
+    },
+    {
+      "id": "tools_src_britannica_adz",
+      "title": "Adz (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/technology/adz",
+      "access": "read",
+      "supports": "锛为整木工具、石片手持形态、埃及时代加木柄成T形、以镐式动作向内下方劈削",
+      "rights_note": "Britannica 版权内容，仅作事实核对与背景参考"
+    },
+    {
+      "id": "tools_src_britannica_saw",
+      "title": "Saw (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/technology/saw",
+      "access": "read",
+      "supports": "锯的定义与锯齿分料（拨齿）防夹、纵锯与横锯的齿形差别、夹背锯、机械锯的演进",
+      "rights_note": "Britannica 版权内容，仅作事实核对与背景参考"
+    },
+    {
+      "id": "tools_src_britannica_drill",
+      "title": "Drill (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/technology/drill-tool",
+      "access": "read",
+      "supports": "钻为端部切削的圆柱工具、排屑沟槽与顶角角度、钻头材料与装夹方式",
+      "rights_note": "Britannica 版权内容，仅作事实核对与背景参考"
+    },
+    {
+      "id": "tools_src_britannica_auger",
+      "title": "Auger (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/technology/auger",
+      "access": "read",
+      "supports": "螺旋钻的螺纹导入、割圈与切削刃、螺旋排屑、与弓形柄配合使用、大地钻用于立柱坑",
+      "rights_note": "Britannica 版权内容，仅作事实核对与背景参考"
+    },
+    {
+      "id": "tools_src_britannica_knife",
+      "title": "Knife (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/technology/knife",
+      "access": "read",
+      "supports": "刀为刃固定或铰接于柄的切削工具、属餐具大类、石燧石至青铜铁的材料递进、个人随身携刀与近代成套餐刀",
+      "rights_note": "Britannica 版权内容，仅作事实核对与背景参考"
+    },
+    {
+      "id": "tools_src_britannica_irrigation",
+      "title": "Irrigation (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/technology/irrigation",
+      "access": "read",
+      "supports": "灌溉为人工施水、地面灌/沟灌/地下灌/喷灌/滴灌的分类、盐渍化与排水是长期风险、灌溉与排水需并重",
+      "rights_note": "Britannica 版权内容，仅作事实核对与背景参考"
+    },
+    {
+      "id": "tools_src_britannica_water_supply",
+      "title": "Water supply system (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/technology/water-supply-system",
+      "access": "read",
+      "supports": "浅井为最早供水改良、印度河砖砌井与深井、坎儿井起源与输水、罗马渡槽的坡降与暗渠比例、管材限制",
+      "rights_note": "Britannica 版权内容，仅作事实核对与背景参考"
+    },
+    {
+      "id": "tools_src_britannica_agri_tech",
+      "title": "Agricultural technology (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/technology/agricultural-technology",
+      "access": "read",
+      "supports": "整地的目的与土壤含水量窗口、紧实层的形成条件与危害（叠因，非单一机具必然产物）、一次整地机具的分类",
+      "rights_note": "Britannica 版权内容，仅作事实核对与背景参考"
+    },
+    {
+      "id": "tools_src_fao_irrigation_manual",
+      "title": "Irrigation Water Management: Training Manual No.1 (FAO, 1985)",
+      "url": "https://www.fao.org/3/r4082e/r4082e00.htm",
+      "access": "read",
+      "supports": "灌溉与排水课程的框架、入渗与土壤水分常数、盐碱土改良与灌水水质",
+      "rights_note": "FAO 出版物，非商业教育用途引用需注明出处；本条仅取概念框架"
+    },
+    {
+      "id": "tools_src_fao_fruit_veg_handling",
+      "title": "Handling and Preservation of Fruits and Vegetables by Combined Methods for Rural Areas (FAO Agricultural Services Bulletin 149)",
+      "url": "https://www.fao.org/4/y4358e/y4358e00.htm",
+      "access": "read",
+      "supports": "采后损失与预处理、热烫、托盘冷却、日晒干燥与渗透脱水、发酵、储藏为独立的保存环节",
+      "rights_note": "FAO 出版物，非商业教育用途引用需注明出处"
+    },
+    {
+      "id": "tools_src_fao_grain_storage",
+      "title": "Towards integrated commodity and pest management in grain storage (FAO/NAPHIRE, 1992)",
+      "url": "https://www.fao.org/3/x5048e/x5048e00.htm",
+      "access": "read",
+      "supports": "谷物安全储藏要求、通风与干燥、储藏期虫鼠霉造成的损失、非化学与物理防治手段",
+      "rights_note": "FAO 出版物，非商业教育用途引用需注明出处"
+    },
+    {
+      "id": "tools_src_britannica_scythe",
+      "title": "Scythe (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/technology/scythe",
+      "access": "read",
+      "supports": "长柄钐的曲刃与长曲柄结构、柄上突出握柄的作用、古代使用不广、随加洛林时代干草储备需求而普及",
+      "rights_note": "Britannica 版权内容，仅作事实核对与背景参考"
+    },
+    {
+      "id": "tools_src_britannica_earthenware",
+      "title": "Earthenware (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/technology/earthenware",
+      "access": "read",
+      "supports": "陶器未玻化故保留孔隙与吸水性（因此未玻化/未施釉器型贮液有渗漏倾向，非绝对不可贮液）、施釉二次烧成可封孔、已知最早陶器出自安纳托利亚的 Çatalhüyük",
+      "rights_note": "Britannica 版权内容，仅作事实核对与背景参考"
+    },
+    {
+      "id": "tools_src_britannica_axle",
+      "title": "Axle (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/technology/axle",
+      "access": "read",
+      "supports": "轴为轮所转的销或轴、固定轮时属基础简单机械、最早可能用于从井中提升重物或水桶、半径比与机械利得",
+      "rights_note": "Britannica 版权内容，仅作事实核对与背景参考"
+    },
+    {
+      "id": "tools_src_britannica_weaving",
+      "title": "Weaving (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/technology/weaving",
+      "access": "read",
+      "supports": "织造为经纬交错、开口-投纡-打绥三步骤、布边与三基础组织、提花与多臂需专用附件、织机自公元前五千纪",
+      "rights_note": "Britannica 版权内容，仅作事实核对与背景参考"
+    },
+    {
+      "id": "tools_src_britannica_drilling",
+      "title": "Hand tool: drilling and boring tools (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/technology/hand-tool/Drilling-and-boring-tools",
+      "access": "read",
+      "supports": "锥子挤料与钻具切料的区别、手搓与皮条/弓钻/泵钻的演进、研磨砂配管钻取芯、螺旋钻自铁器时代且螺旋排屑属中世纪",
+      "rights_note": "Britannica 版权内容，仅作事实核对与背景参考"
+    }
+  ],
+  "elements": [
+    {
+      "id": "tools_digging_stick",
+      "name": "掘土棒",
+      "aliases": ["尖木棍", "digging stick", "掘棒"],
+      "tags": ["tool", "agriculture", "wood", "stone", "human_power"],
+      "summary": "把一端削尖或火烤硬化的长木棍，靠体重与撬动破土挖穴，是锄、铲、犁的共同前身。",
+      "details": {
+        "definition": "一根便于双手握持的直木，工作端经削、刮或火烤硬化成尖或扁刃，有时在中段绑一块石加重以增加冲入土中的动能。它是文献中追溯犁与锄时反复出现的祖型工具，本身也长期作为独立农具与采集工具使用。",
+        "mechanism": "尖端把人的推力与体重集中到很小的接触面上，压强足以挤开土壤颗粒；入土后以棍身为杠杆撬起土块。加重石改变重心，使举落动作更省力；扁刃形态则偏向刮削与移土，而非穿刺。",
+        "conditions": "需要直、韧、不易劈裂的木料，且便于就地取材；尖端的硬化依赖火或石片刮削，这两项又有各自的前置。效率高度依赖土壤状态：松散、湿润或有前茬松土的田块效率较高；草皮板结、重黏土与石砾地阻力大、效率显著下降，往往需先清理或改用别的工具。劳力以单人为主，不需要畜力与同伴协作。",
+        "exceptions": "不要把掘土棒理解为所有地区都必经的单一阶段：热带块根采集、湿地与冲积平原的耕作传统各不相同，有些社会直接以锹形木板、贝壳或骨器处理土壤。加重石版本只在部分北美与非洲农具中出现，不是普遍形态。另外，知道它能撬土并不等于知道怎么选木、怎么防裂；把湿木直接火烤会开裂，这是实际操作中的门槛。",
+        "story_uses": "适合作为「农业尚未定型」的状态标志：定居刚开始、田地刚被开垦、或某群体被剥夺了犁与畜力而退回最简工具时出现。也可用作儿童第一次下田、或流民临时开小片菜地的细节道具。",
+        "historical_scope": "与定居农业的早期相伴，但不限于此：狩猎采集社会同样用它挖块根与掘穴。在犁普及后仍长期作为辅助工具存在于园艺、移苗和挖沟中。各地区起止时间差异极大，不应给出统一年代。",
+        "evidence_and_uncertainty": "Britannica 的 plow 与 hoe 条目都明确把犁和锄的前身指向装柄的掘土棒，并提到「有时加重石」；这支撑了定义与结构描述。具体到某个遗址的使用年代、木料选择偏好与效率数据，本条未逐项核对考古报告，属归纳。review_status 保持 needs_review。"
+      },
+      "source_ids": ["tools_src_britannica_plow", "tools_src_britannica_hoe", "tools_src_britannica_hand_tool"],
+      "related_ids": ["tools_ard_plough", "tools_hoe"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "tools_ard_plough",
+      "name": "轻型犁（耙犁/无轮犁）",
+      "aliases": ["ard", "ard plough", "scratch plough", "无轮犁", "罗马轻犁"],
+      "tags": ["tool", "agriculture", "wood", "iron", "animal_power"],
+      "summary": "以畜力牵引、只划开表土而不整片翻转的对称犁，适用于浅松薄表土；在坚重土壤上阻力大、效率低，需更多畜力或改用别的耕法。",
+      "details": {
+        "definition": "一类结构简单的牵引犁：犁头与犁柄为主体，用绳或轭系于牛，犁尖划出一条浅沟。早期为整木或木包石，后来在尖端套铁刃。它的关键特征是不具备把土垡整条翻转的曲面，因此作用接近深划沟而非翻土。",
+        "mechanism": "畜力通过牵引线把犁体拉向前，犁尖在自重与下压角的作用下持续入土；操作者扶柄控制深度与方向。牵引角、犁尖的入土角与把手高度共同决定它能否稳定工作，三者需要配合，随意绑一根尖木并不会成为犁。",
+        "conditions": "前提是驯化的牵引畜力与挽具、可加工的硬木、以及能做出可靠犁尖的石材或铁件。作用于入土阻力小的土壤时效果最好；阻力随黏粒含量、含水率、压实度与石块而上升，因此同等畜力下在薄松土上比在坚重土上更可行。地块形状与田块大小也会限制：牵引犁需要可回转的空间。此外要有人力专门扶犁、有人引畜，单人可以操作但很吃力。",
+        "exceptions": "历史上并非所有农业都经过犁：美洲、撒哈拉以南非洲部分地区与东南亚一些稻作区长期以锄耕为主，产量并不必然更低。同一名称下形态差异很大，不能把某一地区出土的 ards 细节当作通则。还有一点常被误推：既然结构简单，就理应人人会造——实际上犁尖选材、木料干湿、榫接与挽具配合都要经验，任意凑料做出来的常在地里折断。",
+        "story_uses": "适合用来标记技术梯度：有犁的村落与无犁的村落之间可能形成租借、换工或势力关系；一头牛与一张犁足以成为分家、婚配与债务的焦点。也可用「犁太轻、翻不动这块地」制造挫败与迁移动机。",
+        "historical_scope": "罗马时期地中海地区流行轻、无轮、铁刃的犁，在阻力较小的表土上可行，却难以处理西北欧更重的土壤；轮式犁后来使欧洲农业得以向北扩展。这并不意味着轻犁在重土上完全不能划出沟，而是牵引阻力与成效比不划算——更大畜力、更浅耕深或更多遍数仍可能有效。这说明同一技术在不同土壤带的有效性差别很大，不宜按「时代」一刀切。",
+        "evidence_and_uncertainty": "Britannica plow 条对罗马轻犁的适用范围与局限有明确表述，支撑定义与条件。具体到 ards 在各地区出现的年代与形制谱系，本条未逐项核对考古文献；对不同社会是否采用犁的解释（人口、土壤、畜力可得性）学界仍有争论，本条不给定论。review_status 为 needs_review。"
+      },
+      "source_ids": ["tools_src_britannica_plow", "tools_src_britannica_agri_tech", "tools_src_britannica_hand_tool"],
+      "related_ids": ["tools_digging_stick", "tools_moldboard_plough", "tools_harrow"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "tools_moldboard_plough",
+      "name": "有壁犁（含轮式重犁）",
+      "aliases": ["moldboard plough", "壁犁", "铧式犁", "轮式犁", "wheeled plough"],
+      "tags": ["tool", "agriculture", "wood", "iron", "animal_power"],
+      "summary": "由犁铧切土、曲面壁刀翻转土块、犁侧板抗侧推的犁，配轮架后可翻耕地力较重的湿土；在特定条件下可能加剧压实。",
+      "details": {
+        "definition": "在犁铧之后增加一块曲面壁刀（moldboard），把被切开的土垡整条掀起并翻向一侧，从而把杂草与残茬埋到下面。典型结构包含三部分：切土的犁铧（share）、翻垡的壁刀、以及抵消侧向推力的犁侧板（landside）。加上轮架的重型版本称轮式犁。",
+        "mechanism": "犁铧的水平刃切开土条，壁刀的曲面把土条沿弧面抬升、扭转、翻落。侧推力由犁侧板贴沟壁承担，否则犁会向未耕一侧偏走。轮架抬高了犁体、稳定了耕深，使更大的牵引力可以转化为更宽的垡片，而不是让犁扎死。",
+        "conditions": "需要足够强的牵引力（多牛或马队）、结实的挽具与轭、以及能承受反复冲击的木质与铁件；壁刀的曲面形状要匹配土壤类型，不同土壤需不同曲率的壁刀才能达到同样的碎土程度。整地时机也受限：Britannica 农业技术条指出，只有在土壤含水量合适时犁耕才改善结构，过湿或过干都会造成不利结构。轮式犁还需较平整、无障碍的大田块。",
+        "exceptions": "重犁不是「更先进所以到处都该有」：在浅土层、坡地、石砾地或地块细碎的地方，重犁既拖不动也转不开，轻犁与锄耕更合理。关于压实，也不能写成「重犁必然造成犁底层」：紧实层的形成与反复在同一深度耕翻、在土壤过湿时作业、机具与畜蹄的碾压、以及耕作层以下的自然质地等多重因素相关；浅耕、变深度耕作、适时作业或轮作可以减轻或避开。所以犁的普及并非单向的收益，也不是必然的损失。还有常见误解：看过壁刀形状就能照做，实际上曲面是经验试错的结果，木料选型、铁件热处理与装配角度缺一不可。",
+        "story_uses": "适合作为需要集体投入的资产：一张重犁与一队牛往往超出单户能力，可写共同购置、轮流使用、或因借用不均而生的积怨。也可用「有人怀疑连年同深度耕翻压出了硬层」作为隐性的长线争议，让老农与新技术推广者围绕可测的证据互相争执。",
+        "historical_scope": "轮式犁最初由牛牵引，后来用马，使欧洲农业得以向北推进到重土地区；壁刀在18世纪被明确加入并成为重要改良；19世纪中期美国中西部黑钙土促使一体式全钢犁铧与壁刀出现。这些节点属于欧洲与北美脉络，不能当作全球同步时间表。",
+        "evidence_and_uncertainty": "Britannica 的 plow 与 agricultural technology 两条给出结构三件套、壁刀曲面与土壤匹配、紧实层的成因与危害、以及轮式犁与全钢犁的时间节点，支撑较强。需注意来源陈述的是「可能形成硬层」而非普遍必然，且具体发生于何种土壤与作业习惯仍需地方数据；不同地区壁刀谱系的具体演化与农具效率数值本条未逐项核对。review_status 为 needs_review。"
+      },
+      "source_ids": ["tools_src_britannica_plow", "tools_src_britannica_agri_tech", "tools_src_britannica_hand_tool"],
+      "related_ids": ["tools_ard_plough", "tools_harrow", "tools_hoe"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "tools_hoe",
+      "name": "锄",
+      "aliases": ["hoe", "锄头", "耨", "mattock（鹤嘴锄，近亲）"],
+      "tags": ["tool", "agriculture", "wood", "stone", "iron", "human_power"],
+      "summary": "刃与柄成直角的手持挖土除草工具，石刃木刃到铁刃皆有，是锄耕农业的核心器具。",
+      "details": {
+        "definition": "一个刃片横装于长柄末端、与柄大致成直角的手持工具，用于松土、破土、开穴与除草。与铲、锹的区别在于工作面近乎垂直于推进方向：它靠抡落与回拉削入土面，而不是靠踩压插进土里。鹤嘴锄（mattock）是刃更尖、更偏破土的近亲。",
+        "mechanism": "抡起后刃口以弧线击入土面，随后向身体方向回拉，把土块刮起或把草根切断。直角结构使操作者能站在未扰动的土上工作，不必踩在刚松过的地面上；刃宽决定每次处理的幅面，刃角决定入土难易。",
+        "conditions": "需要一根长度合适的柄（太短费力且伤腰、太长控制差）、能与柄牢固结合的刃，以及把刃固定在柄上的绑扎或榫孔工艺。石刃需选择可磨制的石料并反复研磨；铁刃需要锻打与刃口淬火。它适合小地块、坡地、行间作业与园艺，也是缺乏畜力时的主力。",
+        "exceptions": "不要把锄看作「犁的落后版本」：在雨养小块田、梯田、菜园与稻作行间管理中，锄往往比犁更合适，犁在这些场景反而破坏结构或无法进入。同一名称覆盖极宽的形态谱，从整木锄、石刃锄、到窄刃与宽刃铁锄，用途并不一致。另有实际门槛：刃与柄的结合是这类工具最容易失效的部位，绑扎松脱或榫孔开裂都会让工具当场散架，会挥锄不等于会做锄。",
+        "story_uses": "适合表现日常劳动的时间尺度：一块菜园的除草是可计件、可比较、可分配的家务与劳役。也可作为身份与性别的分工标志，或作为穷户唯一的整地工具与借犁关系的筹码。",
+        "historical_scope": "Britannica 称锄是最古老的农具之一，早期含石刃与木刃，后来的刃为金属、柄为木。在犁与耙普及后，锄在农业中大部分被取代，但在园艺与horticulture 中仍然常用。各地区的替代节奏不同，不应统一断代。",
+        "evidence_and_uncertainty": "Britannica hoe 条明确给出直角结构、刃材演变、与掘土棒的渊源以及被犁耙取代的叙述；这些支撑定义与用途。具体形制分类与效率比较未逐项核对，属归纳。review_status 为 needs_review。"
+      },
+      "source_ids": ["tools_src_britannica_hoe", "tools_src_britannica_plow", "tools_src_britannica_hand_tool"],
+      "related_ids": ["tools_digging_stick", "tools_ard_plough", "tools_harrow"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "tools_harrow",
+      "name": "耙",
+      "aliases": ["harrow", "耱", "钉齿耙", "树枝耙"],
+      "tags": ["tool", "agriculture", "wood", "iron", "animal_power"],
+      "summary": "拖过田面以碎土、搂草、覆种的表层整地农具，从一束树枝到铁齿耙都算，作用于犁耕之后的土层。",
+      "details": {
+        "definition": "一类被拖曳过地表的整地器具，工作部件是齿、钉或枝条：把土块打碎、把残茬与杂草搂出、把播下的种子覆盖。它与犁的分工是层位——犁处理较深的土层，耙处理表层。",
+        "mechanism": "器具被牵引前行时，齿尖划破并搅动表土，横向的拉扯把土块解离，同时把轻的残茬带到表面。齿的密度与入土角决定碎土程度与阻力；齿太密则在湿土上糊死，太疏则效果不足。",
+        "conditions": "需要牵引力（畜力或人力）、已耕过的地表、以及可修整替换的齿——齿是易耗件。新石器时代用树枝捆束即可，埃及与罗马则出现成形的木耙与铁齿耙，说明齿材与制作工艺是升级的关键。地块需具备可拖曳的长度与较少的大石块。",
+        "exceptions": "并非所有地区都以犁＋耙的组合整地；有些传统用锄与手工碎土，有些用镇压与覆盖物代替。同一词也覆盖完全不同的器具：手推的小型耙、畜力拖的钉齿耙、以及近代的圆盘耙与弹簧齿耙，工作原理与适用土壤各异。把圆盘耙的效能套到古代树枝耙上是常见错误。",
+        "story_uses": "适合作为播种前后的节令标志，也适合写「借耙」这类邻里往来。碎土质量可以直接连到出苗好坏，从而成为争执或经验差异的具体来源。",
+        "historical_scope": "新石器时代已有以树枝整地的做法；埃及等地使用成形木耙；罗马人做出带铁齿的耙。近代出现圆盘耙、弹簧齿耙与动力旋耕等变体，属于较晚的层位，不应与古代树枝耙混为一谈。",
+        "evidence_and_uncertainty": "Britannica harrow 条直接给出功能（碎土、破残茬、除草根、覆种）与从树枝到铁齿耙的时间线，支撑定义与条件。各地区具体形制与效率数据未核对。review_status 为 needs_review。"
+      },
+      "source_ids": ["tools_src_britannica_harrow", "tools_src_britannica_agri_tech"],
+      "related_ids": ["tools_ard_plough", "tools_moldboard_plough", "tools_hoe", "tools_winnowing_tray"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "tools_sickle",
+      "name": "镰刀",
+      "aliases": ["sickle", "铚", "小镰"],
+      "tags": ["tool", "agriculture", "harvest", "stone", "bronze", "iron", "human_power"],
+      "summary": "短柄、曲刃、单手操作的收割具，把禾秆一把把割断；与长柄钐的用途和劳作组织不同。",
+      "details": {
+        "definition": "一种刃部弯曲、以单手或短柄操作的切割工具，工作时一手揽住一小把禾秆，另一手把曲刃从外侧向内拉，割断茎秆或穗头。刃的弯曲让切割区形成一个向内收拢的弧，利于把茎秆聚拢而不是推开。",
+        "mechanism": "与砍、凿不同，镰刀以连续横向拉动完成切割：曲刃上的压力集中在一小段刃口上做滑切，比垂直下砍更省力，也更易贴地控制留茬高度。刃要薄且锋利，这决定了它需要反复研磨。",
+        "conditions": "需要可加工的刃材（石片研磨、青铜铸造或铁锻造）与把刃固定在柄上的工艺；柄通常短，便于单手操作和蹲姿或弯腰作业。适合收割禾本科谷物与割草，工作节奏可分段：割、捆、堆各有分工，因此适合家庭或小型协作，不依赖畜力。刃的研磨与更换是持续投入；石刃的消耗更快，金属刃则需要会研磨的人。",
+        "exceptions": "镰刀不是「钐的简易版」：两者对应不同的收割方式与劳作组织。长柄钐以大幅挥动一次割倒一片草，适合干草储备与大面积作业，但据说在古代世界使用不广，要到欧洲加洛林时代的干草与越冬饲料需求下才广泛使用；镰刀则适合选择性收割与穗头采集。不要把某一地区某一时代的铁镰形制推广为所有地区，石片镰、青铜镰与铁镰从形态到磨损模式都不同，考古上也很难仅凭刃部判断具体用途。",
+        "story_uses": "适合承载收割季的劳力分配：谁割、谁捆、谁拾穗，常常对应年龄、性别与身份。拾穗权与留茬高度是可争吵的具体权利。刀刃的钝与快也能成为性格化的细节：会磨刀的人被人情所需。",
+        "historical_scope": "收割具的材料谱与工具整体谱同步：石、青铜、铁到钢。长柄钐起源不详、古代使用有限、在 8 世纪欧洲农业发展中才广为流行的叙述，说明「更大的收割工具」并不是线性进步的必然产物，而是与饲料需求、畜力规模一起出现的。各地区时间先后差异很大。",
+        "evidence_and_uncertainty": "Britannica 的 scythe 条给出钐的结构、古代使用有限与加洛林时代普及的背景，支撑了镰刀与钐的分工叙述以及「不按时代一刀切」的限定。镰刀本身的形制分类、效率与现代考古定年，本条未逐项核对专门文献，属归纳而非定论。review_status 为 needs_review。"
+      },
+      "source_ids": ["tools_src_britannica_scythe", "tools_src_britannica_flail", "tools_src_britannica_cereal_processing", "tools_src_britannica_hand_tool"],
+      "related_ids": ["tools_scythe", "tools_flail", "tools_winnowing_tray"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "tools_scythe",
+      "name": "长柄钐",
+      "aliases": ["scythe", "大钐镰", "钐刀"],
+      "tags": ["tool", "agriculture", "harvest", "iron", "human_power"],
+      "summary": "曲刃斜装于长曲柄、以腰腹与双臂挥动割倒大片草与谷物的收割具，与干草越冬储备的兴起相绑。",
+      "details": {
+        "definition": "一件把长曲刃以一定角度装在长曲柄末端的割草与割谷工具。现代形制的柄上另有一个突出的握柄，供一只手抓握以控制挥动。它是一次处理一大片立草的工具，而不是逐把选择的工具。",
+        "mechanism": "操作者以腰与双臂带动整条长柄做低幅横扫，曲刃沿地面滑过，靠刃口的滑切与机体动能割断茎秆。长柄提供力臂、让身体远离刃口，突出的握柄则把挥动方向稳定在一个水平弧面上。刃口需极薄且经常在田间断续研磨。",
+        "conditions": "需要较长的整木曲柄（对木料弯曲度与强度有要求）、可与柄成角度固定且能承受振动的刃，以及热处理与锻打能力。作业面要平整、无障碍、草层较厚且湿度合适（晨露中的草更好割）。它更适合大面积、单一用途的割草与割谷，通常与晒草、翻草、堆垛一整套工序配套，因此需要人力组织与场地。",
+        "exceptions": "不要把钐当作古代普遍存在的农具：Britannica 指出其确切起源不明、在古代世界使用很少，直到欧洲加洛林时代（8 世纪）随干草收割与储藏、畜力越冬需求而广为使用。这说明它的普及与畜牧规模、饲料制度相关，而不是单纯的工具改良。此外，在坡地、石块多、作物与杂草混生或需要选择性收割的田块，钐并不合适，镰刀更实际。",
+        "story_uses": "适合写成需要协作与节奏的劳动场景：一排人同时推进，或与晒草、翻草的天气赌注相连。也可当作「村里只有几把」的公共资产，或作为壮劳力与老人之间的效率差异来源。",
+        "historical_scope": "起源不详；古代使用有限；8 世纪欧洲加洛林时代的农业变化中才广泛使用，此后长期是割草与割谷的主力，直到机械收割出现。这个时间线属欧洲脉络，不能直接套到其他地区。",
+        "evidence_and_uncertainty": "Britannica scythe 条明确给出结构（曲刃、长曲柄、突出握柄）、功能（割草与谷物）以及起源不明与加洛林时代普及的判断，支撑定义、条件与历史范围。效率数值与各地区的具体替代时间未逐项核对。review_status 为 needs_review。"
+      },
+      "source_ids": ["tools_src_britannica_scythe", "tools_src_britannica_flail"],
+      "related_ids": ["tools_sickle", "tools_flail", "tools_winnowing_tray"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "tools_flail",
+      "name": "连枷",
+      "aliases": ["flail", "梿枷", "脱粒连枷"],
+      "tags": ["tool", "agriculture", "processing", "wood", "leather", "human_power"],
+      "summary": "两根木棍用皮条连成活动铰接、以甩打方式把谷粒从穗上打落的脱粒工具，单人日脱粒量因作物而异。",
+      "details": {
+        "definition": "由两段木件组成的脱粒手动工具：较长的一段是手持的柄（handstaff/helve），较短的一段是打击件（beater），两者以皮条或绳索连接成可自由摆动的铰接。挥动时打击件在末端高速甩出，击打铺开的禾穗使籽粒脱落。",
+        "mechanism": "铰接结构把手臂的转动转化为打击件末端的线速度，同时允许打击件在触地或触穗后回弹，减少反冲传到手上。作业方式是把作物铺成薄层，逐段拍打并翻动，因此脱粒是在场上反复进行的工序，而不是一次通过。",
+        "conditions": "需要韧性的木料（打击件要耐磨而不易劈裂）、结实的皮条或绳索与会用的人。作物需先干燥，湿穗打不落且易霉；场地要平整干净以免混入土石，并需要簸、筛等后续工序分离茎叶与颖壳。它适合小批到中等批量，配合家庭或村落劳力，不依赖畜力或水力，但在大面积单一作物上效率有限。",
+        "exceptions": "连枷不是唯一的脱粒方式：畜踩、石碾、摔打、以及后来的机械脱粒机各有场景与规模。不要把 Britannica 给出的单人日脱粒量（如小麦 7 蒲式耳、大麦 15、燕麦 18）当作跨地区通行的效率常数——它依赖作物、干燥程度、工具重量与操作者熟练度，且原文数据带有特定时代与地区的测量背景。另一常见误解：连枷只是两根棍子，谁都能做；实际上铰接长度、两段木料的重量比、皮条松紧都会直接影响打击效率与伤手风险。",
+        "story_uses": "适合写成集体劳作与节奏化的场面：多人同时甩打会形成节拍，容易带出歌、口令与轮换。也可作为租用、借用或交税折算的对象；打击件断裂或皮条磨断是常见的日常损耗细节。",
+        "historical_scope": "作为一种古老的脱粒手动工具长期使用，直到 19 世纪中期机械脱粒机普及后才失去主导地位。各地区替代节奏不同，不能把 19 世纪欧洲的时间点当作全球通则。",
+        "evidence_and_uncertainty": "Britannica flail 条给出结构、组成与日脱粒量示例，以及被机械脱粒机取代的时间判断，支撑较强。具体效率差异的成因、各地区形制变化与更早的起源年代，本条未逐项核对专门农业史文献。review_status 为 needs_review。"
+      },
+      "source_ids": ["tools_src_britannica_flail", "tools_src_britannica_cereal_processing"],
+      "related_ids": ["tools_sickle", "tools_winnowing_tray", "tools_granary"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "tools_winnowing_tray",
+      "name": "簸箕与扬谷器具",
+      "aliases": ["winnowing tray", "winnowing basket", "簸箕", "飏篮", "fan"],
+      "tags": ["tool", "agriculture", "processing", "plant_fiber", "human_power"],
+      "summary": "以编织浅盘或铲具把脱粒后的谷物抛向风中，用重量差把谷粒与颖壳碎秸分开的清选器具。",
+      "details": {
+        "definition": "一类用于清选（扬簸）的浅形器具：多为编成的圆形或椭圆形浅盘，也有用木铲或簸箕式容器者。使用时把混有颖壳与碎秸的谷物在其中抛起、或倾倒让风穿过，借助各成分在风中的落点差异完成分离。",
+        "mechanism": "谷粒密度大、迎风面积小，落地较近；颖壳与轻碎秸受风阻力大，被吹到更远或飘走。抛的高度、风力与出料角度共同决定分级效果，因此这是一件需要看风作业的工具，而不是固定的机械。编织浅盘之所以合适，是因为它既能兜住谷物，又能在边缘形成可控的出料口。",
+        "conditions": "前置是编篮工艺（选材、劈条、编结）与已脱粒并干燥的谷物；还需要可用的自然风或人工气流。潮湿谷物黏连难分，雨天或高湿时清选效果差且易霉，所以清选有季节与天气窗口；风力不足时可依靠扬起高度或人工气流部分弥补。簸箕要与扇车、筛子、席子等配合使用，形成一套场上工序。",
+        "exceptions": "不要把它当成纯粹的家务小物：编成的浅盘同时用于晾晒、盛放、搬运与分选，器形与用途因地区材料差异极大（草茎、藤、竹、棕榈叶各有传统）。扬谷也可以不用编织器：有以木铲、簸箕、篓或直接以手抛的做法。风力不稳定时，同一批谷物可能需要反复清选才能达到入库标准，这在叙述里常被忽略。",
+        "story_uses": "适合作为收获后几天的核心场景：等风、试风、抢在雨前簸完。也可作为邻里借器、或由老人凭手感判断「簸到什么程度算干净」的经验权威来源。",
+        "historical_scope": "编织容器在全世界除极北与极南地区外几乎都有分布，且大型篮具可作粮囤、浅盘可作簸箕，这种多用途特征长期存在，不限于某一时代。具体形制与名称随地区而变。",
+        "evidence_and_uncertainty": "Britannica basketry 条列出簸箕（winnowing trays）、鱼篓与可作粮囤的大型篮，并说明材料随气候带与功能而变，支撑定义与用途范围。扬谷的空气动力学细节与各地区器形分类，本条属一般性归纳，未逐项核对专门文献。review_status 为 needs_review。"
+      },
+      "source_ids": ["tools_src_britannica_basketry", "tools_src_britannica_flail", "tools_src_fao_grain_storage"],
+      "related_ids": ["tools_flail", "tools_basket", "tools_granary", "tools_harrow"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "tools_saddle_quern",
+      "name": "鞍形磨石",
+      "aliases": ["saddle quern", "磨盘石", "metate", "silbatta", "马鞍磨"],
+      "tags": ["tool", "cooking", "processing", "stone", "human_power"],
+      "summary": "一块凹面石床配一块手持研磨石，以来回推碾把谷物、香料与颜料磨碎，是已知最早的成套研磨器具之一。",
+      "details": {
+        "definition": "由两块石头组成的研磨器具：下面是一块较大、研磨面略凹或成槽状的石床（有鞍形、槽形等变体），上面是一块可双手握持的圆形或长圆形研磨石（muller）。操作时把物料放在石床上，用研磨石以来回推碾或搓碾的动作磨碎。",
+        "mechanism": "破碎依靠压力与剪切同时作用：研磨石的自重加下压提供法向力，往复运动产生剪切，把颗粒从物料表面剥落并逐步细化。石床的凹面把物料收拢在研磨区，减少散落；石面的粗糙颗粒度决定研磨效率与磨出的粒度。",
+        "conditions": "需要两块合适的石料：既要有足够硬度与耐磨性，又要有适度的颗粒感以保持研磨面粗糙。Britannica 指出砂岩、玄武岩、花岗岩、片岩与石灰岩在欧洲与埃及都被用过，说明这是按可得石材取舍的结果。石面磨平后要重新凿毛或打糙才能恢复效率，因此维护是持续劳动。作业多为跪坐或蹲姿，靠上肢与腰背发力，耗时且对手臂负担大，所以常与固定时段的日常劳动绑定。",
+        "exceptions": "不要把鞍形磨视为「只能磨谷物」：Britannica 明确它也被用来粉碎香料与草药、天然染料与颜料，甚至矿物矿石。也不要把所有石磨都归为鞍形：旋转磨是另一条技术路线，两者在欧洲的更替有一个长达千年的重叠期，不是瞬间替换。同一功能在各地有不同形态，印度 silbatta 与墨西哥 metate 是同一基本原理的延续，但形制细节不能互套。",
+        "story_uses": "适合作为每日家务的时间黑洞：一顿饭的背后是长时间的推碾。也可作为家庭必备资产的象征——嫁妆、分家、搬迁时石磨的去留都是具体问题。石面变钝需要凿毛，这是可以被外人帮助也可以被拒绝的技能。",
+        "historical_scope": "Britannica 称其使用可追溯至新石器时代早期，与更 agrarian 的生活方式及谷物在饮食中比重上升相伴；叙利亚有距今约一万年的磨石；埃及使用，英国青铜时代为常见家用器；哈拉帕文明遗址也出土鞍形磨。欧洲在公元后第一个千年里旋转磨才大体取代鞍形磨。",
+        "evidence_and_uncertainty": "Britannica quern 条对两类磨、鞍形磨的年代与地域、石材选择与研磨面凿毛维护都有明确叙述，支撑较强。具体遗址的年代学细节与各地区器形谱系未逐项核对考古报告。review_status 为 needs_review。"
+      },
+      "source_ids": ["tools_src_britannica_quern", "tools_src_britannica_mortar_pestle", "tools_src_britannica_cereal_processing"],
+      "related_ids": ["tools_rotary_quern", "tools_mortar_pestle", "tools_watermill"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "tools_rotary_quern",
+      "name": "旋转磨石",
+      "aliases": ["rotary quern", "旋转磨", "手磨", "chakki", "janto", "beehive quern"],
+      "tags": ["tool", "cooking", "processing", "stone", "wood", "human_power"],
+      "summary": "上石绕中心轴在下石上旋转、谷物从孔或斗中进入、粉从两石之间挤出的磨具，有多种形制且部分地区沿用至今。",
+      "details": {
+        "definition": "一种以连续旋转代替往复推碾的磨具：上面的磨石（runner）绕中心轴（spindle）在下磨石上转动，未磨的谷物从上石的开孔或漏斗进入两石之间，磨好的粉从两石边缘（偶尔从下石的出料口）挤出。主要形制包括蜂巢形（上石呈半球状）、罐形（下石为容器状）与盘形（两石为扁平圆盘）。",
+        "mechanism": "上石旋转时，两石研磨面之间的谷物被碾压、剪切并向外输送，粒径逐次减小直至在边缘被排出。中心轴确保两石同心，手柄提供力臂；进料速度由上石开孔与漏斗控制，太快则磨不细、太慢则空转磨损。",
+        "conditions": "需要能把石块修整成同心圆面、并在上石上开中心孔与装手柄的石工能力；两石须成对修整以保证研磨面贴合。石材耐磨性与颗粒感仍是关键，罗马人把火山岩磨石引入不列颠并用到公元 3 世纪末，说明石材来源可以形成跨地区贸易。动力为人手（也可用畜力拉长臂），因此产能取决于人力投入与磨盘直径。",
+        "exceptions": "不要把旋转磨当作一次性的技术革命：Britannica 认为，古希腊罗马文献中由牲畜或奴隶操作的大型磨坊很可能是旋转手磨的来源，卡托记载过由一对驴转动的旋转磨，庞贝也出土多件大型磨；小型旋转磨是从这些大型装置演化出来的。此外，并非所有地区都经历了「鞍形磨→旋转磨」的替换，盘形旋转磨在亚洲仍在使用（印度的 chakki、尼泊尔的 janto），说明它并未在中途被淘汰。",
+        "story_uses": "适合作为家庭劳动强度的量化对象：磨一斗麦需要多久、由谁承担、能否借用邻家或公共磨坊。也可作为技术与权力的连接点：谁拥有磨、谁收取磨费、谁被禁止私磨，都是具体的制度冲突。",
+        "historical_scope": "欧洲在公元后第一个千年里，旋转磨大体取代鞍形磨。更早的大型旋转磨与牲畜驱动有关，小型化之后才进入家庭。盘形旋转磨在亚洲部分地区一直沿用至今，说明「旧技术被新技术取代」并不是普遍结局。",
+        "evidence_and_uncertainty": "Britannica quern 条给出旋转原理、三类形制、与大型畜力磨的渊源（含卡托记载、庞贝出土）以及欧洲的替代时段与亚洲的延续情况，支撑较强。具体年代数值与各地区形制演化细节未逐项核对考古文献。review_status 为 needs_review。"
+      },
+      "source_ids": ["tools_src_britannica_quern", "tools_src_britannica_cereal_processing", "tools_src_britannica_watermill"],
+      "related_ids": ["tools_saddle_quern", "tools_watermill", "tools_windmill"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "tools_mortar_pestle",
+      "name": "臼与杵",
+      "aliases": ["mortar and pestle", "擂钵", "石臼", "杵臼"],
+      "tags": ["tool", "cooking", "processing", "stone", "wood", "ceramic", "human_power"],
+      "summary": "耐用钵体配一根圆头研磨棒，以捣击而非滚碾把谷物、香料、药物与矿物打碎，至今仍在厨房与药房使用。",
+      "details": {
+        "definition": "一套两件的捣磨器具：臼（mortar）是一个耐用的凹形容器，杵（pestle）是一根圆头的研磨棒，通常与臼同材质。操作时把物料放入臼中，以杵反复垂直捣击与旋转碾压，把物料打碎、捣烂或混合成糊。",
+        "mechanism": "与磨石的滚碾不同，臼杵主要依靠冲击与局部挤压：杵头把力集中在小面积上，击碎颗粒；同时通过旋转与刮抹把物料翻动、防止只捣中心。臼壁把物料约束在破碎区，深臼减少飞溅，浅臼便于刮取。这种组合适合处理少量、黏性或含油含水物料，而不擅长把大量谷物磨成细粉。",
+        "conditions": "需要一个能承受反复冲击而不裂的钵体（石、陶或木各有取舍：石耐磨但重，木轻而韧但易吸附气味与水分，陶易清洗但怕磕碰）与一根匹配的杵。作业是体力活，但所需空间小，适合在室内、船上或行旅中使用；不需要畜力、水力和固定场地。",
+        "exceptions": "不要把臼杵和磨石当作可以互换的器具：Britannica 把二者并列为已知最早的谷物研磨手段，但实际分工不同——磨石用于把谷物批量磨粉，臼杵更常用于把少量物料捣碎成糊、粉末或混合。也不要把所有臼都设想为石制；木臼、陶臼、金属臼各有使用场景与失效方式。另外，臼杵的效率高度依赖物料含水量与杵头形状，湿黏物料在深臼里会粘壁，需要不同的杵头与手法。",
+        "story_uses": "适合作为厨房与药房共享的器物，从而让治病、配药与做饭互相渗透。也可作为声音细节：捣击的节奏在院落里可被邻人听见，成为「谁家在忙什么」的信息来源。",
+        "historical_scope": "Britannica 说明它与鞍形磨同为已知最早的谷物研磨手段，并指出较小、更精细的形制在厨房、药房与化学实验室中一直沿用。各地区与各时代的形制差异很大，不应统一断代。",
+        "evidence_and_uncertainty": "Britannica mortar and pestle 条对定义、材料（石、陶、木）、与鞍形磨的并列关系以及近代延续有明确叙述，支撑定义与用途。具体形制谱系与效率比较未逐项核对，属归纳。review_status 为 needs_review。"
+      },
+      "source_ids": ["tools_src_britannica_mortar_pestle", "tools_src_britannica_quern", "tools_src_britannica_cereal_processing"],
+      "related_ids": ["tools_saddle_quern", "tools_rotary_quern", "tools_pottery_cooking_pot"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "tools_granary",
+      "name": "粮仓",
+      "aliases": ["granary", "谷仓", "囤", "仓廪"],
+      "tags": ["facility", "agriculture", "storage", "wood", "stone", "clay", "building"],
+      "summary": "专门存放已脱粒谷物的建筑或大型容器，靠干燥、通风与隔离害虫把收成拖到下一条季节。",
+      "details": {
+        "definition": "专门用于存放已脱粒谷物的建筑物或大型容器（又称谷仓、囤）。它区别于堆放农具、草料或未脱粒谷物的棚屋：位置、地面处理、墙体形式与取用方式都围绕「让谷物尽可能久地保持可食且能发芽」来安排。",
+        "mechanism": "储藏依赖三个约束同时成立：低含水量、低温或通风、虫鼠与霉的隔离。谷物含水量高时呼吸放热，堆内温度上升又会加速霉变，形成正反馈，所以入仓前必须先晒干或风干。通风与翻动使热量与湿气散出；架空的地板或垫层阻断地下潮气；密闭与盖体能阻挡鼠类与鸟类。",
+        "conditions": "前置是充足而耐久的收获（能有余粮才值得建仓）、建造材料与工艺（木构、石砌、砖砌、编篱泥砌各有传统）、以及能保障不被盗抢的社会秩序。仓储本身需要维护：塌漏、被虫蛀、被鼠打穿都要及时修补，否则一仓粮会在一季内烂掉。仓容量与取用制度还要配套：钥匙、记账、分配与借贷都是仓库的一部分。",
+        "exceptions": "不要把粮仓当成单纯的物理容器：Britannica 指出仓储制度也承担稳定粮价与备荒的功能（如常平仓一类机制），因此仓库同时是经济与政治设施。也不是所有社会都有专设粮仓：有的是屋内高龛、有的是埋地陶罐、有的是编篱囤、有的是公共大仓；大型篮具也能当粮囤。还有一点：仓不等于安全——含水率偏高或已带虫卵的谷物入仓，可能因呼吸发热而迅速发热霉变；损坏程度取决于入仓水分、温度、通风与虫源。",
+        "story_uses": "适合作为村庄权力与信任的核心地点：谁能开仓、钥匙在谁手里、灾年开仓的顺序都是现成的剧情动机。也可用鼠患、塌漏、入仓时机的判断错误当作可追踪的长期后果。",
+        "historical_scope": "Britannica 提到印度河文明遗址（如哈拉帕与摩亨佐达罗）有大型粮仓基址与砖砌装卸区，这是早期公共仓储的考古证据；不同地区的社会则长期使用家庭尺度的小型设施。大型与小型仓储在很长时期内共存，不宜按时代排序。",
+        "evidence_and_uncertainty": "Britannica granary 条给出「存放已脱粒谷物」的定义、常平仓一类制度功能与印度河文明的考古例证；FAO 谷物储藏手册提供干燥、通风、虫鼠霉控制的框架。具体建筑的形制细节与容量数据未逐项核对考古报告。review_status 为 needs_review。"
+      },
+      "source_ids": ["tools_src_britannica_granary", "tools_src_fao_grain_storage", "tools_src_britannica_basketry"],
+      "related_ids": ["tools_storage_jar", "tools_winnowing_tray", "tools_flail"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "tools_storage_jar",
+      "name": "储罐与陶质容器",
+      "aliases": ["storage jar", "储罐", "瓮", "罐", "pithos"],
+      "tags": ["tool", "cooking", "storage", "ceramic", "clay"],
+      "summary": "烧成的陶质容器，用于盛水、粮食、油与酿造物；致密程度、施釉与内衬共同决定它是否适合长期贮液。",
+      "details": {
+        "definition": "以黏土成形、经高温烧硬而成的各类容器，尺寸从手持小罐到人高的大瓮。在厨房与庭院里它同时承担烹煮（部分形制）、发酵、储水、存粮、存油与腌渍存放的日常周转。",
+        "mechanism": "黏土的可塑性与高温烧结是两个关键：前者让容器能被捏塑或拉坯成形，后者让土坯变硬并失去水溶性。但陶器的致密度并不均一：Britannica 说明未烧至玻化的陶器仍保留一定孔隙、具有吸水性，因此未施釉、未玻化的器型用于贮液会有渗漏与吸附气味污渍的倾向，而是否需要施釉取决于坯土、烧成温度与器壁厚度。施釉并二次烧成可把表面颗粒熔成玻璃态层封住细孔；此外，足够高的烧结程度、器壁加厚、内衬或外套容器等也都是历史上常见的对应办法。另一面常被忽略：适度的透气性与表面渗湿会带来蒸发降温，在炎热干燥地区反而适合盛水与冷藏。",
+        "conditions": "需要可取的黏土、燃料（大量）与能控温的烧制设施，以及成形与干燥技术——湿坯不能直接快速加热，否则开裂。存粮需完全干透并密封以避免受潮；存液能否长期可行取决于烧结程度、器壁、坯土与是否内衬或外套，施釉只是其中一条路线。容器很重，搬运与摆放需空间与地面支撑，大型容器往往固定在一处，成为家计的锚点。",
+        "exceptions": "不要把陶瓷容器一律当成「不渗水」：无釉、烧结不足的器型确有渗漏倾向，但不应反向推成「无釉陶一概不宜贮液」——能否存液取决于烧结程度、器壁厚度、坯土、是否内衬或外套，以及具体用途（短时运水、蒸发降温、干物储存对密封的要求完全不同）。也不要把陶质容器当作唯一可能：木桶、皮制水袋、编篮、石缸、金属器在相应环境里同样重要，选择取决于原材料、重量、耐用度与运输需求。此外，陶器的脆弱会产生持续替换需求——破碎是可以预期的日常损耗，破碎后碎片也可能被再利用。",
+        "story_uses": "适合作为家庭存粮与存水的可视化道具：缸里剩下多少就是家底。陶器碎片的堆积本身能用来表现一个地点被长期使用的历史。也可用大瓮的归属与封口引出偷食、投毒或藏物的情节。",
+        "historical_scope": "Britannica 指出在安纳托利亚的 Çatalhüyük 新石器遗址出土的粗糙软陶是已知最早的陶器，距今约九千年；陶器之后在不同地区独立或传播出现。容器形制与容量随饮食结构与储藏方式变化，不存在统一的形制时间表。",
+        "evidence_and_uncertainty": "Britannica earthenware 条对未玻化陶器的吸水性与施釉封孔原理、以及已知最早陶器的出处有明确表述，支撑定义与限制。具体形制分类与各地区出现年代未逐项核对专门考古文献。review_status 为 needs_review。"
+      },
+      "source_ids": ["tools_src_britannica_earthenware", "tools_src_britannica_mortar_pestle", "tools_src_fao_fruit_veg_handling"],
+      "related_ids": ["tools_pottery_cooking_pot", "tools_pottery_wheel", "tools_granary"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "tools_basket",
+      "name": "编篮与编织容器",
+      "aliases": ["basket", "basketry", "篮子", "篓", "筐"],
+      "tags": ["tool", "agriculture", "storage", "transport", "plant_fiber", "human_power"],
+      "summary": "用枝条、草茎、竹片或根鬃编成的轻质容器，承担搬运、储存、捕鱼与加工等多种任务，材料随气候带而异。",
+      "details": {
+        "definition": "以柔韧植物纤维（枝条、草茎、柳条、竹、灯心草、根与藤）为原料，用手工交织、盘绕或绑扎制成的较硬而连续表面的器具，通常作为容器。它不依赖炉窑与金属，是最低门槛的容器技术之一。",
+        "mechanism": "编织利用两组元件：一组作骨架（相当于经线）提供形状与刚性，另一组缠绕穿插把骨架固定。缠绕（coiling）、平编（plaiting）与绞编（twining）是几类基本手法，不同手法对材料柔韧度与条宽的要求不同，成品也随之在透气性、硬度与重量上有差异。",
+        "conditions": "前置是采集与处理植物材料：割取、浸泡、劈条、有时需晒干或熏蒸。材料可得性直接决定形制：热带多棕榈与大叶，干旱草原多草茎，寒冷地区多根与藤。制作靠手工与经验，工具极简，但废手与季节性强（很多材料只在特定季节可采）。它需要通风干燥存放，否则易霉。",
+        "exceptions": "不要把它局限为「装东西的篮子」：Britannica 指出这类器物用于家用、储存、运输，也用于建筑、衣着与捕鱼；在非洲还被用于房屋建造与道路铺垫，有的大到可当粮囤，簸箕与鱼篓也是同一技术谱的产物。也不要把编篮与织布混同：编篮靠材料自身的硬度维持形状，织布则需要织机给经线施加张力。",
+        "story_uses": "适合作为「几乎每家都有、但好坏差很多」的日常器物：一只结实的背篓能决定一个人一天能搬多少。也可用作季节劳动（采条、泡条）的日历标记，或作为行旅与搬迁时的唯一家具。",
+        "historical_scope": "Britannica 说除极北与极南地区外，几乎各地都有可用材料，编织品的形制分布大体与气候带相关：热带以平编为主，温带多见螺旋盘绕与绞编，非洲草原与干旱区多见缝制盘绕。这种地理分布是长期形成的，不按「时代」推进。",
+        "evidence_and_uncertainty": "Britannica basketry 条对材料选择、技法分类、地域分布与多用途（含簸箕与粮囤）有详细叙述，支撑较强。具体年代与考古保存情况（植物纤维极易腐解）本条未展开，因此该类器物的早期历史证据天然偏少，宜保持不确定表述。review_status 为 needs_review。"
+      },
+      "source_ids": ["tools_src_britannica_basketry", "tools_src_fao_fruit_veg_handling"],
+      "related_ids": ["tools_winnowing_tray", "tools_granary", "tools_rope"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "tools_water_well",
+      "name": "水井",
+      "aliases": ["water well", "井", "砖砌井", "掘井"],
+      "tags": ["facility", "water_management", "construction", "stone", "clay", "building"],
+      "summary": "挖到含水层的人工取水孔，配井壁支护与提水装置；选址、深度与防污决定了它能否整年可用。",
+      "details": {
+        "definition": "为提高取水而人工挖凿或钻入地下的垂直孔洞，向下达到含水层，并以井壁支护、井台与提水装置配套。它把分散的地表水变成可就地取用的固定水源，是定居点选址的关键设施之一。",
+        "mechanism": "井本身不产水，只是把井底与含水层连通：水靠周围地层的渗流补入井中，井中水位取决于当地地下水位与抽水量。提水则用绳索与容器，或将绳索绕在绕轮、辘轳（即轮轴类简单机械）上以减少拉力。井壁支护防止土壁坍塌，井台防止地表污水回灌。",
+        "conditions": "前置包括能挖到地下水位的工具与人力、合理选址（靠水文经验而非任意挖）、以及支护材料。挖深井需要持续排除渗水与处理塌方，这是高风险作业。取水半径与人口规模相关：井的可服务人口有限，超出后需要排队、分摊与规则。维护包括淘井、修井壁、换绳与清洁井台。",
+        "exceptions": "不要把井视为所有地区的默认供水方式：沿河、泉、湖与溪流的人群可能从不需要井；相反，干旱区可能需要极深的井或坎儿井式的引水隧道。也不能假定有井就有安全水：Britannica 的供水史说明，水与疾病的关联到 19 世纪中期才被证实，在此之前井水被地表污物污染是常见情况。此外，「挖得深就水多」是错的：若未到达含水层或已过量抽取，加深无用。",
+        "story_uses": "适合作为村庄的中心点与冲突点：排队次序、井绳的归属、枯水期谁先取水、以及外来者能否使用，都是具体的社会规则。井壁坍塌或水质变臭可以成为慢性灾祸的开端。",
+        "historical_scope": "Britannica 认为挖浅井可能是最早的水源改良；印度河流域的城市居民早在约公元前 2500 年就建砖砌井，古代中国有深达数百米的井。坎儿井大概起源于古波斯（约公元前 700 年），靠重力把地下水引到镇邑，部分地区一直用到 20 世纪。",
+        "evidence_and_uncertainty": "Britannica water supply system 条对凿井作为最早改良、印度河砖砌井、深井与坎儿井都有明确叙述，支撑选址与历史范围。具体扬程、维护周期与水质参数本条未给数值，避免无依据的定量。review_status 为 needs_review。"
+      },
+      "source_ids": ["tools_src_britannica_water_supply", "tools_src_britannica_wheel", "tools_src_britannica_axle"],
+      "related_ids": ["tools_shaduf", "tools_noria", "tools_rope", "tools_irrigation_canal"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "tools_irrigation_canal",
+      "name": "灌溉渠道与沟灌系统",
+      "aliases": ["irrigation canal", "渠", "沟灌", "灌渠", "水渠"],
+      "tags": ["facility", "agriculture", "water_management", "construction", "earth", "building"],
+      "summary": "以重力把水从水源引到田块的人工水道网络，配套取水口、分水与控制设施；长期能否维持取决于盐分收支与排水条件。",
+      "details": {
+        "definition": "为农业供水而人工开挖的水道网络，包括干渠、支渠与入田的沟壑，以及取水、分水、控制水量的构造。它与「灌溉」这一行为相关但不等同：渠道是设施，灌溉是按作物需求调度水的过程。",
+        "mechanism": "水靠重力从较高处流向较低处，渠底纵向坡降要足够维持流速又不致冲刷渠壁；横断面尺寸决定过流能力。地面灌分为漫灌与沟灌：前者让水铺满田面，后者让水沿犁沟流过作物行间。地下灌则靠埋设的暗管或沟把水送入根区。",
+        "conditions": "前置是稳定的水源（河流、泉、水库、地下）、可施工的地形与人力、以及能维持渠系的组织。持续维护不可少：清淤、修渠壁、堵漏、防渗。土壤与水质同时是约束：入水含盐量、蒸散强度、地下水位与淋洗量共同决定盐分是否在根区累积；排水条件好（自然或人工、明沟或暗管）时可将盐带出根区，排水不畅则风险上升。因此有灌溉不等于会盐渍化，也并非未配人工排水就必然盐渍化——在排水良好、降水或淋洗充分、水质低盐的地方，长期灌溉可以稳定。Britannica 与 FAO 都强调灌溉需与排水条件一并考虑。",
+        "exceptions": "不要把灌溉等同于增产的保证：Britannica 指出灌溉可能导致盐渍化，盐分在土壤中积聚反而伤害作物。但也不应把盐渍化当成灌溉的宿命：它是盐分收支的问题（入水盐分、蒸散、地下水毛细上升、降水与淋洗、排水输出），部分系统靠自然排水、季节性淋洗或休耕即可维持。治理思路是维持盐分平衡，让排出的盐不少于输入的盐。也不是所有农业都需要灌溉，湿润区降水足够时灌溉是补充而非必需。还有一点：不同灌法（漫灌、沟灌、地下灌、喷灌、滴灌）在效率与适用地形上差别极大，不能用一个「灌溉」笼统概括。",
+        "story_uses": "适合作为需要集体维护的设施：一年一度的清淤是全村劳役，偷水与堵水是现成的冲突。也可用渠道末端的水量不足来表现地势与权力的对应关系。",
+        "historical_scope": "大规模灌溉系统的出现与城市、国家组织密切相关，但具体起源地与时序各区域不同，不宜给出统一年代。渠道形态与材料（土渠、石砌、砖砌、管道）差异很大，同一时期不同地区可能并存多种水平。",
+        "evidence_and_uncertainty": "Britannica irrigation 条提供灌溉分类、盐渍化风险与排水配套的必要性；FAO 灌溉管理手册提供入渗、土壤水分与盐碱土治理的课程框架。具体渠系尺寸设计参数本条不提供，属工程细节，避免编造。review_status 为 needs_review。"
+      },
+      "source_ids": ["tools_src_britannica_irrigation", "tools_src_fao_irrigation_manual", "tools_src_britannica_water_supply"],
+      "related_ids": ["tools_water_well", "tools_shaduf", "tools_noria", "tools_harrow"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "tools_shaduf",
+      "name": "桔槔（配重提水杠杆）",
+      "aliases": ["shaduf", "swape", "桔槔", "吊杆提水"],
+      "tags": ["tool", "water_management", "agriculture", "wood", "human_power"],
+      "summary": "一根近端铰支的长杠杆，短臂挂水器、长臂加配重，使人用很小的力把水从低处提升到高处。",
+      "details": {
+        "definition": "一种提水杠杆装置：一根长杆在中部或靠近一端处装上支点，短臂末端悬挂容器（斗、皮囊或桶），长臂末端装配重（常为石块或泥土）。操作者只需拉动长臂，配重就把装满的容器抬升，再转动或倾倒把水注入高处的水槽。",
+        "mechanism": "它是不等臂杠杆：以支点为界，长臂与短臂的力矩平衡，使配重几乎能抵消满容器的重量，人只需补上差值并控制方向。Britannica 的杠杆条给出的原理是力臂比等于力的比，因此长臂相对于短臂越长，人所需施加的力越小，但移动的行程也越大。",
+        "conditions": "需要有合适的支点（立杆、石堆或墙体）与足够长的杆，以及可悬挂与倾倒的容器；安装地需在水面与需要灌水的高度差之间，且操作者站位要稳。提水能力受限于单次斗容与循环频率，因此它适合小面积园圃与菜地，不适合大面积农田。材料多为本地木石，不需要金属，但杆的强度与支点的摩擦是主要弱点。",
+        "exceptions": "不要把桔槔看作「原始水泵」：它不产生压力也不连续供水，只是把人从「把整桶水提上去」变成「拉一下杠杆」。它与辘轳、水轮等提水装置是并列选项，各自适合不同扬程与流量，不能互相替代。此外，配重一旦调整不当（过重会使空斗下不去，过轻则省不了力），设备就会变成负担，这是需要经验调试的部分。",
+        "story_uses": "适合作为小块菜园与园圃的标志性设备，也可用作一个人就能守住的灌溉点。杆的吱呀声、绳索的磨损与配重石的位置都可以作为场景细节。",
+        "historical_scope": "Britannica 杠杆条提到这类带配重的提水杠杆（swape/shaduf）据说在公元前 1500 年前已用于埃及与印度提水。此后长期在灌溉与园艺中使用，具体普及范围与时间则因地区而异。",
+        "evidence_and_uncertainty": "杠杆原理与 swape/shaduf 的描述来自 Britannica lever 条；具体形制尺寸、扬程与效率数值本条未核对专门农具文献，属归纳。提水装置在不同地区的名称与细节可能与此处描述不完全一致。review_status 为 needs_review。"
+      },
+      "source_ids": ["tools_src_britannica_lever", "tools_src_britannica_irrigation", "tools_src_fao_irrigation_manual"],
+      "related_ids": ["tools_water_well", "tools_noria", "tools_irrigation_canal", "tools_pulley"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "tools_noria",
+      "name": "提水水轮（斗式水车）",
+      "aliases": ["noria", "water-lifting wheel", "筒车", "斗式水车"],
+      "tags": ["tool", "water_management", "agriculture", "wood", "water_power"],
+      "summary": "在轮缘系一串提水容器、由流水或踏轮驱动旋转、到顶后把水倒入槽中的连续提水装置。",
+      "details": {
+        "definition": "一种连续提水的轮式装置：轮缘上系有一系列容器（陶罐、木斗或竹筒），轮子在水流或人畜驱动下旋转；低位时容器没入水中装水，转到最高点时把水倒进高处的水槽，再由水渠送往田地。",
+        "mechanism": "它把旋转运动转化为一串周期性的提水动作：每个容器在低位装水、在高位卸水，连续旋转就形成近似稳定的流量。Britannica 描述早期水轮用于把水从低处提升到高处时，就是由多个罐子系在轮缘、轮绕水平轴由流水或踏轮驱动。流量取决于容器容积、轮转速与容器数量，扬程取决于轮径。",
+        "conditions": "需要有稳定水流与水头、可架设轮轴与轴承的结构、以及能容纳与导流水槽的支撑。容器在提水过程中会滴水，实际输水量低于理论值。轮轴需要润滑与定期检修；木制部件在水中长期浸泡会腐，需要定期更换，这意味着持续的木材与劳力投入。",
+        "exceptions": "不要把提水轮与磨粉水轮当成同一装置：两者都靠水转动轮子，但前者提水、后者通过传动带动磨石，所需的转速与扭矩不同，结构也不同。也不是所有渠道都能装提水轮：流量太小或水头不够时轮子转不起来，高扬程也不是它擅长的。此外，它的维护成本高，在劳动力稀缺或木材昂贵的地方可能并不划算。",
+        "story_uses": "适合作为共同投资的大型设施：一架提水轮可能供多户使用，因而带来使用次序与费用分摊的问题。也可用轮的损坏、堵草或水位下降作为农忙时节的具体危机。",
+        "historical_scope": "提水轮的雏形与轮轴技术一样古老，Britannica 描述早期水轮通过流水或踏轮把水提升、并用一串容器运水。各地区的形制与普及时间差异很大，不宜给出统一年代。",
+        "evidence_and_uncertainty": "Britannica wheel 条对「轮缘系罐、由流水或踏轮驱动、到顶倒水入槽」的描述直接支撑定义与机制；waterwheel 条补充了提水为水轮最早用途之一。具体流量、扬程与地域形制未逐项核对，属归纳。review_status 为 needs_review。"
+      },
+      "source_ids": ["tools_src_britannica_wheel", "tools_src_britannica_watermill", "tools_src_britannica_axle"],
+      "related_ids": ["tools_watermill", "tools_shaduf", "tools_irrigation_canal", "tools_windmill"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "tools_watermill",
+      "name": "水磨（水轮驱动磨坊）",
+      "aliases": ["watermill", "水磨坊", "水碾", "Norse mill"],
+      "tags": ["facility", "agriculture", "processing", "wood", "stone", "water_power", "building"],
+      "summary": "把水轮的旋转经直接或齿轮传动送到磨石，取代人力与畜力研磨谷物；也有缩绒、鼓风、锯木等用途。",
+      "details": {
+        "definition": "以水轮为原动机、通过轴与（可选的）齿轮把旋转传给工作机的整套装置，最常见的工作机是一对磨石，因而往往直接指磨坊建筑。Britannica 把水轮与传动机构的组合在中世纪以后通常称为 mill。",
+        "mechanism": "水流推动叶片使轮旋转，旋转由轮轴传出：最简单的形式是卧式水轮直接以竖轴带动上磨石；较复杂的形式则是立式水轮经一对齿轮改变方向并调整转速，从而让磨石达到需要的转速。磨石转速与进料速度共同决定出粉质量，因此磨坊需要可调的间隙与稳当的供料。",
+        "conditions": "前置包括可利用的水流与水位落差、能建筑水渠或坑塘的土方能力、木石加工与齿轮制作能力，以及能长期维护的组织。不同取水方式对地形要求不同：下击式只需水流从轮下通过，中击式与上击式则需要可控的水头与引水槽，因而常需堤坝或长长的引水渠。维修是长期负担：木质齿轮与水轮会磨损腐烂，堰坝需要清淤。",
+        "exceptions": "不要把水磨等同于「磨面粉」：Britannica 明确列出它还被用于缩绒布料、驱动鼓风、锯木与排水，同一动力源可以接不同工作机。也不要把水磨当作自动普及的进步：它需要水权、建造资本与维护能力，很多地区长期以人力畜力磨为主；即使在罗马帝国已有齿轮磨，其大规模工业影响在中世纪西欧才更显著。此外，「有水就能建磨」是错的，流量与水头都要够。",
+        "story_uses": "适合承载村落经济关系：磨坊主收取磨费、控制排队次序、在汛期停磨。也可用磨石嗓音与振动、进料斗的存量、或木齿轮断裂作为具体事件。",
+        "historical_scope": "Britannica 指出最早的水车记载约为公元前 85 年；维特鲁威描述了有据可查的最早齿轮立式水轮；法国阿尔勒附近的 Barbegal 磨坊有 16 座串联上击水轮，估计可满足数万人口的需求。齿轮磨在中世纪西欧产生了显著的工业后果，13 世纪以后上击式变得比下击式更常见。",
+        "evidence_and_uncertainty": "Britannica waterwheel 与 mill 两条对三类水磨、取水方式、齿轮传动、Barbegal 的规模估算与用途多样性都有较明确的叙述，支撑较强。具体效率数字（如某些上击轮的最高效率）出自特定实验背景，不宜当作通例。review_status 为 needs_review。"
+      },
+      "source_ids": ["tools_src_britannica_watermill", "tools_src_britannica_wheel", "tools_src_britannica_axle"],
+      "related_ids": ["tools_rotary_quern", "tools_windmill", "tools_noria"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "tools_windmill",
+      "name": "风磨（含风车提水）",
+      "aliases": ["windmill", "风车", "post mill", "tower mill"],
+      "tags": ["facility", "agriculture", "processing", "wood", "stone", "wind_power", "building"],
+      "summary": "以斜置风帆受风旋转、经风轴与齿轮带动磨石或水泵的动力设施，最早记载在波斯，欧洲自 12 世纪普及。",
+      "details": {
+        "definition": "以一片或多片装在旋转轴上的帆（sails）受风推动而旋转、并通过风轴与齿轮把旋转传给工作机的装置；最常见用途是研磨谷物，也用于提水与排水。帆面与风成一定角度，使风力分解出一个推动旋转的分量。",
+        "mechanism": "风压作用在斜面帆面上产生旋转力矩；风轴把力矩传出，齿轮改变方向与转速后驱动磨石。帆必须正对风向才能高效工作：早期靠人力用长尾杆转动整体（柱式磨）或转动磨顶（塔式磨），后来出现自动对风的尾翼扇（fantail）。风的不稳定性决定了它需要调节帆面面积或转速，这也是历代改进的方向。",
+        "conditions": "前置包括稳定的风况、木石与巧木结构能力、帆布与绳索、以及传动齿轮的制作与维护。它无法在无风或风向频繁多变的地方替代人畜力，且风速过大时有烧麿（磨石摩擦过热）风险，需要看风调节。安装位置要开日、无高大障碍物。风磨的维护范围很广：帆布、木齿、轴瓦、尾扇都是持续消耗。",
+        "exceptions": "不要把风磨当作风能利用的起点：Hero of Alexandria 在 1 世纪描述过类似装置，波斯早在 9 世纪已用风磨磨谷物。也不要把它与近代风力发电机等同：前者输出机械功，后者主要发电，叶片与调速方式也不同。此外，风磨并不适合所有地区：季风、山谷与多雨多云频繁的区域，风况不够稳定，水磨或畜力更可靠。",
+        "story_uses": "适合作为一处有权力意味的地标：它看得见、转不转全在风，因而能自然地带出盼风、抢风、抢修的情节。也可用于表现风磨主与农户之间的磨费关系。",
+        "historical_scope": "Britannica 指出最早的风磨记载来自 644 年的波斯，915 年 Seistan 已有风磨，属卧式直接带动单对磨石；欧洲自 12 世纪起广泛使用，柱式与塔式先后出现，尾扇于 1745 年发明。荷兰等地用风磨排水提水，部分地区的风磨一直用到 19 世纪。",
+        "evidence_and_uncertainty": "Britannica windmill 条对帆、风轴、齿轮、尾扇与柱式/塔式结构的描述，以及波斯与欧洲的时间线都很明确，支撑较强。各地区形制谱系（如地中海区与北欧环区的差异）本条未展开。review_status 为 needs_review。"
+      },
+      "source_ids": ["tools_src_britannica_windmill", "tools_src_britannica_watermill"],
+      "related_ids": ["tools_watermill", "tools_noria", "tools_rotary_quern"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "tools_kitchen_knife",
+      "name": "厨刀",
+      "aliases": ["kitchen knife", "菜刀", "切刀", "削刀"],
+      "tags": ["tool", "cooking", "cutting", "iron", "steel", "bronze", "human_power"],
+      "summary": "刃固定在柄上的单手切削工具，以切、削、剔为主，是厨房里最基础也最个人化的器具。",
+      "details": {
+        "definition": "一种把刃部固定在柄上的切削工具，刃可以是固定的，也可以折入柄中。作为厨房器具时，它的刃型、开刃角度与刀体重心都偏向于切、削、剥、刻，而不是刺穿。它与刃类武器区分的不是形状，而是使用场合与设计目标：厨刀需要能长时间重复切割食材，而不需要穿透防护。",
+        "mechanism": "切割靠把压力集中到极薄的刃口上：刃口越薄，压强越大，越容易分开食材的纤维与组织；但过薄的刃口遇到硬物（骨、冻肉、砧板）时会崩口。所以厨刀的刃角在「切得动」与「不崩口」之间取舍，也因此需要频繁修磨。刃的弧度与刀尖形状影响切割方式：推送、拉切或剞切。",
+        "conditions": "需要可成形的刃材与柄材，以及把两者牢固结合的工艺（铆接、锻焊、尾茎插入等）。刃材决定维护方式：青铜与低碳铁的刃易钝但可以反复锻修；高碳钢能磨得很锋利却会生锈；不锈钢省维护却难磨到同样锋度。它需要砧板、磨石与容纳切割的空间；切割是做饭流程的头道工序。",
+        "exceptions": "不要把「有刃」等同于「谁都能做好刀」：锻打、热处理与开刃是彼此独立的技能链，懂原理不等于能做出耐用的刀。也不要把现代不锈钢刀的耐用度套到古代铁刃上：历史铁刃会生锈、变钝、卷刃，经常需要磨刀棒与磨石。另外刀与武器的历史边界模糊：Britannica 提到早期切割工具与武器同源，且欧洲男子长期随身携带个人用刀，叙述中不宜简单分成「厨房用具」与「武器」两类。",
+        "story_uses": "适合作为个人化极强的物件：一把刀可以跟着一个人一辈子，刀柄的磨光程度、刃口的崩口位置都能写出使用史。也可用于表现磨刀这一手艺与声音，或用作赠礼、定居、分工的标志。",
+        "historical_scope": "Britannica 说明切割工具与狩猎防身的武器最初都由石与燧石制成，之后为青铜与铁；罗马不列颠时期已有钢刃的食用刀。欧洲 17 世纪以前，只有富裕人家才有成套餐具可供客用，男子普遍携带个人刀，女性则将刀系在腰带上。这些细节属于欧洲脉络，不能推为全球通则。",
+        "evidence_and_uncertainty": "Britannica knife 条提供了刃固定或铰接于柄的定义、与餐具类别的关系、石至铁的材料递进与欧洲携带习惯的例子，支撑定义与部分历史范围。具体刃型谱系、各地区形制差异、刃角数值等未逐项核对，本条不提供制造参数。review_status 为 needs_review。"
+      },
+      "source_ids": ["tools_src_britannica_knife", "tools_src_britannica_hand_tool"],
+      "related_ids": ["tools_pottery_cooking_pot", "tools_mortar_pestle", "tools_sickle"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "tools_pottery_cooking_pot",
+      "name": "陶质炊具（釜、鬲、炖罐）",
+      "aliases": ["cooking pot", "陶釜", "鬲", "炖罐", "炊具"],
+      "tags": ["tool", "cooking", "ceramic", "clay", "fuel"],
+      "summary": "直接置于火上的陶质容器，把煮、炖、蒸这类以水传热的烹饪方式变成日常可能。",
+      "details": {
+        "definition": "一类可以直接受火加热的陶质容器：底部较厚、器型多为深腹，用于煮、炖、蒸与熬。它与单纯用于储存的陶罐不同，关键在于能承受加热与冷却时的热应力；部分形制带足或带腰，便于在灶或支架上稳定放置。",
+        "mechanism": "陶器导热慢、储热多，适合长时间低温炖煮；水在容器内形成均匀的温度场，使谷物、豆类与根茎中的淀粉糊化、纤维软化。这正是陶质炊具最大的饮食意义：它把硬的、需长时间处理的食材变得可食。加热时容器内外存在温差，递变过快会开裂，因此预热与缓慢冷却是使用中的关键技巧。",
+        "conditions": "前置包括可取的黏土、成形与阴干技术、大量燃料与可控制升温速度的烧制设施，以及能承受热冲击的坯体配方（往往需加入掺和料以减轻收缩开裂）。使用上需要稳定热源与支撑结构；空烧、刚烧完就浸冷水或底部干烧都会导致炸裂，这意味着它需要持续的替换与陶工供应。",
+        "exceptions": "不要把陶质炊具与「陶器」混为一谈：同样的黏土可以烧成储罐、餐具或建筑材料，能当炊具的坯体对耐火与抗热震有额外要求，不能假定任何陶容器都能上火。也不要把所有烹饪都归功于陶器：石煮（把烧热的石块投入水中）、直接烤炙与包叶烤在陶器之外长期存在，且各有适用的食材与环境。另一常见误导是「陶器一出现就取代了旧方法」，实际上多种烹饪方式长期并行。",
+        "story_uses": "适合作为家计单位的核心器物：一口锅的大小对应一家人的口数。也可用于表现一个村子的陶工与换锅周期，或用炸裂、干烧这类事故制造具体损失。",
+        "historical_scope": "Britannica 指出已知最早的陶器出自安纳托利亚 Çatalhüyük 的新石器遗址，距今约九千年，属粗糙而软的陶器；陶器在不同地区分别出现，炊煮形制与灶具、燃料结构一起变化，没有统一时间表。",
+        "evidence_and_uncertainty": "Britannica earthenware 条提供陶器吸水性与烧成、以及最早陶器的考古线索，支撑材料与前置条件；专谈炊具形制与热震性能的段落本条未直接核对专门窑业文献，相关表述属一般性归纳。review_status 为 needs_review。"
+      },
+      "source_ids": ["tools_src_britannica_earthenware", "tools_src_britannica_mortar_pestle"],
+      "related_ids": ["tools_storage_jar", "tools_pottery_wheel", "tools_kitchen_knife"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "tools_pottery_wheel",
+      "name": "陶轮（转盘）",
+      "aliases": ["pottery wheel", "陶车", "kick wheel"],
+      "tags": ["tool", "craft", "ceramic", "clay", "wood", "human_power"],
+      "summary": "以垂直轴使工作盘稳定旋转的成形器，靠旋转对称与手部施压把泥坯快速拉成回转体。",
+      "details": {
+        "definition": "一种让泥坯在垂直轴周围稳定旋转的装置，通常由圆盘（轮盘）、立轴与轴承、以及下方的驱动盘或脚踏机构组成。操作者把泥团置于转盘中心，双手施压拉提，借旋转的对称性拉出圆形器坯。它与手捏、泥条盘筑的区别在于：形状主要由旋转与双手的相对位移形成，而不是靠逐段拼贴。",
+        "mechanism": "旋转本身并不塑形，但提供了一个稳定的参考系：泥团上任一点在旋转中反复回到同一位置，于是对称成为默认结果。手在旋转中略微偏移就会产生连续而均匀的壁厚变化，这是手捏难以达到的效率。轮盘需要轴承以减少摩擦，并靠惯性维持转速；脚踏式可以解放双手，但要求操作者同时控制脚与手的节奏。",
+        "conditions": "前置包括可塑性合适的黏土、会控制泥坯含水量的人，以及能制作同心轴与轴承的木工能力。轮子要稳：盘面倾斜或轴有旷量会让器坯偏心。之后仍需阴干与烧制，因此陶轮只解决成形，不解决干燥与烧成；爆坯与烧裂仍会发生。",
+        "exceptions": "不要把陶轮当作「更高级所以取代手制」：手捏、泥条盘筑与模制在陶轮普及后依然广泛使用，尤其在大型器物、异形器物与小型聚落中。也不要把陶轮的发明与运输用轮混为一谈：Britannica 提到制陶用转盘在美索不达米亚可追溯到约公元前 3500 年，与其他用途的轮同时期但用途不同。另有常见误解：有轮就能拉出任何器物，实际上大件与异形仍靠手工，而拉坯失败的代价很高。",
+        "story_uses": "适合作为专门手艺人的标志与作坊存在的证据：陶轮占用固定空间，它的出现往往意味着定居与专业化。也可用「器坯偏心」、「泥太湿拉不起来」这类具体挫折表现学徒期。",
+        "historical_scope": "Britannica 指出用作制陶的轮盘（turntable）在美索不达米亚约公元前 3500 年已经出现。各地区出现与普及的时间差异很大，部分制陶传统长期不使用陶轮。",
+        "evidence_and_uncertainty": "Britannica wheel 条明确提到公元前约 3500 年美索不达米亚已有制陶用转盘，支撑其年代与功能。陶轮的具体结构类型、各地区传入时间与拉坯技术细节本条未逐项核对专门陶业文献。review_status 为 needs_review。"
+      },
+      "source_ids": ["tools_src_britannica_wheel", "tools_src_britannica_earthenware"],
+      "related_ids": ["tools_storage_jar", "tools_pottery_cooking_pot"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "tools_spindle_whorl",
+      "name": "纺锤与纺轮",
+      "aliases": ["spindle", "spindle whorl", "纺锤", "纺轮", "纺坠", "hand spindle"],
+      "tags": ["tool", "textile", "craft", "wood", "stone", "clay", "human_power"],
+      "summary": "一根纺杆加一个加重轮，靠悬垂旋转把纤维加捻成纱；每批纱要分段续接，与纺车是两套工艺。",
+      "details": {
+        "definition": "一套手纺器具：一根细长的纺杆（spindle）加上套在杆上的加重轮（whorl，可用石、陶、骨或木制），也可另配一根持纤维的纺杆或绕杆（distaff）。操作时把纤维堆在手上或绕在杆上，拉出一段而让纺锤悬垂旋转，加捻成纱后绕到杆上，再拉出下一段。",
+        "mechanism": "纺锤悬垂时自重与旋转惯性形成持续捻度，把平行纤维转成有强度的纱。加重轮的转动惯量决定旋转的平稳性与可纺纱的粗细：轮重、转速慢，适合粗纱；轮轻、转速快，适合细纱。这是一个需要双手与身体协同的动作，而不是单一手指技巧。",
+        "conditions": "前置是已清理、梳开的纤维（羊毛、麻、棉、丝各有前处理）与能加工出直杆与钻孔重轮的工具。纺锤是便携的：可边走边纺，因此在放牧、看孩子与行路时都能进行，这与需要固定安装的纺车形成鲜明对比。纱的强度取决于捻度是否均匀，而这完全依赖操作者的手感与经验。",
+        "exceptions": "不要把纺锤看成纺车的低配版：二者是不同的技术路线。Britannica 明确说，早期的纺纱方式是把纤维从一束羊毛（持在 distaff 上）拉出、捻成连续纱并绕到第二根杆（spindle）上；纺车的第一步机械化是把锭子水平装在轴承上、用绳索连到大的手转轮，这是结构性的改变。也不要把「有轮」当成纺锤：纺轮的加重轮不接触地面，不承担传动。此外，纺纱与织布是两个独立环节，会织不一定会纺。",
+        "story_uses": "适合写成随时可做、随时可停的劳动：赶路、看畜、等雨都可以纺。也可用纺轮（常能从遗址出土）作为「这里有人长期生活」的考古线索，或作为女性手工与传授的象征物。",
+        "historical_scope": "Britannica 把手持纺杆加纺锤的手纺描述为纺车之前长期使用的方法，但未给出统一年代。纺轮实物在遗址中大量出现，是考古上判断纺织活动的重要指示物；具体年代与形制谱系需依地区考古报告，本条不给定论。",
+        "evidence_and_uncertainty": "Britannica spinning wheel 条对「distaff 持纤维、spindle 加捻并绕纱」的手纺流程有明确描述，支撑定义与机制；纺轮作为独立器物的形制分类与年代学细节本条未逐项核对考古文献。review_status 为 needs_review。"
+      },
+      "source_ids": ["tools_src_britannica_spinning_wheel", "tools_src_britannica_rope", "tools_src_britannica_loom"],
+      "related_ids": ["tools_spinning_wheel", "tools_loom", "tools_rope"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "tools_spinning_wheel",
+      "name": "纺车",
+      "aliases": ["spinning wheel", "Saxon wheel", "萨克森轮", "脚踏纺车"],
+      "tags": ["tool", "textile", "craft", "wood", "human_power"],
+      "summary": "用大轮经绳索传动水平锭子、以轴承代替悬垂旋转的纺纱机；萨克森式加线轴与脚踏，解放了双手。",
+      "details": {
+        "definition": "一种把锭子水平装在轴承上、由一个大手轮经绳索（或皮带）传动而旋转的纺纱机械。纤维束持在一根杆上（后期为固定竖杆），一手控制轮的转速、另一手控制纤维的牵伸与加捻角度，从而纺出比手纺更均匀的纱。",
+        "mechanism": "传动比是关键：大轮转一圈，小直径的锭子转很多圈，于是能以较低的手部速度获得较高的加捻速度。锭子水平安装后不再需要悬垂，于是重力对纱的牵伸不再受限，可纺出更细更均匀的纱；萨克森式又加上线轴，使纱能连续绕上而不必停下来绕纱，并由脚踏驱动、双手均可用于牵伸。",
+        "conditions": "前置是能做出同心轮、轴承与绳传动的木工与精细装配能力，以及已清理好的纤维。纺车不能携带，需要固定位置与坐姿，这改变了纺纱的劳动组织：它从「随处可做」变成「在家、在作坊做」。轮的旷量、绳的张力与锭子的同心度都影响成纱质量，维护需要手艺。",
+        "exceptions": "不要把纺车当作纺纱的必经阶段：Britannica 指出它可能发源于印度、起源模糊，经中东传入欧洲中世纪；在此之前的手纺长期有效，且在很多地区一直存在。也不要把它当作自动机械：纺车仍然完全依赖人手牵伸与判断，这与后来的机械纺纱（以及 18 世纪英国的系列发明）有本质差别。另一常见误解是「轮越大越好」，实际上传动比、锭速与纤维类型要配合。",
+        "story_uses": "适合作为家内作坊的核心设备，也是女性劳动与技艺的集中体现。也可用纺车占位、噪音与传动绳断裂作为具体场景；「谁家有纺车」与代纺、租用形成经济关系。",
+        "historical_scope": "Britannica 认为纺车可能发明于印度、起源不清楚，中世纪经中东传入欧洲；萨克森式（带线轴、脚踏）于 16 世纪初在欧洲出现；18 世纪英国织机的改良造成纱线短缺，推动了一系列把纺车变成动力化机械的发明。这些节点属特定地区脉络。",
+        "evidence_and_uncertainty": "Britannica spinning wheel 条对水平锭子、绳索传动、萨克森轮与脚踏、以及 18 世纪纱线短缺推动机械化的链条有明确叙述，支撑较好。纺车的具体起源地与更早的形制演化仍有学术争议，本条保持不确定表述。review_status 为 needs_review。"
+      },
+      "source_ids": ["tools_src_britannica_spinning_wheel", "tools_src_britannica_loom", "tools_src_britannica_rope"],
+      "related_ids": ["tools_spindle_whorl", "tools_loom"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "tools_loom",
+      "name": "织机",
+      "aliases": ["loom", "织布机", "背带织机", "backstrap loom", "双杆织机"],
+      "tags": ["tool", "textile", "craft", "wood", "human_power"],
+      "summary": "把经线张紧、以开口—投纡—打绥的循环把纬线织入的手工机械，从背带式到带综杆与提花装置的多种形制。",
+      "details": {
+        "definition": "一类用于织造织物的机械：以框架、横杆或人体张力把一组平行经线保持张紧，通过交替抬起部分经线形成开口（shed），把纬线穿过开口，再用筘或刀把纬线打紧，如此反复。最早的形式只是固定若干横杆构成框架；后来的改进包括综杆（heddle）、梭子与投梭机构、提花装置等。",
+        "mechanism": "织造的核心是三个动作的循环：开口（分开经线形成通道）、投纡（把纬线穿过）、打绥（把纬线推向织口）。三个动作的机械化程度决定产能与可织图案的复杂度。经线张力必须均匀，否则织出的布宽窄不一；组织（平纹、斜纹、缎纹）取决于经纬交错的规律。",
+        "conditions": "前置包括纺好的纱（经线需要较高强度与均匀度）、能保持张力均匀的框架或张力装置、以及打绥与开口的工具。织机占用空间，且上机（穿综、穿筘、整理经线）是耗时的准备工序，往往比织本身更长。这使织造倾向于专门化与批量生产，而不是随手可做的零活。",
+        "exceptions": "不要把「织机」想象成一种统一的机器：Britannica 提到背带织机在哥伦布前的美洲与亚洲都有，纳瓦霍人长期使用双杆织机；不同形制的经线张力来源、开口方式与可织幅宽差异极大。也不要把提花装置当成古代普通织机的配置：复杂图案需要专门的提花机或专用附件。另外，织机不会自己纺纱——纱线短缺是历史上制约织造的真实瓶颈，Britannica 也提到 18 世纪英国织机改良造成了纱线短缺。",
+        "story_uses": "适合作为家庭或作坊的空间占用者与时间消耗者：上机那一天往往比织布的那几天更忙。也可用织机的哐啷声作为村落背景音，或用织物的幅宽与密度表现手艺高低。",
+        "historical_scope": "Britannica 指出最早的织机可追溯到公元前五千纪，由固定的横杆或梁构成框架；综杆的引入是重要改进；提花机可能为丝织而在亚洲发明，18 世纪法国以穿孔卡实现机械化；英国 18 世纪的飞梭、动力驱动等发明推动了工业革命。这些时间线属特定地区，不宜普适化。",
+        "evidence_and_uncertainty": "Britannica loom 与 weaving 两条对经线纬线、开口/投纡/打绥三步骤、综杆与梭、提花与背带织机都有明确叙述，支撑较强。各地区织机形制谱系与上机工序细节未逐项核对专门纺织史文献。review_status 为 needs_review。"
+      },
+      "source_ids": ["tools_src_britannica_loom", "tools_src_britannica_weaving", "tools_src_britannica_spinning_wheel", "tools_src_britannica_basketry"],
+      "related_ids": ["tools_spinning_wheel", "tools_spindle_whorl", "tools_basket"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "tools_hammer",
+      "name": "锤与槌",
+      "aliases": ["hammer", "mallet", "锤", "榔头", "木槌", "大槌"],
+      "tags": ["tool", "woodworking", "metalworking", "stoneworking", "wood", "stone", "iron", "human_power"],
+      "summary": "以质量与速度传递冲击的击打工具，锤头与柄的结合是其核心工程难题；软锤配合凿子使用。",
+      "details": {
+        "definition": "一类靠动能击打工件的工具，包括锤、槌、大槌、木槌、捣杵与石锤。它们共享同一原理：把一定质量加速后停在工件上，把能量在极短时间内传递出去。锤头的形状（平脸、球头、横头、模面）与柄的长度决定用途：平脸用于敲入与模平，球头用于铆接与锤圆，横头用于打直与挤伸。",
+        "mechanism": "冲击能量的传递效率取决于锤头的质量、挥动速度与接触面积。柄把身体转动转化为锤头的弧线速度，同时把手与冲击点隔开。锤头与柄的结合部是整个工具受力最大的地方，必须承受高频冲击载荷；这是装柄技术长期存在的难题。",
+        "conditions": "前置包括可成形的锤头（石、青铜、铁）、能承受冲击的柄木，以及把两者牢固结合的手段。石锤没有深榫孔，只能用绑扎或把柄弯过石头上的凹槽；金属锤头可以开榫孔套柄，但这要求铸造或锻打出孔，且柄必须紧密。木槌可用一整段带枝的圆木截成，不需要金属。使用方面，锤击需要稳固的工作台或固定工件（台钳、砧），否则力被工件位移吸收。",
+        "exceptions": "不要把锤简单理解成「石头绑在棍上」：Britannica 指出装柄使工具获得更好的控制与更大的能量，这是巨大的技术进步；但锤头与柄的接合也因此成为主要故障点。也不要把金属锤当成石锤的无限升级：对于软金属板，工匠们常用不带柄的石锤，因为手感更好。软锤（木、骨、鹿角）用于敲击石凿与金属凿，以避免损伤更宝贵的工具，这是锤类的重要分工。",
+        "story_uses": "适合表现手艺与身体技艺：锤的节奏、握法、从腕到肩的发力方式都需要多年养成。也可用「锤头飞脱」这类事故制造身体伤害与工具归责的情节。",
+        "historical_scope": "Britannica 认为最早的敲击工具是石锤，而它也可能是最早装上柄的工具；新石器时代的矿工大槌属于最早的有柄锤形式之一；铁器时代出现了把锤头开孔穿柄的做法（中东青铜工匠更早使用）；爪锤在罗马时代已是比例良好的成熟形制。这些时间线属特定地区，不宜普适化。",
+        "evidence_and_uncertainty": "Britannica hand tool 的击打工具专节对锤、槌、杵的分类、装柄的两难、软锤的用途及榫孔出现的时间都有明确叙述，支撑较强。具体形制重量与挥动效率数值未逐项核对专门工具史文献。review_status 为 needs_review。"
+      },
+      "source_ids": ["tools_src_britannica_hammer", "tools_src_britannica_hand_tool"],
+      "related_ids": ["tools_chisel", "tools_adze", "tools_forge_anvil"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "tools_chisel",
+      "name": "凿子",
+      "aliases": ["chisel", "凿", "扁凿", "石凿"],
+      "tags": ["tool", "woodworking", "stoneworking", "metalworking", "iron", "bronze", "stone", "human_power"],
+      "summary": "以金属杆末端的硬化刃口、由锤或槌驱动来修整木、石、金属的手工切削工具，刃口保持锋利是持续投入。",
+      "details": {
+        "definition": "一种刃口开在金属杆（或石、骨杆）末端的切削工具，靠锤或木槌敲击后端驱动刃口斜切前进，用于修整、开槽、剔除与修饰木、石、金属等固体材料。与刀的区别在于：凿不是靠手推或拉，而是靠冲击推进。",
+        "mechanism": "刃口在冲击下以很小的接触面积切入材料，把切屑或碎片剥离。刃口的斜面角度决定耐用度与入料难易：角度小则切削轻快但易崩口，角度大则耐久但需要更大的力。木凿通常靠推送与槌击结合，石凿则通常配软锤（木、骨、角）以减少刃口损伤——这是常见做法而非绝对规则，硬锤加轻击、逐步推进也存在。",
+        "conditions": "前置是能成形并硬化的刃材：石凿需要可磨制的石料；铜与青铜凿需要铸造与冷加工硬化；铁与钢凿需要锻打与淬火。还要有能驱动它的槌或锤，以及固定或稳定工件的夹具与工作台。刃口钝了要重磨，崩口要重开刃，这是持续的维护劳动。",
+        "exceptions": "不要把凿子当成「小一号的斧子」：凿是依靠刃口斜切而非垂直劈开，两者的作用刃与持柄方式不同。也不要把历史凿子当作现代钢凿：Britannica 指出工具钢是现代专门合金钢，而历史铜与青铜凿的硬度与耐磨性远不能与之相比，因此可加工的材料范围也不同。另一常见误解：有凿就能雕刻任何石头，实际上石材硬度与凿材必须匹配。",
+        "story_uses": "适合用于表现精细手艺与耐心：开一个槽可能需要半天。也可用于表现石匠、木匠与金工的共事与地位差异——石匠需要木匠做模具与支架，金工需要木炭与炉具。",
+        "historical_scope": "Britannica 指出现代凿的燧石祖型可追溯到公元前 8000 年；Egyptians 用铜与后来的青铜凿加工木与软石；今日的凿为钢制，尺寸与硬度随用途变化。这些节点属特定地区脉络，各地区凿形谱系差异很大。",
+        "evidence_and_uncertainty": "Britannica chisel 条给出定义、刃口位于金属杆末端、需锤或槌驱动、燧石祖型年代与埃及铜/青铜凿，支撑定义与部分历史范围。具体凿形分类、刃角参数与热处理工艺本条不提供（避免构成制作指南）。review_status 为 needs_review。"
+      },
+      "source_ids": ["tools_src_britannica_chisel", "tools_src_britannica_hand_tool", "tools_src_britannica_hammer"],
+      "related_ids": ["tools_hammer", "tools_adze", "tools_saw"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "tools_adze",
+      "name": "锛",
+      "aliases": ["adz", "adze", "手锛", "锛子"],
+      "tags": ["tool", "woodworking", "wood", "stone", "bronze", "iron", "human_power"],
+      "summary": "刃口与柄垂直的整木工具，以镐式动作向内下方劈削，把木料外表削平或挖空，是造舟与梁柱的器具。",
+      "details": {
+        "definition": "一种修整木料的手工工具：刃口与柄成（近）直角，与斧的平行装法相反。操作者跨立或站在木料上，以类似镐的动作用向内下方劈削，把表面削平、把原木挖空。它是最早的工具之一，在石器时代以手持打制石片的形式广泛分布。",
+        "mechanism": "锛的刃口横向切过木料并同时切入，因此切削与排屑方向与斧不同：斧靠沿纤维劈开，锛靠顺纤维削平。直角装柄让人能对着脚下的木面作业，适合把一整根原木加工成梁、槽、船体或棺。刃口削入深度靠角度与力度控制，过陡则啃入木料，过浅则打滑。",
+        "conditions": "需要可成形的刃（石片打制、铜与青铜铸造或铁锻造）、能可靠固定刃与柄的装柄方式（绑扎、桦套、T 形装法），以及把木料固定或加重使其不滚动的能力。作业姿态要求跨立于木料之上，存在腖部与足部受伤风险，通常是熟手的工作。",
+        "exceptions": "不要把锛与斧当成可以互换的工具：Britannica 明确指出两者差别在于刃口与柄的关系——斧的刃口与柄平行、镂的刃口与柄成直角；斧用于伐木与切断，锛用于削平与挖空。也不要把锛看作「木匠專用」：它在造舟、建屋、制作棺椁与农具上都具有不可替代的位置。另一常见误解：石锛能加工任何木料，实际上石材硬度与刃口保持能力限制了它能处理的木种与工作量。",
+        "story_uses": "适合表现专注与危险的劳动：跨在木料上向内劈削，一失手就伤腿。也可用于表现独木舟、大梁或棺椁这类大型木作的诞生。",
+        "historical_scope": "Britannica 指出锛在石器时代以手持石片形式广泛分布；到埃及时期已有木柄、把铜或青铜刃平置于柄顶形成 T 形；此形制长期是修整木材的主要手工工具。各地区时间差异很大，不宜统一断代。",
+        "evidence_and_uncertainty": "Britannica adz 条给出刃口与柄垂直、镐式动作、石片到埃及 T 形装柄的演变，支撑定义与机制；hand tool 条补充了斧与锛的对比。具体形制谱系与效率比较未逐项核对。review_status 为 needs_review。"
+      },
+      "source_ids": ["tools_src_britannica_adz", "tools_src_britannica_hand_tool", "tools_src_britannica_hammer"],
+      "related_ids": ["tools_chisel", "tools_saw", "tools_hammer"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "tools_saw",
+      "name": "锯",
+      "aliases": ["saw", "手锯", "框锯", "纵锯", "横锯", "夹背锯"],
+      "tags": ["tool", "woodworking", "stoneworking", "metalworking", "iron", "steel", "human_power"],
+      "summary": "一排细齿在窄薄刃上连续切削的工具，锯齿分料使切缝宽于锯身以防夹锯；纵锯与横锯齿形不同。",
+      "details": {
+        "definition": "一种以薄刃或薄圆盘的一侧或周边的齿连续切削固体材料的工具。手持型多为薄金属条装在柄或框架上。锯与凿、锛的根本区别在于：它不是靠单次冲击，而是靠许多小齿反复划切形成窄缝（kerf）。",
+        "mechanism": "锯齿被拨向左右两侧交替（称为分料或拨齿），使切出的缝宽大于锯身厚度，从而避免锯身与已切面摩擦夹死。锯齿形状决定用途：纵锯齿的切削刃与锯身成直角、像一排凿子顺纹切；横锯齿像刀刃、在缝两侧各划一条线，把中间的木料弄碎。推与拉的用力方式也因传统而异。",
+        "conditions": "需要能做出薄而平直的锯身与均匀锯齿的金属加工能力，以及把齿拨开与持续磨锐的技能。锯身要够硬以保持张紧，又要够韧不致折断。框架锯需先把锯条张紧才能使用。使用方面，工件需固定（台、脚踩、夹钳），否则锯会跳动。制齿与拨齿都需要专用工具与经验。",
+        "exceptions": "不要把锯当作所有材料通用的切割器：不同材料需不同齿型与齿距，用错会很快钝化或卡死。也不要把锯片做成越薄越好，太薄易变形与抖动。另外，锯并不是自然出现的工具——它要求金属薄片与精密制齿，这在早期工具谱中属于较晚的能力，不能把后世的钢锯效能套到早期。",
+        "story_uses": "适合作为作坊里最吵闹的工具与师徒传授的焦点：磨锯与拨齿是专门的手艺。也可用锯缝的宽窄与平直程度表现手艺高低，或用断锯条制造具体挫折。",
+        "historical_scope": "Britannica 对手锯（纵锯、横锯、夹背锯）与机械锯的分类有明确叙述，但未给出手锯的起源年代。本条不假定统一的时间表：各地区锯的出现与形制差异很大，且受金属加工能力制约。",
+        "evidence_and_uncertainty": "Britannica saw 条对分料（拨齿）、纵锯与横锯齿形的差异、夹背锯与机械锯的分类具有明确描述，支撑定义与机制。锯的起源年代与各地区形制谱系本条未核对专门工具史文献，因此不作断言。review_status 为 needs_review。"
+      },
+      "source_ids": ["tools_src_britannica_saw", "tools_src_britannica_hand_tool"],
+      "related_ids": ["tools_chisel", "tools_adze", "tools_auger"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "tools_hand_drill",
+      "name": "手工钻具（弓钻、泵钻、手摇钻）",
+      "aliases": ["bow drill", "pump drill", "hand drill", "弓钻", "泵钻", "手摇钻", "搓钻"],
+      "tags": ["tool", "woodworking", "stoneworking", "craft", "wood", "stone", "bronze", "iron", "human_power"],
+      "summary": "把旋转运动施加于尖端以造孔的器具，靠手搓、皮条、弓或泵杆提供旋转；石材钻孔则配研磨砂。",
+      "details": {
+        "definition": "一类以旋转尖端造孔的器具。按驱动方式分为：手搓钻（双掌来回搓转）、皮条钻（皮条绕轴后拉动）、弓钻（皮条两端系于弓上，往复拉动弓使轴正反旋转）、泵钻（横杆可沿轴上下滑动，靠绳缠绕与飞轮维持旋转）、手摇钻（曲柄经齿轮驱动）。",
+        "mechanism": "旋转的尖端以切削或研磨方式去除材料。锥子（awl）只是把材料挤到一边而不去除，因此不属于真正的钻；钻、螺钉与螺旋钻都有刃口，会把材料分离成屑。钻与钻大孔（boring）的区别在于速度与扭矩的组合：钻孔需要高转速低扭矩，大孔则需要低转速高扭矩。石材钻孔通常靠旋动的木杆或铜管带动湿砂研磨，而不是靠尖锐刃口。",
+        "conditions": "前置包括能做出直轴、轴承（上端需顶垫以避免磨手）与刃尖的材料与工艺。弓钻需要一张弓与皮条；泵钻需要飞轮与横杆；手摇钻需要曲柄与齿轮，因而出现较晚。工件必须固定，否则会跟着转。石材钻孔耗时长，需持续加砂与水。",
+        "exceptions": "不要把钻与锥子混为一谈：Britannica 明确锥子如针一样只是把材料挤开而不去除，而钻具带有刃口会移除材料。也不要把泵钻当成古代通用工具：它出现于罗马时期，比弓钻晚得多；手摇钻更晚（约 1805 年才有带齿轮的版本）。此外，弓钻在 20 世纪前仍在欧洲小作坊中使用，在其他地区至今未废止——它是未退役的工具，而不是历史阶段的遗留。",
+        "story_uses": "适合表现需要耐心的工步：在石斧上钻一个孔可能耗数日。也可用弓钻的嗡鸣作为作坊声音，或用「钻偏了」作为不可逆的失误。",
+        "historical_scope": "Britannica 指出旧石器时代晚期已出现被穿孔的贝壳、象牙、鹿角、骨与齿；手搓与皮条驱动之后才有弓钻（约在旧石器晚期弓箭出现之后）；泵钻出现于罗马时期；带齿轮的手摇钻为 1805 年；工厂生产的螺旋沟钻头到 19 世纪后期才普及。",
+        "evidence_and_uncertainty": "Britannica hand tool 的钻孔专节对锥子与钻具的区别、手搓/皮条/弓钻/泵钻的演进、研磨砂与管钻取芯、以及机器制造钻头的时间都有较详细的叙述，支撑较强。具体转速与效率数值未核对。review_status 为 needs_review。"
+      },
+      "source_ids": ["tools_src_britannica_drilling", "tools_src_britannica_drill", "tools_src_britannica_hand_tool"],
+      "related_ids": ["tools_auger", "tools_chisel", "tools_saw"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "tools_auger",
+      "name": "螺旋钻",
+      "aliases": ["auger", "木工钻", "螺旋钻头", "brace and bit"],
+      "tags": ["tool", "woodworking", "construction", "iron", "steel", "human_power"],
+      "summary": "带螺旋沟槽把木屑向上导出的钻孔工具，配合弓形柄或双手横杆使用，可用于打榫孔与木钉孔。",
+      "details": {
+        "definition": "一种用于在木材上钻大孔的钻具：工作端有螺纹锥、割圈尖与切削刃，后接螺旋形沟槽（flutes）把木屑向上导出，再由方锥形的尾端（tang）装入弓形柄或横杆中旋转。它在木构中用于打木钉孔（treenail）与螺栓孔，也可顺纹钻通制作木管与泵壳。",
+        "mechanism": "拧入的螺纹把钻头拉进木材并提供自动进给，割圈尖先划出一个圆把纤维切断，随后的切削刃在圈内切屑，螺旋沟把木屑连续排出而不必反复退钻。这一连串分工使它能一次钻出又深又圆的孔，而旧式的半圆管形钻必须退出倒屑。",
+        "conditions": "前置包括能锻出螺旋形沟槽的铁工能力（这是关键门槛）、能把钻头装入并可靠传力的柄机构，以及能固定木料的夹具或工作台。大直径的孔需要更大的扭矩，因此往往用双手横杆或弓形柄而不用单手钻。",
+        "exceptions": "不要把螺旋钻当作铁器时代就有完整形态的工具：Britannica 指出螺旋（螺纹）钻杆把木屑带到表面是中世纪的发明（尽管罗马不列颠有一例），而铁器时代的基本螺旋钻只是半边管状、需要反复退钻倒屑。另要区分钻与螺纹锥：螺纹把钻头拉入工件，但这不是用来固定螺丝的螺纹。也不要把大地钻（用于立柱坑）与木工螺旋钻混为一谈，二者尺寸与用途差异极大。",
+        "story_uses": "适合用于表现木构建筑的关键工步：攒一颗木钉就要一个孔。也可用钻头卡在材里、螺纹打滑、或钻穿偏位作为具体事件，或将弓形柄当作手艺人的身份物件。",
+        "historical_scope": "Britannica 指出基本螺旋钻在铁器时代已作为扩大已有孔的工具出现，带横杆供双手旋转、形似纵向剖开的管；带螺旋或螺纹钻杆把木屑带到表面的形制为中世纪发明（罗马不列颠有一例）；带胸抵与曲柄的弓形柄最早见于约 1425 年的绘画。",
+        "evidence_and_uncertainty": "Britannica auger 条与 hand tool 钻孔专节对螺旋钻的结构、螺纹进给、螺旋排屑与各时代形制差异有明确描述，支撑较强。具体尺寸、转速与各地区谱系未逐项核对。review_status 为 needs_review。"
+      },
+      "source_ids": ["tools_src_britannica_auger", "tools_src_britannica_drilling", "tools_src_britannica_hand_tool"],
+      "related_ids": ["tools_hand_drill", "tools_saw", "tools_chisel"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "tools_forge_anvil",
+      "name": "锻炉与砧（锻打设备）",
+      "aliases": ["forge", "anvil", "blacksmith forge", "锻炉", "铁砧"],
+      "tags": ["facility", "metalworking", "craft", "iron", "stone", "fuel", "building"],
+      "summary": "把金属加热到可塑状态并靠砧面反作用力成形的成套设备；燃料、风量与砧面磨损决定了能做什么活。",
+      "details": {
+        "definition": "一套互为条件的金属加工设施：包括加热金属的炉膛与鼓风手段（风箱、吹管）、承受打击的砧体（金属砧、石块或硬木墩）、以及夹持与切断用的锤、凿、钳等辅助器具。三者缺一，就无法稳定地把金属从块料变成工具、兵器或器具。",
+        "mechanism": "加热使金属降低变形抗力，在高温下可以靠锤击改变形状而不开裂；砧面提供反作用力，把锤击的能量限定在工件上，同时把热量与震动从操作者处引开。反复的加热、锤、淬火与回火构成一个循环，每次循环只能完成有限的变形，因此一件铁器需要多次加热。",
+        "conditions": "前置条件很多：可得的金属原料（天然金属、铸铜、铁矿石与可炼的铁）、高到足以塑形/熔化的温度（这要求燃料与足量鼓风）、能耐受高温的炉壁材料、以及重量足够的砧体。此外要求极高的经验：温度靠颜色判断，过少不能成形、过多则烧损或产生不可修的缺陷。锻炉还需要大量木炭或煤炭，燃料供应是长期约束。",
+        "exceptions": "不要把「知道铁能锤打」当成发明锻造：任何一次缺环节的尝试都会失败，而且失败难以区分原因（料不纯、温度不够、锤击时机错）。也不要把锻炉与冷加工混为一谈：冷锤只能对软金属做有限变形，且会开裂。另需区分职业锻工与自给性家庭锻铁：前者有固定作坊与市场，后者依赖游走工匠或借用他人设施。本条不提供任何操作流程、温度数值或配方；这类内容属于危险制造知识，不在百科范围内。",
+        "story_uses": "适合作为村落中技术门槛最高的地点之一：炉火、味声与锤击节奏可以成为场景标记。也可用「炉子不够热」「炭不够了」制造具体的产能瓶颈，或用以表现工匠与农人之间的依赖关系。",
+        "historical_scope": "Britannica 指出火是冶金的基础，而铜与青铜的出现早于铁数千年，铁更晚，是因为需要更高的温度与技术、经验与设备支持。这是单条技术链的递进，不表明每个地区的安装时间与形式相同。各地区燃料与炉型差异很大。",
+        "evidence_and_uncertainty": "Britannica hand tool 条对火与冶金的关系、以及铁所需的高温与装备门槛有明确叙述，支撑前置条件的说法。给炉型、风量、温度区间或具体工艺的细节，本条有意不提供。review_status 为 needs_review。"
+      },
+      "source_ids": ["tools_src_britannica_hand_tool", "tools_src_britannica_hammer"],
+      "related_ids": ["tools_hammer", "tools_chisel", "tools_saw"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "tools_balance_scale",
+      "name": "等臂天平与杆秤",
+      "aliases": ["balance", "steelyard", "天平", "杆秤", "称"],
+      "tags": ["tool", "measurement", "trade", "bronze", "iron", "wood", "human_power"],
+      "summary": "用重力平衡比较质量的量具；等臂天平需臂长相等的均匀横梁，杆秤则用不等臂配已知砝码读距离。",
+      "details": {
+        "definition": "一类比较质量的器具。等臂天平（balance）把物体与已知磅码分挂于一根横梁两端，靠横梁平衡读结果；杆秤（steelyard）则把物体挂在短臂、把可滑动的秤砧挂在长臂，靠滑动位置读重量。两者均以杠杆平衡为原理，而不是弹形变。",
+        "mechanism": "平衡时两侧力矩相等：力臂乘质量一致。等臂天平的刻度是离散的磅码组合，因此精度取决于磅码本身与臂长是否真的相等；杆秤的读数依赖秤杆刻度的均匀性与秤砣质量。Britannica 指出不平臂会引入系统误差，而替代称量法（先用配重平衡未知物、再用已知磅码替换）可以消除臂长不等的影响——这是古代已知的高明手段。",
+        "conditions": "前置包括能做出直而均匀的横梁与可重复的磅码（这需要一个已有的质量标准）、耐磨的支点（早期用绳索，罗马左右改用穿过横梁中心的销轴，18 世纪才有刀口）。天平的精度受限于支点摩擦、风力与操作者的读数；它必须在无风、水平的环境中工作，因此往往配箱体与支架。",
+        "exceptions": "不要把所有称量都当成天平：杆秤（不等臂）与等臂天平的结构与误差来源完全不同；弹簧秤则依靠弹性变形，是更晚的路线，Britannica 把机械天平的现代精度归功于 18 世纪刀口与 19 世纪的工艺，而电子天平要到 20 世纪。也不要把天平当成公平交易的自然保障：磅码本身、支点磨损与使用者的手法都会影响结果，因此古代市场普遍存在官方校磅与罚则。",
+        "story_uses": "适合用于表现市场与权力的交叉点：谁校磅、谁没收缺斤短两的货物、税收按什么重量征。也可作为匠人手艺的度量：一杆秤既是工具也是权威身份的象征。",
+        "historical_scope": "Britannica 指出等臂天平可追溯到古埃及，可能早至公元前 5000 年：最早的形制是横梁中心支撑、两端的盘用绳悬挂；罗马时期（约公元前后）引入穿过横梁中心的销轴；18 世纪出现刀口，19 世纪末欧洲的天平成为最精密的量具之一；20 世纪出现电子天平。这些节点属特定地区。",
+        "evidence_and_uncertainty": "Britannica balance 条对等臂原理、古埃及起源、销轴与刀口的改进、替代称量法消除臂长误差有明确叙述，支撑较强。杆秤部分来自同条与杠杆条的关联描述，更细的杆秤谱系与各地区校磅制度未逐项核对。review_status 为 needs_review。"
+      },
+      "source_ids": ["tools_src_britannica_balance", "tools_src_britannica_lever"],
+      "related_ids": ["tools_pulley", "tools_wheel_axle", "tools_granary"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "tools_wheel_axle",
+      "name": "轮与轴",
+      "aliases": ["wheel and axle", "车轮", "轮轴", "spoked wheel", "辐条轮"],
+      "tags": ["tool", "transport", "construction", "wood", "iron", "human_power", "animal_power"],
+      "summary": "以绕轴旋转的圆盘把滑动摩擦变为滚动摩擦、或把力矩按半径比放大的基础机构，也是磨、提水与制陶的共用部件。",
+      "details": {
+        "definition": "两个相互关联的元件：一个圆形刚体（轮）与穿过其中心的转轴（ axle）。当轮与轴固定在一起转动时，它就是能放大力的简单机械（半径比决定机械利得）；当轮在固定轴上自由旋转时，它主要用来把滑动摩擦变为滚动摩擦。同一个机构在不同装置中承担不同角色。",
+        "mechanism": "滚动时接触点不断更换，能量损耗远低于滑动，因此搬运同样的重量所需拉力小得多。同时，轮与轴提供一个力矩转换：作用在轮缘的力在轴处产生更大的力（或更小的位移），这正是磨石、绕轮与滑轮共同依赖的原理。轮要能稳定工作，必须始终保持圆形、轴心居中且轴孔耐磨。",
+        "conditions": "前置条件相当苛刻：能加工出圆形轮体与同心轴孔的木工（车床或圆规式工具）、能把轮固定在轴上或让轮在轴上自由转的轴承结构，以及能让载荷均匀传到轴上的车架或支架。轮与轴之间的润滑与耐磨处理决定了寿命，早期多靠油脂与金属轴套。地面要相对平整，否则轮子会陷入或震断。",
+        "exceptions": "不要把轮的发明等同于车辆：同一个旋转原理在制陶转盘、磨石、提水轮与滑轮上都有应用，而这些用途未必与车辆同时出现。也不要把轮看作普适技术：在沼地、山地、雪地与水道众多的环境里，橇、背运与舟运可能更有效，历史上确有长期不用轮的社会。另外，轮本身不产生动力，它只改变力的传递方式；没有合适的牵引力与道路，轮并不能自动提高运输量。",
+        "story_uses": "适合作为技术复杂度的标志但不宜神化：一台车的车轮坏了，整个运输链条就停了。也可用轮匠这一专门行当、或轮毂开裂、轴头烧死这类具体故障推进情节。",
+        "historical_scope": "Britannica 指出约公元前 3500 年的苏美尔（Erech）图像已显示装有轮子的橇；最早的轮是三块木板拼合并用横向撑木夹紧的实心木轮；辐条轮约在公元前 2000 年出现于小亚细亚的战车；后来的改进包括铁毂与热套的铁箍轮胎。同一时期美索不达米亚也已用转盘制陶。这些节点属特定地区脉络。",
+        "evidence_and_uncertainty": "Britannica wheel 与 axle 两条对轮与轴的定义、滑/滚摩擦差异、木盘轮与辐条轮、铁毂与铁箍、以及轮的多种用途（磨、提水、制陶）都有明确叙述，支撑较强。各地区轮制谱系与道路条件差异未逐项展开。review_status 为 needs_review。"
+      },
+      "source_ids": ["tools_src_britannica_wheel", "tools_src_britannica_axle", "tools_src_britannica_pulley"],
+      "related_ids": ["tools_cart", "tools_sledge", "tools_pulley", "tools_noria", "tools_pottery_wheel"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "tools_cart",
+      "name": "畜力车与推车",
+      "aliases": ["cart", "wagon", "推车", "畜力车", "板车"],
+      "tags": ["tool", "transport", "wood", "iron", "animal_power", "human_power"],
+      "summary": "以轮轴承载货厢、由畜力或人力牵引的陆运工具；载重上限由轮、轴、车架与挽具共同决定，而非单靠轮子。",
+      "details": {
+        "definition": "一种以轮与轴承载货厢、靠外部牵引力前进的陆上运输工具。它把货物的重量经车架、轴、轮传到地面，从而把人或畜的力从「负重」转为「牵引」。辐条轮车、实心木盘轮车、两轮推车与四轮货车均属此列，具体形制取决于道路、载重与牵引畜。",
+        "mechanism": "轮把滑动摩擦变为滚动摩擦，大幅降低所需牵引力；轴与轴承承担全部载荷并把力分散到车架；挽具则把畜力传到车体。载重上限不是由轮单独决定：轴太细会弯，车架会扭，挽具会磨伤畜体，任一环节失效都会让整车停摆。",
+        "conditions": "前置包括轮轴制作、车架木作、以及一套能将畜力有效传出的挽具。还需要可通行的路面或至少较平硬的地面；泥深、坡陡、石多都会急剧降低可用载重。维修是长期负担：轮毂、轴头、车辐与车板都是易损件，需要轮匠与木匠。",
+        "exceptions": "不要把车当成单纯的「轮子加箱子」：没有合适的挽具，畜力根本无法有效传到车上；而挽具本身是一个长期被忽略的关键技术。也不要把车当成所有地形的通用方案：在无道路、沼地、雪地、山地与水网地区，橇、背运与舟运往往更实际。另外，「轮越大拉得越重」是错的：轮径要与路面、轴高与牵引力匹配，过大的轮反而增加无效重量与倾覆风险。",
+        "story_uses": "适合作为财富与身份的可见标志：一辆车的完好程度就是家底。也可用轮毂开裂、陷车、上坡时挽具断裂作为具象事件，或用于表现运价、路权与关卡收费。",
+        "historical_scope": "Britannica 指出约公元前 3500 年的苏美尔图像已显示带轮的橇，最早的轮为三块木板拼合的实心木盘轮；辐条轮约公元前 2000 年出现在小亚细亚战车上；铁毂与热套铁箍是后来的改进。四轮车与挽具的演变属欧亚大陆脉络，不宜直接套用到轮使用有限的地区。",
+        "evidence_and_uncertainty": "Britannica wheel 与 axle 两条对轮轴结构、滑滚摩擦与轮制演变有明确叙述，支撑技术基础；车体与挽具的具体形制谱系、载重量的定量数据本条未逐项核对专门交通史文献，因此不给出数字。review_status 为 needs_review。"
+      },
+      "source_ids": ["tools_src_britannica_wheel", "tools_src_britannica_axle"],
+      "related_ids": ["tools_wheel_axle", "tools_sledge", "tools_rope"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "tools_sledge",
+      "name": "橇与拖运器",
+      "aliases": ["sledge", "sled", "travois", "橇", "雪橇", "拖架"],
+      "tags": ["tool", "transport", "wood", "animal_power", "human_power"],
+      "summary": "无轮、靠拖行或推动承载货物的运具；结构比车简单得多，在雪地、泥地与无路地形中比轮车更可靠。",
+      "details": {
+        "definition": "一类无轮、靠拖行或推动前进的承载装置。包括两根交叉的拖杆构成的拖架（travois）、底部滑板式的橇、以及雪地上使用的雪橇（sled，以滑行件为底面）。它们不把载荷转为滚动，而是靠拖行面在雪、冰、泥浆等低摩擦表面上滑行。",
+        "mechanism": "拖行阻力取决于接触面材料与地面性质：在雪、冰或湿泥上，滑行阻力可能低于轮车（尤其在雪深时轮子会陷入），但在干硬土地与石砾地面上拖行阻力极大。拖架的拖杆同时承担传递拉力与保持稳定的作用，使载物能跟随畜或人前进。",
+        "conditions": "前置条件比轮车低很多：不需要轴、轴承与圆形轮体，只需能弯曲或拼接的拖杆/滑板与绑扎材料。它适合没有道路的环境，并且可以直接由人或犬、马牵引。弱点在于地面：石地、硬土与陡坡上极度耗力，滑行面磨损也快。",
+        "exceptions": "不要把橇当成「车的前身」：Britannica 指出轮与轴出现后，橇的使用基本结束——除了在雪与冰面上以滑行件形式（雪橇）保留。这说明两者不是严格的演化替代，而是按环境分工。也不要把拖架与雪橇混同：前者靠斜面拖行、后者靠底面滑行，使用地面与结构不同。",
+        "story_uses": "适合用作无路地形中的运输手段，例如运木、运伤员或冬季出行。也可用于表现「车到这里就没用了」的地理障碍，或作为穷户唯一的运具。",
+        "historical_scope": "Britannica 指出橇可追溯至古代，亚述与埃及浮雕描绘了用橇拖运巨大雕像；北美原住民的 travois 是两根横向相连的木杆拖行的橇；轮与轴出现后，橇的使用基本结束（除雪橇外）。各地区时间差异很大。",
+        "evidence_and_uncertainty": "Britannica sledge 条对无轮定义、travois 结构、亚述与埃及浮雕例证以及被轮轴取代的叙述都很明确，支撑较强。具体滑行面材料与阻力数值未核对。review_status 为 needs_review。"
+      },
+      "source_ids": ["tools_src_britannica_sledge", "tools_src_britannica_wheel"],
+      "related_ids": ["tools_wheel_axle", "tools_cart", "tools_rope"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "tools_pulley",
+      "name": "滑轮与滑轮组",
+      "aliases": ["pulley", "block and tackle", "滑轮", "滑车", "定滑轮"],
+      "tags": ["tool", "construction", "transport", "wood", "bronze", "iron", "human_power"],
+      "summary": "带绳槽的轮子：单个定滑轮理想情况下力比约为1，只改变力的方向，却能大幅改善操作姿势与安全性；组合成滑轮组才能成倍分担载荷。",
+      "details": {
+        "definition": "一种边缘带槽、可绕轴自由旋转的轮子（带槽者称 sheave），绳子、绳索或链条绕于槽中。单独一个定滑轮只改变力的作用方向而不省力；将动滑轮与定滑轮组合成滑轮组（block and tackle）则可分摊载荷，显著降低所需拉力。它与杠杆、楔、轮轴、螺旋并列为五种简单机械。",
+        "mechanism": "理想无摩擦时，动滑轮组省力的多少取决于支撑载荷的绳段数：用 n 段绳承担同一重物，每段分担的张力约为 1/n。代价是绳必须被拉过约 n 倍的距离——功守恒。定滑轮不减少所需张力，但把向下的拉力变成向上的提升，这在提水、扬帆、装船时非常实用；实际系统中还要叠加轮轴与绳槽的摩擦，所以真实所需拉力会高于理想估算，而适度摩擦在控制下降时反而是有利的。",
+        "conditions": "前置包括能做出槽轮、轮轴与轴承的木工或金属工能力，以及能承受载荷的绳索（绳的抗拉强度与耐磨性直接决定安全上限）。安装需要可靠的悬挂点或支架（索具、横梁、桅杆），否则支架先坏。绳与槽的摩擦、绳股磨损都需要定期检查与更换。",
+        "exceptions": "不要把滑轮当成自动省力的装置，但也不要把「不省力」读成「无价值」：单个定滑轮理想力比约为 1，它不降低所需张力，却能把拉力方向改成更便利、更安全的方向（如向下拉代替向上提），减少施力者的姿势负担与坠落风险，这在施工与装船中本身就是真实收益；计入摩擦后实际所需拉力可能略增。真正降低张力需要动滑轮参与，而绳的行程相应变长。也不要把滑轮与绞盘/辘轳混为一谈：滑轮不改传动比但能改变方向与分摊载荷，绞盘则靠半径比放大扭矩。另需注意，绳的强度是硬限制，没有任何滑轮组能绕过这一点。",
+        "story_uses": "适合用于建筑施工、装船、吊石与井上提水等具体场景，也适合表现「多几个人拉」与「多绕几圈绳」之间的替代关系。绳的断裂可以作为具体事故。",
+        "historical_scope": "Britannica 记载阿基米德（公元前 3 世纪）据称使用复合滑轮把船拉上岸；滑轮作为五种简单机械之一，与其他简单机械共同构成古代机械学的基本词汇。具体各地区出现时间与索具形制本条未展开。",
+        "evidence_and_uncertainty": "Britannica pulley 条对绳槽、单个与组合使用的差异、五种简单机械的定位以及阿基米德的记载都有明确叙述，支撑定义与机制。绳长与力的具体比值属基础力学推论，本条不提供载荷计算。review_status 为 needs_review。"
+      },
+      "source_ids": ["tools_src_britannica_pulley", "tools_src_britannica_rope", "tools_src_britannica_lever"],
+      "related_ids": ["tools_rope", "tools_wheel_axle", "tools_shaduf", "tools_balance_scale"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "tools_rope",
+      "name": "绳索",
+      "aliases": ["rope", "绳", "缆", "索", "cordage"],
+      "tags": ["tool", "transport", "construction", "plant_fiber", "animal_fiber", "human_power"],
+      "summary": "把短纤维梳、纺成纱，再绞成股、绞成绳的柔性强力线；抗拉强度是其核心指标，反向捻是其稳定关键。",
+      "details": {
+        "definition": "把纤维、长丝或金属丝经绞合或编织而紧密聚成的一根长而柔韧的线。区别于麻线（twine）与细绳（string）：绳的尺寸更大、结构层次更多。其首要性能是抗拉强度，其次才是柔韧度、抗结与耐用性。",
+        "mechanism": "制作分四个阶段：纤维梳理准备、纺或聚成纱、若干纱绞成股（strand）、三股以上反向绞成绳（laying）。反向捻是结构稳定的关键：纱与股、股与绳的捻向相反，使内部扭力相互抵消，绳才不会自己打卷。捻度越大强度反而越低，因此强韧与柔软是取舍关系。",
+        "conditions": "前置包括可利用的纤维（麻、绵、亚麻、藤、树皮、动物毛等）、梳与纺的能力，以及一个能容许长距离直线作业的空间——手工制绳往往在长而低的「绳道」（ropewalk）中完成，绳道的长度直接限制一次能做多长的绳。绳易受霉与光老化，需干燥通风存放；受力后需检查磨损与断股。",
+        "exceptions": "不要把绳当作简单的「一堆纤维」：捻向、股数与捻度都是经验设计，直接关系到它会不会自己缠结、会不会在受力中扭断。也不要把所有“绳”等同：天然纤维绳会因为霉而生，合成纤维绳对日光、高温与化学物质敏感，两者失效模式完全不同。此外，绳不是自然存在的，它依赖纺织与纺纱的前置能力，这也意味着绳的粗细上限受纱的产能限制。",
+        "story_uses": "适合作为几乎所有其他技术与运输的隐形前提：井绳、纤绳、船缆、拉索、绑扎、吊装、陷阱与纺线。也可用绳的磨损与断裂作为具体危机，或作为计价、计量与赋税的物资。",
+        "historical_scope": "Britannica 指出埃及墓室图像（约公元前 1500 年）已描绘了边走边制绳的人；第一批绳道是室外平整的地面，后来才建顶或围合。手工绳道至今在某些地区仍在使用。具体地区与时代的形制与材料差异很大，不宜统一断代。",
+        "evidence_and_uncertainty": "Britannica rope 条对绳的四阶段制造、反向捻的扭转稳定、捻度与强度的反关系、绳道长度与绳长的关系以及天然纤维受霉变都有明确叙述，支撑较强。各地区材料谱系与绳道长度的具体数值未逐项核对。review_status 为 needs_review。"
+      },
+      "source_ids": ["tools_src_britannica_rope", "tools_src_britannica_pulley", "tools_src_britannica_basketry"],
+      "related_ids": ["tools_pulley", "tools_shaduf", "tools_cart", "tools_spindle_whorl"],
+      "review_status": "needs_review"
+    }
+  ]
+}

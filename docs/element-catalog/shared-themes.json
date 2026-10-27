@@ -1,0 +1,494 @@
+{
+  "schema_version": 1,
+  "status": "candidate",
+  "artifact": "cross-group-shared-themes",
+  "purpose": "把四组共 211 条候选元素按人类语义聚类成跨组共享母题，用于检索、对照与开局选材，不用于合并、改写或删除任何原始条目。",
+  "not_a_database": "本文件不是元素数据库记录，不定义字段约束，也不被任何 StoryPackage 引用；正式入库与 schema 须另行验收。",
+  "relation_vocabulary": {
+    "shared_motif_or_distinct_variants": "成员之间存在可辨的共同母题（功能位或社会机制相似），但每个成员在自己的题材语境中是独立条目，细节、因果与代价各不相同。聚类只表示「值得放在一起比较与检索」，不表示「可以互换」或「应当合并」。"
+  },
+  "counting_note": "themes 数量与 member_ids 数量都不是元素存量：同一条元素可以出现在多个主题里（例如 eastern_sect_rules 同时属于「修会／戒律」与「禁忌与禁书」的邻域），因此 member 合计大于 211。原始元素总数仍为 211，全部保留。",
+  "selection_rule": "只选跨 2 个及以上组出现、且在用户关心的方向上（普遍重要元素、宗门／宗教、社会制度、科技背景）真正有解释力的母题；单组内部的概念重叠不在此立项。",
+  "themes": [
+    {
+      "id": "theme_guild_charter_craft",
+      "name": "同业组织与特许状：谁有权生产、定价与排除外人",
+      "relation": "shared_motif_or_distinct_variants",
+      "groups": ["eastern", "western", "society"],
+      "member_ids": [
+        "society_craft_guild",
+        "society_merchant_guild",
+        "western_guild_charter",
+        "eastern_market_fangshi",
+        "western_trade_league"
+      ],
+      "shared_points": [
+        "都存在一个可指名的集体，掌握准入、行规、验货、定价与对外交涉中的若干项。",
+        "都把「排他」当作收益来源：非本会者受限，冲突通过内部裁断或外部特许解决。"
+      ],
+      "non_merge_reason": "成员各占不同制度位：society_craft_guild 与 society_merchant_guild 是手工业／商人两种不同的组织形态（且限西欧中世纪），western_guild_charter 是「组织＋法律特许」的复合体，eastern_market_fangshi 是空间场域的治理结构而非组织本身，western_trade_league 是跨城政治经济体。合并会抹掉「组织 vs 特许 vs 场所 vs 城际同盟」这一区分，而这一区分正是剧情里争夺对象的差异所在。",
+      "evidence_note": "society 侧依据行会、商会百科词条；western 侧依据 Britannica city-state／Hanseatic League 与 WHE Medieval Guilds（Hanseatic 为 13—15 世纪）；eastern 侧的坊市治理结构是该项目依据行会词条的设计归纳，非史料。"
+    },
+    {
+      "id": "theme_kin_lineage_clan",
+      "name": "宗族与亲属集团：族产、族规与地方秩序",
+      "relation": "shared_motif_or_distinct_variants",
+      "groups": ["eastern", "society", "steam-horror"],
+      "member_ids": [
+        "society_lineage_clan",
+        "eastern_cultivator_clan",
+        "horror_lineage_elders",
+        "horror_ancestral_hall"
+      ],
+      "shared_points": [
+        "都以父系继嗣与辈分秩序组织资源，族产／公产使家族成为可谈判的单位。",
+        "长老或宗子既是仲裁者也是对外代表，家族因此承担了部分基层治理功能。"
+      ],
+      "non_merge_reason": "社会组的宗族是地域限定（中国）的历史／当代制度条目；修真世家在其上叠加了「武力可继承」这一幻想层，后果（家族即武装集团）与前者不同；灵异侧的长老组织与祠堂是「祭祀与记忆的承担者」，重心在仪式职能而非产权。三者共享亲属结构，但产权、武力、仪式三种重心不可互换，合并会使「家族为何能对抗国家」这个剧情问题失去分层。",
+      "evidence_note": "society 侧依据宗族百科词条；eastern 侧同时在 evidence_note 中声明血脉即力量属类型设定，只借用现实世族的社会后果；steam-horror 侧依据祖先崇拜与丧葬类条目，属民俗学归纳。"
+    },
+    {
+      "id": "theme_inheritance_succession",
+      "name": "继承与世袭：名分如何传递、为何会撕裂",
+      "relation": "shared_motif_or_distinct_variants",
+      "groups": ["eastern", "western", "society"],
+      "member_ids": [
+        "society_fief_succession",
+        "eastern_inheritance_strife",
+        "eastern_bloodline_inheritance",
+        "western_kingdom_monarchy"
+      ],
+      "shared_points": [
+        "继承都不是私事：名分确认牵动土地、义务与第三方效忠，因此总有见证者与裁定者。",
+        "继承规则一旦模糊（多子、养子、旁支、血脉纯度），冲突就从家内溢出为政治事件。"
+      ],
+      "non_merge_reason": "society_fief_succession 是封土与封臣义务的世袭化（西欧特定时期）；eastern_inheritance_strife 是「衣钵／道统」与家产双重继承的冲突装置；eastern_bloodline_inheritance 把继承物本身变成可量化的力量资质；western_kingdom_monarchy 是王位与王权的制度容器。这四者的「继承物」分别是义务、道统、力量、主权，机制不可互相替代。",
+      "evidence_note": "society 侧依据采邑制词条（主审本次抽核成功）；eastern 侧依据宗族／门阀词条并结合类型归纳；western 侧依据 Britannica feudalism 与君主制相关条目。"
+    },
+    {
+      "id": "theme_master_apprentice",
+      "name": "师徒与学徒：技艺、名分与流动",
+      "relation": "shared_motif_or_distinct_variants",
+      "groups": ["eastern", "western", "society", "steam-horror"],
+      "member_ids": [
+        "eastern_master_disciple",
+        "western_apprenticeship",
+        "society_craft_guild",
+        "society_journeyman_travel",
+        "steam_workshop_apprentice"
+      ],
+      "shared_points": [
+        "知识以人身依附方式传递：师傅控制授业节奏，学徒以劳动与忠诚换取资格。",
+        "出师／受箓／拿证是一个可验证的名分节点，决定此后能否独立开业、收徒或行法。",
+        "都有「游历」或「外出历练」环节，使技艺在空间上扩散，也让监管变难。"
+      ],
+      "non_merge_reason": "东方侧的师徒同时是道统与法脉的传递（受戒后发给戒碟、受箓后发给箓碟，名分有凭证），带有神圣性与不可替代性；西欧学徒制是行会垄断下的经济契约，出师即取得市场资格；帮工游历是跨城劳动市场；工坊学徒在蒸汽语境下被去技化威胁（steam_deskilling_craft 是其反面）。共同点是「人身依附＋名分节点」，不可合并的是依附的性质：神圣传承、行业垄断、劳动力商品。",
+      "evidence_note": "eastern 侧依据道教授箓与戒碟制度（道教词条）；western／society 侧依据 WHE Medieval Guilds 与行会词条；steam 侧依据 Industrial Revolution 与 machine tool 条目，属本项目对学徒制的语境迁移。"
+    },
+    {
+      "id": "theme_monastic_order_rule",
+      "name": "修会、教团与戒律：集体生活的规训装置",
+      "relation": "shared_motif_or_distinct_variants",
+      "groups": ["eastern", "western", "society"],
+      "member_ids": [
+        "society_religious_order",
+        "western_monastic_order",
+        "eastern_sect_rules",
+        "eastern_dao_lineage"
+      ],
+      "shared_points": [
+        "都以「共同生活＋成文戒律＋违戒处置」把信仰转成可执行的日常秩序。",
+        "戒律同时是内部纪律与对外合法性的来源：守戒者才有资格主持仪式、接受捐赠或要求豁免。",
+        "都存在层级与凭证（受戒、授箓、任职），使成员身份可被外部核验。"
+      ],
+      "non_merge_reason": "必须明确：西方的修道会是基督教制度史对象，东方的道门是道教史对象，修真小说里的「宗门」是类型装置——三者不能互相等同。society_religious_order 与 western_monastic_order 是历史组织，eastern_dao_lineage 在条目里已显式声明「道教不等于小说道门」，eastern_sect_rules 借用的是戒律的治理结构而非教义。共同点只在「戒律—凭证—处置」这一制度骨架，教义内容、神圣来源与组织目的不可替换。",
+      "evidence_note": "western／society 侧依据 Britannica monasticism；eastern 侧依据道教词条的三坛大戒、清规与授箓制度。跨宗教比较在此只作结构对照，不作等同。"
+    },
+    {
+      "id": "theme_rite_festival_calendar",
+      "name": "祭祀与节令：把时间与地方绑在一起",
+      "relation": "shared_motif_or_distinct_variants",
+      "groups": ["eastern", "western", "society", "steam-horror"],
+      "member_ids": [
+        "eastern_pilgrimage_festival",
+        "western_pilgrimage_order",
+        "society_parish_clergy",
+        "horror_village_calendar_rite",
+        "horror_local_shrine"
+      ],
+      "shared_points": [
+        "周期性仪式把日历切分为可预期的公共时间，缺席与违规因此可被识别。",
+        "仪式需要一个场所与一个承办者（祠、堂区、庙），于是产生维护成本与管辖权争议。",
+        "节庆同时是经济事件：人流、摊贩、捐赠与治安都集中在这几天。"
+      ],
+      "non_merge_reason": "承办者的制度身份完全不同：堂区神职是教会行政的基层末梢，庙会由道教节日与宗族会聚支撑，朝圣护路团体是流动性的服务组织，村落节令祭仪与地方神祠则是地方性地祇崇拜（且来源于民俗学归纳）。场所的产权与仪式的历法依据也不通用。合并会把「谁有权主持」这一核心冲突抹平。",
+      "evidence_note": "eastern 侧依据道教节日（上元、中元、下元）与斋醮条目；western 侧依据 Britannica pilgrimage；steam-horror 侧依据 Britannica ancestor worship／Chinese religion／Ghost Festival。香火会社的具体组织形态在东组标注为待补。"
+    },
+    {
+      "id": "theme_taboo_forbidden_lore",
+      "name": "禁忌与禁书：被禁止的知识如何继续流传",
+      "relation": "shared_motif_or_distinct_variants",
+      "groups": ["eastern", "western", "steam-horror"],
+      "member_ids": [
+        "western_taboo_forbidden_lore",
+        "eastern_forbidden_technique",
+        "horror_taboo_breach"
+      ],
+      "shared_points": [
+        "都存在「不可触碰」的边界，且边界的效力来自共同体承认而非物理防护。",
+        "越界可被观察、可被追诉，于是产生告发、审判与连坐等次级机制。",
+        "禁令本身携带信息：被禁的东西往往正是权力最想垄断的东西（知识、神力、尸体）。"
+      ],
+      "non_merge_reason": "三者的禁令来源不同：western_taboo_forbidden_lore 的禁令来自教会对解释权的垄断（异端与禁书目录式治理）；eastern_forbidden_technique 的禁令来自政权层面的禁毁与门派自查（北魏废佛、北齐禁道一类史例）；horror_taboo_breach 的禁令来自地方习俗与「违约即招祸」的民俗逻辑，其后果是超自然而非法律性的。禁令的执行者、举证方式与惩罚性质都不可互换。",
+      "evidence_note": "western 侧依据 Britannica heresy（Inquisition 仅读到导语，未据此写程序细节）；eastern 侧依据道教历史词条的禁毁史例，且明确「禁术」作为知识类别属幻想设定；steam-horror 侧依据 folklore 与 witchcraft 条目，属民俗学归纳。"
+    },
+    {
+      "id": "theme_restless_dead",
+      "name": "未得安顿的亡者：三种互不通约的死后秩序",
+      "relation": "shared_motif_or_distinct_variants",
+      "groups": ["eastern", "western", "steam-horror"],
+      "member_ids": [
+        "eastern_yin_ghost",
+        "western_restless_dead",
+        "horror_restless_dead"
+      ],
+      "shared_points": [
+        "都设定死者可能不进入应然归宿，从而留在生者世界并施加影响。",
+        "都提供了「安抚／超度」与「压制／摧毁」两类应对，且两类应对背后是不同的世界观。",
+        "亡者的存在都会牵动丧葬程序、见证与责任归属（谁没做对）。"
+      ],
+      "non_merge_reason": "这是本目录中最容易被误合并的一组。东方侧的阴灵与鬼修处在斋醮炼度与「鬼仙」评断体系中，鬼甚至可以是可修行的族类；西方侧的亡灵与游魂处在死灵术与驱魔的教会谴责框架里，分类依据是「可平息／仅可摧毁／可役使」；灵异侧的未得安顿亡者则由丧仪是否残缺、怨念是否索报来定义，重心在程序与怨。三者的本体论（可修行者／被役使的对象／需被安顿的冤）与处置手段（炼度／驱魔／补做丧仪）不可互换。",
+      "evidence_note": "eastern 侧依据道教清醮／幽醮与五仙中的鬼仙（信仰叙述，不作经验事实）；western 侧依据 Britannica necromancy 与 exorcism；steam-horror 侧依据 Britannica burial／cremation／ancestor worship。"
+    },
+    {
+      "id": "theme_kingship_court_patronage",
+      "name": "王权、宫廷与供奉：非常规能力者如何被国家收编",
+      "relation": "shared_motif_or_distinct_variants",
+      "groups": ["eastern", "western", "society"],
+      "member_ids": [
+        "western_kingdom_monarchy",
+        "society_palace_court",
+        "society_noble_precedence",
+        "eastern_court_patronage",
+        "eastern_retainer"
+      ],
+      "shared_points": [
+        "正式官署之外总存在一条亲疏通道（内廷、近侍、供养关系），它能让规则失效也能让规则生效。",
+        "统治者需要把难以替代的能力者（道士、法师、客卿）纳入可撤回的俸禄关系，而不是单纯消灭他。",
+        "名位（爵、位次、供奉等级）本身就是资源分配表，因此是争夺的首要目标。"
+      ],
+      "non_merge_reason": "society_palace_court 与 society_noble_precedence 是历史制度条目（内廷决策通道、爵位位次），本身不带超自然前提；eastern_court_patronage 的历史依据是唐代尊老子、设道举、北魏国师受符箓等政教关系，但「供奉—宗门」关系是设计归纳；western_kingdom_monarchy 是封建王权的制度容器。不可合并的关键是：前两者描述「权力如何分配」，东方的供奉条目描述「非常规能力如何被定价」，后者的定价逻辑（可替代性、忠诚风险）在纯历史制度里不存在。",
+      "evidence_note": "eastern 侧的政教关系有道教历史词条支撑，但王国层面的「供奉制度」属设计归纳；society 侧为百科词条；western 侧依据 Britannica feudalism。"
+    },
+    {
+      "id": "theme_urban_autonomy",
+      "name": "城市自治：特许状、市政会与谁代表城市",
+      "relation": "shared_motif_or_distinct_variants",
+      "groups": ["western", "society"],
+      "member_ids": [
+        "society_urban_charter",
+        "society_city_council",
+        "western_free_city"
+      ],
+      "shared_points": [
+        "城市作为一个法人式主体，向更高权力购买或争取到一束权利（征税、司法、自卫、市场）。",
+        "权利需要被书写下来（特许状、章程、议事规则），因此文书本身就是争夺对象。",
+        "「谁算市民」决定谁参与分配，于是总有被排除的居住者（帮工、外来商、无产者）。"
+      ],
+      "non_merge_reason": "三者分别描述法律凭据（特许状）、议事机构（市政会）与城市类型（自由城市），是同一制度的不同切面而非同一条目；且 society 侧的城市自治条目已声明所依据的「城市自治」词条实际只讲英国的 city status，未覆盖欧陆公社与帝国自由市。概念上可对照，证据上不可相互支撑。",
+      "evidence_note": "证据较弱：society 组自述「城市自治」与「中世纪城市」两个词条内容不达预期，城市特许状的细节已标为本项目归纳；western 侧依据 Britannica city-state（城邦与自由城市并非同一制度）。本主题只能作结构对照，不能当作任一地域的通例。"
+    },
+    {
+      "id": "theme_money_credit_debt",
+      "name": "货币、信用与债务：价值如何被担保",
+      "relation": "shared_motif_or_distinct_variants",
+      "groups": ["eastern", "western", "society", "steam-horror"],
+      "member_ids": [
+        "society_coinage_mint",
+        "society_bill_of_exchange",
+        "society_deposit_house",
+        "society_consumer_credit",
+        "western_usury_finance",
+        "eastern_spirit_stone_currency",
+        "steam_joint_stock_capital"
+      ],
+      "shared_points": [
+        "都面临同一个问题：如何让一种不能吃、不能穿的东西被普遍接受为价值储藏与支付手段。",
+        "担保机制一旦失灵（成色不足、伪币、违约、挤兑），后果立即溢出到政治与暴力层面。",
+        "利息与放贷总会引发道德争议，争议的强弱决定了金融业者能公开行事还是必须隐藏。"
+      ],
+      "non_merge_reason": "成员处在不同的货币层级：铸币权是主权行为，票据汇兑是跨地清算技术，钱庄存款是机构信用，消费信贷是面向个人的未来收入贴现，股份资本是把所有权拆成可转让份额，而灵石本位是把一种「有神异性质的矿物」当成一般等价物——最后这一条在现实金融史中没有对应物，其通缩与伪币后果属经济学推演。把这些合并会把「谁承担信用风险」这个剧情核心问题遮住。",
+      "evidence_note": "eastern 侧仅「灵石」作为可检验矿物有文献依据，作为货币属明确标注的设计归纳；western 侧的利息争议依据 Britannica（usury 条目 404，未据此写细节）；society 侧为百科词条（票据、有限责任公司）；steam 侧依据 Britannica Industrial Revolution。"
+    },
+    {
+      "id": "theme_mining_extraction",
+      "name": "采矿与冶炼：资源地如何变成政治地点",
+      "relation": "shared_motif_or_distinct_variants",
+      "groups": ["eastern", "western", "steam-horror"],
+      "member_ids": [
+        "western_mining_smelting",
+        "eastern_spirit_vein",
+        "eastern_heavenly_material",
+        "steam_coal_fuel_chain",
+        "steam_mine_drainage"
+      ],
+      "shared_points": [
+        "资源不是均匀分布的，于是「地点」本身获得议价能力，并引来外部权力。",
+        "开采都受同一类物理约束：深度、排水、通风、运输；技术突破改变的是这些约束的单价，而不是取消它们。",
+        "矿区的收益分配总是三方博弈：地主／主权者、开采者、劳力提供者。"
+      ],
+      "non_merge_reason": "eastern_spirit_vein 与 eastern_heavenly_material 的资源本体是超自然的（灵气、灵材），其枯竭与分级机制属设计归纳；western_mining_smelting 依据 Britannica mining 的支护、通风、排水与冶炼工艺，是可核对的物质史；steam_coal_fuel_chain 与 steam_mine_drainage 描述的是具体的工业动力链与深井技术。共同点是「稀缺地点＋提取成本＋三方分配」，不同的是资源的本体论地位与可计量性。特别注意：灵脉不能被当作「煤矿的魔法版」，它的枯竭规则与可开采性完全由设定决定。",
+      "evidence_note": "western／steam 侧依据 Britannica mining、coal mining、machine tool（可核对的工艺史）；eastern 侧依据洞天福地与风水条目（历史观念，非科学结论），灵脉可开采可枯竭属设计归纳。"
+    },
+    {
+      "id": "theme_plague_collective_death",
+      "name": "瘟疫、毒害与集体死亡：灾难如何被归因",
+      "relation": "shared_motif_or_distinct_variants",
+      "groups": ["eastern", "western", "steam-horror"],
+      "member_ids": [
+        "western_plague_famine",
+        "eastern_mortal_plague",
+        "steam_smoke_pollution",
+        "horror_mass_fatality_industry"
+      ],
+      "shared_points": [
+        "大规模死亡都会强制产生一个「归因」程序：是天罚、是毒物、是瘴气、是资本家的疏忽。",
+        "归因结果决定责任分配，因此事故调查、验尸、封区与替罪总是跟随灾难出现。",
+        "灾难会暴露既有的不平等：能逃走的人与不能逃走的人不是同一批人。"
+      ],
+      "non_merge_reason": "归因框架彻底不同：western_plague_famine 处在中世纪—近代欧洲的饥荒与瘟疫史中，并常与「天谴」叙事绑定；eastern_mortal_plague 的重心是丹药的矿物毒性（可核对的化学常识）与宗教应对灾疫的历史事实；steam_smoke_pollution 是工业化的慢性环境伤害，其因果链长、责任人分散；horror_mass_fatality_industry 是「一次事故的集体死亡」，它产生的是可点数的死者与可追责的雇主。急性的、慢性的、可归因于工艺的、被归因于超自然的，四者不可互换。",
+      "evidence_note": "western 侧依据 Britannica（瘟疫与饥荒条目）；eastern 侧明确声明丹药重金属中毒的病理与流行病学细节未取得专门来源、标注待补；steam-horror 侧依据 Britannica Industrial Revolution 与 horror story 条目，工业集体死亡的类型处理属设计归纳。"
+    },
+    {
+      "id": "theme_oath_contract_enforcement",
+      "name": "誓约与契约：没有警察时靠什么执行",
+      "relation": "shared_motif_or_distinct_variants",
+      "groups": ["eastern", "western", "society"],
+      "member_ids": [
+        "eastern_alliance_pact",
+        "western_curse_oath",
+        "western_feudal_fief",
+        "society_customary_law"
+      ],
+      "shared_points": [
+        "承诺需要形式要件：见证人、仪式、文书或神证，否则不可执行。",
+        "违约后果必须预先可见（赔偿、失位、神罚、名誉破产），否则承诺不构成约束。",
+        "执行者往往不是国家：家族、行会、教会、盟主都在分担执法职能。"
+      ],
+      "non_merge_reason": "执行机制不同：western_feudal_fief 的约束是土地与军役的双向义务（封臣违约即失封）；society_customary_law 依靠习惯与法庭的先例累积；western_curse_oath 的担保物是超自然的（咒、誓、替身物），且其效力前提是双方共享同一套巫术假设；eastern_alliance_pact 的担保是道誓与盟约，属小说设定。把超自然担保与法律担保合并，会让「誓言是否真的会应验」这个可玩的悬念消失。",
+      "evidence_note": "western 侧依据 Britannica feudalism、witchcraft、heresy；society 侧为习惯法百科词条；eastern 侧仙盟条款与违约机制明确标为设计归纳。"
+    },
+    {
+      "id": "theme_energy_supply_chain",
+      "name": "能量来源与转化链：一个必须保留差异的类比",
+      "relation": "shared_motif_or_distinct_variants",
+      "groups": ["eastern", "western", "steam-horror"],
+      "member_ids": [
+        "eastern_spirit_qi",
+        "western_arcane_spellcraft",
+        "western_magic_price",
+        "steam_reciprocating_engine",
+        "steam_high_pressure_boiler"
+      ],
+      "shared_points": [
+        "都能用同一个提问方式研究：能量从哪里来、如何转化、转化时损失什么、谁控制转化装置。",
+        "都产生「装置／技术垄断」问题：掌握转化手段的人获得对他人的结构性优势。",
+        "都有明确的失败模式（反噬、爆炉、枯竭），失败模式的可见度决定它能否被制度化监管。"
+      ],
+      "non_merge_reason": "本主题存在的目的恰恰是防止误合并，而不是支持合并。灵气是设定性的超自然介质（洞天福地「结炁所成」属道教历史观念，量化与枯竭属现代小说的资源化改写）；奥术是依赖言辞、材料与施术者状态的操作技艺，其「代价」多为叙事性成本；蒸汽动力是可测量、可复现、可用燃料单价核算的热机工程。三者的可比性只到「供给—转化—损失—控制」这一提问框架，具体量纲、守恒关系与监管可能性完全不同。把灵气写成「魔力电池」、把蒸汽写成「低级灵气」，都会同时破坏两边的因果与题材感。",
+      "evidence_note": "steam 侧依据 Britannica steam engine／steam power，是可核对的技术史；western 侧依据 Britannica magic（效力取决于咒语、材料与施术者状态）；eastern 侧的灵气量化与枯竭已明确声明为设计归纳，非道教教义。"
+    },
+    {
+      "id": "theme_burial_improper_dead",
+      "name": "丧葬程序与「没做对」的死亡",
+      "relation": "shared_motif_or_distinct_variants",
+      "groups": ["western", "steam-horror"],
+      "member_ids": [
+        "horror_omitted_rites",
+        "horror_grave_disturbance",
+        "horror_second_burial",
+        "western_crypt_catacomb"
+      ],
+      "shared_points": [
+        "死亡不是瞬间事件，而是一段必须被正确完成的过程（停灵、入殓、下葬、迁葬、祭祀）。",
+        "程序一旦被打断或做错，后果是可指认的：亡者不安、生者受牵连、地方不洁。",
+        "因此存在专门的承办者与专门的场所，也就会产生费用、资格与纠纷。"
+      ],
+      "non_merge_reason": "horror_omitted_rites 关注「缺失」（该做的没做），horror_grave_disturbance 关注「侵入」（不该动的动了），horror_second_burial 关注「再处理」（骨骸的二次安置，属特定地域的丧葬习俗），western_crypt_catacomb 关注「空间」（墓室与陵寝的建筑与产权）。四者是四个不同的剧情触发器，合并会只剩一个模糊的「墓地很阴」。",
+      "evidence_note": "steam-horror 侧依据 Britannica burial／cremation／ancestor worship 与 Chinese religion，二次葬等具体习俗的地域适用范围须逐项核对；western 侧依据 Britannica（catacomb 条目 404／超时，未据此写细节）。"
+    },
+    {
+      "id": "theme_divination_medium",
+      "name": "占卜与中介者：谁能替不可见者说话",
+      "relation": "shared_motif_or_distinct_variants",
+      "groups": ["eastern", "western", "steam-horror"],
+      "member_ids": [
+        "western_divination",
+        "eastern_talisman",
+        "horror_medium_go_between",
+        "horror_seance_sitting"
+      ],
+      "shared_points": [
+        "信息不对称是核心资源：能与不可见者沟通的人，因此获得了对他人决策的影响力。",
+        "都要面对「真假难辨」：证明责任落在中介者身上，而证据往往只能事后检验。",
+        "都有职业化与仪式化倾向：专门的场所、收费、传承与行业界限。"
+      ],
+      "non_merge_reason": "eastern_talisman 是「受法之师才能制作、秘而不宣」的符箓工艺，其效力绑定于道位神职，是一个资格制度；western_divination 是把模糊线索转成解释权的技艺；horror_medium_go_between 与 horror_seance_sitting 是近代通灵与降神会的社交形式，带有「可被当场检验」的表演性。资格制、解释权、表演性三种权威来源不可互换。",
+      "evidence_note": "eastern 侧依据道教授箓与符箓条目（效力属信仰叙述，不作经验事实）；western 侧依据 Britannica magic／necromancy；steam-horror 侧依据 Britannica spiritualism 与 folklore（民俗学归纳）。"
+    },
+    {
+      "id": "theme_heresy_orthodoxy",
+      "name": "正统与异端：谁来裁定「我们」的边界",
+      "relation": "shared_motif_or_distinct_variants",
+      "groups": ["eastern", "western", "society"],
+      "member_ids": [
+        "western_inquisition_heresy",
+        "society_heresy_inquisition",
+        "eastern_orthodoxy_dispute",
+        "western_secret_cult"
+      ],
+      "shared_points": [
+        "正统不是自明的，而是通过排除异己才被建立起来的。",
+        "裁定需要程序（指控、举证、自白、处置），程序本身可以成为迫害工具，也可以成为保护工具。",
+        "被裁定的群体总会转入地下，于是产生秘密网络与「可否认性」。"
+      ],
+      "non_merge_reason": "western 与 society 两条异端审判条目分别描述基督教教会法语境下的审判与「异端认定」这一社会过程，地域与时期不同（society 组已声明该词条不覆盖全世界）；eastern_orthodoxy_dispute 的实例是南北朝佛道论争与灭佛、道教内部派系评断，属政权与教团互动；western_secret_cult 不是裁定机构，而是被裁定后形成的组织形式。裁定者、被裁定者与地下化结果三者不能互换，且不能把任何一处审判当作宗教冲突的普遍模型。",
+      "evidence_note": "western 侧 Inquisition 条目仅读到导语（access=search_only），审判程序细节改引 heresy 条目，属证据薄弱处；eastern 侧依据道教历史词条的灭佛、禁道等史实；society 侧为百科词条。"
+    },
+    {
+      "id": "theme_labour_collective",
+      "name": "劳动集体：互助、谈判与互助社的替代品",
+      "relation": "shared_motif_or_distinct_variants",
+      "groups": ["society", "steam-horror"],
+      "member_ids": [
+        "society_labor_union",
+        "steam_labour_union",
+        "steam_mutual_aid_society",
+        "society_corvee_service",
+        "steam_factory_discipline"
+      ],
+      "shared_points": [
+        "劳动者在缺乏个人议价能力时，会结成组织以换取集体谈判或互助保障。",
+        "组织的实际功能往往不止工资：还包括工伤、疾病、丧葬与信息渠道。",
+        "资方／主权者的反制手段集中于两处：纪律（工时、厂规）与替代（换人、外包、强征）。"
+      ],
+      "non_merge_reason": "society_labor_union 是当代中国法条语境下的工会与集体协商；steam_labour_union 是工业革命史中的工会，其合法性长期受限；steam_mutual_aid_society 是保险替代品（在社保缺位时由互助社承担风险）；society_corvee_service 与 steam_factory_discipline 不是劳动组织而是强制形式（徭役、工厂纪律）。制度前提完全不同，地域与时期也不同，不可互换。",
+      "evidence_note": "society 侧由中国当代法条类百科词条支撑（明确地域局限）；steam 侧依据 Britannica trade union 与 Industrial Revolution；互助社的具体条款属设计归纳。"
+    },
+    {
+      "id": "theme_monster_frontier",
+      "name": "外患与魔物：边境威胁如何被制度化",
+      "relation": "shared_motif_or_distinct_variants",
+      "groups": ["eastern", "western", "steam-horror"],
+      "member_ids": [
+        "eastern_demonic_calamity",
+        "western_monster_incursion",
+        "western_monster_hunter",
+        "horror_vengeful_grudge"
+      ],
+      "shared_points": [
+        "持续的对外威胁会生成常设机构（边防、猎团、驱邪职），而不是临时应对。",
+        "威胁的周期性决定社会能否围绕它安排生产：可预期就能收税与征募，不可预期就只能靠悬赏。",
+        "威胁的「他者性」是政治资源：谁被划入威胁，谁就必须证明自己不是。"
+      ],
+      "non_merge_reason": "eastern_demonic_calamity 是周期性大规模外患（类型归纳），其应对是宗门联合与防线；western_monster_incursion 是地方性魔物袭扰，尺度更小；western_monster_hunter 是职业化应对者（且「猎魔人」这类机构在历史中并不存在同名实体）；horror_vengeful_grudge 的「威胁」并非外部入侵，而是内部的冤屈索报，无法用军事手段解决。尺度和本体都不同。",
+      "evidence_note": "western 侧猎魔人／法师学院／盗贼公会均在 evidence_note 中标为本项目设计归纳，非史料；eastern 侧的魔潮形态属设计归纳；steam-horror 侧依据 Britannica witchcraft／folklore。"
+    },
+    {
+      "id": "theme_standardization_regulation",
+      "name": "标准化与监管：让不可控的东西可比、可查、可禁",
+      "relation": "shared_motif_or_distinct_variants",
+      "groups": ["western", "society", "steam-horror"],
+      "member_ids": [
+        "steam_gauge_standard",
+        "steam_standard_time",
+        "steam_safety_regulation",
+        "western_magic_regulation",
+        "society_bureaucratic_merit"
+      ],
+      "shared_points": [
+        "都试图把异质的实践统一成可比对的单位（轨距、时刻、执照等级、考核科目）。",
+        "统一总是有代价与受害者：旧规格的存量资产、不合标准的小作坊、考不上的人。",
+        "标准一旦确立就会自我强化，因为所有新投资都必须围着它建。"
+      ],
+      "non_merge_reason": "steam_gauge_standard 与 steam_standard_time 是物质与时间尺度的技术标准化（可直接换算为成本）；steam_safety_regulation 是事后监管与事故调查；western_magic_regulation 是对超自然能力的准入管制，属本项目设计归纳（历史中并无同名执照制度）；society_bureaucratic_merit 是以考试取人的选拔制度。标准、监管、准入、选拔是四种不同的治理工具，合并会让「谁来定标准」这个冲突点消失。",
+      "evidence_note": "steam 侧依据 Britannica railroad／patent／Industrial Revolution；society 侧依据科举与官僚制百科词条；western 侧魔法执照明确标为设计归纳。"
+    },
+    {
+      "id": "theme_school_sect_college",
+      "name": "门派、学院与大学：知识机构为何也是权力机构",
+      "relation": "shared_motif_or_distinct_variants",
+      "groups": ["eastern", "western", "society"],
+      "member_ids": [
+        "eastern_sect",
+        "eastern_dao_lineage",
+        "western_mage_college",
+        "society_medieval_university",
+        "society_private_academy"
+      ],
+      "shared_points": [
+        "教学与研究都要花别人的钱，于是机构必然与地产、捐赠、学费或国家拨款绑定。",
+        "都发放某种「可被外界承认的资格」，因此成为准入的把关人。",
+        "内部都有等级与考核，也都有「谁有权解释经典」的路线斗争。"
+      ],
+      "non_merge_reason": "society_medieval_university 是具备特许状、学位与自治司法权的行会式法人（雅克·韦尔热著作词条）；society_private_academy 是应试导向的私塾，职能是把人送进选拔体系而非生产知识；eastern_dao_lineage 是历史宗教教团（教义、戒律、授箓），eastern_sect 是兼营产业与教学的类型装置；western_mage_college 是幻想机构，历史中并无同名实体。法人自治、应试补习、教团、门派、学院五种组织逻辑不可互换。",
+      "evidence_note": "society 侧中世纪大学依据专著词条、私塾依据百科词条；eastern 侧的宗门经济耦合关系有道教宫观经济史作类比，但组织形态属设计归纳；western 侧法师学院明确标为设计归纳。"
+    },
+    {
+      "id": "theme_register_census",
+      "name": "名册与档案：被登记才算存在",
+      "relation": "shared_motif_or_distinct_variants",
+      "groups": ["eastern", "society", "steam-horror"],
+      "member_ids": [
+        "eastern_immortal_register",
+        "society_household_register",
+        "horror_case_dossier"
+      ],
+      "shared_points": [
+        "登记把身份、权利与义务绑定在一份可查验的记录上，漏登即失去资格。",
+        "登记系统都需要防伪与更新机制（凭证、勘验、逐年重造）。",
+        "档案是权力技术也是弱者的武器：能被查到就能被追责，也能被用来证明自己。"
+      ],
+      "non_merge_reason": "eastern_immortal_register 的对象是「修行资格」（受箓得箓碟、名登天曹），记录的是神圣身份，且违规后果是仪式失效；society_household_register 的对象是人口与赋役，后果是行政与财政；horror_case_dossier 是案卷、族谱与地契构成的民间证据链，用于追索与自证，不经国家登记。神圣名录、行政户籍、民间档案三种记录体系不可互换。",
+      "evidence_note": "eastern 侧依据道教授箓与箓碟制度（有文献依据）及科举防弊程序，仙籍本身属设计归纳；society 侧为户籍百科词条；steam-horror 侧依据 Britannica（其档案处理属本项目设计归纳）。"
+    },
+    {
+      "id": "theme_secret_society",
+      "name": "秘密结社：可否认的组织",
+      "relation": "shared_motif_or_distinct_variants",
+      "groups": ["eastern", "western"],
+      "member_ids": [
+        "western_secret_cult",
+        "western_underworld_guild",
+        "eastern_demonic_path"
+      ],
+      "shared_points": [
+        "组织以「外人不知道它的存在」为生存条件，因此入会、联络与记账都必须有隐蔽形式。",
+        "都存在双层身份：公开的营生与不可公开的归属，前者为后者提供掩护与资金。",
+        "被发现的代价极高，于是内部纪律往往比公开组织更严酷。"
+      ],
+      "non_merge_reason": "western_secret_cult 是教义上的偏离者（异端／秘密教派），其秘密性来自宗教裁定的压力；western_underworld_guild 是经济活动中的非法服务提供者（盗贼网络），其秘密性来自治安追诉；eastern_demonic_path 是修行路线上的伦理越界者（魔道与邪修），其秘密性同时来自正统裁定与代价反噬。受压制的来源不同，因此「暴露」的后果完全不同（灵魂、牢狱、道基）。",
+      "evidence_note": "western 侧依据 Britannica heresy／witchcraft，盗贼公会与秘密教派的具体形态标为设计归纳；eastern 侧魔道作为伦理越界的具体内容标为设计归纳，不据任何来源声称其存在。"
+    },
+    {
+      "id": "theme_status_stratification",
+      "name": "身份等级与不洁：谁被排除在共同体之外",
+      "relation": "shared_motif_or_distinct_variants",
+      "groups": ["eastern", "western", "society"],
+      "member_ids": [
+        "society_four_estates",
+        "society_servile_outcaste",
+        "society_noble_precedence",
+        "western_manor_serfdom",
+        "eastern_cultivator_strata"
+      ],
+      "shared_points": [
+        "身份不仅是称谓，而是一束可执行的权利与禁制：能否迁徙、婚配、持有兵器、出面诉讼。",
+        "等级需要被持续生产：着装、座次、用语、仪制都是每天重演的分界线。",
+        "最低层总被冠以「不洁」色彩（贱籍、农奴、魔道），使剥夺显得正当而非纯粹暴力。"
+      ],
+      "non_merge_reason": "分层依据完全不同：society_four_estates 按职业类分（士农工商，中国语境），society_servile_outcaste 按仪式性不洁划分（且属特定中国历史制度），society_noble_precedence 按血统与位次，western_manor_serfdom 按土地依附关系（西欧特定时期，与俄国、旧西藏的农奴制差别极大），eastern_cultivator_strata 按「能否修行」这一幻想能力划分。把五种分层依据合并，会把「靠什么把人隔开」这个核心机制搞乱，也会把历史地域差别抹平。",
+      "evidence_note": "society 侧依据士农工商（《管子》篇目及译注）、农奴制、爵位等百科词条，且已声明农奴制在各地域差别极大；western 侧依据 Britannica manorialism；eastern 侧的「修士—凡人」两级社会已声明为类型惯例归纳，不是历史事实。"
+    }
+  ]
+}

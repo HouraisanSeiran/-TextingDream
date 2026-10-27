@@ -1,0 +1,87 @@
+{
+  "_说明": "最小可用的本地奖励配置示例片段。把 mechanics 字段合并进你自己的 story.json（不要直接改 StoryPackage/玄陆），再用『新建旅程』建立新存档即可生效。未配置 mechanics.rewards 时引擎行为与旧版完全一致。",
+  "_合并方式": "在 story.json 顶层已有的 mechanics 对象里加入 rewards 字段；actions 里按需增加 rewards 声明。",
+  "mechanics": {
+    "rewards": {
+      "version": 1,
+      "currencies": [
+        {"id": "coin", "name": "铜币", "unit": "枚", "maximum": 5000}
+      ],
+      "accounts": [
+        {"id": "merchant_purse", "name": "穗子的钱袋", "currency": "coin", "initial": 60},
+        {"id": "dock_float", "name": "码头周转钱", "currency": "coin", "initial": 200}
+      ],
+      "materials": [
+        {"id": "iron", "name": "生铁", "damage_bonus": 3, "value_percent": 100, "weight_percent": 120, "shapes": ["blade", "charm"]},
+        {"id": "jade", "name": "青玉", "damage_bonus": 0, "value_percent": 260, "weight_percent": 80, "shapes": ["charm"]}
+      ],
+      "shapes": [
+        {"id": "blade", "name": "短刃", "base_damage": 12, "base_value": 40, "base_weight": 3, "base_durability": 60, "mana_capacity": 0},
+        {"id": "charm", "name": "护符", "base_damage": 0, "base_value": 30, "base_weight": 1, "base_durability": 40, "mana_capacity": 20}
+      ],
+      "qualities": [
+        {"id": "plain", "name": "寻常", "value_percent": 100, "durability_percent": 100, "enchant_budget": 0},
+        {"id": "fine", "name": "精工", "value_percent": 180, "durability_percent": 140, "enchant_budget": 3}
+      ],
+      "enchantments": [
+        {"id": "ward", "name": "御风", "group": "ward", "max_level": 2, "damage_per_level": 0, "value_percent_per_level": 30, "hidden": false},
+        {"id": "gloom", "name": "潜影", "group": "ward", "max_level": 1, "damage_per_level": 4, "value_percent_per_level": 40, "hidden": true}
+      ],
+      "abilities": [
+        {"id": "sea_reading", "name": "观潮", "description": "据潮声判断风讯。", "requires": [], "flags": [], "public": true},
+        {"id": "deep_current", "name": "潜流", "description": "更细的水下感知。", "requires": ["sea_reading"], "flags": ["tide_heard"], "public": false}
+      ],
+      "templates": [
+        {"id": "iron_blade", "name": "生铁短刃", "material": "iron", "shape": "blade", "quality": "plain"},
+        {"id": "jade_charm", "name": "青玉护符", "material": "jade", "shape": "charm", "quality": "fine", "enchantments": ["ward"], "unidentified_label": "一枚温润的挂件"},
+        {"id": "hidden_charm", "name": "暗影护符", "material": "jade", "shape": "charm", "quality": "fine", "enchantments": ["gloom"], "unidentified_label": "一件冰凉的小物"}
+      ],
+      "tables": [
+        {"id": "dock_loot", "entries": [{"reward": "coin_small", "weight": 5}, {"reward": "blade", "weight": 3}, {"reward": "charm", "weight": 2}]}
+      ],
+      "rewards": [
+        {"id": "coin_small", "kind": "currency", "currency": "coin", "amount_min": 5, "amount_max": 12},
+        {"id": "coin_ferry", "kind": "currency", "currency": "coin", "amount_min": 8, "amount_max": 8},
+        {"id": "coin_from_purse", "kind": "currency", "currency": "coin", "amount_min": 6, "amount_max": 6, "payer": "merchant_purse"},
+        {"id": "blade", "kind": "item", "templates": ["iron_blade"]},
+        {"id": "charm", "kind": "item", "templates": ["jade_charm", "hidden_charm"], "identified": false},
+        {"id": "relic", "kind": "item", "templates": ["hidden_charm"], "identified": false},
+        {"id": "tide_skill", "kind": "ability", "ability": "sea_reading"},
+        {"id": "deep_skill", "kind": "ability", "ability": "deep_current"}
+      ],
+      "max_grants_per_event": 4,
+      "max_value_per_grant": 5000,
+      "max_items": 20
+    }
+  },
+  "示例行动声明": {
+    "_位置": "story.events[*].actions[*]",
+    "推一件行李": {
+      "id": "help_dock",
+      "label": "帮码头理清一趟货",
+      "rewards": {"success": ["coin_small"], "failure": []},
+      "effects": []
+    },
+    "带检定与失败分支": {
+      "id": "read_tide",
+      "label": "听潮辨风",
+      "check": {"attribute": "wisdom", "difficulty": 0.45},
+      "rewards": {"success": ["tide_skill", "coin_ferry"], "failure": ["coin_small"]}
+    },
+    "用奖励表抽一件（dock_loot 权重 5:3:2）": {
+      "id": "open_crate",
+      "label": "打开码头货箱",
+      "rewards": {"success": ["dock_loot"], "failure": []}
+    },
+    "向内联写法等价": {
+      "id": "pick_charm",
+      "label": "挑一件挂件",
+      "effects": [{"op": "reward", "entry": "charm"}]
+    },
+    "由商家付钱": {
+      "id": "take_wage",
+      "label": "领当日的工钱",
+      "rewards": {"success": ["coin_from_purse"], "failure": []}
+    }
+  }
+}

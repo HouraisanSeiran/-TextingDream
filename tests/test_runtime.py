@@ -7,7 +7,7 @@ import unittest
 from unittest.mock import patch
 from fastapi.testclient import TestClient
 from app.contracts import DraftRequest, Turn
-from app.service import Service
+from app.service import Service, offline_surface
 from app.storage import Store
 from app.web import create_app
 
@@ -92,6 +92,63 @@ class RuntimeTests(unittest.TestCase):
             self.turn('pack')
         self.turn(message='描写眼前的道路')
         self.assertEqual(self.s['inventory'], [])
+
+    def test_offline_reply_shows_public_performance_without_internal_cues(self):
+        self.turn('pack')
+        self.rt.move(self.s, 'western_pass')
+        # Speaking is what may be narrated as a reply; other channels only stay observable.
+        asyncio.run(self.service.turn(self.s['id'], Turn(message='向守卫问候', channel='speech')))
+        self.s = self.service.store.session(self.s['id'])
+        reply = self.s['active']['turns'][-1]['reply']
+        guard = next(c for c in self.rt.package()['characters']['characters'] if c['id'] == 'pass_guard')
+        # A public NPC name and a concrete visible action, not an internal instruction.
+        self.assertIn(guard.get('public_name') or guard['name'], reply)
+        self.assertNotIn('依据本人的动机和语气回应', reply)
+        self.assertNotIn('别复制其他角色句式', reply)
+        self.assertNotIn('不必念出情绪名称', reply)
+        self.assertNotIn('personality', reply)
+        self.assertNotIn(guard.get('secret') or '没有秘密', reply)
+        self.assertTrue(any(word in reply for word in ('答', '接', '探', '说', '笑', '问')))
+        # Deterministic: the same decision always renders the same narration.
+        candidate = copy.deepcopy(self.s)
+        decision = self.rt.prepare_turn(candidate, Turn(message='再问一次', channel='speech'))
+        self.assertEqual(offline_surface(candidate, decision, Turn(message='再问一次', channel='speech')),
+                         offline_surface(candidate, decision, Turn(message='再问一次', channel='speech')))
+        self.assertNotIn('依据本人的动机和语气回应',
+                         offline_surface(candidate, decision, Turn(message='再问一次', channel='speech')))
+        # The default action channel must not turn an unspoken input into a reply.
+        silent = offline_surface(candidate, decision, Turn(message='沉默'))
+        self.assertIn(guard.get('public_name') or guard['name'], silent)
+        self.assertNotIn('反问回来', silent)
+
+    def test_stale_model_result_is_rejected(self):
+        before = self.service.store.session(self.s['id'])
+        self.service.provider.configure({'offline': False})
+
+        async def complete(*args, **kwargs):
+            other = self.service.store.session(self.s['id'])
+            other['time'] += 1
+            self.service.store.save_session(other)
+            return '模型正文', {'prompt_tokens': 1, 'completion_tokens': 1}
+
+        with patch.object(self.service.provider, 'complete', complete):
+            with self.assertRaisesRegex(ValueError, '被其他操作更新'):
+                asyncio.run(self.service.turn(self.s['id'], Turn(message='继续')))
+        after = self.service.store.session(self.s['id'])
+        self.assertEqual(after['time'], before['time'] + 1)
+        self.assertEqual(after['active'], before['active'])
+        self.assertEqual(after['active']['turns'], [])
+
+    def test_package_commit_failure_restores_previous_files(self):
+        before = copy.deepcopy(self.rt.package())
+        candidate = copy.deepcopy(before)
+        candidate['story']['worldview']['premise'] += ' 暂存失败测试'
+        with patch.object(self.rt.store, 'put_many', side_effect=RuntimeError('模拟数据库失败')):
+            with self.assertRaisesRegex(RuntimeError, '数据库失败'):
+                self.rt.commit_package(candidate['story'], candidate['characters'], '失败测试')
+        self.assertEqual(self.rt.package(), before)
+        self.assertEqual(self.rt.files.read(), before['story'])
+        self.assertFalse(any(p.name.startswith('.玄陆.') for p in self.rt.library.iterdir()))
 
     def test_api_projection_auth_and_config(self):
         with TestClient(create_app(self.path)) as client:

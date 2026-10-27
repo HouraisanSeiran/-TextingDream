@@ -2,16 +2,53 @@
 import copy
 import hashlib
 import json
+import os
 import re
+import uuid
 from pathlib import Path
 from .prompts import stable_json
 
 
+def fsync_directory(path):
+    """Best-effort directory sync so a rename is not lost with the directory entry."""
+    try:
+        handle = os.open(path, os.O_RDONLY | getattr(os, 'O_DIRECTORY', 0))
+    except OSError:
+        return
+    try:
+        os.fsync(handle)
+    except OSError:
+        pass
+    finally:
+        os.close(handle)
+
+
 def atomic_text(path, text):
+    """Write a file by rename so readers never see a half-written document.
+
+    The temporary name is unique per write (a fixed name lets two writers collide),
+    the bytes are fsynced before the rename, and the directory entry is fsynced
+    afterwards. This is durable against process interruption; it is not a claim of
+    absolute safety against physical power loss or failing storage.
+    """
+    path = Path(path)
     path.parent.mkdir(parents=True, exist_ok=True)
-    temp = path.with_suffix(path.suffix + '.tmp')
-    temp.write_text(text, encoding='utf-8')
-    temp.replace(path)
+    temp = path.parent / ('.' + path.name + '.' + uuid.uuid4().hex[:12] + '.tmp')
+    flags = os.O_WRONLY | os.O_CREAT | os.O_EXCL | getattr(os, 'O_BINARY', 0)
+    handle = os.open(temp, flags, 0o600)
+    try:
+        with os.fdopen(handle, 'wb') as stream:
+            stream.write(text.encode('utf-8'))
+            stream.flush()
+            os.fsync(stream.fileno())
+        os.replace(temp, path)
+    except BaseException:
+        try:
+            temp.unlink()
+        except OSError:
+            pass
+        raise
+    fsync_directory(path.parent)
 
 
 def point_document(point):

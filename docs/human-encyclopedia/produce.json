@@ -1,0 +1,762 @@
+{
+  "schema_version": 1,
+  "group": "produce",
+  "status": "candidate",
+  "note": "蔬菜、水果、坚果候选条目。与 staples（谷物/豆/块根/油料）、flavors（香料/调味/饮料/糖源）分工：橄榄、花生、油菜、向日葵等主用途为油料者留在 staples；辣椒（含甜椒）与胡椒等调味作物留在 flavors。同一物种的不同用途以 tags 与 related_ids 表达，不重复立条。",
+  "sources": [
+    {"id": "produce_src_01", "title": "Cabbage (Brassica oleracea) — Encyclopaedia Britannica", "url": "https://www.britannica.com/plant/Brassica-oleracea", "access": "read", "supports": "甘蓝由野生的 Brassica oleracea 长期栽培分化出多个农艺形态；按食用器官分为叶用（羽衣甘蓝/叶甘蓝 acephala）、结球（capitata）、小叶球（抱子甘蓝 gemmifera）、膨大茎（苤蓝 gongylodes）；叶片光滑具蜡质；喜温和凉爽气候、耐霜而热天品质下降；硬头结球甘蓝形成于中世纪北欧，软头类型更早出现于南欧；硬叶晚熟丹麦型适合越冬贮藏；中国白菜类（B. rapa 的 pekinensis 与 chinensis）属于另一个种", "rights_note": "第三方百科条目，仅作事实核对与自行转述，不复制原文段落"},
+    {"id": "produce_src_02", "title": "Head cabbage (Brassica oleracea var. capitata) — Encyclopaedia Britannica", "url": "https://www.britannica.com/plant/cabbage", "access": "read", "supports": "结球甘蓝为栽培起源的野生甘蓝形态，叶形成紧实叶球、颜色绿至红紫；为温带重要蔬菜、富含维生素 C；用于沙拉、熟食与酸菜（sauerkraut）；与中国白菜（B. rapa）分属不同物种", "rights_note": "第三方百科条目，仅作事实核对与自行转述"},
+    {"id": "produce_src_03", "title": "Chinese cabbage — Encyclopaedia Britannica", "url": "https://www.britannica.com/plant/Chinese-cabbage", "access": "read", "supports": "中国白菜指 Brassica rapa 的两个广泛栽培变种：大白菜（pekinensis，结紧实皱叶球、圆柱状，约 30 厘米高，Michihli 型可达 45 厘米，为泡菜原料）与小白菜/青梗菜（chinensis，叶面有光泽、叶柄厚而脆、球松散，幼株作 baby bok choy）", "rights_note": "第三方百科条目，仅作事实核对与自行转述"},
+    {"id": "produce_src_04", "title": "Broccoli — Encyclopaedia Britannica", "url": "https://www.britannica.com/plant/broccoli", "access": "read", "supports": "西兰花为甘蓝的一个形态，食用花蕾与花茎；原产地中海东部与小亚细亚，古罗马时期已在意大利栽培，18 世纪传入英国与美洲；一年生、株高 60—90 厘米，顶端与分枝形成密集绿花蕾簇，不采则开四瓣黄花并结长角果；喜中温至凉爽气候，种子繁殖，直播或育苗，60—150 天采收", "rights_note": "第三方百科条目，仅作事实核对与自行转述"},
+    {"id": "produce_src_05", "title": "Cauliflower — Encyclopaedia Britannica", "url": "https://www.britannica.com/plant/cauliflower", "access": "read", "supports": "花椰菜为 Brassica oleracea var. botrytis，食用部分为未成熟花序（花球/curd）与肉质花梗；一年生、约 0.5 米高；需约 16 °C 的稳定温度才能形成花球，喜湿润富氮土壤，干旱胁迫只结小球；采收前常将外叶束起遮盖花球以防变色；常见白花球，也有橙、紫、绿、褐品种；根肿病与菜青虫类为主要问题", "rights_note": "第三方百科条目，仅作事实核对与自行转述"},
+    {"id": "produce_src_06", "title": "Onion (Allium cepa) — Encyclopaedia Britannica", "url": "https://www.britannica.com/plant/onion-plant", "access": "read", "supports": "洋葱为石蒜科二年生草本，可能原产西南亚，现全球温带广泛栽培；食用地下鳞茎由叶基同心膨大形成；花茎无叶可达 75—180 厘米，伞形花序结小球芽（bulbil）；多以黑色种子直播，亦可用小鳞茎或苗移栽；温暖气候所产鳞茎辛辣味较淡而更甜；辛辣来自含硫挥发油，切剥时刺激流泪；历史上埃及视球状鳞茎为宇宙象征，罗马人将其带入不列颠；栽培品种含 globe、Bermuda、Spanish、shallot、pearl、spring、green onion 等不同采收期与用途类型", "rights_note": "第三方百科条目，仅作事实核对与自行转述"},
+    {"id": "produce_src_07", "title": "Garlic (Allium sativum) — Encyclopaedia Britannica", "url": "https://www.britannica.com/plant/garlic", "access": "read", "supports": "大蒜为石蒜科多年生（常作一年生栽培）植物，原产中亚；鳞茎包膜质皮，内含至多约 20 个可食小鳞芽（蒜瓣）；花球初被纸质苞片包被，开放后为绿白至粉色花，花序有时着生小球芽；通常用蒜瓣或小球芽繁殖，亦可用种子；气味与辛辣来自约 0.1% 的挥发油（二烯丙基二硫化物等）；古代与中世纪既作调味也作药用", "rights_note": "第三方百科条目，仅作事实核对与自行转述；不采用其中任何疗效说法作为结论"},
+    {"id": "produce_src_08", "title": "Lettuce (Lactuca sativa) — Encyclopaedia Britannica", "url": "https://www.britannica.com/plant/lettuce", "access": "read", "supports": "莴苣为菊科一年生叶菜，多鲜食作沙拉底；栽培上分四个植物学变种：茎用（augustana，即莴笋，叶窄、茎粗可食）、结球（capitata）、散叶/皱叶（crispa）、直立/罗马（longifolia）；结球类又分奶油型与脆叶型；抽薹（bolting）会拉长叶球、缩小叶片并产生苦味，故须在开花前采收；需充足水分，不耐长途运输的类型靠近市场种植，脆叶结球型较耐运；喜冷凉，常用温室、冷床、塑料薄膜保护栽培", "rights_note": "第三方百科条目，仅作事实核对与自行转述"},
+    {"id": "produce_src_09", "title": "Spinach (Spinacia oleracea) — Encyclopaedia Britannica", "url": "https://www.britannica.com/plant/spinach", "access": "read", "supports": "菠菜为苋科耐寒一年生叶菜，叶呈莲座状排列、三角至卵形、平或皱；需冷凉气候与深厚、肥沃、施石灰的土壤；可自早春至晚夏每两周播种，末次播种的植株可越冬供早春叶；采后须立即预冷、去杂、清洗、低温贮藏；叶含草酸盐，长期过量摄入与肾结石相关，蒸煮可降低草酸；20 世纪 20 年代因其铁与维生素 A、C 含量受重视而推广；另有新西兰菠菜、印度菠菜（Basella）、树菠菜等多种同名异物，其中树菠菜含强心苷须长时间煮熟", "rights_note": "第三方百科条目，仅作事实核对与自行转述；不作医疗建议"},
+    {"id": "produce_src_10", "title": "Carrot (Daucus carota) — Encyclopaedia Britannica", "url": "https://www.britannica.com/plant/carrot", "access": "read", "supports": "胡萝卜为伞形科一般二年生草本，食用直根；野生胡萝卜（subsp. carota，即 Queen Anne's lace）原产欧亚，一般认为是约公元 1000 年前后在 Central Asia 被驯化；史前遗址中已见其种子，说明在根部被驯化前已作药用；13 世纪中国与西北欧已有栽培；根形从球形到长形，除橙色外还有白、黄、紫肉品种；需冷凉至温和温度、深厚疏松土壤；第一年形成叶丛与根，越冬后抽生伞形花序与带刺种子", "rights_note": "第三方百科条目，仅作事实核对与自行转述；驯化年代与地点属学界通行说法，具体年代有争议"},
+    {"id": "produce_src_11", "title": "Cucumber (Cucumis sativus) — Encyclopaedia Britannica", "url": "https://www.britannica.com/plant/cucumber", "access": "read", "supports": "黄瓜为葫芦科一年生蔓性草本，食用嫩果；茎粗糙多汁、有分枝卷须可引缚上架；叶三至五裂、有毛；花黄色五瓣、单性；果实为 pepo；在常见蔬菜中需热量最高，水分供应不匀会使果实变苦；易感霜霉病、炭疽病、镰刀菌枯萎病；小果常腌渍；近缘的西印度黄瓜（C. anguria）主要作腌渍用", "rights_note": "第三方百科条目，仅作事实核对与自行转述"},
+    {"id": "produce_src_12", "title": "Cucurbitaceae (gourd family) — Encyclopaedia Britannica", "url": "https://www.britannica.com/plant/Cucurbitaceae", "access": "read", "supports": "葫芦科含约 98 属、975 种，多为一年生或多年生草本，分布温带与热带；多数种类对接近冰点的温度极敏感，此点限制其分布与栽培范围；多为一年生或多年生蔓性藤本，具螺旋卷须与掌状叶；花多为单性、五瓣白或黄，雌花常三心皮；果实为 pepo（坚韧外皮的多籽浆果）；多数葫芦科作物养分含量低，冬南瓜类为显著例外", "rights_note": "第三方百科条目，仅作事实核对与自行转述"},
+    {"id": "produce_src_13", "title": "Squash (genus Cucurbita) — Encyclopaedia Britannica", "url": "https://www.britannica.com/plant/squash", "access": "read", "supports": "南瓜属 Cucurbita 为葫芦科，许多种被广泛栽培作蔬菜与饲料；原产新大陆，在欧洲人到来之前已由原住民栽培；果实通常熟食，种子与花也可煮食；夏南瓜（西葫芦、飞碟瓜、弯颈黄 squash）为 C. pepo 的速生、小果、非蔓性或矮生品种，果实形成后数日即须采收（在种子与皮硬化前），皮一般可食；冬南瓜为蔓性、大果、长季品种，果实在干燥且远高于冰点的条件下可贮藏数月，果皮较硬通常不可食，包括 butternut（C. moschata）、delicata/acorn/spaghetti（C. pepo）、buttercup 与大型南瓜（C. maxima）；部分冬南瓜品种主要作装饰用葫芦栽培", "rights_note": "第三方百科条目，仅作事实核对与自行转述"},
+    {"id": "produce_src_14", "title": "Gourd — Encyclopaedia Britannica", "url": "https://www.britannica.com/plant/gourd", "access": "read", "supports": "葫芦指葫芦科若干成员的硬壳果实；多原产热带或暖温带，需长生长季、遇霜即死；多为速生匍匐或攀援藤本，具螺旋卷须、单性花、果实为 pepo；需排水良好的肥沃土壤与支架以形成端正无疵的果；常见种类包括 C. pepo subsp. ovifera 与 bottle gourd/calabash（Lagenaria siceraria，常用于制容器），另有 wax gourd（Benincasa hispida）、snake gourd、loofah 等；干燥的葫芦可制成器皿、杯瓶、勺、渔网浮子与鸟屋，并用于制作乐器（沙锤、西非 shekere、印度 sitar/tanpura 的共鸣体、西非 kora）", "rights_note": "第三方百科条目，仅作事实核对与自行转述"},
+    {"id": "produce_src_15", "title": "Watermelon (Citrullus lanatus) — Encyclopaedia Britannica", "url": "https://www.britannica.com/plant/watermelon", "access": "read", "supports": "西瓜为葫芦科西瓜属（Citrullus）的蔓性植物及其多汁果实，原产热带非洲，现全球栽培；果含维生素 A 与少量维生素 C，通常生食，果皮有时被腌作泡菜；梵语中已有西瓜一词、早期埃及艺术中亦见其形象，据此推断其农业上的古老程度超过四千年；驯化与选择性育种造成了高甜、大果、肉嫩与少籽的现代类型，部分现代「无籽」品种几乎无有生活力的种子；植株一年生、喜热，蔓生地面，具分枝卷须、深裂叶，花单生叶腑、淡黄色、单性；果为 pepo 型浆果，果肉可红、白或黄，果形与果皮厚度随品种而变，单果重 1—2 公斤至 20 公斤以上，单株结 2—15 果", "rights_note": "第三方百科条目，仅作事实核对与自行转述"},
+    {"id": "produce_src_16", "title": "Tomato (Solanum lycopersicum) — Encyclopaedia Britannica", "url": "https://www.britannica.com/plant/tomato", "access": "read", "supports": "番茄为茄科植物，广泛栽培供食用果实；植物学上是浆果，营养上按蔬菜归类；野生种原产南美安第斯山（主要在秘鲁与厄瓜多尔），一般认为在前哥伦布时期的墨西哥被驯化，名称来自纳瓦特尔语 tomatl；16 世纪初由西班牙人传入欧洲，西班牙与意大利最早作为食物接受；法国与北欧最初作观赏栽培并因与颠茄、天仙子同科而被怀疑有毒，其根与叶确实含茄碱；果实需温暖与充足阳光，冷凉地区多在温室栽培；需支架以防果触地，稳定供水可避免脐腐与裂果；易感青枯、早疫、花叶病毒、镰刀菌枯萎、线虫与天蛾幼虫；大量果实用作加工（罐藏、汁、酱、糊、番茄干）；传到北美后 1781 年杰斐逊已有种植，1812 年路易斯安那已作食物，东北部约 1835 年才食用，20 世纪初才普及", "rights_note": "第三方百科条目，仅作事实核对与自行转述；不采用其中任何营养或医疗结论"},
+    {"id": "produce_src_17", "title": "Eggplant (Solanum melongena) — Encyclopaedia Britannica", "url": "https://www.britannica.com/plant/eggplant", "access": "read", "supports": "茄子为茄科植物，食用其果；需温暖气候，自远古即在原产东南亚栽培；为地中海料理的重要食材（希腊 moussaka、意大利 parmigiana、中东 baba ghanoush），也常烤、煎、炸、煮食或作配菜与炖菜；与番茄、马铃薯及多种有毒茄科植物近缘；通常作一年生栽培，直立灌木状茎有时带刺；叶大、卵形、浅裂；花单生、紫色、约 5 厘米；果为大型蛋形浆果、表面有光泽、颜色从深紫到红、粉、黄、白不等、有时带条纹", "rights_note": "第三方百科条目，仅作事实核对与自行转述"},
+    {"id": "produce_src_18", "title": "Okra (Abelmoschus esculentus) — Encyclopaedia Britannica", "url": "https://www.britannica.com/plant/okra", "access": "read", "supports": "秋葵为锦葵科有毛一年生草本及其可食果实；原产东半球热带，在东西半球热带与亚热带广泛栽培或归化；仅食用未成熟的嫩果；可如芦笋般烹调、快炒或腌渍，也是炖菜与美国南部 gumbo 的原料；含大量黏液质（mucilage），故可作汤与肉汤的增稠剂；有些地方用其种子作咖啡替代品；叶与幼果在东方长期用于外敷止痛；叶心形、三至五裂，花黄色带深红花心，果为 10 棱蒴果、长 10—25 厘米、基部有毛、含多数深色卵形种子", "rights_note": "第三方百科条目，仅作事实核对与自行转述；不采用其中任何药用说法作为结论"},
+    {"id": "produce_src_19", "title": "Fig (Ficus carica) — Encyclopaedia Britannica", "url": "https://www.britannica.com/plant/fig", "access": "read", "supports": "无花果为桑科植物及其可食果；原产于亚洲土耳其至印度北部一带，在地中海多数国家可自然成苗，暖地栽培；在地中海地区鲜食与干制食用极广，被称为「穷人的食物」；果实含较多钙、钾、磷、铁；为最早被栽培的果树之一，远古即传布于爱琴海周边与黎凡特；希腊人自卡里亚得到它（种加词由此而来），阿提卡无花果曾著名并立专门法律管制出口；斯巴达人公共餐桌上常用，老普林尼列举多品种并称其为奴隶食物的主要部分；果实为隐头花序（syconium），花包于内部，分雄花与雌花；园艺类型分 caprifig（不可食、供传粉小蜂繁殖）、Smyrna（须授粉受精方能发育）、White San Pedro（第一季不需授粉、第二季需）、Common（不需授粉、种子多中空）；常以休眠枝扦插繁殖；多数地中海国家仅靠天然降水；暖地类型常温采后置盘晾晒干燥", "rights_note": "第三方百科条目，仅作事实核对与自行转述"},
+    {"id": "produce_src_20", "title": "Pomegranate (Punica granatum) — Encyclopaedia Britannica", "url": "https://www.britannica.com/plant/pomegranate", "access": "read", "supports": "石榴为千屈菜科灌木或小乔木及其果实；多汁的假种皮（aril）鲜食，果汁为 grenadine 糖浆来源、用于调味与利口酒；富含膳食纤维、叶酸、维生素 C 与 K；株高可达 5—7 米，叶椭圆至披针形、亮绿、长约 7.5 厘米；花橙红、腋生；果大如大橙、外形略呈六棱、皮光滑革质、色由褐黄至红；内部数室、含多数透明薄壁红色多汁 aril、各包一枚有棱的长形种子；被认为原产伊朗及邻近地区，栽培很久以前即环地中海并延伸至阿拉伯半岛、阿富汗与印度；美洲自美国较暖地区至智利普遍栽培；虽适应多种气候，但仅在高溫与干燥空气伴随成熟期时才能产出好果；深厚偏重壤土最佳；可种子繁殖，良种用扦插与压条，商业上用 250—300 毫米硬枝插穗露地生根", "rights_note": "第三方百科条目，仅作事实核对与自行转述"},
+    {"id": "produce_src_21", "title": "Grape (genus Vitis) — Encyclopaedia Britannica", "url": "https://www.britannica.com/plant/grape", "access": "read", "supports": "葡萄为葡萄科约 60—80 种藤本植物，原产北温带；可鲜食、制干（葡萄干）或压榨制汁与酿酒；通常为木质藤本、以卷须攀援，未修剪可达 17 米以上，干旱地区可呈近直立的灌木状；叶可食、互生、掌状分裂、有锯齿；花小、带绿、成簇；果为浆果，色由近黑到绿、红、琥珀，许多品种表面有白色粉状果霜；V. vinifera 为酿酒主用种，栽培数千年、报告品种至少 5000 个；北美尚有狐葡萄 V. labrusca（Concord 等「slipskin」类的来源，供鲜食、果冻、果汁与犹太洁食葡萄酒）、夏葡萄 V. aestivalis 与圆叶葡萄 V. rotundifolia；要求温暖至炎热而干燥的夏季与凉爽冬季，冬季低于约 −7 ℃ 可致死，生长期需 10 ℃ 以上积温，对土壤适应广（砂、黏、深浅、含钙与否）；商业品种以插条、枝段或嫁接繁殖；修剪是最重要的园务操作，通常去除当年生长量的 90—95%；葡萄栽培与葡萄酒生产见于埃及第四王朝（公元前 2400 年）等地，腓尼基人约公元前 600 年将葡萄带入法国，罗马人不晚于 2 世纪在莱茵河谷种植，老普林尼描述了 91 个品种与 50 种酒；葡萄亦经印度传入东亚；19 世纪末根瘤蚜由北美传入欧洲造成大面积毁园，最终靠将欧洲品种嫁接于抗性美洲砧木解决；收获取决于用途，酿酒葡萄在含糖最高、果皮覆蜡（可截留酵母）时采收", "rights_note": "第三方百科条目，仅作事实核对与自行转述；不提供酿造工艺参数"},
+    {"id": "produce_src_22", "title": "Pear (genus Pyrus) — Encyclopaedia Britannica", "url": "https://www.britannica.com/plant/pear", "access": "read", "supports": "梨为蔷薇科约 20—45 种乔木与灌木，含西洋梨 Pyrus communis，为世界最重要果树之一，两半球温带国家普遍栽培；鲜食或罐藏，亦用于酿造 perry；某些种（如豆梨 P. calleryana）作观赏；西洋梨树冠宽、可达 13 米，寿命 50—75 年；叶圆至椭圆、革质；花约 2.5 厘米、通常白色；果实一般较苹果更甜、质地更软，特征是果肉中有石细胞（grit/sclereid），形状多在果梗端窄、对端宽；通常以芽接或嫁接于砧木繁殖，欧洲主用榅桲（Cydonia oblonga）作砧木可致矮化并提早结果；易感火疫病、炭疽病、溃疡病与白粉病；西洋梨可能原产欧洲并自古栽培，欧洲人殖民后即传入新大陆，早期西班牙传教士将其带入墨西哥与加利福尼亚；亚洲的梨生产以本地种（如砂梨 P. pyrifolia）为主", "rights_note": "第三方百科条目，仅作事实核对与自行转述"},
+    {"id": "produce_src_23", "title": "Prunus (genus) — Encyclopaedia Britannica", "url": "https://www.britannica.com/plant/Prunus", "access": "read", "supports": "李属 Prunus 为蔷薇科 400 余种落叶或常绿灌木与乔木，原产北温带；含多种经济重要的核果类：扁桃（almond）、桃、李、樱桃、杏；许多种花繁而作观赏；叶多单叶有锯齿，常在叶基有一对腺体；花五瓣、常显眼、雄蕊多；果实为核果（drupe），俗称 stone fruits；部分种如黑刺李 P. spinosa 有刺可作防护篱", "rights_note": "第三方百科条目，仅作事实核对与自行转述"},
+    {"id": "produce_src_24", "title": "Peach (Prunus persica) — Encyclopaedia Britannica", "url": "https://www.britannica.com/plant/peach", "access": "read", "supports": "桃为蔷薇科李属果树，南北半球较温暖温带地区普遍栽培，果鲜食、制派与罐藏；黄肉品种富含维生素 A；树小至中型，少达 6.5 米，栽培中经修剪常控制在 3—4 米；寿命相对短，有些产区 8—10 年即更新，另一些可产果 20—25 年；果为核果，外果肉可食、内为硬核包种子，肉色白、黄或红；品种分离核与黏核；油桃为光滑无毛的桃；多数品种坐果过量，花后一月至六周有自然落果，需人工疏果；不耐严寒，冬季气温常低于 −23 至 −26 ℃ 之处不能栽培；冬季过暖亦生长不良，多数品种需一定需冷量；最适排水良好的砂质或砾质壤土，对氮肥或厩肥反应良好；每年修剪以控制高度并开张树冠透光；可能原产中国，经亚洲向西传至地中海，后由西班牙探险者带入新世界，至 1600 年已在墨西哥出现；数百年间品种选育多限于贵族园圃，大规模商业栽培 19 世纪始于美国，早期为实生苗、后以优良品系嫁接于耐寒实生砧木才形成大果园；中国、意大利、西班牙、美国为主要生产国", "rights_note": "第三方百科条目，仅作事实核对与自行转述"},
+    {"id": "produce_src_25", "title": "Plum — Encyclopaedia Britannica", "url": "https://www.britannica.com/plant/plum", "access": "read", "supports": "李为李属多种乔木或灌木及其可食果；果为光滑皮的核果，形状由球形至椭圆形；与桃、樱桃近缘；欧洲李 P. domestica 与日本李 P. salicina 为商业栽培种；某些种的树皮结构特殊，可减少失水、抵御虫与真菌并抗火；多数品种花芽生于短枝或主枝顶梢，每芽含 1—5 花（多为 2—3）；花后由子房发育为核果；果可鲜食、煮食、做果酱或烘焙；果肉紧实、含糖高者可不经发酵直接干燥成李子干（prune），用干燥机或日晒；欧洲李可能原产高加索与里海一带，至少 2000 年历史；乌荆子李 P. insititia 的古文献将其早期栽培与大马士革一带相连；日本李最早在中国驯化，数千年前，后在日本充分发展并由日本传向世界；日本李比多数欧洲品种更耐贮，故为最常见的鲜销李", "rights_note": "第三方百科条目，仅作事实核对与自行转述"},
+    {"id": "produce_src_26", "title": "Citrus (genus) — Encyclopaedia Britannica", "url": "https://www.britannica.com/plant/citrus", "access": "read", "supports": "柑橘属为芸香科植物，产具厚皮的多汁果实；经济重要者包括柠檬 C. × limon、来檬 C. × aurantiifolia、甜橙 C. × sinensis、酸橙 C. × aurantium、橘 C. reticulata、葡萄柚 C. × paradisi、香橼 C. medica、柚 C. maxima；柚子 yuzu 为最耐寒的柑橘，可在近冰点的高海拔生长，多与日本及其料理相关；柑橘多为常绿乔木或灌木，叶有光泽、椭圆形，许多种有刺；花通常白色五瓣、极香；果实为特化的浆果（hesperidium），果肉分瓣、瓣内充满汁液小囊，果皮革质、密布油腺", "rights_note": "第三方百科条目，仅作事实核对与自行转述"},
+    {"id": "produce_src_27", "title": "Orange (Citrus × sinensis and relatives) — Encyclopaedia Britannica", "url": "https://www.britannica.com/plant/orange-fruit", "access": "read", "supports": "橙为柑橘属数种小乔木或灌木及其近圆形果实，果皮革质含油、果肉多汁可食；经济重要者包括甜橙/中国橙 C. × sinensis、橘 C. reticulata（部分品种称 tangerine）与酸橙/塞维利亚橙 C. × aurantium；甜橙常见品种有雅法、无籽脐橙与血橙；甜橙树常达 6 米，叶宽大有光泽、常绿，叶柄有窄翅；花白色五瓣、极香；果为 hesperidium，果肉分瓣（carpel）；橙在完全成熟时采收，采后不会后熟改善品质；树可丰产 50—80 年甚至更久；最适有冬季轻霜带来低温的地区，半休眠期可耐略低于冰点的温度，但早霜危害大；对土壤适应广，砂至重黏壤皆可，以中间质地最佳，需排水良好；通常以选种实生苗为砧嫁接；幼树间常间作豆、番茄或瓜类，并种覆盖作物；许多产区需补充灌溉；一般认为原产亚洲热带（尤以马来群岛），自古栽培，由原产地传至印度与东非海岸、再至东地中海，罗马征服、阿拉伯商路与伊斯兰扩张都促进了传播；哥伦布航行时加那利群岛已常见橙树；1920 年以前橙主要作餐后水果，橙汁饮用的普及显著提高了人均消费；橙富含维生素 C，亦提供少量维生素 A；美国最主要的橙制品为冷冻浓缩汁，副产物包括精油、果胶、糖渍果皮与橙子酱，酸橙专用于制果酱", "rights_note": "第三方百科条目，仅作事实核对与自行转述；不采用其中任何营养或医疗结论"},
+    {"id": "produce_src_28", "title": "Lemon (Citrus × limon) — Encyclopaedia Britannica", "url": "https://www.britannica.com/plant/lemon", "access": "read", "supports": "柠檬为芸香科小乔木或开张灌木及其可食果，果汁酸涩，为糕点、甜点与菜肴的常用配料，柠檬水为常见饮料，果汁亦常加入茶中；柠檬酸可占果汁重量的 5% 或更多，富含维生素 C 与少量 B 族维生素；约公元 1000—1200 年间传入西班牙与北非，十字军将其自巴勒斯坦进一步传布于欧洲；1494 年亚速尔群岛已有栽培并大量运往英格兰；林奈曾以为它是香橼的一个变种，今知其为一独立的杂交种；植株常绿、开张、高 3—6 米（未修剪），幼叶带红，部分品种枝条有锐刺；花香气浓，单生或小簇腋生；果椭圆形、顶端有低乳突、8—10 瓣，果皮熟时黄色、油腺明显，白色海绵层（albedo）几无味并为商业果胶主要来源；汁液明显酸性；多在凉爽而温差小的沿海意大利与加利福尼亚栽培，株距 5—8 米；终年开花，一年采果 6—10 次；商品果径约 50 毫米，多在仍绿时采收，经处理后可在储运中存放三个月以上；幼树第三年即可结果，第五年进入商业产量，单株年均约 1500 个果；采后依成熟度分级，全黄者须立即销售，仍绿者储藏至转黄；主要副产物有柠檬酸、柠檬酸钙、柠檬油与果胶；需小心处理以防储运中真菌病害", "rights_note": "第三方百科条目，仅作事实核对与自行转述"},
+    {"id": "produce_src_29", "title": "Lime (Citrus × aurantiifolia, C. × latifolia and relatives) — Encyclopaedia Britannica", "url": "https://www.britannica.com/plant/lime", "access": "read", "supports": "来檬为柑橘属数种与杂交种，热带与亚热带栽培以取其酸性果；波斯来檬 C. × latifolia 为最常见商品类型，较小的 key lime/墨西哥来檬 C. × aurantiifolia 亦经济重要；野生来檬可能原产印尼群岛或邻近亚洲大陆，阿拉伯商人约公元 1000 年可能将其与柠檬一起自印度带至东地中海与非洲；12—13 世纪由归国的十字军传入西地中海；1493 年哥伦布第二次航行将柑橘种子（很可能含来檬）带到西印度群岛，随后广布于西印度、墨西哥与佛罗里达；树高少超过 5 米，不修剪则成灌木状，枝开张不规则、枝短硬、多细刺，叶小、常绿、淡绿，花小、白色、常成簇；果径约 3—4 厘米，卵形至近球形，常有小乳突，熟时皮薄、带绿黄，果肉柔嫩多汁、黄绿、明显酸；多数来檬的酸与糖含量都高于柠檬；亦有几乎不含柠檬酸的甜来檬（C. limetta），在埃及与部分热带国家有栽培；其他同名者还有泰国来檬/马蜂橙 C. hystrix（果与叶用于东南亚料理与香料）、兰普尔来檬 C. × limonia（疑为柠檬与橘的杂交，多用于制果酱）与澳洲指来檬 C. australasica（以汁囊「lime caviar」著称）；果汁可浓缩、干燥、冷冻或罐藏，果皮提油主要在西印度群岛加工；含维生素 C，曾为英国海军用于预防坏血病，故有「limey」之称", "rights_note": "第三方百科条目，仅作事实核对与自行转述；不采用其中任何医疗结论"},
+    {"id": "produce_src_30", "title": "Date palm (Phoenix dactylifera) — Encyclopaedia Britannica", "url": "https://www.britannica.com/plant/date-palm", "access": "read", "supports": "椰枣为棕榈科植物，栽培以取甜果；自极古即受珍视，可能原产今伊拉克；果为北非与中东可灌溉沙漠地带的主食与主要财富来源；西班牙传教士于 18 世纪与 19 世纪初将其带入新世界；今在加那利群岛、北非、中东、巴基斯坦、印度、墨西哥与美国加州栽培；干果保质期长，多个品种（含常见的 deglet noor）多作干制加工出售，干果含糖超过 50%（重量比）、蛋白质脂肪与矿物质各约 2%；medjool 等类型作鲜果食用并随存放逐渐皱缩；植株高约 23 米，茎上留有剪除老叶基的痕，冠部羽状叶约 5 米长；花枝自前一年生叶的叶腋抽出；雌雄异株，栽培中雌花行人工授粉；果为单籽核果，形状大小色泽品质与果肉质地随品种与栽培条件差异很大，单穗可结 1000 个以上果实、重 8 公斤以上；可种子或根出条（吸芽）繁殖，商业种植用吸芽，3—6 年生于已自生根后取下栽植；4—5 年开始结果，10—15 年进入盛果，单株产 40—80 公斤以上；已知可活 150 年，但商业栽培中更早更新；全株各部位均有经济价值：主干作木材，叶中肋作板条与家具，小叶作编织，叶基作燃料，果枝作绳与燃料，纤维作绳与包装材料，种子有时磨碎作饲料；果实可制糖浆、酒精、醋与烈酒；树液可鲜饮或发酵，但取液严重伤树故仅用于结果少的树；砍伐后嫩顶芽可作沙拉食用；埃及、伊朗、沙特与伊拉克为主要生产与出口国；叶片用于基督教圣枝主日与犹太教住棚节；成熟阶段有 khalal（满大小、硬、色浅）、bisr（开始着色）、rutab（顶端变软）、tamr（可包装）之分", "rights_note": "第三方百科条目，仅作事实核对与自行转述；不提供采收加工配方"},
+    {"id": "produce_src_31", "title": "Phoenix dactylifera L. (Date palm) — J. A. Duke, Handbook of Energy Crops, Purdue NewCROP", "url": "https://hort.purdue.edu/newcrop/duke_energy/Phoenix_dactylifera.html", "access": "read", "supports": "椰枣的用途、成分与育种材料综述；列出多个品种（Abbada、Barhee、Dayri、Deglet Noor、Halawy、Khadrawy、Medjool、Thoory 等）及其在果色、成熟期、耐湿性、果实质地等方面的育种价值；给出干枣无机成分（钾 716 mg/100 g 干重等）与种子成分（含水 7.9%、蛋白 5.2%、脂肪 6.8%、碳水 65.5%、纤维 13.6%、灰分 0.89%）等数据；树液熬制的粗糖（jaggery）成分；叶与果枝的肥料成分；并附品种试验与文献线索", "rights_note": "大学出版物网页（作者自述的未正式出版手稿，1983 年），仅作成分与品种名录的事实核对；其数字属单一文献口径，未与其他来源交叉核验"},
+    {"id": "produce_src_32", "title": "Banana (genus Musa) — Encyclopaedia Britannica", "url": "https://www.britannica.com/plant/banana-plant", "access": "read", "supports": "香蕉为芭蕉科芭蕉属的栽培果实，为世界最重要水果作物之一；品种数百个，煮食蕉（plantain）约占全球香蕉栽培的 85%；几乎所有香蕉都在热带栽培与消费，为当地主粮作物；Cavendish 为温带国家最主要的进口类型；甜蕉多熟食鲜食，亦可炸、捣泥冷藏作馅；煮食蕉富淀粉，成熟或未熟时煮或炸，亦可磨粉做团子（如 fufu）或粥；花亦可食，在中国与越南常见；熟蕉含碳水可达 22%，富含膳食纤维、钾、锰与维生素 B6、C；叶片常作蒸煮与储存食物的包裹材料、盘碟或锅底衬；假茎纤维可织布、制绳、编席与造纸（尤见于日本等地），干叶可作屋顶或纤维；香蕉被认为至少在 6500 年前于新几内亚逐步驯化；希腊、拉丁与阿拉伯早期文献提及食用；亚历山大远征印度时见到香蕉；约 2000 年前可能自亚洲传入非洲，但考古证据提示乌干达可能早至 4500 年前已有人采食；欧洲人抵美洲后不久，香蕉自加那利群岛传入新大陆，先在伊斯帕尼奥拉立足并迅速扩散；被奴役的非洲人亦将香蕉带入新大陆；19 世纪起进入美国市场；植株为具地下茎（根状茎）的巨型草本，假茎高 3—6 米，由叶鞘基部组成，冠部 10—20 片长可达 3—3.5 米、宽 65 厘米的叶；花序自假茎顶端抽出，下垂后形成 50—150 个果的果串，每串分 10—20 个「手」；结果后母株被砍倒，由根状茎抽生的吸芽替代，约每半年产生新吸芽；宜深厚疏松排水良好的湿润热带土壤，半干旱区可灌溉栽培（如牙买加南部）；以吸芽与根状茎分株作种植材料，第一造 10—15 个月成熟，此后结果近乎连续，需频繁除萌；商品果串通常 9 手以上、重 22—65 公斤；采后在植株上未充分成熟即收，长途运输后常以乙烯人工催熟；因克隆繁殖、遗传多样性极低而极易受病虫害，1950 年代末 Gros Michel 品种即因巴拿马病（镰刀菌枯萎）退出商业栽培，Cavendish 亦自 1990 年代起受 TR4 型威胁；另有黑条叶斑病、炭疽病、束顶病毒、花叶病毒与细菌性枯萎等；命名长期有争议，因古栽培、不育、杂交与俗名混乱，今以基因组体系（A/B 字母与倍性）标识，如 Cavendish 记作 AAA 'Dwarf Cavendish'", "rights_note": "第三方百科条目，仅作事实核对与自行转述"},
+    {"id": "produce_src_33", "title": "Banana — J. F. Morton, Fruits of Warm Climates (Purdue NewCROP)", "url": "https://hort.purdue.edu/newcrop/morton/banana.html", "access": "read", "supports": "可食香蕉起源于印度—马来亚区并延伸至澳大利亚北部；公元前 3 世纪地中海地区仅闻其名，一般认为公元 10 世纪才首次传入欧洲；16 世纪初葡萄牙海员将植株自西非海岸带至南美；太平洋栽培类型可追溯到印尼东部，再经马克萨斯群岛逐步传至夏威夷；区分 banana 与 plantain 的用法在不同语言区并不一致，印度则不作区分，仅按适合鲜食或烹调分级；植株为大型草本，假茎可达 6—7.5 米，由叶鞘组成，自肉质根状茎抽生，吸芽形成株丛并世代更替；叶螺旋排列、每株 4—15 片，暖季约每周展开一片，可达 2.75 米长、60 厘米宽；花序为顶生穗状，雌花在下方 5—15 排，雄花在上部；果实为浆果，未熟时含乳汁、可能涩而黏，熟后转软或干粉质；野生类型种子多而硬、果肉少，栽培类型一般无籽，仅余褐色小点；'Gros Michel' 曾为中南美、加勒比与中非的主栽商业品种，因极易感巴拿马病而被淘汰；Cavendish 群含 'Dwarf Cavendish'、'Giant Cavendish'（又称 Williams）、'Pisang masak hijau'、'Robusta'、'Valery' 等克隆；香蕉与煮食蕉今在一切湿润热带地区栽培，为世界第四大水果作物（次于葡萄、柑橘与苹果）", "rights_note": "专业参考书（1987 年）网页版，仅作事实核对与自行转述；其中产量与贸易数据为 1980 年前后口径，已过时，本条目不采用其数量"},
+    {"id": "produce_src_34", "title": "Pineapple (Ananas comosus) — Encyclopaedia Britannica", "url": "https://www.britannica.com/plant/pineapple", "access": "read", "supports": "菠萝为凤梨科多年生植物及其可食果，原产热带与亚热带美洲，后被引种他处；果已成为泛亚洲料理中肉、菜、鱼与饭类的特征配料；产地鲜食，全球亦以罐藏形式消费；在美国与欧洲有时用作糕点馅料或烘焙甜点；植株有 30—40 片坚硬多肉的叶紧密排列于粗壮肉质茎上成莲座；商品品种约在种植后 15—20 个月于 100—150 毫米花梗上形成有限花序；原本分离的淡紫花与其苞片各自附着于中央轴，随发育肉质化并愈合成菠萝果实，开花后 5—6 个月成熟；植物学上为聚花果，商品果重 1—2 公斤；现代种植园通常先铺浸沥青的覆盖纸于整好的 soil 上、以条状铺设定植，将繁殖材料穿过纸插入土中，密度约每英亩 15000—20000 株；最早的书面记载出自哥伦布、奥维耶多与罗利，他们在西印度群岛见其作食物与酿酒；葡萄牙人显然主导了早期传播，发现圣赫勒拿岛（1502）后不久即引入，随后带至非洲，约 1550 年传入印度；16 世纪末栽培已扩展至全球多数热带地区，包括南太平洋部分岛屿；主要生产国包括哥斯达黎加、巴西、中国、印度与泰国", "rights_note": "第三方百科条目，仅作事实核对与自行转述"},
+    {"id": "produce_src_35", "title": "Coconut (Cocos nucifera) — Encyclopaedia Britannica", "url": "https://www.britannica.com/plant/coconut", "access": "read", "supports": "椰子是椰棕（Cocos nucifera，棕榈科）的可食果，可能原产印度—马来亚一带，为热带最重要作物之一；椰肉富含脂肪，可干燥或鲜食，也可加工为椰奶或椰子油；果内液体（椰水）用作饮料；单株每年可产约 100 个椰子，每个果需一年才充分成熟；成熟果卵形或椭球形、长 300—450 毫米、径 150—200 毫米，外有厚纤维质壳（husk）包着商品意义上的单籽坚果，硬壳内包不显著的胚与大量胚乳（由椰肉与液体组成）；果实易漂浮，可借洋流与人力在热带广布；除可食椰肉与青果饮品外，还产 copra（干燥取出的椰肉），并由此榨取椰子油这一重要植物油；菲律宾与印尼为 copra 主产国，南太平洋各地 copra 亦为主要出口品；椰肉可刨碎加水制椰奶，用于烹调并作牛奶替代；干壳（husk）产椰棕纤维（coir），耐盐水，用于制绳、席、篮、刷与扫帚", "rights_note": "第三方百科条目，仅作事实核对与自行转述"},
+    {"id": "produce_src_36", "title": "Jujube (Ziziphus jujuba) — Encyclopaedia Britannica", "url": "https://www.britannica.com/plant/jujube", "access": "read", "supports": "枣为鼠李科枣属两个带刺小乔木种及其果实；果可鲜食、干制、煮、炖、烤，并用于调味茶；以蜂蜜与糖浆煮成蜜饯后形似波斯枣，故有时被称作「中国枣」；果汁用于制作小糖果（jujubes）；生果富含维生素 C；多数为普通枣 Z. jujuba 的品种，原产中国，在中国已有 4000 年以上栽培历史；该种高 7.6—9 米，叶互生、三脉、椭圆至卵形、长 2.5—7.6 厘米；花小、黄色，后结深褐色、圆至长圆形、形如小李的果实，脆白果肉包一枚大而有尖的核；印度枣/棉枣 Z. mauritiana 叶背有绒毛（普通枣光滑），果较小而不甚甜；两种均适炎热干燥气候，冬季气温不低于约 9.4 ℃；抗多种病虫害；可种子繁殖，但商业品种须以根出条、根插或嫁接行无性繁殖；另有野生枣 Z. lotus 与基督刺枣 Z. spina-christi，一般不栽培", "rights_note": "第三方百科条目，仅作事实核对与自行转述"},
+    {"id": "produce_src_37", "title": "Chestnut (genus Castanea) — Encyclopaedia Britannica", "url": "https://www.britannica.com/plant/chestnut", "access": "read", "supports": "栗为壳斗科栗属七种落叶乔木，原产北半球温带；多个种栽培作观赏或材用，亦取其可食坚果，坚果生于带刺的总苞（bur）内、成熟时裂开；名为 chestnut 但非栗属的植物包括南非的 cape chestnut（Calodendrum capense）、七叶树属（Aesculus）的马栗、Moreton Bay chestnut、桃棕（palm chestnut）与各类 water chestnut；栗属多为高大乔木，成熟树皮有沟；叶有锯齿、披针形至近椭圆形；雄花多为长而直立的柔荑花序，雌花单生或成簇生于短雄花序基部；总苞内含 1—7 枚坚果，随种而异，成熟开裂；种子寿命短，通常落地后不久即萌发；美洲栗 C. dentata 曾为北美东部优势树种，因 20 世纪初自亚洲意外传入的栗疫病菌（Cryphonectria parasitica）几近灭绝，病征为红褐色树皮斑并发展成溃疡、最终整株死亡；与抗性亚洲种杂交已获少数抗病杂种；美洲的矮栗 C. pumila 分布于美国东部与南部，高可达 14 米，亦感病但部分变种较抗；欧洲栗 C. sativa 高 30 米，原产欧亚与北非，又称甜栗、西班牙栗；中国栗 C. mollissima 常低于 18 米，可生于海拔 2440 米；日本栗 C. crenata 高 9 米以上，生于海拔 915 米以下；欧洲、中国与日本栗的坚果在本地有食用重要性并大量出口；欧洲栗的小果作牲畜饲料或磨粉，被选育成一苞一果的大果（marrons）；欧洲栗亦产良材；另有 Henry chinquapin 与 Seguin's chestnut 等中国种", "rights_note": "第三方百科条目，仅作事实核对与自行转述"},
+    {"id": "produce_src_38", "title": "Almond (Prunus dulcis) — Encyclopaedia Britannica", "url": "https://www.britannica.com/plant/almond", "access": "read", "supports": "扁桃（商品名巴旦木/杏仁之一）为蔷薇科李属植物及其可食种子，原产西南亚，主要栽培于南北纬 28°—48°／20°—40° 的地中海型气候带；加州产量约占全球近 80%；可生食、去皮或烘烤，常用于糕点，欧洲用以制杏仁膏（marzipan），亚洲常用于肉、禽、鱼与素菜；富含蛋白与脂肪，并提供少量铁、钙、磷与维生素 A、B 族、E；落叶乔木，一般高 3—4.5 米，花期自 1 月底至 4 月初，花芳香、五瓣、淡粉至白；花自交不亲和，需昆虫传粉行异花授粉，故须配置授粉品种；开花期有霜则产量不稳；生育中的果似桃，成熟时革质外壳（hull）裂开卷出核；虽俗称坚果，实为包于硬果壳内的种子，并非真正的坚果；分甜扁桃（var. dulcis，可食）与苦扁桃（var. amara，含苦杏仁苷 amygdalin，其油含氢氰酸须先除去方可用于食品与利口酒香料如 amaretto）；两者化学成分相近，均含 35%—55% 非挥发油与酶 emulsin，但苦扁桃含苦杏仁苷而甜扁桃仅微量；旧大陆杏仁栽培以小片自用种植为主、与其他作物间作、树龄与结果能力参差、手工并使用简陋工具；现代栽培为同龄至少三类品种的大园，常以机械振动采收，花期租用蜂箱授粉，加州杏仁授粉为全球最大规模的管理授粉事件，每年逾 110 万箱蜂进入该州；蜂群崩溃失调威胁该产业", "rights_note": "第三方百科条目，仅作事实核对与自行转述；苦杏仁苷风险只作定性提示，不给处置方法"},
+    {"id": "produce_src_39", "title": "Hazelnut (genus Corylus) — Encyclopaedia Britannica", "url": "https://www.britannica.com/plant/hazelnut", "access": "read", "supports": "榛为桦木科榛属约 15 种灌木与乔木及其可食坚果，原产北温带；数个种因坚果而商业重要，亦有作绿篱与观赏；欧洲榛/普通榛 C. avellana 的油用于食品、香水与肥皂，木材淡红白、质软，可制工具柄与手杖；落叶，叶互生、有锯齿、倒卵形、有毛；株高 3—36 米；冬末同一树上出现大量黄色雄柔荑花序与较小的红心雌花簇；坚果圆形或长圆形、褐色，一般长 1—4 厘米，部分或全部包于总苞（husk）内；深根、中度耐阴，在排水良好土壤与全日照下结果最佳；优质坚果来自两种欧亚树（C. avellana 与 C. maxima）以及它们与美洲榛 C. americana、喙榛 C. cornuta 的杂交种；大果 cobnut 为欧洲榛的一个品种，Lambert's filbert 为巨榛品种；土耳其榛 C. colurna 的坚果以 Constantinople nuts 之名出售；该属旧俗名 hazel，曾依坚果与总苞的相对长度分称 filbert、hazelnut 或 cobnut，但此区分被证明会误导；另有同名的 Jamaican cobnut（Omphalea triandra）风味相似但属大戟科，完全无关", "rights_note": "第三方百科条目，仅作事实核对与自行转述"},
+    {"id": "produce_src_45", "title": "English walnut (Juglans regia) — Encyclopaedia Britannica", "url": "https://www.britannica.com/plant/English-walnut", "access": "read", "supports": "英国核桃/波斯核桃为核桃科有价值的坚果与用材树，原产伊朗；广泛栽培以取其优质可食种子，商品名即 walnut；木材深色细纹，类似黑核桃 J. nigra，用于家具、护墙板与枪托；叶为长羽状复叶，小叶圆头、全缘，顶生小叶最大；无瓣的雄花与雌花分生于同株的不同柔荑花序上；果实为核果，并非真正的坚果；可食种子生于木质核内、外包厚壳（husk）；只有在肥沃、排水良好的中重质地土壤上才产出优质「坚果」", "rights_note": "第三方百科条目，仅作事实核对与自行转述"},
+    {"id": "produce_src_46", "title": "Pistachio (Pistacia vera) — Encyclopaedia Britannica", "url": "https://www.britannica.com/plant/pistachio-nut", "access": "read", "supports": "开心果（Pistacia vera）为漆树科小乔木，据信原产伊朗，广泛栽培于阿富汗至地中海地区以及加州，生于温暖或温带气候的旱地；其可食种子（俗称开心果）绿色、风味温和带树脂香，可鲜食或烘烤，常用于果仁蜜饼、哈尔瓦与冰淇淋等甜点，也用于给糖果着黄绿色；树高约 9 米，需风媒传粉，园中须在雌树间配置雄树以保证产量；本条所据页面为策展式摘要与旁及段落，未获全文，因此只支撑上述概括性事实", "rights_note": "第三方百科的策展摘要页（无全文条目），仅支撑概括性事实；本条目对任何工艺与产地细节均不作断言"},
+    {"id": "produce_src_47", "title": "FAO Agricultural Services Bulletin 149: Handling and Preservation of Fruits and Vegetables by Combined Methods for Rural Areas (2003)", "url": "https://www.fao.org/4/y4358e/y4358e00.htm", "access": "read", "supports": "果蔬采后处理与保存的技术手册目录与章节结构，明确把「采后处理」拆为可分别管理的环节：成熟度指标、采收容器与工具、田间包装与运往包装场；根、块茎与鳞茎作物的 curing；包装前操作与包装；预冷方式与温度；贮藏；病虫害与腐烂控制；保存原理方面以水分活度（aw）、中间水分食品（IMF）、栅栏/组合方法为框架，并列出热烫（scalding/blanching）、托盘冷却、亚硫酸处理、日晒干燥与渗透脱水、发酵、贮藏等乡村可用方法；亦讨论包装、运输（常温车与冷藏车）、贮藏温度与货架期、复水/糖浆复原与营养与感官变化", "rights_note": "联合国粮农组织出版物，用于非商业资料整理；本条目只引用其分类框架与定性条件，不转述具体工艺参数"},
+    {"id": "produce_src_48", "title": "Malus domestica (apple) — NC State Extension Plant Toolbox", "url": "https://plants.ces.ncsu.edu/plants/malus-domestica/", "access": "read", "supports": "苹果为蔷薇科落叶乔木及可食果，原产中亚至阿富汗，今全球栽培；果可生食或烹调，果汁（cider）为重要产品；品种在颜色、风味与推荐用途上差异很大；一般易栽培、耐多种土壤，需全日照至半阴；需常规喷药以防治病虫；实生可长至 9 米高宽，市售多为嫁接于矮化砧的木，故体量小得多；不同品种需冷量不同，须按地区选品种；多数品种需配置同期开花的另一品种或种作授粉树才能较好结果；常见病虫害包括白粉病、蚜虫、苹果黑星病、火疫病、黑斑病、苹果蠹蛾与苹果实蝇；果为梨果（pome）、大而圆、常有蜡质层，有的品种夏末熟、有的秋季熟", "rights_note": "大学推广站植物数据库条目，仅作栽培事实核对"},
+    {"id": "produce_src_49", "title": "Mango — J. F. Morton, Fruits of Warm Climates (Purdue NewCROP)", "url": "https://hort.purdue.edu/newcrop/morton/mango_ars.html", "access": "read", "supports": "芒果原产南亚，尤以印度东部、缅甸与安达曼群岛，自古在其原产地栽培并受尊崇；据信佛教僧侣于公元前 4—5 世纪将其带至马来亚与东亚；波斯人约公元 10 世纪将其带到东非；东印度群岛在葡萄牙人最早到访前已普遍栽培，葡萄牙人显然于 16 世纪初将其引入西非并带入巴西；在巴西立足后传至西印度群岛，约 1742 年首次植于巴巴多斯，约 1782 年到达牙买加，19 世纪初经菲律宾与西印度传入墨西哥；1833 年起多次引入佛罗里达，1886 年严寒使多数植株死亡，此后靠芽接与盾状芽接技术（1909 年商业化成功）推动产业发展；美国农业部 1899—1937 年间自印度、菲律宾、西印度等地引入 528 个品种；印度约占世界芒果产量的 65%，其他产地包括泰国、巴基斯坦、孟加拉、巴西、墨西哥、菲律宾等；树高 10—30 米、冠幅可达 30—38 米，寿命长、有 300 年仍结果的记录；花小而多、每花序数百至三四千朵、其中 25%—98% 为雄花，其余为两性花；果形自近圆、卵形至肾形，常偏斜，长 6—25 厘米，重自数盎司至 1.8—2.3 公斤；果皮革质、有蜡质、较厚、芳香，色自绿至黄、橙、红或紫红；果肉淡黄至深橙、纤维多少不一、汁多、风味自极甜至偏酸；核单枚、有纵向棱、内为富含淀粉的种子，单胚或多胚；具「松节油」气味者为部分类型的特征", "rights_note": "专业参考书（1987 年）网页版，仅作事实核对与自行转述；其产量与面积数据为 20 世纪 80 年代口径，本条目不采用其数量"},
+    {"id": "produce_src_50", "title": "Growing cabbage in home gardens — University of Minnesota Extension", "url": "https://extension.umn.edu/vegetables/growing-cabbage", "access": "read", "supports": "甘蓝属十字花科，与多数近缘作物一样在冷凉气候下生长最好；叶球由相互紧包的叶片构成，中心为短粗的茎；前四年内同一地块不应种过甘蓝、西兰花、花椰菜、芜菁、瑞典芜菁或抱子甘蓝；春季作夏收须室内育苗，秋作可 7 月初直播；生长期 60—100 天，直播比移栽晚约三周成熟；成株后期可耐低于冰点的温度；土壤 pH 6—7、排水良好但保水、肥沃；每周约 1 英寸水分，缺水则质地差、苦味重、外叶焦枯或不结球；幼苗期生长点受损会导致永久不结球；成熟后遇大雨易裂球，可转球四分之一圈或切根一侧减少进水；收获时在叶球达到可用大小后于外叶之上切下；贮藏需 0—4 ℃ 与约 95% 相对湿度，即需地窖而非普通冰箱；传统保存法为发酵（欧洲酸菜、亚洲泡菜）；主要害虫有跳甲、进口菜青虫、甘蓝尺蠖、小菜蛾、甘蓝种蝇与瑞典麦秆蝇；主要病害有链格孢叶斑、黑腐病与根肿病", "rights_note": "大学推广站页面（2026 年修订），语境为美国中西部家庭菜园，仅作栽培与储藏定性条件核对"},
+    {"id": "produce_src_51", "title": "Growing onions in home gardens — University of Minnesota Extension", "url": "https://extension.umn.edu/vegetables/growing-onions", "access": "read", "supports": "洋葱可用种子、移栽苗或上一年的小鳞茎（sets）栽培；春季尽早种植；土壤需排水良好且富含有机质，pH 6.0—7.0；根系浅，需持续供水；约半数植株倒伏并干枯时收获；若欲储藏则必须 curing：在 24—32 ℃ 通风处放置 2—4 周，至外层鳞片干燥、颈部收紧，晾晒不当会在储藏中腐烂；储藏需冷凉干燥、不可结冰，高于约 4 ℃ 即开始发芽；长日型需 14 小时以上日照才结球，短日型为甜或温和类型，在北方只能结小球；所有洋葱都需要全日照，生长季阴天与低温会延迟结球；氮素过多导致晚熟、假茎粗难晾晒、鳞茎软、肉质发绿与储藏性差；洋葱近缘包括大蒜、细香葱（chives）、韭葱与 shallot；主要害虫为洋葱种蝇；主要病害有镰刀菌基腐、灰霉颈腐与细菌性软腐，镰刀菌基腐有抗性品种", "rights_note": "大学推广站页面（2024 年修订），语境为美国中西部家庭菜园"},
+    {"id": "produce_src_52", "title": "Growing garlic in home gardens — University of Minnesota Extension", "url": "https://extension.umn.edu/vegetables/growing-garlic", "access": "read", "supports": "大蒜与洋葱、细香葱近缘，为药用与烹调香草；鳞茎分为多枚蒜瓣，每瓣外覆白紫或粉色纸质鞘；宜排水良好、保水、pH 6.0—7.0 的土壤；须以蒜瓣栽植（不能用市售食用蒜，多属软颈型且不适应）；秋植一般在第一次杀霜后一到两周，入冬前生根发芽但不出土，翌春出苗；瓣尖朝上、基部距土面 5—7.5 厘米；冬季覆 7.5—10 厘米叶或秸秆 mulch；需氮中等偏高，出苗后与两三周后追肥，5 月首周后避免施氮以免延迟结球；每周浸透至至少 2.5 厘米深，砂土更频；采前两周停水以防外皮染色与病害；过早收则球小、过晚收则蒜瓣外露；依品种与气候在 6 月下旬至 7 月下旬收获，判据为下部叶变褐、上部一半略多仍绿，或切开见蒜瓣充满外皮；收后连茎叶置温暖干燥通风处 curing 3—4 周，之后在球上方 1.3—2.5 厘米处剪茎、近球基修根；可自留最大蒜瓣作下一年种用；硬颈型（Rocambole、Purple Stripe、Porcelain）抽花茎、花多败育而结小球芽，可食嫩花茎；软颈型（Artichoke、Silverskin）瓣多、易编辫、一般不抽花茎，但该性状受气候影响；轮作约四年；主要问题为洋葱种蝇、叶蝉传播的翠菊黄化病、蒜螨（褐色疤）以及随种蒜传入的多种病害；象蒜（elephant garlic）是韭葱的一类而非真蒜", "rights_note": "大学推广站页面（2026 年修订），语境为美国中西部家庭菜园"},
+    {"id": "produce_src_53", "title": "Allium cepa (onion) — NC State Extension Plant Toolbox", "url": "https://plants.ces.ncsu.edu/plants/allium-cepa/", "access": "read", "supports": "洋葱为石蒜科栽培鳞茎作物，为人类最早栽培的蔬菜之一，被认为源出中亚与中波斯，原生起源地不明；种加词 cepa 为拉丁语「洋葱」；冷凉季作物，春季土壤可耕时即植于湿润但排水良好、肥沃疏松、全日照的土壤；鳞茎植深约 1.3—2.5 厘米、间距 15 厘米；生长期会形成多个侧芽；至少三分之二顶部枯死时即可收获，用叉掘出以免损伤，晾晒（cure）2—3 周后使用，以网袋或筐储存以利通风；历史记载可上溯 5000 余年，记述其作食物、药物并用于艺术与木乃伊制作；鳞茎与上部叶可生食或熟食；该记录同时标注本植物对人类（并列出对猫、狗、马）具毒性特征，且毒性可依人/动物年龄、植株年龄、摄入部位与数量、是否过敏、生熟而异，并建议咨询专业人士；生长问题包括蒜螨与过湿土壤引起的鳞茎腐烂；对鹿与兔有抗性，可种于黑核桃附近", "rights_note": "大学推广站植物数据库条目；其中毒性提示只作风险记录转述，不作任何处置或医疗建议"},
+    {"id": "produce_src_54", "title": "Cucumis melo (cantaloupe/muskmelon) — NC State Extension Plant Toolbox", "url": "https://plants.ces.ncsu.edu/plants/cucumis-melo/", "access": "read", "supports": "Cucumis melo 为葫芦科暖季一年生攀援植物，该物种原生范围包括非洲、阿拉伯半岛、印度、新几内亚与澳大利亚，涵盖多种可食瓜类；已有许多栽培类型被驯化数千年；cantaloupe 又名 muskmelon，因果实切开时的麝香气味得名；需全日照与中性至酸性、湿润而排水良好的土壤，壤土或黏土均可但以添加有机质为宜；通常用笼架或棚架支撑，空间足够时也可匍匐地面；可攀至 1.8—2.7 米高、幅宽 0.3—0.9 米；以种子繁殖，终霜后露地播种，或预计终霜前 4—6 周室内育苗；果实宜在幼嫩时采收，过熟则变韧；该物种通常被划分为若干非正式群，多数为栽培起源、野生状态未知，曾具分类地位、今并入 C. melo 一种，包括 Cantaloupensis（cantaloupe）、Reticulatus（网纹/麝香瓜）、Inodorus（蜜瓜 honeydew）、Flexuosus（美国黄瓜型）、Chito（芒果瓜/藤桃）、Dudaim（Queen Anne）与 Conomon（东方腌渍瓜）；果形大小、果皮、质地、风味与肉色随品种而异；花单性同株、可有部分两性花，黄色五瓣、约 2.5 厘米，雄花多成簇、雌花多单生，需蜂类等传粉；葫芦科共通问题含黄瓜甲虫与枯萎病、白粉病、霜霉病、蔓枯病与炭疽病；可食性说明提示应避免食用种子，因萌发的种子在胚中会产生有毒物质", "rights_note": "大学推广站植物数据库条目；毒性提示只作风险记录转述，不作处置建议"}
+  ],
+  "elements": [
+    {
+      "id": "produce_cabbage",
+      "name": "甘蓝",
+      "aliases": ["结球甘蓝", "卷心菜", "洋白菜", "包菜", "cabbage", "Brassica oleracea", "野甘蓝栽培形态"],
+      "tags": ["living_organism", "crop", "vegetable", "food", "agriculture", "leafy_green"],
+      "summary": "同一个物种 Brassica oleracea 经长期栽培分化出叶用、结球、花球、茎用等形态的蔬菜群；耐寒、可窖藏、可发酵腌渍，是温带最耐储的叶菜之一。",
+      "details": {
+        "definition": "甘蓝指 Brassica oleracea 这一物种的全部栽培形态，十字花科。中文里「甘蓝」既可泛指整个物种，也常特指结球甘蓝。同一物种下按食用器官分为：叶用不结球（羽衣甘蓝、叶甘蓝，var. acephala）、叶结成紧实大叶球（结球甘蓝，var. capitata）、叶结成小叶球（抱子甘蓝，var. gemmifera）、花器变态为肉质花球（花椰菜 var. botrytis、西兰花 var. italica）、茎膨大为球茎（苤蓝 var. gongylodes）。因此「卷心菜」「花椰菜」「西兰花」「苤蓝」在植物学上是同一物种的不同品种群，不是不同物种；而中文常说的「中国白菜」「小白菜」属 Brassica rapa，是另一个物种，不能与本条混为一谈。",
+        "mechanism": "食用器官的形成机制按类型而异：结球类靠内部叶片向上向内卷抱形成紧实叶球，中心是短粗的茎（菜心）；花椰菜与西兰花靠花序分生组织在未开放状态下增厚，形成可食的「花球」；苤蓝靠地上部茎的次生增粗。共同点是叶片光滑无毛、表面覆蜡质，因此呈灰绿或蓝绿色并具有一定耐旱与耐储性。生长上属冷凉型：温和至凉爽气候下生长最好并能耐受霜冻，某些类型在特定生育期可耐硬冻；炎热会损害生长与品质。",
+        "conditions": "需要排水良好但保水的肥沃土壤、稳定的水分与氮素供应，pH 约 6—7；结球期缺水或高温会造成叶球松散、外叶焦枯甚至不结球。北方春季栽培须先在室内育苗（真叶 5 片、约 3 周后移栽），秋作可 7 月初直播；生长期约 60—100 天，直播比育苗移栽晚约 3 周成熟。贮藏需要 0—4 ℃、约 95% 相对湿度的冷凉高湿环境（比普通冰箱更冷更湿），因此传统上依赖地窖；叶球成熟后遇大雨易裂球，可通过转球四分之一圈或切根一侧减少进水。",
+        "exceptions": "不要把「耐寒」理解为全生育期耐冻：幼苗对霜敏感，早春过早定植或移栽前未逐渐见光会受害；生长点受损的幼苗会永久不结球。也不要把所有甘蓝类当成同一栽培制度：西兰花、花椰菜采收的是花器，须在花蕾开放前采，成熟窗口短；结球甘蓝可长期田间存放与窖藏；抱子甘蓝需多次采收。风味上，结球甘蓝可生食、炒、炖、做馅、发酵成酸菜或泡菜（朝鲜泡菜亦用大白菜），而苤蓝主要食球茎、抱子甘蓝食小叶球，用途不可互换。",
+        "story_uses": "适合承担「过冬与荒季」的物质基础：耐寒、可窖藏数月、可盐渍发酵保存，使一个聚落能在无新鲜蔬菜的季节维持维生素来源，也因此成为腌菜作坊、盐与陶瓮需求的起因。也适合写品种分化背后的选择压力——同一物种在叶、花、茎上被分别放大，是农人长期取舍的结果，可用来支撑「某地为何只吃叶球不吃花球」的地方性知识差异。",
+        "historical_scope": "野生甘蓝分布于欧洲海岸等地，栽培分化有数百年至上千年的层积过程：软头类型被认为更早出现于南欧，硬头结球甘蓝在中世纪北欧形成；西兰花在古罗马时期的意大利已有栽培，18 世纪传入英国与美洲；花椰菜的地中海起源与后期在欧洲的普及时间线另有一套地方文献。这些节点属于欧洲（及地中海东部）脉络，不能当作全球同步时间表；东亚在同一时期走的是 Brassica rapa（白菜、芜菁）与芥菜的另一条分化路径。",
+        "evidence_and_uncertainty": "Britannica 的 cabbage 条目明确给出物种层面的一源多形态分类、耐寒性与中世纪北欧形成硬头结球类型的说法，支撑本条的定义与分类框架。栽培细节（育苗、裂球、0—4 ℃/95% 湿度窖藏）来自 University of Minnesota Extension 的甘蓝栽培页，其语境是美国中西部家庭菜园，不能直接外推到其他气候带；结球甘蓝与中国白菜的物种区分有 Britannica 两条互相印证。仍缺：各品种群分化年代的考古学证据、各地区传入与普及的具体时间，故本文只作范围性表述，不给年份。review_status 为 needs_review。"
+      },
+      "source_ids": ["produce_src_01", "produce_src_02", "produce_src_03", "produce_src_50"],
+      "related_ids": ["produce_chinese_cabbage", "produce_broccoli", "produce_cauliflower"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "produce_chinese_cabbage",
+      "name": "白菜类",
+      "aliases": ["大白菜", "结球白菜", "黄芽菜", "小白菜", "青菜", "青梗菜", "napa cabbage", "bok choy", "Brassica rapa"],
+      "tags": ["living_organism", "crop", "vegetable", "food", "agriculture", "leafy_green"],
+      "summary": "Brassica rapa 的叶用栽培群：大白菜结成紧实圆柱叶球、耐储宜腌渍，小白菜叶柄厚脆、以幼株鲜食；与甘蓝（B. oleracea）是两个不同物种。",
+      "details": {
+        "definition": "本条覆盖 Brassica rapa（芸薹）这一物种中以叶与叶柄为食用器官的栽培群，十字花科。最主要的两支是：大白菜（var. pekinensis，又称结球白菜、黄芽菜），叶面皱、结成紧实圆柱状叶球，株高约 30 厘米，「Michihli」型可达 45 厘米；小白菜/青梗菜（var. chinensis，又称青菜、bok choy、pak choi），叶面有光泽、深绿，叶柄厚而脆、白或绿，叶球松散，幼嫩植株常作 baby bok choy 出售、风味较淡。同物种还包含芜菁（根用）、turnip rape 与部分油用类型，因此「B. rapa」不等于「白菜」，说白菜时应限定为叶用栽培群。",
+        "mechanism": "大白菜的叶球由外叶向内抱合、内部叶片皱缩叠生而成，形成相对封闭的结构，可减少水分蒸发并提高耐运性；小白菜不形成封闭叶球，靠厚实的叶柄储水。两者都属冷凉型叶菜，生长快、需氮量大，氮素充足则叶片大而柔嫩。抽薹后品质迅速下降（纤维化、味苦），因此商品收获集中在抽薹前。",
+        "conditions": "需要冷凉气候与充足、均匀的水分与氮素；高温干旱易导致包心不良、味苦与病虫害（蚜虫、菜青虫、软腐）。叶球含水量高，采后极易萎蔫与腐烂，通常需要预冷与低温高湿流通，不耐长期常温堆放。大白菜因叶球紧实、外层叶保护性好，比小白菜更耐储藏，是北方冬储与腌渍（东北酸菜、朝鲜泡菜）的主要对象；小白菜以鲜销、短途为主。",
+        "exceptions": "名称混用极多：口语「白菜」在很多地区指大白菜，在另一些地区指小白菜（青菜），而「天津白菜」「胶菜」等又指向特定地方类型；英文 napa cabbage 与 bok choy 分别对应两支，不可互换。此外大白菜与甘蓝在形态上都被称为「结球」，但亲缘是不同物种，抗病性与栽培制度也不同，不能因外形相似而通用一套轮作与贮运经验。",
+        "story_uses": "适合写「腌渍越冬」这一生产组织：大白菜的产量集中、含水高、可盐渍发酵长期保存，使秋末的采收、盐与容器的采购、缸窖的占用成为季节性事件，也容易生出关于「谁家腌得好」的地方评价体系。小白菜则适合表现城镇近郊的日日鲜供给：地少、周转快、经不起长途，是城郊菜园的典型作物。",
+        "historical_scope": "Brassica rapa 的栽培分化在东亚有很长历史，叶用结球类型（大白菜）的形成与普及属于东亚（尤其中国北方）脉络，与欧洲以 B. oleracea 为中心的甘蓝分化是两条独立路径；两者在近数百年内因跨洲交流才在市场上并置。本文不给定大白菜结球类型形成的确切年代——所引 Britannica 条目未给出年代，其他文献口径不一。",
+        "evidence_and_uncertainty": "Britannica 的 Chinese cabbage 条目直接给出两支变种名、形态特征（叶球高度、叶柄质感）与用途（泡菜、炒食），并明确它们属 B. rapa；同站的 cabbage 条目亦重申中国白菜是「related species」，两条互证了与甘蓝的物种区分。尚缺：大白菜结球类型的选育与传播时间、各地传入路线的一手文献，故 historical_scope 只作定性表述。review_status 为 needs_review。"
+      },
+      "source_ids": ["produce_src_03", "produce_src_01", "produce_src_02"],
+      "related_ids": ["produce_cabbage"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "produce_broccoli",
+      "name": "西兰花",
+      "aliases": ["青花菜", "绿花菜", "broccoli", "sprouting broccoli", "Brassica oleracea var. italica"],
+      "tags": ["living_organism", "crop", "vegetable", "food", "agriculture"],
+      "summary": "甘蓝物种中以未开放花蕾簇与花茎为食的形态，地中海东部起源、意大利古罗马已有栽培，18 世纪传入英国与美洲。",
+      "details": {
+        "definition": "西兰花是 Brassica oleracea 的一个栽培形态（常记作 var. italica），食用部分为主轴与分枝顶端密集的绿色花蕾簇连同幼嫩花茎。它与花椰菜（var. botrytis）同物种、食用器官同属花序变态，但西兰花花蕾分化程度更高、颜色绿、结构疏松；与羽衣甘蓝、结球甘蓝的差别在食用器官而非物种。中文「西兰花」「青花菜」「绿菜花」同指；「broccoli」在英语中有时也涵盖花球偏白或紫的 sprouting broccoli 类型。",
+        "mechanism": "可食部分由花序分生组织大量分枝并在花蕾未开放时增粗形成；若任其生长，花蕾会开放为四瓣黄花并结长角果，食用价值随即丧失，所以采收必须在花蕾紧密、颜色深绿而未松散时进行。植株一年生，直立分枝，株高约 60—90 厘米，叶革质。生育期与温度决定花球紧实度：中温至凉爽时花球致密，高温则花球松散、易发黄。",
+        "conditions": "喜中温至凉爽气候，需充足氮素与稳定水分；以种子繁殖，可直播或育苗移栽；依品种与天气约 60—150 天可收主花球。采后花蕾仍在呼吸并继续发育，常温下很快黄化、失水、开放，因而需要快速预冷与冷链；不耐挤压。连作会加重根肿病、黑腐病等土传问题，通常与其他科作物轮作。",
+        "exceptions": "不要把西兰花与芥蓝、青花菜干制品混为同一物：芥蓝是另一个物种（B. oleracea 的 alboglabra 群，在中文里也常被叫作「芥兰」，茎叶兼食），不能因为都「绿色、有花蕾」就按同一套采收标准。也不要以为白色花球只是品种颜色差异——白/橙/紫花球的花椰菜与西兰花分属不同品种群，成熟窗口和采后表现不同。此外，西兰花的侧花球可多次采收，主花球采收后追肥可延长供应期，这一点与只收一次主球的栽培习惯不同。",
+        "story_uses": "适合用来写「短窗口采收」带来的劳力调度：花球一旦松散就跌价，成熟期集中且需手采，于是采摘工、运输距离与市场时点成为关键约束，很适合作为时效压力与议价能力的来源。也可用于写蔬菜的品种改良与外观标准如何反过来规定农事（要求深绿、紧实促使氮肥与遮阴管理）。",
+        "historical_scope": "所引来源给出的是地中海东部与小亚细亚起源、古罗马时期意大利栽培、18 世纪传入英国与美洲这条欧洲脉络；这条时间线不能套用到东亚——西兰花在东亚的规模化栽培与消费是近现代的事，属于另一条传播与市场史。",
+        "evidence_and_uncertainty": "Britannica broccoli 条目直接支撑：甘蓝的一个形态、原产地中海东部与小亚细亚、古罗马意大利栽培、18 世纪传入英国与美洲、株高 60—90 厘米、花蕾簇形态、不采则开黄花结长角果、中凉气候与种子繁殖、60—150 天采收。该条目篇幅短，未涉及采后冷链细节与轮作病害，此部分本文以定性表述给出并明确为通行的栽培常识层面、未逐条核源。review_status 为 needs_review。"
+      },
+      "source_ids": ["produce_src_04", "produce_src_01"],
+      "related_ids": ["produce_cabbage", "produce_cauliflower"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "produce_cauliflower",
+      "name": "花椰菜",
+      "aliases": ["菜花", "花菜", "椰菜花", "cauliflower", "Brassica oleracea var. botrytis"],
+      "tags": ["living_organism", "crop", "vegetable", "food", "agriculture"],
+      "summary": "甘蓝物种中以未成熟花序形成的白色「花球」为食的形态，对温度稳定性要求高，干旱即只结小球。",
+      "details": {
+        "definition": "花椰菜是 Brassica oleracea var. botrytis，食用部分为顶端密集成球的未成熟花序（curd，中文常称花球）与肉质花梗，外围被宽大叶片包裹。它是甘蓝物种中最「高度变态」的形态之一：叶形近似羽衣甘蓝（var. acephala），而食用器官是花序而非叶或茎。商业上以白色花球最常见，另有橙、紫、绿、褐品种。与西兰花同物种、同为花序变态，区别在花蕾分化程度与颜色。",
+        "mechanism": "花球的形成依赖顶端分生组织在营养生长充分后转入生殖但仍不开放的状态：花序分枝密集增生并保持未分化，形成紧实的乳白球体；若温度过高或波动大，花球会松散、长出小叶或直接抽薹开花。叶片会明显高出花球，栽培上常在采收前把外叶束起遮盖，以避免日晒造成变色（黄化或紫斑）。",
+        "conditions": "冷凉作物，需要约 16 ℃ 的稳定温度才能形成良好花球；喜湿润、富氮土壤，干旱胁迫下只结小球。以种子繁殖（直播或育苗移栽）。主要问题为根肿病与食叶害虫（菜青虫、菜粉蝶幼虫、蚜虫）。采后花球呼吸旺盛、易失水褐变，需快速预冷并保持高湿低温；机械伤与挤压会直接造成褐斑。",
+        "exceptions": "不能把「冷凉」理解为耐冻：花球期遇强霜冻会冻伤，与结球甘蓝成株可耐短期低温不同。也不能套用西兰花的采收判断：花椰菜要求花球紧实、表面平整、无散蕾，一旦散蕾即失去商品价值，而西兰花本身就以可见花蕾为正常状态。此外「花菜」在部分地区口语中也指西兰花，交易时须以颜色与结构确认，不能仅凭名称。",
+        "story_uses": "适合作为「精细栽培与市场分级」的样本：同一块地里的花球大小、洁白度、紧实度差异直接决定价钱，于是分级台、遮阴与束叶的手工、采收时点都成为可写的日常劳动。也可用来表现气候异常对蔬菜供给的冲击——温度不稳即无花球，价格随之一夜起落。",
+        "historical_scope": "花椰菜属地中海（欧洲）栽培脉络下的甘蓝分化产物，其在欧洲的普及与品种形成有地方文献但口径不一；传入东亚与规模化栽培是较晚的近现代过程。本文不给定其形成与传播的具体年份，避免把欧洲时间线当全球默认。",
+        "evidence_and_uncertainty": "Britannica cauliflower 条目直接支撑：品种名 var. botrytis、食用未成熟花序与肉质花梗、约 0.5 米高、需约 16 ℃ 稳定温度、湿润富氮土壤、干旱只结小球、采收前束叶遮光防变色、白色最常见并有橙紫绿褐品种、根肿病与食叶害虫为主要问题。该条目未给传播年代，故本条不作年代断言。review_status 为 needs_review。"
+      },
+      "source_ids": ["produce_src_05", "produce_src_01"],
+      "related_ids": ["produce_cabbage", "produce_broccoli"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "produce_onion",
+      "name": "洋葱",
+      "aliases": ["葱头", "圆葱", "球葱", "onion", "Allium cepa"],
+      "tags": ["living_organism", "crop", "vegetable", "food", "agriculture", "condiment_crop"],
+      "summary": "以同心叶基膨大形成的鳞茎为食的二年生作物，耐储需充分晾晒（curing）；长日/短日类型决定能否结球，是栽培地带划分的核心。",
+      "details": {
+        "definition": "洋葱是 Allium cepa（石蒜科）的鳞茎，二年生草本。可食鳞茎由叶基同心膨大而成，外被干膜质鳞片，内为肉质鳞叶。中文「洋葱」「葱头」「圆葱」同指；「小葱/香葱/大葱」多指 Allium fistulosum 一系（另条处理，本条不覆盖），两者不同种。栽培品种按用途与采收期分为球状（白/黄/红，味强，多用于炖煮与煎炒）、Bermuda（大而扁、味较淡）、Spanish（大、甜、多汁，宜生食）、意大利 cipollini（扁、甜）、shallot（小、有棱角、味淡，绿叶也可食）、pearl（直径 25 毫米以内的小球，多腌渍）、spring onion（25—38 毫米采收、可带上部叶）与 green onion/scallion（未充分膨大、上部叶仍绿，13 毫米以下）。",
+        "mechanism": "鳞茎形成与日照长度直接相关：长日型需 14 小时以上日照才结球，短日型在较短日照下即结球，因此在北方种短日型只能结小球、在南方种长日型可能延迟结球——品种与纬度的匹配比施肥更决定成败。鳞茎辛辣来自含硫挥发油，剥切时酶与含硫氨基酸反应生成挥发性物质刺激眼睛。叶片为管状中空、覆白粉，根系浅，因此对水分波动敏感。",
+        "conditions": "喜排水良好、富含有机质、pH 约 6—7 的土壤；根系浅需持续供水（每周约 1 英寸，砂土更频）；氮素不足则生长弱，过量则晚熟、假茎粗难晾晒、鳞茎软而难储。春季尽早直播或移栽（可耐轻霜），或使用上一年的小鳞茎（set）。收获在约一半植株倒伏、叶片干枯时进行，需在田间或室内以 24—32 ℃ 通风处晾晒 2—4 周，直至外皮干燥、颈部收紧；未充分晾晒的鳞茎在储藏中腐烂。储藏需冷凉干燥、避免结冰，高于约 4 ℃ 即开始发芽。",
+        "exceptions": "不要把「耐储」理解成不挑条件：洋葱储藏的成败几乎完全取决于采收前的停水与采收后的晾晒，而不仅是窖温；损伤的鳞茎极易感染镰刀菌基腐、灰霉颈腐与细菌性软腐。也不要把所有「葱」等同：green onion/scallion 是未膨大的幼株、以叶为主，pearl onion 是直径受控的小球，shallot 是另一类群——它们在同一地块的播期、密度与采收期都不同，不能共用一套管理。温暖气候所产洋葱更甜更淡，这一风味差异是产地属性而非品种缺陷。",
+        "story_uses": "适合用作储藏技术决定城市供给的例子：晾晒与窖藏环节做不好，整季收成在冬季损失，于是「会不会晾」成为可观察的技艺差异，也是邻里借贷与雇工议价的筹码。辛辣与催泪则是极好的感官细节来源，可用于写厨房劳动的具体体验。品种与纬度的匹配还能支撑「种子从哪来」的贸易与知识依赖——买错长日/短日类型意味着一整季无收。",
+        "historical_scope": "洋葱是极古老栽培作物之一：所引来源称其在有记载之前可能已在印度、中国与中东被认识，古埃及把球状鳞茎视为宇宙象征，罗马人将其带入不列颠，北美原住民则将本地野生葱（Allium canadense）用于炖煮。这些是不同地区的并行事实，不能拼成单一传入路线；东亚的葱属利用另有 A. fistulosum、A. tuberosum 等本地方向。",
+        "evidence_and_uncertainty": "Britannica onion 条目支撑：物种名、很可能原产西南亚、鳞茎由叶基膨大、花茎 75—180 厘米与小球芽、多以种子直播亦可移栽或小鳞茎、暖地更甜、辛辣来自含硫挥发油、以及各商业品种类型的分野与由来（古代埃及、罗马入不列颠）。栽培与储藏条件来自 University of Minnesota Extension 洋葱栽培页：长日型需 14 小时以上日照、pH 6—7、根浅需持续水分、约半数倒伏时收获、24—32 ℃ 通风晾晒 2—4 周、储藏高于约 4 ℃ 会发芽；其语境是美国中西部，其他气候带需另核。NC State 条目补充其原产地不明（中南亚/中波斯）与 5000 年以上食用与药用记载，并提示该植物对猫狗马有毒性记录——本条只作风险提示，不给处置建议。review_status 为 needs_review。"
+      },
+      "source_ids": ["produce_src_06", "produce_src_51", "produce_src_53"],
+      "related_ids": [],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "produce_garlic",
+      "name": "大蒜",
+      "aliases": ["蒜", "蒜头", "garlic", "Allium sativum"],
+      "tags": ["living_organism", "crop", "vegetable", "food", "agriculture", "condiment_crop"],
+      "summary": "以鳞茎中多个蒜瓣为食的葱属作物，几乎全部靠无性繁殖（蒜瓣/小球芽），因此品种退化和病害随种蒜传递，需轮作与选种。",
+      "details": {
+        "definition": "大蒜是 Allium sativum（石蒜科）的鳞茎，常作一年生栽培（植物学上为多年生）。鳞茎被膜质皮包被，内含至多约 20 个可食小鳞芽（蒜瓣），每瓣外覆白紫或粉色纸状鞘。原产中亚，在意大利与法国南部可野生化。中文「大蒜」「蒜头」同指；蒜苗、蒜薹是同一植株不同生育阶段的产物，苗期上部的绿色叶片即蒜苗，抽生的花茎即蒜薹，均有独立的市场与采收窗口。注意「象蒜/elephant garlic」并非真蒜，而是韭葱（leek）一类；shallot 亦另属。",
+        "mechanism": "食用部分由叶鞘基部膨大并在外围形成共同包膜而成，内部再分为独立蒜瓣。气味与辛辣来自约 0.1% 的挥发油，主要成分为二烯丙基二硫化物、二烯丙基三硫化物与烯丙基丙基二硫化物。类型上分硬颈（hardneck，抽出花茎 scape，花序多败育而结小球芽，瓣数少而大）与软颈（softneck，不抽花茎、瓣多、便于编辫储藏，但同一品种在异地可能抽出花茎——该性状受气候影响）。蒜通常靠蒜瓣或顶部小球芽繁殖，也可用种子但生产上少见，这导致品种几乎是无性系、遗传一致性极高。",
+        "conditions": "喜排水良好、保水、pH 约 6—7 的土壤。秋植：一般在第一次杀霜后一到两周下种，瓣尖朝上、基部距土面约 5—8 厘米；入冬前生根发芽但不出土，翌春出苗。定植前后需氮，但春季约 5 月首周后停施氮以免延迟鳞茎形成。需保持每周约 1 英寸水分，采前约两周停水以防外皮染色与病害。收获期依品种与气候在 6 月下旬至 7 月下旬，判据是下部叶变褐、上部叶约一半仍绿，或切开鳞茎见蒜瓣充满外皮。收后连茎叶置于温暖干燥通风处晾 3—4 周（curing），再剪茎去根储藏；轮作周期约 4 年，种蒜须选健康饱满蒜瓣，因为多数病害随种蒜传入。",
+        "exceptions": "不要把蒜当作可以用种子随意更新品种的作物：无性繁殖意味着病毒与螨类（蒜螨留下褐色疤）会逐代累积，这也是「自家留种」既有价值又有风险的原因。也不要把硬颈与软颈当作固定属性——同一品种在气候改变时可能抽薹或不抽。象蒜不是蒜；蒜苗、青蒜、蒜薹、蒜黄都是同种或同属不同栽培处理下的产品，不可互相替代计价。历史上大蒜长期兼作药用与辟邪物（如中古欧洲随身佩戴以驱邪），这类说法属于信仰与民俗记述，不能与成分研究混同。",
+        "story_uses": "很适合承载「无性繁殖的脆弱性」这条生产逻辑：一块地的蒜长得不好，问题可能不在当年的田间管理，而在三年前买的那批蒜瓣；这让种子交换、外来种蒜与检疫成为有因果的叙事资源。秋植和越冬也让它天然与季节仪式、窖藏、编辫储藏的手艺相连，可用于写厨房与储藏间的日常。气味强烈且穿透，是极好的感官与社交细节（同一屋内的可辨识度）。",
+        "historical_scope": "所引来源给出的原产地为中亚，并在意大利、法国南部野生化；古代与中世纪文献中大蒜既作调味也作药用并被当作护身物。这些记述覆盖地中海与欧洲脉络；东亚的蒜类利用与品种（如蒜苗、腊八蒜等加工）另有本地脉络，不应由欧洲文献推断。驯化与传播的具体年代所引来源未给出，本条不作断言。",
+        "evidence_and_uncertainty": "Britannica garlic 条目支撑：物种名、原产中亚、在意大利与法国南部野生、约 60 厘米高、鳞茎至多约 20 瓣、花序与小球芽、通常以蒜瓣或小球芽繁殖亦可用种子、含约 0.1% 挥发油及主要成分、古代与中世纪兼作药用与护身物。栽培与储藏条件来自 University of Minnesota Extension 大蒜页：pH 6—7、秋植时点、5 月后停氮、每周 1 英寸水分、采前两周停水、6 月下旬至 7 月下旬采收判据、3—4 周 curing、4 年轮作、硬颈/软颈类型与「象蒜非真蒜」。来源未给出驯化年代与各地区传入时间，故不作年份表述；疗效类说法未采用。review_status 为 needs_review。"
+      },
+      "source_ids": ["produce_src_07", "produce_src_52"],
+      "related_ids": ["produce_onion"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "produce_lettuce",
+      "name": "莴苣",
+      "aliases": ["生菜", "莴笋", " lettuce", "Lactuca sativa"],
+      "tags": ["living_organism", "crop", "vegetable", "food", "agriculture", "leafy_green"],
+      "summary": "菊科一年生叶菜，四个植物学变种分别食叶、结球叶或肥大茎；抽薹即品质崩坏，故须在开花前采收，多数类型不耐长途运输。",
+      "details": {
+        "definition": "莴苣是 Lactuca sativa（菊科）一年生叶菜，多数品种以生食作沙拉底。栽培上分四个植物学变种：茎用（var. augustana，即莴笋/茎用莴苣，叶窄、茎粗而多汁可食）、结球（var. capitata，叶折叠成紧实叶球）、散叶/皱叶（var. crispa，叶呈莲座状，边缘皱、细裂、平滑或橡叶形）、直立/罗马（var. longifolia，叶平滑、形成长椭圆形松散叶球）。结球类又分奶油型（如 Bibb，叶厚、质地油润）与脆叶型（如结球 Iceberg，叶脆、条件合适时结球极紧）。因此「生菜」通常指叶用或结球类型，「莴笋」指茎用类型，二者同种不同变种。",
+        "mechanism": "食用器官按变种分别是叶片、叶球或膨大茎。抽薹（bolting）是关键转折：花茎伸长会拉长结球型叶球、缩小叶片并使味道变苦，因此商品采收必须在抽薹前完成；高温与长日照加速抽薹。叶片颜色从绿到深红紫，并有斑叶品种。花为黄色头状花序，结带冠毛的瘦果，靠风传播。",
+        "conditions": "需充足水分，天热时尤甚；需要富含有机质、保水的土壤，并常借温室、冷床、玻璃罩或塑料薄膜保护与促长。不同变种的流通性差别很大：罗马型、散叶型与奶油型在很多地区最受欢迎，但组织柔嫩、不耐运输，多由靠近市场的菜园或近郊农场供应；脆叶结球型耐长途运输，在北美等远距离流通市场占优。",
+        "exceptions": "不要把「生菜」统称当成一个栽培对象：茎用莴苣的采收判据（茎膨大而未空心）与结球型（叶球紧实）完全不同，管理上对密度、氮肥与水分的响应也不同。也不要以为结球莴苣一定耐储——脆叶型耐运的前提是低温链，断链后同样迅速腐烂。此外中文「莴苣」在部分语境被用来包含野生近缘种与杂草型莴苣，作为食材时须限定为栽培变种。",
+        "story_uses": "适合写「近郊供应圈」：不耐运的叶菜把生产地钉在城市周边，形成每日清晨的采收—入市节奏，可用于写运输距离如何决定吃什么样的菜。也适合写季节与价格的耦合，以及保护地（冷床、薄膜）这类低成本设施如何延长供应期。",
+        "historical_scope": "本条只描述栽培变种与农艺条件；所引来源未给出莴苣的起源地与驯化年代，也没有各地区传入时间，因此不作任何年代或路线断言。欧洲与东亚吃的是不同变种、不同部位（叶球/叶/茎），这属于并列的地方性用法，不应理解为一条线性演化史。",
+        "evidence_and_uncertainty": "Britannica lettuce 条目直接支撑：物种名、四个变种及其形态与食用部位、奶油型与脆叶型之分、抽薹导致叶球拉长与变苦故须花前采收、需充足水分、保护地栽培、以及不耐运类型近市场种植与脆叶型耐远程运输的市场格局。该条目未涉及起源与年代，本条相应留白。review_status 为 needs_review。"
+      },
+      "source_ids": ["produce_src_08"],
+      "related_ids": ["produce_spinach", "produce_chinese_cabbage"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "produce_spinach",
+      "name": "菠菜",
+      "aliases": ["波斯菜", "spinach", "Spinacia oleracea"],
+      "tags": ["living_organism", "crop", "vegetable", "food", "agriculture", "leafy_green"],
+      "summary": "苋科耐寒一年生叶菜，需冷凉与肥沃石灰性土壤；叶含草酸盐，蒸煮可降低；「菠菜」之名被多种无关叶菜共用，是典型同名异物。",
+      "details": {
+        "definition": "菠菜是 Spinacia oleracea（苋科，旧属藜科）一年生耐寒叶菜。食用部分为叶片，叶呈莲座状排列，单叶、三角至卵形、表面平或皱；花不显著，结小型干果。中文「菠菜」在同名异物意义上极宽：新西兰菠菜（Tetragonia tetragonioides，番杏科，须焯水后食）、印度/马拉巴尔菠菜（Basella alba，落葵科）、巴西菠菜（Alternanthera sissoo，苋科）、山菠菜（Atriplex hortensis）、拉各斯菠菜（Celosia argentea）、树菠菜（Cnidoscolus aconitifolius，大戟科，含强心苷须长时间煮熟）、长寿菠菜与冲绳菠菜（Gynura 属，菊科）等都不是本条所指；「perpetual spinach」其实是叶用甜菜（Beta vulgaris）。作为食材与农艺对象时，必须限定为 S. oleracea。",
+        "mechanism": "叶片在莲座期快速扩展形成商品器官，随后抽出花茎开花结实；叶片质嫩、含水高，采后呼吸与蒸腾旺盛，因此品质衰减快。叶中含草酸盐，与过量摄入时肾结石风险相关（定性关联），蒸或煮可降低草酸水平。20 世纪 20 年代因其铁与维生素 A、C 含量受到重视而被大力推广，成为叶菜消费的重要转折。",
+        "conditions": "需冷凉气候与深厚、肥沃、施石灰的土壤；可自早春至晚夏每两周播种一次（行距约 30 厘米），间苗；末次播种的幼株可在秋季成苗并在不太严酷的冬季越冬，供早春甚至整个冬季采叶。采后须立即除去田间热、剔除杂物、清洗，然后捆扎或包装运输；低温贮藏是维持叶菜品质的必要条件。",
+        "exceptions": "不要把「菠菜」当作单一作物来安排轮作与营养管理：同名异物涉及至少六个科，草酸含量、是否必须加热、毒性风险各不相同（树菠菜必须长时间煮熟，新西兰菠菜须焯水），把它们的处理方式混用有实际风险。也不要因「高铁」宣传而把它当补铁手段——本条只记录该宣传推动了栽培扩张这一史实，不背书营养或医疗结论。",
+        "story_uses": "适合承载「名称信任的崩坏」：同一市场上以「菠菜」出售的可能是完全不同的植物，处理方式不同，这在地名混杂的集市上是可以直接产生冲突与事故的具体机制。也适合写叶菜的时效性：采后必须马上预冷、清洗、上市，构成清晨到正午的一段紧张劳动。",
+        "historical_scope": "所引来源记述了菠菜在 20 世纪 20 年代因营养宣传而在美国与北欧大幅推广这一节点，以及其作为冷凉作物在温带的栽培节奏；未给出起源地与传入各路线的年代，故本条不作驯化与传播断言。",
+        "evidence_and_uncertainty": "Britannica spinach 条目直接支撑：物种与科、叶的形态与莲座排列、需冷凉与肥沃石灰性土壤、每两周播种与行距、采后立即降温清洗并低温贮藏、草酸盐与肾结石的关联及蒸煮可降低草酸、20 世纪 20 年代因铁与维生素 A/C 而受重视、以及一长串同名异物（含树菠菜含强心苷须久煮）。营养与健康部分只作定性转述，不构成医疗建议。review_status 为 needs_review。"
+      },
+      "source_ids": ["produce_src_09"],
+      "related_ids": ["produce_lettuce", "produce_chinese_cabbage"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "produce_carrot",
+      "name": "胡萝卜",
+      "aliases": ["红萝卜", "carrot", "Daucus carota"],
+      "tags": ["living_organism", "crop", "vegetable", "food", "agriculture", "root_vegetable"],
+      "summary": "伞形科二年生草本，食直根；一般认为约公元 1000 年前后在中亚被驯化，13 世纪已见于中国与西北欧；橙、黄、白、紫肉品种并存。",
+      "details": {
+        "definition": "胡萝卜是 Daucus carota（伞形科）的直根，植物学上一般为二年生草本。野生型为 subsp. carota（英文俗称 Queen Anne's lace），原产欧亚；栽培型为 subsp. sativus。中文「胡萝卜」「红萝卜」在多数地区指本条，「红萝卜」在部分方言中又指红皮萝卜（Raphanus），属名称混用。品种按根形从球形到长形、末端钝至尖；除橙色外还有白、黄、紫肉品种——橙色并非本物种的固有颜色。",
+        "mechanism": "第一年形成地上莲座状二回羽状复叶与地下可食直根，根中积累糖分与色素（橙色主要来自胡萝卜素）；若未采收，植株越冬后于翌年抽生大型分枝花茎，开白色或粉色小花，形成复伞形花序，结带刺的分果（schizocarp），种子出售前常去刺。20 世纪对胡萝卜素（维生素 A 前体）价值的认识提高了它的地位。",
+        "conditions": "需冷凉至温和温度，在较暖地区不作夏季栽培；要求深厚、肥沃但疏松的土壤——土壤紧实或含石会造成根分叉、短粗与畸形。种子稀疏条播可省去间苗。采后以根条紧实、表皮光滑无伤、色泽鲜亮为品质判据（色深提示胡萝卜素含量高），小规格更柔嫩。用于沙拉、作调味小菜、熟食以及炖菜与汤。",
+        "exceptions": "不要把「橙色的胡萝卜」当作历史常态：紫、黄、白肉类型长期并存，橙色类型在某一地区成为主流是后来的选择结果，不能据此推断古代各地都吃橙色胡萝卜。也不要把野生型当食材——野生胡萝卜根细硬、气味强烈，其历史用途先于根部驯化（史前遗址中的种子提示早期采集/药用，而非食用栽培）。此外「红萝卜」在汉语中既可指胡萝卜也可指红萝卜（萝卜属），采买与记账时必须依赖实物而非名称。",
+        "story_uses": "适合用来写「土壤决定形状」这类容易被忽略的因果：同一品种在疏松深厚土里长成直条，在砾石土里分叉，商品等级与价格随土质而变，可用于把土地条件直接连到收入。也适合写作物形象的错位——某一颜色成为某地的「标准胡萝卜」，本质是选择与市场偏好，而非物种属性。",
+        "historical_scope": "所引来源给出：野生型原产欧亚，驯化一般认为约公元 1000 年前后在中亚；13 世纪中国与西北欧已有栽培；20 世纪因胡萝卜素认识而提升地位。这些是范围性表述，来源本身使用「thought to have been domesticated」的措辞，说明年代仍有不确定性；不同文献对驯化地点（中亚/西亚）与时间口径不一，本条不作定论。",
+        "evidence_and_uncertainty": "Britannica carrot 条目直接支撑：物种与变种体系、野生型分布、驯化时间与地点的「一般认为」、13 世纪中国与西北欧栽培、根形与肉色多样性、需冷凉与疏松深厚土壤、第二年的伞形花序与带刺分果、20 世纪胡萝卜素认识的影响、以及食用方式。该条目未给出各地区传入细节，本条不作断言。review_status 为 needs_review。"
+      },
+      "source_ids": ["produce_src_10"],
+      "related_ids": [],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "produce_cucumber",
+      "name": "黄瓜",
+      "aliases": ["青瓜", "胡瓜", "cucumber", "Cucumis sativus"],
+      "tags": ["living_organism", "crop", "vegetable", "food", "agriculture"],
+      "summary": "葫芦科一年生蔓性草本，食嫩果；在常见蔬菜中需热量最高，水分不匀即变苦，小果多作腌渍。",
+      "details": {
+        "definition": "黄瓜是 Cucumis sativus（葫芦科）的一年生蔓性草本，食用嫩果。茎粗糙多汁、匍匐或攀援，具分枝卷须可引缚上架；叶有毛、三至五尖裂；花黄色五瓣、单性（雌雄同株）；果实为 pepo（坚韧外皮的多籽浆果）。中文「黄瓜」「青瓜」「胡瓜」同指。近缘的西印度黄瓜/刺瓜（C. anguria）是另一个物种，主要作腌渍用，不能与黄瓜混称。",
+        "mechanism": "果实由子房迅速膨大而成，发育期短，采收窗口密集；果面常带瘤刺与果粉（bloom）。风味上，水分供应不匀（干湿骤变）会使果实产生苦味物质而失去商品价值，这是葫芦科常见的生理性品质问题。花为单性，需昆虫或人工辅助授粉方能坐果；栽培中可控制坐果节位以调节植株负担。",
+        "conditions": "在常见蔬菜中热量需求最高，喜温、不耐霜冻；冷凉地区多在温室或冷床、架栽，温暖地区可露地作田作物与庭院栽培。需充足水分与较高土壤湿度、排水良好的肥沃土壤。易感霜霉病、炭疽病与镰刀菌枯萎病等真菌与细菌性病害，连作会加重。采收宜在嫩果期，过熟则种子硬化、皮厚。",
+        "exceptions": "不要把「黄瓜」的需热特性与南瓜类混为一谈：同科不同属，耐寒性、根系与病害谱不同，不能共用一套播期。也不要把苦味一律归因于品种——同一品种在水分波动下也会变苦，这是管理问题而非遗传缺陷。腌渍用的小果与鲜食大果并非「同物的不同大小」，专用腌渍品种在果形、皮厚与组织紧实度上另有选择。",
+        "story_uses": "适合作为「水分管理」的可感指标：浇水不匀导致整批瓜变苦，是可以被直接尝出、直接导致退货的具体损失，适合写菜农与买主之间的争执、也适合表现水源与灌溉安排的重要性。架栽与引蔓则提供了可写的日常劳动（绑蔓、整枝、采收）。",
+        "historical_scope": "本条只交代农艺与形态；所引 Britannica 条目与葫芦科条目均未给出黄瓜的起源地与驯化年代，故不作传播断言。它与葫芦科其他作物一样受低温限制而分布受限，这一条在科级层面有来源支撑。",
+        "evidence_and_uncertainty": "Britannica cucumber 条目直接支撑：物种名、蔓性与卷须、叶形、单性黄花、果实为 pepo、热量需求在常见蔬菜中最高、水分不匀致苦、易感霜霉/炭疽/镰刀菌枯萎、嫩果腌渍、温室与架栽、近缘 C. anguria 主作腌渍。Britannica Cucurbitaceae 条目支撑科级特征（多数种类对近冰点温度极敏感、果实为 pepo、多数养分含量低）。起源与年代未获来源，明确留空。review_status 为 needs_review。"
+      },
+      "source_ids": ["produce_src_11", "produce_src_12"],
+      "related_ids": ["produce_melon", "produce_watermelon", "produce_squash_pumpkin", "produce_bottle_gourd"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "produce_melon",
+      "name": "甜瓜",
+      "aliases": ["香瓜", "哈密瓜", "白兰瓜", "muskmelon", "cantaloupe", "Cucumis melo"],
+      "tags": ["living_organism", "crop", "fruit", "food", "agriculture"],
+      "summary": "Cucumis melo 一个物种涵盖脆皮甜瓜、网纹甜瓜、蜜瓜等众多栽培群，多数群在野生状态下不存在，是长期选择的人工产物。",
+      "details": {
+        "definition": "甜瓜是 Cucumis melo（葫芦科）的果实。该物种原生范围包括非洲、阿拉伯半岛、印度、新几内亚与澳大利亚，涵盖众多可食瓜类；栽培上被分为若干非正式的「群」（group），其中多数是栽培起源（cultigen）、野生状态未知。所引来源列出的群包括：cantaloupensis（脆皮/坎塔卢普甜瓜）、Reticulatus（网纹或麝香瓜，切开有麝香味，英文 muskmelon 即由此而来）、Inodorus（蜜瓜 honeydew）、Flexuosus（美国黄瓜型，即蛇瓜型长果）、Chito（芒果瓜/藤桃）、Dudaim（Queen Anne 型）、Conomon（东方腌渍瓜）。这些群曾被视为独立的分类单元，现并入 C. melo 一个物种——因此「甜瓜」不是单一品种，而是一个物种层面的集合名。",
+        "mechanism": "果实为具坚韧外皮的浆果（pepo），球形至椭圆形，常有纵沟，果肉黄、白或绿，含多数种子；果皮可为绿、黄、褐、米白，表面光滑、粗糙、瘤状、鳞状或网纹。花单性同株，也有部分两性花，黄色五瓣、约 1 英寸，雄花成簇、雌花多单生，需蜂类等传粉。果面香气（尤其网纹群切开后的麝香味）是判别群的常用特征。",
+        "conditions": "一年生暖季攀援草本，需全日照（每日 6 小时以上直射光）、中性至微酸性、湿润而排水良好的土壤，壤土或黏土均可但以富含有机质为佳；可上架或笼架栽培，也可匍匐地面；攀援高度约 6—9 英尺、幅宽 1—3 英尺。种子繁殖：终霜后直播，或预计终霜前 4—6 周室内育苗。果实宜在幼嫩时采收，过熟则组织变韧。葫芦科共同的病害问题包括黄瓜甲虫与枯萎病、白粉病、霜霉病、蔓枯病与炭疽病。",
+        "exceptions": "有两点必须限定。其一，所引来源提示食用时应避免大量吞食种子，因为萌发的种子在胚中会产生有毒物质——这是定性的风险提示，不作处置建议。其二，不能把「甜瓜的甜度与香气」当作整个物种的共性：腌渍用群（Conomon）与长果型群（Flexuosus）在风味与用途上与鲜食甜瓜差异很大，同一物种名下的用途差异应以品种群而非物种为单位描述。此外中文「哈密瓜」「白兰瓜」等是地方品种/商品名，与植物学群不是一一对应关系。",
+        "story_uses": "适合写「一个物种名如何掩盖了用途差异」：集市上同称「甜瓜」的货物可能一个鲜食、一个腌渍、一个当蔬菜炒，价格与保存期完全不同，是天然的误会与议价来源。也适合表现传粉依赖：瓜田需要蜂，蜂的多少直接决定坐果率与产量，可作为生态条件与农业收成之间的可写因果。",
+        "historical_scope": "所引来源指出该物种原生范围跨非洲、阿拉伯半岛、印度、新几内亚与澳大利亚，并称其中许多栽培类型已有数千年栽培史；但未给出各品种群的分化时间与传播路线，本条因此不给具体年代与方向，只说明「多数群为栽培起源、野生状态未知」这一可支撑的判断。",
+        "evidence_and_uncertainty": "NC State Extension 的 Cucumis melo 条目直接支撑：原生范围、群（group）体系及其多为 cultigen、果实类型与果皮果肉变异、花性与传粉、全日照与土壤要求、播种与育苗时点、攀援尺寸、葫芦科共通病害、以及避免吞食萌发种子的定性风险提示。Britannica Cucurbitaceae 条目支撑科级的低温敏感与 pepo 果实定义。该组合未提供年代学证据，故历史部分留白。review_status 为 needs_review。"
+      },
+      "source_ids": ["produce_src_54", "produce_src_12"],
+      "related_ids": ["produce_cucumber", "produce_watermelon", "produce_squash_pumpkin"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "produce_watermelon",
+      "name": "西瓜",
+      "aliases": ["夏瓜", "watermelon", "Citrullus lanatus"],
+      "tags": ["living_organism", "crop", "fruit", "food", "agriculture"],
+      "summary": "原产热带非洲的葫芦科一年生蔓性作物；梵语已有专名、早期埃及艺术中已见其形象，说明其农业史超过四千年；现代大果甜瓤是长期选择的结果。",
+      "details": {
+        "definition": "西瓜是 Citrullus lanatus（葫芦科）的果实与其蔓性植株，原产热带非洲，现全球栽培。中文「西瓜」即本条；「夏瓜」为别称。果为 pepo 型浆果，果肉可红、白或黄，果形与果皮厚度随品种而变，单果重量从 1—2 公斤到 20 公斤以上，单株可结 2—15 果。现代「无籽」品种的种子几乎无生活力。",
+        "mechanism": "果实由子房发育为具坚韧外皮的浆果，果肉中积累糖分与水分；瓜瓤颜色、果形与果皮厚度均由品种决定。植株一年生，蔓生地面，具分枝卷须、深裂叶；花单生叶腋，淡黄色，单性（雄花只产花粉、雌花结果），因此坐果依赖传粉者或人工授粉。",
+        "conditions": "喜热气候，一年生，在温暖季节生长良好；对低温敏感（葫芦科共通的限制）。需充足光照与水分，宜排水良好的土壤；蔓生需留出扩展空间，也常整枝理蔓以控制坐果位置。果皮厚薄决定耐运性——厚皮类型更适合长途运输，这是一条可直接连到市场半径的农艺属性。",
+        "exceptions": "不要把「西瓜越甜越大越好」当作物种属性：高甜、大果、肉嫩、少籽是驯化与选择性育种的结果，野生类型并非如此，其瓤质、含糖与种子数量差异很大。也不要把无籽品种理解为「没有种子」——它们通常含未发育的白色种皮，且因不育需特殊生产体系。此外果皮在部分地方被腌渍保存，说明「废弃物」在不同地区有不同用途，不能按单一用法描述。",
+        "story_uses": "适合承担「季节与运输」的双重约束：果实大、含水高、易压伤，决定它主要沿短半径流通，长途则依赖厚皮品种与装车方式，可用于写运输损耗与产地—市场关系。也可写「选择的结果」：从苦小多籽到甜大少籽，是数百年人工选择的可见痕迹，可支撑关于育种与口味标准如何互相塑造的叙事。",
+        "historical_scope": "所引来源给出两条可用的年代线索：梵语中已有西瓜的专名，早期埃及艺术中亦见其形象，据此推断其农业上的古老程度超过四千年；同时指出驯化与选择性育种带来了高甜、大果、肉嫩与少籽的现代类型。这些都是「古老」而非精确年份的表述，来源未给出具体驯化地点与年代，故本条不作定论。",
+        "evidence_and_uncertainty": "Britannica watermelon 条目直接支撑：物种名、原产热带非洲、梵语有专名与埃及艺术中的形象（推其农业史超过四千年）、驯化与选择导致的甜度与果形变化、无籽品种近无生活力、一年生喜热、蔓性与卷须、单性黄花、pepo 果实、果重与单株果数范围、果肉色与果皮厚度的品种差异、果皮可腌渍。该条目未给出驯化地点与具体年代，本条相应留白。review_status 为 needs_review。"
+      },
+      "source_ids": ["produce_src_15", "produce_src_12"],
+      "related_ids": ["produce_melon", "produce_cucumber", "produce_squash_pumpkin"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "produce_tomato",
+      "name": "番茄",
+      "aliases": ["西红柿", "洋柿子", "tomato", "Solanum lycopersicum"],
+      "tags": ["living_organism", "crop", "vegetable", "fruit", "food", "agriculture"],
+      "summary": "茄科植物，植物学上的浆果而营养上按蔬菜归类；野生于南美安第斯山、在前哥伦布时期的墨西哥被驯化，16 世纪入欧洲后先作观赏、19 世纪才在北美普及为食物。",
+      "details": {
+        "definition": "番茄是 Solanum lycopersicum（茄科）植物及其可食果实。植物学上果实是浆果，营养分类上按蔬菜计——这一双重身份在贸易、税则与日常语言里长期造成分歧（19 世纪美国曾有以「果/菜」定性决定关税的著名争论，本条只作为身份问题的背景提及，不作为史实断言）。果径自 1.5 厘米至 7.5 厘米以上，通常红、鲜红或黄色，也有绿、紫品种；形状自近球、椭圆至长形与梨形。每果至少两个心室，含小粒种子，种子外被胶状果肉包裹。中文「番茄」「西红柿」「洋柿子」同指。",
+        "mechanism": "果实由子房发育而成，果肉中积累糖、有机酸与色素（番茄红素等）；成熟过程中果色由绿转红并软化，因此采收成熟度直接决定耐运性与风味。植株分枝、铺展 60—180 厘米，结果后部分类型呈蔓性下垂；叶为羽状复叶、有毛、气味强烈；花黄色五瓣、约 2 厘米、下垂、成簇；多数栽培类型需支架、绑蔓或围笼使茎果离地，并需稳定供水以避免脐腐与裂果。",
+        "conditions": "需较温暖气候与充足阳光；冷凉地区主要在温室栽培。需支架与稳定灌溉；易感青枯病、早疫病、花叶病毒、镰刀菌枯萎病、线虫与番茄天蛾幼虫，可通过轮作、杀菌剂、杀虫剂与抗性品种减轻。采后成熟度决定用途：完熟果就近鲜销，绿熟或硬熟果适合长途运输与催熟，大量果实用作加工（罐藏、番茄汁、酱、糊、番茄干）。根与叶含茄碱（solanine），不可作为食材——这是本条的定性安全限制，不作处置说明。",
+        "exceptions": "不要把「番茄是水果」当作可以在所有语境替换「蔬菜」的理由：植物学定义（成熟子房含种子）与营养/烹饪分类不同，二者都不错但用途不同。也不要把番茄与茄子、马铃薯的栽培制度等同：虽同为茄科，耐寒性、病害谱与采收判据不同。此外「小番茄/樱桃番茄」与近缘野生种 S. pimpinellifolium 易混，后者是育种上抗病虫基因的来源，不等于市场上的小果商品类型。",
+        "story_uses": "适合写「认知滞后于可得性」：一种作物进入某地很久之后才被当作食物接受，期间它的用途是观赏与怀疑对象——这条时间差本身可以构成两代人的分歧、也解释为何同一植物在两地地位完全不同。也适合写加工与运输如何改变作物地位：一旦能罐藏与制酱，原料需求与种植规模随之改变。",
+        "historical_scope": "所引来源给出较清晰的分段时间线（起点与各段要分开看）：野生种原产南美安第斯山（主在秘鲁与厄瓜多尔）；驯化一般认为发生在前哥伦布时期的墨西哥（名称来自纳瓦特尔语 tomatl）；16 世纪初由西班牙人带入欧洲，西班牙与意大利最早接受为食物；法国与北欧最初作观赏并因与颠茄等有毒茄科近缘而被怀疑；传入北美后 1781 年已有种植记录，1812 年路易斯安那已作食物，东北部约 1835 年才食用，20 世纪初才普遍流行。这些节点属欧洲—北美脉络，东亚的传入与普及是另一条路线，本条不据欧洲文献推断。",
+        "evidence_and_uncertainty": "Britannica tomato 条目直接支撑上述全部分段：起源地、驯化地、名称来源、传入欧洲时间与接受差异、观赏与怀疑阶段、根叶含茄碱、栽培条件与病害、加工用途、以及北美各时间节点。该条目未给出东亚传入年代，故留白。营养与健康相关表述（维生素 C、番茄红素）只作来源转述，不构成医疗建议。review_status 为 needs_review。"
+      },
+      "source_ids": ["produce_src_16", "produce_src_47"],
+      "related_ids": ["produce_eggplant", "produce_okra"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "produce_eggplant",
+      "name": "茄子",
+      "aliases": ["矮瓜", "落苏", "酪酥", "eggplant", "aubergine", "Solanum melongena"],
+      "tags": ["living_organism", "crop", "vegetable", "food", "agriculture"],
+      "summary": "茄科温暖气候作物，自远古即在东南亚栽培；食其果，需加热烹调，是地中海料理的标志性食材之一。",
+      "details": {
+        "definition": "茄子是 Solanum melongena（茄科）植物及其可食果实，中文又名矮瓜、落苏，英文 eggplant/aubergine。通常作一年生栽培（植物学上为柔弱多年生），茎直立、灌木状，有时带刺；叶大、卵形、浅裂；花单生、下垂、紫色、约 5 厘米；果为大型蛋形浆果，表面有光泽，颜色从深紫到红、粉、黄、白不等，有时带条纹——白色品种的形色正是英文名「egg-plant」的来源。与番茄、马铃薯及多种有毒茄科植物近缘。",
+        "mechanism": "果实由单生花的子房发育而成，果肉为海绵状、含多粒种子，成熟后组织变软并可能转苦、种子变硬，因此商品采收集中在幼嫩至半熟阶段。植株需较高温度，低温下生长停滞、坐果差。果皮光亮与色泽是品质判据，机械擦伤会迅速褐变。",
+        "conditions": "需温暖气候，不耐低温；育苗移栽为主，需充足光照与肥水；主要问题与同科作物相近（土传枯萎病、蚜虫与螨类、果实日灼）。采后不耐长期贮藏，需避免挤压与低温伤害（过低温度会导致果面凹陷与褐变）；长途运输依赖单果包装与通风。烹调上通常烤、煎、炸、煮或作配菜、炖菜；地中海料理中的 moussaka、parmigiana 与中东 baba ghanoush 均以整果烤制后取肉为基础，这要求果实能在火上直接烤软。",
+        "exceptions": "不要把「茄子必须熟食」当作口感偏好——本条只记录其常用烹调方式，不主张生食安全性；茄科幼果与叶的定性风险应视为需要谨慎处理的对象。也不要把所有紫色长果都当同一品种：地中海型圆果、东亚长果与东南亚小果在质地、含水与苦味上差别明显，烹调方式与采收期随之不同。此外「白茄子」是品种颜色差异，不是另一个物种。",
+        "story_uses": "适合写「火与整果」的关系：整果直烤后刮肉，是一种不需要精细厨具、却需要大量燃料与时间的做法，可用来表现燃料成本与厨房分工。也适合写蔬果在长途运输中的脆弱性——果皮一擦即伤，于是包装材料与装车方式直接决定能否远销。",
+        "historical_scope": "所引来源只说它需温暖气候、自远古即在原产东南亚栽培，并指出其在地中海料理中的核心地位；未给出具体驯化年代、传入地中海与东亚的时间，故本条不作年代与路线断言。它在欧洲与中东的普及属于另一条较晚的脉络。",
+        "evidence_and_uncertainty": "Britannica eggplant 条目直接支撑：物种名与科、需温暖气候、原产东南亚且自古栽培、地中海料理中的用途（moussaka、parmigiana、baba ghanoush 及烤煎炸煮）、与番茄/马铃薯/有毒茄科近缘、通常作一年生、茎叶花果的形态与颜色变异、英文名来由。起源与传播年代未获来源，明确留白；不采用任何药用或保健说法。review_status 为 needs_review。"
+      },
+      "source_ids": ["produce_src_17"],
+      "related_ids": ["produce_tomato"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "produce_okra",
+      "name": "秋葵",
+      "aliases": ["羊角豆", "黄秋葵", "咖啡黄葵", "okra", "Abelmoschus esculentus"],
+      "tags": ["living_organism", "crop", "vegetable", "food", "agriculture"],
+      "summary": "锦葵科一年生作物，只食未熟嫩果；含大量黏液质，既是汤羹增稠剂也是被嫌弃的口感来源，采后极不耐放。",
+      "details": {
+        "definition": "秋葵是 Abelmoschus esculentus（锦葵科）有毛一年生草本及其可食果实。中文「秋葵」「羊角豆」「黄秋葵」同指。原产东半球热带，今在东西半球热带与亚热带广泛栽培或归化。叶心形、三至五裂；花黄色、中心深红；果为 10 棱蒴果（pod）、长 10—25 厘米（矮生品种除外）、基部有毛、内含多数深色卵形种子。只食用未成熟的嫩果——过熟则纤维化、无法咀嚼。",
+        "mechanism": "嫩果组织中含大量黏液质（mucilage），受热后溶出，使汤汁与肉汤变稠——这正是它在炖菜与汤类中的功能，也是它在美国南部 gumbo 中不可替代的原因；同一性质在不喜欢黏滑口感的人那里则成为拒绝理由。果荚生长极快，通常花后数日即须采收，稍晚即硬化。",
+        "conditions": "需炎热气候与充足光照，不耐霜冻；宜肥沃、排水良好的土壤；通常直播或育苗移栽，采收期需每隔数日反复采摘（果荚长大过快，漏采即失去商品价值）。采后失水与褐变快，需低温高湿并尽快流通；机械伤会引发褐变与黏液外渗。除嫩果外，种子在有些地方被烘烤作咖啡替代品——这属于替代饮用习惯，不是咖啡本身。",
+        "exceptions": "不要把「黏液」当作品质缺陷一概而论：在汤羹类料理里它正是被追求的功能，而在清炒类料理里同一性质会被视为缺点，处理方式（整条快炒、切片煮汤、先焯后拌）随之不同。也不要把所引来源中「叶与幼果长期用于外敷止痛」当作可用疗法——这是对一种民间用法的记述，本条不背书，也不提供任何处置方法。此外「秋葵」在部分语境也被用于其他锦葵科植物，作为食材时应限定为 A. esculentus。",
+        "story_uses": "很适合作为「口感即分野」的例子：同一种黏液既是某地料理的技术基础、也是另一地餐桌上的排斥对象，可用来写饮食偏好的地方性与跨地交流的阻力。也适合写高频采收的劳力节奏——每隔两三天必须下地一遍，漏一次就报废，这把日历与人力直接绑在一起。",
+        "historical_scope": "所引来源只给出原产东半球热带、在东西半球热带亚热带广泛栽培或归化的分布事实，以及它在美国南部 gumbo 中的地位；未给出驯化地点、年代与跨大西洋传播的具体时间，故本条不作年代断言。",
+        "evidence_and_uncertainty": "Britannica okra 条目直接支撑：物种名与科、原产与分布、只食未熟嫩果、烹调方式与腌渍、黏液质作为汤羹增稠剂、种子作咖啡替代、叶与幼果的外敷用法（民间记述）、叶花果的形态与果长。采后处理与采收节奏部分未在该条目中展开，本文以定性表述给出并标注为通行栽培层面、未逐条核源。不采用任何药用结论。review_status 为 needs_review。"
+      },
+      "source_ids": ["produce_src_18"],
+      "related_ids": ["produce_eggplant", "produce_tomato"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "produce_squash_pumpkin",
+      "name": "南瓜类",
+      "aliases": ["南瓜", "西葫芦", "笋瓜", "倭瓜", "pumpkin", "squash", "Cucurbita"],
+      "tags": ["living_organism", "crop", "vegetable", "food", "agriculture"],
+      "summary": "葫芦科南瓜属，原产新大陆、前哥伦布时期已由原住民栽培；同一属内「夏南瓜」与「冬南瓜」是采收期与贮藏性的分野，跨 C. pepo / C. moschata / C. maxima 多个物种。",
+      "details": {
+        "definition": "南瓜类指 Cucurbita 属（葫芦科）中被广泛栽培作蔬菜与饲料的多个种及其品种群。中文俗名与物种不是一一对应：西葫芦、飞碟瓜、弯颈黄 squash 等「夏南瓜」多属 C. pepo；butternut（奶油南瓜）属 C. moschata；acorn、delicata、spaghetti 与部分南瓜属 C. pepo；buttercup 与大型南瓜（pumpkin）属 C. maxima。因此不能把「南瓜」「西葫芦」「笋瓜」当作三个物种——它们分别指向不同的种与品种群，同一中文名在不同地区所指也可能不同。",
+        "mechanism": "夏南瓜与冬南瓜的分野不在物种，而在采收与成熟度：夏南瓜速生、小果、非蔓性或矮生，果实在形成后数日内、种子与外皮尚未硬化时采收，皮一般可食，但极不耐放；冬南瓜为蔓性、大果、长季品种，果实充分成熟、外皮硬化后采收，可在干燥且远高于冰点的条件下贮藏数月，皮通常不可食。二者都属葫芦科：多为蔓性藤本、具螺旋卷须、单性花、果实为 pepo；多数种类对接近冰点的温度极敏感，遇霜即死。果实一般熟食，种子与花亦可煮食。",
+        "conditions": "需长生长季、充足光照与肥水，遇霜即死，故在温带须安排在无霜期；需排水良好的肥沃土壤。种子繁殖（直播或育苗）。部分冬南瓜品种主要作装饰用葫芦栽培——这意味着同一物种既进厨房也进装饰市场，采收标准与流通渠道不同。贮藏是冬南瓜的核心优势：干燥、通风、温度高于冰点即可保存数月，是秋冬热量与维生素的重要来源；夏南瓜则必须在数日内消费或加工。",
+        "exceptions": "最重要的限定是物种边界：「南瓜类」不是一个物种，抗病性、蔓性与贮藏性按种而别，把 C. pepo 的栽培经验套到 C. maxima 上会出错。其次，不要以为「皮可食/不可食」绝对——夏南瓜皮一般可食，冬南瓜皮通常不可食，但个别品种例外，须按具体类型判断。第三，装饰南瓜与食用南瓜可能同种但用途不同，不能因外观相似互相替代。",
+        "story_uses": "适合承担「贮藏即生存」的逻辑：冬南瓜能在无霜的季节之外提供热量，窖藏条件的好坏直接决定一个家庭能撑到几月，这比任何丰收数字都更具叙事张力。也适合写「同一名字下的不同物」——集市上「南瓜」可能是饲料型、装饰型或食用型，价格与处理方式完全不同。种子与花的可食性还能支撑「不浪费」的厨房细节。",
+        "historical_scope": "所引来源明确该属原产新大陆、在欧洲人到来之前已由原住民栽培——这是美洲的独立驯化脉络，与旧大陆的葫芦科（如葫芦 Lagenaria、黄瓜、甜瓜）分属不同起源；传入旧大陆是 16 世纪以后的事。本文不给定各物种的驯化年代与传播年份，来源亦未提供。",
+        "evidence_and_uncertainty": "Britannica squash 条目直接支撑：属级归属与科、原产新大陆与前哥伦布栽培、熟食与种子花可食、夏南瓜为 C. pepo 的速生小果类型及其数日内采收与皮可食、冬南瓜的蔓性大果长季与干燥条件下的数月贮藏及皮通常不可食、以及各冬南瓜类型所属物种（C. moschata / C. pepo / C. maxima）；装饰用品种的存在亦有支撑。Britannica Cucurbitaceae 与 gourd 条目补充科级低温敏感与 pepo 结构。驯化年代未获来源。review_status 为 needs_review。"
+      },
+      "source_ids": ["produce_src_13", "produce_src_12", "produce_src_14"],
+      "related_ids": ["produce_cucumber", "produce_melon", "produce_watermelon", "produce_bottle_gourd"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "produce_bottle_gourd",
+      "name": "葫芦",
+      "aliases": ["瓠", "瓠瓜", "匏", "葫芦瓜", "calabash", "bottle gourd", "Lagenaria siceraria"],
+      "tags": ["living_organism", "crop", "vegetable", "food", "agriculture", "container_material"],
+      "summary": "Lagenaria siceraria：嫩果可食、成熟果干燥后成为容器与乐器共鸣体；同一个物种同时落在食物与器物两条用途线上。",
+      "details": {
+        "definition": "葫芦指 Lagenaria siceraria（葫芦科）及其硬壳果实，英文 bottle gourd 或 calabash。中文「葫芦」「瓠」「瓠瓜」「匏」在古籍与方言中分别强调不同形制与用途，但都是同一物种的不同品种或不同成熟阶段的称呼。该种是葫芦科中「硬壳果」类的代表：果皮成熟后木质化，可干燥保存。嫩果可作蔬菜，成熟果主要不用于食用。",
+        "mechanism": "嫩果期果皮柔嫩、可切片炒食或煮汤；随成熟，果皮与内部组织木质化、纤维化，水分减少，遂成为中空、轻而坚固的壳体。正因为干燥后能保持形状与密封性，它能被加工成器皿：杯、瓶、勺、瓢、渔网浮子、鸟屋，乃至乐器部件——拉丁美洲的沙锤（maracas）、西非的 shekere、印度 sitar 与 tanpura 的共鸣体、西非 kora 的共鸣箱都用到葫芦。葫芦科共通特征同样适用：藤本、具螺旋卷须、单性花、果实为 pepo，多数种类遇霜即死、需长生长季。",
+        "conditions": "需长生长季与充足热量，遇霜即死；需排水良好的肥沃土壤，并需支架、篱或墙以支撑藤蔓，才能长成形状端正、无疤的果实（器用葫芦尤其看重外形完整）。以种子繁殖。器用葫芦的采收与处理要求与食用嫩果完全不同：须待成熟后采收，再行去皮、干燥与内部清理，任何擦伤与霉斑都会毁掉成品——这条干制流程是需要经验与时间的工艺环节，不是采下即得。",
+        "exceptions": "不要把「葫芦」当成单一用途作物：同一种的嫩果与成熟果分属食物与器物两条线，采收期与处理方式相冲突（要器用就得放弃食用）。也不要把葫芦科所有硬壳果都叫葫芦——同科还有 wax gourd、snake gourd、loofah 等各有独立名称与用途，而 C. pepo subsp. ovifera 的观赏葫芦虽然也叫 gourd，却是另一个属。此外中文「葫芦」在口语中还用于葫芦状器物（如「葫芦瓶」），作为食材名时应限定物种。",
+        "story_uses": "极适合承担「一物两用且互斥」的叙事机制：想吃就趁嫩摘，想要容器就得让它老在藤上——一个家庭必须在同一片藤上做选择，这可以自然生长出季节性的取舍、手艺分工（会掏瓤、会封口的人）与器物传承。乐器部件这一层还能把农业与仪式、音乐联系起来，让葫芦成为跨场景的道具。",
+        "historical_scope": "所引来源只给出其作为容器与器物材料的用途谱系与地理分布（葫芦科多原产热带或暖温带、需长生长季），以及干燥后可制成的具体器物种类与各大洲的乐器实例；未给出该种的起源地与驯化年代，也未提供其跨洋传播的证据，故本条不作年代与路线断言。",
+        "evidence_and_uncertainty": "Britannica gourd 条目直接支撑：Lagenaria siceraria 的学名与 calabash 俗名、常用于制容器、硬壳果的成因（需长生长季、遇霜即死、藤本与卷须、pepo 结构）、需支架以得端正果、干燥后可制成的器物清单与各大洲乐器实例；Britannica Cucurbitaceae 条目支撑科级特征。器用葫芦的去皮、干燥与清理流程属工艺常识层面，所引来源未逐步记述，本文以定性表述给出并标注未逐条核源。起源与年代未获来源。review_status 为 needs_review。"
+      },
+      "source_ids": ["produce_src_14", "produce_src_12"],
+      "related_ids": ["produce_squash_pumpkin", "produce_cucumber"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "produce_apple",
+      "name": "苹果",
+      "aliases": ["苹果树", "apple", "Malus domestica", "Malus pumila"],
+      "tags": ["living_organism", "crop", "fruit", "food", "agriculture"],
+      "summary": "蔷薇科落叶果树，原产中亚至阿富汗；几乎全靠嫁接繁殖，需异花授粉与按地区匹配需冷量，是温带最能长途流通与长期贮藏的水果之一。",
+      "details": {
+        "definition": "苹果是 Malus domestica（蔷薇科苹果属）的落叶乔木及其可食果实（梨果 pome）。中文「苹果」指果实，也泛指该树种。学名在文献中有 M. domestica 与 M. pumila 两种写法，指同一栽培种；同属还有多种海棠与观赏种，果实小、多作观赏或砧木，不能与栽培苹果混称。品种在果色（黄、绿、红）、风味与推荐用途（鲜食/烹调/制汁）上差异极大。",
+        "mechanism": "果实为梨果，由花托与子房共同发育而成，果肉为花托膨大部分，中心为五室、每室含种子；果面常有蜡质层。栽培上几乎全部依靠嫁接：实生苗变异大、结果晚，因此品种通过嫁接到矮化或半矮化砧木上固定，砧木决定树体大小、结果早晚与抗性。多数品种自交不亲和或结实率低，需要配置同期开花的异品种作授粉树，否则花而不实。需冷量（冬季低温累积）决定品种能否在某地正常萌芽开花，因此同一品种在不同纬度表现差别很大。",
+        "conditions": "一般易栽培、耐多种土壤，需全日照至半阴、排水良好；但病虫害压力大，传统上需常规喷药（白粉病、蚜虫、苹果黑星病、火疫病、黑斑病、苹果蠹蛾与苹果实蝇）。实生树可长至 9 米高宽，嫁接于矮化砧者体量小得多，便于修剪、采收与密植。果实耐贮性在温带水果中突出：低温高湿窖藏与气调贮藏可把供应期延长到数月，这是苹果成为跨季节商品的关键——但它依赖采后设施，不是果实自身的属性。",
+        "exceptions": "不要把「苹果好种」理解成不需管理：所引来源明确指出需常规喷药防病虫，有机或粗放栽培的产量与外观会明显下降。也不要把嫁接误解为可有可无的技术——没有嫁接就没有稳定的品种，实生苗的果实品质不可预期，这条决定了苹果的整个繁殖与育种体系。此外不要把海棠类、观赏 Malus 当食用苹果；「野苹果」在文献中常指其他种而非栽培种的返野个体。",
+        "story_uses": "适合承担「技术记忆」的主题：嫁接、修剪、授粉树配置与窖藏都是需要代代相传的手艺，一个果园的品种组合实际上是几十年前的选择被继承下来，可用于写农人的时间尺度与师徒关系。也适合写跨季节供给：果实能存到春天，意味着价格、借贷与宴席安排都围绕窖藏展开。",
+        "historical_scope": "所引来源给出原产中亚至阿富汗、今全球栽培这一分布判断，以及品种在用途上的分化；未给出驯化年代、传入欧洲与东亚的具体时间，故本条不作年代与路线断言。中亚天山一带的野生苹果与栽培种的亲缘关系属遗传学研究范畴，本文不作评述。",
+        "evidence_and_uncertainty": "NC State Extension 的 Malus domestica 条目直接支撑：物种与科、原产中亚至阿富汗、果可生食烹调、cider 为重要产品、品种在色香味与用途上的差异、树体尺寸与矮化砧、需冷量与按地区选品种、需配置授粉树、常见病虫清单、梨果结构与成熟期差异。原文未给出起源地与传播年代。栽培与贮运细节中「气调贮藏」属通行做法，来源未直接支持，本文只作范围性提及。review_status 为 needs_review。"
+      },
+      "source_ids": ["produce_src_48"],
+      "related_ids": ["produce_pear", "produce_peach", "produce_plum"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "produce_pear",
+      "name": "梨",
+      "aliases": ["西洋梨", "沙梨", "白梨", "pear", "Pyrus"],
+      "tags": ["living_organism", "crop", "fruit", "food", "agriculture"],
+      "summary": "蔷薇科梨属，西洋梨与亚洲梨分属不同种；果肉含石细胞是属级特征，栽培几乎全靠嫁接，欧洲传统用榅桲作矮化砧。",
+      "details": {
+        "definition": "梨指 Pyrus 属（蔷薇科）约 20—45 种乔木与灌木及其果实。世界上最重要的栽培种是西洋梨 Pyrus communis（欧洲梨），亚洲的梨生产则以本地种为主，如砂梨 P. pyrifolia 与白梨系统的其他种——中文「梨」涵盖多个物种，不能一概而论。另有豆梨 P. calleryana 等主要作观赏或砧木。果为梨果，一般较苹果更甜、质地更软，果肉中含成簇的厚壁细胞（石细胞，英文 grit 或 stone cells），这是梨属果实的辨识特征；形状多在果梗端窄、对端宽。",
+        "mechanism": "石细胞的存在决定口感：含量高的品种沙砾感明显，含量低者细腻。果实的软化依赖采后后熟，多数西洋梨品种需在采收后经一段时间才达到最佳食用质地，这一点与苹果不同（苹果多在树上已达食用品质）。栽培上以芽接或嫁接繁殖，砧木影响树体大小与结果早晚：欧洲传统以榅桲（Cydonia oblonga）作砧木，可使树体矮化并提早结果，但存在亲和性问题。",
+        "conditions": "温带果树，两半球温带国家普遍栽培；要求排水良好、较深厚土壤与充足光照；树冠宽、可达 13 米，寿命 50—75 年，需修剪控制体量。易感火疫病、炭疽病、溃疡病与白粉病。果实除鲜食外可罐藏，亦用于酿造 perry（梨酒），后者要求特定的高单宁梨品种，与鲜食梨不是同一选择方向。",
+        "exceptions": "不要把西洋梨与亚洲梨当作同一作物的不同品种：分属不同种，抗病性、需冷量、果实质地与贮藏表现都不同，亚洲梨多保持脆硬质地而西洋梨需后熟软化。也不要把「梨很甜」当共性——用于酿酒的梨品种单宁高、涩感强，本就不以鲜食甜度为目标。此外砧木选择不是细节：榅桲砧虽能矮化早果，但亲和性不良会造成接口断裂与早衰。",
+        "story_uses": "适合写「后熟」的时间管理：西洋梨采下时不可口，须在合适温度下等它软化，早一步硬涩、晚一步烂心，这种必须靠手感与经验判断的时机很适合作为技艺与风险的载体。梨酒则提供了「同一果实两种用途」的分岔：一片梨园可以因品种不同而面向鲜食市场或酿酒坊，牵动完全不同的贸易关系。",
+        "historical_scope": "所引来源给出：西洋梨可能原产欧洲并自古栽培，欧洲殖民后即传入新大陆，早期西班牙传教士将其带入墨西哥与加利福尼亚；亚洲的梨生产以本地种为主。这些都是范围性表述，未给具体年代；西洋梨与亚洲梨的分化史另有专门研究，本条不作断言。",
+        "evidence_and_uncertainty": "Britannica pear 条目直接支撑：属的范围与种数、P. communis 为最重要栽培种之一、两半球温带栽培、鲜食与罐藏与 perry、豆梨作观赏、树体尺寸与寿命、叶花形态、石细胞这一属级特征、果形、嫁接与榅桲砧的矮化早果效果、火疫病等病害、欧洲起源与传入新大陆的路径、亚洲以本地种为主。后熟差异属通行栽培知识，来源未直接展开，本文以定性表述给出。review_status 为 needs_review。"
+      },
+      "source_ids": ["produce_src_22"],
+      "related_ids": ["produce_apple", "produce_peach"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "produce_grape",
+      "name": "葡萄",
+      "aliases": ["葡萄藤", "提子", "grape", "Vitis", "Vitis vinifera"],
+      "tags": ["living_organism", "crop", "fruit", "food", "agriculture", "beverage_crop"],
+      "summary": "葡萄科木质藤本，鲜食、制干、酿酒三条用途线决定了完全不同的品种与采收标准；修剪量占年生长量九成以上，是栽培中最关键的单项操作。",
+      "details": {
+        "definition": "葡萄指 Vitis 属（葡萄科）约 60—80 种藤本植物及其果实，原产北温带。最主要的栽培与酿酒种是欧洲葡萄 Vitis vinifera（报告品种至少 5000 个）；北美另有狐葡萄 V. labrusca（Concord 等「slipskin」类的来源，用于鲜食、果冻、果汁与犹太洁食葡萄酒）、夏葡萄 V. aestivalis（被认为是最古老的北美栽培种，酿酒品质好但难栽培）与圆叶葡萄 V. rotundifolia（美国东南部，厚皮，用于手工酒与果冻）。同一物种内，鲜食、制干与酿酒是三条用途线：仅有约 3 个品种构成商业葡萄干的大部分，15—20 个品种作为鲜食广泛栽培，少数用于罐藏——因此「葡萄」不能按单一用途描述。",
+        "mechanism": "葡萄为木质藤本，以卷须（变态枝）攀援，未修剪可达 17 米以上，干旱地区可呈近直立灌木状。果为浆果，果肉含葡萄糖与果糖，含葡萄糖多者最易发酵；许多品种果面覆白色蜡质果霜，可截留野生酵母，这是酿酒葡萄采收时机的判据之一。修剪是最重要的园务操作：酿酒与制干品种的产量几乎完全由修剪调节，年度修剪通常去除当年生长量的 90—95%，只留结果母枝或短梢，这既决定当季产量也决定下一年的枝条质量。",
+        "conditions": "需温暖至炎热而干燥的夏季与凉爽的冬季：冬季低于约 −7 ℃ 可杀死植株或芽，生长期需 10 ℃ 以上有效积温方能充分成熟；春季萌芽后的霜会杀死新梢与花序。对土壤适应极广（风积砂至黏壤、极浅至极深、强石灰性至无石灰性均可）。商业繁殖用插条、枝段或嫁接；嫁接在 19 世纪末成为必需——根瘤蚜自北美传入欧洲造成大面积毁园，最终以欧洲品种嫁接到抗性美洲砧木上解决。采收按用途定：酿酒葡萄在含糖最高、果皮覆蜡时采，过早或过迟都会带来不良香气或让细菌侵染糖分。",
+        "exceptions": "不要把「葡萄」当成一种作物：V. vinifera 与北美几个种在抗病性、风味（狐葡萄有特有的「狐味」）与栽培适应性上差别很大，欧洲种在美洲常需嫁接于本地砧木才能存活。也不要把制干、鲜食、酿酒视为同一品种的不同处理——它们是不同的品种群，果肉结构、糖酸比与皮厚都经定向选择。此外「提子」是商品俗称（多指较耐运的鲜食类型），不是植物学分类。",
+        "story_uses": "非常适合承载「长期投入与年度调节」：葡萄园是多年生资产，一次错误的修剪会同时影响当年与来年，这种跨年耦合可用来写农人的判断风险与代际传承。酿酒则把农业直接连到加工与时间——采收时点差几天，酒的风格就不同，适合作为手艺人与商人之间的张力来源。根瘤蚜这类外来病虫害还能支撑「一地之灾源于跨境流动」的叙事。",
+        "historical_scope": "所引来源给出的时间线属旧大陆脉络：葡萄栽培与葡萄酒生产见于埃及第四王朝（约公元前 2400 年）的象形记录；荷马时代葡萄酒已是希腊的常规商品；腓尼基人约公元前 600 年将葡萄带入法国；罗马人不晚于 2 世纪在莱茵河谷种植；老普林尼描述了 91 个品种与 50 种酒及整枝方法；葡萄亦经印度传入东亚；哥伦布航行之后葡萄栽培与酿酒被带到新世界。这些节点不能拼成全球统一时间表——东亚的葡萄栽培与饮酒另有本地脉络。",
+      "evidence_and_uncertainty": "Britannica grape 条目直接支撑：属的范围与种数、用途三分、藤本与卷须、果为浆果与果霜、V. vinifera 的品种数量、北美各种及其用途、气候与温度阈值、土壤适应广度、插条与嫁接繁殖、修剪去除 90—95% 年生长量、各历史节点、根瘤蚜与砧木方案、按用途决定采收。本文未引用任何酿造工艺参数。review_status 为 needs_review。"
+      },
+      "source_ids": ["produce_src_21"],
+      "related_ids": ["produce_apple", "produce_pear", "produce_fig"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "produce_fig",
+      "name": "无花果",
+      "aliases": ["映日果", "蜜果", "fig", "Ficus carica"],
+      "tags": ["living_organism", "crop", "fruit", "food", "agriculture"],
+      "summary": "桑科隐头花序果树，是最早被栽培的果树之一；果实类型决定是否需要传粉小蜂，园艺上因此分出四个类型，栽培必须按类型配套。",
+      "details": {
+        "definition": "无花果是 Ficus carica（桑科）植物及其可食果实。中文「无花果」「映日果」同指。植株为灌木或小乔木，高 1 米至 10—12 米，叶宽大粗糙、落叶、深裂或近全缘，折断枝叶流出白色乳汁。所谓「果」实为隐头花序（syconium）：一个中空的花托把上百朵小花包在里面，因此从外面看不见花——「无花果」之名由此而来。",
+        "mechanism": "隐头花序内的花分雄花与雌花。园艺上按授粉需求分四个类型：caprifig（不可食，短花柱雌花供传粉小蜂产卵，并含雄花）、Smyrna（必须授粉受精才能发育，种子带来优良品质与坚果香）、White San Pedro（同一树上第一季不需授粉、第二季需授粉）、Common（不需授粉，成熟果中种子多中空——曾被称为「骡子花」，但已证明若授粉仍可结可育种子）。传粉由专门的无花果小蜂（Blastophaga）完成，花粉自 caprifig 被带到可食类型。因此种无花果不是「选个品种」而是「选一套蜂—树关系」：缺 caprifig 或小蜂，Smyrna 型就不结果。",
+        "conditions": "原产于亚洲土耳其至印度北部一带，在地中海多数国家可自然成苗，暖地栽培；对土壤适应广，多数地中海国家仅靠天然降水。以休眠枝扦插繁殖（北半球常在 2 月取枝、苗圃成苗一季后移栽），也可温室盆栽（英格兰等地长期如此）。部分品种一年一季，部分两季：第一季在上一年的枝条上于 6—7 月成熟，第二季在当年叶腋于夏末秋初成熟；在英格兰、法国中部等冷凉地区多数品种只能成熟第一季。采收多在果实落地时拾取，置盘晾晒，翻动可改善质地与品质。",
+        "exceptions": "不要把无花果都当成不需授粉的作物：Common 型可以单株结果，但 Smyrna 型必须有 caprifig 与小蜂，二者在引种到新区时是最容易失败的一环。也不要以为「干制」只是保存手段——干制后的糖分浓缩与质地变化本身就是它在地中海成为「穷人的食物」的基础。此外名称混乱：数百个品种在不同国家被反复改名（如 Smyrna 的 Lob Injir 在加州叫 Calimyrna，意大利 Dottato 在加州叫 Kadota），同一品种在不同产地有完全不同的名字，交易须以引种记录而非名字为准。",
+        "story_uses": "非常适合写「看不见的共生」：一棵树能否结果取决于一种肉眼难辨的小蜂与一株不能吃的 caprifig，这种依赖关系可以被人物误解、被政策打断（如引种时只带可食品种），也可用来写地方性知识的重要性。干制与落地拾取则提供了季节性的集体劳动画面。",
+        "historical_scope": "所引来源称无花果是最早被栽培的果树之一，远古即传布于爱琴海周边与黎凡特；希腊人自卡里亚得到它（种加词由此而来），阿提卡无花果曾著名并立专门法律管制出口；斯巴达人公共餐桌上常用，老普林尼列举多品种并称其为奴隶食物的主要部分。这些属地中海—近东脉络的记述，不包括东亚；本文不给定驯化年代的具体数值。",
+        "evidence_and_uncertainty": "Britannica fig 条目直接支撑：物种与科、原生范围、植株与乳汁、隐头花序结构与花性、四个园艺类型及其授粉需求、小蜂传粉机制、扦插繁殖与温室盆栽、一季与两季品种及冷凉地区的限制、落地拾取与晾晒、地中海饮食地位、希腊与罗马的文献记述、品种命名的混乱实例。采收与干制的具体温湿度参数未获来源，故本文只作定性表述。review_status 为 needs_review。"
+      },
+      "source_ids": ["produce_src_19"],
+      "related_ids": ["produce_pomegranate", "produce_date_palm"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "produce_pomegranate",
+      "name": "石榴",
+      "aliases": ["丹若", "若榴木", "pomegranate", "Punica granatum"],
+      "tags": ["living_organism", "crop", "fruit", "food", "agriculture"],
+      "summary": "千屈菜科灌木或小乔木，食其多汁假种皮；被认为原产伊朗一带，栽培很早即环地中海并东至印度；只有成熟期高温干燥才能出好果。",
+      "details": {
+        "definition": "石榴是 Punica granatum（千屈菜科）灌木或小乔木及其果实。中文「石榴」「丹若」同指。植株高可达 5—7 米，叶椭圆至披针形、亮绿、长约 7.5 厘米，花橙红、腋生、生于小枝末端，花萼筒状宿存、5—7 裂。果实大小如大橙，外形略呈六棱，果皮光滑革质、颜色自褐黄至红，内部被隔膜分为数室，每室含大量透明薄壁的红色多汁假种皮（aril），每枚假种皮包一粒有棱的长形种子。",
+        "mechanism": "可食部分是假种皮而非果肉：它不是由子房壁发育的组织，而是包围种子的肉质附属物，因此「吃石榴」在技术上是在吃种子外的汁液囊。这一结构决定了加工方式——必须破皮取粒，挤压取汁，果汁是 grenadine 糖浆的来源，用于调味与利口酒。果实富含膳食纤维、叶酸、维生素 C 与 K（来源表述，不作医疗结论）。花为腋生、果由下位子房与宿存萼筒共同构成，萼筒在果顶留下明显的「冠」。",
+        "conditions": "虽能适应多种气候，但只有在成熟期伴随高温与干燥空气时才能产出好果——这一条把它严格限制在夏末秋初干热的地区。土壤以深厚、偏重的壤土最佳。可种子繁殖，但优良品种用扦插与压条；商业上取 250—300 毫米长的硬枝插穗直接在露地生根。适度干旱有助于品质，过度灌溉或成熟期多雨会导致裂果与风味变淡（裂果属通行栽培经验，所引来源未展开）。采后耐贮性较好，可在通风冷凉处保存较长时间，这也是它能在远离产区的地方出现的原因之一。",
+        "exceptions": "不要把石榴的「耐旱」当作可以在任何地方种出好果：适应性强与品质优良是两件事，成熟期干热是品质的必要条件。也不要把所有红色多籽果实都当石榴——「假种皮」这一结构是它区别于其他水果的关键，其他果实的可食部分多为果肉或果皮组织。此外中药与民间用法中对石榴皮的使用属另一类知识，本草条目不涉及，也不提供任何用法。",
+        "story_uses": "适合作为「剥取即劳动」的水果：取粒耗时长、会染色，通常是多人围坐的场合，天然适合写闲谈、传言与家庭内部的秩序。也适合写干热气候与品质的绑定：同一品种在沿海湿润地种出来风味寡淡，这条可以直接支撑「某地的石榴为何贵」的地方性说法。",
+        "historical_scope": "所引来源称其被认为原产伊朗及邻近地区，栽培很久以前即环绕地中海并延伸至阿拉伯半岛、阿富汗与印度，今在美洲自美国较暖地区至智利普遍栽培。这些是分布性表述，未给具体年代；传入东亚的时间与路线亦未获来源，故不作断言。",
+        "evidence_and_uncertainty": "Britannica pomegranate 条目直接支撑：物种与科、假种皮与果汁用途、营养成分、植株与叶花果形态、原产地判断与栽培扩散范围、美洲分布、成熟期高温干燥对品质的要求、土壤与扦插繁殖。裂果与贮藏细节未在该条目中展开，本文以定性表述给出并标注为通行栽培层面。review_status 为 needs_review。"
+      },
+      "source_ids": ["produce_src_20"],
+      "related_ids": ["produce_fig", "produce_date_palm"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "produce_date_palm",
+      "name": "椰枣",
+      "aliases": ["枣椰", "波斯枣", "海枣", "date palm", "Phoenix dactylifera"],
+      "tags": ["living_organism", "crop", "fruit", "food", "agriculture", "living_organism_tree"],
+      "summary": "棕榈科椰枣属，可能是今伊拉克一带起源；雌雄异株、栽培须人工授粉，果实按四个成熟阶段分收，是北非与中东可灌溉沙漠地带的主食与财富来源。注意与鼠李科的「枣」（Ziziphus jujuba）完全不同。",
+      "details": {
+        "definition": "椰枣是 Phoenix dactylifera（棕榈科）的果实与其植株。中文「椰枣」「枣椰」「波斯枣」「海枣」同指，英文 date palm/date。**名称必须与「枣」严格区分**：汉语的「枣」通常指鼠李科枣属的 Ziziphus jujuba（中国枣），两者不同科、不同形态、不同产区，只因干果外形相近而在近代贸易与翻译中被混称；英文 jujube 也曾被称为「Chinese date」，进一步加剧混淆。植株高约 23 米，茎上密布剪除老叶基后的残痕，冠部为约 5 米长的羽状叶。果为单籽核果（drupe），形状、大小、色泽、品质与果肉质地随品种与栽培条件差异极大。",
+        "mechanism": "雌雄异株：雄株只开雄花，雌株结果，栽培中必须对雌花行人工授粉（把雄花序绑入雌花序或抖撒花粉），否则结实率极低。果实按成熟阶段分收，各阶段有专门名称：khalal（已达全大小、硬、色浅）、bisr（开始着色）、rutab（顶端变软）、tamr（可包装）。收果时点取决于用途——数小时内消费、数周内销售还是数月贮藏，判据完全不同。单穗可结 1000 个以上果实、重 8 公斤以上。",
+        "conditions": "极耐干旱与高温，也能耐受排水不良与干湿交替，只要有地下水或灌溉即可在沙漠与海滨生长；在北非与中东的可灌溉沙漠地带是主食与主要财富来源。以种子或根出条（吸芽）繁殖，商业种植用吸芽：待其 3—6 年、已自生根后取下栽植。4—5 年开始结果，10—15 年进入盛果，单株年产 40—80 公斤以上；可活约 150 年，但商业栽培更早更新。干果保质期长，多数品种（含常见的 deglet noor）作干制加工出售，干果含糖超过 50%（重量比），蛋白质、脂肪与矿物质各约 2%；medjool 等类型作鲜果食用，随存放逐渐皱缩。除果实外，全株各部位均有用途：主干作木材，叶中肋作板条与家具，小叶编织，叶基与果枝作燃料，纤维作绳与包装材料，种子有时磨碎作饲料；果实可制糖浆、酒精、醋与烈酒；树液可鲜饮或发酵，但取液严重伤树，故只用于结果少的树；砍伐后嫩顶芽可作沙拉食用。",
+        "exceptions": "第一，绝不能把椰枣与「枣」混为一谈（见 definition）。第二，不要把「耐旱」理解成不需水：它依赖地下水或灌溉，在无水的沙漠里不会自然成园，这正是「可灌溉沙漠」这一限定词的意义。第三，取树液制糖或酒会严重损伤植株，故与结果用途互斥——同一株树不能既高产又取液。第四，人工授粉不是可有可无的优化：雌雄异株意味着缺雄株或授粉不及时就没有收成，这条决定了园中株数配比与花期劳力安排。",
+        "story_uses": "极适合作为绿洲经济的核心：一片椰枣林意味着水权、授粉劳力、采收季节的攀爬与分阶段采收，以及干果的长期储藏与远销。雌雄异株与人工授粉提供了清晰的技术门槛（会授粉的人与不会的人），树液与果实用途互斥则天然构成取舍。全株可用这一点还能支撑「没有废弃物的树」这类物质文化描写。",
+        "historical_scope": "所引来源称其自极古即受珍视、可能原产今伊拉克；果实长期是北非与中东可灌溉沙漠地带的主食与主要财富来源；西班牙传教士于 18 世纪与 19 世纪初将其带入新世界；今在加那利群岛、北非、中东、巴基斯坦、印度、墨西哥与美国加州栽培，埃及、伊朗、沙特与伊拉克为主要生产出口国；叶片用于基督教圣枝主日与犹太教住棚节。这些属近东—北非—地中海脉络，东亚的椰枣消费是近现代贸易现象。",
+      "evidence_and_uncertainty": "Britannica date palm 条目直接支撑：物种与科、起源判断、雌雄异株与人工授粉、四个成熟阶段名称与含义、单穗果数与重量、植株形态、吸芽繁殖与投产年限、干果含糖与成分、medjool 作鲜食、全株各部位用途、取液伤树、主要生产国、宗教用途。Purdue NewCROP（Duke）补充品种名录（Abbada、Barhee、Dayri、Deglet Noor、Halawy、Khadrawy、Medjool、Thoory 等）与成分数据，但该页为未正式出版手稿，数字属单一文献口径、未交叉核验，本文只作名录与量级引用。review_status 为 needs_review。"
+      },
+      "source_ids": ["produce_src_30", "produce_src_31"],
+      "related_ids": ["produce_fig", "produce_jujube"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "produce_banana",
+      "name": "香蕉与煮食蕉",
+      "aliases": ["芭蕉", "大蕉", "粉蕉", "plantain", "banana", "Musa"],
+      "tags": ["living_organism", "crop", "fruit", "food", "agriculture", "staple_substitute"],
+      "summary": "芭蕉属的栽培果实，含甜蕉与煮食蕉（plantain）两条用途线；克隆繁殖导致遗传一致性极高，20 世纪 Gros Michel 因巴拿马病退出商业栽培即为直接后果。",
+      "details": {
+        "definition": "香蕉指 Musa 属（芭蕉科）的栽培果实。中文「香蕉」「芭蕉」「大蕉」「粉蕉」分别对应不同的栽培类型与口感，但都属同一属；英文 banana 与 plantain 的用法在各语言区并不一致，印度甚至不作区分，只按「适合鲜食」或「适合烹调」分级。因此「香蕉」是一个用途与类型的集合而不是单一物种：多数可食香蕉是 M. acuminata 与 M. balbisiana 的种间杂交种，或 M. acuminata 亚种间的杂交，多无籽；命名因此不按双名法而按基因组体系——用 A/B 字母表示亲本来源、重复字母表示倍性，如 Cavendish 记作 AAA 'Dwarf Cavendish'。煮食蕉约占全球香蕉栽培的 85%，在很多热带地区是主粮而非水果。",
+        "mechanism": "植株是巨型草本而非树木：由叶鞘基部围成假茎（高 3—7.5 米），自地下肉质根状茎抽生；冠部 10—20 片叶，长可达 3—3.5 米、宽 65 厘米。花序自假茎顶端抽出并下垂，雌花在下方、雄花在上部，形成 50—150 个果的果串、分 10—20「手」。结果后母株被砍倒，由根状茎抽生的吸芽替代，约每半年产生新吸芽，因此同一株丛可世代延续数十年。果实为浆果：未熟时含乳汁、可能涩而黏；熟后转软或呈干粉质。野生类型种子多而硬、果肉少，栽培类型一般无籽，仅余褐色小点。因为全靠吸芽、分株等克隆方式繁殖，同一品种内遗传多样性极低——一个新病原即可横扫全部克隆，1950 年代末 Gros Michel 因巴拿马病（镰刀菌枯萎）退出世界商业栽培即为例证；Cavendish 自 1990 年代起亦受 TR4 型威胁。",
+        "conditions": "宜深厚、疏松、排水良好的湿润热带土壤，半干旱区可灌溉栽培（如牙买加南部）；不耐低温。以吸芽与根状茎分株作种植材料，第一造 10—15 个月成熟，此后结果近乎连续，需频繁除萌以防拥挤。商品果串通常 9 手以上、重 22—65 公斤；出口果在未充分成熟时采收，成熟度依运输距离与方式而定，长途运输后常以乙烯人工催熟；发育中的果串常套袋以防虫鸟、风擦与污染。主要病害除巴拿马病外，还有黑条叶斑病、炭疽病、束顶病毒、花叶病毒与细菌性枯萎，以及线虫。",
+        "exceptions": "不要把香蕉当单一作物：甜蕉与煮食蕉在淀粉含量、烹调方式（生熟皆可煮炸、磨粉做团子如 fufu 或粥）与地方主食地位上完全不同，把煮食蕉按水果方式定价会严重错估其热量意义。也不要把「无籽」当作天然属性——它是长期选择不育克隆的结果，代价就是遗传脆弱性。此外花亦可食（中国与越南等地），叶片是蒸煮与储存食物的包裹材料、盘碟或锅底衬，假茎纤维可织布、制绳、编席与造纸（尤见于日本等地）——「香蕉」不只是果实。",
+        "story_uses": "极适合承担「单一克隆的繁荣与崩塌」：整个产业押在一个无性系上，病害一来无可替换，这可以直接写成农人、商行与科研机构之间的博弈。也可写「一物多用的植株」：果、花、叶、假茎纤维各有用途，几乎没有废弃部分，是观察乡村物质循环的好载体。煮食蕉作主粮时，其产量波动直接等于饥荒风险，比水果价格更致命。",
+        "historical_scope": "所引来源给出的时间线分两套口径，须并存：Britannica 称香蕉被认为至少在 6500 年前于新几内亚逐步驯化，约 2000 年前可能自亚洲传入非洲，但考古证据提示乌干达可能早至 4500 年前已有人采食；Morton 则称可食香蕉起源于印度—马来亚区并延伸至澳大利亚北部，公元前 3 世纪地中海地区仅闻其名、一般认为公元 10 世纪才传入欧洲，16 世纪初葡萄牙海员将植株自西非海岸带至南美，太平洋类型可追溯到印尼东部再经马克萨斯群岛传至夏威夷。两套口径对起源中心与非洲到达时间不完全一致，本条并列保留、不合并为单一年代。",
+      "evidence_and_uncertainty": "Britannica banana 条目支撑：属与科、用途二分与煮食蕉占比、Cavendish 的地位、植株形态、花序与果串结构、吸芽更替、土壤与灌溉、种植材料与投产时间、采收成熟度与乙烯催熟、克隆脆弱性与 Gros Michel/TR4、其他病害、基因组命名体系、6500 年前新几内亚驯化与非洲到达时间。Morton（Purdue NewCROP，1987）补充：印度—马来亚起源说、公元前 3 世纪与 10 世纪的欧洲知识、16 世纪传入南美、太平洋传播路线、banana/plantain 术语的地方差异、野生与栽培类型的种子差异、Gros Michel 与 Cavendish 各克隆名录。两来源的产量与贸易数字均已过时，本文不采用其数量。review_status 为 needs_review。"
+      },
+      "source_ids": ["produce_src_32", "produce_src_33"],
+      "related_ids": ["produce_coconut", "produce_pineapple"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "produce_jujube",
+      "name": "枣",
+      "aliases": ["红枣", "大枣", "枣树", "中国枣", "jujube", "Ziziphus jujuba", "Chinese date"],
+      "tags": ["living_organism", "crop", "fruit", "food", "agriculture"],
+      "summary": "鼠李科枣属，原产中国、栽培逾四千年；鲜食富含维生素 C，干制后成为可长期储运的「木本粮食」。注意与棕榈科的椰枣毫无关系。",
+      "details": {
+        "definition": "枣是 Ziziphus jujuba（鼠李科枣属）及其果实，中文「红枣」「大枣」「枣树」皆指本条。**必须与椰枣（Phoenix dactylifera，棕榈科）严格区分**：二者不同科、不同形态，仅因干果外观与用途相近而在商品与译名中混称，英文 jujube 亦曾被叫作「Chinese date」。枣属共有两个常被栽培的种：普通枣 Z. jujuba（多数栽培品种属此）与印度枣/棉枣 Z. mauritiana（叶背有绒毛，果较小而不甚甜）；另有野生枣 Z. lotus 与基督刺枣 Z. spina-christi，一般不栽培。植株为高 7.6—9 米的小乔木，带刺，叶互生、三脉、椭圆至卵形、长 2.5—7.6 厘米；花小、黄色；果深褐色、圆至长圆形、大小如小李，脆白果肉包一枚大而有尖的核。",
+        "mechanism": "果实成熟后糖分积累、质地由脆转绵，适时采收与干燥是形成商品的核心：鲜枣富含维生素 C，但极不耐放；干制后水分降低、糖分浓缩，遂成为可在缺乏新鲜果蔬的季节食用的耐储食品。加工方式多样：可鲜食、干制、煮、炖、烤，并用于调味茶；以蜂蜜与糖浆煮成蜜饯后形似波斯枣（故有「中国枣」之称）；果汁用于制作以 jujube 命名的小糖果。栽培上可种子繁殖，但商业品种须以根出条、根插或嫁接行无性繁殖，才能保持品种性状——这一点与多数果树相同，意味着「自家播种育苗」不适用于良种。",
+        "conditions": "适炎热干燥气候，冬季气温不低于约 9.4 ℃；抗多种病虫害，管理相对粗放——这是它能在干旱与半干旱地区大面积栽培的重要原因。以无性繁殖（根出条、根插、嫁接）保持品种。采收集中在秋熟期，鲜食品种需在脆熟期采、干制品种可待充分成熟后采，采后需晒干或烘干并防潮防虫贮藏。",
+        "exceptions": "第一是名称：枣与椰枣、与「沙枣」（胡颓子科）都不是同一物，交易与文献引用时必须核对学名。第二是用途分层：鲜食与干制是两条不同的产品线，采收成熟度、品种与后续处理完全不同，不能同一批果兼得。第三，不要把「抗病虫、耐粗放」理解为无需管理——它只说明风险较低，不说明没有产量与品质差异。",
+        "story_uses": "适合承担「木本粮食」的角色：干枣能存放、能携带、能充当长途或荒季的热量来源，因此在旅行、馈赠与赈济中出现频率很高，可用于写物资的等级与情谊的分量。也适合写「枣树是家产」：多年生、可无性繁殖、可分株赠人，一棵树能把两户人家联系起来。",
+        "historical_scope": "所引来源称普通枣原产中国，在中国已有 4000 年以上栽培历史；印度枣则分布另地、果较小而不甚甜。这是本条唯一可支撑的年代表述，且来源未给出传播到朝鲜半岛、日本与中亚的具体时间，故不作路线断言。",
+      "evidence_and_uncertainty": "Britannica jujube 条目直接支撑：属与两个栽培种、果实加工与食用方式、蜜饯与「中国枣」名称的由来、生果富含维生素 C、原产中国与 4000 年以上栽培史、植株与叶花果实形态、两种枣的差异、适生温度下限、抗病虫害、种子与无性繁殖、以及野生种与基督刺枣的存在。贮藏与干燥的具体条件未在该条目中展开，本文以定性表述给出。review_status 为 needs_review。"
+      },
+      "source_ids": ["produce_src_36"],
+      "related_ids": ["produce_date_palm"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "produce_citrus_orange",
+      "name": "柑橘与甜橙",
+      "aliases": ["橙", "甜橙", "广柑", "橘", "橘子", "orange", "Citrus × sinensis", "Citrus reticulata"],
+      "tags": ["living_organism", "crop", "fruit", "food", "agriculture"],
+      "summary": "芸香科柑橘属，含甜橙、橘、酸橙、柚等一整套互相杂交的栽培类型；果为 hesperidium，果皮革质含油、果肉分瓣；甜橙采后不会后熟，因此采收成熟度即最终品质。",
+      "details": {
+        "definition": "柑橘属 Citrus（芸香科）植物的果实与其植株，中文俗名极为密集：「橙」「甜橙」「广柑」「橘」「橘子」「柚」「柠檬」「来檬」都属这一属。经济重要者包括甜橙/中国橙 C. × sinensis、橘 C. reticulata（部分品种称 tangerine）、酸橙/塞维利亚橙 C. × aurantium、葡萄柚 C. × paradisi、香橼 C. medica、柚 C. maxima，以及柠檬与来檬（另条处理）。属内杂交极为普遍，许多「种」实际上是杂交起源（学名以 × 标注），且常有多个中文名指向同一类型的现象；「橘子」在口语中既可泛指柑橘类水果，也可特指 C. reticulata 一类，交易与文献引用须以学名或具体品种确认。",
+        "mechanism": "果实为特化的浆果（hesperidium）：外果皮革质、密布油腺（精油来源），内侧白色海绵层（albedo）含果胶，果肉分为若干瓣（carpel），每瓣内充满汁液小囊。花通常白色五瓣、香气极强，多为虫媒。因为果皮革质、油腺含抑菌与芳香物质，柑橘类天生适合较长时间运输——这也是它成为远洋贸易大宗的原因之一。甜橙的关键生理特征是采后不会后熟，也不会因离树而改善品质，所以必须在树上达到食用成熟度再采，与梨、香蕉等需后熟的果实完全不同。",
+        "conditions": "热带与亚热带作物，但甜橙最适在冬季有轻微霜冻带来低温的地区：此时树体半休眠，只要霜不过早（在新梢未成熟前），略低于冰点的温度不会伤树伤果；早霜则危害大。对土壤适应广（极砂至较重黏壤皆可），以中间质地最佳，必须排水良好。通常以选种实生苗为砧嫁接，育苗周期长（苗圃 12—16 个月后方可芽接，接穗成活后 1—2 年才可定植）。许多产区需补充灌溉；幼树期常间作豆、番茄或瓜类并种覆盖作物。树体丰产期可达 50—80 年甚至更久。采后需防真菌病害，运输与贮藏需控温控湿；多数橙用于鲜食或制汁，主要加工品为冷冻浓缩汁，副产物有精油、果胶、糖渍果皮与橙子酱，酸橙则专用于制果酱。",
+        "exceptions": "第一，不要把柑橘属当作一组界限清楚的物种：属内杂交频繁，甜橙、柠檬、葡萄柚、酸橙都带杂交起源，学名中的 × 因此不可省。第二，「橘子」在中文里既是类名也是特定类型的俗称，不同地区所指不同，不能作为规格依据。第三，不要把柑橘的耐运性理解成耐粗暴处理：果皮油腺破裂后精油渗出会造成果皮褐斑，低温贮藏不当则产生冷害凹陷；「皮厚耐运」只是相对优势，不是豁免。",
+        "story_uses": "适合承担「远洋贸易与维生素」这条线：果皮革质、富含维生素 C、耐长时间运输，使它能跨海成为稳定商品，并直接进入船员与军队的口粮体系（英国海军的酸橙配给甚至留下了「limey」这种绰号）。也适合写育苗周期的时间成本——嫁接苗从播种到定植要三年上下，果农的投入在见到第一批收成前是长期沉没的。",
+        "historical_scope": "所引来源给出的时间线：一般认为柑橘原产亚洲热带（尤以马来群岛），自古栽培，由原产地传至印度与东非海岸、再至东地中海；罗马征服、阿拉伯商路与伊斯兰扩张都促进了传播；哥伦布航行时加那利群岛已常见橙树；1920 年以前橙主要作餐后水果，橙汁饮用的普及显著提高了人均消费。这套叙述属旧大陆—大西洋脉络，东亚的柑橘栽培与品种体系另有独立且更早的本地脉络，本条不据欧洲文献推断东亚。",
+        "evidence_and_uncertainty": "Britannica citrus 条目支撑属的定义、经济重要种与杂交学名、植株与叶花形态、hesperidium 结构。Britannica orange 条目支撑甜橙的植株与花、采收成熟度（采后不后熟）、丰产年限、温度与霜的要求、土壤与嫁接育苗流程、间作与灌溉、起源与传播路径、1920 年前后的消费转折、加工品与副产物。FAO Bulletin 149 支撑采后处理与贮藏的一般框架（预冷、包装、贮藏、腐烂控制），但该手册以果蔬通例论述，柑橘的具体参数未在其中逐项规定。review_status 为 needs_review。"
+      },
+      "source_ids": ["produce_src_26", "produce_src_27", "produce_src_47"],
+      "related_ids": ["produce_lemon_lime", "produce_pomegranate"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "produce_lemon_lime",
+      "name": "柠檬与来檬",
+      "aliases": ["柠檬", "黎檬", "来檬", "青柠", "lemon", "lime", "Citrus × limon", "Citrus × aurantiifolia"],
+      "tags": ["living_organism", "crop", "fruit", "food", "agriculture", "condiment_crop"],
+      "summary": "两个不同的柑橘杂交种：柠檬（C. × limon）皮厚、酸度高、可多次采收并长期贮藏；来檬（C. aurantiifolia / C. latifolia）果小皮薄、酸与糖都高于柠檬，热带为主。二者不可互换。",
+      "details": {
+        "definition": "柠檬是 Citrus × limon（芸香科）小乔木或开张灌木及其果实；来檬（青柠）指柑橘属中数个种与杂交种，最常见的是波斯来檬 C. × latifolia 与较小的 key lime/墨西哥来檬 C. × aurantiifolia。中文「柠檬」「黎檬」与「来檬」「青柠」分指二者，但市场上常以颜色与大小混称，须以果形与产地判断。二者都是杂交起源：柠檬曾被林奈视为香橼（C. medica）的一个变种，今知为独立杂交种；来檬的野生来源可能为印尼群岛或邻近亚洲大陆。另有一批「同名异物」：泰国来檬/马蜂橙 C. hystrix（果与叶用于东南亚料理）、兰普尔来檬 C. × limonia（疑为柠檬与橘的杂交，多制果酱）、甜来檬 C. limetta（几乎不含柠檬酸）、澳洲指来檬 C. australasica（以汁囊「lime caviar」著称）。",
+        "mechanism": "柠檬果实椭圆形、顶端有低乳突、8—10 瓣，果皮熟时黄色、油腺明显，白色海绵层（albedo）几无味且是商业果胶的主要来源；汁液明显酸性，柠檬酸可占果汁重量的 5% 或更多。来檬果径仅约 3—4 厘米，卵形至近球形，皮薄、熟时带绿黄，果肉柔嫩多汁，且多数来檬的酸与糖含量都高于柠檬——这意味着来檬不是「更酸的柠檬」，而是成分比例不同。柠檬的独特经济价值在于可塑性：终年开花、一年可采 6—10 次，果可在仍绿时采收、经处理后储运三个月以上，因此能全年稳定供应；来檬则更依赖热带产地与短周期流通。",
+        "conditions": "柠檬在相对凉爽而温差小的沿海地区（意大利沿海、加利福尼亚）表现最好，株距 5—8 米，幼树第三年即可结果、第五年进入商业产量，单株年均约 1500 个果；商品果径约 50 毫米。采后按成熟度分级：全黄者须立即销售，仍绿者储藏至转黄——这条分级制度本身就是柠檬贸易的技术核心。来檬需热带与亚热带气候，树高少超过 5 米，枝短硬多刺，管理上需修剪控制。二者都以嫁接繁殖（柠檬常嫁接于甜橙、葡萄柚、橘、酸橙或 tangelo 实生苗上，因其比柠檬自身实生苗更整齐、更抗根腐与冠腐）。主要副产物：柠檬产柠檬酸、柠檬酸钙、柠檬油与果胶，柠檬油在西西里是重要产业；来檬的果汁可浓缩、干燥、冷冻或罐藏，果皮提油主要在西印度群岛加工。",
+        "exceptions": "第一，不要把柠檬与来檬当同一物的两种成熟度：它们是不同的杂交种，果形、皮厚、酸糖比、产地与流通方式都不同，食谱中互换会改变成品。第二，不要把「绿皮」当作未熟——波斯来檬成熟时果皮本就是绿黄色。第三，「甜来檬」几乎不含柠檬酸，与酸来檬用途完全不同。第四，柠檬油与果胶是副产物经济的主体之一，把柠檬仅当作鲜食水果会低估其加工价值；反之，柠檬汁的酸性在食品中兼有调味与抑菌作用，但本条不提供任何配比或工艺参数。",
+        "story_uses": "适合承担「全年稳定供应」这一现代贸易特征：终年开花、多次采收、绿果可长期贮藏并随市场转黄，这套安排让柠檬成为少数能常年在货架上的水果，也让它牵扯到仓储、分级与运价的细节。来檬则适合写热带产地的短链流通与地方料理的绑定（东南亚用果与叶）。英国海军的酸橙配给与「limey」绰号，是柑橘类进入制度性供给的绝佳例证。",
+        "historical_scope": "所引来源给出的柠檬时间线：约公元 1000—1200 年间传入西班牙与北非，十字军将其自巴勒斯坦进一步传布于欧洲，1494 年亚速尔群岛已有栽培并大量运往英格兰。来檬：野生来檬可能原产印尼群岛或邻近亚洲大陆，阿拉伯商人约公元 1000 年可能将其与柠檬一起自印度带至东地中海与非洲，12—13 世纪由归国的十字军传入西地中海，1493 年哥伦布第二次航行将柑橘种子（很可能含来檬）带到西印度群岛，随后广布于西印度、墨西哥与佛罗里达。两条时间线是并行的地中海—大西洋脉络，东亚的柠檬与来檬栽培是较晚的近现代过程。",
+        "evidence_and_uncertainty": "Britannica lemon 条目直接支撑：杂交种身份与林奈的误判、传入西班牙与北非及欧洲的时间、1494 年亚速尔、植株与叶花果形态、albedo 与果胶、柠檬酸占比、产地与株距、终年开花与年采次数、采后分级与三个月贮藏、投产年限与单株产量、嫁接砧木选择、副产物（柠檬酸、柠檬油、果胶）与西西里的柠檬油产业。Britannica lime 条目直接支撑：两个主要类型与学名、起源与传播时间线、树体与果实的尺寸与形态、酸糖比较、甜来檬与若干同名类型、果汁加工与果皮提油、维生素 C 与英国海军的用途。不采用任何医疗结论。review_status 为 needs_review。"
+      },
+      "source_ids": ["produce_src_28", "produce_src_29", "produce_src_26"],
+      "related_ids": ["produce_citrus_orange"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "produce_peach",
+      "name": "桃",
+      "aliases": ["桃子", "毛桃", "油桃", "蟠桃", "peach", "nectarine", "Prunus persica"],
+      "tags": ["living_organism", "crop", "fruit", "food", "agriculture"],
+      "summary": "蔷薇科李属核果，可能原产中国；需冬季需冷量又不能耐严寒，寿命偏短需频繁更新；油桃只是光滑无毛的桃，不是另一个物种。",
+      "details": {
+        "definition": "桃是 Prunus persica（蔷薇科李属）果树及其果实。中文「桃」「毛桃」指有绒毛的普通桃，「油桃」指光滑无毛的类型，「蟠桃」指果形扁圆的类型——这些在植物学上都是同一物种内的品种群差异，不是不同物种。果为核果：外为多汁可食的果肉，内为硬核包种子；果肉可白、黄或红；品种分离核（核易与果肉分离）与黏核（果肉紧粘核）两类。同属还有扁桃（almond）、李、杏、樱桃等核果类，形态有共通处但种不同。",
+        "mechanism": "果实由单心皮子房发育，两个胚珠中通常只有一个受精，因此果实常一侧略大。多数品种坐果过量：花后一月到六周有自然落果，仍需人工疏果才能达到商品大小、形状与风味——疏果是桃园最不可省的劳力投入之一。树体小至中型（少达 6.5 米，栽培中经修剪控制在 3—4 米），寿命相对短：有些产区 8—10 年即更新，另一些可产果 20—25 年，取决于抗病性、虫害与越冬损伤。",
+        "conditions": "需有四季分明的气候：冬季需一定需冷量才能打破休眠正常萌芽，但又不能耐严寒——冬季气温常低于 −23 至 −26 ℃ 的地区无法栽培；冬季过暖同样生长不良。最适排水良好的砂质或砾质壤土，对氮肥与厩肥反应良好；每年修剪以控制高度、开张树冠并保证透光。果实质软、含水高、易碰伤，采后需预冷与冷链；不耐长期贮藏，因此鲜销半径与加工（罐藏、制干、制酱）能力决定产区的经济半径。",
+        "exceptions": "第一，油桃不是另一个物种，也不是「桃与李的杂交」，而是果皮无毛的桃；把油桃按独立作物安排栽培会重复投入而得不到差异。第二，不要把「桃树好活」当作省事：疏果、修剪、病（褐腐、细菌性穿孔）虫（食心虫、蚜虫）管理缺一不可，否则果小、味劣、枝条郁闭。第三，寿命短不等于品种差——这是桃的生物学特性，商业园按周期更新是常态，扩张时须把更新成本计入。",
+        "story_uses": "适合写「一场霜决定一年」：花期与幼果期遇霜即绝收，且无法补救，这种不可逆的时点风险天然适合作为农人命运的外部变量。也适合写疏果这类「主动减产」的技艺——必须亲手摘掉好果才能换来更大的果，对不熟悉的人极难接受，正好作为地方知识与外来者认知冲突的具体场面。",
+        "historical_scope": "所引来源称桃可能原产中国，经亚洲向西传至地中海，后由西班牙探险者带入新世界，至 1600 年已在墨西哥出现；数百年间品种选育多限于贵族园圃，大规模商业栽培 19 世纪始于美国，早期为实生苗、后以优良品系嫁接于耐寒实生砧木才形成大果园；今中国、意大利、西班牙、美国为主要生产国。这套叙述中「可能原产中国」为不确定表述，本文保留其不确定性；传入东亚以外各区的具体年代未获来源。",
+        "evidence_and_uncertainty": "Britannica peach 条目直接支撑：物种与科、经济重要性、树体尺寸与修剪控制、寿命与更新周期、核果结构与肉色变异、离核/黏核、油桃为光滑无毛的桃、坐果过量与自然落果及人工疏果、越冬温度下限与需冷量、土壤与施肥、修剪目的、起源与传播路径、19 世纪商业栽培与嫁接技术的转折、主要生产国。采收与贮藏的具体温湿度参数未在该条目中展开，本文只作定性表述。review_status 为 needs_review。"
+      },
+      "source_ids": ["produce_src_24", "produce_src_23"],
+      "related_ids": ["produce_plum", "produce_apple", "produce_almond"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "produce_plum",
+      "name": "李",
+      "aliases": ["李子", "欧洲李", "中国李", "日本李", "plum", "prune", "Prunus domestica", "Prunus salicina"],
+      "tags": ["living_organism", "crop", "fruit", "food", "agriculture"],
+      "summary": "李属多个种及其核果；欧洲李（P. domestica，原产高加索—里海一带，逾两千年）与中国李/日本李（P. salicina）是两条独立的栽培线；果肉紧实、含糖高者可不发酵直接干燥成李子干。",
+      "details": {
+        "definition": "李指 Prunus 属（蔷薇科）多种乔木或灌木及其可食核果。商业栽培的两个主要种是欧洲李 P. domestica（可能原产高加索与里海一带，至少 2000 年历史）与日本李 P. salicina（最早在中国驯化、后在日本充分发展并由日本传向世界）；另有乌荆子李 P. insititia（古文献将其早期栽培与大马士革一带相连）与紫叶李 P. cerasifera（多作观赏）。果为光滑皮的核果，形状自球形至椭圆形，果肉与核的黏着程度因种与品种而异。因此中文「李」是一个属级的集合名，不能说成单一物种；「布朗」「西梅」等商品名又分别指向特定类型（西梅通常指可制干的欧洲李品种）。",
+        "mechanism": "多数品种花芽生于短枝或主枝顶梢，每芽含 1—5 朵花（多为 2—3），盛花时呈密集花簇；花后由子房发育为核果。树皮结构特殊，可减少失水、抵御昆虫与真菌并有一定抗火能力。可制干的关键在于果肉紧实与含糖量高——这类李可在不发酵的情况下直接干燥成李子干（prune），用干燥机或日晒完成，因而成为少数以「干果」为主要商品形态的温带水果。",
+        "conditions": "分布与适应性广，许多品种适应多种土壤与气候；多数品种进入结果期后不需太多修剪，只要控制病虫即可在家庭果园中良好结实。日本李比多数欧洲品种更耐贮，因此成为最常见的鲜销李——这是一条纯粹由流通性决定的品种格局，而非品质排序。采后需低温流通；用于干制的品种则依赖采收成熟度与干燥条件（日晒需连续晴天，机械干燥需能耗）。",
+        "exceptions": "第一，欧洲李与日本李不是同一作物的两个品种群，而是不同种，抗病性、需冷量、贮藏性与用途均不同，不能共用一套栽培方案。第二，「李子干」不是「晒干的任何李子」：只有果肉紧实、含糖足够高的类型才能不发酵地干燥，其他类型晒干会发酵变味。第三，不要把观赏用的紫叶李当果用品种；也不要因同属就把李与桃、杏、樱桃的管理照搬（褐腐、细菌性穿孔病与食心虫的压力各不相同）。",
+        "story_uses": "适合承担「鲜销与干制两条出路」：同一片李园可以因果实耐贮性不同而分别面向鲜果市场或干制作坊，价格与议价关系完全不同，适合写农户在两条路之间的取舍。也适合写「名字的混乱」——同一种李在不同地区有完全不同的叫法，商人可以借此混淆等级与产地。",
+        "historical_scope": "所引来源给出：欧洲李可能原产高加索与里海一带、至少 2000 年历史；乌荆子李的早期栽培在古文献中与大马士革一带相连；日本李最早在中国驯化（数千年前），后在日本充分发展并由日本传向世界。这些是范围性表述，未给精确年代；「中国李」与「日本李」的名称与实际驯化地之间的错位，本身就是传播史的一个注脚。",
+        "evidence_and_uncertainty": "Britannica plum 条目直接支撑：属级范围与两个商业种、核果结构与形状、树皮特性、花芽着生与花数、果可鲜食煮食制酱烘焙、可制干的条件（果肉紧实、含糖高、不发酵）与干燥方式、欧洲李的起源与年代、乌荆子李与大马士革的关联、日本李的驯化与传播、耐贮性与鲜销格局。Britannica Prunus 条目补充属的规模与核果类整体关系。干燥的具体温湿度未获来源，本文只作定性表述。review_status 为 needs_review。"
+      },
+      "source_ids": ["produce_src_25", "produce_src_23"],
+      "related_ids": ["produce_peach", "produce_apple"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "produce_mango",
+      "name": "芒果",
+      "aliases": ["檬果", "檨", "mango", "Mangifera indica"],
+      "tags": ["living_organism", "crop", "fruit", "food", "agriculture"],
+      "summary": "漆树科芒果属，原产南亚（印度东部、缅甸、安达曼群岛）；树高可达 30 米、寿命可逾三百年；20 世纪靠芽接技术才形成现代产业。",
+      "details": {
+        "definition": "芒果是 Mangifera indica（漆树科）果树及其果实。中文「芒果」「檬果」同指，「檨」为闽南语系旧称。树高 10—30 米，冠幅可达 30—38 米，近常绿，叶在新梢上成莲座状排列、下垂如带；花小而极多，单花序可有数百至三四千朵，其中 25%—98% 为雄花、其余为两性花。果形自近圆、卵形至肾形，常偏斜，长 6—25 厘米，重自数盎司至 1.8—2.3 公斤；果皮革质、有蜡质、较厚、芳香，色自绿至黄、橙、红或紫红；果肉淡黄至深橙、纤维多少不一（部分实生类型纤维极多）、汁多、风味自极甜至偏酸；果核单枚、有纵向棱，内含富淀粉的种子，分单胚与多胚两类。因此在同一物种名下，「纤维多、带松节油味」与「细腻香甜」都是芒果，差异属品种与繁殖方式，而非物种不同。",
+        "mechanism": "低结实率是芒果的固有难题：花序中绝大多数是雄花，且开花期常有低温、阴雨或传粉昆虫不足，导致坐果极少，因此产量年际波动大。种子的单胚/多胚特性直接影响繁殖策略：多胚种子可长出多个实生苗（其中部分为珠心苗、可保持母本性状），单胚种子则必须靠嫁接才能稳定品种——这一条决定了各地的繁殖技术与品种扩散速度。果实的纤维含量、风味与果皮色泽由品种决定；「松节油」气味是部分类型的特征，不是变质。",
+        "conditions": "热带与亚热带低地作物，可生于湿润与半干旱低地，也见于地中海型边缘地区（马德拉、加那利、埃及、南部非洲、佛罗里达南部）；不耐霜冻，幼树尤甚（佛罗里达 1886 年严寒曾使多数早期植株死亡）。需较深土壤与良好排水，喜充足光照。繁殖：实生（多用于砧木或育种）与嫁接（芽接、盾状芽接、靠接），1909 年盾状芽接的商业化成功是现代芒果产业的转折——此前优质品种难以大量复制。采后为呼吸跃变型果实，需在适当成熟度采收并控温贮运；果皮薄、易碰伤，长途运输依赖单果包装。",
+        "exceptions": "第一，不要把芒果的「纤维多」当作低品质的同义词：部分地方品种与实生树本就以纤维与酸香为特色，用于腌制、制酱或青食，与鲜食高档品种是两条产品线。第二，不要以为「多胚种子能留种」适用于所有芒果——单胚类型必须嫁接。第三，芒果与漆树科近缘植物（如腰果、毒藤类）存在交叉过敏的可能，这是定性风险提示，本条不提供任何处置或诊断方法。第四，中文「芒果」在部分语境也被误用于其他科属果实，作为食材时应以学名核对。",
+        "story_uses": "极适合承载「繁殖技术即产业门槛」：在盾状芽接商业化之前，好品种无法大量复制，果园品质参差；技术一旦普及，产业格局立刻改变。这条因果可以直接写成技术传播者与守旧种植者之间的分歧。也适合写大树与世代：三百年仍在结果的芒果树枝干高大，采收需攀爬与长杆，是村落里具有记忆与所有权意义的对象。",
+        "historical_scope": "所引来源给出的传播链条较为完整，须按段看：原产南亚（印度东部、缅甸、安达曼群岛），在原产地自古栽培并受尊崇；据信佛教僧侣于公元前 4—5 世纪将其带至马来亚与东亚；波斯人约公元 10 世纪带到东非；东印度群岛在葡萄牙人最早到访前已普遍栽培，葡萄牙人显然于 16 世纪初引入西非并带入巴西；在巴西立足后传至西印度群岛（约 1742 年巴巴多斯、约 1782 年牙买加），19 世纪初经菲律宾与西印度传入墨西哥；佛罗里达自 1833 年起多次引种，1886 年严寒后靠芽接重建，美国农业部 1899—1937 年间自印度、菲律宾、西印度等地引入 528 个品种。这些节点属南亚—印度洋—大西洋脉络，东亚的芒果栽培另有近现代路线，本条不据其推断。",
+        "evidence_and_uncertainty": "Morton（Purdue NewCROP，1987）的芒果章支撑：起源地与早期传播、树体尺寸与寿命、叶片与花序结构、雄花比例、果形与果皮果肉变异、单胚/多胚、各地引种年份与品种引入数量、芽接技术的关键作用、佛罗里达与波多黎各、夏威夷、巴西、澳洲的产业史、以及「松节油」气味的类型特征。该来源的产量与面积数字为 20 世纪 80 年代口径，已过时，本文不采用其数量。Britannica 无独立芒果条目可取（多次抓取失败），故本条不引用 Britannica。review_status 为 needs_review。"
+      },
+      "source_ids": ["produce_src_49"],
+      "related_ids": ["produce_citrus_orange", "produce_pineapple"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "produce_pineapple",
+      "name": "菠萝",
+      "aliases": ["凤梨", "菠萝蜜（误称）", "pineapple", "Ananas comosus"],
+      "tags": ["living_organism", "crop", "fruit", "food", "agriculture"],
+      "summary": "凤梨科多年生草本，果为多个花与苞片愈合而成的聚花果；原产热带美洲，16 世纪经葡萄牙人传遍热带，现以罐藏为主要流通形态之一。",
+      "details": {
+        "definition": "菠萝是 Ananas comosus（凤梨科）多年生植物及其可食果实。中文「菠萝」与「凤梨」在多数语境指同一物种，部分地区按品种（果眼深浅、叶刺有无）分用两个名字；须注意「菠萝蜜」是桑科的另一个物种（Artocarpus heterophyllus），与菠萝无关。果为聚花果：不是一朵花结一个果，而是花序上一系列花与其苞片共同肉质化并愈合在中轴上，因此「果眼」实际上对应单朵花的位置。商品果重 1—2 公斤。",
+        "mechanism": "植株有 30—40 片坚硬多肉的叶紧密螺旋排列在粗壮肉质茎上成莲座；商品品种约在种植后 15—20 个月，在 100—150 毫米长的花梗上形成有限花序；开花后 5—6 个月果实成熟。因为果实由多花愈合而成，果形与果眼的整齐度直接反映花期与授粉/发育的一致性，这也是栽培上追求花期整齐的原因（常用乙烯等生长调节物质催花，本条不涉及具体用量与方法）。结果后植株由侧芽（吸芽、冠芽）延续，因此生产上以冠芽、吸芽、裔芽作种植材料——一次种植可多年采收。",
+        "conditions": "热带与亚热带作物，原产热带与亚热带美洲，后被引种至所有热带地区；不耐霜冻，需充足光照与排水良好的酸性土壤。现代种植园通常先铺浸沥青的覆盖纸于整好的土壤上、以条带铺设定植，把繁殖材料穿过纸插入土中，密度约每英亩 15000—20000 株（纸膜用于保温保墒与抑草，是高密度机械化栽培的产物）。采后成熟度决定用途：鲜销果在接近完熟时采，罐藏与长途运输果在未完全成熟时采。加工以罐藏为主，果肉与果汁均有商品，果皮与果心可作副产品（饲料、纤维、酶提取），但本条不涉及工艺参数。",
+        "exceptions": "第一，「菠萝」与「菠萝蜜」必须分开，后者是桑科的大果，形态与用途完全不同。第二，不要以为果实的每个「眼」都是独立的小果——它们是同一花序上的不同花，界限清楚但共享中轴，因此削皮方式（去眼）与果形整齐度都由此决定。第三，凤梨与菠萝是否「同一物」在不同地区有不同说法，实务上以品种特征（叶刺、果眼深浅、是否需要挖眼）区分，而非以名称为据。",
+        "story_uses": "非常适合承担「罐藏改变作物命运」这条线：菠萝鲜果不耐远运，一旦有了罐藏，它就变成可以在温带国家常年销售的商品，产地与加工厂的关系随之固定，适合写工厂、季节工与种植园之间的依赖。聚花果的结构也能支撑「一个果不是一次结成的」这类反直觉细节，用于地方知识的场景。",
+        "historical_scope": "所引来源给出的时间线属大西洋—印度洋脉络：最早的书面记载出自哥伦布、奥维耶多与罗利，他们在西印度群岛见其作食物与酿酒；葡萄牙人显然主导早期传播，发现圣赫勒拿岛（1502）后不久即引入，随后带至非洲，约 1550 年传入印度；16 世纪末栽培已扩展至全球多数热带地区，包括南太平洋部分岛屿；今主要生产国包括哥斯达黎加、巴西、中国、印度与泰国。传到东亚的具体年代与路线未获来源，故不作断言。",
+        "evidence_and_uncertainty": "Britannica pineapple 条目直接支撑：物种与科、原产热带美洲、果实为聚花果的成因与果重、植株与叶序、花序与成熟周期、种植密度与覆盖纸定植法、早期文献记载、葡萄牙人的传播与各时间节点、鲜食与罐藏并行的消费形态、主要生产国。催花与采后处理的具体做法未获来源，本文只作定性提及，不提供任何参数。review_status 为 needs_review。"
+      },
+      "source_ids": ["produce_src_34"],
+      "related_ids": ["produce_banana", "produce_coconut", "produce_mango"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "produce_coconut",
+      "name": "椰子",
+      "aliases": ["椰", "椰青", "coconut", "Cocos nucifera"],
+      "tags": ["living_organism", "crop", "fruit", "food", "agriculture", "oil_crop"],
+      "summary": "棕榈科椰子树的可食果：椰肉、椰水、椰干与椰子油分属四条产品线；果实易漂浮，靠洋流与人力在热带广布。注意椰子油归油料用途，与 staples 的油料作物互为参照。",
+      "details": {
+        "definition": "椰子是 Cocos nucifera（棕榈科）的可食果实。中文「椰」「椰青」（青果，指未成熟、以饮椰水为主的果）与「椰子」（成熟果，以取椰肉为主）区分的是同一物种的不同成熟阶段。成熟果卵形或椭球形、长 300—450 毫米、径 150—200 毫米，外有厚纤维质壳（husk）包着商品意义上的单籽坚果；硬壳内包不显著的胚与大量胚乳，胚乳分为固态的椰肉与液态的椰水两部分。因此在植物学上，人吃的是胚乳，而不是果肉（子房壁）。",
+        "mechanism": "椰子的两个机制最值得注意。其一是漂浮传播：果实外壳纤维质、内含空腔，易浮于水，能借洋流远距离漂流，也能被航海者携带，这解释了它在热带海岸的广泛分布（但自然漂流能否成功定植取决于上岸条件，不能一律视为「自然传播」）。其二是胚乳的双重形态：椰水在发育早期提供液体胚乳，成熟过程中部分转为固态椰肉，因此青果以水为主、熟果以肉为主，同株不同采收期对应完全不同的产品。单株每年可产约 100 个椰子，每个果需一年才充分成熟。",
+        "conditions": "热带海岸作物，喜高温高湿、充足光照与排水良好的砂质土壤，能耐一定盐雾；不耐霜冻。以种子（成熟果）育苗，或利用自然落果成苗。产品线有明确分工：青果供饮椰水；成熟果取椰肉，可鲜食或干燥成 copra（椰干），再榨椰子油——椰子油是重要植物油，也是本条与 staples 油料组交叉的点，故本条只写「椰子作为果与椰干的来源」，油料加工本身归 staples 的油料条目。椰肉刨碎加水可制椰奶，用于烹调并作牛奶替代；干壳（husk）产椰棕纤维（coir），耐盐水，用于制绳、席、篮、刷与扫帚——即「废弃物」在这条产业链上另有价值。",
+        "exceptions": "第一，不要把「椰子油」当作本条的独立主题：本条只说明椰子作为油料原料的一环，油料作物与榨油工艺的系统叙述属 staples 与相关工艺条目，避免重复。第二，不要把青椰与熟椰当作两个产品随意互换：青果重水、熟果重肉，采收期与定价逻辑不同。第三，椰棕纤维（coir）来自果壳而非果肉，把它与椰肉加工混为一谈会错估工序顺序。第四，椰子的「自然传播」常被夸大：洋流能带走果实，但能否成林还取决于海岸条件与人力介入。",
+        "story_uses": "极适合写「一果四用」的物质链条：同一批果可以分出饮用的水、食用的肉、榨油的干、制绳的壳，几乎没有废物；这类「全果利用」最能支撑沿海村落的生计描写与手工分工。也适合写海岸与航行：椰子能浮、能存、能提供水与热量，是船上补给的自然候选，可用于远航叙事中的细节。",
+        "historical_scope": "所引来源只给出：可能原产印度—马来亚一带、为热带最重要作物之一、果实易漂浮并在热带广布、菲律宾与印尼为 copra 主产国、南太平洋各地 copra 为主要出口品。这些是分布与产业现状表述；驯化年代、跨太平洋传播的具体路线与时间未获来源，故本条不作年代与路线断言。",
+        "evidence_and_uncertainty": "Britannica coconut 条目直接支撑：物种与科、可能的原产范围、热带重要性、椰肉与椰水的成分关系、单株年产量与果实成熟所需时间、果实的尺寸与结构（husk、硬壳、胚乳）、漂浮与传播、copra 与椰子油、椰奶的制法与用途、coir 的来源与用途、主要生产国。椰子的驯化史与传播年代未获来源，本条明确留白。review_status 为 needs_review。"
+      },
+      "source_ids": ["produce_src_35"],
+      "related_ids": ["produce_banana", "produce_pineapple", "produce_date_palm"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "produce_walnut",
+      "name": "核桃",
+      "aliases": ["胡桃", "波斯核桃", "英国核桃", "walnut", "Juglans regia"],
+      "tags": ["living_organism", "crop", "nut", "food", "agriculture", "oil_crop"],
+      "summary": "核桃科核桃属，原产伊朗；商品核桃主要指波斯核桃 J. regia，可食部分是核内的种子，而果实植物学上是核果而非坚果；木材亦为重要用材。",
+      "details": {
+        "definition": "核桃（本条指商品核桃的主要来源）是 Juglans regia（核桃科），中文又称胡桃、波斯核桃，英文 English walnut/Persian walnut。同属还有北美黑核桃 J. nigra（木材与坚果均用，但壳厚、取仁难），以及山核桃属 Carya（英文 hickory/pecan），中文常统称「核桃」或「山核桃」——这些是不同属或不同种，不能一概而论。植物学上，核桃的果实是核果（drupe）而不是真正的坚果：外层是肉质或革质的壳（husk），内层是木质化的核（即商品上的「壳」），核内才是可食的种子（子叶）。因此「核桃是坚果」是商品分类而非植物学分类。",
+        "mechanism": "可食部分是种子，富含油脂；油脂在高温、潮湿与光照下会氧化酸败，产生哈喇味，因此贮藏的核心是低温、干燥、避光与隔绝氧气（脱壳与否影响很大：带壳核桃的壳可延缓氧化，但占用体积）。叶为长羽状复叶，小叶圆头、全缘、顶生小叶最大；雄花与雌花分生于同株的不同柔荑花序上（雌雄同株异花），需风媒传粉且常有雌雄花期不遇的问题。木材深色细纹、质地优良。",
+        "conditions": "对土壤要求相对严格：只有在肥沃、排水良好的中重质地土壤上才产出优质「坚果」——这一条把它限制在有限的地块上，是核桃产区集中度高的原因之一。温带落叶果树，需充足光照与较深土层（根系深）；以嫁接（优良品种接于实生砧）繁殖，实生苗变异大且结果晚。采收在核果外壳开裂、脱落时进行，需及时脱壳、清洗与干燥以防霉变；干燥不足的坚果在贮藏中极易霉变并可能产生真菌毒素，这是定性的安全限制（本条不涉及任何限量或处置方案）。",
+        "exceptions": "第一，不要把「核桃」当成一个物种：波斯核桃、黑核桃、山核桃分属不同种甚至不同属，壳厚、出仁率、风味与用途差别明显。第二，不要把「坚果」当作植物学结论（见 definition）。第三，不要忽略木材价值：核桃是典型的「果材两用」树种，优质原木的价格可与坚果相当，这会影响伐与不伐的决策。第四，不要把带壳贮藏当作无限期保质——壳能减缓氧化，但霉变风险仍取决于干燥程度与环境湿度。",
+        "story_uses": "适合承担「长期资产」这一面：核桃树结果晚、寿命长、木材又值钱，一棵树同时是收入、遗产与可砍伐的储备，围绕它可以写出继承、抵押与伐木争议。也适合写「果材两用」的取舍——为了好木材而推迟或放弃结果，是只有土地所有者才会面临的判断。",
+        "historical_scope": "所引来源只给出原产伊朗、广泛栽培以取优质可食种子、木材用于家具/护墙板/枪托、以及对土壤的要求。驯化年代、传入东亚（中国核桃栽培史）与其他地区的时间未获来源，故本条不作年代与路线断言——这一点尤其重要，因为「核桃传入中国的时间」是常见的历史争论题，本条不凭记忆作答。",
+        "evidence_and_uncertainty": "Britannica English walnut 条目直接支撑：物种与科、原产地、商品用途、木材性质与用途、叶与花序形态、果实为核果而非真正坚果这一植物学判断、可食种子位于木质核内、对土壤的要求。贮藏与霉变风险属通行的食品保存常识，本文以定性表述给出并明确未逐条核源（FAO Bulletin 149 提供了果蔬采后处理的一般框架，但未专门规定核桃参数）。起源年代与传播路线未获来源，明确留白。review_status 为 needs_review。"
+      },
+      "source_ids": ["produce_src_45", "produce_src_47"],
+      "related_ids": ["produce_chestnut", "produce_almond", "produce_hazelnut"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "produce_chestnut",
+      "name": "栗",
+      "aliases": ["板栗", "栗子", "欧洲栗", "中国栗", "日本栗", "chestnut", "Castanea"],
+      "tags": ["living_organism", "crop", "nut", "food", "agriculture", "staple_substitute"],
+      "summary": "壳斗科栗属七种，坚果生于带刺总苞内；富含淀粉，历史上是多地的淀粉主食型坚果；美洲栗因 20 世纪初自亚洲传入的栗疫病几近灭绝。",
+      "details": {
+        "definition": "栗指 Castanea 属（壳斗科）七种落叶乔木及其可食坚果。栽培上主要有：欧洲栗 C. sativa（又称甜栗、西班牙栗，原产欧亚与北非，高可达 30 米）、中国栗 C. mollissima（常低于 18 米，可生于海拔 2440 米）、日本栗 C. crenata（高 9 米以上，海拔 915 米以下），以及美洲栗 C. dentata 与矮栗 C. pumila。**名称必须限定**：名为 chestnut 但非栗属的植物很多——南非的 cape chestnut（Calodendrum capense，芸香科）、七叶树属的马栗（Aesculus，不可食）、Moreton Bay chestnut、桃棕（palm chestnut）与各类「water chestnut」（菱角/荸荠，完全不同）——它们都不是本条所指。坚果生于带刺的总苞（bur）内，1—7 枚，成熟时总苞裂开。",
+        "mechanism": "栗与多数坚果不同之处在于成分：它的坚果以淀粉为主而非油脂，因此更接近谷物、薯类的用法——可煮、烤、磨粉，欧洲栗的小果甚至被用作牲畜饲料或磨粉。但这也意味着它不耐长期干燥贮藏（淀粉在潮湿下易霉、在干燥下硬化），保存依赖适时干燥与防潮防虫，而非像核桃那样靠高油脂的抗氧化管理。种子寿命极短：通常落地后不久即萌发，这使栗的育苗与运输比其他坚果更受时间限制。",
+        "conditions": "原产北半球温带，多为高大乔木，成熟树皮有沟，叶有锯齿、披针形至近椭圆形；雄花多为长而直立的花序，雌花生于短花序基部。需较深厚、排水良好的酸性至微酸性土壤与充足降水（与核桃偏中重土壤的要求不同）。以实生或嫁接繁殖；中国栗与日本栗在生产上多用嫁接以固定品种。栗疫病（Chestnut blight，病原 Cryphonectria parasitica）是毁灭性病害：美洲栗曾为北美东部优势树种，20 世纪初因该菌自亚洲意外传入几近灭绝，病征为红褐色树皮斑并发展成溃疡、最终整株死亡；与抗性亚洲种杂交已获少数抗病杂种。",
+        "exceptions": "第一，最需要强调的是名称：马栗（Aesculus）有毒不可食，water chestnut 是菱角或荸荠，都常被中文翻译统作「栗」，混用会造成严重后果。第二，不要把栗当作油料坚果来管理贮藏：它的主要成分是淀粉，霉变与虫害风险高于油脂酸败风险，处理逻辑不同。第三，美洲栗的「灭绝」应表述为功能性灭绝——大量萌生枝仍在，但因反复感染无法长成结果大树，这一点在叙事与考据上都重要。第四，中国栗、日本栗、欧洲栗的抗病性与果型不同，不能互换品种。",
+        "story_uses": "非常适合承担「木本粮食」的角色：栗富淀粉、可磨粉、可代粮，在欧洲部分山区与东亚都曾是荒年主食，可用于写饥荒、地租与替代性口粮。美洲栗的崩塌更是现成的历史事件：一种漂洋过海的病害在几十年内抹掉一个优势树种，直接影响林下放牧、木材与薪柴经济——这是「外来病害改写一整个地区生计」的教科书式案例，也说明检疫与引种的代价。",
+        "historical_scope": "所引来源给出各栽培种的分布、海拔与树高、坚果的食用重要性、欧洲栗小果的饲料与磨粉用途以及 marrons 的选育，并明确记载美洲栗自 20 世纪初因栗疫病（病原自亚洲意外传入）几近灭绝、杂交抗病育种正在进行。这些是分布与事件性表述；栗在各地区成为主粮的具体时期与规模未获来源，本条不作年代断言。",
+        "evidence_and_uncertainty": "Britannica chestnut 条目直接支撑：属的范围与种数、科、五个主要种及其分布/海拔/树高、坚果生于带刺总苞并 1—7 枚、种子寿命短与落地萌发、美洲栗因栗疫病功能性消失与杂交育种、欧洲栗的小果作饲料或磨粉、marrons 的选育、欧洲栗的木材价值、以及一长串同名异物清单。栗的淀粉性质与贮藏逻辑属通行的食品科学常识，未在所引条目中逐条展开，本文以定性表述给出并明确标注。review_status 为 needs_review。"
+      },
+      "source_ids": ["produce_src_37", "produce_src_47"],
+      "related_ids": ["produce_walnut", "produce_hazelnut", "produce_almond"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "produce_almond",
+      "name": "扁桃",
+      "aliases": ["巴旦木", "巴旦杏", "美国大杏仁（商品名）", "almond", "Prunus dulcis"],
+      "tags": ["living_organism", "crop", "nut", "food", "agriculture", "oil_crop"],
+      "summary": "李属的核果类，可食部分是硬壳内的种子；甜扁桃可食、苦扁桃含苦杏仁苷须先去除氢氰酸方能用于香料；中文「杏仁」既是扁桃仁的商品名也是杏的种仁，必须区分。",
+      "details": {
+        "definition": "扁桃是 Prunus dulcis（蔷薇科李属）果树及其可食种子，中文又称巴旦木、巴旦杏；市面上的「美国大杏仁」实为扁桃仁的商品名。**名称必须严格区分**：中文「杏仁」既可指杏（Prunus armeniaca）的种仁，也可在某些地区被商家用来指扁桃仁，二者是不同物种，风味、成分与风险都不同。扁桃虽俗称坚果，植物学上是包于硬果壳内的种子，果实本身是核果（与桃近缘，生育中的果确实形似桃，成熟时革质外壳裂开卷出核）。品种分两大类：甜扁桃（var. dulcis，可食）与苦扁桃（var. amara，含苦杏仁苷 amygdalin，其油含氢氰酸，须先除去方可用于食品与利口酒香料如 amaretto）。",
+        "mechanism": "苦味与毒性的来源是苦杏仁苷：它在酶作用下可释放氢氰酸，因此苦扁桃不能像甜扁桃那样直接食用，工业上必须经过处理去除。甜扁桃与苦扁桃的化学成分其实相近（均含 35%—55% 非挥发油与酶 emulsin），差别只在苦杏仁苷含量——甜扁桃仅含微量。这一结构解释了为什么「杏仁香精」的风味来自苦扁桃而「吃杏仁」用的是甜扁桃，也解释了为什么两者在外观上难以区分时风险很高。栽培上，扁桃自交不亲和，必须配置授粉品种并由昆虫（主要是蜜蜂）异花授粉；开花期遇霜则产量不稳。",
+        "conditions": "主要栽培于南北纬 28°—48° 与 20°—40° 的地中海型气候带，冬季温和、夏季干热、花期无霜是关键约束。落叶乔木、一般高 3—4.5 米，花期自 1 月底至 4 月初，花芳香、五瓣、淡粉至白。以嫁接繁殖（品种接于实生砧）；现代栽培为同龄至少三类品种的大园，常以机械振动采收，花期租用蜂箱授粉——加州杏仁授粉是全球最大规模的管理授粉事件，每年逾 110 万箱蜂进入该州，蜂群崩溃失调因此直接威胁该产业。旧大陆的传统形态则是小片自用种植、与其他作物间作、树龄与结果能力参差、手工并使用简陋工具，两者的组织方式截然不同。",
+        "exceptions": "第一，名称风险：把苦扁桃或苦杏仁当甜扁桃食用会摄入氢氰酸，这是真实的中毒途径，本条只作定性警示，不给任何处理或用量方法。第二，「美国大杏仁」不是杏的杏仁，这一商品名造成的中文混淆持续至今，采买与文献引用须以学名核对。第三，不要把扁桃的授粉当作自然过程：缺授粉品种或蜂群即大幅减产，这是产业化后最脆弱的一环。第四，不要把加州的高产模式直接套到其他产区——气候带、品种配置与机械化程度不同。",
+        "story_uses": "极适合承担「授粉即外包」这条现代产业逻辑：花期只有几天，蜂箱必须按时到场，蜂群健康直接等于当年的产量与贷款偿还能力——这条因果链可写成农人、蜂农与经纪人三方互相制约的具体关系。苦/甜扁桃的外观相近也提供了天然的辨识难题，可用于写市场欺诈、误食事故与地方经验的积累。",
+        "historical_scope": "所引来源给出：原产西南亚，主要栽培于地中海型气候带，加州约占全球产量近 80%；旧大陆的传统栽培形态（小片、间作、手工、工具简陋）与现代产业化形态（同龄大园、机械采收、租蜂授粉）的对比。驯化年代、传入东亚（「巴旦木」在新疆等地的栽培史）的时间与路线未获来源，故不作年代断言。",
+        "evidence_and_uncertainty": "Britannica almond 条目直接支撑：物种与科、原产西南亚、气候带与纬度范围、加州占全球近 80%、食用方式（生食/去皮/烘烤、marzipan、亚洲用于荤素菜）、植株尺寸与花期、自交不亲和与需授粉品种、开花期霜害、果实为核果而可食部分是种子、甜/苦两个变种与苦杏仁苷及氢氰酸的定性关系、两者成分相近与 emulsin、旧大陆与现代栽培形态的对比、机械采收与租蜂授粉及蜂群崩溃失调的威胁。本条不提供任何去毒、加工或食用量建议。review_status 为 needs_review。"
+      },
+      "source_ids": ["produce_src_38", "produce_src_23"],
+      "related_ids": ["produce_peach", "produce_walnut", "produce_hazelnut", "produce_pistachio"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "produce_hazelnut",
+      "name": "榛",
+      "aliases": ["榛子", "平榛", "欧洲榛", "hazelnut", "filbert", "cobnut", "Corylus"],
+      "tags": ["living_organism", "crop", "nut", "food", "agriculture", "oil_crop"],
+      "summary": "桦木科榛属约 15 种灌木与乔木；冬末同株开雄柔荑花序与雌花，坚果部分或全部包于总苞；「filbert/hazelnut/cobnut」的旧分法已被证明会误导。",
+      "details": {
+        "definition": "榛指 Corylus 属（桦木科）约 15 种灌木与乔木及其可食坚果，原产北温带。中文「榛」「榛子」「平榛」常用于本国野生或栽培种；欧洲榛/普通榛 C. avellana 与巨榛 C. maxima 是两个欧亚栽培种，其相互杂交以及与美洲榛 C. americana、喙榛 C. cornuta 的杂交种产出优质坚果。**名称须澄清**：cobnut 是大果的欧洲榛品种，Lambert's filbert 是巨榛品种，土耳其榛 C. colurna 的坚果以「Constantinople nuts」之名出售；该属旧俗名 hazel，曾依坚果与总苞的相对长度分称 filbert、hazelnut 或 cobnut，但此区分被证明会误导——因此这三个英文词在现代商品语境中不能当作分类依据。另有同名的 Jamaican cobnut（Omphalea triandra），风味相似但属大戟科，完全无关。",
+        "mechanism": "坚果圆形或长圆形、褐色，一般长 1—4 厘米，部分或全部包于总苞（husk）内——总苞长度与形状是传统上区分「filbert/cobnut」的依据，也正是这套依据不可靠的原因。花期特殊：冬末同一树上先出现大量黄色雄柔荑花序与较小的红心雌花簇，靠风媒传粉，雌雄花期常不完全同步，因此单一品种结实率低，需配置授粉品种。植株深根、中度耐阴，但在排水良好土壤与全日照下结果最佳。",
+        "conditions": "温带灌木或小乔木（株高 3—36 米，因种而异），需温带四季与充足降水；深根性使其较耐旱但不耐积水。以压条、分蘖或嫁接繁殖（优良品种需无性繁殖）。采收在总苞开裂、坚果脱落时进行，需及时脱苞与干燥以防霉变；贮藏要求干燥、低温、防鼠防虫（坚果富油，长期高温会酸败）。欧洲榛的油用于食品、香水与肥皂，木材淡红白、质软，可制工具柄与手杖——即整株都有商品价值。",
+        "exceptions": "第一，名称问题（见 definition）：filbert/cobnut/hazelnut 不能作为物种或品种的判据。第二，不要把「耐阴」理解成可以种在浓荫下：中度耐阴与丰产是两件事，全日照下结果最佳。第三，榛是灌木型坚果作物，其整形修剪、行距与采收方式与乔木型坚果（核桃、栗）完全不同，不能照搬。第四，土耳其榛（C. colurna）是乔木种，其坚果以「Constantinople nuts」出售，与欧洲榛不是同一栽培体系。",
+        "story_uses": "适合承担「灌木与篱笆」的空间角色：榛可作绿篱、地界与防风带，同时产坚果，这种「一丛多职」的形态在乡村空间里很常见，可用于写地权边界与邻里纠纷。冬末先开花的物候也是很好的时间标记——在一片枯枝中先出现黄色花序，是可以用来定位季节的细节。",
+        "historical_scope": "所引来源只给出属的范围与种数、原产北温带、各栽培种与杂交种的商业地位、油的用途、形态与结果条件，以及名称混淆的历史。驯化年代、土耳其黑海沿岸产区的形成、传入东亚的时间均未获来源，故本条不作年代与产地断言（关于「土耳其为世界主产区」的说法，本条不予采用，因未在所引来源中核实）。",
+        "evidence_and_uncertainty": "Britannica hazelnut 条目直接支撑：属的范围与种数、科、原产北温带、商业种与杂交组合、欧洲榛油的用途与木材性质、落叶与叶形、株高范围、冬末花序与传粉方式、坚果尺寸与总苞、深根与中度耐阴及结果条件、cobnut 与 Lambert's filbert 的归属、土耳其榛的商品名、旧分法的误导性、以及同名异物。产区与年代未获来源，明确留白。review_status 为 needs_review。"
+      },
+      "source_ids": ["produce_src_39"],
+      "related_ids": ["produce_walnut", "produce_chestnut", "produce_almond"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "produce_pistachio",
+      "name": "开心果",
+      "aliases": ["阿月浑子", "无名子", "pistachio", "Pistacia vera"],
+      "tags": ["living_organism", "crop", "nut", "food", "agriculture"],
+      "summary": "漆树科黄连木属小乔木，据信原产伊朗，生于暖温带旱地；可食部分为绿色种子；雌雄异株、需风媒传粉并配置雄树。本条所据来源仅为摘要，证据强度有限。",
+      "details": {
+        "definition": "开心果是 Pistacia vera（漆树科）小乔木及其可食种子，中文又称阿月浑子。所引来源为第三方百科的策展摘要页（无全文条目），因此本条的物种界定只到「漆树科小乔木、据信原产伊朗」这一层，不与同属其他种（如用作砧木的黄连木类）作细分，也不对品种作断言。种子（俗称开心果）绿色、风味温和带树脂香，可鲜食或烘烤。",
+        "mechanism": "所引来源支持两点机制层面的信息：其一，树高约 9 米，需风媒传粉，园中必须在雌树之间配置雄树以保证产量——即雌雄异株 + 风媒的组合决定了园片设计与花期管理；其二，种子在成熟时果壳自然开裂（商品上「开口」的形态基础），因此开口度与果仁饱满度成为分级依据。除此之外的机制细节（开裂的生理原因、加工工艺）本条不作断言。",
+        "conditions": "生于温暖或温带气候的旱地，栽培区自阿富汗延伸至地中海地区，另有加州产区——即「暖温带 + 旱地 + 有灌溉」的组合。耐旱但不耐湿涝（旱地作物的通性）。采后需去外皮、干燥与贮藏；坚果富油，长期高温会酸败，需干燥阴凉保存。此外开心果是已知的树坚果过敏原之一，这是定性风险提示，本条不提供任何处置或替代建议。",
+        "exceptions": "第一，本条证据强度明显低于同组其他条目：所据页面为摘要与旁及段落，未获全文，因此凡是摘要未写的内容（品种、砧木、具体产区比例、栽培年限、加工参数）本条一律不作断言。第二，不要把「开心果」与其他同名商品混淆——中文「开心果」在极少数语境下也被用于其他开裂坚果，作为食材应以学名核对。第三，开口不等于品质好：过度开口、果仁萎缩或壳色异常都可能提示贮运问题，本条不给出具体判据。",
+        "story_uses": "适合作为「旱地经济作物」的代表：需要暖温带、旱地与灌溉三者同时满足的地方不多，因此产地集中、贸易路线长，可用来写绿洲或山麓灌区的作物选择。雌雄异株与风媒授粉这一点也能支撑具体场面——园中哪几株不结果、为什么，是外行人最容易误判的地方。",
+        "historical_scope": "所引来源仅称其「据信原产伊朗」，并列出栽培范围（阿富汗至地中海地区及加州）。驯化年代、经丝绸之路传入东亚的时间与路线、各地普及过程均未获来源，故本条不作任何年代或路线断言。这一限制应在使用本条时明确保留。",
+        "evidence_and_uncertainty": "本条依据的是 Britannica 的 pistachio 策展摘要页（含 Quick Summary 与旁及段落引用），**未取得全文条目**，access 记为 read 但实际可支撑范围仅限摘要内容：漆树科、据信原产伊朗、暖温带旱地栽培、阿富汗至地中海及加州、树高约 9 米、风媒传粉与配置雄树、种子绿色带树脂香、鲜食或烘烤、用于果仁蜜饼/哈尔瓦/冰淇淋与糖果着色。凡超出上述范围的内容均属未获来源，本条一律不写。review_status 为 needs_review，且建议优先补充全文来源后再引用。"
+      },
+      "source_ids": ["produce_src_46"],
+      "related_ids": ["produce_almond", "produce_hazelnut", "produce_walnut"],
+      "review_status": "needs_review"
+    }
+  ]
+}

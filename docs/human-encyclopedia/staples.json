@@ -1,0 +1,948 @@
+{
+  "schema_version": 1,
+  "group": "staples",
+  "status": "candidate",
+  "sources": [
+    {
+      "id": "staples_src_brit_wheat",
+      "title": "Wheat | Production, Types, Nutrition, Uses, & Facts (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/plant/wheat",
+      "access": "read",
+      "supports": "小麦属构成、普通小麦/硬粒小麦/软质麦用途、蛋白与面筋差异、温带与降水条件、制粉出粉率与储存差异",
+      "rights_note": "商业百科页面，仅记录链接、查证日期与自撰摘要，未转载原文段落"
+    },
+    {
+      "id": "staples_src_brit_rice",
+      "title": "Rice | Description, History, Cultivation, & Uses (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/plant/rice",
+      "access": "read",
+      "supports": "水稻物种、最早考古证据在中国中部与东部（7000—5000 BCE）、淹水稻田与育秧移栽、灌溉前提、碾米与营养损失、副产品用途",
+      "rights_note": "商业百科页面，仅记录链接与自撰摘要"
+    },
+    {
+      "id": "staples_src_brit_barley",
+      "title": "Barley | Description, Nutrition, Uses, & Facts (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/plant/barley-cereal",
+      "access": "read",
+      "supports": "大麦二棱/六棱差异、约8000 BCE 由野生大麦驯化、埃及/美索不达米亚/欧洲/中国栽培证据、低面筋与扁平面食、西藏独立驯化中心",
+      "rights_note": "商业百科页面，仅记录链接与自撰摘要"
+    },
+    {
+      "id": "staples_src_brit_cassava",
+      "title": "Cassava | Description, Origin, Poison, Taste, Benefits, & Facts (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/plant/cassava",
+      "access": "read",
+      "supports": "木薯物种与起源推测（尤卡坦玛雅）、氰苷存在与甜/苦类型、去皮压榨加热等处理必要性、fufu/casabe/tapioca 等制品、叶片食用",
+      "rights_note": "商业百科页面，仅记录链接与自撰摘要"
+    },
+    {
+      "id": "staples_src_brit_potato",
+      "title": "Potato | Vegetable, Tuber, Nutrition, Diseases, Origin, & Facts (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/plant/potato",
+      "access": "read",
+      "supports": "马铃薯安第斯起源与多次驯化、梯田灌溉、chuño 冻干保存、16世纪后期传入欧洲与爱尔兰依赖、晚疫病与1840年代饥荒、无性繁殖与遗传单一化",
+      "rights_note": "商业百科页面，仅记录链接与自撰摘要"
+    },
+    {
+      "id": "staples_src_brit_rye",
+      "title": "Rye | Whole Grain, Nutritional Benefits & Bread (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/plant/rye",
+      "access": "read",
+      "supports": "黑麦约6500 BCE 西南亚起源与向西传播、最强越冬性、除小麦外唯一可做整条面包的谷物、麦角菌与麦角中毒、秸秆用途",
+      "rights_note": "商业百科页面，仅记录链接与自撰摘要"
+    },
+    {
+      "id": "staples_src_brit_sorghum",
+      "title": "Sorghum | Nutrition, Uses, & Description (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/plant/sorghum-grain",
+      "access": "read",
+      "supports": "高粱非洲起源、耐旱耐热、jowar/Guinea corn/kaoliang 等地区名、无面筋磨粉做粥与扁平面食、茎秆与甜高粱用途",
+      "rights_note": "商业百科页面，仅记录链接与自撰摘要"
+    },
+    {
+      "id": "staples_src_brit_millet",
+      "title": "Millet | Nutrition, Health Benefits, & Uses (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/plant/millet-plant",
+      "access": "read",
+      "supports": "粟类多为不同物种统称、亚洲与非洲四千年以上栽培、中世纪欧洲重要谷物、耐瘠薄耐旱、珍珠粟/狐尾粟/指状粟等各自区域",
+      "rights_note": "商业百科页面，仅记录链接与自撰摘要"
+    },
+    {
+      "id": "staples_src_brit_pearl_millet",
+      "title": "Pearl millet | plant (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/plant/pearl-millet",
+      "access": "search_only",
+      "supports": "珍珠粟物种名与株高、瘠薄少水土壤适应、印度与撒哈拉以南非洲主食地位（该页为策展式摘要，未获全文）",
+      "rights_note": "页面仅有策展摘要与引文片段，按 search_only 记录，未当作全文使用"
+    },
+    {
+      "id": "staples_src_brit_oats",
+      "title": "Oats | Definition, Types, Nutrition, Uses, & Facts (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/plant/oats",
+      "access": "read",
+      "supports": "燕麦耐贫瘠程度仅次于黑麦、凉爽温带与红燕麦耐热、燕麦片与粗燕麦、燕麦粉不宜做面包、成分与副产品",
+      "rights_note": "商业百科页面，仅记录链接与自撰摘要"
+    },
+    {
+      "id": "staples_src_brit_teff",
+      "title": "Teff | Description, Grain, Gluten-free, Ethiopia, Eritrea (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/plant/teff",
+      "access": "read",
+      "supports": "苔麸埃塞俄比亚/厄立特里亚起源、六千多年前驯化、籽粒极细、C4 与耐旱耐涝、injera 发酵薄饼、收获与脱粒费工",
+      "rights_note": "商业百科页面，仅记录链接与自撰摘要"
+    },
+    {
+      "id": "staples_src_brit_emmer",
+      "title": "Emmer wheat | plant (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/plant/emmer-wheat",
+      "access": "search_only",
+      "supports": "二粒小麦为四倍体、带壳难脱粒、野生二粒小麦为近东祖先类型、西南亚/东北非/欧洲栽培",
+      "rights_note": "该页为策展摘要加引文片段，按 search_only 记录，未当作全文使用"
+    },
+    {
+      "id": "staples_src_brit_einkorn",
+      "title": "Einkorn wheat | plant (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/plant/einkorn-wheat",
+      "access": "search_only",
+      "supports": "一粒小麦为最早驯化小麦之一、二倍体与四倍体/六倍体的杂交与染色体加倍关系",
+      "rights_note": "该页为策展摘要加引文片段，按 search_only 记录"
+    },
+    {
+      "id": "staples_src_brit_durum",
+      "title": "Durum wheat | cereal (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/plant/durum-wheat",
+      "access": "read",
+      "supports": "硬粒小麦粗粒粉（semolina）用于意面类产品",
+      "rights_note": "商业百科短条目，仅记录链接与要点"
+    },
+    {
+      "id": "staples_src_brit_corn",
+      "title": "Corn | History, Cultivation, Uses, & Description (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/plant/corn-plant",
+      "access": "read",
+      "supports": "玉米约一万年前在墨西哥南部由巴尔萨斯类蜀黍驯化、玉米/豆/南瓜 milpa 体系、角质/粉质/甜质/爆裂类型、纬度和用途、转基因现状",
+      "rights_note": "商业百科页面，仅记录链接与自撰摘要"
+    },
+    {
+      "id": "staples_src_brit_quinoa",
+      "title": "Quinoa | Nutrition, Plant, Description, Seeds, History (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/plant/quinoa",
+      "access": "read",
+      "supports": "藜麦非真谷物、安第斯起源与3000—5000年前多次驯化、皂苷需去除、耐霜耐盐与深根、殖民后衰退与20世纪复兴",
+      "rights_note": "商业百科页面，仅记录链接与自撰摘要"
+    },
+    {
+      "id": "staples_src_brit_buckwheat",
+      "title": "Buckwheat | Description & Uses (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/plant/buckwheat",
+      "access": "read",
+      "supports": "荞麦非禾本科、东欧 kasha 主食、面粉不宜做面包、快熟适应干旱丘陵与冷凉气候、蜜源与绿肥",
+      "rights_note": "商业百科页面，仅记录链接与自撰摘要"
+    },
+    {
+      "id": "staples_src_brit_soybean",
+      "title": "Soybean | Description, Cultivation, Products, & Facts (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/plant/soybean",
+      "access": "read",
+      "supports": "大豆中国中部早期驯化、无淀粉高蛋白、17%油与豆粕比例、豆浆豆腐酱油等发酵制品、固氮与1804年传入美国",
+      "rights_note": "商业百科页面，仅记录链接与自撰摘要"
+    },
+    {
+      "id": "staples_src_brit_common_bean",
+      "title": "Common bean | Description, Varieties, Origin, & Facts (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/plant/common-bean",
+      "access": "read",
+      "supports": "菜豆中美洲与南美洲起源、经济重要性仅次于大豆、蔓生型需支架、干籽与嫩荚品种分化",
+      "rights_note": "商业百科页面，仅记录链接与自撰摘要"
+    },
+    {
+      "id": "staples_src_brit_chickpea",
+      "title": "Chickpea | Description, Uses, & Nutrition (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/plant/chickpea",
+      "access": "read",
+      "supports": "鹰嘴豆在印度、非洲与中南美的食用地位、hummus/falafel/socca 等制品、固氮与轮作",
+      "rights_note": "商业百科页面，仅记录链接与自撰摘要"
+    },
+    {
+      "id": "staples_src_brit_lentil",
+      "title": "Lentil | Description, Nutrition, & History (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/plant/lentil-plant",
+      "access": "read",
+      "supports": "兵豆近东驯化、瑞士青铜时代湖居遗址出土、埃及与叙利亚干炒豆作旅途食物、西半球种植少",
+      "rights_note": "商业百科页面，仅记录链接与自撰摘要"
+    },
+    {
+      "id": "staples_src_brit_pea",
+      "title": "Pea | Origin, Variety & Cultivation (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/plant/pea",
+      "access": "read",
+      "supports": "豌豆地中海野生类型、新石器时代晚期近东遗存、冷凉季节生长、孟德尔19世纪中叶以豌豆作遗传研究",
+      "rights_note": "商业百科页面，仅记录链接与自撰摘要"
+    },
+    {
+      "id": "staples_src_brit_broad_bean",
+      "title": "Broad bean | Description, Plant, Uses, & Facts (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/plant/broad-bean",
+      "access": "read",
+      "supports": "蚕豆为欧洲主要豆类、不耐热但耐轻霜、绿肥与饲料用途、蚕豆病（favism）遗传性风险",
+      "rights_note": "商业百科页面，仅记录链接与自撰摘要"
+    },
+    {
+      "id": "staples_src_brit_cowpea",
+      "title": "Cowpea | Legume, Pulses, Vegetable (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/plant/cowpea",
+      "access": "read",
+      "supports": "豇豆西非起源、耐热耐旱、干草与绿肥覆盖作物用途、黑眼豆别名",
+      "rights_note": "商业百科页面，仅记录链接与自撰摘要"
+    },
+    {
+      "id": "staples_src_brit_peanut",
+      "title": "Peanut | Plant, Scientific Name, Seed, Flower, Cultivation (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/plant/peanut",
+      "access": "read",
+      "supports": "落花生热带南美起源、地下结果（geocarpy）与钙需求、需五个月暖季与60厘米降水、并非真坚果、榨油与豆粕",
+      "rights_note": "商业百科页面，仅记录链接与自撰摘要"
+    },
+    {
+      "id": "staples_src_brit_sweet_potato",
+      "title": "Sweet potato | Plant, Root, Description, Uses, & Facts (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/plant/sweet-potato",
+      "access": "read",
+      "supports": "甘薯热带美洲起源、以苗或藤扦插繁殖、需四到五个月暖季、与马铃薯和薯蓣无亲缘、日本淀粉与酒精用途",
+      "rights_note": "商业百科页面，仅记录链接与自撰摘要"
+    },
+    {
+      "id": "staples_src_brit_yam",
+      "title": "Yam | Description, Uses, Species, & Facts (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/plant/yam",
+      "access": "read",
+      "supports": "薯蓣属多物种、西非与新几内亚作为主要农产品与仪式核心、主要栽培种与块茎重量、需烹饪消散辛辣成分",
+      "rights_note": "商业百科页面，仅记录链接与自撰摘要"
+    },
+    {
+      "id": "staples_src_brit_taro",
+      "title": "Taro | Description, Plant, Root, Edible, Poisonous, & Facts (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/plant/taro-plant",
+      "access": "read",
+      "supports": "芋头东南亚起源与太平洋传播、球茎为主食、poi 制品、生食有毒需加热破坏草酸钙、栽培土壤与收获期",
+      "rights_note": "商业百科页面，仅记录链接与自撰摘要"
+    },
+    {
+      "id": "staples_src_brit_olive",
+      "title": "Olive | Description, Production, & Oil (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/plant/olive-plant",
+      "access": "read",
+      "supports": "油橄榄克里特约3500 BCE 栽培、油分占鲜重20—30%、生果不可食需碱液或盐处理、油品分级、30—45度纬度带与嫁接繁殖",
+      "rights_note": "商业百科页面，仅记录链接与自撰摘要"
+    },
+    {
+      "id": "staples_src_brit_rapeseed",
+      "title": "Rapeseed | Description, Plant, Canola, Oil, Uses (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/plant/rapeseed-plant",
+      "access": "read",
+      "supports": "油菜学名与用途（食用油、肥皂、人造黄油、灯油、生物柴油、饲料）、覆盖作物与绿肥",
+      "rights_note": "商业百科页面，仅记录链接与自撰摘要"
+    },
+    {
+      "id": "staples_src_brit_sunflower",
+      "title": "Sunflower | Description, Seeds, Oil, Uses, & Facts (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/plant/sunflower-plant",
+      "access": "read",
+      "supports": "向日葵北美起源、油用与食用类型籽粒差异、幼株向日性、油质与饼粕用途",
+      "rights_note": "商业百科页面，仅记录链接与自撰摘要"
+    },
+    {
+      "id": "staples_src_brit_sesame",
+      "title": "Sesame | Taxonomy, History of Use, Physical Description (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/plant/sesame-plant",
+      "access": "read",
+      "supports": "芝麻可能亚洲或东非起源、含油44—60%且抗氧化稳定、埃及以磨碎籽作粉、蒴果开裂导致人工收获、20世纪中叶不落粒品种与机械化",
+      "rights_note": "商业百科页面，仅记录链接与自撰摘要"
+    },
+    {
+      "id": "staples_src_brit_oil_palm",
+      "title": "Oil palm | Description, Uses, Cultivation, Environmental Impacts (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/plant/oil-palm",
+      "access": "read",
+      "supports": "油棕西非与中非原产、果肉油与仁油化学性质不同、蒸煮压榨与螺旋压榨工艺、20世纪后期扩张与毁林争议",
+      "rights_note": "商业百科页面，仅记录链接与自撰摘要"
+    },
+    {
+      "id": "staples_src_brit_flax",
+      "title": "Flax | Description, Fiber, Flaxseed, Uses, & Facts (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/plant/flax",
+      "access": "read",
+      "supports": "亚麻纤维用与籽用株型差异、沤麻工序、亚麻布历史、亚麻仁油工业用途、六年轮作限制、籽实易酸败",
+      "rights_note": "商业百科页面，仅记录链接与自撰摘要"
+    },
+    {
+      "id": "staples_src_fao_sorghum_millets",
+      "title": "Sorghum and millets in human nutrition (FAO Food and Nutrition Series No. 27, 1995)",
+      "url": "https://www.fao.org/4/t0818e/t0818e00.htm",
+      "access": "read",
+      "supports": "高粱与粟类在人类营养中的地位、全书结构与区域生产利用差异（公开出版物正文）",
+      "rights_note": "FAO 公开出版物，仅摘录要点并注明出处，用于非商业资料整理"
+    },
+    {
+      "id": "staples_src_fao_sorghum_processing",
+      "title": "Sorghum and millets in human nutrition — Chapter 3 Storage and processing (FAO)",
+      "url": "https://www.fao.org/4/t0818e/T0818E09.htm",
+      "access": "read",
+      "supports": "舂捣脱壳与石磨制粉的劳力与效率、润麦、湿磨、发芽（麦芽）处理、发芽高粱幼芽含氰苷不得食用、碱处理与木灰降单宁、工业脱壳设备适配问题",
+      "rights_note": "FAO 公开出版物，仅摘录要点并注明出处"
+    },
+    {
+      "id": "staples_src_kew_powo",
+      "title": "Plants of the World Online (Royal Botanic Gardens, Kew)",
+      "url": "https://powo.science.kew.org/",
+      "access": "read",
+      "supports": "植物名称与异名、接受名与命名人核查的权威来源（Wcvp/IPNI 年度版本）",
+      "rights_note": "POWO 条目为 CC BY 3.0 授权；本次仅用于名称核查，未批量转载"
+    },
+    {
+      "id": "staples_src_kew_maize_403",
+      "title": "Maize - Zea mays | Kew (访问被拒)",
+      "url": "https://www.kew.org/plants/maize",
+      "access": "unavailable",
+      "supports": "尝试核查玉米全球产量概览，返回 HTTP 403 反爬页面，未能取得正文",
+      "rights_note": "访问失败，仅记录尝试；本条目不引用该页任何内容"
+    },
+    {
+      "id": "staples_src_cipotato_timeout",
+      "title": "Potato | International Potato Center (CIP)（访问超时）",
+      "url": "https://cipotato.org/potato/",
+      "access": "unavailable",
+      "supports": "拟核查马铃薯种质与安第斯起源的机构资料，连接超时未取得正文",
+      "rights_note": "访问失败，仅记录尝试；本条目不引用该页任何内容"
+    }
+  ],
+  "elements": [
+    {
+      "id": "staples_wheat",
+      "name": "小麦",
+      "aliases": ["wheat", "Triticum aestivum", "普通小麦", "面包小麦"],
+      "tags": ["living_organism", "crop", "cereal", "food", "agriculture"],
+      "summary": "禾本科小麦属谷物，普通小麦是发酵面包与面食的基础粮，硬质与软质类型分工明确，温带旱作世界的核心主食之一。",
+      "details": {
+        "definition": "小麦指禾本科小麦属（Triticum）若干物种及其籽粒，其中普通小麦（Triticum aestivum）用于面包，硬粒小麦（T. durum）用于意面类，另有软质的 club wheat 用于糕点饼干。",
+        "mechanism": "胚乳以淀粉为主，蛋白质与水揉和后形成具黏弹性的面筋网络，能包住发酵气体而膨发；硬质麦蛋白约11—15%、面筋强，软质麦约8—10%、面筋弱，故用途分流。",
+        "conditions": "宜温带、年降水约30—90厘米；冬麦秋播需越冬低温，春麦春播（暖冬地区也可秋播）；磨粉需清杂与着水调质，精粉出粉率约72%，含胚的全麦粉因胚油易酸败。",
+        "exceptions": "雨害发芽、霉变或蛋白过低的麦粒不宜做发酵面包；乳糜泻等麸质相关疾病人群不适用；并非一切小麦都适合做面包，硬粒小麦更宜做意面。",
+        "story_uses": "可支撑聚落主食、面粉税与配给、军粮、磨坊与面包房分工、歉收与粮价波动等叙事（创作推演，非史料断言）。",
+        "historical_scope": "新石器时代在西南亚与二粒小麦等一同进入栽培，后传入欧洲、北非、南亚与中国北方；面包、面条、馒头等形态在不同地区分别成为日常主食，不能把今日全球分布回溯到早期。",
+        "evidence_and_uncertainty": "Britannica 条目支撑物种分类、成分区间、制粉与储存差异；最早驯化地点与年代学界仍有争论，本条不锁定具体年代，来源未覆盖的品种细节不作断言。"
+      },
+      "source_ids": ["staples_src_brit_wheat", "staples_src_brit_durum", "staples_src_brit_emmer", "staples_src_brit_einkorn"],
+      "related_ids": ["staples_emmer_wheat", "staples_barley", "staples_rye"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "staples_rice",
+      "name": "水稻",
+      "aliases": ["rice", "Oryza sativa", "稻", "大米"],
+      "tags": ["living_organism", "crop", "cereal", "food", "agriculture"],
+      "summary": "淹水田栽培的禾本科谷物，养活了约一半世界人口，亚洲季风区的核心主食，依赖灌溉与集体水利。",
+      "details": {
+        "definition": "水稻（Oryza sativa）是一年生禾草及其籽粒；除陆稻（upland rice）外，多在沿海平原、潮汐三角洲与河谷盆地的淹水田（paddy）中生长。",
+        "mechanism": "种子先播于苗床，苗龄25—50天移栽至筑埂淹水5—10厘米的田中，整个生长季保持水层；长期淹水抑制部分杂草与旱生竞争，但需要稳定水源与平整田面。",
+        "conditions": "依赖灌溉、筑坝与提水设施，以及充足长日照；丘陵地区常修梯田以在不同海拔保持水层；产量区间约每公顷700—4000公斤，差异主要来自水肥与品种。",
+        "exceptions": "缺水或无法保持水层的坡地只能种陆稻，产量与稳定性通常较低；收获前需排干晒田，机械化收获要求籽粒含水降至约14%以免储藏变质。",
+        "story_uses": "可承载水利共同体、插秧与换工、田赋与漕运、饥荒与粮仓、以米饭为中心的日常节奏（创作推演）。",
+        "historical_scope": "最早的考古证据来自中国中部与东部，约7000—5000 BCE；印度与东南亚也有早期栽培迹象，但驯化起点与路线尚有讨论。全球九成以上稻米产自亚洲，欧洲、美洲、澳洲为后起产区。",
+        "evidence_and_uncertainty": "Britannica 支撑考古年代、栽培流程、碾米与营养损失（精白米为主食地区有脚气病风险）；驯化单一起源还是多中心仍有争议，本条不锁定单一结论。"
+      },
+      "source_ids": ["staples_src_brit_rice"],
+      "related_ids": ["staples_wheat", "staples_millet_foxtail", "staples_taro"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "staples_barley",
+      "name": "大麦",
+      "aliases": ["barley", "Hordeum vulgare", "二棱大麦", "六棱大麦", "裸大麦", "青稞"],
+      "tags": ["living_organism", "crop", "cereal", "food", "agriculture"],
+      "summary": "耐寒耐旱、生长期最短的谷物之一，低面筋故以粥与扁平面食为主，同时是麦芽与啤酒的主要原料，16世纪前曾是欧洲主要面包谷物。",
+      "details": {
+        "definition": "大麦（Hordeum vulgare）是禾本科一年生谷物；按穗上结实小穗的排列分二棱与六棱两类，另有成熟后颖壳易脱的裸大麦（青稞一类）。",
+        "mechanism": "六棱大麦穗节三个小穗均结实，蛋白质较高，多作饲料；二棱大麦两侧小穗不育、含糖较高，更适合制麦芽。麦芽依赖籽粒吸水萌发产生酶，把淀粉转成可发酵糖。",
+        "conditions": "适应温带、亚北极到亚热带，生长期最短可约90天，是 Himalaya 陡坡这类极短生长季里仍能成熟的谷物；比小麦耐瘠薄但也需腐殖质与肥料；北非近沙漠区秋播，西欧与北美冷凉湿润区春播。",
+        "exceptions": "面筋含量低，做不出发酵膨松的面包，只能做扁平面食与粥；并非所有大麦都适合制麦芽，制麦与饲用、食用品种要求不同。",
+        "story_uses": "可支撑粥食与扁面饼、啤酒与麦芽作坊、牲畜饲料与褥草、青稞与高原农业、灾年替代粮等叙事（创作推演）。",
+        "historical_scope": "新月沃地最早栽培的谷物之一，约8000 BCE 由野生大麦（H. spontaneum）驯化；文献给出埃及约5000 BCE、美索不达米亚约2350 BCE、西北欧约3000 BCE、中国约1500 BCE 的栽培证据，遗传研究另提示西藏是独立驯化中心。希伯来、希腊、罗马与16世纪前的欧洲大部以它为主要面包谷物。",
+        "evidence_and_uncertainty": "Britannica 条目支撑栽培证据、二棱六棱差异、低面筋与用途；各地区最早的年代由不同考古材料给出，先后顺序（例如埃及与美索不达米亚）在文献间并不一致，本条按来源转述而不裁定。青稞是否等同裸大麦的品种细节未在来源展开。"
+      },
+      "source_ids": ["staples_src_brit_barley", "staples_src_fao_sorghum_processing"],
+      "related_ids": ["staples_wheat", "staples_rye", "staples_oats"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "staples_rye",
+      "name": "黑麦",
+      "aliases": ["rye", "Secale cereale", "黑麦面包"],
+      "tags": ["living_organism", "crop", "cereal", "food", "agriculture"],
+      "summary": "越冬性最强的小粒谷物，能在小麦失败的气候与土壤上立足；除小麦外唯一可做整条面包的谷物，但易染麦角菌。",
+      "details": {
+        "definition": "黑麦（Secale cereale）是禾本科一年生谷物及其籽粒，主要做黑麦面包与黑麦威士忌，也用作饲料、牧草与绿肥。",
+        "mechanism": "黑麦含面筋但弹性差，因此能以自身做成整条面包（多为致密深色的黑面包），全用未筛黑麦粉的 pumpernickel 是中东欧数百年主食；掺小麦粉的浅色黑麦面包更易膨发。",
+        "conditions": "所有小粒谷物中越冬性最强，可种到北极圈附近；高产海拔，宜在气候土壤对其他谷物不利处作冬作；秸秆坚韧，可用于盖顶、床垫、编帽与造纸。",
+        "exceptions": "极易感染麦角菌，人畜误食污染籽粒会引起急性或慢性麦角中毒，收储需清选；面包质地比小麦致密，不能按小麦工艺期待蓬松组织。",
+        "story_uses": "可支撑北欧东欧黑面包日常、寒冷地带定居农业、饥荒年主粮、麦角污染的村镇灾祸等（创作推演）。",
+        "historical_scope": "栽培可能约6500 BCE 起源于西南亚，经巴尔干半岛向西扩散到欧洲；现代在欧亚与北美广泛种植，但主要在其它谷物不宜的地方作为主粮或冬作。",
+        "evidence_and_uncertainty": "Britannica 条目支撑起源年代（为估计值）、越冬性、面包特性与麦角风险；起源地与传入路线属推测性叙述，本条不当作定论。"
+      },
+      "source_ids": ["staples_src_brit_rye"],
+      "related_ids": ["staples_wheat", "staples_barley", "staples_oats"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "staples_oats",
+      "name": "燕麦",
+      "aliases": ["oats", "Avena sativa", "燕麦片", "莜麦"],
+      "tags": ["living_organism", "crop", "cereal", "food", "agriculture"],
+      "summary": "耐贫瘠能力仅次于黑麦的冷凉谷物，以燕麦片与燕麦粥进入日常饮食，燕麦粉因缺弹性不宜做面包，更多作饲料与牧草。",
+      "details": {
+        "definition": "燕麦（Avena sativa）是栽培化的禾本科谷物及其籽粒；依加工形态分为去壳压片的燕麦片（rolled oats）、去壳整粒的 oat groats 与燕麦粉。",
+        "mechanism": "籽粒蛋白质约13%、脂肪约7.5%，碳水化合物为主，富含钙、铁、维生素B1与烟酸；因缺乏形成蓬松面团的面筋结构，加工上偏向煮粥、压片与制粉做饼干布丁，而非发酵面包。",
+        "conditions": "主要种在凉爽温带；水分充足时可长在沙质、低肥力甚至强酸性土壤，抗病虫相对较好，但茎叶易染锈病与炭疽病；红燕麦更耐热，用于较暖地区。",
+        "exceptions": "燕麦粉缺乏形成蓬松面团的面筋结构，不适宜做发酵面包，只能做饼干、布丁与粥；主要作为饲料与牧草，人食比例相对有限；茎叶易染锈病与炭疽病。",
+        "story_uses": "可支撑冷凉贫瘠地区的粥食日常、马匹与牲畜精料、干草与青贮、麦片早餐工业化等叙事（创作推演）。",
+        "historical_scope": "作为栽培谷物广泛分布于世界温带，是仅次于黑麦的耐瘠薄谷物；在不易种小麦的冷凉高地与北缘农区，燕麦粥长期是日常热量来源。来源未给出驯化年代与地点，本条不作断言。",
+        "evidence_and_uncertainty": "Britannica 条目支撑营养与成分区间、加工形态、生态适应与病害；驯化起源与传播年代在来源中缺载，属本条目留空的部分。"
+      },
+      "source_ids": ["staples_src_brit_oats"],
+      "related_ids": ["staples_barley", "staples_rye", "staples_wheat"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "staples_maize",
+      "name": "玉米",
+      "aliases": ["maize", "corn", "Zea mays", "玉蜀黍", "苞谷"],
+      "tags": ["living_organism", "crop", "cereal", "food", "agriculture"],
+      "summary": "美洲起源的高秆谷物，约一万年前由类蜀黍驯化，籽粒类型分化出粉质、角质、甜质与爆裂等用途，是当今分布最广的食物与饲料作物之一。",
+      "details": {
+        "definition": "玉米（Zea mays）是禾本科一年生高秆草本及其籽粒；栽培类型主要按籽粒质地分为 dent（马齿）、flint（硬粒）、flour（粉质）、sweet（甜质）与 popcorn（爆裂）等。",
+        "mechanism": "雌花序（果穗）轴上成对小穗排成纵行，每行成对小花序通常结成两行籽粒；角质型软质淀粉少、干燥时顶部不凹陷，粉质型几乎全为软质淀粉、易磨粉，甜玉米的糖未转成淀粉故带甜味，爆裂玉米几乎无软质淀粉、加热时细胞内水分膨胀使籽粒爆开。",
+        "conditions": "需暖季与充足光照，对土壤要求中等偏上；在美洲常与豆类、南瓜间作形成 milpa（三姐妹）体系，利用豆类固氮与南瓜覆盖地面；现今从北纬约58度到南纬约40度都有栽培，几乎每个月都有某地玉米成熟。",
+        "exceptions": "甜玉米是采收即食的蔬菜型，不耐长期储存；粉质类型适合磨粉但不耐储运挤压；工业与饲料用品种大量为转基因抗除草剂或抗虫类型，与传统地方品种不可混为一谈。",
+        "story_uses": "可支撑 milpa 共作与轮作、玉米面饼与粥、青贮与育肥、爆米花与节庆、以玉米为核心的历法与祭祀（创作推演，具体仪式需另找民族志来源）。",
+        "historical_scope": "约一万年前由今墨西哥南部的原住民从巴尔萨斯类蜀黍（Zea mays parviglumis）驯化；在欧洲人到来前已北传至北美东北部，美洲原住民并教会殖民者种植；哥伦布等航行后传入欧洲并扩散到全球适种区。",
+        "evidence_and_uncertainty": "Britannica 支撑驯化年代与祖先类型、类型划分、纬度分布与用途；驯化过程的具体时间跨度与类蜀黍杂交细节在学界仍有不同模型，本条只给来源口径的约数。"
+      },
+      "source_ids": ["staples_src_brit_corn"],
+      "related_ids": ["staples_common_bean", "staples_sorghum", "staples_potato"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "staples_sorghum",
+      "name": "高粱",
+      "aliases": ["sorghum", "Sorghum bicolor", "jowar", "kaoliang", "Guinea corn", "蜀黍"],
+      "tags": ["living_organism", "crop", "cereal", "food", "agriculture"],
+      "summary": "非洲起源、耐旱耐热的谷物，是半干旱地带的主粮；籽粒无面筋，多磨粉做粥与扁平面食，茎秆可作建材饲料、甜秆可熬糖浆。",
+      "details": {
+        "definition": "高粱（Sorghum bicolor）是禾本科谷物及其淀粉质籽粒；栽培类型包括食用籽粒的高粱、作干草饲料的草高粱与制扫帚的 broomcorn，另有汁液甜的甜高粱（sorgos）。",
+        "mechanism": "植株0.6—2.4米（有时达4.6米），茎叶覆白色蜡质，利于减少失水；每花序结800—3000粒，籽粒小于小麦。籽粒无面筋，通常磨成粉做粥、扁面饼与糕点，强烈风味可通过加工减弱。",
+        "conditions": "在炎热干旱区最受重视，耐旱耐热；印度称 jowar/cholam、西非称 Guinea corn、中国称 kaoliang，说明其主产区横跨南亚、非洲与东亚半干旱带。茎秆可作饲料与建材，甜高粱在美国与南部非洲用于饲草与糖浆，也用于乙醇生产。",
+        "exceptions": "褐色（高单宁）品种因抗鸟害而被保留，但单宁降低营养利用，传统上先用木灰水浸泡一夜再发芽、晒干、舂捣去芽来降单宁；发芽高粱的幼芽与根（rootless）含 dhurrin，水解产生氰化物，绝不能供人畜食用，只可极少量作酶源，且须去芽去根加工才能把氰化物降到安全水平。",
+        "story_uses": "可支撑旱作农业、鸟害与保种权衡、木灰处理与发酵、扫帚与建材副业、啤酒与粥食节庆等叙事（创作推演）。",
+        "historical_scope": "可能起源于非洲，至今仍是非洲主要粮食作物；南亚、中国北方与美洲部分半干旱区也形成各自的食用与饲用体系。各地区传入时间不同，本条不合并为单一时点。",
+        "evidence_and_uncertainty": "Britannica 支撑形态、用途与地区名称；发芽含氰苷、木灰降单宁、脱壳与制粉的劳力效率等细节来自 FAO 1995 年公开出版物，属加工与营养层面的可靠描述；具体起源地仍属推测。"
+      },
+      "source_ids": ["staples_src_brit_sorghum", "staples_src_fao_sorghum_millets", "staples_src_fao_sorghum_processing"],
+      "related_ids": ["staples_millet_pearl", "staples_maize", "staples_teff"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "staples_millet_foxtail",
+      "name": "粟（狐尾粟/谷子）",
+      "aliases": ["foxtail millet", "Setaria italica", "谷子", "小米", "粟米", "millet"],
+      "tags": ["living_organism", "crop", "cereal", "food", "agriculture"],
+      "summary": "东亚旱作农业的核心小粒谷物，去壳后即小米；耐瘠薄耐旱、籽粒小需带壳储存，是华北与欧亚草原南缘的传统主食。",
+      "details": {
+        "definition": "狐尾粟（Setaria italica）是禾本科一年生粟类谷物，去壳籽粒即中文常说的“小米”；“millet（粟类）”在英文中是多个属物种的统称，不等于单一作物。",
+        "mechanism": "籽粒小、产量低于大谷物，但蒸煮成粥或与米饭同法食用；除珍珠粟外多数粟类脱粒后籽粒仍包在颖壳中，因此脱壳是必经工序，脱壳后籽粒多呈乳白色。",
+        "conditions": "较其他谷物更耐瘠薄土壤与干旱，需要的化肥农药投入较少；生长期短（部分粟类60—80天可熟），可在主粮之后的短季补种或作救灾作物；深根类型还能减少侵蚀、缓解荒漠化。",
+        "exceptions": "籽粒小，播种深度与间苗要求精细，收获与脱粒费工；风味偏强，单吃需搭配；在北美与西欧主要作干草饲料而非人食。",
+        "story_uses": "可支撑华北旱地粟作、小米粥与干粮、荒年救灾作物、兵粮与赋税折算、牲畜与家禽饲料等叙事（创作推演）。",
+        "historical_scope": "粟类在亚洲与非洲有四千年以上的栽培史，中世纪欧洲亦是重要谷物；狐尾粟在中国等亚洲国家是重要粮食作物，在北美与西欧主要作干草。具体驯化地点与年代在来源中只给总量级表述。",
+        "evidence_and_uncertainty": "Britannica 支撑粟类作为多物种统称、耐逆性、区域用途与脱壳特征，FAO 出版物支撑传统脱壳制粉的劳力与工艺细节；“粟”与“黍”在中文文献中的指称范围有交叠，本条目只覆盖狐尾粟一类，不代指全部粟类。"
+      },
+      "source_ids": ["staples_src_brit_millet", "staples_src_fao_sorghum_processing"],
+      "related_ids": ["staples_millet_pearl", "staples_rice", "staples_sorghum"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "staples_millet_pearl",
+      "name": "珍珠粟",
+      "aliases": ["pearl millet", "Pennisetum glaucum", "bajra", "御谷"],
+      "tags": ["living_organism", "crop", "cereal", "food", "agriculture"],
+      "summary": "南亚与萨赫勒半干旱带的主力粟类，耐低肥力与少水，是部分地区最稳妥的粮食保险；籽粒外形不规则，脱壳比多数谷物困难。",
+      "details": {
+        "definition": "珍珠粟（Pennisetum glaucum，英文亦称 bajra）是禾本科一年生粟类，株高1.5—3米、茎粗约2.5厘米，花穗密集成棒状，是粟类中植株最高大的一种。",
+        "mechanism": "在低肥力与水分有限的土壤上仍能成穗；籽粒含油较其他谷物高，磨粉后易酸败，因此常现磨现用或整粒储存；传统加工以舂捣脱壳加风选为主。",
+        "conditions": "适合贫瘠、少水的边际土地，主要食用区为印度与撒哈拉以南非洲；是当地在降雨不稳条件下减少绝收风险的作物。",
+        "exceptions": "籽粒果皮有不规则凹陷，比大多数谷物更难脱壳，脱壳效率低、碎米多；高含油使珍珠粟粉的货架期短于高粱与小麦粉。",
+        "story_uses": "可支撑萨赫勒与拉贾斯坦的旱作村落、以粥与蒸饼为主食的日常、饥荒缓冲与种子留存、妇女舂米磨粉的劳作强度等（创作推演）。",
+        "historical_scope": "在印度与非洲长期作为主粮食用，20世纪在北美与西欧主要转为饲料与干草；具体起源与传播年代在本条目所引来源中未明确给出，不作断言。",
+        "evidence_and_uncertainty": "Britannica 珍珠粟页为策展式摘要（记为 search_only），只支撑物种名、株高与区域地位；脱壳困难与粉易酸败来自 Britannica 粟类条目与 FAO 出版物。起源年代缺失是本条目的已知空白。"
+      },
+      "source_ids": ["staples_src_brit_pearl_millet", "staples_src_brit_millet", "staples_src_fao_sorghum_processing"],
+      "related_ids": ["staples_millet_foxtail", "staples_sorghum", "staples_teff"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "staples_teff",
+      "name": "苔麸",
+      "aliases": ["teff", "tef", "Eragrostis tef", "埃塞俄比亚画眉草"],
+      "tags": ["living_organism", "crop", "cereal", "food", "agriculture"],
+      "summary": "埃塞俄比亚高原的微型谷物，籽粒小于1毫米，耐旱也耐涝；发酵面糊制成的 injera 薄饼是当地日常主食，无面筋。",
+      "details": {
+        "definition": "苔麸（Eragrostis tef）是禾本科一年生谷物，原产埃塞俄比亚与厄立特里亚，籽粒是谷物中最小的类型之一，直径通常小于1毫米。",
+        "mechanism": "采用 C4 光合途径，显著减少光呼吸，配合浅而密集的须根系，使其兼具耐旱与耐涝能力；籽粒磨粉后加水略发酵成面糊，摊在平底锅上烙成柔软多孔的 injera，也用于粥与炖菜。",
+        "conditions": "对土壤平整与播种深度要求高（籽粒太小），播种前整地费工；收获、脱粒与风选常靠手工，籽粒细碎不便运输而不易不损失；也可作饲草，收获后的秸秆常喂牲畜。",
+        "exceptions": "虽耐逆但属于劳动密集作物，机械化程度低；以小籽粒换取耐逆性，单产与总产远低于小麦玉米，不能按大谷物产量逻辑评估。",
+        "story_uses": "可支撑高原农业、injera 共食与待客、妇女承担整地与脱粒、荒年余粮与城市消费变化、无面筋食品的商品化（创作推演）。",
+        "historical_scope": "古作物，可能在六千多年前于埃塞俄比亚驯化，该国是主要多样性中心；长期被视为地方性主粮，20世纪后期起在欧美作为无面筋谷物受到关注。",
+        "evidence_and_uncertainty": "Britannica 支撑起源地、驯化时间量级、形态、C4 与耐逆性、injera 与加工费工；具体驯化年代为“可能超过六千年”的估计，不作精确断言。"
+      },
+      "source_ids": ["staples_src_brit_teff"],
+      "related_ids": ["staples_sorghum", "staples_millet_pearl", "staples_quinoa"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "staples_quinoa",
+      "name": "藜麦",
+      "aliases": ["quinoa", "Chenopodium quinoa", "昆诺阿藜"],
+      "tags": ["living_organism", "crop", "food", "agriculture"],
+      "summary": "安第斯高原的伪谷物（非禾本科），籽粒含全部九种必需氨基酸，外层皂苷必须去除；曾长期被当作贫困地区边缘作物，20世纪后期才全球流行。",
+      "details": {
+        "definition": "藜麦（Chenopodium quinoa）是苋科藜属一年生草本及其细小籽粒，属“伪谷物”——籽粒可像谷物一样煮食，但不是禾本科谷类。",
+        "mechanism": "籽粒直径约2毫米，含全部九种必需氨基酸，蛋白质、纤维、油脂与铁镁磷钾钙锌铜及维生素E较丰富；外层含苦味皂苷（心脏糖苷类），多数品种食用前需机械去除果皮或水浸去除。",
+        "conditions": "深达约1.5米的直根有助抗旱；植株耐霜、耐盐、可种在贫瘠土壤，因此被粮食安全项目与研究者视为替代作物；适宜高海拔安第斯环境，其他地区引种需匹配品种。",
+        "exceptions": "未去除皂苷的籽粒味苦且不适食用；产量与栽培面积远不及主粮谷物，不能据此替代小麦水稻；嫩叶可作蔬菜但属另一利用部位。",
+        "story_uses": "可支撑高原轮作与藜麦-马铃薯-玉米组合、去皂苷的 household 工序、殖民时期的作物压制、当代出口与本地消费的张力（创作推演）。",
+        "historical_scope": "原产安第斯高地（哥伦比亚到智利北部），被认为在3000—5000年前于其分布范围内多次独立驯化；曾是印加、艾马拉与克丘亚人的主食之一。西班牙殖民者带回玉米与马铃薯却未引入藜麦，可能与其宗教重要性或未去皂苷的尝试有关；殖民后小麦大麦排挤、产量长期下滑，直到20世纪后期被推广为“超级食物”。",
+        "evidence_and_uncertainty": "Britannica 支撑分类、驯化年代区间、皂苷与营养、殖民后的衰退与复兴；西班牙人拒绝藜麦的原因属推测性表述，来源明确以“推测”措辞给出，本条同样不作定论。"
+      },
+      "source_ids": ["staples_src_brit_quinoa"],
+      "related_ids": ["staples_potato", "staples_maize", "staples_teff"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "staples_buckwheat",
+      "name": "荞麦",
+      "aliases": ["buckwheat", "Fagopyrum esculentum", "甜荞", "苦荞", "soba"],
+      "tags": ["living_organism", "crop", "food", "agriculture"],
+      "summary": "非禾本科的伪谷物，生长期短、适应冷凉丘陵与贫瘠地，东欧作 kasha、东亚作荞麦面；面粉缺弹性不能单独做面包，兼作蜜源与绿肥。",
+      "details": {
+        "definition": "荞麦（Fagopyrum esculentum）是蓼科草本及其三角形籽粒，属伪谷物；另有苦荞（F. tataricum）用途类似，主要在东亚栽培。",
+        "mechanism": "去壳后的籽粒（groats）整粒煮食如米饭，在东欧称 kasha；磨粉后因缺乏面筋不能做发酵面包，但可与小麦粉混用做煎饼，或单独制成荞麦面条。籽粒富含碳水与蛋白，含少量维生素B1、B2。",
+        "conditions": "生长快，可作晚季作物；在干旱丘陵与冷凉气候比真谷物更适应，但在好地上产量低于主粮谷物；花期提供花粉与花蜜，可作蜜源，并能抑制杂草、供养天敌昆虫，常作绿肥翻压。",
+        "exceptions": "面粉不适合做面包（结构差），必须混麦粉或改做面条、煎饼；产量低，不适合作为人口稠密平原的唯一主粮。",
+        "story_uses": "可支撑山区薄地轮作、救荒与晚季补种、荞麦面与 kasha 的地方饮食、养蜂副业等叙事（创作推演）。",
+        "historical_scope": "在东欧部分地区是主食级的伪谷物，在东亚（尤其日本荞麦面、中国部分山区）形成独立的面食传统；来源未给出驯化年代与地点，本条不作断言。",
+        "evidence_and_uncertainty": "Britannica 支撑植物学归属、加工与食用方式、生态适应与副产物用途；起源与早期传播在来源中缺载。"
+      },
+      "source_ids": ["staples_src_brit_buckwheat"],
+      "related_ids": ["staples_quinoa", "staples_rye", "staples_oats"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "staples_emmer_wheat",
+      "name": "二粒小麦",
+      "aliases": ["emmer", "Triticum dicoccum", "T. dicoccon", "farro", "双粒小麦"],
+      "tags": ["living_organism", "crop", "cereal", "food", "agriculture"],
+      "summary": "四倍体古老小麦，带壳、脱粒困难，是新月沃地早期农业与后世地中海 farro 饮食的关键谷物；野生二粒小麦是栽培小麦谱系的重要祖先类型。",
+      "details": {
+        "definition": "二粒小麦（Triticum dicoccum / T. dicoccon）是四倍体小麦，籽粒硬、红色，脱粒后仍被颖壳（lemma 与 palea）紧紧包裹；在意大利等地以 farro 之名食用。",
+        "mechanism": "由一粒小麦（二倍体）与拟山羊草（Aegilops speltoides）杂交并发生染色体加倍而形成四倍体谱系，其中一支即二粒小麦；因颖壳紧扣籽粒，脱粒与风选远比裸粒谷物费力，需额外撞击或碾磨去壳。",
+        "conditions": "在西南亚、东北非与欧洲有长期栽培；带壳特性使它更耐储运与鸟害，但加工成本高，因此在裸粒小麦普及后被大幅替代。",
+        "exceptions": "不能像普通小麦那样直接脱粒磨粉，脱壳是必要工序；产量与加工效率低于现代小麦，种植面积已很有限。",
+        "story_uses": "可支撑早期农业的脱壳工序与劳力、陶器与储藏、地方传统谷物（farro 汤与沙拉）、古老品种保护（创作推演）。",
+        "historical_scope": "野生二粒小麦（T. dicoccoides）原产中东，是栽培小麦的祖先类型之一；栽培二粒小麦曾分布于西南亚、东北非与欧洲，欧洲部分遗址中野生二粒小麦是本地驯化还是自西南亚传入尚不清楚。",
+        "evidence_and_uncertainty": "本条来源为 Britannica 策展摘要与引文片段（记为 search_only），支撑四倍体身份、带壳难脱粒与分布；具体驯化地点与年代在来源中未给确定值，欧洲早期栽培的来源问题来源本身亦标注为不清楚。"
+      },
+      "source_ids": ["staples_src_brit_emmer", "staples_src_brit_einkorn", "staples_src_brit_wheat"],
+      "related_ids": ["staples_wheat", "staples_barley", "staples_lentil"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "staples_potato",
+      "name": "马铃薯",
+      "aliases": ["potato", "Solanum tuberosum", "土豆", "洋芋"],
+      "tags": ["living_organism", "crop", "root_tuber", "food", "agriculture"],
+      "summary": "安第斯起源的块茎作物，单产高、适应气候广；靠无性繁殖扩繁，因而遗传单一、易受晚疫病打击，19世纪爱尔兰饥荒是这种脆弱性的著名后果。",
+      "details": {
+        "definition": "马铃薯（Solanum tuberosum）是茄科一年生植物及其淀粉质块茎；块茎是地下茎末端膨大而成，带螺旋排列的芽眼，可无性繁殖。",
+        "mechanism": "匍匐茎末端膨大结薯，单株可结数个到二十余个；块茎易消化，供维生素C、钾、硫胺素与烟酸，带皮食用另有膳食纤维；栽培上几乎全部用块茎无性繁殖，以获得一致性状，但也因此遗传多样性下降、更易受害虫与病害侵袭。",
+        "conditions": "原产秘鲁—玻利维亚安第斯山区，现于各有人居住的大洲栽培；安第斯有数百个适应不同海拔气候土壤的品种，配合梯田与灌溉；商业生产需防治晚疫病、病毒、线虫与科罗拉多马铃薯甲虫。",
+        "exceptions": "地上部的浆果有毒不可食；块茎见光变绿或发芽后不宜食用（本条不提供解毒或食用处理法）；单一品种大面积连作会放大病害风险。",
+        "story_uses": "可支撑高地梯田农业、chuño 冻干储备与远征军粮、欧洲人口增长与土地制度、单一品种依赖导致的饥荒与社会创伤（创作推演）。",
+        "historical_scope": "估计七千多年前由安第斯中部原住民多次独立驯化，成为印加等文明的饮食支柱；16世纪后半期由西班牙人带入欧洲，作为哥伦布交换的重要作物扩散，17世纪末成为爱尔兰主要作物、18世纪末成为欧洲大陆（尤其德国）与英格兰西部主要作物，19世纪前四十年继续扩散，爱尔兰经济一度高度依赖；1846、1848 年晚疫病（Phytophthora infestans）造成惨重失败后，各地对其依赖转为谨慎。",
+        "evidence_and_uncertainty": "Britannica 支撑起源与驯化、chuño 工艺、欧洲传播时序、晚疫病与爱尔兰饥荒、无性繁殖与遗传脆弱性；驯化年代为“七千多年前”的估计，具体次数与地点仍有讨论。"
+      },
+      "source_ids": ["staples_src_brit_potato"],
+      "related_ids": ["staples_quinoa", "staples_maize", "staples_sweet_potato"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "staples_sweet_potato",
+      "name": "甘薯",
+      "aliases": ["sweet potato", "Ipomoea batatas", "红薯", "番薯", "地瓜"],
+      "tags": ["living_organism", "crop", "root_tuber", "food", "agriculture"],
+      "summary": "热带美洲起源的块根作物，以苗或藤扦插繁殖，需四到五个月暖季；与马铃薯、薯蓣均无亲缘，橙心品种富含胡萝卜素。",
+      "details": {
+        "definition": "甘薯（Ipomoea batatas）是旋花科植物及其膨大块根；块根形状自纺锤形到长圆形不等，皮色从浅黄褐到褐或玫瑰紫红，肉色白至橙，偶有紫色。",
+        "mechanism": "以块根萌发的苗（slips）或藤条扦插繁殖，属无性繁殖；块根以淀粉为主，橙心品种富含胡萝卜素；可整块或捣泥作熟食蔬菜，也作馅料，日本长期用于制淀粉与酒精。",
+        "conditions": "适应热带与暖温带，宜疏松轻质土壤如沙壤土；高产需至少四到五个月温暖天气；在美国南部、热带美洲与加勒比、太平洋温暖岛屿、日本与俄罗斯部分地区是重要作物。",
+        "exceptions": "不可与马铃薯（茄科）或薯蓣（薯蓣科）混同；美国市场上把软糯橙心甘薯叫作“yam”只是俗称，并非真正的薯蓣。",
+        "story_uses": "可支撑块根扦插与苗床管理、暖季短熟期与轮作、加工淀粉与酿酒、太平洋岛屿与加勒比的日常主食（创作推演）。",
+        "historical_scope": "原产热带美洲，后在热带与暖温带广泛栽培；传入东亚、太平洋与非洲的时间与路线各异，本条不合并为单一时点；日本长期以之制淀粉与酒精属较晚的加工分化。",
+        "evidence_and_uncertainty": "Britannica 支撑起源地、繁殖方式、暖季需求、营养与命名混淆；具体传入各地年代来源未给，属本条目的空白。"
+      },
+      "source_ids": ["staples_src_brit_sweet_potato"],
+      "related_ids": ["staples_potato", "staples_yam", "staples_cassava"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "staples_yam",
+      "name": "薯蓣（山药类）",
+      "aliases": ["yam", "Dioscorea", "D. rotundata", "D. alata", "山药", "大薯"],
+      "tags": ["living_organism", "crop", "root_tuber", "food", "agriculture"],
+      "summary": "薯蓣属多种块茎作物的统称，在西非与新几内亚既是主粮也是仪式与社会地位的核心；多数含辛辣成分，须煮熟后食用。",
+      "details": {
+        "definition": "薯蓣指薯蓣属（Dioscorea）多种栽培块茎作物，而非单一物种；主要栽培种包括西非的轮生薯蓣（D. rotundata）与黄色轮生薯蓣（D. cayenensis）、广布的翅薯蓣（D. alata）、印度与南太平洋的小薯蓣（D. esculenta）与东亚的薯蓣（D. polystachya）。",
+        "mechanism": "块茎多为茎基部膨大而成，外皮厚近树皮状；茎细长缠绕、每年更新；块茎煮后捣成黏稠团块或面团，也可炸、烤、烘；多数含辛辣成分，烹饪后消散。",
+        "conditions": "原产两半球较暖地区，多个种在热带作为主粮栽培；在西非与新几内亚部分地区，薯蓣是首要农产品并围绕其形成繁复仪式，说明其社会重要性超出热量供给。",
+        "exceptions": "与甘薯、马铃薯均非同类，名称在美洲常被误用；块茎体积差异极大（翅薯蓣可达45公斤），储运与分级方式随之不同；生食或未煮透的辛辣成分问题需按各物种区别对待。",
+        "story_uses": "可支撑西非薯蓣节与身份象征、新几内亚交换体系、块茎储存与种薯留存、捣制黏团的社会性劳动（创作推演）。",
+        "historical_scope": "原产旧世界与新世界较暖地区；西非（轮生薯蓣类）与新几内亚各自形成以薯蓣为中心的农业与仪式传统，东亚的薯蓣长期作药用与食用兼用。各物种驯化时间不同，本条不合并。",
+        "evidence_and_uncertainty": "Britannica 支撑属级统称、主要栽培种与地区、块茎重量与辛辣成分需烹饪；各物种的具体驯化年代未在来源中给出，“薯蓣=山药”在中文语境与药用品种的对应关系需另行核查。"
+      },
+      "source_ids": ["staples_src_brit_yam"],
+      "related_ids": ["staples_sweet_potato", "staples_taro", "staples_cassava"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "staples_cassava",
+      "name": "木薯",
+      "aliases": ["cassava", "Manihot esculenta", "manioc", "yuca", "树薯"],
+      "tags": ["living_organism", "crop", "root_tuber", "food", "agriculture"],
+      "summary": "热带美洲起源的块根作物，耐瘠薄、可多年存放于地；多数品种含氰苷，必须去皮、压榨、加热或发酵处理，是热带低收入地区的关键热量来源。",
+      "details": {
+        "definition": "木薯（Manihot esculenta）是大戟科多年生植物及其膨大块根；别名众多（manioc、mandioca、yuca），在中文里也作树薯。",
+        "mechanism": "多数品种含两种产生氰化物的糖苷（氰苷），含量因品种而异；原住民发展出擦碎、压榨、加热的成套去毒工艺。小型“甜”品种作蔬菜食用的安全做法是厚厚去皮、充分煮熟并弃去煮水，有的还需预先浸泡；制木薯粉通常用较大的“苦”根，需长时间浸泡、发酵并把木薯糊摊在空气中数小时。",
+        "conditions": "原产美洲热带，现于整个热带世界栽培；植株从低矮草本到分枝灌木或细长不分枝小乔木，有的适应干旱碱性土，有的适应河边酸性淤泥；块根在地里可存放较久，便于分期采收。",
+        "exceptions": "处理不当会致急性氰化物中毒；长期摄入氰苷与甲状腺肿、慢性胰腺炎及一种共济失调性神经病变相关（本条仅作风险提示，不提供诊疗建议）；叶片可食但须煮熟，是中部非洲汤菜的重要材料。",
+        "story_uses": "可支撑热带雨林边缘的块根农业、去毒的世代相传工序、fufu 与 casabe 等主食形态、木薯粉与西米（tapioca）贸易、劳力与加工器具分工（创作推演）。",
+        "historical_scope": "一般认为最早由尤卡坦的玛雅人栽培（属推测），后随殖民与贸易传入非洲与亚洲热带，成为多地主食；各地接受时间差异很大，本条不合并。",
+        "evidence_and_uncertainty": "Britannica 支撑起源推测措辞、氰苷与处理工艺、制品形态与营养风险；起源地仍是“可能”的判断，传入非洲与亚洲的具体时间与路线来源未展开。"
+      },
+      "source_ids": ["staples_src_brit_cassava"],
+      "related_ids": ["staples_yam", "staples_sweet_potato", "staples_taro"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "staples_taro",
+      "name": "芋头",
+      "aliases": ["taro", "Colocasia esculenta", "芋", "eddo", "dasheen"],
+      "tags": ["living_organism", "crop", "root_tuber", "food", "agriculture"],
+      "summary": "天南星科的球茎作物，可能源自东南亚，随南岛扩散成为太平洋岛屿主食；生食有毒，须加热破坏草酸钙，是湿地与水田边缘的重要热量来源。",
+      "details": {
+        "definition": "芋头（Colocasia esculenta）是天南星科草本及其可食球茎（常被称作“taro root”，实为地下茎），英文别称 eddo、dasheen。",
+        "mechanism": "球茎富含淀粉，可作熟食蔬菜、制布丁与面包类食物，也是波利尼西亚 poi 的原料——新鲜或发酵的芋淀粉制成稀糊，易于消化；叶片宽大，常入炖菜。",
+        "conditions": "宜肥沃、排水良好的土壤；栽后约七个月收球茎；在太平洋岛屿与东南亚的湿地、水田边缘与坡地形成不同的芋作体系。",
+        "exceptions": "叶片与球茎生食有毒，所含刺激性草酸钙须经加热破坏后才可食用；本条不提供野生植物鉴定方法，误采近似天南星科植物有中毒风险。",
+        "story_uses": "可支撑太平洋岛屿芋田与水利、poi 制作与宴飨、南岛航行携带的作物包、沼泽与水田边缘的多用途种植（创作推演）。",
+        "historical_scope": "可能原产东南亚，随后扩散到太平洋岛屿并成为主食作物；具体传播路线与年代在来源中未给，属本条目的空白。",
+        "evidence_and_uncertainty": "Britannica 支撑起源的可能表述、球茎与叶片用途、poi 制作、生食毒性与草酸钙、栽培土壤与收获期；起源与扩散年代未明确。"
+      },
+      "source_ids": ["staples_src_brit_taro"],
+      "related_ids": ["staples_yam", "staples_cassava", "staples_rice"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "staples_soybean",
+      "name": "大豆",
+      "aliases": ["soybean", "Glycine max", "黄豆", "soya"],
+      "tags": ["living_organism", "crop", "legume", "oil_crop", "food", "agriculture"],
+      "summary": "东亚起源的豆类，蛋白质与油兼用：籽粒无淀粉、约17%油与63%豆粕（其中约一半是蛋白），并可固氮养地，是当代最重要的豆类作物。",
+      "details": {
+        "definition": "大豆（Glycine max）是豆科一年生直立分枝草本及其可食种子；种子可呈黄、绿、褐、黑或双色，商业品种多为褐或黄褐，每荚1—4粒。",
+        "mechanism": "籽粒不含淀粉而富含蛋白与油，因此既是优质植物蛋白源，也是食用油原料；榨油后豆粕作高蛋白饲料与食品配料。与根瘤菌共生固氮，历史上是重要的养地作物，但在多数工业化农业体系中已不再作为轮作养地主力。",
+        "conditions": "宜温暖、肥沃、排水良好的沙壤土，终霜后播种；叶片脱落后、种子含水降至约13%时机械收获，以便安全储藏；可在多数土壤生长，但以沙壤最佳。",
+        "exceptions": "生豆含胰蛋白酶抑制剂等抗营养因子，须充分加热后方可食用（本条不提供具体工艺参数）；在美国，多数大豆品种为抗草甘膦等转基因类型，与东亚传统食用品种的用途与监管不同。",
+        "story_uses": "可支撑豆腐豆浆的家庭与作坊工艺、酱油与味噌的曲房发酵、豆粕饲料与畜牧耦合、油料与化工用途、转基因争议（创作推演，争议细节需另找来源）。",
+        "historical_scope": "起源尚不完全清楚，许多植物学家认为最早在公元前7000年前后于中国中部驯化；在中国、日本、朝鲜半岛作为食物与药材使用数千年；1804年传入美国，20世纪中期在南美与中西部的饲料与油料体系中变得极其重要，巴西与阿根廷成为主要生产国。",
+        "evidence_and_uncertainty": "Britannica 支撑驯化年代（“as early as 7000 BCE”，措辞保留）、成分比例、制品与固氮；起源地为“许多学者认为”，并非定论。"
+      },
+      "source_ids": ["staples_src_brit_soybean"],
+      "related_ids": ["staples_common_bean", "staples_peanut", "staples_rice"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "staples_common_bean",
+      "name": "菜豆",
+      "aliases": ["common bean", "Phaseolus vulgaris", "四季豆", "芸豆", "kidney bean"],
+      "tags": ["living_organism", "crop", "legume", "food", "agriculture"],
+      "summary": "美洲起源的豆类，经济重要性仅次于大豆；品种按干籽与嫩荚两大用途分化，是拉丁美洲与克里奥尔饮食的蛋白支柱。",
+      "details": {
+        "definition": "菜豆（Phaseolus vulgaris）是豆科一年生草本及其可食种子与嫩荚；品种极多，包括蔓生（pole）、矮生（bush）、荚用（snap/string）与干籽用的芸豆、黑豆、斑豆、白豆等。",
+        "mechanism": "多数品种或直立丛生或攀缘生长；采嫩荚的蔓生型必须搭支架以便采收。干籽用品种的荚纤维过多，任何阶段都不宜作荚食；荚用品种的成熟种子产量低或品质差，因此用途分化明确。",
+        "conditions": "原产中美洲与南美洲，在拉美与克里奥尔饮食中地位突出；种子颜色从白、绿、黄、褐、粉、红到黑及各种花纹，品种选择与当地菜肴偏好紧密相关。",
+        "exceptions": "干豆需浸泡并充分煮熟以破坏凝集素等抗营养因子（本条不提供具体工艺参数）；荚用与籽用品种不可互相替代。",
+        "story_uses": "可支撑玉米—豆类间作、干豆储藏与越冬蛋白来源、搭架与劳力安排、地方品种与菜肴身份（创作推演）。",
+        "historical_scope": "中美洲与南美洲起源，前哥伦布时期已与玉米、南瓜组成 milpa 体系；殖民后传入欧洲、非洲与亚洲，形成各地独立的豆食传统。具体驯化地点与年代本条所引来源未给出。",
+        "evidence_and_uncertainty": "Britannica 支撑起源大区、品种分化与用途、经济地位；驯化年代与具体中心未给出，属本条目空白。"
+      },
+      "source_ids": ["staples_src_brit_common_bean"],
+      "related_ids": ["staples_maize", "staples_soybean", "staples_pea"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "staples_chickpea",
+      "name": "鹰嘴豆",
+      "aliases": ["chickpea", "Cicer arietinum", "garbanzo", "桃尔豆", "回回豆"],
+      "tags": ["living_organism", "crop", "legume", "food", "agriculture"],
+      "summary": "近东—南亚体系的豆类，纤维与蛋白含量高、可固氮轮作；在中东以 hummus 与 falafel 进入日常，在南亚与地中海则入汤、沙拉与炖菜。",
+      "details": {
+        "definition": "鹰嘴豆（Cicer arietinum）是豆科一年生灌木状植物及其种子；株高约60厘米，羽状复叶，花小、白或带红，常有蓝色或紫色脉纹，多自花授粉；豆荚含一到两粒，分大粒与小粒品种。",
+        "mechanism": "与根瘤菌共生固氮，可与禾谷类这类需氮作物轮作以改善土壤；种子富含纤维与蛋白，也是铁、磷与叶酸的较好来源；磨粉后可做 socca 一类扁面饼，或与小麦等粉混用作烘焙。",
+        "conditions": "在印度、非洲以及中南美洲是重要食用作物；多为雨养，对土壤要求不苛刻，但怕渍水；地中海与中东的食用形态以豆泥、炸丸子与炖汤为主。",
+        "exceptions": "干豆需充分浸泡与煮熟；直接大量生食或未煮透会引起消化不适（本条不提供工艺参数与医疗建议）；不同地区品种的粒度与烹饪时间差异明显。",
+        "story_uses": "可支撑中东豆泥与街头炸豆丸、南亚豆糊（dal 类）与轮作、家庭磨粉与市集摊贩、旱地雨养农业（创作推演）。",
+        "historical_scope": "在印度、非洲与中南美洲长期作为重要食用作物；地中海与中东形成以豆泥与油炸豆丸为核心的饮食传统。具体驯化地点与年代本条所引来源未给出。",
+        "evidence_and_uncertainty": "Britannica 支撑形态、用途、固氮与轮作关系；本条未取得关于驯化地点与年代的可靠表述，故不填写具体年代；不同品种（desi/kabuli 一类）的差异亦未在来源展开。"
+      },
+      "source_ids": ["staples_src_brit_chickpea"],
+      "related_ids": ["staples_lentil", "staples_pea", "staples_wheat"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "staples_lentil",
+      "name": "兵豆（小扁豆）",
+      "aliases": ["lentil", "Lens culinaris", "小扁豆", "滨豆"],
+      "tags": ["living_organism", "crop", "legume", "food", "agriculture"],
+      "summary": "最古老的栽培食物之一，近东驯化；籽粒小、易煮、蛋白与纤维丰富，是中东、北非与南亚汤炖料理的基础豆类，干燥炒熟后便于长途携带。",
+      "details": {
+        "definition": "兵豆（Lens culinaris）是豆科一年生小草本及其种子；株高15—45厘米，多长分枝，羽状复叶六对、末端成刺状；荚小、含两粒约4—6毫米、双凸透镜形的种子。",
+        "mechanism": "种子颜色可呈白、黄、橙、褐、绿、灰或深褐，也常有斑驳；煮后易软，适合汤与炖菜，部分品种在烹饪中保持形状；茎叶可作饲草。",
+        "conditions": "在欧洲、亚洲与北非广泛栽培，在西半球种植很少；对土壤要求不苛，但依赖排水与适度降水；中东与北非部分地区把干炒的兵豆作为长途携带食物。",
+        "exceptions": "不同品种在煮后是否保持颗粒差异很大，选错品种会影响菜肴形态；干豆需挑拣去石并充分煮熟。",
+        "story_uses": "可支撑近东与地中海粥汤传统、旅途干粮、青铜时代湖居聚落的储藏、以豆汤换取的家族叙事（后者属文学典故，不作史实）等（创作推演）。",
+        "historical_scope": "最古老的栽培食物之一，可能在近东驯化；瑞士比尔湖圣彼得岛青铜时代湖居遗址出土过兵豆；《创世记》中以扫用以换长子权的红豆汤大概由红色埃及兵豆煮成（属文本记载，不作考古结论）。",
+        "evidence_and_uncertainty": "Britannica 支撑形态、近东驯化可能、瑞士青铜时代出土与埃及叙利亚的干炒豆习俗；驯化年代未给确定值。"
+      },
+      "source_ids": ["staples_src_brit_lentil"],
+      "related_ids": ["staples_chickpea", "staples_pea", "staples_emmer_wheat"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "staples_pea",
+      "name": "豌豆",
+      "aliases": ["pea", "Pisum sativum", " garden pea", "青豆", "雪豆"],
+      "tags": ["living_organism", "crop", "legume", "food", "agriculture"],
+      "summary": "最古老栽培作物之一，地中海野生类型的后代；冷凉季节作物，干豌豆与鲜豌豆用途分明，19世纪孟德尔的遗传研究使其成为现代遗传学的模式植物。",
+      "details": {
+        "definition": "豌豆（Pisum sativum）是豆科一年生草本及其可食种子；荚果可长达10厘米，内有5—10粒种子，颜色绿、黄、白或杂色；糖荚与雪豆等品种的嫩荚可直接食用。",
+        "mechanism": "茎中空、攀缘或匍匐，末端以卷须攀附，可达1.8米；花蝶形，红紫、粉或白色；干豌豆常煮汤，鲜豌豆可鲜食、罐装或冷冻，糖荚与雪豆在东亚菜系中作蔬菜。",
+        "conditions": "冷凉生长季有利，暖地可冬作或早春栽培；宜肥沃排水良好的土壤与不受遮阴的位置；常见病害为根腐、白粉病与多种病毒病。",
+        "exceptions": "黑眼豆（Vigna unguiculata）并非真正的豌豆，属豇豆类；不同品种（矮生、半矮生、蔓生、光滑粒、皱粒）在加工与罐藏适性上差别很大。",
+        "story_uses": "可支撑冷凉季节豆作、干豆储藏与越冬蛋白、孟德尔式庭院试验与遗传学诞生、罐藏与冷冻工业（创作推演）。",
+        "historical_scope": "驯化起源尚未确定，但是最古老的栽培作物之一；野生类型原产地中海地区，近东有晚新石器时代的古代遗存；欧洲殖民将其引入新大陆与其他地区；19世纪中叶奥地利修道院园圃中的豌豆被孟德尔用于遗传研究。",
+        "evidence_and_uncertainty": "Britannica 支撑野生类型分布、近东遗存、生长条件、品种分化与孟德尔研究；驯化地点与年代来源明确表示尚未确定。"
+      },
+      "source_ids": ["staples_src_brit_pea"],
+      "related_ids": ["staples_lentil", "staples_broad_bean", "staples_common_bean"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "staples_broad_bean",
+      "name": "蚕豆",
+      "aliases": ["broad bean", "fava bean", "Vicia faba", "胡豆", "大巢菜"],
+      "tags": ["living_organism", "crop", "legume", "food", "agriculture"],
+      "summary": "欧洲传统的主要豆类，耐轻霜但不耐热，兼作绿肥、覆盖作物与饲料；少数人因遗传性蚕豆病（favism）食用后会发生急性溶血性贫血。",
+      "details": {
+        "definition": "蚕豆（Vicia faba）是豆科植物及其可食种子；植株直立、60—150厘米高、分枝少，荚近直立、成簇生于叶腋，种子大而不规则扁平。",
+        "mechanism": "与根瘤菌共生固氮，常作覆盖作物与绿肥；种子富含蛋白，并提供中等量铁、硫胺素与核黄素；可鲜食或干燥后煮食，也作牲畜与家禽饲料（有时称 field bean、tick bean）。",
+        "conditions": "不耐热，温带只在凉爽处夏种，暖地则冬种；与许多豆类不同，能耐受轻微霜冻；对土壤适应较广，但需排水良好与适度肥力。",
+        "exceptions": "蚕豆病（favism）患者食用后可发生急性溶血性贫血，属遗传性风险，需在饮食与配给层面予以考虑（本条不作医疗建议）；不耐热意味着在炎热地区难以作为主季作物。",
+        "story_uses": "可支撑欧洲轮作与绿肥、冬作豆类与饥荒缓冲、地中海与中东的豆食、遗传性饮食禁忌在村落层面的传播（创作推演）。",
+        "historical_scope": "欧洲的主要豆类作物（在美国相对不为人熟知）；作为覆盖作物与饲料广泛使用。具体驯化地点与年代本条所引来源未给出。",
+        "evidence_and_uncertainty": "Britannica 支撑形态、耐寒不耐热特性、固氮与用途、蚕豆病风险；驯化起源缺载。"
+      },
+      "source_ids": ["staples_src_brit_broad_bean"],
+      "related_ids": ["staples_pea", "staples_lentil", "staples_cowpea"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "staples_cowpea",
+      "name": "豇豆（黑眼豆）",
+      "aliases": ["cowpea", "Vigna unguiculata", "black-eyed pea", "黑眼豆", "眉豆"],
+      "tags": ["living_organism", "crop", "legume", "food", "agriculture"],
+      "summary": "西非起源的耐热耐旱豆类，既是蛋白食物也是干草、绿肥与覆盖作物；在美国南部与西非菜肴中是常见豆食，常被误叫做“豌豆”。",
+      "details": {
+        "definition": "豇豆（Vigna unguiculata）是豆科一年生植物及其可食荚果与种子；英文亦称 black-eyed pea、southern pea，中文俗称眉豆、黑眼豆。",
+        "mechanism": "多为攀缘或匍匐藤本，三出复叶，花白、紫或淡黄，常两两或三三生于长总花梗顶端；荚长圆柱形，依品种可达20—30厘米；种子可鲜食或干燥储藏。",
+        "conditions": "适应炎热、耐旱，因此在暖季少雨的西非与南亚比多数豆类更稳产；不仅作蛋白食物，还大量作干草、绿肥与覆盖作物，用于维持土壤。",
+        "exceptions": "与真正的豌豆（Pisum sativum）不是同一属，名字容易混淆；鲜荚与干豆的采收期与用途不同，同一品种不必兼顾。",
+        "story_uses": "可支撑萨赫勒与萨凡纳的旱作豆类、干草与覆盖作物轮作、跨大西洋后的美国南方豆食（创作推演）。",
+        "historical_scope": "一般认为原产西非，后广泛栽培于世界暖区；传入美洲与南亚的时间不同，属殖民与贸易扩散的一部分，具体年代未在所引来源中给出。",
+        "evidence_and_uncertainty": "Britannica 支撑起源可能、耐热耐旱、用途与别名；传入各地的具体年代缺载。"
+      },
+      "source_ids": ["staples_src_brit_cowpea", "staples_src_brit_pea"],
+      "related_ids": ["staples_broad_bean", "staples_sorghum", "staples_millet_pearl"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "staples_peanut",
+      "name": "落花生",
+      "aliases": ["peanut", "Arachis hypogaea", "groundnut", "花生", "长生果"],
+      "tags": ["living_organism", "crop", "legume", "oil_crop", "food", "agriculture"],
+      "summary": "热带南美起源的豆类，果针入土结荚（geocarpy）；蛋白与油兼用、可固氮养地，需五个月暖季与充足降水，是重要的食用油与饼粕来源。",
+      "details": {
+        "definition": "落花生（Arachis hypogaea）是豆科一年生植物及其可食种子；虽常被叫作坚果，实为豆类，英文别名 groundnut、earthnut、goober。",
+        "mechanism": "开花授粉后花基部长出称为“果针”的柄状结构，向下伸入土中约10厘米或更深，其尖端发育成荚果，即所谓地下结果（geocarpy）；荚果还能在一定程度上直接从土壤吸收矿质，且即使根系养分充足，若荚果周围缺钙也发育不良。",
+        "conditions": "需至少五个月暖季与生长季60厘米以上降水（或等量灌溉）；最宜排水良好的沙壤土，下层为疏松壤土；收获时连株拔起，荚果常经一天萎蔫后堆垛四到六周完成干燥。",
+        "exceptions": "荚果发育直接依赖土壤钙，缺钙时荚果不实（与根系养分状况无关，这一点常被忽略）；荚果易受黄曲霉等产毒真菌污染，储运需控制水分（本条不提供具体参数）。",
+        "story_uses": "可支撑暖季沙地轮作、榨油与饼粕饲料、花生酱与炒货的加工分化、20世纪初多种衍生品的产业化尝试（创作推演）。",
+        "historical_scope": "原产热带南美，早期即传入旧世界热带；在20世纪由研究（如 George Washington Carver 的工作）推动出面粉、肥皂、塑料等约300种衍生产品。各地传入时间与路线本条所引来源未展开。",
+        "evidence_and_uncertainty": "Britannica 支撑起源、地下结果与钙需求、气候条件、收获干燥流程与用途；传入旧世界的具体年代未给出。"
+      },
+      "source_ids": ["staples_src_brit_peanut"],
+      "related_ids": ["staples_soybean", "staples_sesame", "staples_sunflower"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "staples_olive",
+      "name": "油橄榄",
+      "aliases": ["olive", "Olea europaea", "橄榄", "齐墩果"],
+      "tags": ["living_organism", "crop", "oil_crop", "food", "agriculture"],
+      "summary": "地中海常绿木本油料，果肉含油约20—30%，生果极苦必须碱液或盐渍处理；橄榄油分级从初榨到溶剂萃取，是地中海饮食的油脂基础。",
+      "details": {
+        "definition": "油橄榄（Olea europaea）是木犀科常绿乔木及其核果；果实为核果（drupe），内有一到两粒种子，按用途分榨油用与餐用两大类。",
+        "mechanism": "果实开花后六到八个月油分与重量达最高，此时果变黑并可在树上再挂数周；榨油用果任其成熟，餐用果则在未熟时采下或摇落。油分约占鲜重20—30%；油脂按工艺分五级：初榨（首次压榨且达标）、纯橄榄油（精炼与初榨混合）、精炼（去除酸、色、味的 lampante）、lampante（高酸，历史上作灯油，来自残渣加热水二次压榨）、硫化物萃取（溶剂提取并反复精炼）。",
+        "conditions": "商业产区集中在南北纬30—45度两个带内；品种不以种子繁殖保持，需要嫁接或扦插（春季硬枝或弥雾下的嫩枝），4—8年开始结果，15—20年才满产；不灌溉不施肥时常见隔年结果。",
+        "exceptions": "新鲜未处理果实因含苦味糖苷不可直接食用，需稀碱液（如 lye）处理并以盐析出部分苦味；产量受隔年结果与授粉不稳影响，不能按年年丰产预期规划。",
+        "story_uses": "可支撑地中海沿岸的油坊与陶罐、涂抹用油与灯油的双重用途、嫁接与老树更新、树龄与地产继承、歉年与油价（创作推演）。",
+        "historical_scope": "克里特岛约公元前3500年已有栽培，闪米特诸族可能早至公元前3000年栽培；荷马时代希腊以橄榄油抹身，罗马约公元前600年时已是重要作物；后扩散到地中海沿岸各国并在适宜气候区作观赏树。21世纪初西班牙与意大利领先，其次希腊，另有土耳其、突尼斯、叙利亚、摩洛哥、阿尔及利亚、葡萄牙。",
+        "evidence_and_uncertainty": "Britannica 支撑栽培年代、含油率、处理与分级、纬度带与繁殖；各地最早驯化的具体地点仍有讨论，本条按来源给出“约”值。"
+      },
+      "source_ids": ["staples_src_brit_olive"],
+      "related_ids": ["staples_wheat", "staples_chickpea", "staples_flax"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "staples_rapeseed",
+      "name": "油菜（欧洲油菜）",
+      "aliases": ["rapeseed", "Brassica napus", "canola", "colza", "芸苔"],
+      "tags": ["living_organism", "crop", "oil_crop", "food", "agriculture"],
+      "summary": "十字花科油料，籽实榨油可食用、制皂、作灯油（colza）与生物柴油；同时也是覆盖作物与绿肥，饼粕作饲料。",
+      "details": {
+        "definition": "油菜（Brassica napus var. napus）是十字花科一年生（或越年生）植物及其含油种子；其油常称菜籽油或 canola oil，历史上欧洲的灯用油称 colza oil。",
+        "mechanism": "籽粒含油，压榨或浸出得油；油的酯化形式可作航空发动机润滑油，也可制成生物柴油。榨油后的饼粕（seed residue）作饲料，籽实亦作鸟食。",
+        "conditions": "一年生、株高30厘米以上，具细长主根；叶光滑带蓝绿色、边缘深缺刻，上部叶基部抱茎；花四瓣黄色、成穗状；荚果细长圆形带短喙，内含多粒种子。可作覆盖作物与绿肥翻压。",
+        "exceptions": "不同用途（食用、工业、生物柴油）对油品规格要求不同，不能按同一等级混用；作为绿肥翻压与作为油料收获是互斥的利用方式。",
+        "story_uses": "可支撑欧洲灯油与肥皂工业、轮作与绿肥、蜂群与油菜花期、现代生物柴油与航空润滑油供应链（创作推演）。",
+        "historical_scope": "在欧洲长期作为油料与灯油作物，20世纪后期随 canola 品种改良与生物柴油需求扩展；具体驯化与传入各地的年代本条所引来源未给出。",
+        "evidence_and_uncertainty": "Britannica 支撑学名、形态与多种用途；起源、驯化与传播年代缺载，canola 与 rapeseed 的名称与品质差别需另查专业来源。"
+      },
+      "source_ids": ["staples_src_brit_rapeseed"],
+      "related_ids": ["staples_flax", "staples_sunflower", "staples_olive"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "staples_sunflower",
+      "name": "向日葵",
+      "aliases": ["sunflower", "Helianthus annuus", "葵花", "油葵"],
+      "tags": ["living_organism", "crop", "oil_crop", "food", "agriculture"],
+      "summary": "北美起源的高秆油料与食用作物，油用与食用两类品种的籽粒形态不同；幼株具向日性，籽榨油、饼粕作饲料。",
+      "details": {
+        "definition": "向日葵（Helianthus annuus）是菊科一年生草本及其籽粒（瘦果，achene）；同属另有近70种，包括块茎可食的菊芋（H. tuberosus）。",
+        "mechanism": "头状花序直径在野生型为7.5—15厘米，栽培型常达30厘米以上；盘花褐、黄或紫，舌状花黄色。油用品种多为小型黑色瘦果，直接食用的“confection”品种为较大的黑白条纹瘦果、种仁易脱。幼株具向日性，随太阳移动，被认为可增加光合受光、促进生长。",
+        "conditions": "茎高1—4.5米、有粗毛，叶大而粗糙；适应性强但需充足光照；籽粒可干食、烘烤或磨成坚果酱，也是鸟食混合料的常见成分。",
+        "exceptions": "油用与食用品种不可随意互换：油用籽小、含油高但脱壳取仁不便，食用型籽大但含油较低；叶片可作饲料、花可制黄色染料，属副产物利用。",
+        "story_uses": "可支撑北美原住民的多种利用、庭院与鸟食、榨油与饼粕饲料、观赏与染料（创作推演）。",
+        "historical_scope": "原产北美，广泛栽培作观赏与商业油料作物；作为油料的大规模商品化属较晚阶段（本条所引来源未给年代）。",
+        "evidence_and_uncertainty": "Britannica 支撑起源地、形态、向日性、油用与食用类型差异、油质与饼粕用途；驯化年代与传播路径缺载。"
+      },
+      "source_ids": ["staples_src_brit_sunflower"],
+      "related_ids": ["staples_peanut", "staples_rapeseed", "staples_maize"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "staples_sesame",
+      "name": "芝麻",
+      "aliases": ["sesame", "Sesamum indicum", "胡麻", "脂麻", "benne"],
+      "tags": ["living_organism", "crop", "oil_crop", "food", "agriculture"],
+      "summary": "古老油料，籽含油约44—60%且抗氧化稳定；蒴果成熟即裂导致收获极费人工，20世纪中期不落粒品种才使机械化成为可能。",
+      "details": {
+        "definition": "芝麻（Sesamum indicum）是胡麻科一年生直立植物及其种子；英文别名 benne，中文亦称脂麻、胡麻。",
+        "mechanism": "种子主要成分是固定油，通常占44—60%，因抗氧化性强而不易酸败，故耐储存且适合高温烹调与调味；种子蛋白含量高，富含硫胺素与维生素B6。磨碎或压榨可制芝麻油、芝麻酱（tahini）与 halvah 一类糖食；榨油后的饼粕营养丰富。",
+        "conditions": "广泛栽培于世界热带、亚热带与南温带；株高0.5—2.5米，可分枝或不分枝；叶腋生一到三朵花；去壳种子乳白或珠白、约3毫米、扁梨形。",
+        "exceptions": "蒴果干燥后开裂、种子散落，采收需大量手工劳动以防损失；直到20世纪中期培育出不落粒品种，机械化收获才成为可能，因此“芝麻难机收”并非恒定限制而是品种依赖的条件。",
+        "story_uses": "可支撑中东与亚洲的香油与芝麻酱、糖食与面点装饰、中国古代以油烟制墨、收获季的抢收人工（创作推演）。",
+        "historical_scope": "可能起源于亚洲或东非；古埃及人已知把磨碎的籽当谷物粉用，中国人至少五千年前已使用，并长期烧油取烟制上等墨块；罗马人把芝麻与孜然磨成酱抹面包；后随贸易进入欧洲与北美，多作调味与装饰。《一千零一夜》的“芝麻开门”反映其在传说中的神秘色彩（文学记载，非史实）。",
+        "evidence_and_uncertainty": "Britannica 支撑起源的“可能”判断、含油率与稳定性、历史用途与不落粒品种的机收意义；具体驯化地点与年代在来源中未定。"
+      },
+      "source_ids": ["staples_src_brit_sesame"],
+      "related_ids": ["staples_peanut", "staples_chickpea", "staples_sunflower"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "staples_oil_palm",
+      "name": "油棕",
+      "aliases": ["oil palm", "Elaeis guineensis", "palm oil", "棕榈油"],
+      "tags": ["living_organism", "crop", "oil_crop", "food", "agriculture"],
+      "summary": "西非与中非原产的木本油料，果肉出的棕榈油与种仁出的棕仁油化学性质不同，用途分明；20世纪后期大规模扩张伴随严重毁林争议。",
+      "details": {
+        "definition": "油棕（Elaeis guineensis）是棕榈科乔木，单一主干可达约20米，叶腋短枝上密生小花，发育成约4厘米长的卵形果实簇；熟果黑而基部带红，内含一粒含油种子（kernel）。",
+        "mechanism": "果肉油（palm oil）与仁油（palm kernel oil）来源不同、化学性质差异明显：商业生产先蒸煮果肉以钝化脂解酶再压榨，果仁则以机械螺旋压榨取油，也可用溶剂萃取提高回收率。果肉油富含胡萝卜素故色深。",
+        "conditions": "原产西非与中非热带林区，后大量引种马来西亚与印尼；喜高温多雨低地；新园常以刀耕火种方式开辟，导致森林破碎化与栖息地丧失。",
+        "exceptions": "果肉油主要非食用（制皂、化妆品、蜡烛、生物燃料、润滑脂、镀锡与铁板涂层），仁油才广泛用于人造黄油、冰淇淋、巧克力糖果、饼干面包与药品；饼粕作牛饲料。不能把两者视为同一种油。",
+        "story_uses": "可支撑西非传统油坊、20世纪后期种植园扩张与土地冲突、红毛猩猩保护争议、跨境供应链与认证博弈（创作推演）。",
+        "historical_scope": "原产西非与中非并在当地广泛生长；20世纪后期商业种植急速扩张至马来西亚与印尼，引发大规模毁林、生物多样性丧失与东南亚季节性空气污染；可持续认证虽有推进但企业采购响应缓慢。美洲油棕（E. oleifera）原产中南美，树干伏地、叶平展，早期美洲殖民者可能用其油制蜡烛。",
+        "evidence_and_uncertainty": "Britannica 支撑原产地、两种油的来源与性质、工艺流程、扩张与环境影响；具体起源驯化年代未给，毁林规模属概括性表述而非量化数据。"
+      },
+      "source_ids": ["staples_src_brit_oil_palm"],
+      "related_ids": ["staples_cassava", "staples_yam", "staples_sesame"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "staples_flax",
+      "name": "亚麻",
+      "aliases": ["flax", "Linum usitatissimum", "linseed", "胡麻（纤维用）"],
+      "tags": ["living_organism", "crop", "oil_crop", "food", "textile", "agriculture"],
+      "summary": "纤维与油籽两用的古老作物：密植则茎高纤维长可织亚麻布，稀植则矮而多分枝以收籽榨油；籽油易酸败，工业上用于油漆油墨油毡。",
+      "details": {
+        "definition": "亚麻（Linum usitatissimum）是亚麻科一年生草本；纤维用密植时株高0.9—1.2米、茎径2.5—4毫米、分枝集中顶部；收籽用则株矮而多分枝。种子称 flaxseed 或 linseed。",
+        "mechanism": "纤维属韧皮纤维，需经沤麻（利用水分与微生物分解纤维周围组织）、干燥、碾压与打麻取得；纤维长约30—75厘米，由圆柱形厚壁细胞组成。种子富含 α-亚麻酸（ALA）与木酚素，含膳食纤维、蛋白与多种矿物；亚麻仁油在植物油中 ALA 含量最高。",
+        "conditions": "适应多种土壤气候，但以排水良好的沙壤土与温带气候最佳；凉爽湿润的生长季产优质纤维；同一块地种植一般限制为六年一次，以免地力耗竭。",
+        "exceptions": "籽油易酸败，食用与工业用途需分开保存；食用级亚麻仁油虽可作营养补充，但不稳定、很快变哈喇；纤维用与籽用品种的株型目标相反，不能同田兼顾。",
+        "story_uses": "可支撑史前湖居聚落的纤维利用、埃及精细亚麻布与裹尸布、腓尼基与罗马的亚麻贸易、17世纪德意志与俄罗斯原料输出、爱尔兰与苏格兰亚麻工业、棉纺兴起后的相对衰退（创作推演）。",
+        "historical_scope": "最古老的纺织纤维之一，瑞士史前湖居遗址已见使用证据；古埃及墓葬出土工艺水平很高的精细亚麻布；腓尼基商人把地中海亚麻运往高卢与不列颠，罗马人把亚麻制造推广到帝国各地；17世纪德意志诸邦与俄罗斯是主要原料来源，亚麻工业在荷兰、爱尔兰、英格兰与苏格兰建立；北美棉纺扩张后亚麻重要性下降。现代主要产地包括中国、俄罗斯与加拿大。",
+        "evidence_and_uncertainty": "Britannica 支撑纤维与籽用的株型差异、沤麻工序、历史分布与主要产地；具体驯化年代未给，亚麻与“胡麻”在中文语境中指称易混（芝麻亦称胡麻），本条不代为统一。"
+      },
+      "source_ids": ["staples_src_brit_flax"],
+      "related_ids": ["staples_olive", "staples_rapeseed", "staples_wheat"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "staples_einkorn",
+      "name": "一粒小麦",
+      "aliases": ["einkorn", "Triticum monococcum", "单粒小麦"],
+      "tags": ["living_organism", "crop", "cereal", "food", "agriculture"],
+      "summary": "最早被驯化的小麦种类之一，二倍体、每小穗仅一粒；曾在欧洲与西南亚的贫瘠土地上栽培，是现代小麦谱系的起点之一。",
+      "details": {
+        "definition": "一粒小麦（Triticum monococcum）是二倍体小麦，小穗通常只结一粒籽，德语名由 ein（一）与 korn（谷粒）构成；其籽粒在意大利等地亦以 farro 之名出售。",
+        "mechanism": "二倍体一粒小麦与拟山羊草（Aegilops speltoides）杂交并发生染色体加倍，产生四倍体小麦谱系（包括二粒小麦），后者再与另一山羊草杂交形成六倍体的普通小麦；因此一粒小麦处于栽培小麦演化的基部位置。",
+        "conditions": "历史上在西南亚与中欧、南欧的较贫瘠土壤上栽培；产量与加工性能不敌后来的裸粒小麦，近代种植面积很小，多作为古老品种或地方特色谷物保留。",
+        "exceptions": "产量低、脱壳与加工麻烦，不适合作为现代主粮；与二粒小麦同为“farro”，但物种不同，烹饪与营养特性不能互相套用。",
+        "story_uses": "可支撑早期农业的作物组合、贫瘠地的保底种植、古老品种的保护与特色食物商品化（创作推演）。",
+        "historical_scope": "最早被驯化的小麦种类之一，与新石器时代西南亚农业起源相连；后在西欧与南欧部分地区长期留存至近代。具体驯化年代与地点本条所引来源未给确定值。",
+        "evidence_and_uncertainty": "本条来源为 Britannica 策展摘要与引文片段（search_only），支撑二倍体身份、单粒小穗与杂交加倍关系；驯化年代缺载。"
+      },
+      "source_ids": ["staples_src_brit_einkorn", "staples_src_brit_wheat"],
+      "related_ids": ["staples_emmer_wheat", "staples_wheat", "staples_barley"],
+      "review_status": "needs_review"
+    }
+  ]
+}

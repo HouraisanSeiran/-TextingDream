@@ -1,0 +1,797 @@
+{
+  "schema_version": 1,
+  "group": "animal-foods",
+  "status": "candidate",
+  "sources": [
+    {
+      "id": "animal_food_brit_cattle",
+      "title": "Britannica: Cattle — description, species, terminology, breeds",
+      "url": "https://www.britannica.com/animal/cattle-livestock",
+      "access": "read",
+      "supports": "家牛的定义、术语（bull/steer/ox/heifer/cow）、Bos taurus 与 Bos indicus 及杂交、品种为近代选育产物、肉乳皮与役用。",
+      "rights_note": "商业百科条目，仅作事实核对与改写来源，不复制原文；再次分发前须自行核查授权。"
+    },
+    {
+      "id": "animal_food_brit_buffalo",
+      "title": "Britannica: Buffalo — water buffalo and bison distinction",
+      "url": "https://www.britannica.com/animal/buffalo-mammal",
+      "access": "read",
+      "supports": "水牛 Bubalus bubalis 的河流型（乳用）与沼泽型（役用）划分、乳脂较高、役用被称为东方的活拖拉机、与 bison 的区分。",
+      "rights_note": "商业百科条目，仅作事实核对与改写来源。"
+    },
+    {
+      "id": "animal_food_brit_sheep",
+      "title": "Britannica: Sheep — characteristics, breeds, facts",
+      "url": "https://www.britannica.com/animal/domesticated-sheep",
+      "access": "read",
+      "supports": "绵羊 Ovis aries 的肉乳毛用途、至少公元前 5000 年驯化、啃食贴近地面与过牧风险、mutton 与 lamb 区分、品种与主产国。",
+      "rights_note": "商业百科条目，仅作事实核对与改写来源。"
+    },
+    {
+      "id": "animal_food_brit_goat",
+      "title": "Britannica: Goat — description, breeds, milk",
+      "url": "https://www.britannica.com/animal/goat",
+      "access": "read",
+      "supports": "山羊属 Capra、源自 pasang、小规模乳用与制酪、羔肉与羔皮、温带与酷热酷寒地带的产乳相对优势、品种。",
+      "rights_note": "商业百科条目，仅作事实核对与改写来源。"
+    },
+    {
+      "id": "animal_food_brit_pig",
+      "title": "Britannica: Pig — description, breeds, facts",
+      "url": "https://www.britannica.com/animal/pig-mammal-group",
+      "access": "read",
+      "supports": "家猪/野猪同属 Suidae、杂食与体形、脂肪型与腌肉型与鲜肉型三类胴体、中国存栏最多、Yorkshire 等品种。",
+      "rights_note": "商业百科条目，仅作事实核对与改写来源。"
+    },
+    {
+      "id": "animal_food_brit_chicken",
+      "title": "Britannica: Chicken — types, characteristics, uses",
+      "url": "https://www.britannica.com/animal/chicken",
+      "access": "read",
+      "supports": "家鸡 Gallus gallus 源自红色原鸡、约 7400 年内多次驯化、最初可能与宗教或斗鸡有关、产蛋量、工业化禽场时间线、肉鸡出口规模。",
+      "rights_note": "商业百科条目，仅作事实核对与改写来源。"
+    },
+    {
+      "id": "animal_food_brit_duck",
+      "title": "Britannica: Duck — definition, types, facts",
+      "url": "https://www.britannica.com/animal/duck",
+      "access": "read",
+      "supports": "家鸭主要源自绿头鸭并在中国驯化、番鸭另属、北京鸭为最广泛饲养品种、鸭饲养多为小农副业、羽毛与绒的价值。",
+      "rights_note": "商业百科条目，仅作事实核对与改写来源。"
+    },
+    {
+      "id": "animal_food_brit_goose",
+      "title": "Britannica: Goose — anatomy, migration, behaviour",
+      "url": "https://www.britannica.com/animal/goose-bird",
+      "access": "read",
+      "supports": "家鹅源自鸿雁 Anser anser 与瘤头鹅 Anser cygnoides、新石器时代多地驯化、约三千年前传入埃及、图卢兹肉用品种、肥肝与羽绒副产。",
+      "rights_note": "商业百科条目，仅作事实核对与改写来源。"
+    },
+    {
+      "id": "animal_food_brit_turkey",
+      "title": "Britannica: Turkey — description, habitat, facts",
+      "url": "https://www.britannica.com/animal/turkey-bird",
+      "access": "read",
+      "supports": "普通火鸡 Meleagris gallopavo 的美洲起源与前哥伦布时期驯化、约 1519 年传入西班牙与 1541 年到英格兰、蛋数与孵化天数、节庆用途、1935 年前后育种转向肉用。",
+      "rights_note": "商业百科条目，仅作事实核对与改写来源。"
+    },
+    {
+      "id": "animal_food_noaa_cod",
+      "title": "NOAA Fisheries: Atlantic Cod — species profile",
+      "url": "https://www.fisheries.noaa.gov/species/atlantic-cod",
+      "access": "read",
+      "supports": "大西洋鳕 Gadus morhua 的物种定位与生物学参数（寿命、体长体重、性成熟年龄、产卵季节与怀卵量）、两个美国种群的划分与管理架构、常用渔具，以及 Cape Cod 得名与 1784 年木雕圣鳕等历史背景。种群评估结论随海域与年份变化，只代表该页面发布时的特定种群。",
+      "rights_note": "美国政府机构公开页面，可引用事实与数据；推荐署名 NOAA Fisheries。"
+    },
+    {
+      "id": "animal_food_noaa_herring",
+      "title": "NOAA Fisheries: Atlantic Herring — species profile",
+      "url": "https://www.fisheries.noaa.gov/species/atlantic-herring",
+      "access": "read",
+      "supports": "大西洋鲱 Clupea harengus 的分类位置（鲱科约 200 种）、怀卵量与孵化天数、渔具演变（鱼梁→中层拖网与围网）、以冷冻/盐渍/罐头（作沙丁）销售与作饵用途；并提供一个特定海域、特定年份的种群评估示例。鲱类种群产量天然高波动，该示例不适用于其他海域或年份。",
+      "rights_note": "美国政府机构公开页面，可引用事实与数据；推荐署名 NOAA Fisheries。"
+    },
+    {
+      "id": "animal_food_brit_salmon",
+      "title": "Britannica: Salmon — nutrition, migration, lifecycle",
+      "url": "https://www.britannica.com/animal/salmon",
+      "access": "read",
+      "supports": "鲑科的范围（大西洋鲑 Salmo salar 与六种太平洋鲑 Oncorhynchus）、溯河洄游与嗅觉定位、太平洋鲑产卵后死亡与大西洋鲑可重复产卵、养殖网箱与饲料、北美高原人群的捕捞与保存。",
+      "rights_note": "商业百科条目，仅作事实核对与改写来源。"
+    },
+    {
+      "id": "animal_food_brit_oyster",
+      "title": "Britannica: Oyster — shell, mollusk, nutrition, aquaculture",
+      "url": "https://www.britannica.com/animal/oyster",
+      "access": "read",
+      "supports": "真牡蛎科与珍珠牡蛎科的区分、滤食机制（每小时 2–3 加仑）、可食种与分布、养殖逾两千年、三到五年可收、生食/熟食/熏制。",
+      "rights_note": "商业百科条目，仅作事实核对与改写来源。"
+    },
+    {
+      "id": "animal_food_brit_clam",
+      "title": "Britannica: Clam — anatomy, types, habitat",
+      "url": "https://www.britannica.com/animal/clam",
+      "access": "read",
+      "supports": "双壳纲现生种超过 15000 种（约 500 种淡水）、埋栖深度、滤食与虹吸管、可食种（硬壳蛤、软壳蛤、象拔蚌、coquina 等）、大量双壳类并非常食。",
+      "rights_note": "商业百科条目，仅作事实核对与改写来源。"
+    },
+    {
+      "id": "animal_food_brit_decapod",
+      "title": "Britannica: Decapod — anatomy, classification, adaptations",
+      "url": "https://www.britannica.com/animal/decapod",
+      "access": "read",
+      "supports": "十足目超过 8000 种并包括虾蟹龙虾、约一成栖于淡水或陆生、商业捕捞、鳃与渗透压调节等适应、抱卵与幼体类型。",
+      "rights_note": "商业百科条目，仅作事实核对与改写来源。"
+    },
+    {
+      "id": "animal_food_brit_milk",
+      "title": "Britannica: Milk — definition, types, processing, nutritional value",
+      "url": "https://www.britannica.com/topic/milk",
+      "access": "read",
+      "supports": "乳的定义与成分、主要产乳物种与地区、乳糖酶与乳糖不耐受的人群差异、冷却与消毒延长保存、乳脂分离与均质。",
+      "rights_note": "商业百科条目，仅作事实核对与改写来源；其中人群比例为估计值。"
+    },
+    {
+      "id": "animal_food_brit_dairy_product",
+      "title": "Britannica: Dairy product — types, properties, nutritional value",
+      "url": "https://www.britannica.com/topic/dairy-product",
+      "access": "read",
+      "supports": "乳制品类别（黄油、奶酪、酸奶、炼乳、淡炼乳、乳粉、冰淇淋）、牛乳为主要原料与其他物种乳、山羊乳脂肪球较小、绵羊乳约 18% 总固形物与驯鹿乳约 36.7%、产品成分表。",
+      "rights_note": "商业百科条目，仅作事实核对与改写来源。"
+    },
+    {
+      "id": "animal_food_brit_dairying",
+      "title": "Britannica: Dairying — practices, techniques, types",
+      "url": "https://www.britannica.com/topic/dairying",
+      "access": "read",
+      "supports": "乳畜饲养与牧场/干草/青贮/精料的关系、挤奶与冷却至 10 摄氏度以下、24–48 小时收运、乳房炎与口蹄疫等疾病管理、单产变化与育种。",
+      "rights_note": "商业百科条目，仅作事实核对与改写来源。"
+    },
+    {
+      "id": "animal_food_brit_cheese",
+      "title": "Britannica: Cheese — description, types, production",
+      "url": "https://www.britannica.com/topic/cheese",
+      "access": "read",
+      "supports": "奶酪定义与凝乳/乳清分离、乳酸与凝乳酶两条凝固路径、约十份乳浓缩为一份、盐与压榨与熟成、按硬度与熟成分类、蓝纹奶酪霉菌、产区与工厂化。",
+      "rights_note": "商业百科条目，仅作事实核对与改写来源。"
+    },
+    {
+      "id": "animal_food_brit_butter",
+      "title": "Britannica: Butter — definition, butter making, nutrition",
+      "url": "https://www.britannica.com/topic/butter",
+      "access": "read",
+      "supports": "黄油定义与搅打原理、约 20 升乳制 1 公斤黄油并副产脱脂乳与酪乳、乳脂至少 80%、约三分之一世界乳产量用于制黄油、19 世纪离心分离机与二战后连续制法的转折。",
+      "rights_note": "商业百科条目，仅作事实核对与改写来源。"
+    },
+    {
+      "id": "animal_food_brit_yogurt",
+      "title": "Britannica: Yogurt — definition, production, uses",
+      "url": "https://www.britannica.com/topic/yogurt",
+      "access": "read",
+      "supports": "酸奶定义与乳酸来源、可能的土耳其起源、家庭做法（煮沸、冷却、以旧批接种、保温）、嗜热链球菌与保加利亚乳杆菌在 43–44 摄氏度发酵四五小时、各地乳源差异。",
+      "rights_note": "商业百科条目，仅作事实核对与改写来源。"
+    },
+    {
+      "id": "animal_food_brit_egg",
+      "title": "Britannica: Egg — definition, characteristics, nutrition",
+      "url": "https://www.britannica.com/topic/egg-food",
+      "access": "read",
+      "supports": "禽蛋结构与比例（壳 10%、蛋清 60%、蛋黄 30%）、主要产蛋禽种、蛋清起泡与蛋黄乳化的功能、沙门氏菌与壳面污染、清洗分级与约 7 摄氏度冷藏。",
+      "rights_note": "商业百科条目，仅作事实核对与改写来源。"
+    },
+    {
+      "id": "animal_food_brit_beef",
+      "title": "Britannica: Beef — definition, grades, facts",
+      "url": "https://www.britannica.com/topic/beef",
+      "access": "read",
+      "supports": "牛肉定义与犊牛肉区分、品质判断、约 2 摄氏度悬挂两周的熟成、美国分级、主要人均消费国、印度教部分传统禁食牛肉、分割命名差异、腌牛肉。",
+      "rights_note": "商业百科条目，仅作事实核对与改写来源。"
+    },
+    {
+      "id": "animal_food_brit_pork",
+      "title": "Britannica: Pork — definition, cuts, preparation",
+      "url": "https://www.britannica.com/topic/pork",
+      "access": "read",
+      "supports": "猪肉屠宰月龄与品质、约三成作鲜肉其余腌熏灌肠与熬脂、旋毛虫与需充分加热、犹太教与伊斯兰教禁食猪肉导致的中东等地区饮食格局、主要消费国。",
+      "rights_note": "商业百科条目，仅作事实核对与改写来源。"
+    },
+    {
+      "id": "animal_food_brit_ham",
+      "title": "Britannica: Ham — definition, types, curing",
+      "url": "https://www.britannica.com/topic/ham-meat",
+      "access": "read",
+      "supports": "火腿部位占胴体 18–20%、干腌与湿腌与注射、亚硝酸盐抑制肉毒与固定色泽、烟熏作用、乡村火腿不需冷藏、Smithfield 等区域工艺、腌制品乳酸菌发酵与 pH 下降。",
+      "rights_note": "商业百科条目，仅作事实核对与改写来源。"
+    },
+    {
+      "id": "animal_food_brit_sausage",
+      "title": "Britannica: Sausage — description, types, ingredients",
+      "url": "https://www.britannica.com/topic/sausage",
+      "access": "read",
+      "supports": "香肠定义与词源、古代巴比伦/希腊/罗马已有类似制品、肠衣与人造肠衣、按加热与熟成分类（鲜肠/生熏/熟熏/熟肠/干肠）、干肠在温暖地区发展而鲜熟肠在凉爽地区、除干肠外需冷藏。",
+      "rights_note": "商业百科条目，仅作事实核对与改写来源。"
+    },
+    {
+      "id": "animal_food_brit_lard",
+      "title": "Britannica: Lard — description, properties, uses",
+      "url": "https://www.britannica.com/topic/lard",
+      "access": "read",
+      "supports": "猪油定义与熬炼方式（湿熬、干熬、连续熬炼）、油渣、脂肪酸组成随饲料变化、与起酥油和工业用途的关系、在食用脂中的地位变化。",
+      "rights_note": "商业百科条目，仅作事实核对与改写来源。"
+    },
+    {
+      "id": "animal_food_brit_food_preservation",
+      "title": "Britannica: Food preservation — definition, importance, methods",
+      "url": "https://www.britannica.com/topic/food-preservation",
+      "access": "read",
+      "supports": "保存的原理（抑制微生物、降低酶活、防止脂肪氧化）、干燥与冷藏与盐渍与发酵为最古老手段、水活性概念与细菌生长阈值、罐藏与巴氏消毒与冷冻等近代方法。",
+      "rights_note": "商业百科条目，仅作事实核对与改写来源。"
+    },
+    {
+      "id": "animal_food_brit_curing",
+      "title": "Britannica: Curing — preservation process",
+      "url": "https://www.britannica.com/topic/curing-preservation-process",
+      "access": "read",
+      "supports": "腌制为保存手段（干腌、盐水腌、注射）、与烟熏结合、盐与硝盐与糖的作用、风干（air-curing）。",
+      "rights_note": "商业百科条目，仅作事实核对与改写来源。"
+    },
+    {
+      "id": "animal_food_brit_refrigeration",
+      "title": "Britannica: Refrigeration — history, technology, process",
+      "url": "https://www.britannica.com/technology/refrigeration",
+      "access": "read",
+      "supports": "机械制冷的原理与部件、冰窖与雪室与蒸发冷却等前机械手段、约 4 摄氏度以下抑制微生物、19 世纪中叶起的商业化与制冷剂更替。",
+      "rights_note": "商业百科条目，仅作事实核对与改写来源。"
+    },
+    {
+      "id": "animal_food_brit_dietary_law",
+      "title": "Britannica: Dietary law — definition, history, religions",
+      "url": "https://www.britannica.com/topic/dietary-law",
+      "access": "read",
+      "supports": "犹太教 kashruth（反刍且分蹄、有鳍有鳞、血、贝类、肉乳分离）、伊斯兰 halal（猪肉、血、自死物、未按规矩宰杀、酒；部分法学派对贝类有不同意见）、印度教与基督教的饮食规则、遵守程度在群体内部存在差异。",
+      "rights_note": "商业百科条目，仅作事实核对与改写来源；不能据此推断任何个体的实际实践。"
+    },
+    {
+      "id": "animal_food_fao_dairy_gateway",
+      "title": "FAO: Gateway to dairy production and products",
+      "url": "https://www.fao.org/dairy-production-products/en",
+      "access": "read",
+      "supports": "粮农组织设有乳业生产与产品专题门户，汇集发展中国家乳业出版物、培训材料与活动（骆驼乳、女性乳业生产单元等案例）。该页为门户索引，正文实质内容有限，只能支撑机构背景与议题存在，不支撑具体数据。",
+      "rights_note": "联合国粮农组织公开页面；引用时署名 FAO，注意其内容可能随时更新。"
+    }
+  ],
+  "elements": [
+    {
+      "id": "animal_food_cattle",
+      "name": "家牛",
+      "aliases": ["牛", "黄牛", "Bos taurus", "Bos indicus", "瘤牛", "cattle"],
+      "tags": ["animal", "food", "agriculture", "livestock"],
+      "summary": "家牛是欧洲型 Bos taurus 与南亚型 Bos indicus 及其杂交的驯化牛类总称，同时提供役力、乳、肉、皮与粪肥，长期是欧亚非农业与牧业体系的核心畜种。",
+      "details": {
+        "definition": "指被驯化的牛科动物，欧洲型 Bos taurus 与瘤牛型 Bos indicus 及两者杂交；成年公牛约 450 至 1800 公斤、母牛约 360 至 1100 公斤，随品种差异很大。术语区分未去势公牛（bull）、去势役牛（ox/steer）、育成母牛（heifer）与成年母牛（cow）。家牛不等于全部牛科：水牛、牦牛、美洲野牛另计或另列，混称会造成误解。",
+        "mechanism": "反刍四室胃把人类不能消化的粗饲料（草、秸秆、作物残余）发酵转化为乳与肉，因此牛能把草地与休耕地变成食物；役用则把饲料转为牵引力与运输力。这条粗饲料转换是牛在农业体系中不可替代位置的技术根据，也解释了为什么牛的价值长期高于单纯肉用。",
+        "conditions": "需要可放牧草地，或可刈割储藏的干草与青贮，加上补料与饮水；越冬饲料储备量决定载畜量。役牛需要调教、挽具、蹄部维护与使役日程，农忙与农闲负荷不同。乳用需要每日两三次挤奶与迅速冷却，否则乳很快酸败。牛群密度过高导致过牧、粪污与水源污染，需要轮牧与围栏。",
+        "exceptions": "并非所有牛可等同：水牛耐湿热、皮厚汗腺少适合水田；牦牛适应高海拔；瘤牛耐热抗旱强于欧洲型。饮食规则使部分地区几乎不食牛肉（印度教部分传统奉牛为圣），但同一地区不同社群与个人的实践差异很大。役用价值随拖拉机普及而下降，然而在坡地、水田与小农经济中仍不可替代，不能把机械化当作全球既定状态。",
+        "story_uses": "可写耕作与运输的动力来源、乳与肉的来源、以牛计财富与嫁妆、皮革与骨角原料、牛粪作肥料与燃料；也适合写牲畜疫病、偷牛、过牧与草场冲突。是否可食、谁可宰杀、用什么仪式宰杀应依具体世界设定另定，本条不作规定。",
+        "historical_scope": "牛在西亚、南亚、欧洲、非洲多地分别驯化，具体年代与地点仍有争议；瘤牛与欧洲型的分化与扩散过程复杂，不宜用单一时间线概括。牛耕与牛车在多个古代农业文明中出现，但普及时间与地区差异极大；以牛为规模畜力的农业不是全球默认状态。现代品种结构形成较晚，多数品种是近几百年选育的结果。",
+        "evidence_and_uncertainty": "分类（Bos taurus 与 B. indicus 的关系、野生祖先原牛的地位）与驯化中心是本条最不确定的部分。Britannica 提供术语、物种框架与现代体重区间，未给出可采信的单一驯化年代；役用与乳用的具体历史时间线需另找考古与农业史来源核实。"
+      },
+      "source_ids": ["animal_food_brit_cattle", "animal_food_brit_milk", "animal_food_brit_dairying"],
+      "related_ids": ["animal_food_water_buffalo", "animal_food_sheep", "animal_food_beef", "animal_food_milk"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "animal_food_water_buffalo",
+      "name": "水牛",
+      "aliases": ["Bubalus bubalis", "river buffalo", "swamp buffalo", "水牛属", "water buffalo"],
+      "tags": ["animal", "food", "agriculture", "livestock", "dairy"],
+      "summary": "水牛是亚洲以及埃及、南欧部分地区重要的役用与乳用牛类，分乳用的河流型与役用的沼泽型；乳脂与固形物较高，是南亚与南欧多种传统乳制品的原料。",
+      "details": {
+        "definition": "指驯化的 Bubalus bubalis，与非洲水牛（Syncerus caffer）不同种，也与美洲俗称 buffalo 的 bison 无关。分河流型（river，主要乳用）与沼泽型（swamp，主要役用、水田作业）两大类群，两者在体型与用途上差别明显，通常被当作不同的生产类型而非同一用途的两个变种。",
+        "mechanism": "皮厚、汗腺少、喜水，靠浸水散热，因此适应湿热季风区与水田环境；役用上是稻田耕作与泥地运输的主要牵引力，常被称作东方的活拖拉机；乳用上乳脂与总固形物较高，适合制作需要浓缩乳固形物的奶酪与酥油类产品，这也是它与牛乳在工艺上分岔的原因。",
+        "conditions": "需要水域或泥塘供浸泡散热；饲草量大，以粗饲料为主，农忙期需要额外补料；水田使役有强季节性，农闲与农忙的饲料与劳力需求差别大；乳用需与犊牛分栏管理并保持挤奶卫生与冷却；湿热区寄生虫、乳房炎与蹄病是常见管理难点。",
+        "exceptions": "沼泽型与河流型不可互换：把乳用性能套到所有水牛是常见错误。水牛乳制品（如南欧某些 mozzarella 类奶酪、南亚的酥油与凝乳）与牛乳制品在原料与工艺上不同。水牛并不分布于所有农业区，在温带集约乳业中基本不出现，因此不能当作全球普遍的乳源。",
+        "story_uses": "适合写水田耕作、泥泞道路运输、村社共养一头役牛、乳与酥油的地方经济；也可写活拖拉机被机械取代后的社会变化、水牛与水域/沼泽使用权的冲突。乳与肉是否可食、由谁宰杀须按具体设定确定。",
+        "historical_scope": "水牛在亚洲的驯化与扩散早于近代，但具体时间与路线不明；河流型与沼泽型的分化区域仍有讨论。以水牛乳制作奶酪在南亚与地中海部分地区的传统延续较久，但把水牛乳与某一种特定奶酪一一对应只成立于特定产区。",
+        "evidence_and_uncertainty": "Britannica 提供两型划分、乳脂较高、役用活拖拉机之说与主要分布国家（印度、中国、埃及、菲律宾）。驯化年代、两型分化与具体乳制品的起源均需专门文献。本条明确不把水牛与 bison 混同，也不以单一产区代表全部水牛利用方式。"
+      },
+      "source_ids": ["animal_food_brit_buffalo", "animal_food_brit_dairying", "animal_food_brit_dairy_product"],
+      "related_ids": ["animal_food_cattle", "animal_food_milk", "animal_food_cheese"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "animal_food_sheep",
+      "name": "绵羊",
+      "aliases": ["Ovis aries", "羊", "sheep", "羔羊", "lamb", "mutton"],
+      "tags": ["animal", "food", "agriculture", "livestock"],
+      "summary": "绵羊是同时提供肉、乳与羊毛的驯化反刍动物，能在草地与粗劣植被上放牧；羊毛型与肉用型品种分化明显，在干旱与半干旱牧区经济中地位突出。",
+      "details": {
+        "definition": "Ovis aries，驯化反刍动物；公羊称 ram、母羊称 ewe、幼羊称 lamb，成年体重约 35 至 180 公斤。成年羊的肉称 mutton，幼羊的肉称 lamb。品种数以百计，按羊毛细度与长度、肉用性能分化，多数品种只有地方意义。绵羊与山羊近缘但不同属，不能混称。",
+        "mechanism": "四室胃发酵分解纤维素，能利用短草与灌木；啃食比牛更贴近地面，能把草场吃得极短，因此同样草场对羊的承载力与牛不同，也更容易造成退化。羊毛是野生型底层绒毛被长期选育放大的结果，剪毛成为周期性劳役，把羊从纯肉乳来源变成纺织原料来源。",
+        "conditions": "需要草场轮换以避免过牧与寄生虫累积；干旱区需要水源与补盐；产羔与剪毛是劳力高峰；乳用需每日挤奶，羊乳总固形物高于牛乳，适合制酪；羔羊断奶前完全依赖母羊，羊群防御力弱需看护、围栏与牧羊犬。越冬需干草储备。",
+        "exceptions": "品种差异极大：细毛型主要为毛、某些肉用型主要为肉，只产毛或只产肉的极端分化使绵羊等于毛加肉的说法不能一概而论；少数品种只产毛状被毛。热带湿润区受寄生虫与湿热限制，绵羊不占优势。羊乳与羊奶酪在地中海与西亚常见，但并非全球普遍食材。",
+        "story_uses": "可写牧羊与季节转场、剪毛与织造、羔羊与乳酪的季节性、牧人与犬的配合；也适合写草场纠纷、盗羊、牲畜税与献祭。羊毛与羊肉的经济地位应随设定中的气候与纺织业状况调整，不能照搬现代产区排名。",
+        "historical_scope": "绵羊至少在公元前 5000 年前后已在西亚、欧洲与中亚被驯化，遗存见于多处早期聚落；羊毛型的分化与选育是长期过程，不宜把现代品种结构投射到古代。21 世纪初全球存栏超过十亿只，主产国包括澳大利亚、新西兰、中国、印度、美国、南非、阿根廷与土耳其。",
+        "evidence_and_uncertainty": "驯化至少公元前 5000 年来自 Britannica 的概述，具体中心与是否多中心仍有讨论；文中品种表是现代品种，不能反推古代地方羊群结构。羊毛与羊肉的相对重要性在各地差异极大，本条只给方向。"
+      },
+      "source_ids": ["animal_food_brit_sheep", "animal_food_brit_goat"],
+      "related_ids": ["animal_food_goat", "animal_food_cattle", "animal_food_mutton_lamb", "animal_food_cheese"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "animal_food_goat",
+      "name": "山羊",
+      "aliases": ["Capra hircus", "goat", "奶山羊", "pasang"],
+      "tags": ["animal", "food", "agriculture", "livestock", "dairy"],
+      "summary": "山羊是小型反刍家畜，耐粗饲、适应干旱与山地，在小农与无地农户中常以一两头提供全家乳食；其乳多用于制酪，羔肉、羊绒与羔皮也有价值。",
+      "details": {
+        "definition": "山羊属 Capra 的家养种，源自 pasang（Capra aegagrus，野山羊），与绵羊近缘但体型较轻、角向后弯、被毛较直，公羊常有须。家养山羊与野山羊（ibex、markhor）不可混同，与绵羊也不能混称。",
+        "mechanism": "反刍消化加上采食灌木与杂草的习性，使其能在牛难以利用的坡地、灌丛与庭院周边觅食；体型小、占地少，使没有草地的小农也能饲养；单位体重产乳效率高但总量小，适合家庭消费而非大规模商品乳。乳脂肪球小、不易分层，因此不需要均质也难分离稀奶油。",
+        "conditions": "需要干燥通风的圈舍（怕潮湿，潮湿易致呼吸道与蹄病）、粗饲料与矿物质、清洁饮水；乳用需每日挤奶与冷却，山羊乳同样会酸败；放牧需防啃食幼树与作物，这在林地与果园是实际的管理冲突；群体需防寄生虫。",
+        "exceptions": "温带地区大规模产乳不及牛，但在酷热与酷寒地带比牛更有优势，这一区域差异是 Britannica 明确指出的，不能忽略。山羊乳与牛乳的蛋白组成不同，部分对牛乳不适应的人可耐受山羊乳，但这属个体差异，不构成医疗建议。并非所有山羊都产绒，安哥拉与克什米尔等为特化品种。",
+        "story_uses": "适合写贫户靠一头羊供乳、山地放牧、山羊啃坏庄稼或幼树引发的纠纷、羊绒与羔皮贸易；也可写山羊牧人与绵羊牧人之间的草场与身份差异。可食性与宰杀规则依设定。",
+        "historical_scope": "家山羊源自西亚野山羊，驯化很早但年代与地点有争议；随人类扩散到地中海、非洲、南亚与东亚，成为小农与游牧的常见畜种。山羊造成植被退化的记载多见于近现代林地管理文献，不宜直接套到所有历史时期。",
+        "evidence_and_uncertainty": "Britannica 提供起源（pasang）、乳用地位、区域优劣与 Saanen、Toggenburg 等品种。驯化年代与扩散路线需专门来源。本条不把山羊的饲养条件与绵羊等同，两者的草场行为与产品结构不同。"
+      },
+      "source_ids": ["animal_food_brit_goat", "animal_food_brit_dairying"],
+      "related_ids": ["animal_food_sheep", "animal_food_milk", "animal_food_cheese"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "animal_food_pig",
+      "name": "家猪",
+      "aliases": ["猪", "Sus scrofa domesticus", "hog", "swine", "pig"],
+      "tags": ["animal", "food", "agriculture", "livestock"],
+      "summary": "家猪是杂食性家畜，饲料转化效率高、繁殖力强，能把厨余、块根与谷物残余转为肉与脂肪；它也是犹太教与伊斯兰教饮食规则中最典型的禁忌动物之一。",
+      "details": {
+        "definition": "家猪属猪科 Suidae 的驯化猪，由欧洲与亚洲多个野猪种群驯化而来，与野猪形态差异不大，家猪的獠牙不如野猪发达。按胴体类型分脂肪型、腌肉型与鲜肉型三类；pig 一词在英美语境中指不同月龄与体重段的猪，不是严格分类单位。",
+        "mechanism": "单胃杂食，能利用人类不吃的下脚、块根、橡实与剩余谷物，因此适合定居农户的循环：厨余与农业副产物喂猪，猪产肉、脂与粪肥。屠宰后几乎无废料，可分割为鲜肉、腌腊、香肠、熬脂、皮与骨，这种全畜利用是它在小农经济中地位高的技术原因。",
+        "conditions": "需要稳定饲料（谷物或块根）、饮水与圈舍；不耐高温，靠泥浴与遮阴散热；多胎多仔使群体扩张快，也意味着需要迅速处理多余仔猪。密集饲养带来粪污、臭味与疫病传播，需要清栏与隔离；泔水喂猪与疫病传播相关，多地已限制。屠宰与腌腊需低温季节或冷藏条件。",
+        "exceptions": "宗教地位差异极大：犹太教 kashruth 与伊斯兰 halal 都排除猪肉，但两大传统内部对戒律的遵守程度不同，有严守者也有不遵守者，不能把整个群体一概而论；同时基督教地区与东亚多数地区长期大量食用猪肉。饲料竞争是关键限制：在缺粮地区人猪争粮会直接压低养猪规模。",
+        "story_uses": "可写年末杀猪与腌腊的季节性、猪与厨余泔水的循环、散养猪与猪倌、因宗教规则被排除的食材与由此形成的宴席差异；也适合写疫病造成的价格与供给冲击。禁忌的具体边界应按设定中的具体社群细化，避免整体化。",
+        "historical_scope": "猪在西亚、中国与欧洲分别由当地野猪驯化，年代与中心有争议；欧洲中世纪与近代农户普遍养猪。21 世纪初中国是世界上猪存栏最多的国家之一，而科学育种则集中于欧洲与美国。把猪视为肮脏或禁忌的观念是特定宗教与生态条件的产物，不是普遍态度。",
+        "evidence_and_uncertainty": "Britannica 提供三类胴体、杂食性、中国存栏与 Yorkshire 等品种；猪肉禁忌见 dietary law 条目，其内部差异需按具体社群核实。驯化年代不宜定死，本条只给方向性表述。"
+      },
+      "source_ids": ["animal_food_brit_pig", "animal_food_brit_pork", "animal_food_brit_dietary_law"],
+      "related_ids": ["animal_food_pork", "animal_food_ham_bacon", "animal_food_sausage", "animal_food_rendered_fat"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "animal_food_chicken",
+      "name": "家鸡",
+      "aliases": ["鸡", "Gallus gallus", "Gallus gallus domesticus", "chicken", "母鸡", "公鸡"],
+      "tags": ["animal", "food", "agriculture", "poultry"],
+      "summary": "家鸡由红色原鸡驯化而来，是全球分布最广的家禽；长期以产蛋为主、肉为副产，二十世纪才成为工业化的肉蛋商品。",
+      "details": {
+        "definition": "Gallus gallus（或作 G. gallus domesticus），雉科家禽，源自南亚的红色原鸡，灰原鸡等其他原鸡可能有基因渗入，因此学名用法在分类学界并不统一。品种数百个，商品生产集中于极少数（如白来航、科尼什杂交鸡）。",
+        "mechanism": "体型小、成熟快（四五周齐羽、约六个月性成熟）、产蛋密度高（优良母鸡一年可达三百枚），加上杂食性可吃谷物、昆虫与厨余，使鸡成为小体量、快周转的家庭蛋白来源。产蛋受日照长度影响，人工补光可使产蛋延至全年，这是舍饲集约化的生理基础。",
+        "conditions": "需要谷物饲料与蛋白补充、钙磷等矿物质、清洁饮水与栖架；育雏需保温，自然孵化约二十一天；散养需防鹰、狐、黄鼬等天敌；密集舍饲需控制通风、密度与粪便，否则呼吸道病与球虫病高发。蛋产出后需冷却保存，否则品质迅速下降。",
+        "exceptions": "家鸡不等于所有可食禽类，鸭、鹅、火鸡、珍珠鸡另有谱系与饲养条件。驯化早期斗鸡与宗教用途可能比食用更重要，不能把现代肉蛋用途投射到起源阶段。工业笼养是二十世纪的现象，与散养小农模式不可等同；两者在成本、疫病与动物福利上差别很大。",
+        "story_uses": "可写庭院鸡与鸡蛋换盐的小额交易、晨鸡报时与作息、斗鸡与赌博、鸡毛与鸡蛋在仪式中的用途；也适合写疫病扑杀、饲料涨价对穷人蛋白来源的冲击。宗教与节庆中的鸡（献祭、占卜）须依设定。",
+        "historical_scope": "驯化可能在南亚与东南亚多地多次发生，距今约 7400 年内；此后至少两千年间经多波扩散进入欧亚非的农舍，长期是农场牲畜组合中的常见一员。现代高密度禽场约 1920 年先在英国、二战后在美国普及；肉鸡出口在 21 世纪初接近 1250 万吨。",
+        "evidence_and_uncertainty": "Britannica 给出驯化时间、可能的宗教或斗鸡动因与工业化时间线；具体驯化中心仍是研究问题，早期以肉为主还是以蛋或斗鸡为主也存在争论。"
+      },
+      "source_ids": ["animal_food_brit_chicken", "animal_food_brit_egg"],
+      "related_ids": ["animal_food_egg", "animal_food_duck", "animal_food_goose", "animal_food_turkey"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "animal_food_duck",
+      "name": "家鸭",
+      "aliases": ["鸭", "Anas platyrhynchos domesticus", "番鸭", "Cairina moschata", "北京鸭", "duck"],
+      "tags": ["animal", "food", "agriculture", "poultry"],
+      "summary": "家鸭主要由绿头鸭驯化（中国最早），另有新大陆的番鸭一支；相比鸡更依赖水域与湿料，鸭肉、鸭蛋与羽绒都是产出。",
+      "details": {
+        "definition": "家鸭主要是绿头鸭 Anas platyrhynchos 的后代，番鸭 Cairina moschata 源自美洲，是独立驯化的另一支。商品鸭种以北京鸭最广，另有重型、中型、轻型与矮脚等多类品种。家鸭与野鸭、雁、天鹅同科但不同属，不能混称。",
+        "mechanism": "蹼足与靠后的双腿使陆上行动笨拙但对水中活动适应好；可采食水生植物、螺贝、昆虫与水草，配合谷物育肥；脂肪层厚、生长快，适合短期育肥出肉。鸭蛋与羽绒是并行的副产，羽绒在保暖材料中长期有价值。",
+        "conditions": "需要水面或至少潮湿环境与清洁饮水，水浴有助于理羽与配种，但并非所有商业养殖都提供；饲料需蛋白与谷物；育雏需保温与干燥垫料，潮湿易致病；稻田养鸭可利用田间螺虫与落粒，形成稻鸭共作的一类安排。鸭群需防与野禽接触带来的疫病。",
+        "exceptions": "番鸭与绿头鸭系在体型、羽色、叫声与配种行为上不同，不能混为一谈，两者杂交后代通常不育。水生属性不等于必须有大水面，许多商业养殖在旱地舍饲完成。鸭蛋在东亚与部分欧洲地区常食（包括腌制），但不是全球普遍食材。",
+        "story_uses": "可写稻田与鸭群的共生、河湖船家养鸭、鸭蛋腌制与羽绒贸易；也可写水权、湿地占用与疫病（如禽流感类）带来的冲突。鸭肉在节庆中的位置地区差异很大，不宜默认。",
+        "historical_scope": "绿头鸭在中国驯化有距今两三千年的说法；番鸭在欧洲的记录较晚。北京鸭成为中国以外最常见的肉鸭品种是近代贸易与育种的结果。全球鸭饲养多为小农副业，只有英国、荷兰、美国等地出现较大规模鸭群。",
+        "evidence_and_uncertainty": "Britannica 提供绿头鸭祖先、中国驯化时间、番鸭与北京鸭、羽绒价值与饲养规模；具体驯化年代与番鸭传播路线需另证。本条把家鸭写成物种复合体而非单一物种。"
+      },
+      "source_ids": ["animal_food_brit_duck", "animal_food_brit_egg"],
+      "related_ids": ["animal_food_chicken", "animal_food_goose", "animal_food_egg"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "animal_food_goose",
+      "name": "家鹅",
+      "aliases": ["鹅", "Anser anser", "Anser cygnoides", "鸿雁", "goose"],
+      "tags": ["animal", "food", "agriculture", "poultry"],
+      "summary": "家鹅由鸿雁与瘤头鹅两类野鹅驯化而来，体型大、以草食为主，能利用草地与作物残余；除肉与蛋外，羽绒与肥肝是重要副产。",
+      "details": {
+        "definition": "家鹅主要源自鸿雁（Anser anser，灰雁类）与东亚的瘤头鹅（Anser cygnoides）两支，新石器时代在多个地点被驯化。肉用品种以图卢兹鹅等体型最大。鹅与天鹅、鸭同科 Anatidae 但不同属，体型介于二者之间。",
+        "mechanism": "喙缘板齿适合拔食草叶与水生植物，盲肠发酵能消化较多纤维，因此可大量利用牧草与收割后的落粒，饲料中谷物比例可低于鸡鸭；体型大、生长快，育肥后出肉多且脂肪层厚，适合烤制与熬脂。警觉性强，可作看护动物。",
+        "conditions": "需要草地或可刈割的青饲料、饮水与水面（理羽与配种）；育雏需保温；产蛋季节性明显，年产蛋数远低于鸡，因此扩繁慢；羽绒收集与屠宰或换羽周期相关。强制喂饲取肥肝的做法在多地存在并受到动物福利争议，本条只作现象陈述，不提供方法。",
+        "exceptions": "鸿雁系与瘤头鹅系杂交后代可育但性状不同，不能把两者等同；草食不等于完全不用精料，育肥期仍需能量饲料。肥肝生产是特定地区的产业，不是鹅饲养的必然环节；以鹅看家与以鹅取肉的养殖方式也各不相同。",
+        "story_uses": "可写看家鹅、草地放牧、羽绒被褥与羽管笔、节庆烤鹅与肥肝所标志的阶层差异；也适合写动物福利争议、偷鹅与村庄警戒。宗教与节令中的鹅依设定。",
+        "historical_scope": "驯化始于新石器时代并在多地独立发生，约三千年前传入埃及；欧洲以鸿雁系为主，东亚瘤头鹅系影响较大。烤鹅在部分欧洲地区长期是节庆菜，中国与东南亚也有各自的鹅肉做法。",
+        "evidence_and_uncertainty": "Britannica 的 goose 条目提供两支祖先、新石器时代多地驯化、约三千年前传入埃及、图卢兹等肉用品种与肥肝、羽绒副产，可支撑物种与用途框架；但各地驯化先后、品种形成时间与烤鹅习俗的地域分布细节不详，本条不作年代细化，也不提供任何强制喂饲的操作内容。"
+      },
+      "source_ids": ["animal_food_brit_goose", "animal_food_brit_egg"],
+      "related_ids": ["animal_food_duck", "animal_food_chicken", "animal_food_egg", "animal_food_rendered_fat"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "animal_food_turkey",
+      "name": "火鸡",
+      "aliases": ["Meleagris gallopavo", "吐绶鸡", "turkey", "眼斑火鸡"],
+      "tags": ["animal", "food", "agriculture", "poultry"],
+      "summary": "火鸡是原产北美的家禽，前哥伦布时期在墨西哥被驯化，十六世纪传入欧洲后扩散；它是美洲节庆餐桌的核心禽类，二十世纪后育种才转向肉用。",
+      "details": {
+        "definition": "普通火鸡 Meleagris gallopavo，雉科（或列为吐绶鸡科）大型陆禽，原产北美与中美洲；另有眼斑火鸡 Meleagris ocellata，从未被驯化。雄鸟体长可达约 130 厘米、体重十公斤级，雌鸟约为其半。",
+        "mechanism": "体型大、胸肉厚、在大型禽类中饲料转化较好，适合一次性供多人食用，这使它在节庆宴席中占据位置；地面筑巢、每窝八到十五枚蛋、约二十八天孵化，繁殖周期限制了扩繁速度，也使雏禽供应成为规模化的瓶颈。",
+        "conditions": "需要较大活动空间与栖架、谷物与蛋白饲料；幼雏怕冷怕湿，需保温与防病；野生型善奔走、可短距飞行，散养需围栏与防捕食。工业化舍饲改变了体型与生长速度，也带来腿脚与健康问题。屠宰后需冷藏，大型胴体对冷链要求高于小型禽。",
+        "exceptions": "火鸡与地名或所谓土耳其鸡之类的俗称无关，也与澳洲的丛冢雉（brush turkey）、美洲的蛇鹈（water turkey）等完全不同的鸟不能混同；眼斑火鸡未被驯化。以火鸡为感恩节或圣诞节主菜是北美与部分欧洲的习俗，不是全球普遍做法。",
+        "story_uses": "可写殖民地食物交流（美洲禽类进入欧洲市场）、节庆烤禽与家庭规模、养殖场与野生火鸡的冲突；也可作为新大陆动植物交换故事线中的具体物件。宗教与节令用法依设定。",
+        "historical_scope": "驯化可能始于前哥伦布时期的墨西哥原住民；约 1519 年传入西班牙，1541 年到达英格兰；十七世纪英国殖民者把欧洲育成的火鸡带回北美东部。1935 年前后育种重点才从羽色转向肉用。",
+        "evidence_and_uncertainty": "Britannica 提供起源、传播年份与育种转向；具体驯化地点与早期用途（羽饰、仪式、食用）的权重仍有讨论，本条不作断言。"
+      },
+      "source_ids": ["animal_food_brit_turkey", "animal_food_brit_egg"],
+      "related_ids": ["animal_food_chicken", "animal_food_egg"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "animal_food_cod",
+      "name": "鳕（大西洋鳕与相关白肉底栖鱼）",
+      "aliases": ["大西洋鳕", "Gadus morhua", "cod", "白肉鱼", "groundfish", "底栖鱼"],
+      "tags": ["animal", "food", "aquatic_food", "fishery"],
+      "summary": "鳕指 Gadus 属的若干大型底栖白肉鱼，常与黑线鳕、狭鳕、无须鳕等一起作为白肉底栖鱼群体经营；不同物种与不同种群的数量状况差别很大，不能一概而论。",
+      "details": {
+        "definition": "典型代表是大西洋鳕 Gadus morhua，另有太平洋鳕、格陵兰鳕等。鳕在市场上常被扩展到鳕科其他鱼（黑线鳕、狭鳕即明太鱼、无须鳕），而银鳕、智利海鲈等商品名对应的又是别的科。名称范围混乱是本条最重要的界定问题：讨论鳕时必须先确定指的是哪个物种、哪个种群。",
+        "mechanism": "底栖、肉白、脂肪低、肌纤维成大片，适合煎、煮、盐渍与干燥；肌肉水分高极易腐败，因此历史上高度依赖出水即加工（盐渍、风干、冰藏）。作为顶级底栖捕食者，其数量受饵料鱼、水温与补充量（幼鱼入群量）影响，恢复速度慢。",
+        "conditions": "以野生捕捞为主，渔具包括拖网、刺网、底延绳钓与竿钓；依赖港口、船只、冰与冷冻能力，出水后需立即冰藏或加工，冷链中断会迅速变质。加工与流通依赖盐、燃料、干燥场地与运输。养殖规模有限，主要在部分海域尝试。",
+        "exceptions": "不同种群不能等同：同一物种在不同海域被划分为不同种群，分开评估与管理，各群的资源量与捕捞压力可以相差很大，一地的枯竭不能推及全体或全物种。评估结论又属于特定年份的快照，且“资源量低于目标（overfished）”与“捕捞压力过高（overfishing）”是两个不同判断，不能合并成一句结论，更不宜当作物种的固定属性。鳕科其他鱼（黑线鳕、狭鳕等）与真正的鳕在分类与管理上又各不相同。",
+        "story_uses": "可写远洋渔业与港口城镇、盐与干鱼的贸易路线、渔船与配额的冲突、鱼价与替代品的出现；也适合写鱼没了之后的生计转向。不要把某一渔场的崩溃写成所有鳕鱼同时消失。",
+        "historical_scope": "大西洋鳕在北大西洋渔业史上地位突出：新英格兰的 Cape Cod 因它得名，自 1784 年起马萨诸塞州议会悬挂木雕圣鳕作为繁荣象征，这可以作为“曾极其丰盛”的一条文献线索。二十世纪后期的高强度捕捞与随后的管理重建是另一些可考的历史片断；具体峰值产量、崩落年份与各国配额需专门渔业史来源，本条不作年代细化也不给具体吨位。",
+        "evidence_and_uncertainty": "NOAA 提供两个美国种群的评估状态、生物学参数与渔具；干盐腌鳕鱼的长途贸易属常识性背景，未由本次已读来源逐条支撑，使用时应标注为待核，不宜给出具体年代与吨位。"
+      },
+      "source_ids": ["animal_food_noaa_cod", "animal_food_brit_food_preservation"],
+      "related_ids": ["animal_food_herring", "animal_food_salmon", "animal_food_dried_salted_fish"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "animal_food_herring",
+      "name": "鲱与小型群游鱼",
+      "aliases": ["大西洋鲱", "Clupea harengus", "herring", "沙丁鱼", "sardine", "鲱科"],
+      "tags": ["animal", "food", "aquatic_food", "fishery"],
+      "summary": "鲱指鲱科的小型群游鱼，单种群数量天然大幅波动；它们在食物网中承上启下，也是盐渍、罐藏与饵料的主要原料。沙丁是商品与烹饪类别，不是单一物种。",
+      "details": {
+        "definition": "大西洋鲱 Clupea harengus 是鲱科（Clupeidae，近两百种）中最著名的一种；沙丁鱼在市场上指多种小型鲱形鱼的罐装产品，随地区与渔业对象而变。鲱这个词在不同语言里还牵扯鲱形目的其他科，名称不能跨语境直译，讨论时必须先确定物种与产品形态。",
+        "mechanism": "以浮游动物、磷虾与鱼苗为食，成群洄游，形成季节性渔汛；个体小、成群密集，适合围网与中层拖网高效捕捞。单尾怀卵三万到二十万粒，卵附着于岩石、砾石或沙底，七到十天孵化，幼鱼补充量受水温与饵料强烈影响，因此产量年际波动是常态而非异常。",
+        "conditions": "需要渔船、围网或中层拖网、探鱼设备与岸上加工（盐渍、冷冻、罐装、鱼粉）；鱼体脂肪高、极易氧化酸败，出水后必须快速冷却或立即盐渍、装罐。历史上沿岸使用固定渔具（如鱼梁）依赖潮汐与地形，这种低资本方式与现代船队是两套不同的生产体系。",
+        "exceptions": "鲱类单群数量天然大幅波动，产卵与幼鱼补充量受水温与饵料影响，因此非年际波动是常态而非异常，不同海域、不同时期的管理结论不能互推。小型群游鱼同时是鲸、海鸟与大型掠食鱼类的饵料，捕捞它会产生生态连锁，不能只按人类食用量衡量其价值；各国配额与休渔安排也各不相同。",
+        "story_uses": "可写渔汛与季节迁徙、盐与木桶的供应、鱼粉与肥料用途、以鲱为饵的龙虾渔业；也适合写丰年与荒年的资源波动叙事，以及加工能力不足时渔获被浪费的情形。",
+        "historical_scope": "北美沿岸曾用固定鱼梁捕捞，现代以中层拖网与围网为主，渔具变化本身反映了从依赖潮汐地形到依赖船只与探鱼设备的转变。鲱以冷冻、盐渍或罐头（作沙丁）销售，也作钓饵，因此在渔获链上同时是食物与生产资料。近十年的产量与贸易份额需按年份与海域引用，本条不给固定数字。",
+        "evidence_and_uncertainty": "NOAA 提供生物学、渔具演变、评估状态与用途；沙丁作为类别与物种的对应关系随市场而变，本条只作类别说明，不指定单一物种。"
+      },
+      "source_ids": ["animal_food_noaa_herring", "animal_food_brit_food_preservation"],
+      "related_ids": ["animal_food_cod", "animal_food_salmon", "animal_food_dried_salted_fish"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "animal_food_salmon",
+      "name": "鲑鳟类",
+      "aliases": ["大西洋鲑", "Salmo salar", "太平洋鲑", "Oncorhynchus", "三文鱼", "salmon"],
+      "tags": ["animal", "food", "aquatic_food", "fishery", "aquaculture"],
+      "summary": "鲑指鲑科中溯河洄游的鱼类，包括大西洋鲑与六种太平洋鲑；野生与养殖、不同物种的脂肪含量、洄游习性与资源状况差异显著。三文鱼是市场名，不等于某一物种。",
+      "details": {
+        "definition": "原义 salmon 专指大西洋鲑 Salmo salar，现也指太平洋鲑属 Oncorhynchus 的六种（红鲑、银鲑、狗鲑、王鲑、粉鲑、樱桃鲑）。鳟与鲑同科，部分鳟也洄游。商品名三文鱼常指养殖大西洋鲑，因此同名产品可能来自完全不同的物种与生产方式。",
+        "mechanism": "溯河洄游：海中育肥后回到出生溪流产卵，靠嗅觉（部分种类还能感应地磁差异）定位。太平洋鲑产卵后死亡，大西洋鲑部分个体可回到海中并再次产卵。洄游期停止进食、消耗体内脂肪与肌肉，因此捕捞时机与鱼肉品质、脂肪含量高度相关；养殖则在网箱中以配合饲料育肥，生长快但依赖外源饲料。",
+        "conditions": "野生捕捞依赖河口与洄游通道的通畅，水坝、堰、水温与河床砾石都影响繁殖；养殖依赖冷水、良好水流交换、鱼苗供应、饲料（含鱼粉鱼油或替代蛋白）、防逃逸与疾病管理，以及粪便与残饵的扩散控制。全链条依赖冷链与快速加工，洄游期集中上市对加工能力是压力。",
+        "exceptions": "不同物种不能等同：粉鲑与王鲑在体型、脂肪与洄游距离上差异很大；养殖与野生在饲料来源、污染物水平与营养组成上不同，不能混为一谈。太平洋鲑产卵后死亡与大西洋鲑可重复产卵是重要区分点。各国对野生捕捞与养殖的管理规则差别很大，逃逸养殖鱼与野生鱼的相互作用也是争议点。",
+        "story_uses": "可写洄游季节的捕鱼活动、河权与渔坝、熏制与腌制、养殖网箱与野生鱼的冲突、鱼群数量与熊或鹰等捕食者的关系；也适合写第一批洄游鱼的仪式意义。具体仪式属于哪个人群必须另行核实，不可笼统化。",
+        "historical_scope": "鲑是北美西北部高原与沿海多人群的主要食物之一，采用多种捕捞与保存方法，本条不细述工艺。大西洋鲑长期以游钓价值为主，二十世纪后期起在多地网箱养殖，成为全球贸易品；这一转变改变了野生种群的捕捞压力结构。",
+        "evidence_and_uncertainty": "Britannica 提供物种清单、洄游机制、产卵后死亡差异、养殖方式与文化用途的概述；具体人群的捕捞与保存技术细节需民族志与考古来源，本条不代为断言。"
+      },
+      "source_ids": ["animal_food_brit_salmon", "animal_food_brit_food_preservation"],
+      "related_ids": ["animal_food_cod", "animal_food_herring"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "animal_food_oyster",
+      "name": "牡蛎",
+      "aliases": ["蚝", "生蚝", "Ostrea edulis", "Crassostrea virginica", "Crassostrea gigas", "oyster"],
+      "tags": ["animal", "food", "aquatic_food", "fishery", "aquaculture"],
+      "summary": "牡蛎是滤食性双壳软体动物，温带与暖海沿岸均有分布；人工养殖历史超过两千年，生食、熟食、熏制皆可，但生食与产地水质、微生物风险直接相关。",
+      "details": {
+        "definition": "真牡蛎科 Ostreidae（食用为主，含 Ostrea、Crassostrea 等属）与珍珠牡蛎（另一科，用于产珠）不同，后者通常不作食用对象。可食种包括欧洲平牡蛎 Ostrea edulis、北美牡蛎 Crassostrea virginica、日本牡蛎 Crassostrea gigas 等。牡蛎与蛤、贻贝、扇贝同属双壳纲，但固着生活、不能移动，采捕与养殖方式不同。",
+        "mechanism": "靠鳃上纤毛打水滤食浮游颗粒，一只每小时可过滤数升至十余升水，因此会把环境中的微生物与污染物富集在体内，同时滤食也能改善水质。固着生活、需硬质基底附着，密集附着形成牡蛎礁，为其他生物提供栖息结构。",
+        "conditions": "需要适宜的盐度、水温与浮游植物饵料；养殖需苗种（采苗器与附苗区）、潮间带或筏架等设施，通常三到五年才可收；收获后常需在清洁水中暂养净化，并保持冷链。生食对海域分类与卫生管理要求更高；贝壳与礁体本身也是可利用资源。",
+        "exceptions": "生食与熟食风险不同，产区之间微生物与污染状况差异极大，不能把某一产地的标准套到所有产地；不同种牡蛎的风味、生长速度与耐温性不同。宗教饮食规则对贝类的允许程度不一：犹太教 kashruth 排除无鳍无鳞的水产，部分伊斯兰法学派对贝类有不同意见，且同一群体内部实践差异明显，不宜整体化描述。",
+        "story_uses": "可写潮间带采捕与养殖筏、牡蛎壳的再利用（烧石灰、铺路、育苗附着）、生食与宴席的阶层含义、赤潮或污染导致的禁捕；也适合写水域使用权与水质纠纷。",
+        "historical_scope": "真牡蛎作为食物的人工养殖已逾两千年，亚洲、欧洲与北美都有长期养殖传统，日本有采苗与育成的分工。牡蛎礁在近现代大幅减少，具体时间线因地而异。以牡蛎为奢侈生食是特定市场的近代建构，不等于它在各地历史上的主要吃法。",
+        "evidence_and_uncertainty": "Britannica 提供分类、滤食速率、可食种、养殖年限与食用方式；食品安全与宗教细节超出该来源，需卫生规范与宗教法规来源支持，本条仅作定性提示。"
+      },
+      "source_ids": ["animal_food_brit_oyster", "animal_food_brit_dietary_law"],
+      "related_ids": ["animal_food_clam", "animal_food_shrimp_prawn"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "animal_food_clam",
+      "name": "蛤与双壳类",
+      "aliases": ["蛤蜊", "蚌", "Mercenaria mercenaria", "Mya arenaria", "Panopea", "clam", "bivalve"],
+      "tags": ["animal", "food", "aquatic_food", "fishery"],
+      "summary": "蛤是双壳纲多个科的外形统称，现生种超过一万五千种，可食者以硬壳蛤、软壳蛤、象拔蚌等为代表；它们埋栖滤食，产量与安全性高度依赖底质与水质。",
+      "details": {
+        "definition": "双壳纲 Bivalvia 有记录的现生种超过一万五千种，约五百种生活在淡水，其余分布于各海域。严格意义的蛤指两壳等大、由两个闭壳肌闭合、有发达掘足的种类。可食者包括帘蛤科的硬壳蛤 Mercenaria mercenaria、软壳蛤 Mya arenaria、象拔蚌 Panopea 等；大量双壳类并不常食，名称在各地所指也不同。",
+        "mechanism": "用足掘穴，以出入水管（虹吸管）呼吸与滤食，通常埋于表层至约零点六米深；滤食意味着把水体中的颗粒连同微生物与污染物一起富集，产地水质因此直接决定安全性。掘穴深度与底质类型决定采捕方式：耙、锹、徒手或潜水。",
+        "conditions": "需要沙泥底质与适宜盐度；采捕受潮汐、季节与滩涂使用权限制；上岸后需吐沙净化与冷藏，死亡个体很快腐败。淡水与海水种类的处理方式不同。养殖依赖苗种、滩涂整理、防捕食与育肥水域管理。",
+        "exceptions": "蛤不等于所有双壳类：牡蛎固着、贻贝以足丝附着、扇贝可短距游泳，采捕与保存方式各不相同。不同种类的耐温、耐盐与毒素累积风险不同，不能把一种的食用安全条件套给全部。部分双壳类在某些宗教规则中被明确排除，另一些存在解释分歧，实践亦因社群而异。",
+        "story_uses": "可写滩涂采捕与潮汐日程、以贝壳堆成的贝丘（既是考古线索也是聚落生活痕迹）、吐沙与煮食、滩涂权属纠纷；也适合写赤潮或污染导致禁采的危机叙事。食用禁忌依设定与社群。",
+        "historical_scope": "双壳类是沿海聚落长期的食物来源，贝丘遗址在世界多地存在，具体物种利用随海域而变。养殖与滩涂管理的发展时间线各地差异很大，不能以欧洲或东亚的某一模式代表全球。",
+        "evidence_and_uncertainty": "Britannica 提供分类规模、形态、掘穴深度、可食种与滤食机制；毒素、卫生管理与宗教规则细节超出该来源，本条只给定性提示，不提供鉴别或处理步骤。"
+      },
+      "source_ids": ["animal_food_brit_clam", "animal_food_brit_dietary_law"],
+      "related_ids": ["animal_food_oyster", "animal_food_shrimp_prawn"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "animal_food_shrimp_prawn",
+      "name": "虾与对虾",
+      "aliases": ["虾", "对虾", "明虾", "虾类", "shrimp", "prawn", "Decapoda"],
+      "tags": ["animal", "food", "aquatic_food", "fishery", "aquaculture"],
+      "summary": "虾是对十足目长尾类甲壳动物的统称，种类极多，海生为主也有淡水种；捕捞与养殖并存，鲜度下降极快，冰与冷链几乎是硬条件。",
+      "details": {
+        "definition": "十足目 Decapoda 中体形细长、腹部长、有扇尾的类群（常称虾、对虾、樱虾等），与蟹、龙虾同目。prawn 与 shrimp 在不同地区所指并不统一，不能作为分类依据；陆封或淡水种（如某些沼虾）在亚洲养殖普遍。虾与蟹、龙虾共享十足目的基本体制，但形态与养殖方式差别很大。",
+        "mechanism": "甲壳动物靠蜕壳生长，个体大小受蜕壳周期限制；多为底栖或浮游摄食，分布与盐度、温度、底质紧密相关。捕捞后体内酶与细菌迅速作用，头部先黑变，因此离水即冰是行业惯例。抱卵与幼体阶段对盐度与水温敏感，这也决定了育苗难度。",
+        "conditions": "捕捞依赖船、网具、冰与冷冻舱；养殖依赖苗种、池塘或网箱、饲料（鱼粉比例影响成本与环境）、水质与增氧、换水与病害防控，以及收获后的分级与速冻。咸淡水交界处的养殖会与红树林、稻田、盐田争地，这是养殖扩张的主要生态争议之一。",
+        "exceptions": "海捕与养殖产品在环境成本与药物残留风险上不同；不同种类（对虾、沼虾、樱虾）的养殖与捕捞方式差别很大。虾类是常见过敏原之一，个体反应差异显著，这属过敏问题而非可食性判断。并非所有虾都可按同一套加工方式处理，小型虾多晒干或制酱，大型虾多冷冻单体。",
+        "story_uses": "可写近岸捕捞与晒虾、养殖塘与红树林的争地、船家与收购商的价格关系；也适合写冰与盐的供应如何限制渔业半径。虾酱、虾皮等发酵或干制调味品应归入调味类条目，本条不展开。",
+        "historical_scope": "近岸捕捞与晒干保存长期存在；二十世纪后期集约化养虾在亚洲与拉美扩张，成为全球贸易品。具体扩张时间线各国不同，不能用一个年份概括。",
+        "evidence_and_uncertainty": "Britannica 的十足目条目提供分类、形态与商业利用框架；虾的养殖技术、食品安全与过敏问题需专门来源，本条只作定性说明，不提供操作细节。"
+      },
+      "source_ids": ["animal_food_brit_decapod", "animal_food_brit_food_preservation"],
+      "related_ids": ["animal_food_clam", "animal_food_oyster", "animal_food_dried_salted_fish"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "animal_food_milk",
+      "name": "乳",
+      "aliases": ["牛乳", "鲜乳", "生乳", "milk", "羊乳", "水牛乳"],
+      "tags": ["animal_product", "food", "dairy", "cold_chain"],
+      "summary": "乳是哺乳动物乳腺分泌的液体，人类主要取牛、水牛、山羊、绵羊等的乳；它含水约八成七，并含乳糖、乳脂与乳蛋白，极易腐败，因此挤奶卫生与冷却决定了它能做成什么产品。",
+      "details": {
+        "definition": "乳腺分泌、供幼仔食用的液体；作为人类食物指家畜乳，以牛乳为主，水牛、山羊、绵羊次之，另有骆驼、牦牛、马、驯鹿、驴等局部乳源。组成随物种、品种、泌乳阶段与挤奶是否彻底而变，约含一成二到一成三总固形物。乳糖需乳糖酶分解，成年后乳糖酶活性下降的比例在不同人群间差异很大（北欧后裔较低，亚洲、非洲、美洲原住民与地中海人群较高），这是生理差异，不等于疾病判断。",
+        "mechanism": "乳是脂肪与蛋白在水中的乳状液。加热会结膜，酸化或凝乳酶作用会使酪蛋白凝固成凝乳并析出乳清，这条酸或酶导致凝固的分岔是奶酪、酸奶、黄油等一切乳制品工艺的共同起点。生乳中的微生物迅速繁殖，使乳变酸、凝固、腐败，因此时间与温度是乳加工的两个基本变量。",
+        "conditions": "需要泌乳母畜、每日两三次挤奶、清洁器具与乳房卫生、数小时内冷却到约十摄氏度以下、冷藏运输与加工（如巴氏消毒）。乳产量受饲料质量与数量强烈影响，饲料不足会同时降低产量与固形物含量。乳用畜群需隔离病畜，防治乳房炎与结核、布鲁氏菌等可传人的疾病。",
+        "exceptions": "不同物种乳的固形物差别很大：绵羊乳约一成八总固形物，驯鹿乳可达三成六，水牛乳脂肪较高；因此不能按牛乳一套参数套全部乳源。并非所有人群都适合大量饮用鲜乳（乳糖酶活性差异、乳蛋白过敏），许多传统以发酵乳制品来降低乳糖并延长保存。生乳与消毒乳的风险不同，各地法规也不同。",
+        "story_uses": "可写挤奶与清晨的劳作节奏、乳与水的稀缺、乳制品作为保存手段、牲畜疫病导致断乳、乳与待客礼俗；也适合写没有冷藏的村庄只能用酸乳或奶酪这一技术约束，以及由此形成的饮食结构。",
+        "historical_scope": "乳与乳制品的利用可追溯到早期畜牧，但以乳为主食需要一定畜牧规模与乳糖耐受或发酵技术；欧洲北部、南亚、东非牧区与中亚的乳食传统各异。以鲜乳日常饮用是伴随冷却、消毒与运输技术才普及的近代现象，不能当作历史上的常态。",
+        "evidence_and_uncertainty": "Britannica 提供成分、乳糖不耐受的人群比例区间、消毒与冷藏对保存期的影响；这些比例是估计值，属概述性资料，不宜当作精确统计。具体历史消费量需经济史来源。"
+      },
+      "source_ids": ["animal_food_brit_milk", "animal_food_brit_dairy_product", "animal_food_brit_dairying", "animal_food_brit_refrigeration", "animal_food_fao_dairy_gateway"],
+      "related_ids": ["animal_food_cattle", "animal_food_cheese", "animal_food_butter", "animal_food_yogurt", "animal_food_condensed_dried_milk"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "animal_food_egg",
+      "name": "禽蛋",
+      "aliases": ["鸡蛋", "鸭蛋", "鹅蛋", "鹌鹑蛋", "egg", "禽卵"],
+      "tags": ["animal_product", "food", "poultry", "cold_chain"],
+      "summary": "禽蛋是鸟类的繁殖体，作为食物以鸡蛋为主，鸭、鹅、鹌鹑等次之；蛋清与蛋黄分别承担起泡与乳化功能，加热又能凝固黏结，是烹饪中难以替代的结构性原料。",
+      "details": {
+        "definition": "指作为食物的硬壳鸟蛋。商业产量以鸡蛋为主，鸭蛋在部分亚洲与欧洲地区食用，鹅蛋在欧洲一些国家食用；火鸡、鸽、雉、鹌鹑蛋也有食用或特定用途。结构上壳与壳膜约占一成、蛋清约六成、蛋黄约三成。禽蛋与鱼卵、爬行类蛋在烹饪与保存上处理方式不同。",
+        "mechanism": "蛋黄含乳化脂肪与蛋白，提供色泽、风味与乳化能力；蛋清以蛋白为主，打发可形成稳定泡沫，加热则凝固成网架，因此蛋能同时充当膨松剂、黏结剂、澄清剂与乳化剂。蛋壳多孔，气室与壳膜允许气体交换，也意味着气味与微生物可以进出，这是蛋在贮存中品质下降的结构原因。",
+        "conditions": "需要产蛋禽群、光照与饲料（钙磷决定蛋壳质量）、集蛋与清洁、分级与约七摄氏度冷藏、防震运输。散养与笼养在卫生、成本与动物福利上不同。加工（打蛋、分离、干燥）需要杀菌设备与严格卫生，因为壳一旦破损，内容物就成了微生物的培养基。",
+        "exceptions": "蛋并非都同样安全或同样可食：壳面污染与沙门氏菌风险与产地、清洗、储存方式有关，生食与半熟食风险高于充分加热；不同禽种的蛋在大小、脂肪与风味上不同，不能以鸡蛋参数替代。宗教与素食规则对蛋的界定不一（如部分斋戒期禁蛋），同一群体内部实践也不同。",
+        "story_uses": "可写鸡蛋作为小额通货与租税、孵坊与雏禽供应、蛋在糕饼与节庆中的角色、蛋的保存（腌制、涂膜）与季节性短缺；也适合写蛋价波动对穷人蛋白摄入的影响与集蛋、分级、运输链条上的中间人。",
+        "historical_scope": "家禽产蛋长期是农户现金来源，肉用曾长期是产蛋的副产；蛋的规模化分级、冷藏运输与打蛋加工是十九世纪末以来逐步建立的，蛋粉与液蛋属近代加工。以蛋为日常食材与以蛋为节庆食材在社会分层中的含义不同。",
+        "evidence_and_uncertainty": "Britannica 提供结构比例、功能、微生物与冷藏及货架期信息；各禽种蛋的具体参数与宗教规则细节需另证，本条不作医疗或营养建议。"
+      },
+      "source_ids": ["animal_food_brit_egg", "animal_food_brit_refrigeration"],
+      "related_ids": ["animal_food_chicken", "animal_food_duck"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "animal_food_beef",
+      "name": "牛肉",
+      "aliases": ["beef", "犊牛肉", "veal", "黄牛肉"],
+      "tags": ["animal_product", "food", "cooking", "cold_chain"],
+      "summary": "牛肉是成年牛的肌肉（犊牛肉为幼牛），结缔组织与脂肪分布决定嫩度与风味；屠宰后需要排酸与冷藏，切割命名与分级因国家而异。",
+      "details": {
+        "definition": "指成年牛（cattle）的肉，区别于犊牛肉 veal。品质以嫩度、细密肌理、鲜红色泽与脂肪分布（大理石纹）衡量；老龄牛的骨硬、肉质较粗。胴体分割方式与部位名称各国不同，同一块肉在不同语言里可能对应不同部位，跨文化写作时不能直接对译。",
+        "mechanism": "屠宰后肌肉糖原分解产酸、pH 下降，随后内源酶分解蛋白使肉变嫩，这就是排酸或熟成；在约两摄氏度悬挂两周是常见做法之一。结缔组织多的部位需长时间湿熱处理才软，部位差异决定烹饪方式的选择；脂肪的大理石纹则影响香气与口感。",
+        "conditions": "需要屠宰与分割设施、低温排酸与冷藏冷冻、卫生与检疫；长途运输需冷链。育肥依赖饲料（谷物或牧草），草饲与谷饲影响脂肪色泽与风味。副产品（皮、骨、脂、内脏）决定整畜的经济性，单纯按肉的重量计价会低估牛的利用效率。",
+        "exceptions": "牛肉并非到处都受欢迎或被允许：印度教部分传统视牛为圣而禁食牛肉，但同一地区不同社群与个人的实践差异很大；东南亚、非洲部分地区的消费量相对较低。疯牛病等疫病会改变饲料规则与贸易。不同品种与饲养方式的肉不能按同一品质标准衡量。",
+        "story_uses": "可写牧场与育肥、屠宰季、盐渍牛肉与远航口粮、牛排与宴席的阶层差异、牛疫与禁令；也适合写宗教禁忌造成的食材边界与屠宰业分工。",
+        "historical_scope": "牛作为役畜的价值长期高于肉用，专门化的肉牛品种是近几百年育种的产物。腌牛肉与罐头牛肉在近代海运与军需中重要。主要人均消费国包括乌拉圭、阿根廷、新西兰、澳大利亚与美国；在多数东南亚、非洲与南亚地区牛肉并不普及。",
+        "evidence_and_uncertainty": "Britannica 提供分级、熟成温度与时间、消费国与宗教禁食；具体历史贸易规模与罐头工业的发展需经济史来源，本条不作年代细化。"
+      },
+      "source_ids": ["animal_food_brit_beef", "animal_food_brit_cattle"],
+      "related_ids": ["animal_food_cattle", "animal_food_mutton_lamb", "animal_food_pork"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "animal_food_pork",
+      "name": "猪肉",
+      "aliases": ["pork", "鲜猪肉", "豚肉"],
+      "tags": ["animal_product", "food", "cooking", "preservation"],
+      "summary": "猪肉是家猪的肉，因脂肪与肌肉比例适合腌制、烟熏与灌肠，历史上大量以腌腊形式保存；它也是犹太教与伊斯兰教饮食规则中明确避开的肉类。",
+      "details": {
+        "definition": "指家猪的肉，通常在六个月至一岁间屠宰。品质看色泽（灰粉）、紧实度与脂肪层是否白而紧实。约三成作鲜肉消费，其余多用于腌熏（火腿、培根）、灌肠与熬脂，因此猪肉在加工体系中的分量远高于鲜销比例所示。",
+        "mechanism": "猪肉脂肪熔点较低、分布较均匀，适合盐渍渗透与烟熏上色；屠宰后同样经历 pH 下降与酶解，而腌腊通过降低水分活度与抑菌延长保存。全畜利用使同一头猪产出鲜肉、腌肉、香肠、猪油、皮与骨，几乎没有剩余，这是养猪在农户经济中抗风险能力强的技术原因。",
+        "conditions": "需屠宰检疫、低温分割与冷藏；腌腊需盐、硝盐（亚硝酸盐）、低温与通风干燥或烟熏条件，过程中的温度与盐分控制不当会带来肉毒与腐败风险，本条不提供参数。饲料（泔水、谷物、块根）决定成本与肉质；泔水喂猪与疫病传播相关，多地已限制。",
+        "exceptions": "宗教差异是首要例外：犹太教 kashruth 与伊斯兰 halal 都排除猪肉，但不同社群与家庭的实际遵守程度不同，有严格守戒者也有不遵守者，不能把整个群体一律描述为禁食或食用。旋毛虫等寄生虫风险使猪肉需充分加热，各地卫生条件不同，风险不可一概而论。",
+        "story_uses": "可写年末杀猪、腌腊与烟熏房、香肠与火腿的地方差异、猪油在烹饪与制皂中的双重用途；也适合写因宗教规则不同而在同一村庄或市场中形成的食材分工与隔阂。",
+        "historical_scope": "猪肉在东亚与欧洲长期是主要肉类，腌腊技术使它在无冷藏条件下可长距离流通；火腿产区的地方名声是长期工艺积累的结果。21 世纪初中国是世界上猪存栏最多的国家之一。冷藏普及后鲜肉比重上升，腌腊从必需转为风味。",
+        "evidence_and_uncertainty": "Britannica 的 pork 与 ham 条目提供胴体利用比例、加热温度与宗教禁忌；腌腊工艺细节（盐量、温湿度曲线）不在本条范围，也不提供操作参数。"
+      },
+      "source_ids": ["animal_food_brit_pork", "animal_food_brit_pig", "animal_food_brit_dietary_law"],
+      "related_ids": ["animal_food_pig", "animal_food_ham_bacon", "animal_food_sausage", "animal_food_rendered_fat"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "animal_food_mutton_lamb",
+      "name": "羊肉",
+      "aliases": ["绵羊肉", "羔羊肉", "lamb", "mutton", "山羊肉"],
+      "tags": ["animal_product", "food", "cooking"],
+      "summary": "羊肉分羔羊与成年羊肉，风味与嫩度差别明显；在西亚、中亚、南亚、地中海与部分欧洲牧区是主要肉类，在其他地区则可能是小众食材。",
+      "details": {
+        "definition": "指绵羊的肉；幼龄为 lamb，成年为 mutton，部分市场另有 hogget 等中间分级。山羊肉（goat meat）另属一类，虽在烹饪上可相近处理，但物种与风味不同。风味来自脂肪中的支链脂肪酸，饲草种类与年龄影响明显，因此同一地区不同季节的羊肉味道并不一致。",
+        "mechanism": "羊的脂肪分布与肌肉纤维较细，适合烤、炖与焖；成年羊结缔组织多，适合长时间湿熱。屠宰后同样需排酸与冷藏。因多以草场放牧，肉的色泽与风味随牧草季节性变化，这使羊肉的季节性比其他肉类更突出。",
+        "conditions": "依赖草场放牧或舍饲（谷物与干草）；出栏常集中在秋末（牧草与体重条件），因此鲜肉供应有季节性，其余时间靠腌、熏、罐藏或冷冻。冷链不足时，风干与盐渍是常见替代。屠宰与分割的宗教规范会影响加工与流通半径，形成特定的市场分工。",
+        "exceptions": "不同地区对羊肉的接受度差异极大：在北欧部分国家与北美，羊肉消费相对有限；在中亚与中东，羊肉是待客与节庆的核心。绵羊与山羊肉不能混称；mutton 与 lamb 的市场定义各国不同，不能按单一标准理解。",
+        "story_uses": "可写转场放牧与秋宰、待客宰羊的礼俗、羊油与羊毛的副产、共用大锅炖肉与分肉规则；也适合写草场退化、干旱与畜群规模之间的张力，以及鲜肉季节性如何迫使人们以盐渍或熏制填补淡季。",
+        "historical_scope": "绵羊的肉用与毛用长期并存，肉用型品种的专门化是较近的事；羊肉在欧亚牧区与地中海饮食中长期重要。二十世纪以后冷冻与运输改变了羊肉的销售半径，牧区自食比重随之下降。",
+        "evidence_and_uncertainty": "本条主要依据 Britannica 的绵羊条目（肉、乳、毛用途与 mutton、lamb 术语）；羊肉风味化学、各国消费统计与宰牲规范细节需专门来源。"
+      },
+      "source_ids": ["animal_food_brit_sheep", "animal_food_brit_goat"],
+      "related_ids": ["animal_food_sheep", "animal_food_beef"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "animal_food_cheese",
+      "name": "奶酪",
+      "aliases": ["干酪", "芝士", "cheese", "凝乳", "curd"],
+      "tags": ["animal_product", "food", "dairy", "fermentation", "preservation"],
+      "summary": "奶酪是牛、羊、水牛等乳经酸或凝乳酶凝固后，取凝乳脱水、成型并多数熟成得到的食品；它把约十份乳浓缩成一份，是乳最重要的保存形式之一。",
+      "details": {
+        "definition": "以乳中酪蛋白在酸化或凝乳酶作用下凝固形成凝乳，排出乳清后经切割、加热、搅拌、排乳清、加盐、压榨、成型与熟成而成。乳可来自牛、山羊、绵羊、水牛、马、牦牛、骆驼等。按硬度与熟成方式可分为极硬、硬、半硬、软、蓝纹与未熟成等类，但同一名称在不同国家的规格并不一致。",
+        "mechanism": "乳酸菌把乳糖发酵为乳酸使 pH 下降，或凝乳酶（传统上取自犊牛胃的酶制剂）使酪蛋白交联成网，两条路径都能让乳凝固。凝乳切割排出乳清、浓缩固形物；盐既调味又抑菌并助排乳清；熟成中酶与微生物分解脂肪、蛋白与乳糖，产生挥发酸、酮、酯、氨与硫化氢等风味物质。约十份乳浓缩成一份成品，因此奶酪是把易腐的乳变成可储存固体的关键技术。",
+        "conditions": "需要乳（质量与脂肪含量决定成品）、发酵剂、凝乳酶或酸、盐、温度与湿度可控的熟成空间（洞穴、地窖或熟成室）、清洁器具与压榨成型设备。蓝纹奶酪需特定霉菌与通气。硬质奶酪的长期熟成依赖稳定的低温高湿环境，这种环境在地中海与阿尔卑斯山区曾由天然洞穴提供。",
+        "exceptions": "工艺差异巨大：有的靠自然变酸，有的靠凝乳酶，有的几乎不熟成（农家鲜酪、里科塔类），因此不能按单一流程理解奶酪。原料乳未经消毒时风险高于消毒乳，各地法规不同。宗教规则会影响凝乳酶来源（动物或微生物）与肉乳同食的禁令（kashruth 要求肉与乳分开），实践程度因社群而异。",
+        "story_uses": "可写牧区夏季制酪与冬季消耗、洞穴熟成与地方名声、凝乳酶的来源（小牛胃）与替代品、奶酪作为赋税或长途贸易品；也适合写奶多到喝不完与冬天没奶之间的季节性矛盾。",
+        "historical_scope": "制酪可能早于有文字记载的畜牧阶段，公元前一千年左右西亚与地中海已有以牛乳等制酪的记载；希腊罗马与北欧早期社会都重视奶酪，做法常被保密。十九世纪后工厂化生产使品种趋于标准化，地方品种减少；荷兰、法国、意大利与瑞士的制酪业长期具有经济重要性。",
+        "evidence_and_uncertainty": "Britannica 提供定义、凝固原理与浓缩比、按硬度与熟成的分类以及熟成中的化学变化，这些可支撑机制与工艺框架；但具体品种的起源年代与产地说法多有争议，部分属地方传说，本条不作断言。原料乳消毒与否带来的风险差异需食品安全来源补充。"
+      },
+      "source_ids": ["animal_food_brit_cheese", "animal_food_brit_dairy_product", "animal_food_brit_dietary_law"],
+      "related_ids": ["animal_food_milk", "animal_food_butter", "animal_food_yogurt", "animal_food_water_buffalo", "animal_food_sheep"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "animal_food_butter",
+      "name": "黄油",
+      "aliases": ["牛油", "butter", "甜黄油", "无盐黄油", "酥油"],
+      "tags": ["animal_product", "food", "dairy", "preservation"],
+      "summary": "黄油是把稀奶油搅打使脂肪聚集、排出酪乳而得的乳脂制品，含脂至少约八成；它把易腐的乳变成可存放的脂肪，是北欧、北美与南亚等乳畜区的重要烹调用脂。",
+      "details": {
+        "definition": "由乳（通常牛乳）的稀奶油经搅打形成的脂肪包水乳状固体，含乳脂八成以上，含水与少量盐；无盐者常称甜黄油。它与澄清黄油或酥油（去除乳蛋白与水分）、人造黄油（植物油脂乳化）在成分与工艺上完全不同，不应混称。",
+        "mechanism": "搅打破坏脂肪球膜，使脂肪球聚集并挤出水分，形成油包水结构；温度是关键变量——太冷打不动、太热脂肪不成团。约二十升全脂乳可得一公斤黄油，同时剩下脱脂乳与酪乳，这两个副产本身也是食物与饲料，因此黄油生产与脱脂乳利用是同一套工艺的两面。",
+        "conditions": "需要乳畜、分离稀奶油（静置或离心）、搅打、水洗与加盐、成型与冷藏；夏季乳量多、冬季少，造成明显的生产季节性，盐渍与密封是长期保存的手段。十九世纪离心分离机把制黄油从农家移入工厂，二十世纪连续式制法进一步提高效率并稳定品质。",
+        "exceptions": "黄油与酥油、印度酥油（ghee）、人造黄油在成分与耐热性上不同，南亚的酥油是澄清乳脂，不含乳蛋白与水分。并非所有乳畜区都以黄油为主要脂类来源，橄榄油、猪油与植物油在别处占主导。各国的黄油法定含脂率与是否允许加色也不相同。",
+        "story_uses": "可写搅乳桶与家庭劳作、夏季制脂与冬季消耗、盐黄油的贸易、黄油与人造黄油的竞争、节庆与烘焙中的用量差异；也适合写乳脂与脱脂乳的分配如何决定一个家庭的食谱。",
+        "historical_scope": "黄油起源不明，可能早于史前畜牧阶段的乳加工；十九世纪后期离心分离机与工厂化生产改变了它的生产规模，二战后的连续制法提高了产量。据概述，约三分之一的世界乳产量用于制黄油。",
+        "evidence_and_uncertainty": "Britannica 提供成分、浓缩比、工艺史与用途；各国黄油标准（含脂率、是否允许加色、盐分上限）不同，本条不给具体法定数值。"
+      },
+      "source_ids": ["animal_food_brit_butter", "animal_food_brit_dairy_product"],
+      "related_ids": ["animal_food_milk", "animal_food_cheese", "animal_food_rendered_fat"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "animal_food_yogurt",
+      "name": "发酵乳",
+      "aliases": ["酸奶", "yogurt", "yoghurt", "酸乳", "labneh"],
+      "tags": ["animal_product", "food", "dairy", "fermentation", "preservation"],
+      "summary": "发酵乳是乳经乳酸菌发酵变酸、增稠而成的半流体食品；它延长了乳的保存期并降低乳糖含量，是缺乏冷藏条件下利用乳的主要方式之一。",
+      "details": {
+        "definition": "以牛、绵羊、山羊或水牛乳接种乳酸菌（如嗜热链球菌与保加利亚乳杆菌）发酵而成的半流体乳制品，因乳酸而微酸、质地稠厚。不同地区还有滤除乳清的浓缩型（如 labneh 类）、稀释饮用型与加果蔬型。用非乳原料制成的类似产品属替代品，不应与发酵乳混称。",
+        "mechanism": "菌把乳糖转化为乳酸，pH 下降使酪蛋白在等电点附近凝聚成凝胶，从而增稠并抑制部分腐败菌；同时部分乳糖被消耗，对乳糖酶活性低的人更易接受，这属食品特性描述，不构成医疗建议。家庭做法通常先煮沸杀菌并蒸发部分水分，冷却后以上一批成品作引子接种，保温数小时后缓慢冷却。",
+        "conditions": "需要乳、菌种（上一批成品或市售发酵剂）、能维持约四十三到四十四摄氏度的保温条件（灶边、草垫、保温箱）、清洁容器与冷却场所。乳源不同决定成品风味与稠度：绵羊与山羊乳在土耳其与东南欧常见，水牛乳在埃及与印度常见。冷链不足时发酵是最经济的保存方式，但发酵不能修复已严重污染的乳。",
+        "exceptions": "发酵乳不是更安全的乳的普遍保证：原料乳若污染严重，发酵后仍可能不安全；不同产品的活菌数与添加糖差异很大。乳糖不耐受者未必都能耐受所有乳制品，个体差异明显。名称与法规不同（yogurt、yoghurt 及各种地方名），不能按一个标准套全球。",
+        "story_uses": "可写以上一批作引子的传承、羊皮袋或陶罐发酵、夏季乳多时的保存策略、待客的酸奶饮品与稀释饮用习惯；也适合写菌种断绝（灾荒、迁徙、器皿污染）导致的技术断裂。",
+        "historical_scope": "起源地有争议（土耳其常被提及），但发酵乳在西亚、南亚、东欧与北非长期存在，名称与做法各异。二十世纪商业化生产引入标准化菌种并添加乳固形物，使产品质地更一致，也使家庭发酵的传统在部分城市中断。",
+        "evidence_and_uncertainty": "Britannica 提供定义、家庭做法、菌种与温度、地区乳源差异；起源传说多，不宜定死。关于健康功效的宣称超出本条范围，本条不作医疗声称。"
+      },
+      "source_ids": ["animal_food_brit_yogurt", "animal_food_brit_milk"],
+      "related_ids": ["animal_food_milk", "animal_food_cheese"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "animal_food_ham_bacon",
+      "name": "火腿与腌熏猪肉",
+      "aliases": ["火腿", "培根", "咸肉", "ham", "bacon", "prosciutto"],
+      "tags": ["animal_product", "food", "preservation", "cooking"],
+      "summary": "火腿是猪后腿经盐渍（干腌、湿腌或注射）、可选烟熏与长期熟成制成的保存肉，培根是腌熏的腹肉；共同点是用盐与低温把易腐的肉变成可存放、可运输的食品。",
+      "details": {
+        "definition": "火腿指猪后腿（约占胴体一成八到两成）经腌制（盐、糖、亚硝酸盐或硝酸盐）与干燥、烟熏、熟成而成，可分为可生食的干腌长熟型与需加热的轻度腌制型。培根通常指腌熏的猪腹肉。各地对火腿的范围规定不同，例如美国允许肩部制品标为 picnic ham，但不属真火腿。",
+        "mechanism": "盐降低水分活度并抑制腐败菌，亚硝酸盐抑制肉毒梭菌并固定肉色，糖改善口感与质地；腌制期间必须保持低温，直到盐分渗透到肉的中心，否则内部先腐败。烟熏起脱水与表面抑菌作用并带来风味，熟成中的酶解产生特有香气。这条盐、低温、脱水、烟熏的组合是前冷藏时代保存肉的标准解法。",
+        "conditions": "需要低温（接近冰点）、盐与硝盐、可控湿度与通风的干燥熟成空间、烟熏燃料或液态烟；成品按含水与腌制强度决定是否需要冷藏，乡村火腿经充分腌制干燥后可不需冷藏。传统产区靠冬季低温与长期悬挂，气候不合适的地区难以复制同样产品。",
+        "exceptions": "干腌生火腿与工业化熟火腿在安全性、保存条件与食用方式上完全不同，不能互推。亚硝酸盐在多国有法定限量并存在争议，本条不提供用量。宗教规则（halal、kashruth）对猪肉与添加物的要求不同，社群实践亦有差异；同一产品可能因加工方式而不被某社群接受。",
+        "story_uses": "可写冬季杀猪与盐渍、烟熏房的火与木、火腿悬挂与年份、远航与军需口粮、产区名声与仿冒；也适合写盐的供应与价格如何决定一个村庄能否腌肉。",
+        "historical_scope": "火腿是欧亚很早的保存肉之一（受宗教禁令的地区除外），随欧洲殖民者传入美洲并成为农场冬末的传统。Smithfield、Parma、Westphalia、Bayonne 等产区的工艺在长期积累中形成。冷藏与真空包装普及后，腌腊从必需变为风味选择。",
+        "evidence_and_uncertainty": "Britannica 的 ham 与 curing 条目提供部位比例、腌制方法、亚硝酸盐作用与区域工艺；具体盐量、温湿度与时长属操作参数，本条不提供。"
+      },
+      "source_ids": ["animal_food_brit_ham", "animal_food_brit_curing", "animal_food_brit_pork"],
+      "related_ids": ["animal_food_pork", "animal_food_pig", "animal_food_sausage", "animal_food_rendered_fat"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "animal_food_sausage",
+      "name": "香肠",
+      "aliases": ["灌肠", "腊肠", "sausage", "salami", "血肠"],
+      "tags": ["animal_product", "food", "preservation", "cooking", "fermentation"],
+      "summary": "香肠是把碎肉与盐、香料（有时加谷物、血、内脏）灌入肠衣或人造肠衣制成的肉制品；按是否熟成与加热分为鲜肠、熏肠、熟肠与干肠，干肠在没有冷藏的条件下可长期存放。",
+      "details": {
+        "definition": "以切碎调味的肉（可含禽、鱼、内脏、血、脂肪）灌装于动物肠衣、织物袋或合成肠衣中的食品，名称源自拉丁语的盐渍一词。分类包括鲜肠（未熟未熏）、生熏肠、熟熏肠、熟肠与干肠；干肠因脱水而耐存，其余多需冷藏。香肠、灌肠、腊肠在不同语言中范围不同，不能直接对译。",
+        "mechanism": "盐与脱水抑制微生物、降低水分活度；发酵（乳酸菌）降低 pH 进一步抑制腐败菌并产生风味；烟熏兼具脱水与表面抑菌。切碎与搅拌使盐与香料均匀分布，也让脂肪与瘦肉形成稳定乳化（尤其在熟肠中）。气候决定类型：温暖地区更依赖脱水与发酵，凉爽地区更多鲜肠与熟肠。",
+        "conditions": "需要肉与脂肪、盐、香料、肠衣（天然肠或胶原、纤维素、塑料人造肠）、灌装设备、发酵干燥与烟熏空间及温湿度控制。清洁与温度控制不当会导致严重食物中毒风险，本条只作定性提示，不给操作参数。肠衣的清洗与盐渍本身是繁重的准备工序。",
+        "exceptions": "香肠覆盖极不同的产品：鲜肠必须彻底加热，干肠可直接食用，熟肠介于其间，不能按一个规则对待。血肠、肝肠、鱼肠与纯素肠的原料完全不同。宗教规则影响肠衣与肉源的选择（如猪肠衣与 halal、kashruth 的冲突），不同社群的处理方式不同，有些人改用合成肠衣。",
+        "story_uses": "可写秋末灌肠与共享劳力、肠衣的清洗与盐渍、干肠悬挂与旅途口粮、以地名命名的肠类与由此形成的地方名声；也适合写配方保密与移民带来的口味迁移，以及检疫与掺假引起的争议。",
+        "historical_scope": "类似制品在古代巴比伦、希腊与罗马已有记载；中世纪起欧洲城市以本地香肠闻名，法兰克福、博洛尼亚等地名进入食品名称。北美原住民的肉干果饼是另一条保存思路。十九至二十世纪的绞肉机、灌肠机与冷藏改变了生产规模与卫生条件。",
+        "evidence_and_uncertainty": "Britannica 提供定义、分类、原料与保存逻辑；发酵与干燥的具体参数（盐度、温度、时间）属危险操作细节，本条不展开。"
+      },
+      "source_ids": ["animal_food_brit_sausage", "animal_food_brit_curing", "animal_food_brit_food_preservation"],
+      "related_ids": ["animal_food_pork", "animal_food_beef", "animal_food_ham_bacon", "animal_food_rendered_fat"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "animal_food_rendered_fat",
+      "name": "熬炼动物脂肪",
+      "aliases": ["猪油", "lard", "牛脂", "tallow", "荤油", "油渣"],
+      "tags": ["animal_product", "food", "cooking", "preservation", "processed_material"],
+      "summary": "熬炼动物脂肪是把畜体脂肪组织加热使油脂分离所得的食用脂（猪油、牛羊脂等）；它既是高热值的烹调用脂，也曾是制皂、照明与工业原料。",
+      "details": {
+        "definition": "以猪的脂肪组织（板油、背脂）加热熔出者称猪油；牛、羊脂肪同样可熬为牛脂与羊脂。按工艺分湿熬（加压蒸汽）、干熬（釜内熔出，残留物为油渣）与连续熬炼（研磨、速热、离心分离）。它与黄油（乳脂）、植物油不同类，在成分与耐热性上也不可互换。",
+        "mechanism": "加热使脂肪细胞破裂、油脂释出并与水分和蛋白残渣分离；水分与残渣是腐败与哈败的主要来源，因此熬得越干、过滤越净，保存越久。脂肪氧化可用抗氧化剂与避光密封延缓。猪油的脂肪酸以油酸、棕榈酸、硬脂酸与亚油酸为主，组成随饲料变化，这也是农家猪油风味差异的原因。",
+        "conditions": "需要脂肪原料、加热容器与燃料、过滤与成型容器、阴凉避光的储存条件；屠宰季集中在低温季节便于保存。油渣可食用或作饲料。工业上猪油还用于起酥油、制药与香料膏体，因此同一原料同时进入食物与非食物链条。",
+        "exceptions": "猪油与其他动物脂的熔点、风味与适用面不同，不能互换。动物脂在某些宗教与饮食规则中受特殊限制（如 kashruth 对动物脂与肉乳分离的规定、部分群体回避猪油），实践程度不同。现代植物油普及后，动物脂在许多地区从主要烹调用脂变为风味选择。",
+        "story_uses": "可写熬油与油渣的香气、油罐与陶壶的储存、以脂换盐或换铁的小额交易、油脂用于照明与制皂的夜间劳作；也适合写油比肉更值钱的价格关系。",
+        "historical_scope": "熬脂与人类畜牧屠宰同样古老；十九世纪后猪油进入工业链条（起酥油、肥皂、甘油），二十世纪因饱和脂肪的健康讨论消费下降。具体转折时间各地不同。",
+        "evidence_and_uncertainty": "Britannica 的 lard 条目提供工艺分类、脂肪酸组成与工业用途；牛脂与羊脂的细节未在该条目展开，本条以同类工艺作有限外推并已标明。"
+      },
+      "source_ids": ["animal_food_brit_lard", "animal_food_brit_food_preservation"],
+      "related_ids": ["animal_food_pork", "animal_food_pig", "animal_food_butter", "animal_food_sausage"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "animal_food_dried_salted_fish",
+      "name": "干腌鱼",
+      "aliases": ["咸鱼", "鱼干", "鳕鱼干", "鲱鱼干", "dried fish", "stockfish"],
+      "tags": ["animal_product", "food", "aquatic_food", "preservation"],
+      "summary": "干腌鱼是用盐渍、风干或二者结合把鱼变成可长期存放、可远运的食品；在没有冷链的时代，它是把渔汛的过剩产量转化为全年蛋白的主要手段。",
+      "details": {
+        "definition": "包括盐渍鱼（湿腌、干盐堆腌）、风干鱼（日晒、冷风干）以及盐渍后再干燥的组合形式；原料可为鳕、鲱、鲭、沙丁等脂肪含量不同的鱼。熏鱼另属一类，以烟熏为主要手段。同一名称在不同语言中可能指不同处理，不能直译。",
+        "mechanism": "盐通过渗透脱水降低水分活度、抑制腐败菌，干燥进一步降低含水量；脂肪高的鱼（如鲱、鲭）容易氧化哈败，因此更依赖盐渍与隔绝空气，或改为熏制与罐藏。蛋白质在盐渍与干燥中变性，复水后质地与鲜鱼不同，这正是干鱼独特风味的来源，也决定了它适合煮汤炖菜而非清蒸。",
+        "conditions": "需要大量盐（盐本身可能是稀缺商品）、低温或干燥多风的气候、晒场或风干架、防雨防虫的覆盖，以及能密封的桶、箱或仓。湿热地区难以靠日晒长期保存，更多依赖盐渍与烟熏。渔船与加工场的地理位置决定哪一种方式可行。",
+        "exceptions": "不同鱼种的适用性不同：瘦的白肉鱼适合干制，脂肪多的鱼更易哈败、需更强盐渍或改作罐头。名称与工艺各地差异大。宗教与斋戒规则会形成特定的鱼制品需求（如斋期食鱼），但具体规定与遵守程度因社群而异。干腌鱼在缺乏维生素来源的内陆饮食中可能造成营养不均衡，这属饮食结构问题，不作医疗判断。",
+        "story_uses": "可写渔汛后盐与木桶的抢购、晒鱼场与天气赌注、远航与矿山口粮、盐税与鱼税，以及丰年鱼多到只能腌掉、盐贵时却眼看着鱼烂掉的情形；也适合写盐荒如何把一年一度的丰产变成浪费，以及干鱼贸易路线上的中间商与运夫。",
+        "historical_scope": "干燥与盐渍是史前即有的保存手段；干腌鱼在北大西洋与波罗的海贸易中长期重要，但具体贸易路线与规模需经济史来源。罐头与冷冻普及后，干腌鱼从主食退为地方风味，部分品种转为节庆食品。",
+        "evidence_and_uncertainty": "Britannica 的 food preservation 条目支持干燥与盐渍为最古老手段及其抑菌原理；鳕鱼与鲱鱼干盐贸易的具体历史年代与规模未由本次已读来源逐条支撑，本条仅作方向性陈述，应标注待核。"
+      },
+      "source_ids": ["animal_food_brit_food_preservation", "animal_food_brit_curing", "animal_food_noaa_cod", "animal_food_noaa_herring"],
+      "related_ids": ["animal_food_cod", "animal_food_herring", "animal_food_shrimp_prawn"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "animal_food_condensed_dried_milk",
+      "name": "炼乳与乳粉",
+      "aliases": ["炼乳", "淡炼乳", "乳粉", "奶粉", "condensed milk", "evaporated milk", "milk powder"],
+      "tags": ["animal_product", "food", "dairy", "preservation", "processed_material"],
+      "summary": "炼乳与乳粉是把乳去掉大部分水分制成的耐存乳制品：加糖浓缩者为甜炼乳，灭菌浓缩者为淡炼乳，干燥者为乳粉；它们让乳能离开产地、进入城市与军队供应链。",
+      "details": {
+        "definition": "淡炼乳指乳经浓缩并灭菌装罐、不加糖者；甜炼乳指浓缩并加大量糖以抑菌者；乳粉指几乎完全脱水者（可全脂或脱脂），另有添加其他成分的调制乳粉。三者都不是鲜乳的等价替代品，成分、用途与适用人群不同，不能互换使用。",
+        "mechanism": "去除水分降低了水活度与体积，使微生物难以繁殖并大幅降低运输成本；加糖进一步降低水活度（甜炼乳）；灭菌加密封（淡炼乳）与干燥（乳粉）是两条不同路线。复原时加水即可接近鲜乳状态，但风味与部分营养会有变化，这是浓缩干燥的固有代价。",
+        "conditions": "需要鲜乳、真空浓缩设备、灭菌与装罐线（淡炼乳）、加糖与均质（甜炼乳）、喷雾或滚筒干燥塔与防潮包装（乳粉），以及燃料与密封容器。原乳质量决定成品是否合格。运输与储存不需全程冷链，这是它相对鲜乳的关键优势，也是它进入远离产区市场的技术前提。",
+        "exceptions": "甜炼乳含糖极高，不等于可替代鲜乳作婴儿喂养，本条不作营养建议，只指出产品差异。乳粉复原后仍需按卫生条件处理，冲调用水同样重要。各国对乳粉与炼乳的分类与标签规定不同。乳糖与乳蛋白的耐受问题不会因干燥而消失。",
+        "story_uses": "可写罐头炼乳的长距离运输、军队与探险口粮、城市工人家庭用乳、糖与乳的双重稀缺；也适合写没有奶牛的城市如何喝到乳这一物流问题，以及罐头开启后如何在无冷藏条件下尽快用完。",
+        "historical_scope": "十九世纪中期起，炼乳与乳粉作为延长乳保存期的工业方案出现并进入军需与殖民贸易；二十世纪随喷雾干燥与包装技术普及，乳粉成为国际乳品贸易的大宗。具体发明年份与专利归属有争议，本条不定死。",
+        "evidence_and_uncertainty": "Britannica 的 dairy product 条目列出炼乳、淡炼乳与乳粉并给出成分表，可支持这些品类存在与成分差异；具体工业史节点需技术史来源。"
+      },
+      "source_ids": ["animal_food_brit_dairy_product", "animal_food_brit_milk"],
+      "related_ids": ["animal_food_milk", "animal_food_butter"],
+      "review_status": "needs_review"
+    }
+  ]
+}

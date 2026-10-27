@@ -8,6 +8,70 @@ from .knowledge import retrieve, extract_notes
 from . import attributes
 
 
+# Offline narration is deterministic and player-visible: a structured behaviour
+# decision turned into one short action. It never prints the internal cue instruction,
+# never claims to understand the player's input, and never shows personality weights.
+OFFLINE_PHRASES = {
+    '直接回应': '{name}直接答了一句，没有绕弯。',
+    '提出明确请求': '{name}把要求说清楚，等一个准话。',
+    '解释立场': '{name}先说明自己的立场，再看对方怎么接。',
+    '接话反问': '{name}顺着话头接了一句，反问回来。',
+    '温和转折': '{name}语气放缓，把话往别处引了引。',
+    '试探需求': '{name}先探了探这边的打算。',
+    '调侃缓和': '{name}笑了一声，把话说得轻些。',
+    '协商交换': '{name}提了个交换条件，没有把话说死。',
+    '委婉拒绝': '{name}没有答应，只留了个余地。',
+}
+OFFLINE_DEFAULT = '{name}听着，没有马上接话。'
+OFFLINE_STILL = '{name}的注意力落在这边，神色未变。'
+OFFLINE_EMOTION = {'警惕': '神色收着', '愉快': '神情松了些', '悲伤': '情绪低落',
+                   '愤怒': '语气发硬', '恐惧': '有些犹疑'}
+
+
+def offline_surface(session, result, request):
+    """Build a player-visible offline reply from structured decisions only.
+
+    The input channel decides what may be narrated as contact. A thought or a note is
+    not spoken aloud, so nothing may be rendered as the NPC "answering" it; only a
+    speech turn (or an executed action) can produce a conversational performance.
+    """
+    observer = (session.get('mode') == 'observer')
+    if request.action_id:
+        lines = [result['outcome']]
+    elif observer:
+        lines = ['我看着眼前这一幕。']
+    elif request.channel == 'speech':
+        lines = ['我把话说出口，等着回应。']
+    elif request.channel == 'thought':
+        lines = ['我在心里过了一遍这件事，没有出声。']
+    elif request.channel == 'note':
+        lines = ['我写下几行字，没有让旁人看见。']
+    else:
+        lines = ['我停下动作，等着眼前的人给出反应。']
+    speaking = bool(request.action_id) or (request.channel == 'speech' and not observer)
+    for item in result.get('performances', []):
+        name = item['public_name']
+        if not speaking:
+            # Unspoken input: only something observable in the scene, never a reply.
+            lines.append(OFFLINE_STILL.format(name=name))
+            continue
+        line = OFFLINE_PHRASES.get(item['action'], OFFLINE_DEFAULT).format(name=name)
+        if item.get('emotion'):
+            line += '（' + OFFLINE_EMOTION.get(item['emotion'], '神色有些变化') + '）'
+        if item.get('stance') == 'guarded':
+            line += '随后往后收了半步。'
+        if item.get('unverified_claim'):
+            line += '话里的说法我没有当成已证实。'
+        lines.append(line)
+    if result.get('special_dialogue'):
+        lines.append(result['special_dialogue'])
+    # Only public reward lines ever reach narration: labels and balances the engine
+    # already disclosed. Absent config means no key, so old text is unchanged.
+    if result.get('rewards'):
+        lines.append('（' + '；'.join(result['rewards']) + '）')
+    return '\n\n'.join(x for x in lines if x)
+
+
 class Service:
     def __init__(self, store, root):
         self.store = store
@@ -18,29 +82,45 @@ class Service:
         self.world_generator = WorldGenerator(self)
         from .development import Development
         self.development = Development(self)
+        from .towns_store import TownService
+        self.towns = TownService(self)
+        from .element_assembly import ElementAssembly
+        self.elements = ElementAssembly(self)
+        # 启动时恢复被中断的提交预留（包事务日志已由 Runtime 初始化先处理）。
+        self.elements.recover_on_startup()
 
     def preferences(self):
         return {**Preferences().model_dump(), **self.store.get('settings', 'preferences', {}),
                 'surface_thinking': self.provider.config()['thinking_mode'] == 'enabled'}
 
     async def turn(self, session_id, request):
+        # Prepare against one saved version, then release the lock while waiting for
+        # the model. The final save uses Store's compare-and-swap version check.
         async with self.lock:
             s = self.store.session(session_id)
+            expected_version = s.get('state_version', 0)
             result = self.runtime.prepare_turn(s, request)
             context = self.runtime.context(s, 'player', request.message, self.preferences())
-            context['resolved_action'] = result
+            # Only the narrator-visible part of the resolved action reaches the model;
+            # author-side reward audits stay out of every prompt.
+            context['resolved_action'] = self.runtime.resolved_rewards(result)
             corpus = self.store.get('corpus', 'general')['text']
             system = surface_prefix(self.runtime.package(s['revision']), corpus)
-            if self.provider.config()['offline']:
-                reply = result['outcome'] if request.action_id else '我停下脚步，斟酌着接下来要说的话。'
-                reply += '\n\n' + result.get('reaction', '') + result['voice'] + result.get('special_dialogue', '')
-                usage = {'mode': 'offline', 'calls': 0}
-                self.provider.offline_trace('surface', {'system': system, 'tail': context}, reply)
-            else:
-                if len(system) + len(json.dumps(context, ensure_ascii=False)) > self.preferences()['context_chars']:
-                    raise ValueError('上下文超过预算，请减少语料或提高预算')
-                reply, usage = await self.provider.complete(system, context, scope='surface')
-                usage['calls'] = 1
+            offline = self.provider.config()['offline']
+            budget = self.preferences()['context_chars']
+        if offline:
+            reply = offline_surface(s, result, request)
+            usage = {'mode': 'offline', 'calls': 0}
+            self.provider.offline_trace('surface', {'system': system, 'tail': context}, reply)
+        else:
+            if len(system) + len(json.dumps(context, ensure_ascii=False)) > budget:
+                raise ValueError('上下文超过预算，请减少语料或提高预算')
+            reply, usage = await self.provider.complete(system, context, scope='surface')
+            usage['calls'] = 1
+        async with self.lock:
+            latest = self.store.session(session_id)
+            if latest.get('state_version', 0) != expected_version:
+                raise ValueError('旅程已被其他操作更新，请刷新后重试')
             # Failure above never persists the candidate state.
             self.runtime.finish_turn(s, request, reply, result, usage)
             return self.runtime.surface(s)

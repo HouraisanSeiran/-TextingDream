@@ -42,8 +42,8 @@ def context_json(context, scope):
     if scope != 'surface':
         return stable_json(context)
     order = ('mode', 'last_summary', 'history',
-             'scene', 'location', 'description', 'characters', 'cast', 'knowledge', 'elements', 'memories', 'dialogue_knowledge',
-             'self', 'current_state', 'current_time', 'current_daytime', 'current_inventory',
+             'scene', 'location', 'description', 'characters', 'cast', 'knowledge', 'elements', 'current_elements', 'memories', 'dialogue_knowledge',
+             'self', 'current_state', 'current_time', 'current_daytime', 'current_inventory', 'current_rewards',
              'current_event', 'recalled_dialogue', 'current_anchor', 'resolved_action', 'input')
     unknown = sorted(set(context) - set(order))
     keys = list(order[:-1]) + unknown + ['input']

@@ -9,6 +9,10 @@ def dumps(value):
     return json.dumps(value, ensure_ascii=False, separators=(',', ':'))
 
 
+class ConcurrentUpdateError(ValueError):
+    """Raised when a stale session tries to overwrite a newer save."""
+
+
 class Store:
     def __init__(self, path):
         self.path = Path(path)
@@ -30,6 +34,18 @@ class Store:
                 yield db
         finally:
             db.close()
+
+    @contextmanager
+    def transact(self):
+        """One short write transaction that takes the write lock immediately.
+
+        Callers must not await anything inside: the lock is held until the block ends.
+        Town publication uses this only for its own bookkeeping rows, never while a
+        story-package commit is running (that has its own connection and journal).
+        """
+        with self.connect() as db:
+            db.execute('BEGIN IMMEDIATE')
+            yield db
 
     def get(self, kind, id, default=None):
         with self.connect() as db:
@@ -57,15 +73,33 @@ class Store:
         with self.connect() as db:
             db.executemany('INSERT OR REPLACE INTO documents VALUES(?,?,?)', [(kind, id, dumps(value)) for kind, id, value in records])
 
-    def save_session(self, session, records=()):
+    def save_session(self, session, records=(), expected_version=None):
         state = dict(session)
         layers = {table: state.pop(table) for table in ('facts', 'beliefs', 'heard')}
+        requested = state.get('state_version', 0)
+        if expected_version is None:
+            expected_version = requested
         with self.connect() as db:
+            # Serialize the short read/check/write transaction. The remote model is
+            # never awaited while this SQLite write lock is held.
+            db.execute('BEGIN IMMEDIATE')
+            row = db.execute('SELECT body FROM documents WHERE kind=? AND id=?', ('session', state['id'])).fetchone()
+            if row is None:
+                if expected_version not in (None, 0):
+                    raise ConcurrentUpdateError('旅程版本已变化，请刷新后重试')
+                version = 0
+            else:
+                current = json.loads(row[0]).get('state_version', 0)
+                if current != expected_version:
+                    raise ConcurrentUpdateError('旅程已被其他操作更新，请刷新后重试')
+                version = current + 1
+            state['state_version'] = version
             db.execute('INSERT OR REPLACE INTO documents VALUES(?,?,?)', ('session', state['id'], dumps(state)))
             db.executemany('INSERT OR REPLACE INTO documents VALUES(?,?,?)',[(kind,id,dumps(value)) for kind,id,value in records])
             for table, values in layers.items():
                 db.execute(f'DELETE FROM {table} WHERE session=?', (state['id'],))
                 db.executemany(f'INSERT INTO {table} VALUES(?,?,?)', [(state['id'], str(i), dumps(v)) for i, v in enumerate(values)])
+        session['state_version'] = version
 
     def session(self, id):
         # A single read transaction prevents mixing different revisions of layers.
@@ -75,6 +109,7 @@ class Store:
             if not row:
                 raise ValueError('存档不存在')
             state = json.loads(row[0])
+            state.setdefault('state_version', 0)
             for table in ('facts', 'beliefs', 'heard'):
                 state[table] = [json.loads(r[0]) for r in db.execute(f'SELECT body FROM {table} WHERE session=? ORDER BY rowid', (id,))]
         return state

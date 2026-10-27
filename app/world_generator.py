@@ -10,6 +10,7 @@ from .runtime import uid, now
 from .atlas import Atlas, TerrainKind, city_atlas, project_atlas
 from .geography import Environment, Calendar, environment_features
 from . import attributes
+from . import element_assembly
 
 
 class KnowledgePoint(Strict):
@@ -101,6 +102,11 @@ class GenerateWorldRequest(Strict):
     worldview_draft_id: str | None = None
     city_count: int = Field(default=3, ge=2, le=5)
     output_tokens: int = Field(default=4000, ge=1500, le=8000)
+    # Locked element refs ("namespace/element_id" or ".../id@3"). Empty = pin the CURRENT
+    # package manifest. Either way nothing is taken straight from the library: an explicit
+    # list must be a subset of the manifest that already exists, and candidates are never
+    # auto-confirmed here.
+    elements: list[str] = Field(default_factory=list, max_length=16)
 
 
 class GeneratorEdit(Strict):
@@ -137,7 +143,7 @@ def world_example(count):
             'item_name':'行路册','item_description':'记录已公开驿站与道路的纸册，不揭示未探索地区的秘密。'}
 
 
-def compile_package(view, world, identity):
+def compile_package(view, world, identity, manifest=None):
     # Imported foundations may be larger than a freshly generated blueprint.
     view = copy.deepcopy(view)
     validate_points(view['knowledge'])
@@ -185,6 +191,12 @@ def compile_package(view, world, identity):
         place['environment']=city['environment']
         story['atlas']['features'].extend(environment_features(place))
     story['mechanics']['calendar']=Calendar().model_dump()
+    if manifest is not None:
+        # A copied manifest may name places or characters from ANOTHER world. Those
+        # references are cleared (nobody can see the element) instead of being carried
+        # over or widened; the author re-specifies the public scope afterwards.
+        rebound, _notes = element_assembly.rebind_manifest(manifest, story, characters)
+        story['mechanics'][element_assembly.MECHANICS_KEY] = rebound
     return attributes.upgrade(story,characters)
 
 
@@ -210,7 +222,7 @@ class WorldGenerator:
             if len(result['cities']) != draft['request']['city_count']:
                 raise ValueError('生成城市数与指定数量不一致')
             view = result['worldview']
-            story, chars = compile_package(view,{k:v for k,v in result.items() if k!='worldview'},draft['id'])
+            story, chars = compile_package(view,{k:v for k,v in result.items() if k!='worldview'},draft['id'],manifest=draft.get('element_manifest'))
             self.service.runtime.validate_package(story,chars)
             return result
         if draft['kind'] == 'worldview':
@@ -220,7 +232,7 @@ class WorldGenerator:
         result = WorldBlueprint.model_validate(data).model_dump(mode='json')
         if len(result['cities']) != draft['request']['city_count']:
             raise ValueError('生成城市数与指定数量不一致')
-        story, chars = compile_package(draft['worldview'], result, draft['id'])
+        story, chars = compile_package(draft['worldview'], result, draft['id'],manifest=draft.get('element_manifest'))
         self.service.runtime.validate_package(story, chars)
         return result
 
@@ -244,8 +256,8 @@ class WorldGenerator:
             return self.expanded_story(p['story'],draft['data']),copy.deepcopy(p['characters'])
         if draft['kind']=='complete':
             data=draft['data']
-            return compile_package(data['worldview'],{k:v for k,v in data.items() if k!='worldview'},draft['id'])
-        return compile_package(draft['worldview'],draft['data'],draft['id'])
+            return compile_package(data['worldview'],{k:v for k,v in data.items() if k!='worldview'},draft['id'],manifest=draft.get('element_manifest'))
+        return compile_package(draft['worldview'],draft['data'],draft['id'],manifest=draft.get('element_manifest'))
 
     def preview_atlas(self, identity):
         draft=self.get(identity)
@@ -257,6 +269,13 @@ class WorldGenerator:
     async def generate(self, request):
         svc = self.service
         draft = {'id':uid(),'kind':request.kind,'created':now(),'status':'draft','request':request.model_dump()}
+        # 元素清单在**创建草稿时**就固定：缺省是本包当前快照，显式引用只能是它的子集。
+        # 生成器不会自己去库里挑新条目，也不替作者确认候选状态。
+        manifest, element_notes = None, []
+        if request.kind != 'expand':
+            manifest, element_notes = svc.elements.pin_manifest(request.elements or None)
+        draft['element_manifest'] = manifest
+        draft['element_warnings'] = element_notes
         if request.kind == 'expand':
             svc.runtime.reload_documents()
             p=svc.runtime.package()
@@ -270,14 +289,17 @@ class WorldGenerator:
                 'existing_knowledge_ids':[k['id'] for k in p['story'].get('knowledge',[])],
                 'existing_map_ids':[f['id'] for f in p['story'].get('atlas',{}).get('features',[])],
                 'locations':[{k:l[k] for k in ('id','name','coordinates','neighbors') if k in l} for l in p['story']['locations']],
-                'schema':ExpansionBlueprint.model_json_schema(),'example':example}
+                'schema':ExpansionBlueprint.model_json_schema(),'example':example,
+                'elements':element_assembly.author_context(element_assembly.package_manifest(p['story']))}
         elif request.kind == 'complete':
             example={**world_example(request.city_count),'worldview':worldview_example(request.title,request.historical_reference)}
-            context={'request':request.model_dump(),'schema':CompleteBlueprint.model_json_schema(),'example':example}
+            context={'request':request.model_dump(),'schema':CompleteBlueprint.model_json_schema(),'example':example,
+                     'elements':element_assembly.author_context(manifest)}
         elif request.kind == 'worldview':
             example = worldview_example(request.title, request.historical_reference)
             schema = WorldviewBlueprint.model_json_schema()
-            context = {'request':request.model_dump(), 'example':example, 'schema':schema}
+            context = {'request':request.model_dump(), 'example':example, 'schema':schema,
+                       'elements':element_assembly.author_context(manifest)}
         else:
             if request.worldview_draft_id:
                 foundation = self.get(request.worldview_draft_id)
@@ -301,7 +323,8 @@ class WorldGenerator:
             example = world_example(request.city_count)
             context = {'request':request.model_dump(), 'overview':view['overview'],
                        'knowledge':retrieve({'knowledge':view['knowledge']}, request.instruction, 'author'),
-                       'example':example,'schema':WorldBlueprint.model_json_schema()}
+                       'example':example,'schema':WorldBlueprint.model_json_schema(),
+                       'elements':element_assembly.author_context(manifest)}
         system = template('generator')
         if len(system) + len(stable_json(context)) > svc.preferences()['context_chars']:
             raise ValueError('生成上下文超过预算，请缩短要求或提高设置中的上下文预算')

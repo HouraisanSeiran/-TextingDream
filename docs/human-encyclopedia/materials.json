@@ -1,0 +1,1465 @@
+{
+  "schema_version": 1,
+  "group": "materials",
+  "status": "candidate",
+  "sources": [
+    {
+      "id": "materials_src_britannica_iron_processing",
+      "title": "Iron processing | Definition, History, Steps, Uses, & Facts",
+      "url": "https://www.britannica.com/technology/iron-processing",
+      "access": "read",
+      "supports": "铁矿石的含铁矿物类型（赤铁矿、磁铁矿、褐铁矿、菱铁矿）、高炉碳还原与熔剂造渣原理、块炼铁与锻打、直接还原、生铁/钢/铸铁含碳区间、燃料由木炭转向焦炭（1709 年 Darby）、铁冶炼史约公元前 2000 年起。",
+      "rights_note": "Encyclopaedia Britannica 条目，全文需订阅；此处仅使用其中事实性数据与原理表述，未转载原文段落。"
+    },
+    {
+      "id": "materials_src_britannica_copper_processing",
+      "title": "Copper processing | Definition, History, & Facts",
+      "url": "https://www.britannica.com/technology/copper-processing",
+      "access": "read",
+      "supports": "铜的天然产出形态（自然铜、斑岩铜矿、块状矿、混合矿）、破碎磨矿与浮选富集至 20–30% 铜、熔炼生成冰铜（45–70% 铜）、吹炼产出粗铜、电解精炼至 99.99%、铜的延展性与退火、新石器时代起使用与青铜时代传播。",
+      "rights_note": "Britannica 条目，仅引用事实与工艺原理，不转载原文。"
+    },
+    {
+      "id": "materials_src_britannica_tin_processing",
+      "title": "Tin processing | Extraction, Refining & Uses",
+      "url": "https://www.britannica.com/technology/tin-processing",
+      "access": "read",
+      "supports": "锡石 SnO2 含锡约 78.8%、砂锡矿与脉锡矿、重力选矿与浮选、约八成锡来自冲积/次生矿床、品位极低（每公斤锡石需采选七八吨矿石）、碳还原熔炼、锡的熔点 231.88 °C 与同素异形（锡疫）、锡在青铜/白镴/镀锡板中的角色。",
+      "rights_note": "Britannica 条目，仅引用事实数据，不转载原文。"
+    },
+    {
+      "id": "materials_src_britannica_steel",
+      "title": "Steel | Composition, Properties, Types, Grades, & Facts",
+      "url": "https://www.britannica.com/technology/steel",
+      "access": "read",
+      "supports": "钢是铁碳合金且碳含量上限约 2%、炼钢温度约 1600 °C、原料为高炉铁水/废钢/直接还原铁、碳以固溶或渗碳体形态影响硬度、珠光体与共析转变、合金元素（铬、镍、钒）作用、钢产量与其他金属比较。",
+      "rights_note": "Britannica 条目，仅引用事实，不转载原文。"
+    },
+    {
+      "id": "materials_src_britannica_cast_iron",
+      "title": "Cast iron | Definition, Composition, History, & Facts",
+      "url": "https://www.britannica.com/technology/cast-iron",
+      "access": "read",
+      "supports": "生铁含碳 2–4% 并含硅锰与硫磷杂质、由高炉还原铁矿石得到、铸成锭后再熔化浇铸、中国公元前 6 世纪已有铸铁、欧洲 14 世纪零星出现、灰口与白口铁差异、19 世纪作为结构金属。",
+      "rights_note": "Britannica 条目，仅引用事实，不转载原文。"
+    },
+    {
+      "id": "materials_src_britannica_wrought_iron",
+      "title": "Wrought iron | Properties, Uses & History",
+      "url": "https://www.britannica.com/technology/wrought-iron",
+      "access": "read",
+      "supports": "熟铁含碳通常低于 0.1% 并夹带 1–2% 渣、由半熔铁块锻打排渣焊合、块炼法以木炭兼作燃料与还原剂、1784 年 Cort 搅拌法由生铁脱碳制熟铁、熟铁在建筑与装饰中的历史、最终被钢取代。",
+      "rights_note": "Britannica 条目，仅引用事实，不转载原文。"
+    },
+    {
+      "id": "materials_src_britannica_bronze",
+      "title": "Bronze | Definition, Composition, Uses, Types, & Facts",
+      "url": "https://www.britannica.com/technology/bronze-alloy",
+      "access": "read",
+      "supports": "青铜传统上为铜锡合金、现代典型约 88% 铜 12% 锡、最早青铜器物约公元前 4500 年而普及在公元前 2000 年、传世器物铜含量 67–95% 波动、钟铜含锡 20–25%、磷青铜与铝青铜等变体、青铜比纯铁硬且耐蚀。",
+      "rights_note": "Britannica 条目，仅引用事实，不转载原文。"
+    },
+    {
+      "id": "materials_src_britannica_brass",
+      "title": "Brass | Definition, Properties, & Facts",
+      "url": "https://www.britannica.com/technology/brass-alloy",
+      "access": "read",
+      "supports": "黄铜是铜锌合金、锌含量一般不超过 45%、超过 45% 锌的白色黄铜不可加工、α 黄铜可冷作而 β 黄铜需热作、方铅矿型“calamine brass”可追溯到新石器时代、罗马与中世纪欧洲用途、黄铜与青铜的区别。",
+      "rights_note": "Britannica 条目，仅引用事实，不转载原文。"
+    },
+    {
+      "id": "materials_src_britannica_coal",
+      "title": "Coal | Uses, Types, Pollution, & Facts",
+      "url": "https://www.britannica.com/science/coal-fossil-fuel",
+      "access": "read",
+      "supports": "煤的定义（碳质可燃沉积物，含碳大于 50% 重量）、煤化序列褐煤—次烟煤—烟煤—无烟煤、煤成因（泥炭埋藏受热）、炼焦与气化液化用途、中国早期用煤与欧洲 13 世纪记载、1709 年焦炭用于高炉、燃烧的环境后果。",
+      "rights_note": "Britannica 条目，仅引用事实，不转载原文。"
+    },
+    {
+      "id": "materials_src_britannica_glass",
+      "title": "Glass | Definition, Composition, Material, Types, & Facts",
+      "url": "https://www.britannica.com/technology/glass",
+      "access": "read",
+      "supports": "玻璃为无机非晶固体、由熔融物快速冷却避免结晶而成、钠钙玻璃三大原料（砂、石灰石、纯碱）与最优配比约 75% 硅 10% 钙 15% 钠、加纯碱把熔点由 1723 °C 降到约 850 °C、加石灰使玻璃不溶、金属氧化物着色、约公元前 2500 年埃及玻璃珠与公元前 1 世纪叙利亚吹制。",
+      "rights_note": "Britannica 条目，仅引用事实与配比范围，不转载原文。"
+    },
+    {
+      "id": "materials_src_britannica_cement",
+      "title": "Cement | Definition, Composition, Manufacture, History, & Facts",
+      "url": "https://www.britannica.com/technology/cement-building-material",
+      "access": "read",
+      "supports": "水泥是以石灰质与黏土质原料经煅烧得到的胶凝材料、波特兰水泥熟料矿物组成、窑温 1350–1550 °C、磨制时加约 5% 石膏调节凝结、水化硬化机理与初凝终凝时间、砂浆与混凝土的区别与用途。",
+      "rights_note": "Britannica 条目，仅引用事实，不转载原文。"
+    },
+    {
+      "id": "materials_src_britannica_limestone",
+      "title": "Limestone | Characteristics, Formation, Texture, Uses, & Facts",
+      "url": "https://www.britannica.com/science/limestone",
+      "access": "read",
+      "supports": "石灰石是以碳酸钙为主的沉积岩、常含白云石与黏土等杂质、生物成因与碎屑成因两类、加热至 900–1000 °C 分解为石灰与二氧化碳、作为玻璃与农业原料、部分品种可作建筑石材。",
+      "rights_note": "Britannica 条目，仅引用事实，不转载原文。"
+    },
+    {
+      "id": "materials_src_britannica_clay",
+      "title": "Clay | Definition, Formation, Properties, Uses, & Facts",
+      "url": "https://www.britannica.com/science/clay-geology",
+      "access": "read",
+      "supports": "黏土是粒径小于 0.005 mm 的土粒及以其为主的岩石、湿时具塑性干时黏结、多数由风化形成、用于陶器（早于文字史）、砖瓦与粗陶用不纯黏土、高岭土用于精细陶瓷与纸张涂布、耐火材料与钻井泥浆等用途。",
+      "rights_note": "Britannica 条目，仅引用事实，不转载原文。"
+    },
+    {
+      "id": "materials_src_britannica_gypsum",
+      "title": "Gypsum | Definition, Uses, & Facts",
+      "url": "https://www.britannica.com/science/gypsum",
+      "access": "read",
+      "supports": "石膏为含水硫酸钙 CaSO4·2H2O、莫氏硬度 2、与硬石膏和岩盐共生的蒸发岩、海水蒸发沉积与硬石膏水化两种成因、煅烧成巴黎石膏与建筑石膏、作波特兰水泥缓凝剂与肥料填料、雪花石膏与纤维石膏变种、主要生产国。",
+      "rights_note": "Britannica 条目，仅引用事实，不转载原文。"
+    },
+    {
+      "id": "materials_src_britannica_graphite",
+      "title": "Graphite | Properties, Uses, & Structure",
+      "url": "https://www.britannica.com/science/graphite-carbon",
+      "access": "read",
+      "supports": "石墨是碳的矿物形态、六方层状结构与层间弱键导致硬度约 1.5 且具润滑感、导热导电性优良、天然石墨分无定形/鳞片/脉状三类及各自碳含量、成因（变质、热液、岩浆）、用于坩埚润滑剂电极与炼钢、石墨与金刚石为同素异形体、中国约占产量四分之三。",
+      "rights_note": "Britannica 条目，仅引用事实，不转载原文。"
+    },
+    {
+      "id": "materials_src_britannica_salt",
+      "title": "Salt | Chemistry, History, Occurrence, Manufacture, Uses, & Facts",
+      "url": "https://www.britannica.com/science/salt",
+      "access": "read",
+      "supports": "食盐即氯化钠、矿物形态为岩盐、海水平均含盐约 3%、来源为岩盐开采与海水蒸发、作调味与防腐（腌肉腌鱼、制革）、化工原料（纯碱、烧碱、盐酸、氯）、冶金熔剂与釉料、加碘防甲状腺肿、盐在古代贸易与礼仪中的角色、主要生产国。",
+      "rights_note": "Britannica 条目，仅引用事实，不转载原文。"
+    },
+    {
+      "id": "materials_src_britannica_charcoal",
+      "title": "Charcoal | Definition, Properties, Uses, & Facts",
+      "url": "https://www.britannica.com/science/charcoal",
+      "access": "read",
+      "supports": "木炭是含碳物质在限氧条件下部分燃烧或加热后的残留物、属不纯石墨态碳、曾被焦炭取代用于高炉还原金属矿石、仍用于渗碳与黑火药、活性炭的比表面积与吸附用途、历史副产品（甲醇、醋酸）。",
+      "rights_note": "Britannica 条目，仅引用事实，不转载原文。"
+    },
+    {
+      "id": "materials_src_britannica_wood",
+      "title": "Wood | Properties, Production, Uses, & Facts",
+      "url": "https://www.britannica.com/science/wood-plant-tissue",
+      "access": "read",
+      "supports": "木材是树木主要的支撑与输导组织（次生木质部）、软木（针叶树）与硬木（阔叶树）的细胞组成差异、边材与心材、年轮与气候信息、强度重量比高且隔热隔电、作为燃料与建筑及造纸原料、作为可再生资源与煤炭石油的对比。",
+      "rights_note": "Britannica 条目，仅引用事实，不转载原文。"
+    },
+    {
+      "id": "materials_src_britannica_brick",
+      "title": "Brick and tile | Uses, Advantages & Disadvantages",
+      "url": "https://www.britannica.com/technology/brick-building-material",
+      "access": "read",
+      "supports": "砖是以黏土或页岩成型后入窑焙烧的砌块、黏土按表面黏土/页岩/耐火黏土分类、砂作瘠性料而长石作熔剂、坯体成型（硬泥挤压、软泥木模、干压）后干燥烧成 870–1100 °C、日晒砖至少有六千年历史、美索不达米亚与罗马的砖构、伦敦大火后改砖。",
+      "rights_note": "Britannica 条目，仅引用事实，不转载原文。"
+    },
+    {
+      "id": "materials_src_britannica_ceramics",
+      "title": "Industrial ceramics | High-Temperature, Strength, Durability",
+      "url": "https://www.britannica.com/technology/ceramics",
+      "access": "read",
+      "supports": "陶瓷广义指无机非金属材料、特征为高强度高硬度高熔点化学惰性与低导热导电性且脆、传统陶瓷用黏土与砂等天然矿物由陶工砖工与施釉工制作、先进陶瓷在受控条件下制造。",
+      "rights_note": "Britannica 条目，仅引用事实，不转载原文。"
+    },
+    {
+      "id": "materials_src_britannica_ore_deposit",
+      "title": "Ore deposit | geology",
+      "url": "https://www.britannica.com/science/ore-deposit",
+      "access": "read",
+      "supports": "矿床是可经济开采获利的矿物富集体、所有矿床都是矿物富集但反之不成立、矿床是经济术语而矿物富集是地质术语、可行性取决于品位规模开采成本运输与市价、约 100 种矿物被当作矿石矿物、各金属的主要矿石矿物举例（铬铁矿、方铅矿、锡石、闪锌矿、辰砂等）。",
+      "rights_note": "Britannica 主题汇编页，仅引用事实，不转载原文。"
+    },
+    {
+      "id": "materials_src_natgeo_ore",
+      "title": "Ore | National Geographic Education Resource",
+      "url": "https://education.nationalgeographic.org/resource/ore/",
+      "access": "read",
+      "supports": "矿石是地壳中含一种或多种有价矿物的富集体、金属多与特定矿石对应（铝—铝土矿、铁—铁矿）、从矿石中提取金属的两种主要路线为熔炼（需还原剂，早期用木炭）与电解、矿床成因分内生成因/热液/表生三类、矿石是不可再生资源。",
+      "rights_note": "National Geographic Society 教育资源页，仅引用概念性内容，不转载原文。"
+    },
+    {
+      "id": "materials_src_britannica_pottery",
+      "title": "Pottery | Definition, History, & Facts",
+      "url": "https://www.britannica.com/technology/pottery",
+      "access": "search_only",
+      "supports": "仅读到导语：陶器是以黏土制成并用热硬化的器物、黏土具可塑性与加热硬化两大特性。全文被订阅墙拦截，故本条目不用于支撑烧成温度、釉料或具体工艺细节；当前无任何条目的 source_ids 引用本来源（已从 clay/ceramic 中移除），仅作为背景线索保留记录。",
+      "rights_note": "Britannica 条目，全文需订阅，实际只获取导语；引用范围严格限于导语所述定义。"
+    },
+    {
+      "id": "materials_src_usgs_nmic",
+      "title": "USGS National Minerals Information Center（尝试检索，未获取正文）",
+      "url": "https://www.usgs.gov/centers/national-minerals-information-center",
+      "access": "unavailable",
+      "supports": "无。多次尝试读取 USGS 矿物统计页与矿产品摘要 PDF 均返回 HTTP 405（人机校验拦截）或二进制乱码，未能取得正文。本组条目不引用 USGS 数据，涉及产量、储量、品位等数字一律注明来源为 Britannica 或留作待核。",
+      "rights_note": "访问失败记录，未取得任何内容，仅用于说明证据缺口。"
+    }
+  ],
+  "elements": [
+    {
+      "id": "materials_hematite",
+      "name": "赤铁矿",
+      "aliases": [
+        "红铁矿",
+        "赭石（部分语境）",
+        "hematite"
+      ],
+      "tags": [
+        "mineral",
+        "natural_resource"
+      ],
+      "summary": "铁的氧化物矿物（理想成分 Fe2O3，理论含铁约七成），分布最广的铁矿石矿物之一，也长期用作红色颜料原料。它是矿物，不等于矿床，更不等于可采储量。",
+      "details": {
+        "definition": "赤铁矿是铁的氧化物矿物，理想化学式 Fe2O3，理论含铁量约 70%。晶体属菱面体对称，天然常见隐晶质块状、鲕状、云母状（镜铁矿）与土状（赭石）等形态，条痕呈樱红色，硬度约 5—6，是最常用的野外鉴定特征。它处在矿物这一层级：某种岩石里有赤铁矿，并不等于那里有可经济开采的矿床。",
+        "mechanism": "成矿上，赤铁矿主要出现在两类环境：一是条带状铁建造等沉积岩系经后期变质与改造富集；二是热液活动或长期风化淋滤使铁相对富集、硅被带走。利用上，赤铁矿里的铁与氧结合，需要在高温下用碳或一氧化碳还原（或用氢等还原剂）把氧夺走才能得到金属铁，这正是块炼炉与高炉的化学基础。土状赭石则可直接研磨作颜料，无需冶炼。",
+        "conditions": "形成可采铁矿体需要长期沉积、变质与风化富集的叠加条件，以及足够大的规模；冶炼环节另有门槛：足量木炭或焦炭、能承受高温的炉体与炉衬、持续鼓风能力、以及把矿石破碎到合适粒度的工序。仅有露头而无燃料与炉具的地方，铁矿露头长期只是地标。",
+        "exceptions": "并非所有红色土状物都是赤铁矿：铁的含水氧化物、含铁黏土、烧过的含铁沉积物都可能被误认。艺术史语境中的赭石常指混有黏土的天然氧化铁颜料，成分并不纯一。部分赤铁矿磷或硫偏高，会带入铁与钢中影响性能，需要选矿或配矿处理。",
+        "story_uses": "适合写红土坡、铁矿露头、废弃矿坑与积水坑道、矿渣堆与冶炼聚落；也可写颜料研磨、洞穴壁画、陶器彩绘与标记用红色颜料。写作时值得把「看到红石头」与「能炼出铁」分开：中间隔着燃料、炉子、鼓风与手艺。",
+        "historical_scope": "赤铁矿作颜料的使用远早于冶铁。以矿石提取铁在西亚约始于公元前 2000 年（此前已有陨铁利用），但各地区进入铁器时代的时间差异极大，不宜给出统一年代或全球同步的技术水平。",
+        "evidence_and_uncertainty": "矿物学性质（成分、条痕、硬度、晶形）可较确定地表述；矿床规模、品位与可采性必须依赖实地勘探，本条目不给数字。早期冶铁起源地与传播路径仍有学术争论，应写成存在多种解释而非定论。"
+      },
+      "source_ids": [
+        "materials_src_britannica_iron_processing",
+        "materials_src_britannica_ore_deposit"
+      ],
+      "related_ids": [
+        "materials_magnetite",
+        "materials_iron_ore",
+        "materials_pig_iron",
+        "materials_wrought_iron"
+      ],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "materials_magnetite",
+      "name": "磁铁矿",
+      "aliases": [
+        "磁石",
+        "四氧化三铁矿物",
+        "magnetite"
+      ],
+      "tags": [
+        "mineral",
+        "natural_resource"
+      ],
+      "summary": "具强磁性的铁氧化物矿物（Fe3O4），理论含铁量高于赤铁矿，是重要铁矿石矿物，也是历史上最早被认识的磁性物质。",
+      "details": {
+        "definition": "磁铁矿是铁的氧化物矿物，理想成分 Fe3O4（可视为 FeO·Fe2O3），理论含铁约 72%，属尖晶石结构，条痕黑色，具明显铁磁性，能被磁铁吸引，本身也可作天然磁石。它以矿物身份存在；是否构成矿石取决于所在富集体的规模与可选性。",
+        "mechanism": "磁铁矿多形成于岩浆作用、接触变质与热液环境，也可由沉积物在还原条件下生成。其磁性来自晶体中二价与三价铁离子在氧离子格架中的排列，使磁矩未被完全抵消。这一性质使它能用磁选法从脉石中分离，成为现代选矿的重要依据；古代则主要利用其磁性做指向器与磁性玩具。",
+        "conditions": "作为铁矿利用需要先解决含铁量与杂质问题：磁铁矿常与硅酸盐脉石紧密共生，需破碎磨矿后磁选富集，往往比直接冶炼赤铁矿多一道工序。冶炼同样需要燃料、炉体与鼓风。把天然磁石用于指向，则受地磁场强度与器物形状限制，并非任何一块磁铁矿都能做可靠指南器。",
+        "exceptions": "磁铁矿受热超过约 580 摄氏度（居里点）会失去铁磁性，冷却后可恢复；这一性质意味着用火处理过的磁石可能失效。并非所有黑色重矿物都是磁铁矿，钛铁矿、铬铁矿等也常伴生，会影响冶炼与选矿路线。",
+        "story_uses": "适合写磁性奇物、指向器具、山间磁性异常干扰方向判断的场景；也可写砂矿中的黑色重砂、淘洗后留下的黑色富集物。注意不要把磁性写成魔法，它受热会消失，可被观测与检验。",
+        "historical_scope": "磁石的磁性在多个古文明有记载，但把它用于导航的时间与地区差异很大，且早期多依赖地文与天文导航；磁罗盘在航海上的普及是较晚的事。作为铁矿大量利用则与近代选矿技术进步相关。",
+        "evidence_and_uncertainty": "成分、磁性、居里点属可复现的物理事实；某一具体矿床是否可采、磁选是否经济，需要实测数据。古代磁性指向器的具体形制与用法在考古上仍有争议，不宜写成确定细节。"
+      },
+      "source_ids": [
+        "materials_src_britannica_iron_processing",
+        "materials_src_britannica_ore_deposit"
+      ],
+      "related_ids": [
+        "materials_hematite",
+        "materials_iron_ore",
+        "materials_pig_iron"
+      ],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "materials_chalcopyrite",
+      "name": "黄铜矿",
+      "aliases": [
+        "铜铁硫化物",
+        "chalcopyrite"
+      ],
+      "tags": [
+        "mineral",
+        "natural_resource"
+      ],
+      "summary": "铜铁硫化物矿物（CuFeS2），是最主要的铜矿石矿物之一，含铜约三成多；现代工业需经选矿、熔炼与电解精炼得到金属铜，历史上的利用路线则不同。",
+      "details": {
+        "definition": "黄铜矿是铜、铁、硫的化合物矿物，理想成分 CuFeS2，理论含铜约 34.6%，呈黄铜色金属光泽，硬度约 3.5—4，常与黄铁矿、闪锌矿、方铅矿共生。它是矿物；把它当矿石开采需要所在岩体达到可采的规模与品位。",
+        "mechanism": "黄铜矿多见于斑岩铜矿、矽卡岩与热液脉中，由含铜含铁的热液在降温、沸腾或与围岩反应时沉淀。因它与脉石紧密嵌布，现代工业必须先破碎磨矿使矿物颗粒解离，再用浮选（利用表面疏水性差异，让铜矿物随气泡上浮）得到精矿，随后熔炼成冰铜、吹炼成粗铜、再电解精炼。历史上早期利用的主要是露头富矿与氧化带铜矿物，含硫化物矿的大规模利用晚得多。",
+        "conditions": "从矿到铜涉及采矿、破碎磨矿、浮选、熔炼、吹炼与精炼等多个环节，工业版本每一步都需要设备、能源与水质条件，并产生尾矿与含硫烟气。历史上能利用的首是次生富集的高品位氧化矿与自然铜；硫化物矿石的大规模利用依赖较成熟的选冶技术，但土法焙烧—熔炼也曾在多地实践，只是效率与环境代价不同。",
+        "exceptions": "矿物的颜色容易误导：黄铜矿与黄铁矿（愚人金）外观相近，但黄铁矿含铜极低、硬度更高、条痕不同，是常见的误判来源。氧化带中的铜矿物会转变为孔雀石、蓝铜矿等次生矿物，选冶路线也随之改变。",
+        "story_uses": "适合写矿脉露头、矿工的误判与骗局、冶炼场的烟气与渣堆、运矿道路与季节性运输。可写「闪闪发亮的金色石头」引发的期待与随后的失望，这是有真实矿物学基础的冲突。",
+        "historical_scope": "铜的使用可追溯到新石器时代，早期多用自然铜与易还原的氧化矿；硫化物矿石的大规模冶炼需要更成熟的炉型与鼓风技术，时间与地区差异大。不要假定任何有铜矿的地方都能在当地炼出铜，也不要假定任何有铜的地方都走同一条选冶路线。",
+        "evidence_and_uncertainty": "成分与可选性按已读来源表述；具体矿床品位、储量须实测。古代各遗址所用铜料来自何种矿型，多依赖铅同位素等分析，结论存在不确定性。"
+      },
+      "source_ids": [
+        "materials_src_britannica_copper_processing",
+        "materials_src_natgeo_ore"
+      ],
+      "related_ids": [
+        "materials_copper_ore",
+        "materials_native_copper",
+        "materials_copper_metal",
+        "materials_bronze"
+      ],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "materials_native_copper",
+      "name": "自然铜",
+      "aliases": [
+        "天然铜",
+        "native copper"
+      ],
+      "tags": [
+        "mineral",
+        "natural_resource",
+        "metal"
+      ],
+      "summary": "以金属状态天然产出的铜，无需冶炼即可锻打成型，是人类最早使用的金属材料之一，但天然产出量有限。",
+      "details": {
+        "definition": "自然铜是铜以单质金属形态产于岩石或砂矿中的情况，属天然元素矿物，常呈树枝状、块状或片状，表面可因氧化覆有绿锈。它既是矿物也是金属材料，但因产出稀缺，未曾成为常规的大宗铜来源；它与「铜矿石」是两个不同层级的概念。",
+        "mechanism": "自然铜多形成于含铜热液在还原条件下沉淀，或硫化矿体在氧化带被天然还原。因为它已经是金属态，早期人类可以直接锤打成型、退火软化，不需要采矿—冶炼这一整套链条。反复锤打会造成加工硬化，加热退火又能恢复延展性，这套「锤打—退火」经验是后来冶金技术的起点。",
+        "conditions": "可用性受产出规模限制：自然铜多为分散小块，难以支撑持续生产。锤打成器还要求铜料足够纯净，夹杂岩石的块体在锻打时会开裂。真正稳定的铜供应要等到能从氧化矿、再到硫化矿中还原提炼的技术成熟。",
+        "exceptions": "不要把所有早期铜器都归于自然铜：部分早期器物可能是由氧化矿低温还原所得。自然铜表面氧化层颜色与孔雀石接近，但前者可锤打延展、后者性脆，这个差别是实用鉴定点。",
+        "story_uses": "适合写河床或岩缝中捡到的红色金属块、无需炉火就能做成的饰物与钩针、以及围绕稀有金属块的价值与交换。也可以写「这地方不用炼就有铜」引来的争夺。",
+        "historical_scope": "自然铜的利用可上溯到新石器时代，多个地区（如安纳托利亚、北美五大湖地区、南美）都有独立利用的证据，但时间与社会背景不同。不宜把它写成全球统一阶段的标志。",
+        "evidence_and_uncertainty": "自然铜的矿物学与加工性质明确；具体遗址铜料来源需成分与同位素分析，不少结论仍在讨论中。"
+      },
+      "source_ids": [
+        "materials_src_britannica_copper_processing",
+        "materials_src_britannica_ore_deposit"
+      ],
+      "related_ids": [
+        "materials_chalcopyrite",
+        "materials_copper_ore",
+        "materials_copper_metal"
+      ],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "materials_cassiterite",
+      "name": "锡石",
+      "aliases": [
+        "锡矿石",
+        "tinstone",
+        "cassiterite"
+      ],
+      "tags": [
+        "mineral",
+        "natural_resource"
+      ],
+      "summary": "二氧化锡矿物（SnO2），含锡约 78.8%，是最主要的锡矿石矿物；可采的锡石富集体在地球上分布极不均衡，且品位通常很低。",
+      "details": {
+        "definition": "锡石是锡的氧化物矿物，理想成分 SnO2，理论含锡约 78.8%，常见棕黑至黑色，金刚至半金属光泽，硬度约 6—7，密度大（约 7），因此能在砂矿中富集。它是矿物；可供开采的锡矿产地在地理上高度集中。",
+        "mechanism": "锡石主要来自花岗岩相关的热液脉，以及原生矿风化剥蚀后经水流搬运形成的冲积（砂）矿。因为密度远高于常见脉石，古代就可用淘洗、溜槽、跳汰等重力选矿法富集；现代对复杂硫化物矿石还会用浮选。冶炼是用碳在高温下还原锡石，得到金属锡，再经火法精炼（电解精炼属现代高纯工艺），不应把电解当成历史冶炼的前提。",
+        "conditions": "锡的可利用性受两重限制：一是富集，即便在富矿田，取得一公斤锡石也常需处理七八吨矿石，需要大量人力与水；二是燃料与还原条件，锡石难还原，需要木炭或煤作还原剂和足够的炉温。运输距离也关键，锡常需从矿区远距离交换到用锡地。",
+        "exceptions": "锡石之外的含锡矿物（如勤锡矿等复杂硫化物）也有，但工业意义小得多。另需注意「锡」与「铅」在早期记载中常被混淆，古文献中的某些「锡」可能指铅或铅锡合金。",
+        "story_uses": "适合写淘洗砂矿的河滩、雨季与旱季的水量限制、矿区到用锡地的长途贸易与中间商、以及「铜多锡少」导致青铜配比不稳定的困境。锡是典型的远距离贸易物资，很适合承载路线与政治关系。",
+        "historical_scope": "锡与铜合成青铜的最早证据见于中东约公元前 3500 年、埃及约公元前 3000 年，中国青铜器可早到公元前 2250 年左右；但各地锡料来源与贸易网络仍在研究中，不宜指定单一矿源。近代镀锡板与罐头工业使锡需求结构大变。",
+        "evidence_and_uncertainty": "矿物成分与选冶原理可复现；古代锡料产地多靠间接证据推断（成分特征、沉船货载、文献），存在明显不确定性，尤其是青铜时代锡源问题长期争论。"
+      },
+      "source_ids": [
+        "materials_src_britannica_tin_processing",
+        "materials_src_britannica_bronze"
+      ],
+      "related_ids": [
+        "materials_tin_metal",
+        "materials_bronze",
+        "materials_copper_ore"
+      ],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "materials_galena",
+      "name": "方铅矿",
+      "aliases": [
+        "硫化铅",
+        "galena"
+      ],
+      "tags": [
+        "mineral",
+        "natural_resource"
+      ],
+      "summary": "硫化铅矿物（PbS），是最主要的铅矿石矿物，常含银，因此长期是铅与银的共同来源；性软、比重大，易识别。",
+      "details": {
+        "definition": "方铅矿是铅的硫化物矿物，理想成分 PbS，含铅约 86.6%，呈铅灰色、金属光泽，硬度约 2.5（指甲可划），密度很大（约 7.5），具立方体解理。它属矿物层级，能否作为矿石取决于矿体规模与共生金属的经济价值。",
+        "mechanism": "方铅矿多产于热液脉与碳酸盐岩中的交代矿体，常与闪锌矿、黄铁矿共生，并常含银、铋、锑等杂质——这正是古代铅银同产的技术基础。冶炼通常先焙烧把硫化物转为氧化物，再用碳还原得到粗铅；含银的铅可通过灰吹法分离出银，因为铅在高温氧化时会被氧化并被骨灰吸收，而银不被氧化。",
+        "conditions": "铅的冶炼相对容易（熔点低、易还原），这是它很早被利用的原因之一；但铅与含铅烟气有毒，冶炼与使用有明显健康代价，需要通风与防护意识——这在历史上往往被忽视。银的提取需要额外的灰吹工序与耐高温容器。",
+        "exceptions": "方铅矿含银量差异极大，「含银铅矿」与「普通铅矿」的经济价值不同，不能一概而论。古文献中的「黑铅」「锡」等词有时指铅或其合金，读史需辨析。铅的化合物还被用作颜料与化妆材料，这属于另一条用途链。",
+        "story_uses": "适合写沉重的矿石袋子、矿工手上的灰色粉末、冶炼场的铅烟与慢性中毒、以及银铅共生的利益驱动。铅可用于水管、配重、铅字、弹丸与焊料，也很适合写「便宜好用的材料带着看不见的代价」。",
+        "historical_scope": "铅的使用很早，罗马时期已大规模用于水管与器皿，银铅共炼是古代重要的技术组合；铅中毒作为职业与环境问题在近代才被系统认识。各地区对铅的依赖程度差别很大。",
+        "evidence_and_uncertainty": "矿物性质与冶炼原理可复现；古代铅银产量与贸易规模多依赖沉船、冰芯铅污染记录与文献估算，存在较大误差。"
+      },
+      "source_ids": [
+        "materials_src_britannica_ore_deposit",
+        "materials_src_natgeo_ore"
+      ],
+      "related_ids": [
+        "materials_sphalerite",
+        "materials_copper_ore"
+      ],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "materials_sphalerite",
+      "name": "闪锌矿",
+      "aliases": [
+        "锌硫化物",
+        "zinc blende",
+        "sphalerite"
+      ],
+      "tags": [
+        "mineral",
+        "natural_resource"
+      ],
+      "summary": "硫化锌矿物（ZnS），是最主要的锌矿石矿物，常与方铅矿共生；锌的冶炼难点在于金属锌易挥发、需冷凝回收。",
+      "details": {
+        "definition": "闪锌矿是锌的硫化物矿物，理想成分 ZnS，理论含锌约 67%，颜色从黄褐到黑色不等（含铁时变深），硬度约 3.5—4，具六组解理。它是矿物；作为矿石需与方铅矿等共同评估。",
+        "mechanism": "闪锌矿主要产于热液脉与交代矿体，与方铅矿关系密切。炼锌与炼铜、炼铁不同：金属锌的沸点较低（约 907 摄氏度），在冶炼温度下会以蒸气逸出，因此需要专门的冷凝回收装置（蒸馏罐、竖罐或现代电积工艺），否则锌会随烟气跑掉。这条技术门槛使锌的规模化生产明显晚于铜、铅、铁。",
+        "exceptions": "不要把「锌」与「锡」混淆，两者中文名近而性质差别很大。闪锌矿本身颜色多变，仅凭颜色无法可靠鉴定，需靠条痕、硬度与共生矿物组合判断。含铁高的闪锌矿在选冶上更麻烦。",
+        "conditions": "锌的利用依赖较复杂的设备：密闭或半密闭的蒸馏装置、稳定的高温、以及后续的精炼；相比之下，黄铜（铜锌合金）在古代可通过把锌矿石与铜矿一同还原而间接获得，不需要先炼出纯锌。这是一条重要的「绕过难点」的技术路径。",
+        "story_uses": "适合写与铅矿伴生的矿脉、冶锌的蒸馏罐与冷凝装置、以及「能做出黄铜却炼不出锌」的技术落差。可写匠人凭经验配矿得到金黄色合金，却说不出其中道理。",
+        "historical_scope": "黄铜类合金（以铜与锌矿共同还原所得）可追溯到很早，而纯锌的规模化生产是较晚的事，地区差异大。不要把黄铜的早出现等同于纯锌冶炼的早成熟。",
+        "evidence_and_uncertainty": "矿物与冶炼原理明确；古代锌制品（如某些地区的锌锭）的产地与年代判定仍依赖分析，个别结论存在争议。"
+      },
+      "source_ids": [
+        "materials_src_britannica_ore_deposit",
+        "materials_src_britannica_brass"
+      ],
+      "related_ids": [
+        "materials_galena",
+        "materials_brass",
+        "materials_copper_metal"
+      ],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "materials_iron_ore",
+      "name": "铁矿石",
+      "aliases": [
+        "铁矿",
+        "iron ore"
+      ],
+      "tags": [
+        "ore",
+        "natural_resource"
+      ],
+      "summary": "以含铁矿物为主的、达到工业利用要求的岩石富集体。铁矿石是「矿石」层级的经济地质概念，不等于某一种矿物，也不是储量数字本身。",
+      "details": {
+        "definition": "铁矿石指含铁矿物富集到可经济开采与利用程度的岩石，常见含铁矿物包括赤铁矿、磁铁矿、褐铁矿、菱铁矿等。关键在于它是经济与工程概念：同样的岩石在缺乏燃料、运输或市场的地方只是岩石；矿体能否算「矿石」取决于品位、规模、开采成本与当时的市场价格。因此本条目与赤铁矿、磁铁矿等矿物条目是不同层级，不能互相替代。",
+        "mechanism": "一、现代工业的铁矿石到铁链：勘探与圈定矿体、露天或地下开采、破碎筛分、必要时选矿（磁选、重选、浮选或焙烧）提高含铁量、配加熔剂后入炉还原；高炉中以焦炭产生一氧化碳把氧化铁还原成金属铁，产品是含碳较高的铁水。二、历史路线：块炼法在较低温度下用木炭直接还原得固态海绵铁，再经锻打排出渣，不需要液态铁水与高炉。两条路线都要求矿、燃料、炉体与鼓风，只是规模与形态不同。",
+        "conditions": "规模化的铁生产依赖多项配套：足够品位的矿源、大量燃料（早期是木炭，后来是焦炭）、耐火材料砌筑的炉体、持续鼓风装置、以及把矿石与产品运出去的交通。这些条件缺一项，铁矿就难以转化为可用的铁。这也是为什么某些富铁地区长期未发展出冶铁业。",
+        "exceptions": "品位是相对概念：古代可用的富矿在现代可能因经济性不足而闲置，反之现代技术让低品位矿也能利用。含磷、硫、钛偏高的矿石在冶炼上另有麻烦，甚至影响铁的可锻性。因此「有铁矿石」不能直接推出「能造好铁器」。",
+        "story_uses": "适合写矿脉发现、矿区聚落与劳工组织、燃料短缺导致的停产、运输通道争夺、以及冶炼废渣堆积形成的地貌。也可写「守着铁山却缺柴烧」这类真实困境。",
+        "historical_scope": "以矿石提取铁在西亚约始于公元前 2000 年，铁器在安纳托利亚、中国、印度与地中海地区于不同时期普及；铁相对铜锡的突出优势是原料分布更广，而不是性能全面占优。近代焦炭冶金与蒸汽鼓风使产量数量级提升。",
+        "evidence_and_uncertainty": "工艺原理可复现；全球与地区产量、储量数据本应引自官方矿业统计，但本次未能取得该来源正文（见来源记录中的不可用条目），故本组不填具体数字。"
+      },
+      "source_ids": [
+        "materials_src_britannica_iron_processing",
+        "materials_src_britannica_ore_deposit",
+        "materials_src_natgeo_ore"
+      ],
+      "related_ids": [
+        "materials_hematite",
+        "materials_magnetite",
+        "materials_pig_iron",
+        "materials_wrought_iron",
+        "materials_steel",
+        "materials_charcoal",
+        "materials_coke"
+      ],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "materials_copper_ore",
+      "name": "铜矿石",
+      "aliases": [
+        "铜矿",
+        "copper ore"
+      ],
+      "tags": [
+        "ore",
+        "natural_resource"
+      ],
+      "summary": "含铜矿物富集到可开采利用程度的岩石，主要矿型包括斑岩铜矿、块状硫化物矿、层状矿与自然铜矿化。与「铜金属」或「黄铜矿」都不是同一层级。",
+      "details": {
+        "definition": "铜矿石指铜矿物富集并达到可采经济要求的岩石体，常见含铜矿物有黄铜矿、斑铜矿、辉铜矿、孔雀石、蓝铜矿以及自然铜。它是经济地质概念：矿石与矿床的判定取决于品位、规模、埋深、开采与运输成本以及铜价，不含这些条件的「含铜岩石」不构成矿石。",
+        "mechanism": "从矿石到铜不只一条路线，选哪条取决于矿型与时代。现代工业对硫化矿常用：破碎磨矿使矿物解离→浮选富集→熔炼成冰铜→吹炼成粗铜→电解精炼；对氧化矿则常用浸出—电积。历史路线则不同：可直接锤打自然铜，或用木炭低温还原富氧化矿（孔雀石、蓝铜矿）得到铜，硫化物矿的利用需要更成熟的焙烧与多次熔炼。不能把上述现代流程当成所有时代与矿型都要走的路径。",
+        "conditions": "浮选、冰铜熔炼与电解那一套对基础设施要求高：稳定电力或大量燃料、水源、破碎磨矿设备、浮选药剂、耐高温炉体与排烟系统。但这不是铜生产的普遍前提：古代多利用露头富矿、次生富集带与自然铜，以木炭与土炉即可小规模出铜，所以早期铜产量低且分布零散。铜矿石含砷、锑时，冶炼产物性能会变差，这在史前青铜器的成分差异中有所反映。",
+        "exceptions": "矿石类型决定工艺，不可一概而论：氧化矿适合浸出，硫化矿适合浮选加熔炼；混合矿需分别处理。含铜量低到一定程度后，选矿与冶炼的能耗可能超过所得，矿石就退回「岩石」身份。",
+        "story_uses": "适合写矿区到冶炼场的运输、木柴与木炭的消耗压力、季节性缺水导致的停产、以及不同矿型造成的工匠经验差异。也可写劣质矿石导致器物脆裂引发的纠纷。",
+        "historical_scope": "铜的使用可追溯到新石器时代，塞浦路斯在公元前 3000 年前后成为重要铜源并在罗马时期影响深远（拉丁语 cuprum 即源于此）；美洲的铜器时代明显更晚。各地区技术路径不同，不宜同步化。",
+        "evidence_and_uncertainty": "选冶原理与温度区间属可复现的工艺知识，本组按上述已读来源表述；具体品位门槛随时代与技术变化，本条目不给固定数值。古代铜料来源多依靠成分与同位素分析推断，存在不确定性。"
+      },
+      "source_ids": [
+        "materials_src_britannica_copper_processing",
+        "materials_src_britannica_ore_deposit",
+        "materials_src_natgeo_ore"
+      ],
+      "related_ids": [
+        "materials_chalcopyrite",
+        "materials_native_copper",
+        "materials_copper_metal",
+        "materials_bronze",
+        "materials_charcoal"
+      ],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "materials_quartz_sand",
+      "name": "石英砂",
+      "aliases": [
+        "硅砂",
+        "河砂（部分语境）",
+        "silica sand"
+      ],
+      "tags": [
+        "natural_resource",
+        "aggregate",
+        "industrial_mineral"
+      ],
+      "summary": "以二氧化硅为主的砂粒集合体，可由石英颗粒、石英岩或石英脉碎屑组成，也可能混入长石、云母等；作为物料类型，不能一概当成单一矿物条目。它是玻璃、铸造砂型、砂浆骨料与陶瓷坯釉的共同基础原料。",
+      "details": {
+        "definition": "石英砂指以二氧化硅（SiO2）为主要成分的砂粒集合，可来自风化残留的石英颗粒、河湖海沉积砂或破碎的石英岩、石英脉。需注意分类层级：石英（SiO2）本身是矿物，而「石英砂」是原料与商品分类，往往是多矿物的混合物——除石英外还可能含长石、云母、黏土、铁氧化物等，因此不能一概作为单一矿物表述。硅砂、造型砂、玻璃砂等名称对应不同纯度与粒级要求，并非同一种规格。",
+        "mechanism": "在玻璃制造中，石英砂提供网络形成体——硅氧骨架，但纯石英熔点高于 1700 摄氏度，实际生产靠加入纯碱等熔剂显著降低熔化温度。在砂浆与混凝土中，砂作为骨料提供体积与骨架，并影响收缩与和易性。在铸造中，砂与黏结剂混合成砂型，承受金属液的热冲击。",
+        "conditions": "用途决定选料：制玻璃要求低铁（铁会使玻璃泛绿），因此需选低铁砂并控制粒度；砌筑与混凝土用砂更看重级配与含泥量，含盐或含有机质多的海砂需处理；铸造用砂要求耐火度与透气性。运输成本高、体量大，通常就近取材。",
+        "exceptions": "「砂」不等于「石英砂」：石灰质砂、长石砂、贝壳砂的成分差别很大，用于玻璃会失败。沙漠砂多经风磨而粒圆、表面光滑，与水泥浆咬合差，未必适合做混凝土骨料，这是一个常被忽略的限制。",
+        "story_uses": "适合写河滩取砂、采砂权与河道争端、窑场选址要靠近砂与燃料、以及「本地砂太脏做不出清亮玻璃」的技术挫败。也可写铸造作坊里砂型的反复回用与粉尘。",
+        "historical_scope": "砂作为建材与骨料的使用与建筑史同样久远；玻璃制造自公元前数千年即用石英质原料，但不同地区所用原料（石英砂、石英砾、石英脉碎块）与助熔剂差异很大。近现代对砂的纯度与粒级才形成严格分级。",
+        "evidence_and_uncertainty": "成分与工艺作用明确；某个具体砂源是否适用，必须实测成分与粒度，本条目不给通用结论。"
+      },
+      "source_ids": [
+        "materials_src_britannica_glass",
+        "materials_src_britannica_brick",
+        "materials_src_britannica_cement"
+      ],
+      "related_ids": [
+        "materials_glass",
+        "materials_cement",
+        "materials_ceramic",
+        "materials_clay"
+      ],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "materials_limestone",
+      "name": "石灰石",
+      "aliases": [
+        "石灰岩",
+        "碳酸钙岩",
+        "limestone"
+      ],
+      "tags": [
+        "natural_resource",
+        "stone"
+      ],
+      "summary": "以碳酸钙为主的沉积岩，是烧制石灰、制造水泥与玻璃、炼铁造渣以及部分建筑石材的共同来源；它不是单一矿物，而是岩石类型。",
+      "details": {
+        "definition": "石灰石是以碳酸钙（CaCO3，多为方解石或文石）为主的沉积岩，常含白云石、黏土、铁碳酸盐、石英等杂质。成因上既有生物成因（海水中生物遗骸与有孔虫沉积），也有碎屑成因（既有石灰岩被搬运再沉积）。它是岩石层级的概念，与方解石这一矿物不同。",
+        "mechanism": "石灰石的价值来自两步化学：一是加热到约 900—1000 摄氏度时碳酸钙分解，放出二氧化碳并留下石灰（氧化钙），这是石灰窑的基础；二是石灰与水作用生成氢氧化钙，再与砂、火山灰质材料或黏土反应形成胶结物，这是砂浆与三合土的基础。炼铁时石灰石作熔剂，与矿石中的硅质杂质结合成渣。玻璃配方中它提供氧化钙，使钠钙玻璃不溶于水。",
+        "conditions": "可用性受纯度与结构限制：制石灰与水泥要求碳酸钙含量较高、杂质可控；作建筑石材要求致密、层理不发育、抗冻融；有些石灰石含黏土或燧石过多，只能用于低要求场合。烧石灰需要大量燃料与能蓄热的窑体，这在林木稀疏地区是硬约束。",
+        "exceptions": "石灰石不等于大理石：大理石是变质重结晶的碳酸钙岩石，质地与用途不同；也不等于白垩，后者是疏松的微体化石堆积。煅烧温度过高会导致石灰「过烧」而反应迟缓，这是实际操作中常见的失败点。",
+        "story_uses": "适合写石灰窑的烟气与灼热、采石场的台阶式工作面、烧石灰对燃料林的压力、以及用石灰改良酸性土壤或处理尸体与卫生问题。也可写建筑用石灰石被酸雨侵蚀的表层剥落。",
+        "historical_scope": "石灰作胶结与涂料材料的使用非常早，罗马时期的石灰—火山灰体系是重要技术传统；作为水泥与炼铁熔料的规模化使用则属近现代工业。各地石灰石品质与替代材料（贝壳、珊瑚）差异大。",
+        "evidence_and_uncertainty": "分解温度区间与用途可复现；某地石灰石是否适合某一用途必须做成分与强度测试，不能凭「是石灰石」判断。"
+      },
+      "source_ids": [
+        "materials_src_britannica_limestone",
+        "materials_src_britannica_cement",
+        "materials_src_britannica_glass"
+      ],
+      "related_ids": [
+        "materials_lime",
+        "materials_cement",
+        "materials_glass",
+        "materials_iron_ore",
+        "materials_building_stone"
+      ],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "materials_clay",
+      "name": "黏土",
+      "aliases": [
+        "粘土",
+        "陶土",
+        "ceramic clay"
+      ],
+      "tags": [
+        "natural_resource",
+        "industrial_mineral"
+      ],
+      "summary": "粒径极细、湿时可塑干时黏结的土状物料，以含水铝硅酸盐类黏土矿物为主但常混有石英、云母与有机质；它属物料分类而非单一矿物，不同黏土的成分差异决定了它能做什么。",
+      "details": {
+        "definition": "黏土在地质学上指粒径小于 0.005 毫米的土粒，以及以其为主的岩石，核心是含水铝硅酸盐类的黏土矿物，并混有石英、云母与有机质。需注意分类层级：它是一种粒径与成因定义的物料集合，而不是某一固定矿物——高岭石、伊利石、蒙脱石等黏土矿物均可为主，性能因而差异很大。它湿时具可塑性、干时黏结、高温下烧结，这三点是全部用途的基础。高岭土、耐火黏土、膨润土都是特定类型，不能互换。",
+        "mechanism": "可塑性来自片状黏土矿物颗粒间吸附水形成的滑移面；干燥时水分排出，颗粒靠范德华力与少量可溶盐黏结；入窑加热后，吸附水与结构水先后脱除，约在 870—1100 摄氏度发生烧结，颗粒间形成新相而硬化。制砖时加入砂（瘠性料）控制收缩与变形，加入长石类熔剂降低烧结温度；制瓷则需高岭土等较纯原料并施釉。",
+        "conditions": "黏土并非随处可用：含石灰质结核多的黏土烧成后会崩解（石灰爆裂），含盐或有机质过多会影响成型与烧成；制精细陶瓷要求低铁低钛，否则胎体发暗。燃料、窑型、干燥场地（避免雨季开裂）与熟练的成型手法同样是必要条件。",
+        "exceptions": "「陶土」不是单一物质，各地坯料配方差异极大，把某地工艺照搬到另一地常失败。日晒砖与烧结砖是两种不同材料：前者只靠干燥，遇水会软化，不能当作烧结砖的等价物。高岭土耐火度高但可塑性较差，需配入其他黏土改善成型。",
+        "story_uses": "适合写取土坑、踩泥与陈腐、坯体在阴干时开裂、窑位与火候的师傅经验、砖瓦窑对燃料林的消耗。也可写「本地的土烧不出细瓷」带来的贸易依赖。",
+        "historical_scope": "制陶早于有文字的历史，砖的使用至少有六千年（先为日晒砖）；美索不达米亚、罗马与中国的砖陶技术各有特色。精细瓷器的高温技术与配方是特定地区的长期积累，不能默认为普遍能力。",
+        "evidence_and_uncertainty": "塑性与烧结原理可复现；某一黏土是否适用必须试烧，本条目不给通用配方。古代窑温的实测数据有限，多依赖复制实验推断，存在不确定性。"
+      },
+      "source_ids": [
+        "materials_src_britannica_clay",
+        "materials_src_britannica_brick",
+        "materials_src_britannica_ceramics"
+      ],
+      "related_ids": [
+        "materials_brick",
+        "materials_ceramic",
+        "materials_cement",
+        "materials_quartz_sand"
+      ],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "materials_gypsum",
+      "name": "石膏",
+      "aliases": [
+        "生石膏",
+        "二水硫酸钙",
+        "雪花石膏（变种）",
+        "gypsum"
+      ],
+      "tags": [
+        "mineral",
+        "natural_resource"
+      ],
+      "summary": "含水硫酸钙矿物（CaSO4·2H2O），莫氏硬度仅 2，煅烧后成为可凝结的石膏胶凝材料，同时是水泥的缓凝剂与土壤改良材料。",
+      "details": {
+        "definition": "石膏是含水硫酸钙矿物，化学式 CaSO4·2H2O，莫氏硬度 2（指甲可划），常见块状、纤维状（纤维石膏）、细粒致密状（雪花石膏）与土状变种。它属矿物，成因上与岩盐、硬石膏同属蒸发岩系；作为工业原料需评估纯度与规模。",
+        "mechanism": "石膏的关键在于「脱水—复水」的可逆性：加热到约一百多摄氏度失去部分结晶水成为半水石膏，磨细后加水又能重新水化成二水石膏并伴随体积微膨胀而凝结硬化，这就是建筑石膏与模型石膏的基础。在水泥生产中，加入约 5% 石膏可调节凝结时间，避免速凝。土壤中施用石膏则可提供钙并改良碱化土结构；工业上也有用磷肥等副产石膏（化学石膏）替代天然石膏的路线。",
+        "conditions": "煅烧温度控制是成败关键：温度过低脱水不完全、过高则生成难溶的硬石膏而失去凝结力。石膏制品怕水（长期潮湿会强度下降）、怕高温（二水石膏受热重新脱水），因此多用于室内。用作水泥缓凝剂时需控制用量与粒度。",
+        "exceptions": "石膏、硬石膏（无水硫酸钙）、石灰是三种不同材料，不能互换：石膏靠水化凝结，石灰靠与二氧化碳反应或与活性硅铝质材料反应，硬石膏需激发剂才能凝结。雪花石膏是石膏的致密变种，质地软、易雕刻但也易损，与大理石完全不同。",
+        "story_uses": "适合写石膏矿与煅烧炉、翻模与雕塑、墙面抹灰与吊顶、接骨固定（历史上确有使用，但属医疗实践，不应写成疗效断言）、以及水泥厂配料的称量。也可写潮湿房间里石膏墙面起鼓脱落。",
+        "historical_scope": "石膏作胶凝与装饰材料在多个古文明有使用，巴黎盆地出产石膏使「巴黎石膏」得名；作为波特兰水泥缓凝剂则随近代水泥工业普及。各地石膏纯度与替代材料（如磷石膏等副产石膏）情况不同。",
+        "evidence_and_uncertainty": "脱水温度与凝结机理可复现；具体矿床的纯度、煅烧制度需实测。历史使用范围有考古证据但细节不全，不宜泛化。"
+      },
+      "source_ids": [
+        "materials_src_britannica_gypsum",
+        "materials_src_britannica_cement"
+      ],
+      "related_ids": [
+        "materials_plaster",
+        "materials_cement",
+        "materials_lime",
+        "materials_salt"
+      ],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "materials_graphite",
+      "name": "石墨",
+      "aliases": [
+        "笔铅",
+        "黑铅",
+        "graphite"
+      ],
+      "tags": [
+        "mineral",
+        "natural_resource"
+      ],
+      "summary": "碳的六方层状矿物，硬度仅约 1.5 且具滑腻感，导热导电良好；用于铅笔、润滑、坩埚与炼钢电极，与金刚石是同素异形体。",
+      "details": {
+        "definition": "石墨是碳的矿物形态，碳原子在层内以六元环共价键连结、层间靠弱作用堆叠，因此极易沿层滑移，硬度约 1.5，呈灰黑、具金属或土状光泽，手摸有滑腻感并留黑色痕迹。天然石墨分无定形（碳含量约 70—90%）、鳞片状（约 85—98%）与脉状（可高于 99%）三类，性质与用途不同。",
+        "mechanism": "石墨由含碳沉积物经变质、或碳质流体与热液反应、或岩浆碳结晶形成。其导电导热性来自层内离域电子；耐火性使其可做坩埚与电极。铅笔的「铅」实为石墨与黏土按比例混合后烧结——黏土越多笔芯越硬，这是石墨最常见也最易被误解的用途。石墨还用于炼钢电极、润滑剂、铸造涂料与电池负极。",
+        "conditions": "作为工业原料，纯度与晶体形态决定用途：鳞片石墨适合做润滑与电池材料，无定形石墨多用于低端用途，脉状石墨最纯但稀少。高温应用要求低灰分，否则杂质会影响电极寿命。粉状石墨易飞扬污染环境，加工需防护。",
+        "exceptions": "长期被误认：石墨曾被当作铅或辉钼矿，直到 1779 年发现其燃烧只生成二氧化碳才确认是碳。切勿把「铅笔含铅」当成事实。人造石墨（以石油焦等为原料高温处理）与天然石墨不是一回事，前者纯度可控。",
+        "story_uses": "适合写书写与绘图工具的演进、铸造与坩埚、电极与电弧炉、以及矿区的黑色粉尘污染。也可写「这石头能画线」带来的记录与标记便利。",
+        "historical_scope": "石墨的书写用途在近代随矿床发现与铅笔工业发展而普及；作为电极与冶金材料是电气化与电炉炼钢之后的事。世界产量高度集中（约四分之三在中国），这是现代格局，不宜套用于历史时期。",
+        "evidence_and_uncertainty": "结构、硬度、导电性可复现；各类石墨的具体碳含量范围为常见报道值，实际因产地而异。古代石墨的具体使用细节证据有限。"
+      },
+      "source_ids": [
+        "materials_src_britannica_graphite",
+        "materials_src_britannica_charcoal"
+      ],
+      "related_ids": [
+        "materials_charcoal",
+        "materials_coke",
+        "materials_steel",
+        "materials_coal"
+      ],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "materials_building_stone",
+      "name": "建筑石材",
+      "aliases": [
+        "石料",
+        "砌石",
+        "dimension stone"
+      ],
+      "tags": [
+        "natural_resource",
+        "stone"
+      ],
+      "summary": "用于砌筑、铺装与雕刻的天然岩石材料的总称，包括花岗岩、砂岩、石灰石、凝灰岩、片岩等。它是按用途划分的材料类别，不是某一种岩石或矿物。",
+      "details": {
+        "definition": "建筑石材指开采后经粗加工或精加工用于建筑与构筑物的天然岩石，可按成因分为火成岩（如花岗岩、玄武岩、凝灰岩）、沉积岩（如砂岩、石灰石）与变质岩（如大理岩、片岩）。因为它是用途分类而非矿物分类，同名石材在不同产地的成分、孔隙率与强度可能相差很大，必须按具体石种与产地评估。",
+        "mechanism": "石材的可用性取决于几项物理性质：抗压强度、吸水率与孔隙率、抗冻融性、耐磨性、以及是否有不利于加工的层理或解理。致密低吸水率的火成岩耐候性好但硬度高、加工费工；砂岩与凝灰岩较软易加工，却常因孔隙率高而怕冻融与盐析。开采依靠楔裂、钻孔、锯切，运输重量大，往往决定建筑尺度。",
+        "conditions": "使用地点的气候是硬条件：寒冷多冻地区要求低吸水率石材，否则渗水结冰会层层剥落；沿海盐雾环境会加速某些石材的表面劣化。结构上，石材抗压好但抗拉差，梁、过梁与悬挑构件需要合适跨度与支撑方式，否则会开裂或断裂。",
+        "exceptions": "「大理石」在商业上泛指可抛光的碳酸钙石材，与地质学上的变质大理岩不完全对应；某些商业名称（如「花岗石」）甚至包括非花岗岩类岩石。石材并非不可损坏：酸雨侵蚀石灰质石材、盐结晶破坏砂岩、冻融循环破坏多孔凝灰岩都是常见失效方式。",
+        "story_uses": "适合写采石场与石匠行会、石料运输的水路与陆路成本、砌石墙与拱券的受力设计、以及石材表面风化与修复。也可写「本地只有软石，重要建筑要从远处运石」带来的造价与政治含义。",
+        "historical_scope": "巨石建筑、埃及与希腊的石灰石与大理石、罗马的凝灰岩与火山灰混凝土、南亚与东南亚的砂岩与火山岩建筑，各有其材料逻辑；不同地区并非按同一顺序发展。近代钢材与水泥的普及改变了石材的结构角色，但饰面用途延续。",
+        "evidence_and_uncertainty": "石材的物理性质与劣化机理属材料科学常识；某一具体建筑用石的产地与性能需实测或文献核对，本条目不给通用数值。"
+      },
+      "source_ids": [
+        "materials_src_britannica_limestone",
+        "materials_src_britannica_brick",
+        "materials_src_britannica_cement"
+      ],
+      "related_ids": [
+        "materials_limestone",
+        "materials_brick",
+        "materials_cement",
+        "materials_gypsum"
+      ],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "materials_salt",
+      "name": "食盐",
+      "aliases": [
+        "氯化钠",
+        "岩盐（矿物形态）",
+        "海盐（产品）",
+        "halite",
+        "salt"
+      ],
+      "tags": [
+        "mineral",
+        "natural_resource",
+        "condiment",
+        "food"
+      ],
+      "summary": "氯化钠（NaCl），既是人体必需的无机盐与最古老的防腐调味材料，也是化工与冶金的基础原料；矿物形态称岩盐，可从岩盐矿或海水蒸发取得。",
+      "details": {
+        "definition": "需要先分清两个层级。矿物层面：岩盐（halite）是氯化钠的天然矿物，有晶形、解理与杂质，由古海水蒸发形成。产品层面：「食盐」是经开采、提纯、粒度分级后的商品，可来自岩盐矿、盐湖、盐泉或海水晒制，还可能加碘或加防结块剂。二者不可互替：说「岩盐」时指矿物，说「食盐」时指经处理的食材/工业原料，纯度与用途要求完全不同。",
+        "mechanism": "盐的防腐作用来自降低水分活度：高浓度盐使微生物细胞失水、抑制其繁殖，因此腌肉、腌鱼、腌菜得以长期保存。调味上，钠离子直接参与咸味感受。工业上，电解食盐水可制取氯与烧碱，进而生产盐酸、纯碱等；盐还用作冶金熔剂、陶瓷釉料助熔与制皂盐析。海盐靠日晒蒸发结晶，岩盐靠井下开采或注水溶解后卤水蒸发。",
+        "conditions": "地理条件是关键：内陆盐矿、盐湖、盐泉与沿海盐田决定获取方式与成本。日晒制盐需要蒸发量大于降水量的气候与平坦滩地；井盐需要钻探与熬煮燃料。腌渍保存还依赖盐的洁净度与用量，含杂质多或受潮的盐会影响成品品质与保存期。",
+        "exceptions": "「盐」在化学上指一大类化合物，日常语境才特指氯化钠，阅读古文献时需注意区分。岩盐、海盐、池盐、井盐是不同来源的产品，杂质与晶体形貌不同；加碘盐是人为添加碘化钾，并非所有食盐都含碘。过量摄入钠与高血压等健康风险相关，具体摄入建议属营养学范畴，本条目不做个体化医学建议。",
+        "story_uses": "适合写盐田与盐工、盐路与专卖制度、盐税与走私、以及腌制作为跨季节储粮手段。盐在礼仪与契约中的象征意义（共食之盐、待客之道）也有真实文化基础，可作为社会关系的道具。",
+        "historical_scope": "盐的获取与贸易极为古老，罗马的盐道、撒哈拉商队盐贸易、中国井盐与盐铁专卖都是有据的历史现象；有些以肉乳为主食的游牧群体对额外食盐需求较低，而谷蔬为主食的农业人群需求更高，这一差异有实际生理与饮食基础。",
+        "evidence_and_uncertainty": "成分、防腐机理与工业用途可复现；古代盐产量与贸易量多为估算，个体摄入建议存在学界讨论，本条目不做医学结论。"
+      },
+      "source_ids": [
+        "materials_src_britannica_salt",
+        "materials_src_britannica_gypsum"
+      ],
+      "related_ids": [
+        "materials_gypsum",
+        "materials_copper_metal",
+        "materials_brick"
+      ],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "materials_coal",
+      "name": "煤",
+      "aliases": [
+        "煤炭",
+        "石炭",
+        "烟煤",
+        "无烟煤",
+        "coal"
+      ],
+      "tags": [
+        "natural_resource",
+        "fuel"
+      ],
+      "summary": "由植物残体经长期埋藏受热变质形成的可燃沉积物（含碳量以重量计通常超过一半），按煤化程度分为褐煤、次烟煤、烟煤与无烟煤；既是燃料也是炼焦与化工原料。",
+      "details": {
+        "definition": "煤是含碳量高（定义上以重量计碳质物超过 50%）的可燃沉积岩，由植物残体在沼泽环境堆积成泥炭、再经埋藏受热发生煤化作用形成。按煤化程度（rank）可分为褐煤、次烟煤、烟煤与无烟煤；此外还有成因类型与杂质等级（grade）的差异。它是天然资源而非加工材料，但炼焦之后的焦炭才是冶金用的加工产物。",
+        "mechanism": "成煤需要三个条件叠加：植物大量生长、沼泽环境使残体少受氧化分解、以及随后的沉降埋藏与地温加热。煤化程度越高，水分与挥发分越低、碳含量与热值越高、燃烧越不易冒烟。用途上，煤直接燃烧供热发电；隔绝空气干馏可得焦炭、煤焦油与煤气；气化与液化可转为气体或液体燃料；也是多种化工品的碳源。",
+        "conditions": "使用煤作为燃料有两道现实门槛：一是开采与运输（井下通风、排水、支护、瓦斯与粉尘风险），二是燃烧条件（需要炉箅或喷燃结构、足够通风，否则燃烧不完全而冒黑烟、产生一氧化碳）。用于高炉一类大型冶金时，煤通常需先炼成焦炭：煤中的挥发分、硫与灰分会直接影响铁与钢的品质。但这不是冶金的普遍前提——木炭长期是主要的冶金燃料与还原剂，部分窑炉与反射炉也能直接烧煤，只是炉况控制与产品品质不同。",
+        "exceptions": "不要把「煤」与「木炭」混淆：古文献中的「石炭」「煤炭」才指矿物煤，而某些译本里的「炭」是木炭。并非所有煤都适合炼焦，需要特定的黏结性与低硫低灰条件；把普通烟煤直接当焦炭用会破坏高炉透气性。燃烧煤会排放硫氧化物、颗粒物与二氧化碳，这是明确的环境代价。",
+        "story_uses": "适合写露头煤的自燃与地火、矿井瓦斯与透水事故、运煤的铁路与水路、焦炭炉的烟尘与工人肺病、以及城市燃煤造成的烟雾。也可写「本地煤多但硫高，炼不出好铁」这类具体困境。",
+        "historical_scope": "中国用煤早于欧洲有明确记载，欧洲罗马时期已有用煤痕迹、13 世纪出现采矿记录；但直到 18 世纪焦炭用于高炉、蒸汽机普及后才成为主导能源。不要假定有煤的地方就自动进入工业化。",
+        "evidence_and_uncertainty": "成因、煤化序列与工业用途可复现；早期用煤的具体规模与用途证据零散，各国产量数据宜引官方统计（本次未能取得该来源正文，故不给数字）。"
+      },
+      "source_ids": [
+        "materials_src_britannica_coal",
+        "materials_src_britannica_charcoal",
+        "materials_src_britannica_iron_processing"
+      ],
+      "related_ids": [
+        "materials_coke",
+        "materials_charcoal",
+        "materials_steel",
+        "materials_graphite",
+        "materials_pig_iron"
+      ],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "materials_charcoal",
+      "name": "木炭",
+      "aliases": [
+        "炭（限氧加热产物）",
+        "charcoal"
+      ],
+      "tags": [
+        "fuel",
+        "processed_material"
+      ],
+      "summary": "木材在限氧条件下加热炭化所得的含碳残留物，是前工业时代最主要的冶金还原剂与高温燃料，也是黑火药与渗碳的原料。它是加工材料，不是天然矿藏。",
+      "details": {
+        "definition": "木炭是含碳物质（最常用木材）在限制空气供应的条件下部分燃烧或加热后留下的不纯石墨态碳。它属于加工材料，与煤这一天然沉积燃料是不同层级：煤从地下采出即可用，木炭必须由人烧制。木炭孔隙多、质轻、燃烧温度高且烟少，这一组性质决定了它在冶金中的地位。",
+        "mechanism": "炭化过程实质上是在缺氧条件下驱除木材中的水分与挥发分，留下碳骨架。传统方法是用土窑、坑窑或堆烧，靠控制进气量让木材在不完全燃烧下缓慢炭化，再封窑冷却。木炭在冶炼中同时充当燃料与还原剂：碳燃烧生成一氧化碳，将矿石中的氧夺走。它还用于渗碳（把碳渗入铁件表层使其变硬）、黑火药与吸附净化。",
+        "conditions": "烧炭需要大量木材，因而对林地压力极大：同一片林地反复砍伐会导致退化，运输半径也受限于木炭体积大、易碎、怕潮。烧炭技术还要求掌握封窑与冷却时机，过早开窑会使炭化为灰。冶金规模一大，木炭供应往往成为瓶颈，这正是焦炭替代木炭的直接背景。",
+        "exceptions": "木炭不等于煤，也不等于焦炭：焦炭由煤干馏而成，强度更高、能承受更大料柱，适合大型高炉；木炭强度低但反应性好、杂质少。活性炭是经特殊处理的高比表面积木炭，用于吸附与净化，与燃料用途不同。",
+        "story_uses": "适合写炭窑的烟与烧炭人的季节性迁移、林权与柴炭之争、冶炼场周围的森林被砍空、以及木炭运输中的破碎与受潮损失。也可写「炉子建好了但炭不够」导致的减产。",
+        "historical_scope": "木炭是最古老的人造燃料之一，长期是冶铜、冶铁的主要燃料与还原剂；欧洲自 16 世纪起因铁产量上升而出现柴炭短缺，推动了 18 世纪焦炭冶金的转向。这一替代过程在不同地区时间不同。",
+        "evidence_and_uncertainty": "炭化原理与冶金作用可复现；古代木炭窑的形制与产量多依赖考古与实验考古推断，存在不确定性。"
+      },
+      "source_ids": [
+        "materials_src_britannica_charcoal",
+        "materials_src_britannica_iron_processing",
+        "materials_src_britannica_coal"
+      ],
+      "related_ids": [
+        "materials_coke",
+        "materials_coal",
+        "materials_iron_ore",
+        "materials_pig_iron",
+        "materials_wrought_iron"
+      ],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "materials_coke",
+      "name": "焦炭",
+      "aliases": [
+        "焦",
+        "冶金焦",
+        "coke"
+      ],
+      "tags": [
+        "fuel",
+        "processed_material"
+      ],
+      "summary": "烟煤在隔绝空气条件下高温干馏所得的块状含碳燃料，强度高于木炭、能支撑大型高炉料柱，硫灰可控，是近代钢铁工业的关键材料。它是加工材料，不是天然矿藏。",
+      "details": {
+        "definition": "焦炭是把特定烟煤在隔绝空气下加热干馏，去除挥发分后得到的多孔块状碳质材料。它与煤（天然沉积燃料）和木炭（木材炭化产物）都不同：煤是原料，焦炭是经炼焦工序加工的产物。作为冶金燃料，它的价值在于强度、块度、反应性与硫灰含量。",
+        "mechanism": "炼焦过程中煤粒先软化熔融、再固化成焦块，形成能承受压力的多孔骨架，同时挥发分逸出并被回收为煤焦油与煤气。高炉中焦炭承担三重作用：燃烧供热、产生一氧化碳还原铁矿石、以及作为料柱的骨架维持透气性——第三点正是木炭难以替代的原因。焦炭强度不足会导致料柱压塌、炉况失常。",
+        "conditions": "生产优质冶金焦需要合适的煤种（黏结性好、硫灰低）与配煤技术；把不适合炼焦的煤强行焦化会得到强度差、易碎的产品。高炉用焦还要求块度均匀、水分稳定。此外炼焦本身需要焦炉、煤气回收与污染控制设施。",
+        "exceptions": "焦炭不是煤：把煤直接投入高炉会因挥发分与强度问题破坏炉况。焦炭也不同于煤焦（coal tar）与焦炉煤气，后两者是炼焦的副产品。历史上先有木炭高炉，焦炭高炉出现后并非立即全面取代，木炭铁在特定用途（如需要低杂质的场合）仍有市场。",
+        "story_uses": "适合写焦炉与配煤工的经验、矿区的煤铁复合体、铁路与运河把煤焦运到炼铁厂、以及焦炉烟气的污染与劳工伤病。也可写「煤不对路，焦化出来全是碎渣」导致的生产危机。",
+        "historical_scope": "以焦炭替代木炭用于高炉通常归功于 1709 年前后的 Abraham Darby，此后随鼓风技术与炉型改进逐步推广；世界各产铁地区的替代节奏差异很大。",
+        "evidence_and_uncertainty": "炼焦原理与高炉作用可复现；早期焦炭高炉的具体工艺参数与推广速度仍在研究中，存在地区性差异。"
+      },
+      "source_ids": [
+        "materials_src_britannica_coal",
+        "materials_src_britannica_iron_processing",
+        "materials_src_britannica_charcoal"
+      ],
+      "related_ids": [
+        "materials_coal",
+        "materials_charcoal",
+        "materials_pig_iron",
+        "materials_steel",
+        "materials_iron_ore"
+      ],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "materials_iron_metal",
+      "name": "铁",
+      "aliases": [
+        "金属铁",
+        "纯铁",
+        "iron"
+      ],
+      "tags": [
+        "metal",
+        "processed_material"
+      ],
+      "summary": "银白色金属元素（Fe），占地壳重量约 5%，熔点约 1538 摄氏度；纯铁软而韧、有铁磁性，工程上多以含碳的铁基合金（钢、铸铁）形式使用。需分开两种身份：作为元素，铁天然存在（陨铁为主，含镍、来源特殊，另有少量自然铁）；作为工业供材，绝大多数铁经冶炼与精炼从矿石取得。两种身份不可互相推出，它也不是矿藏。",
+      "details": {
+        "definition": "铁是金属元素，符号 Fe，密度较高，熔点约 1538 摄氏度，纯态下柔软、延展性好、具铁磁性。它的关键结构特征是同素异形：常温为体心立方结构（α 铁/铁素体），约 912 摄氏度以上转为面心立方（奥氏体），更高温又回到体心立方（δ 铁）。正因为晶格随温度变化，铁才能通过碳的溶入与析出获得广泛的性能调控空间。需要分清两种身份：作为元素，铁天然存在于地壳与陨石中（陨铁即以金属态存在，含镍）；作为工业供材，绝大多数铁经冶炼与精炼从矿石中取得。本条目讨论的是后者的材料学性质，但这并不否定自然铁的存在，也不能把自然铁当作常规工业原料。",
+        "mechanism": "工业路线由矿石经高炉碳还原得含碳较高的铁水，再经炼钢（氧化脱碳）或精炼调成分；这是近现代的主流途径，但并非所有时代只能如此。历史上块炼法能以较低温度直接还原得到固态海绵铁并锻打成器，不经液态铁水；陨铁则可直接加热锻打。铁的性能取决于碳的存在形式：固溶于晶格的碳、以及化合为渗碳体（Fe3C）的碳，配合冷却速度形成铁素体、珠光体、马氏体等不同组织，从而决定软硬与韧性。",
+        "conditions": "纯铁很少直接使用，因为它太软；而且铁在潮湿环境与酸、盐介质中容易锈蚀，需要涂层、合金化或阴极保护。加工上，铁可锻、可轧、可焊，但焊接与热处理需要控制温度与冷却速度，否则会产生硬脆组织或变形。",
+        "exceptions": "不要把「铁」与「钢」「生铁」「熟铁」混用：它们同属铁基材料，但含碳量与杂质水平不同，性能与用途差别很大。陨铁虽也是铁，但含镍且来源特殊，属自然铁的一种，不能当作常规原料，但也不能因此否认它是铁。铁不是「越纯越好」的材料，工程上往往通过控制杂质与合金元素达到目标性能。",
+        "story_uses": "适合写铁匠对火色与冷却的判断、锻打时的加工硬化与退火、器物锈蚀与保养、以及铁作为「常见但难做好」的材料带来的技术分层。也可写铁矿丰富却缺燃料的地区长期依赖进口铁器。",
+        "historical_scope": "陨铁利用早于冶铁，从矿石提取铁约始于公元前 2000 年的西亚；铁器在各地普及时间差异极大。铁相对青铜的优势主要是原料更广布，而非性能全面优越——早期铁器未必优于成熟青铜器。",
+        "evidence_and_uncertainty": "熔点、晶型转变温度与组织学属可复现的材料学基础内容，本组按上述已读来源表述；具体古代铁器的工艺判断需金相分析，不同遗址结论常有分歧，本文不给统一判断。"
+      },
+      "source_ids": [
+        "materials_src_britannica_iron_processing",
+        "materials_src_britannica_steel",
+        "materials_src_britannica_cast_iron"
+      ],
+      "related_ids": [
+        "materials_pig_iron",
+        "materials_wrought_iron",
+        "materials_steel",
+        "materials_iron_ore",
+        "materials_coke"
+      ],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "materials_pig_iron",
+      "name": "生铁",
+      "aliases": [
+        "猪铁（传统称呼）",
+        "pig iron"
+      ],
+      "tags": [
+        "metal",
+        "alloy",
+        "processed_material"
+      ],
+      "summary": "高炉还原铁矿石所得、含碳约 2%—4% 并含硅锰与硫磷杂质的铁，熔点较低、可浇铸但硬而脆；是炼钢与铸造的中间原料。严格说它不是天然材料，也不是严格意义的成品合金。",
+      "details": {
+        "definition": "生铁是高炉冶铁的初级产品，含碳约 2%—4%，并含数量不等的硅、锰与硫、磷等杂质。名称来自传统浇铸方式：铁水流入主沟与两侧支沟，形似母猪带仔，故支沟中的铁块称「猪铁」。它是冶铁链条的中间态，与铁矿石（原料）和钢（低碳产品）都不同。需说明两处不等同：「铁水」描述的是出炉后的液态，冷却铸块后才是通常所说的生铁（pig iron），二者不可互相替代作同义词；「铸铁」是按铸件要求调质后浇铸的成品合金（灰口/白口铸铁），与生铁是上下游关系而非同义词。本组未单列铸铁条目，其与生铁、钢的区别另在 exceptions 中说明。",
+        "mechanism": "在高炉中，铁矿石被焦炭燃烧产生的一氧化碳还原成金属铁，因温度足以熔化并吸收了较多碳，得到液态铁水，从炉缸定期排出。含碳高使熔点降低，但也带来硬脆。生铁可再入炼钢炉氧化脱碳变成钢，也可重熔浇入铸型成为铸铁件。高炉路线并非唯一途径：块炼法可直接得到低碳铁团而不经液态铁水，但得不到生铁。",
+        "conditions": "生铁的质量取决于矿石与焦炭带入的杂质：硫会使铁热脆、磷使铁冷脆，因此对原料与造渣控制有要求。浇铸需要耐高温的型砂与铸型、合适的浇注温度与冷却速度；冷却过快或壁厚差异大易产生缩孔与裂纹。",
+        "exceptions": "生铁≠铸铁：生铁是冶炼中间产品，铸铁是按铸件要求调质后浇铸的成品（灰口铸铁中碳以石墨片析出，白口铸铁中碳以渗碳体存在，性能不同）；本组未单列铸铁条目，故不以 alias 混查。生铁也≠钢：把生铁直接当钢用会因脆性出问题。历史上「偶尔得到可浇铸的铁」与「稳定生产铸铁」是两件事。",
+        "story_uses": "适合写高炉出铁的场面、铁水浇入砂型、铸锅铸钟与铸炮、以及铸铁件因脆性断裂引发的事故。也可写生铁需要再加工才能成为可用器具，中间有运输与再熔的环节。",
+        "historical_scope": "中国在公元前 6 世纪左右已能生产铸铁，欧洲到 14 世纪才零星出现铸铁，15 世纪后随高炉推广；19 世纪铸铁成为重要结构金属，20 世纪在建筑结构中让位于钢。这些年代属常见的学术表述，具体窑址与器物仍有争论；各地技术路径不同，不宜统一。",
+        "evidence_and_uncertainty": "含碳区间与高炉原理可复现；早期铸铁器物的工艺与产地判定依赖金相与成分分析，个别案例有争议。"
+      },
+      "source_ids": [
+        "materials_src_britannica_cast_iron",
+        "materials_src_britannica_iron_processing",
+        "materials_src_britannica_steel"
+      ],
+      "related_ids": [
+        "materials_wrought_iron",
+        "materials_steel",
+        "materials_iron_metal",
+        "materials_coke",
+        "materials_iron_ore"
+      ],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "materials_wrought_iron",
+      "name": "熟铁",
+      "aliases": [
+        "锻铁",
+        "软铁",
+        "wrought iron"
+      ],
+      "tags": [
+        "metal",
+        "alloy",
+        "processed_material"
+      ],
+      "summary": "含碳通常低于 0.1%、夹带少量渣的低碳铁，软而韧、可锻可焊，是铁器时代到 19 世纪最主要的铁材；靠锻打排渣成型，属加工材料。",
+      "details": {
+        "definition": "熟铁是含碳量通常低于 0.1%、并夹带约 1%—2% 渣的低碳铁材料。低含碳使它软而韧、延展性好、可锻可焊；渣的存在形成纤维状组织，是其区别于现代低碳钢的标志。名称中的「熟」指经过反复加热锻打（wrought 意为「锻炼过的」），与脆硬的生铁相对。",
+        "mechanism": "最早的做法是块炼法：在较低温度下用木炭还原铁矿石，得到半熔的金属与渣混合团块（海绵铁/块炼铁），趁热反复锤打挤出渣并焊合成致密铁块。后来出现间接路线：先把高炉生铁在反射炉中加热搅拌（1784 年 Cort 的搅拌法），靠炉内氧化性气体脱碳，得到半固态熟铁团再挤压排渣、轧制成材。",
+        "conditions": "熟铁的生产极其耗工：需要大量燃料反复加热、需要锻打或轧制的动力与设备、需要熟练判断火色与排渣时机。产品含渣量高会降低强度与耐蚀性。焊接依赖高温下锤打焊合，工艺难度高。",
+        "exceptions": "熟铁不等于现代低碳钢：现代钢成分控制精确、几乎无渣，性能更均一；把两者混为一谈会误判历史器物的加工方式。熟铁也不等于铸铁：前者可锻、后者可铸但脆。熟铁在 19 世纪后期被钢取代，但装饰性锻铁工艺延续至今。",
+        "story_uses": "适合写铁匠铺的炉火、锤打与折叠锻焊、铁匠对材料「软硬」的直觉、以及锻铁栏杆与门饰的工艺美学。也可写「铁不够用要回收旧铁重锻」的资源循环。",
+        "historical_scope": "熟铁自铁器时代起长期是主要铁材，公元前 2 千纪在西亚取代青铜的地位、公元前 3 世纪在中国、印度与地中海地区广泛用于工具与武器；19 世纪钢材兴起后结构用途转移。各地区冶炼方式差异很大。",
+        "evidence_and_uncertainty": "成分与工艺原理可复现；古代块炼铁的炉温与操作细节多依赖实验考古复原，存在不确定性。"
+      },
+      "source_ids": [
+        "materials_src_britannica_wrought_iron",
+        "materials_src_britannica_iron_processing",
+        "materials_src_britannica_cast_iron"
+      ],
+      "related_ids": [
+        "materials_pig_iron",
+        "materials_steel",
+        "materials_iron_metal",
+        "materials_charcoal"
+      ],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "materials_steel",
+      "name": "钢",
+      "aliases": [
+        "碳钢（常见类型）",
+        "steel"
+      ],
+      "tags": [
+        "metal",
+        "alloy",
+        "processed_material"
+      ],
+      "summary": "以铁为主、含碳量在约 2% 以下的合金，通过控制碳含量与热处理获得从软韧到硬挺的广泛性能；是现代用量最大的工程金属，属加工材料而非天然矿藏或矿石。",
+      "details": {
+        "definition": "钢是铁与碳的合金，碳含量上限约 2%（超过则界定为铸铁）。按成分分为碳钢、低合金钢与高合金钢，按用途又分结构钢、工具钢、不锈钢等。层级上必须说清：钢不是矿物、不是矿石、也不是矿藏，属加工材料/合金，由含碳铁经固态渗碳、坩埚熔炼或生铁脱碳等不同路线得到。含碳量落在这一区间的古代产物同样是钢，只是成分控制与批次一致性不如现代工业品，不宜只当作钢的雏形。中文「钢铁」是铁与钢的泛称，作检索词时不等同于本条目。",
+        "mechanism": "得到钢有多条路线，历史与工业形态各不相同：一是固态渗碳——把块炼铁（熟铁）在木炭中长期加热使碳渗入表层，再反复加热锻打、折叠焊合，让碳分布趋于均匀；二是坩埚熔炼——在耐火坩埚中把铁与碳质材料一同熔化，得到成分较均匀的高碳钢；三是生铁脱碳——向熔融生铁吹风或搅拌氧化，把碳降到钢的范围（近代搅拌炉、贝塞麦法、平炉属此路线的工业化形态）；四是现代转炉与电弧炉吹氧降碳，并配合脱氧与合金化。无论哪条路线，性能都由碳的存在形式决定：固溶于晶格的碳与化合为渗碳体（Fe3C）的碳，配合冷却速度形成铁素体、珠光体或马氏体，再由淬火与回火调配硬度与韧性。",
+        "conditions": "历史工艺的条件与工业条件不同，应分开看。前工业的可行条件是：能以木炭或煤提供足够热量并形成渗碳/还原气氛的炉窑、能耐受高温的坩埚或炉膛材料、可反复加热锻打的炉与砧、以及凭火色判碳量与冷却时机的经验；原料中的硫、磷难以精确控制，成品性能波动大。现代工业的条件是：约 1600 摄氏度量级的熔炼温度、转炉或电弧炉等吹氧脱碳设备、成分分析与温度控制、连铸与轧制、以及废钢与合金元素的稳定供应——这些是「大批量、成分一致」的规模化条件，不是「能否得到钢」的前提。古代没有这些设备仍产出了钢，只是产量小、批次差异大。",
+        "exceptions": "「铁」与「钢」的界限在含碳量，但碳以外的元素同样影响性能；不锈与耐蚀依赖铬形成的氧化膜，不能理解为「钢不会锈」。古代的渗碳钢、坩埚钢在含碳量上就是钢，讨论时应说清其成分均匀性、夹杂物与批次一致性的局限，而不是否认其材料属性。也不能因为知道原理就推断某地具备相应制造能力：炉温、坩埚耐火度、燃料与匠人经验都是独立门槛。",
+        "story_uses": "适合写炼钢炉前的取样与火色判断、锻打与淬火的成败、兵器与工具的差异化需求、以及废钢回收网络。也可写「同一炉钢性能不稳」带来的质量纠纷。注意：涉及具体武器制造细节时，本条目只写材料与工艺原理，不提供可操作的制造方法。",
+        "historical_scope": "固态渗碳钢与坩埚钢在古代若干地区有实物证据，但具体起始年代与传播路径仍有争论，本组不给单一年代断言。现代意义上的大规模炼钢始于 19 世纪（贝塞麦法与平炉），20 世纪转炉与电炉成为主流。各地技术起点与路径差异极大，不宜同步化。",
+        "evidence_and_uncertainty": "含碳区间与组织转变（铁素体、珠光体、马氏体）是可复现的材料学基础内容，本组按上述已读来源表述；古代钢铁器物的具体工艺判定依赖金相、夹杂物与成分分析，不同遗址的结论常有分歧，本文不给统一结论。现代产量与消费数据应引官方统计，本条目不给数字。"
+      },
+      "source_ids": [
+        "materials_src_britannica_steel",
+        "materials_src_britannica_iron_processing",
+        "materials_src_britannica_wrought_iron",
+        "materials_src_britannica_cast_iron"
+      ],
+      "related_ids": [
+        "materials_iron_metal",
+        "materials_pig_iron",
+        "materials_wrought_iron",
+        "materials_iron_ore",
+        "materials_coke",
+        "materials_graphite"
+      ],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "materials_copper_metal",
+      "name": "铜",
+      "aliases": [
+        "红铜",
+        "紫铜",
+        "copper"
+      ],
+      "tags": [
+        "metal",
+        "processed_material"
+      ],
+      "summary": "紫红色金属元素（Cu），延展性极好、导电导热性优异、耐大气腐蚀，可冷作硬化也可退火软化；是电线电缆、管道与合金的基础材料。自然铜天然存在，工业用铜则主要来自冶炼与精炼。",
+      "details": {
+        "definition": "铜是金属元素，符号 Cu，纯态呈紫红色，晶体为面心立方结构，因而延展性极佳，且具很高的导电与导热能力。冷加工会使它加工硬化而变硬变脆，加热退火又能恢复柔软——这套「锤打—退火」特性使它在没有复杂设备时也能成型。需分清两种身份：铜作为元素天然以自然铜形式产出（见 materials_native_copper 条目），人类最早就用的是它；而现代工业供铜绝大多数经冶炼与精炼。铜不等于铜矿石，铜矿石也不都以同一种路线冶炼。",
+        "mechanism": "矿石到铜有多条路线，历史上的与工业的差别很大。早期可直接锤打自然铜，或用木炭在较低温度下还原富氧化矿（孔雀石、蓝铜矿等）得到铜珠，再熔铸成型。硫化矿则需先焙烧、熔炼成冰铜、再吹炼成粗铜，最后精炼（现代常用电解，古代依赖火法精炼与反复熔炼）。精炼铜可轧制、拉丝、挤压成各种型材。化学上铜在干燥空气中稳定，在含硫或含氯环境中会生成绿色铜锈（是否保护性因情况而异）；与锡熔合成青铜、与锌熔合成黄铜，是两条主要的合金路线。",
+        "conditions": "以铜作电导体需要高纯度（微量杂质会显著降低导电率），电解精炼是达到这一纯度的现代手段；但历史上铜器、铜管、屋顶铜板并不依赖电解铜，火法精炼的铜已能满足大多数非电工用途——把电解当成铜使用的普遍前提是时代错位。作容器与管道需考虑铜离子对食物与水的溶出，历史上铜器用于炊煮与盛水有其实用基础，但也存在长期接触的卫生问题，需具体情境判断。铜较软，做承力结构件需要合金化或加大截面。",
+        "exceptions": "「铜」在古文献中常与青铜、黄铜混称，许多所谓「铜器」实为合金；「青铜」「黄铜」不能与纯铜等同。铜的绿色锈并不总是保护性的，含氯环境下的粉状锈会持续侵蚀器物。",
+        "story_uses": "适合写铜匠的锤打与退火、铜锅铜壶与蒸馏器、铜线与电报、屋顶铜板的绿锈、以及铜作为「贵重但不像金银那样不可用」的材料。也可写回收旧铜重熔的循环经济。",
+        "historical_scope": "铜自新石器时代即被使用（先自然铜后冶炼矿），塞浦路斯铜在罗马时期影响深远；电气化之后铜的主要用途转向导电。美洲与欧亚的技术路径与时间显著不同。",
+        "evidence_and_uncertainty": "物理性质与合金行为可复现；具体古代铜器的矿料来源依赖成分与同位素分析，结论有不确定性。"
+      },
+      "source_ids": [
+        "materials_src_britannica_copper_processing",
+        "materials_src_britannica_bronze",
+        "materials_src_britannica_brass"
+      ],
+      "related_ids": [
+        "materials_bronze",
+        "materials_brass",
+        "materials_copper_ore",
+        "materials_native_copper",
+        "materials_tin_metal"
+      ],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "materials_tin_metal",
+      "name": "锡",
+      "aliases": [
+        "白锡",
+        "金属锡",
+        "tin"
+      ],
+      "tags": [
+        "metal",
+        "processed_material"
+      ],
+      "summary": "银白色软金属（Sn），熔点仅约 232 摄氏度、延展性好但强度低，以合金或镀层形式使用；与铜合成青铜是其最具历史意义的用途。自然锡极少，工业用锡主要来自冶炼。",
+      "details": {
+        "definition": "锡是金属元素，符号 Sn，密度约 7.29，熔点约 231.88 摄氏度（金属中偏低），质软、延展性好但强度低，因此很少单独作结构材料。它有同素异形现象：常温稳定的是白锡（β 锡），低温下可转变为脆的灰锡（α 锡），这一转变在极冷环境中会导致「锡疫」——器物表面起疱、碎裂成粉。",
+        "mechanism": "锡由锡石经选矿富集后用碳还原熔炼，再经火法或电解精炼提纯（火法是历史与工业共用的基本手段，电解属现代高纯工艺）。低熔点使它易于铸造与做焊料；与铜熔合得到青铜，与铅熔合降低熔点做焊料，与少量锑铋铜等可抑制锡疫。镀锡在铁或铜表面形成保护层，得到镀锡铁皮（马口铁），这是罐头工业的基础。",
+        "conditions": "锡的可获得性受矿石品位与地理分布限制（见锡石条目），因此历史上常需远距离贸易。加工上，锡的再结晶温度低，冷加工后性能变化明显；高温下锡会变脆。用作食器或镀层时需考虑杂质（如铅）的溶出。",
+        "exceptions": "锡与铅在早期记载中常被混淆，古文献中的「锡」有时指铅或铅锡合金，需辨析。白镴（pewter）是锡基合金而非纯锡。锡疫并非所有锡制品必然发生，含杂质或合金元素会显著抑制它，因此「锡器必会碎成粉」是夸张说法。",
+        "story_uses": "适合写青铜配比的敏感、锡的远距离贸易与产地稀缺、白镴餐具与酒器、镀锡铁皮与罐头、以及寒冷地区锡器损坏的怪事。可写「同一件锡器夏天完好冬天崩裂」的困扰。",
+        "historical_scope": "锡与铜合铸青铜的证据见于中东约公元前 3500 年、埃及约公元前 3000 年，中国青铜器约公元前 2250 年；镀锡铁皮在中欧始于 14—15 世纪，19 世纪因罐头工业而大盛。各地锡料来源长期是研究课题。",
+        "evidence_and_uncertainty": "熔点、同素异形与合金作用可复现；古代锡料产地与贸易网络多依靠间接证据，青铜时代锡源问题仍有争论。"
+      },
+      "source_ids": [
+        "materials_src_britannica_tin_processing",
+        "materials_src_britannica_bronze"
+      ],
+      "related_ids": [
+        "materials_cassiterite",
+        "materials_bronze",
+        "materials_copper_metal",
+        "materials_tinplate"
+      ],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "materials_lead_metal",
+      "name": "铅",
+      "aliases": [
+        "黑铅（旧称）",
+        "金属铅",
+        "lead"
+      ],
+      "tags": [
+        "metal",
+        "processed_material"
+      ],
+      "summary": "蓝灰色软重金属（Pb），熔点低、易加工、耐蚀且密度大，历史上用于水管、配重、铅字与弹丸；同时具有明确的毒性，是有代价的材料。工业用铅来自冶炼，但也有少量自然铅天然存在。",
+      "details": {
+        "definition": "铅是金属元素，符号 Pb，密度约 11.3，熔点约 327 摄氏度（偏低），质软、易切削、延展性好，耐多种酸腐蚀。它密而软的特性使其在古代就被广泛用于配重、垂坠、封印与管道。需分清两种身份：作为元素，铅极少以自然铅形式产出；作为工业供材，铅主要由方铅矿等铅矿物冶炼而来。",
+        "mechanism": "铅多由方铅矿经焙烧（把硫化物转为氧化物）再用碳还原得到粗铅，之后可精炼除杂。含银的铅可用灰吹法提银：在氧化条件下铅被氧化成氧化铅并被骨灰坩埚吸收，银不被氧化而留下。铅的软与低熔使它可用简单模具铸造，冷加工也容易。",
+        "conditions": "铅的毒性是其使用的核心限制：铅及其化合物（尤其粉尘与烟气）会损害神经系统与造血功能，儿童更敏感。传统用途如水管、含铅釉陶、含铅颜料与汽油添加剂，因健康与环境污染已被大幅限制或淘汰。使用铅需要通风、防护与废弃物管理。",
+        "exceptions": "不要把铅与锡混称：古文献中的「黑铅」「锡」有时指点的是铅。铅的耐蚀性有边界，软水与某些酸性介质会溶出铅。铅字（活字）与铅弹都是历史上重要用途，但现代已转向替代材料。",
+        "story_uses": "适合写沉重易加工的金属、屋顶与水管、铅封与封印、铅字印刷车间、以及长期接触铅的作坊里莫名的病痛。也可写「便宜又听话的材料悄悄伤人」这一有真实科学基础的主题。",
+        "historical_scope": "铅的冶炼很早，罗马时期已大量用于水管、容器与器具；银铅共炼是古代重要技术组合。铅中毒作为职业与环境危害在近代才被系统认识与立法控制。",
+        "evidence_and_uncertainty": "物理性质与毒性可复现；古代铅暴露程度多用骨骼与冰芯等间接指标估算，存在较大误差。"
+      },
+      "source_ids": [
+        "materials_src_britannica_ore_deposit",
+        "materials_src_natgeo_ore"
+      ],
+      "related_ids": [
+        "materials_galena",
+        "materials_tin_metal",
+        "materials_sphalerite"
+      ],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "materials_bronze",
+      "name": "青铜",
+      "aliases": [
+        "铜锡合金",
+        "锡青铜",
+        "bronze"
+      ],
+      "tags": [
+        "metal",
+        "alloy",
+        "processed_material"
+      ],
+      "summary": "以铜与锡为主的合金，比纯铜更硬、更易铸造且耐蚀；早期青铜器物的铜锡比例波动很大，现代典型配比约为铜 88%、锡 12%。它是加工材料/合金，不是矿石；也不等于「铜器」这一古文献泛称。",
+      "details": {
+        "definition": "青铜传统上指铜与锡的合金，现代典型成分约为 88% 铜与 12% 锡。传世古代器物的铜含量从 67% 到 95% 不等，说明早期配比相当不稳定。它属于合金与加工材料，需要先有铜和锡（各自经冶炼）才能制得，与铜矿石、锡石是完全不同的层级。另有钟铜（含锡 20%—25%，声音洪亮）、磷青铜（加少量磷提高强度）、铝青铜等变体，现代青铜甚至可能完全不含锡。",
+        "mechanism": "把铜与锡按比例熔化、混匀后浇入铸型或锻打成型。锡的加入使合金熔点低于纯铜、流动性更好，因而更易铸造复杂形状；同时硬度显著提高，耐蚀性也优于纯铜。这种「加一点就变硬变易铸」的效果，是青铜时代技术扩散的物质基础。冷却速度与后续锻打、退火会进一步改变性能。",
+        "conditions": "制青铜需要三样条件同时具备：铜的来源、锡的来源、以及能把两者熔到一起的高温炉与坩埚。锡的产地稀少且常需远距离输入，因此青铜生产在资源组合上比冶铜更脆弱。铸造还需模具、芯与浇口设计；含锡过高会变脆，含锡过低则硬度不足。",
+        "exceptions": "「青铜」不是单一配方，古代许多所谓的青铜器成分差异很大，还常含铅（改善铸造流动性）。中文语境里的「铜器」常指青铜器而非纯铜器，但「铜器」是器物泛称而非材料名，不宜当作本条目的检索同义词。铁器取代青铜并非因为青铜性能差，而是因为铁原料更广布——青铜在硬度与耐蚀上并不逊色。",
+        "story_uses": "适合写铸铜作坊的陶范与失蜡法、铜锡配比的师徒经验、礼器与兵器的不同配方、锡料断供导致的生产危机、以及青铜器回收重铸。也可写「锡没了，只能把旧器熔掉」的资源压力。",
+        "historical_scope": "最早青铜器物约在公元前 4500 年出现，但真正普及要到公元前 2000 年前后（青铜时代）；不同地区的青铜传统独立发展，中国商周青铜礼器、地中海与近东的武器工具各有特色。把「青铜时代」当作全球同步阶段是误读。",
+        "evidence_and_uncertainty": "合金化效果与典型成分可复现；具体器物的成分配比需实测，古代矿料来源与锡贸易网络仍有大量争论。"
+      },
+      "source_ids": [
+        "materials_src_britannica_bronze",
+        "materials_src_britannica_copper_processing",
+        "materials_src_britannica_tin_processing"
+      ],
+      "related_ids": [
+        "materials_copper_metal",
+        "materials_tin_metal",
+        "materials_copper_ore",
+        "materials_cassiterite",
+        "materials_brass"
+      ],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "materials_brass",
+      "name": "黄铜",
+      "aliases": [
+        "铜锌合金",
+        "brass"
+      ],
+      "tags": [
+        "metal",
+        "alloy",
+        "processed_material"
+      ],
+      "summary": "铜与锌的合金，比青铜更易加工、色泽金黄；锌含量决定其可加工性（低于约 40% 可冷作，更高需热作）。它是合金/加工材料，古代可通过铜与锌矿共同还原间接得到。",
+      "details": {
+        "definition": "黄铜是铜与锌的合金，锌含量一般不超过约 45%。按锌含量与加工性分：α 黄铜（锌少于约 40%）可冷加工，适合做销钉、螺栓、弹壳；β 黄铜锌含量更高、强度更大但延展性差，适合热作成型；锌超过 45% 的白色黄铜几乎不可加工。它属合金材料，与纯铜、青铜都不同。",
+        "mechanism": "古代黄铜（calamine brass）的制法是把铜与锌矿石（如菱锌矿）一同在坩埚中加热还原，锌蒸气直接渗入铜中形成合金——这样可绕开「先炼出纯锌」的难点，因为锌在冶炼温度下易挥发、难以收集。现代则直接按比例熔合铜与锌。锌的加入降低熔点、提高流动性、增加强度与耐蚀性，并改变颜色。",
+        "conditions": "合金性能强烈依赖锌含量与杂质控制：锌含量一高就难以冷加工，需要热作或退火；含铅可改善切削性但带来毒性顾虑。冶炼时需要能承受锌蒸气的坩埚与冷凝条件，否则锌损失严重。黄铜在含氨或含汞环境中有应力腐蚀开裂风险，这是长期使用后才被认识的问题。",
+        "exceptions": "黄铜与青铜不可混用：前者铜锌、后者铜锡，性能与用途不同，古文献与圣经译本中 brass 常实指 bronze。黄铜不等于纯铜：它的金黄颜色不表示含金。把黄铜当作「廉价的铜替代品」会低估它在仪器、乐器与装饰中的独立价值。",
+        "story_uses": "适合写「金光闪闪但不含金」的误解与欺诈、乐器与精密仪器的材料要求、黄铜器皿的锤打与抛光、以及匠人凭经验配矿却说不清原理。也可写长期受力的黄铜件在特定环境下突然开裂。",
+        "historical_scope": "以铜与锌矿共同还原制黄铜可追溯到很早（有新石器时代的说法），罗马用于器皿与饰物，欧洲中世纪以后广泛用于日用品、纪念铜板、钟表与科学仪器；印度等地也有独立的锌与黄铜传统。纯锌的规模化生产远晚于此。",
+        "evidence_and_uncertainty": "锌含量与加工性的关系可复现；早期黄铜的具体工艺（是否已用纯锌）需成分与冶金分析判断，部分地区结论有争议。"
+      },
+      "source_ids": [
+        "materials_src_britannica_brass",
+        "materials_src_britannica_copper_processing"
+      ],
+      "related_ids": [
+        "materials_copper_metal",
+        "materials_bronze",
+        "materials_sphalerite",
+        "materials_copper_ore"
+      ],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "materials_glass",
+      "name": "玻璃",
+      "aliases": [
+        "钠钙玻璃",
+        "钠钙硅酸盐玻璃",
+        "glass"
+      ],
+      "tags": [
+        "processed_material"
+      ],
+      "summary": "以二氧化硅为主体、加助熔剂与稳定剂熔融后快速冷却而成的无机非晶固体；钠钙玻璃需砂、石灰石与纯碱三者配合，熔化温度由此从 1700 摄氏度以上降到可操作的区间。",
+      "details": {
+        "definition": "玻璃是一类无机非晶固体：把原料熔融后以足够快的速度冷却，使原子来不及排列成晶体，从而保持类似液体的无序结构。最常见的钠钙玻璃以砂（二氧化硅）、石灰石（碳酸钙）与纯碱（碳酸钠）为主要原料。它不是矿物，也不是单一化合物，而是配方与工艺决定的材料家族。",
+        "mechanism": "三种原料各有分工：二氧化硅构成网络骨架，但纯砂熔点高于 1700 摄氏度，极难达到；纯碱提供氧化钠作助熔剂，加入约 25% 氧化钠可把熔点降到约 850 摄氏度，但这样的玻璃溶于水；石灰石提供氧化钙，使玻璃重新不溶，但过多会导致析晶（失透）。典型最优配比约为 75% 硅、10% 钙、15% 钠。冷却速度决定是否成玻；铜、钴、锰、铁等金属氧化物用于着色。",
+        "conditions": "生产门槛集中在三处：一是稳定高温与耐蚀的窑炉与坩埚（熔融玻璃会侵蚀普通耐火材料）；二是原料纯度，砂中的铁会使玻璃泛绿，需选低铁砂或加脱色剂；三是成型手段——吹制、模压、拉制、浮法各有工艺要求。退火也必不可少，冷却过快会残留内应力而炸裂。",
+        "exceptions": "玻璃不是一种材料：钠钙玻璃用于窗与瓶罐，硼硅玻璃耐热冲击更好（用于炊具），铅玻璃折射率高（用于器皿与光学），石英玻璃可耐剧变温度但成本极高。玻璃怕急冷急热、怕冲击、怕氢氟酸；但它对多数常见溶剂稳定。把「玻璃」当成单一性质会误判用途。中文「琉璃」在不同时代与地区可指玻璃、釉陶或某些有色玻璃制品，含义不固定，不宜作为严格同义词检索。",
+        "story_uses": "适合写玻璃窑的选址要近砂近燃料、吹制工与模具、窗玻璃的尺寸与运输限制、以及玻璃破碎后的稀缺与修补。也可写「砂不纯做不出清亮玻璃」或「配比偏了玻璃溶于水」这类真实工艺挫败。",
+        "historical_scope": "最早的玻璃制品约为公元前 2500 年的埃及玻璃珠；公元前 1 世纪叙利亚一带出现吹制技术，此后罗马、威尼斯穆拉诺、波希米亚与英国铅玻璃各成传统。各地区配方与助熔剂来源不同，不能假定一样。",
+        "evidence_and_uncertainty": "原料作用、熔点降低与配比区间可复现；古代玻璃的具体配方与窑温多依赖成分分析与复制实验，存在不确定性。"
+      },
+      "source_ids": [
+        "materials_src_britannica_glass",
+        "materials_src_britannica_limestone",
+        "materials_src_britannica_clay"
+      ],
+      "related_ids": [
+        "materials_quartz_sand",
+        "materials_limestone",
+        "materials_salt",
+        "materials_ceramic",
+        "materials_graphite"
+      ],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "materials_ceramic",
+      "name": "陶瓷",
+      "aliases": [
+        "陶器（低温档）",
+        "瓷器（高温档）",
+        "ceramics"
+      ],
+      "tags": [
+        "processed_material"
+      ],
+      "summary": "以黏土等无机非金属原料成型后高温烧成（或部分烧结）的材料总称，具有高硬度、高熔点、化学惰性与低导热导电性，同时脆且怕缺陷；陶器与瓷器是同一大类下的不同层次。",
+      "details": {
+        "definition": "陶瓷广义指无机非金属材料，特征是强度与硬度高、熔点高、化学惰性、导热与导电性低，同时脆、对缺陷敏感。传统陶瓷以黏土、砂等天然矿物为原料，由陶工、砖工与施釉工制作；现代先进陶瓷则在受控条件下制取。陶器（烧成温度较低、胎体多孔）与瓷器（高温、致密、常施釉）属于同一材料家族的不同工艺档位。",
+        "mechanism": "成型依赖黏土的可塑性（或加水的粉料压制、注浆），干燥后入窑。加热过程中先脱除吸附水与结构水，随后在约 870—1100 摄氏度（普通陶与砖瓦）或更高温度发生烧结：颗粒间形成新相、气孔减少、强度上升；原料中的长石类成分起熔剂作用降低烧结温度，石英类成分起瘠性骨架作用控制变形。施釉后釉层熔融铺展，冷却成玻璃态表层，提供致密与装饰效果。",
+        "conditions": "能否做出某类陶瓷取决于三组条件：原料（黏土的成分与纯度、是否含铁钛、是否含石灰质结核）、窑炉（能达到并保持的温度、气氛控制、装窑方式）、以及人的技艺（配料、练泥、成型、干燥节奏、火候判断）。缺一项就会退档到较低层次的制品。干燥过快会开裂，烧成过快会炸坯，还原或氧化气氛影响呈色。",
+        "exceptions": "陶器不等于瓷器：前者烧成温度较低、胎体吸水率较高，后者高温致密；把二者混称会误判工艺水平。本条目的 name 是材料大类，陶器与瓷器是它在不同工艺档位下的产物，作为检索词时可命中本条目，但不是同义词。「陶瓷」也不只指器皿，还包括砖瓦、耐火材料、磨料与工业陶瓷件。釉不是玻璃器皿那种整块玻璃，而是附着在胎体上的薄层玻璃态物质，热膨胀不匹配会导致开片或剥釉。",
+        "story_uses": "适合写窑场与柴山的关系、装窑与火候的经验传承、釉料配方保密与仿制、废品率带来的成本压力、以及瓷器作为高价值贸易品的长途运输（易碎、需稻草捆扎）。也可写「本地的土与柴只够烧粗陶」的地方局限。",
+        "historical_scope": "陶器制作早于有文字历史，各地独立发展；高温瓷器需要特定原料（高岭土）与高温窑，是若干地区的长期技术积累，不能默认为普遍能力。砖瓦作为陶瓷的一大分支，日晒砖至少有六千年历史，烧结砖与施釉砖的更广泛应用时间更晚。",
+        "evidence_and_uncertainty": "烧结与釉层机理可复现；古代窑温与气氛多依赖复制实验与器物分析推断，个别工艺（如某些高温釉的呈色机制）仍有讨论。"
+      },
+      "source_ids": [
+        "materials_src_britannica_ceramics",
+        "materials_src_britannica_clay",
+        "materials_src_britannica_brick"
+      ],
+      "related_ids": [
+        "materials_clay",
+        "materials_brick",
+        "materials_glass",
+        "materials_quartz_sand",
+        "materials_lime"
+      ],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "materials_brick",
+      "name": "砖",
+      "aliases": [
+        "烧结砖",
+        "日晒砖",
+        "土坯砖",
+        "brick"
+      ],
+      "tags": [
+        "processed_material"
+      ],
+      "summary": "以黏土或页岩成型后经干燥（日晒砖）或入窑焙烧（烧结砖）得到的小型砌筑块材。日晒砖与烧结砖是两种不同材料，遇水表现差别很大。",
+      "details": {
+        "definition": "砖是由黏土或页岩（或其混合物）加水成型、再经干燥或高温焙烧得到的小型矩形砌块。按是否入窑分为日晒砖（土坯砖，仅靠太阳与空气干燥）与烧结砖（在窑内 870—1100 摄氏度焙烧）。尺寸传统上以一人便于搬运为限，现代多数砌砖约为 5.5×9.5×20 厘米量级。它属加工材料，原料是黏土或页岩。",
+        "mechanism": "成型有三种基本路线：硬泥法（含水较少，用螺旋挤出机通过模具连续挤出并切段）、软泥法（含水较多，填入木模成型）、干压法（含水极少，钢模高压压制）。成型后通常需缓慢干燥以避免收缩开裂（模具要预留收缩量），再入窑焙烧。烧结使黏土颗粒间形成新相而获得强度、硬度与耐火性；加砂可减少收缩与变形，长石类成分起熔剂作用降低烧结温度。",
+        "conditions": "生产受三类条件制约：原料（不纯黏土即可做砖瓦，但含石灰质结核会在成品中爆裂）、燃料与窑（烧砖耗柴炭或煤，窑型从间歇窑到隧道窑影响效率与质量）、以及气候（雨季难以自然干燥）。日晒砖因此多见于干旱地区，潮湿多雨地区更依赖烧结砖。需补充的是：烘烧并非获得砌块的唯一途径，版筑（夯土）、土坯砌体与草泥抹面在缺乏燃料的地区长期是替代方案。",
+        "exceptions": "日晒砖不是烧结砖的等价物：前者遇水会软化、强度低，适合干燥气候的承重墙体但也需维护；把日晒砖当作耐水材料会造成结构性失效。砖也不同于石材与混凝土砌块，性能与施工方式各异。历史上「火烧砖」的出现与封闭窑技术的掌握有关，不宜假定有黏土就会烧砖。",
+        "story_uses": "适合写砖窑与柴山争夺、制砖的季节性（避开雨季）、砌筑与灰缝的工艺、砖尺寸与搬运能力的关联、以及城市火灾后改用砖石重建的政策。也可写「本地只有日晒砖，一场连雨就塌墙」。",
+        "historical_scope": "日晒砖至少有六千年历史，美索不达米亚乌尔城约公元前 4000 年已有日晒砖拱；烧结砖逐渐普及，中国长城（约公元前 210 年）两种砖并用，罗马万神殿（约公元 123 年）用砖与混凝土筑大跨穹顶；伦敦 1666 年大火后大规模改砖。各地区节奏不同。",
+        "evidence_and_uncertainty": "成型工艺与焙烧温度可复现；古代砖窑结构与产量的判断多依赖考古与复制实验，存在不确定性。"
+      },
+      "source_ids": [
+        "materials_src_britannica_brick",
+        "materials_src_britannica_clay",
+        "materials_src_britannica_ceramics"
+      ],
+      "related_ids": [
+        "materials_clay",
+        "materials_ceramic",
+        "materials_lime",
+        "materials_cement",
+        "materials_building_stone"
+      ],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "materials_lime",
+      "name": "石灰",
+      "aliases": [
+        "生石灰（氧化钙）",
+        "熟石灰（氢氧化钙）",
+        "lime"
+      ],
+      "tags": [
+        "processed_material"
+      ],
+      "summary": "石灰石等碳酸钙原料经约 900—1000 摄氏度煅烧所得的材料（生石灰为氧化钙，遇水熟化成熟石灰）。它是砂浆、涂料、土壤改良与多种工业流程的基础，属加工材料。",
+      "details": {
+        "definition": "石灰在建材语境中指以碳酸钙为原料煅烧得到的胶凝材料：生石灰主要成分是氧化钙，遇水剧烈反应（熟化/消化）生成氢氧化钙即熟石灰，再与砂或活性硅铝质材料混合后硬化。它与石灰石（原料）、石膏（硫酸钙体系）都不是同一种东西，属加工材料。",
+        "mechanism": "两步化学：一是煅烧，碳酸钙在约 900—1000 摄氏度分解放出二氧化碳，留下疏松多孔的氧化钙；二是使用，熟石灰与空气中的二氧化碳反应重新生成碳酸钙而硬化（碳化），或与火山灰质材料、黏土等发生反应形成更耐久的胶结相。这两条路线分别对应石灰砂浆与石灰—火山灰（或三合土）体系。",
+        "conditions": "煅烧需要大量燃料与能蓄热的窑体；温度不足会「欠烧」留下未分解的碳酸钙，温度过高则「过烧」形成致密难消化的氧化钙，两者都会影响使用。熟化需控制加水量，放热剧烈可能造成烫伤与飞溅。石灰砂浆硬化慢、怕早期受冻，施工需要养护时间。",
+        "exceptions": "石灰与石膏不能互换：石灰靠碳化或反应硬化且耐水性差于水泥，石膏靠水化结晶凝结。生石灰不能直接接触皮肤或受潮堆放，储运需防潮。石灰石、生石灰、熟石灰是三种不同物质，混称会造成工艺错误。",
+        "story_uses": "适合写石灰窑的浓烟与灼热、采石与烧窑的季节安排、灰池消化时的翻滚与危险、抹灰墙面逐年变硬的过程、以及用石灰处理尸体、污水或改良酸性田地的场景。也可写「窑温没控好，烧出的灰不消化」。",
+        "historical_scope": "石灰作胶结材料的使用非常早，罗马的石灰—火山灰体系在地中海环境中有长期实践；作为炼铁熔剂与水泥配料的规模化使用属近现代。各地替代材料（贝壳烧灰、珊瑚）差异明显。",
+        "evidence_and_uncertainty": "分解温度、熟化与硬化机理可复现；古代砂浆的具体配方与耐久性多依赖材料分析与复制实验，部分解释仍有争论。"
+      },
+      "source_ids": [
+        "materials_src_britannica_limestone",
+        "materials_src_britannica_cement",
+        "materials_src_britannica_glass"
+      ],
+      "related_ids": [
+        "materials_limestone",
+        "materials_cement",
+        "materials_plaster",
+        "materials_brick",
+        "materials_ceramic"
+      ],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "materials_plaster",
+      "name": "石膏胶凝材料",
+      "aliases": [
+        "建筑石膏（半水）",
+        "巴黎石膏（历史名）",
+        "plaster of paris"
+      ],
+      "tags": [
+        "processed_material"
+      ],
+      "summary": "石膏经约一百多摄氏度煅烧脱水所得的半水石膏，加水后重新水化凝结硬化；用于抹灰、翻模、板材与雕塑，属加工材料，与石灰、水泥是不同的胶凝体系。",
+      "details": {
+        "definition": "石膏胶凝材料是把天然石膏（二水硫酸钙）在一定温度下煅烧、脱去部分结晶水得到半水石膏，磨细后成为可用的粉料；加水后重新水化成二水石膏并凝结硬化。常见名称有建筑石膏、模型石膏、巴黎石膏（因巴黎盆地盛产石膏而得名）。它属加工材料，与石灰（钙的氧化物/氢氧化物体系）和水泥（硅酸盐熟料体系）都不相同。",
+        "mechanism": "关键在于脱水与复水的可逆性：加热到约一百多摄氏度失去部分结晶水，结构变得可溶可再水化；加水后重新结晶为二水石膏，晶体交错生长使浆体凝结并产生轻微体积膨胀——这一点对翻模很有利，因为能复制细节而不明显收缩。硬化后的强度来自结晶交错结构，干燥后强度提高，但遇水会软化。",
+        "conditions": "煅烧温度必须控制：过低脱水不完全、凝结性能差；过高生成难溶的硬石膏而几乎不凝结（可加激发剂补救）。调和水量影响流动性与最终强度，水多则强度低、孔隙多。制品长期处于潮湿环境会强度下降，受热超过一定温度又会重新脱水，因此多用于室内。",
+        "exceptions": "石膏不等于石灰：把建筑石膏当石灰用于砌筑会因耐水性差而失败。雪花石膏是石膏的致密变种（可雕刻），与大理石无关；「石膏像」用的材料多为煅烧后的模型石膏而非天然石膏块。石膏在水泥中只作少量缓凝剂，不是主要胶凝组分。",
+        "story_uses": "适合写翻模与雕塑作坊、墙面抹灰与顶棚装饰、板墙隔断、以及潮湿房间里石膏层起鼓剥落。也可写医用的固定材料（属历史实践，本条目不作疗效断言）。",
+        "historical_scope": "石膏作装饰与胶凝材料在多个古文明有使用，巴黎盆地石膏矿使「巴黎石膏」成为通用名；石膏板等现代制品随工业化普及。各地石膏纯度与煅烧传统差异较大。",
+        "evidence_and_uncertainty": "脱水—水化机理与温度区间可复现；古代石膏制品的具体煅烧制度多依赖复制实验推断。"
+      },
+      "source_ids": [
+        "materials_src_britannica_gypsum",
+        "materials_src_britannica_cement",
+        "materials_src_britannica_limestone"
+      ],
+      "related_ids": [
+        "materials_gypsum",
+        "materials_lime",
+        "materials_cement",
+        "materials_brick"
+      ],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "materials_cement",
+      "name": "水泥",
+      "aliases": [
+        "普通硅酸盐水泥",
+        "波特兰水泥",
+        "cement"
+      ],
+      "tags": [
+        "processed_material"
+      ],
+      "summary": "以石灰质与黏土质原料按比例配合、经约 1350—1550 摄氏度煅烧成熟料后磨细（并加少量石膏调节凝结）得到的水硬性胶凝材料；与砂石混合即成砂浆或混凝土。",
+      "details": {
+        "definition": "水泥是一类水硬性胶凝材料：以石灰质原料（石灰石、白垩等）与黏土质原料（黏土、页岩等）配合，在窑中高温煅烧得到熟料，冷却后与约 5% 石膏共同磨细成粉。加水后通过水化反应凝结硬化，且能在水中继续硬化。最常见的是波特兰（硅酸盐）水泥。它与石灰（气硬性为主）、石膏（硫酸钙体系）属不同胶凝体系，属加工材料。",
+        "mechanism": "熟料中的硅酸三钙与硅酸二钙是主要水化活性相：遇水生成水化硅酸钙凝胶与氢氧化钙，凝胶填充并胶结颗粒，形成强度。石膏的加入用于调节凝结时间，避免速凝导致无法施工。水泥本身只是胶凝材料，通常需与砂（细骨料）配成砂浆、或与砂和粗骨料配成混凝土才能形成结构材料（也有净浆用于灌浆与粘结等少数用途）——把水泥直接当混凝土用是常见误解。",
+        "conditions": "生产水泥需要：成分合适的石灰石与黏土、能稳定达到 1350—1550 摄氏度的窑（回转窑）、大量燃料与电力、以及粉磨设备。施工上，水灰比、搅拌、浇筑、振捣与养护都影响最终强度；早期失水或受冻会造成永久性强度损失。",
+        "exceptions": "水泥不等于混凝土：混凝土是水泥+砂+石+水的混合体，骨料占大部分体积。水泥不等于石灰：石灰主要靠碳化硬化、耐水性差；水泥可在水中硬化。水泥生产伴随大量二氧化碳排放（既有燃料排放也有碳酸盐分解排放），这是其环境代价。",
+        "story_uses": "适合写窑炉与粉磨的高能耗、原料矿山的开采、工地上的配比与养护、以及混凝土构筑物在冻融与盐蚀环境下的劣化。也可写「水泥受潮结块」造成的损失。",
+        "historical_scope": "罗马已有石灰—火山灰胶凝材料的实践，但现代波特兰水泥是 19 世纪欧洲的产物，其后随工业与工程需求普及；各地区的替代胶凝材料（如火山灰质材料、矿渣）长期并存。",
+        "evidence_and_uncertainty": "熟料矿物、水化机理与温度区间可复现；具体工程耐久性问题需实测与长期观测，本条目不给通用配比。"
+      },
+      "source_ids": [
+        "materials_src_britannica_cement",
+        "materials_src_britannica_limestone",
+        "materials_src_britannica_clay",
+        "materials_src_britannica_gypsum"
+      ],
+      "related_ids": [
+        "materials_limestone",
+        "materials_clay",
+        "materials_gypsum",
+        "materials_lime",
+        "materials_quartz_sand",
+        "materials_brick"
+      ],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "materials_wood",
+      "name": "木材",
+      "aliases": [
+        "木料",
+        "原木",
+        "成材",
+        "wood",
+        "timber"
+      ],
+      "tags": [
+        "natural_resource",
+        "processed_material",
+        "fuel"
+      ],
+      "summary": "树木的次生木质部，强度重量比高、隔热隔电、易加工，是建筑、工具、家具与燃料的基础材料；分软木（针叶树）与硬木（阔叶树），但名称与真实硬度并不严格对应。",
+      "details": {
+        "definition": "木材是树木主要的支撑与输导组织，即次生木质部。按植物分类分为软木（针叶树，如松、云杉，主要由管胞构成）与硬木（阔叶树，如橡、山毛榉、柚木，含导管、纤维与薄壁细胞）。需注意「硬木/软木」是植物学分类而非硬度等级：轻木比某些软木还软。木材作为材料是采伐后经干燥、锯切等处理的产物，属可再生资源。",
+        "mechanism": "木材的性能来自细胞壁中纤维素的定向排列与木质素的胶结：顺纹强度远高于横纹，因此梁、柱、板的方向选择至关重要。边材负责输导水分、心材由沉积树脂与单宁等物质填充而更耐腐。含水率变化会引起干缩湿胀与开裂，因此多数木作在成型前会经过自然或人工干燥（并非绝对必需，但可大幅减少开裂与变形）；纹理、节疤与斜纹会显著降低强度。",
+        "conditions": "作为材料，木材的可用性取决于树种、生长条件（年轮宽度反映气候）、取材部位与干燥质量。用作结构材需考虑跨度、含水率与防腐防虫处理；用作燃料则看含水率与密度。运输上原木体积大、可水运漂放；加工需要锯、斧、凿、刨等工具与榫卯、胶接、钉接等连接方式。",
+        "exceptions": "不要把「硬木」当作「很硬的木头」；不要把木材当作完全均质材料——同一块木头的不同方向性能差别很大。木材是可再生资源，但采伐速度超过生长速度会导致森林退化；把「可再生」等同于「取之不尽」是错误理解。某些树种含致敏或毒性成分，加工粉尘有健康风险。",
+        "story_uses": "适合写选材与看纹理的老木匠、木材干燥与变形、榫卯与铁钉的技术选择、漂木与林场运输、以及造船与建房对长直大木的需求。也可写燃料与建材争抢同一片森林。",
+        "historical_scope": "木材作为材料与燃料的使用贯穿人类史，出现代用材料（砖石、金属、混凝土）后仍在多数传统用途中保有地位；欧洲 16 世纪起造船与冶铁对木材的需求已造成局部短缺。不同地区可用树种差异极大，工艺传统也随之不同。",
+        "evidence_and_uncertainty": "结构与性能关系可复现；具体树种的强度与耐腐性需实测，古代用材的树种鉴定依赖木材解剖分析。"
+      },
+      "source_ids": [
+        "materials_src_britannica_wood",
+        "materials_src_britannica_charcoal",
+        "materials_src_britannica_brick"
+      ],
+      "related_ids": [
+        "materials_charcoal",
+        "materials_coal",
+        "materials_building_stone",
+        "materials_brick"
+      ],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "materials_tinplate",
+      "name": "镀锡铁皮",
+      "aliases": [
+        "马口铁",
+        "锡板",
+        "tinplate"
+      ],
+      "tags": [
+        "processed_material",
+        "metal"
+      ],
+      "summary": "在薄钢板或铁板表面镀一层锡所得的耐蚀薄板，兼具钢的强度与锡的耐蚀与可焊性；是罐头与容器工业的基础材料，属加工材料而非天然产物。",
+      "details": {
+        "definition": "镀锡铁皮是把低碳钢或铁轧成薄板后，表面镀覆一层薄锡得到的复合材料。它的价值在于组合：钢提供强度与刚性，锡提供耐蚀、外观与良好的焊接性。它属加工材料，需要钢铁工业与锡两条供应链同时存在，与铁矿石或锡石都相隔多个加工环节。",
+        "mechanism": "镀锡有热浸与电镀两条工艺路线：热浸把薄板浸入熔融锡中，镀层较厚；电镀则用电解沉积得到更薄更均匀的镀层。锡在潮湿空气中形成稳定表面，保护内部铁基体；但镀层一旦划破，铁与锡在电解质中构成电偶，铁会优先腐蚀，因此破损处的锈蚀往往比无镀层时更集中。",
+        "conditions": "生产依赖轧制薄板的能力、稳定的镀锡工艺与锡的供应。锡资源地理分布集中且常需远距离贸易，这使镀锡板生产的成本对锡价高度敏感。用于食品接触时需控制镀层中的杂质（尤其铅），否则会带来溶出风险。",
+        "exceptions": "镀锡铁皮不等于锡器：前者以钢为主体、锡只是薄层，后者整体为锡合金（如白镴）。镀锡板不等于镀锌板：锌的牺牲阳极保护机制不同，破损后的表现也不一样。马口铁这个中文名与「马口」无关，是外来词的音译讹变，不宜按字面理解。",
+        "story_uses": "适合写罐头食品与远洋航行、罐头厂的流水线与女工、锡价波动导致的工厂停产、以及破损罐头在潮湿仓库里的集中锈蚀。也可写「打不开的罐头」这类生活细节。",
+        "historical_scope": "镀锡铁皮在中欧出现于 14—15 世纪，最初用于灯具、盘碟与饮器；1812 年食品罐藏技术出现后，包装成为锡的主要用途之一。这一转向与现代食品工业同步，不宜上溯到古代。",
+        "evidence_and_uncertainty": "镀层作用与电偶腐蚀机理可复现；古代镀锡器物（如罗马的镀锡铜器）与近代镀锡铁皮是不同的技术传统，需区分。"
+      },
+      "source_ids": [
+        "materials_src_britannica_tin_processing",
+        "materials_src_britannica_steel",
+        "materials_src_britannica_wrought_iron"
+      ],
+      "related_ids": [
+        "materials_tin_metal",
+        "materials_steel",
+        "materials_wrought_iron",
+        "materials_cassiterite"
+      ],
+      "review_status": "needs_review"
+    }
+  ]
+}

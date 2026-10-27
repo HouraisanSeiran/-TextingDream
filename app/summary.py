@@ -11,6 +11,7 @@ Same state and same turns always produce the same text: no clock, no model call,
 no reliance on dict insertion order, so rollback and the cacheable prompt prefix
 stay reproducible.
 """
+from . import rewards as rewards_rules
 EXCERPT_SEGMENT = '【原文】'
 EXCERPT_CHARS = 180
 INPUT_CHARS = 80
@@ -84,6 +85,9 @@ def _changes(session, before, package, items, characters, hero, ignore_flags):
             old, new = old_status.get(key), new_status.get(key)
             if old != new:
                 changes.append('{}·{} {}→{}'.format(characters.get(hero, hero), key, _number(old), _number(new)))
+    # Reward differences come from the public projection only: an unidentified item
+    # shows just its observable label and a hidden ability stays unnamed.
+    changes.extend(rewards_rules.public_changes(session, before, package.get('story', {})))
     return changes
 
 

@@ -1,0 +1,4811 @@
+{
+  "note": "三套预置输入生成的示例城镇快照（seed=town_demo_001，base_revision=demo_revision_0001）。这是生成结果示例，不是正式城镇库：不随应用加载，也不改动 StoryPackage/玄陆。人口与产量是规则估计；口粮按每人每年 180000 克（0.18 吨）计算。",
+  "presets": {
+    "wet_valley": {
+      "input": {
+        "story_revision": "demo_revision_0001",
+        "seed": "town_demo_001",
+        "site": "manual_sample",
+        "site_name": "泽口",
+        "site_location_id": null,
+        "region": "湿润河谷",
+        "founded_period": "第三代定居者时期（架空）",
+        "map": {
+          "input_version": "hand_sample_v1",
+          "coordinate_system": "架空示意经纬度（经度在前、纬度在后）",
+          "scale": "1 格约 2 公里，仅作示意图，不用于计算行程",
+          "source": "manual_sample"
+        },
+        "terrain": {
+          "elevation_m": 120.0,
+          "slope_deg": 3.0,
+          "precipitation_mm": 1100.0,
+          "temperature_c": 16.0,
+          "freshwater": 0.9,
+          "soil_fertility": 0.85,
+          "flood_risk": 0.45,
+          "area_km2": 260.0,
+          "coordinates": [
+            118.2,
+            30.4
+          ]
+        },
+        "water": {
+          "source": "river",
+          "reliability": 0.92,
+          "daily_capacity_l": 900000,
+          "storage": "tank",
+          "distance_km": 0.4
+        },
+        "transport": {
+          "road": "paved",
+          "water_route": true,
+          "portage": false,
+          "seasonal_closed_days": 12,
+          "nearest_market_days": 1
+        },
+        "resources": [
+          {
+            "id": "res_grain",
+            "kind": "grain",
+            "abundance": 0.9,
+            "accessibility": 0.9,
+            "surveyed": true,
+            "extractable": true,
+            "requires_technology": [],
+            "fuel": "none"
+          },
+          {
+            "id": "res_timber",
+            "kind": "timber",
+            "abundance": 0.7,
+            "accessibility": 0.7,
+            "surveyed": true,
+            "extractable": true,
+            "requires_technology": [],
+            "fuel": "none"
+          },
+          {
+            "id": "res_reed",
+            "kind": "reed",
+            "abundance": 0.8,
+            "accessibility": 0.85,
+            "surveyed": true,
+            "extractable": true,
+            "requires_technology": [],
+            "fuel": "none"
+          },
+          {
+            "id": "res_fish",
+            "kind": "fish",
+            "abundance": 0.6,
+            "accessibility": 0.8,
+            "surveyed": true,
+            "extractable": true,
+            "requires_technology": [],
+            "fuel": "none"
+          }
+        ],
+        "materials": [
+          "timber",
+          "stone",
+          "clay_brick",
+          "fired_tile",
+          "thatch",
+          "reed",
+          "lime_plaster"
+        ],
+        "technology": [
+          "masonry",
+          "timber_frame",
+          "kiln",
+          "water_wheel",
+          "cistern"
+        ],
+        "cultures": [
+          {
+            "id": "cu_river",
+            "name": "河岸稻作文化",
+            "roof": "gable_tile",
+            "heating": "open_hearth",
+            "household": "extended",
+            "note": "沿灌渠分户，屋顶坡度按雨季排水"
+          }
+        ],
+        "peoples": [
+          {
+            "id": "pe_standard",
+            "name": "本地人",
+            "average_height_cm": 168,
+            "min_ceiling_m": 2.4,
+            "space_factor": 1.0,
+            "need_note": ""
+          }
+        ],
+        "social_mode": "realistic_reference",
+        "realistic": {
+          "region": "东亚季风区低地河谷（类比参考）",
+          "period": "约12—14世纪",
+          "polity_scope": "地方集市与村社惯行，不引用具体王朝法令",
+          "evidence_level": "regional_analogue",
+          "uncertainty": "水利组织、税制与户口数字在史料中差异很大；本工具只用方向性关系（水多—稻作—聚落密），不做定量复原",
+          "adaptation": "地名、机构名与节期均为架空，只保留因果方向"
+        },
+        "artistic": null,
+        "imports": [
+          {
+            "id": "imp_salt",
+            "name": "盐",
+            "kind": "salt",
+            "amount_per_period": 40,
+            "unit": "t",
+            "period": "year",
+            "via": "river",
+            "note": "上游盐场换粮"
+          }
+        ],
+        "bindings": [
+          {
+            "id": "el_irrigation_custom",
+            "kind": "element",
+            "version": "v1",
+            "summary": "灌渠轮水惯例：按田亩与时段分配取水"
+          }
+        ],
+        "notes": "湿河谷示例：水多、可耕地连片、水路通行；洪水风险偏高。"
+      },
+      "skeleton": {
+        "town_type": "port",
+        "scale": "small_town",
+        "display_name": "泽口",
+        "name_candidates": [
+          "泽口",
+          "泽口港",
+          "泽口旧港"
+        ],
+        "region": "湿润河谷",
+        "founded_reason": "因渡口与商路交汇而形成，水源让商队与定居者都能停留",
+        "founded_period": "第三代定居者时期（架空）",
+        "coordinates": [
+          118.2,
+          30.4
+        ],
+        "siting_reasons": [
+          "water",
+          "farmland",
+          "trade",
+          "fishing"
+        ],
+        "water": {
+          "source": "river",
+          "storage": "tank",
+          "daily_capacity_l": 828000,
+          "reliability": 0.92,
+          "note": "河水按可取水能力计入，洪水月需要暂停取水"
+        },
+        "roads": [
+          {
+            "id": "road_main",
+            "name": "主路",
+            "kind": "road",
+            "destination": "最近市场",
+            "travel_days": 1,
+            "seasonal_closed_days": 12
+          },
+          {
+            "id": "road_river",
+            "name": "水路",
+            "kind": "river",
+            "destination": "下游市场",
+            "travel_days": 1,
+            "seasonal_closed_days": 6
+          }
+        ],
+        "capacity": {
+          "water_cap": 33120,
+          "local_food_cap": 4570,
+          "import_food_cap": 0,
+          "transport_cap": 5295,
+          "population": 4290,
+          "basis": [
+            "水源承载 = 日供水×可靠度 ÷ 25 升 = 33120 人",
+            "本地粮食承载 = 可耕地 138.49 km² × 33 人/km² = 4570 人",
+            "进口粮食承载 = min(进口口粮 0.0 t/年 折 0 人, 通道能力 5295 人) = 0 人",
+            "这些系数是玩法设定假设，不是历史统计、测绘或经济证明"
+          ]
+        },
+        "explanations": [
+          {
+            "claim": "人口规模由水源与粮食中较小的一项决定",
+            "because": [
+              "水源上限 33120 人",
+              "粮食上限 4570 人",
+              "可耕地比例由降水、气温、坡度与洪水风险共同决定"
+            ]
+          },
+          {
+            "claim": "选址理由由输入的地形与交通条件给出",
+            "because": [
+              "识别到水源条件",
+              "识别到可耕地条件",
+              "识别到贸易条件",
+              "识别到渔业条件"
+            ]
+          }
+        ],
+        "warnings": []
+      },
+      "socioeconomy": {
+        "population": {
+          "total": 4250,
+          "groups": [
+            {
+              "id": "g_core",
+              "label": "本地人居民",
+              "role": "majority",
+              "share_permille": 900,
+              "note": "本地出生或长期定居；不表示单一职业或统一立场"
+            },
+            {
+              "id": "g_migrant",
+              "label": "常来商队与移居者",
+              "role": "migrant",
+              "share_permille": 100,
+              "note": "随商路到达，停留时间取决于季节与关税"
+            }
+          ],
+          "basis": "骨架阶段承载上限 4290 人；组群占比按取水、贸易与季节用工需求分配，占比之和固定为1000‰",
+          "uncertainty": "人口是规则估计，不是普查；季节人口与流动商队会让实际在场人数上下浮动约一成"
+        },
+        "governance": {
+          "form": "guild_board",
+          "authority": "商团与工匠行会推举的理事会",
+          "legitimacy": "由市场管理与关税征收能力支撑",
+          "tax_basis": [
+            "按耕地与收成",
+            "按市场交易额",
+            "按矿产与冶炼产量",
+            "按过境货物"
+          ],
+          "obligations": [
+            "维护水源与道路",
+            "处理纠纷与税收"
+          ]
+        },
+        "factions": [
+          {
+            "id": "fa_ruling",
+            "name": "本地治理机构",
+            "kind": "council",
+            "public_goal": "维持水源、道路与市场秩序，按惯例征收税赋",
+            "power_source": "appointment",
+            "resources": [
+              "税赋与劳役",
+              "公共设施"
+            ],
+            "obligations": [
+              "维护水源与道路"
+            ],
+            "constraints": [
+              "人力与粮食受季节限制"
+            ],
+            "relations": [],
+            "evidence": [
+              "公告与税册",
+              "公共工程上的题名"
+            ],
+            "hidden_goal": "担心税册上的实际户口低于上报数，正在补记而未公开"
+          },
+          {
+            "id": "fa_guild",
+            "name": "粮食种植、伐木与木作行会",
+            "kind": "guild",
+            "public_goal": "稳定原料供应与售价，限制外来竞争者",
+            "power_source": "knowledge",
+            "resources": [
+              "作坊与工具",
+              "熟练工"
+            ],
+            "obligations": [
+              "维持产量与质量惯例"
+            ],
+            "constraints": [
+              "原料与燃料依赖运输"
+            ],
+            "relations": [
+              {
+                "faction": "fa_ruling",
+                "stance": "client",
+                "over": "税赋与市场摊位分配"
+              }
+            ],
+            "evidence": [
+              "行会标记与作坊门牌"
+            ],
+            "hidden_goal": "与另一行会在原料分配上有未公开的分歧"
+          },
+          {
+            "id": "fa_merchant",
+            "name": "外来商团",
+            "kind": "merchant_house",
+            "public_goal": "取得仓储与优先卸货权，压低过境费用",
+            "power_source": "trade_route",
+            "resources": [
+              "资金",
+              "远途商队"
+            ],
+            "obligations": [
+              "按约缴税"
+            ],
+            "constraints": [
+              "受道路季节与关卡查验限制"
+            ],
+            "relations": [
+              {
+                "faction": "fa_guild",
+                "stance": "rival",
+                "over": "仓储与摊位"
+              },
+              {
+                "faction": "fa_ruling",
+                "stance": "client",
+                "over": "关税减免"
+              }
+            ],
+            "evidence": [
+              "仓库租约",
+              "商队停驻的空地"
+            ],
+            "hidden_goal": "正在打听关卡的检查频率与放行价码"
+          }
+        ],
+        "chains": [
+          {
+            "id": "ch_grain",
+            "name": "粮食种植",
+            "inputs": [],
+            "output": {
+              "resource": "grain",
+              "name": "grain",
+              "amount": 830,
+              "unit": "t",
+              "period": "year"
+            },
+            "workers": 558,
+            "energy": "human",
+            "requires_technology": [],
+            "stores": "本地农田与公仓",
+            "ships_via": [
+              "road_main",
+              "road_river"
+            ],
+            "consumers": "本地居民与附近市场",
+            "note": "产量按规则系数与劳力推算；系数是玩法假设，不是实测；库存只有在开采与运输实际发生后才存在"
+          },
+          {
+            "id": "ch_timber",
+            "name": "伐木与木作",
+            "inputs": [],
+            "output": {
+              "resource": "timber",
+              "name": "timber",
+              "amount": 3763,
+              "unit": "m3",
+              "period": "year"
+            },
+            "workers": 450,
+            "energy": "human",
+            "requires_technology": [],
+            "stores": "林地与木场",
+            "ships_via": [
+              "road_main",
+              "road_river"
+            ],
+            "consumers": "本地居民与附近市场",
+            "note": "产量按规则系数与劳力推算；系数是玩法假设，不是实测；库存只有在开采与运输实际发生后才存在"
+          },
+          {
+            "id": "ch_reed",
+            "name": "苇编与苫盖",
+            "inputs": [],
+            "output": {
+              "resource": "reed_mat",
+              "name": "reed_mat",
+              "amount": 21236,
+              "unit": "count",
+              "period": "year"
+            },
+            "workers": 488,
+            "energy": "human",
+            "requires_technology": [],
+            "stores": "湿地",
+            "ships_via": [
+              "road_main",
+              "road_river"
+            ],
+            "consumers": "本地居民与附近市场",
+            "note": "产量按规则系数与劳力推算；系数是玩法假设，不是实测；库存只有在开采与运输实际发生后才存在"
+          },
+          {
+            "id": "ch_fishery",
+            "name": "捕捞与腌鱼",
+            "inputs": [],
+            "output": {
+              "resource": "salt_fish",
+              "name": "salt_fish",
+              "amount": 848,
+              "unit": "t",
+              "period": "year"
+            },
+            "workers": 414,
+            "energy": "human",
+            "requires_technology": [],
+            "stores": "水域与腌制作坊",
+            "ships_via": [
+              "road_main",
+              "road_river"
+            ],
+            "consumers": "本地居民与附近市场",
+            "note": "产量按规则系数与劳力推算；系数是玩法假设，不是实测；库存只有在开采与运输实际发生后才存在"
+          }
+        ],
+        "trade": [
+          {
+            "id": "tr_import_1",
+            "direction": "import",
+            "resource": "imp_salt",
+            "kind": "salt",
+            "name": "盐",
+            "amount": 40,
+            "unit": "t",
+            "period": "year",
+            "via": "roads",
+            "requirement": "需要道路通行季与关卡放行；通路中断时进口量与人口都要下调"
+          },
+          {
+            "id": "tr_export_1",
+            "direction": "export",
+            "resource": "timber",
+            "kind": "other",
+            "name": "timber",
+            "amount": 940,
+            "unit": "m3",
+            "period": "year",
+            "via": "roads",
+            "requirement": "只有实际运出的部分才算外销；本版不虚构出口量"
+          },
+          {
+            "id": "tr_export_2",
+            "direction": "export",
+            "resource": "reed_mat",
+            "kind": "other",
+            "name": "reed_mat",
+            "amount": 5309,
+            "unit": "count",
+            "period": "year",
+            "via": "roads",
+            "requirement": "只有实际运出的部分才算外销；本版不虚构出口量"
+          },
+          {
+            "id": "tr_export_3",
+            "direction": "export",
+            "resource": "salt_fish",
+            "kind": "other",
+            "name": "salt_fish",
+            "amount": 212,
+            "unit": "t",
+            "period": "year",
+            "via": "roads",
+            "requirement": "只有实际运出的部分才算外销；本版不虚构出口量"
+          }
+        ],
+        "labor": {
+          "available_workers": 1912,
+          "assigned_workers": 1910,
+          "note": "可用劳力 = 人口×450‰；已分配含产业与行政，不含家务、育儿与季节短工"
+        },
+        "staple": {
+          "resource": "grain",
+          "name": "本地口粮",
+          "amount": 830,
+          "unit": "t",
+          "period": "year"
+        },
+        "staple_need": {
+          "resource": "grain",
+          "name": "口粮需求",
+          "amount": 765,
+          "unit": "t",
+          "period": "year"
+        },
+        "tensions": [],
+        "explanations": [
+          {
+            "claim": "主要生计由已勘探资源、可用技术与能源共同决定",
+            "because": [
+              "已勘探且可加工的资源：grain, timber, reed, fish",
+              "可用技术：masonry, timber_frame, kiln, water_wheel, cistern",
+              "能源：human"
+            ]
+          },
+          {
+            "claim": "guild_board成为治理形式",
+            "because": [
+              "城镇类型 港口",
+              "权力来源 appointment 与资源控制相关"
+            ]
+          }
+        ],
+        "warnings": [
+          "劳动力不足以支撑全部产业，按可用劳力等比缩减一次，未反复迭代"
+        ],
+        "reference_note": "现实参考档：东亚季风区低地河谷（类比参考） · 约12—14世纪（地方集市与村社惯行，不引用具体王朝法令），证据等级 regional_analogue；不确定性：水利组织、税制与户口数字在史料中差异很大；本工具只用方向性关系（水多—稻作—聚落密），不做定量复原。本工具的数值系数是规则假设，不是对真实社会或经济的精确估计，制度描述不构成历史结论；架空改动按 adaptation 标注；架空改编：地名、机构名与节期均为架空，只保留因果方向"
+      },
+      "built": {
+        "districts": [
+          {
+            "id": "d_residential",
+            "name": "居住区",
+            "kind": "residential",
+            "population_share_permille": 505,
+            "materials": [
+              "timber"
+            ],
+            "roof": "gable_tile",
+            "drainage": "open_gutter",
+            "storeys": 1,
+            "access": "public",
+            "visibility": "public",
+            "reach_via": [
+              "road_main",
+              "road_river"
+            ],
+            "note": "timber 墙体、gable_tile 屋面，雨水沿街沟排走"
+          },
+          {
+            "id": "d_market",
+            "name": "市场与仓储",
+            "kind": "market",
+            "population_share_permille": 131,
+            "materials": [
+              "timber"
+            ],
+            "roof": "gable_tile",
+            "drainage": "open_gutter",
+            "storeys": 1,
+            "access": "public",
+            "visibility": "public",
+            "reach_via": [
+              "road_main",
+              "road_river"
+            ],
+            "note": "沿街敞开铺面，夜里上板；仓储抬高地面防潮"
+          },
+          {
+            "id": "d_craft",
+            "name": "作坊区",
+            "kind": "craft",
+            "population_share_permille": 111,
+            "materials": [
+              "timber"
+            ],
+            "roof": "gable_tile",
+            "drainage": "open_gutter",
+            "storeys": 1,
+            "access": "public",
+            "visibility": "public",
+            "reach_via": [
+              "road_main",
+              "road_river"
+            ],
+            "note": "作坊与住家混用，明火集中在巷口"
+          },
+          {
+            "id": "d_admin",
+            "name": "行政与广场",
+            "kind": "administration",
+            "population_share_permille": 61,
+            "materials": [
+              "timber"
+            ],
+            "roof": "gable_tile",
+            "drainage": "open_gutter",
+            "storeys": 1,
+            "access": "public",
+            "visibility": "public",
+            "reach_via": [
+              "road_main",
+              "road_river"
+            ],
+            "note": "广场与告示墙，征税与议事都在这里"
+          },
+          {
+            "id": "d_foreign",
+            "name": "外来者聚居",
+            "kind": "foreign_quarter",
+            "population_share_permille": 46,
+            "materials": [
+              "timber"
+            ],
+            "roof": "gable_tile",
+            "drainage": "open_gutter",
+            "storeys": 1,
+            "access": "public",
+            "visibility": "public",
+            "reach_via": [
+              "road_main",
+              "road_river"
+            ],
+            "note": "建筑沿用本乡做法，材料随商路带来"
+          },
+          {
+            "id": "d_poor",
+            "name": "低地贫民区",
+            "kind": "poor",
+            "population_share_permille": 40,
+            "materials": [
+              "timber"
+            ],
+            "roof": "gable_thatch",
+            "drainage": "open_gutter",
+            "storeys": 1,
+            "access": "public",
+            "visibility": "public",
+            "reach_via": [
+              "road_main",
+              "road_river"
+            ],
+            "note": "低洼地段，排水最差，材料最便宜"
+          },
+          {
+            "id": "d_harbor",
+            "name": "码头",
+            "kind": "harbor",
+            "population_share_permille": 30,
+            "materials": [
+              "timber"
+            ],
+            "roof": "gable_tile",
+            "drainage": "open_gutter",
+            "storeys": 1,
+            "access": "public",
+            "visibility": "public",
+            "reach_via": [
+              "road_main",
+              "road_river"
+            ],
+            "note": "栈桥与货栈沿岸布置，汛期要抬高"
+          },
+          {
+            "id": "d_cemetery",
+            "name": "墓地",
+            "kind": "cemetery",
+            "population_share_permille": 20,
+            "materials": [
+              "timber"
+            ],
+            "roof": "gable_tile",
+            "drainage": "open_gutter",
+            "storeys": 1,
+            "access": "public",
+            "visibility": "public",
+            "reach_via": [
+              "road_main",
+              "road_river"
+            ],
+            "note": "在聚落外缘，地势略高"
+          },
+          {
+            "id": "d_outskirts",
+            "name": "近郊田园",
+            "kind": "outskirts",
+            "population_share_permille": 56,
+            "materials": [
+              "timber"
+            ],
+            "roof": "gable_tile",
+            "drainage": "open_gutter",
+            "storeys": 1,
+            "access": "public",
+            "visibility": "public",
+            "reach_via": [
+              "road_main",
+              "road_river"
+            ],
+            "note": "菜地与畜栏，房屋稀疏"
+          }
+        ],
+        "facilities": [
+          {
+            "id": "f_granary_1",
+            "name": "公仓",
+            "kind": "granary",
+            "district": "d_market",
+            "materials": [
+              "timber"
+            ],
+            "condition": "good",
+            "requires_technology": [],
+            "public_note": "抬高地板、留通风缝的粮仓；按户与按行会分区存放",
+            "secret_note": "",
+            "visibility": "public"
+          },
+          {
+            "id": "f_cistern_2",
+            "name": "蓄水池",
+            "kind": "cistern",
+            "district": "d_admin",
+            "materials": [
+              "timber"
+            ],
+            "condition": "good",
+            "requires_technology": [],
+            "public_note": "封闭蓄水，按街区定时开放取水；维护责任写在告示上",
+            "secret_note": "",
+            "visibility": "public"
+          },
+          {
+            "id": "f_mill_3",
+            "name": "磨坊",
+            "kind": "mill",
+            "district": "d_craft",
+            "materials": [
+              "timber"
+            ],
+            "condition": "good",
+            "requires_technology": [
+              "water_wheel"
+            ],
+            "public_note": "按季收费磨面，量具由行会核对；水轮驱动",
+            "secret_note": "",
+            "visibility": "public"
+          },
+          {
+            "id": "f_inn_4",
+            "name": "客店",
+            "kind": "inn",
+            "district": "d_market",
+            "materials": [
+              "timber"
+            ],
+            "condition": "good",
+            "requires_technology": [],
+            "public_note": "按铺位收钱，马匹另计；夜里有人守门",
+            "secret_note": "",
+            "visibility": "public"
+          },
+          {
+            "id": "f_warehouse_5",
+            "name": "货栈",
+            "kind": "warehouse",
+            "district": "d_market",
+            "materials": [
+              "timber"
+            ],
+            "condition": "good",
+            "requires_technology": [],
+            "public_note": "分租给不同商团，封条样式各不相同",
+            "secret_note": "",
+            "visibility": "public"
+          },
+          {
+            "id": "f_stable_6",
+            "name": "牲口棚",
+            "kind": "stable",
+            "district": "d_outskirts",
+            "materials": [
+              "timber"
+            ],
+            "condition": "good",
+            "requires_technology": [],
+            "public_note": "换马与喂料，粪肥卖给近郊农户",
+            "secret_note": "",
+            "visibility": "public"
+          },
+          {
+            "id": "f_dock_7",
+            "name": "码头",
+            "kind": "dock",
+            "district": "d_harbor",
+            "materials": [
+              "timber"
+            ],
+            "condition": "good",
+            "requires_technology": [],
+            "public_note": "枯水期只能靠小船，栈桥每年修一次",
+            "secret_note": "",
+            "visibility": "public"
+          },
+          {
+            "id": "f_cemetery_8",
+            "name": "墓地",
+            "kind": "cemetery",
+            "district": "d_cemetery",
+            "materials": [
+              "timber"
+            ],
+            "condition": "fair",
+            "requires_technology": [],
+            "public_note": "按族与行会分区，低地墓穴在汛期会进水",
+            "secret_note": "",
+            "visibility": "public"
+          }
+        ],
+        "housing": {
+          "total_houses": 625,
+          "rows": [
+            {
+              "material": "timber",
+              "roof": "gable_tile",
+              "houses": 547,
+              "household_size": 6.8,
+              "note": "河岸稻作文化的习惯：扩展家庭"
+            },
+            {
+              "material": "timber",
+              "roof": "gable_thatch",
+              "houses": 78,
+              "household_size": 6.8,
+              "note": "低地简易房，用最便宜的可燃材料"
+            }
+          ],
+          "basis": "房屋数 = 人口 4250 ÷ 户均 6.8 人；只做代表性汇总，不逐栋建模"
+        },
+        "special_sites": [
+          {
+            "id": "s_manor",
+            "name": "旧宅",
+            "kind": "old_manor",
+            "is_residential": false,
+            "in_district": "d_admin",
+            "reach_via": [
+              "road_main"
+            ],
+            "origin": "早期管理者的宅院，后代搬走后由几家分租",
+            "public_description": "院墙比周围房屋高，门楼上的字迹被磨平",
+            "secret": "地窖里存着旧税册，与现行户口对不上",
+            "status": "claimed",
+            "visibility": "public",
+            "risks": [
+              "产权争议"
+            ],
+            "related_factions": [
+              "fa_ruling"
+            ],
+            "entry_conditions": [
+              "需要住户允许"
+            ]
+          },
+          {
+            "id": "s_customs",
+            "name": "旧关卡",
+            "kind": "customs_post",
+            "is_residential": false,
+            "in_district": "d_admin",
+            "reach_via": [
+              "road_main"
+            ],
+            "origin": "早年的查验点，路改道后只剩房基",
+            "public_description": "石阶旁留着称重的石砣",
+            "secret": "旧关卡留下的账本记着一笔从未入账的货物",
+            "status": "ruined",
+            "visibility": "public",
+            "risks": [],
+            "related_factions": [
+              "fa_merchant"
+            ],
+            "entry_conditions": []
+          }
+        ],
+        "style": {
+          "materials": [
+            "timber"
+          ],
+          "roof": "gable_tile",
+          "drainage": "open_gutter",
+          "wall_note": "木构架承重，墙内填土或编笆，火灾时沿巷蔓延较快",
+          "explanations": [
+            {
+              "claim": "以 timber 为主要墙体材料",
+              "because": [
+                "允许材料包含 timber",
+                "已申报技术：masonry, timber_frame, kiln, water_wheel, cistern",
+                "降水 1100.0mm、年均温 16.0℃"
+              ]
+            },
+            {
+              "claim": "屋面采用 gable_tile",
+              "because": [
+                "降水与温差决定坡度与瓦材",
+                "河岸稻作文化的习惯屋面是 gable_tile"
+              ]
+            },
+            {
+              "claim": "排水采用 open_gutter",
+              "because": [
+                "降水 1100.0mm",
+                "洪水风险 0.45",
+                "坡度与街道宽度限制明沟断面"
+              ]
+            },
+            {
+              "claim": "低地街区抬高地面并加挡水墙",
+              "because": [
+                "洪水风险偏高",
+                "仓储与居住都不能泡水"
+              ]
+            }
+          ]
+        },
+        "warnings": []
+      },
+      "story": {
+        "events": [
+          {
+            "id": "e_site_manor",
+            "title": "旧宅的传闻",
+            "kind": "discovery",
+            "site": "s_manor",
+            "districts": [
+              "d_admin"
+            ],
+            "factions": [
+              "fa_ruling"
+            ],
+            "trigger_conditions": [
+              "玩家接近旧宅并满足进入条件"
+            ],
+            "consequences": [
+              "公开层面只出现可观察的迹象",
+              "秘密只有在作者解封或条件满足后才成为可读事实"
+            ],
+            "status": "candidate_awaiting_author",
+            "executable": false
+          },
+          {
+            "id": "e_site_customs",
+            "title": "旧关卡的传闻",
+            "kind": "discovery",
+            "site": "s_customs",
+            "districts": [
+              "d_admin"
+            ],
+            "factions": [
+              "fa_merchant"
+            ],
+            "trigger_conditions": [
+              "玩家接近旧关卡并满足进入条件"
+            ],
+            "consequences": [
+              "公开层面只出现可观察的迹象",
+              "秘密只有在作者解封或条件满足后才成为可读事实"
+            ],
+            "status": "candidate_awaiting_author",
+            "executable": false
+          }
+        ],
+        "clues": [
+          {
+            "id": "c_manor",
+            "text": "院墙比周围房屋高，门楼上的字迹被磨平",
+            "site": "s_manor",
+            "holder": ""
+          },
+          {
+            "id": "c_customs",
+            "text": "石阶旁留着称重的石砣",
+            "site": "s_customs",
+            "holder": ""
+          }
+        ],
+        "secrets": [
+          {
+            "id": "sk_manor",
+            "text": "地窖里存着旧税册，与现行户口对不上",
+            "holders": [
+              "fa_ruling"
+            ]
+          },
+          {
+            "id": "sk_customs",
+            "text": "旧关卡留下的账本记着一笔从未入账的货物",
+            "holders": [
+              "fa_merchant"
+            ]
+          },
+          {
+            "id": "sk_ruling",
+            "text": "担心税册上的实际户口低于上报数，正在补记而未公开",
+            "holders": [
+              "fa_ruling"
+            ]
+          },
+          {
+            "id": "sk_guild",
+            "text": "与另一行会在原料分配上有未公开的分歧",
+            "holders": [
+              "fa_guild"
+            ]
+          },
+          {
+            "id": "sk_merchant",
+            "text": "正在打听关卡的检查频率与放行价码",
+            "holders": [
+              "fa_merchant"
+            ]
+          }
+        ],
+        "open_questions": [
+          "进口一旦中断，谁最先感觉到，谁手里有储备",
+          "旧宅的进入条件是否已经被本地人公开承认",
+          "旧关卡的进入条件是否已经被本地人公开承认"
+        ],
+        "warnings": [
+          "候选事件不会自动变成可执行任务或奖励；需要作者按现有严格 schema 写进故事包后才可游玩",
+          "未发现地点、未鉴定资源与隐藏目标不进玩家投影"
+        ]
+      },
+      "town_id": "",
+      "warnings": [
+        "劳动力不足以支撑全部产业，按可用劳力等比缩减一次，未反复迭代",
+        "候选事件不会自动变成可执行任务或奖励；需要作者按现有严格 schema 写进故事包后才可游玩",
+        "未发现地点、未鉴定资源与隐藏目标不进玩家投影"
+      ],
+      "public": {
+        "town_id": "",
+        "name": "泽口",
+        "type": "port",
+        "type_label": "港口",
+        "scale": "small_town",
+        "scale_label": "小镇",
+        "region": "湿润河谷",
+        "founded_reason": "因渡口与商路交汇而形成，水源让商队与定居者都能停留",
+        "founded_period": "第三代定居者时期（架空）",
+        "siting_reasons": [
+          "水源",
+          "可耕地",
+          "贸易",
+          "渔业"
+        ],
+        "social_mode": "realistic_reference",
+        "population": {
+          "total": 4250,
+          "groups": [
+            {
+              "label": "本地人居民",
+              "role": "majority",
+              "share_permille": 900
+            },
+            {
+              "label": "常来商队与移居者",
+              "role": "migrant",
+              "share_permille": 100
+            }
+          ],
+          "basis": "规则估计，不是普查"
+        },
+        "governance": {
+          "form": "guild_board",
+          "form_id": "guild_board",
+          "authority": "商团与工匠行会推举的理事会",
+          "legitimacy": "由市场管理与关税征收能力支撑"
+        },
+        "factions": [
+          {
+            "name": "本地治理机构",
+            "kind": "council",
+            "public_goal": "维持水源、道路与市场秩序，按惯例征收税赋"
+          },
+          {
+            "name": "粮食种植、伐木与木作行会",
+            "kind": "guild",
+            "public_goal": "稳定原料供应与售价，限制外来竞争者"
+          },
+          {
+            "name": "外来商团",
+            "kind": "merchant_house",
+            "public_goal": "取得仓储与优先卸货权，压低过境费用"
+          }
+        ],
+        "chains": [
+          {
+            "name": "粮食种植",
+            "output": "grain",
+            "amount": 830,
+            "unit": "t",
+            "period": "year",
+            "consumers": "本地居民与附近市场",
+            "stores": "本地农田与公仓"
+          },
+          {
+            "name": "伐木与木作",
+            "output": "timber",
+            "amount": 3763,
+            "unit": "m3",
+            "period": "year",
+            "consumers": "本地居民与附近市场",
+            "stores": "林地与木场"
+          },
+          {
+            "name": "苇编与苫盖",
+            "output": "reed_mat",
+            "amount": 21236,
+            "unit": "count",
+            "period": "year",
+            "consumers": "本地居民与附近市场",
+            "stores": "湿地"
+          },
+          {
+            "name": "捕捞与腌鱼",
+            "output": "salt_fish",
+            "amount": 848,
+            "unit": "t",
+            "period": "year",
+            "consumers": "本地居民与附近市场",
+            "stores": "水域与腌制作坊"
+          }
+        ],
+        "trade": [
+          {
+            "direction": "import",
+            "name": "盐",
+            "amount": 40,
+            "unit": "t",
+            "period": "year",
+            "via": "roads"
+          },
+          {
+            "direction": "export",
+            "name": "timber",
+            "amount": 940,
+            "unit": "m3",
+            "period": "year",
+            "via": "roads"
+          },
+          {
+            "direction": "export",
+            "name": "reed_mat",
+            "amount": 5309,
+            "unit": "count",
+            "period": "year",
+            "via": "roads"
+          },
+          {
+            "direction": "export",
+            "name": "salt_fish",
+            "amount": 212,
+            "unit": "t",
+            "period": "year",
+            "via": "roads"
+          }
+        ],
+        "reference_note": "现实参考档：东亚季风区低地河谷（类比参考） · 约12—14世纪（地方集市与村社惯行，不引用具体王朝法令），证据等级 regional_analogue；不确定性：水利组织、税制与户口数字在史料中差异很大；本工具只用方向性关系（水多—稻作—聚落密），不做定量复原。本工具的数值系数是规则假设，不是对真实社会或经济的精确估计，制度描述不构成历史结论；架空改动按 adaptation 标注；架空改编：地名、机构名与节期均为架空，只保留因果方向",
+        "districts": [
+          {
+            "name": "居住区",
+            "kind": "residential",
+            "materials": [
+              "timber"
+            ],
+            "roof": "gable_tile",
+            "drainage": "open_gutter",
+            "storeys": 1,
+            "enterable": true,
+            "note": "timber 墙体、gable_tile 屋面，雨水沿街沟排走"
+          },
+          {
+            "name": "市场与仓储",
+            "kind": "market",
+            "materials": [
+              "timber"
+            ],
+            "roof": "gable_tile",
+            "drainage": "open_gutter",
+            "storeys": 1,
+            "enterable": true,
+            "note": "沿街敞开铺面，夜里上板；仓储抬高地面防潮"
+          },
+          {
+            "name": "作坊区",
+            "kind": "craft",
+            "materials": [
+              "timber"
+            ],
+            "roof": "gable_tile",
+            "drainage": "open_gutter",
+            "storeys": 1,
+            "enterable": true,
+            "note": "作坊与住家混用，明火集中在巷口"
+          },
+          {
+            "name": "行政与广场",
+            "kind": "administration",
+            "materials": [
+              "timber"
+            ],
+            "roof": "gable_tile",
+            "drainage": "open_gutter",
+            "storeys": 1,
+            "enterable": true,
+            "note": "广场与告示墙，征税与议事都在这里"
+          },
+          {
+            "name": "外来者聚居",
+            "kind": "foreign_quarter",
+            "materials": [
+              "timber"
+            ],
+            "roof": "gable_tile",
+            "drainage": "open_gutter",
+            "storeys": 1,
+            "enterable": true,
+            "note": "建筑沿用本乡做法，材料随商路带来"
+          },
+          {
+            "name": "低地贫民区",
+            "kind": "poor",
+            "materials": [
+              "timber"
+            ],
+            "roof": "gable_thatch",
+            "drainage": "open_gutter",
+            "storeys": 1,
+            "enterable": true,
+            "note": "低洼地段，排水最差，材料最便宜"
+          },
+          {
+            "name": "码头",
+            "kind": "harbor",
+            "materials": [
+              "timber"
+            ],
+            "roof": "gable_tile",
+            "drainage": "open_gutter",
+            "storeys": 1,
+            "enterable": true,
+            "note": "栈桥与货栈沿岸布置，汛期要抬高"
+          },
+          {
+            "name": "墓地",
+            "kind": "cemetery",
+            "materials": [
+              "timber"
+            ],
+            "roof": "gable_tile",
+            "drainage": "open_gutter",
+            "storeys": 1,
+            "enterable": true,
+            "note": "在聚落外缘，地势略高"
+          },
+          {
+            "name": "近郊田园",
+            "kind": "outskirts",
+            "materials": [
+              "timber"
+            ],
+            "roof": "gable_tile",
+            "drainage": "open_gutter",
+            "storeys": 1,
+            "enterable": true,
+            "note": "菜地与畜栏，房屋稀疏"
+          }
+        ],
+        "facilities": [
+          {
+            "name": "公仓",
+            "kind": "granary",
+            "note": "抬高地板、留通风缝的粮仓；按户与按行会分区存放"
+          },
+          {
+            "name": "蓄水池",
+            "kind": "cistern",
+            "note": "封闭蓄水，按街区定时开放取水；维护责任写在告示上"
+          },
+          {
+            "name": "磨坊",
+            "kind": "mill",
+            "note": "按季收费磨面，量具由行会核对；水轮驱动"
+          },
+          {
+            "name": "客店",
+            "kind": "inn",
+            "note": "按铺位收钱，马匹另计；夜里有人守门"
+          },
+          {
+            "name": "货栈",
+            "kind": "warehouse",
+            "note": "分租给不同商团，封条样式各不相同"
+          },
+          {
+            "name": "牲口棚",
+            "kind": "stable",
+            "note": "换马与喂料，粪肥卖给近郊农户"
+          },
+          {
+            "name": "码头",
+            "kind": "dock",
+            "note": "枯水期只能靠小船，栈桥每年修一次"
+          },
+          {
+            "name": "墓地",
+            "kind": "cemetery",
+            "note": "按族与行会分区，低地墓穴在汛期会进水"
+          }
+        ],
+        "housing": {
+          "total_houses": 625,
+          "basis": "房屋数 = 人口 4250 ÷ 户均 6.8 人；只做代表性汇总，不逐栋建模",
+          "rows": [
+            {
+              "material": "timber",
+              "roof": "gable_tile",
+              "houses": 547,
+              "household_size": 6.8,
+              "note": "河岸稻作文化的习惯：扩展家庭"
+            },
+            {
+              "material": "timber",
+              "roof": "gable_thatch",
+              "houses": 78,
+              "household_size": 6.8,
+              "note": "低地简易房，用最便宜的可燃材料"
+            }
+          ]
+        },
+        "style": {
+          "materials": [
+            "timber"
+          ],
+          "roof": "gable_tile",
+          "drainage": "open_gutter",
+          "wall_note": "木构架承重，墙内填土或编笆，火灾时沿巷蔓延较快",
+          "explanations": [
+            {
+              "claim": "以 timber 为主要墙体材料",
+              "because": [
+                "允许材料包含 timber",
+                "已申报技术：masonry, timber_frame, kiln, water_wheel, cistern",
+                "降水 1100.0mm、年均温 16.0℃"
+              ]
+            },
+            {
+              "claim": "屋面采用 gable_tile",
+              "because": [
+                "降水与温差决定坡度与瓦材",
+                "河岸稻作文化的习惯屋面是 gable_tile"
+              ]
+            },
+            {
+              "claim": "排水采用 open_gutter",
+              "because": [
+                "降水 1100.0mm",
+                "洪水风险 0.45",
+                "坡度与街道宽度限制明沟断面"
+              ]
+            },
+            {
+              "claim": "低地街区抬高地面并加挡水墙",
+              "because": [
+                "洪水风险偏高",
+                "仓储与居住都不能泡水"
+              ]
+            }
+          ]
+        },
+        "water": {
+          "source": "river",
+          "source_label": "河流",
+          "storage": "tank",
+          "note": "河水按可取水能力计入，洪水月需要暂停取水"
+        },
+        "roads": [
+          {
+            "name": "主路",
+            "kind": "road",
+            "destination": "最近市场",
+            "travel_days": 1,
+            "seasonal_closed_days": 12
+          },
+          {
+            "name": "水路",
+            "kind": "river",
+            "destination": "下游市场",
+            "travel_days": 1,
+            "seasonal_closed_days": 6
+          }
+        ],
+        "special_sites": [
+          {
+            "name": "旧宅",
+            "kind": "old_manor",
+            "description": "院墙比周围房屋高，门楼上的字迹被磨平",
+            "status": "claimed",
+            "enterable": true,
+            "risks": [
+              "产权争议"
+            ],
+            "entry_conditions": [
+              "需要住户允许"
+            ]
+          },
+          {
+            "name": "旧关卡",
+            "kind": "customs_post",
+            "description": "石阶旁留着称重的石砣",
+            "status": "ruined",
+            "enterable": false,
+            "risks": [],
+            "entry_conditions": []
+          }
+        ],
+        "warnings": [
+          "人口、产量与承载都是规则估计，不是普查或实测"
+        ]
+      }
+    },
+    "cold_mountain_mine": {
+      "input": {
+        "story_revision": "demo_revision_0001",
+        "seed": "town_demo_001",
+        "site": "selected_location",
+        "site_name": "黑石沟",
+        "site_location_id": "place_mine",
+        "region": "寒冷山地",
+        "founded_period": "开矿第三代（架空）",
+        "map": {
+          "input_version": "hand_sample_v1",
+          "coordinate_system": "架空示意经纬度（经度在前、纬度在后）",
+          "scale": "1 格约 2 公里，仅作示意图，不用于计算行程",
+          "source": "manual_sample"
+        },
+        "terrain": {
+          "elevation_m": 1650.0,
+          "slope_deg": 22.0,
+          "precipitation_mm": 520.0,
+          "temperature_c": -1.0,
+          "freshwater": 0.45,
+          "soil_fertility": 0.22,
+          "flood_risk": 0.12,
+          "area_km2": 40.0,
+          "coordinates": [
+            86.1,
+            43.2
+          ]
+        },
+        "water": {
+          "source": "spring",
+          "reliability": 0.75,
+          "daily_capacity_l": 200000,
+          "storage": "cistern",
+          "distance_km": 0.6
+        },
+        "transport": {
+          "road": "track",
+          "water_route": false,
+          "portage": true,
+          "seasonal_closed_days": 70,
+          "nearest_market_days": 4
+        },
+        "resources": [
+          {
+            "id": "res_iron",
+            "kind": "iron",
+            "abundance": 0.75,
+            "accessibility": 0.55,
+            "surveyed": true,
+            "extractable": true,
+            "requires_technology": [
+              "mine_shaft",
+              "forge"
+            ],
+            "fuel": "coal"
+          },
+          {
+            "id": "res_coal",
+            "kind": "coal",
+            "abundance": 0.6,
+            "accessibility": 0.5,
+            "surveyed": true,
+            "extractable": true,
+            "requires_technology": [
+              "mine_shaft"
+            ],
+            "fuel": "none"
+          },
+          {
+            "id": "res_timber",
+            "kind": "timber",
+            "abundance": 0.35,
+            "accessibility": 0.3,
+            "surveyed": true,
+            "extractable": true,
+            "requires_technology": [],
+            "fuel": "none"
+          }
+        ],
+        "materials": [
+          "stone",
+          "cut_stone",
+          "timber",
+          "slate",
+          "iron",
+          "lime_plaster"
+        ],
+        "technology": [
+          "masonry",
+          "timber_frame",
+          "forge",
+          "mine_shaft",
+          "cistern",
+          "snow_load_engineering"
+        ],
+        "cultures": [
+          {
+            "id": "cu_highland",
+            "name": "高地矿工聚居",
+            "roof": "steep_slate",
+            "heating": "stove",
+            "household": "nuclear",
+            "note": "屋面陡坡排雪，院内堆料"
+          }
+        ],
+        "peoples": [
+          {
+            "id": "pe_standard",
+            "name": "本地人",
+            "average_height_cm": 170,
+            "min_ceiling_m": 2.4,
+            "space_factor": 1.0,
+            "need_note": ""
+          },
+          {
+            "id": "pe_stout",
+            "name": "山地体型",
+            "average_height_cm": 162,
+            "min_ceiling_m": 2.2,
+            "space_factor": 1.15,
+            "need_note": "层高可略低，储物与晾晒空间需要加大"
+          }
+        ],
+        "social_mode": "artistic_extrapolation",
+        "realistic": null,
+        "artistic": {
+          "prototypes": [
+            "近代早期欧洲山地矿区",
+            "高原自给农牧"
+          ],
+          "inventions": [
+            "矿权与水源由同一个董事会裁定"
+          ],
+          "design_goal": "让燃料、雪季与矿权成为可玩的约束，而不是装饰",
+          "counterexamples": "不采用“矿镇必然暴富”的写法"
+        },
+        "imports": [
+          {
+            "id": "imp_grain",
+            "name": "粮食",
+            "kind": "grain",
+            "amount_per_period": 500,
+            "unit": "t",
+            "period": "year",
+            "via": "road",
+            "note": "山口外换粮"
+          },
+          {
+            "id": "imp_timber",
+            "name": "坑木与柴",
+            "kind": "timber",
+            "amount_per_period": 300,
+            "unit": "m3",
+            "period": "year",
+            "via": "road",
+            "note": "本地林场不够用"
+          }
+        ],
+        "bindings": [
+          {
+            "id": "el_mine_law",
+            "kind": "rule_template",
+            "version": "v2",
+            "summary": "矿口计时与配额惯例：按班组计工，超额部分由矿主抽成"
+          }
+        ],
+        "notes": "冷山矿镇示例：水少、粮少，燃料与坑木都要运进来；冬季封路。"
+      },
+      "skeleton": {
+        "town_type": "mining_town",
+        "scale": "small_town",
+        "display_name": "黑石沟",
+        "name_candidates": [
+          "黑石沟",
+          "黑石沟矿镇",
+          "黑石沟旧矿镇"
+        ],
+        "region": "寒冷山地",
+        "founded_reason": "早年因矿脉露头设采矿聚落，随后因冶炼与运输需求扩大",
+        "founded_period": "开矿第三代（架空）",
+        "coordinates": [
+          86.1,
+          43.2
+        ],
+        "siting_reasons": [
+          "water",
+          "ore",
+          "defense",
+          "religious"
+        ],
+        "water": {
+          "source": "spring",
+          "storage": "cistern",
+          "daily_capacity_l": 150000,
+          "reliability": 0.75,
+          "note": "泉眼流量稳定但总量有限"
+        },
+        "roads": [
+          {
+            "id": "road_main",
+            "name": "主路",
+            "kind": "trail",
+            "destination": "最近市场",
+            "travel_days": 4,
+            "seasonal_closed_days": 70
+          },
+          {
+            "id": "road_pass",
+            "name": "山口小道",
+            "kind": "pass",
+            "destination": "山口外",
+            "travel_days": 8,
+            "seasonal_closed_days": 100
+          }
+        ],
+        "capacity": {
+          "water_cap": 6000,
+          "local_food_cap": 0,
+          "import_food_cap": 2777,
+          "transport_cap": 2832,
+          "population": 2610,
+          "basis": [
+            "水源承载 = 日供水×可靠度 ÷ 25 升 = 6000 人",
+            "本地粮食承载 = 可耕地 1.07 km² × 33 人/km² = 0 人",
+            "进口粮食承载 = min(进口口粮 500.0 t/年 折 2777 人, 通道能力 2832 人) = 2777 人",
+            "这些系数是玩法设定假设，不是历史统计、测绘或经济证明"
+          ]
+        },
+        "explanations": [
+          {
+            "claim": "人口规模由水源与粮食中较小的一项决定",
+            "because": [
+              "水源上限 6000 人",
+              "粮食上限 2777 人",
+              "可耕地比例由降水、气温、坡度与洪水风险共同决定"
+            ]
+          },
+          {
+            "claim": "选址理由由输入的地形与交通条件给出",
+            "because": [
+              "识别到水源条件",
+              "识别到矿产条件",
+              "识别到防御条件",
+              "识别到宗教条件"
+            ]
+          }
+        ],
+        "warnings": [
+          "道路每年封闭 70 天，进口、税收与消息都有断档",
+          "本地粮食不足以供养全部人口，缺口依赖进口"
+        ]
+      },
+      "socioeconomy": {
+        "population": {
+          "total": 2600,
+          "groups": [
+            {
+              "id": "g_core",
+              "label": "本地人居民",
+              "role": "majority",
+              "share_permille": 720,
+              "note": "本地出生或长期定居；不表示单一职业或统一立场"
+            },
+            {
+              "id": "g_second",
+              "label": "山地体型群体",
+              "role": "minority",
+              "share_permille": 140,
+              "note": "语言与建筑习惯不同；法律地位由本地制度决定，不是固定职业"
+            },
+            {
+              "id": "g_migrant",
+              "label": "常来商队与移居者",
+              "role": "migrant",
+              "share_permille": 80,
+              "note": "随商路到达，停留时间取决于季节与关税"
+            },
+            {
+              "id": "g_seasonal",
+              "label": "季节性劳工",
+              "role": "seasonal",
+              "share_permille": 60,
+              "note": "农忙或开矿季到达，淡季离开，不计入常驻需求"
+            }
+          ],
+          "basis": "骨架阶段承载上限 2610 人；组群占比按取水、贸易与季节用工需求分配，占比之和固定为1000‰",
+          "uncertainty": "人口是规则估计，不是普查；季节人口与流动商队会让实际在场人数上下浮动约一成"
+        },
+        "governance": {
+          "form": "company_board",
+          "authority": "矿场主与冶炼坊主组成的董事会",
+          "legitimacy": "由矿权与冶炼设备所有权支撑，受雇劳工没有表决权",
+          "tax_basis": [
+            "按耕地与收成",
+            "按市场交易额",
+            "按矿产与冶炼产量"
+          ],
+          "obligations": [
+            "维护水源与道路",
+            "处理纠纷与税收"
+          ]
+        },
+        "factions": [
+          {
+            "id": "fa_ruling",
+            "name": "本地治理机构",
+            "kind": "company",
+            "public_goal": "维持水源、道路与市场秩序，按惯例征收税赋",
+            "power_source": "capital",
+            "resources": [
+              "税赋与劳役",
+              "公共设施"
+            ],
+            "obligations": [
+              "维护水源与道路"
+            ],
+            "constraints": [
+              "人力与粮食受季节限制"
+            ],
+            "relations": [],
+            "evidence": [
+              "公告与税册",
+              "公共工程上的题名"
+            ],
+            "hidden_goal": "担心税册上的实际户口低于上报数，正在补记而未公开"
+          },
+          {
+            "id": "fa_guild",
+            "name": "采铁与冶炼、采煤行会",
+            "kind": "guild",
+            "public_goal": "稳定原料供应与售价，限制外来竞争者",
+            "power_source": "knowledge",
+            "resources": [
+              "作坊与工具",
+              "熟练工"
+            ],
+            "obligations": [
+              "维持产量与质量惯例"
+            ],
+            "constraints": [
+              "原料与燃料依赖运输"
+            ],
+            "relations": [
+              {
+                "faction": "fa_ruling",
+                "stance": "client",
+                "over": "税赋与市场摊位分配"
+              }
+            ],
+            "evidence": [
+              "行会标记与作坊门牌"
+            ],
+            "hidden_goal": "与另一行会在原料分配上有未公开的分歧"
+          },
+          {
+            "id": "fa_merchant",
+            "name": "外来商团",
+            "kind": "merchant_house",
+            "public_goal": "取得仓储与优先卸货权，压低过境费用",
+            "power_source": "trade_route",
+            "resources": [
+              "资金",
+              "远途商队"
+            ],
+            "obligations": [
+              "按约缴税"
+            ],
+            "constraints": [
+              "受道路季节与关卡查验限制"
+            ],
+            "relations": [
+              {
+                "faction": "fa_guild",
+                "stance": "rival",
+                "over": "仓储与摊位"
+              },
+              {
+                "faction": "fa_ruling",
+                "stance": "client",
+                "over": "关税减免"
+              }
+            ],
+            "evidence": [
+              "仓库租约",
+              "商队停驻的空地"
+            ],
+            "hidden_goal": "正在打听关卡的检查频率与放行价码"
+          },
+          {
+            "id": "fa_temple",
+            "name": "祠庙与执事",
+            "kind": "temple",
+            "public_goal": "主持节期与救济，保管捐赠记录",
+            "power_source": "faith",
+            "resources": [
+              "捐赠与祠产"
+            ],
+            "obligations": [
+              "节期与赈济"
+            ],
+            "constraints": [
+              "不能直接征用劳役"
+            ],
+            "relations": [
+              {
+                "faction": "fa_ruling",
+                "stance": "ally",
+                "over": "节期秩序"
+              }
+            ],
+            "evidence": [
+              "节期日程",
+              "捐赠碑"
+            ],
+            "hidden_goal": ""
+          }
+        ],
+        "chains": [
+          {
+            "id": "ch_iron",
+            "name": "采铁与冶炼",
+            "inputs": [
+              {
+                "resource": "fuel_coal",
+                "name": "燃料（coal）",
+                "amount": 1456,
+                "unit": "t",
+                "period": "year"
+              }
+            ],
+            "output": {
+              "resource": "iron_bar",
+              "name": "iron_bar",
+              "amount": 600,
+              "unit": "t",
+              "period": "year"
+            },
+            "workers": 393,
+            "energy": "fuel",
+            "requires_technology": [
+              "mine_shaft",
+              "forge"
+            ],
+            "stores": "矿场与炉场",
+            "ships_via": [
+              "road_main",
+              "road_pass"
+            ],
+            "consumers": "本地居民与附近市场",
+            "note": "产量按规则系数与劳力推算；系数是玩法假设，不是实测；库存只有在开采与运输实际发生后才存在"
+          },
+          {
+            "id": "ch_coal",
+            "name": "采煤",
+            "inputs": [],
+            "output": {
+              "resource": "coal_lump",
+              "name": "coal_lump",
+              "amount": 436,
+              "unit": "t",
+              "period": "year"
+            },
+            "workers": 393,
+            "energy": "human",
+            "requires_technology": [
+              "mine_shaft"
+            ],
+            "stores": "煤窑",
+            "ships_via": [
+              "road_main",
+              "road_pass"
+            ],
+            "consumers": "本地居民与附近市场",
+            "note": "产量按规则系数与劳力推算；系数是玩法假设，不是实测；库存只有在开采与运输实际发生后才存在"
+          },
+          {
+            "id": "ch_timber",
+            "name": "伐木与木作",
+            "inputs": [],
+            "output": {
+              "resource": "timber",
+              "name": "timber",
+              "amount": 595,
+              "unit": "m3",
+              "period": "year"
+            },
+            "workers": 383,
+            "energy": "human",
+            "requires_technology": [],
+            "stores": "林地与木场",
+            "ships_via": [
+              "road_main",
+              "road_pass"
+            ],
+            "consumers": "本地居民与附近市场",
+            "note": "产量按规则系数与劳力推算；系数是玩法假设，不是实测；库存只有在开采与运输实际发生后才存在"
+          }
+        ],
+        "trade": [
+          {
+            "id": "tr_import_1",
+            "direction": "import",
+            "resource": "imp_grain",
+            "kind": "grain",
+            "name": "粮食",
+            "amount": 500,
+            "unit": "t",
+            "period": "year",
+            "via": "roads",
+            "requirement": "需要道路通行季与关卡放行；通路中断时进口量与人口都要下调"
+          },
+          {
+            "id": "tr_import_2",
+            "direction": "import",
+            "resource": "imp_timber",
+            "kind": "timber",
+            "name": "坑木与柴",
+            "amount": 300,
+            "unit": "m3",
+            "period": "year",
+            "via": "roads",
+            "requirement": "需要道路通行季与关卡放行；通路中断时进口量与人口都要下调"
+          },
+          {
+            "id": "tr_export_1",
+            "direction": "export",
+            "resource": "iron_bar",
+            "kind": "other",
+            "name": "iron_bar",
+            "amount": 150,
+            "unit": "t",
+            "period": "year",
+            "via": "roads",
+            "requirement": "只有实际运出的部分才算外销；本版不虚构出口量"
+          },
+          {
+            "id": "tr_export_2",
+            "direction": "export",
+            "resource": "coal_lump",
+            "kind": "other",
+            "name": "coal_lump",
+            "amount": 109,
+            "unit": "t",
+            "period": "year",
+            "via": "roads",
+            "requirement": "只有实际运出的部分才算外销；本版不虚构出口量"
+          },
+          {
+            "id": "tr_export_3",
+            "direction": "export",
+            "resource": "timber",
+            "kind": "other",
+            "name": "timber",
+            "amount": 148,
+            "unit": "m3",
+            "period": "year",
+            "via": "roads",
+            "requirement": "只有实际运出的部分才算外销；本版不虚构出口量"
+          }
+        ],
+        "labor": {
+          "available_workers": 1170,
+          "assigned_workers": 1169,
+          "note": "可用劳力 = 人口×450‰；已分配含产业与行政，不含家务、育儿与季节短工"
+        },
+        "staple": {
+          "resource": "grain",
+          "name": "本地口粮",
+          "amount": 0,
+          "unit": "t",
+          "period": "year"
+        },
+        "staple_need": {
+          "resource": "grain",
+          "name": "口粮需求",
+          "amount": 468,
+          "unit": "t",
+          "period": "year"
+        },
+        "tensions": [
+          "本地口粮约 0 t/年，低于需求 468 t/年，缺口月份取决于通路是否畅通",
+          "道路每年封闭 70 天，仓储与借贷关系在开春前后会紧张",
+          "燃料消耗与林场/煤源的可及性直接决定炉场能否整年开工"
+        ],
+        "explanations": [
+          {
+            "claim": "主要生计由已勘探资源、可用技术与能源共同决定",
+            "because": [
+              "已勘探且可加工的资源：iron, coal, timber",
+              "可用技术：masonry, timber_frame, forge, mine_shaft, cistern, snow_load_engineering",
+              "能源：fuel, human"
+            ]
+          },
+          {
+            "claim": "company_board成为治理形式",
+            "because": [
+              "城镇类型 矿业镇",
+              "权力来源 capital 与资源控制相关"
+            ]
+          },
+          {
+            "claim": "口粮依赖进口或存在缺口",
+            "because": [
+              "本地口粮 0 t/年",
+              "需求 468 t/年",
+              "进口量与通行季共同约束人口上限"
+            ]
+          }
+        ],
+        "warnings": [
+          "劳动力不足以支撑全部产业，按可用劳力等比缩减一次，未反复迭代"
+        ],
+        "reference_note": "艺术夸张档：现实原型 近代早期欧洲山地矿区、高原自给农牧；创作归纳 矿权与水源由同一个董事会裁定；设计目标：让燃料、雪季与矿权成为可玩的约束，而不是装饰。这不是历史记录，材料、能源、技术与组织成本仍按同一套硬约束校验；反例说明：不采用“矿镇必然暴富”的写法"
+      },
+      "built": {
+        "districts": [
+          {
+            "id": "d_residential",
+            "name": "居住区",
+            "kind": "residential",
+            "population_share_permille": 476,
+            "materials": [
+              "stone"
+            ],
+            "roof": "steep_slate",
+            "drainage": "open_gutter",
+            "storeys": 1,
+            "access": "public",
+            "visibility": "public",
+            "reach_via": [
+              "road_main",
+              "road_pass"
+            ],
+            "note": "stone 墙体、steep_slate 屋面，雨水沿街沟排走"
+          },
+          {
+            "id": "d_market",
+            "name": "市场与仓储",
+            "kind": "market",
+            "population_share_permille": 124,
+            "materials": [
+              "stone"
+            ],
+            "roof": "steep_slate",
+            "drainage": "open_gutter",
+            "storeys": 1,
+            "access": "public",
+            "visibility": "public",
+            "reach_via": [
+              "road_main",
+              "road_pass"
+            ],
+            "note": "沿街敞开铺面，夜里上板；仓储抬高地面防潮"
+          },
+          {
+            "id": "d_craft",
+            "name": "作坊区",
+            "kind": "craft",
+            "population_share_permille": 105,
+            "materials": [
+              "stone"
+            ],
+            "roof": "steep_slate",
+            "drainage": "open_gutter",
+            "storeys": 1,
+            "access": "public",
+            "visibility": "public",
+            "reach_via": [
+              "road_main",
+              "road_pass"
+            ],
+            "note": "作坊与住家混用，明火集中在巷口"
+          },
+          {
+            "id": "d_admin",
+            "name": "行政与广场",
+            "kind": "administration",
+            "population_share_permille": 57,
+            "materials": [
+              "stone"
+            ],
+            "roof": "steep_slate",
+            "drainage": "open_gutter",
+            "storeys": 1,
+            "access": "public",
+            "visibility": "public",
+            "reach_via": [
+              "road_main",
+              "road_pass"
+            ],
+            "note": "广场与告示墙，征税与议事都在这里"
+          },
+          {
+            "id": "d_temple",
+            "name": "祠庙区",
+            "kind": "temple",
+            "population_share_permille": 48,
+            "materials": [
+              "stone"
+            ],
+            "roof": "steep_slate",
+            "drainage": "open_gutter",
+            "storeys": 1,
+            "access": "public",
+            "visibility": "public",
+            "reach_via": [
+              "road_main",
+              "road_pass"
+            ],
+            "note": "围合院落，节期才向外开放"
+          },
+          {
+            "id": "d_foreign",
+            "name": "外来者聚居",
+            "kind": "foreign_quarter",
+            "population_share_permille": 43,
+            "materials": [
+              "stone"
+            ],
+            "roof": "steep_slate",
+            "drainage": "open_gutter",
+            "storeys": 1,
+            "access": "public",
+            "visibility": "public",
+            "reach_via": [
+              "road_main",
+              "road_pass"
+            ],
+            "note": "建筑沿用本乡做法，材料随商路带来"
+          },
+          {
+            "id": "d_poor",
+            "name": "低地贫民区",
+            "kind": "poor",
+            "population_share_permille": 38,
+            "materials": [
+              "stone"
+            ],
+            "roof": "steep_slate",
+            "drainage": "open_gutter",
+            "storeys": 1,
+            "access": "public",
+            "visibility": "public",
+            "reach_via": [
+              "road_main",
+              "road_pass"
+            ],
+            "note": "低洼地段，排水最差，材料最便宜"
+          },
+          {
+            "id": "d_industrial",
+            "name": "炉场与污染区",
+            "kind": "industrial",
+            "population_share_permille": 38,
+            "materials": [
+              "stone"
+            ],
+            "roof": "steep_slate",
+            "drainage": "open_gutter",
+            "storeys": 1,
+            "access": "restricted",
+            "visibility": "public",
+            "reach_via": [
+              "road_main",
+              "road_pass"
+            ],
+            "note": "烟尘与炉渣集中在下风侧，夜间有明火"
+          },
+          {
+            "id": "d_cemetery",
+            "name": "墓地",
+            "kind": "cemetery",
+            "population_share_permille": 19,
+            "materials": [
+              "stone"
+            ],
+            "roof": "steep_slate",
+            "drainage": "open_gutter",
+            "storeys": 1,
+            "access": "public",
+            "visibility": "public",
+            "reach_via": [
+              "road_main",
+              "road_pass"
+            ],
+            "note": "在聚落外缘，地势略高"
+          },
+          {
+            "id": "d_outskirts",
+            "name": "近郊田园",
+            "kind": "outskirts",
+            "population_share_permille": 52,
+            "materials": [
+              "stone"
+            ],
+            "roof": "steep_slate",
+            "drainage": "open_gutter",
+            "storeys": 1,
+            "access": "public",
+            "visibility": "public",
+            "reach_via": [
+              "road_main",
+              "road_pass"
+            ],
+            "note": "菜地与畜栏，房屋稀疏"
+          }
+        ],
+        "facilities": [
+          {
+            "id": "f_granary_1",
+            "name": "公仓",
+            "kind": "granary",
+            "district": "d_market",
+            "materials": [
+              "stone"
+            ],
+            "condition": "good",
+            "requires_technology": [],
+            "public_note": "抬高地板、留通风缝的粮仓；按户与按行会分区存放",
+            "secret_note": "",
+            "visibility": "public"
+          },
+          {
+            "id": "f_cistern_2",
+            "name": "蓄水池",
+            "kind": "cistern",
+            "district": "d_admin",
+            "materials": [
+              "stone"
+            ],
+            "condition": "good",
+            "requires_technology": [],
+            "public_note": "封闭蓄水，按街区定时开放取水；维护责任写在告示上",
+            "secret_note": "",
+            "visibility": "public"
+          },
+          {
+            "id": "f_well_3",
+            "name": "公共水井",
+            "kind": "well",
+            "district": "d_residential",
+            "materials": [
+              "stone"
+            ],
+            "condition": "good",
+            "requires_technology": [],
+            "public_note": "井台与排水沟相连，取水有先后秩序",
+            "secret_note": "",
+            "visibility": "public"
+          },
+          {
+            "id": "f_smelter_4",
+            "name": "炉场",
+            "kind": "smelter",
+            "district": "d_industrial",
+            "materials": [
+              "stone"
+            ],
+            "condition": "good",
+            "requires_technology": [
+              "forge"
+            ],
+            "public_note": "炉渣堆在下风处，夜里火光可见",
+            "secret_note": "",
+            "visibility": "public"
+          },
+          {
+            "id": "f_forge_5",
+            "name": "铁匠铺",
+            "kind": "forge",
+            "district": "d_craft",
+            "materials": [
+              "stone"
+            ],
+            "condition": "good",
+            "requires_technology": [
+              "forge"
+            ],
+            "public_note": "修农具与车轴，也接关卡的订件",
+            "secret_note": "",
+            "visibility": "public"
+          },
+          {
+            "id": "f_temple_6",
+            "name": "祠庙",
+            "kind": "temple",
+            "district": "d_temple",
+            "materials": [
+              "stone"
+            ],
+            "condition": "good",
+            "requires_technology": [],
+            "public_note": "节期开放，平日由执事打理；捐赠记录不公开",
+            "secret_note": "",
+            "visibility": "public"
+          },
+          {
+            "id": "f_inn_7",
+            "name": "客店",
+            "kind": "inn",
+            "district": "d_market",
+            "materials": [
+              "stone"
+            ],
+            "condition": "good",
+            "requires_technology": [],
+            "public_note": "按铺位收钱，马匹另计；夜里有人守门",
+            "secret_note": "",
+            "visibility": "public"
+          },
+          {
+            "id": "f_warehouse_8",
+            "name": "货栈",
+            "kind": "warehouse",
+            "district": "d_market",
+            "materials": [
+              "stone"
+            ],
+            "condition": "good",
+            "requires_technology": [],
+            "public_note": "分租给不同商团，封条样式各不相同",
+            "secret_note": "",
+            "visibility": "public"
+          },
+          {
+            "id": "f_stable_9",
+            "name": "牲口棚",
+            "kind": "stable",
+            "district": "d_outskirts",
+            "materials": [
+              "stone"
+            ],
+            "condition": "good",
+            "requires_technology": [],
+            "public_note": "换马与喂料，粪肥卖给近郊农户",
+            "secret_note": "",
+            "visibility": "public"
+          },
+          {
+            "id": "f_mine_head_10",
+            "name": "矿口",
+            "kind": "mine_head",
+            "district": "d_outskirts",
+            "materials": [
+              "stone"
+            ],
+            "condition": "good",
+            "requires_technology": [
+              "mine_shaft"
+            ],
+            "public_note": "井口有绞盘与排水沟，进洞按班组计时",
+            "secret_note": "班组私下记录过一段被略去的塌方",
+            "visibility": "public"
+          },
+          {
+            "id": "f_cemetery_11",
+            "name": "墓地",
+            "kind": "cemetery",
+            "district": "d_cemetery",
+            "materials": [
+              "stone"
+            ],
+            "condition": "fair",
+            "requires_technology": [],
+            "public_note": "按族与行会分区，低地墓穴在汛期会进水",
+            "secret_note": "",
+            "visibility": "public"
+          }
+        ],
+        "housing": {
+          "total_houses": 531,
+          "rows": [
+            {
+              "material": "stone",
+              "roof": "steep_slate",
+              "houses": 531,
+              "household_size": 4.9,
+              "note": "高地矿工聚居的习惯：核心家庭"
+            }
+          ],
+          "basis": "房屋数 = 人口 2600 ÷ 户均 4.9 人；只做代表性汇总，不逐栋建模"
+        },
+        "special_sites": [
+          {
+            "id": "s_cave",
+            "name": "山腹裂口",
+            "kind": "cave_mouth",
+            "is_residential": false,
+            "in_district": null,
+            "reach_via": [
+              "road_pass"
+            ],
+            "origin": "岩层开裂形成的通道，雨季有水流出",
+            "public_description": "裂口只容两人并行，深处听得到水声",
+            "secret": "裂口通向山另一侧的季节性牧道，走私者用过",
+            "status": "dormant",
+            "visibility": "public",
+            "risks": [
+              "迷路",
+              "涨水"
+            ],
+            "related_factions": [],
+            "entry_conditions": [
+              "旱季进入"
+            ]
+          },
+          {
+            "id": "s_shrine",
+            "name": "路边小祠",
+            "kind": "shrine",
+            "is_residential": false,
+            "in_district": "d_temple",
+            "reach_via": [
+              "road_main"
+            ],
+            "origin": "在取水路口设立的小祠，最早由过路人捐建",
+            "public_description": "没有常驻执事，供台上有新旧两种供品",
+            "secret": "祠内石刻记着一次被官方记载略去的分配决定",
+            "status": "active",
+            "visibility": "public",
+            "risks": [],
+            "related_factions": [
+              "fa_temple"
+            ],
+            "entry_conditions": []
+          },
+          {
+            "id": "s_workshop",
+            "name": "废作坊",
+            "kind": "abandoned_workshop",
+            "is_residential": false,
+            "in_district": "d_industrial",
+            "reach_via": [
+              "road_main"
+            ],
+            "origin": "曾试图用本地燃料扩大产量，成本不合算后停工",
+            "public_description": "炉体裂了缝，地上还有没清走的矿渣",
+            "secret": "停工的真正原因是炉温上不去，不是主家说的原料短缺",
+            "status": "dormant",
+            "visibility": "public",
+            "risks": [
+              "结构不稳"
+            ],
+            "related_factions": [
+              "fa_guild"
+            ],
+            "entry_conditions": []
+          }
+        ],
+        "style": {
+          "materials": [
+            "stone"
+          ],
+          "roof": "steep_slate",
+          "drainage": "open_gutter",
+          "wall_note": "石墙承重，开窗少，室内偏凉；基础按经验加深",
+          "explanations": [
+            {
+              "claim": "以 stone 为主要墙体材料",
+              "because": [
+                "允许材料包含 stone",
+                "已申报技术：masonry, timber_frame, forge, mine_shaft, cistern, snow_load_engineering",
+                "降水 520.0mm、年均温 -1.0℃"
+              ]
+            },
+            {
+              "claim": "屋面采用 steep_slate",
+              "because": [
+                "降水与温差决定坡度与瓦材",
+                "高地矿工聚居的习惯屋面是 steep_slate"
+              ]
+            },
+            {
+              "claim": "排水采用 open_gutter",
+              "because": [
+                "降水 520.0mm",
+                "洪水风险 0.12",
+                "坡度与街道宽度限制明沟断面"
+              ]
+            },
+            {
+              "claim": "屋顶坡度加大并减少悬挑",
+              "because": [
+                "积雪荷载",
+                "融雪期渗水"
+              ]
+            }
+          ]
+        },
+        "warnings": []
+      },
+      "story": {
+        "events": [
+          {
+            "id": "e_tension_1",
+            "title": "围绕「本地口粮约 0 t/年，低于需求」的分歧",
+            "kind": "economic",
+            "site": "s_shrine",
+            "districts": [
+              "d_temple"
+            ],
+            "factions": [
+              "fa_ruling",
+              "fa_guild"
+            ],
+            "trigger_conditions": [
+              "本地口粮约 0 t/年，低于需求 468 t/年，缺口月份取决于通路是否畅通"
+            ],
+            "consequences": [
+              "相关各方各自加强说法，可信度需要另行核实",
+              "作者采纳后才能写成受校验的故事事件；本版不自动生成任务与奖励"
+            ],
+            "status": "candidate_awaiting_author",
+            "executable": false
+          },
+          {
+            "id": "e_tension_2",
+            "title": "围绕「道路每年封闭 70 天，仓储与借」的分歧",
+            "kind": "social",
+            "site": "s_cave",
+            "districts": [
+              "d_market"
+            ],
+            "factions": [
+              "fa_ruling",
+              "fa_guild"
+            ],
+            "trigger_conditions": [
+              "道路每年封闭 70 天，仓储与借贷关系在开春前后会紧张"
+            ],
+            "consequences": [
+              "相关各方各自加强说法，可信度需要另行核实",
+              "作者采纳后才能写成受校验的故事事件；本版不自动生成任务与奖励"
+            ],
+            "status": "candidate_awaiting_author",
+            "executable": false
+          },
+          {
+            "id": "e_tension_3",
+            "title": "围绕「燃料消耗与林场/煤源的可及性直接」的分歧",
+            "kind": "hazard",
+            "site": "s_cave",
+            "districts": [
+              "d_temple"
+            ],
+            "factions": [
+              "fa_ruling",
+              "fa_guild"
+            ],
+            "trigger_conditions": [
+              "燃料消耗与林场/煤源的可及性直接决定炉场能否整年开工"
+            ],
+            "consequences": [
+              "相关各方各自加强说法，可信度需要另行核实",
+              "作者采纳后才能写成受校验的故事事件；本版不自动生成任务与奖励"
+            ],
+            "status": "candidate_awaiting_author",
+            "executable": false
+          },
+          {
+            "id": "e_site_cave",
+            "title": "山腹裂口的传闻",
+            "kind": "discovery",
+            "site": "s_cave",
+            "districts": [],
+            "factions": [],
+            "trigger_conditions": [
+              "玩家接近山腹裂口并满足进入条件"
+            ],
+            "consequences": [
+              "公开层面只出现可观察的迹象",
+              "秘密只有在作者解封或条件满足后才成为可读事实"
+            ],
+            "status": "candidate_awaiting_author",
+            "executable": false
+          },
+          {
+            "id": "e_site_shrine",
+            "title": "路边小祠的传闻",
+            "kind": "discovery",
+            "site": "s_shrine",
+            "districts": [
+              "d_temple"
+            ],
+            "factions": [
+              "fa_temple"
+            ],
+            "trigger_conditions": [
+              "玩家接近路边小祠并满足进入条件"
+            ],
+            "consequences": [
+              "公开层面只出现可观察的迹象",
+              "秘密只有在作者解封或条件满足后才成为可读事实"
+            ],
+            "status": "candidate_awaiting_author",
+            "executable": false
+          },
+          {
+            "id": "e_site_workshop",
+            "title": "废作坊的传闻",
+            "kind": "discovery",
+            "site": "s_workshop",
+            "districts": [
+              "d_industrial"
+            ],
+            "factions": [
+              "fa_guild"
+            ],
+            "trigger_conditions": [
+              "玩家接近废作坊并满足进入条件"
+            ],
+            "consequences": [
+              "公开层面只出现可观察的迹象",
+              "秘密只有在作者解封或条件满足后才成为可读事实"
+            ],
+            "status": "candidate_awaiting_author",
+            "executable": false
+          }
+        ],
+        "clues": [
+          {
+            "id": "c_cave",
+            "text": "裂口只容两人并行，深处听得到水声",
+            "site": "s_cave",
+            "holder": ""
+          },
+          {
+            "id": "c_shrine",
+            "text": "没有常驻执事，供台上有新旧两种供品",
+            "site": "s_shrine",
+            "holder": ""
+          },
+          {
+            "id": "c_workshop",
+            "text": "炉体裂了缝，地上还有没清走的矿渣",
+            "site": "s_workshop",
+            "holder": ""
+          }
+        ],
+        "secrets": [
+          {
+            "id": "sk_cave",
+            "text": "裂口通向山另一侧的季节性牧道，走私者用过",
+            "holders": []
+          },
+          {
+            "id": "sk_shrine",
+            "text": "祠内石刻记着一次被官方记载略去的分配决定",
+            "holders": [
+              "fa_temple"
+            ]
+          },
+          {
+            "id": "sk_workshop",
+            "text": "停工的真正原因是炉温上不去，不是主家说的原料短缺",
+            "holders": [
+              "fa_guild"
+            ]
+          },
+          {
+            "id": "sk_ruling",
+            "text": "担心税册上的实际户口低于上报数，正在补记而未公开",
+            "holders": [
+              "fa_ruling"
+            ]
+          },
+          {
+            "id": "sk_guild",
+            "text": "与另一行会在原料分配上有未公开的分歧",
+            "holders": [
+              "fa_guild"
+            ]
+          },
+          {
+            "id": "sk_merchant",
+            "text": "正在打听关卡的检查频率与放行价码",
+            "holders": [
+              "fa_merchant"
+            ]
+          }
+        ],
+        "open_questions": [
+          "水源与道路的季节性缺口是否已经有人记在账册或碑上",
+          "进口一旦中断，谁最先感觉到，谁手里有储备",
+          "山腹裂口的进入条件是否已经被本地人公开承认",
+          "路边小祠的进入条件是否已经被本地人公开承认"
+        ],
+        "warnings": [
+          "候选事件不会自动变成可执行任务或奖励；需要作者按现有严格 schema 写进故事包后才可游玩",
+          "未发现地点、未鉴定资源与隐藏目标不进玩家投影"
+        ]
+      },
+      "town_id": "",
+      "warnings": [
+        "道路每年封闭 70 天，进口、税收与消息都有断档",
+        "本地粮食不足以供养全部人口，缺口依赖进口",
+        "劳动力不足以支撑全部产业，按可用劳力等比缩减一次，未反复迭代",
+        "候选事件不会自动变成可执行任务或奖励；需要作者按现有严格 schema 写进故事包后才可游玩",
+        "未发现地点、未鉴定资源与隐藏目标不进玩家投影"
+      ],
+      "public": {
+        "town_id": "",
+        "name": "黑石沟",
+        "type": "mining_town",
+        "type_label": "矿业镇",
+        "scale": "small_town",
+        "scale_label": "小镇",
+        "region": "寒冷山地",
+        "founded_reason": "早年因矿脉露头设采矿聚落，随后因冶炼与运输需求扩大",
+        "founded_period": "开矿第三代（架空）",
+        "siting_reasons": [
+          "水源",
+          "矿产",
+          "防御",
+          "宗教"
+        ],
+        "social_mode": "artistic_extrapolation",
+        "population": {
+          "total": 2600,
+          "groups": [
+            {
+              "label": "本地人居民",
+              "role": "majority",
+              "share_permille": 720
+            },
+            {
+              "label": "山地体型群体",
+              "role": "minority",
+              "share_permille": 140
+            },
+            {
+              "label": "常来商队与移居者",
+              "role": "migrant",
+              "share_permille": 80
+            },
+            {
+              "label": "季节性劳工",
+              "role": "seasonal",
+              "share_permille": 60
+            }
+          ],
+          "basis": "规则估计，不是普查"
+        },
+        "governance": {
+          "form": "company_board",
+          "form_id": "company_board",
+          "authority": "矿场主与冶炼坊主组成的董事会",
+          "legitimacy": "由矿权与冶炼设备所有权支撑，受雇劳工没有表决权"
+        },
+        "factions": [
+          {
+            "name": "本地治理机构",
+            "kind": "company",
+            "public_goal": "维持水源、道路与市场秩序，按惯例征收税赋"
+          },
+          {
+            "name": "采铁与冶炼、采煤行会",
+            "kind": "guild",
+            "public_goal": "稳定原料供应与售价，限制外来竞争者"
+          },
+          {
+            "name": "外来商团",
+            "kind": "merchant_house",
+            "public_goal": "取得仓储与优先卸货权，压低过境费用"
+          },
+          {
+            "name": "祠庙与执事",
+            "kind": "temple",
+            "public_goal": "主持节期与救济，保管捐赠记录"
+          }
+        ],
+        "chains": [
+          {
+            "name": "采铁与冶炼",
+            "output": "iron_bar",
+            "amount": 600,
+            "unit": "t",
+            "period": "year",
+            "consumers": "本地居民与附近市场",
+            "stores": "矿场与炉场"
+          },
+          {
+            "name": "采煤",
+            "output": "coal_lump",
+            "amount": 436,
+            "unit": "t",
+            "period": "year",
+            "consumers": "本地居民与附近市场",
+            "stores": "煤窑"
+          },
+          {
+            "name": "伐木与木作",
+            "output": "timber",
+            "amount": 595,
+            "unit": "m3",
+            "period": "year",
+            "consumers": "本地居民与附近市场",
+            "stores": "林地与木场"
+          }
+        ],
+        "trade": [
+          {
+            "direction": "import",
+            "name": "粮食",
+            "amount": 500,
+            "unit": "t",
+            "period": "year",
+            "via": "roads"
+          },
+          {
+            "direction": "import",
+            "name": "坑木与柴",
+            "amount": 300,
+            "unit": "m3",
+            "period": "year",
+            "via": "roads"
+          },
+          {
+            "direction": "export",
+            "name": "iron_bar",
+            "amount": 150,
+            "unit": "t",
+            "period": "year",
+            "via": "roads"
+          },
+          {
+            "direction": "export",
+            "name": "coal_lump",
+            "amount": 109,
+            "unit": "t",
+            "period": "year",
+            "via": "roads"
+          },
+          {
+            "direction": "export",
+            "name": "timber",
+            "amount": 148,
+            "unit": "m3",
+            "period": "year",
+            "via": "roads"
+          }
+        ],
+        "reference_note": "艺术夸张档：现实原型 近代早期欧洲山地矿区、高原自给农牧；创作归纳 矿权与水源由同一个董事会裁定；设计目标：让燃料、雪季与矿权成为可玩的约束，而不是装饰。这不是历史记录，材料、能源、技术与组织成本仍按同一套硬约束校验；反例说明：不采用“矿镇必然暴富”的写法",
+        "districts": [
+          {
+            "name": "居住区",
+            "kind": "residential",
+            "materials": [
+              "stone"
+            ],
+            "roof": "steep_slate",
+            "drainage": "open_gutter",
+            "storeys": 1,
+            "enterable": true,
+            "note": "stone 墙体、steep_slate 屋面，雨水沿街沟排走"
+          },
+          {
+            "name": "市场与仓储",
+            "kind": "market",
+            "materials": [
+              "stone"
+            ],
+            "roof": "steep_slate",
+            "drainage": "open_gutter",
+            "storeys": 1,
+            "enterable": true,
+            "note": "沿街敞开铺面，夜里上板；仓储抬高地面防潮"
+          },
+          {
+            "name": "作坊区",
+            "kind": "craft",
+            "materials": [
+              "stone"
+            ],
+            "roof": "steep_slate",
+            "drainage": "open_gutter",
+            "storeys": 1,
+            "enterable": true,
+            "note": "作坊与住家混用，明火集中在巷口"
+          },
+          {
+            "name": "行政与广场",
+            "kind": "administration",
+            "materials": [
+              "stone"
+            ],
+            "roof": "steep_slate",
+            "drainage": "open_gutter",
+            "storeys": 1,
+            "enterable": true,
+            "note": "广场与告示墙，征税与议事都在这里"
+          },
+          {
+            "name": "祠庙区",
+            "kind": "temple",
+            "materials": [
+              "stone"
+            ],
+            "roof": "steep_slate",
+            "drainage": "open_gutter",
+            "storeys": 1,
+            "enterable": true,
+            "note": "围合院落，节期才向外开放"
+          },
+          {
+            "name": "外来者聚居",
+            "kind": "foreign_quarter",
+            "materials": [
+              "stone"
+            ],
+            "roof": "steep_slate",
+            "drainage": "open_gutter",
+            "storeys": 1,
+            "enterable": true,
+            "note": "建筑沿用本乡做法，材料随商路带来"
+          },
+          {
+            "name": "低地贫民区",
+            "kind": "poor",
+            "materials": [
+              "stone"
+            ],
+            "roof": "steep_slate",
+            "drainage": "open_gutter",
+            "storeys": 1,
+            "enterable": true,
+            "note": "低洼地段，排水最差，材料最便宜"
+          },
+          {
+            "name": "炉场与污染区",
+            "kind": "industrial",
+            "materials": [
+              "stone"
+            ],
+            "roof": "steep_slate",
+            "drainage": "open_gutter",
+            "storeys": 1,
+            "enterable": false,
+            "note": "烟尘与炉渣集中在下风侧，夜间有明火"
+          },
+          {
+            "name": "墓地",
+            "kind": "cemetery",
+            "materials": [
+              "stone"
+            ],
+            "roof": "steep_slate",
+            "drainage": "open_gutter",
+            "storeys": 1,
+            "enterable": true,
+            "note": "在聚落外缘，地势略高"
+          },
+          {
+            "name": "近郊田园",
+            "kind": "outskirts",
+            "materials": [
+              "stone"
+            ],
+            "roof": "steep_slate",
+            "drainage": "open_gutter",
+            "storeys": 1,
+            "enterable": true,
+            "note": "菜地与畜栏，房屋稀疏"
+          }
+        ],
+        "facilities": [
+          {
+            "name": "公仓",
+            "kind": "granary",
+            "note": "抬高地板、留通风缝的粮仓；按户与按行会分区存放"
+          },
+          {
+            "name": "蓄水池",
+            "kind": "cistern",
+            "note": "封闭蓄水，按街区定时开放取水；维护责任写在告示上"
+          },
+          {
+            "name": "公共水井",
+            "kind": "well",
+            "note": "井台与排水沟相连，取水有先后秩序"
+          },
+          {
+            "name": "炉场",
+            "kind": "smelter",
+            "note": "炉渣堆在下风处，夜里火光可见"
+          },
+          {
+            "name": "铁匠铺",
+            "kind": "forge",
+            "note": "修农具与车轴，也接关卡的订件"
+          },
+          {
+            "name": "祠庙",
+            "kind": "temple",
+            "note": "节期开放，平日由执事打理；捐赠记录不公开"
+          },
+          {
+            "name": "客店",
+            "kind": "inn",
+            "note": "按铺位收钱，马匹另计；夜里有人守门"
+          },
+          {
+            "name": "货栈",
+            "kind": "warehouse",
+            "note": "分租给不同商团，封条样式各不相同"
+          },
+          {
+            "name": "牲口棚",
+            "kind": "stable",
+            "note": "换马与喂料，粪肥卖给近郊农户"
+          },
+          {
+            "name": "矿口",
+            "kind": "mine_head",
+            "note": "井口有绞盘与排水沟，进洞按班组计时"
+          },
+          {
+            "name": "墓地",
+            "kind": "cemetery",
+            "note": "按族与行会分区，低地墓穴在汛期会进水"
+          }
+        ],
+        "housing": {
+          "total_houses": 531,
+          "basis": "房屋数 = 人口 2600 ÷ 户均 4.9 人；只做代表性汇总，不逐栋建模",
+          "rows": [
+            {
+              "material": "stone",
+              "roof": "steep_slate",
+              "houses": 531,
+              "household_size": 4.9,
+              "note": "高地矿工聚居的习惯：核心家庭"
+            }
+          ]
+        },
+        "style": {
+          "materials": [
+            "stone"
+          ],
+          "roof": "steep_slate",
+          "drainage": "open_gutter",
+          "wall_note": "石墙承重，开窗少，室内偏凉；基础按经验加深",
+          "explanations": [
+            {
+              "claim": "以 stone 为主要墙体材料",
+              "because": [
+                "允许材料包含 stone",
+                "已申报技术：masonry, timber_frame, forge, mine_shaft, cistern, snow_load_engineering",
+                "降水 520.0mm、年均温 -1.0℃"
+              ]
+            },
+            {
+              "claim": "屋面采用 steep_slate",
+              "because": [
+                "降水与温差决定坡度与瓦材",
+                "高地矿工聚居的习惯屋面是 steep_slate"
+              ]
+            },
+            {
+              "claim": "排水采用 open_gutter",
+              "because": [
+                "降水 520.0mm",
+                "洪水风险 0.12",
+                "坡度与街道宽度限制明沟断面"
+              ]
+            },
+            {
+              "claim": "屋顶坡度加大并减少悬挑",
+              "because": [
+                "积雪荷载",
+                "融雪期渗水"
+              ]
+            }
+          ]
+        },
+        "water": {
+          "source": "spring",
+          "source_label": "泉水",
+          "storage": "cistern",
+          "note": "泉眼流量稳定但总量有限"
+        },
+        "roads": [
+          {
+            "name": "主路",
+            "kind": "trail",
+            "destination": "最近市场",
+            "travel_days": 4,
+            "seasonal_closed_days": 70
+          },
+          {
+            "name": "山口小道",
+            "kind": "pass",
+            "destination": "山口外",
+            "travel_days": 8,
+            "seasonal_closed_days": 100
+          }
+        ],
+        "special_sites": [
+          {
+            "name": "山腹裂口",
+            "kind": "cave_mouth",
+            "description": "裂口只容两人并行，深处听得到水声",
+            "status": "dormant",
+            "enterable": true,
+            "risks": [
+              "迷路",
+              "涨水"
+            ],
+            "entry_conditions": [
+              "旱季进入"
+            ]
+          },
+          {
+            "name": "路边小祠",
+            "kind": "shrine",
+            "description": "没有常驻执事，供台上有新旧两种供品",
+            "status": "active",
+            "enterable": true,
+            "risks": [],
+            "entry_conditions": []
+          },
+          {
+            "name": "废作坊",
+            "kind": "abandoned_workshop",
+            "description": "炉体裂了缝，地上还有没清走的矿渣",
+            "status": "dormant",
+            "enterable": true,
+            "risks": [
+              "结构不稳"
+            ],
+            "entry_conditions": []
+          }
+        ],
+        "warnings": [
+          "人口、产量与承载都是规则估计，不是普查或实测"
+        ]
+      }
+    },
+    "arid_oasis_route": {
+      "input": {
+        "story_revision": "demo_revision_0001",
+        "seed": "town_demo_001",
+        "site": "manual_sample",
+        "site_name": "沙垒驿",
+        "site_location_id": null,
+        "region": "干旱商路绿洲",
+        "founded_period": "商路改道后第二代（架空）",
+        "map": {
+          "input_version": "hand_sample_v1",
+          "coordinate_system": "架空示意经纬度（经度在前、纬度在后）",
+          "scale": "1 格约 2 公里，仅作示意图，不用于计算行程",
+          "source": "manual_sample"
+        },
+        "terrain": {
+          "elevation_m": 620.0,
+          "slope_deg": 5.0,
+          "precipitation_mm": 90.0,
+          "temperature_c": 29.0,
+          "freshwater": 0.35,
+          "soil_fertility": 0.12,
+          "flood_risk": 0.05,
+          "area_km2": 30.0,
+          "coordinates": [
+            40.2,
+            33.1
+          ]
+        },
+        "water": {
+          "source": "spring",
+          "reliability": 0.85,
+          "daily_capacity_l": 300000,
+          "storage": "cistern",
+          "distance_km": 0.2
+        },
+        "transport": {
+          "road": "highway",
+          "water_route": false,
+          "portage": false,
+          "seasonal_closed_days": 0,
+          "nearest_market_days": 6
+        },
+        "resources": [
+          {
+            "id": "res_salt",
+            "kind": "salt",
+            "abundance": 0.7,
+            "accessibility": 0.8,
+            "surveyed": true,
+            "extractable": true,
+            "requires_technology": [],
+            "fuel": "timber"
+          },
+          {
+            "id": "res_wool",
+            "kind": "wool",
+            "abundance": 0.5,
+            "accessibility": 0.6,
+            "surveyed": true,
+            "extractable": true,
+            "requires_technology": [],
+            "fuel": "none"
+          },
+          {
+            "id": "res_herb",
+            "kind": "herb",
+            "abundance": 0.4,
+            "accessibility": 0.5,
+            "surveyed": true,
+            "extractable": true,
+            "requires_technology": [],
+            "fuel": "none"
+          },
+          {
+            "id": "res_iron",
+            "kind": "iron",
+            "abundance": 0.9,
+            "accessibility": 0.1,
+            "surveyed": false,
+            "extractable": true,
+            "requires_technology": [
+              "mine_shaft"
+            ],
+            "fuel": "none"
+          }
+        ],
+        "materials": [
+          "mud_brick",
+          "rammed_earth",
+          "stone",
+          "timber",
+          "felt",
+          "hide",
+          "thatch"
+        ],
+        "technology": [
+          "timber_frame",
+          "cistern",
+          "kiln"
+        ],
+        "cultures": [
+          {
+            "id": "cu_oasis",
+            "name": "绿洲商路文化",
+            "roof": "flat_mud",
+            "heating": "none",
+            "household": "extended",
+            "note": "平屋顶作晾晒与纳凉，厚墙抵日间高温"
+          },
+          {
+            "id": "cu_caravan",
+            "name": "商队习俗",
+            "roof": "monopitch",
+            "heating": "none",
+            "household": "nuclear",
+            "note": "临时棚屋，随队移动"
+          }
+        ],
+        "peoples": [
+          {
+            "id": "pe_standard",
+            "name": "本地人",
+            "average_height_cm": 170,
+            "min_ceiling_m": 2.5,
+            "space_factor": 1.0,
+            "need_note": ""
+          }
+        ],
+        "social_mode": "artistic_extrapolation",
+        "realistic": null,
+        "artistic": {
+          "prototypes": [
+            "撒哈拉与中亚绿洲商站",
+            "丝路驿站客院"
+          ],
+          "inventions": [
+            "水源由商团与本地家族共管的双钥匙制度"
+          ],
+          "design_goal": "把水权与过境费变成日常冲突来源，同时不虚构产量",
+          "counterexamples": "不假设绿洲必然富裕或必然独立"
+        },
+        "imports": [
+          {
+            "id": "imp_grain",
+            "name": "粮食",
+            "kind": "grain",
+            "amount_per_period": 900,
+            "unit": "t",
+            "period": "year",
+            "via": "road",
+            "note": "沿干道运入"
+          },
+          {
+            "id": "imp_timber",
+            "name": "木料与柴",
+            "kind": "timber",
+            "amount_per_period": 120,
+            "unit": "m3",
+            "period": "year",
+            "via": "road",
+            "note": "本地无林，盐灶也要烧柴"
+          },
+          {
+            "id": "imp_fuel_wood",
+            "name": "盐灶用柴",
+            "kind": "fuel",
+            "amount_per_period": 60,
+            "unit": "t",
+            "period": "year",
+            "via": "road",
+            "note": "运来的柴禾，专供盐灶"
+          }
+        ],
+        "bindings": [
+          {
+            "id": "el_water_keys",
+            "kind": "element",
+            "version": "v1",
+            "summary": "水源双钥匙：商团与本地家族各持一把，开闸需双方在场"
+          }
+        ],
+        "notes": "干旱绿洲示例：水由泉眼与蓄水决定，粮与柴都靠干道运入；本地有一座未勘探的铁矿，不得直接写成产量。"
+      },
+      "skeleton": {
+        "town_type": "market_town",
+        "scale": "small_town",
+        "display_name": "沙垒驿",
+        "name_candidates": [
+          "沙垒驿",
+          "沙垒驿集",
+          "沙垒驿旧集"
+        ],
+        "region": "干旱商路绿洲",
+        "founded_reason": "因渡口与商路交汇而形成，水源让商队与定居者都能停留",
+        "founded_period": "商路改道后第二代（架空）",
+        "coordinates": [
+          40.2,
+          33.1
+        ],
+        "siting_reasons": [
+          "water",
+          "trade"
+        ],
+        "water": {
+          "source": "spring",
+          "storage": "cistern",
+          "daily_capacity_l": 255000,
+          "reliability": 0.85,
+          "note": "泉眼流量稳定但总量有限"
+        },
+        "roads": [
+          {
+            "id": "road_main",
+            "name": "主路",
+            "kind": "road",
+            "destination": "最近市场",
+            "travel_days": 6,
+            "seasonal_closed_days": 0
+          }
+        ],
+        "capacity": {
+          "water_cap": 10200,
+          "local_food_cap": 0,
+          "import_food_cap": 5000,
+          "transport_cap": 10950,
+          "population": 4700,
+          "basis": [
+            "水源承载 = 日供水×可靠度 ÷ 25 升 = 10200 人",
+            "本地粮食承载 = 可耕地 0.35 km² × 33 人/km² = 0 人",
+            "进口粮食承载 = min(进口口粮 900.0 t/年 折 5000 人, 通道能力 10950 人) = 5000 人",
+            "这些系数是玩法设定假设，不是历史统计、测绘或经济证明"
+          ]
+        },
+        "explanations": [
+          {
+            "claim": "人口规模由水源与粮食中较小的一项决定",
+            "because": [
+              "水源上限 10200 人",
+              "粮食上限 5000 人",
+              "可耕地比例由降水、气温、坡度与洪水风险共同决定"
+            ]
+          },
+          {
+            "claim": "选址理由由输入的地形与交通条件给出",
+            "because": [
+              "识别到水源条件",
+              "识别到贸易条件"
+            ]
+          }
+        ],
+        "warnings": [
+          "本地粮食不足以供养全部人口，缺口依赖进口",
+          "资源候选 res_iron 未勘探：存在不等于可开采"
+        ]
+      },
+      "socioeconomy": {
+        "population": {
+          "total": 4700,
+          "groups": [
+            {
+              "id": "g_core",
+              "label": "本地人居民",
+              "role": "majority",
+              "share_permille": 766,
+              "note": "本地出生或长期定居；不表示单一职业或统一立场"
+            },
+            {
+              "id": "g_second",
+              "label": "商队习俗群体",
+              "role": "minority",
+              "share_permille": 149,
+              "note": "语言与建筑习惯不同；法律地位由本地制度决定，不是固定职业"
+            },
+            {
+              "id": "g_migrant",
+              "label": "常来商队与移居者",
+              "role": "migrant",
+              "share_permille": 85,
+              "note": "随商路到达，停留时间取决于季节与关税"
+            }
+          ],
+          "basis": "骨架阶段承载上限 4700 人；组群占比按取水、贸易与季节用工需求分配，占比之和固定为1000‰",
+          "uncertainty": "人口是规则估计，不是普查；季节人口与流动商队会让实际在场人数上下浮动约一成"
+        },
+        "governance": {
+          "form": "guild_board",
+          "authority": "商团与工匠行会推举的理事会",
+          "legitimacy": "由市场管理与关税征收能力支撑",
+          "tax_basis": [
+            "按耕地与收成",
+            "按市场交易额",
+            "按矿产与冶炼产量",
+            "按过境货物"
+          ],
+          "obligations": [
+            "维护水源与道路",
+            "处理纠纷与税收"
+          ]
+        },
+        "factions": [
+          {
+            "id": "fa_ruling",
+            "name": "本地治理机构",
+            "kind": "council",
+            "public_goal": "维持水源、道路与市场秩序，按惯例征收税赋",
+            "power_source": "appointment",
+            "resources": [
+              "税赋与劳役",
+              "公共设施"
+            ],
+            "obligations": [
+              "维护水源与道路"
+            ],
+            "constraints": [
+              "人力与粮食受季节限制"
+            ],
+            "relations": [],
+            "evidence": [
+              "公告与税册",
+              "公共工程上的题名"
+            ],
+            "hidden_goal": "担心税册上的实际户口低于上报数，正在补记而未公开"
+          },
+          {
+            "id": "fa_guild",
+            "name": "采盐、纺织行会",
+            "kind": "guild",
+            "public_goal": "稳定原料供应与售价，限制外来竞争者",
+            "power_source": "knowledge",
+            "resources": [
+              "作坊与工具",
+              "熟练工"
+            ],
+            "obligations": [
+              "维持产量与质量惯例"
+            ],
+            "constraints": [
+              "原料与燃料依赖运输"
+            ],
+            "relations": [
+              {
+                "faction": "fa_ruling",
+                "stance": "client",
+                "over": "税赋与市场摊位分配"
+              }
+            ],
+            "evidence": [
+              "行会标记与作坊门牌"
+            ],
+            "hidden_goal": "与另一行会在原料分配上有未公开的分歧"
+          },
+          {
+            "id": "fa_merchant",
+            "name": "外来商团",
+            "kind": "merchant_house",
+            "public_goal": "取得仓储与优先卸货权，压低过境费用",
+            "power_source": "trade_route",
+            "resources": [
+              "资金",
+              "远途商队"
+            ],
+            "obligations": [
+              "按约缴税"
+            ],
+            "constraints": [
+              "受道路季节与关卡查验限制"
+            ],
+            "relations": [
+              {
+                "faction": "fa_guild",
+                "stance": "rival",
+                "over": "仓储与摊位"
+              },
+              {
+                "faction": "fa_ruling",
+                "stance": "client",
+                "over": "关税减免"
+              }
+            ],
+            "evidence": [
+              "仓库租约",
+              "商队停驻的空地"
+            ],
+            "hidden_goal": "正在打听关卡的检查频率与放行价码"
+          }
+        ],
+        "chains": [
+          {
+            "id": "ch_salt",
+            "name": "采盐",
+            "inputs": [
+              {
+                "resource": "fuel_timber",
+                "name": "燃料（timber）",
+                "amount": 2632,
+                "unit": "t",
+                "period": "year"
+              }
+            ],
+            "output": {
+              "resource": "salt",
+              "name": "salt",
+              "amount": 1473,
+              "unit": "t",
+              "period": "year"
+            },
+            "workers": 705,
+            "energy": "fuel",
+            "requires_technology": [],
+            "stores": "盐田或盐井",
+            "ships_via": [
+              "road_main"
+            ],
+            "consumers": "本地居民与附近市场",
+            "note": "产量按规则系数与劳力推算；系数是玩法假设，不是实测；库存只有在开采与运输实际发生后才存在"
+          },
+          {
+            "id": "ch_weave",
+            "name": "纺织",
+            "inputs": [],
+            "output": {
+              "resource": "cloth",
+              "name": "cloth",
+              "amount": 11844,
+              "unit": "count",
+              "period": "year"
+            },
+            "workers": 705,
+            "energy": "human",
+            "requires_technology": [],
+            "stores": "织坊",
+            "ships_via": [
+              "road_main"
+            ],
+            "consumers": "本地居民与附近市场",
+            "note": "产量按规则系数与劳力推算；系数是玩法假设，不是实测；库存只有在开采与运输实际发生后才存在"
+          },
+          {
+            "id": "ch_herb",
+            "name": "采药与配药",
+            "inputs": [],
+            "output": {
+              "resource": "herb_medicine",
+              "name": "herb_medicine",
+              "amount": 10528,
+              "unit": "kg",
+              "period": "year"
+            },
+            "workers": 705,
+            "energy": "human",
+            "requires_technology": [],
+            "stores": "山地与药房",
+            "ships_via": [
+              "road_main"
+            ],
+            "consumers": "本地居民与附近市场",
+            "note": "产量按规则系数与劳力推算；系数是玩法假设，不是实测；库存只有在开采与运输实际发生后才存在"
+          }
+        ],
+        "trade": [
+          {
+            "id": "tr_import_1",
+            "direction": "import",
+            "resource": "imp_grain",
+            "kind": "grain",
+            "name": "粮食",
+            "amount": 900,
+            "unit": "t",
+            "period": "year",
+            "via": "roads",
+            "requirement": "需要道路通行季与关卡放行；通路中断时进口量与人口都要下调"
+          },
+          {
+            "id": "tr_import_2",
+            "direction": "import",
+            "resource": "imp_timber",
+            "kind": "timber",
+            "name": "木料与柴",
+            "amount": 120,
+            "unit": "m3",
+            "period": "year",
+            "via": "roads",
+            "requirement": "需要道路通行季与关卡放行；通路中断时进口量与人口都要下调"
+          },
+          {
+            "id": "tr_import_3",
+            "direction": "import",
+            "resource": "imp_fuel_wood",
+            "kind": "fuel",
+            "name": "盐灶用柴",
+            "amount": 60,
+            "unit": "t",
+            "period": "year",
+            "via": "roads",
+            "requirement": "需要道路通行季与关卡放行；通路中断时进口量与人口都要下调"
+          },
+          {
+            "id": "tr_export_1",
+            "direction": "export",
+            "resource": "salt",
+            "kind": "other",
+            "name": "salt",
+            "amount": 368,
+            "unit": "t",
+            "period": "year",
+            "via": "roads",
+            "requirement": "只有实际运出的部分才算外销；本版不虚构出口量"
+          },
+          {
+            "id": "tr_export_2",
+            "direction": "export",
+            "resource": "cloth",
+            "kind": "other",
+            "name": "cloth",
+            "amount": 2961,
+            "unit": "count",
+            "period": "year",
+            "via": "roads",
+            "requirement": "只有实际运出的部分才算外销；本版不虚构出口量"
+          },
+          {
+            "id": "tr_export_3",
+            "direction": "export",
+            "resource": "herb_medicine",
+            "kind": "other",
+            "name": "herb_medicine",
+            "amount": 2632,
+            "unit": "kg",
+            "period": "year",
+            "via": "roads",
+            "requirement": "只有实际运出的部分才算外销；本版不虚构出口量"
+          }
+        ],
+        "labor": {
+          "available_workers": 2115,
+          "assigned_workers": 2115,
+          "note": "可用劳力 = 人口×450‰；已分配含产业与行政，不含家务、育儿与季节短工"
+        },
+        "staple": {
+          "resource": "grain",
+          "name": "本地口粮",
+          "amount": 0,
+          "unit": "t",
+          "period": "year"
+        },
+        "staple_need": {
+          "resource": "grain",
+          "name": "口粮需求",
+          "amount": 846,
+          "unit": "t",
+          "period": "year"
+        },
+        "tensions": [
+          "本地口粮约 0 t/年，低于需求 846 t/年，缺口月份取决于通路是否畅通",
+          "未勘探的资源被外地商人先一步打听，本地对其价值判断不一",
+          "燃料消耗与林场/煤源的可及性直接决定炉场能否整年开工"
+        ],
+        "explanations": [
+          {
+            "claim": "主要生计由已勘探资源、可用技术与能源共同决定",
+            "because": [
+              "已勘探且可加工的资源：salt, wool, herb",
+              "可用技术：timber_frame, cistern, kiln",
+              "能源：fuel, human"
+            ]
+          },
+          {
+            "claim": "guild_board成为治理形式",
+            "because": [
+              "城镇类型 集镇",
+              "权力来源 appointment 与资源控制相关"
+            ]
+          },
+          {
+            "claim": "口粮依赖进口或存在缺口",
+            "because": [
+              "本地口粮 0 t/年",
+              "需求 846 t/年",
+              "进口量与通行季共同约束人口上限"
+            ]
+          }
+        ],
+        "warnings": [
+          "劳动力不足以支撑全部产业，按可用劳力等比缩减一次，未反复迭代"
+        ],
+        "reference_note": "艺术夸张档：现实原型 撒哈拉与中亚绿洲商站、丝路驿站客院；创作归纳 水源由商团与本地家族共管的双钥匙制度；设计目标：把水权与过境费变成日常冲突来源，同时不虚构产量。这不是历史记录，材料、能源、技术与组织成本仍按同一套硬约束校验；反例说明：不假设绿洲必然富裕或必然独立"
+      },
+      "built": {
+        "districts": [
+          {
+            "id": "d_residential",
+            "name": "居住区",
+            "kind": "residential",
+            "population_share_permille": 500,
+            "materials": [
+              "mud_brick"
+            ],
+            "roof": "flat_mud",
+            "drainage": "soak_pit",
+            "storeys": 1,
+            "access": "public",
+            "visibility": "public",
+            "reach_via": [
+              "road_main"
+            ],
+            "note": "mud_brick 墙体、flat_mud 屋面，雨水沿街沟排走"
+          },
+          {
+            "id": "d_market",
+            "name": "市场与仓储",
+            "kind": "market",
+            "population_share_permille": 130,
+            "materials": [
+              "mud_brick"
+            ],
+            "roof": "flat_mud",
+            "drainage": "soak_pit",
+            "storeys": 1,
+            "access": "public",
+            "visibility": "public",
+            "reach_via": [
+              "road_main"
+            ],
+            "note": "沿街敞开铺面，夜里上板；仓储抬高地面防潮"
+          },
+          {
+            "id": "d_craft",
+            "name": "作坊区",
+            "kind": "craft",
+            "population_share_permille": 110,
+            "materials": [
+              "mud_brick"
+            ],
+            "roof": "flat_mud",
+            "drainage": "soak_pit",
+            "storeys": 1,
+            "access": "public",
+            "visibility": "public",
+            "reach_via": [
+              "road_main"
+            ],
+            "note": "作坊与住家混用，明火集中在巷口"
+          },
+          {
+            "id": "d_admin",
+            "name": "行政与广场",
+            "kind": "administration",
+            "population_share_permille": 60,
+            "materials": [
+              "mud_brick"
+            ],
+            "roof": "flat_mud",
+            "drainage": "soak_pit",
+            "storeys": 1,
+            "access": "public",
+            "visibility": "public",
+            "reach_via": [
+              "road_main"
+            ],
+            "note": "广场与告示墙，征税与议事都在这里"
+          },
+          {
+            "id": "d_foreign",
+            "name": "外来者聚居",
+            "kind": "foreign_quarter",
+            "population_share_permille": 45,
+            "materials": [
+              "mud_brick"
+            ],
+            "roof": "flat_mud",
+            "drainage": "soak_pit",
+            "storeys": 1,
+            "access": "public",
+            "visibility": "public",
+            "reach_via": [
+              "road_main"
+            ],
+            "note": "建筑沿用本乡做法，材料随商路带来"
+          },
+          {
+            "id": "d_poor",
+            "name": "低地贫民区",
+            "kind": "poor",
+            "population_share_permille": 40,
+            "materials": [
+              "mud_brick"
+            ],
+            "roof": "gable_thatch",
+            "drainage": "open_gutter",
+            "storeys": 1,
+            "access": "public",
+            "visibility": "public",
+            "reach_via": [
+              "road_main"
+            ],
+            "note": "低洼地段，排水最差，材料最便宜"
+          },
+          {
+            "id": "d_industrial",
+            "name": "炉场与污染区",
+            "kind": "industrial",
+            "population_share_permille": 40,
+            "materials": [
+              "mud_brick"
+            ],
+            "roof": "flat_mud",
+            "drainage": "soak_pit",
+            "storeys": 1,
+            "access": "restricted",
+            "visibility": "public",
+            "reach_via": [
+              "road_main"
+            ],
+            "note": "烟尘与炉渣集中在下风侧，夜间有明火"
+          },
+          {
+            "id": "d_cemetery",
+            "name": "墓地",
+            "kind": "cemetery",
+            "population_share_permille": 20,
+            "materials": [
+              "mud_brick"
+            ],
+            "roof": "flat_mud",
+            "drainage": "soak_pit",
+            "storeys": 1,
+            "access": "public",
+            "visibility": "public",
+            "reach_via": [
+              "road_main"
+            ],
+            "note": "在聚落外缘，地势略高"
+          },
+          {
+            "id": "d_outskirts",
+            "name": "近郊田园",
+            "kind": "outskirts",
+            "population_share_permille": 55,
+            "materials": [
+              "mud_brick"
+            ],
+            "roof": "flat_mud",
+            "drainage": "soak_pit",
+            "storeys": 1,
+            "access": "public",
+            "visibility": "public",
+            "reach_via": [
+              "road_main"
+            ],
+            "note": "菜地与畜栏，房屋稀疏"
+          }
+        ],
+        "facilities": [
+          {
+            "id": "f_granary_1",
+            "name": "公仓",
+            "kind": "granary",
+            "district": "d_market",
+            "materials": [
+              "mud_brick"
+            ],
+            "condition": "good",
+            "requires_technology": [],
+            "public_note": "抬高地板、留通风缝的粮仓；按户与按行会分区存放",
+            "secret_note": "",
+            "visibility": "public"
+          },
+          {
+            "id": "f_cistern_2",
+            "name": "蓄水池",
+            "kind": "cistern",
+            "district": "d_admin",
+            "materials": [
+              "mud_brick"
+            ],
+            "condition": "good",
+            "requires_technology": [],
+            "public_note": "封闭蓄水，按街区定时开放取水；维护责任写在告示上",
+            "secret_note": "",
+            "visibility": "public"
+          },
+          {
+            "id": "f_well_3",
+            "name": "公共水井",
+            "kind": "well",
+            "district": "d_residential",
+            "materials": [
+              "mud_brick"
+            ],
+            "condition": "good",
+            "requires_technology": [],
+            "public_note": "井台与排水沟相连，取水有先后秩序",
+            "secret_note": "",
+            "visibility": "public"
+          },
+          {
+            "id": "f_infirmary_4",
+            "name": "药房",
+            "kind": "infirmary",
+            "district": "d_market",
+            "materials": [
+              "mud_brick"
+            ],
+            "condition": "good",
+            "requires_technology": [],
+            "public_note": "按症配方，记账可赊，年底结清",
+            "secret_note": "",
+            "visibility": "public"
+          },
+          {
+            "id": "f_inn_5",
+            "name": "客店",
+            "kind": "inn",
+            "district": "d_market",
+            "materials": [
+              "mud_brick"
+            ],
+            "condition": "good",
+            "requires_technology": [],
+            "public_note": "按铺位收钱，马匹另计；夜里有人守门",
+            "secret_note": "",
+            "visibility": "public"
+          },
+          {
+            "id": "f_warehouse_6",
+            "name": "货栈",
+            "kind": "warehouse",
+            "district": "d_market",
+            "materials": [
+              "mud_brick"
+            ],
+            "condition": "good",
+            "requires_technology": [],
+            "public_note": "分租给不同商团，封条样式各不相同",
+            "secret_note": "",
+            "visibility": "public"
+          },
+          {
+            "id": "f_stable_7",
+            "name": "牲口棚",
+            "kind": "stable",
+            "district": "d_outskirts",
+            "materials": [
+              "mud_brick"
+            ],
+            "condition": "good",
+            "requires_technology": [],
+            "public_note": "换马与喂料，粪肥卖给近郊农户",
+            "secret_note": "",
+            "visibility": "public"
+          },
+          {
+            "id": "f_caravanserai_8",
+            "name": "商队客院",
+            "kind": "caravanserai",
+            "district": "d_market",
+            "materials": [
+              "mud_brick"
+            ],
+            "condition": "good",
+            "requires_technology": [],
+            "public_note": "围合院落，夜间锁门，按驮数收费",
+            "secret_note": "",
+            "visibility": "public"
+          },
+          {
+            "id": "f_cemetery_9",
+            "name": "墓地",
+            "kind": "cemetery",
+            "district": "d_cemetery",
+            "materials": [
+              "mud_brick"
+            ],
+            "condition": "fair",
+            "requires_technology": [],
+            "public_note": "按族与行会分区，低地墓穴在汛期会进水",
+            "secret_note": "",
+            "visibility": "public"
+          }
+        ],
+        "housing": {
+          "total_houses": 692,
+          "rows": [
+            {
+              "material": "mud_brick",
+              "roof": "flat_mud",
+              "houses": 606,
+              "household_size": 6.8,
+              "note": "绿洲商路文化的习惯：扩展家庭"
+            },
+            {
+              "material": "timber",
+              "roof": "gable_thatch",
+              "houses": 86,
+              "household_size": 6.8,
+              "note": "低地简易房，用最便宜的可燃材料"
+            }
+          ],
+          "basis": "房屋数 = 人口 4700 ÷ 户均 6.8 人；只做代表性汇总，不逐栋建模"
+        },
+        "special_sites": [
+          {
+            "id": "s_customs",
+            "name": "旧关卡",
+            "kind": "customs_post",
+            "is_residential": false,
+            "in_district": "d_admin",
+            "reach_via": [
+              "road_main"
+            ],
+            "origin": "早年的查验点，路改道后只剩房基",
+            "public_description": "石阶旁留着称重的石砣",
+            "secret": "旧关卡留下的账本记着一笔从未入账的货物",
+            "status": "ruined",
+            "visibility": "public",
+            "risks": [],
+            "related_factions": [
+              "fa_merchant"
+            ],
+            "entry_conditions": []
+          },
+          {
+            "id": "s_manor",
+            "name": "旧宅",
+            "kind": "old_manor",
+            "is_residential": false,
+            "in_district": "d_admin",
+            "reach_via": [
+              "road_main"
+            ],
+            "origin": "早期管理者的宅院，后代搬走后由几家分租",
+            "public_description": "院墙比周围房屋高，门楼上的字迹被磨平",
+            "secret": "地窖里存着旧税册，与现行户口对不上",
+            "status": "claimed",
+            "visibility": "public",
+            "risks": [
+              "产权争议"
+            ],
+            "related_factions": [
+              "fa_ruling"
+            ],
+            "entry_conditions": [
+              "需要住户允许"
+            ]
+          },
+          {
+            "id": "s_workshop",
+            "name": "废作坊",
+            "kind": "abandoned_workshop",
+            "is_residential": false,
+            "in_district": "d_industrial",
+            "reach_via": [
+              "road_main"
+            ],
+            "origin": "曾试图用本地燃料扩大产量，成本不合算后停工",
+            "public_description": "炉体裂了缝，地上还有没清走的矿渣",
+            "secret": "停工的真正原因是炉温上不去，不是主家说的原料短缺",
+            "status": "dormant",
+            "visibility": "public",
+            "risks": [
+              "结构不稳"
+            ],
+            "related_factions": [
+              "fa_guild"
+            ],
+            "entry_conditions": []
+          }
+        ],
+        "style": {
+          "materials": [
+            "mud_brick",
+            "timber"
+          ],
+          "roof": "flat_mud",
+          "drainage": "soak_pit",
+          "wall_note": "土坯墙厚实，昼夜温差被墙体缓冲，雨水会侵蚀墙脚",
+          "explanations": [
+            {
+              "claim": "以 mud_brick 为主要墙体材料",
+              "because": [
+                "允许材料包含 mud_brick",
+                "已申报技术：timber_frame, cistern, kiln",
+                "降水 90.0mm、年均温 29.0℃"
+              ]
+            },
+            {
+              "claim": "屋面采用 flat_mud",
+              "because": [
+                "降水与温差决定坡度与瓦材",
+                "绿洲商路文化的习惯屋面是 flat_mud"
+              ]
+            },
+            {
+              "claim": "排水采用 soak_pit",
+              "because": [
+                "降水 90.0mm",
+                "洪水风险 0.05",
+                "坡度与街道宽度限制明沟断面"
+              ]
+            }
+          ]
+        },
+        "warnings": []
+      },
+      "story": {
+        "events": [
+          {
+            "id": "e_tension_1",
+            "title": "围绕「本地口粮约 0 t/年，低于需求」的分歧",
+            "kind": "economic",
+            "site": "s_manor",
+            "districts": [
+              "d_residential"
+            ],
+            "factions": [
+              "fa_ruling",
+              "fa_guild"
+            ],
+            "trigger_conditions": [
+              "本地口粮约 0 t/年，低于需求 846 t/年，缺口月份取决于通路是否畅通"
+            ],
+            "consequences": [
+              "相关各方各自加强说法，可信度需要另行核实",
+              "作者采纳后才能写成受校验的故事事件；本版不自动生成任务与奖励"
+            ],
+            "status": "candidate_awaiting_author",
+            "executable": false
+          },
+          {
+            "id": "e_tension_2",
+            "title": "围绕「未勘探的资源被外地商人先一步打听」的分歧",
+            "kind": "social",
+            "site": "s_customs",
+            "districts": [
+              "d_poor"
+            ],
+            "factions": [
+              "fa_ruling",
+              "fa_guild"
+            ],
+            "trigger_conditions": [
+              "未勘探的资源被外地商人先一步打听，本地对其价值判断不一"
+            ],
+            "consequences": [
+              "相关各方各自加强说法，可信度需要另行核实",
+              "作者采纳后才能写成受校验的故事事件；本版不自动生成任务与奖励"
+            ],
+            "status": "candidate_awaiting_author",
+            "executable": false
+          },
+          {
+            "id": "e_tension_3",
+            "title": "围绕「燃料消耗与林场/煤源的可及性直接」的分歧",
+            "kind": "hazard",
+            "site": "s_customs",
+            "districts": [
+              "d_outskirts"
+            ],
+            "factions": [
+              "fa_ruling",
+              "fa_guild"
+            ],
+            "trigger_conditions": [
+              "燃料消耗与林场/煤源的可及性直接决定炉场能否整年开工"
+            ],
+            "consequences": [
+              "相关各方各自加强说法，可信度需要另行核实",
+              "作者采纳后才能写成受校验的故事事件；本版不自动生成任务与奖励"
+            ],
+            "status": "candidate_awaiting_author",
+            "executable": false
+          },
+          {
+            "id": "e_site_customs",
+            "title": "旧关卡的传闻",
+            "kind": "discovery",
+            "site": "s_customs",
+            "districts": [
+              "d_admin"
+            ],
+            "factions": [
+              "fa_merchant"
+            ],
+            "trigger_conditions": [
+              "玩家接近旧关卡并满足进入条件"
+            ],
+            "consequences": [
+              "公开层面只出现可观察的迹象",
+              "秘密只有在作者解封或条件满足后才成为可读事实"
+            ],
+            "status": "candidate_awaiting_author",
+            "executable": false
+          },
+          {
+            "id": "e_site_manor",
+            "title": "旧宅的传闻",
+            "kind": "discovery",
+            "site": "s_manor",
+            "districts": [
+              "d_admin"
+            ],
+            "factions": [
+              "fa_ruling"
+            ],
+            "trigger_conditions": [
+              "玩家接近旧宅并满足进入条件"
+            ],
+            "consequences": [
+              "公开层面只出现可观察的迹象",
+              "秘密只有在作者解封或条件满足后才成为可读事实"
+            ],
+            "status": "candidate_awaiting_author",
+            "executable": false
+          },
+          {
+            "id": "e_site_workshop",
+            "title": "废作坊的传闻",
+            "kind": "discovery",
+            "site": "s_workshop",
+            "districts": [
+              "d_industrial"
+            ],
+            "factions": [
+              "fa_guild"
+            ],
+            "trigger_conditions": [
+              "玩家接近废作坊并满足进入条件"
+            ],
+            "consequences": [
+              "公开层面只出现可观察的迹象",
+              "秘密只有在作者解封或条件满足后才成为可读事实"
+            ],
+            "status": "candidate_awaiting_author",
+            "executable": false
+          }
+        ],
+        "clues": [
+          {
+            "id": "c_customs",
+            "text": "石阶旁留着称重的石砣",
+            "site": "s_customs",
+            "holder": ""
+          },
+          {
+            "id": "c_manor",
+            "text": "院墙比周围房屋高，门楼上的字迹被磨平",
+            "site": "s_manor",
+            "holder": ""
+          },
+          {
+            "id": "c_workshop",
+            "text": "炉体裂了缝，地上还有没清走的矿渣",
+            "site": "s_workshop",
+            "holder": ""
+          }
+        ],
+        "secrets": [
+          {
+            "id": "sk_customs",
+            "text": "旧关卡留下的账本记着一笔从未入账的货物",
+            "holders": [
+              "fa_merchant"
+            ]
+          },
+          {
+            "id": "sk_manor",
+            "text": "地窖里存着旧税册，与现行户口对不上",
+            "holders": [
+              "fa_ruling"
+            ]
+          },
+          {
+            "id": "sk_workshop",
+            "text": "停工的真正原因是炉温上不去，不是主家说的原料短缺",
+            "holders": [
+              "fa_guild"
+            ]
+          },
+          {
+            "id": "sk_ruling",
+            "text": "担心税册上的实际户口低于上报数，正在补记而未公开",
+            "holders": [
+              "fa_ruling"
+            ]
+          },
+          {
+            "id": "sk_guild",
+            "text": "与另一行会在原料分配上有未公开的分歧",
+            "holders": [
+              "fa_guild"
+            ]
+          },
+          {
+            "id": "sk_merchant",
+            "text": "正在打听关卡的检查频率与放行价码",
+            "holders": [
+              "fa_merchant"
+            ]
+          }
+        ],
+        "open_questions": [
+          "水源与道路的季节性缺口是否已经有人记在账册或碑上",
+          "进口一旦中断，谁最先感觉到，谁手里有储备",
+          "旧关卡的进入条件是否已经被本地人公开承认",
+          "旧宅的进入条件是否已经被本地人公开承认"
+        ],
+        "warnings": [
+          "候选事件不会自动变成可执行任务或奖励；需要作者按现有严格 schema 写进故事包后才可游玩",
+          "未发现地点、未鉴定资源与隐藏目标不进玩家投影"
+        ]
+      },
+      "town_id": "",
+      "warnings": [
+        "本地粮食不足以供养全部人口，缺口依赖进口",
+        "资源候选 res_iron 未勘探：存在不等于可开采",
+        "劳动力不足以支撑全部产业，按可用劳力等比缩减一次，未反复迭代",
+        "候选事件不会自动变成可执行任务或奖励；需要作者按现有严格 schema 写进故事包后才可游玩",
+        "未发现地点、未鉴定资源与隐藏目标不进玩家投影"
+      ],
+      "public": {
+        "town_id": "",
+        "name": "沙垒驿",
+        "type": "market_town",
+        "type_label": "集镇",
+        "scale": "small_town",
+        "scale_label": "小镇",
+        "region": "干旱商路绿洲",
+        "founded_reason": "因渡口与商路交汇而形成，水源让商队与定居者都能停留",
+        "founded_period": "商路改道后第二代（架空）",
+        "siting_reasons": [
+          "水源",
+          "贸易"
+        ],
+        "social_mode": "artistic_extrapolation",
+        "population": {
+          "total": 4700,
+          "groups": [
+            {
+              "label": "本地人居民",
+              "role": "majority",
+              "share_permille": 766
+            },
+            {
+              "label": "商队习俗群体",
+              "role": "minority",
+              "share_permille": 149
+            },
+            {
+              "label": "常来商队与移居者",
+              "role": "migrant",
+              "share_permille": 85
+            }
+          ],
+          "basis": "规则估计，不是普查"
+        },
+        "governance": {
+          "form": "guild_board",
+          "form_id": "guild_board",
+          "authority": "商团与工匠行会推举的理事会",
+          "legitimacy": "由市场管理与关税征收能力支撑"
+        },
+        "factions": [
+          {
+            "name": "本地治理机构",
+            "kind": "council",
+            "public_goal": "维持水源、道路与市场秩序，按惯例征收税赋"
+          },
+          {
+            "name": "采盐、纺织行会",
+            "kind": "guild",
+            "public_goal": "稳定原料供应与售价，限制外来竞争者"
+          },
+          {
+            "name": "外来商团",
+            "kind": "merchant_house",
+            "public_goal": "取得仓储与优先卸货权，压低过境费用"
+          }
+        ],
+        "chains": [
+          {
+            "name": "采盐",
+            "output": "salt",
+            "amount": 1473,
+            "unit": "t",
+            "period": "year",
+            "consumers": "本地居民与附近市场",
+            "stores": "盐田或盐井"
+          },
+          {
+            "name": "纺织",
+            "output": "cloth",
+            "amount": 11844,
+            "unit": "count",
+            "period": "year",
+            "consumers": "本地居民与附近市场",
+            "stores": "织坊"
+          },
+          {
+            "name": "采药与配药",
+            "output": "herb_medicine",
+            "amount": 10528,
+            "unit": "kg",
+            "period": "year",
+            "consumers": "本地居民与附近市场",
+            "stores": "山地与药房"
+          }
+        ],
+        "trade": [
+          {
+            "direction": "import",
+            "name": "粮食",
+            "amount": 900,
+            "unit": "t",
+            "period": "year",
+            "via": "roads"
+          },
+          {
+            "direction": "import",
+            "name": "木料与柴",
+            "amount": 120,
+            "unit": "m3",
+            "period": "year",
+            "via": "roads"
+          },
+          {
+            "direction": "import",
+            "name": "盐灶用柴",
+            "amount": 60,
+            "unit": "t",
+            "period": "year",
+            "via": "roads"
+          },
+          {
+            "direction": "export",
+            "name": "salt",
+            "amount": 368,
+            "unit": "t",
+            "period": "year",
+            "via": "roads"
+          },
+          {
+            "direction": "export",
+            "name": "cloth",
+            "amount": 2961,
+            "unit": "count",
+            "period": "year",
+            "via": "roads"
+          },
+          {
+            "direction": "export",
+            "name": "herb_medicine",
+            "amount": 2632,
+            "unit": "kg",
+            "period": "year",
+            "via": "roads"
+          }
+        ],
+        "reference_note": "艺术夸张档：现实原型 撒哈拉与中亚绿洲商站、丝路驿站客院；创作归纳 水源由商团与本地家族共管的双钥匙制度；设计目标：把水权与过境费变成日常冲突来源，同时不虚构产量。这不是历史记录，材料、能源、技术与组织成本仍按同一套硬约束校验；反例说明：不假设绿洲必然富裕或必然独立",
+        "districts": [
+          {
+            "name": "居住区",
+            "kind": "residential",
+            "materials": [
+              "mud_brick"
+            ],
+            "roof": "flat_mud",
+            "drainage": "soak_pit",
+            "storeys": 1,
+            "enterable": true,
+            "note": "mud_brick 墙体、flat_mud 屋面，雨水沿街沟排走"
+          },
+          {
+            "name": "市场与仓储",
+            "kind": "market",
+            "materials": [
+              "mud_brick"
+            ],
+            "roof": "flat_mud",
+            "drainage": "soak_pit",
+            "storeys": 1,
+            "enterable": true,
+            "note": "沿街敞开铺面，夜里上板；仓储抬高地面防潮"
+          },
+          {
+            "name": "作坊区",
+            "kind": "craft",
+            "materials": [
+              "mud_brick"
+            ],
+            "roof": "flat_mud",
+            "drainage": "soak_pit",
+            "storeys": 1,
+            "enterable": true,
+            "note": "作坊与住家混用，明火集中在巷口"
+          },
+          {
+            "name": "行政与广场",
+            "kind": "administration",
+            "materials": [
+              "mud_brick"
+            ],
+            "roof": "flat_mud",
+            "drainage": "soak_pit",
+            "storeys": 1,
+            "enterable": true,
+            "note": "广场与告示墙，征税与议事都在这里"
+          },
+          {
+            "name": "外来者聚居",
+            "kind": "foreign_quarter",
+            "materials": [
+              "mud_brick"
+            ],
+            "roof": "flat_mud",
+            "drainage": "soak_pit",
+            "storeys": 1,
+            "enterable": true,
+            "note": "建筑沿用本乡做法，材料随商路带来"
+          },
+          {
+            "name": "低地贫民区",
+            "kind": "poor",
+            "materials": [
+              "mud_brick"
+            ],
+            "roof": "gable_thatch",
+            "drainage": "open_gutter",
+            "storeys": 1,
+            "enterable": true,
+            "note": "低洼地段，排水最差，材料最便宜"
+          },
+          {
+            "name": "炉场与污染区",
+            "kind": "industrial",
+            "materials": [
+              "mud_brick"
+            ],
+            "roof": "flat_mud",
+            "drainage": "soak_pit",
+            "storeys": 1,
+            "enterable": false,
+            "note": "烟尘与炉渣集中在下风侧，夜间有明火"
+          },
+          {
+            "name": "墓地",
+            "kind": "cemetery",
+            "materials": [
+              "mud_brick"
+            ],
+            "roof": "flat_mud",
+            "drainage": "soak_pit",
+            "storeys": 1,
+            "enterable": true,
+            "note": "在聚落外缘，地势略高"
+          },
+          {
+            "name": "近郊田园",
+            "kind": "outskirts",
+            "materials": [
+              "mud_brick"
+            ],
+            "roof": "flat_mud",
+            "drainage": "soak_pit",
+            "storeys": 1,
+            "enterable": true,
+            "note": "菜地与畜栏，房屋稀疏"
+          }
+        ],
+        "facilities": [
+          {
+            "name": "公仓",
+            "kind": "granary",
+            "note": "抬高地板、留通风缝的粮仓；按户与按行会分区存放"
+          },
+          {
+            "name": "蓄水池",
+            "kind": "cistern",
+            "note": "封闭蓄水，按街区定时开放取水；维护责任写在告示上"
+          },
+          {
+            "name": "公共水井",
+            "kind": "well",
+            "note": "井台与排水沟相连，取水有先后秩序"
+          },
+          {
+            "name": "药房",
+            "kind": "infirmary",
+            "note": "按症配方，记账可赊，年底结清"
+          },
+          {
+            "name": "客店",
+            "kind": "inn",
+            "note": "按铺位收钱，马匹另计；夜里有人守门"
+          },
+          {
+            "name": "货栈",
+            "kind": "warehouse",
+            "note": "分租给不同商团，封条样式各不相同"
+          },
+          {
+            "name": "牲口棚",
+            "kind": "stable",
+            "note": "换马与喂料，粪肥卖给近郊农户"
+          },
+          {
+            "name": "商队客院",
+            "kind": "caravanserai",
+            "note": "围合院落，夜间锁门，按驮数收费"
+          },
+          {
+            "name": "墓地",
+            "kind": "cemetery",
+            "note": "按族与行会分区，低地墓穴在汛期会进水"
+          }
+        ],
+        "housing": {
+          "total_houses": 692,
+          "basis": "房屋数 = 人口 4700 ÷ 户均 6.8 人；只做代表性汇总，不逐栋建模",
+          "rows": [
+            {
+              "material": "mud_brick",
+              "roof": "flat_mud",
+              "houses": 606,
+              "household_size": 6.8,
+              "note": "绿洲商路文化的习惯：扩展家庭"
+            },
+            {
+              "material": "timber",
+              "roof": "gable_thatch",
+              "houses": 86,
+              "household_size": 6.8,
+              "note": "低地简易房，用最便宜的可燃材料"
+            }
+          ]
+        },
+        "style": {
+          "materials": [
+            "mud_brick",
+            "timber"
+          ],
+          "roof": "flat_mud",
+          "drainage": "soak_pit",
+          "wall_note": "土坯墙厚实，昼夜温差被墙体缓冲，雨水会侵蚀墙脚",
+          "explanations": [
+            {
+              "claim": "以 mud_brick 为主要墙体材料",
+              "because": [
+                "允许材料包含 mud_brick",
+                "已申报技术：timber_frame, cistern, kiln",
+                "降水 90.0mm、年均温 29.0℃"
+              ]
+            },
+            {
+              "claim": "屋面采用 flat_mud",
+              "because": [
+                "降水与温差决定坡度与瓦材",
+                "绿洲商路文化的习惯屋面是 flat_mud"
+              ]
+            },
+            {
+              "claim": "排水采用 soak_pit",
+              "because": [
+                "降水 90.0mm",
+                "洪水风险 0.05",
+                "坡度与街道宽度限制明沟断面"
+              ]
+            }
+          ]
+        },
+        "water": {
+          "source": "spring",
+          "source_label": "泉水",
+          "storage": "cistern",
+          "note": "泉眼流量稳定但总量有限"
+        },
+        "roads": [
+          {
+            "name": "主路",
+            "kind": "road",
+            "destination": "最近市场",
+            "travel_days": 6,
+            "seasonal_closed_days": 0
+          }
+        ],
+        "special_sites": [
+          {
+            "name": "旧关卡",
+            "kind": "customs_post",
+            "description": "石阶旁留着称重的石砣",
+            "status": "ruined",
+            "enterable": false,
+            "risks": [],
+            "entry_conditions": []
+          },
+          {
+            "name": "旧宅",
+            "kind": "old_manor",
+            "description": "院墙比周围房屋高，门楼上的字迹被磨平",
+            "status": "claimed",
+            "enterable": true,
+            "risks": [
+              "产权争议"
+            ],
+            "entry_conditions": [
+              "需要住户允许"
+            ]
+          },
+          {
+            "name": "废作坊",
+            "kind": "abandoned_workshop",
+            "description": "炉体裂了缝，地上还有没清走的矿渣",
+            "status": "dormant",
+            "enterable": true,
+            "risks": [
+              "结构不稳"
+            ],
+            "entry_conditions": []
+          }
+        ],
+        "warnings": [
+          "人口、产量与承载都是规则估计，不是普查或实测"
+        ]
+      }
+    }
+  }
+}

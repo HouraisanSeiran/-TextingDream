@@ -8,15 +8,19 @@ import shutil
 from datetime import datetime, timezone
 from .contracts import Element
 from .models import StoryAssembly
-from .knowledge import PackageFiles, retrieve, notebook, validate_points, atomic_text
+from .knowledge import PackageFiles, retrieve, notebook, validate_points, atomic_text, fsync_directory
+from . import package_transaction
 from .recall import Recall, dialogue_records, vector
 from .context_stage import stage_history
 from .summary import event_summary, has_excerpt, strip_excerpt, with_stage
 from .drama import resolve_check, outcome_cues, validate_cues, public_voice, cast_projection
 from . import local_rules
+from . import rewards as rewards_rules
 from .state_anchor import state_anchor
 from .atlas import validate_atlas, project_atlas
 from . import attributes
+from . import element_assembly
+from . import towns_store
 from .geography import Environment, Calendar, local_environment, is_daylight
 
 
@@ -61,6 +65,9 @@ class Runtime:
         production = store.path.resolve() == (root / 'data/textiledream.sqlite3').resolve()
         self.library = root / 'StoryPackage' if production else store.path.parent / 'StoryPackage'
         self.character_directory = root / 'character_packages' if production else store.path.parent / 'character_packages'
+        self.library.mkdir(parents=True, exist_ok=True)
+        self.character_directory.mkdir(parents=True, exist_ok=True)
+        self._recover_package_transaction()
         selected = store.get('pointer', 'package', {}).get('folder', '玄陆')
         directory = self.package_directory(selected)
         if selected != '玄陆' and not directory.exists():
@@ -92,6 +99,35 @@ class Runtime:
         if path.resolve().parent != self.library.resolve():
             raise ValueError('故事包目录必须位于 StoryPackage 内')
         return path
+
+    def _recover_package_transaction(self):
+        """Finish or undo an interrupted commit. Repeatable: re-running is a no-op.
+
+        The outcome comes from the committed pointer plus the disk layout, never from a
+        single flag, so an interruption during an earlier recovery still converges. A
+        journal that fails validation keeps every file untouched and raises: the author
+        is asked to inspect it rather than have data moved blindly.
+        """
+        journal = package_transaction.journal_path(self.library)
+        if not journal.exists() and not journal.is_symlink():
+            return
+        try:
+            state = package_transaction.parse(self.library, self.character_directory, journal)
+            pointer = self.store.get('pointer', 'package', {}) or {}
+            committed = pointer.get('id') == state['data']['new_id']
+            if committed:
+                # Verification needs the document that was actually committed: it is
+                # the authority on what this tree must contain.
+                package_transaction.finish(state, self.package(state['data']['new_id']))
+            else:
+                package_transaction.restore(state)
+        except (OSError, package_transaction.TransactionError) as error:
+            raise ValueError('故事包保存事务未完成，请检查 .package_transaction.json：' + str(error)) from error
+        try:
+            journal.unlink()
+            fsync_directory(self.library)
+        except OSError as error:
+            raise ValueError('故事包事务已重放，但日志未能删除，请检查权限后重启') from error
 
     def session_files(self, session):
         folder = self.package(session['revision']).get('folder', '玄陆')
@@ -147,6 +183,14 @@ class Runtime:
             if place.get('environment'):Environment.model_validate(place['environment'])
         validate_atlas(story)
         local_rules.validate(story,characters)
+        rewards_rules.validate(story)
+        # Towns carried by this revision are re-validated here, so an imported package
+        # cannot smuggle an inconsistent town into a journey (absent key = no-op).
+        towns_store.validate_package(story)
+        # Same rule for the locked element manifest: an imported package cannot carry a
+        # tampered payload hash, a dangling public scope or a broken typed rule. A package
+        # without the key is untouched (old packages and old journeys behave as before).
+        element_assembly.validate_package(story, characters)
         validate_points(story.get('knowledge', []))
         # Keep extension declarations in raw JSON; validate both base schema and references.
         StoryAssembly.model_validate({'story': story, 'characters': characters})
@@ -235,26 +279,117 @@ class Runtime:
                 self.files = PackageFiles(self.package_directory(matching[-1].get('folder','玄陆')))
             elif self.files.directory == self.package_directory(current.get('folder','玄陆')):
                 self.files = PackageFiles(self.package_directory('导入_'+uid()))
-        try:
-            self.files.write(story)
-            story = self.files.read()
-        except Exception:
+        target = self.files.directory
+        if target.parent.resolve() != self.library.resolve():
             self.files = previous
-            raise
-        self.validate_package(story, characters)
-        id = uid()
-        folder = self.files.directory.name
-        package = {'id': id, 'created': now(), 'note': note, 'story': story, 'characters': characters, 'folder':folder}
-        records = [('package', id, package), ('pointer', 'package', {'id': id,'folder':folder})]
+            raise ValueError('故事包目录必须位于 StoryPackage 内')
         char_id = characters['id']
         if not re.fullmatch(r'[A-Za-z0-9_-]+', char_id):
+            self.files = previous
             raise ValueError('角色包ID无效')
-        atomic_text(self.character_directory / (char_id+'.json'), json.dumps(characters, ensure_ascii=False, indent=2))
+        revision = uid()
+        transaction = uid()
+        stage = target.parent / ('.' + target.name + '.pending_' + transaction)
+        backup = target.parent / ('.' + target.name + '.backup_' + transaction)
+        char_path = self.character_directory / (char_id + '.json')
+        char_backup = self.character_directory / ('.' + char_id + '.backup_' + transaction + '.json')
+        journal = package_transaction.journal_path(self.library)
+        data = {'version': package_transaction.VERSION, 'transaction': transaction,
+                'target': target.name, 'stage': stage.name, 'backup': backup.name,
+                'target_existed': target.exists(), 'new_id': revision, 'character_id': char_id,
+                'character_file': char_path.name, 'character_backup': char_backup.name,
+                'character_existed': char_path.exists(), 'phase': 'prepared'}
+        try:
+            # Exclusive creation: two concurrent commits cannot both believe they own
+            # the journal, and a leftover journal must be replayed before a new one.
+            package_transaction.write_exclusive(journal, package_transaction.encode(data))
+        except FileExistsError:
+            self.files = previous
+            raise ValueError('已有故事包保存事务待恢复，请重启应用后重试')
+        except OSError:
+            self.files = previous
+            raise
+        state = {'data': data, 'target': target, 'stage': stage, 'backup': backup,
+                 'char_path': char_path, 'char_backup': char_backup}
+        try:
+            if target.is_symlink():
+                raise ValueError('故事包目录不支持符号链接')
+            if target.exists():
+                # Refuse linked trees: the staged copy must not be able to write back
+                # into a file elsewhere on disk through a preserved link.
+                package_transaction.assert_no_symlinks(target)
+                shutil.copytree(target, stage, symlinks=False)
+            else:
+                stage.mkdir(parents=True, exist_ok=False)
+            package_transaction.fsync_directory(target.parent)
+            PackageFiles(stage).write(story)
+            story = PackageFiles(stage).read()
+            self.validate_package(story, characters)
+            data = state['data'] = package_transaction.mark(journal, data, 'staged')
+            package = {'id': revision, 'created': now(), 'note': note, 'story': story,
+                       'characters': characters, 'folder':target.name}
+            records = [('package', revision, package),
+                       ('pointer', 'package', {'id': revision, 'folder':target.name})]
+            data = state['data'] = package_transaction.mark(journal, data, 'characters')
+            if char_path.exists():
+                if char_path.is_symlink():
+                    raise ValueError('角色包文件不能是符号链接')
+                # Copy by bytes and publish with one rename: a crash mid-copy can only
+                # leave a stray temporary file, never a truncated backup that a later
+                # restore would move over the still-complete live document.
+                package_transaction.write_atomic_bytes(
+                    char_backup, char_path.read_bytes())
+            else:
+                char_path.parent.mkdir(parents=True, exist_ok=True)
+            atomic_text(char_path, json.dumps(characters, ensure_ascii=False, indent=2))
+            if target.exists():
+                target.rename(backup)
+                package_transaction.fsync_directory(target.parent)
+            stage.rename(target)
+            package_transaction.fsync_directory(target.parent)
+        except BaseException as error:
+            # One rollback path for ordinary exceptions and interrupts alike. This is a
+            # *same-process* cleanup; it is not a simulation of the process dying.
+            self.files = previous
+            state['data'] = data
+            self._rollback_package_commit(state)
+            raise error if isinstance(error, Exception) else RuntimeError('故事包提交被中断，已回滚到提交前版本')
+        try:
+            if approved_draft is not None:
+                approved = {**approved_draft, 'status': 'approved', 'revision': revision}
+                records.append(('draft', approved['id'], approved))
+            self.store.put_many(records)
+        except Exception as error:
+            # Hand back everything the commit changed, including the in-memory draft
+            # flag, so a failed save never leaves an approved candidate behind.
+            self.files = previous
+            state['data'] = data
+            self._rollback_package_commit(state)
+            raise error
         if approved_draft is not None:
-            approved_draft.update(status='approved', revision=id)
-            records.append(('draft', approved_draft['id'], approved_draft))
-        self.store.put_many(records)
-        return id
+            approved_draft.update(status='approved', revision=revision)
+        self.files = PackageFiles(target)
+        # From the committed pointer on, the revision is the truth: every later failure
+        # is "saved but not cleaned up" and is completed on the next start, never undone.
+        try:
+            data = state['data'] = package_transaction.mark(journal, data, 'committed')
+            package_transaction.finish(state, package)
+            package_transaction.remove(journal)
+            fsync_directory(self.library)
+        except (OSError, package_transaction.TransactionError) as error:
+            raise ValueError('故事包已保存，但旧版本清理未完成；重启应用后会继续清理') from error
+        return revision
+
+    def _rollback_package_commit(self, state):
+        """Put the previous package back; safe to repeat and to interrupt.
+
+        The journal is retired only after the restore succeeded: if the restore itself
+        failed, the record stays so the next start can replay it instead of leaving a
+        half-restored package that nobody knows about.
+        """
+        package_transaction.restore(state)
+        package_transaction.remove(package_transaction.journal_path(self.library))
+        fsync_directory(self.library)
 
     def reload_documents(self):
         story = self.files.read()
@@ -279,6 +414,9 @@ class Runtime:
              'characters': {c['id']: {'location': c['location_id'], 'status': copy.deepcopy(c.get('state', {}))} for c in p['characters']['characters']},
              'facts': [], 'beliefs': [], 'heard': [], 'seed': uid(), 'checks': [], 'active': None,
              'archives': [], 'usage': [], 'turn_index': 0, 'decisions': []}
+        # An empty reward ledger when configured, so an event's `before` snapshot already
+        # carries zeros and a rollback lands on the same shape. Unconfigured stays bare.
+        rewards_rules.ensure(s, p['story'])
         local_rules.advance(s,p['story'],p['characters'],0)
         self.enter(s)
         self.store.save_session(s)
@@ -293,7 +431,7 @@ class Runtime:
                 and e.get('time_min', 0) <= s['time'] <= e.get('time_max', 10**9)]
 
     def snapshot(self, s):
-        return copy.deepcopy({k: v for k, v in s.items() if k not in ('active', 'archives')})
+        return copy.deepcopy({k: v for k, v in s.items() if k not in ('active', 'archives', 'state_version')})
 
     def enter(self, s):
         possible = self.candidates(s)
@@ -314,6 +452,7 @@ class Runtime:
                 s['conversation'] = {'id': uid(), 'scene_id': scene_id, 'title': title}
             s['last_scene_id'] = scene_id
             s['active'] = {'id': uid(), 'node': event['id'], 'title': event['title'],
+                           'key': rewards_rules.new_branch_key(s, event['id']),
                            'conversation': copy.deepcopy(s['conversation']),
                            'before': self.snapshot(s), 'turns': [], 'actions_done': []}
 
@@ -360,6 +499,9 @@ class Runtime:
     def context(self, s, audience, query, preferences):
         p = self.package(s['revision'])
         location = next(l for l in p['story']['locations'] if l['id'] == s['location'])
+        # The locked element manifest is projected from this viewpoint. An NPC reads their
+        # own place and knowledge; a character viewpoint below replaces this with its own.
+        viewpoint = s
         visible_characters = []
         for c in p['characters']['characters']:
             if s['characters'][c['id']]['location'] == s['location']:
@@ -410,6 +552,11 @@ class Runtime:
             vals=attributes.values(hero.get('attributes'),legacy=set(hero.get('attributes',{}))!=set(attributes.AXES))
             result['player_abilities']={'values':vals,'health':attributes.health(hero,s['characters'][s['hero']]['status']),
                 'keywords':self.attribute_vectors.search(p['story'].get('mechanics',{}).get('attributes',attributes.specification()),vals,query,3)}
+            # Authoritative holdings for this viewpoint. Absent config means no key at
+            # all, so an untouched package produces the identical prompt as before.
+            holding = rewards_rules.public_state(s, p['story'], 'player')
+            if holding is not None:
+                result['current_rewards'] = holding
         if s['active']:
             result['cast'] = cast_projection(p,s,self.node(s)['participants'],audience)
             for cast in result['cast']:
@@ -429,6 +576,12 @@ class Runtime:
         }
         result['knowledge'] = retrieve(p['story'], query + ' ' + location['name'], audience,
                                        s['location'], s['flags'])
+        # One bounded public town summary for the *current* location only: never the
+        # whole town, never its secrets, and never a place this journey has not reached.
+        town = towns_store.context_snippet(p['story'], s['location'])
+        if town and any(row['location_id'] == s['location']
+                        for row in towns_store.story_towns(p['story'], s['revision'], s)):
+            result['town_summary'] = town
         notes = notebook(s) if audience == 'player' else []
         relevant = [n for n in notes if any(k in query for k in n['keywords'])]
         # Exact evidence deduplication only; never rewrite negation or uncertain claims.
@@ -472,9 +625,21 @@ class Runtime:
             result['current_anchor']={'location':npc_place['name'],'daytime':surface['daytime'],
                                       'inventory':[],'inventory_complete':False,'confirmed_records':[]}
             result['cast'] = cast_projection(p, viewpoint, [audience], audience)
+        # Locked element manifest: projection only, never a library lookup. The journey
+        # reads the snapshot inside its own package revision, so a library update or a
+        # deletion cannot add element types to a running story.
+        projected = element_assembly.context_elements(p['story'], audience, viewpoint)
+        if projected is not None:
+            result['current_elements'] = projected
         anchor_place = location if audience == 'player' else npc_place
         result['current_anchor'].update(state_anchor(s, anchor_place, result.get('scene', anchor_place['name']), result['characters']))
         result['current_anchor'].setdefault('inventory_complete', True)
+        if audience == 'player' and result.get('current_rewards'):
+            # The anchor promises a complete list of confirmed holdings, so reward
+            # instances join it by public label only; unidentified items stay a label.
+            labels = [x['label'] for x in result['current_rewards']['items']]
+            result['current_anchor']['inventory'] = list(result['current_anchor']['inventory']) + labels
+            result['current_anchor']['inventory_sources'] = '物品清单含世界物品与本次旅程获得的物品实例；未鉴定物品只显示可观察标签'
         if audience=='player':
             result['geography']=local_environment(p['story'],s)
             if result['geography'].get('sun'):
@@ -484,12 +649,61 @@ class Runtime:
         # Remove oldest contextual material first, never truncate malformed JSON.
         budget = preferences['context_chars'] - 3000
         trim_context(result, budget)
+        # The element summary shares the same budget. Whole entries (or a whole fact list)
+        # are dropped: never a sliced sentence, because cutting a clause can turn「不能」
+        # into「能」. An absent manifest never reaches this block.
+        while result.get('current_elements') and chars(result) > budget:
+            items = result['current_elements'].get('items') or []
+            if len(items) > 1:
+                result['current_elements']['items'] = items[:-1]
+            elif items and items[-1].get('facts'):
+                items[-1].pop('facts')
+            else:
+                result.pop('current_elements', None)
         if chars(result) > budget:
             raise ValueError('事件基础上下文超出预算，请缩短输入或提高设置中的预算')
         return result
 
-    def effects(self, s, effects, source):
+    def resolved_rewards(self, result, cfg=None):
+        """Model-facing result: keep only what may be narrated to the player.
+
+        `reward_audit` would carry before/after numbers, template IDs and hidden
+        enchantment levels; that is author-side bookkeeping and must never reach
+        `context['resolved_action']` or a character viewpoint.
+        """
+        public = copy.deepcopy(result)
+        public.pop('reward_audit', None)
+        return public
+
+    def effects(self, s, effects, source, reward_claims=None):
+        """Apply one batch of state effects, atomically when rewards are involved.
+
+        A reward batch plus legacy effects must not leave the caller's candidate
+        session half-updated when a later effect fails, so the mixed path works on a
+        deep copy and commits only after every operation succeeded. Batches without
+        reward claims keep the original in-place behaviour unchanged.
+        """
         p = self.package(s['revision'])
+        cfg = rewards_rules.rules(p['story'])
+        claims = list(reward_claims or [])
+        for effect in effects:
+            if effect.get('op') == 'reward':
+                claims.append({'entry': effect.get('entry')})
+        if claims and cfg is None:
+            raise ValueError('奖励效果需要先配置 mechanics.rewards')
+        work = copy.deepcopy(s) if claims else s
+        self._apply_effects(work, effects, source, p)
+        audits = []
+        if claims:
+            # Flags set by this very action are visible to ability prerequisites.
+            cfg = rewards_rules.ensure(work, p['story'])
+            applied, audits = rewards_rules.apply(work, cfg, claims, source)
+            work['rewards'] = applied
+            s.clear()
+            s.update(work)
+        return audits
+
+    def _apply_effects(self, s, effects, source, p):
         for effect in effects:
             op = effect['op']
             if op=='health':
@@ -509,6 +723,9 @@ class Runtime:
             elif op == 'resource':
                 cfg=local_rules.ensure(s,p['story'])
                 local_rules.change_resource(s,cfg,effect['id'],effect['delta'],source)
+            elif op == 'reward':
+                # Collected and applied as one validated batch by `effects`.
+                continue
             elif op == 'information':
                 record={'id':uid(),'text':effect['text'],'time':s['time'],'source':source,
                         'distortion':0 if effect.get('confirmed',False) else 1,'intensity':.5}
@@ -579,7 +796,19 @@ class Runtime:
                 success = audit['success']
                 audit['ability_defaulted'] = check['attribute'] not in hero.get('attributes', {})
                 s['checks'].append(audit)
-            self.effects(s, action.get('effects', []) + action.get('success' if success else 'failure', []), node['id'] + ':' + action['id'])
+            # Declared branch rewards and reward effects join one batch so a failure
+            # anywhere leaves neither half the effects nor half the rewards applied.
+            declared = action.get('rewards') or {}
+            claims = [{'entry': str(x)} for x in declared.get('success' if success else 'failure', [])]
+            audits = self.effects(s, action.get('effects', []) + action.get('success' if success else 'failure', []),
+                                  node['id'] + ':' + action['id'], claims)
+            public = rewards_rules.public_result(rewards_rules.rules(package['story']), audits, s)
+            if public:
+                result['rewards'] = public
+            if audits:
+                # Author-side audit trail (before/after, template, hidden levels). It is
+                # stripped from `resolved_action` before the model or an NPC sees it.
+                result['reward_audit'] = audits
             result.update(ends=action.get('ends_event', False), outcome=action.get('success_text' if success else 'failure_text', action['label']))
             result['narrative'] = outcome_cues(action,success,bool(action.get('check')))
             s['active']['actions_done'].append(action['id'])
@@ -599,17 +828,27 @@ class Runtime:
                 expression=attributes.performance(c)
                 choices=expression['social_actions']
                 offset=int(hashlib.sha256(cid.encode()).hexdigest()[:8],16)
-                reaction=choices[(s['turn_index']+offset)%len(choices)]+'；依据本人的动机和语气回应，别复制其他角色句式。'
+                action=choices[(s['turn_index']+offset)%len(choices)]
+                reaction=action+'；依据本人的动机和语气回应，别复制其他角色句式。'
                 trust=growth.get('relationships',{}).get(s['hero'],{}).get('trust')
                 if trust is not None:
                     reaction += ' 愿意耐心听，但保留自身立场。' if trust>=0.6 else ' 保留距离，不立刻答应。'
+                emotion=''
                 if growth.get('emotion_expires_after_turn',-1)>=s['turn_index']+1 and growth.get('emotion'):
                     strongest=max(growth['emotion'],key=growth['emotion'].get)
                     reaction+=' 暂时表现出'+strongest+'，不必念出情绪名称。'
+                    emotion=strongest
                 if belief:
                     reaction += ' 有未核实信念不等于真相；只能引用上下文已公开的消息。'
                     s['characters'][cid]['status']['警惕'] = min(1, s['characters'][cid]['status'].get('警惕', 0) + 0.1)
                 result.setdefault('reactions', []).append({'character':cid,'cue':reaction})
+                # Offline narration gets the same decision as structured public
+                # behaviour, never the internal instruction text above.
+                result.setdefault('performances', []).append({
+                    'character': cid, 'public_name': c.get('public_name') or c['name'],
+                    'action': action, 'emotion': emotion,
+                    'stance': 'guarded' if trust is not None and trust < 0.6 else 'open' if trust is not None else 'neutral',
+                    'unverified_claim': bool(belief)})
         # Inner feelings remain optional prose, not a repeated required line.
         for branch in node.get('special_branches', []):
             if branch.get('item_id') in s['inventory'] or (branch.get('memory_text') and any(branch['memory_text'] in m['text'] for m in s['heard'])):
@@ -654,6 +893,9 @@ class Runtime:
             raise ValueError('事件存档不存在')
         archive = s['archives'][index]
         restored = copy.deepcopy(archive['before'])
+        # Persistence version is metadata, not game state; retain the version read
+        # from the current save so rollback itself remains an atomic compare-and-swap.
+        restored['state_version'] = s.get('state_version', 0)
         restored['archives'] = copy.deepcopy(s['archives'][:index])
         restored['active'] = None
         self.enter(restored)
@@ -688,7 +930,7 @@ class Runtime:
         if s['mode'] == 'observer' or (s['mode'] == 'mixed' and node and not node.get('player_enters', False)):
             actions = []
         fatigue = s['characters'][s['hero']]['status'].get('疲劳', 0)
-        return {'id': s['id'], 'title': s['title'], 'world': p['story']['title'], 'mode': s['mode'],
+        surface = {'id': s['id'], 'title': s['title'], 'world': p['story']['title'], 'mode': s['mode'],
                 'abilities':{'values':attributes.values(next(c for c in p['characters']['characters'] if c['id']==s['hero']).get('attributes'),legacy=True),
                     'health':attributes.health(next(c for c in p['characters']['characters'] if c['id']==s['hero']),s['characters'][s['hero']]['status'])},
                 'local_state':local_rules.view(s,p['story']),
@@ -705,6 +947,16 @@ class Runtime:
                 'places': [{'id': l['id'], 'name': l['name'], 'coordinates': l.get('coordinates', [0, 0]), 'explored': l['id'] in s['explored'], 'current': l['id'] == s['location'], 'can_move': l['id'] in current['neighbors'] and not s['active']} for l in places if l['id'] in visible],
                 'inventory': [i['name'] for i in p['story']['items'] if i['id'] in s['inventory']],
                 'elements': self.project_elements(s, 'player')}
+        if rewards_rules.rules(p['story']):
+            # The legacy `inventory` string list stays exactly as it was; the structured
+            # holding view is added only when the author configured rewards.
+            surface['rewards'] = rewards_rules.public_state(s, p['story'], 'player')
+        # Only towns bound to a place in THIS revision *and* within what this journey
+        # knows reach the player view, and only through the public whitelist.
+        town = towns_store.story_towns(p['story'], s['revision'], s)
+        if town:
+            surface['towns'] = town
+        return surface
 
     def approve(self, draft):
         if draft['status'] != 'draft':
