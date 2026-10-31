@@ -2,15 +2,56 @@
 const $=id=>document.getElementById(id);
 let token='',current=null,draftId=null,page='surface',zoom=1,apiConfig={},drafts=[];
 let selectedConversation=null, selectedTrace=null, traceRecord=null;
+
+/* ---------------------------------------------------------------- 导航（唯一入口）
+ * 旧脚本曾各自包一层 showPage，越包越容易互相吞掉。这里换成一个注册表：
+ *   TDNav.register(id,{title,play,enter})  声明页面
+ *   TDNav.alias(from, fn)                 旧 id 重定向
+ *   TDNav.show(id)                        唯一的页面切换入口
+ * showPage 保留为全局函数并转调 TDNav.show，所以还没改写的旧调用点行为不变。
+ */
+const TDNav=(function(){
+ const pages=Object.create(null),aliases=Object.create(null);
+ function register(id,spec){pages[id]={title:(spec&&spec.title)||id,play:!!(spec&&spec.play),enter:spec&&spec.enter};return pages[id]}
+ function alias(from,resolve){aliases[from]=resolve}
+ function resolve(id){const seen=new Set();let next=id,before=null;
+  while(aliases[next]&&!seen.has(next)){seen.add(next);const r=aliases[next](next);next=r&&r.page?r.page:r;before=(r&&r.before)||before}
+  return {id:next,before}}
+ function show(id){
+  const hit=resolve(id);
+  if(hit.before)hit.before();
+  const spec=pages[hit.id]||{title:hit.id,play:false};
+  page=hit.id;
+  const playBox=$('play'),legacy=$('legacy');
+  if(spec.play){
+   if(legacy)legacy.hidden=true;
+   if(playBox)playBox.hidden=false;
+   document.querySelectorAll('#play > .page, #play-body .page, #play-left .page').forEach(p=>p.hidden=p.id!==hit.id);
+  }else{
+   if(playBox)playBox.hidden=true;
+   if(legacy)legacy.hidden=false;
+   document.querySelectorAll('#legacy .page').forEach(p=>p.hidden=p.id!==hit.id);
+  }
+  document.querySelectorAll('#legacy nav button').forEach(b=>b.classList.toggle('selected',b.dataset.page===hit.id));
+  const title=spec.title||'工作台';
+  if($('page-title'))$('page-title').textContent=title;
+  if($('breadcrumb'))$('breadcrumb').textContent='工作空间 / '+title;
+  if(spec.enter)return spec.enter(hit.id);
+ }
+ return {register,alias,show,resolve,pages:()=>Object.keys(pages)};
+})();
+window.TDNav=TDNav;
+const PAGE_TITLES={surface:'表层对话',inner:'里层创作',notebook:'知识点记录簿',map:'旅程地图 · 旧图册','map-tools':'世界地图工具','world-workshop':'世界创作',towns:'城镇创作',elements:'元素装配',api:'API 配置',settings:'设置',traces:'模型输入输出'};
+for(const [id,title]of Object.entries(PAGE_TITLES))TDNav.register(id,{title,play:id==='surface'});
 const tracePage=document.createElement('section');tracePage.id='traces';tracePage.className='page';tracePage.hidden=true;
-tracePage.innerHTML=`<div class="intro"><h2>模型输入输出</h2><p>实际模型请求与响应正文（密钥已隐藏）。包含里层隐藏设定，仅供作者调试。保留最近 200 次调用。</p></div><div class="toolbar"><button id="refresh-traces">刷新</button><label><input id="auto-traces" type="checkbox" checked>自动刷新</label><select id="trace-filter"><option value="all">全部调用</option><option value="surface">表层</option><option value="inner">里层</option><option value="connection_test">连接测试</option><option value="polish">润色</option></select><button id="export-trace">导出当前记录</button><button id="clear-traces">清空记录</button></div><div class="two-col"><div id="trace-list"></div><div><p id="trace-meta" class="muted">选择一次调用。旧调用无法追溯，更新后的调用将自动记录。</p><h3>源输入 · 请求 JSON</h3><pre id="trace-input" class="card"></pre><h3>源输出 · 响应正文</h3><pre id="trace-output" class="card"></pre><h3>用量 / 错误 / 前缀指纹</h3><pre id="trace-details" class="card"></pre></div></div>`;
+tracePage.innerHTML=`<div class="intro"><h2>模型输入输出</h2><p>实际模型请求与响应正文（密钥已隐藏）。包含里层隐藏设定，仅供作者调试。保留最近 200 次调用。</p></div><div class="toolbar"><button id="refresh-traces">刷新</button><label><input id="auto-traces" type="checkbox" checked>自动刷新</label><select id="trace-filter"><option value="all">全部调用</option><option value="surface">表层</option><option value="inner">里层</option><option value="connection_test">连接测试</option><option value="polish">润色</option></select><label>统计窗口<select id="usage-window"><option value="1">1 小时</option><option value="24" selected>24 小时</option><option value="168">7 天</option></select></label><button id="export-trace">导出当前记录</button><button id="clear-traces">清空记录</button></div><div id="token-usage-summary" class="card muted">读取 token 统计中…</div><div class="two-col"><div id="trace-list"></div><div><p id="trace-meta" class="muted">选择一次调用。旧调用无法追溯，更新后的调用将自动记录。</p><h3>源输入 · 请求 JSON</h3><pre id="trace-input" class="card"></pre><h3>源输出 · 响应正文</h3><pre id="trace-output" class="card"></pre><h3>用量 / 错误 / 前缀指纹</h3><pre id="trace-details" class="card"></pre></div></div>`;
 document.querySelector('main').append(tracePage);
 const packageReader=document.createElement('div');packageReader.className='card';packageReader.innerHTML=`<h3>故事包阅读器</h3><p>查看世界观、主要场景、地点、事件、物品与独立角色包。补充草案和待定项在来源说明中标记。</p><div class="toolbar"><button id="read-current-package">打开最新故事包</button><button id="read-session-package">打开当前旅程版本</button></div><div id="package-reading" hidden></div>`;$('inner').prepend(packageReader);
 const journeyPanel=document.createElement('div');journeyPanel.id='surface-journeys';journeyPanel.className='journey-panel';
 const saveLabel=$('sessions').previousElementSibling;
 journeyPanel.append($('new-session'),saveLabel,$('sessions'));
 const conversationBox=document.createElement('div');conversationBox.innerHTML='<p class="section-label">当前旅程 · 章节</p><div id="conversations" class="session-list"></div>';journeyPanel.append(conversationBox);
-$('surface').prepend(journeyPanel);
+$('panel-history').append(journeyPanel);
 $('event-goal').textContent='在本页新建旅程，或选择旅程存档继续。';
 function notice(text){$('notice').textContent=text;$('notice').hidden=false;clearTimeout(notice.timer);notice.timer=setTimeout(()=>$('notice').hidden=true,8000)}
 async function api(path,method='GET',body){const r=await fetch('/api'+path,{method,headers:{'Content-Type':'application/json','X-TextileDream-Token':token},body:body===undefined?undefined:JSON.stringify(body)});const j=await r.json();if(!r.ok)throw Error(typeof j.detail==='string'?j.detail:JSON.stringify(j.detail));return j}
@@ -21,18 +62,58 @@ function jsonDownload(data,name){const url=URL.createObjectURL(new Blob([JSON.st
 function textDownload(text,name){const url=URL.createObjectURL(new Blob([text],{type:'text/markdown;charset=utf-8'}));const a=el('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)}
 const conversationOptions=el('div');conversationOptions.innerHTML='<label>对话分章<select id="conversation-mode"><option value="chapter">长篇连续（减少新建）</option><option value="scene">每个主要场景新建</option></select></label><label>至少多少轮后允许换场景分章<input id="chapter-turns" type="number" min="12" max="200" value="40"></label><label><input id="surface-thinking" type="checkbox"> 表层启用 DeepSeek 推理（默认开启，仍需检查生成质量）</label><small>默认延续当前对话，达到轮数后在下次换场景分章；后台发送最近历史和相关知识，完整原文保留。推理开关仅适用于官方 V4 / Flash。</small>';$('settings-form').prepend(conversationOptions);
 function prefs(p){fillStageSettings(p);$('recall-enabled').checked=p.recall_enabled!==false;$('recall-threshold').value=p.recall_threshold??0.12;document.body.classList.toggle('light',p.theme==='light');document.documentElement.style.setProperty('--read-size',p.font_size+'px');for(const [id,key] of [['theme','theme'],['font-size','font_size'],['memory-k','memory_k'],['history-turns','history_turns'],['context-chars','context_chars']])$(id).value=p[key];$('conversation-mode').value=p.conversation_mode||'chapter';$('chapter-turns').value=p.chapter_turns||40;$('surface-thinking').checked=!!p.surface_thinking}
-async function bootstrap(){const b=await api('/bootstrap');token=b.token;apiConfig=b.api;prefs(b.preferences);$('sessions').replaceChildren(...b.sessions.map(s=>button(s.title,()=>loadSession(s.id),s.id===current?.id?'selected':'')));$('mode-label').textContent=b.api.offline?'离线测试':'已选择 '+b.api.model;return b}
-async function loadSession(id,navigate=true){current=await api('/sessions/'+id);selectedConversation=null;localStorage.setItem('textiledream-session',id);render();await bootstrap();if(navigate)await showPage('surface')}
-function render(){if(!current)return;$('world-label').textContent=current.world;$('event-title').textContent=current.event?.title||'这一章已告一段落';$('event-goal').textContent=current.event?.goal||'可以查看归档，或打开地图继续前往其他地点。';$('status-line').replaceChildren(...[current.location,current.daytime,current.status,...current.inventory].map(s=>el('span',s)));const turns=current.turns.length?current.turns:current.archives.at(-1)?.turns||[];$('story-text').replaceChildren(...turns.map(t=>{const d=el('article',undefined,'turn');d.append(el('div',t.input,'input'),el('div',t.reply,'prose'));return d}));$('actions').replaceChildren(...current.actions.map(a=>button(a.label,()=>send(a.label,a.id))));$('close-event').disabled=!current.event||!current.turns.length;$('archives').replaceChildren(...current.archives.map(a=>{const d=el('details');d.append(el('summary',a.title),el('div',a.turns.map(t=>t.reply).join('\n\n'),'prose'),button('回到本事件起点',async()=>{if(!confirm('恢复到该事件起点，并移除其后的进度？'))return;current=await api('/sessions/'+current.id+'/rollback/'+a.id,'POST');render();notice('已恢复事件起点')}));return d}));drawMap()}
+async function bootstrap(){const b=await api('/bootstrap');token=b.token;window.__textileDreamToken=token;apiConfig=b.api;prefs(b.preferences);$('sessions').replaceChildren(...b.sessions.map(s=>button(s.title,()=>loadSession(s.id),s.id===current?.id?'selected':'')));$('mode-label').textContent=b.api.offline?'离线测试':'已选择 '+b.api.model;if(typeof window.TDWorkspaceSync==='function')window.TDWorkspaceSync(b.sessions,b.api);return b}
+/* 作者 / 玩家模式切换（唯一入口）。
+ * 原生宿主只在**作者模式**挂载；一旦进入或切到一段旅程（session），
+ * 右侧就必须卸下作者宿主、不再请求 /api/inner/native-worlds。
+ * 这不是权限开关（token 本身不代表该看全图），而是“这幅图属于谁”的契约：
+ *   空态（没有旅程）= 作者在准备世界 → author
+ *   有旅程 = 玩家在看自己已探索的范围 → player（独立的服务端掩膜底图）
+ * 用一个显式事件通知 native-map.js，不靠定时轮询、不靠两边各自 bootstrap。
+ */
+function setNativeMode(mode){
+ window.__tdNativeMode=mode;
+ try{window.dispatchEvent(new CustomEvent('td-native-mode',{detail:{mode}}))}catch(e){/* 老浏览器忽略 */}
+}
+async function loadSession(id,navigate=true){setNativeMode('player');let next;try{next=await api('/sessions/'+id)}catch(error){if(!current)setNativeMode('author');throw error}current=next;selectedConversation=null;$('workspace-author-map').classList.remove('selected');localStorage.setItem('textiledream-session',id);render();await bootstrap();if(navigate){if(window.PlayUI){window.PlayUI.showTab('chat',false);window.TDConversationDrawer?.open()}await showPage('surface')}}
+// 供原生地图与验收脚本用（不靠内联 onclick 能否访问 loadSession）
+window.loadSession=loadSession;
+window.setNativeMode=setNativeMode;
+window.TDEnterAuthorMode=async function(){
+ current=null;selectedConversation=null;setNativeMode('author');
+ $('world-label').textContent='织梦';$('play-badge').textContent='—';$('play-place').textContent='';
+ $('conversation-summary').textContent='选择或新建一段旅程';
+ $('event-title').textContent='从一次选择开始';
+ $('event-goal').textContent='从左侧选择一段已有旅程，或新建对话。';
+ $('status-line').replaceChildren();$('story-text').replaceChildren();$('actions').replaceChildren();$('archives').replaceChildren();
+ if(window.PlayUI)window.PlayUI.resetView();
+ $('chat-form').hidden=true;$('actions').hidden=false;$('close-event').hidden=false;
+ $('workspace-author-map').classList.add('selected');
+ $('workspace-sessions').querySelectorAll('button').forEach(b=>b.classList.remove('selected'));
+ $('conversations').replaceChildren();
+ if(window.PlayUI){window.PlayUI.showTab('chat',false);window.TDConversationDrawer?.close()}
+ try{localStorage.removeItem('textiledream-session')}catch(e){}
+ await showPage('surface');
+};
+function render(){if(!current)return;$('world-label').textContent=current.world;$('event-title').textContent=current.event?.title||'这一章已告一段落';$('event-goal').textContent=current.event?.goal||'可以查看归档，或打开地图继续前往其他地点。';$('status-line').replaceChildren(...[current.location,current.daytime,current.status,...current.inventory].map(s=>el('span',s)));const turns=current.turns.length?current.turns:current.archives.at(-1)?.turns||[];$('story-text').replaceChildren(...turns.map(t=>{const d=el('article',undefined,'turn');d.append(el('div',t.input,'input'),el('div',t.reply,'prose'));return d}));$('actions').replaceChildren(...current.actions.map(a=>button(a.label,()=>send(a.label,a.id))));$('close-event').disabled=!current.event||!current.turns.length;$('archives').replaceChildren(...current.archives.map(a=>{const d=el('details');d.append(el('summary',a.title),el('div',a.turns.map(t=>t.reply).join('\n\n'),'prose'),button('回到本事件起点',async()=>{if(!confirm('恢复到该事件起点，并移除其后的进度？'))return;current=await api('/sessions/'+current.id+'/rollback/'+a.id,'POST');render();notice('已恢复事件起点')}));return d}));drawMap();if(typeof window.TDWorkspaceSyncCurrent==='function')window.TDWorkspaceSyncCurrent(current)}
 let sending=false;
 async function send(message,action_id=null){if(!current)throw Error('请先新建或选择旅程');if(sending)return;sending=true;const buttons=[...document.querySelectorAll('#actions button,#chat-form button')];buttons.forEach(b=>b.disabled=true);try{current=await api('/sessions/'+current.id+'/chat','POST',{message,action_id,channel:action_id?'action':$('input-channel').value});$('message').value='';render()}finally{sending=false;buttons.forEach(b=>b.disabled=false)}}
-async function showPage(id){page=id;document.querySelectorAll('.page').forEach(p=>p.hidden=p.id!==id);document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('selected',b.dataset.page===id));const title={surface:'表层对话',inner:'里层创作',notebook:'知识点记录簿',map:'世界地图',api:'API 配置',settings:'设置',traces:'模型输入输出'}[id];$('page-title').textContent=title;$('breadcrumb').textContent='工作空间 / '+title;if(id==='notebook')await refreshNotebook();if(id==='inner')await refreshInner();if(id==='traces')await refreshTraces();if(id==='api'){apiConfig=await api('/settings/api');fillApi()}if(id==='settings')$('corpus').value=(await api('/inner/corpus')).text;if(id==='map')drawMap()}
+async function showPage(id){
+ const hit=TDNav.resolve(id);
+ if(hit.id==='notebook')await refreshNotebook();
+ if(hit.id==='inner')await refreshInner();
+ if(hit.id==='traces')await refreshTraces();
+ if(hit.id==='api'){apiConfig=await api('/settings/api');fillApi()}
+ if(hit.id==='settings')$('corpus').value=(await api('/inner/corpus')).text;
+ if(hit.id==='map')drawMap();
+ return TDNav.show(id);
+}
 function fillApi(){fillWorkerSettings();$('api-url').value=apiConfig.base_url;$('api-model').value=apiConfig.model;$('offline').checked=apiConfig.offline;$('max-tokens').value=apiConfig.max_tokens;const key=$('api-key');key.value='';key.placeholder=apiConfig.has_key?'************':'请输入 API Key';key.title=apiConfig.has_key?'密钥已配置；留空保留，输入新密钥可替换':'尚未配置密钥';$('key-status').textContent=apiConfig.has_key?'密钥已配置：************（当前服务有效；留空保留，输入可替换）':'尚未配置密钥，请输入后点击保存配置'}
 async function refreshInner(){drafts=await api('/inner/drafts');$('drafts').replaceChildren(...drafts.slice().reverse().map(d=>{const b=button(d.instruction,()=>selectDraft(d.id),'draft');b.append(el('small',(d.usage.mode==='offline'?'离线示例 · ':'')+d.status));return b}));const p=await api('/inner/package');$('package-json').value=JSON.stringify({story:p.story,characters:p.characters},null,2);const versions=await api('/inner/versions');$('versions').replaceChildren(...versions.reverse().map(v=>{const d=el('div');d.append(el('span',v.created.slice(0,16)+' · '+v.note+' '),button('恢复为新版本',async()=>{if(confirm('后续新旅程将采用此版本，已有旅程保持不变。')){await api('/inner/versions/'+v.id+'/restore','POST');await refreshInner();notice('版本已恢复')}}));return d}));if(draftId&&drafts.some(d=>d.id===draftId))selectDraft(draftId)}
 function selectDraft(id){const d=drafts.find(d=>d.id===id);draftId=id;$('draft-title').textContent=d.instruction;$('draft-json').value=JSON.stringify(d.element,null,2);for(const n of ['save-draft','approve-draft','reject-draft'])$(n).disabled=d.status!=='draft'}
 function svg(tag,attributes){const e=document.createElementNS('http://www.w3.org/2000/svg',tag);Object.entries(attributes).forEach(([k,v])=>e.setAttribute(k,v));return e}
 function drawMap(){const overlay=$('map-overlay');overlay.replaceChildren();const places=current?.places||[];if($('show-fog').checked&&current){const defs=svg('defs',{}),mask=svg('mask',{id:'fog'});mask.append(svg('rect',{width:1440,height:720,fill:'white'}));for(const l of places){const [lon,lat]=l.coordinates;mask.append(svg('circle',{cx:(lon+180)*4,cy:(90-lat)*4,r:l.explored?86:26,fill:'black'}))}defs.append(mask);overlay.append(defs,svg('rect',{width:1440,height:720,fill:'#101318',opacity:.86,mask:'url(#fog)'}))}for(const l of places){const [lon,lat]=l.coordinates,x=(lon+180)*4,y=(90-lat)*4;const group=svg('g',{});group.append(svg('circle',{cx:x,cy:y,r:l.current?7:5,fill:l.current?'#e7c986':'#fff'}));const t=svg('text',{x:x+10,y:y-8});t.textContent=l.name;group.append(t);overlay.append(group)}$('map-places').replaceChildren(...places.map(l=>{const b=button(l.name,async()=>{current=await api('/sessions/'+current.id+'/move','POST',{location_id:l.id});render();notice('已到达 '+current.location)});b.append(el('small',l.current?'当前位置':l.explored?'已探索':'可见地点'));b.disabled=!l.can_move;return b}));$('map-canvas').style.width=(zoom*100)+'%'}
-document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>safe(()=>showPage(b.dataset.page)));
+document.querySelectorAll('#legacy nav button').forEach(b=>b.onclick=()=>safe(()=>showPage(b.dataset.page)));
 const renderOriginal=render;
 render=function(){renderOriginal();if(!current)return;const groups=current.conversations||[];const selected=groups.find(c=>c.id===selectedConversation)||groups.find(c=>c.id===current.conversation_id)||groups.at(-1);const old=selected&&selected.id!==current.conversation_id;if(selected){$('story-text').replaceChildren(...selected.turns.map(t=>{const d=el('article',undefined,'turn');d.append(el('div',t.input,'input'),el('div',t.reply,'prose'));return d}));$('event-title').textContent=old?selected.title:current.current_scene||selected.title;$('event-goal').textContent=old?'已归档场景 · 只读':current.event?.goal||'本场景已完成，可前往下一主要场景。'}$('conversations').replaceChildren(...groups.map(c=>button(c.title,async()=>{selectedConversation=c.id;render();await showPage('surface')},c.id===selected?.id?'selected':'')));$('chat-form').hidden=!!old;$('actions').hidden=!!old;$('close-event').hidden=!!old;};
 async function readPackage(revision){const p=await api('/inner/package'+(revision?'?revision='+encodeURIComponent(revision):''));const box=$('package-reading');box.hidden=false;box.replaceChildren(el('h2',p.story.title),el('p','版本 '+p.id+' · '+p.note,'muted'));const sections=[['世界观总概',p.story.worldview],['主要场景',p.story.major_scenes],['地点',p.story.locations],['事件链',p.story.events],['物品与规则',{items:p.story.items,mechanics:p.story.mechanics}],['独立角色包',p.characters]];for(const [title,data] of sections){const d=el('details');d.append(el('summary',title));if(title==='世界观总概')d.open=true;const content=el('div');formatReader(content,data);d.append(content);box.append(d)}const search=el('input');search.placeholder='筛选知识点：标题、分类、关键词、内容';search.id='knowledge-search';const list=el('div');list.id='knowledge-list';const draw=()=>{const q=search.value.trim().toLowerCase();list.replaceChildren(...(p.story.knowledge||[]).filter(k=>JSON.stringify(k).toLowerCase().includes(q)).map(k=>{const d=el('details');d.append(el('summary',k.category+' · '+k.title),el('p',k.keywords.join(' / ')+' · '+k.visibility+' · '+k.status,'muted'),el('div',k.content,'prose'));return d}))};search.oninput=draw;box.append(el('h3','按需读取的知识点'),search,list);draw()}
@@ -44,9 +125,9 @@ async function refreshNotebook(){notebookRecords=current?await api('/sessions/'+
 $('notebook-search').oninput=drawNotebook;$('refresh-notebook').onclick=()=>safe(refreshNotebook);
 function formatReader(parent,value){if(value===undefined){parent.append(el('p','未设置','muted'));return}if(value===null||typeof value!=='object'){parent.append(el('p',String(value)));return}if(Array.isArray(value)){for(const entry of value){const d=el('div',undefined,'reader-entry');formatReader(d,entry);parent.append(d)}return}const labels={premise:'总纲',laws:'世界硬规则',source_notes:'来源、补充草案与待定项',confirmed:'原文确认',provisional:'补充草案',open_questions:'待定',geopolitics:'政治与文明',belief_systems:'架空信仰',energy_system:'能量体系',travel_and_language:'旅行与语言',information_protocol:'信息可靠性',public_lore:'公开常识',title:'名称',name:'名称',description:'说明',information_scope:'内容范围',expected_turns:'预计轮次',kind:'类型'};for(const [key,v] of Object.entries(value)){parent.append(el('strong',labels[key]||key));const block=el('div',undefined,'reader-value');formatReader(block,v);parent.append(block)}}
 $('read-current-package').onclick=()=>safe(()=>readPackage());$('read-session-package').onclick=()=>safe(async()=>{if(!current)throw Error('先选择旅程');await readPackage(current.revision)});
-async function refreshTraces(){const data=await api('/inner/traces');const filtered=data.filter(t=>$('trace-filter').value==='all'||t.scope===$('trace-filter').value);showCacheSummary(filtered);$('trace-list').replaceChildren(...filtered.map(t=>{const b=button(t.scope+' · '+t.status,()=>openTrace(t.id),'draft');b.append(el('small',new Date(t.created).toLocaleString()+' · '+t.elapsed_ms+'ms'+(t.cache?.reported?' · 命中 '+(100*(t.cache.hit_rate||0)).toFixed(1)+'% · 未命中 '+t.cache.miss_tokens:' · 缓存用量未知')));return b}));if(!filtered.length)$('trace-list').append(el('p','暂无记录。发起一次对话或连接测试后在此查看。','muted'));if(selectedTrace&&!data.some(t=>t.id===selectedTrace)){selectedTrace=null;traceRecord=null;for(const id of ['trace-input','trace-output','trace-details'])$(id).textContent=''}if(!selectedTrace&&filtered.length)await openTrace(filtered[0].id)}
+async function refreshTraces(){const data=await api('/inner/traces');const filtered=data.filter(t=>$('trace-filter').value==='all'||t.scope===$('trace-filter').value);showCacheSummary(filtered);const usage=await api('/inner/token-usage?hours='+encodeURIComponent($('usage-window').value));const u=usage.overall;const summary=u.input_tokens===null&&u.output_tokens===null?'暂无供应商 token usage；离线或供应商未返回计量。':`统计 ${usage.window_hours} 小时：${u.calls} 次调用，已计量 ${u.telemetry_calls} 次；输入 ${u.input_tokens??'未知'} / 输出 ${u.output_tokens??'未知'} token，合计速率 ${u.total_tokens_per_hour??'未知'} token/小时。缓存命中率 ${u.cache_hit_rate===null?'未知':(u.cache_hit_rate*100).toFixed(1)+'%'}。`;$('token-usage-summary').textContent=summary; $('trace-list').replaceChildren(...filtered.map(t=>{const b=button(t.scope+' · '+t.status,()=>openTrace(t.id),'draft');b.append(el('small',new Date(t.created).toLocaleString()+' · '+t.elapsed_ms+'ms'+(t.cache?.reported?' · 命中 '+(100*(t.cache.hit_rate||0)).toFixed(1)+'% · 未命中 '+t.cache.miss_tokens:' · 缓存用量未知')));return b}));if(!filtered.length)$('trace-list').append(el('p','暂无记录。发起一次对话或连接测试后在此查看。','muted'));if(selectedTrace&&!data.some(t=>t.id===selectedTrace)){selectedTrace=null;traceRecord=null;for(const id of ['trace-input','trace-output','trace-details'])$(id).textContent=''}if(!selectedTrace&&filtered.length)await openTrace(filtered[0].id)}
 async function openTrace(id){selectedTrace=id;traceRecord=await api('/inner/traces/'+id);$('trace-meta').textContent=traceRecord.scope+' · '+traceRecord.status+' · '+(traceRecord.endpoint||'本地模拟');$('trace-input').textContent=JSON.stringify(traceRecord.request,null,2);$('trace-output').textContent=typeof traceRecord.response==='string'?traceRecord.response:JSON.stringify(traceRecord.response,null,2);$('trace-details').textContent=JSON.stringify({usage:traceRecord.usage,cache:traceRecord.cache,context_stats:traceRecord.context_stats,http_status:traceRecord.http_status,error:traceRecord.error,elapsed_ms:traceRecord.elapsed_ms,prefix_sha256:traceRecord.prefix_sha256,note:traceRecord.note},null,2)}
-$('refresh-traces').onclick=()=>safe(refreshTraces);$('trace-filter').onchange=()=>safe(refreshTraces);$('export-trace').onclick=()=>{if(traceRecord)jsonDownload(traceRecord,'TextileDream-trace.json')};$('clear-traces').onclick=()=>safe(async()=>{if(confirm('清空已记录的模型输入输出？不会删除存档。')){await api('/inner/traces','DELETE');await refreshTraces()}});
+$('refresh-traces').onclick=()=>safe(refreshTraces);$('trace-filter').onchange=()=>safe(refreshTraces);$('usage-window').onchange=()=>safe(refreshTraces);$('export-trace').onclick=()=>{if(traceRecord)jsonDownload(traceRecord,'TextileDream-trace.json')};$('clear-traces').onclick=()=>safe(async()=>{if(confirm('清空已记录的模型输入输出？不会删除存档。')){await api('/inner/traces','DELETE');await refreshTraces()}});
 let traceRefreshing=false;setInterval(()=>{if(page==='traces'&&$('auto-traces').checked&&!traceRefreshing){traceRefreshing=true;safe(refreshTraces).finally(()=>traceRefreshing=false)}},2000);
 $('new-session').onclick=()=>$('new-dialog').showModal();$('cancel-new').onclick=()=>$('new-dialog').close();
 $('new-form').onsubmit=e=>{e.preventDefault();safe(async()=>{current=await api('/sessions','POST',{title:$('session-title').value,mode:$('session-mode').value});$('new-dialog').close();await loadSession(current.id)})};
@@ -70,4 +151,4 @@ $('clear-key').onclick=()=>safe(async()=>{apiConfig=await api('/settings/api','P
 $('settings-form').onsubmit=e=>{e.preventDefault();safe(async()=>{const p=await api('/settings/preferences','PUT',{...stageSettings(),recall_enabled:$('recall-enabled').checked,recall_threshold:Number($('recall-threshold').value),theme:$('theme').value,font_size:Number($('font-size').value),memory_k:Number($('memory-k').value),history_turns:Number($('history-turns').value),context_chars:Number($('context-chars').value),conversation_mode:$('conversation-mode').value,chapter_turns:Number($('chapter-turns').value),surface_thinking:$('surface-thinking').checked});prefs(p);notice('设置已保存')})};
 $('save-corpus').onclick=()=>safe(async()=>{await api('/inner/corpus','PUT',{text:$('corpus').value});notice('通用语料已保存')});
 $('zoom-in').onclick=()=>{zoom=Math.min(3,zoom+.25);drawMap()};$('zoom-out').onclick=()=>{zoom=Math.max(1,zoom-.25);drawMap()};$('reset-map').onclick=()=>{zoom=1;drawMap()};$('show-fog').onchange=drawMap;
-window.addEventListener('DOMContentLoaded',()=>safe(async()=>{const b=await bootstrap();const id=localStorage.getItem('textiledream-session');if(b.sessions.some(s=>s.id===id))await loadSession(id,false);else if(b.sessions.length)await loadSession(b.sessions.at(-1).id,false);else $('new-dialog').showModal()}));
+window.addEventListener('DOMContentLoaded',()=>safe(async()=>{await bootstrap();setNativeMode('author');$('workspace-author-map').classList.add('selected');$('chat-form').hidden=true;$('event-goal').textContent='从左侧选择一段已有旅程，或新建对话。';}));

@@ -24,3 +24,5 @@ details七节字符串必填：definition, mechanism, conditions, exceptions, st
 ## 数据库边界
 
 独立本地SQLite素材库（与旅程数据库隔离），存候选条目、版本、来源、多标签及审查状态；支持标签组合、名称别名检索、单项详情、幂等导入与导出。标签不替代规则验证。百科中存在≠当前世界存在，更不等于人物知道。故事开局选定固定版本，运行期不因素材库更新加入新类型；本次不实现经营模拟或擅定经济人口参数。
+
+构库名单为**显式 14 组**（本目录八组 + `docs/element-catalog` 六组），逐组登记、不走通配；总索引与各组数字见 [README.md](README.md)，库与 CLI 用法见 [database-使用说明.md](database-使用说明.md)。两个增补组（food-supplement / craft-supplement）是独立新增 namespace，不改写原六组数据，可在已发布的旧库上直接追加导入。

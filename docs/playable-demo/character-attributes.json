@@ -1,0 +1,352 @@
+{
+  "schema_version": 1,
+  "group": "character-attributes",
+  "status": "candidate",
+  "note": "现有六项属性的资料分区，非新增判定引擎。定义与具体角色数值分离；保持候选审核状态，不冒充实证资料。",
+  "sources": [
+    {
+      "id": "attribute_src_definition",
+      "title": "现有六项角色属性定义",
+      "url": "app/attributes.py",
+      "access": "read",
+      "supports": "标识、量程、档位、关键词、健康公式",
+      "rights_note": "本项目游戏设计，非心理学量表"
+    },
+    {
+      "id": "attribute_src_check",
+      "title": "现有属性检定",
+      "url": "app/drama.py",
+      "access": "read",
+      "supports": "attribute_v1 成功率与确定性掷骰；调用路径见 app/runtime.py",
+      "rights_note": "本项目游戏规则"
+    }
+  ],
+  "elements": [
+    {
+      "id": "talent",
+      "name": "天赋",
+      "aliases": [
+        "talent",
+        "灵力亲合度"
+      ],
+      "tags": [
+        "character.attribute",
+        "attribute.talent",
+        "rules.attribute_v1"
+      ],
+      "summary": "能量感应与引导潜能。范围 0–100，沿用原有检定。高天赋不自动授予法术；无魔法世界不凭属性生成魔法。",
+      "details": {
+        "definition": "能量感应与引导潜能。这是能力维度，与性格特质、人物关系和道德判断分开。",
+        "mechanism": "Runtime 将属性除以 100 作为 ability；成功率 clamp(0.5 + ability - difficulty - fatigue × 0.2, 0.05, 0.95)。difficulty 和 fatigue 范围为 0–1。drama.resolve_check 使用 SHA-256 种子掷骰。低档 <35，中档 35–<70，高档 >=70。",
+        "conditions": "目标及动作必须由世界声明，满足可接触、所需物品等前提。作者用 action.check.attribute 引用 talent，并声明 difficulty 和成败效果；只对需要检定的可行尝试掷骰。",
+        "exceptions": "高天赋不自动授予法术；无魔法世界不凭属性生成魔法。最低 5% 成功率不意味着不可能的行动也能尝试。收录元素不自动改变任何角色数值或生成可执行动作。",
+        "story_uses": "感应、引导已学会的法术。",
+        "historical_scope": "织梦跨题材角色规则，西幻可复用；不是历史事实或真实人物测量标准。能力服从世界设定。",
+        "evidence_and_uncertainty": "依据 app/attributes.py、app/drama.py 与 app/runtime.py 的现有实现。单项二元检定不能自动表达连续动作、主动对抗、多人目击或司法后果；需要另行设计场景规则。",
+        "attribute_definition": {
+          "version": 1,
+          "scale": [
+            0,
+            100
+          ],
+          "id": "talent",
+          "name": "天赋",
+          "keywords": {
+            "low": [
+              "感应迟缓",
+              "按步骤练习",
+              "谨慎引导"
+            ],
+            "medium": [
+              "感知灵力",
+              "稳定引导",
+              "熟练需训练"
+            ],
+            "high": [
+              "灵力敏感",
+              "精细引导",
+              "易察能量变化"
+            ]
+          }
+        }
+      },
+      "source_ids": [
+        "attribute_src_definition",
+        "attribute_src_check"
+      ],
+      "related_ids": [],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "strength",
+      "name": "力量",
+      "aliases": [
+        "strength"
+      ],
+      "tags": [
+        "character.attribute",
+        "attribute.strength",
+        "rules.attribute_v1"
+      ],
+      "summary": "发力、支撑、搬运和负重能力。范围 0–100，沿用原有检定。力量不代表精细操作，也不制造工具或接触机会。",
+      "details": {
+        "definition": "发力、支撑、搬运和负重能力。这是能力维度，与性格特质、人物关系和道德判断分开。",
+        "mechanism": "Runtime 将属性除以 100 作为 ability；成功率 clamp(0.5 + ability - difficulty - fatigue × 0.2, 0.05, 0.95)。difficulty 和 fatigue 范围为 0–1。drama.resolve_check 使用 SHA-256 种子掷骰。低档 <35，中档 35–<70，高档 >=70。",
+        "conditions": "目标及动作必须由世界声明，满足可接触、所需物品等前提。作者用 action.check.attribute 引用 strength，并声明 difficulty 和成败效果；只对需要检定的可行尝试掷骰。",
+        "exceptions": "力量不代表精细操作，也不制造工具或接触机会。最低 5% 成功率不意味着不可能的行动也能尝试。收录元素不自动改变任何角色数值或生成可执行动作。",
+        "story_uses": "搬酒桶、推门、攀爬发力。",
+        "historical_scope": "织梦跨题材角色规则，西幻可复用；不是历史事实或真实人物测量标准。能力服从世界设定。",
+        "evidence_and_uncertainty": "依据 app/attributes.py、app/drama.py 与 app/runtime.py 的现有实现。单项二元检定不能自动表达连续动作、主动对抗、多人目击或司法后果；需要另行设计场景规则。",
+        "attribute_definition": {
+          "version": 1,
+          "scale": [
+            0,
+            100
+          ],
+          "id": "strength",
+          "name": "力量",
+          "keywords": {
+            "low": [
+              "借助工具",
+              "节省力气",
+              "避免硬扛"
+            ],
+            "medium": [
+              "稳妥发力",
+              "常规负重",
+              "调整支点"
+            ],
+            "high": [
+              "有力支撑",
+              "重物搬运",
+              "控制力道"
+            ]
+          }
+        }
+      },
+      "source_ids": [
+        "attribute_src_definition",
+        "attribute_src_check"
+      ],
+      "related_ids": [],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "agility",
+      "name": "敏捷",
+      "aliases": [
+        "agility"
+      ],
+      "tags": [
+        "character.attribute",
+        "attribute.agility",
+        "rules.attribute_v1"
+      ],
+      "summary": "协调、平衡、闪避和精细动作能力。范围 0–100，沿用原有检定。敏捷不等于隐身；取物成功不代表无人目击或行为合法。",
+      "details": {
+        "definition": "协调、平衡、闪避和精细动作能力。这是能力维度，与性格特质、人物关系和道德判断分开。",
+        "mechanism": "Runtime 将属性除以 100 作为 ability；成功率 clamp(0.5 + ability - difficulty - fatigue × 0.2, 0.05, 0.95)。difficulty 和 fatigue 范围为 0–1。drama.resolve_check 使用 SHA-256 种子掷骰。低档 <35，中档 35–<70，高档 >=70。",
+        "conditions": "目标及动作必须由世界声明，满足可接触、所需物品等前提。作者用 action.check.attribute 引用 agility，并声明 difficulty 和成败效果；只对需要检定的可行尝试掷骰。",
+        "exceptions": "敏捷不等于隐身；取物成功不代表无人目击或行为合法。最低 5% 成功率不意味着不可能的行动也能尝试。收录元素不自动改变任何角色数值或生成可执行动作。",
+        "story_uses": "取物、保持平衡、避开障碍。",
+        "historical_scope": "织梦跨题材角色规则，西幻可复用；不是历史事实或真实人物测量标准。能力服从世界设定。",
+        "evidence_and_uncertainty": "依据 app/attributes.py、app/drama.py 与 app/runtime.py 的现有实现。单项二元检定不能自动表达连续动作、主动对抗、多人目击或司法后果；需要另行设计场景规则。",
+        "attribute_definition": {
+          "version": 1,
+          "scale": [
+            0,
+            100
+          ],
+          "id": "agility",
+          "name": "敏捷",
+          "keywords": {
+            "low": [
+              "提前避让",
+              "缓步试探",
+              "留足距离"
+            ],
+            "medium": [
+              "及时闪避",
+              "协调动作",
+              "保持平衡"
+            ],
+            "high": [
+              "迅速变向",
+              "精细动作",
+              "快速撤步"
+            ]
+          }
+        }
+      },
+      "source_ids": [
+        "attribute_src_definition",
+        "attribute_src_check"
+      ],
+      "related_ids": [],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "wisdom",
+      "name": "智慧",
+      "aliases": [
+        "wisdom",
+        "理解"
+      ],
+      "tags": [
+        "character.attribute",
+        "attribute.wisdom",
+        "rules.attribute_v1"
+      ],
+      "summary": "理解信息、比较线索与应变能力。范围 0–100，沿用原有检定。智慧不允许读心或获知隐藏事实；没有自动侦察对抗。",
+      "details": {
+        "definition": "理解信息、比较线索与应变能力。这是能力维度，与性格特质、人物关系和道德判断分开。",
+        "mechanism": "Runtime 将属性除以 100 作为 ability；成功率 clamp(0.5 + ability - difficulty - fatigue × 0.2, 0.05, 0.95)。difficulty 和 fatigue 范围为 0–1。drama.resolve_check 使用 SHA-256 种子掷骰。低档 <35，中档 35–<70，高档 >=70。",
+        "conditions": "目标及动作必须由世界声明，满足可接触、所需物品等前提。作者用 action.check.attribute 引用 wisdom，并声明 difficulty 和成败效果；只对需要检定的可行尝试掷骰。",
+        "exceptions": "智慧不允许读心或获知隐藏事实；没有自动侦察对抗。最低 5% 成功率不意味着不可能的行动也能尝试。收录元素不自动改变任何角色数值或生成可执行动作。",
+        "story_uses": "核对账本、识别矛盾、分析可见危险。",
+        "historical_scope": "织梦跨题材角色规则，西幻可复用；不是历史事实或真实人物测量标准。能力服从世界设定。",
+        "evidence_and_uncertainty": "依据 app/attributes.py、app/drama.py 与 app/runtime.py 的现有实现。单项二元检定不能自动表达连续动作、主动对抗、多人目击或司法后果；需要另行设计场景规则。",
+        "attribute_definition": {
+          "version": 1,
+          "scale": [
+            0,
+            100
+          ],
+          "id": "wisdom",
+          "name": "智慧",
+          "keywords": {
+            "low": [
+              "先问清楚",
+              "单步判断",
+              "需要明确线索"
+            ],
+            "medium": [
+              "比较线索",
+              "识别明显危险",
+              "选择应变"
+            ],
+            "high": [
+              "识别矛盾",
+              "多步预判",
+              "察觉陷阱线索"
+            ]
+          }
+        }
+      },
+      "source_ids": [
+        "attribute_src_definition",
+        "attribute_src_check"
+      ],
+      "related_ids": [],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "social",
+      "name": "社交",
+      "aliases": [
+        "social"
+      ],
+      "tags": [
+        "character.attribute",
+        "attribute.social",
+        "rules.attribute_v1"
+      ],
+      "summary": "沟通、措辞、协商和表达立场能力。范围 0–100，沿用原有检定。社交不等于善良或控制他人；不能绕过关系、角色底线及地方规则。",
+      "details": {
+        "definition": "沟通、措辞、协商和表达立场能力。这是能力维度，与性格特质、人物关系和道德判断分开。",
+        "mechanism": "Runtime 将属性除以 100 作为 ability；成功率 clamp(0.5 + ability - difficulty - fatigue × 0.2, 0.05, 0.95)。difficulty 和 fatigue 范围为 0–1。drama.resolve_check 使用 SHA-256 种子掷骰。低档 <35，中档 35–<70，高档 >=70。",
+        "conditions": "目标及动作必须由世界声明，满足可接触、所需物品等前提。作者用 action.check.attribute 引用 social，并声明 difficulty 和成败效果；只对需要检定的可行尝试掷骰。",
+        "exceptions": "社交不等于善良或控制他人；不能绕过关系、角色底线及地方规则。最低 5% 成功率不意味着不可能的行动也能尝试。收录元素不自动改变任何角色数值或生成可执行动作。",
+        "story_uses": "议价、解释误会、提出交换。",
+        "historical_scope": "织梦跨题材角色规则，西幻可复用；不是历史事实或真实人物测量标准。能力服从世界设定。",
+        "evidence_and_uncertainty": "依据 app/attributes.py、app/drama.py 与 app/runtime.py 的现有实现。单项二元检定不能自动表达连续动作、主动对抗、多人目击或司法后果；需要另行设计场景规则。",
+        "attribute_definition": {
+          "version": 1,
+          "scale": [
+            0,
+            100
+          ],
+          "id": "social",
+          "name": "社交",
+          "keywords": {
+            "low": [
+              "直述需要",
+              "简短回应",
+              "少用言外之意"
+            ],
+            "medium": [
+              "接住话题",
+              "解释立场",
+              "适度转折"
+            ],
+            "high": [
+              "调整措辞",
+              "试探需求",
+              "协商让步"
+            ]
+          }
+        }
+      },
+      "source_ids": [
+        "attribute_src_definition",
+        "attribute_src_check"
+      ],
+      "related_ids": [],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "resilience",
+      "name": "韧性",
+      "aliases": [
+        "resilience"
+      ],
+      "tags": [
+        "character.attribute",
+        "attribute.resilience",
+        "rules.attribute_v1"
+      ],
+      "summary": "承受消耗、维持节奏与应对压力能力。范围 0–100，沿用原有检定。韧性不等于免疫伤害或没有疲劳；沿用现有健康函数。",
+      "details": {
+        "definition": "承受消耗、维持节奏与应对压力能力。这是能力维度，与性格特质、人物关系和道德判断分开。",
+        "mechanism": "Runtime 将属性除以 100 作为 ability；成功率 clamp(0.5 + ability - difficulty - fatigue × 0.2, 0.05, 0.95)。difficulty 和 fatigue 范围为 0–1。drama.resolve_check 使用 SHA-256 种子掷骰。低档 <35，中档 35–<70，高档 >=70。最大血量为 round(50 + 2 × 韧性)。",
+        "conditions": "目标及动作必须由世界声明，满足可接触、所需物品等前提。作者用 action.check.attribute 引用 resilience，并声明 difficulty 和成败效果；只对需要检定的可行尝试掷骰。",
+        "exceptions": "韧性不等于免疫伤害或没有疲劳；沿用现有健康函数。最低 5% 成功率不意味着不可能的行动也能尝试。收录元素不自动改变任何角色数值或生成可执行动作。",
+        "story_uses": "坚持行动；最大血量 round(50 + 2 × 韧性)。",
+        "historical_scope": "织梦跨题材角色规则，西幻可复用；不是历史事实或真实人物测量标准。能力服从世界设定。",
+        "evidence_and_uncertainty": "依据 app/attributes.py、app/drama.py 与 app/runtime.py 的现有实现。单项二元检定不能自动表达连续动作、主动对抗、多人目击或司法后果；需要另行设计场景规则。",
+        "attribute_definition": {
+          "version": 1,
+          "scale": [
+            0,
+            100
+          ],
+          "id": "resilience",
+          "name": "韧性",
+          "keywords": {
+            "low": [
+              "及时休息",
+              "承认疲惫",
+              "规避消耗"
+            ],
+            "medium": [
+              "保持节奏",
+              "承受压力",
+              "恢复呼吸"
+            ],
+            "high": [
+              "耐受消耗",
+              "逆境坚持",
+              "缓慢释放紧张"
+            ]
+          }
+        }
+      },
+      "source_ids": [
+        "attribute_src_definition",
+        "attribute_src_check"
+      ],
+      "related_ids": [],
+      "review_status": "needs_review"
+    }
+  ]
+}

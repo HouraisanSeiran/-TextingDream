@@ -1,0 +1,738 @@
+{
+  "schema_version": 1,
+  "group": "craft-supplement",
+  "status": "candidate",
+  "sources": [
+    {
+      "id": "craft_supp_src_britannica_cotton",
+      "title": "Cotton (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/topic/cotton-fibre-and-plant",
+      "access": "read",
+      "supports": "棉为锦葵科棉属几个种的种子毛；纤维含纤维素约87—90%；按纤维长度分长绒/中绒/短绒三类及其用途差异；轧棉去籽、开清、梳棉、精梳、并条、粗纱、细纱的工序链；环锭纺与转杯纺；手工采摘与机械采摘的洁净度差异；棉花在旧大陆与新大陆被多次独立驯化；纤维素纤维吸湿快、可染色、可上浆抗皱整理",
+      "rights_note": "Britannica 版权内容，仅作事实核对与背景参考，不复制原文；条目文字为原创归纳"
+    },
+    {
+      "id": "craft_supp_src_britannica_wool",
+      "title": "Wool (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/topic/wool",
+      "access": "read",
+      "supports": "羊毛为角蛋白纤维；主要靠活羊剪毛获得，死羊皮上取下者称 pulled wool 质量较差；洗毛去羊毛脂并可得精制羊毛脂；纤维直径约16—40微米、细毛长4—7.5厘米、极粗毛可达35厘米以上；卷曲与弹性使松捻纱也有强度并可锁住静止空气保暖；吸湿可达自重16—18%；湿态强度低于干态；缩绒与毡缩需要湿态加机械作用；强碱与高温有害、洗涤宜低温温和；精纺毛纱用长纤维、粗纺毛纱用短纤维及其织物差别；再生毛与再用毛的品质损失",
+      "rights_note": "Britannica 版权内容，仅作事实核对与背景参考，不复制原文"
+    },
+    {
+      "id": "craft_supp_src_britannica_silk",
+      "title": "Silk (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/topic/silk",
+      "access": "read",
+      "supports": "丝为昆虫与蛛形类作茧与结网用的动物纤维；商业用丝基本限于家蚕茧丝；起源中国，3千纪中期前已有；6世纪经僧侣带入拜占庭的传播叙述；汉以后丝织成为中国主要出口之一并沿中亚商路西传；地中海一带曾靠拆解东方丝织物取得丝线；印度、波斯、日本各自发展蚕丝业；1854年蚕病与巴斯德研究；20世纪人造纤维替代",
+      "rights_note": "Britannica 版权内容，仅作事实核对与背景参考"
+    },
+    {
+      "id": "craft_supp_src_britannica_sericulture",
+      "title": "Sericulture (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/topic/sericulture",
+      "access": "read",
+      "supports": "养蚕为蚕卵—幼虫—结茧—缫丝的全流程；丝素与丝胶两套腺体分泌；单茧可用丝长约600—900米；以蒸汽或热风杀蛹以免蛾破茧断丝；缫丝即软化丝胶后合并数根茧丝并加捻；throwing 加捻成丝线；生丝保留丝胶、脱胶在皂液中煮沸且重量损失可达30%；纺丝（spun silk）用破损茧的短纤维；纤度以旦表示；湿态强度下降15—25%、延伸约20%；丝比羊毛耐热、较少受霉害；桑叶与桑树栽培是养蚕前提",
+      "rights_note": "Britannica 版权内容，仅作事实核对与背景参考"
+    }
+    ,
+    {
+      "id": "craft_supp_src_britannica_linen",
+      "title": "Linen (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/technology/linen",
+      "access": "read",
+      "supports": "亚麻是麻织物、麻纱与麻纤维三者共用的名称；亚麻是最早被使用的纺织纤维之一，瑞士史前湖居与埃及墓葬有实物；纤维需经沤麻（发酵）、干燥、揉碎、打麻等工序；亚麻比棉强度高、干得快、耐晒；弹性低导致易起皱；吸湿散热快、穿着凉感",
+      "rights_note": "Britannica 版权内容，仅作事实核对与背景参考"
+    },
+    {
+      "id": "craft_supp_src_britannica_bast_fiber",
+      "title": "Bast fibre (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/technology/bast-fiber",
+      "access": "read",
+      "supports": "韧皮纤维是取自双子叶植物茎部的柔软木质纤维，与叶纤维（硬纤维）相对；含亚麻、大麻、黄麻、洋麻、苎麻等种类；纤维束位于表皮与木质芯之间，由富纤维素细胞与果胶黏结；收获方式为齐地刈割或拔起，常用沤麻或剥皮离析；黄麻主要用于袋布与包裹，亚麻传统上用于亚麻纱与细布",
+      "rights_note": "Britannica 版权内容，仅作事实核对与背景参考"
+    },
+    {
+      "id": "craft_supp_src_britannica_leather",
+      "title": "Leather (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/technology/leather",
+      "access": "read",
+      "supports": "皮革是经化学处理防腐的动物皮；hide 指大动物皮、skin 指小动物皮；哺乳动物皮分表皮、真皮与皮下脂层三层，只用真皮层；鲜皮含水60—70%、蛋白30—35%，其中约85%为胶原；鞣制使胶原交联、使皮不溶不腐；植物鞣质、矿盐、鱼油三类鞣剂；千年以上历史的干燥、油脂涂揉、盐腌、熏烟等初加工；埃及与希伯来人约公元前400年发展植物鞣法；19世纪中期后动力机械与铬盐引入；皮革用途含鞋、装具、书籍装帧",
+      "rights_note": "Britannica 版权内容，仅作事实核对与背景参考"
+    },
+    {
+      "id": "craft_supp_src_britannica_tanning",
+      "title": "Tanning (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/technology/tanning",
+      "access": "read",
+      "supports": "鞣制是把生皮转化为皮革的化学处理，鞣剂排开蛋白纤维间水分并使纤维固结；三大类鞣剂（植物鞣质、铬盐一类矿盐、鱼油或动物油）；植物鞣法史前已存在，希伯来人用橡树皮、埃及人用金合欢荚；中世纪经西班牙回流欧洲；植物鞣需在逐次加浓的鞣液中浸泡，可长达数周至数月，得坚实防水的革；矿盐鞣得快、得柔软皮革；油鞣用于可反复湿干的软革；生皮与植物鞣质原料几乎各地可得，所以鞣革广泛分布",
+      "rights_note": "Britannica 版权内容，仅作事实核对与背景参考"
+    },
+    {
+      "id": "craft_supp_src_britannica_papermaking",
+      "title": "Papermaking (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/technology/papermaking",
+      "access": "read",
+      "supports": "纸是纤维素纤维从水悬浮液中在网屏上滤成并压干的毡合薄片；基本工序自中国约105年至今未变：打浆悬浮—滤成薄片—压出水分—蒸发干燥—按需压光涂布施胶；莎草纸只是交错层叠压合、未完全解纤，不是纸；早期原料为构皮一类韧皮纤维、麻头、旧布；751年传入撒马尔罕、793年巴格达、14世纪欧洲有多处纸坊；18世纪前主要靠亚麻与棉破布，曾出现原料短缺；施胶可用动物胶或植物胶，1800年后有松香明矾法；手工抄纸受帘模尺寸与人力限制；1798—1807年连续抄纸机出现",
+      "rights_note": "Britannica 版权内容，仅作事实核对与背景参考"
+    },
+    {
+      "id": "craft_supp_src_britannica_paper",
+      "title": "Paper (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/technology/paper",
+      "access": "read",
+      "supports": "纸为纤维素纤维毡合薄片；最早纸残片出自甘肃放马滩汉墓、约公元前2世纪，约105年才有正式工艺记载；纤维种类、打浆方式、添加物、定量与后处理决定纸的品级；麻布纤维仍用于要求强度与永久性的纸；19世纪初木材与草类纤维开始替代破布；施胶用于阻滞墨水渗透；纸的强度取决于纤维长度与结合能力",
+      "rights_note": "Britannica 版权内容，仅作事实核对与背景参考"
+    },
+    {
+      "id": "craft_supp_src_britannica_parchment",
+      "title": "Parchment (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/technology/parchment",
+      "access": "read",
+      "supports": "羊皮纸是经处理的羊、山羊、犊皮，供书写用；名称据说源于小亚细亚帕加马，公元前2世纪；更彻底地清洗、拉伸与刮削使双面书写可行，进而推动册页书取代卷轴；犊皮或仔皮制得更精细者称 vellum，后泛指优质羊皮纸；6世纪后需求上升出现劣质品，12世纪西欧流行柔软易折的犊皮纸；现代语汇中 parchment/vellum 也指高级纸",
+      "rights_note": "Britannica 版权内容，仅作事实核对与背景参考"
+    },
+    {
+      "id": "craft_supp_src_britannica_wax",
+      "title": "Wax (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/technology/wax",
+      "access": "read",
+      "supports": "蜡为动物、植物、矿物或合成来源的可塑物质，比油脂硬而脆；多数在35—100℃间熔化并形成可抛光的硬膜；动植物蜡为脂肪酸与非甘油醇的酯；蜂蜡是最主要的动物蜡，有润滑与防水用途；羊毛脂为洗毛副产物；巴西棕榈蜡、小烛树蜡、甘蔗蜡为商品植物蜡；约九成商品蜡来自石油；蜂蜡可由蜂巢熔于热水、冷却上浮取得；蜂蜡色从黄到近黑，主要成分为蜡酸与蜂花醇酯",
+      "rights_note": "Britannica 版权内容，仅作事实核对与背景参考"
+    },
+    {
+      "id": "craft_supp_src_britannica_candle",
+      "title": "Candle (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/technology/candle",
+      "access": "read",
+      "supports": "蜡烛是以蜡、动物脂或类似缓燃材料包住灯芯的光源；埃及与克里特公元前3000年前后有烛台形遗物，埃及人把蕨芯浸在融脂中做 rushlight 但无灯芯；最早带芯烛为罗马人以纸莎草卷浸融脂或蜂蜡制成；中世纪欧洲普遍用牛羊脂烛（价廉但有臭味与烟），较富者与宗教机构用蜂蜡烛；19世纪雪弗勒分出硬脂酸、并出现鲸蜡与石蜡，复合蜡料成为基础；1834年模具机使蜡烛量产；烛焰分暗内区、富氧蓝底、辉光黄区与最热外蓝层；现代出现棕榈蜡与大豆蜡",
+      "rights_note": "Britannica 版权内容，仅作事实核对与背景参考"
+    },
+    {
+      "id": "craft_supp_src_britannica_soap",
+      "title": "Soap and detergent (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/technology/soap",
+      "access": "read",
+      "supports": "肥皂是油脂与碱反应（皂化）生成的脂肪酸盐，副产甘油；分子兼有亲脂与亲水两端，在水中形成胶束以悬浮污垢；肥皂在硬水中与钙镁离子生成不溶物而降低效力；至少2300年前已有皂，腓尼基人以羊脂与木灰制皂，凯尔特人称之为 saipo；罗马帝国时已广知，公元2世纪后才重视其洗涤功能；中世纪欧洲制皂中心先在马赛、后热那亚与威尼斯；12世纪末英国有制皂者；英国曾对肥皂征税，税重时甚至给皂锅加锁",
+      "rights_note": "Britannica 版权内容，仅作事实核对与背景参考"
+    },
+    {
+      "id": "craft_supp_src_britannica_ink",
+      "title": "Ink (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/topic/ink-writing-medium",
+      "access": "read",
+      "supports": "墨是颜料或染料分散于载液中的流体或浆体；书写墨约始于公元前2500年的埃及与中国，以灯炱与胶或树胶研和、制成干锭、用时和水；铁盐与鞣质提取物的混合墨沿用很多世纪，是现代蓝黑墨的基础，初写色淡、放置后变深并不溶于水；印度墨是炭黑水分散液，以虫胶硼砂、皂、明胶、胶、阿拉伯胶、糊精稳定；印刷墨较稠，约1440年谷腾堡时代以清漆或熬炼亚麻仁油加灯炱制墨，沿用三百年；1772年英国首份彩色墨专利；近代引入干燥剂、矿物油与水基墨",
+      "rights_note": "Britannica 版权内容，仅作事实核对与背景参考"
+    },
+    {
+      "id": "craft_supp_src_britannica_needle",
+      "title": "Needle (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/technology/needle-tool",
+      "access": "read",
+      "supports": "缝针为细长杆状、一端尖锐以穿过织物、另一端开槽携线；骨针与角针已使用了至少两万年；最早铁针（14世纪）无针眼、以封闭钩携线；带眼针于15世纪在低地国家生产；现代缝针多用钢；编织针与钩针为变体，早期为钩形，现代为直形",
+      "rights_note": "Britannica 版权内容，仅作事实核对与背景参考"
+    },
+    {
+      "id": "craft_supp_src_britannica_awl",
+      "title": "Awl (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/technology/awl",
+      "access": "search_only",
+      "supports": "锥子为尖头工具，用于划线与刺小孔，常用于皮革或木材；制鞋用缝锥在皮革上开孔以便埋线，拉线锥带眼可带线穿孔；锥子像针一样把材料挤向一侧而不去除材料，与钻、手钻、螺旋钻（有刃、去材成孔）不同；使用历史早于12世纪（该页仅给出摘要与引文片段，未提供制作细节）",
+      "rights_note": "Britannica 版权内容，仅作事实核对与背景参考；该页为摘要与相关条目引文，证据强度低于全文条目"
+    },
+    {
+      "id": "craft_supp_src_britannica_scissors",
+      "title": "Scissors (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/technology/scissors",
+      "access": "read",
+      "supports": "剪刀为两片对置金属刃、靠手柄并拢而剪切的工具，大型者称 shears；两类结构：支点式（铆钉或螺钉连接）与弹簧式（手柄端 C 形弹簧连接）；弹簧式或起于青铜时代、欧洲用到中世纪末；青铜与铁质支点剪见于古罗马与中国、日本、朝鲜；欧洲家用自16世纪起，1761年谢菲尔德以铸钢制造后才大规模生产；两刃须略扭曲以使只在支点与剪切处接触；钢材碳含量约0.55—1.03%；刀磨需沿刃面扭转进行以恢复刃角",
+      "rights_note": "Britannica 版权内容，仅作事实核对与背景参考"
+    },
+    {
+      "id": "craft_supp_src_britannica_ax",
+      "title": "Ax (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/technology/ax",
+      "access": "read",
+      "supports": "斧为砍、劈、凿、刺的手工具；石斧约在公元前3万年前后装上木柄；铜刃斧约公元前4000年出现于埃及，后有青铜与铁刃；刃与柄的固定方式多样：绑入木套、夹入木材裂口、插入骨臼；中世纪铁刃伐木斧使西北欧大规模清林与中世纪农业扩展成为可能，并在东欧、斯堪的纳维亚、南北美等地起类似作用；现代钢刃斧部分职能被动力锯取代",
+      "rights_note": "Britannica 版权内容，仅作事实核对与背景参考"
+    },
+    {
+      "id": "craft_supp_src_britannica_file",
+      "title": "File (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/technology/file-tool",
+      "access": "read",
+      "supports": "锉为硬化钢条杆，纵向表面布满小切削刃，用于修整或成形，特别用于金属；按截面形状、齿形与粗细分类，常见截面至少20种；齿形分单齿、双齿与木锉（rasp）；粗细分六级（rough、coarse、bastard、second-cut、smooth、dead smooth）；木锉齿为独立圆顶、以锤击起毛成形，用于木材与软材料",
+      "rights_note": "Britannica 版权内容，仅作事实核对与背景参考"
+    },
+    {
+      "id": "craft_supp_src_britannica_bellows",
+      "title": "Bellows (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/technology/bellows",
+      "access": "read",
+      "supports": "风箱为产生气流的机械装置，通常为铰接盒体、周边为柔性侧壁，内有只向内开的阀片，出口为小喷嘴；分离板时形成部分真空而进气，合拢时阀关闭、气从喷嘴出；简单手风箱以两块平板、一端铰接、周边以宽皮带密封，并以铁环防皮革塌陷；该页称其发端于欧洲中世纪，用于锻工与铁工炉以及簧风琴与管风琴",
+      "rights_note": "Britannica 版权内容，仅作事实核对与背景参考；该条对起源的表述（欧洲中世纪）与其他地区鼓风装置的早期记载存在冲突可能，见条目 evidence_and_uncertainty"
+    },
+    {
+      "id": "craft_supp_src_britannica_felt",
+      "title": "Felt (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/technology/felt",
+      "access": "read",
+      "supports": "毡是靠热、湿与摩擦使羊毛、毛皮或某些毛类纤维交织而成的织物，不需粘合剂；羊毛卷曲与鳞片结构使即使掺入非毡化纤维（低至一成羊毛）也能成毡；传统工序为梳毛成网、叠层、喷水、蒸汽与压板摩擦硬化，再缩绒收缩（面积收缩可达一半）；毡是非织造，与机织、针织不同；内亚游牧族群仍用古法做毡供衣与毡帐；毡用于帽、鞋、衬垫、绝缘、包装、抛光与造纸传送毡；毛皮帽毡的汞处理曾造成工人中毒",
+      "rights_note": "Britannica 版权内容，仅作事实核对与背景参考"
+    },
+    {
+      "id": "craft_supp_src_britannica_yarn",
+      "title": "Yarn (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/technology/yarn-fiber",
+      "access": "read",
+      "supports": "纱线是成组或加捻的连续纤维束，用于构成织物；纤维分长丝与短纤维，天然纤维多为短纤维，丝为天然长丝；纺纱即把纤维群抽拔并加捻；长丝一般需较少捻度；高捻得强纱、低捻得柔软光泽纱；两股以上单纱可合捻成股线；经纱通常比纬纱更强、捻度更高、更平滑均匀；针织纱捻度低于织纱；缝线是圆截面、强捻股线",
+      "rights_note": "Britannica 版权内容，仅作事实核对与背景参考"
+    },
+    {
+      "id": "craft_supp_src_britannica_weaving",
+      "title": "Weaving (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/technology/weaving",
+      "access": "read",
+      "supports": "织造是把经向与纬向两组纱交错构成织物，通常用织机；基本组织为平纹、斜纹与缎纹，起绒、提花、多臂、纱罗需专用织机或附件；基本动作分开启（分开经纱成梭口）、投纬与打纬；经纬密度与纱线支数决定织物紧度；布边（selvage）防脱散；最早的织机可追溯到公元前5千纪的简单框架；1733年飞梭与1785年动力织机为自动化节点",
+      "rights_note": "Britannica 版权内容，仅作事实核对与背景参考"
+    },
+    {
+      "id": "craft_supp_src_britannica_ivory",
+      "title": "Ivory (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/technology/ivory",
+      "access": "read",
+      "supports": "牙骨（象牙）是象牙质的一种，为象的上门齿；河马、海象、独角鲸、抹香鲸与野猪的牙也称牙材但商业价值低；非洲象长牙平均约2米、重约23公斤；长牙分层生长、内部逐渐致密；分硬质与软质两类，与产地、色深、直度有关；象牙不燃烧、浸水影响小，硬度近似硬木、可抛光、可用木工工具加工；长期贸易与20世纪后期象群数量下降、1990年 CITES 禁止贸易；钢琴键与台球等用途已被塑料替代",
+      "rights_note": "Britannica 版权内容，仅作事实核对与背景参考"
+    },
+    {
+      "id": "craft_supp_src_britannica_bone_anatomy",
+      "title": "Bone (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/science/bone-anatomy",
+      "access": "read",
+      "supports": "骨为细胞散布于坚硬的细胞间质中的刚性身体组织；该间质的两个主要成分是胶原与磷酸钙，这一组合使骨区别于几丁质、牙釉质等其他硬组织；真正的骨只存于脊椎动物（且仅硬骨鱼及以上类群）（该页主体为骨组织的演化与功能，不涉工艺）",
+      "rights_note": "Britannica 版权内容，仅作事实核对与背景参考，不复制原文"
+    },
+    {
+      "id": "craft_supp_src_britannica_horn_zoology",
+      "title": "Horn (zoology) (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/science/horn-zoology",
+      "access": "read",
+      "supports": "动物学意义上的真角，就牛、羊、山羊与羚羊这些类群而言，为不分叉、不脱落的头角（属该组群典型形态的概括）；结构为骨芯外包一层角（角蛋白）层，其外再覆角质化表皮；鹿角不是角，每年脱落、完全由骨组成，生长期有绒皮覆盖；犀角由融合的、高度角质化的毛状表皮组成",
+      "rights_note": "Britannica 版权内容，仅作事实核对与背景参考"
+    },
+    {
+      "id": "craft_supp_src_britannica_keratin",
+      "title": "Keratin (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/science/keratin",
+      "access": "read",
+      "supports": "角蛋白是毛发、指甲、角、蹄、羊毛、羽毛以及皮肤最外层上皮细胞的结构蛋白；分为α与β两类（二者二级结构不同）；胱氨酸经二硫键共价连接，是角蛋白高度稳定性的来源；角蛋白不溶于冷热水，也不被蛋白酶分解（该页原文如此表述；本条按主审意见收口为“对许多普通蛋白酶较耐受”）；其纤维长度随含水量变化（完全水合约16%水分时伸长10—12%）",
+      "rights_note": "Britannica 版权内容，仅作事实核对与背景参考"
+    },
+    {
+      "id": "craft_supp_src_britannica_dentin",
+      "title": "Dentin (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/science/dentin",
+      "access": "read",
+      "supports": "牙本质为构成所有牙齿主体的淡黄色组织；它比骨硬但比牙釉质软，主要由钙与磷酸盐的磷灰石晶体组成；牙本质由成牙本质细胞生成，其突起包在细管中；继发性牙本质可在磨耗与龋坏处以修补材料形式终生生成",
+      "rights_note": "Britannica 版权内容，仅作事实核对与背景参考"
+    },
+    {
+      "id": "craft_supp_src_britannica_drilling_tools",
+      "title": "Hand tool: drilling and boring tools (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/technology/hand-tool/Drilling-and-boring-tools",
+      "access": "read",
+      "supports": "锥子是最简单的成孔工具，它像针一样把材料推向一侧而不移除它；而钻、手钻与螺旋钻有刀口，会把材料切下来而留下孔；旧石器晚期已有壳、象牙、鹿角、骨与牙的穿孔器物，软材（皮、木）可能以骨或鹿角尖片穿孔；钻孔与锥孔在转速与扭矩需求上不同；弓钻在 20 世纪前仍在欧洲小作坊使用、在其他地区仍在使用",
+      "rights_note": "Britannica 版权内容，仅作事实核对与背景参考"
+    },
+    {
+      "id": "craft_supp_src_britannica_hand_tool",
+      "title": "Hand tool (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/technology/hand-tool",
+      "access": "read",
+      "supports": "手工具按作用分为敲击、切削、钻削、磨削、螺旋、测量与附件类；工具的共同点是去除材料，故刃与刃口改善是工具史核心；装柄极大提升控制与能量；最早的骨制与木制工具约为五十万年前与四十三万年前；农业与畜力驯化后出现更专门的斧、锛、凿、锤；铜与青铜、铁依次提升刃口性能；不能把三时代体系套用于美洲、太平洋岛屿与澳大利亚",
+      "rights_note": "Britannica 版权内容，仅作事实核对与背景参考"
+    },
+    {
+      "id": "craft_supp_src_britannica_antler",
+      "title": "Antler (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/science/antler",
+      "access": "search_only",
+      "supports": "鹿角为鹿科额骨长出的成对实心骨质结构，与永久的、外包角质的角不同；生长期外覆富有血管与神经的绒皮，长成后脱落；鹿角每年脱落重生，与激素变化相关；驯鹿两性均有角，为鹿科特例；鹿角生长矿物与能量消耗大（该页为摘要页与相关条目引文，未给工艺用途）",
+      "rights_note": "Britannica 版权内容，仅作事实核对与背景参考；该页为摘要与引文集合，不能用作工艺史证据"
+    },
+    {
+      "id": "craft_supp_src_britannica_bone_carving",
+      "title": "Bone carving (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/art/bone-carving",
+      "access": "search_only",
+      "supports": "骨雕范围包括器具、棋子、人物像（如十字架）与饰品；北美有捕鲸者以鲸骨制作 scrimshaw 的独特传统（该页仅为条目索引与引用片段，证据面很窄）",
+      "rights_note": "Britannica 版权内容，仅作事实核对与背景参考；仅能作为“骨材被广泛用于雕作”的极弱旁证"
+    },
+    {
+      "id": "craft_supp_src_met_silk_trade",
+      "title": "Trade between the Romans and the Empires of Asia (The Metropolitan Museum of Art, Heilbrunn Timeline of Art History)",
+      "url": "https://www.metmuseum.org/toah/hd/silk/hd_silk.htm",
+      "access": "read",
+      "supports": "公元前1世纪末罗马、帕希亚、贯霜、匈奴与汉几大势力之间国际贸易扩张，丝绢为远距离贸易品；陆运靠河船与骆驼一类驮畜，海运依赖印度洋季风；以中转站（emporia）网络完成集散与储存；此页讲贸易网络而非丝织工艺，因此只能支撑丝织品“长距离流通”的背景，不能支撑织造工艺细节",
+      "rights_note": "The Met 开放访问的教育性文章，仅作背景核对与引用定位，不复制原文"
+    }
+  ],
+  "elements": [
+    {
+      "id": "craft_supp_cotton_lint",
+      "name": "棉纤维（皮棉与棉短绒）",
+      "aliases": ["皮棉", "原棉", "lint", "棉绒", "cotton lint", "棉短绒", "linters"],
+      "tags": ["fibre", "plant_fiber", "processed_material", "textile", "agriculture"],
+      "summary": "棉铃里长在棉籽上的种子毛，轧棉去籽后的纤维集合；是纤维层，不是纱、也不是布。",
+      "details": {
+        "definition": "棉纤维是锦葵科棉属（Gossypium）几个种的种子表皮毛，采摘后经轧棉把纤维与种子分开得到皮棉；同一植株还产出更短、紧贴种子的棉短绒。它在生产链上位于“作物”与“纱线”之间：是可纺的纤维材料，未经加捻与交织，不能直接当布料看待。",
+        "mechanism": "单根棉纤维是几乎纯纤维素的扁带状细胞，成熟时带天然转曲；纺纱靠转曲、表面摩擦与加捻让纤维互相抱合，捻度把抱合变成可承受拉扯的纱。纤维越长、越整齐，越能纺成细而强的纱；短绒与杂质多，则成纱粗、强度低、易断头。轧棉只完成“纤维与种子分离”，不完成“纤维排列”，后者要靠开松、除杂、梳理、并条、牵伸等一串工序。",
+        "conditions": "采收期要干燥少雨，否则纤维变色、强度下降；手采可分次选摘成熟开裂的棉铃、含杂少，机械采收混入碎叶尘土、且常先施脱叶剂让棉铃成熟一致。仓储须防潮防虫。纺纱前置是去籽、开松梳理、牵伸加捻这几组工序，每一组都要有工具与动力；手工纺与机器纺只是同一原理的不同实现，不能因为知道原理就默认具备设备与熟练工。",
+        "exceptions": "不要把“棉”当单一物种：草棉、陆地棉、海岛棉等纤维长度差别极大，长绒棉最细最贵也最难种，短绒粗棉多做毯、粗布或混纺；把长绒棉的性质套到所有棉上会错。棉短绒与皮棉是同一作物的两种产物，混为一谈会低估梳理剔除短绒的意义。“棉＝棉布”也不成立：纤维吸湿快不等于织物一定舒适，纱支、组织与整理都参与。它既不是矿物也不是燃料，不宜标成 natural_resource 里的矿产类。",
+        "story_uses": "适合写“原料与成品之间隔着一条工序链”的场面：集市上一包皮棉待售，而本村没人会纺；轧棉与梳棉的季节性劳力如何挤占农时；棉价与布价不同步时农户的抱怨。也适合作为贸易品与贡赋清单里的中间物。",
+        "historical_scope": "棉在旧大陆（非洲、南亚）与新大陆被多次独立驯化，各地进入纺织体系的年代差异极大，不宜给统一时间点；长绒与中绒品种的分布与近代殖民贸易、19世纪棉纺工业化相关，但这些属于特定地区脉络，不能当全球默认。",
+        "evidence_and_uncertainty": "Britannica 的 cotton 条目支撑定义、纤维成分（纤维素约87—90%）、按纤维长度的三级分类及各自用途、从轧棉到细纱的工序链、手采与机采的洁净度差异。该条目偏重近现代棉纺，古代手工纺纱的具体工具形态需另查考古文献；本条对“古代如何纺”只写原理不写参数，属归纳。"
+      },
+      "source_ids": ["craft_supp_src_britannica_cotton", "craft_supp_src_britannica_yarn"],
+      "related_ids": ["craft_supp_cotton_cloth", "tools_spinning_wheel", "tools_spindle_whorl"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "craft_supp_cotton_cloth",
+      "name": "棉织物（棉布）",
+      "aliases": ["棉布", "cotton cloth", "cotton fabric", "棉织物"],
+      "tags": ["textile", "processed_material", "weaving", "textile_finishing"],
+      "summary": "以棉纱为经纬织成的布，属织物层；与棉纤维、棉纱分属不同阶段，性质不能互相套用。",
+      "details": {
+        "definition": "棉织物是以棉纱作经、纬按某种组织规律交织而成的布，属成品织物而非纤维或纱。它包括平纹（细布、巴里纱）、斜纹（卡其、牛仔）、缎纹、起绒（绒布）等类别，也可经上浆、丝光、树脂整理等后处理改变手感。",
+        "mechanism": "织造把两组纱交错，组织决定浮长与交点密度，从而决定紧度、手感与光泽；经纬密度高、纱支细则布薄而紧，纱粗捻低则厚而吸湿。棉纤维本身吸湿释湿快、耐碱、可染多种染料、能耐较高温熨烫，因此棉布易洗、可煮练；起绒整理把表面纤维刷起形成保温空气层，树脂整理则抑制皱缩。",
+        "conditions": "前置是纺与织两套能力：纱要有足够强度与均匀度，上浆让经纱耐受开口摩擦，织机要能稳定控制张力与打纬。染整需要水、燃料与助剂。平纹最省工序，提花或多臂组织需要相应装置与更熟练的织工。成品耐用性同时取决于纤维耐磨、组织紧密度与缝制方式，不能只归给纤维。",
+        "exceptions": "“纯棉必然耐穿好洗”是条件性的：薄纱、蕾丝类组织强度低；未整理棉布易缩易皱；厚重组织或涂层整理后透气性显著下降。棉可与麻、毛、化纤混纺，混纺不等于掺假，但混纺布的行为不能按纯棉推断。此外，会织布不等于会造织机，也不等于会做染料与整理。",
+        "story_uses": "可用来区分“自家手织粗棉布”与“商贩卖的细棉布”两种物价与身份；也可写洗晒、缩水、褪色、补丁这些日常细节，比抽象地说“技术先进”更具体。",
+        "historical_scope": "棉织在印度、中国、中东与后来欧洲工业化各有独立脉络；机器棉纺普及是18—19世纪特定地区的过程，同期与之后手工织造在世界许多地方长期并存，不能写成“棉布必然来自工厂”。",
+        "evidence_and_uncertainty": "Britannica 的 cotton 条目给出棉织物的用途谱系与整理手段（起绒、抗皱、拒水防霉等），weaving 条目给出组织类型与织造基本动作；两者都不提供具体某地棉布规格、价格或产量，本条不写数字。织物层面的考古证据需另查，属归纳。"
+      },
+      "source_ids": ["craft_supp_src_britannica_cotton", "craft_supp_src_britannica_weaving"],
+      "related_ids": ["craft_supp_cotton_lint", "tools_loom", "craft_supp_linen_cloth"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "craft_supp_wool_fleece",
+      "name": "羊毛（原毛与洗净毛）",
+      "aliases": ["羊毛", "wool", "原毛", "剪毛", "fleece", "pulled wool"],
+      "tags": ["fibre", "animal_fiber", "animal_product", "textile", "livestock"],
+      "summary": "绵羊等哺乳动物体表的绒毛状角蛋白纤维，主要靠活体剪毛获得；是纤维层，不等于毛线或毛布。",
+      "details": {
+        "definition": "羊毛是绵羊（以及山羊、骆驼等）体表绒毛形成的动物纤维，商业上主要靠剪取活羊的被毛获得；从已死羊皮上处理下来的纤维称 pulled wool，质量较低。它是纤维材料，需经洗毛、梳理、纺纱才成为可使用品。",
+        "mechanism": "纤维主体是角蛋白。天然卷曲让纤维在纱中互相咬合，即使捻度不高也能成有一定强度的纱；卷曲与弹性使织成的疏松结构能锁住静止空气，因而保暖而轻。纤维吸湿可达自重16—18%，且吸放缓慢，所以不很快觉得湿冷。湿态强度低于干态，强碱与高温会损伤纤维，这是洗护条件的物理化学根据。",
+        "conditions": "剪毛有季节节律，与畜群管理、饲料与越冬安排绑定。原毛含羊毛脂、汗盐与草杂，须洗毛；洗毛可回收羊毛脂。纺前要梳理；粗纺用较短纤维、精纺用较长较整齐纤维，两者对原料长度与均匀度要求不同。储存要防虫防潮，否则虫蛀与霉变先于磨损毁掉织物。",
+        "exceptions": "“羊毛都柔软贴身”不成立：粗毛（地毯毛一类）粗硬刺痒，宜作毯与工业用；未洗净的羊毛脂会黏腻。羊毛也不只来自绵羊：马海毛出自安哥拉山羊、羊绒出自绒山羊，名称相近而纤维性质与采集方式不同，不能混为一类。湿态易毡缩既是缺陷也是工艺基础——可被有意利用（缩绒成毡），也可因洗法不当毁掉成衣。",
+        "story_uses": "适合写换季剪毛与洗毛消耗的水和燃料、羊毛脂的副产用途；一件毛料衣裳的“祖传”与反复修补；把毛料洗坏一次的家庭教训。也可作为赋税、什一税或代役的实物形态。",
+        "historical_scope": "绵羊驯化与长期选育把粗长的外层护毛与细软的底绒分开，是长期过程而非一次性事件；美利奴细毛羊的扩散与近代毛纺业相关，属特定地区脉络。各地开始毛纺织的年代不同，不宜给统一时间线。",
+        "evidence_and_uncertainty": "Britannica 的 wool 条目支撑成分（角蛋白）、直径约16—40微米与长度范围、卷曲—强度—保暖关系、吸湿率、湿态强度下降、毡缩需湿与机械作用、强碱高温有害、精纺与粗纺的原料差异。该条偏重近现代纤维性能，古代剪毛工具与畜群规模的细节未逐项核对，属归纳。"
+      },
+      "source_ids": ["craft_supp_src_britannica_wool", "craft_supp_src_britannica_yarn"],
+      "related_ids": ["craft_supp_woollen_cloth", "craft_supp_felt", "animal_food_sheep", "tools_spindle_whorl"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "craft_supp_woollen_cloth",
+      "name": "毛织物（含缩绒与精纺/粗纺之别）",
+      "aliases": ["毛织物", "woollen cloth", "worsted", "精纺毛织物", "粗纺毛织物", "缩绒", "fulling"],
+      "tags": ["textile", "processed_material", "weaving", "textile_finishing", "animal_fiber"],
+      "summary": "以羊毛纱织成、并经缩绒等整理的织物；粗纺厚实蓬松、精纺细密光洁，是织物层而非纤维层。",
+      "details": {
+        "definition": "毛织物是以羊毛纱为经纬织成的布，常经缩绒（fulling）与起绒整理。粗纺毛织物用较短纤维、纱捻较松，成品厚实蓬松，如毯与粗花呢；精纺毛织物用较长较整齐纤维、纱捻较高，成品细密平滑，如精纺呢面与套装料。二者是同一纤维的不同工艺路线，不是等级高下之分。",
+        "mechanism": "织成后借湿、热与机械作用，让纤维表面的鳞片互相纠缠，织物面积收缩、厚度与密度上升、表面起绒，形成致密保温层；精纺路线因纱捻紧、纤维长而整齐，表面不易起绒，走的是平滑光洁的方向。整理还包括洗、染、干燥与压光，每一步都会改变手感。",
+        "conditions": "缩绒需要水、温度、机械作用与适度碱性或皂类助剂共同作用，缺一环效果就不成立；过度缩绒会失去尺寸与版型。前置是纺与织的能力，以及大量水与燃料（加热洗练）。整理作坊往往需要专门场地与劳力，这与家庭自织自用是两套组织形态。",
+        "exceptions": "毛织物不等于都经过缩绒：精纺面料多不缩绒，靠纱线与组织取得平整表面。毡缩依赖羊毛纤维的鳞片结构，混入过多不毡化纤维就难以成毡，因此混纺毛料的毡缩行为不能按纯毛推断。“毛料必厚”也不成立，精纺可以很薄。",
+        "story_uses": "缩绒作坊的踩踏劳动、水权与季节性用工，是很好的手工业场景；也可写一件外套因洗法不当缩成童装，或精纺与粗纺衣料在身份与场合上的区分。",
+        "historical_scope": "缩绒在中世纪欧洲成为专门行业并形成行会形态，但手工缩绒在更早与更广的地区也存在；不要把欧洲行会组织当成全球普遍形态，也不要把某地普及年代套给所有地区。",
+        "evidence_and_uncertainty": "Britannica 的 wool 条目支撑粗纺/精纺的原料与纱线差异、毡缩的成因与洗护禁忌；felt 条目支撑热、湿、摩擦与缩绒使面积收缩的机制；weaving 条目支撑织造基本动作。本条有意不给缩绒的配方、温度与时长——那属于工艺操作细节，且失当会损伤材料。"
+      },
+      "source_ids": ["craft_supp_src_britannica_wool", "craft_supp_src_britannica_felt", "craft_supp_src_britannica_weaving"],
+      "related_ids": ["craft_supp_wool_fleece", "craft_supp_felt", "tools_loom"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "craft_supp_silk_filament",
+      "name": "蚕丝（生丝与脱胶丝）",
+      "aliases": ["蚕丝", "生丝", "silk", "raw silk", "丝素", "丝胶", "sericin", "fibroin", "缫丝", "reeling"],
+      "tags": ["fibre", "animal_fiber", "animal_product", "textile", "sericulture"],
+      "summary": "家蚕结茧分泌的连续长丝，丝胶把两根丝素黏在一起；生丝是带胶的丝，脱胶后才是柔软光泽的丝。",
+      "details": {
+        "definition": "蚕丝是家蚕（Bombyx mori）幼虫吐丝结茧时分泌的蛋白纤维：丝素构成两根并列的连续长丝，丝胶把两者黏结。刚从茧上缫下的带胶丝叫生丝；经煮练脱去丝胶后的丝柔软且有光泽。它是动物纤维，属纤维层，不是纱线也不是绸。",
+        "mechanism": "长丝在空气中凝固成形，所以单茧可用丝长可达数百米量级，属于天然长丝而非短纤维，因此纺纱所需捻度可以很低。丝胶既是保护层也是黏结剂，使缫丝时能把数根茧丝并合抽拉；只要软化丝胶就能找到丝头并抽卷。脱胶要去除丝胶，丝的重量会明显下降，手感与光泽由此显现。",
+        "conditions": "养蚕依赖桑叶供应与蚕室管理，从卵到结茧是一段密集、不能断供的照料期；茧成后需及时处理，否则蛾会破茧使长丝中断。缫丝需热水软化丝胶、并合数根茧丝并加捻，需稳定水源、燃料与熟练手。生丝储存需避强光与潮湿，否则强度下降。",
+        "exceptions": "丝不只是长丝一种形态：破损茧与断头只能当短纤维重新纺（纺丝、spun silk），性质与长丝纱差别很大，不能互相冒充。野蚕丝（如柞蚕）与家蚕丝在色泽、强度与脱胶难易上不同。丝的“沙沙”声（scroop）不是纤维天生属性，而是整理造成的，也不代表品质。丝绸不等于耐穿：湿态强度明显下降，汗湿与日晒都会损伤。",
+        "story_uses": "养蚕房的温湿与桑叶告急、蚕病一季尽毁，是很好的悬疑与危机背景；缫丝锅边的热水气味与烫手；一束生丝作为赋税、嫁资或暗藏的走私物；一件丝绸衣在雨天被毁。",
+        "historical_scope": "蚕丝业起源中国，其后传至印度、波斯、中亚与地中海世界；6世纪拜占庭获得蚕种的叙述为常见说法，但具体路径属传述而不是单一确定事件。地中海一带曾靠拆解东方丝织物取得丝线的做法说明“有丝可用”与“会养蚕”是两件事。各地蚕业兴衰与近代蚕病、人造纤维竞争相关，属特定地区脉络。",
+        "evidence_and_uncertainty": "Britannica 的 silk 与 sericulture 两条共同支撑：丝素/丝胶双腺分泌、单茧可用丝长量级（约600—900米）、以蒸汽或热风杀蛹、缫丝与加捻、生丝与脱胶、纺丝用短纤维、旦制纤度、湿态强度下降与延伸、丝比羊毛耐热的对比。具体古代缫丝器具形制未核对，本条不写参数与操作步骤。"
+      },
+      "source_ids": ["craft_supp_src_britannica_silk", "craft_supp_src_britannica_sericulture", "craft_supp_src_britannica_yarn"],
+      "related_ids": ["craft_supp_silk_cloth", "craft_supp_cotton_lint", "tools_spindle_whorl"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "craft_supp_silk_cloth",
+      "name": "丝织物（绸、绫、锦一类）",
+      "aliases": ["丝织物", "丝绸", "silk fabric", "锦", "绫", "纺", "纱"],
+      "tags": ["textile", "processed_material", "weaving", "animal_fiber", "luxury_good"],
+      "summary": "以蚕丝纱织成的织物；轻薄、垂坠、易染，但怕汗、碱与久晒。",
+      "details": {
+        "definition": "丝织物是以蚕丝作经、纬的布，包含平纹、斜纹、起绒与提花类组织，以及纱罗一类必用特殊装置的疏松结构。同一织机可通过不同组织与丝线捻度做出很不一样的成品：轻薄透明的、紧密光滑的、厚实提花的。",
+        "mechanism": "丝的长丝属性使纱线可以又细又强、表面光滑，织物因此薄而垂坠、反光好；丝的上染率高，色彩较饱满。代价是湿态强度下降、对强碱与高温敏感、长期日晒会分化；汗液中的盐与酸也会损伤纤维。长丝织造需要更细密的梭口控制与更平滑的导纱面，否则易勾丝。",
+        "conditions": "前置是一整条缫丝—捻线能力与更精细的织造条件：丝线细、张力均匀性要求高，粗糙的筘与综会破坏光泽；提花类还需提花装置与绘图稿。成品需避光避潮存放。丝织在多数历史时期是高价品，常见用途是礼仪、赏赐与远距离贸易，而不是日常粗用。",
+        "exceptions": "不要用“丝绸”概括一切丝制品：生丝面料与脱胶后的绸在手感与重量上差别明显；提花、起绒、纱罗的适用场合不同。“丝一定耐穿”不成立，薄纱与缎面的耐磨性很差。“丝只产自中国”也不成立：印度、波斯、地中海与日本都有各自发展的蚕丝与织造传统。",
+        "story_uses": "可写贡品、赏赐与外交赠礼中的丝绢；一件绸衣被雨水与汗渍毁坏；织工因一根断经而废掉整幅；丝绢作为轻便、高值、易隐藏的支付手段。",
+        "historical_scope": "中国汉以后丝织成为主要出口之一并沿中亚商路西传；地中海一带丝织业与近东、中亚的技术交流有关；不同地区对丝织的禁令、等级规制（如服色与纹样的身份含义）属特定制度脉络，不能当作全时代全地域通用规则。",
+        "evidence_and_uncertainty": "Britannica 的 silk 条目提供了中国蚕丝业的起源叙述、汉以后的外销与商路、地中海一侧的技艺传播与后来欧洲蚕业兴衰；weaving 条目提供组织分类与织造动作；The Met 的贸易综述仅能支撑“丝绢属远距离贸易品”这一背景，不能当织造工艺证据。各时代具体品种与价格未核对。"
+      },
+      "source_ids": ["craft_supp_src_britannica_silk", "craft_supp_src_britannica_weaving", "craft_supp_src_met_silk_trade"],
+      "related_ids": ["craft_supp_silk_filament", "craft_supp_cotton_cloth", "tools_loom"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "craft_supp_bast_fibre",
+      "name": "韧皮纤维（麻纤维：亚麻、大麻、黄麻、苎麻等）",
+      "aliases": ["韧皮纤维", "麻纤维", "bast fibre", "soft fibre", "大麻纤维", "黄麻纤维", "苎麻纤维"],
+      "tags": ["fibre", "plant_fiber", "processed_material", "textile", "cordage"],
+      "summary": "从双子叶植物茎部取出的纤维束（麻），与“某种麻作物”不是同一层：这是已离析的纤维材料，可用于纺纱与制绳。",
+      "details": {
+        "definition": "韧皮纤维是取自双子叶植物茎部的柔软纤维束，位于表皮与木质芯之间，由富纤维素的细胞与果胶黏结；与取自叶片的硬纤维（叶纤维）相对。常见种类包括亚麻、大麻、黄麻、洋麻、苎麻等。它是已从植株上取出并初步离析的材料层，不是作物本身，也不是布。",
+        "mechanism": "纤维束本身可长达数十厘米到一米量级，强度较高、伸长小，所以既适纺纱也适制绳与袋布。纤维被果胶黏在茎上，必须靠沤麻（水或露水环境下的微生物分解）或机械剥皮使纤维与木质部分分离；分离越彻底，纤维越细、越适合细纱；保留成束则得粗而强的纤维，用于绳、袋与粗织物。",
+        "conditions": "收获要选在纤维成熟但未过度木质化的时点；沤麻需可控的水体与时间，水质与温度影响成败，过度就伤纤维。之后还须干燥、揉碎、打麻、梳理。这些工序都是劳力密集且依赖水与场地，与“有麻田”完全不是一回事。细纺还需进一步分纤与梳麻。",
+        "exceptions": "不要把“麻”当单一材料：亚麻纤维细长、适合细布；黄麻粗硬、多用于袋布与包裹；大麻纤维强而粗；苎麻需剥皮并多道分纤。把亚麻的性能套到黄麻上会错。也不要把麻纤维与麻作物、麻布混为一谈：亚麻作物已在 staples 组（staples_flax，作为油料与纤维作物）记录，本条只覆盖离析后的纤维层，不重复作物条目。",
+        "story_uses": "沤麻池的臭味与争水纠纷、打麻季节的扬尘与手工伤、麻绳与麻袋在运输中的地位，都是很具体的场景；也可写“有麻无麻布”——原料在而工艺不在。",
+        "historical_scope": "亚麻纤维的使用可追至史前欧洲湖居遗址与古埃及墓葬（属考古实物证据）；黄麻在近代成为袋布与包裹的主要纤维，与全球贸易包装需求相关。各地麻类分工不同，种黄麻为主还是亚麻为主取决于环境与市场，不可一概而论。",
+        "evidence_and_uncertainty": "Britannica 的 bast fibre 条目支撑韧皮纤维的解剖位置、果胶黏结、沤麻与剥皮两条离析路线、各麻种的分工；linen 条目支撑亚麻纤维需沤麻、干燥、揉碎、打麻的工序链与亚麻的强度/弹性特征。具体沤麻时长与水质参数有意不写（属操作细节且易失败）。"
+      },
+      "source_ids": ["craft_supp_src_britannica_bast_fiber", "craft_supp_src_britannica_linen"],
+      "related_ids": ["craft_supp_linen_cloth", "staples_flax", "tools_rope"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "craft_supp_linen_cloth",
+      "name": "亚麻织物（麻布）",
+      "aliases": ["亚麻布", "麻布", "linen", "linen cloth"],
+      "tags": ["textile", "processed_material", "weaving", "plant_fiber"],
+      "summary": "以亚麻纱织成的布：强度高、干得快、凉爽，但弹性低、易起皱；属织物层，与亚麻作物和麻纤维分开。",
+      "details": {
+        "definition": "亚麻织物是以亚麻纤维纺成纱后织成的布，可作衣料、家用织物与精细织物（细布与花边底布）。它与上一层的亚麻纤维（craft_supp_bast_fibre）和更上一层的亚麻作物（staples_flax）分属三个不同阶段。",
+        "mechanism": "亚麻纤维强度高于棉、伸长小，纱线刚硬，织成的布挺括、导热快，所以贴身有凉感；吸湿释湿快所以干得快、耐日晒。代价是弹性低、易折皱，折痕反复出现在同一位置会磨损断裂。纤维表面较光滑且长，纺纱时需较高的湿度或助剂，否则易断头。",
+        "conditions": "前置是沤麻、打麻、梳麻得到的可用纤维，再经纺纱与织造；细麻纱对纤维长度与均匀度要求更高。洗涤与熨烫需要含水条件，干折易伤纤维。若要漂白或染色，需相应的碱液、日晒或染材与水源。",
+        "exceptions": "“麻布一定粗”不成立：精细亚麻可以很薄、很贵；苏绣一类精细布底即为一例。“麻布永不皱”不成立，正好相反。混纺麻/棉可改善手感与抗皱，但混纺布的行为不能按纯麻推断。此外，同名“linen”在近现代商业中也泛指亚麻风格的家纺，不必然是纯亚麻。",
+        "story_uses": "很好的日常质感材料：夏日衣料、裳裙、粮袋、帆布与丧服；“洗后必须上浆、描平”的家务劳动；折痕与磨损造成的补缀。",
+        "historical_scope": "亚麻织物在古埃及与欧洲史前遗址都有实物，是旧大陆最早的纺织传统之一；亚麻在欧洲中世纪长期是主要衣料纤维，但不宜推成“所有地区都以麻为主”，各地纤维选择取决于可用作物与气候。",
+        "evidence_and_uncertainty": "Britannica 的 linen 条目明确支撑：亚麻一名涵盖纤维—纱—织物三个层、史前瑞士湖居与埃及墓葬的实物证据、比棉更强与干得更快与耐晒、低弹性致皱、吸湿散热快的穿着特征。织造组织与整理的具体做法需另查，本条不写工艺参数。"
+      },
+      "source_ids": ["craft_supp_src_britannica_linen", "craft_supp_src_britannica_bast_fiber", "craft_supp_src_britannica_weaving"],
+      "related_ids": ["craft_supp_bast_fibre", "staples_flax", "craft_supp_cotton_cloth"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "craft_supp_felt",
+      "name": "毡（羊毛非织造织物）",
+      "aliases": ["毡", "felt", "毡子", "缩绒", "felting", "毛毡"],
+      "tags": ["textile", "processed_material", "textile_finishing", "animal_fiber", "nonwoven"],
+      "summary": "不靠纺纱与织造、而靠热湿与摩擦使毛纤维互相纠缠成的片状织物；是纤维直接成型的第二条路线。",
+      "details": {
+        "definition": "毡是靠热、湿与机械摩擦使羊毛、毛皮或某些毛类纤维互相缠结而成的片状织物，不需粘合剂，也不需要先纺成纱、再上织机。它是非织造物，与机织、针织并列而不同路。",
+        "mechanism": "羊毛纤维有鳞片与天然卷曲，在湿、热与反复搓压下，鳞片单向啮合，纤维越缠越紧，面积收缩、厚度与密度上升；少量羊毛可带动大量非毡化纤维一起成毡（据来源，掺至一成羊毛仍可成毡）。关键不是化学粘合，而是“纤维能否互相抱死”。",
+        "conditions": "需要毛源（剪毛、落毛或毛皮）、水、温度与持续的机械作用（踩、搓、压板、缩绒机）；成形之前要开松与梳理使纤维成网与叠层。毡帐、毡靴一类大件要求面积大、厚度均匀，对叠层与缩绒控制要求高，属专门技艺。毡脆弱于长期磨损与虫蛀，储存需干燥防虫。",
+        "exceptions": "不是所有纤维都能单独成毡：棉、麻、化纤需掺入羊毛作“载体”。“毡一定粗糙”不成立，细毛可制成较细的毡帽。毡也与缩绒毛织物不同：后者先织成布再缩绒，前者不经织造。另外不要把毡等同于现代工业毡（后者可用针刺、化学粘合），成形原理并不相同。",
+        "story_uses": "毡帐、毡靴、鞍垫与雨具，是草原与寒冷地区生活的基本配置；踩毡的劳动与集体协作、羊毛的季节性征集、毡的虫蛀与修补，都是很具体的场景。",
+        "historical_scope": "非织造毡被认为是较早的纺织形态之一，内亚游牧族群至今仍用古法制作毡供衣与毡帐；但“最早的纺织就是毡”仍需按具体遗址证据看，不宜当成已定论。各地毡的普及与牧业结构相关，不是全球普遍。",
+        "evidence_and_uncertainty": "Britannica 的 felt 条目支撑定义、热湿摩擦的成毡机制、少量羊毛即可带动混纤、传统工序（梳毛成网—叠层—喷水—蒸汽—压板—缩绒）、面积收缩幅度、非织造与机织/针织的区别、内亚游牧的延续、用途谱系与毛皮帽毡使用汞处理造成的工人中毒（作为历史上存在过的有害工艺的警示，非推荐）。"
+      },
+      "source_ids": ["craft_supp_src_britannica_felt", "craft_supp_src_britannica_wool"],
+      "related_ids": ["craft_supp_wool_fleece", "craft_supp_woollen_cloth", "tools_loom"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "craft_supp_leather",
+      "name": "皮革（鞣制后的动物皮）",
+      "aliases": ["皮革", "leather", "熟皮", "革", "hide", "skin"],
+      "tags": ["processed_material", "animal_product", "leatherworking", "craft"],
+      "summary": "经鞣制使胶原稳定、不腐不溶的动物皮；与生皮、毛皮不同层，也与胶、腱等副产品不同。",
+      "details": {
+        "definition": "皮革是动物皮经化学处理（鞣制）后得到的稳定材料：胶原纤维被交联固定，不再腐烂且不易溶于水。大动物皮称 hide、小动物皮称 skin。哺乳动物皮分表皮、真皮与皮下脂层，制革只用真皮。生皮、毛皮（保留毛的鞣皮）与皮革是不同产品。",
+        "mechanism": "鞣剂排开胶原纤维间的水并把纤维“固定”住，使皮不再适合微生物分解、干后也不板结。植物鞣质（来自树皮、根、叶、果壳）制得的革坚实、耐水，但耗时以周至月计；矿盐（如铬盐）鞣得快、得柔软可挠的革；油鞣（鱼油或动物油揉入）得可反复湿干的软革。成品还需干燥、加脂、染色、柔软等处理才能成为可用的革。",
+        "conditions": "生皮在动物死后数小时内就开始腐败，所以剥皮、去肉、盐腌或干燥等初处理必须及时，这与屠宰季节、运输距离、盐的供应直接相关。鞣制需大量水、鞣材（树皮等）或矿盐、容器与场地，并有强烈气味，常被限制在聚落边缘。技术前提包括对皮的干湿状态与厚薄的判断。",
+        "exceptions": "皮革不等于毛皮，也不等于未鞣的生皮（生皮干后硬、遇水易腐）。鞣革不等于“不会坏”：皮革怕长期潮湿、强碱与霉，也会干裂。“植物鞣必定优于矿盐鞣”不成立：两者适用场合不同（前者坚实耐水、后者柔软适鞋面与服装），不能当等级高低。另需区分：本条不提供任何鞣制配方、浓度、温度或时长。",
+        "story_uses": "非常好的气味与空间描写材料：聚落边缘的鞣皮场、盐与树皮的采购、生皮腐败的时限压力、一张好革的价格。也可写一个人因不会判断皮的状态而报废整张料。",
+        "historical_scope": "鞣革有超过七千年历史；干燥、涂脂揉搓、盐腌、熏烟等初处理先于完整鞣法；植物鞣法在埃及与希伯来传统中有较早记载，中世纪经伊比利亚半岛回流欧洲；铬盐鞣法到 19 世纪末才引入，属近代节点而非全史通用。生皮与鞣材几乎各地可得，所以鞣革在世界上广泛分布。",
+        "evidence_and_uncertainty": "Britannica 的 leather 与 tanning 两条支撑：三层结构与只用真皮、鲜皮含水与蛋白比例、鞣剂三类及其成品差异、植物鞣耗时量级、初处理方式的古老性、地区传播节点、19世纪后期铬盐引入。"
+      },
+      "source_ids": ["craft_supp_src_britannica_leather", "craft_supp_src_britannica_tanning"],
+      "related_ids": ["animal_food_cattle", "craft_supp_awl", "craft_supp_parchment"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "craft_supp_paper",
+      "name": "纸（植物纤维毡合薄片）",
+      "aliases": ["纸", "paper", "手工纸", "构皮纸", "破布纸", "rag paper"],
+      "tags": ["processed_material", "writing_material", "craft", "plant_fiber"],
+      "summary": "把植物纤维打散悬浮于水、在网屏上滤成薄层再压干的毡合片材；是书写与包装的轻质媒材。",
+      "details": {
+        "definition": "纸是以纤维素纤维为主、从水悬浮液中在网屏上滤成并压干的毡合薄片。它与莎草纸（交错层叠压合、未解纤）、羊皮纸（动物皮）、帛（丝织）都是不同材料，不能互相替代地混称。",
+        "mechanism": "打浆使纤维表面起毛、产生帚化，纤维在滤水成层时互相缠抱，干后靠氢键与纤维缠绕获得强度；纤维越长、越柔韧，纸越强。施胶改变纤维表面的亲水性、阻滞墨水渗开；填料与颜料影响白度与不透明。厚度、定量与压光决定手感与用途。",
+        "conditions": "需要稳定的纤维源（韧皮、麻头、旧布、竹、草、树皮）、大量洁净水、打浆与抄纸器具、压榨与干燥场地。手工抄纸受帘模尺寸与人力举持限制，所以单张尺寸有上限；批量与效率的跃升要求机械。",
+        "exceptions": "纸不等于莎草纸，也不等于羊皮纸（很多语言里“parchment”一词兼指高级纸，容易误读）。纸也不是一律不耐久：用破布纤维、少用明矾与酸性助剂的手工纸可以很稳定，而近现代酸性木浆纸反而易脆。“有纸”也不等于“有印刷”或“有识字率”。",
+        "story_uses": "纸坊的水轮、捣臼与抄纸帘，是很好的场景装置；纸的贵贱与文书的可靠程度挂钩；废纸回收再利用的需求。",
+        "historical_scope": "最早的纸残片约在公元前2世纪的中国，约公元105年出现正式工艺记载；751年至中亚、793年至巴格达、14世纪欧洲有多处纸坊。18世纪以前欧洲以亚麻与棉破布为主并出现过原料短缺，19世纪初木材与草类纤维开始替代破布。这些都是有节点的传播与技术变化，不能用一条全球时间线串起来。",
+        "evidence_and_uncertainty": "Britannica 的 paper 与 papermaking 两条支撑：定义与工序链、莎草纸与纸的区别、最早残片与正式记载的时间、传播节点、破布原料及其短缺、施胶的作用与后来松香明矾法、帘模尺寸限制、1798—1807年连续抄纸机。"
+      },
+      "source_ids": ["craft_supp_src_britannica_paper", "craft_supp_src_britannica_papermaking"],
+      "related_ids": ["craft_supp_parchment", "craft_supp_ink", "craft_supp_bast_fibre"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "craft_supp_parchment",
+      "name": "羊皮纸与犊皮纸（书写用动物皮）",
+      "aliases": ["羊皮纸", "parchment", "犊皮纸", "vellum", "皮纸"],
+      "tags": ["processed_material", "writing_material", "animal_product", "craft"],
+      "summary": "经清洗、拉伸与刮削处理的羊、山羊或犊皮，双面可书写；与纸无关，也不是皮革。",
+      "details": {
+        "definition": "羊皮纸是用羊、山羊、犊皮等动物皮经清洗、去毛、拉伸、刮削与干燥制成的书写材料；更精致的小牛皮或仔羊皮制品称为 vellum，后泛指优质羊皮纸。它是动物皮制品，不是植物纤维的纸，也不是供缝制用的皮革（虽同源）。",
+        "mechanism": "拉伸与刮削把皮变薄并绷紧在框架上干燥，胶原纤维在张力下重新排列，形成平整且能双面书写的表面；两侧都可书写这一点推动了册页书（codex）取代卷轴。表面仍需处理以控制吸墨与刮除重写。",
+        "conditions": "需要大量皮张（每本书用皮量很大）、熟练的剥皮与刮削手艺、绷框、砑光器具与干燥空间；皮源供应与牧业规模直接相关。潮湿环境会使皮页变形与霉变，书写后还需防虫。",
+        "exceptions": "不要与纸混为一谈，也不要与“parchment paper”（烘焙用硅油纸）混为一谈——现代语汇里该词已泛化。羊皮纸也不等于 vellum：后者指标更精细的犊皮或仔皮制品，虽然后世用法已宽泛。羊皮纸可被刮除重写（palimpsest），这说明其表面耐磨而并非常规意义上的“可擦除”。",
+        "story_uses": "抄书坊的皮张预算、一张皮页上刮掉重写的秘密、潮湿导致的霉斑与虫眼，都很适合写作文书与知识的保存场景。",
+        "historical_scope": "名称据说源于小亚细亚的帕加马（约公元前2世纪），但更早已有以皮书写的做法；6世纪后需求增加、质量参差，12世纪西欧流行柔软易折的犊皮纸；13世纪以后纸逐渐与之竞争。传播与替代的节拍各地不同。",
+        "evidence_and_uncertainty": "Britannica 的 parchment 条目支撑定义、用皮种类、清洗与拉伸刮削使双面书写可行、与册页书兴起的关系、vellum 的区分、6世纪后品质分化与12世纪风格、以及现代语汇泛化。制造的具体工序与辅料本条不展开。"
+      },
+      "source_ids": ["craft_supp_src_britannica_parchment", "craft_supp_src_britannica_papermaking"],
+      "related_ids": ["craft_supp_paper", "craft_supp_leather", "craft_supp_ink"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "craft_supp_ink",
+      "name": "墨（书写墨与印刷墨）",
+      "aliases": ["墨", "ink", "炭黑墨", "灯炱墨", "铁胆墨", "iron gall ink", "印度墨"],
+      "tags": ["processed_material", "writing_material", "craft", "pigment"],
+      "summary": "颜料或染料分散于载液中的着色流体；炭黑型靠颗粒附着，铁盐—鞣质型靠化学变化由浅变深。",
+      "details": {
+        "definition": "墨是颜料或染料分散/溶解于载液（水、油、清漆等）中形成的流体或浆体，用于书写与印刷。按着色机制可分为以炭黑为主的颗粒型墨（灯炱、炱烟加胶或树胶，制成干锭用时和水）与以铁盐加鞣质提取物为主的化学型墨（初写色淡，放置后变深、不溶于水，是现代蓝黑墨的前身）。",
+        "mechanism": "颗粒型墨靠细颗粒附着在纤维表面与缝隙中，靠胶质把颗粒粘住并控制流动性；化学型墨靠亚铁离子与鞣质形成有色络合物并在空气中继续氧化变深，因此初始颜色与最终颜色不同。书写面（纸的施胶程度、羊皮纸的表面处理）会明显影响笔迹的扩散与牢度。",
+        "conditions": "需要着色原料（炱烟、炭黑、鞣质材料、铁盐）、载液与粘合剂，以及研磨、混合、干燥（制锭）等工序与器具；印刷墨更稠，需与印版、压力及纸张吸收性匹配。墨的保存需防干与防冻。",
+        "exceptions": "“墨都是黑的”不成立，彩色墨、隐色墨、洗水墨都有不同机制。“越黑越好”也不成立：印刷需考虑干燥速度与不蹭脏。铁盐—鞣质墨有已知的长期劣化问题（酸性降解会脆化纸张、锈蚀字形），这是保存领域的常识性风险，而不是配方指引。本条不提供任何配比、浓度或制作步骤。",
+        "story_uses": "很好的细节媒介：写字人自己研墨、墨锭受潮、抄书人因墨质差而重写、书信遇水晕开。印刷场景里还可用“墨太稀则糊、太稠则不匀”的具体麻烦。",
+        "historical_scope": "书写墨约自公元前2500年前后的埃及与中国出现；铁盐—鞣质墨沿用很多个世纪；约1440年前后的欧洲印刷以清漆或熬炼亚麻仁油加灯炱制墨，此后三百年变化不大；1772年英国首次颁发彩色墨专利，19世纪出现化学干燥剂；20世纪墨的制作才成为复杂的化学工业。",
+        "evidence_and_uncertainty": "Britannica 的 ink 条目支撑定义、两类主要墨的机制、书写墨与印刷墨的稠度差异、各地早期用墨、欧洲印刷墨的原料与历史节点、印度墨的稳定剂选择。该条不含具体配方，属“原理层”证据。"
+      },
+      "source_ids": ["craft_supp_src_britannica_ink", "craft_supp_src_britannica_papermaking"],
+      "related_ids": ["craft_supp_paper", "craft_supp_parchment"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "craft_supp_wax",
+      "name": "蜡（蜂蜡与其它天然蜡）",
+      "aliases": ["蜡", "wax", "蜂蜡", "beeswax", "蜜蜡", "羊毛脂", "lanolin", "植物蜡"],
+      "tags": ["processed_material", "animal_product", "plant_product", "craft", "waterproofing"],
+      "summary": "比油脂硬而脆、低温即熔的可塑物质；蜂蜡、羊毛脂、植物蜡与矿物蜡来源与用途差别很大，不能一概而论。",
+      "details": {
+        "definition": "蜡是一类在常温附近可塑、比油脂更硬更脆的物质，多数熔点在 35—100℃ 区间，能形成可抛光的硬膜。按来源分为动物蜡（蜂蜡、羊毛脂、鲸蜡）、植物蜡（巴西棕榈蜡、小烛树蜡、甘蔗蜡）、矿物蜡（地蜡、石蜡一类）与合成蜡。它与脂肪同溶剂、同会污纸，但化学上不同。",
+        "mechanism": "熔点较低使蜡可低温熔化、注入或涂抹，冷却后形成致密膜；这层膜能隔水、减少摩擦、并因可抛光而用于表面整理。不同蜡的硬度、黏度与光泽差别很大，因此同一用途上不能随意互换：硬而光的蜡适抛光，软而韧的蜡适防水与润滑。",
+        "conditions": "蜂蜡来自养蜂：蜜脾割盖、蜜蜡分离后熔于热水，蜡上浮冷却成块。这要求有蜂群、蜜源与相应器具。植物蜡多需特定植物与产区，矿物蜡需开采或炼油工业，这些都不具普适可得性。熔蜡时须隔火或控温，蜡蒸气易燃，这是安全前提。",
+        "exceptions": "不要把蜡与脂肪当同一种东西：蜡为脂肪酸与非甘油醇的酯，不皂化性质与脂肪不同，不应用于做皂。蜂蜡不等于所有蜡：棕榈蜡硬得多，羊毛脂软得多，混用会完全改变手感。市面“蜡”多数是矿物蜡（据来源约九成商品蜡来自石油），这是近代结构，不能推给古代。",
+        "story_uses": "养蜂与取蜡的季节性、蜡的珍贵（它同时是光源、防水与祭祀用品）、蜡烛制作中的控温风险，都能入场景。也可写“蜡有面烛无芯”这类材料齐备而技术不在的情形。",
+        "historical_scope": "蜂蜡是最广泛使用且最重要的动物蜡，早期即用于防水与润滑，也与养蜂业共存；巴西棕榈蜡、小烛树蜡与甘蔗蜡的规模化利用与近代贸易相关；石油蜡的普及属20世纪以后的结构，不能倒推到古代。",
+        "evidence_and_uncertainty": "Britannica 的 wax 条目支撑：蜡的类别与物理特征、熔温区间、动植物蜡的化学构成、蜂蜡自蜂巢热水熔取、羊毛脂为洗毛副产、商品蜡九成来自石油、巴西棕榈与甘蔗蜡的来源。具体某文化的蜡用途谱系需另找考古或民族志材料，本条不展开。"
+      },
+      "source_ids": ["craft_supp_src_britannica_wax", "craft_supp_src_britannica_candle"],
+      "related_ids": ["craft_supp_candle", "flavors_honey", "craft_supp_soap"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "craft_supp_candle",
+      "name": "蜡烛（含油脂烛与烛芯）",
+      "aliases": ["蜡烛", "candle", "牛羊脂烛", "tallow candle", "蜂蜡烛", "烛芯", "wick"],
+      "tags": ["tool", "lighting", "processed_material", "fuel", "craft"],
+      "summary": "以蜡或动物脂包住芯、靠毛细作用把熔化的燃料送上火焰的便携光源；关键在芯，不在燃料单独。",
+      "details": {
+        "definition": "蜡烛是围住一根芯的固体燃料制品，燃料可用动物脂、蜂蜡或后来的硬脂酸、鲸蜡与石蜡等。它靠芯把熔化的燃料吸升到火焰区域蒸发燃烧。无芯的浸脂蕨芯（rushlight）一类在词源上相近，但不是真正的蜡烛。",
+        "mechanism": "点燃后，火焰的热使芯附近燃料熔化，液体沿纤维间隙上升（毛细作用），在高温处蒸发并燃烧；太粗的芯吸油过多、火焰大而熏黑，太细则吸不上而熄。脂烛烧得带烟与臭味，蜂蜡烧得较干净且气味较好，这是燃料纯度与杂质差异的结果。",
+        "conditions": "需要稳定的燃料来源（畜脂或蜂蜡）、芯材（纤维搓成的线）、成形方式（反复浸附或多模浇铸）与防火的烛台。脂烛在黑烟下需常剪烛花，室内通风与火灾风险是真实限制。大规模量产要模具与连续供料。",
+        "exceptions": "古代存在“有脂无芯”的照明物，技术门槛不在燃料而在芯。蜡烛也不等于一切照明：油灯、火炬、灶火与后来的煤气灯、电灯与之共存、各有适用场合。烛的光强曾被当作标准，但那是特定时期的计量惯例，不是蜡烛的属性。",
+        "story_uses": "极好的日常材料：剪烛花的琐事、脂烛的臭味与烟灰、贵客来访才点蜂蜡烛的待客等级、夜间火灾风险。也可写“有脂无芯”的窘境。",
+        "historical_scope": "埃及与克里特公元前3000年量级已有烛台形遗物；最早带芯烛一般归于罗马人；中世纪欧洲普及脂烛、富者与宗教场所用蜂蜡烛；19世纪硬脂酸、鲸蜡与石蜡引入后烛料结构大变，1834年模具机实现量产；20世纪后期又出现棕榈蜡与大豆蜡。这些是不同区域与阶段的节点，不应拼成一条直线。",
+        "evidence_and_uncertainty": "Britannica 的 candle 条目支撑定义、芯与毛细作用的机制、无芯浸脂物与带芯烛的区别、脂烛与蜂蜡烛的性能差异、各阶段材料与时间节点、烛焰的分区与温度量级。具体古代蜡烛配方与尺寸未核对。"
+      },
+      "source_ids": ["craft_supp_src_britannica_candle", "craft_supp_src_britannica_wax"],
+      "related_ids": ["craft_supp_wax", "animal_food_rendered_fat", "flavors_honey"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "craft_supp_soap",
+      "name": "肥皂（油脂与碱反应所得）",
+      "aliases": ["肥皂", "soap", "皂", "皂化", "saponification", "脂肪酸盐"],
+      "tags": ["processed_material", "cleaning_agent", "craft", "animal_product"],
+      "summary": "油脂与碱反应生成的脂肪酸盐，分子兼亲油与亲水两端而能带走油污；与合成洗涤剂不同类。",
+      "details": {
+        "definition": "肥皂是天然油脂（动物脂或植物油）与碱反应（皂化）生成的脂肪酸盐，同时副产甘油。它是表面活性剂的一类，与以石油化工原料合成的洗涤剂在化学上不同。广义上任何水不溶脂肪酸与碱金属或有机碱形成的盐都可称皂，但工业与日常所说的皂主要是水溶性脂肪酸钠或钾盐。",
+        "mechanism": "皂分子一端亲油、一端亲水：亲油端插入油膜与污垢，亲水端向外拉入水中，使污垢被胶束包裹而悬浮，再随水冲走；同时皂液降低水的表面张力，使水能渗入纤维。搅拌与升温加速这一过程。硬水中的钙镁离子会与皂生成不溶物（皂垢），既浪费皂又降低洗净力，这是硬水地区洗涤的现实限制。",
+        "conditions": "需要油脂（畜脂、鱼油或植物油）、碱源（草木灰浸出液或专门的碱）、加热容器与燃料，以及成形与晾干条件。皂化需持续加热与搅拌，皂液对皮肤与眼睛有刺激，操作需防护。原料与碱的品质直接决定皂能否凝固、是否刺激。",
+        "exceptions": "不要把皂与洗涤剂混为一谈：前者对硬水敏感、在酸性水中失效，后者耐受性更好。皂并不是“越碱越好”：残余碱会刺激皮肤、损伤织物。也不是所有皂都能用于洗涤衣物与人体：皂的种类与配比不同。“有油脂与灰”不等于会制皂，碱液浓度与油脂比例的判断是实际操作门槛；本条不提供任何配比、温度或操作步骤。",
+        "story_uses": "皂是很好的“技术社交史”材料：一个地区不熟悉皂的记载、皂作为礼物与珍品、制皂的臭味与专营、皂税与偷制。也可写硬水导致皂不起泡的日常挫折。",
+        "historical_scope": "据来源，皂至少有 2300 年历史；腓尼基人以羊脂与木灰制皂并与高卢人贸易，凯尔特人以动物脂与植物灰制皂（saipo 一词的来源）；罗马帝国时已广知，但直到公元2世纪以后才普遍看重其洗涤功能（此前多作药用）；中世纪欧洲的制皂中心先后在马赛、热那亚与威尼斯，12世纪末英国也有制皂者；英国曾对皂征税，税重时甚至给皂锅加锁。注意这些是西欧与地中海的节点，不适用于所有地区。",
+        "evidence_and_uncertainty": "Britannica 的 soap and detergent 条目支撑定义与皂化化学、胶束去污机制、硬水影响、皂与洗涤剂的区别、以腓尼基人与凯尔特人为代表的早期制皂记载、洗涤功能被重视的时间、中世纪制皂中心、英国皂税。该条侧重欧洲与近代，其它地区的制皂传统本条未核对。"
+      },
+      "source_ids": ["craft_supp_src_britannica_soap"],
+      "related_ids": ["animal_food_rendered_fat", "craft_supp_wax", "materials_lime"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "craft_supp_bone_horn_antler",
+      "name": "骨、角（角质鞘）与鹿角（三种不同硬组织）",
+      "aliases": ["骨材", "角材", "鹿角", "bone", "antler", "horn", "兽角", "牛角"],
+      "tags": ["natural_resource", "animal_product", "processed_material", "craft", "raw_material"],
+      "summary": "骨、鹿角与角是三种不同的动物硬组织：前两者为含胶原与钙盐的骨组织，角主要是骨芯外包一层角蛋白鞘；加工方式因此不同，与象牙（牙本质）也不是同一物。",
+      "details": {
+        "definition": "三者需分开说。**骨（bone）** 是脊椎动物的硬组织，其细胞散在坚硬的细胞间质中，间质主要成分为胶原与磷酸钙——这一组合把骨与几丁质、牙釉质等硬组织区别开。**鹿角（antler）** 完全由骨组成，长在鹿科额骨上，**常见特征为成对、多分叉、每年脱落重生**，生长期外覆血管神经丰富的绒皮（velvet），长成后干脱；但这些是常见形态而非每头必如此：并非所有鹿科物种都长角，性别与年龄也会带来差异（有的种雌雄均长角、有的种无角），且每年脱落也不是每头都必然如期发生。本条未逐一核对具体物种，故只写常见特征。**角（horn，动物学意义上的真角）** 的典型形态是牛、羊、山羊与羚羊头上一对头角，**通常不分叉、角鞘一般终生保留**，结构为骨芯外包一层角（角蛋白）层、外面再覆角质化表皮。需注意两点限定：这是对上述类群典型形态的概括，**不宜当成“所有带角动物”的普遍定律**（角质鞘周期更替、形态变异等例外类群确实存在，但具体物种本条未逐一核对，故不作具体断言）；犀角又是另一回事，由融合的、高度角质化的毛状表皮构成，没有骨芯。三者在工艺上都被用作硬质原料，但不是同一种材料。",
+        "mechanism": "骨与鹿角以骨组织为基础，硬度接近硬木，可刮、钻、锯、锉、磨与抛光；因含胶原，它们有一定韧性而不像石那样脆。角（角质鞘）的主体是角蛋白：角蛋白不溶于冷热水，**对许多普通蛋白酶较耐受**（“不被普通蛋白酶分解”是就一般蛋白酶而言，不能说成“任何条件下都不会降解”——专一的角蛋白酶以及某些微生物与昆虫能分解角质蛋白，这也是角、毛、角质制品会遭虫蛀与微生物侵蚀的原因）；其稳定性来自胱氨酸之间经二硫键的共价交联；纤维长度还随含水量变化（完全水合时约16%水分可伸长10—12%）。热学与湿度响应也因组成而异——角质部分对热水与湿度敏感，而骨组织中的矿物相不是——这是两者工艺差别的基础。鹿角通常成对分叉、可整块取材，适合做柄、锥、针与盘（具体取材受个体年龄与角形影响）。",
+        "conditions": "原料来自狩猎或屠宰副产，有季节性（鹿角更与每年脱落、换角周期绑定）；骨与鹿角需去脂与干燥，否则发臭、开裂；角质材料对水热与干湿循环敏感，不当处理会变形或开裂。加工需利刃、硬石或金属工具与研磨料。三者都可雕刻，但都不能像金属那样锤锻或铸造。",
+        "exceptions": "四个常见误推：① 把角、鹿角、骨当成一种“角骨材料”——鹿角是纯骨、通常每年脱落且多分叉；典型真角是骨芯加角质鞘、角鞘一般终生保留（这是常见情形，不宜推成所有带角动物的定律）；② 把犀角当“角”——它是角质化的毛状表皮，没有骨芯，来源与结构均不同；③ 把骨或鹿角当象牙——象牙属牙本质，后者是构成所有牙齿主体的淡黄色组织，比骨硬但比牙釉质软，主要由磷灰石晶体组成，结构不同，可用截面纹理区分；④ “硬骨可做任何器”不成立，骨的管状与内腔结构限定了取材方式。还需注意：骨与鹿角“含钙”不等于可以当作钙来源使用，本组不提供任何磨粉食用或药用建议。",
+        "story_uses": "很适合写副产品再利用与四类材料的区分：屠宰后骨与角的去向、雕刻匠根据原料选工艺（分叉鹿角可整块取材、角质鞘适合受热成形、骨针要取长骨壁）、一根骨针在织物上的几万次穿孔。也可写“有材料无工具”的窘境。",
+        "historical_scope": "据 Britannica 的手工工具条目，最早的骨制工具约为五十万年前；旧石器晚期已有壳、象牙、鹿角、骨与牙的穿孔器物（drilling-and-boring 条），针条则称骨针与角针已使用至少两万年。这些都是下限估计，且不同地区差异极大。骨雕用途广泛（棋子、人物像、饰品）在骨雕页仅有索引式提及，证据极弱。",
+        "evidence_and_uncertainty": "本条把机制支撑与背景线索分开。**支撑定义与结构的 read 来源**：bone-anatomy（骨的胶原+磷酸钙间质）、horn-zoology（真角为骨芯+角质层+角质化表皮；鹿角为纯骨且脱落；犀角为角质化毛状表皮）、keratin（角蛋白分布、二硫键稳定性、不溶于冷热水、对许多普通蛋白酶较耐受、含水伸长的量级）、antler（鹿角的骨质与每年脱落、绒皮）。**仅作背景线索的 search_only 来源**：bone-carving（只有索引式提及骨雕用途，不足以支撑任何机制或年代论断）。**为什么不再把“兽角加热可软化、可切片压平”当已核实说法**：本轮已读的 horn-zoology 与 keratin 两页均未直接描述该工艺行为（仅认角蛋白的化学稳定性与吸湿行为），因此本条只保留“角质部分对水热与干湿循环敏感”这一条件性表述，并把具体成形工艺列为未核实；如后续取得博物馆或实验考古文献，可再补。**两处普遍性措辞已收口**：真角“不分叉、从不脱落”已改为“通常/一般”并加例外提示（存在角鞘周期更替等类群，但本条未核对到具体物种，故不列具体物种、也不引入未核对的来源）；keratin 的“不被蛋白酶分解”已改为“对许多普通蛋白酶较耐受”，并补上专一降解者（角蛋白酶、某些微生物与昆虫）存在这一边界；鹿角也改为常见特征而非每头必然。"
+      },
+      "source_ids": ["craft_supp_src_britannica_bone_anatomy", "craft_supp_src_britannica_horn_zoology", "craft_supp_src_britannica_keratin", "craft_supp_src_britannica_hand_tool", "craft_supp_src_britannica_needle", "craft_supp_src_britannica_antler", "craft_supp_src_britannica_bone_carving"],
+      "related_ids": ["craft_supp_needle", "craft_supp_awl", "craft_supp_ivory"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "craft_supp_ivory",
+      "name": "象牙与类牙材料",
+      "aliases": ["象牙", "ivory", "牙材", "鲸牙", "海象牙", "dentine"],
+      "tags": ["natural_resource", "animal_product", "craft", "raw_material"],
+      "summary": "象的上门齿的牙本质（不是骨）：比骨硬但比牙釉质软，可雕刻抛光；与骨、角不同物，现代贸易已被禁止。",
+      "details": {
+        "definition": "象牙是象的上门齿（长牙）的牙本质（dentine）；河马、海象、独角鲸、抹香鲸与野猪的牙也被视为象牙类材料，仅因体量小则商业价值低。关键区分：牙本质是构成所有牙齿主体的淡黄色组织，比骨硬但比牙釉质软，主要由磷灰石晶体组成，由成牙本质细胞生成且终生可形成继发性牙本质；而骨的两个主要成分是胶原与磷酸钙。所以象牙不是骨、不是鹿角、也不是角质鞘，用“硬骨”概括它会错。",
+        "mechanism": "象牙密度高、结构均匀，可刮、钻、锯、锉、磨并抛光至光泽，不太怕水，也不燃；这些性质使它既能做细小雕刻，也能做需耐磨的零件。长牙分硬质与软质两类，与产地、颜色与形态相关，硬质更脆而软质更韧。需要区分“质地硬”与“组成同于骨”：牙本质的硬来自磷灰石矿物相，而骨除了矿物相还有大量胶原，两者截面纹理与受力开裂行为不同。",
+        "conditions": "原料来自狩猎与贸易，供给不稳定且具政治与生态后果；加工需锐利的硬钢刃与精细的研磨抛光，工件容易因热或应力开裂。现代国际商业贸易已被 CITES 禁止，任何涉及象牙的故事设定都需考虑其法律与伦理处境。",
+        "exceptions": "三个常见误推：① 把象牙当“骨头的一种”——它是牙本质，与骨不同物（已读 dentin 页明确：牙本质比骨硬但比牙釉质软）；② 把象牙与鹿角、牛角混为一谈——鹿角是纯骨且每年脱落，牛角是骨芯加角质鞘；③ “象牙等于奢侈装饰”也不成立：它也被制成钢琴键、台球、梳子这类功能件，直到被塑料替代。“有象牙就有雕刻业”同样不成立，牙雕需细刃与长期训练。",
+        "story_uses": "适合写高价值、难运输、带道德重量的货物：长牙的运输与隐匿、匠人对材料真假的分辨（骨、角、牙的区别是行内常识）、一件牙器的来历。也可写替代材料（塑料、骨）对旧工艺的冲击。",
+        "historical_scope": "象牙贸易有长期跨区域历史，20世纪后期非洲象数量剧降，1990年 CITES 全面禁止象牙贸易，但黑市持续；钢琴键与台球等大量用途在 20 世纪被塑料等材料取代。这些是近现代节点，不应与古代象牙使用混成一条线。",
+        "evidence_and_uncertainty": "**支撑定义与机制的 read 来源**：ivory（长牙为上门齿、多物种来源、分层生长、硬/软两类、密度与不易燃等物理性质、贸易与保护历史）、dentin（牙本质为牙齿主体、比骨硬但比牙釉质软、磷灰石为主要成分、成牙本质细胞与继发性牙本质）。**仅作背景线索的 search_only 来源**：bone-carving（只有索引式提及骨雕/鲸骨雕刻，未提供任何牙材机制或年代信息）。本条仍不提供任何牙雕刀法、浸泡或着色处理，古代象牙加工的具体工序属未核实范围。"
+      },
+      "source_ids": ["craft_supp_src_britannica_ivory", "craft_supp_src_britannica_dentin", "craft_supp_src_britannica_bone_anatomy", "craft_supp_src_britannica_horn_zoology", "craft_supp_src_britannica_bone_carving"],
+      "related_ids": ["craft_supp_bone_horn_antler", "craft_supp_needle"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "craft_supp_needle",
+      "name": "缝针（骨、角、金属）",
+      "aliases": ["针", "缝针", "needle", "骨针", "钢针", "编织针"],
+      "tags": ["tool", "sewing", "textile", "craft", "bone", "metal"],
+      "summary": "细长杆状、一端尖一端携线的穿孔工具；骨角与金属版本跨度极大，针眼并非一开始就有。",
+      "details": {
+        "definition": "缝针是细长杆状、一端尖锐以便穿过织物或皮革、另一端携带线的工具。早期以骨、角制，后来用铁与钢；编织针与钩针是其变体（钩针无眼、一端带钩）。",
+        "mechanism": "尖端推开纤维而不切断它们（与切刃不同），所以针孔会自行闭合，适合缝合与制鞋；携线端把线带过材料形成缝线。针越细越精密，越适合细密织物；粗针只能处理厚料与粗线。针的形状与光滑度直接影响穿刺阻力与断线。",
+        "conditions": "制作需硬而韧的材料（骨、角、铜合金、钢）与切割、磨尖、钻孔或开槽的工具；针眼是难度最高的一步，需要极细的钻或刻切。金属针还需拉丝与硬化。使用需线、顶针与合适的布。",
+        "exceptions": "并非所有“针”都有针眼：最早的铁针以封闭钩携线，钩针至今无眼。骨针不等于“简陋版钢针”：在细密织物上它仍能工作，只是耐磨与精细度有限。知道需要针不等于会做针——开眼与磨尖都是专门技能。",
+        "story_uses": "非常好的微小物件：一根针的得与失、缝制与修补的日常、骨针与钢针在同一个人手里的差别；也可以写一个不会制针的社会如何依赖交换获得针。",
+        "historical_scope": "骨针与角针已使用至少两万年；最早铁针约在14世纪，无眼而以钩携线；带眼针于15世纪在低地国家生产；现代钢针普及是后来的事。这些是逐层的时间下限，不能拼成一条连续的进步线。",
+        "evidence_and_uncertainty": "Britannica 的 needle 条目支撑定义与结构、骨/角针两万年的时间尺度、14世纪铁针以钩携线、15世纪带眼针产地、编织与钩针的变体。该条较短，未涉古代制针工艺细节。"
+      },
+      "source_ids": ["craft_supp_src_britannica_needle"],
+      "related_ids": ["craft_supp_awl", "craft_supp_bone_horn_antler", "tools_spindle_whorl"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "craft_supp_awl",
+      "name": "锥子（尖头穿孔工具，常为挤压成孔）",
+      "aliases": ["锥子", "awl", "缝锥", "拉线锥", "制鞋锥"],
+      "tags": ["tool", "leatherworking", "sewing", "craft", "woodworking"],
+      "summary": "尖头工具，用于划线、标记与刺小孔；常见方式是靠挤压把纤维推向两侧成孔，而非有刃去材；但具体是否去材取决于材质、含水状态与锥尖形状。",
+      "details": {
+        "definition": "锥子是尖头工具，用于在皮革、木材或布上划线、标记与刺小孔；制鞋用缝锥在皮革上开孔以便埋线，带眼的拉线锥则能在穿孔的同时带过线。它属于穿孔工具（与缝针同类）而不是切削工具；但“穿孔”本身不意味着永不除材。",
+        "mechanism": "已读来源给出的典型机制是：锥子是最简单的成孔工具，像针一样把材料推向一侧而不移除它；而钻、手钻与螺旋钻有刀口，会把材料切下来而留下孔。但这是一个典型方式的描述，不宜推成“对任何材料、任何锥尖都绝不除材”：在硬而脆的材料或尖部磨损变钝后，实际效果可能接近刮削或压裂；相反在湿皮与受热软化的角质材料中，孔缘会部分回缩、形成紧密的孔壁。因此“挤开 vs 切去”是一个谱系而非二分。",
+        "conditions": "需硬而韧的尖杆（骨、角、铜、铁、钢）与柄；维持尖锋利需要磨石与技巧。使用者需掌握力度与角度，过力会撕裂皮革或使木料开裂。孔的回缩量取决于材料含水与黏弹性，所以同一种锥在不同干湿状态下表现不同。",
+        "exceptions": "三个条件性限定：① 不要把锥与钻混用——已读来源明确区分：锥子靠推挤成孔，钻/手钻/螺旋钻有刀口去材；但这不等于锥在所有材料上都不去材（磨钝的锥、硬而脆的材都可能表现不同）；② 锥不能代替缝针——它穿孔而不携线（除带眼拉线锥这类特例）；③ “有尖即可为锥”不成立，锥需耐磨且不易弯折。",
+        "story_uses": "皮革与制鞋场景的具体工具：一双鞋的缝合工序、锥尖磨钝导致的返工（此时“挤孔”变成“刮孔”）、学徒把皮锥断在皮革里的失误。也可写潮度变化让同一个锥今天好今天不好用。",
+        "historical_scope": "旧石器晚期已有壳、象牙、鹿角、骨与牙的穿孔器物；软材（皮革、木材）被认为是用骨或鹿角尖片穿孔的（drilling-and-boring 条，属推测性表述）。锥的单独年代只能依赖摘要页的“早于12世纪”，本条不把它当可靠下限。",
+        "evidence_and_uncertainty": "**支撑机制的 read 来源**：drilling-and-boring tools（锥子为最简单成孔工具、像针一样推开材料而不移除；钻/手钻/螺旋钻有刀口去材）、needle（针类推开而非新断纤维的结构前提）。**仅作背景与定义线索的 search_only 来源**：awl 主页（只能取到摘要与引文，能支撑类型——缝锥、拉线锥——与“挤开而非切去”的对比，但**年代（早于12世纪）仅属摘要表述、未见正文**，故 historical_scope 已注明不采作可靠下限）。本条不再声称“锥一概不去材”，只保留“常见机制为挤压、结果因材而异”这一条件性表述；具体材料与锥形的对应关系属未核实范围。"
+      },
+      "source_ids": ["craft_supp_src_britannica_drilling_tools", "craft_supp_src_britannica_needle", "craft_supp_src_britannica_awl"],
+      "related_ids": ["craft_supp_needle", "craft_supp_leather", "tools_hand_drill"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "craft_supp_scissors",
+      "name": "剪刀与铁剪（含大剪）",
+      "aliases": ["剪刀", "剪子", "scissors", "shears", "铁剪", "裁缝剪"],
+      "tags": ["tool", "cutting", "metalworking", "textile", "craft"],
+      "summary": "两片对置刃靠手柄并拢而剪切的工具；支点式与弹簧式是两种结构，与单刃刀完全不同。",
+      "details": {
+        "definition": "剪刀是两片对置金属刃、靠手柄靠拢而剪切的工具，大型者称 shears（大剪）。分两类结构：支点式以铆钉或螺钉连接剪切端与手柄端；弹簧式则以手柄端的 C 形弹簧连接。",
+        "mechanism": "两刃只在支点与当前剪切点两处接触，其余部分略留间隙，这使刃口能保持较小的夹角而不过度磨损；完全闭合时刃尖相触。剪切靠两刃相对运动切断纤维或薄板，不靠单刃挤压。",
+        "conditions": "需可锻造与淬硬的钢材（据来源碳含量约 0.55—1.03%）、打刃、装配与研磨的手艺；两支刃与紧固件需配套制造，否则贴合不良。钝化后需沿刃面扭转角度重新研磨，这需要专门的磨轮与手法。",
+        "exceptions": "剪刀不是刀：它不能代替刀具做砍、削、剔。支点式与弹簧式不能相提并论：前者更可控、后者结构更简单但开合费力。大剪（shears）用于金属板或修剪，与裁缝剪不同。早期“剪”不等同于现代钢剪，材质与尺寸限制其用途。",
+        "story_uses": "裁缝与理发的日常、把一把剪子用钝了却没人会磨的困扰、金属剪在铁皮加工中的地位；也可写剪刀作为少见日用金属件的稀缺感。",
+        "historical_scope": "弹簧式可能起于青铜时代、欧洲用到中世纪末；青铜与铁质支点剪见于古罗马与中国、日本、朝鲜；欧洲家用自 16 世纪起，1761 年谢菲尔德以铸钢制造后才大规模生产，19 世纪手锻件仍多、世纪末才为机械生产简化样式。这是分地区的多层时间线，不应拼成一条直线。",
+        "evidence_and_uncertainty": "Britannica 的 scissors 条目支撑定义与两类结构、使用地区与时间、钢材碳含量范围、刃面研磨方式、铁皮剪与修枝剪的功能分化。制剪的具体锻造与热处理流程未提供（也不应提供）。"
+      },
+      "source_ids": ["craft_supp_src_britannica_scissors"],
+      "related_ids": ["craft_supp_needle", "tools_kitchen_knife", "materials_steel"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "craft_supp_ax",
+      "name": "斧（伐木与劈裂）",
+      "aliases": ["斧", "斧头", "ax", "axe", "伐木斧"],
+      "tags": ["tool", "woodworking", "clearing", "metal", "human_power"],
+      "summary": "以柄放大冲量与刃口集中压力的砍劈工具；与锛（横向修削）的施力方向不同，不可互代。",
+      "details": {
+        "definition": "斧是用于砍、劈、凿、刺的手工具：刃口垂直作用于柄的轴线，靠摆动的冲量与刃口的集中压力分离木材纤维。它与锛（adze，刃口横置、向自己方向修削平面）施力方向与用途不同，也不同于锹铲（切入土体）与锯（连续切屑）。",
+        "mechanism": "挥动惯性使刃口获得较高动能，极窄的刃口面积把力集中为高局部压力，使木纤维被劈开或切断；柄的长度决定力臂与冲量，柄的形状与装配方式影响控制与安全。刀与柄的固定是技术核心：绑入木套、夹入木材裂口、插入骨臼都是历史上真实的方式。",
+        "conditions": "需可靠木柄（直纹、韧性好的木材）、刃材（石、青铜、铁、钢）与刃口研磨；柄与刃的配合需楔紧、绑扎或铆固，并用湿胀/干燥周期使接口稳定。伐木需场地清理与安全间距，劈柴需锋面与基座，这些劳动组织条件常被忽略。",
+        "exceptions": "斧不等于锛也不等于錾：施力方向与工件固定方式不同。也不是所有斧都能伐木：战斧、投掷斧与劈柴斧的重心与刃角不同。“有铁刃就能大量伐林”不成立，伐林还取决于运输、燃料需求与土地制度（已读页面写到铁刃伐木斧使西北欧大规模清林成为可能，也推广到其它地区，但这属条件性关联）。",
+        "story_uses": "极好的强度场面：清林开荒、伐木季节的协作、柄断与楔松造成的停工；也可写一把斧的传承与修补，作为家庭资产的计量。",
+        "historical_scope": "石斧约在公元前 3 万年前后装上木柄；铜刃斧约公元前 4000 年出现于埃及，后有青铜与铁刃；中世纪铁刃伐木斧与西北欧大规模清林、中世纪农业扩展相关，在东欧、斯堪的纳维亚与美洲等地也起到类似作用；现代钢刃斧部分职能被动力锯取代。这些是地区性节点。",
+        "evidence_and_uncertainty": "Britannica 的 ax 条目支撑定义与用途、装柄与固定方式的多样、铜与青铜与铁的时间与地区、铁刃斧与清林的关联、现代替代。柄的木材选择与锻刃工艺细节未核对。"
+      },
+      "source_ids": ["craft_supp_src_britannica_ax", "craft_supp_src_britannica_hand_tool"],
+      "related_ids": ["tools_adze", "tools_saw", "materials_wrought_iron"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "craft_supp_file",
+      "name": "锉刀（含木锉）",
+      "aliases": ["锉", "锉刀", "file", "rasp", "木锉", "粗锉"],
+      "tags": ["tool", "metalworking", "woodworking", "abrading", "craft"],
+      "summary": "表面布满细密切削齿的硬化钢杆，靠推进磨去少量材料；分级与截面形式众多，与砂磨不同。",
+      "details": {
+        "definition": "锉是硬化钢制的条杆，纵向表面布满许多细小切削齿，靠手推与工件相对运动磨去少量材料，用于修整、成形与配合，尤其用于金属。按截面形状、齿形（单齿、双齿、木锉）与齿的粗细分级。木锉（rasp）齿为独立圆顶、以冲子自表面起毛而成，用于木材与软材料。",
+        "mechanism": "每条齿相当于一个微型刃口，逐次划去极薄一层材料；齿的粗细决定移除速率与表面粗糙度：粗锉去料快但面粗，细锉去料慢但面平。单齿适宜软材料与精修，双齿去料更快。锉与砂磨不同：前者靠固定齿形切削，后者靠磨粒滚划。",
+        "conditions": "制造需高碳工具钢、可控的锻与热处理，以及刻齿或凿齿的专门工序；锉必须比被加工件更硬。使用需固定工件（台钳）与正确推锉姿势，否则平面会锉成曲面。齿间易堵屑，需刷除；锈与潮湿会损毁锉齿。",
+        "exceptions": "锉不能替代磨石或砂纸，也不适用于所有金属（软金属易堆屑）。木锉与金工锉不能互换，齿形与用途都不同。“有锉就能做出精密件”不成立，精度还取决于测量、固定与手法。",
+        "story_uses": "修配与修补的核心工具：一把锉与一只台钳能支撑一个小作坊；也可写齿纹磨平后无法再修、或锉屑混入食物这类细节。",
+        "historical_scope": "已读页面只给定义与分类，未给年代。可确定的是：锉作为硬化钢工具，其普及依赖可稳定获得高碳钢与热处理能力，这使它与熟铁时代的器具不同；具体起源年代本条未核实。",
+        "evidence_and_uncertainty": "Britannica 的 file 条目支撑定义、齿形三分类（单齿/双齿/木锉）、截面至少 20 种的多样、六级粗细分类、木锉齿的起毛做法与用途。年代与工艺史不在该页，本条不作推测。"
+      },
+      "source_ids": ["craft_supp_src_britannica_file"],
+      "related_ids": ["materials_steel", "tools_forge_anvil", "craft_supp_scissors"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "craft_supp_bellows",
+      "name": "风箱（鼓风装置）",
+      "aliases": ["风箱", "bellows", "手风箱", "皮囊鼓风", "鼓风器"],
+      "tags": ["tool", "metalworking", "fuel", "air_supply", "craft"],
+      "summary": "产生定向气流的装置，用阀片与喷嘴把往复动作变成单向送风；是高温作业的隐形前提。本组只描述其构造原理，不给全球起源年代。",
+      "details": {
+        "definition": "风箱是一类用柔性腔体与单向阀把往复动作（开与合）转为定向气流的鼓风装置；已读来源所描述的一种典型形态为：铰接的盒体、周边以柔性材料（常为皮革）密封，内有一片只向内开的阀片，出口为小喷嘴；这种形态用于锻炉与铁工炉，也用于簧风琴与管风琴。重要的是：这是一种具体形态的名称，不应当作“所有鼓风装置的唯一形态”，也不应以它反推全球风箱的起源时间。",
+        "mechanism": "两板分离时腔内形成部分真空，外部空气顶开内阀进入；合拢时内阀被压闭，空气只能从喷嘴出，因此开与合两个行程都能得到可用气流（双动式设计则两向都送风）。喷嘴缩小出口使气流速度提高，从而把燃烧区的供氧与温升推高。在同一原理下，皮囊式、竹管式、双动木箱式等不同构造都能实现，差别在密封、阀数与可维修性。",
+        "conditions": "需密封的柔性侧壁（皮革最为常见）、只向一个方向开的阀、刚性板与铰接件，以及足够的气密性与可维修性；皮革需防干裂与防烤焦。使用需与炉型、燃料、风量匹配，风量过大反而吹走热量与火花、增加烧损。",
+        "exceptions": "三个条件性限定：① 风机≠必然高温：风量、燃料粒度与炉体结构共同决定；② 已读来源所描述的“铰接盒体+柔性侧壁+内阀”只是其中一种历史形态，存在多种地区性构造（皮囊式、竹管式、双动木箱式等），本条不为它们排先后；③ 本组**不给出风箱的全球起源年代**，也不声称某地区为唯一发源地——已读页面只有一句关于其出现于欧洲中世纪的表述，没有可核的年代与地域证据，因此本条不用它作时间叙事。",
+        "story_uses": "铁匠铺的声音与火光、风箱漏气导致的温升不足、皮革被烤脆后的临时修补；也可写一个村落有炉有炭却无风箱的窘境，或只有皮囊而无木箱的技术阶段差。",
+        "historical_scope": "本条不给年代。能写的只有构造与功能关系：这类鼓风装置在锻炉、铁工炉与风琴上使用；已读页面提到它在欧洲中世纪的使用场景，但该页未给出可核的发明年代或跨地区比较，故本组不将其当作全球起点。不同地区鼓风装置的年代与形态需另找专门文献（如冶金考古）再补。",
+        "evidence_and_uncertainty": "Britannica 的 bellows 条目（read）支撑的是构造成面：铰接盒体、内阀只向内开、喷嘴出口、简单手风箱以两块平板与宽皮带密封并以铁环防塌陷、用于锻炉与管风琴。**证据缺口**：该条对“发明于欧洲中世纪”只有一句断言，无年代依据与其他地区对比；本条已把这一句从定义与年代叙述中删去，只在本字段作为“已读页面的说法”记录，不作为事实采纳。因此本条关于全球起源仍属未核实，这是本轮明确保留的弱项。"
+      },
+      "source_ids": ["craft_supp_src_britannica_bellows", "craft_supp_src_britannica_hand_tool"],
+      "related_ids": ["tools_forge_anvil", "materials_charcoal", "materials_iron_metal"],
+      "review_status": "needs_review"
+    }
+  ]
+}

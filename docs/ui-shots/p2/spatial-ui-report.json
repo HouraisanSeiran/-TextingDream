@@ -1,0 +1,92 @@
+{
+  "checks": [
+    {
+      "name": "导入 civsnap",
+      "ok": true,
+      "detail": "sn_3158c2b26e29"
+    },
+    {
+      "name": "底图用作者路由画出来了",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "空间圈选块渲染",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "可放大到街区级别",
+      "ok": true,
+      "detail": "32×"
+    },
+    {
+      "name": "建筑范围画完（4 点已收进多边形）",
+      "ok": true,
+      "detail": "{\"count\":\"\",\"status\":\"已加入这一块（还没保存到服务器）。\"}"
+    },
+    {
+      "name": "仅建筑范围可保存",
+      "ok": true,
+      "detail": "已保存 sd_40ae047f3b0a41c5（rev 0）· 供给未配置：能存，转换会缺项"
+    },
+    {
+      "name": "保存后标供给未配置",
+      "ok": true,
+      "detail": "已保存 sd_40ae047f3b0a41c5（rev 0）· 供给未配置：能存，转换会缺项"
+    },
+    {
+      "name": "拿到草稿 id",
+      "ok": true,
+      "detail": "sd_40ae047f3b0a41c5"
+    },
+    {
+      "name": "无供给转换被拦且说清缺项",
+      "ok": true,
+      "detail": "还不能转换：还没有农田（或你显式填的腹地）"
+    },
+    {
+      "name": "草稿可重载且几何回来",
+      "ok": true,
+      "detail": "{\"site\":\"雪线上的观测站\",\"geo\":\"建筑范围0.0518 km²（已保存）用地块数0\"}"
+    },
+    {
+      "name": "加农田后保存且供给已配置",
+      "ok": true,
+      "detail": "已保存 sd_40ae047f3b0a41c5（rev 1）· 供给已配置"
+    },
+    {
+      "name": "rev 递增（CAS）",
+      "ok": true,
+      "detail": "已保存 sd_40ae047f3b0a41c5（rev 1）· 供给已配置"
+    },
+    {
+      "name": "转换并建出城镇草稿",
+      "ok": true,
+      "detail": "已转换并建城镇草稿 td_5c20925af7c0cff6｜雪线上的观测站四阶段生成、校验、发布与绑定仍在「城镇创作」页完成；这里不发布、不移动故事包指针。去城镇创作 ›"
+    },
+    {
+      "name": "城镇四阶段齐全",
+      "ok": true,
+      "detail": "{\"names\":[\"skeleton\",\"socioeconomy\",\"built\",\"story\"],\"published\":[]}"
+    },
+    {
+      "name": "转换不发布",
+      "ok": true,
+      "detail": "{\"names\":[\"skeleton\",\"socioeconomy\",\"built\",\"story\"],\"published\":[]}"
+    },
+    {
+      "name": "1366 无横向溢出",
+      "ok": true,
+      "detail": "{\"scrollW\":1366,\"clientW\":1366}"
+    },
+    {
+      "name": "无 JS 错误",
+      "ok": true,
+      "detail": ""
+    }
+  ],
+  "failed": 0,
+  "draftId": "sd_40ae047f3b0a41c5",
+  "townId": "td_5c20925af7c0cff6"
+}

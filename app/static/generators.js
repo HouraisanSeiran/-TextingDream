@@ -20,8 +20,8 @@ for(const [kind,title] of Object.entries(generatorKinds)){
   $(kind+'-validate').onclick=()=>safe(async()=>{await saveGenerationEdit(kind);notice('结构校验通过，草稿已保存')});
   $(kind+'-publish').onclick=()=>safe(async()=>{const b=$(kind+'-publish');b.disabled=true;try{const d=await saveGenerationEdit(kind);const saved=await api('/inner/generators/'+d.id+'/save','POST');await refreshGenerators();selectGeneration(saved);notice('已保存到 StoryPackage/'+saved.folder)}finally{b.disabled=activeGenerations[kind]?.status==='saved'}});
 }
-const originalShowGeneratorPage=showPage;
-showPage=async function(id){await originalShowGeneratorPage(id);if(id.startsWith('generator-')){const kind=id.slice(10);const title=generatorKinds[kind];$('page-title').textContent=title;$('breadcrumb').textContent='工作空间 / '+title;await refreshGenerators()}};
+TDNav.alias('generator-world',id=>({page:'world-workshop',before:()=>{$('advanced-world').open=true}}));
+TDNav.alias('generator-worldview',id=>({page:'world-workshop',before:()=>{$('advanced-worldview').open=true}}));
 for(const kind of ['worldview','world']){$(kind+'-editor').style.font='12px/1.6 Consolas, monospace';const option=el('option',generatorKinds[kind]);option.value='generator_'+kind;$('trace-filter').append(option)}
 async function refreshGenerators(){
   generationDrafts=await api('/inner/generators');

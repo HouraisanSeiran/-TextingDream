@@ -1,0 +1,62 @@
+{
+  "id": "short_tavern_cast",
+  "title": "铜杯酒馆：一条衬裤的风波·人物",
+  "characters": [
+    {
+      "id": "player",
+      "name": "我",
+      "public_name": "我",
+      "role": "主角",
+      "location_id": "hall",
+      "personality": {},
+      "state": {},
+      "attributes": {
+        "talent": 55,
+        "strength": 55,
+        "agility": 55,
+        "wisdom": 55,
+        "social": 55,
+        "resilience": 55
+      }
+    },
+    {
+      "id": "bess",
+      "name": "贝丝",
+      "public_name": "贝丝",
+      "role": "次要角色",
+      "location_id": "hall",
+      "personality": {
+        "责任": 0.8,
+        "谨慎": 0.6
+      },
+      "state": {},
+      "attributes": {
+        "talent": 55,
+        "strength": 55,
+        "agility": 55,
+        "wisdom": 55,
+        "social": 55,
+        "resilience": 55
+      }
+    },
+    {
+      "id": "ferryman",
+      "name": "船工托马",
+      "public_name": "船工托马",
+      "role": "次要角色",
+      "location_id": "quay",
+      "personality": {
+        "责任": 0.7
+      },
+      "state": {},
+      "attributes": {
+        "talent": 55,
+        "strength": 55,
+        "agility": 55,
+        "wisdom": 55,
+        "social": 55,
+        "resilience": 55
+      }
+    }
+  ]
+}

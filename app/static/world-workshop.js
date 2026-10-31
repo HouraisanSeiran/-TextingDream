@@ -16,8 +16,7 @@ const authorAtlas=atlasViewer($('author-map'));let activeCreation=null;
 // Retain legacy draft editing as advanced steps in the unified workspace.
 for(const kind of ['worldview','world']){const panel=$('generator-'+kind);panel.classList.remove('page');panel.hidden=false;const d=el('details');d.id='advanced-'+kind;d.append(el('summary',kind==='worldview'?'分步创作 · 世界观基础与历史草稿':'分步创作 · 从已有世界观展开城市'));d.append(panel);workshop.append(d);}
 workshop.append($('generated-package-list').parentElement);
-const workshopShowPage=showPage;
-showPage=async function(id){const legacy=id==='generator-world'||id==='generator-worldview';if(legacy){$('advanced-'+id.slice(10)).open=true;id='world-workshop'}await workshopShowPage(id);if(id==='world-workshop'){$('page-title').textContent='世界创作';$('breadcrumb').textContent='工作空间 / 世界创作';await refreshGenerators();refreshCreationList();if(!activeCreation)await loadCurrentAtlas()}};
+TDNav.register('world-workshop',{title:'世界创作',enter:async()=>{await refreshGenerators();refreshCreationList();if(!activeCreation)await loadCurrentAtlas()}});
 function creationMode(){const expand=$('creation-kind').value==='expand';$('creation-title').parentElement.hidden=expand;$('creation-count').parentElement.hidden=expand;$('creation-help').textContent=expand?'保留当前总概、城市、角色及事件，只补充知识与地图。另存为故事包后可审核并启用，旧旅程保留原版本。':'一次生成世界观、城市文明、人物和事件，再由本地编译地图与故事包。离线模式只提供模板。'}
 $('creation-kind').onchange=creationMode;creationMode();
 for(const [kind,label]of [['expand','补充当前世界'],['complete','完整世界']])$('trace-filter').append(new Option('世界创作 · '+label,'generator_'+kind));

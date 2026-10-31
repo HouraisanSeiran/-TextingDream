@@ -4,8 +4,9 @@ from .contracts import Element, Preferences
 from .provider import Provider
 from .runtime import Runtime, uid, now
 from .prompts import surface_prefix, author_prefix, template
-from .knowledge import retrieve, extract_notes
+from .knowledge import retrieve, extract_notes, notebook
 from . import attributes
+from . import scene_judgment
 
 
 # Offline narration is deterministic and player-visible: a structured behaviour
@@ -84,8 +85,14 @@ class Service:
         self.development = Development(self)
         from .towns_store import TownService
         self.towns = TownService(self)
+        from .spatial_draft import SpatialDraftService
+        self.spatial = SpatialDraftService(self)
         from .element_assembly import ElementAssembly
         self.elements = ElementAssembly(self)
+        # 历史采纳（作者侧）。只读自己的三重文档；不碰 runtime 与 story 包，
+        # 采纳写包时走 runtime.commit_package（与 towns 同一路）。
+        from .world_history_store import WorldHistoryService
+        self.history = WorldHistoryService(self.runtime)
         # 启动时恢复被中断的提交预留（包事务日志已由 Runtime 初始化先处理）。
         self.elements.recover_on_startup()
 
@@ -93,12 +100,41 @@ class Service:
         return {**Preferences().model_dump(), **self.store.get('settings', 'preferences', {}),
                 'surface_thinking': self.provider.config()['thinking_mode'] == 'enabled'}
 
+    async def _local_action(self, s, request):
+        """没有事件时的本地行动：结算一次，保存一次（CAS）。
+
+        ``Runtime.local_action`` 只在候选副本上执行、不写库；这里在**同一个**短锁内
+        把候选写回并 ``save_session`` 一次，所以不存在双重保存或双版 ``state_version``。
+        它不追加 ``active['turns']``（没有事件就没有对话轮），也不调用 ``finish_turn``。
+        持久化失败时异常向上抛，``state_version`` 不递增，调用方不会以为已执行。
+        """
+        result, work = self.runtime.local_action(
+            s, request.action_id, getattr(request, 'confirm', None))
+        self.store.save_session(work)
+        self.runtime.session_files(work).save_notes(
+            '旅程', work['id'], notebook(work))
+        surface = self.runtime.surface(work)
+        # 无事件时没有模型叙述。只附上**服务端已确认**的最小回执（时长与资源前后），
+        # 不写进 turns/archives、不冒充模型回复；持久化已由上面一次 save_session 完成。
+        surface['local_result'] = result.get('local_result')
+        return surface
+
     async def turn(self, session_id, request):
         # Prepare against one saved version, then release the lock while waiting for
         # the model. The final save uses Store's compare-and-swap version check.
         async with self.lock:
             s = self.store.session(session_id)
             expected_version = s.get('state_version', 0)
+            # 没有进行中的事件时，带 action_id 的请求是**本地行动**（如休息）：它不产生
+            # 对话轮，只在候选副本上结算一次，然后在下方的 CAS 保存里提交。
+            # 无 action_id 的普通输入仍走原路（没有事件就没有可叙事的现场）。
+            if request.action_id and not s.get('active'):
+                return await self._local_action(s, request)
+            scene_story = self.runtime.package(s['revision'])['story']
+            scene_enabled = scene_judgment.enabled(scene_story)
+            scene_node = self.runtime.node(s) if s.get('active') else {}
+            scene_action = next((a for a in scene_node.get('actions', [])
+                                 if a['id'] == request.action_id), None)
             result = self.runtime.prepare_turn(s, request)
             context = self.runtime.context(s, 'player', request.message, self.preferences())
             # Only the narrator-visible part of the resolved action reaches the model;
@@ -108,7 +144,9 @@ class Service:
             system = surface_prefix(self.runtime.package(s['revision']), corpus)
             offline = self.provider.config()['offline']
             budget = self.preferences()['context_chars']
-        if offline:
+        if scene_enabled:
+            reply, usage = await scene_judgment.narrate(self, s, request, result, scene_action)
+        elif offline:
             reply = offline_surface(s, result, request)
             usage = {'mode': 'offline', 'calls': 0}
             self.provider.offline_trace('surface', {'system': system, 'tail': context}, reply)

@@ -1,0 +1,3754 @@
+{
+  "id": "native_ns_ad73661dd8054c38",
+  "title": "????????????",
+  "premise": "????????????????????",
+  "character_package_id": "native_ns_ad73661dd8054c38_characters",
+  "locations": [
+    {
+      "id": "city_0",
+      "name": "塞瓦雷拉·城镇入口",
+      "coordinates": [
+        -15.640733,
+        39.074469
+      ],
+      "description": "塞瓦雷拉的城镇入口。街道连接着附近的公共场所。",
+      "neighbors": [
+        "city_0_market",
+        "city_4",
+        "city_9",
+        "city_10",
+        "way_48"
+      ],
+      "scenes": [],
+      "town_id": "city_0",
+      "town_position": [
+        286,
+        358
+      ],
+      "facility_kind": "gate",
+      "civ_ref": {
+        "city_id": "settlement:0",
+        "cell": 10408
+      }
+    },
+    {
+      "id": "city_0_market",
+      "name": "塞瓦雷拉·集市广场",
+      "coordinates": [
+        -15.640733,
+        39.074469
+      ],
+      "description": "塞瓦雷拉的集市广场。街道连接着附近的公共场所。",
+      "neighbors": [
+        "city_0",
+        "city_0_inn",
+        "city_0_workshop",
+        "city_0_hall"
+      ],
+      "scenes": [],
+      "town_id": "city_0",
+      "town_position": [
+        289,
+        212
+      ],
+      "facility_kind": "market",
+      "civ_ref": {
+        "city_id": "settlement:0",
+        "cell": 10408
+      }
+    },
+    {
+      "id": "city_0_inn",
+      "name": "塞瓦雷拉·旅店",
+      "coordinates": [
+        -15.640733,
+        39.074469
+      ],
+      "description": "塞瓦雷拉的旅店。街道连接着附近的公共场所。",
+      "neighbors": [
+        "city_0_market",
+        "city_0_hall"
+      ],
+      "scenes": [],
+      "town_id": "city_0",
+      "town_position": [
+        134,
+        221
+      ],
+      "facility_kind": "inn",
+      "civ_ref": {
+        "city_id": "settlement:0",
+        "cell": 10408
+      }
+    },
+    {
+      "id": "city_0_workshop",
+      "name": "塞瓦雷拉·工坊街",
+      "coordinates": [
+        -15.640733,
+        39.074469
+      ],
+      "description": "塞瓦雷拉的工坊街。街道连接着附近的公共场所。",
+      "neighbors": [
+        "city_0_market",
+        "city_0_dock"
+      ],
+      "scenes": [],
+      "town_id": "city_0",
+      "town_position": [
+        451,
+        207
+      ],
+      "facility_kind": "workshop",
+      "civ_ref": {
+        "city_id": "settlement:0",
+        "cell": 10408
+      }
+    },
+    {
+      "id": "city_0_hall",
+      "name": "塞瓦雷拉·议事厅",
+      "coordinates": [
+        -15.640733,
+        39.074469
+      ],
+      "description": "塞瓦雷拉的议事厅。街道连接着附近的公共场所。",
+      "neighbors": [
+        "city_0_market",
+        "city_0_inn"
+      ],
+      "scenes": [],
+      "town_id": "city_0",
+      "town_position": [
+        287,
+        90
+      ],
+      "facility_kind": "hall",
+      "civ_ref": {
+        "city_id": "settlement:0",
+        "cell": 10408
+      }
+    },
+    {
+      "id": "city_0_dock",
+      "name": "塞瓦雷拉·码头",
+      "coordinates": [
+        -15.640733,
+        39.074469
+      ],
+      "description": "塞瓦雷拉的码头。街道连接着附近的公共场所。",
+      "neighbors": [
+        "city_0_workshop"
+      ],
+      "scenes": [],
+      "town_id": "city_0",
+      "town_position": [
+        456,
+        352
+      ],
+      "facility_kind": "dock",
+      "civ_ref": {
+        "city_id": "settlement:0",
+        "cell": 10408
+      }
+    },
+    {
+      "id": "city_10",
+      "name": "卢纳里诺·城镇入口",
+      "coordinates": [
+        -17.99391,
+        40.51128
+      ],
+      "description": "卢纳里诺的城镇入口。街道连接着附近的公共场所。",
+      "neighbors": [
+        "city_10_market",
+        "city_0",
+        "city_4",
+        "city_3",
+        "city_7"
+      ],
+      "scenes": [],
+      "town_id": "city_10",
+      "town_position": [
+        316,
+        347
+      ],
+      "facility_kind": "gate",
+      "civ_ref": {
+        "city_id": "settlement:10",
+        "cell": 10090
+      }
+    },
+    {
+      "id": "city_10_market",
+      "name": "卢纳里诺·集市广场",
+      "coordinates": [
+        -17.99391,
+        40.51128
+      ],
+      "description": "卢纳里诺的集市广场。街道连接着附近的公共场所。",
+      "neighbors": [
+        "city_10",
+        "city_10_inn",
+        "city_10_workshop",
+        "city_10_hall"
+      ],
+      "scenes": [],
+      "town_id": "city_10",
+      "town_position": [
+        316,
+        212
+      ],
+      "facility_kind": "market",
+      "civ_ref": {
+        "city_id": "settlement:10",
+        "cell": 10090
+      }
+    },
+    {
+      "id": "city_10_inn",
+      "name": "卢纳里诺·旅店",
+      "coordinates": [
+        -17.99391,
+        40.51128
+      ],
+      "description": "卢纳里诺的旅店。街道连接着附近的公共场所。",
+      "neighbors": [
+        "city_10_market",
+        "city_10_hall"
+      ],
+      "scenes": [],
+      "town_id": "city_10",
+      "town_position": [
+        122,
+        219
+      ],
+      "facility_kind": "inn",
+      "civ_ref": {
+        "city_id": "settlement:10",
+        "cell": 10090
+      }
+    },
+    {
+      "id": "city_10_workshop",
+      "name": "卢纳里诺·工坊街",
+      "coordinates": [
+        -17.99391,
+        40.51128
+      ],
+      "description": "卢纳里诺的工坊街。街道连接着附近的公共场所。",
+      "neighbors": [
+        "city_10_market"
+      ],
+      "scenes": [],
+      "town_id": "city_10",
+      "town_position": [
+        462,
+        198
+      ],
+      "facility_kind": "workshop",
+      "civ_ref": {
+        "city_id": "settlement:10",
+        "cell": 10090
+      }
+    },
+    {
+      "id": "city_10_hall",
+      "name": "卢纳里诺·议事厅",
+      "coordinates": [
+        -17.99391,
+        40.51128
+      ],
+      "description": "卢纳里诺的议事厅。街道连接着附近的公共场所。",
+      "neighbors": [
+        "city_10_market",
+        "city_10_well",
+        "city_10_inn"
+      ],
+      "scenes": [],
+      "town_id": "city_10",
+      "town_position": [
+        307,
+        83
+      ],
+      "facility_kind": "hall",
+      "civ_ref": {
+        "city_id": "settlement:10",
+        "cell": 10090
+      }
+    },
+    {
+      "id": "city_10_well",
+      "name": "卢纳里诺·水井广场",
+      "coordinates": [
+        -17.99391,
+        40.51128
+      ],
+      "description": "卢纳里诺的水井广场。街道连接着附近的公共场所。",
+      "neighbors": [
+        "city_10_hall"
+      ],
+      "scenes": [],
+      "town_id": "city_10",
+      "town_position": [
+        134,
+        78
+      ],
+      "facility_kind": "well",
+      "civ_ref": {
+        "city_id": "settlement:10",
+        "cell": 10090
+      }
+    },
+    {
+      "id": "city_4",
+      "name": "卢尼诺·城镇入口",
+      "coordinates": [
+        -12.953106,
+        41.829913
+      ],
+      "description": "卢尼诺的城镇入口。街道连接着附近的公共场所。",
+      "neighbors": [
+        "city_4_market",
+        "city_0",
+        "city_10",
+        "city_13",
+        "city_3"
+      ],
+      "scenes": [],
+      "town_id": "city_4",
+      "town_position": [
+        308,
+        341
+      ],
+      "facility_kind": "gate",
+      "civ_ref": {
+        "city_id": "settlement:4",
+        "cell": 10713
+      }
+    },
+    {
+      "id": "city_4_market",
+      "name": "卢尼诺·集市广场",
+      "coordinates": [
+        -12.953106,
+        41.829913
+      ],
+      "description": "卢尼诺的集市广场。街道连接着附近的公共场所。",
+      "neighbors": [
+        "city_4",
+        "city_4_inn",
+        "city_4_workshop",
+        "city_4_hall"
+      ],
+      "scenes": [],
+      "town_id": "city_4",
+      "town_position": [
+        311,
+        206
+      ],
+      "facility_kind": "market",
+      "civ_ref": {
+        "city_id": "settlement:4",
+        "cell": 10713
+      }
+    },
+    {
+      "id": "city_4_inn",
+      "name": "卢尼诺·旅店",
+      "coordinates": [
+        -12.953106,
+        41.829913
+      ],
+      "description": "卢尼诺的旅店。街道连接着附近的公共场所。",
+      "neighbors": [
+        "city_4_market",
+        "city_4_hall"
+      ],
+      "scenes": [],
+      "town_id": "city_4",
+      "town_position": [
+        128,
+        201
+      ],
+      "facility_kind": "inn",
+      "civ_ref": {
+        "city_id": "settlement:4",
+        "cell": 10713
+      }
+    },
+    {
+      "id": "city_4_workshop",
+      "name": "卢尼诺·工坊街",
+      "coordinates": [
+        -12.953106,
+        41.829913
+      ],
+      "description": "卢尼诺的工坊街。街道连接着附近的公共场所。",
+      "neighbors": [
+        "city_4_market"
+      ],
+      "scenes": [],
+      "town_id": "city_4",
+      "town_position": [
+        437,
+        209
+      ],
+      "facility_kind": "workshop",
+      "civ_ref": {
+        "city_id": "settlement:4",
+        "cell": 10713
+      }
+    },
+    {
+      "id": "city_4_hall",
+      "name": "卢尼诺·议事厅",
+      "coordinates": [
+        -12.953106,
+        41.829913
+      ],
+      "description": "卢尼诺的议事厅。街道连接着附近的公共场所。",
+      "neighbors": [
+        "city_4_market",
+        "city_4_well",
+        "city_4_inn"
+      ],
+      "scenes": [],
+      "town_id": "city_4",
+      "town_position": [
+        289,
+        72
+      ],
+      "facility_kind": "hall",
+      "civ_ref": {
+        "city_id": "settlement:4",
+        "cell": 10713
+      }
+    },
+    {
+      "id": "city_4_well",
+      "name": "卢尼诺·水井广场",
+      "coordinates": [
+        -12.953106,
+        41.829913
+      ],
+      "description": "卢尼诺的水井广场。街道连接着附近的公共场所。",
+      "neighbors": [
+        "city_4_hall"
+      ],
+      "scenes": [],
+      "town_id": "city_4",
+      "town_position": [
+        135,
+        76
+      ],
+      "facility_kind": "well",
+      "civ_ref": {
+        "city_id": "settlement:4",
+        "cell": 10713
+      }
+    },
+    {
+      "id": "city_9",
+      "name": "塞伦纳·城镇入口",
+      "coordinates": [
+        -18.29788,
+        35.733714
+      ],
+      "description": "塞伦纳的城镇入口。街道连接着附近的公共场所。",
+      "neighbors": [
+        "city_9_market",
+        "city_0",
+        "city_2"
+      ],
+      "scenes": [],
+      "town_id": "city_9",
+      "town_position": [
+        295,
+        350
+      ],
+      "facility_kind": "gate",
+      "civ_ref": {
+        "city_id": "settlement:9",
+        "cell": 10581
+      }
+    },
+    {
+      "id": "city_9_market",
+      "name": "塞伦纳·集市广场",
+      "coordinates": [
+        -18.29788,
+        35.733714
+      ],
+      "description": "塞伦纳的集市广场。街道连接着附近的公共场所。",
+      "neighbors": [
+        "city_9",
+        "city_9_inn",
+        "city_9_workshop",
+        "city_9_hall"
+      ],
+      "scenes": [],
+      "town_id": "city_9",
+      "town_position": [
+        315,
+        221
+      ],
+      "facility_kind": "market",
+      "civ_ref": {
+        "city_id": "settlement:9",
+        "cell": 10581
+      }
+    },
+    {
+      "id": "city_9_inn",
+      "name": "塞伦纳·旅店",
+      "coordinates": [
+        -18.29788,
+        35.733714
+      ],
+      "description": "塞伦纳的旅店。街道连接着附近的公共场所。",
+      "neighbors": [
+        "city_9_market",
+        "city_9_hall"
+      ],
+      "scenes": [],
+      "town_id": "city_9",
+      "town_position": [
+        130,
+        202
+      ],
+      "facility_kind": "inn",
+      "civ_ref": {
+        "city_id": "settlement:9",
+        "cell": 10581
+      }
+    },
+    {
+      "id": "city_9_workshop",
+      "name": "塞伦纳·工坊街",
+      "coordinates": [
+        -18.29788,
+        35.733714
+      ],
+      "description": "塞伦纳的工坊街。街道连接着附近的公共场所。",
+      "neighbors": [
+        "city_9_market",
+        "city_9_dock"
+      ],
+      "scenes": [],
+      "town_id": "city_9",
+      "town_position": [
+        441,
+        198
+      ],
+      "facility_kind": "workshop",
+      "civ_ref": {
+        "city_id": "settlement:9",
+        "cell": 10581
+      }
+    },
+    {
+      "id": "city_9_hall",
+      "name": "塞伦纳·议事厅",
+      "coordinates": [
+        -18.29788,
+        35.733714
+      ],
+      "description": "塞伦纳的议事厅。街道连接着附近的公共场所。",
+      "neighbors": [
+        "city_9_market",
+        "city_9_inn"
+      ],
+      "scenes": [],
+      "town_id": "city_9",
+      "town_position": [
+        308,
+        68
+      ],
+      "facility_kind": "hall",
+      "civ_ref": {
+        "city_id": "settlement:9",
+        "cell": 10581
+      }
+    },
+    {
+      "id": "city_9_dock",
+      "name": "塞伦纳·码头",
+      "coordinates": [
+        -18.29788,
+        35.733714
+      ],
+      "description": "塞伦纳的码头。街道连接着附近的公共场所。",
+      "neighbors": [
+        "city_9_workshop"
+      ],
+      "scenes": [],
+      "town_id": "city_9",
+      "town_position": [
+        463,
+        345
+      ],
+      "facility_kind": "dock",
+      "civ_ref": {
+        "city_id": "settlement:9",
+        "cell": 10581
+      }
+    },
+    {
+      "id": "city_13",
+      "name": "阿尔戈纳·城镇入口",
+      "coordinates": [
+        -9.546915,
+        43.046826
+      ],
+      "description": "阿尔戈纳的城镇入口。街道连接着附近的公共场所。",
+      "neighbors": [
+        "city_13_market",
+        "city_4",
+        "way_49"
+      ],
+      "scenes": [],
+      "town_id": "city_13",
+      "town_position": [
+        288,
+        343
+      ],
+      "facility_kind": "gate",
+      "civ_ref": {
+        "city_id": "settlement:13",
+        "cell": 11832
+      }
+    },
+    {
+      "id": "city_13_market",
+      "name": "阿尔戈纳·集市广场",
+      "coordinates": [
+        -9.546915,
+        43.046826
+      ],
+      "description": "阿尔戈纳的集市广场。街道连接着附近的公共场所。",
+      "neighbors": [
+        "city_13",
+        "city_13_inn",
+        "city_13_workshop",
+        "city_13_hall"
+      ],
+      "scenes": [],
+      "town_id": "city_13",
+      "town_position": [
+        288,
+        208
+      ],
+      "facility_kind": "market",
+      "civ_ref": {
+        "city_id": "settlement:13",
+        "cell": 11832
+      }
+    },
+    {
+      "id": "city_13_inn",
+      "name": "阿尔戈纳·旅店",
+      "coordinates": [
+        -9.546915,
+        43.046826
+      ],
+      "description": "阿尔戈纳的旅店。街道连接着附近的公共场所。",
+      "neighbors": [
+        "city_13_market",
+        "city_13_hall"
+      ],
+      "scenes": [],
+      "town_id": "city_13",
+      "town_position": [
+        136,
+        204
+      ],
+      "facility_kind": "inn",
+      "civ_ref": {
+        "city_id": "settlement:13",
+        "cell": 11832
+      }
+    },
+    {
+      "id": "city_13_workshop",
+      "name": "阿尔戈纳·工坊街",
+      "coordinates": [
+        -9.546915,
+        43.046826
+      ],
+      "description": "阿尔戈纳的工坊街。街道连接着附近的公共场所。",
+      "neighbors": [
+        "city_13_market"
+      ],
+      "scenes": [],
+      "town_id": "city_13",
+      "town_position": [
+        468,
+        211
+      ],
+      "facility_kind": "workshop",
+      "civ_ref": {
+        "city_id": "settlement:13",
+        "cell": 11832
+      }
+    },
+    {
+      "id": "city_13_hall",
+      "name": "阿尔戈纳·议事厅",
+      "coordinates": [
+        -9.546915,
+        43.046826
+      ],
+      "description": "阿尔戈纳的议事厅。街道连接着附近的公共场所。",
+      "neighbors": [
+        "city_13_market",
+        "city_13_well",
+        "city_13_inn"
+      ],
+      "scenes": [],
+      "town_id": "city_13",
+      "town_position": [
+        291,
+        71
+      ],
+      "facility_kind": "hall",
+      "civ_ref": {
+        "city_id": "settlement:13",
+        "cell": 11832
+      }
+    },
+    {
+      "id": "city_13_well",
+      "name": "阿尔戈纳·水井广场",
+      "coordinates": [
+        -9.546915,
+        43.046826
+      ],
+      "description": "阿尔戈纳的水井广场。街道连接着附近的公共场所。",
+      "neighbors": [
+        "city_13_hall"
+      ],
+      "scenes": [],
+      "town_id": "city_13",
+      "town_position": [
+        134,
+        69
+      ],
+      "facility_kind": "well",
+      "civ_ref": {
+        "city_id": "settlement:13",
+        "cell": 11832
+      }
+    },
+    {
+      "id": "city_7",
+      "name": "塞拉诺·城镇入口",
+      "coordinates": [
+        -22.151495,
+        41.028689
+      ],
+      "description": "塞拉诺的城镇入口。街道连接着附近的公共场所。",
+      "neighbors": [
+        "city_7_market",
+        "city_10"
+      ],
+      "scenes": [],
+      "town_id": "city_7",
+      "town_position": [
+        318,
+        357
+      ],
+      "facility_kind": "gate",
+      "civ_ref": {
+        "city_id": "settlement:7",
+        "cell": 10052
+      }
+    },
+    {
+      "id": "city_7_market",
+      "name": "塞拉诺·集市广场",
+      "coordinates": [
+        -22.151495,
+        41.028689
+      ],
+      "description": "塞拉诺的集市广场。街道连接着附近的公共场所。",
+      "neighbors": [
+        "city_7",
+        "city_7_inn",
+        "city_7_workshop",
+        "city_7_hall"
+      ],
+      "scenes": [],
+      "town_id": "city_7",
+      "town_position": [
+        307,
+        210
+      ],
+      "facility_kind": "market",
+      "civ_ref": {
+        "city_id": "settlement:7",
+        "cell": 10052
+      }
+    },
+    {
+      "id": "city_7_inn",
+      "name": "塞拉诺·旅店",
+      "coordinates": [
+        -22.151495,
+        41.028689
+      ],
+      "description": "塞拉诺的旅店。街道连接着附近的公共场所。",
+      "neighbors": [
+        "city_7_market",
+        "city_7_hall"
+      ],
+      "scenes": [],
+      "town_id": "city_7",
+      "town_position": [
+        145,
+        210
+      ],
+      "facility_kind": "inn",
+      "civ_ref": {
+        "city_id": "settlement:7",
+        "cell": 10052
+      }
+    },
+    {
+      "id": "city_7_workshop",
+      "name": "塞拉诺·工坊街",
+      "coordinates": [
+        -22.151495,
+        41.028689
+      ],
+      "description": "塞拉诺的工坊街。街道连接着附近的公共场所。",
+      "neighbors": [
+        "city_7_market"
+      ],
+      "scenes": [],
+      "town_id": "city_7",
+      "town_position": [
+        448,
+        216
+      ],
+      "facility_kind": "workshop",
+      "civ_ref": {
+        "city_id": "settlement:7",
+        "cell": 10052
+      }
+    },
+    {
+      "id": "city_7_hall",
+      "name": "塞拉诺·议事厅",
+      "coordinates": [
+        -22.151495,
+        41.028689
+      ],
+      "description": "塞拉诺的议事厅。街道连接着附近的公共场所。",
+      "neighbors": [
+        "city_7_market",
+        "city_7_well",
+        "city_7_inn"
+      ],
+      "scenes": [],
+      "town_id": "city_7",
+      "town_position": [
+        304,
+        89
+      ],
+      "facility_kind": "hall",
+      "civ_ref": {
+        "city_id": "settlement:7",
+        "cell": 10052
+      }
+    },
+    {
+      "id": "city_7_well",
+      "name": "塞拉诺·水井广场",
+      "coordinates": [
+        -22.151495,
+        41.028689
+      ],
+      "description": "塞拉诺的水井广场。街道连接着附近的公共场所。",
+      "neighbors": [
+        "city_7_hall"
+      ],
+      "scenes": [],
+      "town_id": "city_7",
+      "town_position": [
+        123,
+        90
+      ],
+      "facility_kind": "well",
+      "civ_ref": {
+        "city_id": "settlement:7",
+        "cell": 10052
+      }
+    },
+    {
+      "id": "city_3",
+      "name": "维西诺·城镇入口",
+      "coordinates": [
+        -16.190747,
+        43.706617
+      ],
+      "description": "维西诺的城镇入口。街道连接着附近的公共场所。",
+      "neighbors": [
+        "city_3_market",
+        "city_10",
+        "way_48",
+        "city_4",
+        "way_49"
+      ],
+      "scenes": [],
+      "town_id": "city_3",
+      "town_position": [
+        317,
+        344
+      ],
+      "facility_kind": "gate",
+      "civ_ref": {
+        "city_id": "settlement:3",
+        "cell": 10302
+      }
+    },
+    {
+      "id": "city_3_market",
+      "name": "维西诺·集市广场",
+      "coordinates": [
+        -16.190747,
+        43.706617
+      ],
+      "description": "维西诺的集市广场。街道连接着附近的公共场所。",
+      "neighbors": [
+        "city_3",
+        "city_3_inn",
+        "city_3_workshop",
+        "city_3_hall"
+      ],
+      "scenes": [],
+      "town_id": "city_3",
+      "town_position": [
+        294,
+        217
+      ],
+      "facility_kind": "market",
+      "civ_ref": {
+        "city_id": "settlement:3",
+        "cell": 10302
+      }
+    },
+    {
+      "id": "city_3_inn",
+      "name": "维西诺·旅店",
+      "coordinates": [
+        -16.190747,
+        43.706617
+      ],
+      "description": "维西诺的旅店。街道连接着附近的公共场所。",
+      "neighbors": [
+        "city_3_market",
+        "city_3_hall"
+      ],
+      "scenes": [],
+      "town_id": "city_3",
+      "town_position": [
+        148,
+        206
+      ],
+      "facility_kind": "inn",
+      "civ_ref": {
+        "city_id": "settlement:3",
+        "cell": 10302
+      }
+    },
+    {
+      "id": "city_3_workshop",
+      "name": "维西诺·工坊街",
+      "coordinates": [
+        -16.190747,
+        43.706617
+      ],
+      "description": "维西诺的工坊街。街道连接着附近的公共场所。",
+      "neighbors": [
+        "city_3_market"
+      ],
+      "scenes": [],
+      "town_id": "city_3",
+      "town_position": [
+        461,
+        198
+      ],
+      "facility_kind": "workshop",
+      "civ_ref": {
+        "city_id": "settlement:3",
+        "cell": 10302
+      }
+    },
+    {
+      "id": "city_3_hall",
+      "name": "维西诺·议事厅",
+      "coordinates": [
+        -16.190747,
+        43.706617
+      ],
+      "description": "维西诺的议事厅。街道连接着附近的公共场所。",
+      "neighbors": [
+        "city_3_market",
+        "city_3_well",
+        "city_3_inn"
+      ],
+      "scenes": [],
+      "town_id": "city_3",
+      "town_position": [
+        300,
+        76
+      ],
+      "facility_kind": "hall",
+      "civ_ref": {
+        "city_id": "settlement:3",
+        "cell": 10302
+      }
+    },
+    {
+      "id": "city_3_well",
+      "name": "维西诺·水井广场",
+      "coordinates": [
+        -16.190747,
+        43.706617
+      ],
+      "description": "维西诺的水井广场。街道连接着附近的公共场所。",
+      "neighbors": [
+        "city_3_hall"
+      ],
+      "scenes": [],
+      "town_id": "city_3",
+      "town_position": [
+        125,
+        81
+      ],
+      "facility_kind": "well",
+      "civ_ref": {
+        "city_id": "settlement:3",
+        "cell": 10302
+      }
+    },
+    {
+      "id": "city_2",
+      "name": "阿尔多纳·城镇入口",
+      "coordinates": [
+        -19.618911,
+        33.41378
+      ],
+      "description": "阿尔多纳的城镇入口。街道连接着附近的公共场所。",
+      "neighbors": [
+        "city_2_market",
+        "city_9"
+      ],
+      "scenes": [],
+      "town_id": "city_2",
+      "town_position": [
+        316,
+        347
+      ],
+      "facility_kind": "gate",
+      "civ_ref": {
+        "city_id": "settlement:2",
+        "cell": 10437
+      }
+    },
+    {
+      "id": "city_2_market",
+      "name": "阿尔多纳·集市广场",
+      "coordinates": [
+        -19.618911,
+        33.41378
+      ],
+      "description": "阿尔多纳的集市广场。街道连接着附近的公共场所。",
+      "neighbors": [
+        "city_2",
+        "city_2_inn",
+        "city_2_workshop",
+        "city_2_hall"
+      ],
+      "scenes": [],
+      "town_id": "city_2",
+      "town_position": [
+        294,
+        211
+      ],
+      "facility_kind": "market",
+      "civ_ref": {
+        "city_id": "settlement:2",
+        "cell": 10437
+      }
+    },
+    {
+      "id": "city_2_inn",
+      "name": "阿尔多纳·旅店",
+      "coordinates": [
+        -19.618911,
+        33.41378
+      ],
+      "description": "阿尔多纳的旅店。街道连接着附近的公共场所。",
+      "neighbors": [
+        "city_2_market",
+        "city_2_hall"
+      ],
+      "scenes": [],
+      "town_id": "city_2",
+      "town_position": [
+        136,
+        203
+      ],
+      "facility_kind": "inn",
+      "civ_ref": {
+        "city_id": "settlement:2",
+        "cell": 10437
+      }
+    },
+    {
+      "id": "city_2_workshop",
+      "name": "阿尔多纳·工坊街",
+      "coordinates": [
+        -19.618911,
+        33.41378
+      ],
+      "description": "阿尔多纳的工坊街。街道连接着附近的公共场所。",
+      "neighbors": [
+        "city_2_market",
+        "city_2_dock"
+      ],
+      "scenes": [],
+      "town_id": "city_2",
+      "town_position": [
+        457,
+        217
+      ],
+      "facility_kind": "workshop",
+      "civ_ref": {
+        "city_id": "settlement:2",
+        "cell": 10437
+      }
+    },
+    {
+      "id": "city_2_hall",
+      "name": "阿尔多纳·议事厅",
+      "coordinates": [
+        -19.618911,
+        33.41378
+      ],
+      "description": "阿尔多纳的议事厅。街道连接着附近的公共场所。",
+      "neighbors": [
+        "city_2_market",
+        "city_2_inn"
+      ],
+      "scenes": [],
+      "town_id": "city_2",
+      "town_position": [
+        316,
+        68
+      ],
+      "facility_kind": "hall",
+      "civ_ref": {
+        "city_id": "settlement:2",
+        "cell": 10437
+      }
+    },
+    {
+      "id": "city_2_dock",
+      "name": "阿尔多纳·码头",
+      "coordinates": [
+        -19.618911,
+        33.41378
+      ],
+      "description": "阿尔多纳的码头。街道连接着附近的公共场所。",
+      "neighbors": [
+        "city_2_workshop"
+      ],
+      "scenes": [],
+      "town_id": "city_2",
+      "town_position": [
+        472,
+        361
+      ],
+      "facility_kind": "dock",
+      "civ_ref": {
+        "city_id": "settlement:2",
+        "cell": 10437
+      }
+    },
+    {
+      "id": "way_48",
+      "name": "维西诺—塞瓦雷拉沿途驿站",
+      "coordinates": [
+        -14.405672550201416,
+        40.727949142456055
+      ],
+      "description": "旅途中休整和辨认方向的路标。",
+      "neighbors": [
+        "city_3",
+        "city_0"
+      ],
+      "scenes": []
+    },
+    {
+      "id": "way_49",
+      "name": "维西诺—阿尔戈纳沿途驿站",
+      "coordinates": [
+        -12.624739408493042,
+        46.86638832092285
+      ],
+      "description": "旅途中休整和辨认方向的路标。",
+      "neighbors": [
+        "city_3",
+        "city_13"
+      ],
+      "scenes": []
+    }
+  ],
+  "events": [],
+  "items": [],
+  "mechanics": {
+    "local": {
+      "turn_hours": 1,
+      "travel_hours": 2
+    },
+    "map": {
+      "kind": "civ_atlas",
+      "import_id": "sn_989970517e07"
+    },
+    "adventure": {
+      "version": 1,
+      "routes": [
+        {
+          "origin": "city_0",
+          "destination": "city_0_market",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_0_market",
+          "destination": "city_0",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_0_market",
+          "destination": "city_0_inn",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_0_inn",
+          "destination": "city_0_market",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_0_market",
+          "destination": "city_0_workshop",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_0_workshop",
+          "destination": "city_0_market",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_0_market",
+          "destination": "city_0_hall",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_0_hall",
+          "destination": "city_0_market",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_0_workshop",
+          "destination": "city_0_dock",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_0_dock",
+          "destination": "city_0_workshop",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_0_inn",
+          "destination": "city_0_hall",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_0_hall",
+          "destination": "city_0_inn",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_10",
+          "destination": "city_10_market",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_10_market",
+          "destination": "city_10",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_10_market",
+          "destination": "city_10_inn",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_10_inn",
+          "destination": "city_10_market",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_10_market",
+          "destination": "city_10_workshop",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_10_workshop",
+          "destination": "city_10_market",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_10_market",
+          "destination": "city_10_hall",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_10_hall",
+          "destination": "city_10_market",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_10_hall",
+          "destination": "city_10_well",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_10_well",
+          "destination": "city_10_hall",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_10_inn",
+          "destination": "city_10_hall",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_10_hall",
+          "destination": "city_10_inn",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_4",
+          "destination": "city_4_market",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_4_market",
+          "destination": "city_4",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_4_market",
+          "destination": "city_4_inn",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_4_inn",
+          "destination": "city_4_market",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_4_market",
+          "destination": "city_4_workshop",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_4_workshop",
+          "destination": "city_4_market",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_4_market",
+          "destination": "city_4_hall",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_4_hall",
+          "destination": "city_4_market",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_4_hall",
+          "destination": "city_4_well",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_4_well",
+          "destination": "city_4_hall",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_4_inn",
+          "destination": "city_4_hall",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_4_hall",
+          "destination": "city_4_inn",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_9",
+          "destination": "city_9_market",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_9_market",
+          "destination": "city_9",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_9_market",
+          "destination": "city_9_inn",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_9_inn",
+          "destination": "city_9_market",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_9_market",
+          "destination": "city_9_workshop",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_9_workshop",
+          "destination": "city_9_market",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_9_market",
+          "destination": "city_9_hall",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_9_hall",
+          "destination": "city_9_market",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_9_workshop",
+          "destination": "city_9_dock",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_9_dock",
+          "destination": "city_9_workshop",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_9_inn",
+          "destination": "city_9_hall",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_9_hall",
+          "destination": "city_9_inn",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_13",
+          "destination": "city_13_market",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_13_market",
+          "destination": "city_13",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_13_market",
+          "destination": "city_13_inn",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_13_inn",
+          "destination": "city_13_market",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_13_market",
+          "destination": "city_13_workshop",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_13_workshop",
+          "destination": "city_13_market",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_13_market",
+          "destination": "city_13_hall",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_13_hall",
+          "destination": "city_13_market",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_13_hall",
+          "destination": "city_13_well",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_13_well",
+          "destination": "city_13_hall",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_13_inn",
+          "destination": "city_13_hall",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_13_hall",
+          "destination": "city_13_inn",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_7",
+          "destination": "city_7_market",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_7_market",
+          "destination": "city_7",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_7_market",
+          "destination": "city_7_inn",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_7_inn",
+          "destination": "city_7_market",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_7_market",
+          "destination": "city_7_workshop",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_7_workshop",
+          "destination": "city_7_market",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_7_market",
+          "destination": "city_7_hall",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_7_hall",
+          "destination": "city_7_market",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_7_hall",
+          "destination": "city_7_well",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_7_well",
+          "destination": "city_7_hall",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_7_inn",
+          "destination": "city_7_hall",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_7_hall",
+          "destination": "city_7_inn",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_3",
+          "destination": "city_3_market",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_3_market",
+          "destination": "city_3",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_3_market",
+          "destination": "city_3_inn",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_3_inn",
+          "destination": "city_3_market",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_3_market",
+          "destination": "city_3_workshop",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_3_workshop",
+          "destination": "city_3_market",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_3_market",
+          "destination": "city_3_hall",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_3_hall",
+          "destination": "city_3_market",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_3_hall",
+          "destination": "city_3_well",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_3_well",
+          "destination": "city_3_hall",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_3_inn",
+          "destination": "city_3_hall",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_3_hall",
+          "destination": "city_3_inn",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_2",
+          "destination": "city_2_market",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_2_market",
+          "destination": "city_2",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_2_market",
+          "destination": "city_2_inn",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_2_inn",
+          "destination": "city_2_market",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_2_market",
+          "destination": "city_2_workshop",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_2_workshop",
+          "destination": "city_2_market",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_2_market",
+          "destination": "city_2_hall",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_2_hall",
+          "destination": "city_2_market",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_2_workshop",
+          "destination": "city_2_dock",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_2_dock",
+          "destination": "city_2_workshop",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_2_inn",
+          "destination": "city_2_hall",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_2_hall",
+          "destination": "city_2_inn",
+          "kind": "street",
+          "hours": 1,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_0",
+          "destination": "city_4",
+          "kind": "road",
+          "hours": 77,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_4",
+          "destination": "city_0",
+          "kind": "road",
+          "hours": 77,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_0",
+          "destination": "city_9",
+          "kind": "road",
+          "hours": 90,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_9",
+          "destination": "city_0",
+          "kind": "road",
+          "hours": 90,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_10",
+          "destination": "city_0",
+          "kind": "sea",
+          "hours": 28,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_0",
+          "destination": "city_10",
+          "kind": "sea",
+          "hours": 28,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_10",
+          "destination": "city_4",
+          "kind": "trail",
+          "hours": 167,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_4",
+          "destination": "city_10",
+          "kind": "trail",
+          "hours": 167,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_10",
+          "destination": "city_3",
+          "kind": "trail",
+          "hours": 139,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_3",
+          "destination": "city_10",
+          "kind": "trail",
+          "hours": 139,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_4",
+          "destination": "city_13",
+          "kind": "road",
+          "hours": 66,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_13",
+          "destination": "city_4",
+          "kind": "road",
+          "hours": 66,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_7",
+          "destination": "city_10",
+          "kind": "trail",
+          "hours": 134,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_10",
+          "destination": "city_7",
+          "kind": "trail",
+          "hours": 134,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_3",
+          "destination": "way_48",
+          "kind": "trail",
+          "hours": 129,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "way_48",
+          "destination": "city_3",
+          "kind": "trail",
+          "hours": 129,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "way_48",
+          "destination": "city_0",
+          "kind": "road",
+          "hours": 43,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_0",
+          "destination": "way_48",
+          "kind": "road",
+          "hours": 43,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_3",
+          "destination": "city_4",
+          "kind": "trail",
+          "hours": 146,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_4",
+          "destination": "city_3",
+          "kind": "trail",
+          "hours": 146,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_3",
+          "destination": "way_49",
+          "kind": "trail",
+          "hours": 153,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "way_49",
+          "destination": "city_3",
+          "kind": "trail",
+          "hours": 153,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "way_49",
+          "destination": "city_13",
+          "kind": "road",
+          "hours": 101,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_13",
+          "destination": "way_49",
+          "kind": "road",
+          "hours": 101,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_2",
+          "destination": "city_9",
+          "kind": "trail",
+          "hours": 114,
+          "import_id": "sn_989970517e07"
+        },
+        {
+          "origin": "city_9",
+          "destination": "city_2",
+          "kind": "trail",
+          "hours": 114,
+          "import_id": "sn_989970517e07"
+        }
+      ]
+    },
+    "exploration": {
+      "version": 1,
+      "towns": [
+        {
+          "id": "city_0",
+          "name": "塞瓦雷拉",
+          "cell": 10408,
+          "city_id": "settlement:0",
+          "nodes": [
+            {
+              "id": "city_0",
+              "name": "城镇入口",
+              "position": [
+                286,
+                358
+              ],
+              "kind": "gate"
+            },
+            {
+              "id": "city_0_market",
+              "name": "集市广场",
+              "position": [
+                289,
+                212
+              ],
+              "kind": "market"
+            },
+            {
+              "id": "city_0_inn",
+              "name": "旅店",
+              "position": [
+                134,
+                221
+              ],
+              "kind": "inn"
+            },
+            {
+              "id": "city_0_workshop",
+              "name": "工坊街",
+              "position": [
+                451,
+                207
+              ],
+              "kind": "workshop"
+            },
+            {
+              "id": "city_0_hall",
+              "name": "议事厅",
+              "position": [
+                287,
+                90
+              ],
+              "kind": "hall"
+            },
+            {
+              "id": "city_0_dock",
+              "name": "码头",
+              "position": [
+                456,
+                352
+              ],
+              "kind": "dock"
+            }
+          ],
+          "streets": [
+            [
+              "city_0",
+              "city_0_market"
+            ],
+            [
+              "city_0_market",
+              "city_0_inn"
+            ],
+            [
+              "city_0_market",
+              "city_0_workshop"
+            ],
+            [
+              "city_0_market",
+              "city_0_hall"
+            ],
+            [
+              "city_0_workshop",
+              "city_0_dock"
+            ],
+            [
+              "city_0_inn",
+              "city_0_hall"
+            ]
+          ],
+          "source": "civ_site_generated_plan",
+          "coordinates": [
+            -15.640733,
+            39.074469
+          ]
+        },
+        {
+          "id": "city_10",
+          "name": "卢纳里诺",
+          "cell": 10090,
+          "city_id": "settlement:10",
+          "nodes": [
+            {
+              "id": "city_10",
+              "name": "城镇入口",
+              "position": [
+                316,
+                347
+              ],
+              "kind": "gate"
+            },
+            {
+              "id": "city_10_market",
+              "name": "集市广场",
+              "position": [
+                316,
+                212
+              ],
+              "kind": "market"
+            },
+            {
+              "id": "city_10_inn",
+              "name": "旅店",
+              "position": [
+                122,
+                219
+              ],
+              "kind": "inn"
+            },
+            {
+              "id": "city_10_workshop",
+              "name": "工坊街",
+              "position": [
+                462,
+                198
+              ],
+              "kind": "workshop"
+            },
+            {
+              "id": "city_10_hall",
+              "name": "议事厅",
+              "position": [
+                307,
+                83
+              ],
+              "kind": "hall"
+            },
+            {
+              "id": "city_10_well",
+              "name": "水井广场",
+              "position": [
+                134,
+                78
+              ],
+              "kind": "well"
+            }
+          ],
+          "streets": [
+            [
+              "city_10",
+              "city_10_market"
+            ],
+            [
+              "city_10_market",
+              "city_10_inn"
+            ],
+            [
+              "city_10_market",
+              "city_10_workshop"
+            ],
+            [
+              "city_10_market",
+              "city_10_hall"
+            ],
+            [
+              "city_10_hall",
+              "city_10_well"
+            ],
+            [
+              "city_10_inn",
+              "city_10_hall"
+            ]
+          ],
+          "source": "civ_site_generated_plan",
+          "coordinates": [
+            -17.99391,
+            40.51128
+          ]
+        },
+        {
+          "id": "city_4",
+          "name": "卢尼诺",
+          "cell": 10713,
+          "city_id": "settlement:4",
+          "nodes": [
+            {
+              "id": "city_4",
+              "name": "城镇入口",
+              "position": [
+                308,
+                341
+              ],
+              "kind": "gate"
+            },
+            {
+              "id": "city_4_market",
+              "name": "集市广场",
+              "position": [
+                311,
+                206
+              ],
+              "kind": "market"
+            },
+            {
+              "id": "city_4_inn",
+              "name": "旅店",
+              "position": [
+                128,
+                201
+              ],
+              "kind": "inn"
+            },
+            {
+              "id": "city_4_workshop",
+              "name": "工坊街",
+              "position": [
+                437,
+                209
+              ],
+              "kind": "workshop"
+            },
+            {
+              "id": "city_4_hall",
+              "name": "议事厅",
+              "position": [
+                289,
+                72
+              ],
+              "kind": "hall"
+            },
+            {
+              "id": "city_4_well",
+              "name": "水井广场",
+              "position": [
+                135,
+                76
+              ],
+              "kind": "well"
+            }
+          ],
+          "streets": [
+            [
+              "city_4",
+              "city_4_market"
+            ],
+            [
+              "city_4_market",
+              "city_4_inn"
+            ],
+            [
+              "city_4_market",
+              "city_4_workshop"
+            ],
+            [
+              "city_4_market",
+              "city_4_hall"
+            ],
+            [
+              "city_4_hall",
+              "city_4_well"
+            ],
+            [
+              "city_4_inn",
+              "city_4_hall"
+            ]
+          ],
+          "source": "civ_site_generated_plan",
+          "coordinates": [
+            -12.953106,
+            41.829913
+          ]
+        },
+        {
+          "id": "city_9",
+          "name": "塞伦纳",
+          "cell": 10581,
+          "city_id": "settlement:9",
+          "nodes": [
+            {
+              "id": "city_9",
+              "name": "城镇入口",
+              "position": [
+                295,
+                350
+              ],
+              "kind": "gate"
+            },
+            {
+              "id": "city_9_market",
+              "name": "集市广场",
+              "position": [
+                315,
+                221
+              ],
+              "kind": "market"
+            },
+            {
+              "id": "city_9_inn",
+              "name": "旅店",
+              "position": [
+                130,
+                202
+              ],
+              "kind": "inn"
+            },
+            {
+              "id": "city_9_workshop",
+              "name": "工坊街",
+              "position": [
+                441,
+                198
+              ],
+              "kind": "workshop"
+            },
+            {
+              "id": "city_9_hall",
+              "name": "议事厅",
+              "position": [
+                308,
+                68
+              ],
+              "kind": "hall"
+            },
+            {
+              "id": "city_9_dock",
+              "name": "码头",
+              "position": [
+                463,
+                345
+              ],
+              "kind": "dock"
+            }
+          ],
+          "streets": [
+            [
+              "city_9",
+              "city_9_market"
+            ],
+            [
+              "city_9_market",
+              "city_9_inn"
+            ],
+            [
+              "city_9_market",
+              "city_9_workshop"
+            ],
+            [
+              "city_9_market",
+              "city_9_hall"
+            ],
+            [
+              "city_9_workshop",
+              "city_9_dock"
+            ],
+            [
+              "city_9_inn",
+              "city_9_hall"
+            ]
+          ],
+          "source": "civ_site_generated_plan",
+          "coordinates": [
+            -18.29788,
+            35.733714
+          ]
+        },
+        {
+          "id": "city_13",
+          "name": "阿尔戈纳",
+          "cell": 11832,
+          "city_id": "settlement:13",
+          "nodes": [
+            {
+              "id": "city_13",
+              "name": "城镇入口",
+              "position": [
+                288,
+                343
+              ],
+              "kind": "gate"
+            },
+            {
+              "id": "city_13_market",
+              "name": "集市广场",
+              "position": [
+                288,
+                208
+              ],
+              "kind": "market"
+            },
+            {
+              "id": "city_13_inn",
+              "name": "旅店",
+              "position": [
+                136,
+                204
+              ],
+              "kind": "inn"
+            },
+            {
+              "id": "city_13_workshop",
+              "name": "工坊街",
+              "position": [
+                468,
+                211
+              ],
+              "kind": "workshop"
+            },
+            {
+              "id": "city_13_hall",
+              "name": "议事厅",
+              "position": [
+                291,
+                71
+              ],
+              "kind": "hall"
+            },
+            {
+              "id": "city_13_well",
+              "name": "水井广场",
+              "position": [
+                134,
+                69
+              ],
+              "kind": "well"
+            }
+          ],
+          "streets": [
+            [
+              "city_13",
+              "city_13_market"
+            ],
+            [
+              "city_13_market",
+              "city_13_inn"
+            ],
+            [
+              "city_13_market",
+              "city_13_workshop"
+            ],
+            [
+              "city_13_market",
+              "city_13_hall"
+            ],
+            [
+              "city_13_hall",
+              "city_13_well"
+            ],
+            [
+              "city_13_inn",
+              "city_13_hall"
+            ]
+          ],
+          "source": "civ_site_generated_plan",
+          "coordinates": [
+            -9.546915,
+            43.046826
+          ]
+        },
+        {
+          "id": "city_7",
+          "name": "塞拉诺",
+          "cell": 10052,
+          "city_id": "settlement:7",
+          "nodes": [
+            {
+              "id": "city_7",
+              "name": "城镇入口",
+              "position": [
+                318,
+                357
+              ],
+              "kind": "gate"
+            },
+            {
+              "id": "city_7_market",
+              "name": "集市广场",
+              "position": [
+                307,
+                210
+              ],
+              "kind": "market"
+            },
+            {
+              "id": "city_7_inn",
+              "name": "旅店",
+              "position": [
+                145,
+                210
+              ],
+              "kind": "inn"
+            },
+            {
+              "id": "city_7_workshop",
+              "name": "工坊街",
+              "position": [
+                448,
+                216
+              ],
+              "kind": "workshop"
+            },
+            {
+              "id": "city_7_hall",
+              "name": "议事厅",
+              "position": [
+                304,
+                89
+              ],
+              "kind": "hall"
+            },
+            {
+              "id": "city_7_well",
+              "name": "水井广场",
+              "position": [
+                123,
+                90
+              ],
+              "kind": "well"
+            }
+          ],
+          "streets": [
+            [
+              "city_7",
+              "city_7_market"
+            ],
+            [
+              "city_7_market",
+              "city_7_inn"
+            ],
+            [
+              "city_7_market",
+              "city_7_workshop"
+            ],
+            [
+              "city_7_market",
+              "city_7_hall"
+            ],
+            [
+              "city_7_hall",
+              "city_7_well"
+            ],
+            [
+              "city_7_inn",
+              "city_7_hall"
+            ]
+          ],
+          "source": "civ_site_generated_plan",
+          "coordinates": [
+            -22.151495,
+            41.028689
+          ]
+        },
+        {
+          "id": "city_3",
+          "name": "维西诺",
+          "cell": 10302,
+          "city_id": "settlement:3",
+          "nodes": [
+            {
+              "id": "city_3",
+              "name": "城镇入口",
+              "position": [
+                317,
+                344
+              ],
+              "kind": "gate"
+            },
+            {
+              "id": "city_3_market",
+              "name": "集市广场",
+              "position": [
+                294,
+                217
+              ],
+              "kind": "market"
+            },
+            {
+              "id": "city_3_inn",
+              "name": "旅店",
+              "position": [
+                148,
+                206
+              ],
+              "kind": "inn"
+            },
+            {
+              "id": "city_3_workshop",
+              "name": "工坊街",
+              "position": [
+                461,
+                198
+              ],
+              "kind": "workshop"
+            },
+            {
+              "id": "city_3_hall",
+              "name": "议事厅",
+              "position": [
+                300,
+                76
+              ],
+              "kind": "hall"
+            },
+            {
+              "id": "city_3_well",
+              "name": "水井广场",
+              "position": [
+                125,
+                81
+              ],
+              "kind": "well"
+            }
+          ],
+          "streets": [
+            [
+              "city_3",
+              "city_3_market"
+            ],
+            [
+              "city_3_market",
+              "city_3_inn"
+            ],
+            [
+              "city_3_market",
+              "city_3_workshop"
+            ],
+            [
+              "city_3_market",
+              "city_3_hall"
+            ],
+            [
+              "city_3_hall",
+              "city_3_well"
+            ],
+            [
+              "city_3_inn",
+              "city_3_hall"
+            ]
+          ],
+          "source": "civ_site_generated_plan",
+          "coordinates": [
+            -16.190747,
+            43.706617
+          ]
+        },
+        {
+          "id": "city_2",
+          "name": "阿尔多纳",
+          "cell": 10437,
+          "city_id": "settlement:2",
+          "nodes": [
+            {
+              "id": "city_2",
+              "name": "城镇入口",
+              "position": [
+                316,
+                347
+              ],
+              "kind": "gate"
+            },
+            {
+              "id": "city_2_market",
+              "name": "集市广场",
+              "position": [
+                294,
+                211
+              ],
+              "kind": "market"
+            },
+            {
+              "id": "city_2_inn",
+              "name": "旅店",
+              "position": [
+                136,
+                203
+              ],
+              "kind": "inn"
+            },
+            {
+              "id": "city_2_workshop",
+              "name": "工坊街",
+              "position": [
+                457,
+                217
+              ],
+              "kind": "workshop"
+            },
+            {
+              "id": "city_2_hall",
+              "name": "议事厅",
+              "position": [
+                316,
+                68
+              ],
+              "kind": "hall"
+            },
+            {
+              "id": "city_2_dock",
+              "name": "码头",
+              "position": [
+                472,
+                361
+              ],
+              "kind": "dock"
+            }
+          ],
+          "streets": [
+            [
+              "city_2",
+              "city_2_market"
+            ],
+            [
+              "city_2_market",
+              "city_2_inn"
+            ],
+            [
+              "city_2_market",
+              "city_2_workshop"
+            ],
+            [
+              "city_2_market",
+              "city_2_hall"
+            ],
+            [
+              "city_2_workshop",
+              "city_2_dock"
+            ],
+            [
+              "city_2_inn",
+              "city_2_hall"
+            ]
+          ],
+          "source": "civ_site_generated_plan",
+          "coordinates": [
+            -19.618911,
+            33.41378
+          ]
+        }
+      ],
+      "roads": [
+        {
+          "id": "road_0",
+          "origin": "city_0",
+          "destination": "city_0_market",
+          "kind": "street",
+          "hours": 1,
+          "distance_km": 0.29,
+          "points": [],
+          "source": "generated_town_plan"
+        },
+        {
+          "id": "road_1",
+          "origin": "city_0_market",
+          "destination": "city_0_inn",
+          "kind": "street",
+          "hours": 1,
+          "distance_km": 0.31,
+          "points": [],
+          "source": "generated_town_plan"
+        },
+        {
+          "id": "road_2",
+          "origin": "city_0_market",
+          "destination": "city_0_workshop",
+          "kind": "street",
+          "hours": 1,
+          "distance_km": 0.32,
+          "points": [],
+          "source": "generated_town_plan"
+        },
+        {
+          "id": "road_3",
+          "origin": "city_0_market",
+          "destination": "city_0_hall",
+          "kind": "street",
+          "hours": 1,
+          "distance_km": 0.24,
+          "points": [],
+          "source": "generated_town_plan"
+        },
+        {
+          "id": "road_4",
+          "origin": "city_0_workshop",
+          "destination": "city_0_dock",
+          "kind": "street",
+          "hours": 1,
+          "distance_km": 0.29,
+          "points": [],
+          "source": "generated_town_plan"
+        },
+        {
+          "id": "road_5",
+          "origin": "city_0_inn",
+          "destination": "city_0_hall",
+          "kind": "street",
+          "hours": 1,
+          "distance_km": 0.4,
+          "points": [],
+          "source": "generated_town_plan"
+        },
+        {
+          "id": "road_6",
+          "origin": "city_10",
+          "destination": "city_10_market",
+          "kind": "street",
+          "hours": 1,
+          "distance_km": 0.27,
+          "points": [],
+          "source": "generated_town_plan"
+        },
+        {
+          "id": "road_7",
+          "origin": "city_10_market",
+          "destination": "city_10_inn",
+          "kind": "street",
+          "hours": 1,
+          "distance_km": 0.39,
+          "points": [],
+          "source": "generated_town_plan"
+        },
+        {
+          "id": "road_8",
+          "origin": "city_10_market",
+          "destination": "city_10_workshop",
+          "kind": "street",
+          "hours": 1,
+          "distance_km": 0.29,
+          "points": [],
+          "source": "generated_town_plan"
+        },
+        {
+          "id": "road_9",
+          "origin": "city_10_market",
+          "destination": "city_10_hall",
+          "kind": "street",
+          "hours": 1,
+          "distance_km": 0.26,
+          "points": [],
+          "source": "generated_town_plan"
+        },
+        {
+          "id": "road_10",
+          "origin": "city_10_hall",
+          "destination": "city_10_well",
+          "kind": "street",
+          "hours": 1,
+          "distance_km": 0.35,
+          "points": [],
+          "source": "generated_town_plan"
+        },
+        {
+          "id": "road_11",
+          "origin": "city_10_inn",
+          "destination": "city_10_hall",
+          "kind": "street",
+          "hours": 1,
+          "distance_km": 0.46,
+          "points": [],
+          "source": "generated_town_plan"
+        },
+        {
+          "id": "road_12",
+          "origin": "city_4",
+          "destination": "city_4_market",
+          "kind": "street",
+          "hours": 1,
+          "distance_km": 0.27,
+          "points": [],
+          "source": "generated_town_plan"
+        },
+        {
+          "id": "road_13",
+          "origin": "city_4_market",
+          "destination": "city_4_inn",
+          "kind": "street",
+          "hours": 1,
+          "distance_km": 0.37,
+          "points": [],
+          "source": "generated_town_plan"
+        },
+        {
+          "id": "road_14",
+          "origin": "city_4_market",
+          "destination": "city_4_workshop",
+          "kind": "street",
+          "hours": 1,
+          "distance_km": 0.25,
+          "points": [],
+          "source": "generated_town_plan"
+        },
+        {
+          "id": "road_15",
+          "origin": "city_4_market",
+          "destination": "city_4_hall",
+          "kind": "street",
+          "hours": 1,
+          "distance_km": 0.27,
+          "points": [],
+          "source": "generated_town_plan"
+        },
+        {
+          "id": "road_16",
+          "origin": "city_4_hall",
+          "destination": "city_4_well",
+          "kind": "street",
+          "hours": 1,
+          "distance_km": 0.31,
+          "points": [],
+          "source": "generated_town_plan"
+        },
+        {
+          "id": "road_17",
+          "origin": "city_4_inn",
+          "destination": "city_4_hall",
+          "kind": "street",
+          "hours": 1,
+          "distance_km": 0.41,
+          "points": [],
+          "source": "generated_town_plan"
+        },
+        {
+          "id": "road_18",
+          "origin": "city_9",
+          "destination": "city_9_market",
+          "kind": "street",
+          "hours": 1,
+          "distance_km": 0.26,
+          "points": [],
+          "source": "generated_town_plan"
+        },
+        {
+          "id": "road_19",
+          "origin": "city_9_market",
+          "destination": "city_9_inn",
+          "kind": "street",
+          "hours": 1,
+          "distance_km": 0.37,
+          "points": [],
+          "source": "generated_town_plan"
+        },
+        {
+          "id": "road_20",
+          "origin": "city_9_market",
+          "destination": "city_9_workshop",
+          "kind": "street",
+          "hours": 1,
+          "distance_km": 0.26,
+          "points": [],
+          "source": "generated_town_plan"
+        },
+        {
+          "id": "road_21",
+          "origin": "city_9_market",
+          "destination": "city_9_hall",
+          "kind": "street",
+          "hours": 1,
+          "distance_km": 0.31,
+          "points": [],
+          "source": "generated_town_plan"
+        },
+        {
+          "id": "road_22",
+          "origin": "city_9_workshop",
+          "destination": "city_9_dock",
+          "kind": "street",
+          "hours": 1,
+          "distance_km": 0.3,
+          "points": [],
+          "source": "generated_town_plan"
+        },
+        {
+          "id": "road_23",
+          "origin": "city_9_inn",
+          "destination": "city_9_hall",
+          "kind": "street",
+          "hours": 1,
+          "distance_km": 0.45,
+          "points": [],
+          "source": "generated_town_plan"
+        },
+        {
+          "id": "road_24",
+          "origin": "city_13",
+          "destination": "city_13_market",
+          "kind": "street",
+          "hours": 1,
+          "distance_km": 0.27,
+          "points": [],
+          "source": "generated_town_plan"
+        },
+        {
+          "id": "road_25",
+          "origin": "city_13_market",
+          "destination": "city_13_inn",
+          "kind": "street",
+          "hours": 1,
+          "distance_km": 0.3,
+          "points": [],
+          "source": "generated_town_plan"
+        },
+        {
+          "id": "road_26",
+          "origin": "city_13_market",
+          "destination": "city_13_workshop",
+          "kind": "street",
+          "hours": 1,
+          "distance_km": 0.36,
+          "points": [],
+          "source": "generated_town_plan"
+        },
+        {
+          "id": "road_27",
+          "origin": "city_13_market",
+          "destination": "city_13_hall",
+          "kind": "street",
+          "hours": 1,
+          "distance_km": 0.27,
+          "points": [],
+          "source": "generated_town_plan"
+        },
+        {
+          "id": "road_28",
+          "origin": "city_13_hall",
+          "destination": "city_13_well",
+          "kind": "street",
+          "hours": 1,
+          "distance_km": 0.31,
+          "points": [],
+          "source": "generated_town_plan"
+        },
+        {
+          "id": "road_29",
+          "origin": "city_13_inn",
+          "destination": "city_13_hall",
+          "kind": "street",
+          "hours": 1,
+          "distance_km": 0.41,
+          "points": [],
+          "source": "generated_town_plan"
+        },
+        {
+          "id": "road_30",
+          "origin": "city_7",
+          "destination": "city_7_market",
+          "kind": "street",
+          "hours": 1,
+          "distance_km": 0.29,
+          "points": [],
+          "source": "generated_town_plan"
+        },
+        {
+          "id": "road_31",
+          "origin": "city_7_market",
+          "destination": "city_7_inn",
+          "kind": "street",
+          "hours": 1,
+          "distance_km": 0.32,
+          "points": [],
+          "source": "generated_town_plan"
+        },
+        {
+          "id": "road_32",
+          "origin": "city_7_market",
+          "destination": "city_7_workshop",
+          "kind": "street",
+          "hours": 1,
+          "distance_km": 0.28,
+          "points": [],
+          "source": "generated_town_plan"
+        },
+        {
+          "id": "road_33",
+          "origin": "city_7_market",
+          "destination": "city_7_hall",
+          "kind": "street",
+          "hours": 1,
+          "distance_km": 0.24,
+          "points": [],
+          "source": "generated_town_plan"
+        },
+        {
+          "id": "road_34",
+          "origin": "city_7_hall",
+          "destination": "city_7_well",
+          "kind": "street",
+          "hours": 1,
+          "distance_km": 0.36,
+          "points": [],
+          "source": "generated_town_plan"
+        },
+        {
+          "id": "road_35",
+          "origin": "city_7_inn",
+          "destination": "city_7_hall",
+          "kind": "street",
+          "hours": 1,
+          "distance_km": 0.4,
+          "points": [],
+          "source": "generated_town_plan"
+        },
+        {
+          "id": "road_36",
+          "origin": "city_3",
+          "destination": "city_3_market",
+          "kind": "street",
+          "hours": 1,
+          "distance_km": 0.26,
+          "points": [],
+          "source": "generated_town_plan"
+        },
+        {
+          "id": "road_37",
+          "origin": "city_3_market",
+          "destination": "city_3_inn",
+          "kind": "street",
+          "hours": 1,
+          "distance_km": 0.29,
+          "points": [],
+          "source": "generated_town_plan"
+        },
+        {
+          "id": "road_38",
+          "origin": "city_3_market",
+          "destination": "city_3_workshop",
+          "kind": "street",
+          "hours": 1,
+          "distance_km": 0.34,
+          "points": [],
+          "source": "generated_town_plan"
+        },
+        {
+          "id": "road_39",
+          "origin": "city_3_market",
+          "destination": "city_3_hall",
+          "kind": "street",
+          "hours": 1,
+          "distance_km": 0.28,
+          "points": [],
+          "source": "generated_town_plan"
+        },
+        {
+          "id": "road_40",
+          "origin": "city_3_hall",
+          "destination": "city_3_well",
+          "kind": "street",
+          "hours": 1,
+          "distance_km": 0.35,
+          "points": [],
+          "source": "generated_town_plan"
+        },
+        {
+          "id": "road_41",
+          "origin": "city_3_inn",
+          "destination": "city_3_hall",
+          "kind": "street",
+          "hours": 1,
+          "distance_km": 0.4,
+          "points": [],
+          "source": "generated_town_plan"
+        },
+        {
+          "id": "road_42",
+          "origin": "city_2",
+          "destination": "city_2_market",
+          "kind": "street",
+          "hours": 1,
+          "distance_km": 0.28,
+          "points": [],
+          "source": "generated_town_plan"
+        },
+        {
+          "id": "road_43",
+          "origin": "city_2_market",
+          "destination": "city_2_inn",
+          "kind": "street",
+          "hours": 1,
+          "distance_km": 0.32,
+          "points": [],
+          "source": "generated_town_plan"
+        },
+        {
+          "id": "road_44",
+          "origin": "city_2_market",
+          "destination": "city_2_workshop",
+          "kind": "street",
+          "hours": 1,
+          "distance_km": 0.33,
+          "points": [],
+          "source": "generated_town_plan"
+        },
+        {
+          "id": "road_45",
+          "origin": "city_2_market",
+          "destination": "city_2_hall",
+          "kind": "street",
+          "hours": 1,
+          "distance_km": 0.29,
+          "points": [],
+          "source": "generated_town_plan"
+        },
+        {
+          "id": "road_46",
+          "origin": "city_2_workshop",
+          "destination": "city_2_dock",
+          "kind": "street",
+          "hours": 1,
+          "distance_km": 0.29,
+          "points": [],
+          "source": "generated_town_plan"
+        },
+        {
+          "id": "road_47",
+          "origin": "city_2_inn",
+          "destination": "city_2_hall",
+          "kind": "street",
+          "hours": 1,
+          "distance_km": 0.45,
+          "points": [],
+          "source": "generated_town_plan"
+        },
+        {
+          "id": "road_48",
+          "origin": "city_0",
+          "destination": "city_4",
+          "kind": "road",
+          "hours": 77,
+          "distance_km": 384.37,
+          "points": [
+            [
+              -15.640733242034912,
+              39.074469208717346
+            ],
+            [
+              -14.405672550201416,
+              40.727949142456055
+            ],
+            [
+              -12.953106164932251,
+              41.82991325855255
+            ]
+          ],
+          "source": "civ_routes"
+        },
+        {
+          "id": "road_49",
+          "origin": "city_0",
+          "destination": "city_9",
+          "kind": "road",
+          "hours": 90,
+          "distance_km": 445.96,
+          "points": [
+            [
+              -15.640733242034912,
+              39.074469208717346
+            ],
+            [
+              -16.526259183883667,
+              37.36377239227295
+            ],
+            [
+              -18.297879695892334,
+              35.73371350765228
+            ]
+          ],
+          "source": "civ_routes"
+        },
+        {
+          "id": "road_50",
+          "origin": "city_10",
+          "destination": "city_0",
+          "kind": "sea",
+          "hours": 28,
+          "distance_km": 328.76,
+          "points": [
+            [
+              -17.993910312652588,
+              40.51128029823303
+            ],
+            [
+              -17.46854066848755,
+              39.02886092662811
+            ],
+            [
+              -15.640733242034912,
+              39.074469208717346
+            ]
+          ],
+          "source": "civ_routes"
+        },
+        {
+          "id": "road_51",
+          "origin": "city_10",
+          "destination": "city_4",
+          "kind": "trail",
+          "hours": 167,
+          "distance_km": 500.94,
+          "points": [
+            [
+              -17.993910312652588,
+              40.51128029823303
+            ],
+            [
+              -16.08674168586731,
+              42.12432324886322
+            ],
+            [
+              -12.953106164932251,
+              41.82991325855255
+            ]
+          ],
+          "source": "civ_routes"
+        },
+        {
+          "id": "road_52",
+          "origin": "city_10",
+          "destination": "city_3",
+          "kind": "trail",
+          "hours": 139,
+          "distance_km": 416.01,
+          "points": [
+            [
+              -17.993910312652588,
+              40.51128029823303
+            ],
+            [
+              -16.08674168586731,
+              42.12432324886322
+            ],
+            [
+              -16.190747022628784,
+              43.70661735534668
+            ]
+          ],
+          "source": "civ_routes"
+        },
+        {
+          "id": "road_53",
+          "origin": "city_4",
+          "destination": "city_13",
+          "kind": "road",
+          "hours": 66,
+          "distance_km": 327.63,
+          "points": [
+            [
+              -12.953106164932251,
+              41.82991325855255
+            ],
+            [
+              -10.960890054702759,
+              42.03843891620636
+            ],
+            [
+              -9.546915292739868,
+              43.046826124191284
+            ]
+          ],
+          "source": "civ_routes"
+        },
+        {
+          "id": "road_54",
+          "origin": "city_7",
+          "destination": "city_10",
+          "kind": "trail",
+          "hours": 134,
+          "distance_km": 400.96,
+          "points": [
+            [
+              -22.151495218276978,
+              41.02868914604187
+            ],
+            [
+              -19.877582788467407,
+              41.61692976951599
+            ],
+            [
+              -17.993910312652588,
+              40.51128029823303
+            ]
+          ],
+          "source": "civ_routes"
+        },
+        {
+          "id": "road_55",
+          "origin": "city_3",
+          "destination": "way_48",
+          "kind": "trail",
+          "hours": 129,
+          "distance_km": 385.31,
+          "points": [
+            [
+              -16.190747022628784,
+              43.70661735534668
+            ],
+            [
+              -16.08674168586731,
+              42.12432324886322
+            ],
+            [
+              -14.405672550201416,
+              40.727949142456055
+            ]
+          ],
+          "source": "civ_routes"
+        },
+        {
+          "id": "road_56",
+          "origin": "way_48",
+          "destination": "city_0",
+          "kind": "road",
+          "hours": 43,
+          "distance_km": 211.9,
+          "points": [
+            [
+              -14.405672550201416,
+              40.727949142456055
+            ],
+            [
+              -15.640733242034912,
+              39.074469208717346
+            ]
+          ],
+          "source": "civ_routes"
+        },
+        {
+          "id": "road_57",
+          "origin": "city_3",
+          "destination": "city_4",
+          "kind": "trail",
+          "hours": 146,
+          "distance_km": 437.23,
+          "points": [
+            [
+              -16.190747022628784,
+              43.70661735534668
+            ],
+            [
+              -16.08674168586731,
+              42.12432324886322
+            ],
+            [
+              -12.953106164932251,
+              41.82991325855255
+            ]
+          ],
+          "source": "civ_routes"
+        },
+        {
+          "id": "road_58",
+          "origin": "city_3",
+          "destination": "way_49",
+          "kind": "trail",
+          "hours": 153,
+          "distance_km": 458.14,
+          "points": [
+            [
+              -16.190747022628784,
+              43.70661735534668
+            ],
+            [
+              -13.975553512573242,
+              45.053300857543945
+            ],
+            [
+              -12.624739408493042,
+              46.86638832092285
+            ]
+          ],
+          "source": "civ_routes"
+        },
+        {
+          "id": "road_59",
+          "origin": "way_49",
+          "destination": "city_13",
+          "kind": "road",
+          "hours": 101,
+          "distance_km": 501.65,
+          "points": [
+            [
+              -12.624739408493042,
+              46.86638832092285
+            ],
+            [
+              -11.409859657287598,
+              45.668151676654816
+            ],
+            [
+              -11.055947542190552,
+              44.318992495536804
+            ],
+            [
+              -9.546915292739868,
+              43.046826124191284
+            ]
+          ],
+          "source": "civ_routes"
+        },
+        {
+          "id": "road_60",
+          "origin": "city_2",
+          "destination": "city_9",
+          "kind": "trail",
+          "hours": 114,
+          "distance_km": 341.19,
+          "points": [
+            [
+              -19.618910551071167,
+              33.413779735565186
+            ],
+            [
+              -19.79283571243286,
+              35.10534703731537
+            ],
+            [
+              -18.297879695892334,
+              35.73371350765228
+            ]
+          ],
+          "source": "civ_routes"
+        }
+      ],
+      "source_sha256": "989970517e07cd9f27ab0947cd7ad767e39152261388fae51af44092204e319c",
+      "base_year": 3000.0
+    },
+    "attributes": {
+      "version": 1,
+      "scale": [
+        0,
+        100
+      ],
+      "axes": [
+        {
+          "id": "talent",
+          "name": "天赋",
+          "keywords": {
+            "low": [
+              "感应迟缓",
+              "按步骤练习",
+              "谨慎引导"
+            ],
+            "medium": [
+              "感知灵力",
+              "稳定引导",
+              "熟练需训练"
+            ],
+            "high": [
+              "灵力敏感",
+              "精细引导",
+              "易察能量变化"
+            ]
+          }
+        },
+        {
+          "id": "strength",
+          "name": "力量",
+          "keywords": {
+            "low": [
+              "借助工具",
+              "节省力气",
+              "避免硬扛"
+            ],
+            "medium": [
+              "稳妥发力",
+              "常规负重",
+              "调整支点"
+            ],
+            "high": [
+              "有力支撑",
+              "重物搬运",
+              "控制力道"
+            ]
+          }
+        },
+        {
+          "id": "agility",
+          "name": "敏捷",
+          "keywords": {
+            "low": [
+              "提前避让",
+              "缓步试探",
+              "留足距离"
+            ],
+            "medium": [
+              "及时闪避",
+              "协调动作",
+              "保持平衡"
+            ],
+            "high": [
+              "迅速变向",
+              "精细动作",
+              "快速撤步"
+            ]
+          }
+        },
+        {
+          "id": "wisdom",
+          "name": "智慧",
+          "keywords": {
+            "low": [
+              "先问清楚",
+              "单步判断",
+              "需要明确线索"
+            ],
+            "medium": [
+              "比较线索",
+              "识别明显危险",
+              "选择应变"
+            ],
+            "high": [
+              "识别矛盾",
+              "多步预判",
+              "察觉陷阱线索"
+            ]
+          }
+        },
+        {
+          "id": "social",
+          "name": "社交",
+          "keywords": {
+            "low": [
+              "直述需要",
+              "简短回应",
+              "少用言外之意"
+            ],
+            "medium": [
+              "接住话题",
+              "解释立场",
+              "适度转折"
+            ],
+            "high": [
+              "调整措辞",
+              "试探需求",
+              "协商让步"
+            ]
+          }
+        },
+        {
+          "id": "resilience",
+          "name": "韧性",
+          "keywords": {
+            "low": [
+              "及时休息",
+              "承认疲惫",
+              "规避消耗"
+            ],
+            "medium": [
+              "保持节奏",
+              "承受压力",
+              "恢复呼吸"
+            ],
+            "high": [
+              "耐受消耗",
+              "逆境坚持",
+              "缓慢释放紧张"
+            ]
+          }
+        }
+      ],
+      "hp": {
+        "base": 50,
+        "per_resilience": 2
+      },
+      "note": "天赋仅为原灵力亲合度的显示改名。属性约束能力，不等于性格、道德或已知秘密。"
+    }
+  },
+  "native_start_key": "ns_ad73661dd8054c38"
+}

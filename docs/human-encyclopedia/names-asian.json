@@ -1,0 +1,409 @@
+{
+  "schema_version": 1,
+  "group": "names-asian",
+  "status": "candidate",
+  "note": "亚洲姓名与命名传统候选池；示例名只用于创作，不等于人口统计或身份判定。",
+  "sources": [
+    {
+      "id": "names_asia_behind",
+      "title": "Behind the Name: language and regional usage",
+      "url": "https://www.behindthename.com/names/usage",
+      "access": "read",
+      "supports": "按语言、地区和历史用途整理名字；具体拼写与时代用法需逐名核对。",
+      "rights_note": "仅做事实范围与术语核对；条目为自行转述的待审候选，不复制原文。"
+    },
+    {
+      "id": "names_asia_chinese",
+      "title": "Chinese languages — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/place/China/Languages",
+      "access": "read",
+      "supports": "中文语言与文化背景；不把现代姓名规则外推到所有历史时期。",
+      "rights_note": "仅做事实范围与术语核对；条目为自行转述的待审候选，不复制原文。"
+    },
+    {
+      "id": "names_asia_japanese",
+      "title": "Japan: Language — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/place/Japan/Language",
+      "access": "read",
+      "supports": "日语书写与称谓背景；同一汉字可能有不同读法。",
+      "rights_note": "仅做事实范围与术语核对；条目为自行转述的待审候选，不复制原文。"
+    },
+    {
+      "id": "names_asia_korean",
+      "title": "Korea: Language — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/place/Korea/Language",
+      "access": "read",
+      "supports": "韩语语言与罗马化背景；具体姓名读法需要固定系统。",
+      "rights_note": "仅做事实范围与术语核对；条目为自行转述的待审候选，不复制原文。"
+    },
+    {
+      "id": "names_asia_india",
+      "title": "India: Languages — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/place/India/Languages",
+      "access": "read",
+      "supports": "印度语言多样性和命名背景；不能用单一规则覆盖所有地区。",
+      "rights_note": "仅做事实范围与术语核对；条目为自行转述的待审候选，不复制原文。"
+    },
+    {
+      "id": "names_asia_arabic",
+      "title": "Arabic language — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/Arabic-language",
+      "access": "read",
+      "supports": "阿拉伯语姓名与语言背景；家族、父名、地域和称号因地而异。",
+      "rights_note": "仅做事实范围与术语核对；条目为自行转述的待审候选，不复制原文。"
+    },
+    {
+      "id": "names_asia_persian",
+      "title": "Persian language — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/Persian-language",
+      "access": "read",
+      "supports": "波斯语语言与文化背景；历史称谓和现代姓氏制度需分开。",
+      "rights_note": "仅做事实范围与术语核对；条目为自行转述的待审候选，不复制原文。"
+    },
+    {
+      "id": "names_asia_vietnamese",
+      "title": "Vietnam: Languages — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/place/Vietnam/Languages",
+      "access": "read",
+      "supports": "越南语与文字背景；姓名顺序和时代用法需要本地化核对。",
+      "rights_note": "仅做事实范围与术语核对；条目为自行转述的待审候选，不复制原文。"
+    }
+  ],
+  "elements": [
+    {
+      "id": "names_asian_sinitic",
+      "name": "汉语姓名池",
+      "aliases": [
+        "李",
+        "王",
+        "张",
+        "陈",
+        "林",
+        "赵",
+        "沈",
+        "顾",
+        "明",
+        "安",
+        "兰",
+        "宁"
+      ],
+      "tags": [
+        "names",
+        "asian",
+        "sinitic"
+      ],
+      "summary": "汉字姓氏、单字或双字名、字/号与称谓组合的创作姓名池。",
+      "details": {
+        "definition": "汉语姓名池：姓通常在前、名在后；池内示例：李、王、张、陈、林、赵、沈、顾、明、安、兰、宁。",
+        "mechanism": "以语言、媒介、讲述场合与受众共同形成意义；创作时先固定说话者、传播者和听者。",
+        "conditions": "需要明确的语言/地区、时代层、社会场合和可接触的传播媒介；名字还需固定转写方式。",
+        "exceptions": "现代创作可以改写形式，但不能把现实传统的一个变体声称为全部传统；个别角色的选择也可以违背群体惯例。",
+        "story_uses": "用于角色卡、城镇文化、传闻、契约、节庆或线索表达；失败时可以改变玩家理解，却不直接改写世界事实。",
+        "historical_scope": "候选资料用于跨时期创作参考；现实历史、宗教与语言边界必须在具体世界包中另行限定。",
+        "evidence_and_uncertainty": "来源只支持条目的概述范围；名字池是创作示例，不是人口统计，也不能单独决定角色阶层、性格、宗教或国籍。"
+      },
+      "source_ids": [
+        "names_asia_chinese",
+        "names_asia_behind"
+      ],
+      "related_ids": [],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "names_asian_japanese",
+      "name": "日语姓名池",
+      "aliases": [
+        "佐藤",
+        "铃木",
+        "山本",
+        "田中",
+        "渡边",
+        "春",
+        "莲",
+        "葵",
+        "凛",
+        "千代"
+      ],
+      "tags": [
+        "names",
+        "asian",
+        "japanese"
+      ],
+      "summary": "结合家名、汉字或假名读法和敬称的日本式创作姓名池。",
+      "details": {
+        "definition": "日语姓名池：同一汉字可有多种读法；池内示例：佐藤、铃木、山本、田中、渡边、春、莲、葵、凛、千代。",
+        "mechanism": "以语言、媒介、讲述场合与受众共同形成意义；创作时先固定说话者、传播者和听者。",
+        "conditions": "需要明确的语言/地区、时代层、社会场合和可接触的传播媒介；名字还需固定转写方式。",
+        "exceptions": "现代创作可以改写形式，但不能把现实传统的一个变体声称为全部传统；个别角色的选择也可以违背群体惯例。",
+        "story_uses": "用于角色卡、城镇文化、传闻、契约、节庆或线索表达；失败时可以改变玩家理解，却不直接改写世界事实。",
+        "historical_scope": "候选资料用于跨时期创作参考；现实历史、宗教与语言边界必须在具体世界包中另行限定。",
+        "evidence_and_uncertainty": "来源只支持条目的概述范围；名字池是创作示例，不是人口统计，也不能单独决定角色阶层、性格、宗教或国籍。"
+      },
+      "source_ids": [
+        "names_asia_japanese",
+        "names_asia_behind"
+      ],
+      "related_ids": [],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "names_asian_korean",
+      "name": "韩语姓名池",
+      "aliases": [
+        "金",
+        "李",
+        "朴",
+        "崔",
+        "郑",
+        "智勋",
+        "敏书",
+        "秀妍",
+        "泰成",
+        "贤宇"
+      ],
+      "tags": [
+        "names",
+        "asian",
+        "korean"
+      ],
+      "summary": "以家族姓、双音节名字和罗马化变体构成的韩语创作姓名池。",
+      "details": {
+        "definition": "韩语姓名池：常见现代结构不是全部历史结构；池内示例：金、李、朴、崔、郑、智勋、敏书、秀妍、泰成、贤宇。",
+        "mechanism": "以语言、媒介、讲述场合与受众共同形成意义；创作时先固定说话者、传播者和听者。",
+        "conditions": "需要明确的语言/地区、时代层、社会场合和可接触的传播媒介；名字还需固定转写方式。",
+        "exceptions": "现代创作可以改写形式，但不能把现实传统的一个变体声称为全部传统；个别角色的选择也可以违背群体惯例。",
+        "story_uses": "用于角色卡、城镇文化、传闻、契约、节庆或线索表达；失败时可以改变玩家理解，却不直接改写世界事实。",
+        "historical_scope": "候选资料用于跨时期创作参考；现实历史、宗教与语言边界必须在具体世界包中另行限定。",
+        "evidence_and_uncertainty": "来源只支持条目的概述范围；名字池是创作示例，不是人口统计，也不能单独决定角色阶层、性格、宗教或国籍。"
+      },
+      "source_ids": [
+        "names_asia_korean",
+        "names_asia_behind"
+      ],
+      "related_ids": [],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "names_asian_indic",
+      "name": "南亚姓名池",
+      "aliases": [
+        "阿迪蒂",
+        "阿努什卡",
+        "拉维",
+        "维克拉姆",
+        "米拉",
+        "卡维",
+        "阿鲁恩",
+        "德维",
+        "帕特尔",
+        "奈尔",
+        "不能代表整个南亚"
+      ],
+      "tags": [
+        "names",
+        "asian",
+        "south-asia"
+      ],
+      "summary": "覆盖南亚多语言背景的示例姓名池，强调地区、宗教和家族差异。",
+      "details": {
+        "definition": "南亚姓名池：池内示例：阿迪蒂、阿努什卡、拉维、维克拉姆、米拉、卡维、阿鲁恩、德维、帕特尔、奈尔；不能代表整个南亚。",
+        "mechanism": "以语言、媒介、讲述场合与受众共同形成意义；创作时先固定说话者、传播者和听者。",
+        "conditions": "需要明确的语言/地区、时代层、社会场合和可接触的传播媒介；名字还需固定转写方式。",
+        "exceptions": "现代创作可以改写形式，但不能把现实传统的一个变体声称为全部传统；个别角色的选择也可以违背群体惯例。",
+        "story_uses": "用于角色卡、城镇文化、传闻、契约、节庆或线索表达；失败时可以改变玩家理解，却不直接改写世界事实。",
+        "historical_scope": "候选资料用于跨时期创作参考；现实历史、宗教与语言边界必须在具体世界包中另行限定。",
+        "evidence_and_uncertainty": "来源只支持条目的概述范围；名字池是创作示例，不是人口统计，也不能单独决定角色阶层、性格、宗教或国籍。"
+      },
+      "source_ids": [
+        "names_asia_india",
+        "names_asia_behind"
+      ],
+      "related_ids": [],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "names_asian_arabic",
+      "name": "阿拉伯语姓名池",
+      "aliases": [
+        "阿米娜",
+        "莱拉",
+        "萨米尔",
+        "纳迪尔",
+        "哈桑",
+        "玛丽亚姆",
+        "法里德",
+        "扎伊德",
+        "哈达德",
+        "曼苏尔"
+      ],
+      "tags": [
+        "names",
+        "asian",
+        "arabic"
+      ],
+      "summary": "以个人名、父名、家族/部族名、地名或尊称组合的创作姓名池。",
+      "details": {
+        "definition": "阿拉伯语姓名池：池内示例：阿米娜、莱拉、萨米尔、纳迪尔、哈桑、玛丽亚姆、法里德、扎伊德、哈达德、曼苏尔。",
+        "mechanism": "以语言、媒介、讲述场合与受众共同形成意义；创作时先固定说话者、传播者和听者。",
+        "conditions": "需要明确的语言/地区、时代层、社会场合和可接触的传播媒介；名字还需固定转写方式。",
+        "exceptions": "现代创作可以改写形式，但不能把现实传统的一个变体声称为全部传统；个别角色的选择也可以违背群体惯例。",
+        "story_uses": "用于角色卡、城镇文化、传闻、契约、节庆或线索表达；失败时可以改变玩家理解，却不直接改写世界事实。",
+        "historical_scope": "候选资料用于跨时期创作参考；现实历史、宗教与语言边界必须在具体世界包中另行限定。",
+        "evidence_and_uncertainty": "来源只支持条目的概述范围；名字池是创作示例，不是人口统计，也不能单独决定角色阶层、性格、宗教或国籍。"
+      },
+      "source_ids": [
+        "names_asia_arabic",
+        "names_asia_behind"
+      ],
+      "related_ids": [],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "names_asian_persian",
+      "name": "波斯语姓名池",
+      "aliases": [
+        "达里乌什",
+        "法鲁克",
+        "帕尔文",
+        "希琳",
+        "纳维德",
+        "罗克珊娜",
+        "卡维",
+        "萨拉"
+      ],
+      "tags": [
+        "names",
+        "asian",
+        "persian"
+      ],
+      "summary": "以个人名、家族名、地名和诗性称号组成的波斯语创作姓名池。",
+      "details": {
+        "definition": "波斯语姓名池：池内示例：达里乌什、法鲁克、帕尔文、希琳、纳维德、罗克珊娜、卡维、萨拉。",
+        "mechanism": "以语言、媒介、讲述场合与受众共同形成意义；创作时先固定说话者、传播者和听者。",
+        "conditions": "需要明确的语言/地区、时代层、社会场合和可接触的传播媒介；名字还需固定转写方式。",
+        "exceptions": "现代创作可以改写形式，但不能把现实传统的一个变体声称为全部传统；个别角色的选择也可以违背群体惯例。",
+        "story_uses": "用于角色卡、城镇文化、传闻、契约、节庆或线索表达；失败时可以改变玩家理解，却不直接改写世界事实。",
+        "historical_scope": "候选资料用于跨时期创作参考；现实历史、宗教与语言边界必须在具体世界包中另行限定。",
+        "evidence_and_uncertainty": "来源只支持条目的概述范围；名字池是创作示例，不是人口统计，也不能单独决定角色阶层、性格、宗教或国籍。"
+      },
+      "source_ids": [
+        "names_asia_persian",
+        "names_asia_behind"
+      ],
+      "related_ids": [],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "names_asian_turkic",
+      "name": "突厥语族姓名池",
+      "aliases": [
+        "阿尔斯兰",
+        "艾达",
+        "丹尼兹",
+        "埃姆雷",
+        "阿依谢",
+        "巴图尔",
+        "图兰",
+        "塞尔坎",
+        "不能代表整个突厥语族"
+      ],
+      "tags": [
+        "names",
+        "asian",
+        "turkic",
+        "steppe"
+      ],
+      "summary": "面向中亚、安纳托利亚和草原背景的示例姓名池。",
+      "details": {
+        "definition": "突厥语族姓名池：池内示例：阿尔斯兰、艾达、丹尼兹、埃姆雷、阿依谢、巴图尔、图兰、塞尔坎；不能代表整个突厥语族。",
+        "mechanism": "以语言、媒介、讲述场合与受众共同形成意义；创作时先固定说话者、传播者和听者。",
+        "conditions": "需要明确的语言/地区、时代层、社会场合和可接触的传播媒介；名字还需固定转写方式。",
+        "exceptions": "现代创作可以改写形式，但不能把现实传统的一个变体声称为全部传统；个别角色的选择也可以违背群体惯例。",
+        "story_uses": "用于角色卡、城镇文化、传闻、契约、节庆或线索表达；失败时可以改变玩家理解，却不直接改写世界事实。",
+        "historical_scope": "候选资料用于跨时期创作参考；现实历史、宗教与语言边界必须在具体世界包中另行限定。",
+        "evidence_and_uncertainty": "来源只支持条目的概述范围；名字池是创作示例，不是人口统计，也不能单独决定角色阶层、性格、宗教或国籍。"
+      },
+      "source_ids": [
+        "names_asia_behind",
+        "names_asia_persian"
+      ],
+      "related_ids": [],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "names_asian_vietnamese",
+      "name": "越南语姓名池",
+      "aliases": [
+        "阮",
+        "陈",
+        "黎",
+        "范",
+        "黄",
+        "明",
+        "兰",
+        "芳",
+        "安",
+        "玉",
+        "需要固定转写与声调显示"
+      ],
+      "tags": [
+        "names",
+        "asian",
+        "vietnamese"
+      ],
+      "summary": "以姓在前、个人名在后和多字名结构为灵感的越南语创作姓名池。",
+      "details": {
+        "definition": "越南语姓名池：池内示例：阮、陈、黎、范、黄、明、兰、芳、安、玉；需要固定转写与声调显示。",
+        "mechanism": "以语言、媒介、讲述场合与受众共同形成意义；创作时先固定说话者、传播者和听者。",
+        "conditions": "需要明确的语言/地区、时代层、社会场合和可接触的传播媒介；名字还需固定转写方式。",
+        "exceptions": "现代创作可以改写形式，但不能把现实传统的一个变体声称为全部传统；个别角色的选择也可以违背群体惯例。",
+        "story_uses": "用于角色卡、城镇文化、传闻、契约、节庆或线索表达；失败时可以改变玩家理解，却不直接改写世界事实。",
+        "historical_scope": "候选资料用于跨时期创作参考；现实历史、宗教与语言边界必须在具体世界包中另行限定。",
+        "evidence_and_uncertainty": "来源只支持条目的概述范围；名字池是创作示例，不是人口统计，也不能单独决定角色阶层、性格、宗教或国籍。"
+      },
+      "source_ids": [
+        "names_asia_vietnamese",
+        "names_asia_behind"
+      ],
+      "related_ids": [],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "names_asian_mongolic",
+      "name": "蒙古语姓名池",
+      "aliases": [
+        "巴特尔",
+        "额尔登",
+        "苏赫",
+        "奥云",
+        "萨兰",
+        "图门",
+        "纳兰",
+        "博尔特",
+        "不把草原名当成固定模板"
+      ],
+      "tags": [
+        "names",
+        "asian",
+        "mongolic",
+        "steppe"
+      ],
+      "summary": "以草原个人名、家族/部族关系和称号为灵感的创作姓名池。",
+      "details": {
+        "definition": "蒙古语姓名池：池内示例：巴特尔、额尔登、苏赫、奥云、萨兰、图门、纳兰、博尔特；不把草原名当成固定模板。",
+        "mechanism": "以语言、媒介、讲述场合与受众共同形成意义；创作时先固定说话者、传播者和听者。",
+        "conditions": "需要明确的语言/地区、时代层、社会场合和可接触的传播媒介；名字还需固定转写方式。",
+        "exceptions": "现代创作可以改写形式，但不能把现实传统的一个变体声称为全部传统；个别角色的选择也可以违背群体惯例。",
+        "story_uses": "用于角色卡、城镇文化、传闻、契约、节庆或线索表达；失败时可以改变玩家理解，却不直接改写世界事实。",
+        "historical_scope": "候选资料用于跨时期创作参考；现实历史、宗教与语言边界必须在具体世界包中另行限定。",
+        "evidence_and_uncertainty": "来源只支持条目的概述范围；名字池是创作示例，不是人口统计，也不能单独决定角色阶层、性格、宗教或国籍。"
+      },
+      "source_ids": [
+        "names_asia_behind",
+        "names_asia_persian"
+      ],
+      "related_ids": [],
+      "review_status": "needs_review"
+    }
+  ]
+}

@@ -1,0 +1,462 @@
+{
+  "schema_version": 1,
+  "group": "culture-literature",
+  "status": "candidate",
+  "note": "诗歌、小说、口述传统与文化叙事结构；全部为待审创作候选，不自动进入世界。",
+  "sources": [
+    {
+      "id": "culture_lit_poetry",
+      "title": "Poetry — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/art/poetry",
+      "access": "read",
+      "supports": "诗歌的节奏、声音、意象和形式具有多种文化传统。",
+      "rights_note": "仅做事实范围与术语核对；条目为自行转述的待审候选，不复制原文。"
+    },
+    {
+      "id": "culture_lit_novel",
+      "title": "Novel — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/art/novel",
+      "access": "read",
+      "supports": "小说以叙事、人物、时间和社会环境组织虚构经验。",
+      "rights_note": "仅做事实范围与术语核对；条目为自行转述的待审候选，不复制原文。"
+    },
+    {
+      "id": "culture_lit_epic",
+      "title": "Epic — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/art/epic",
+      "access": "read",
+      "supports": "史诗的长篇叙事、英雄行动、共同体记忆和口述/书写传承。",
+      "rights_note": "仅做事实范围与术语核对；条目为自行转述的待审候选，不复制原文。"
+    },
+    {
+      "id": "culture_lit_oral",
+      "title": "UNESCO oral traditions",
+      "url": "https://ich.unesco.org/en/oral-traditions-and-expressions-00053",
+      "access": "read",
+      "supports": "故事、歌谣、谚语和表演依赖社群与语境传承。",
+      "rights_note": "仅做事实范围与术语核对；条目为自行转述的待审候选，不复制原文。"
+    },
+    {
+      "id": "culture_lit_haiku",
+      "title": "Haiku — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/art/haiku",
+      "access": "read",
+      "supports": "俳句的季节语、切字与瞬间意象，以及现代变体。",
+      "rights_note": "仅做事实范围与术语核对；条目为自行转述的待审候选，不复制原文。"
+    },
+    {
+      "id": "culture_lit_nights",
+      "title": "The Thousand and One Nights — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/The-Thousand-and-One-Nights",
+      "access": "read",
+      "supports": "框架叙事、讲述延宕和多源汇编传统；版本与译本并不相同。",
+      "rights_note": "仅做事实范围与术语核对；条目为自行转述的待审候选，不复制原文。"
+    },
+    {
+      "id": "culture_lit_glossary",
+      "title": "Poetry Foundation glossary",
+      "url": "https://www.poetryfoundation.org/learn/glossary-terms",
+      "access": "read",
+      "supports": "意象、隐喻、叙事诗和抒情诗等教育性术语解释。",
+      "rights_note": "仅做事实范围与术语核对；条目为自行转述的待审候选，不复制原文。"
+    }
+  ],
+  "elements": [
+    {
+      "id": "culture_poetry_lyric",
+      "name": "抒情诗",
+      "aliases": [],
+      "tags": [
+        "culture",
+        "poetry",
+        "lyric"
+      ],
+      "summary": "以说话者的感受、判断或感官经验为中心的诗歌。",
+      "details": {
+        "definition": "抒情诗：可表现誓言、悼念、赞美或自我辩护；第一人称诗人不等于作者本人。",
+        "mechanism": "以语言、媒介、讲述场合与受众共同形成意义；创作时先固定说话者、传播者和听者。",
+        "conditions": "需要明确的语言/地区、时代层、社会场合和可接触的传播媒介；名字还需固定转写方式。",
+        "exceptions": "现代创作可以改写形式，但不能把现实传统的一个变体声称为全部传统；个别角色的选择也可以违背群体惯例。",
+        "story_uses": "用于角色卡、城镇文化、传闻、契约、节庆或线索表达；失败时可以改变玩家理解，却不直接改写世界事实。",
+        "historical_scope": "候选资料用于跨时期创作参考；现实历史、宗教与语言边界必须在具体世界包中另行限定。",
+        "evidence_and_uncertainty": "来源只支持条目的概述范围；名字池是创作示例，不是人口统计，也不能单独决定角色阶层、性格、宗教或国籍。"
+      },
+      "source_ids": [
+        "culture_lit_poetry",
+        "culture_lit_glossary"
+      ],
+      "related_ids": [],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "culture_poetry_narrative",
+      "name": "叙事诗",
+      "aliases": [],
+      "tags": [
+        "culture",
+        "poetry",
+        "narrative"
+      ],
+      "summary": "以韵文或节奏化语言讲述人物、旅途、战争或家族事件。",
+      "details": {
+        "definition": "叙事诗：重复句、固定意象和歌者评论可以帮助口述，但不要求所有语言押同一种韵。",
+        "mechanism": "以语言、媒介、讲述场合与受众共同形成意义；创作时先固定说话者、传播者和听者。",
+        "conditions": "需要明确的语言/地区、时代层、社会场合和可接触的传播媒介；名字还需固定转写方式。",
+        "exceptions": "现代创作可以改写形式，但不能把现实传统的一个变体声称为全部传统；个别角色的选择也可以违背群体惯例。",
+        "story_uses": "用于角色卡、城镇文化、传闻、契约、节庆或线索表达；失败时可以改变玩家理解，却不直接改写世界事实。",
+        "historical_scope": "候选资料用于跨时期创作参考；现实历史、宗教与语言边界必须在具体世界包中另行限定。",
+        "evidence_and_uncertainty": "来源只支持条目的概述范围；名字池是创作示例，不是人口统计，也不能单独决定角色阶层、性格、宗教或国籍。"
+      },
+      "source_ids": [
+        "culture_lit_poetry",
+        "culture_lit_epic"
+      ],
+      "related_ids": [],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "culture_poetry_epic",
+      "name": "史诗传统",
+      "aliases": [],
+      "tags": [
+        "culture",
+        "poetry",
+        "epic",
+        "oral"
+      ],
+      "summary": "围绕英雄、神祇、战争或共同体起源组织的长篇叙事传统。",
+      "details": {
+        "definition": "史诗传统：史诗也是共同体记忆和价值争论；不同讲述者可以保留互相矛盾的版本。",
+        "mechanism": "以语言、媒介、讲述场合与受众共同形成意义；创作时先固定说话者、传播者和听者。",
+        "conditions": "需要明确的语言/地区、时代层、社会场合和可接触的传播媒介；名字还需固定转写方式。",
+        "exceptions": "现代创作可以改写形式，但不能把现实传统的一个变体声称为全部传统；个别角色的选择也可以违背群体惯例。",
+        "story_uses": "用于角色卡、城镇文化、传闻、契约、节庆或线索表达；失败时可以改变玩家理解，却不直接改写世界事实。",
+        "historical_scope": "候选资料用于跨时期创作参考；现实历史、宗教与语言边界必须在具体世界包中另行限定。",
+        "evidence_and_uncertainty": "来源只支持条目的概述范围；名字池是创作示例，不是人口统计，也不能单独决定角色阶层、性格、宗教或国籍。"
+      },
+      "source_ids": [
+        "culture_lit_epic",
+        "culture_lit_oral"
+      ],
+      "related_ids": [],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "culture_poetry_elegy",
+      "name": "挽歌与悼亡诗",
+      "aliases": [],
+      "tags": [
+        "culture",
+        "poetry",
+        "ritual"
+      ],
+      "summary": "围绕死亡、离别、失去和记忆组织的诗歌或仪式文本。",
+      "details": {
+        "definition": "挽歌与悼亡诗：可以表达悲伤、愤怒、债务或抗议，不预设所有文化都有相同悼亡规则。",
+        "mechanism": "以语言、媒介、讲述场合与受众共同形成意义；创作时先固定说话者、传播者和听者。",
+        "conditions": "需要明确的语言/地区、时代层、社会场合和可接触的传播媒介；名字还需固定转写方式。",
+        "exceptions": "现代创作可以改写形式，但不能把现实传统的一个变体声称为全部传统；个别角色的选择也可以违背群体惯例。",
+        "story_uses": "用于角色卡、城镇文化、传闻、契约、节庆或线索表达；失败时可以改变玩家理解，却不直接改写世界事实。",
+        "historical_scope": "候选资料用于跨时期创作参考；现实历史、宗教与语言边界必须在具体世界包中另行限定。",
+        "evidence_and_uncertainty": "来源只支持条目的概述范围；名字池是创作示例，不是人口统计，也不能单独决定角色阶层、性格、宗教或国籍。"
+      },
+      "source_ids": [
+        "culture_lit_poetry",
+        "culture_lit_oral"
+      ],
+      "related_ids": [],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "culture_poetry_song",
+      "name": "民谣与劳动歌",
+      "aliases": [],
+      "tags": [
+        "culture",
+        "poetry",
+        "oral",
+        "class"
+      ],
+      "summary": "在劳动、旅行、饮酒或聚会中反复传唱的短歌与口头诗。",
+      "details": {
+        "definition": "民谣与劳动歌：重复和即兴改词让群体参与，也可传播讽刺、传闻或隐秘指引。",
+        "mechanism": "以语言、媒介、讲述场合与受众共同形成意义；创作时先固定说话者、传播者和听者。",
+        "conditions": "需要明确的语言/地区、时代层、社会场合和可接触的传播媒介；名字还需固定转写方式。",
+        "exceptions": "现代创作可以改写形式，但不能把现实传统的一个变体声称为全部传统；个别角色的选择也可以违背群体惯例。",
+        "story_uses": "用于角色卡、城镇文化、传闻、契约、节庆或线索表达；失败时可以改变玩家理解，却不直接改写世界事实。",
+        "historical_scope": "候选资料用于跨时期创作参考；现实历史、宗教与语言边界必须在具体世界包中另行限定。",
+        "evidence_and_uncertainty": "来源只支持条目的概述范围；名字池是创作示例，不是人口统计，也不能单独决定角色阶层、性格、宗教或国籍。"
+      },
+      "source_ids": [
+        "culture_lit_oral",
+        "culture_lit_poetry"
+      ],
+      "related_ids": [],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "culture_poetry_haiku",
+      "name": "俳句式瞬景诗",
+      "aliases": [],
+      "tags": [
+        "culture",
+        "poetry",
+        "japanese",
+        "minimal"
+      ],
+      "summary": "借鉴日本俳句的季节感、切分和瞬间意象，用短文本留下余韵。",
+      "details": {
+        "definition": "俳句式瞬景诗：不把五七五当作所有俳句或所有日语诗的硬规则；游戏中应标明是借鉴结构。",
+        "mechanism": "以语言、媒介、讲述场合与受众共同形成意义；创作时先固定说话者、传播者和听者。",
+        "conditions": "需要明确的语言/地区、时代层、社会场合和可接触的传播媒介；名字还需固定转写方式。",
+        "exceptions": "现代创作可以改写形式，但不能把现实传统的一个变体声称为全部传统；个别角色的选择也可以违背群体惯例。",
+        "story_uses": "用于角色卡、城镇文化、传闻、契约、节庆或线索表达；失败时可以改变玩家理解，却不直接改写世界事实。",
+        "historical_scope": "候选资料用于跨时期创作参考；现实历史、宗教与语言边界必须在具体世界包中另行限定。",
+        "evidence_and_uncertainty": "来源只支持条目的概述范围；名字池是创作示例，不是人口统计，也不能单独决定角色阶层、性格、宗教或国籍。"
+      },
+      "source_ids": [
+        "culture_lit_haiku",
+        "culture_lit_glossary"
+      ],
+      "related_ids": [],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "culture_novel_picaresque",
+      "name": "流浪汉小说结构",
+      "aliases": [],
+      "tags": [
+        "culture",
+        "novel",
+        "class",
+        "journey"
+      ],
+      "summary": "以边缘人物或机灵旅行者的生计、骗局和社会观察串联章节。",
+      "details": {
+        "definition": "流浪汉小说结构：流浪不等于自由；债务、法律、饥饿和名声让失败产生新的路线。",
+        "mechanism": "以语言、媒介、讲述场合与受众共同形成意义；创作时先固定说话者、传播者和听者。",
+        "conditions": "需要明确的语言/地区、时代层、社会场合和可接触的传播媒介；名字还需固定转写方式。",
+        "exceptions": "现代创作可以改写形式，但不能把现实传统的一个变体声称为全部传统；个别角色的选择也可以违背群体惯例。",
+        "story_uses": "用于角色卡、城镇文化、传闻、契约、节庆或线索表达；失败时可以改变玩家理解，却不直接改写世界事实。",
+        "historical_scope": "候选资料用于跨时期创作参考；现实历史、宗教与语言边界必须在具体世界包中另行限定。",
+        "evidence_and_uncertainty": "来源只支持条目的概述范围；名字池是创作示例，不是人口统计，也不能单独决定角色阶层、性格、宗教或国籍。"
+      },
+      "source_ids": [
+        "culture_lit_novel"
+      ],
+      "related_ids": [],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "culture_novel_gothic",
+      "name": "哥特小说氛围",
+      "aliases": [],
+      "tags": [
+        "culture",
+        "novel",
+        "horror",
+        "mystery"
+      ],
+      "summary": "以封闭空间、家族记忆、秘密、恐惧和不可靠解释制造悬疑。",
+      "details": {
+        "definition": "哥特小说氛围：恐怖可以来自继承、禁忌和制度压力；不把精神疾病当作恐怖机制。",
+        "mechanism": "以语言、媒介、讲述场合与受众共同形成意义；创作时先固定说话者、传播者和听者。",
+        "conditions": "需要明确的语言/地区、时代层、社会场合和可接触的传播媒介；名字还需固定转写方式。",
+        "exceptions": "现代创作可以改写形式，但不能把现实传统的一个变体声称为全部传统；个别角色的选择也可以违背群体惯例。",
+        "story_uses": "用于角色卡、城镇文化、传闻、契约、节庆或线索表达；失败时可以改变玩家理解，却不直接改写世界事实。",
+        "historical_scope": "候选资料用于跨时期创作参考；现实历史、宗教与语言边界必须在具体世界包中另行限定。",
+        "evidence_and_uncertainty": "来源只支持条目的概述范围；名字池是创作示例，不是人口统计，也不能单独决定角色阶层、性格、宗教或国籍。"
+      },
+      "source_ids": [
+        "culture_lit_novel"
+      ],
+      "related_ids": [],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "culture_novel_epistolary",
+      "name": "书信体小说",
+      "aliases": [],
+      "tags": [
+        "culture",
+        "novel",
+        "epistolary",
+        "evidence"
+      ],
+      "summary": "通过书信、日记、报告、账本或多份文书拼接叙事。",
+      "details": {
+        "definition": "书信体小说：文书的日期、缺页、转交和伪造可成为线索，但一封信不等于真相。",
+        "mechanism": "以语言、媒介、讲述场合与受众共同形成意义；创作时先固定说话者、传播者和听者。",
+        "conditions": "需要明确的语言/地区、时代层、社会场合和可接触的传播媒介；名字还需固定转写方式。",
+        "exceptions": "现代创作可以改写形式，但不能把现实传统的一个变体声称为全部传统；个别角色的选择也可以违背群体惯例。",
+        "story_uses": "用于角色卡、城镇文化、传闻、契约、节庆或线索表达；失败时可以改变玩家理解，却不直接改写世界事实。",
+        "historical_scope": "候选资料用于跨时期创作参考；现实历史、宗教与语言边界必须在具体世界包中另行限定。",
+        "evidence_and_uncertainty": "来源只支持条目的概述范围；名字池是创作示例，不是人口统计，也不能单独决定角色阶层、性格、宗教或国籍。"
+      },
+      "source_ids": [
+        "culture_lit_novel"
+      ],
+      "related_ids": [],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "culture_novel_frame",
+      "name": "框架叙事",
+      "aliases": [],
+      "tags": [
+        "culture",
+        "novel",
+        "oral",
+        "rumor"
+      ],
+      "summary": "由外层讲述者引出一个或多个内层故事，故事之间可以互相评论。",
+      "details": {
+        "definition": "框架叙事：旅店、审讯、法庭、档案或家庭聚会都能成为框架；版本差异要有来源。",
+        "mechanism": "以语言、媒介、讲述场合与受众共同形成意义；创作时先固定说话者、传播者和听者。",
+        "conditions": "需要明确的语言/地区、时代层、社会场合和可接触的传播媒介；名字还需固定转写方式。",
+        "exceptions": "现代创作可以改写形式，但不能把现实传统的一个变体声称为全部传统；个别角色的选择也可以违背群体惯例。",
+        "story_uses": "用于角色卡、城镇文化、传闻、契约、节庆或线索表达；失败时可以改变玩家理解，却不直接改写世界事实。",
+        "historical_scope": "候选资料用于跨时期创作参考；现实历史、宗教与语言边界必须在具体世界包中另行限定。",
+        "evidence_and_uncertainty": "来源只支持条目的概述范围；名字池是创作示例，不是人口统计，也不能单独决定角色阶层、性格、宗教或国籍。"
+      },
+      "source_ids": [
+        "culture_lit_nights",
+        "culture_lit_oral"
+      ],
+      "related_ids": [],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "culture_novel_coming_age",
+      "name": "成长小说结构",
+      "aliases": [],
+      "tags": [
+        "culture",
+        "novel",
+        "identity",
+        "development"
+      ],
+      "summary": "围绕角色从一种身份、依赖或信念进入另一种状态的叙事结构。",
+      "details": {
+        "definition": "成长小说结构：成长不等于变善或变强；长期变化需要事件证据和玩家选择。",
+        "mechanism": "以语言、媒介、讲述场合与受众共同形成意义；创作时先固定说话者、传播者和听者。",
+        "conditions": "需要明确的语言/地区、时代层、社会场合和可接触的传播媒介；名字还需固定转写方式。",
+        "exceptions": "现代创作可以改写形式，但不能把现实传统的一个变体声称为全部传统；个别角色的选择也可以违背群体惯例。",
+        "story_uses": "用于角色卡、城镇文化、传闻、契约、节庆或线索表达；失败时可以改变玩家理解，却不直接改写世界事实。",
+        "historical_scope": "候选资料用于跨时期创作参考；现实历史、宗教与语言边界必须在具体世界包中另行限定。",
+        "evidence_and_uncertainty": "来源只支持条目的概述范围；名字池是创作示例，不是人口统计，也不能单独决定角色阶层、性格、宗教或国籍。"
+      },
+      "source_ids": [
+        "culture_lit_novel"
+      ],
+      "related_ids": [],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "culture_novel_social",
+      "name": "社会现实主义视角",
+      "aliases": [],
+      "tags": [
+        "culture",
+        "novel",
+        "class",
+        "politics"
+      ],
+      "summary": "把日常生计、制度、阶层关系和物质约束放在人物叙事中心。",
+      "details": {
+        "definition": "社会现实主义视角：现实主义要求幻想也有分配后果；不要用阶层标签替 NPC 说出统一立场。",
+        "mechanism": "以语言、媒介、讲述场合与受众共同形成意义；创作时先固定说话者、传播者和听者。",
+        "conditions": "需要明确的语言/地区、时代层、社会场合和可接触的传播媒介；名字还需固定转写方式。",
+        "exceptions": "现代创作可以改写形式，但不能把现实传统的一个变体声称为全部传统；个别角色的选择也可以违背群体惯例。",
+        "story_uses": "用于角色卡、城镇文化、传闻、契约、节庆或线索表达；失败时可以改变玩家理解，却不直接改写世界事实。",
+        "historical_scope": "候选资料用于跨时期创作参考；现实历史、宗教与语言边界必须在具体世界包中另行限定。",
+        "evidence_and_uncertainty": "来源只支持条目的概述范围；名字池是创作示例，不是人口统计，也不能单独决定角色阶层、性格、宗教或国籍。"
+      },
+      "source_ids": [
+        "culture_lit_novel"
+      ],
+      "related_ids": [],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "culture_lit_courtly",
+      "name": "宫廷诗与赞助",
+      "aliases": [],
+      "tags": [
+        "culture",
+        "poetry",
+        "class",
+        "power"
+      ],
+      "summary": "由宫廷、贵族、宗教机构或富商赞助的诗歌与文艺生产关系。",
+      "details": {
+        "definition": "宫廷诗与赞助：保护、收入、审查和赞助者期待同时影响创作者；赞助不等于认同。",
+        "mechanism": "以语言、媒介、讲述场合与受众共同形成意义；创作时先固定说话者、传播者和听者。",
+        "conditions": "需要明确的语言/地区、时代层、社会场合和可接触的传播媒介；名字还需固定转写方式。",
+        "exceptions": "现代创作可以改写形式，但不能把现实传统的一个变体声称为全部传统；个别角色的选择也可以违背群体惯例。",
+        "story_uses": "用于角色卡、城镇文化、传闻、契约、节庆或线索表达；失败时可以改变玩家理解，却不直接改写世界事实。",
+        "historical_scope": "候选资料用于跨时期创作参考；现实历史、宗教与语言边界必须在具体世界包中另行限定。",
+        "evidence_and_uncertainty": "来源只支持条目的概述范围；名字池是创作示例，不是人口统计，也不能单独决定角色阶层、性格、宗教或国籍。"
+      },
+      "source_ids": [
+        "culture_lit_poetry",
+        "culture_lit_novel"
+      ],
+      "related_ids": [],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "culture_lit_translation",
+      "name": "翻译与改写",
+      "aliases": [],
+      "tags": [
+        "culture",
+        "language",
+        "translation"
+      ],
+      "summary": "把作品从一种语言、媒介或制度语境转入另一种语境的实践。",
+      "details": {
+        "definition": "翻译与改写：翻译会改变押韵、称谓、隐喻和阶层语气；模型不能用直译替代已确定事实。",
+        "mechanism": "以语言、媒介、讲述场合与受众共同形成意义；创作时先固定说话者、传播者和听者。",
+        "conditions": "需要明确的语言/地区、时代层、社会场合和可接触的传播媒介；名字还需固定转写方式。",
+        "exceptions": "现代创作可以改写形式，但不能把现实传统的一个变体声称为全部传统；个别角色的选择也可以违背群体惯例。",
+        "story_uses": "用于角色卡、城镇文化、传闻、契约、节庆或线索表达；失败时可以改变玩家理解，却不直接改写世界事实。",
+        "historical_scope": "候选资料用于跨时期创作参考；现实历史、宗教与语言边界必须在具体世界包中另行限定。",
+        "evidence_and_uncertainty": "来源只支持条目的概述范围；名字池是创作示例，不是人口统计，也不能单独决定角色阶层、性格、宗教或国籍。"
+      },
+      "source_ids": [
+        "culture_lit_novel",
+        "culture_lit_oral"
+      ],
+      "related_ids": [],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "culture_lit_folklore",
+      "name": "民间故事母题",
+      "aliases": [],
+      "tags": [
+        "culture",
+        "story",
+        "oral",
+        "motif"
+      ],
+      "summary": "在社群中反复流传、可被改写的故事结构与意象集合。",
+      "details": {
+        "definition": "民间故事母题：母题可跨地域出现，但每次落地都受人物、场景和价值观改写。",
+        "mechanism": "以语言、媒介、讲述场合与受众共同形成意义；创作时先固定说话者、传播者和听者。",
+        "conditions": "需要明确的语言/地区、时代层、社会场合和可接触的传播媒介；名字还需固定转写方式。",
+        "exceptions": "现代创作可以改写形式，但不能把现实传统的一个变体声称为全部传统；个别角色的选择也可以违背群体惯例。",
+        "story_uses": "用于角色卡、城镇文化、传闻、契约、节庆或线索表达；失败时可以改变玩家理解，却不直接改写世界事实。",
+        "historical_scope": "候选资料用于跨时期创作参考；现实历史、宗教与语言边界必须在具体世界包中另行限定。",
+        "evidence_and_uncertainty": "来源只支持条目的概述范围；名字池是创作示例，不是人口统计，也不能单独决定角色阶层、性格、宗教或国籍。"
+      },
+      "source_ids": [
+        "culture_lit_oral",
+        "culture_lit_epic"
+      ],
+      "related_ids": [],
+      "review_status": "needs_review"
+    }
+  ]
+}

@@ -1,0 +1,264 @@
+{
+  "base": "http://127.0.0.1:8898/",
+  "tag": "final",
+  "pages": {
+    "desktop:surface": {
+      "shown": true,
+      "heading": {
+        "title": "表层对话",
+        "crumb": "工作空间 / 表层对话"
+      },
+      "docScroll": 1440,
+      "winInner": 1440,
+      "overflowX": 0,
+      "wideCount": 0,
+      "wide": []
+    },
+    "desktop:notebook": {
+      "shown": true,
+      "heading": {
+        "title": "知识点记录簿",
+        "crumb": "工作空间 / 知识点记录簿"
+      },
+      "docScroll": 1440,
+      "winInner": 1440,
+      "overflowX": 0,
+      "wideCount": 0,
+      "wide": []
+    },
+    "desktop:inner": {
+      "shown": true,
+      "heading": {
+        "title": "里层创作",
+        "crumb": "工作空间 / 里层创作"
+      },
+      "docScroll": 1440,
+      "winInner": 1440,
+      "overflowX": 0,
+      "wideCount": 0,
+      "wide": []
+    },
+    "desktop:world-workshop": {
+      "shown": true,
+      "heading": {
+        "title": "世界创作",
+        "crumb": "工作空间 / 世界创作"
+      },
+      "docScroll": 1440,
+      "winInner": 1440,
+      "overflowX": 0,
+      "wideCount": 6,
+      "wide": [
+        "[object SVGAnimatedString] right=1451",
+        "[object SVGAnimatedString] right=1451",
+        "[object SVGAnimatedString] right=1451",
+        "[object SVGAnimatedString] right=1451",
+        "[object SVGAnimatedString] right=1451",
+        "[object SVGAnimatedString] right=1451"
+      ]
+    },
+    "desktop:map-tools": {
+      "shown": true,
+      "heading": {
+        "title": "世界地图工具",
+        "crumb": "工作空间 / 世界地图工具"
+      },
+      "docScroll": 1440,
+      "winInner": 1440,
+      "overflowX": 0,
+      "wideCount": 0,
+      "wide": []
+    },
+    "desktop:towns": {
+      "shown": true,
+      "heading": {
+        "title": "城镇创作",
+        "crumb": "工作空间 / 城镇创作"
+      },
+      "docScroll": 1440,
+      "winInner": 1440,
+      "overflowX": 0,
+      "wideCount": 0,
+      "wide": []
+    },
+    "desktop:map": {
+      "shown": true,
+      "heading": {
+        "title": "旅程地图",
+        "crumb": "工作空间 / 旅程地图"
+      },
+      "docScroll": 1440,
+      "winInner": 1440,
+      "overflowX": 0,
+      "wideCount": 0,
+      "wide": []
+    },
+    "desktop:traces": {
+      "shown": true,
+      "heading": {
+        "title": "模型输入输出",
+        "crumb": "工作空间 / 模型输入输出"
+      },
+      "docScroll": 1440,
+      "winInner": 1440,
+      "overflowX": 0,
+      "wideCount": 0,
+      "wide": []
+    },
+    "desktop:api": {
+      "shown": true,
+      "heading": {
+        "title": "API 配置",
+        "crumb": "工作空间 / API 配置"
+      },
+      "docScroll": 1440,
+      "winInner": 1440,
+      "overflowX": 0,
+      "wideCount": 0,
+      "wide": []
+    },
+    "desktop:settings": {
+      "shown": true,
+      "heading": {
+        "title": "设置",
+        "crumb": "工作空间 / 设置"
+      },
+      "docScroll": 1440,
+      "winInner": 1440,
+      "overflowX": 0,
+      "wideCount": 0,
+      "wide": []
+    },
+    "phone:surface": {
+      "shown": true,
+      "heading": {
+        "title": "表层对话",
+        "crumb": "工作空间 / 表层对话"
+      },
+      "docScroll": 390,
+      "winInner": 390,
+      "overflowX": 0,
+      "wideCount": 0,
+      "wide": []
+    },
+    "phone:notebook": {
+      "shown": true,
+      "heading": {
+        "title": "知识点记录簿",
+        "crumb": "工作空间 / 知识点记录簿"
+      },
+      "docScroll": 390,
+      "winInner": 390,
+      "overflowX": 0,
+      "wideCount": 0,
+      "wide": []
+    },
+    "phone:inner": {
+      "shown": true,
+      "heading": {
+        "title": "里层创作",
+        "crumb": "工作空间 / 里层创作"
+      },
+      "docScroll": 390,
+      "winInner": 390,
+      "overflowX": 0,
+      "wideCount": 0,
+      "wide": []
+    },
+    "phone:world-workshop": {
+      "shown": true,
+      "heading": {
+        "title": "世界创作",
+        "crumb": "工作空间 / 世界创作"
+      },
+      "docScroll": 390,
+      "winInner": 390,
+      "overflowX": 0,
+      "wideCount": 6,
+      "wide": [
+        "[object SVGAnimatedString] right=445",
+        "[object SVGAnimatedString] right=445",
+        "[object SVGAnimatedString] right=445",
+        "[object SVGAnimatedString] right=445",
+        "[object SVGAnimatedString] right=445",
+        "[object SVGAnimatedString] right=445"
+      ]
+    },
+    "phone:map-tools": {
+      "shown": true,
+      "heading": {
+        "title": "世界地图工具",
+        "crumb": "工作空间 / 世界地图工具"
+      },
+      "docScroll": 390,
+      "winInner": 390,
+      "overflowX": 0,
+      "wideCount": 0,
+      "wide": []
+    },
+    "phone:towns": {
+      "shown": true,
+      "heading": {
+        "title": "城镇创作",
+        "crumb": "工作空间 / 城镇创作"
+      },
+      "docScroll": 390,
+      "winInner": 390,
+      "overflowX": 0,
+      "wideCount": 0,
+      "wide": []
+    },
+    "phone:map": {
+      "shown": true,
+      "heading": {
+        "title": "旅程地图",
+        "crumb": "工作空间 / 旅程地图"
+      },
+      "docScroll": 390,
+      "winInner": 390,
+      "overflowX": 0,
+      "wideCount": 0,
+      "wide": []
+    },
+    "phone:traces": {
+      "shown": true,
+      "heading": {
+        "title": "模型输入输出",
+        "crumb": "工作空间 / 模型输入输出"
+      },
+      "docScroll": 390,
+      "winInner": 390,
+      "overflowX": 0,
+      "wideCount": 0,
+      "wide": []
+    },
+    "phone:api": {
+      "shown": true,
+      "heading": {
+        "title": "API 配置",
+        "crumb": "工作空间 / API 配置"
+      },
+      "docScroll": 390,
+      "winInner": 390,
+      "overflowX": 0,
+      "wideCount": 0,
+      "wide": []
+    },
+    "phone:settings": {
+      "shown": true,
+      "heading": {
+        "title": "设置",
+        "crumb": "工作空间 / 设置"
+      },
+      "docScroll": 390,
+      "winInner": 390,
+      "overflowX": 0,
+      "wideCount": 0,
+      "wide": []
+    }
+  },
+  "errors": [],
+  "console": [
+    "desktop: Failed to load resource: the server responded with a status of 404 (Not Found)"
+  ]
+}

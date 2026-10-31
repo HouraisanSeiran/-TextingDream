@@ -2,9 +2,17 @@
 
 状态：**候选素材数据库已生成并通过技术验收。** 交付文件为 `artifacts/human-encyclopedia/encyclopedia.sqlite3`（schema 2 / export 2，12 组、481 条元素、438 条来源记录）。主代理独立完整回归341项：338通过、3项符号链接权限跳过，退出码0；数据库完整性、来源版本固定、幂等导入与导出恢复已验证。内容仍为待审候选，不代表全部事实已经核实；不自动接入故事或旅程。
 
-- 代码：`app/encyclopedia.py`（库与导入/查询实现）、`tools/encyclopedia_cli.py`（CLI）
-- 测试：`tests/test_encyclopedia.py`
-- 数据来源：`docs/human-encyclopedia/*.json`（新七节 schema）、`docs/element-catalog/*.json`（原六组 274 元素）。**本模块只读它们，从不改写。**
+> **本轮（增补两组）**：构库名单从 12 组扩到 **14 组**，新增 `food-supplement`（23 条 / 30 来源）与 `craft-supplement`（24 条 / 34 来源），共 **+47 条**；全名单预期为 **528 条元素、502 条来源记录**。两个增补组是新增 namespace，**不改动**旧 12 组的任何行（同库导入旧内容逐字段不变，见 §11）；交付库仍待主编验收后显式生成，本环节只用临时库。
+
+- 代码：`app/encyclopedia.py`（库与导入/查询实现）、`tools/encyclopedia_cli.py`（CLI）、`tools/encyclopedia_build.py`（按显式 14 组名单构库，可选 `--with-traits` / `--with-cuisine`）
+- 测试：`tests/test_encyclopedia.py`（库与 CLI 本体）、`tests/test_encyclopedia_supplement.py`（14 组名单扩展与两个增补组集成）、`tests/test_encyclopedia_traits.py`（特质分区）、`tests/test_encyclopedia_cuisine.py`（饮食分区）
+- 数据来源：`docs/human-encyclopedia/*.json`（新七节 schema，含 food-supplement / craft-supplement 两个增补组）、`docs/element-catalog/*.json`（原六组 274 元素）。**本模块只读它们，从不改写。**
+
+> **后面的分区是显式开关，不默认入库**：特质在 `TRAIT_GROUPS`（`--with-traits`），
+> 饮食在 `CUISINE_GROUPS`（`--with-cuisine`，可与前者组合）。不带任何开关时仍是历史 14 组，
+> 旧测试里的 14 / 528 / 502 与 15 / 551 / 505 断言全部保留未改。
+> 饮食分区还在增补，它的条数会变，**本文不写它的固定数字**：要当前值就自己跑一句
+> `--with-traits --with-cuisine --check`（读源文件重算）。
 
 ---
 
@@ -188,7 +196,7 @@ D:\anaconda\python.exe -X utf8 -m tools.encyclopedia_cli init --db temp.sqlite3
   "schema_version": 2,
   "exported_at": "…",
   "scope": {"namespaces": "all"},
-  "counts": {"groups": 12, "source_versions": 438, "element_versions": 481},
+  "counts": {"groups": 14, "source_versions": 502, "element_versions": 528},
   "groups":   [{"namespace", "group_id", "schema_kind", "adapter", "legacy_schema", "status", "meta"}],
   "sources":  [{"namespace", "source_id", "version", "payload_hash", "payload"}],
   "elements": [{"namespace", "element_id", "version", "content_hash", "payload",
@@ -242,3 +250,75 @@ D:\anaconda\python.exe -X utf8 -m tools.encyclopedia_cli init --db temp.sqlite3
 - 跨组关联（`related_catalog_ids`，如 `reality_physical_* → steam_*`）在目标组导入后全部 `resolved`，未解析 0。
 
 **没有做的事**：没有生成正式 `artifacts/human-encyclopedia/encyclopedia.sqlite3`；没有对任何条目做事实核验；没有把百科接进故事 prompt、旧存档或经营模拟。
+
+以上为 **12 组 481 条** 阶段（已随 commit `1398466` 发布）的实测记录，保持原样不改写。
+
+---
+
+## 11. 本轮：名单扩到 14 组（+47 条）
+
+### 11.1 变了什么、没变什么
+
+| | 旧（已发布） | 本轮 |
+|---|---|---|
+| 构库名单 | 显式 12 组 | 显式 **14 组**（新增 food-supplement / craft-supplement） |
+| 元素 / 来源 | 481 / 438 | **528 / 502** |
+| 库 schema / 导出格式 | schema 2 / export 2 | 不变（仍是 2 / 2） |
+| 旧 12 组的行 | — | **零改动**（同库追加新 namespace，旧组导出逐字段相等） |
+| `review_status` | 全部 `needs_review` | 不变，新条目也都是 `needs_review` |
+
+变更点只在 `tools/encyclopedia_build.py` 的 `GROUPS` 常量与相应措辞：两个增补组**逐组显式登记**，不引入 `docs/human-encyclopedia/*.json` 通配——同目录以后还会有别的候选文件，通配会把它们默默带进交付库；`shared-themes.json` 仍在 `EXCLUDED` 里，没有进名单。`app/encyclopedia.py` 内部未改动（不需要改：增补组走的就是已有的人类七节 schema 与 `source_ids` / `related_ids` 解析路径）。
+
+### 11.2 两个增补组（本轮冻结值）
+
+| 组 | 元素 | 来源 | 来源 access 构成 | 跨组关联 |
+|---|---|---|---|---|
+| food-supplement | 23 | 30 | `read` 30 条（其中 1 条为策展摘要/索引页，已在组内说明） | 65 个目标指向 staples / produce / flavors / animal-foods / materials / tools |
+| craft-supplement | 24 | 34 | `read` 31 + `search_only` 3（awl / antler / bone-carving 只取到摘要与引文片段） | 19 个目标指向六组 |
+| **合计** | **47** | **64** | | 与六组合并后未解析关联 0 |
+
+两组的候选状态、七节齐全、id 前缀（`food_supp_` / `craft_supp_`）、无 id 与来源冲突、`search_only` 的诚实标注，均在本轮测试中逐条断言。**这不等于事实已核实。**
+
+### 11.3 与已发布旧库的兼容
+
+同库追加新 namespace 是受支持的路径，不需要重建：
+
+1. 旧 12 组的库（12 组 / 481）可以直接导入两个增补组，得到 14 组 / 528；
+2. 旧 12 组的 `groups` / `sources` / `elements` 导出在追加前后**逐字段相等**（三部分都断言）；
+3. 旧组条目仍可读、仍是 `needs_review` + `needs_detail`、仍各自只有 1 个版本（没有重写历史）；
+4. 全量导出仍可用 `export_version=2` 还原到空库，计数不再是硬编码的 12/438/481。
+
+反过来：**旧的已生成库文件不会自动长出新组**，需要重新导入两个增补文件（或整体重建）才会包含它们；已导出的旧 dump 也不会凭空多出这两组。
+
+### 11.4 本环节的测试
+
+| 范围 | 命令 | 结果 |
+|---|---|---|
+| 库与 CLI 本体（旧基线） | `python -X utf8 -m unittest tests.test_encyclopedia` | 81 个用例 |
+| 14 组名单扩展与两个增补组集成（新增） | `python -X utf8 -m unittest tests.test_encyclopedia_supplement` | 30 个用例，exit 0 |
+| 特质分区（新增） | `python -X utf8 -m unittest tests.test_encyclopedia_traits` | 断言 15 组 / 551 / 505（那一轮口径） |
+| 饮食分区（新增） | `python -X utf8 -m unittest tests.test_encyclopedia_cuisine` | 14 个用例，exit 0；数量断言从源文件动态算 |
+| 库 + 装配相关四模块一起跑 | `unittest tests.test_encyclopedia tests.test_element_assembly tests.test_element_assembly_integration` | **161 个用例，全部通过（OK），exit 0**，288.6s |
+
+四模块合计 191 个用例（81 + 41 + 39 + 30）。四模块那次实测里包含旧 81 项与 80 项装配相关回归（其中出现一条 starlette 关于 `httpx` → `httpx2` 的弃用警告，与本事无关）。
+
+`tests/test_encyclopedia.py` 里的 **12 组 / 481 / 274 基线断言全部保留未改**——它们验的是旧库行为，机械改成 528 反而会弱化回归。扩展后的数字只在 `tests/test_encyclopedia_supplement.py` 里断言（14 组 / 528 / 502）。
+
+新增测试覆盖：名单是显式 14 项且不允许通配、两个增补组按名登记、`shared-themes.json` 仍被排除、`build()` + `--check` 跑出 14 组 528 条、`--check` 缺组时退 1、增补组整批导入与 payload 逐字节回读、状态不升格、`access` 原值入库、跨组 `related_ids` 先 pending 后 resolved（目标组缺失时不假称解析）、多标签 AND/OR/复合与命名空间限定、重复导入零新版本且库文件哈希不变、`element_sources` 全 pin 且可 join、导出/还原保留（含单组导出后关联仍 pending）、旧库追加后旧行不变、扩展库导出可还原到空库。
+
+### 11.5 临时库实测（本轮，位于系统临时目录，已删）
+
+| 组 | adapter | 元素 | 来源 |
+|---|---|---|---|
+| staples / produce / flavors / animal-foods / materials / tools | human-encyclopedia | 33 / 37 / 33 / 28 / 36 / 40（共 207） | 39 / 49 / 37 / 32 / 24 / 38（共 219） |
+| food-supplement / craft-supplement | human-encyclopedia | 23 / 24（共 47） | 30 / 34（共 64） |
+| eastern / western / society / steam-horror / reality-physical / reality-human | element-catalog | 54 / 54 / 53 / 50 / 32 / 31（共 274） | 17 / 34 / 31 / 46 / 36 / 55（共 219） |
+| **合计** | | **528** | **502** |
+
+- `build()` 与 `--check` 均 exit 0，逐组“库内 == 源”一致，未解析关联 0。
+- 528 条全部 `needs_review` + `needs_detail`，`reviewed_detail` = 0。
+- 旧 12 组库追加两组后，旧组三段导出逐字段相等；全库计数变为 14 / 528 / 502。
+
+**本环节没有做的**：没有生成或覆写 `artifacts/human-encyclopedia/encyclopedia.sqlite3`（留给主代理验收后显式导入）；没有改写两个增补源 JSON（它们由采集侧定稿）；没有动 `app/encyclopedia.py` 内部、`data/`、`StoryPackage/` 或游戏 runtime；没有做 git 提交。
+
+附：本环节末尾以**只读**方式核对当时已存在的 `artifacts/human-encyclopedia/encyclopedia.sqlite3`（由主代理生成，本环节未写入），得到 14 组 / 528 元素版本 / 502 来源版本 / 未解析关联 0，命名空间含 `food-supplement` 与 `craft-supplement`；`food_supp_water_chestnut` 的标签已为 `aquatic_food`（旧 `root_tuber` 已移除），增补条目仍均 `needs_review` + `needs_detail`，craft 条目来源 pin 为 v1 且关联全 `resolved`。库内容的验收与交付决定权在主编。

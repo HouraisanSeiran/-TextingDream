@@ -1,0 +1,36 @@
+{
+  "session": "6205e45744194cc1",
+  "ending": {
+    "id": "ending_lost_convoy",
+    "title": "全失",
+    "kind": "lost",
+    "summary": "闸没压住，水翻上来，粮队与仓都没保住；街还要开，日子还得往下过。",
+    "priority": 40,
+    "continue_event": "aftermath_rebuild",
+    "at": 30
+  },
+  "warnings": [
+    "渡口的石阶只剩三格露在水面以上。",
+    "闸面上一直有东西在撞，声音隔一条街都听得到。",
+    "本该昨天到港的粮队，今天连船影都没有。"
+  ],
+  "opening": {
+    "profile_id": "riverport_local",
+    "title": "本地居民",
+    "identity": "米市街的本地居民，家里有一间小杂货铺",
+    "goal": "保住这一季的粮价，别让人把水当成涨价的理由",
+    "location": "market_row",
+    "known": [
+      {
+        "id": "local_price",
+        "text": "粮行今天挂了两块价牌：现货一个价，汛期定金另一个价",
+        "source": "铺子对面的牌"
+      },
+      {
+        "id": "local_route",
+        "text": "南浅滩的旧纤道水浅，人能走，船不能",
+        "source": "从小走到大"
+      }
+    ]
+  }
+}

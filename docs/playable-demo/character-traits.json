@@ -1,0 +1,471 @@
+{
+  "schema_version": 1,
+  "group": "character-traits",
+  "status": "candidate",
+  "note": "角色特质模板分区（原创玩法设计，非心理学量表，非采集资料）。本文件与 docs/human-encyclopedia、docs/element-catalog 是两回事：这一组正文全部是本项目自己的设计文字，用来给「这个角色大概会怎么选、怎么说话、什么底线不会让」提供一个可复用的、可被判定的写法。七节沿用百科 schema 的字段名，语义在本分区重新约定：definition=是什么与看得出来是什么样；mechanism=它改变哪几处可听可见的行为；conditions=什么时候才显现；exceptions=不能由它推出的东西（尤其不得推出道德、能力、秘密、罪名）；story_uses=可支撑的具体冲突；historical_scope=适用边界（本项目原创玩法设计，不做跨文化/年代断言）；evidence_and_uncertainty=证据缺口（无测量、无样本、无量表）。全部 review_status=needs_review，表示『未经实证审核』，不是『已核实』。来源只登记本项目自己的文档，不伪造外部文献。",
+  "sources": [
+    {
+      "id": "trait_src_design_doc",
+      "title": "可试玩 Demo 设计说明 · 角色特质模板分区（本项目设计文档）",
+      "url": "docs/playable-demo-design.md",
+      "access": "read",
+      "supports": "本分区定位：复用百科命名空间与固定版本；七节语义；不与 personality 权重合并、不产出倾向分值；公开/隐藏按受众隔离且隐藏项不默认自省；上下文与总 context 共用预算",
+      "rights_note": "本项目原创设计文档，随仓库分发；非第三方资料，非论文"
+    },
+    {
+      "id": "trait_src_engine_doc",
+      "title": "工程说明 · 角色表达与本地裁定（本项目工程文档）",
+      "url": "工程说明.md",
+      "access": "read",
+      "supports": "现有引擎边界：reaction 按 personality 权重与状态排序；白名单状态操作；自由输入不能直接授予物品或能力；正文不能反向改写权威状态",
+      "rights_note": "本项目原创工程文档，随仓库分发"
+    },
+    {
+      "id": "trait_src_attribute_doc",
+      "title": "属性与地理生成说明 · 六项能力轴与表达档位（本项目工程文档）",
+      "url": "属性与地理生成说明.md",
+      "access": "read",
+      "supports": "能力由六项属性档位表达，与性格、道德、已知秘密分开；因此特质不承担能力数值，也不承担道德判定",
+      "rights_note": "本项目原创工程文档，随仓库分发"
+    }
+  ],
+  "elements": [
+    {
+      "id": "trait_stable_deliberate",
+      "name": "先算后动",
+      "aliases": ["三思后行", "先问清再说", "慢一拍"],
+      "tags": ["trait", "trait.stable", "trait.public"],
+      "summary": "先把已知条件排一遍再开口或动手；代价是比别人慢半拍，也容易被当成拖延。",
+      "details": {
+        "definition": "一种处理顺序：先收集条件、再排序、再行动。看得出来的样子是复述对方的话确认前提、要求给出具体数字或期限、别人已经起身了他还坐着。",
+        "mechanism": "把含糊请求转成具体条件（「几袋、什么时候」）；明说自己采用的假设（「我按运费另算来理解」）；把一个决定拆成两步（先答应考虑，再给准话）。三处都在台词与动作层面，因此写起来不需要读心。",
+        "conditions": "条件不明、后果不可逆、有人催的时候最明显。时间宽裕又无风险时几乎看不出来——顺口就应了。线索越少越容易退化成反复确认同一个问题。",
+        "exceptions": "不能推出他更诚实、更可靠、更不容易被骗或专业更强；也不能推出他缺乏决断——他可能算完立刻拍板，比谁都快。更不能拿它当「他看穿了」的依据。",
+        "story_uses": "他问出的条件本身就是玩家要回答的问题，因此适合把对话往下推一格。压力场景里可制造节奏差：洪水按小时涨，他还在核数字，玩家得决定要不要打断。只能做软门槛，不要写成硬性检定门槛。",
+        "historical_scope": "架空故事里的设计文字。不声称适用于真实历史社会，也不对任何当代人群做概括；本分区不做年代与地域断言。",
+        "evidence_and_uncertainty": "没有测量、样本、量表或统计。它只是本项目需要的一种「把模糊请求转成条件」的写法。缺口：真实人群里的分布与稳定性，本分区不打算给。"
+      },
+      "source_ids": ["trait_src_design_doc", "trait_src_engine_doc"],
+      "related_ids": ["trait_stable_improviser", "trait_weakness_overthink"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "trait_stable_warm_first",
+      "name": "先热后冷",
+      "aliases": ["先给面子再说事", "开口先缓和"],
+      "tags": ["trait", "trait.stable", "trait.public"],
+      "summary": "开口第一句总把场面放缓，真正的诉求在第三句之后；收尾可能一个字都不让。",
+      "details": {
+        "definition": "固定的开场顺序：先处理气氛，再处理事务。表现是先称呼、先认一句对方的难处、先给一个不用付出的小让步，然后才说自己的要求。",
+        "mechanism": "把冲突延后：第一轮很少直接拒绝，往往先接住再绕回去。副作用是对方容易误以为已经谈成。写成对话就是「先应一声，再说但是」。",
+        "conditions": "对方是陌生人、上级或正在气头上时最明显。对自己人反而不铺垫，直接说事——所以「他忽然不客气了」更像关系近了，不像翻脸。",
+        "exceptions": "不能推出他软弱、好说话、容易被说服：开场缓和与最终拒绝并不矛盾。也不能推出他真心认同对方的说法——缓和是形式，不是立场。",
+        "story_uses": "给玩家一个可误读的信号：把客气当成答应。冲突点在于玩家需要从他第二段的具体句子里判断他到底让了什么。这一类信息差必须由玩家已看到的话支撑，不能由引擎替玩家下结论。",
+        "historical_scope": "架空故事里的设计文字。「客气开场」在不同社会里的含义差异本分区不做断言，也不引用礼俗研究。",
+        "evidence_and_uncertainty": "无测量、无样本、无量表。它不是「高情商」的定义，也不预测真实对话结果。"
+      },
+      "source_ids": ["trait_src_design_doc"],
+      "related_ids": ["trait_social_obliged", "trait_express_indirect"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "trait_stable_improviser",
+      "name": "见招拆招",
+      "aliases": ["边做边改", "先动起来", "就地取材"],
+      "tags": ["trait", "trait.stable", "trait.public"],
+      "summary": "计划做到一半就开工，靠现场条件补；成效常在，但事后说不清关键在哪一步。",
+      "details": {
+        "definition": "很低的开工阈值：条件够五六成就动手，剩下的现场补。表现是手上已经在动、嘴上还在讨论、工具就地取材。",
+        "mechanism": "速度快过讨论速度，容易抢在别人定方案之前把事做了；会把别人备好的方案改成另一个版本；事后复盘困难，他自己也说不清哪一步起了作用。台词是「先这样，不行再换」。",
+        "conditions": "熟悉环境、时间紧、有人在旁边等结果时最明显。在别人的地盘或需要审批的场合会明显收敛，因为改别人的东西要付代价。",
+        "exceptions": "不能推出他鲁莽、不在乎后果或手艺更好，也不能推出他不会按流程办事——他能照着做，只是不会自发去写流程。最要紧一条：「临时改了做法」不等于引擎允许了这个新做法，状态变更仍只走已声明的动作与效果。",
+        "story_uses": "适合制造需要玩家追认的既成事实（他已经把绳子换了个结法），并允许玩家反对。现场出现的「可用物」必须由作者显式声明为世界物品，不能由叙述临时发明。",
+        "historical_scope": "架空故事里的设计文字。不对即兴与工艺传统的关系做历史断言。",
+        "evidence_and_uncertainty": "无测量、无样本、无量表。不声称与任何真实职业群体相关。"
+      },
+      "source_ids": ["trait_src_design_doc", "trait_src_engine_doc"],
+      "related_ids": ["trait_stable_deliberate", "trait_weakness_scatter"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "trait_value_keep_word",
+      "name": "认死一句话",
+      "aliases": ["说到做到", "答应就算数"],
+      "tags": ["trait", "trait.value", "trait.public"],
+      "summary": "自己明确说出口的话被当成硬条件，代价变了也照办；别人没明说的，他一概不算。",
+      "details": {
+        "definition": "划的是「什么算数」的边界：自己说出的话算，别人没说的期待不算。表现是复述自己上次的原话、拒绝为含糊请求负责、兑现代价升高时仍然照旧。",
+        "mechanism": "谈判时要求条件落到字面，含糊处追到能复述为止；可能为一个已经没意义的承诺付出过高代价，并且不认为这是美德，而是「本来就这么说定的」。",
+        "conditions": "对方拿出他原话、或有人试图扩大解释时最明显。小事和自家人之间不强调，因为不值得。",
+        "exceptions": "不能推出他善良、公正或凡事可信：他可能守一句很坏的话。也不能推出他记性好，更不代表他能强制别人守约——这条底线只约束他自己。",
+        "story_uses": "可被利用的确定性：对手能拿他的原话把他架住；玩家也能依赖它（说三天就是三天），让时间压力有一块可计算的部分。引擎不会因此改检定或结算，它只改这个角色的应答与拒绝方式。",
+        "historical_scope": "架空故事里的设计文字。不引用「誓约社会」「荣誉文化」一类研究，也不做跨文化断言。",
+        "evidence_and_uncertainty": "无测量、无样本、无量表。不作为任何人格类型的定义使用。"
+      },
+      "source_ids": ["trait_src_design_doc", "trait_src_engine_doc"],
+      "related_ids": ["trait_value_no_cruelty", "trait_social_obliged"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "trait_value_no_cruelty",
+      "name": "不做多余的事",
+      "aliases": ["不拿人当耗材", "少伤一个是一个"],
+      "tags": ["trait", "trait.value", "trait.public"],
+      "summary": "能少伤一个就少伤一个，但不肯为此推翻整个计划；底线很窄：不主动加害，也不拦别人自救。",
+      "details": {
+        "definition": "一条刻意很窄的底线：不为效率额外伤人，不阻拦别人自己想办法，也不承担救所有人的责任。表现是算伤亡时会说出具体数字、拒绝「反正都要死人」这种说法。",
+        "mechanism": "方案里会保留一个「不必如此」的选项，哪怕更慢；被迫选择之后仍然承认自己选了，不用「没办法」盖过去。台词是「可以不这样，但会很慢，你定」。",
+        "conditions": "有人要被当成手段时最明显。纯天灾或没人受损的取舍里看不出来。",
+        "exceptions": "不能推出他会救人、会冒险、会站到弱者一边——底线只禁止多余的伤害，不要求额外的付出。更不能推出他高尚：他可能清楚地知道自己在放弃谁。",
+        "story_uses": "给「有成本的道德选择」落一个不夸张的终点：他愿意做慢方案，但不会替玩家承担代价。是谈判里的让步来源，不是免费的好结局开关。",
+        "historical_scope": "架空故事里的设计文字。不引用伦理学理论或历史案例，也不做人性善恶的断言。",
+        "evidence_and_uncertainty": "无测量、无样本、无量表。这条底线的宽窄完全是本项目的设计选择，不声称代表任何人。"
+      },
+      "source_ids": ["trait_src_design_doc"],
+      "related_ids": ["trait_value_keep_word", "trait_motive_protect_town"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "trait_value_distrust_authority",
+      "name": "不信盖章的",
+      "aliases": ["只信自己看见的", "对公文先打个问号"],
+      "tags": ["trait", "trait.value", "trait.public"],
+      "summary": "靠印、靠头衔、靠「上面说的」支撑的说法先降一级；除非有人肯把名字和日期一起留下。",
+      "details": {
+        "definition": "把权威当待核实的来源而不是结论。表现是要求看原件、追问是谁签的、把官方告示与现场痕迹分开记。针对的是证据等级，不针对某个具体机构。",
+        "mechanism": "把对方的说法拆成「谁说的」「凭什么」「有没有第二个人证实」；同时会在需要统一行动的场合拖慢进度。台词是「这是守闸人自己说的，还是通告上这么写的？」",
+        "conditions": "面对公文、传闻、或有人替第三方传话时最明显。对自己亲眼看过的事不设防，甚至可能反过来过度相信亲眼所见。",
+        "exceptions": "不能推出他会造反、捣乱或反对一切秩序——核实之后他可能非常服从。也不能推出他更客观：亲眼所见同样会被错误解读。尤其不能推出「官方一定是错的」，那只是把偏见换了个方向。",
+        "story_uses": "承担信息核验的剧情功能：他提的问题就是玩家要去查的清单。与「只有他知道的部分通告」形成冲突时要注意，机密能否公开必须由作者显式配置，不能因为这条特质自动泄密。",
+        "historical_scope": "架空故事里的设计文字。不对任何真实行政、宗教或军事权威作评价，也不做历史断言。",
+        "evidence_and_uncertainty": "无测量、无样本、无量表。不声称与任何社会态度调查相关。"
+      },
+      "source_ids": ["trait_src_design_doc", "trait_src_engine_doc"],
+      "related_ids": ["trait_identity_outsider", "trait_stable_deliberate"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "trait_motive_protect_town",
+      "name": "把这条街当自己家",
+      "aliases": ["守着自己这一片", "先顾眼前人"],
+      "tags": ["trait", "trait.motive", "trait.public"],
+      "summary": "做决定的第一个筛子是「这条街会怎样」；更大的道理不反对，但排不到前面。",
+      "details": {
+        "definition": "一种动机排序：具体的、认识的、住得近的人，排在抽象的、远处的、写在纸上的利益之前。表现是问「他们在哪儿」、把方案落到具体几户人家。",
+        "mechanism": "讨论会迅速具体化（谁家的仓、哪条巷子）；宏大理由对他几乎没有说服力。台词是「下游多少人我数不清，但我认识这三户」。",
+        "conditions": "涉及本地具体损失时最明显。纯技术问题或没有具体人受损时不出现。",
+        "exceptions": "不能推出他排外或反对更大的组织——他可能很清楚必须合作，只是排序靠后。也不能推出他会为本地人做任何事：本地人的无理要求他照样拒绝。",
+        "story_uses": "区域利益与全局利益冲突时，提供一个角色侧依据，让谈判出现「先给本地一个交代」这种可操作步骤。它不改变资源结算，只改变谁愿意在什么条件下签字。",
+        "historical_scope": "架空故事里的设计文字。不对地方共同体的任何真实历史形态作断言。",
+        "evidence_and_uncertainty": "无测量、无样本、无量表。不声称是某个阶层或职业的普遍特征。"
+      },
+      "source_ids": ["trait_src_design_doc"],
+      "related_ids": ["trait_social_obliged", "trait_value_no_cruelty"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "trait_motive_clear_name",
+      "name": "要一个说得清的说法",
+      "aliases": ["求个明白", "先把账对上"],
+      "tags": ["trait", "trait.motive", "trait.public"],
+      "summary": "比结果更在意「这件事能不能讲明白」；账对不上、说法前后不一，会追到能复述为止。",
+      "details": {
+        "definition": "把「可复述、可核对」当成目标本身，而不只是手段。表现是反复要求对齐数字与时间、别人已经接受结果了他还在问「那三天是怎么回事」。",
+        "mechanism": "替玩家把散落线索整理成一句可检验的话；同时在需要迅速结案的场合显得不近人情。台词是「不是追究谁，是这账得对上」。",
+        "conditions": "出现数字矛盾、时间对不上、或有人改口时最明显。一切顺当时不会主动找事。",
+        "exceptions": "不能推出他聪明或一定能查清——他可能追着一个无关紧要的矛盾耗掉时间，也可能追到一半放弃。也不能推出他公正：他要的是「说得清」，不是「公平」。",
+        "story_uses": "让他复述玩家已知的记录来当线索整理器（只能使用已获得的信息，不引入新事实）。同时是压力来源：他追账的时候洪水在涨。",
+        "historical_scope": "架空故事里的设计文字。不引用求知欲或认知需求方面的研究。",
+        "evidence_and_uncertainty": "无测量、无样本、无量表。"
+      },
+      "source_ids": ["trait_src_design_doc", "trait_src_engine_doc"],
+      "related_ids": ["trait_stable_deliberate", "trait_weakness_overthink"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "trait_motive_owe_debt",
+      "name": "欠着要还",
+      "aliases": ["人情得清", "记着谁帮过"],
+      "tags": ["trait", "trait.motive", "trait.public"],
+      "summary": "别人帮过一次会记很久并主动找机会还；反过来也很在意自己有没有被占便宜。",
+      "details": {
+        "definition": "把接受过的帮助记成一笔待清的账，并主动创造偿还机会。表现是提起旧事、在对方开口之前先给个方便、被反复索取之后开始计算。",
+        "mechanism": "主动提供小额帮助以平衡关系；长期单向付出会转成明显的冷淡。台词是「上次你借过秤，这次我先垫」。",
+        "conditions": "有过具体互助经历的对象面前最明显。纯交易关系里不启动。",
+        "exceptions": "不能推出他大方或会无限帮忙——账清了他就停。也不能推出他的帮助无条件：还人情也可能带条件。更不代表他会因为人情而撒谎或包庇，这条动机与「说不说真话」没有绑定。",
+        "story_uses": "关系推进的可见机制：玩家帮过一次，之后能从他这里得到一次具体方便（必须是作者已声明、额度有界的便利，不新增物品）。也可以用来写「人情耗尽」的转折。",
+        "historical_scope": "架空故事里的设计文字。不引用人情或互惠方面的研究，也不做地域断言。",
+        "evidence_and_uncertainty": "无测量、无样本、无量表。"
+      },
+      "source_ids": ["trait_src_design_doc"],
+      "related_ids": ["trait_social_obliged", "trait_value_keep_word"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "trait_express_indirect",
+      "name": "话绕着说",
+      "aliases": ["不把话说死", "留半句"],
+      "tags": ["trait", "trait.express", "trait.public"],
+      "summary": "要求包在别的话里：先说天气、先说难处、先说别人的看法，真正想说的那句最短。",
+      "details": {
+        "definition": "把诉求放进铺垫与旁证里，避免直接提出。表现是长铺垫、用第三人称举例、把请求说成询问、被直接追问时短暂停顿。",
+        "mechanism": "信息要玩家主动追问才完整；同时容易被误读成没有立场。台词是「倒不是我说什么，就是有人提过……你觉得呢」。",
+        "conditions": "有求于人、或对方地位更高时最明显。紧急情况下会突然变直——这个反差本身是可用的信号。",
+        "exceptions": "不能推出他撒谎或说的不可信：绕的是形式，不是真假。也不能推出他软弱，把话说得绕的人可能在关键处一步不让。反过来也不能推出「绕=有隐情」，那是把表达习惯当秘密。",
+        "story_uses": "制造「需要追问」的节奏，用追问换信息（信息仍须由已声明的效果或已知记录产生，不能凭空给）。紧急时忽然直说，可用来标记状态变化。",
+        "historical_scope": "架空故事里的设计文字。不对任何语言社群的礼貌策略作断言。",
+        "evidence_and_uncertainty": "无测量、无样本、无量表。"
+      },
+      "source_ids": ["trait_src_design_doc"],
+      "related_ids": ["trait_stable_warm_first", "trait_express_plain_numbers"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "trait_express_plain_numbers",
+      "name": "只说数目和时辰",
+      "aliases": ["一句废话没有", "拿数字说话"],
+      "tags": ["trait", "trait.express", "trait.public"],
+      "summary": "话短句干：说「三袋、两个时辰」而不说「不少、得等一会儿」；情绪靠沉默和动作。",
+      "details": {
+        "definition": "优先给可核对的量词与时间，少给评价词。表现是短句、少形容词、被问感受时给一个具体事实。",
+        "mechanism": "对话推进快，也容易让人觉得被敷衍。台词是「两刻钟，四个人，够了」。紧张时句子更短，甚至不答。",
+        "conditions": "工作场合、有明确任务时最明显。熟人面前或喝了酒会多说两句家常。",
+        "exceptions": "不能推出他粗鲁、没感情或不理解复杂问题——他只是不把复杂问题说出来。也不能推出他给的数字一定对：给数目是习惯，不是保证。不得由这条习惯推出他隐瞒了什么。",
+        "story_uses": "让规则性信息（数量、时限、成本）以最不会误读的方式到达玩家。也可以做反差：他忽然说了整段话，说明事情超出常规。",
+        "historical_scope": "架空故事里的设计文字。不对任何职业群体的说话方式作概括。",
+        "evidence_and_uncertainty": "无测量、无样本、无量表。"
+      },
+      "source_ids": ["trait_src_design_doc"],
+      "related_ids": ["trait_express_indirect", "trait_stable_deliberate"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "trait_express_borrow_words",
+      "name": "借别人的话讲",
+      "aliases": ["开口先引述", "把话安在旁人身上"],
+      "tags": ["trait", "trait.express", "trait.public"],
+      "summary": "习惯先引述再说自己的半句：「他们都说」「有人讲过」开头，自己的判断放在后面且更短。",
+      "details": {
+        "definition": "把观点先挂在第三方名下再说出来。表现是「听说」「有人说」「按老规矩」起头，随后才给半句自己的看法。",
+        "mechanism": "信息显得有来源，责任也被分摊（听者不容易直接反驳）。台词是「船老大们都说这条水道不干净——我是觉得水色不对」。",
+        "conditions": "人多、有外人在场、话题敏感时最明显。一对一私下谈话会少用引述。",
+        "exceptions": "不能推出他在造谣：引述的内容可能确实有人说过，也可能是真的。也不能推出他懦弱或狡猾。最要紧一条：不得由表达习惯推出信息真假，真假只由已声明的记录与证据等级决定。",
+        "story_uses": "正好用来演示传闻与事实的差别：他转述的话仍标为转述，不会因为说得像真的就升格。可作为玩家需要核实的线索入口。",
+        "historical_scope": "架空故事里的设计文字。不对任何语言社群的引述习惯作断言。",
+        "evidence_and_uncertainty": "无测量、无样本、无量表。"
+      },
+      "source_ids": ["trait_src_design_doc", "trait_src_engine_doc"],
+      "related_ids": ["trait_express_indirect", "trait_identity_outsider"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "trait_identity_outsider",
+      "name": "外来的",
+      "aliases": ["不是本地人", "口音不对"],
+      "tags": ["trait", "trait.identity", "trait.public"],
+      "summary": "在这地方没有根：认识的路少、能担保的人少、被默认当成要走的那个；同时也不欠谁。",
+      "details": {
+        "definition": "一种社会位置：缺少本地关系网、缺少可核实的履历、缺少本地义务。表现是问路多、被要求找保人、集体决策里最后才被问到。",
+        "mechanism": "信息起点低（知道得少，也没被本地成见套住）；承诺成本低（可以答应，也可以说走就走）。台词是「我明天就可能不在，你要现在定」。",
+        "conditions": "需要担保、需要分配本地资源、或涉及「谁留下谁走」时最明显。纯技术协作里几乎不显现。",
+        "exceptions": "不能推出他不可靠或一定会离开——身份与守约是两件事。也不能推出他更客观：不了解不等于看得清。不得由身份推出他做过什么，来历必须由作者显式配置，不能由标签猜。",
+        "story_uses": "三个起点之间的差异来源：不同起点带来不同的已知信息与关系，而不是不同的能力数值。也让「找保人」成为一个可解的步骤，而不是硬墙。",
+        "historical_scope": "架空故事里的设计文字。不对任何真实迁徙、行商或流民群体的历史处境作断言。",
+        "evidence_and_uncertainty": "无测量、无样本、无量表。identity 条目的内容是设计选择，不声称对应真实社会分类。"
+      },
+      "source_ids": ["trait_src_design_doc"],
+      "related_ids": ["trait_value_distrust_authority", "trait_strength_route_memory"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "trait_identity_guild_raised",
+      "name": "行会里长大的",
+      "aliases": ["学徒出身", "从账房和工具间出来"],
+      "tags": ["trait", "trait.identity", "trait.public"],
+      "summary": "从小在行会院子里长大：知道规矩怎么用、谁的印记算数、哪些步骤能省哪些绝不能省。",
+      "details": {
+        "definition": "熟悉一套行业内的成文与不成文规矩，包括流程、称谓、出问题时的责任分配。表现是自动用行话、默认某些步骤不必解释、对不合规矩的方案先皱眉再想办法。",
+        "mechanism": "能快速判断某件事在行内是否成立；也容易低估外行需要多少解释。台词是「这个得先过秤，再过账，不然年底对不上」。",
+        "conditions": "涉及流程、验收、责任归属时最明显。纯体力或纯人情场合不显现。",
+        "exceptions": "不能推出他手艺好或一定站在行会一边——他可能非常清楚行会的毛病。绝不能推出他有权限：知道规矩不等于有权盖章，任何权限必须由作者显式配置。",
+        "story_uses": "承担「解释规则」的功能，把流程成本讲清给玩家；也适合写规矩与救命相冲突的选择。受任调查者这类起点靠配置成立，不靠这条特质自动授予委托。",
+        "historical_scope": "架空故事里的设计文字。不对任何真实行会制度作历史断言；本包的行会为架空设定。",
+        "evidence_and_uncertainty": "无测量、无样本、无量表。"
+      },
+      "source_ids": ["trait_src_design_doc"],
+      "related_ids": ["trait_value_keep_word", "trait_weakness_overthink"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "trait_identity_owed_a_debt",
+      "name": "身上有笔旧账",
+      "aliases": ["欠着没还清", "背着旧事"],
+      "tags": ["trait", "trait.identity", "trait.hidden"],
+      "summary": "过去有一笔没结清的事；会主动避开相关的人与场合，被追问时反应比平常更硬。",
+      "details": {
+        "definition": "只描述「有一件旧事尚未结清」这个事实与它的可观察后果（回避、迟疑、对某些名字反应过度），不描述旧事的内容。内容必须由作者在角色包或事件里单独配置，本模板不提供。",
+        "mechanism": "绕开特定的人、地点或话题；被追问时更快转移。台词是「那几年我不在城里」——一句带过，不解释。",
+        "conditions": "相关人物、地点、物件出现时才明显。无关场合完全看不出。",
+        "exceptions": "这一条最容易误用，边界写死：不得推出任何具体罪名、羞耻、背叛或暴力经历；不得用它给角色加「心虚」的默认反应；不得用它解释一切可疑行为；也不得推出角色本人知道自己有这条旧账——知不知道要单独配置。",
+        "story_uses": "当作未填的钩子：可以接上一条已声明的秘密，也可以永远不接。用来演示隐藏特质的投影隔离最合适——玩家只看到他绕开话题，看不到这条模板；公开与否由作者显式配置。",
+        "historical_scope": "架空故事里的设计文字。不引用犯罪学、创伤研究或道德心理学内容。",
+        "evidence_and_uncertainty": "无测量、无样本、无量表。内容刻意留空，因为任何具体化都会变成对真实人群的刻板推断。"
+      },
+      "source_ids": ["trait_src_design_doc", "trait_src_engine_doc"],
+      "related_ids": ["trait_motive_owe_debt", "trait_express_borrow_words"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "trait_strength_route_memory",
+      "name": "路在脑子里",
+      "aliases": ["走过一遍就记得", "认水色和风向"],
+      "tags": ["trait", "trait.strength", "trait.public"],
+      "summary": "走过的路、看过的水面、闻过的气味记得住；能复述路线并指出「这里和上次不一样」。",
+      "details": {
+        "definition": "对空间与感官细节的保留程度较高，并且说得出来。表现是主动描述路径、指出变化、被问路时给具体标志物。",
+        "mechanism": "可以替玩家复述路线与异状（只用玩家已知或他亲历的记录）；会注意到「某处不该变却变了」。台词是「上次那块石头在左边，现在挪了」。",
+        "conditions": "有具体地标、气味、水位变化的户外场所最明显。封闭室内或纯文书场合不显现。",
+        "exceptions": "不能推出他方向感永不失误，也不能推出他能找到没走过的路。不能推出他警觉或谨慎——记得住不等于会提防。也不能由这条优势推出他发现了秘密：他只能说「不一样」，原因要另查。",
+        "story_uses": "线索通道：让玩家通过他复述已经获得的观察，不新增事实。也可以当异常提示器，但异常的解释必须另外配置。",
+        "historical_scope": "架空故事里的设计文字。不对任何真实职业（船工、猎人、向导）的记忆能力作概括。",
+        "evidence_and_uncertainty": "无测量、无样本、无量表。不声称与任何记忆研究相关。"
+      },
+      "source_ids": ["trait_src_design_doc", "trait_src_attribute_doc"],
+      "related_ids": ["trait_identity_outsider", "trait_weakness_scatter"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "trait_weakness_overthink",
+      "name": "想太多",
+      "aliases": ["反复确认", "一步要问三遍"],
+      "tags": ["trait", "trait.weakness", "trait.public"],
+      "summary": "已经够清楚的地方还继续找漏洞，把时间花在确认上；容易错过窗口，也容易把合作谈成条款。",
+      "details": {
+        "definition": "核对成本高于核对收益，仍然继续核对。表现是重复同一个问题、要求再看一遍、别人已经决定之后又提出新的可能性。",
+        "mechanism": "消耗时间与耐心，把对方推向不耐烦。台词是「等一下，如果那天下雨呢」。时间压力越大越停不下来，小事上不显现。",
+        "conditions": "后果不可逆、时间紧时最明显。若他已经明确表态，这条会与「认准了不回头」相互拉扯，写对话时要注意先后。",
+        "exceptions": "不能推出他愚蠢或无能：他可能每次都算对，只是算得太久。也不能推出他优柔寡断——常在最后时刻断得很干脆。不得由这条弱点推出他在关键处一定失败，成败仍由已声明的检定与选择决定。",
+        "story_uses": "压力机制里的一处真实成本：与他有关的步骤会多花时间，而时间是有限的。适合让玩家学会打断他。",
+        "historical_scope": "架空故事里的设计文字。不对任何焦虑或强迫相关的临床概念作引用或类比；本分区明确不涉及诊断。",
+        "evidence_and_uncertainty": "无测量、无样本、无量表；本条目刻意避开临床词汇。"
+      },
+      "source_ids": ["trait_src_design_doc"],
+      "related_ids": ["trait_stable_deliberate", "trait_motive_clear_name"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "trait_weakness_scatter",
+      "name": "手上事太多",
+      "aliases": ["什么都接", "同时开三摊"],
+      "tags": ["trait", "trait.weakness", "trait.public"],
+      "summary": "担着几件事一件也放不下；每件都慢一点，总有一样在最后一刻才想起来。",
+      "details": {
+        "definition": "承诺量超过可支配的精力，且不愿主动放弃任何一件。表现是中途离开、说到一半想起别的事、约定时间前后不一致。",
+        "mechanism": "他给的时间估计偏乐观（没算上别的事）；会漏掉一个不紧急但重要的环节。台词是「我记着呢，就是得先去看一眼那边」。",
+        "conditions": "事情集中、有人不断来找时最明显。清闲时完全正常。",
+        "exceptions": "不能推出他不负责或不在乎——他往往比谁都在乎，只是容量不足。也不能推出他一定误事，他可能刚好赶上。不得由这条弱点推出他隐瞒或欺骗。",
+        "story_uses": "写「信息来得太晚」：关键消息在压力触发之后才到。也让玩家可以选择帮他分担（用具体行动换时间），而不是靠说服。",
+        "historical_scope": "架空故事里的设计文字。不对任何职业的工作负荷作经验断言。",
+        "evidence_and_uncertainty": "无测量、无样本、无量表。"
+      },
+      "source_ids": ["trait_src_design_doc"],
+      "related_ids": ["trait_stable_improviser", "trait_strength_route_memory"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "trait_weakness_stubborn",
+      "name": "认准了不回头",
+      "aliases": ["谁说都不改", "撞到底再说"],
+      "tags": ["trait", "trait.weakness", "trait.public"],
+      "summary": "当众定过方向之后，新证据也很难让他改口；改口对他是承认前面全错。",
+      "details": {
+        "definition": "把修正成本估得过高，因而拒绝更新。表现是用「已经说定了」挡回新信息、把改方案当成对他的否定、事后仍坚持原判断。",
+        "mechanism": "新证据难以生效（需要更硬的证据或更私下的场合）；会为已经错误的方案继续投入。台词是「现在改，前面那些算什么」。",
+        "conditions": "公开表态之后最明显。私下、没被记录的建议反而容易接受。",
+        "exceptions": "不能推出他愚蠢或听不进话——没表态之前他相当愿意听。也不能推出他一定错，他可能一开始就对。不得把「不肯改」写成「一定是反派」的理由。",
+        "story_uses": "写沉没成本冲突：玩家要么给他一个不丢脸的台阶，要么绕过他。台阶必须由已声明的动作提供，不能靠一句漂亮话翻转立场。",
+        "historical_scope": "架空故事里的设计文字。不引用决策失误方面的研究。",
+        "evidence_and_uncertainty": "无测量、无样本、无量表。"
+      },
+      "source_ids": ["trait_src_design_doc"],
+      "related_ids": ["trait_strength_calms_room", "trait_value_keep_word"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "trait_strength_calms_room",
+      "name": "能把场面压住",
+      "aliases": ["一开口人就安静", "稳得住"],
+      "tags": ["trait", "trait.strength", "trait.public"],
+      "summary": "乱起来的场合，他的语气和动作让周围人慢下来：不靠威胁，靠把下一步说得很具体。",
+      "details": {
+        "definition": "在混乱中把注意力收拢到一件可执行的事上。表现是降低音量、给出具体的下一个动作、点名分工。",
+        "mechanism": "混乱场景里信息传递更顺（他能把「现在做什么」说清）；也会承担别人默认交给他的决定。台词是「先关西边的闸，两个人跟我，剩下的搬沙袋」。",
+        "conditions": "有人在慌、有明确任务时最明显。无事时完全不显现，甚至显得话少。",
+        "exceptions": "不能推出他勇敢、正确或应该当领导。也不能推出他抗压无上限——他可能在之后才垮。不得由这条优势推出别人一定会听他的：服从仍由各角色自己的判断与关系决定。",
+        "story_uses": "压力场景里提供一个「稳住局面」的可选步骤，让玩家有可执行的中间态。它不改变检定额度，也不自动换来 NPC 服从。",
+        "historical_scope": "架空故事里的设计文字。不对真实的指挥、军事或救灾组织作断言。",
+        "evidence_and_uncertainty": "无测量、无样本、无量表。"
+      },
+      "source_ids": ["trait_src_design_doc", "trait_src_engine_doc"],
+      "related_ids": ["trait_motive_protect_town", "trait_weakness_stubborn"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "trait_social_obliged",
+      "name": "被一堆人牵着",
+      "aliases": ["身后有一大家子", "得回去说一声"],
+      "tags": ["trait", "trait.social", "trait.public"],
+      "summary": "决定不只由自己做：有要养的人、要交代的合伙人、不能得罪的邻里；很多选择是替别人选的。",
+      "details": {
+        "definition": "可选范围被具体的人际义务压窄。表现是先说「我得回去说一声」、把方案改成能过关的版本、被要求立刻表态时明显不舒服。",
+        "mechanism": "谈判要预留「他要回去交代」的环节；他很少做纯对自己有利的选择。台词是「我答应你，但我得让堂里知道」。",
+        "conditions": "涉及长期承诺、公开站队、动用公共资源时最明显。一次性的小事上不显现。",
+        "exceptions": "不能推出他没主见或一定听家里的——他可能因此更谨慎地拒绝。也不得由这条牵连推出他有后台或有钱：社会关系不等于资源额度，额度只由配置决定。",
+        "story_uses": "需要第二步确认的剧情节奏，让玩家的决定有延迟成本。也用来体现起点差异：三种开局的关系表不同，行为入口也不同。",
+        "historical_scope": "架空故事里的设计文字。不对真实的家族、宗族或行帮制度作断言。",
+        "evidence_and_uncertainty": "无测量、无样本、无量表。"
+      },
+      "source_ids": ["trait_src_design_doc"],
+      "related_ids": ["trait_motive_protect_town", "trait_motive_owe_debt"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "trait_social_has_enemies",
+      "name": "有人等着看他出错",
+      "aliases": ["旧对头还在", "被盯着"],
+      "tags": ["trait", "trait.social", "trait.hidden"],
+      "summary": "这地方有明确的对手，且在等一个公开的失误；因此他更在乎程序上的体面，也更怕当场被驳。",
+      "details": {
+        "definition": "只描述「存在一个针对他的、有具体代表的对立面」以及它的可观察后果：过度在意程序是否被人看见、公开场合比私下僵硬。对手是谁、为什么对立，必须由作者单独配置，本模板不提供。",
+        "mechanism": "他会要求「按规矩来」以取得形式上的优势；私下沟通比公开场合有效。台词是「当着人你别问我这个」。",
+        "conditions": "公开场合、有第三方在场时最明显。私下里反而放松。",
+        "exceptions": "不得推出任何具体的敌对者、恩怨内容，也不得推出他做过的事；不得用它解释一切敌意（可能只是有人不喜欢他）。不得给角色加「被所有人针对」的默认叙事。也不得推出角色本人知道这层对立——认知与否要单独配置。",
+        "story_uses": "写「公开与私下」两条路径的差异：同一句话在两个场合效果不同。也适合当隐藏特质投影隔离的样例（NPC 有、玩家看不到）。",
+        "historical_scope": "架空故事里的设计文字。不引用任何派系斗争的真实案例。",
+        "evidence_and_uncertainty": "无测量、无样本、无量表。内容刻意留空，以避免对真实人群的推断。"
+      },
+      "source_ids": ["trait_src_design_doc", "trait_src_engine_doc"],
+      "related_ids": ["trait_weakness_stubborn", "trait_identity_owed_a_debt"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "trait_social_can_borrow_a_name",
+      "name": "借得到一张保状",
+      "aliases": ["有人肯替他担保", "名字能用"],
+      "tags": ["trait", "trait.social", "trait.public"],
+      "summary": "这地方有人愿意为他说一句话：不一定是他的人，但对方的印在本地算数。",
+      "details": {
+        "definition": "一种可被兑现的社会牵连：存在愿意为他担保的具体人，且那份担保在本地被承认。表现是他会说「我去找某人」，被要求押金时会提这个人的名字。",
+        "mechanism": "让「找保人」成为一个可解的步骤，而不是一堵墙；同时这份人情是要还的，用一次少一次。台词是「西街的账房能替我画押，但这就算用掉一次」。",
+        "conditions": "需要担保、需要本地信用、需要人出面讲情时最明显。纯粹的技术活或私下交易里用不上。",
+        "exceptions": "不能推出他有钱或有权：担保是别人的信誉借给他用，不是他自己的额度。不能推出这个保人一定答应，也不能推出担保能解决任何事。绝不因为这条特质而自动获得物品、通行或权限——那些仍须由作者声明的动作给出。",
+        "story_uses": "给玩家一条「用社会关系换一次通融」的路，并且有明确的消耗感。适合和钱的路径并列，让取舍有两条不同的成本。",
+        "historical_scope": "架空故事里的设计文字。不对任何真实的保人、联保或信用制度作历史断言。",
+        "evidence_and_uncertainty": "无测量、无样本、无量表。"
+      },
+      "source_ids": ["trait_src_design_doc", "trait_src_engine_doc"],
+      "related_ids": ["trait_social_obliged", "trait_motive_owe_debt"],
+      "review_status": "needs_review"
+    }
+  ]
+}

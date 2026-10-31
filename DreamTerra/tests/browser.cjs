@@ -1,0 +1,53 @@
+const {chromium}=require(require.resolve('playwright',{paths:[require('path').resolve('external/civ-atlas')]}));
+const assert=require('node:assert/strict'), fs=require('node:fs'), os=require('node:os');
+(async()=>{
+ const browser=await chromium.launch({executablePath:'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe',headless:true});
+ const page=await browser.newPage({viewport:{width:1440,height:1000}});const errors=[],requests=[];
+ page.on('pageerror',e=>errors.push(e.message));page.on('request',r=>requests.push(r.url()));
+ const output='DreamTerra/artifacts/';
+ try{
+  await page.goto('http://127.0.0.1:8768/');
+  await page.getByRole('button',{name:'DreamTerra 山川世界',exact:true}).click();
+  await page.waitForSelector('.dt-map');
+  const canvas=page.locator('.dt-stage canvas');
+  const started=Date.now();
+  await page.getByRole('button',{name:'生成并保存',exact:true}).click();
+  await page.waitForFunction(()=>!!document.querySelector('.dt-stage canvas')?.dataset.worldId,null,{timeout:120000});
+  const generationMs=Date.now()-started;
+  const read=()=>canvas.evaluate(c=>({...c.dataset,width:c.width,height:c.height}));
+  const overview=await read();assert(Number(overview.shownTowns)<=12);
+  await page.screenshot({path:output+'overview.png'});
+  // Anchor zoom on the capital so local screenshots contain actual settlements.
+  const capital=await page.evaluate(async()=>{const id=document.querySelector('.dt-stage canvas').dataset.worldId;const w=await (await fetch('/api/inner/dreamterra/'+id,{headers:{'X-TextileDream-Token':window.__textileDreamToken}})).json();return {point:w.towns[0].point,n:w.size_km};});
+  const rect=await canvas.boundingBox();const scale=(Math.min(rect.width,rect.height)-24)/capital.n;
+  await page.mouse.move(rect.x+rect.width/2+(capital.point[0]-capital.n/2)*scale,rect.y+rect.height/2+(capital.point[1]-capital.n/2)*scale);
+  for(let i=0;i<6;i++)await page.mouse.wheel(0,-100);
+  await page.waitForFunction(()=>Number(document.querySelector('.dt-stage canvas').dataset.zoom)>3.2);
+  const regional=await read();await page.screenshot({path:output+'regional.png'});
+  for(let i=0;i<4;i++)await page.mouse.wheel(0,-100);
+  await page.waitForFunction(()=>Number(document.querySelector('.dt-stage canvas').dataset.zoom)>6);
+  const local=await read();await page.screenshot({path:output+'local.png'});
+  assert.equal(local.worldId,overview.worldId);
+  await page.getByRole('button',{name:'总览',exact:true}).click();
+  await page.waitForFunction(()=>document.querySelector('.dt-stage canvas').dataset.zoom==='1.000');
+  assert.equal((await read()).shownTowns,overview.shownTowns);
+  await page.setViewportSize({width:390,height:844});
+  await page.waitForTimeout(300);await page.screenshot({path:output+'narrow.png'});
+  const narrow=await read();assert(narrow.width<=390*2);
+  const savedWorld=overview.worldId;
+  await page.reload();await page.getByRole('button',{name:'DreamTerra 山川世界',exact:true}).click();
+  await page.waitForFunction(id=>document.querySelector('.dt-stage canvas')?.dataset.worldId===id,savedWorld);
+  await page.setViewportSize({width:1440,height:1000});
+  await page.getByRole('button',{name:'从此启程',exact:true}).click();
+  await page.waitForFunction(()=>window.__tdNativeMode==='player');
+  await page.waitForSelector('.dt-map',{state:'detached'});
+  const cut=requests.length;
+  await page.evaluate(()=>window.PlayUI.refreshMap());
+  await page.waitForTimeout(1000);
+  const playerRequests=requests.slice(cut);assert(!playerRequests.some(u=>u.includes('/api/inner/')));
+  await page.screenshot({path:output+'player.png'});
+  assert.deepEqual(errors,[]);
+  const result={machine:{os:os.type()+' '+os.release(),cpu:os.cpus()[0].model,ramGiB:Math.round(os.totalmem()/2**30),browser:await browser.version()},generationMs,overview,regional,local,narrow,playerRequests,errors};
+  fs.writeFileSync(output+'browser.json',JSON.stringify(result,null,2));console.log(JSON.stringify(result));
+ }finally{await browser.close();}
+})().catch(e=>{console.error(e);process.exitCode=1;});

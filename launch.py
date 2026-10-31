@@ -40,10 +40,16 @@ def main():
         import uvicorn
         from app.main import app
         # Never terminate another application's process to obtain a port.
+        requested = os.getenv('TEXTILEDREAM_PORT')
         listener = socket.socket()
         try:
-            listener.bind(('127.0.0.1', 8000))
+            if requested and requested.isdigit():
+                # 一键启动器已经探过这个端口空闲，用它就能让状态文件记的 URL 与实际一致。
+                listener.bind(('127.0.0.1', int(requested)))
+            else:
+                listener.bind(('127.0.0.1', 8000))
         except OSError:
+            listener = socket.socket()
             listener.bind(('127.0.0.1', 0))
         listener.listen(128)
         port = listener.getsockname()[1]

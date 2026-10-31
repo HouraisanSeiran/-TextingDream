@@ -1,0 +1,1219 @@
+{
+  "schema_version": 1,
+  "group": "food-supplement",
+  "status": "candidate",
+  "note": "人类可食物产增补（第六组之外的缺口）。独立文件，待主编审后另行导入；不改动 staples/produce/flavors/animal-foods/materials/tools 六组与正式 data、StoryPackage、build 名单。分工原则：他组已有的物种不重复立条（花生、芝麻、扁桃、兵豆、甜菜糖、菠萝、甘蓝类、洋葱、大蒜、胡萝卜等已在原六组），本组只补原六组没有的物产；同一物种不同用途以 tags 与 related_ids 表达。全部条目 review_status=needs_review，不代表事实审定完成。",
+  "sources": [
+    {
+      "id": "food_supp_src_01",
+      "title": "Breadfruit (Artocarpus altilis) — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/plant/breadfruit",
+      "access": "read",
+      "supports": "面包果为桑科 Artocarpus altilis 及其果实，淀粉质、极少生食，可烤/烘/煮/煎并可干燥磨粉；马来群岛被视为原产地、史前已传遍热带南太平洋；18 世纪末经 Bligh 的 Bounty 航次引入牙买加而未达预期；无籽类型以根蘖或根插繁殖；树不耐霜；树皮纤维可制布、木材造船与家具、乳汁作黏合与填缝材料",
+      "rights_note": "第三方百科条目，仅作事实核对与自行转述，不复制原文段落"
+    },
+    {
+      "id": "food_supp_src_02",
+      "title": "Turnip (Brassica rapa var. rapa) — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/plant/turnip",
+      "access": "read",
+      "supports": "芜菁为 Brassica rapa var. rapa 二年生植物，食膨大直根与嫩叶；推测起源中亚与东亚、栽培遍温带；根部由幼苗主根与其上方幼茎基部共同增粗而成；冷凉季作物、不需长生育期，可早春或夏末播种；有时作牛的饲料作物；黄色蜡质「芜菁」实为另一物种 rutabaga（Brassica napus var. napobrassica）",
+      "rights_note": "第三方百科条目，仅作事实核对与自行转述，不复制原文段落"
+    },
+    {
+      "id": "food_supp_src_03",
+      "title": "Radish (Raphanus sativus) — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/plant/radish",
+      "access": "read",
+      "supports": "萝卜为 Raphanus sativus 一年生或二年生植物，食肉质直根；起源可能为亚洲或地中海，全球栽培；通常作一年生、开花前收获；根形从球状到长柱状，皮色白黄粉红紫黑不等，东亚 daikon 可达约 1 kg；嫩叶可如菠菜烹调、幼果可生食或嫩煎",
+      "rights_note": "第三方百科条目，仅作事实核对与自行转述，不复制原文段落"
+    },
+    {
+      "id": "food_supp_src_04",
+      "title": "Growing turnips and rutabagas in home gardens — University of Minnesota Extension",
+      "url": "https://extension.umn.edu/vegetables/growing-turnips-and-rutabagas",
+      "access": "read",
+      "supports": "芜菁与 rutabaga 分属 Brassica rapa 与 Brassica napus 两个物种，前者肉质通常白、可生食/熟食/腌渍且仅能短期存放，后者肉黄、须熟食且可在 0—4 ℃、约 95% 相对湿度下存放约五个月；芜菁 2—3 英寸即收，过热或过大品质变劣；干旱使根变苦变木；叶（greens）可作叶菜；采后去顶、去细根、避免损伤",
+      "rights_note": "大学推广机构页面，作栽培与贮藏条件核对，不复制原文段落"
+    },
+    {
+      "id": "food_supp_src_05",
+      "title": "Leek (Allium porrum) — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/plant/leek",
+      "access": "read",
+      "supports": "韭葱为石蒜科二年生蔬菜，原产地中海东部与中东，为古老作物；叶基同心重叠成近圆柱形「假茎」而非真鳞茎；栽培中多次培土以抑制叶绿素形成长白段；第二季抽大伞形花序、种子黑色不规则；很可能由罗马人传入欧洲大部与不列颠；欧洲汤菜常与马铃薯同用",
+      "rights_note": "第三方百科条目，仅作事实核对与自行转述，不复制原文段落"
+    },
+    {
+      "id": "food_supp_src_06",
+      "title": "Jackfruit (Artocarpus heterophyllus) — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/plant/jackfruit",
+      "access": "read",
+      "supports": "菠萝蜜为桑科常绿乔木，原产热带亚洲；未熟青果当蔬菜烹调、熟果生食其包裹果核的甜酸果肉，种子亦煮熟食用；在孟加拉国与南亚东南亚部分地区为主粮作物；为世界上最大的树上果实，可达约 60 cm、18 kg，聚合果由多个「苞」组成；木材耐用",
+      "rights_note": "第三方百科条目，仅作事实核对与自行转述，不复制原文段落"
+    },
+    {
+      "id": "food_supp_src_07",
+      "title": "Persimmon (Diospyros kaki, D. virginiana) — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/plant/persimmon",
+      "access": "read",
+      "supports": "柿属 Diospyros 两个主要食用种：日本柿 D. kaki（中国与日本重要果树，19 世纪传入法国与地中海、稍后入美国）与美洲柿 D. virginiana（美国东南至中部，果较小、常自野外采集）；果 5—8 cm；除少数品种外，果在软熟前强涩；树可耐约 −18 ℃",
+      "rights_note": "第三方百科条目，仅作事实核对与自行转述，不复制原文段落"
+    },
+    {
+      "id": "food_supp_src_08",
+      "title": "Cherry (Prunus avium, P. cerasus) — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/plant/cherry",
+      "access": "read",
+      "supports": "樱桃为李属核果，商业栽培以甜樱桃 P. avium 与酸樱桃 P. cerasus 为主，另有二者杂交的 duke 类；栽培樱桃来源种群的野生分布被认为在西亚至东欧（里海到巴尔干）；需冬季低温才能正常开花、花期早于苹果；甜樱桃多鲜食、酸樱桃酸度高多加工罐藏冷冻制酱；木材可作细木家具；东亚另有一批观花不结果的品种群",
+      "rights_note": "第三方百科条目，仅作事实核对与自行转述，不复制原文段落"
+    },
+    {
+      "id": "food_supp_src_09",
+      "title": "Apricot (Prunus armeniaca) — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/plant/apricot",
+      "access": "read",
+      "supports": "杏为蔷薇科李属果树，果为核果、近乎无毛、肉黄至橙黄；鲜食或熟食，以罐藏或干燥保存，亦制酱与浸酒；原初驯化于中国，今除南极外各洲栽培；考古证据显示古亚美尼亚已食杏，18 世纪初由西班牙传教士带入加利福尼亚；多品种种仁（kernel）甜但生时有毒、须烤制；嫁接于桃或杏砧，花芽早开易遭晚霜",
+      "rights_note": "第三方百科条目，仅作事实核对与自行转述，不复制原文段落"
+    },
+    {
+      "id": "food_supp_src_10",
+      "title": "Celery (Apium graveolens) — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/plant/celery",
+      "access": "read",
+      "supports": "芹菜为伞形科 Apium graveolens，食用部位为肥厚叶柄；三个栽培变种：dulce（叶柄用）、rapaceum（根芹）、secalinum（叶与种子用）；种子状果实（分果）作调味料；原产地中海区，欧洲与北非沼泽及南亚山地有野生群体；驯化起源未定、东地中海最可能；古埃及图坦卡蒙墓花环中有野芹叶，古希腊以野芹作竞技花冠；温和肥厚叶柄的栽培型可能至中世纪才形成，1623 年法国首次记录作食物；18—19 世纪成欧美受重视的蔬菜；为法式 mirepoix 与路易斯安那「圣三一」香味基底之一",
+      "rights_note": "第三方百科条目，仅作事实核对与自行转述，不复制原文段落；文中传统药用说法未采用"
+    },
+    {
+      "id": "food_supp_src_11",
+      "title": "Beet (Beta vulgaris) — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/plant/beet",
+      "access": "read",
+      "supports": "食用甜菜（garden beet/beetroot）为 Beta vulgaris 四个栽培形态之一，二年生、首年形成肥厚直根；可烤、煮、罐藏、腌渍或做酸甜汁；叶可如菠菜烹调或嫩时生食；适温凉气候、生育期约 8—10 周，宜深厚疏松富含有机质土壤、耐盐但忌高酸与缺硼；与糖用甜菜、饲用甜菜、叶用莙荙菜为同种不同用途形态",
+      "rights_note": "第三方百科条目，仅作事实核对与自行转述，不复制原文段落；养分含量表述仅作成分记录，不作功效宣称"
+    },
+    {
+      "id": "food_supp_src_12",
+      "title": "Celeriac (Apium graveolens var. rapaceum) — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/plant/celeriac",
+      "access": "read",
+      "supports": "根芹为芹菜的一个变种，食用部位是膨大具节的 hypocotyl（胚轴/茎基部）而非直根，可生食或熟食；原初在地中海与北欧栽培，18 世纪传入不列颠；可在幼嫩时或以约 12 cm 大小时采收，可焯、烤、捣泥，用于焗菜，叶可作装饰",
+      "rights_note": "第三方百科条目，仅作事实核对与自行转述，不复制原文段落"
+    },
+    {
+      "id": "food_supp_src_13",
+      "title": "Avocado (Persea americana) — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/plant/avocado",
+      "access": "read",
+      "supports": "鳄梨为樟科 Persea americana，果为浆果、含一枚大种子，果肉油润；原产西半球自墨西哥至安第斯；西班牙征服前已作为实生树栽培，约 1900 年后嫁接繁殖才形成果园产业；花有 A/B 两型、雌雄蕊成熟时间错开以利异花授粉；分墨西哥、危地马拉、西印度三大品种群；部分品种果肉含油可达约 25%",
+      "rights_note": "第三方百科条目，仅作事实核对与自行转述，不复制原文段落"
+    },
+    {
+      "id": "food_supp_src_14",
+      "title": "Papaya (Carica papaya) — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/plant/papaya",
+      "access": "read",
+      "supports": "番木瓜为 Caricaceae 大型草本状植物，茎非真正木质，可达 8 m；起源不清楚，可能是墨西哥与中美洲数个 Carica 种的融合，玛雅人至少 4000 年前已进一步培育；通常雌雄异株；果球形至柱形、可达 9—11.5 kg，成熟果肉橙黄至橙红；未熟果含乳汁（papain 为蛋白酶）；多以种子繁殖、一年内即可结果，条件适宜可活五年以上；未熟果可如南瓜烹调；20 世纪后期环斑病毒重创产业，2000 年代初抗病毒转基因品种成为最早商业化转基因果之一",
+      "rights_note": "第三方百科条目，仅作事实核对与自行转述，不复制原文段落；不采用其保健表述"
+    },
+    {
+      "id": "food_supp_src_15",
+      "title": "Mung bean (Vigna radiata) — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/plant/mung-bean",
+      "access": "read",
+      "supports": "绿豆为豇豆属 Vigna radiata 一年生豆类，可能原产印度次大陆，亚洲广泛栽培、亦种于较干旱的热带亚热带；根瘤固氮；荚果每荚可达 20 粒种子，种皮多为绿色亦有黄褐与花斑；干豆可煮食或磨粉制粉皮/粉丝，去皮豆瓣制 dal，可发芽作豆芽，嫩荚与嫩叶亦作蔬菜；亦作覆盖作物与绿肥、饲草",
+      "rights_note": "第三方百科条目，仅作事实核对与自行转述，不复制原文段落"
+    },
+    {
+      "id": "food_supp_src_16",
+      "title": "Sago (Metroxylon sagu) — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/plant/sago",
+      "access": "read",
+      "supports": "西米是从数种棕榈茎干贮存的淀粉制得的食品，主要来源为真正的西谷椰 Metroxylon sagu，原产印尼群岛，塞兰岛与婆罗洲为重要产区；生于低湿沼泽、约 15 年成熟抽穗前茎髓充满淀粉，任其结实则淀粉被消耗、茎中空且植株死亡；栽培者在花穗出现时伐倒、劈开茎段取髓，擦碎后加水在筛上揉洗、淀粉沉入槽中、木质纤维留下，多次洗涤得西米淀粉；出口品加水成糊过筛制成「珍珠西米」；几乎纯淀粉（约 88% 碳水）；为西南太平洋地区基础食物；苏铁类（Cycas revoluta）所产「西米」须额外处理去除神经毒素 cycasin",
+      "rights_note": "第三方百科条目，仅作事实核对与自行转述，不复制原文段落"
+    },
+    {
+      "id": "food_supp_src_17",
+      "title": "Strawberry (Fragaria spp.) — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/plant/strawberry",
+      "access": "read",
+      "supports": "草莓为蔷薇科 Fragaria 属低矮草本，果实为「假果/副果」：食用部分为膨大花托，真正的果实是嵌在表面的瘦果；大果栽培种 Fragaria × ananassa 于 18 世纪在欧洲形成，19 世纪各国自育品种；靠匍匐茎（runners）营养繁殖，植株通常保留一至四年；果极易腐、须人工采摘、宜靠近消费或加工中心、需冷凉干燥贮运；另有麝香草莓 F. moschata、野草莓 F. vesca、北美 F. virginiana 与智利 F. chiloensis 等种",
+      "rights_note": "第三方百科条目，仅作事实核对与自行转述，不复制原文段落"
+    },
+    {
+      "id": "food_supp_src_18",
+      "title": "Quince (Cydonia oblonga) — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/plant/quince",
+      "access": "read",
+      "supports": "榅桲为蔷薇科 Cydonia oblonga 单种属小乔木或灌木，原产伊朗、土耳其，可能及希腊与克里米亚；果为金黄色梨果、香气强、生时涩，宜制果酱与凝胶类保存品，也用于给炖烤苹果增香增酸，煮后肉色转粉；曾在庭院果树中常见、后大幅退场，北美东北与欧洲商业栽培显著减少，在土耳其与亚洲部分地区仍为重要作物；需明显冬季、亦耐粗放；易感火疫病；与观赏用的木瓜属 Chaenomeles 不同属",
+      "rights_note": "第三方百科条目，仅作事实核对与自行转述，不复制原文段落"
+    },
+    {
+      "id": "food_supp_src_19",
+      "title": "Mushroom — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/plant/mushroom",
+      "access": "read",
+      "supports": "蘑菇是某些真菌（主要伞菌目，也含牛肝菌目、多孔菌等类群）的伞状子实体，由地下菌丝体在温湿适宜时产生；营养方式包括腐生（分解枯落物）与共生（如松茸与松、栎）；商业化栽培的主要食用菌有双孢蘑菇 Agaricus bisporus（button/cremini/portobello）与香菇 Lentinula edodes；新鲜蘑菇含水九成以上、蛋白质与碳水含量低，价值在风味与口感；野生蘑菇无简易鉴别规则，许多毒菌与可食种形态相近，毒性还随生态条件与地域变化，某些种生食有毒而经烹调或腌渍后可食、另一些经处理仍有毒，故只能采食经权威确认可食者、最稳妥是只用栽培种",
+      "rights_note": "第三方百科条目，仅作事实核对与自行转述，不复制原文段落；本条不提供任何野采鉴定特征"
+    },
+    {
+      "id": "food_supp_src_20",
+      "title": "Millet (Panicum, Setaria, Eleusine, Echinochloa 等) — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/plant/millet-plant",
+      "access": "read",
+      "supports": "粟类为禾本科数个小粒谷物物种的统称，亚洲与非洲四千多年前已栽培，中世纪欧洲曾为主要谷物；多作一年生、株高 30—130 cm（珍珠粟例外）；除珍珠粟外脱粒后种子仍包在稃内、脱壳后多乳白色；较其他谷物更耐瘠薄与干旱、少投入；主要经烤饼与粥或如稻米般烹调食用；proso millet（Panicum miliaceum）播种后 60—80 天成熟，西方多作鸟食、亚洲与东欧作谷物食用、别处作饲料；finger millet（Eleusine coracana）为南亚与非洲部分地区的食物谷物",
+      "rights_note": "第三方百科条目，仅作事实核对与自行转述，不复制原文段落"
+    },
+    {
+      "id": "food_supp_src_21",
+      "title": "Proso — Encyclopaedia Britannica 策展摘要与索引页",
+      "url": "https://www.britannica.com/plant/proso",
+      "access": "read",
+      "supports": "该页为 Britannica 无独立全文条目时的策展摘要加相关段落索引，确认 proso = Panicum miliaceum（broomcorn/common millet）、60—80 天成熟、亚洲与东欧作谷物食用；并索引出「栽培黍的野生祖先尚未确定」这一表述。仅为摘要与目录性质，不能当作全文来源单独支撑细节",
+      "rights_note": "策展摘要/目录页，仅用于术语与物种对应核对；涉及结论性陈述时另引全文来源"
+    },
+    {
+      "id": "food_supp_src_22",
+      "title": "Sorghum and millets in human nutrition, Chapter 1 — FAO（1995，FAO Food and Nutrition Series No.27）",
+      "url": "https://www.fao.org/4/t0818e/T0818E01.htm",
+      "access": "read",
+      "supports": "表 1 给出各粟类的常见名与推测起源地：Panicum miliaceum（黍/proso/common/hog/broom-corn/Russian millet，起源中亚与东亚）、Eleusine coracana（finger millet/ragi/wimbi，起源乌干达或其邻区）、Panicum sumatrense（little millet，东南亚）、Echinochloa crus-galli（barnyard millet，日本）、Paspalum scrobiculatum（kodo millet，印度）；并述黍为罗马人的 milium、欧洲湖居人已栽培、因早熟常被游牧民种植、株高 30—100 cm、种皮稃壳难脱除故纤维比例高、千粒重约 5 g、适合干燥大陆性气候且比其他粟类更耐温带条件；指状粟为东非中非与印度部分地区主粮、乌干达北部与赞比亚东北部的主谷、可制麦芽酿酒、可长期贮存而不受虫害故在饥荒时重要、分非洲高原型与亚非型两组、千粒重约 2.6 g、约三千多年前传入印度",
+      "rights_note": "FAO 公开出版物页，作作物起源与利用核对，自行转述不复制段落"
+    },
+    {
+      "id": "food_supp_src_23",
+      "title": "Sorghum and millets in human nutrition, Chapter 2（millet production/utilization）— FAO",
+      "url": "https://www.fao.org/4/t0818e/T0818E05.htm",
+      "access": "read",
+      "supports": "1990 年粟类产量约 2980 万吨、面积约 3760 万公顷；亚洲、非洲与前苏联生产几乎全部粟类，1990 年主要生产国为印度（约 39%）、中国（约 15%）、尼日利亚（约 13%）、前苏联（约 12%）；珍珠粟、指状粟与黍合计占世界产量的大部分；说明粟类多为小农在少投入条件下种植、通常不进入国际甚至地方市场",
+      "rights_note": "FAO 公开出版物页，作产量与区域格局核对，自行转述不复制表格"
+    },
+    {
+      "id": "food_supp_src_24",
+      "title": "Sorghum and millets in human nutrition, Chapter 4（chemical composition）— FAO",
+      "url": "https://www.fao.org/4/t0818e/T0818E0a.htm",
+      "access": "read",
+      "supports": "粟类以淀粉为主、蛋白质约 6—11%、脂肪约 1.5—5%；矿物质与脂肪集中在胚与糊粉层，故全谷与精碾产品差异大；粟类灰分（矿物质）偏高、指状粟在各类食用谷物中钙含量最高；高粱与粟类纤维含量高、养分消化率偏低，直接影响可接受性；这些是成分与加工特性表述，不构成营养或医疗建议",
+      "rights_note": "FAO 公开出版物页，仅引成分与加工特性，不作功效宣称"
+    },
+    {
+      "id": "food_supp_src_25",
+      "title": "Amaranthus hypochondriacus — NC State Extension Gardener Plant Toolbox",
+      "url": "https://plants.ces.ncsu.edu/plants/amaranthus-hypochondriacus/",
+      "access": "read",
+      "supports": "籽粒苋为苋科一年生（或短命多年生）草本，雌雄同株、风媒；原产美国中部与墨西哥；喜充足日照与排水良好肥沃土壤；在热带常被栽培取食嫩叶与种子，北方因晚熟较少见；种子可生食或熟食、可代谷物、可如爆米花般爆开；嫩叶如菠菜烹调；提示在施化肥地块上苋属可累积硝酸盐",
+      "rights_note": "大学推广机构植物数据库页，作形态、习性与食用部位核对，不复制原文段落"
+    },
+    {
+      "id": "food_supp_src_26",
+      "title": "Growing leeks in home gardens — University of Minnesota Extension",
+      "url": "https://extension.umn.edu/vegetables/growing-leeks",
+      "access": "read",
+      "supports": "韭葱学名在该页作 Allium ampeloprasum var. porrum；需约 120—150 天（新育品种可短至 90 天）、每天至少 8 小时日照；根系浅、需稳定供水；定植于 6 英寸深沟中随生长填土，或生长期多次培土以得长白假茎；耐寒、可延至初霜后收获；品质要求白段坚实、长度 3 英寸以上；食用前须纵切分层冲洗夹在叶间的泥土；绿叶与白段皆可食",
+      "rights_note": "大学推广机构页面，作栽培与处理条件核对，不复制原文段落"
+    },
+    {
+      "id": "food_supp_src_27",
+      "title": "Growing radishes in home gardens — University of Minnesota Extension",
+      "url": "https://extension.umn.edu/vegetables/growing-radishes",
+      "access": "read",
+      "supports": "分庭园萝卜（Raphanus sativus var. radicula）与东亚长根型 daikon（var. longipinnatus）两类；庭园型播后 3—5 周即可收，过热则抽薹、味过辣或木质化；daikon 辛味较弱、根可很大、疏松土层可深逾一英尺、晚夏播晚秋收、可鲜存约两个月；需疏松排水良好土壤（pH 6—7）、均匀水分，干旱使风味与质地变差；长期存放会失水皱缩",
+      "rights_note": "大学推广机构页面，作栽培与贮藏条件核对，不复制原文段落"
+    },
+    {
+      "id": "food_supp_src_28",
+      "title": "Water chestnut (Trapa, Eleocharis dulcis) — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/plant/water-chestnut",
+      "access": "read",
+      "supports": "「water chestnut」一名兼指两类水生植物：菱属 Trapa（菱角/water caltrop，原产欧亚非，果实 2.5—5 cm、常具四刺角、在北美东北部为入侵种，乌菱 T. bicornis 在东亚广泛栽培）与莎草科的荸荠 Eleocharis dulcis（食其球茎，亚洲广泛栽培，煮熟后仍保持脆感，为中菜常用配料）",
+      "rights_note": "第三方百科条目，仅作事实核对与自行转述，不复制原文段落；两种植物分述以免混同"
+    },
+    {
+      "id": "food_supp_src_29",
+      "title": "Sacred lotus (Nelumbo nucifera) — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/plant/sacred-lotus",
+      "access": "read",
+      "supports": "莲为莲科水生植物，原产热带与亚热带亚洲；叶与花挺出水面（叶可达 2 m 高、约 60 cm 宽），与睡莲不同科；根状茎（藕）、幼叶、种子、雄蕊、花瓣皆可利用：藕在中国、日本、印度等地广泛食用，可鲜售或冷冻罐藏，用于汤、咖喱、油炸或填馅，亦可煮或糖渍，是「莲藕粉」的来源；种子可鲜、干或冻干，制莲蓉与月饼馅；叶可包饭与蒸食；种子有极硬种皮、在河泥中可存活数百年（满洲泥炭沼出土种子经碳十四测年约千年仍能发芽）；在印度教与佛教中为象征物",
+      "rights_note": "第三方百科条目，仅作事实核对与自行转述，不复制原文段落；传统药用说法未采用"
+    },
+    {
+      "id": "food_supp_src_30",
+      "title": "Cashew (Anacardium occidentale) — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/plant/cashew",
+      "access": "read",
+      "supports": "腰果为漆树科 Anacardium occidentale 常绿灌木或小乔木，取弯曲的可食种子（常称腰果而不是真坚果）；原产巴西东北部，16 世纪后期由葡萄牙人传入东非与印度；果由膨大的花托（cashew apple）与真果两部分组成，真果具内外两层壳、夹有可致皮肤起泡的苛性树脂，故不去壳出售；采收后剥去苹果、晒干，烘焙使外层壳破裂释放树脂，再敲开内层壳取仁并加热去种皮；树可高至 12 m，木材可制箱与船、可烧炭，果壳液（CNSL）用于涂料与塑料，假果可制饮料与果酱；与毒藤、毒漆近缘，敏感者可能过敏",
+      "rights_note": "第三方百科条目，仅作事实核对与自行转述，不复制原文段落；树脂与致敏内容仅作定性说明，本条不提供加工操作参数"
+    }
+  ],
+  "elements": [
+    {
+      "id": "food_supp_proso_millet",
+      "name": "黍（糜子/黍米）",
+      "aliases": [
+        "黍",
+        "糜子",
+        "黍米",
+        "稷（旧称，所指范围不一）",
+        "proso millet",
+        "common millet",
+        "broomcorn millet",
+        "hog millet",
+        "Panicum miliaceum"
+      ],
+      "tags": [
+        "living_organism",
+        "crop",
+        "cereal",
+        "food",
+        "agriculture"
+      ],
+      "summary": "早熟、耐旱耐瘠的小粒谷物，播后 60—80 天可收，曾是从东亚草原到欧洲湖居聚落都依赖的「救急谷」，如今多在亚洲与东欧作粮食、别处退为饲料与鸟食。",
+      "details": {
+        "definition": "黍指禾本科黍属的栽培种 Panicum miliaceum，取其脱壳后的小粒种子作谷物；中文常见名糜子、黍米，旧文献中的「稷」有时指它、有时指粟，所指范围并不统一，引用古名时须说明。英文 proso millet、common millet、broomcorn millet、hog millet、Russian millet 都指同一物种。它属于「粟类（millets）」这个按籽粒大小与用途聚起来的俗名集合，与狐尾粟（Setaria italica）、珍珠粟（Pennisetum glaucum）、指状粟（Eleusine coracana）是不同属的不同物种。",
+        "mechanism": "作为一年生草本，它在短生育期内完成出苗、分蘖、抽穗、灌浆：播种后约 60—80 天成熟，是所有粟类中最早熟的一类，因而能在其他作物来不及成熟的短雨季或高纬度生长季里拿到一季收成。植株浅根、株高约 30—100 cm，穗为松散圆锥花序，籽粒小（千粒重约 5 g，常见 4.7—7.2 g）。籽粒被稃壳包住，常规碾磨难以彻底脱除，这正是它成粉后纤维比例偏高、口感较粗的直接原因。",
+        "conditions": "适应干燥大陆性气候，比多数粟类更能耐受温带条件，耐瘠薄、可少施肥少灌溉，因此常出现在其他谷物不稳产的地带。栽培上要的是播期与雨季对齐：早熟是优势也是限制——播得太早遇低温出苗不齐、太晚则灌浆期撞上旱季末尾。收获后需及时干燥，否则小粒高湿易霉；脱壳（碾米）是进入食用的关键工序，粗糙脱壳会带入大量稃壳碎屑。",
+        "exceptions": "不要把「耐旱」当成「任何地都能种」：它对霜冻与渍水都敏感，沼泽与冷湿洼地不适用。也不要把它与狐尾粟混称——中文口语里「小米」「谷子」通常指狐尾粟，黍则是糜子/黍米，二者栽培史与主产区都不同。此外，黍在北美与西欧的当代主要用途是鸟食与畜禽饲料，同一物种在不同经济里地位差别极大，不能由「西方作鸟食」推断它在亚洲也不是粮食。",
+        "story_uses": "适合承担「时间窗口」这一物质前提：当某个聚落只有六七十天生长期、或主力作物失败后需要补种，黍就是能兑现的那一手，可用来支撑逃荒、军粮、边地戍守补种的因果链。它的粗粝口感与高纤维特性也可作为阶层与地域差异的物证——同一餐桌上，谁吃黍、谁吃麦。",
+        "historical_scope": "FAO 的作物综述把黍的推测起源地定在中亚与东亚，并指出它是有古老栽培史的作物：罗马人称之为 milium，欧洲早期湖居聚落已栽培，因其早熟也常被游牧人群种植； Britannica 记载 2023 年被联合国粮农组织定为「粟类之年」以提示其全球食物意义。栽培黍的野生祖先尚未确定（Britannica 索引页明写这一点），因此「何处首先驯化」只能给范围、不宜给确定地点与年代。传入欧洲、东亚各地的具体时间在文献中不一致，本条不作年代断言。",
+        "evidence_and_uncertainty": "定义、株高、千粒重、稃壳难脱、早熟日数、耐旱与耐温带特性由 FAO《Sorghum and millets in human nutrition》第一章与其表 1 支撑；60—80 天成熟与「亚洲东欧作粮食、别处作鸟食饲料」由 Britannica 的 millet 条目支撑，Britannica 的 proso 页为策展摘要兼索引，只用于物种名与术语对应，不单独支撑细节。缺口：驯化地点与年代、各地区传入时间线、传统脱壳与加工工艺的地方差异均无本组已读来源覆盖，故只作范围表述。review_status 保持 needs_review。"
+      },
+      "source_ids": [
+        "food_supp_src_22",
+        "food_supp_src_20",
+        "food_supp_src_21"
+      ],
+      "related_ids": [
+        "staples_millet_foxtail",
+        "staples_millet_pearl",
+        "staples_teff",
+        "food_supp_finger_millet",
+        "tools_rotary_quern",
+        "tools_winnowing_tray"
+      ],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "food_supp_finger_millet",
+      "name": "指状粟（䅟子/ragi）",
+      "aliases": [
+        "指状粟",
+        "䅟子",
+        "龙爪稷",
+        "ragi",
+        "finger millet",
+        "African millet",
+        "koracan",
+        "wimbi",
+        "Eleusine coracana"
+      ],
+      "tags": [
+        "living_organism",
+        "crop",
+        "cereal",
+        "food",
+        "agriculture"
+      ],
+      "summary": "东非高原与印度南部的当家小谷：耐贮不易生虫，可在荒年顶上；籽粒可制麦芽酿酒，是少数「存得住」的谷物。",
+      "details": {
+        "definition": "指状粟指禾本科穇属的栽培种 Eleusine coracana，取其小粒种子作谷物；中文名䅟子、龙爪稷，印度称 ragi，东非称 wimbi、koracan，苏丹称 telebun，乌干达称 bulo。它属于俗名集合「粟类」，与黍、狐尾粟、珍珠粟不同属。FAO 的作物综述在印度与非洲区分出两大栽培群：非洲高原型籽粒包在花器内，亚非型成熟时籽粒外露。",
+        "mechanism": "一年生草本，株高约 40 cm—1 m，穗长 3—13 cm，因穗上小穗呈指状排列而得名；籽粒比珍珠粟更小，千粒重约 2.6 g，颜色从白、橙红、深褐、紫到近黑。生育期短、根系较耐旱，能在雨养条件下成穗；籽粒可制麦芽用于酿酒，这一步靠的是谷物自身的淀粉酶在发芽时把淀粉转成可发酵糖。",
+        "conditions": "主产于东非高原与印度南部等雨养、土层不深的地带，适合在主要谷物风险高的边缘地种植。收获后籽粒可较长期贮存而不易受虫害，这是它在缺粮季节被倚重的前提；但贮存前提仍是干燥入仓，湿籽入囤同样霉变。加工上以磨粉做糊、饼、粥为主，也可制麦芽。",
+        "exceptions": "不要把它与黍或狐尾粟混称：三者主产区、籽粒大小与加工路线都不同，印度「ragi」与中文「小米」不是同一物。它的高纤维与较低养分消化率是成分事实，会直接影响可接受性与加工选择（如发酵、发芽、细磨），但不构成任何营养或医疗结论。贮存「不易生虫」是相对其他谷物而言，不等于免于霉变或鼠害。",
+        "story_uses": "适合作为「荒年储备」的核心物产：可长期存放、可在贫瘠雨养地成穗、可制麦芽酒，于是同一种谷物既能救饥又能供宴，能支撑粮仓制度、酿酒副业与地方节庆的食物线。也适合写「边缘地被忽略的作物」——它在世界粮食统计里几乎不占份额，却是某些地区无可替代的主粮。",
+        "historical_scope": "FAO 综述认为乌干达或其邻区是指状粟的起源中心，传入印度的时间很早、可能已逾三千年；公元前后传入欧洲，但利用范围基本限于东非与印度。十九世纪以前的产量格局无本组已读来源覆盖，1990 年前后 FAO 的统计显示粟类总产约 2980 万吨、以亚洲与非洲为主，但未按种细分，故不能据此给出指状粟的份额。",
+        "evidence_and_uncertainty": "形态、栽培群划分、制麦芽酿酒、耐贮与饥荒作用、千粒重、传入印度的时间范围均由 FAO 第一章支撑；成分特征（钙含量在食用谷物中最高、纤维高、养分消化率低）出自 FAO 第四章，仅作成分记录；1990 年粟类产量与区域格局出自 FAO 第二章，属总量数据。缺口：起源年代、非洲内部的传播路线、各地加工工艺差异均缺本组已读来源，故本条只给范围不给年份；具体产量份额不可推定。review_status 保持 needs_review。"
+      },
+      "source_ids": [
+        "food_supp_src_22",
+        "food_supp_src_24",
+        "food_supp_src_23",
+        "food_supp_src_20"
+      ],
+      "related_ids": [
+        "food_supp_proso_millet",
+        "staples_millet_foxtail",
+        "staples_millet_pearl",
+        "staples_teff",
+        "flavors_beer",
+        "tools_granary"
+      ],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "food_supp_turnip",
+      "name": "芜菁",
+      "aliases": [
+        "芜菁",
+        "蔓菁",
+        "圆根",
+        "turnip",
+        "white turnip",
+        "Brassica rapa var. rapa",
+        "Brassica rapa subsp. rapa"
+      ],
+      "tags": [
+        "living_organism",
+        "crop",
+        "vegetable",
+        "root_vegetable",
+        "food",
+        "agriculture"
+      ],
+      "summary": "冷凉季短生育期的根叶两用作物，根可煮可腌、叶可当青菜，也常作牲畜饲料；常被与同科的瑞典萝卜（rutabaga）混称。",
+      "details": {
+        "definition": "芜菁指十字花科芸苔属 Brassica rapa 的 var. rapa（球根型），取膨大直根与嫩叶食用；中文又称蔓菁、圆根。它与大白菜、小白菜（Brassica rapa 的其他变种）是同种内的不同栽培群，而常被叫作「黄芜菁/蜡质芜菁」的 rutabaga（瑞典萝卜，Brassica napus var. napobrassica）是另一个物种——两者外观与用途接近，物种归属与耐贮性却不同。",
+        "mechanism": "食用器官由幼苗主根与其上方一段幼茎基部共同增粗形成，因此根冠部常露在土面之上；首年茎极短，叶片在根顶生成莲座状，叶面有粗毛；若任其越年，莲座中心的芽会抽出高大分枝花茎，开十字形黄花、结短喙状角果。它属冷凉季作物但不需要长生育期：温和气候下早春或夏末播种即可在酷暑或深秋极端天气到来前收成，这一「短窗口」特性是它能挤进轮作空隙的原因。",
+        "conditions": "需要疏松、水分均匀的土壤，缺水果根变苦变木；庭园尺度上约 2—3 英寸粗即可采，过热或长得过大则品质变粗。嫩根可生食、腌渍，根可整煮或捣泥入炖菜，嫩叶可熟食，采后可把叶与根分开处理。短期存放为主（叶与根均不耐久贮，易失水）；耐长期存放的是另一个物种 rutabaga——0—4 ℃、约 95% 相对湿度条件下可存约五个月，且延迟收获、去顶去细根、避免破皮能延长保存期。",
+        "exceptions": "最常见的错认是把 rutabaga 当芜菁：前者皮色偏黄、肉色黄、需熟食、耐贮；后者肉多白、可生食、不耐久藏。也不能把「芜菁耐寒」外推为「可越冬存于田间任意地区」——冻融与病害会造成根腐。作为饲料作物时的栽培目标（高产、粗大）与作为蔬菜时（幼嫩、细质）不同，同一物种在不同用途下的取舍相反。",
+        "story_uses": "适合支撑「轮作填闲与越冬蔬菜」这一线：主谷收割后补一茬芜菁，可让人与畜在冬前都拿到热量与青料；叶子可当青菜，根可入瓮盐渍，于是它同时牵动盐、陶瓮与畜力。也适合写「同物异名造成的地方性误会」——交易与食谱中的名称歧义可直接成为情节冲突。",
+        "historical_scope": "Britannica 认为芜菁推测起源于中亚与东亚，栽培遍及温带；它在欧洲的栽培记载与作为饲料的普及属于另一条更晚的文献线索，本组已读来源未覆盖具体年代。因此本条只表述为「温带广泛栽培、兼具蔬菜与饲料两种用途」，不给某一地区自何时普及的年份。",
+        "evidence_and_uncertainty": "物种名与变种关系、根部形成方式、冷凉季与短生育期特性、蔬菜与饲料双用途、rutabaga 属另一物种这几点由 Britannica 的 turnip 条目支撑；2—3 英寸采收、组织粗化、叶根分装、栽培要点以及 rutabaga 的贮藏条件（0—4 ℃、95% 相对湿度、约五个月）与生食/熟食差别由明尼苏达大学推广页支撑，其语境是美国中西部家庭菜园，不能直接外推到其他气候带。缺口：驯化年代、传入各地的时间、各地传统腌渍工艺无已读来源，故不作断言。review_status 保持 needs_review。"
+      },
+      "source_ids": [
+        "food_supp_src_02",
+        "food_supp_src_04"
+      ],
+      "related_ids": [
+        "produce_cabbage",
+        "produce_chinese_cabbage",
+        "staples_rapeseed",
+        "materials_salt",
+        "tools_storage_jar"
+      ],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "food_supp_radish",
+      "name": "萝卜（含大根）",
+      "aliases": [
+        "萝卜",
+        "莱菔",
+        "白萝卜",
+        "大根",
+        "daikon",
+        "radish",
+        "Raphanus sativus",
+        "Raphanus sativus var. longipinnatus"
+      ],
+      "tags": [
+        "living_organism",
+        "crop",
+        "vegetable",
+        "root_vegetable",
+        "food",
+        "agriculture"
+      ],
+      "summary": "生育期极短、可鲜食可腌渍的根菜；小型的几周就能收，东亚长根型能长到一公斤、辛味更淡且可存约两个月，是腌菜与炖煮的常备料。",
+      "details": {
+        "definition": "萝卜指十字花科 Raphanus sativus 及其栽培变种，取肉质直根食用；中文旧称莱菔，东亚长根型通称大根（daikon，R. sativus var. longipinnatus），庭园小型群为 var. radicula。它与芜菁（Brassica rapa var. rapa）外形相似但不同属：萝卜属的角果为念珠状长角（silique/silicle），叶片裂刻与毛被也不同。嫩叶可如菠菜烹调，幼果可生食或嫩煎——即「一株多部位可食」。",
+        "mechanism": "一年生或二年生草本，通常作一年生、开花前收获；叶在根顶成莲座状，抽出的花茎开白或淡紫脉纹的四瓣花。根的形态由品种决定，从球形到长柱形、颜色从白黄粉红紫到黑、肉色亦可多样；东亚长根型可长到约 1 kg。辛味来自根内硫代葡萄糖苷类物质的分解产物，生长缓慢或受逆境时辛辣感会明显增强，这是它与「快长、水分足」栽培方式绑定的原因。",
+        "conditions": "宜冷凉、疏松、排水良好且不板结的土壤（pH 约 6—7），土层需够深：长根型可入土逾一英尺，土中石块与硬层会造成分叉、弯曲与破根。庭园小型群播后 3—5 周即可收，干旱会造成风味变劣、质地发木，长期过热则抽薹、根木质化；长根型多在晚夏播、晚秋收，可鲜存约两个月，之后失水皱缩。采后去叶、洗净、低温高湿存放是基本处理。",
+        "exceptions": "不要把「萝卜」当成单一作物：庭园小萝卜（几周即收、辛味强、鲜食腌渍）与东亚大根（生育期长、辛味淡、可炖可腌可存）在栽培与用途上几乎分成两条线，不能互相套用采收期与贮藏期。也不要用「萝卜解药」「萝卜下气」这类民间说法替代事实判断。腌渍能延长保存，但盐量、温度与容器密封决定成败，本条不提供工艺参数。",
+        "story_uses": "适合写「短周期现金作物与家庭菜园」：几周就能见到收成，使贫地、佃农与城郊园圃都能介入；同时它的长根型可存放两个月，意味着一个家庭能在冬春之间靠窖藏与腌缸维持副食。腌萝卜所需的盐与陶瓮又把厨房线与盐业、窑业连起来。",
+        "historical_scope": "Britannica 记其起源「可能在亚洲或地中海」，今全球栽培——这是一个明确的不确定表述，不应改写成确定起源地。长根型在东亚的驯化与普及时间、以及它何时成为腌菜主料，本组已读来源未覆盖，故不给年代。栽培细节的语境是美国中西部家庭菜园，不能当作全球通用农时。",
+        "evidence_and_uncertainty": "物种名、属级区分、根形与皮色多样性、约 1 kg 的大根、嫩叶与幼果可食、起源不确定这几点由 Britannica 的 radish 条目支撑；3—5 周收获、var. radicula 与 var. longipinnatus 之分、daikon 可鲜存约两个月、干旱与高温导致的品质问题、土壤与水分要求由明尼苏达大学推广页支撑。缺口：驯化年代、东亚与地中海两条传播路径的具体证据、腌渍工艺参数。review_status 保持 needs_review。"
+      },
+      "source_ids": [
+        "food_supp_src_03",
+        "food_supp_src_27"
+      ],
+      "related_ids": [
+        "food_supp_turnip",
+        "produce_carrot",
+        "produce_chinese_cabbage",
+        "materials_salt",
+        "tools_storage_jar"
+      ],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "food_supp_leek",
+      "name": "韭葱",
+      "aliases": [
+        "韭葱",
+        "青蒜（误称）",
+        "leek",
+        "Allium porrum",
+        "Allium ampeloprasum var. porrum"
+      ],
+      "tags": [
+        "living_organism",
+        "crop",
+        "vegetable",
+        "food",
+        "agriculture"
+      ],
+      "summary": "不结真鳞茎的葱属蔬菜，靠培土把叶基养成一长段白嫩假茎；耐寒可延收，是欧洲汤羹与炖菜的底味料，也是威尔士的标识植物。",
+      "details": {
+        "definition": "韭葱指石蒜科葱属的栽培蔬菜，学名在文献中有两种写法：Britannica 作 Allium porrum，明尼苏达大学推广页作 Allium ampeloprasum var. porrum（即把韭葱视为大头蒜 A. ampeloprasum 的一个变种）。两种写法指向同一栽培物，引用时应注明来源。它与洋葱、大蒜同属，但不形成洋葱式的紧密鳞茎：食用部位是同心重叠的叶基所构成的近圆柱形「假茎」加叶片。中文常把它误叫「大葱」，二者不同种。",
+        "mechanism": "首年由压缩的茎盘抽出长条叶片，叶基层层抱合形成假茎，基部生一丛浅须根；生长期中若用土或覆盖物多次壅土遮光，叶绿素生成受限，白段随之延长——这是「白嫩假茎」的人工成因，也是栽培上最核心的一道工序。若留到第二年，会抽出大伞形花序，结小而黑、不规则有棱的种子；此时组织木质化，食用品质下降。",
+        "conditions": "生育期长，多数品种需约 120—150 天（新育品种可短至约 90 天），每天需充足直射光；北方须先在室内育苗再移栽，苗龄约 10—15 周。根系浅、吸水能力弱，需稳定供水但忌叶面长期潮湿；栽培上常定植于约 15 cm 深沟中，随生长逐步填土，或全期多次培土。品质以白段坚实、长度 3 英寸以上为佳，基部膨大（bulbing）反而属缺陷。耐寒，可延至初霜后甚至更低温度收获，靠覆盖物保护可延到深秋。",
+        "exceptions": "不要因为耐寒就认为可全年任意播：苗期仍需温暖与充足光照，过迟播种无法在霜前长足白段。采后处理常被忽略：叶层间夹带泥土，必须纵切分层冲洗，否则砂土入口。它的「白段」是栽培产物而非常态结构，未经培土的同种植物白段很短，不能据此判断品种。也勿把韭葱与大蒜的蒜苗、洋葱的葱白等同替换——风味强度与含水量差别明显。",
+        "story_uses": "适合承担「冬前最后一批鲜菜」与「湯菜的底味」两个功能：耐寒延收意味着菜园能在霜后仍供食，培土壅白则是一套可传授的技艺，可用来写师徒、庄园菜园与季节性劳作。作为威尔士标识植物的身份，也可用于军队、族徽与地域认同的叙事。",
+        "historical_scope": "Britannica 称韭葱是古老作物，原产地中海东部与中东，很可能由罗马人传入欧洲大部与不列颠；威尔士以韭葱为民族标识的说法与一场古代战事相连（具体年代与史实强度另有争议，本条不采信为定论）。栽培型在欧洲各地的普及时间线、以及传入东亚的时间，本组已读来源未覆盖。",
+        "evidence_and_uncertainty": "原产地、假茎结构、培土抑叶绿素以延长白段、二年生抽伞形花序与黑色种子、罗马人传播、威尔士标识这几项由 Britannica 的 leek 条目支撑；生育期 120—150 天、苗龄、定植沟与培土方法、浅根需水、耐寒延收、品质标准与清洗要求由明尼苏达大学推广页支撑（美国中西部语境）。学名两种写法并存已如实并列。缺口：驯化时间与地点、传入东亚的路径。review_status 保持 needs_review。"
+      },
+      "source_ids": [
+        "food_supp_src_05",
+        "food_supp_src_26"
+      ],
+      "related_ids": [
+        "produce_onion",
+        "produce_garlic",
+        "produce_lettuce",
+        "tools_hoe"
+      ],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "food_supp_celery",
+      "name": "芹菜（含根芹）",
+      "aliases": [
+        "芹菜",
+        "旱芹",
+        "药芹",
+        "西芹",
+        "celery",
+        "Apium graveolens",
+        "celeriac（根芹/块根芹）",
+        "Apium graveolens var. rapaceum"
+      ],
+      "tags": [
+        "living_organism",
+        "crop",
+        "vegetable",
+        "food",
+        "agriculture",
+        "condiment_crop"
+      ],
+      "summary": "同一物种分三条用途线：叶柄当蔬菜、胚轴膨大当根菜、叶与果实当香料；野生的原是小茎中空带苦味的沼泽植物，肥厚叶柄的栽培型出现得很晚。",
+      "details": {
+        "definition": "芹菜指伞形科 Apium graveolens，食用部位为肥厚叶柄；其下三个栽培变种各有分工：var. dulce 叶柄用（西芹/旱芹），var. rapaceum 根芹（celeriac，食膨大胚轴），var. secalinum 叶用（叶与种子兼用）。它的「种子」实为分果（mericarp），晒干后作调味料，为汤与腌渍品增香。中文旧称药芹、旱芹，与水生栽培的水芹不是同一物。",
+        "mechanism": "二年生草本，株高约 60—120 cm，羽状复叶、叶柄肥厚多汁；第二年开始抽生小白伞形花序，随后形成分果。香气与风味主要来自分果与叶中的挥发油类物质，这也是它同时能当蔬菜与香料的物质基础。野生型（smallage）茎细、中空、味苦，肥厚温和的叶柄是长期选择的结果——同一物种被分别放大叶柄、胚轴、叶片与果实，是典型的「一物多线」分化。",
+        "conditions": "需要水分充足、土层深厚且富含有机质的土壤，生长期缺水会使叶柄纤维化、空心与苦味加重；温度过高、生长过快则质地粗。作为香料用的分果须在果实成熟时采收并及时干燥，否则香气挥发、易霉。根芹宜在胚轴长到约 12 cm 时收，可焯、烤、捣泥或入焗菜，叶可作装饰与香料。叶柄用芹菜采后失水快，需低温高湿短途流通。",
+        "exceptions": "不要把「芹菜」当成一种作物：三条用途线的采收部位、适收期与后续加工完全不同；把叶柄用品种当香料种、或把根芹当叶菜种，产量与品质都会落空。也不要沿用来源中的传统药用说法（如作为利尿或抗风湿草药）——那是历史记载而非经核实的功效，本条不作功效表述。分果调味用量与烹调时机影响风味强弱，本条不给配比。",
+        "story_uses": "适合写「香味基底」这条隐形线索：法式 mirepoix 与路易斯安那「圣三一」都以它为固定成员，意味着某些菜系的味道结构依赖特定的三种配料同时可得——一旦其中一种断供，整套烹饪习惯要改。也适合写从野生苦草到栽培肥茎的选择史，作为农人偏好如何塑造植物形态的例子。野芹在古代葬仪与竞技花冠中的使用，可用于仪式与身份场景。",
+        "historical_scope": "Britannica 明确说驯化起源未定、东地中海是最可能中心；野芹在古埃及图坦卡蒙墓的花环中出土，古希腊人用野芹编竞技花冠并将它作烹饪香草；肥厚温和的栽培芹菜可能中世纪才出现，1623 年法国首次记录作为食物，之后一个世纪主要仍作调味香草，系统栽培被认为始于意大利并向法、英扩散，1806 年北美记录到四个栽培品种，18—19 世纪成为欧美的贵重蔬菜。根芹原初栽培于地中海与北欧，18 世纪传入不列颠。这些节点属欧洲—地中海脉络，不能当全球时间表。",
+        "evidence_and_uncertainty": "三个栽培变种的分工、野生型特征、原产地与驯化不确定性、古代葬仪与竞技花冠、1623 年法国记载与 18—19 世纪普及、mirepoix 与「圣三一」用法均由 Britannica 的 celery 条目支撑；根芹的食用部位为胚轴、约 12 cm 采收、原初栽培地、18 世纪传入不列颠由 Britannica 的 celeriac 条目支撑。缺口：亚洲栽培芹菜（旱芹/药芹）的独立驯化与传播证据、香芹与野芹的种下分化关系、具体加工与贮藏参数。review_status 保持 needs_review。"
+      },
+      "source_ids": [
+        "food_supp_src_10",
+        "food_supp_src_12"
+      ],
+      "related_ids": [
+        "produce_carrot",
+        "produce_onion",
+        "flavors_fennel_seed",
+        "flavors_coriander_seed"
+      ],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "food_supp_breadfruit",
+      "name": "面包果",
+      "aliases": [
+        "面包果",
+        "面包树果",
+        "breadfruit",
+        "Artocarpus altilis"
+      ],
+      "tags": [
+        "living_organism",
+        "living_organism_tree",
+        "crop",
+        "fruit",
+        "staple_substitute",
+        "food",
+        "agriculture"
+      ],
+      "summary": "热带南太平洋的淀粉型主食果：含大量淀粉、极少生食，烤煮煎皆可、还能干制磨粉；树不耐霜，无籽类型靠根蘖与根插繁殖。",
+      "details": {
+        "definition": "面包果指桑科波罗蜜属 Artocarpus altilis 的树及其大型果实。「面包果」是中文对 breadfruit 的直译式名称，与同属的菠萝蜜（Artocarpus heterophyllus）不是同一物，也与凤梨（菠萝，Ananas comosus）毫无关系——三者常被中文口语混称，须分开。它的果肉以淀粉为主体，因此在以块根块茎为主食的热带岛屿上承担的是「主食替代」而不是水果零食的角色。",
+        "mechanism": "树为常绿乔木，高约 12—18 m，叶大、椭圆、有光泽，先端 3—9 裂；雌雄花同株而异序：雄花成密集棍棒状柔荑花序，雌花聚合成一个具刺状突起的头状结构，果实即由这些雌花发育而成，直径约 10—20 cm，果肉白色、略带纤维。淀粉在果实发育中累积，成熟后迅速变软变甜，因此采收窗口与「当粮食还是当水果」直接相关：未熟或初熟时淀粉含量高、适于当主食加工。",
+        "conditions": "典型热带低地树种，不耐霜，连佛罗里达最南端都未能成功种植，这就把它的栽培范围锁死在无霜区。可烤、烘、煮、煎，也可干燥后磨粉——干制是让它从「当天要吃完的果」变成可存放粮食的关键一步，但需要切片与足够的日照或火干条件。无籽类型不靠种子，只能用根蘖（root suckers）或根插繁殖，这意味着传播靠人搬运苗木而非种子，跨海传播必须有载人航行能力配合。此外树皮内层纤维可制布，木材可造独木舟与家具，乳汁可作黏合与填缝材料——一树多用的特性使它成为远洋定居的「成套工具」。",
+        "exceptions": "不能把「淀粉多」当成「可生吃」：本条来源明说它极少生食，须经加热。也不要因为它被引入加勒比就认为它在当地成了主粮——Bligh 第二次航行成功把树带到牙买加，但并未达到预期，因为当地被奴役者更偏好煮食蕉（plantain）。无籽品种无法用种子繁殖与选育，病害或风害后恢复只能靠根蘖，这是它比种子繁殖作物更脆弱的一环。",
+        "story_uses": "适合写「远洋定居与粮食安全」：一种不需年年播种、单株产量大的淀粉树，能让新拓殖的岛屿在没有谷物田的情况下稳住口粮；也因此成为航海考察、殖民当局与 plantation 经济的争夺对象。它「一树多用」（果、纤维、木材、乳汁）也是物资清单式叙事的天然素材——一条船能带走的不是果，而是根蘖。",
+        "historical_scope": "Britannica 记其被视为原产于马来群岛，自远古已在该地栽培，史前时代即传遍热带南太平洋；众多品种在太平洋岛屿被培育，但多未传入热带美洲。传入新大陆与 18 世纪英国为西印度群岛奴隶供应食物的计划相关：Cook 船长见到面包果后建议引入，Bligh 的 Bounty 首次航行失败，第二次成功在牙买加立树。这些节点属太平洋—加勒比这一条线索，不代表它在印度洋或非洲有同等地位。",
+        "evidence_and_uncertainty": "物种名与科属、树高与花果形态、果实尺寸、淀粉性主食定位、极少生食、加工方式（烤烘煮煎与干制磨粉）、马来群岛原产与史前传遍南太平洋、Bligh 航次与牙买加结果、无籽型以根蘖根插繁殖、不耐霜、树皮纤维/木材/乳汁用途均由 Britannica 的 breadfruit 条目支撑。缺口：各岛品种分化与命名、干制磨粉的具体工艺与贮存期、它在太平洋各群岛的口粮占比，均无本组已读来源，故只作定性表述。review_status 保持 needs_review。"
+      },
+      "source_ids": [
+        "food_supp_src_01"
+      ],
+      "related_ids": [
+        "food_supp_jackfruit",
+        "produce_pineapple",
+        "produce_banana",
+        "staples_taro",
+        "staples_yam",
+        "food_supp_sago"
+      ],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "food_supp_jackfruit",
+      "name": "菠萝蜜",
+      "aliases": [
+        "菠萝蜜",
+        "木菠萝",
+        "树菠萝",
+        "jackfruit",
+        "Artocarpus heterophyllus"
+      ],
+      "tags": [
+        "living_organism",
+        "living_organism_tree",
+        "crop",
+        "fruit",
+        "vegetable",
+        "food",
+        "agriculture"
+      ],
+      "summary": "世界最大的树上果实：未熟青果当蔬菜煮食、熟果生食甜酸果肉、种子亦可煮食；在南亚部分地区是实打实的主粮作物。",
+      "details": {
+        "definition": "菠萝蜜指桑科波罗蜜属 Artocarpus heterophyllus 的常绿乔木及其聚合果，中文又称木菠萝、树菠萝。它与同属的面包果（A. altilis）近缘但不同种，与凤梨（菠萝，Ananas comosus）也无关；原条目的凤梨条目已把「菠萝蜜」列为误称别名，因此本条与 produce_pineapple 是两条互不替代的物产。它一身两用：未熟果按蔬菜处理，熟果按水果处理，种子另算一类。",
+        "mechanism": "花与果直接着生在树干与主枝上（老茎生花），小型单性花集生成密集花序；果实为聚合果，由多个包着种子的「苞」（bulb）围绕一条纤维状果心组成，外被瘤状突起的果皮，长可达约 60 cm、重可达约 18 kg，是世界上最大的树上果实。这种「多苞共一皮」的结构决定了取食方式：须剖开果皮、逐个分离苞与种子，出肉率与劳力投入都与普通果实不同。",
+        "conditions": "原产热带亚洲，广泛栽培于湿热热带，树高可达 15—20 m、叶片大而硬。青果要煮（当蔬菜），熟果可生食甜酸而略带寡淡的苞肉，种子亦可煮食——三条用途对应三种成熟度与三套加工方式，因此采后分级比单一水果复杂。果实巨大且成熟后不耐压、不耐久放，短途鲜销为主；制成罐头或加工品才便于外运，现代「果肉代肉」的加工品即属此列。木材耐用，亦为本地用材。",
+        "exceptions": "不要把菠萝蜜与菠萝（凤梨）或面包果混为一物：前者是桑科乔木的聚合果、后两者分别是凤梨科草本果与同属另一物种。也不要以为「最大的果实」就等于「最易得的口粮」：单果重达十余公斤，一棵树的产量集中在少数几个果上，风害或采后腐坏会一次性毁掉大量食物。青果必须经加热处理才作蔬菜食用，生食青果不是常规做法；果皮与果心含黏性乳汁，处理时手上会黏，本条不给具体去黏方法。",
+        "story_uses": "适合写「一果多级用途」：同一个果按成熟度分流到蔬菜、果实、种子三条线，因而一套采收—分级—加工的地方知识就是生存技能。也可用作贸易与加工能力的标志：鲜果走不出几十里，能做罐头或加工品才有远程市场，这一差别可直接支撑产业与城镇的出现。",
+        "historical_scope": "Britannica 只给出「原产热带亚洲、广泛栽培于湿热热带」，未给驯化年代与传播时间线；它在孟加拉国与南亚东南亚部分地区被视为主粮作物，这一地位属于区域性的当代与近代格局。罐头与「代肉」加工品是较晚近的产物，不能回溯到早期栽培史。因此本条不给年代断言。",
+        "evidence_and_uncertainty": "物种名与科属、原产热带亚洲、树高与叶、老茎生花与聚合果结构、最大树上果实与尺寸重量、青果作蔬菜/熟果生食/种子煮食三种用途、孟加拉国等地主粮地位、木材用途、罐头与代肉加工品均由 Britannica 的 jackfruit 条目支撑。缺口：驯化与传播年代、南亚各地的品种群与加工工艺（如干燥、腌制）、单株产量数据，本组已读来源未覆盖。review_status 保持 needs_review。"
+      },
+      "source_ids": [
+        "food_supp_src_06"
+      ],
+      "related_ids": [
+        "food_supp_breadfruit",
+        "produce_pineapple",
+        "produce_banana",
+        "produce_mango",
+        "food_supp_sago"
+      ],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "food_supp_persimmon",
+      "name": "柿",
+      "aliases": [
+        "柿",
+        "柿子",
+        "日本柿",
+        "美洲柿",
+        "persimmon",
+        "kaki",
+        "Diospyros kaki",
+        "Diospyros virginiana"
+      ],
+      "tags": [
+        "living_organism",
+        "living_organism_tree",
+        "crop",
+        "fruit",
+        "food",
+        "agriculture"
+      ],
+      "summary": "两个主要食用种：东亚的日本柿与北美东南部的美洲柿。多数品种软熟前强涩，这一「什么时候能吃」的门槛决定了它的加工与流通方式。",
+      "details": {
+        "definition": "柿指柿科柿属 Diospyros 中两个主要的食用种及其果实：日本柿 D. kaki（中文常叫柿、日本柿子，日语 kaki），在中国与日本是重要果树；美洲柿 D. virginiana 分布于美国东南至中部，果较小。二者同属不同种，风味与用途不能互相套用。作为果树，它同时是「庭院树」「市场果」与「野外采集对象」三种身份。",
+        "mechanism": "果为浆果状，直径约 5—8 cm（美洲柿约 3—5 cm），黄色至红色、外形略似番茄。关键在于涩味：除少数品种（来源举 Fuyu 一类）外，果在软熟前强涩，随软化而褪去——这意味着采收期与可食期不重合，必须经过后熟或软化处理才能入口。美洲柿多数果含数枚较大的扁平种子，软化后风味被评价为优于日本柿。",
+        "conditions": "树可耐约 −18 ℃，因此在温带果树中适应性较宽；日本柿在 19 世纪传入法国与地中海国家、稍后传入美国，今在加州与墨西哥湾各州有商业栽培但多以庭院为主。果不耐压、软化后极易损伤，短途鲜销与庭院自食为主；要跨季节保存须依赖干燥等加工（本组已读来源未覆盖具体工艺，见第七节）。美洲柿至今仍有相当数量自野外采集，说明「栽培」与「采集」在同一条食物线上并存。",
+        "exceptions": "不要把日本柿与美洲柿当同一作物：果大小、种子数、风味评价与利用方式（栽培市场果 vs 大量野采）不同。更不能把「涩」理解为「未熟有毒」——涩是口感事实与后熟状态问题，与毒性无关；本条不作任何食用安全或药用推断。此外，市场上「甜柿/涩柿」之分属品种特性，不是产地或成熟度的同义词。",
+        "story_uses": "适合写「后熟」这条被忽视的时间线：果采下来不能马上吃，须堆放等待软化，于是采摘、催熟、分送形成一套节奏，谁掌握判断「软到可以吃」的经验谁就有话语权。也适合写「庭院树与野采」的混合经济——同一物种既是家树也是林间资源，在饥荒或市场缺供时从野生一侧补上。",
+        "historical_scope": "Britannica 记日本柿在中国与日本为重要且广泛栽培的果树，19 世纪传入法国与地中海国家并小规模栽培，稍后传入美国，今在加州与墨西哥湾各州商业化但多作庭院树；美洲柿自墨西哥湾各州北至宾夕法尼亚中部与伊利诺伊中部，仍有大量野外采集，并有若干优良类型被命名、繁殖与商业栽培。东亚驯化起点与传入其他地区的更早线索、以及干制柿饼一类工艺的年代，本组已读来源未覆盖。",
+        "evidence_and_uncertainty": "两个物种的学名与分布、果径、涩味与软熟关系、耐 −18 ℃、19 世纪传入法国与地中海及美国、加州与墨西哥湾各州的栽培格局、美洲柿野采与优良类型繁殖、Fuyu 一类非涩品种，均由 Britannica 的 persimmon 条目支撑。缺口：驯化年代与起源地、干制与脱涩工艺、各地品种群，故不作年代与工艺断言。review_status 保持 needs_review。"
+      },
+      "source_ids": [
+        "food_supp_src_07"
+      ],
+      "related_ids": [
+        "produce_jujube",
+        "produce_fig",
+        "produce_apple",
+        "produce_pear",
+        "produce_date_palm"
+      ],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "food_supp_cherry",
+      "name": "樱桃（甜樱桃与酸樱桃）",
+      "aliases": [
+        "樱桃",
+        "甜樱桃",
+        "酸樱桃",
+        "车厘子",
+        "cherry",
+        "sweet cherry",
+        "tart cherry",
+        "Prunus avium",
+        "Prunus cerasus"
+      ],
+      "tags": [
+        "living_organism",
+        "living_organism_tree",
+        "crop",
+        "fruit",
+        "food",
+        "agriculture"
+      ],
+      "summary": "同一属里的两条产品线：甜樱桃鲜食、酸樱桃进罐藏与制酱；需冬季低温才能正常开花，花期早，栽培区被气候窄窄地框住。",
+      "details": {
+        "definition": "樱桃指李属 Prunus 中供食用的数个种及其核果，商业栽培以甜樱桃 P. avium 与酸樱桃 P. cerasus 为主，另有二者杂交的 duke 类（性状居中）。它与同属的桃、李、杏、扁桃近缘，但风味、酸度与加工路线各有分工：甜樱桃果径约 2 cm、酸度低、多鲜食；酸樱桃酸度高、不宜鲜食、多冷冻罐藏后用于酱料与糕点。",
+        "mechanism": "果为核果（stone fruit），由花的子房发育而成，中果皮肉质、内果皮硬化成核；花通常五瓣，花期在春季，甜樱桃须经冬季低温才能在春季正常开花，且花期在桃之后、苹果之前。开花早意味着整个年度节奏被春季温度锁定：一旦花期与低温或降雨撞上，授粉与坐果就直接受影响（具体霜害程度本条不作断言）。",
+        "conditions": "栽培区限于冬季不过于严酷、夏季温和的地带——这一条把樱桃的地理范围压得比苹果、梨窄得多。果皮薄、果肉软，采后呼吸与失水快，鲜销半径有限；因此甜樱桃多为近郊或冷链可达的鲜果，酸樱桃则以加工形态（冷冻、罐藏、果汁）进入长距离流通。木材致密、色红，另作细木家具用材，是「果材两用」的果树。",
+        "exceptions": "不要把所有「樱桃」当同一作物：甜樱桃、酸樱桃与 duke 杂交类的酸度、加工适性与栽培要求不同，用酸樱桃做鲜食、用甜樱桃做罐藏都会失当。也不要与东亚的观花樱桃群混同：日本等地选育的观花品种多数不结果，是园艺赏花对象而非食物来源。此外「车厘子」是商品名而非物种名，不能据名称判断产地或品种。",
+        "story_uses": "适合写「气候狭窄带出的高价鲜果」：耐运性差、花期敏感、栽培区有限，三者叠加使它天然是近郊经济与短链贸易的产物，能支撑「果园—市集—宴席」这条线。观花不结果的品种群则可作为纯象征性物产，用于园林、馈赠与身份展示，与食用线并行不悖。",
+        "historical_scope": "Britannica 记多数樱桃种原产北半球，北美与欧洲各有约 10—12 种，但种数最集中地在东亚；栽培樱桃所自来的种群被认为分布于西亚至东欧（里海到巴尔干）。今在全球冬季不过严、夏季温和的地区栽培。传入东亚、北美各地的时间与东亚樱桃栽培史，本组已读来源未覆盖，故不给年代。",
+        "evidence_and_uncertainty": "属与种名、甜/酸/duke 三类与各自用途、果径与酸度差异、核果结构与花期次序、需冬季低温、原产与种质分布、木材用途、观花品种多数不结果，均由 Britannica 的 cherry 条目支撑。缺口：驯化年代、各栽培区的传入时间、砧木与品种谱系、采后贮运参数。另需注意：该条目页面含由 AI 生成的问答块，本条只采用其正文章节内容，未采用问答块中的保健类说法。review_status 保持 needs_review。"
+      },
+      "source_ids": [
+        "food_supp_src_08"
+      ],
+      "related_ids": [
+        "food_supp_apricot",
+        "produce_peach",
+        "produce_plum",
+        "produce_almond",
+        "flavors_wine"
+      ],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "food_supp_apricot",
+      "name": "杏",
+      "aliases": [
+        "杏",
+        "杏子",
+        "apricot",
+        "Prunus armeniaca"
+      ],
+      "tags": [
+        "living_organism",
+        "living_organism_tree",
+        "crop",
+        "fruit",
+        "food",
+        "agriculture"
+      ],
+      "summary": "原初驯化于中国的核果，果肉近无毛、宜鲜食更宜干制与罐藏；花芽比桃更早开，晚霜一来就整年无收；果肉可食与种仁（仁）是两条必须分开的风险线，且杏仁不是扁桃仁。",
+      "details": {
+        "definition": "杏指蔷薇科李属 Prunus armeniaca 的果树及其核果，与桃、李、扁桃、樱桃近缘。学名中的 armeniaca（亚美尼亚的）是历史命名的遗留，与驯化地并不一致——Britannica 明说它原初在中国驯化，这一点须与旧名区分开。中文「杏」既指果树也指果，另有「巴旦杏」等旧称在部分地区被挪用于扁桃，属名称混淆，本条不以之为别名。",
+        "mechanism": "果为核果，近无毛、圆至长圆形、略扁，肉色多为浓黄至橙黄，内含一枚扁平大核，核内有仁。树小、开展，叶宽卵形、先端尖、直立；花自交结实、白色，单生或双生于节上；繁殖靠芽接于桃或杏砧。作为核果，它采后仍会继续软化，因此「鲜食窗口短、加工窗口宽」是它的基本属性：罐藏与干燥能把它从几天延长到一年以上。",
+        "conditions": "宜排水良好的轻壤，忌重黏土；耐旱性较强，条件合适时寿命很长（来源提到有些可达百年以上）。最关键的约束是花期：花芽比桃开得更早，因此晚霜常直接杀死花芽、造成当年绝收——这使它的适栽区必须避开春季回寒频繁的地带。种仁（kernel，中文常称杏仁）在多个品种中是甜的，但生时有毒，须经烤制后才可食——这是它「果肉与种仁两条用途线」的前置条件。必须把两条风险线分开看：果肉（中果皮）经成熟后正常食用，没有杏仁那类毒性问题；有风险的是核内的仁，且苦味类型与甜味类型的风险程度不同，本条不做统一断言。",
+        "exceptions": "三件事必须分开。一是命名层级：不要把「原产亚美尼亚」当成事实——那只是学名的历史来源；考古证据显示古亚美尼亚人食杏，但驯化地是中国。二是物种边界：不要把杏与扁桃（Prunus dulcis）混为同物，也不要因为中文商品名都带「杏仁」就把杏的种仁当作扁桃仁——中文里「巴旦杏/美国大杏仁」在商品上常指扁桃，属名称误导，两者不同种、用途与种植制度也不同，本条不被扁桃条目代替。三是可食部位与风险：杏「果肉可食」不等于「整果可食」，果肉经成熟后正常食用，风险只集中在核内的种仁；而种仁又分苦、甜两路，苦味类型不能不经处理就吃，甜味类型也要烤制。本条不提供任何去苦或去毒的具体处理参数。另，霜害导致的绝收是栽培风险，不是品质问题。",
+        "story_uses": "适合承担「干果与长途贸易」这一线：鲜果几天就坏，但晒干或罐藏后可经年保存、可翻山越海运销，于是杏干成为旱地山区最典型的「把夏天换成冬天的硬通货」。晚霜绝收则是天然的年景变量，可用于饥荒、债务与迁徙的因果。种仁的苦甜两路（甜仁可食须烤、苦仁另有用途）也适合写成需谨慎处理的地方知识。",
+        "historical_scope": "Britannica 记杏原初驯化于中国，今除南极外各洲皆有栽培；考古证据显示古亚美尼亚已食杏；18 世纪初由西班牙传教士首次带入新大陆（加利福尼亚）。2024 年前五大生产国为土耳其、乌兹别克斯坦、伊朗、阿尔及利亚、意大利——这是当代格局，不能反推历史分布。传入东亚以外地区的具体时间线、以及干制工艺的起源，本组已读来源未覆盖。",
+        "evidence_and_uncertainty": "物种名与近缘关系、果形果色与近无毛、核果与大扁核、中国驯化与亚美尼亚考古证据、18 世纪经传教士入加州、2024 年主产国、芽接于桃/杏砧、耐旱与长寿、花芽早开易遭晚霜、种仁甜但生时有毒须烤制、干燥与罐藏保存、制酱与浸酒用途、宜排水良好轻壤，均由 Britannica 的 apricot 条目支撑。缺口：驯化年代、传入各地的路径与时间、干制工艺细节、苦仁利用方式。review_status 保持 needs_review。"
+      },
+      "source_ids": [
+        "food_supp_src_09"
+      ],
+      "related_ids": [
+        "produce_almond",
+        "produce_peach",
+        "produce_plum",
+        "food_supp_cherry",
+        "flavors_honey"
+      ],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "food_supp_avocado",
+      "name": "鳄梨（牛油果）",
+      "aliases": [
+        "鳄梨",
+        "牛油果",
+        "油梨",
+        "avocado",
+        "alligator pear",
+        "Persea americana"
+      ],
+      "tags": [
+        "living_organism",
+        "living_organism_tree",
+        "crop",
+        "fruit",
+        "food",
+        "agriculture"
+      ],
+      "summary": "美洲原产的油质浆果：果肉含油可高达约四分之一，热量密度远高于多数水果；花分 A/B 两型错时开放，靠邻株异花授粉才能稳产。",
+      "details": {
+        "definition": "鳄梨指樟科 Persea americana 的果树及其果实，中文又称牛油果、油梨，英文旧称 alligator pear。植物学上果为浆果，内含一枚大圆种子，果肉绿色至黄绿色、油润、味似坚果；园艺上分为墨西哥（var. drymifolia）、危地马拉（var. guatemalensis）、西印度（var. americana）三大品种群，Hass 是墨西哥×危地马拉的杂交种。它的定位与多数水果不同：不是解渴的甜果，而是以脂肪为主要供能成分的「副食型果实」。",
+        "mechanism": "花小、无真正花瓣，具九枚雄蕊排成三轮；关键机制是雌雄蕊成熟时间错开（dichogamy）且每朵花只开两次：A 型花上午行使雌性功能、正午闭合，次日午后作为雄性重开；B 型花下午行使雌性功能、傍晚闭合，次日早晨作为雄性重开。同一株的雌雄功能因此不在同一时间重叠，只有在 A、B 两型同园种植时，成熟雄蕊与可受粉的雌蕊才会交叠，从而促成异花授粉、提高结果量。这一机制直接决定了果园必须混栽品种，而不是单品种成片。",
+        "conditions": "热带至亚热带、无强霜的气候，三大品种群耐寒性不同（墨西哥群最耐寒，西印度群最热带）；果大小从鸡蛋大到 1—2 kg 不等，形状圆至梨形、皮色绿至深紫。果皮厚度差别大，有的薄如苹果皮、有的粗木栓质，直接影响耐运性。果肉含油量随品种而异，某些品种可达约 25%——这既是它风味与饱腹感的来源，也意味着采收成熟度判断与后熟管理比一般水果更关键。",
+        "exceptions": "不要把「果实」等同于「甜水果」：它的主要成分是脂肪，食用场景更接近副食或酱料基底（如墨西哥的 guacamole），在不少地区被当甜品吃法处理，但不能按普通水果的甜度与贮藏方式套用。也不能把 A/B 花型理解为「自花不实」的绝对规则：机制上是时间错开降低自交概率，实际结果还取决于品种组合与传粉者。此外三大品种群的耐寒性与果皮厚度差异巨大，不可用单一品种的经验外推全种。",
+        "story_uses": "适合写「高油副食果」的特殊经济：油质果肉耐饥、可作酱，因而在产区是日常食物，在远地则靠耐运品种与冷链成为高价商品。它「必须混栽才能稳产」的授粉机制也适合写成农事知识的分水岭——不懂这一点的人种一片单品种果园，年年花多果少。",
+        "historical_scope": "Britannica 记其原产西半球，自墨西哥向南至安第斯；在西班牙征服之前已作为实生树栽培，但直到约 1900 年园艺界发现嫁接繁殖简便、能固定优良实生苗之后，才出现真正的果园产业与全球产业扩散。2020 年前五大生产国为墨西哥、多米尼加、秘鲁、印尼、哥伦比亚——属当代格局。美洲内部的早期利用与驯化年代、传入其他大陆的时间线，本组已读来源未覆盖。",
+        "evidence_and_uncertainty": "科属与种名、浆果结构与单一大种子、果肉油润与最高约 25% 含油、原产墨西哥至安第斯、征服前实生栽培、约 1900 年后嫁接繁殖与果园产业、A/B 花型与错时开放机制、三大品种群与 Hass 杂交来源、2020 年主产国，均由 Britannica 的 avocado 条目支撑。缺口：驯化年代与地点、传入旧大陆的时间线、采后后熟与贮运参数、各地食用方式的史料。review_status 保持 needs_review。"
+      },
+      "source_ids": [
+        "food_supp_src_13"
+      ],
+      "related_ids": [
+        "produce_tomato",
+        "staples_olive",
+        "produce_squash_pumpkin",
+        "flavors_chili_pepper",
+        "produce_banana"
+      ],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "food_supp_papaya",
+      "name": "番木瓜",
+      "aliases": [
+        "番木瓜",
+        "木瓜（易混称）",
+        "papaya",
+        "papaw",
+        "Carica papaya"
+      ],
+      "tags": [
+        "living_organism",
+        "crop",
+        "fruit",
+        "food",
+        "agriculture"
+      ],
+      "summary": "一年多就结果的巨型草本状植物，成熟果为热带早餐果、未熟果可当南瓜煮；未熟果乳汁含蛋白酶，是嫩肉剂的原料。",
+      "details": {
+        "definition": "番木瓜指番木瓜科 Carica papaya 的植物及其果实。中文里常被简称为「木瓜」，但中文「木瓜」在多数语境指蔷薇科的木瓜（Chaenomeles），二者不同科、不同物，本条不用「木瓜」作别名。它的生长习性是本条的要点：虽是「树」，茎却不像真正木质那样坚硬（来源称 palmlike trunk），因此更接近大型草本。起源不清楚，来源明说可能是墨西哥与中美洲数个 Carica 种的融合，并由玛雅人至少 4000 年前进一步培育。",
+        "mechanism": "通常雌雄异株（也有两性株），雄花成簇生于长梗、花小；雌花较大、生于叶腋，具五枚基部连合的花瓣与一枚大子房。果为肉质浆果，球形至柱形、长 75—500 mm，最重可达 9—11.5 kg，果肉深黄、橙至橙红，中央空腔内壁着生大量圆形皱缩黑种。未熟果含乳汁，其中蛋白酶（papain）能分解蛋白质——这是它作为嫩肉剂原料的物质基础，也是未熟果与熟果用途分道的原因。",
+        "conditions": "热带至最暖的亚热带栽培；多以种子繁殖、生长极快，一年内即开始结果，条件适宜时可活五年以上——这意味着它是「短周期、快回收」的作物，适合小农与新开地。果皮薄、成熟果极软，采后不耐压、不耐久放，远运须以未熟或半熟状态采收并控温；未熟果可如南瓜般烹调，为产区提供了第二个食物窗口。20 世纪后期环斑病毒几乎摧毁全球产业，2000 年代初抗病毒转基因品种（Rainbow）成为最早的商业化转基因果之一，现今出口的番木瓜大部分为转基因品种——这一条对「种子能否自留、苗木从哪来」有直接影响。",
+        "exceptions": "不要与蔷薇科木瓜（Chaenomeles）或中文药用的「木瓜」混为一物。不要把「果实含蛋白酶」延伸为助消化或医疗功效——来源中的相关表述属传统与商业说法，本条不作功效断言。也别把「雌雄异株」当绝对规则：两性株与性比异常很常见，这直接影响留种与定植时对株型的判断。转基因品种的普及意味着「留种再种」在某些地区行不通，这一制度性差异不能忽略。",
+        "story_uses": "适合写「快周期作物」带来的社会效应：一年多就结果、可连续采几年，使无地或少地者也能靠几株树获得现金收入；也适合写「苗木与种子的来源决定谁能种」——当主栽品种是买来的杂交或转基因苗，农人的自主性就被供应链握住。未熟果当蔬菜、熟果当水果的两用，还可支撑「同一株树养活一日两餐」的日常场景。",
+        "historical_scope": "来源给的是「起源不清楚、可能是多个中美洲 Carica 种的融合、玛雅人至少 4000 年前已培育」，这是一个明确的不确定表述；今在热带与最暖亚热带广泛栽培。传入旧大陆与亚洲的时间线、各地区品种分化，本组已读来源未覆盖。环斑病毒自 1940 年代重创夏威夷种植园并扩散，抗病毒转基因品种出现于 2000 年代初——这条属 20 世纪的植物病理与生物技术史，不能并入早期栽培史。",
+        "evidence_and_uncertainty": "科属种名、茎非真木质与株高、起源不确定与玛雅培育、雌雄异株与两性株、果形尺寸与果肉色、中央空腔黑种、未熟果乳汁含 papain、种子繁殖与一年内结果、寿命、未熟果如南瓜烹调、环斑病毒与转基因品种，均由 Britannica 的 papaya 条目支撑。缺口：驯化年代与地点、传入旧大陆时间线、乳汁采集与嫩肉剂加工的工艺史、各地栽培制度。review_status 保持 needs_review。"
+      },
+      "source_ids": [
+        "food_supp_src_14"
+      ],
+      "related_ids": [
+        "produce_mango",
+        "produce_banana",
+        "produce_squash_pumpkin",
+        "produce_pineapple",
+        "animal_food_beef"
+      ],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "food_supp_mung_bean",
+      "name": "绿豆",
+      "aliases": [
+        "绿豆",
+        "青小豆",
+        "mung bean",
+        "green gram",
+        "yellow gram",
+        "Vigna radiata"
+      ],
+      "tags": [
+        "living_organism",
+        "crop",
+        "legume",
+        "food",
+        "agriculture"
+      ],
+      "summary": "生育期短的固氮豆类：干豆可煮可磨粉做粉丝粉皮、去皮制 dal、发芽成豆芽；嫩荚与嫩叶也能当蔬菜，还是覆盖作物与绿肥。",
+      "details": {
+        "definition": "绿豆指豆科豇豆属 Vigna radiata 的一年生草本及其种子，英文又称 green gram、yellow gram（黄粒栽培型）。它与同属的豇豆（Vigna unguiculata，黑眼豆）是近亲但不同种；中文「绿豆」专指本种，不与大豆（Glycine max）或豌豆混用。它的用途跨度很大：主食级的干豆、副食级的豆芽与粉丝、以及农艺上的绿肥与饲草，一物多线。",
+        "mechanism": "直根发达，根上生有能固氮的根瘤，因此能在氮素不高的土壤上生长并把氮留在地里——这是它作为覆盖作物与绿肥的物质基础。三出复叶、花小、淡黄或带绿，虫媒授粉；荚果长而直，成熟转深色，每荚可达 20 粒小种。种皮多为绿色，但黄、褐与花斑变异也存在，不同种皮对应不同市场与加工偏好。发芽时种子自身储备被酶解为可溶物，几天内即可得到豆芽——这是它能在没有田地的城市里也被利用的原因。",
+        "conditions": "较耐旱的热带与亚热带地区可种，亚洲广泛栽培，也种于加勒比与非洲部分地区；生育期短，可嵌在主作物之间或作为救荒补种。加工路径决定其流通形态：干豆耐贮耐运；磨粉可制粉皮与半透明粉丝，属可长期存放的形态；发芽则需湿润与几日时间、且豆芽极易腐，只能在近地短链销售。作绿肥须在合适生育期翻压入土，晚了木质化、分解慢。",
+        "exceptions": "不要把绿豆与大豆（黄豆）混为同物：二者的蛋白质与油脂含量、加工路线（豆芽/粉丝 vs 豆浆/豆腐/榨油）完全不同，互相替代会失败。不要把「固氮」理解为「不施肥也能高产」：固氮量有限，且需相应根瘤菌与适宜条件配合。豆芽生产是「短窗口、易腐」的加工，与干豆的长贮形成两条互不通用的流通体系。此外种皮颜色决定市场分级，不能按单一外观判断品质。",
+        "story_uses": "适合写「小农的多用途豆」：同一块地、同一批收成，可煮食、可磨粉做粉丝、可发豆芽、还可翻压作绿肥，于是它在缺少化肥与冷链的社会里承担了多重保险。豆芽尤其适合作为城市贫民与冬季缺菜时的维生素来源，可支撑市集、作坊与街头生计的场景。粉丝的加工则牵出淀粉提取、晾晒与长途贩运这条线。",
+        "historical_scope": "Britannica 仅给出「可能原产印度次大陆、亚洲广泛栽培、亦种于较干旱的热带亚热带与加勒比、非洲部分地区」，未给驯化年代与传播时间线。它在东亚的食用方式（豆芽、粉丝、豆沙）与在南亚的 dal 传统属区域饮食史，本组已读来源未覆盖其年代，故不作断言。",
+        "evidence_and_uncertainty": "物种名与属内近缘、根瘤固氮、形态（三出复叶、花色、荚果与小种）、种皮颜色变异、可能原产印度次大陆与栽培范围、干豆与磨粉与豆芽与嫩荚嫩叶多用途、覆盖作物与绿肥与饲草用途，均由 Britannica 的 mung bean 条目支撑。缺口：驯化年代与地点、传入东亚与非洲的时间线、粉丝与豆芽的工艺起源、各地栽培制度。review_status 保持 needs_review。"
+      },
+      "source_ids": [
+        "food_supp_src_15"
+      ],
+      "related_ids": [
+        "staples_cowpea",
+        "staples_soybean",
+        "staples_common_bean",
+        "staples_lentil",
+        "staples_chickpea"
+      ],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "food_supp_sago",
+      "name": "西米（西谷椰淀粉）",
+      "aliases": [
+        "西米",
+        "西谷米",
+        "沙谷米",
+        "sago",
+        "Metroxylon sagu",
+        "西谷椰"
+      ],
+      "tags": [
+        "living_organism",
+        "crop",
+        "food",
+        "staple_substitute",
+        "agriculture",
+        "processing"
+      ],
+      "summary": "不是谷物而是从棕榈茎髓里洗出来的淀粉：一株树长十五年，抽穗前伐倒劈髓、加水揉洗沉淀得粉；在西南太平洋是基础口粮，出口则搓成「珍珠西米」。",
+      "details": {
+        "definition": "西米指从数种棕榈茎干中所贮淀粉制得的食品，主要来源是真正的西谷椰 Metroxylon sagu（原产印尼群岛）。它常被误当作「米」或谷物，也常与市场上用木薯（Manihot esculenta）淀粉制成的所谓「西米/珍珠西米」混为一谈：商品名叫「西米」不等于是棕榈淀粉。后者是从木薯根块磨浆沉泥而成的淀粉，原料属块根作物而非棕榈，其可得性、成本与产地与西谷椰完全不同。本条只取传统棕榈淀粉（以西谷椰 Metroxylon sagu 为主）这一主线，不描述也不评价木薯仿制品的加工。另需区别苏铁（Cycas revoluta）取出的所谓「西米」，后者须额外处理去除神经毒素 cycasin。",
+        "mechanism": "西谷椰生于低湿沼泽，通常高近 9 m、茎粗壮；约 15 年成熟并抽出花序，此时茎髓（pith）被淀粉充满。关键在于时机：若任其开花结实，淀粉会被果实消耗，茎变中空、植株在果熟后死亡。因此栽培者在花穗一出现就伐倒整株——这是与「等它长大结果」完全相反的逻辑，采收对象是茎而非果，收获即终止个体生命。",
+        "conditions": "制粉是一套水洗沉淀工序：把茎分段劈开取髓、擦碎成粉，加水在筛上揉洗，淀粉随水穿过筛孔沉入下方槽中，木质纤维被截留；多次洗涤后得到可用的西米淀粉。若要出口，则把淀粉加水调糊、用不同孔径的筛擦制成颗粒，按大小售作 pearl sago 或 bullet sago。西米几乎纯淀粉（来源记约 88% 碳水、蛋白质 0.5%、脂肪极微、B 族维生素仅痕量），因此它提供热量但几乎不提供其他养分——这决定了它必须与其他食物搭配，不能作单一主食长期依赖。它也是纺织上浆的工业原料。",
+        "exceptions": "先把三条原料线分开，不要因为商品名都叫「西米」就当成同一种东西：（1）棕榈淀粉，以西谷椰为主，是本条的主题，取茎髓；（2）木薯淀粉制成的颗粒，原料是块根，经磨浆、沉泥、制成颗粒后销售，它与棕榈西米在原料、工序与产地体系上都不同；（3）苏铁来源的「西米」，含 cycasin，须专门去毒处理，绝不能与（1）（2）混同，本条不提供任何去毒操作参数。因此「买到的西米」不等于「棕榈淀粉」，也不等于「本条的工序」。另需记住两条与本条主体相关的限制：其一，棕榈西米几乎纯淀粉，没有谷物的蛋白质与维生素分布，长期单一食用会造成明显的营养缺口，必须与其他食物搭配；其二，「先伐树、后取粉」不可逆，收获即毁株且需等约十五年，一旦砍伐过量就无后备——这与一年生谷物的年度重播完全不同。",
+        "story_uses": "适合写「以时间换淀粉」的定居经济：一株树占一片沼泽十五年，换来一次性的巨量淀粉，于是聚落需要长期土地占有的观念与轮伐规划；砍伐、劈髓、揉洗、沉淀是一套需要多人协作与水源的工序，可直接支撑村落分工与沼泽定居的场景。它也适合写「单一热量来源的脆弱」——丰年饱食、荒年无备。",
+        "historical_scope": "Britannica 记其原产印尼群岛、印尼的西米林在塞兰岛尤其广大，婆罗洲供应了欧洲进口的大部分西米；它是西南太平洋地区的基础食物，在其他地方主要用于布丁与酱汁增稠及纺织上浆。这些是近代至当代的产销格局；西米在东南亚岛屿的利用起点、以及「珍珠西米」商品化的年代，本组已读来源未覆盖，故不给年代。",
+        "evidence_and_uncertainty": "主要来源种与产地、沼泽生境与株高、约 15 年成熟与抽穗时淀粉充满、结实导致茎中空与植株死亡、伐倒劈髓与揉洗沉淀的工序、出口制粒与 pearl/bullet sago 的两档、成分（约 88% 碳水、0.5% 蛋白质）、西南太平洋基础食物与布丁增稠和纺织上浆用途、苏铁来源须去 cycasin、木薯亦可称 sago，均由 Britannica 的 sago 条目支撑。缺口：东南亚的利用年代、单位面积产量、各地加工差异、以及长期单一食用的具体后果研究。review_status 保持 needs_review。"
+      },
+      "source_ids": [
+        "food_supp_src_16"
+      ],
+      "related_ids": [
+        "staples_cassava",
+        "staples_taro",
+        "staples_yam",
+        "food_supp_breadfruit",
+        "flavors_cane_sugar",
+        "tools_storage_jar"
+      ],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "food_supp_strawberry",
+      "name": "草莓",
+      "aliases": [
+        "草莓",
+        "士多啤梨",
+        "strawberry",
+        "Fragaria",
+        "Fragaria × ananassa"
+      ],
+      "tags": [
+        "living_organism",
+        "crop",
+        "fruit",
+        "food",
+        "agriculture"
+      ],
+      "summary": "「假果」的典型：吃的是膨大花托、真正的果实是表面那些小粒；果极不耐运，只能靠人工采摘、就近销售或加工，因而天然绑定近郊与加工厂。",
+      "details": {
+        "definition": "草莓指蔷薇科 Fragaria 属的低矮草本及其聚合状「果实」。植物学上它是副果/假果（accessory fruit）：食用部分为膨大的花托，表面嵌着的许多瘦果（achene，俗称「籽」）才是真正的果实——这一点与其他「浆果」不同，也解释了为什么它的「籽」长在表面。市面主栽的大果草莓 Fragaria × ananassa 是 18 世纪在欧洲形成的杂交种；此外还有麝香草莓 F. moschata、林生野草莓 F. vesca、北美 F. virginiana 与智利 F. chiloensis 等。",
+        "mechanism": "由短缩的冠部抽生基生三出复叶，叶缘锯齿、多有毛；花多白色、少数带红，成小簇生于细梗；冠部随年龄木质化，并抽出匍匐茎（runners/stolons）落地生根，形成营养繁殖的克隆群——这是它扩张与育苗的主要方式。果实的「膨大」由花托在受精后发育而来，因此授粉质量直接影响果形是否周正；瘦果嵌入果面，也意味着表面极易破损、成为微生物入口。",
+        "conditions": "适应性广、需水量较高且怕旱，喜保水土壤或需沟灌/喷灌；对根结线虫与土传真菌敏感，连作地常需土壤消毒或轮换。育苗靠匍匐茎苗，定植季节决定次年产量；植株一般只保留一至四年。最关键的限制在采后：果极不耐压、不耐久放，来源明言因易腐且难以机械采摘，通常种在消费或加工中心附近、且有足够劳力之处；采摘直接入小篮、再装箱外运或装盘送加工，须冷凉干燥贮运。早熟可在棚膜或玻璃覆盖下生产。",
+        "exceptions": "不要把它当「真正的浆果」在植物学意义上讨论：食用部分是花托，不是子房发育的果肉。也不要以为「耐寒」或「适应性广」就等于「哪里都能商业化种」——决定布局的是劳力与运输距离，不是气候适宜性。设施栽培只改变上市时间，不改变它的易腐属性。此外，野草莓（F. vesca）与大果杂交种风味、果径差别很大，不能相互替代表述。",
+        "story_uses": "适合作为「近郊农业与加工带」的核心物产：不耐运 + 需手工采，两者叠加使草莓必须在人口密集处生产，于是城郊园圃、季节性雇工、采摘篮与小篮包装、以及果酱与速冻加工线都被它牵出来。也可写「假果」这一认知错位——人们吃的不是果实本体，这在自然志式叙事里是极好的细节。",
+        "historical_scope": "Britannica 记大果栽培种起源于 18 世纪的欧洲，19 世纪多数国家各自育出适应本地气候、日长、海拔与生产方式的品种；今全球栽培。原种分布为北半球温带。传入亚洲、非洲与南美的具体时间线，以及早期采集与驯化史，本组已读来源未覆盖，故不给年代。",
+        "evidence_and_uncertainty": "属与杂交种名、副果/假果结构与瘦果、匍匐茎营养繁殖、18 世纪欧洲起源与 19 世纪各国自育品种、易腐与人工采摘及就近布局、冷凉干燥贮运要求、土壤线虫与真菌敏感性、植株保留年限、设施早熟、其它野生与近缘种，均由 Britannica 的 strawberry 条目支撑。缺口：驯化史与各地传入时间、采后保鲜参数、品种谱系。review_status 保持 needs_review。"
+      },
+      "source_ids": [
+        "food_supp_src_17"
+      ],
+      "related_ids": [
+        "produce_grape",
+        "produce_fig",
+        "produce_plum",
+        "flavors_honey",
+        "animal_food_condensed_dried_milk"
+      ],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "food_supp_quince",
+      "name": "榅桲",
+      "aliases": [
+        "榅桲",
+        "木梨",
+        "quince",
+        "Cydonia oblonga"
+      ],
+      "tags": [
+        "living_organism",
+        "living_organism_tree",
+        "crop",
+        "fruit",
+        "food",
+        "agriculture"
+      ],
+      "summary": "香气强、生吃极涩的梨果：几乎只能靠煮与糖做成酱、胶冻与果脯，却在土耳其与亚洲部分地区仍是重要作物；曾在欧洲庭院常见、后大幅退场。",
+      "details": {
+        "definition": "榅桲指蔷薇科榅桲属（Cydonia）唯一的一种 Cydonia oblonga，小乔木或灌木及其金黄色梨果。它与苹果、梨同科不同属，与中文语境里观赏用的「木瓜」（Chaenomeles 木瓜属，英文 flowering quince）也不同属——两者常因英文名相近被混同，须分开。它的果肉生时强涩、香气却极浓，因此食用方式几乎完全围绕「加热」展开。",
+        "mechanism": "果为梨果（pome），形可圆而扁或略呈梨形；果肉含较多果胶类物质，加热加糖后能形成良好的凝胶——这是它成为果酱、果冻与 conserve 原料的机制基础。加热后肉色转为粉红至红，为成品提供颜色。枝叶为全缘叶、带小托叶，花大、单生、白或粉，与苹果、梨花相似但萼片叶状、子房多室。",
+        "conditions": "需明显的冬季休眠，因此适栽于有季节差异的温带；管理粗放、可长在篱边而少加照料。果极涩不能生食，必须经煮制或糖渍；常与苹果同炖同烤以增香增酸，亦作果酱与胶冻。易感火疫病（fire blight），且与苹果、梨共有介壳虫问题、需同样的休眠期防治——这使它在混栽果园里与苹果梨共享一套病虫害管理。",
+        "exceptions": "不要把「香气浓」当作「可生食」：生果涩感强烈，除加工外基本不入口，这与苹果梨的鲜食定位正相反。也不要把榅桲（Cydonia）与木瓜属（Chaenomeles）混为同物，后者是观赏灌木。来源明确记载它在北美东北与欧洲的商业栽培显著减少、曾经常见的庭院果树地位大幅退场——因此不能以「现在少见」反推它历史上不重要，或反之以为它在所有地区都已边缘化（土耳其与亚洲部分地区仍是重要作物）。",
+        "story_uses": "适合写「加工才能吃的果」：它不能上桌生食，必须先煮、加糖、熬成胶，因此它的存在直接对应糖与燃料的可得性，也对应一套保存技术。它「退场」的轨迹（庭院常见 → 商业萎缩）则适合写消费习惯与市场结构的变化，以及老果园里被留下的树——一种旧生活的物证。",
+        "historical_scope": "Britannica 记其原产伊朗、土耳其，可能及希腊与克里米亚；曾在家庭果园中常见，后在北美东北与欧洲商业栽培大幅减少，但在土耳其与亚洲部分地区仍为重要经济作物。这说明「退场」是区域性过程而非全球同步。驯化年代与传入其他地区的具体时间线，本组已读来源未覆盖，故不作断言。",
+        "evidence_and_uncertainty": "单种属与种名、原产地、梨果形态与肉色变化、生时涩与加工用途（果酱、胶冻、与苹果同烹）、需明显冬季、管理粗放、易感火疫病与介壳虫问题、商业栽培的区域性衰退与在土耳其/亚洲的地位、与木瓜属观赏种不同，均由 Britannica 的 quince 条目支撑。缺口：驯化年代、传入各地时间、果胶含量与凝胶条件的具体数据。review_status 保持 needs_review。"
+      },
+      "source_ids": [
+        "food_supp_src_18"
+      ],
+      "related_ids": [
+        "produce_apple",
+        "produce_pear",
+        "produce_pomegranate",
+        "flavors_honey",
+        "flavors_cane_sugar"
+      ],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "food_supp_cultivated_mushroom",
+      "name": "栽培食用菌（双孢蘑菇与香菇等）",
+      "aliases": [
+        "栽培食用菌",
+        "蘑菇",
+        "双孢蘑菇",
+        "洋菇",
+        "口蘑（商品俗称）",
+        "香菇",
+        "shiitake",
+        "button mushroom",
+        "portobello",
+        "Agaricus bisporus",
+        "Lentinula edodes"
+      ],
+      "tags": [
+        "living_organism",
+        "crop",
+        "food",
+        "agriculture",
+        "processing"
+      ],
+      "summary": "不是植物而是一类真菌的子实体：靠分解枯落物或与树木共生获取养分，需温湿配合才出菇；只写栽培类群，不给任何野采鉴定特征。",
+      "details": {
+        "definition": "本条指人工栽培条件下生产的伞状真菌子实体（fruiting body / sporophore），主要类群为伞菌目，代表性物种是双孢蘑菇 Agaricus bisporus（同一物种按成熟度与品相分作 button、cremini、portobello）与香菇 Lentinula edodes。它们不属于植物，因而「栽培」的含义与作物不同：管理对象是菌丝体所处的基质与环境，而不是播种、施肥、灌溉一株植物。条目只覆盖栽培类群，不涉及野生采集。特别需要分开：本条把双孢蘑菇与香菇并列为「栽培食用菌」的代表，但两者并非同一套生态条件——双孢蘑菇属堆肥/粪草类发酵基质上的腐生菌，香菇属木质基质（木屑、段木）上的腐生菌，基质的腐熟阶段、出菇温度与产菇周期均不同。本条不把二者合并成一组参数，也不提供任何具体基质配比或温湿数值（本组已读来源未覆盖，见第七节）。",
+        "mechanism": "地下的菌丝体（mycelium，由管状菌丝 hyphae 组成）在有机质中扩展吸收养分，条件合适时菌丝组织分化、在地面或基质表面形成子实体；子实体由菌盖（pileus）与菌柄（stipe）构成，菌盖下方以菌褶、菌孔或菌齿承载孢子。营养方式分两类：腐生型从死亡有机质获取碳与能量，分泌酶到基质表面分解后再吸收；共生型（如松茸 Tricholoma matsutake）与松、栎等树木形成互利关系，无法简单用腐生基质栽培——那是它至今难以商业化栽培的原因。多数真菌喜温 20—30 ℃，孢子萌发还需很高的相对湿度环境。",
+        "conditions": "栽培的前提是可控的基质与环境，且基质路线按菌种分开、不可互换：双孢蘑菇一类走堆肥/粪草发酵基质，香菇一类走木质基质（木屑菌袋或段木），两者的堆置/腐熟、接种方式、出菇温度与产菇批次都不同——把一种的温湿参数套到另一种上会失败。共通之处只有三道前提：基质须经灭菌或发酵以抑制杂菌，再接种菌种，然后在温、湿、通风受控的空间出菇；技术门槛在污染控制而不在种植。采收要及时（开伞后迅速失水、货架期极短），鲜品含水九成以上，采后需低温高湿流通；干制是延长保存的主要方式（本组已读来源未覆盖具体干燥参数）。",
+        "exceptions": "本条明确不提供任何野采鉴定特征，也不讨论野外采食：来源指出野生蘑菇没有简易的判定规则，许多毒菌与可食种形态相近，毒性还会随生态条件与地域变化；有些种生食有毒而经烹调或腌渍后可食，另一些即使处理仍有毒，个别人对他人无恙的种也会中毒——因此只能食用经权威确认可食的种类，最稳妥是只用栽培种。「毒蘑菇 vs 食用蘑菇」不是科学分类，mushroom 与 toadstool 只是俗名的分别。此外，鲜蘑菇的重量主要来自水，不能按同样重量与谷物、豆类对比。",
+        "story_uses": "适合作为「不占耕地的高价值副业」：可用农业副产物与废木作基质、在暗室或山洞中周年生产，因而能为无地者、冬季闲季与城镇近郊提供现金收入；它也可支撑「技术门槛在灭菌与洁净」这类情节——成败取决于看不见的杂菌污染，而非土地肥瘦。共生型名贵菌（松茸类）无法栽培、只能依附特定林分，则适合写成林权与采集权冲突的资源。",
+        "historical_scope": "Britannica 描述的是当代商业化栽培格局（双孢蘑菇与香菇为主要栽培食用菌），未给栽培起源年代与各地区起始时间；双孢蘑菇在欧洲的栽培、香菇在东亚的椴木栽培各有其史，本组已读来源未覆盖，故本条不作年代断言。另需注意：把蘑菇当「林间自然物」的叙事在中世纪欧洲与许多地区成立，但当代市场上的蘑菇大量来自室内栽培，两者的社会关系完全不同。",
+        "evidence_and_uncertainty": "子实体定义与分类位置、菌丝体—子实体关系与菌盖菌柄结构、腐生与共生两种营养方式（含松茸与松栎共生）、适宜温度与湿度、主要栽培物种（A. bisporus 及其商品分级、L. edodes）、鲜品含水九成以上与低蛋白低碳水、野生蘑菇无简易鉴别规则且毒性随条件与地域变化、只能食用经权威确认者，均由 Britannica 的 mushroom 条目支撑。缺口：栽培工艺的具体参数、各地栽培史、干制与贮藏条件，均无本组已读来源，故不给工艺数值。review_status 保持 needs_review。"
+      },
+      "source_ids": [
+        "food_supp_src_19"
+      ],
+      "related_ids": [
+        "produce_spinach",
+        "produce_cabbage",
+        "materials_wood",
+        "tools_kitchen_knife",
+        "animal_food_rendered_fat"
+      ],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "food_supp_grain_amaranth",
+      "name": "籽粒苋",
+      "aliases": [
+        "籽粒苋",
+        "苋米",
+        "千穗谷",
+        "grain amaranth",
+        "Prince's Feather",
+        "Amaranthus hypochondriacus"
+      ],
+      "tags": [
+        "living_organism",
+        "crop",
+        "food",
+        "agriculture"
+      ],
+      "summary": "美洲原产的双用途苋：嫩叶当菠菜、种子可代谷物甚至像爆米花般爆开；晚熟使它难进北方，而在热带常被小规模栽培。",
+      "details": {
+        "definition": "籽粒苋指苋科苋属 Amaranthus hypochondriacus 等以取籽为目的栽培的苋类，茎叶与种子两用；中文常称籽粒苋、苋米、千穗谷，英文 grain amaranth，该种在园艺上又名 Prince's Feather。它与谷物（禾本科）不同科：种子是「类谷物」的替代粮而不是真正的谷粒，因此本条的 tags 用 crop/food 而不标 cereal，与谷物条目在分类上区分开。",
+        "mechanism": "一年生或短命多年生草本，雌雄同株、风媒传粉，花序为密集直立的穗状或柔荑状，花被细小；种子极小、近球形或透镜形，颜色可为白、象牙白、粉白至黑或深红褐，光滑有光泽。种子胚乳富含淀粉，可生食或熟食、可当谷物替代品，也可像爆米花一样加热爆开——这是它作为「无麸质式替代粮」的加工基础；嫩叶则如菠菜般烹调。植株喜光、在热带常被栽培，北方因晚熟（成熟期长）较少见，这一条直接限制了它的推广范围。",
+        "conditions": "需充足日照与排水良好、肥沃的土壤，质地从黏土、壤土到砂土皆可，酸碱范围较宽；生长势中等、丛生成型。作为取籽作物，最大的约束是生育期：晚熟意味着在无霜期短的地区种子来不及成熟，只能收叶；因此它的栽培重心在热带与亚热带，或在北方只作叶菜。嫩叶与种子均可食，但来源提示苋属在施化肥地块上会累积硝酸盐——这是选址与施肥方式直接影响食用安全的一个具体例证。",
+        "exceptions": "不要把籽粒苋与「杂草苋」等同：同属有多种是农田与荒地杂草，形态相近但用途不同，不能以野生植株代替栽培的取籽类型。不要把「可代谷物」理解为「与谷物同等加工」：其种子极小、无麸质网状结构，磨粉后不能直接按小麦面粉的方式发面。此外，硝酸盐累积的提示意味着「同一物种在不同土壤上食用适宜性不同」，不能用单一产地经验外推。",
+        "story_uses": "适合写「被忽略的美洲本地作物」：在两季短、土地贫瘠或主谷失败的地方，一种既能收叶又能收籽、还能爆食的作物等于双保险。它的极小的种子也适合作为量具与生计细节——收获、脱粒、扬净都远比大粒谷物费工，这一点足以支撑「为什么它没能取代玉米」的解释。",
+        "historical_scope": "来源记其原生范围在美国中部与墨西哥，并在热带常被栽培取食叶与种子；北方因晚熟而不常见。它在美洲前哥伦布时期的利用地位、以及近代被重新推介的过程，本组已读来源未覆盖，故不作年代与「曾是主粮」一类断言。",
+        "evidence_and_uncertainty": "科属种名与俗名、雌雄同株与风媒、花序与种子形态与颜色、种子可生食熟食或代谷物或爆食、嫩叶如菠菜烹调、原生范围美国中部与墨西哥、热带栽培与北方晚熟少见、土壤与光照条件、化肥地块硝酸盐累积提示，均由 NC State Extension 的 Amaranthus hypochondriacus 页面支撑（美国东南部推广语境）。缺口：驯化年代与地点、前哥伦布时期的利用证据、脱粒与加工工艺、产量数据。review_status 保持 needs_review。"
+      },
+      "source_ids": [
+        "food_supp_src_25"
+      ],
+      "related_ids": [
+        "staples_quinoa",
+        "staples_maize",
+        "produce_spinach",
+        "staples_common_bean",
+        "staples_buckwheat"
+      ],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "food_supp_water_chestnut",
+      "name": "菱角与荸荠（水生可食部位）",
+      "aliases": [
+        "菱角",
+        "菱",
+        "乌菱",
+        "荸荠",
+        "马蹄（荸荠俗称）",
+        "water chestnut",
+        "water caltrop",
+        "Trapa natans",
+        "Trapa bicornis",
+        "Eleocharis dulcis"
+      ],
+      "tags": [
+        "living_organism",
+        "crop",
+        "food",
+        "agriculture",
+        "water_management",
+        "aquatic_food"
+      ],
+      "summary": "同一个英文名 water chestnut 罩住的两类不同植物：菱属的坚果状果与莎草科荸荠的球茎。不同科、不同食用部位，只在水生环境、人工采收与「含淀粉」这三点上相似。",
+      "details": {
+        "definition": "本条处理两个常被同一英文名 water chestnut 混指的对象：一是菱属 Trapa（菱角、water caltrop），取其**坚果状的果**（不是地下茎，也不是块根）；二是莎草科的荸荠 Eleocharis dulcis（俗称马蹄），取其**地下匍匐茎末端膨大的球茎**。二者不同科、不同食用器官、不同产地史，只因英文俗名相同而在译名与贸易中长期混淆——本条把它们并列陈述，不是把两者当成一种作物。也正因为可食部位分属不同器官（果 vs 茎），本条在 tags 上不使用 root_tuber 或 fruit 这类仅适用于其中一个子类的器官级标签，只征用 aquatic_food / food / crop 等跨部位的上位标签，具体部位以上述定义与 mechanism 为准。",
+        "mechanism": "菱为水生草本：沉水叶细裂如羽、浮水叶在茎端排成松散莲座状、叶柄有 5—10 cm 长；果实 2.5—5 cm、通常具四个带刺的角，靠果实沉入水底萌发新株——果实既要保护种子又要能沉底，因此坚硬带刺。荸荠为多年生（栽培中常作一年生处理）莎草类水生植物，食用部位是地下匍匐茎末端膨大的球茎，其细胞壁结构使它在加热后仍保持脆感，这正是它区别于芋、薯类淀粉质块茎的地方。",
+        "conditions": "两者都要在水体或长期饱和的湿地中生长，因而栽培的先决条件是能控水的浅水田、池塘或沼泽边缘——水利与水位管理比土壤肥力更关键。采收需人工下水或排水后挖取，费工且难以完全机械化；菱角带刺的果与荸荠埋在泥中的球茎都使采收强度高。荸荠球茎耐运性较好、可短期存放，菱角果采后失水快、宜就近销售。菱属在北美东北部被视为入侵种，说明同一植物在不同生态里可以是作物也可以是威胁。",
+        "exceptions": "先分清分类层级与器官层级，这是本条最容易出事的地方。**本条不使用 root_tuber、也不使用 fruit 作为 tag**：菱角的可食部位是果实（nuts 状果），荸荠是地下匍匐茎末端膨大的球茎，两者分属不同器官；任何单一器官级标签套在聚合条目上，都会让检索或自动处理把一方误当成另一方的类别（例如把菱角当作块根类）。因此本条只保留 aquatic_food、food、crop、living_organism、agriculture、water_management 这类跨部位上位标签，具体部位只能从 definition / mechanism 读出来。分类上：菱属菱科（Trapa，果实为坚果状，不是地下茎），荸荠属莎草科（Eleocharis，食用部位为地下球茎）；二者同种、同属、同科、可互换四种说法全部为假。不要把菱角与荸荠当成同一种作物，也不要把二者与栗（Castanea）、菱粉之类加工品混同：「water chestnut」这一英文名的多义性正是混淆的源头，中文译名必须分别落到菱与荸荠。「长在水里」不等于「可生食无虞」：水生植物与水体卫生状况直接相关，本条不作任何食用安全判断，也不提供处理参数。此外菱角在部分地区是入侵种，引种与扩散的后果与作为作物的价值是两回事。",
+        "story_uses": "适合写「水田与水权」：能控水的浅水地与劳力，是这两类食物的前提，于是它们天然与圩田、塘堰、灌溉组织绑定——一场水权纠纷会直接反映到餐桌上。带刺的菱角与泥中的荸荠也适合写采收的体力与技巧，以及「水生食物换来的额外一季」：在稻田空档中再收一茬，等于同一块水田产出两份热量。",
+        "historical_scope": "Britannica 记菱属原产欧洲、亚洲与非洲，乌菱 T. bicornis 在东亚大部分地区栽培，欧菱 T. natans 在北美东北部为入侵种；荸荠在亚洲广泛栽培。这些是分布与栽培格局的定性表述，未给驯化年代。菱与荸荠在东亚的栽培史、传入其他地区的时间线，本组已读来源未覆盖，故不作年代断言。",
+        "evidence_and_uncertainty": "两类植物的科属与种名、菱的沉水叶与浮水叶结构、叶柄长度、果径 2.5—5 cm 与四刺角、原产范围与在北美为入侵种、乌菱在东亚栽培、荸荠属莎草科与食球茎且煮后仍脆、为中菜常用配料，均由 Britannica 的 water chestnut 条目支撑。缺口：驯化年代与传播线、栽培水位与密度参数、采收与贮藏工艺、产量数据。review_status 保持 needs_review。"
+      },
+      "source_ids": [
+        "food_supp_src_28"
+      ],
+      "related_ids": [
+        "staples_taro",
+        "staples_yam",
+        "tools_irrigation_canal",
+        "produce_chestnut",
+        "staples_rice"
+      ],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "food_supp_lotus",
+      "name": "莲（藕与莲子）",
+      "aliases": [
+        "莲",
+        "荷花",
+        "莲藕",
+        "藕",
+        "莲子",
+        "sacred lotus",
+        "lotus",
+        "Nelumbo nucifera"
+      ],
+      "tags": [
+        "living_organism",
+        "crop",
+        "vegetable",
+        "root_tuber",
+        "food",
+        "agriculture",
+        "water_management"
+      ],
+      "summary": "一株全身可食的水生作物：藕当蔬菜与淀粉源、莲子制馅做月饼、嫩叶包饭蒸食；种皮极硬，种子在河泥中可存活数百年。",
+      "details": {
+        "definition": "莲指莲科莲属的 Nelumbo nucifera，中文又称荷花、莲，取其根状茎（藕）、种子（莲子）、幼叶、花瓣与雄蕊利用。它与睡莲（Nymphaeaceae 睡莲科）外观相似但亲缘很远、不同科；这一点在译名与绘画传统里常被混淆。它也不是「莲花」这一泛称的唯一所指，中文语境中「莲花」可指多种水生花卉，因此本条以藕与莲子这两个食用部位界定范围。",
+        "mechanism": "水生草本，叶与花由水下根状茎抽出、挺出水面而非浮于水面：叶柄可把叶片托到约 2 m 高、叶径可达约 60 cm，叶面略有毛；花大、可达 25 cm、粉或玫红色、夜间闭合。果为多数坚果状小果，嵌在一个上宽下窄的膨大肉质结构（花托）平顶上；该结构成熟后整体干燥、断裂、漂浮，通过顶面的许多孔释放果实，果实沉底后萌发新株。种子有极硬的种皮，可在河泥中长期存活——满洲泥炭沼出土的种子经放射性碳测年约一千年仍能发芽，这一特性使它在环境剧变后可重新出现。",
+        "conditions": "生于浅水、静水或缓流的淤泥底质，需充足日照与足够水温；根状茎在水下泥中横向扩展，因此栽培的关键是水位与底泥深度可控。采收即挖藕，属重体力工序，藕节脆弱易断、断口易腐，采后需保水避风短途流通（可鲜售、冷冻或罐藏）。莲子可鲜、干或冻干保存，耐贮期远长于藕，因而「鲜藕近销、莲子远运」是它的基本流通结构。藕还可提取淀粉（莲藕粉），是另一种长贮形态。",
+        "exceptions": "不要把莲与睡莲混为一物（不同科），也不要以为「全株可食」等于「各部位同时可用」：藕在秋季挖取、莲子在夏末秋初采、嫩叶在生长期采，三者采收期不同，加工与保存方式也不同，不能按一种节奏安排。藕的淀粉含量与口感随品种和生育期变化，不能以单一品种经验外推。来源中关于莲子「延年」「治诸症」的说法属传统医学记载，本条不作功效表述。此外，藕的断面与孔道结构使其极易夹泥，清洗是一道不可省的工序。",
+        "story_uses": "适合写「水田的多层产出」：同一片水面既产藕又产莲子，还能采叶包饭——一份水利投入换来三种食物与一种包装材料。莲子因耐贮而可远运、可作节庆食品（月饼馅）的原料，适合牵连市集、作坊与节日经济；「千年种子仍能发芽」则是极好的意象，可用于荒废与重建、记忆与复苏一类主题。它在印度教与佛教中的象征地位，使它天然承担仪式与图像层面的叙事功能。",
+        "historical_scope": "Britannica 记莲原产热带与亚热带亚洲，藕在中国、日本、印度等国被广泛食用，莲子是中国月饼的传统配料（中秋），而它在印度教与佛教中象征觉悟、在古代埃及被用以象征重生——后者属象征借用，不等于食用史。栽培起点、传入其他地区的年代，本组已读来源未覆盖，故不作年代断言。",
+        "evidence_and_uncertainty": "科属种名与与睡莲不同科、叶花挺水高度与尺寸、花色与夜间闭合、果序结构与漂浮释放机制、种子硬种皮与满洲泥炭沼千年种子、藕的食用与鲜/冷冻/罐藏形态及莲藕粉、莲子鲜干冻干与月饼馅、嫩叶包饭蒸食、雄蕊与花瓣制茶、在印度教佛教中的象征，均由 Britannica 的 sacred lotus 条目支撑。缺口：驯化年代与传播线、各品种藕的淀粉与口感差异、藕的贮藏参数与加工工艺、产量数据。review_status 保持 needs_review。"
+      },
+      "source_ids": [
+        "food_supp_src_29"
+      ],
+      "related_ids": [
+        "food_supp_water_chestnut",
+        "staples_taro",
+        "staples_rice",
+        "flavors_tea",
+        "flavors_cane_sugar",
+        "tools_irrigation_canal"
+      ],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "food_supp_table_beet",
+      "name": "食用甜菜（根用甜菜/红菜头）",
+      "aliases": [
+        "食用甜菜",
+        "根用甜菜",
+        "红菜头",
+        "beetroot",
+        "garden beet",
+        "table beet",
+        "Beta vulgaris"
+      ],
+      "tags": [
+        "living_organism",
+        "crop",
+        "vegetable",
+        "root_vegetable",
+        "food",
+        "agriculture"
+      ],
+      "summary": "与糖用甜菜同种不同用途的一条线：吃肥厚直根与叶，可烤可煮可罐藏可腌渍；糖用的进工厂提糖，两者不能互相替代。",
+      "details": {
+        "definition": "本条的食用甜菜指 Beta vulgaris 这一物种下以鲜食为目的的栽培形态（英文 beetroot / garden beet / table beet），食用部位为肥厚直根与叶。它与原六组 flavors 中的「甜菜糖（sugar beet）」是同种不同用途形态：后者栽培目标是根中蔗糖含量与工厂提糖，前者是口感、色泽与家庭烹调。需澄清：它们不是四个物种，而是同一个物种 Beta vulgaris 的四个栽培形态——这是**用途层（variety/cultivar group）的关系，不是分类层级的新物种**，任何来源都不能据此声称「食用甜菜是一个新物种」。同种下另有饲用甜菜与叶用的莙荙菜（chard），四条线的选择目标各不相同，本条只收食用线，糖工业部分仍归 flavors 组，不在此重复。与糖用甜菜的关系以 related_ids（flavors_beet_sugar）表达，而非另立一条「新物种」。",
+        "mechanism": "二年生植物：第一年主要形成肥厚直根，其上着生莲座状叶，叶柄与中脉多带红色；第二年自贮藏根抽出高大分枝花茎，开小绿花、结褐色软木质「种球」（seedball）。作为根菜，它把光合产物贮存于直根，因而生长季末的根最重、色素与糖分最集中；肉色多为深紫红（也有近白或橙色类型），紫色来自水溶性色素，加热与遇水会渗出，这就是煮制时「掉色」的原因，也解释了它能把汤、米饭与其他食材染色。",
+        "conditions": "喜温凉气候、生育期约 8—10 周，宜深厚疏松且有机质高的土壤；耐土壤盐分较高，但对高酸度与缺硼敏感——缺硼会阻碍生长并在根肉中形成黑色病变，这是它比多数蔬菜更依赖土壤条件之处。叶可在整个生长季连续采收，但过度采叶会减少根部膨大；温和气候下可越冬，然而第二年抽薹开花后叶会变苦、不宜再食。加工形态包括烤、煮、整或切块罐藏、腌渍与酸甜汁，腌制与罐藏是它进入冬春的主要方式。",
+        "exceptions": "最易混淆的是「甜菜」一词同时罩住食用、糖用、饲用与叶用四条线：用糖用甜菜当蔬菜煮食、或用食用甜菜去提糖，都是目标错置；但需强调的是，这四条线属于**同一物种内的不同栽培用途**，不是四个物种，也不是「新驯化」的关系。不要把「耐盐」理解为「可在任意盐碱地高产」——耐盐只说明对盐分不极端敏感，缺硼与高酸仍是硬限制。叶与根也不同期：叶可连续采，根要等生长季末，按同一时点处理只会得到小而粗的根。来源中的维生素与抗氧化物成分表述仅作成分记录，本条不作功效断言。",
+        "story_uses": "适合写「同种不同用」的制度后果：当一种作物同时被工业化（提糖）与家庭化（煮食、腌渍）两条线拉扯，育种目标、收购体系与农人的选择就会分道扬镳；白糖工厂与腌菜缸用同一物种的不同品种，这个细节足以呈现原料—加工—市场的分叉。它的掉色特性也适合写染料、染手与染布一类日常经验，以及用它给其他食物上色的小手艺。",
+        "historical_scope": "Britannica 只作分类与栽培条件的定性描述（四种栽培形态、生育期、土壤与盐碱要求），未给食用甜菜或糖用甜菜的驯化年代与普及时间线。食用甜菜在东欧、北欧饮食中的地位与糖用甜菜的产业化是两条不同的历史线索，本组已读来源均未覆盖，故本条不给年代断言，并把糖工业明确划归 flavors 组。",
+        "evidence_and_uncertainty": "Beta vulgaris 的四种栽培形态与食用形态命名（同为 Beta vulgaris 的用途分化，非新物种）、二年生与首年形成直根的习性、花与种球形态、肉色多样且紫红常见、8—10 周生育期与温凉气候、深厚疏松高有机质土壤、耐盐但忌高酸与缺硼（缺硼致根肉黑斑）、叶可连续采收且过度采叶影响根部、越冬后第二季抽薹叶变苦、烤煮罐藏腌渍与酸甜汁等加工方式，均由 Britannica 的 beet 条目支撑。缺口：食用与糖用两条线的分化年代、传入各地时间线、腌渍与罐藏的工艺参数、色素利用的史料。review_status 保持 needs_review。"
+      },
+      "source_ids": [
+        "food_supp_src_11"
+      ],
+      "related_ids": [
+        "flavors_beet_sugar",
+        "food_supp_turnip",
+        "food_supp_radish",
+        "produce_carrot",
+        "produce_cabbage",
+        "materials_salt"
+      ],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "food_supp_cashew",
+      "name": "腰果",
+      "aliases": [
+        "腰果",
+        "槚如树果",
+        "cashew",
+        "cashew nut",
+        "Anacardium occidentale"
+      ],
+      "tags": [
+        "living_organism",
+        "living_organism_tree",
+        "crop",
+        "nut",
+        "food",
+        "agriculture",
+        "processing"
+      ],
+      "summary": "美洲原产的「假果 + 真果」结构：膨大的花托当果卖（但多用于饮料），真正的商品是里面那颗种子；两层壳之间夹着能灼伤皮肤的树脂，所以腰果从不出售带壳货。",
+      "details": {
+        "definition": "腰果指漆树科 Anacardium occidentale 的常绿灌木或小乔木及其可食种子。中文常称腰果、槚如树果；英文 cashew，其种子虽通称 cashew nut，但并不是真正的坚果（true nut）。它与原六组中的核桃、栗、扁桃、榛、开心果都是不同的物种：那些多为温带坚果，腰果则是热带美洲起源、且以「必须去壳」为主要加工特征的坚果类商品。树可高至 12 m（在土肥湿高处）。",
+        "mechanism": "果的结构很特殊：屈曲的真果（约 2.5 cm 以上、形似粗大豆）一端嵌入一个膨大的梨形花托（hypocarp，俗称 cashew apple），花托比真果大约三倍、红或黄色，属假果。真果具两层壳：外壳平滑、较薄而有弹性，成熟时由橄榄绿转淡褐；内壳硬，必须破开才能取出可食的种子。两层壳之间夹有一种褐色油性树脂，能灼伤人的皮肤——这是它不能像核桃、榛子那样带壳出售的直接原因，也是整个加工链的起点。",
+        "conditions": "原产巴西东北部，今主要在巴西与印度商业化栽培；16 世纪后期葡萄牙传教士将其带入东非与印度，在低海拔近海地带茂盛。采收先手工摘下花托，切下真果、晒干；随后烘焙使外壳破裂并释放苛性树脂（传统做法是堆在燃烧的木柴中烧，树脂会迅速着火、烟火刺激眼与皮肤；改进方法是在转筒中烘烤），再手工敲开内壳取仁、加热去种皮。这一套工序意味着：种植端容易、加工端危险且需技巧，因此产业长期由具备去壳与烘烤能力的加工地控制，而不是产地。树脂（cashew nutshell liquid）可制清漆用树脂、杀蚊幼、护木防虫；花托可制饮料、果酱与果冻；木材可做板条箱、船只与木炭，并可产类似阿拉伯胶的树胶。",
+        "exceptions": "不能把核桃、榛子那种「带壳零售、徒手剥开」的经验套到腰果上：去壳须经加热使树脂失活或释出，本条不提供任何加热温度、时间与防护参数（属危险工序，仅在专业加工条件下进行）。不要忽视致敏：它属漆树科，与毒藤、毒漆近缘，敏感者接触或食用可能出现过敏反应；壳液能令皮肤起疱。另需区分「腰果树」与「野生腰果/espavé」（A. excelsum，中美洲与南美洲的另一种），二者不同种。花托虽可食，但它不是主要商品，把腰果当「水果」理解会错估其经济重心。",
+        "story_uses": "适合写「加工能力决定谁赚钱」：原料产地与加工地常常分离，去壳与烘烤的技艺与风险掌握在另一批人手里，于是「能种」不等于「能卖」。也适合写危险工序的劳动者处境——烟火、灼伤与手工敲壳都可直接入场景。其「假果大、真果小」的结构适合作为自然志式的细节，提醒人物所见并非所食。",
+        "historical_scope": "Britannica 记其原产巴西东北部，16 世纪后期由葡萄牙传教士传入东非与印度，今主要在巴西与印度商业化栽培。这是近代殖民贸易的传递线，不能反推到更早的大洋传播；传入东南亚与非洲其他区域的时间、以及各地加工工艺的形成，本组已读来源未覆盖，故不作年代断言。另需注意：它与腰果苹果饮料、壳液工业品的关联都是后来的用途分化，不宜上推到起源阶段。",
+        "evidence_and_uncertainty": "科属种名与「不是真坚果」的说明、原产巴西东北部与 16 世纪后期传入东非与印度、主要商业化栽培国、树高、真果与假果（hypocarp/cashew apple）的结构与尺寸、双层壳与夹层苛性树脂、去壳前须先去花托与晒干以及烘焙使壳破裂释出树脂（含传统烧柴与转筒两种）、内壳敲开取仁并加热去种皮、壳液与花托与木材的副产物用途、与毒藤毒漆近缘及可能过敏、野生腰果 A. excelsum，均由 Britannica 的 cashew 条目支撑。缺口：驯化年代、传入东南亚的时间、壳液工业化的年代、各地的烘焙与去壳具体工艺参数（且本条有意不提供）。review_status 保持 needs_review。"
+      },
+      "source_ids": [
+        "food_supp_src_30"
+      ],
+      "related_ids": [
+        "produce_almond",
+        "produce_walnut",
+        "produce_hazelnut",
+        "produce_pistachio",
+        "produce_coconut",
+        "produce_mango"
+      ],
+      "review_status": "needs_review"
+    }
+  ]
+}

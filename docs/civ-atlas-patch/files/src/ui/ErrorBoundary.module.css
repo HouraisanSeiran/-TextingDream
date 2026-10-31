@@ -1,0 +1,16 @@
+.panel {
+  position: relative;
+  z-index: 3;
+  box-sizing: border-box;
+  margin: 16px;
+  padding: 16px;
+  max-width: 480px;
+  color: var(--ink, #244538);
+  background: var(--panel-solid, #f4f1e6);
+  border: 1px solid var(--line-strong, #a6b5a0);
+  border-radius: 8px;
+  overflow-wrap: anywhere;
+}
+.panel p { margin: 8px 0 12px; }
+.panel button { font: inherit; cursor: pointer; }
+.panel button:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }

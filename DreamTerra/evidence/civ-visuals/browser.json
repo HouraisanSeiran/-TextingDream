@@ -1,0 +1,123 @@
+{
+  "base": "http://127.0.0.1:8769",
+  "views": {
+    "overview": {
+      "source": "989970517e07cd9f27ab0947cd7ad767e39152261388fae51af44092204e319c",
+      "drawMs": "35.90",
+      "marks": "12",
+      "eligible": "12",
+      "k": "1",
+      "width": 1210,
+      "height": 700,
+      "cssWidth": 1210
+    },
+    "territory": {
+      "source": "989970517e07cd9f27ab0947cd7ad767e39152261388fae51af44092204e319c",
+      "drawMs": "15.70",
+      "marks": "12",
+      "eligible": "12",
+      "k": "1",
+      "width": 1210,
+      "height": 700,
+      "cssWidth": 1210
+    },
+    "regional": {
+      "source": "989970517e07cd9f27ab0947cd7ad767e39152261388fae51af44092204e319c",
+      "drawMs": "28.80",
+      "marks": "43",
+      "eligible": "357",
+      "k": "3.841599999999999",
+      "width": 1210,
+      "height": 700,
+      "cssWidth": 1210
+    },
+    "local": {
+      "source": "989970517e07cd9f27ab0947cd7ad767e39152261388fae51af44092204e319c",
+      "drawMs": "17.20",
+      "marks": "24",
+      "eligible": "558",
+      "k": "7.529535999999997",
+      "width": 1210,
+      "height": 700,
+      "cssWidth": 1210
+    },
+    "town": {
+      "source": "989970517e07cd9f27ab0947cd7ad767e39152261388fae51af44092204e319c",
+      "drawMs": "10.80",
+      "marks": "44",
+      "eligible": "357",
+      "k": "4",
+      "width": 1210,
+      "height": 700,
+      "cssWidth": 1210
+    },
+    "narrow": {
+      "source": "989970517e07cd9f27ab0947cd7ad767e39152261388fae51af44092204e319c",
+      "drawMs": "6.30",
+      "marks": "12",
+      "eligible": "12",
+      "k": "1",
+      "width": 334,
+      "height": 536,
+      "cssWidth": 334
+    }
+  },
+  "requests": [
+    {
+      "phase": "load",
+      "method": "GET",
+      "path": "/api/bootstrap"
+    },
+    {
+      "phase": "load",
+      "method": "GET",
+      "path": "/api/start-profiles"
+    },
+    {
+      "phase": "load",
+      "method": "GET",
+      "path": "/api/bootstrap"
+    },
+    {
+      "phase": "load",
+      "method": "GET",
+      "path": "/api/inner/native-worlds"
+    },
+    {
+      "phase": "load",
+      "method": "GET",
+      "path": "/api/inner/native-worlds/sn_989970517e07"
+    },
+    {
+      "phase": "load",
+      "method": "GET",
+      "path": "/api/inner/native-worlds/sn_989970517e07/snapshot"
+    }
+  ],
+  "errors": [],
+  "blockedWrites": [],
+  "source": "989970517e07cd9f27ab0947cd7ad767e39152261388fae51af44092204e319c",
+  "authorRequests": [
+    {
+      "phase": "load",
+      "method": "GET",
+      "path": "/api/inner/native-worlds"
+    },
+    {
+      "phase": "load",
+      "method": "GET",
+      "path": "/api/inner/native-worlds/sn_989970517e07"
+    },
+    {
+      "phase": "load",
+      "method": "GET",
+      "path": "/api/inner/native-worlds/sn_989970517e07/snapshot"
+    }
+  ],
+  "player": {
+    "mode": "player",
+    "hostHidden": true,
+    "playerText": "旅程地图\n−\n＋\n复位"
+  },
+  "result": "passed"
+}

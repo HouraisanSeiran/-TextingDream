@@ -4,6 +4,7 @@ import hashlib
 from .contracts import DevelopmentProposal
 from .prompts import stable_json, template
 from .runtime import uid, now
+from . import npc_cards
 
 
 def fingerprint(session):
@@ -49,7 +50,8 @@ class Development:
         emotion=d.get('emotion',{}) if d.get('emotion_expires_after_turn',-1)>session['turn_index'] else {}
         return {'character':{'id':character_id,'name':c['name'],'traits':c.get('traits',[]),
                              'personality':personality,'emotion':emotion,
-                             'relationships':d.get('relationships',{})},
+                             'relationships':d.get('relationships',{}),
+                             'npc_card':npc_cards.project(c, session, character_id)},
                 'allowed_keys':{'emotion':['警惕','愉快','悲伤','愤怒','恐惧'], 'personality':list(personality)},
                 'other_characters':[{'id':x['id'],'name':x.get('public_name',x['name'])} for x in p['characters']['characters']
                                     if x['id']!=character_id and (x['id']==session['hero'] or any(b.get('speaker')==x['id'] for b in evidence))],

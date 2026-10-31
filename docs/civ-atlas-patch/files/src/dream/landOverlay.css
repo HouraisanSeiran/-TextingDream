@@ -1,0 +1,133 @@
+/* 城镇建筑范围 / 用地叠加层（src/dream/landOverlay.tsx）
+ *
+ * 只定义本组件的类名，不碰宿主已有样式。三个硬约束：
+ *   1. `.dream-land-surface` 必须 absolute inset:0 铺满宿主给的容器，否则 SVG 会缩成
+ *      默认 150px，框选位置全错；
+ *   2. 面板绝对定位在地图之上、不遮底图中心区域，且自身挡住 pointerdown 不外溢；
+ *   3. 绘制态的十字光标只出现在 surface 上，选择态不接收指针（交给原生 pan/zoom）。
+ */
+
+.dream-land-overlay {
+  position: absolute;
+  inset: 0;
+  /* 叠在原生 canvas 之上：数字要高于地形/文明层，但低于宿主的弹层 */
+  z-index: 5;
+  pointer-events: none;          /* 默认全部穿透，只有绘制态的子层接收 */
+  font-size: 13px;
+  line-height: 1.6;
+  color: #e5e7e6;
+}
+
+.dream-land-surface {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  /* 由组件按绘制/选择态切换：绘制 auto、选择 none */
+  pointer-events: none;
+}
+
+.dream-land-surface[data-drawing='true'] {
+  pointer-events: auto;
+  cursor: crosshair;
+}
+
+.dream-land-shapes {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;             /* 顶点可能临时跑到舞台外（跨日界拖动） */
+  pointer-events: none;          /* 图形本身永不接收事件 */
+}
+
+/* 作者侧小面板：读数是几行，不复制整页卡片 */
+.dream-land-panel {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  max-width: 300px;
+  padding: 8px 10px;
+  border: 1px solid #31363a;
+  border-radius: 8px;
+  background: #202325e6;
+  pointer-events: auto;          /* 面板要能点，但事件不往下渗 */
+  backdrop-filter: blur(2px);
+}
+
+.dream-land-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin: 0 0 6px;
+}
+
+.dream-land-row:last-child { margin-bottom: 0; }
+
+.dream-land-row button {
+  min-height: 28px;
+  height: 28px;
+  padding: 0 9px;
+  border: 1px solid #31363a;
+  border-radius: 6px;
+  background: #282c2f;
+  color: #e5e7e6;
+  font-size: 12px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.dream-land-row button:hover:not(:disabled) { background: #31363a; }
+
+.dream-land-row button:disabled {
+  opacity: .45;
+  cursor: not-allowed;
+}
+
+.dream-land-row button.on {
+  border-color: #72b69b;
+  color: #72b69b;
+  background: #72b69b1f;
+}
+
+.dream-land-note {
+  margin: 4px 0 0;
+  font-size: 11.5px;
+  color: #adb5b2;
+  overflow-wrap: anywhere;
+}
+
+.dream-land-warn {
+  margin: 4px 0 0;
+  font-size: 11.5px;
+  color: #e6c57a;
+  border-left: 2px solid #e6c57a;
+  padding-left: 8px;
+}
+
+/* 选中态的形状：比未选中粗一档，便于确认要删的是哪块 */
+.dream-land-shapes polygon.is-selected {
+  stroke-width: 3;
+  fill-opacity: .35;
+}
+
+/* 地点名输入：已存的名字要能看能改，不能靠 cityRef.name 兜底盖掉 */
+.dream-land-field {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11.5px;
+  color: #adb5b2;
+}
+
+.dream-land-field input {
+  flex: 1 1 auto;
+  min-width: 0;
+  height: 28px;
+  padding: 0 8px;
+  border: 1px solid #31363a;
+  border-radius: 6px;
+  background: #282c2f;
+  color: #e5e7e6;
+  font-size: 12px;
+}

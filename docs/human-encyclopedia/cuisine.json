@@ -1,0 +1,842 @@
+{
+  "schema_version": 1,
+  "group": "cuisine",
+  "status": "candidate",
+  "note": "人类美食增补（成品菜肴与烹饪文化）。独立文件，待主审后另行导入；不改动 staples/produce/flavors/animal-foods/materials/tools/food-supplement/craft-supplement 各组数据，不改正式 data、StoryPackage、build 名单。分工原则：原料已在原料组的物种不重复立条（小麦、水稻、玉米、薯蓣、鹰嘴豆、洋葱、大蒜、辣椒、番茄、发酵乳、奶酪、酱油、鱼露、味噌、茶、啤酒、葡萄酒等均已在原组），本组只收成品菜/烹饪成品与其吃法文化。食品存在≠当前世界存在，也不自动生成配方或库存。全部条目 review_status=needs_review，不代表事实审定完成。",
+  "sources": [
+    {
+      "id": "cuisine_src_01",
+      "title": "sushi — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/sushi",
+      "access": "read",
+      "supports": "寿司是醋调熟米饭配蔬菜、蛋或生海鲜的冷食米饭菜；nigiri 为手捏饭团上放生鱼片与山葵；oshi 用模具压形；maki 用紫菜铺饭卷起切片；chirashi 为不造型、把配料撒在醋饭上；醋渍姜（sūshoga）是清口配菜。寿司不等于刺身（sashimi）",
+      "rights_note": "Britannica 条目，CC BY-SA 之外的商业百科；仅事实核对与自行转述，不复制原文段落"
+    },
+    {
+      "id": "cuisine_src_02",
+      "title": "dumpling — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/dumpling",
+      "access": "read",
+      "supports": "饺子类（dumpling）为小团面团经水煮或蒸制、常入汤或炖菜或配水果成菜；面团多以面粉或谷物粉拌蛋成团（有馅与无馅是两路）；该条目未称面团一律发酵，本条不据此推定发酵；有馅者如犹太 kreplach 与中国馄饨属「填馅面皮」而非无馅面团；东亚饺子多以虾、猪肉、牛肉与蔬菜混合、以酱油调味；水果饺为甜点",
+      "rights_note": "Britannica 条目，仅事实核对与自行转述，不复制原文段落"
+    },
+    {
+      "id": "cuisine_src_03",
+      "title": "ramen — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/ramen",
+      "access": "read",
+      "supports": "拉面为中国起源、成为日本快餐主食的汤面；明治期（1868—1912）横滨中国商人带入「la mian」；面条以碱水 kansui 加小麦粉、盐、水制成而弹性；以鸡骨/蔬菜/味噌汤底，以酱油调味；配料有猪肉片、鲣鱼与鲔鱼片、葱、海带与鸡蛋；战后安藤百福 1958 年推出干面（即食面）；该条目把杯面写作 1966 年，与 Wikipedia Cup Noodles 的 1971 年不符，本条以 1971 年为准并记两说",
+      "rights_note": "Britannica 条目，仅事实核对与自行转述，不复制原文段落"
+    },
+    {
+      "id": "cuisine_src_04",
+      "title": "kimchi — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/kimchi",
+      "access": "read",
+      "supports": "泡菜（kimchi）是发酵蔬菜菜、常伴韩国餐；常用蔬菜为黄瓜、daikon（萝卜）与白菜（kimchi cabbage）；该条目描述的辣味做法是把切片蔬菜用红辣椒粉、洋葱、大蒜调料后在盐水中以陶罐 ongi 发酵，现代用塑料/钢/玻璃容器；现已读到的不加辣椒变体（如白泡菜）说明辣椒是常见而非必要；可几小时内鲜食或发酵数日至数周；乳酸发酵；常与米饭同食",
+      "rights_note": "Britannica 条目，仅事实核对与自行转述，不复制原文段落"
+    },
+    {
+      "id": "cuisine_src_05",
+      "title": "tofu — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/tofu",
+      "access": "read",
+      "supports": "豆腐为大豆制软豆腐，是中国、日本、朝鲜与东南亚饮食的重要蛋白质来源；believed 起于汉代（前206—220）；工艺：黄豆浸泡磨浆煮浆、分离豆渣与豆奶、加钙镁盐或酸凝固剂使凝乳与乳清分开、入模滤水成块；有嫩（绢）至老多种；来源中 dry tofu 的常温存放说法不能泛指中式含水豆干，仅在相应脱水制品及其产品条件下讨论；豆渣 okara 与豆清亦食；豆腐可烤、煎、焖、炒、蒸或鲜食",
+      "rights_note": "Britannica 条目，仅事实核对与自行转述，不复制原文段落"
+    },
+    {
+      "id": "cuisine_src_06",
+      "title": "biryani — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/biryani",
+      "access": "read",
+      "supports": "比尔亚尼为混合米饭菜，莫卧儿时期已见于印度，起源有争议（一说源自波斯 pilau 或 birinj biryan，一说在南亚由 pilau 演化）；名称来自波斯语 birinj biriyan「炒饭」；工艺：米饭单炒至半熟、与腌好的肉或菜及香料分层入 deg 锅，米饭在上以蒸气蒸熟，有时用面团封口（该条目描述的是一种常见分层做法，非所有比尔亚尼必经）；多用长粒 basmati；另有说谓莫卧儿之前已由波斯经旅人或商人传入德干（南印度），与「莫卧儿宫廷厨房成形」说并列竞争；有海得拉巴（羊肉、椰子、藏红花）、勒克瑙/穆拉达巴德（鸡、酸奶、香料）等派生；该条目称「通常比咖喱温和」，属其表述，不作全族辣度排序结论",
+      "rights_note": "Britannica 条目，仅事实核对与自行转述，不复制原文段落"
+    },
+    {
+      "id": "cuisine_src_07",
+      "title": "hummus — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/hummus",
+      "access": "read",
+      "supports": "鹰嘴豆泥为中东酱泥，传统以煮熟的鹰嘴豆捣泥/捣碎后混 tahini（烤芝麻酱）、蒜末、柠檬汁与盐；同阿拉伯世界与西亚常配皮塔面包或 falafel；可加孜然、红椒粉、松子、绞肉、硬煮蛋或 zhug；塞浦路斯、希腊、土耳其当 meze；以色列、巴勒斯坦、黎巴嫩当日常主菜；词源阿拉伯语 ḥummuṣ「鹰嘴豆」；首个书面记载为 13 世纪开罗食谱（无 tahini 与蒜）；现代形式可能出自 18 世纪大马士革；起源存争议（2008“Hummus Wars”）",
+      "rights_note": "Britannica 条目，仅事实核对与自行转述，不复制原文段落"
+    },
+    {
+      "id": "cuisine_src_08",
+      "title": "falafel — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/falafel",
+      "access": "read",
+      "supports": "falafel 为埃及起源、遍及中东（尤其黎凡特）的油炸豆丸子或豆饼与全球街头食品，为炸香料丸子或饼，原料为磨碎的鹰嘴豆或蚕豆（或两者混）；常塞入皮塔或裹 laffa 面包，配辣酱、tahini 酱与番茄/莴苣/黄瓜/洋葱/欧芹/酸奶类沙拉；埃及多用蚕豆，以色列三明治多用鹰嘴豆且配料更多",
+      "rights_note": "Britannica 条目，仅事实核对与自行转述，不复制原文段落"
+    },
+    {
+      "id": "cuisine_src_09",
+      "title": "couscous — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/couscous",
+      "access": "read",
+      "supports": "库斯库斯为北非粗麦粉（durum 小麦胚乳）菜与其配食；传统以手搓粒、用 couscousière（下层煮炖菜或汤、上层穿孔蒸）多次蒸制，蒸时洒液搅拌防结块；蒸时下层同时煮羊肉/鸡/鹰嘴豆/蔬菜的炖菜，佐 harissa 辣椒酱；今也可用玉米粉、大麦粉、farina 或珍珠粟并以机器制粒；可甜食配水果与牛奶，或作早餐粥",
+      "rights_note": "Britannica 条目，仅事实核对与自行转述，不复制原文段落"
+    },
+    {
+      "id": "cuisine_src_10",
+      "title": "injera — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/injera",
+      "access": "read",
+      "supports": "英吉拉为埃塞俄比亚发酵苔麸（Eragrostis tef）面糊薄饼，海绵状、带酸味；苔麸约 6000 年前在埃塞俄比亚与厄立特里亚驯化，为世界最小谷物，整粒磨粉；传统制作需多日发酵（该条目写「约一周」；Wikipedia 给出主发酵 24—72 小时与加 absit 后二次发酵 30—120 分钟，两来源时长不一致，本条不取单一时长）：ersho 酵头（野酵母+面粉+水）→分层→加水再醒三日→取一部分加热成 absit 回拌→醒两小时→在 mitad（陶或金属热板）上螺旋浇烙；存于 mesob 篮；兼作盘子与餐具；有 gursha 喂食礼节；剩饼可做 firfir；也可用大麦、粟、小麦粉替代",
+      "rights_note": "Britannica 条目，仅事实核对与自行转述，不复制原文段落"
+    },
+    {
+      "id": "cuisine_src_11",
+      "title": "jollof rice — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/jollof-rice",
+      "access": "read",
+      "supports": "乔洛夫饭为西非调味米饭，基本以米、番茄与香料制成，各国做法不一；可能起源于 Senegambia（今塞内加尔与冈比亚）的 Wolof 帝国，14 世纪已有；与 thiéboudienne（鱼饭）同源分支，后者仍为塞内加尔国菜；别名 benachin（冈比亚）、riz gras（法语区）、nsamé/zaame（马里）；现做法含番茄、辣椒、洋葱、禽/牛肉高汤、油与香料，番茄辣椒洋葱打泥后炒干再加米；有的以明火煮出烟熏味与锅巴；有“jollof wars”；8 月 22 日为世界乔洛夫饭日",
+      "rights_note": "Britannica 条目，仅事实核对与自行转述，不复制原文段落"
+    },
+    {
+      "id": "cuisine_src_12",
+      "title": "pizza — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/pizza",
+      "access": "read",
+      "supports": "披萨为意大利起源的菜，扁平面包面团上铺橄榄油、牛至、番茄、橄榄、mozzarella 等，高温（常柴火炉）速烤、热食；Margherita 为番茄/番茄酱、mozzarella 与罗勒；那不勒斯式用水牛奶 mozzarella 或 fior di latte 与 San Marzano 番茄；罗马式常不用番茄（16 世纪才传入）而用洋葱与橄榄；利古里亚式近似法国 pissaladière 加鳀鱼；20 世纪初纽约出现首家披萨店，二战后美国披萨业兴盛",
+      "rights_note": "Britannica 条目，仅事实核对与自行转述，不复制原文段落"
+    },
+    {
+      "id": "cuisine_src_13",
+      "title": "risotto — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/risotto",
+      "access": "read",
+      "supports": "炖饭为北意大利传统主食米饭菜，类似 pilaf 与 paella；摩尔人于 8 世纪末至 9 世纪初将水稻引入安达卢西亚，后传至地中海欧洲，以波河谷最成功；中世纪各城发展地方风格，都灵式最流行；19 世纪初才有书面记载（当时作 pudding）；名源自意大利语 riso；用 arborio 或 carnaroli 中长粒米；米先用黄油（常加洋葱丁）炒至微黄，分次加高汤煮约 20 分钟，每杯米约二至三杯汤；静置后加黄油与磨碎的芝士成奶油质感；可加南瓜、豌、豆、菌、罗勒、贝类、pancetta 作主菜",
+      "rights_note": "Britannica 条目，仅事实核对与自行转述，不复制原文段落"
+    },
+    {
+      "id": "cuisine_src_14",
+      "title": "paella — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/paella",
+      "access": "read",
+      "supports": "西班牙海鲜饭为藏红花风味米饭菜，配肉、海鲜与蔬菜；起源于西班牙地中海沿岸水稻产区，尤其瓦伦西亚；名来自 paellera（双耳平底锅），传统直接从锅里吃；做法：鸡肉/猪肉/兔肉与贝类虾蟹鱿鱼先用橄榄油与洋葱大蒜香草炒后取出，米与番茄、藏红花、高汤同煮，肉海鲜拌回，配豌豆、pimiento 等；传统在户外柴火煮",
+      "rights_note": "Britannica 条目，仅事实核对与自行转述，不复制原文段落"
+    },
+    {
+      "id": "cuisine_src_15",
+      "title": "taco — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/taco",
+      "access": "read",
+      "supports": "塔可为墨西哥起源的手持食物，调味肉、蔬菜等馅料裹在折叠或卷起的玉米或小麦 tortilla 中；玉米在墨西哥驯化至少 9000 年，磨碎玉米最早用途可能即 tortilla（玉米粉+石灰+水）；taco 之名可能来自西班牙语「木栓」或纳瓦特尔语 tlacoyo；墨西哥前西班牙时期馅料可能为蛇、鬣蜥、犰狳、火鸡与螽斯；欧亚家畜、奶酪、莴苣与甘蓝随西班牙人传入；也常有素食馅",
+      "rights_note": "Britannica 条目，仅事实核对与自行转述，不复制原文段落"
+    },
+    {
+      "id": "cuisine_src_16",
+      "title": "tortilla — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/tortilla",
+      "access": "read",
+      "supports": "tortilla 为墨西哥圆形薄扁面包，以未发酵玉米粉为主、小麦粉较少；传统玉米以生石灰水煮以软化籽粒并脱壳（石灰也是墨西哥饮食主要钙源），在 metate 石磨上磨，手拍成薄圆片，在 comal 陶或铁煎盘上烙；今多在 tortillería 机器制；易陈化故每日鲜买；可作勺子、或炸脆；塔可为折叠包裹，enchilada 卷起后浇酱烤，tostada 为炸脆堆配料；小麦 tortilla 卷豆肉芝士为 burrito",
+      "rights_note": "Britannica 条目，仅事实核对与自行转述，不复制原文段落"
+    },
+    {
+      "id": "cuisine_src_17",
+      "title": "ceviche — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/ceviche",
+      "access": "read",
+      "supports": "腌鱼（ceviche）为南美起源的菜，生鱼或贝类用柑橘汁腌渍；秘鲁海岸的 Chincha 人以海运著称且部分鱼获不煮即食；西班牙人征服秘鲁后采用此菜并改用其引入的柠檬与来檬汁腌渍，故有此菜；词源一说为阿拉伯语 sakbāj（醋煮肉）→西班牙语 escabeche，一说源自 Chincha（克丘亚语 sawichi）；为秘鲁菜代表；典型做法：鱼切小块用来檬/柠檬汁腌至少两小时（枸橼酸使之「熟」），加冷 salsa（辣椒、黄瓜、香菜、番茄、鳄梨、洋葱）；配 tortilla 或玉米片，常作开胃菜",
+      "rights_note": "Britannica 条目，仅事实核对与自行转述，不复制原文段落"
+    },
+    {
+      "id": "cuisine_src_18",
+      "title": "pho — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/pho",
+      "access": "read",
+      "supports": "越南粉为越南汤面，以肉、面条与汤为主，最常见为薄切牛肉，也可用鸡、鱼、猪或豆腐；汤底以八角、丁香、桂皮、小豆蔻或芫荽增香，可加鱼露；配葱、泰罗勒、青柠、豆芽、薄洋葱片、香菜；多数学者把起源定在 19 世纪末法国殖民时期，推测是越南村民把法国牛肉加入 bánh đa cua（蟹汤扁米面）；1954 年分治后北方人南迁带入；南越开始加冰糖与白萝卜等；越南战争后难民在海外开店推广；12 月 12 日为「越南粉日」",
+      "rights_note": "Britannica 条目，仅事实核对与自行转述，不复制原文段落"
+    },
+    {
+      "id": "cuisine_src_19",
+      "title": "naan — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/naan",
+      "access": "read",
+      "supports": "馕为单层发酵扁面包，泪滴形，传统在 tandoor 圆柱形陶炉（可达 480℃）或木炭上烤，也可在 tawa 平锅上烙；主料为白面或小麦粉、发酵剂（多为酵母）、温水、盐、ghee 与酸奶，可加奶、蛋、蜂蜜，也可用泡打粉/小苏打缩短时间；烤后刷 ghee 或黄油、热食；可用来抓酱与咖喱代替餐具；词源为波斯语 nân（面包的通称）——旧说 nân-e sangak「在热卵石上烤的饼」仅属该条目的另一层说法；历史可上溯美索不达米亚、古埃及与印度河谷；1300 年诗人 Amir Khosrow 记载 naan-e-tunuk 与 naan-e-tanuri；16 世纪在莫卧儿贵族中流行；1799 年进入英语",
+      "rights_note": "Britannica 条目，仅事实核对与自行转述，不复制原文段落"
+    },
+    {
+      "id": "cuisine_src_20",
+      "title": "curry — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/curry",
+      "access": "read",
+      "supports": "咖喱在西方用法中指以磨碎混合香料调味的酱汁或濃汁菜，一般认为源于印度；名称来自泰米尔语 kari「酱」；印度咖喱底多为洋葱、姜、蒜，香料常有小豆蔻、桂皮、丁香、芫荽、孜然、茴香、葫芦巴、芥末籽、黑胡椒与红椒、姜黄（赋黄色）；部分用咖喱叶（Murraya koenigii）、辣椒、肉豆蔻、罂粟籽、八角、月桂；南印素食咖喱最辛辣，北印 garam masala 只用小豆蔻籽、桂皮、丁香与黑胡椒；印度传统上家用 masala；英属时期出现商业化 curry powder；也存在于泰国、中国、印尼、日本与加勒比（19 世纪中期印度契约工带入）",
+      "rights_note": "Britannica 条目，仅事实核对与自行转述，不复制原文段落"
+    },
+    {
+      "id": "cuisine_src_21",
+      "title": "samosa — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/samosa",
+      "access": "read",
+      "supports": "萨莫萨为南亚填馅点心，油炸或烘烤；在印度、巴基斯坦、孟加拉与斯里兰卡为流行街头食品，随南亚移民遍及世界；与中东 sambusak、波兰 pierogi 同属填馅面点大类；传统为三角形，大小从一口到很大不等；馅料从土豆配姜蒜到花椰菜、香料羊肉糜、鱼糜、鸡肉，可温和到极辣；外皮酥脆层次分明；常配薄荷或芫荽叶 chutney；生产从家庭到大规模工业化（冷冻与即食）",
+      "rights_note": "Britannica 条目，仅事实核对与自行转述，不复制原文段落"
+    },
+    {
+      "id": "cuisine_src_22",
+      "title": "Sushi — Wikipedia（en）",
+      "url": "https://en.wikipedia.org/wiki/Sushi",
+      "access": "read",
+      "supports": "寿司是以醋饭（sushi-meshi，亦作 shari/sumeshi，通常调糖与盐）为现代定义性成分、配海鲜/蔬菜/肉的日式菜；配料可生可熟，也有素食寿司；常配腌姜 gari、山葵与酱油，萝卜或泽庵为配菜。历史分层：narezushi（鱼与米长期发酵、米弃去）→ 室町期 namanare（发酵短、米与鱼同食）→ 江戸期 haya-zushi（以醋代替乳酸发酵，寿司变成快餐），chirashi/inari/maki/nigiri 均属 haya-zushi 一支；握寿司（nigiri）于 1820—30 年代江戸流行，常归功于华屋与兵卫（1824，両国）。与刺身不同（刺身无醋饭）。1860 年代后、1958 年白石义明开回转寿司店"
+      ,"rights_note": "Wikipedia 词条，CC BY-SA 4.0（本会话 siteinfo API 实测）；仅事实核对与自行改写，不复制原文段落；对外分发需署名并链回原页面"
+    },
+    {
+      "id": "cuisine_src_23",
+      "title": "Dumpling — Wikipedia（en）",
+      "url": "https://en.wikipedia.org/wiki/Dumpling",
+      "access": "read",
+      "supports": "饺子类为「熟面团块」的一大类，面团可基于面包、小麦或其他谷物粉，也可是土豆；可有馅（肉、鱼、豆腐、芝士、蔬菜或组合），也可无馅；5 种以上烹饪法，遍布多饮食文化。发酵不是共同前提：baozi 为酵母发酵的有馅包子，chuchvara（乌孜别克/塔吉克）与 pelmeni、馄飨同为不发酵面团；xiaolongbao 面团可发酵也可不发酵；banku/kenkey（西非）为发酵玉米粉蒸面团。最早的饺子文字记载之一为中国舒韶约公元 300 年的赋；吐鲁番出土保存的饺子逾千年"
+      ,"rights_note": "Wikipedia 词条，CC BY-SA 4.0（siteinfo 实测）；仅事实核对与自行改写，不复制原文段落；对外分发需署名并链回原页面"
+    },
+    {
+      "id": "cuisine_src_24",
+      "title": "Ramen — Wikipedia（en）",
+      "url": "https://en.wikipedia.org/wiki/Ramen",
+      "access": "read",
+      "supports": "拉面是日中式融合面食：中华面（chūkamen，小麦粉加碱水 kansui）配多种热汤（酱油、味噌等），典型配料为叉烧、海苔、发酵笋干 menma、鱼板与葱；几乎每个地区有变体（九州豚骨 tonkotsu、北海道味噌等）。起源可追至 19 世纪末横滨中华街；「ramen」一词借自汉语拉面(lāmiàn)，但技术上并不源自拉面（拉面为切面而非拉面），更近粤等南方中华面食；二战后因米荒与遣唐归国者而全国普及；1958 年安藤百福发明即食面；1971 年即食面出口并更名 Cup Noodles。日本最早碱水面记载为 1488 年蔭涼軒日録的経帯麴"
+      ,"rights_note": "Wikipedia 词条，CC BY-SA 4.0（siteinfo 实测）；仅事实核对与自行改写，不复制原文段落；对外分发需署名并链回原页面"
+    },
+    {
+      "id": "cuisine_src_25",
+      "title": "Cup Noodles — Wikipedia（en）",
+      "url": "https://en.wikipedia.org/wiki/Cup_Noodles",
+      "access": "read",
+      "supports": "Cup Noodles（カップヌードル）是杯面的原创品牌，由日清食品于 1971 年开发（非 1966）；单人份装于发泡/塑料/纸杯，加热水即可；原名 Cup O' Noodles，1993 年改名；即食面由安藤百福于 1958 年发明（Chikin Ramen）"
+      ,"rights_note": "Wikipedia 词条，CC BY-SA 4.0（siteinfo 实测）；仅事实核对与自行改写，不复制原文段落；对外分发需署名并链回原页面"
+    },
+    {
+      "id": "cuisine_src_26",
+      "title": "Instant noodles — Wikipedia（en）",
+      "url": "https://en.wikipedia.org/wiki/Instant_noodles",
+      "access": "read",
+      "supports": "即食面由日清食品的安藤百福发明，1958 年 8 月 25 日以 Chikin Ramen 品牌上市；工艺为制面—蒸煮—调味—油炸速干（或热风干燥）使面条可长期存放；1966 年安藤在美国看到人们把面块掰入纸杯加热水而得到杯面想法，1971 年日清推出首款杯面 Cup Noodles。另有台湾屏东张国旗 1956 年申请即食面专利一说"
+      ,"rights_note": "Wikipedia 词条，CC BY-SA 4.0（siteinfo 实测）；仅事实核对与自行改写，不复制原文段落；对外分发需署名并链回原页面"
+    },
+    {
+      "id": "cuisine_src_27",
+      "title": "Kimchi — Wikipedia（en）",
+      "url": "https://en.wikipedia.org/wiki/Kimchi",
+      "access": "read",
+      "supports": "泡菜是盐渍发酵蔬菜的韩式配菜（banchan），主料多为中国白菜或韩式萝卜；调料常包括辣椒粉 gochugaru、葱、蒜、姜与鲊醢 jeotgal；也用于汤与炖菜，几乎所有韩餐都配。变体包括 baechu-kimchi、kkakdugi、chonggak-kimchi、oi-sobagi（还有不加辣椒的白泡菜 baek-kimchi）。传统越冬泡菜 gimjang 以陶瓮 onggi 半埋地下或置于 jangdokdae 台以防冻并减缓发酵；现代家庭泡菜冰箱更常用。早期文献并不提蒜与辣椒——辣椒至 17 世纪初才传入韩国"
+      ,"rights_note": "Wikipedia 词条，CC BY-SA 4.0（siteinfo 实测）；仅事实核对与自行改写，不复制原文段落；对外分发需署名并链回原页面"
+    },
+    {
+      "id": "cuisine_src_28",
+      "title": "Tofu — Wikipedia（en）",
+      "url": "https://en.wikipedia.org/wiki/Tofu",
+      "access": "read",
+      "supports": "豆腐制作最早见于中国汉代；传说归刘安（前 179—122）；奈良期传入日本，965 年首次见于记载；汉代可能已有豆腐，但到宋代才普及。冷藏普及前，豆腐通常只在冬季售卖（冷天不易腐败），天热时怎么做、怎么卖受限。加工品种多：douhua（豆花，现做数小时内食用）、dougan（干豆腐，可切丝）、腌豆腐 doufu-ru（干豆腐块风干后发酵再泡盐水/酒/醋）、日本冻干豆腐（koya-dofu）在脱水状态下不需冷藏；部分干豆腐预调味（五香豆腐、卤水豆腐）"
+      ,"rights_note": "Wikipedia 词条，CC BY-SA 4.0（siteinfo 实测）；仅事实核对与自行改写，不复制原文段落；对外分发需署名并链回原页面"
+    },
+    {
+      "id": "cuisine_src_29",
+      "title": "Biryani — Wikipedia（en）",
+      "url": "https://en.wikipedia.org/wiki/Biryani",
+      "access": "read",
+      "supports": "比尔亚尼是以香料腌肉/海鲜/蔬菜做的混合米饭菜，莫卧儿时期已见于印度，但「是否在印度创制」有争议；一般以为源自波斯米饭菜（pilau 或 birinj biryan），结合波斯慢煮与酸奶腌肉、南亚香辛做法，可能在莫卧儿宫廷厨房成形；也有「莫卧儿之前已经旅行武士与朝圣者由波斯传入南印度德干」等说法。词 biryan/beriyan（波斯语「煎/烤」），birinj biryan 意为「炒饭」。1641 年 Manrique 已区分「波斯 pilau」与「莫古尔 biryani」；Lizzie Collingham 认为现代比尔亚尼在阿克巴（1556—1605）宫廷成形。婚礼与节庆常用，也是印度外卖下单量第一的菜"
+      ,"rights_note": "Wikipedia 词条，CC BY-SA 4.0（siteinfo 实测）；仅事实核对与自行改写，不复制原文段落；对外分发需署名并链回原页面"
+    },
+    {
+      "id": "cuisine_src_30",
+      "title": "Hummus — Wikipedia（en）",
+      "url": "https://en.wikipedia.org/wiki/Hummus",
+      "access": "read",
+      "supports": "鹰嘴豆泥（ḥummuṣ bi-taḥīnah）是黎凡特地区的酱/抹/咸菜，以煮软捣碎的鹰嘴豆拌 tahini、柠檬汁与蒜制成；标准饰料为橄榄油、整粒鹰嘴豆、欧芹与红椒粉；通常配皮塔饼作蘸酱，西方多为工业量产、作零食或开胃菜。最早的鹰嘴豆泥记载为归于史家 Ibn al-Adim（今叙利亚阿勒颇）的 13 世纪食谱（注：Britannica 作开罗食谱，两说不一致）"
+      ,"rights_note": "Wikipedia 词条，CC BY-SA 4.0（siteinfo 实测）；仅事实核对与自行改写，不复制原文段落；对外分发需署名并链回原页面"
+    },
+    {
+      "id": "cuisine_src_31",
+      "title": "Falafel — Wikipedia（en）",
+      "url": "https://en.wikipedia.org/wiki/Falafel",
+      "access": "read",
+      "supports": "falafel 是埃及起源的油炸豆丸子或豆饼，见于中东饮食尤其是黎凡特；以磨碎的蚕豆、鹰嘴豆或两者混合、拌香草与香料后炸成。常夹入皮塔、samoon、laffa 或 taboon 等扁面包，也常指这样包成的三明治，可饰以沙拉、腌菜与辣酱、淋 tahini 酱，也可单食或作 meze 拼盘。埃及与阿拉伯半岛多用蚕豆，黎凡特多用鹰嘴豆或两者混合；为中东普遍街头食品"
+      ,"rights_note": "Wikipedia 词条，CC BY-SA 4.0（siteinfo 实测）；仅事实核对与自行改写，不复制原文段落；对外分发需署名并链回原页面"
+    },
+    {
+      "id": "cuisine_src_32",
+      "title": "Couscous — Wikipedia（en）",
+      "url": "https://en.wikipedia.org/wiki/Couscous",
+      "access": "read",
+      "supports": "库斯库斯是北非传统菜：手搓的细碎硬粒小麦粉（semolina）颗粒蒸熟，常泼上炖菜同食。西非也以珍珠粟、高粱、bulgur 等用相似方式烹制，成品有时也称作 couscous。它是阿尔及利亚、突尼斯、毛里塔尼亚、摩洛哥与利比亚马格里布饮食的主食；20 世纪初经法国殖民帝国与阿尔及利亚黑脚（Pieds-Noirs）进入法国与欧洲饮食。2020 年列入 UNESCO 非遗名录"
+      ,"rights_note": "Wikipedia 词条，CC BY-SA 4.0（siteinfo 实测）；仅事实核对与自行改写，不复制原文段落；对外分发需署名并链回原页面"
+    },
+    {
+      "id": "cuisine_src_33",
+      "title": "Injera — Wikipedia（en）",
+      "url": "https://en.wikipedia.org/wiki/Injera",
+      "access": "read",
+      "supports": "英吉拉是苔麸（teff）面粉为主的酸发酵薄饼，微海绵质感，为埃塞俄比亚主食。主发酵 24—72 小时（受微生物、ersho 量、海拔、温度、容器与洁净度影响），期间前 30—33 小时液体上浮分离并弃去；取部分面团加水煮沸制成预糊化 absit（约占面团 10%）作黏结剂，降温至约 46℃后拌回，二次发酵 30—120 分钟。发酵由酵母与乳酸菌造成（已鉴定至少 68 种酵母、107 种乳酸菌）。烙制用大幅平整圆盘 mitad（传统为陶制，因控温优于金属；现代常见陶盘加铝盖的电热型），温度 90—95℃，需抹油；成品直径约 50—60cm、厚 6—7mm；存于圆柱形草篮 mesob。苔麸自公元前第 4 千纪已栽培，但英吉拉的起源不明（民俗说约前 100 年，无法证实）。可用大麦、指粟、高粱、小麦、玉米、稻米替代或混掺；纯苔麸英吉拉是财富象征；掰碎的干英吉拉（dirkosh）可存一年，fit-fit 为干英吉拉配番茄酱的一道菜"
+      ,"rights_note": "Wikipedia 词条，CC BY-SA 4.0（siteinfo 实测）；仅事实核对与自行改写，不复制原文段落；对外分发需署名并链回原页面"
+    },
+    {
+      "id": "cuisine_src_34",
+      "title": "Jollof rice — Wikipedia（en）",
+      "url": "https://en.wikipedia.org/wiki/Jollof_rice",
+      "access": "read",
+      "supports": "乔洛夫饭是来自西非塞内加尔的米饭菜，通常以长粒米、番茄、辣椒、洋葱、香料，有时加其他蔬菜与/或肉，一锅焖成；配料与做法随地区而异。地区差异成为西非各国（尤其尼日利亚与加纳）间的友好竞争，2010 年代被称为「Jollof wars」。法语西非的变体叫 riz au gras；塞内加尔版 thieboudienne 被 UNESCO 认定为非遗菜"
+      ,"rights_note": "Wikipedia 词条，CC BY-SA 4.0（siteinfo 实测）；仅事实核对与自行改写，不复制原文段落；对外分发需署名并链回原页面"
+    },
+    {
+      "id": "cuisine_src_35",
+      "title": "Pizza — Wikipedia（en）",
+      "url": "https://en.wikipedia.org/wiki/Pizza",
+      "access": "read",
+      "supports": "披萨是意大利菜：以发酵小麦面饼为底，铺番茄、芝士等，高温烤制，传统用柴火炉。pizza 一词首见于公元 997 年拉齐奥 Gaeta 的拉丁文献；现代披萨于 18 世纪或 19 世纪初在拿坡里由类似扁面包演变而成；在此之前扁面包常以蒜、盐、猪油与芝士为饰。番茄何时首次使用不确定（说法多），但不可能早于 16 世纪。Margherita 的 1889 年王室委托故事是「流行传说」。披萨由 19 世纪末意大利移民带入美国；美国第一家披萨店 Lombardi's 于 1905 年在纽约开业。2009 年拿坡里披萨在欧盟注册为传统特色保证（TSG）"
+      ,"rights_note": "Wikipedia 词条，CC BY-SA 4.0（siteinfo 实测）；仅事实核对与自行改写，不复制原文段落；对外分发需署名并链回原页面"
+    },
+    {
+      "id": "cuisine_src_36",
+      "title": "Risotto — Wikipedia（en）",
+      "url": "https://en.wikipedia.org/wiki/Risotto",
+      "access": "read",
+      "supports": "炖饭是意大利米饭菜，以汤煮至奶油状；汤可为肉、鱼或蔬菜；多含黄油、洋葱、白葡萄酒与帕马森芝士；藏红花原用于调味及其标志性黄色。意大利常作第一道菜（primo）。历史：稻米在意大利南部种植已久、逐渐北传，波河谷沼泽适合种稻；一般认为炖饭起源于今伦巴第；第一份可辨识为炖饭的食谱为 1809 年（黄油炒米加香肠、骨髓、洋葱与藏红花汤）；1854 年 Vialardi 食谱已有以 risotto 为名的菜；但米兰谁发明无法确定。常用品种为 Arborio、Baldo、Carnaroli、Maratelli、Padano、Roma、Vialone Nano；与炖饭相关的品种是 20 世纪才有，自 1914 年 Maratelli 开始。工艺要点：米不洗不煮不沥；先用黄油/橄榄油与洋葱炒米（tostatura），加白葡萄酒吸干，分次加沸腾高汤并不停搜拌，离火后 mantecatura 拌入冷帕马森与黄油"
+      ,"rights_note": "Wikipedia 词条，CC BY-SA 4.0（siteinfo 实测）；仅事实核对与自行改写，不复制原文段落；对外分发需署名并链回原页面"
+    },
+    {
+      "id": "cuisine_src_37",
+      "title": "Paella — Wikipedia（en）",
+      "url": "https://en.wikipedia.org/wiki/Paella",
+      "access": "read",
+      "supports": "西班牙海鲜饭是源自瓦伦西亚自治区的米饭菜，也是该区的识别标志之一。分三型：paella valenciana（含兔、鸡、鸭、蜗牛）、paella mixta（含畜禽肉）、paella de marisco（含海鲜）；瓦伦西亚人声称只有 valenciana 才算真正的海鲜饭。名称来自做它的宽而浅的传统锅（在加泰隆尼亚语与瓦伦西亚语中 paella 即「煎锅」），该词更早可追至古法语与拉丁 patella"
+      ,"rights_note": "Wikipedia 词条，CC BY-SA 4.0（siteinfo 实测）；仅事实核对与自行改写，不复制原文段落；对外分发需署名并链回原页面"
+    },
+    {
+      "id": "cuisine_src_38",
+      "title": "Taco — Wikipedia（en）",
+      "url": "https://en.wikipedia.org/wiki/Taco",
+      "access": "read",
+      "supports": "塔可是墨西哥传统菜：以手掌大小、玉米或小麦制的 tortilla 盛馅然后对折、徒手食用；馅料可为牛肉、猪肉、鸡、海鲜、豆、蔬菜、芝士，饰以 salsa、guacamole、酸奶油、黄疸、香菜、洋葱、番茄与辣椒。塔可是常见 antojitos（墨西哥街头食品），已传至世界各地。与 burrito（更大、卷起）、taquito（卷起再炸）、chalupa/tostada（先炸饼）不同"
+      ,"rights_note": "Wikipedia 词条，CC BY-SA 4.0（siteinfo 实测）；仅事实核对与自行改写，不复制原文段落；对外分发需署名并链回原页面"
+    },
+    {
+      "id": "cuisine_src_39",
+      "title": "Tortilla — Wikipedia（en）",
+      "url": "https://en.wikipedia.org/wiki/Tortilla",
+      "access": "read",
+      "supports": "tortilla 是薄而圆的未发酵扁面包，最初以玉米（maize）制，今也有小麦粉版；玉米 tortilla 是墨西哥与中美洲多数地区的主食，小麦 tortilla 多见于墨西哥北部与墨裔美国饮食。玉米 tortilla 以石灰水处理玉米（nixtamalization）成 masa 面团，在煎盘上烤；小麦版只需面粉、水与油脂（shortening），一般更大。两类多已工业化，玉米版常用脱水 masa harina。易陈、很快变硬；可包裹做成 taco、burrito、enchilada、quesadilla，也可当勺子取食，或做 tortilla 汤、tostada 与玉米片"
+      ,"rights_note": "Wikipedia 词条，CC BY-SA 4.0（siteinfo 实测）；仅事实核对与自行改写，不复制原文段落；对外分发需署名并链回原页面"
+    },
+    {
+      "id": "cuisine_src_40",
+      "title": "Ceviche — Wikipedia（en）",
+      "url": "https://en.wikipedia.org/wiki/Ceviche",
+      "access": "read",
+      "supports": "ceviche/cebiche/sebiche/seviche 是以生鱼或贝类浸柑橘汁与调料做的冷菜；智利、哥伦比亚、哥斯达黎加、厄瓜多尔、萨尔瓦多、危地马拉、洪都拉斯、墨西哥、波多黎各、尼加拉瓜、巴拿马与秘鲁等多国都有并各自视为本国外菜；秘鲁视为国菜并被 UNESCO 认定为秘鲁传统饮食的表现与人类非遗。与不经修饰的日本刺身不同：鱼浸新鲜柑橘汁（柠檬/来檬），枸橡酸使蛋白变性、使鱼肉变不透明而紧实，外观与口感似加热，但海鲜在结构上仍是生的——酸浸既不能保存鱼也不能像真正加热或腌制那样杀死病原体。安第斯沿岸居民在 16 世纪柑橘传入前用本地植物汁（如 tumbo，香蕉西番莲）；调料还含本地辣椒，中美洲有些地方以芥末代替；常含洋葱与香菜，墨西哥有些地区会加番茄、鳄梨与番茄酱。常作开胃菜；作主菜时配红薯、黄疸、玉米、鳄梨或炸大蕉等淀粉类"
+      ,"rights_note": "Wikipedia 词条，CC BY-SA 4.0（siteinfo 实测）；仅事实核对与自行改写，不复制原文段落；对外分发需署名并链回原页面"
+    },
+    {
+      "id": "cuisine_src_41",
+      "title": "Pho — Wikipedia（en）",
+      "url": "https://en.wikipedia.org/wiki/Pho",
+      "access": "read",
+      "supports": "越南粉（phở）是越南的汤食：汤、米制面条（bánh phở）、香草与肉，多为牛肉（phở bò），有时为鸡（phở gà）；在家庭、街头摊与餐馆都普遍。南定（Nam Định）居民被认为是最早做出越式粉的人。它在越南饮食中相对晚出，最早见于书面记载为 20 世纪初的越南北部；越战后难民把它推向世界。因史料有限，起源仍有争论；一般认为法国与中国烹饪传统都对其形成与名称词源有影响。河内（北）与西贡（南）风格在面条宽度、汤的甜度与香草/酱料搭配上不同"
+      ,"rights_note": "Wikipedia 词条，CC BY-SA 4.0（siteinfo 实测）；仅事实核对与自行改写，不复制原文段落；对外分发需署名并链回原页面"
+    },
+    {
+      "id": "cuisine_src_42",
+      "title": "Naan — Wikipedia（en）",
+      "url": "https://en.wikipedia.org/wiki/Naan",
+      "access": "read",
+      "supports": "馕是发酵的、炉烤或 tawa 烙的扁面包，也可在 tandoor 中烤；特征是轻盈蓬松与烤出的金褐色斑。面团为白面或小麦粉加发酵剂（多为酵母），另加温水、盐、ghee 与酸奶，可选奶、蛋、蜂蜜；可用泡打粉或小苏打代替酵母以缩短时间。tandoor 内壁可达 480℃（900°F），面团压贴内壁后几分钟即熟；tawa 上可把锅倒扣在火上上色；烤后抹 ghee 或黄油趁热食。词 naan 来自波斯语 nân（面包的通称）；英语最早见于 1803 年 William Tooke 游记（早源拼 nan）。南亚：伊斯兰德里苏丹国时期传入，最早提及为 1300 年代 Amir Khusrau 回忆录（Naan-e-Tunuk 与 Naan-e-Tanuri）；1520 年代莫卧儿期因发酵耗时且手艺少人掌握而仅贵族享用；Ain-i-Akbari 记其与 kebab/kheema 同食；至 1700 年代普及至平民。另有缅甸 naan bya、印尼 roti naan、中国馕（新疆）、日本与法国奶饼变体"
+      ,"rights_note": "Wikipedia 词条，CC BY-SA 4.0（siteinfo 实测）；仅事实核对与自行改写，不复制原文段落；对外分发需署名并链回原页面"
+    },
+    {
+      "id": "cuisine_src_43",
+      "title": "Curry — Wikipedia（en）",
+      "url": "https://en.wikipedia.org/wiki/Curry",
+      "access": "read",
+      "supports": "curry 是带辛辣酱汁的菜，起初属印度饮食，后经与葡萄牙人、接着与英国人的交流而改造，最终国际化。中世纪印度的「原咖喱」以阿魏、小豆蔻、芫荽、孜然、姜等温和香料调味，辣度仅靠黑胡椒；现代咖喱发展的一个决定性步骤是辣椒传入印度（与番茄、土豆同属新旧大陆交换）。莫卧儿帝国带来新式轻香料菜（尤其北印）；英属时期发展出 Anglo-Indian 饮食，18 世纪 Hannah Glasse 食谱出现「currey the India way」；19 世纪由印度契约糖工传到加勒比、由英国商人传到日本。东南亚咖喱多用香料糊与椰奶；印度以油或 ghee 炒香料成糊再配水汤/奶/椰奶；中、韩咖喱以商品咖喱粉为底；海外咖喱餐馆常按本地口味调整"
+      ,"rights_note": "Wikipedia 词条，CC BY-SA 4.0（siteinfo 实测）；仅事实核对与自行改写，不复制原文段落；对外分发需署名并链回原页面"
+    },
+    {
+      "id": "cuisine_src_44",
+      "title": "Samosa — Wikipedia（en）",
+      "url": "https://en.wikipedia.org/wiki/Samosa",
+      "access": "read",
+      "supports": "萨莫萨（shingara）是印度次大陆的油炸填馅面点，馅多为香料土豆、洋葱与豌豆，也可含 paneer、肉甚至鱼；名称源自中古波斯语 sambosag（意为「三角形糕点」）；形制随地区为三角、锥或月牙形；常配 chutney；起源在中世纪初或更早；也有甜馅版本；在南亚与印度侨民中为流行零食"
+      ,"rights_note": "Wikipedia 词条，CC BY-SA 4.0（siteinfo 实测）；仅事实核对与自行改写，不复制原文段落；对外分发需署名并链回原页面"
+    },
+    {
+      "id": "cuisine_src_45",
+      "title": "Tamale — Wikipedia（en）",
+      "url": "https://en.wikipedia.org/wiki/Tamale",
+      "access": "read",
+      "supports": "tamale/tamal 是中美（Mesoamerica）传统食品：以石灰处理玉米制成的 masa 面团（可加馅）包在玉米苞或香蕉叶中蒸熟；包叶可先去后食，也可当盘子用；馅可为肉、芝士、水果、蔬菜、香草、辣椒或任选，馅与煮汁均可调味。英语 tamale 是西班牙语 tamal（复数 tamales）的英语化，tamal 来自纳瓦特尔语 tamalli。起源：中美早至公元前 8000—5000 年（该说法存争议）；考古学家 Taube 等据危地马拉 San Bartolo 壁画认为可至约公元 100 年；已读页另提托尔特克、特奥蒂瓦坎等不同文明的证据，这些极早年代与文明归属多未经交叉核定，本条只记存在不作采用；阿兹特克、马雅、奥尔梅克与托尔特克把 tamale 当便携食物用于狩猎、远行与军队；也视为神圣食物。Florentine Codex 记阿兹特克市场出售多种 tamale（土炉/olla 蒸、以甘蔗蒸汽加热），馅含火鸡、鱼、蛙、蝾螈、鱧鼠、水果、豆、南瓜籽、火鸡蛋或无馅；阿兹特克女子在婚礼前煮 2—3 天。马雅古典期（200—1000 AD）陶器与文字已见 tamale；古典期缺少煎盘等证据使一些学者认为 tamal 可能早于 tortilla。哥斯达黎加圣诞 tamale 可用玉米 masa、大蕉或米，包香蕉叶"
+      ,"rights_note": "Wikipedia 词条，CC BY-SA 4.0（siteinfo 实测）；仅事实核对与自行改写，不复制原文段落；对外分发需署名并链回原页面"
+    },
+    {
+      "id": "cuisine_src_46",
+      "title": "Peking duck — Wikipedia（en）",
+      "url": "https://en.wikipedia.org/wiki/Peking_duck",
+      "access": "read",
+      "supports": "北京烤鸭是北京的菜，自帝制时期已有；特征是皮薄而脆，正宗版本以皮为主、肉少，由厨师在客人面前片鸭。该页称专为该菜培育的鸭在 65 天后屠杀、调味后在焖炉或挂炉中烤（育鸭日龄与片鸭程式属该页描述的做法，不宜当整类菜固定规格）；常配葱、黄瓜与甜面酱，以薄饼卷起同食。历史：南北朝已有烤鸭；元朝宫廷有烤鸭变体，1330 年忽思慧《饮膳正要》记「烧鸭子」；明后期完全成形，为宫廷主菜；1416 年北京前门鲜鱼口开业首家专营店便宜坊；清乾隆朝（1736—1796）普及至上层；1864 年全聚德开业，创始人杨全仁发展挂炉法。1971 年基辛格秘密访华午餐吃烤鸭；今为官方宴席常见菜"
+      ,"rights_note": "Wikipedia 词条，CC BY-SA 4.0（siteinfo 实测）；仅事实核对与自行改写，不复制原文段落；对外分发需署名并链回原页面"
+    },
+    {
+      "id": "cuisine_src_47",
+      "title": "Kebab — Wikipedia（en）",
+      "url": "https://en.wikipedia.org/wiki/Kebab",
+      "access": "read",
+      "supports": "kebab/kebap/kabob 是一类起源于中东的烤肉菜；以切块肉配蔬菜或佐料，通常串在签上明火烤、也有入炉烤或做成炖菜（如 tas kebab）——签具与木炭并非所有卡巴布的前提。传统用羊肉，地区也会用牛、山羊、鸡、鱼甚至猪肉（取决于宗教禁忌）。该页称词 kebab 可早至 17 世纪末由阿拉伯语 kabāb 入英语、14 世纪土耳其文献已有波斯形（词源与入词年代属该页的词汇学叙述，本条不取作定年）；波斯与安纳托利亚为其主要源区。10 世纪巴格达食谱 Kitab al-Tabikh 记 kabāb 为切块肉、可锅煎或火上烤；Ibn Battuta 记德里苏丹国（1206—1526）宫廷供 kebab，平民早餐配馕。衍生遍及世界：döner、shish kebab、东南亚 satay、中国新疆串（chuan，多用羊肉、可烤可炸，常见孜然、胡椒、芝麻与香油）；注：中国新疆串（chuan）与 satay 属该地区衍生菜，不作本条别名或同源结论"
+      ,"rights_note": "Wikipedia 词条，CC BY-SA 4.0（siteinfo 实测）；仅事实核对与自行改写，不复制原文段落；对外分发需署名并链回原页面"
+    }
+  ],
+  "elements": [
+    {
+      "id": "cuisine_sushi",
+      "name": "寿司（醋调米饭与配料的日式菜）",
+      "aliases": ["寿司", "sushi", "nigiri-zushi", "握寿司", "oshi-zushi", "maki-zushi", "卷寿司", "chirashi-zushi", "散寿司"],
+      "tags": ["food", "cooking", "preservation", "fermentation", "aquatic_food"],
+      "summary": "现代寿司以醋调熟米饭配各种配料，包含蔬菜、蛋以及生或熟海鲜等；核心在醋饭而不是生鱼，不能等同刺身。",
+      "details": {
+        "definition": "现代寿司以醋调熟米饭配多种配料，包含素食与生、熟海鲜版本，与不搭配醋饭的刺身不同。常见形制包括手握饭团加配料、模具压寿司、海苔卷和散寿司，不仅限于这四种。醋渍姜是常见配菜，不是寿司本身的别名。",
+        "mechanism": "现代醋饭寿司通过调味、成型与配料组合形成不同口感；卷、压、握和散放是不同形制。历史上的发酵寿司与直接调醋的现代做法应区分。醋与食材新鲜度都不能单独证明生食安全，本条不提供处理或保存参数。",
+        "conditions": "现代醋饭寿司需要米、醋及炊饭与成型条件，其他原料依形制选择；只有海鲜版本才需要相应水产供应，素食版本不要求渔场。原料运输和保存条件须按具体配料另行确认，不能由菜名推定。",
+        "exceptions": "寿司不等于只有生鱼：蔬菜、蛋、预煮与醋渍鱼类也能成菜；也不等于日本独有，把寿司当成「生鱼片饭」会把 chirashi 与 maki 里的主要工艺（卷、撒、压）一并抹掉。",
+        "story_uses": "可作为餐饮手艺、地方配料与待客方式的创作素材。若作者明确选用海鲜版本，可进一步设置渔业、交通与保鲜约束；单凭一桌寿司不能证明当地有当日鲜鱼、冰源或某种运输速度。这些是待作者声明的情境，不是菜名自动带来的事实。",
+        "historical_scope": "现代寿司的定义性成分是醋饭（sushi-meshi，亦作 shari/sumeshi，通常调糖与盐），配料可生可熟、也有素食；与无醋饭的刺身（sashimi）是两回事。历史是分层而不是一步到位的（Wikipedia sushi）：narezushi（鱼与米长期发酵、米弃去不吃）→ 室町期（1336—1573）namanare（发酵期缩短、米与鱼同食）→ 江戸期 haya-zushi（用醋代替乳酸发酵，寿司自此成为快餐），chirashi/inari/maki/nigiri 均属 haya-zushi 一支。握寿司（nigiri）于 1820—30 年代在江戸流行，常归功于华屋与兵卫（1824，両国）；1958 年白石义明开第一家回转寿司店。",
+        "evidence_and_uncertainty": "定义与常见形制、醋渍姜属配菜来自 cuisine_src_01（Britannica sushi 正文）；醋饭为定义性成分、配料可生可熟可素、narezushi/namanare/haya-zushi 三阶段、1824 年握寿司与 1958 年回转寿司来自 cuisine_src_22（Wikipedia Sushi）。本条的鲜度只当作工艺前提，不当作生食安全的证明——已读两页都未给寄生虫与病原体阈值，本条不给温度、时长与处理参数。缺口：各地区形制差异与生食海鲜的安全边界。review_status 保持 needs_review。"
+      },
+      "source_ids": ["cuisine_src_01", "cuisine_src_22"],
+      "related_ids": ["staples_rice", "flavors_vinegar", "flavors_soy_sauce", "animal_food_dried_salted_fish", "animal_food_shrimp_prawn", "flavors_tea"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "cuisine_dumpling",
+      "name": "饺子类（填馅或无馅的小团面团及其多种加热方式）",
+      "aliases": ["饺子", "dumpling", "馄饨", "wonton", "kreplach", "gnocchi", "spaetzle", "nockerl", "matzo ball"],
+      "tags": ["food", "cooking", "cereal", "fermentation"],
+      "summary": "以小团面团为体、可包馅也可不包馅的一类食物，加热方式含煮、蒸、煎、炸等；东亚饺子与犹太 kreplach、中国馄饨属「填馅面皮」，而不是无馅面团。",
+      "details": {
+        "definition": "饺子类（dumpling）指小团面团（多数不发酵，也有酵母发酵的包子类）做的食品，可经水煮、蒸、煎或炸等不同方式加热，常入汤或炖菜、或配水果成菜；不同文化下的形制与加热方式差异很大，本类并不限定于煮或蒸。发酵不是共同前提：chuchvara、pelmeni 与馄饨同为不发酵面团，baozi 才是酵母发酵的包子（Wikipedia dumpling）。面团多以面粉或谷物粉拌蛋成团；有的直接把香草、洋葱、刨好的芝士或碎肉揉进面团（如匈牙利 nockerl 常含芝士，中欧 spaetzle 把面团从滤器挤入沸水，意大利 gnocchi 常用土豆或南瓜泥）。有馅的一类（犹太 kreplach、中国馄饨）本质是「填馅面皮」，与无馅面团不是同一工艺。",
+        "mechanism": "面团的原料、含水与成型方式影响质地；包馅类通过面皮包裹馅料，无馅类则直接成型。不同品类可煮、蒸、煎或炸，不共用一套火候判据。浮起只是某些做法中的观察现象，不能用来保证所有面团和馅料已经熟透。",
+        "conditions": "需要面粉或谷物粉、饮水与加热容器；包馅类还需能切碎与调味的馅料（肉、蔬菜、芝士或水果）与把面皮捏紧的手工。干面或冷冻保存是把它从「现做即食」变成「可储存」的关键，否则只能当日吃。",
+        "exceptions": "不要把饺子类等同于「中国饺子」：它是一个跨文化的工艺大类，中东 sambusak、波兰 pierogi、意大利 gnocchi 都在里面且彼此不用同一面团。也不要把所有「面食」归进来——面条与面包不是本类。水果饺是甜点路径，与肉馅饺不能共用一套配方。",
+        "story_uses": "适合承担「宴席与手工劳力」这一因果：包大量饺子需要人手与时长，可作为节庆、家庭规模与劳力分配的物证。干制或冻存类则能支撑长途旅行与冬季储备的剧情；馅料种类可直接反映阶层与地区物种可得性。",
+        "historical_scope": "本条仅依据 Britannica 的 dumpling 条目描述已确立的做法与跨文化例子。不在此定饺子的最早起源地（Britannica 未给；Wikipedia 给出中国舒韶约公元 300 年的赋与吐鲁番出土逾千年的实物作为早期记载，仍不是起源地定论），也不把某一地区的形制当作全球原型。东亚饺子以虾、猪肉、牛肉与蔬菜混合并以酱油调味一说也在该条目内，但不能推出每个东亚地区都如此。",
+        "evidence_and_uncertainty": "定义、面团组成、spaetzle/gnocchi/nockerl 的做法差异、kreplach 与馄饨属填馅面皮、东亚饺子常见馅料与水果饺，来自 cuisine_src_02（Britannica dumpling）；「熟面团块」大类、面团可用面包/小麦/其他谷物粉或土豆、发酵不是共同前提（baozi 发酵、chuchvara/pelmeni/馄饨不发酵、xiaolongbao 两者皆有、banku/kenkey 为发酵玉米粉）与公元 300 年舒韶赋、吐鲁番实物来自 cuisine_src_23（Wikipedia Dumpling）。缺口：各地区形制的历史演变、具体配方比例未被已读来源覆盖。review_status 保持 needs_review。"
+      },
+      "source_ids": ["cuisine_src_02", "cuisine_src_23"],
+      "related_ids": ["staples_wheat", "staples_rice", "animal_food_egg", "animal_food_pork", "flavors_soy_sauce", "produce_onion", "cuisine_samosa"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "cuisine_ramen",
+      "name": "拉面（由中国面食演变、日本化的碱水汤面）",
+      "aliases": ["拉面", "ramen", "la mian", "汤面", "hiyashi chuka", "kansui", "torigara"],
+      "tags": ["food", "cooking", "cereal", "trade"],
+      "summary": "由中国面食演变、日本化的碱水汤面；面条靠碱水 kansui 获得弹性，成败在汤底与面质而不在配菜。",
+      "details": {
+        "definition": "拉面是汤面类菜，以小麦粉、盐、水与碱水 kansui 制成的弹性面条为主，煮入肉类、蔬菜或味噌汤底，再放配料。明治期（1868—1912）日本开放通商后，中国商人在横滨开设餐馆并带来面食；「ramen」一词借自汉语「拉面」（lāmiàn），但 Wikipedia 明确拉面的面是切制而非拉制，工艺上更近广东等南方中华面食，不是拉面的直系传承。",
+        "mechanism": "kansui（碱性水）是面质的技术核心：它使面筋网络更有弹性与金黄颜色，煮后不软烂；不用碱水时可用鸡蛋得到相近质地。汤底走两条路：鸡骨 torigara 配酱油，或味噌与蔬菜；面煮到 al dente 后立即入汤，过熟就失去弹性。配料（猪肉片、鲔鱼片、鳀鱼、葱、海带、鸡蛋）是后加的饰菜，不能当主料。",
+        "conditions": "需要小麦粉、碱水或鸡蛋、盐，以及能长时间熬汤的燃料；骨汤类还需要持续供肉与冷藏能力。现做现卖靠高流转：面煮好后不能久放，因此拉面店的地理密度直接受食客流量影响。",
+        "exceptions": "不要把拉面与一般「中国汤面」混为一条：本条的要点是碱水面这一技术分支与日本形成的店食形态。也不要把生鱼片或海鲜当作拉面的必要配料，它只是可选饰菜。冷版 hiyashi chuka 是夏季变体，不推翻「热汤面」的默认形态。",
+        "story_uses": "适合承担「技术转移与城市化」的题材：中国面食工艺传入后形成本地行当，可作为口岸城市、租界社群与餐饮业的物证。快餐形态（工人短餐时、学生宿舍）可用来支撑城市劳动节律与夜岗场景；干面与杯面则能支撑长途、灾后与军营的应急供给。",
+        "historical_scope": "本条的年代锚点只到 Britannica 给出的两处：明治期（1868—1912）横滨中国商人带入 la mian，以及 1958 年安藤百福推出即食面（Chikin Ramen）、1971 年日清推出首款杯面 Cup Noodles。Britannica 写作「1966 年杯面」，与 Wikipedia Cup Noodles 与 Instant noodles 两页的 1971 年冲突；本条采用 1971，1966 只是安藤在美国看到把面块放入纸杯冲热水而得到杯面想法的年份。不在此定拉面更早的起源年代，也不把来源路线细化到具体朝代。",
+        "evidence_and_uncertainty": "定义、kansui 工艺与鸡蛋替代、汤底构成、配料清单、明治期传入与安藤百福的时间点，来自 cuisine_src_03（Britannica ramen）；中华面 chūkamen + 酱油/味噌汤底 + 叉烧/海苔/menma/鱼板/葱、「ramen」借自 lāmiàn 但工艺近南方中华面食、九州豚骨与北海道味噌等地区变体、1488 年蔭涼軒日録経帯麴为碱水面最早记载，来自 cuisine_src_24（Wikipedia Ramen）；杯面 1971 年与即食面 1958 年来自 cuisine_src_25（Cup Noodles）与 cuisine_src_26（Instant noodles）。缺口：各地流派的系统对比与配方参数未被已读来源覆盖。review_status 保持 needs_review。"
+      },
+      "source_ids": ["cuisine_src_03", "cuisine_src_24", "cuisine_src_25", "cuisine_src_26"],
+      "related_ids": ["staples_wheat", "flavors_miso", "flavors_soy_sauce", "animal_food_egg", "animal_food_chicken", "animal_food_pork", "cuisine_dumpling"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "cuisine_kimchi",
+      "name": "泡菜（韩国盐渍发酵蔬菜）",
+      "aliases": ["泡菜", "kimchi", "kimchee", "醋菜", "ongi", "kimchi cabbage"],
+      "tags": ["food", "preservation", "fermentation", "cooking", "storage"],
+      "summary": "以白菜、萝卜等蔬菜盐渍、调味并发酵的韩国食品，辣椒粉在许多现代变体中常见，但白泡菜等不加辣椒；原料、容器与储存方式因时地而异。",
+      "details": {
+        "definition": "韩国泡菜 kimchi 是以白菜、萝卜等蔬菜盐渍、调味并发酵的食品大类，常作为配菜。许多现代配方使用辣椒粉、蒜、姜或水产调味料，也存在不辣的白泡菜。传统陶瓮与越冬制作、现代容器与泡菜冰箱均有记载，不应把某种容器或调料当作所有变体必需。",
+        "mechanism": "乳酸发酵是核心：盐渍先抑制部分腐坏菌并脱水，发酵在适宜温度下产酸把 pH 拉低，从而把「易坏的鲜菜」变成可存放的发酵菜；调味（辣椒、蒜、姜、水产调味料等）依变体选择，不辣版本不依赖辣椒也能发酵。发酵速度受温度控制：可短时鲜食，也可发酵数日至数周。",
+        "conditions": "需要相应蔬菜、盐、制作与容器条件，其他调味料依变体选择，辣椒并非全体必需。传统陶瓮储存和现代冷藏等方式不能混为单一技术前提；具体卫生条件与保存期限须另据可靠资料判断。",
+        "exceptions": "不要把泡菜等同于「辣白菜」一种：黄瓜与萝卜也是标准原料。也不要把它当成必然辣——本条只描述已确立的现代做法，不推断引入辣椒前的配方。腌渍与发酵不等于灭菌，保存期限与环境温湿度相关，不应假定无限期可存。",
+        "story_uses": "可用于描写季节性备菜、家庭分工和邻里协作。选择某种越冬储存方式或辣味配方时，作者还需声明相应容器、环境与原料来源；不能仅凭泡菜存在就反推当地种植辣椒或拥有现代冷藏。",
+        "historical_scope": "本条依据 Britannica 描述当代已确立的做法与发酵容器。不在此定泡菜的起源年代，也不把「辣椒已用于泡菜」推到辣椒传入之前的时期——Wikipedia 记辣椒至 17 世纪初才传入韩国，早期文献并不提蒜与辣椒，因此辣椒前的旧式泡菜应视为不同配方（另有不加辣椒的白泡菜 baek-kimchi 至今存在）。",
+        "evidence_and_uncertainty": "定义、常用蔬菜、调料、ongi 陶罐与埋地贮存、可鲜食或发酵数日至数周、乳酸发酵，来自 cuisine_src_04（Britannica kimchi）；配菜（banchan）定位、gochugaru/葱/蒜/姜/jeotgal、baechu-kimchi 与 kkakdugi 与 chonggak-kimchi 与 oi-sobagi 等变体、baek-kimchi、gimjang 与 onggi 陶瓮半埋地下/jangdokdae 台、泡菜冰箱、辣椒 17 世纪初传入韩国，来自 cuisine_src_27（Wikipedia Kimchi）。缺口：各地区变体的具体配方与保存期参数未被已读来源覆盖；益生菌与健康关联不属本库可断言范围，本条不引。review_status 保持 needs_review。"
+      },
+      "source_ids": ["cuisine_src_04", "cuisine_src_27"],
+      "related_ids": ["produce_cabbage", "food_supp_radish", "produce_cucumber", "flavors_chili_pepper", "produce_garlic", "produce_onion", "flavors_turmeric"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "cuisine_tofu",
+      "name": "豆腐（大豆凝固制品）",
+      "aliases": ["豆腐", "tofu", "bean curd", "豆花", "绢豆腐", "okara", "豆渣"],
+      "tags": ["food", "cooking", "processing", "preservation", "legume"],
+      "summary": "大豆磨浆煮浆后用钙镁盐或酸把蛋白凝固、入模滤水成块的食品；它是把豆转成易调味蛋白质的工艺，而不是「一种豆制品统称」。",
+      "details": {
+        "definition": "豆腐（tofu，也叫 bean curd）是大豆制的软豆腐。干黄豆浸泡、磨碎、煮沸后分出固体豆渣（okara）与豆奶；向豆奶加入盐类凝固剂（氯化/硫酸钙、镁）或酸类凝固剂（枸橼酸、葡萄糖酸-δ-内酯），使凝乳与乳清分开；豆奶倒入模中让含碳水化合物的乳清流出，得到软块，切块后可泡在水里出售。按工艺可分为特嫩（绢）、嫩、硬、特硬；还有脱水/冻干类豆腐（koya-dofu，冻豆腐），仅在脱水状态下不需冷藏；鲜豆腐不在此列。",
+        "mechanism": "豆浆中的蛋白质在热处理与凝固剂作用下形成包水凝胶，凝固条件、浓度与后续加工共同影响软硬。压榨排水是部分豆腐的工艺，绢豆腐等可在容器内凝固而不压榨，不能把所有嫩豆腐解释为简单少排水，也不能把豆干等同于彻底脱水食品。",
+        "conditions": "需要大豆、水、加热燃料、相应凝固剂与成型器具，部分品类需要压榨。泡水出售是某些传统销售方式，不是安全保存建议。鲜豆腐、含水豆干与脱水冻干制品具有不同储运要求，应依具体产品条件判断，不能由中文名称推定是否需要冷藏。",
+        "exceptions": "不要把豆腐与「所有豆制品」混为一谈：豆浆、豆豉、腐乳、豆皮是不同产品，工艺与保存方式都不同。也不要把「不需要冷藏」套到鲜豆腐上：脱水/冻干豆腐（koya-dofu）不需冷藏，鲜豆腐不是；Wikipedia 更记冷藏普及前豆腐通常只在冬季售卖。豆腐本身几乎无味，调味与烹调方式决定它能否当主菜——本条不提供食用安全或营养声称。",
+        "story_uses": "适合承担「植物蛋白与作坊」这一因果：一作坊能同时产出豆奶、豆腐、豆渣，豆渣还是饲料，因此豆腐作坊可作为城镇供需链上的一个节点。脱水/冻干类（koya-dofu）能支撑长途与军用供给；泡水出售的鲜豆腐则能反推市场距离与每日周转。",
+        "historical_scope": "本条依据 Britannica 的说法：豆腐被认为起于汉代（前206—220 年），并在中国、日本、朝鲜与东南亚作为重要蛋白源。这只是「被认为」，不是确证；Wikipedia 补：制作最早记为汉代、传说归刘安（前 179—122）、奈良期传入日本而 965 年首次见于记载、并认为汉代可能已有但到宋代才普及；这两层都属「记载/传说」而非确证。",
+        "evidence_and_uncertainty": "定义、工艺步骤、凝固剂种类、软硬分级、脱水冻干类（koya-dofu）的脱水状态储运说法、okara 与豆清可食、可多种烹调方式、汉代起源的说法，来自 cuisine_src_05（Britannica tofu）——该页 dry tofu 的常温说法仅涉其所述的脱水制品，不能引申为中式含水豆干或其他鲜制豆制品可常温存放；豆腐制作最早见于汉代、传说归刘安、奈良期传入日本与 965 年首次记载、汉代可能已有而宋代才普及、冷藏普及前豆腐多在冬季售卖、豆花 douhua/dougan 干豆腐/腌豆腐 doufu-ru/冻干 koya-dofu 的差别来自 cuisine_src_28（Wikipedia Tofu）。缺口：起源确证与各地传入时间、各类豆制品的实际储运条件未被已读来源覆盖。review_status 保持 needs_review。"
+      },
+      "source_ids": ["cuisine_src_05", "cuisine_src_28"],
+      "related_ids": ["staples_soybean", "flavors_soy_sauce", "flavors_miso", "cuisine_pho", "flavors_fish_sauce"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "cuisine_biryani",
+      "name": "比尔亚尼（南亚分层焖饭）",
+      "aliases": ["比尔亚尼", "biryani", "biriyani", "海得拉巴式", "穆拉达巴德式", "Sindhi biryani", "deg"],
+      "tags": ["food", "cooking", "cereal", "trade"],
+      "summary": "南亚及周边有多种地方变体的香料米饭菜，常见米与肉或蔬菜分层、共同焖制的做法；原料预处理、层次和辣度依配方而异，起源仍有争议。",
+      "details": {
+        "definition": "比尔亚尼是南亚广泛流传、常见于庆典与日常饮食的香料米饭菜，有肉类与素食等多种配方。常见工艺包括米预煮后与处理过的肉或蔬菜分层、盖锅焖制；也有原料分别处理程度不同的做法，不能将某一配方固定为所有比尔亚尼的定义。",
+        "mechanism": "在分层焖制的常见做法中，米粒与其他原料在受控水分和热量下共同成熟，香料、油脂与汤汁赋予风味。预煮程度、是否先熟肉、封口方式与加热时长取决于具体配方；不是每种米都要先油炒，也不能由菜名推定固定加工顺序。",
+        "conditions": "需要能密封的厚底锅与可控制的火；分层做法另需米与料的预处理条件。米常见长粒 basmati，也有地方品种（泰米尔纳德的 seeraga samba、喀拉拉的 jeerakasala 或 Wayanandan kaima），并非一律；肉版还需要腌肉所需的时间与油或酥油；庆典大锅的做法对火候与封口要求更高。",
+        "exceptions": "不同地区的米种、肉类、蔬菜与香料组合差异很大，不宜用一份地方配方排除其他变体。咖喱本身也是宽泛类别，两者没有普遍成立的辣度排序；温和或辛辣都取决于具体配方。",
+        "story_uses": "适合承担「庆典与大型聚餐」的题材：大锅比尔亚尼需要人手、长时段火候与足够肉量，可作为婚礼、节庆与富户待客规模的物证。分层焖制对器具的要求也能反应该地金属或陶器与燃料水平。",
+        "historical_scope": "比尔亚尼的起源与传播有多说并列（Wikipedia biryani）：它莫卧儿时期已见于印度，但「是否在印度创制」有争议；一说源自波斯米饭菜（pilau 或 birinj biryan），结合波斯慢煮、酸奶腌肉与南亚香辛做法，可能在莫卧儿宫廷厨房成形（Lizzie Collingham 认为在阿克巴 1556—1605 朝成形）；另一说谓莫卧儿之前已由旅人或武士经波斯传入南印度德干。1641 年 Manrique 已区分「波斯 pilau」与「莫古尔 biryani」。本条不选单一源流，也不给具体发明年代。",
+        "evidence_and_uncertainty": "定义与多种配方、词源、常见分层预煮与焖制工艺（非所有配方必经）、deg 锅与封口、basmati 与地方米种、海得拉巴/穆拉达巴德/孟买/信德等变体，来自 cuisine_src_06（Britannica biryani）——该页「通常比咖喱温和」只作其原说法记录，本条不据此作两者辣度排序；莫卧儿时期已见与「是否在印度创制」之争、波斯 pilau/birinj biryan 两源流说、阿克巴朝成形说、1641 年 Manrique 区分波斯 pilau 与莫古尔 biryani、婚礼与节庆常用及印度外卖下单量第一，来自 cuisine_src_29（Wikipedia Biryani）。缺口：最早年代、传入路线细节、各地变体的源流关系未被已读来源覆盖。review_status 保持 needs_review。"
+      },
+      "source_ids": ["cuisine_src_06", "cuisine_src_29"],
+      "related_ids": ["staples_rice", "animal_food_butter", "animal_food_mutton_lamb", "animal_food_chicken", "flavors_saffron", "flavors_spice_blend", "cuisine_curry"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "cuisine_hummus",
+      "name": "鹰嘴豆泥（中东鹰嘴豆芝麻酱泥）",
+      "aliases": ["鹰嘴豆泥", "hummus", "houmos", "humus", "hommus", "hommos", "ḥummuṣ bi-taḥīnah", "tahini"],
+      "tags": ["food", "cooking", "processing", "legume", "condiment"],
+      "summary": "煮熟的鹰嘴豆捣泥后调 tahini（烤芝麻酱）、蒜、柠檬汁与盐的黎凡特酱泥；在黎巴嫩、巴勒斯坦、以色列是日常主菜而非仅蘸料。",
+      "details": {
+        "definition": "鹰嘴豆泥是黎凡特地区的酱/抹/咸菜，传统做法是把煮熟的鹰嘴豆捣泥或捣碎，混入 tahini（烤芝麻调味酱）、蒜末、柠檬汁与盐。词源来自阿拉伯语 ḥummuṣ（「鹰嘴豆」），是全名 ḥummuṣ bi-taḥīnah（「鹰嘴豆配 tahini」）的缩略；英语里拼法极多（houmos、humus、hommus、hommos），作为正式词条出现在英语词典的时间是 1950—1955 年之间，来自土耳其语 humus。",
+        "mechanism": "质地取决于两点：豆要煮到极软才能捣成无颗粒的泥；tahini 与柠檬汁、冰水（或煮豆水）的搅打顺序决定乳化与顺滑度。tahini 本身是芝麻磨成的酱，脂肪与蛋白共同作用使成品成膏状而不是水豆泥。温度也影响上桌形态：可热食、常温或冷食。",
+        "conditions": "需要鹰嘴豆、tahini（需芝麻与磨酱器具）、蒜、柠檬（或可用酸味替代）与盐；捣碎可用石臼或碾磨器具。柠檬不是处处可得，这在非原产地会直接改变配方；干豆需浸泡与长时煮软，燃料成本不低。",
+        "exceptions": "不要把鹰嘴豆泥与「各种豆泥」混为一条：tahini 是定义的一部分，没有芝麻酱就属另一类食品。也不要把它固定为「以色列菜」或「阿拉伯菜」其中一方：本条只记录争议存在（2008 年黎巴嫩行业组织指责以色列把它当以色列菜营销，双方因此争夺吉尼斯最大份纪录），不为任何一方定归属。",
+        "story_uses": "适合承担「日常主食与公共食物争议」两层题材：作为每日常吃的食物，它可作为城镇饮食基线而非宴席特例；作为被多方声称归属的菜，它能支撑文化认同冲突。",
+        "historical_scope": "本条的时间锚点只到 Britannica 给出的程度：首个书面记载是 13 世纪食谱，但两来源指的地点不同（Britannica 作开罗，Wikipedia 作归于史家 Ibn al-Adim 的叙利亚阿勒颇食谱），本条只记「13 世纪某部阿拉伯食谱」；今日形式一般认为来自黎凡特与西亚，有史家推测现代做法是 18 世纪大马士革为城市上层发展出来的；英语词典收录在 1950—1955 年之间。这些都是「一般认为」或「推测」，不当作确证。",
+        "evidence_and_uncertainty": "定义、配料与配食方式、词源与英语收录时间、13 世纪开罗食谱、18 世纪大马士革推测、起源争议与 2008 年纠纷，来自 cuisine_src_07（Britannica hummus）；黎凡特定位、标准饰料（橄榄油/整粒鹰嘴豆/欧芹与红椒粉）、配皮塔与西方工业量产、13 世纪食谱归属 Ibn al-Adim 与阿勒颇，来自 cuisine_src_30（Wikipedia Hummus）。两来源对 13 世纪食谱的地点不一致（开罗 vs 阿勒颇），本条不选边。缺口：起源地的确定、各地区变体的系统比较未被已读来源覆盖；营养细节与健康关联不属本库断言范围，本条不引。review_status 保持 needs_review。"
+      },
+      "source_ids": ["cuisine_src_07", "cuisine_src_30"],
+      "related_ids": ["staples_chickpea", "staples_sesame", "produce_garlic", "flavors_cumin", "cuisine_falafel", "cuisine_naan"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "cuisine_falafel",
+      "name": "法拉费（中东炸鹰嘴豆或蚕豆丸子）",
+      "aliases": ["法拉费", "falafel", "felafel", "炸豆丸子", "蚕豆丸子", "laffa"],
+      "tags": ["food", "cooking", "legume", "trade"],
+      "summary": "埃及起源、磨碎蚕豆或鹰嘴豆拌香料后炸成丸子的中东与全球街头食品；埃及与阿拉伯半岛多用蚕豆，黎凡特多用鹰嘴豆，不是同一种豆。",
+      "details": {
+        "definition": "法拉费是埃及起源的油炸豆丸子或豆饼，见于中东饮食尤其黎凡特，也是世界范围流行的街头食品，指用磨碎的鹰嘴豆或蚕豆（或两者混合）调香料后炸成的丸子或饼；也常指用它做成的三明治。标准做法是塞入皮塔饼或裹 laffa 面包，配辣酱、tahini 酱，以及番茄、莴苣、黄瓜、洋葱、欧芹与酸奶类配菜组成的沙拉。",
+        "mechanism": "关键在「生豆磨碎」而不是「煮熟再捣」：生豆磨成的糊在油炸时靠自身淀粉与蛋白定型，用熟豆会散。香料与洋葱提供风味与部分水分控制；油温决定外层是否酥而不吸油。成型后用勺或专用模具下锅，形状与大小随地方习惯变化。",
+        "conditions": "需要干鹰嘴豆或蚕豆、洋葱、香草与香料，以及足量煎炸用油。油炸这一工艺门槛不低：油量与控温决定能否稳定出锅，因此它更常见于有街头饮食传统的城镇而非孤立农户。",
+        "exceptions": "不要把法拉费当成「鹰嘴豆丸子」的唯一形式：埃及通常用蚕豆（fava beans），以色列三明治多用鹰嘴豆且配料更多，两种豆的浸泡与研磨要求不同。也不要把它与法拉费三明治混为一条：本条同时覆盖丸子或饼本体与其组装吃法，但两者在不同场合可分开存在。",
+        "story_uses": "适合承担「街头饮食与城市劳力」这一因果：稳定出摊需要油、豆与现炸能力，可作为城镇市集与夜市的物证。豆种选择（蚕豆或鹰嘴豆）可直接反映地方农业与供应链，也能用来区分相邻地区的饮食差异。",
+        "historical_scope": "本条依据 Britannica 与 Wikipedia 描述已确立的做法与地域差异，不在此定法拉费的具体起源年代（Wikipedia 作「埃及起源」但未给年代，Britannica 未给起源地）。埃及与阿拉伯半岛多用蚕豆、黎凡特多用鹰嘴豆或两者混合的区分来自两来源，但不能反推任何一方「更早」。",
+        "evidence_and_uncertainty": "定义、豆种、配菜（辣酱、tahini、番茄/莴苣/黄瓜/洋葱/欧芹/酸奶）、皮塔与 laffa 包裹方式、埃及与以色列的豆种差异，来自 cuisine_src_08（Britannica falafel）；埃及起源的定位、皮塔/samoon/laffa/taboon 多种包裹面包、可饰沙拉与腌菜、可单食或作 meze、埃及与阿拉伯半岛用蚕豆而黎凡特用鹰嘴豆或混掺，来自 cuisine_src_31（Wikipedia Falafel）。缺口：起源年代、油温与配方比例、各地变体的系统比较未被已读来源覆盖。review_status 保持 needs_review。"
+      },
+      "source_ids": ["cuisine_src_08", "cuisine_src_31"],
+      "related_ids": ["staples_chickpea", "staples_broad_bean", "staples_sesame", "animal_food_yogurt", "produce_tomato", "produce_cucumber", "cuisine_hummus"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "cuisine_couscous",
+      "name": "库斯库斯（北非粗麦粉蒸制主食）",
+      "aliases": ["库斯库斯", "couscous", "couscousière", "粗麦粉", "蒸粗麦"],
+      "tags": ["food", "cooking", "cereal", "storage"],
+      "summary": "北非（马格里布）以手搓 durum 粗麦粉成粒、多次蒸制的主食；传统 couscousière 上层蒸粒、下层同时煮炖菜，与「煮面团」不是一回事。",
+      "details": {
+        "definition": "库斯库斯是北非的粗麦粉（durum 小麦胚乳）菜及其配食。传统做法是手搓成粒，在 couscousière 里准备：这是一个大盖锅，下层煮炖菜或汤，上层底部穿孔、放粗麦粒蒸。蒸时洒液、搅拌把结块弄散，并反复蒸多次。蒸粒的同时，下层做出羊肉、鸡、鹰嘴豆与蔬菜的炖菜；吃时佐 harissa（红椒与其他香料做的辣酱）。",
+        "mechanism": "它是「蒸」而不是「煮」：麦粒不直接泡在沸水里，而是靠下层炖菜的蒸气透过穿孔底蒸熟，因此粒粒分散而不成糊。多次蒸加洒水搅拌是为了让颗粒内外均匀吸水又不粘连。上层与下层同时工作，使一锅同时产出主食与菜，这是器具设计决定的效率。",
+        "conditions": "需要 durum 小麦磨成的粗麦粉、可密封的双层蒸锅、足够燃料与较长时间（多次蒸）；炖菜部分还需要肉或豆类与蔬菜。今天也可用玉米粉、大麦粉、farina 或珍珠粟，并且颗粒可用机器制备，从而减少手工搓粒这一最耗劳力的环节。Wikipedia 另记西非以珍珠粟、高粱、bulgur 等用相似方式烹制、成品有时也叫 couscous。",
+        "exceptions": "不要把库斯库斯与「一般的碎麦饭」或「意面类」混为一谈：它的定义包含颗粒制备与专用双层蒸具两条。也不要认为只能咸食——它也可配水果与牛奶做甜食，或做成早餐粥。使用非 durum 谷物时（玉米粉、大麦粉、珍珠粟）仍是库斯库斯一类，但原料差异会改变口感与成形条件。",
+        "story_uses": "适合承担「器具决定主食形态」这一题材：没有 couscousière 就做不出标准库斯库斯，因此它的分布可直接反推炊具与制陶/金属工艺水平。手搓成粒是极耗人力的环节，可用来支撑家庭劳作分工与节庆大锅的场景；炖菜与蒸粒同锅也意味着一次做饭要同时解决主粮与菜。",
+        "historical_scope": "本条依据 Britannica 与 Wikipedia 描述传统做法与当代替代原料，不在此定库斯库斯本身的起源年代与早期地点。Wikipedia 另给两条可记的锚点：它是阿尔及利亚、突尼斯、毛里塔尼亚、摩洛哥与利比亚马格里布饮食的主食，20 世纪初经法国殖民帝国与阿尔及利亚黑脚（Pieds-Noirs）进入法国与欧洲饮食；2020 年列入 UNESCO 非遗名录。这几条都不是「起源年代」。",
+        "evidence_and_uncertainty": "定义、durum 胚乳、couscousière 双层结构、多次蒸与洒水搅拌、下层炖菜构成、harissa 佐食、替代谷物与机器制粒、甜食与早餐粥用法，来自 cuisine_src_09（Britannica couscous）；semolina 颗粒蒸熟后泼炖菜同食的形态、马格里布五国主食地位、20 世纪初经法国殖民进入欧洲饮食、2020 年 UNESCO 非遗、西非以珍珠粟/高粱/bulgur 类做的同名菜，来自 cuisine_src_32（Wikipedia Couscous）。缺口：起源年代与地区、各地区变体差异、手工与机制的口感差异未被已读来源覆盖。review_status 保持 needs_review。"
+      },
+      "source_ids": ["cuisine_src_09", "cuisine_src_32"],
+      "related_ids": ["staples_wheat", "staples_chickpea", "animal_food_mutton_lamb", "animal_food_chicken", "flavors_chili_pepper", "food_supp_finger_millet", "flavors_honey"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "cuisine_injera",
+      "name": "英吉拉（埃塞俄比亚发酵苔麸薄饼）",
+      "aliases": ["英吉拉", "injera", "ənǰära", "ersho", "absit", "mitad", "mesob", "firfir", "gursha"],
+      "tags": ["food", "cooking", "fermentation", "cereal", "facility"],
+      "summary": "埃塞俄比亚与厄立特里亚用发酵苔麸面糊烙成的海绵状酸薄饼；兼作盛器与餐具，制作耗时数日，酵头可传代。",
+      "details": {
+        "definition": "英吉拉是埃塞俄比亚薄饼，传统以发酵的苔麸（Eragrostis tef）面糊制成，特征是海绵状质地与酸味；词来自阿姆哈拉语 ənǰära。它是埃塞俄比亚传统饮食的主食，通常也用大麦、粟或小麦粉做。苔麸约 6000 年前在埃塞俄比亚与厄立特里亚驯化，是世界已知最小的谷物；因粒太小无法除去麸皮与胚芽，磨出的粉天然是全谷粉。",
+        "mechanism": "发酵是核心（以下为 Britannica 叙述的流程，时段与 Wikipedia 不一致，不当作精确时长）：先做酵头 ersho（野酵母、面粉与水），几天后分层，倒掉上层水，取一部分海绵层加面粉与水再醒三天；再取一小部分加热到变稠起泡成为 absit，回拌进面糊以改善黏结与质地；再醒两小时完成发酵，得到酸味与海绵状结构。面糊以螺旋方式从外向内浇到热板 mitad（陶或金属）上烙熟，成品存于篮 mesob。",
+        "conditions": "需要苔麸（或替代谷物）、可维持数日的常温发酵环境、热板与盖罩，以及储存用的篮子。苔麸粒极小、产量低、进口贵，缺苔麸或遇出口限制时只能换粉，这会改变口感与成形。传统做法从零开始需多日发酵（Britannica 作约一周；Wikipedia 为主发酵 24—72 小时加二次发酵 30—120 分钟，两来源不一致，本条不取单一时长），但 ersho 与少量面糊可留作下一次的酵头，因此后续批次不用重新起头。",
+        "exceptions": "不要把英吉拉当成「普通薄饼」：没有长时发酵就不会有海绵孔与酸味，而这两者是它能否盛住炖菜（wot）的关键。也不要把它固定为只能配肉：蔬菜、沙拉与各种炖菜都行。本条不把 gursha（用英吉拉裹食物喂给对方以示亲爱、敬意）当作必须礼节，只记录其存在；firfir 是把剩饼撕碎配香料、番茄、洋葱、大蒜与 berbere 炒的一道菜。",
+        "story_uses": "适合承担「主食兼餐具」这一罕见设定：没有碗盘也能吃一餐，这会直接改变器具需求与旅行负重。发酵周期长（数日到一周）意味着一次吃饭要提前准备，可用来支撑家庭节律、待客预期与食物储备的因果；苔麸依赖单一作物，能支撑进口受限、作物失败与替代策略的剧情。",
+        "historical_scope": "本条不把英吉拉本身的起源当已定：Britannica 未给年代；Wikipedia 记苔麸自公元前第 4 千纪已栽培，而英吉拉的起源不明（民俗说约前 100 年，无法在史料中证实）。两条来源对发酵总时长不一致（Britannica 作「约一周」，Wikipedia 作主发酵 24—72 小时加二次发酵 30—120 分钟），本条不取单一时长。也不把意大利占领期（1930 年代）以后的融合做法当作传统。",
+        "evidence_and_uncertainty": "定义、苔麸特性与驯化时间、ersho/absit 发酵流程、mitad 与 mesob、螺旋浇烙、gursha 与 firfir、替代谷物、成品直径差异，来自 cuisine_src_10（Britannica injera）；主发酵 24—72 小时与二次发酵 30—120 分钟、absit 约占面团 10% 并降温至 46℃ 后拌回、发酵菌相（至少 68 种酵母与 107 种乳酸菌）、mitad 传统为陶制且温度 90—95℃需抹油、成品直径 50—60cm 厚 6—7mm、苔麸自前第 4 千纪已栽培而英吉拉起源不明、替代谷物含大麦/指粟/高粱/小麦/玉米/稻米、纯苔麸是财富象征、dirkosh 干英吉拉可存一年与 fit-fit，来自 cuisine_src_33（Wikipedia Injera）。缺口：英吉拉起源年代、各地区配方差异、苔麸产量数据未被已读来源覆盖。review_status 保持 needs_review。"
+      },
+      "source_ids": ["cuisine_src_10", "cuisine_src_33"],
+      "related_ids": ["staples_teff", "staples_barley", "flavors_spice_blend", "produce_tomato", "produce_onion", "produce_garlic", "cuisine_naan"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "cuisine_jollof_rice",
+      "name": "乔洛夫饭（西非番茄调味焖饭）",
+      "aliases": ["乔洛夫饭", "jollof rice", "jollof", "benachin", "thiéboudienne", "thiebou dieun", "riz gras", "nsamé", "zaame"],
+      "tags": ["food", "cooking", "cereal", "trade"],
+      "summary": "西非（塞内加尔起源）以番茄、辣椒、洋葱与香料一锅焖成的调味饭；与塞内加尔鱼饭 thiéboudienne 同源分支，不代表同菜。",
+      "details": {
+        "definition": "乔洛夫饭是来自西非塞内加尔的调味米饭菜，通常以长粒米、番茄、辣椒、洋葱与香料，有时加其他蔬菜与/或肉，一锅焖成；配料与做法随地区而异（Wikipedia）。当代版本含番茄、辣椒、洋葱与香料（这些作物是后来从世界其他地区传入西非的）。它在西非大部分地区都是常见菜，别名众多：冈比亚叫 benachin、塞内加尔仍叫 thiéboudienne、法语区（布基纳法索、科特迪瓦、几内亚等）叫 riz gras「肥饭」、马里叫 nsamé 或 zaame。",
+        "mechanism": "工艺核心是「先炒酱再下米」：把番茄、辣椒、洋葱与高汤打泥，炒到水分收干、油分析出，再加香料与更多高汤，最后下米煮到熟。这个顺序决定成品是干粒入味的红饭还是稀糊；有的做法用明火煮，从而带上烟熏味与一层锅巴。不同国家选用的米种不同（塞内加尔常用碎茉利米、riz gras 多用短粒、尼日利亚常用蒸谷米、加纳常用长粒茉利米），直接影响吸水与口感。",
+        "conditions": "需要米、番茄、辣椒、洋葱、油与高汤（禽或牛），以及能承受长时焖煮的厚锅与稳定火。庆典用的 party rice 常直接用明火，需要更大的锅和更多人照看。肉并非必需，但很多做法会加，因此肉类的可得性会改变这道菜的成本与场合。",
+        "exceptions": "不要把乔洛夫饭与 thiéboudienne 当作同一道菜：后者必须用鱼（配贝类与蔬菜），一般被视为塞内加尔国菜；两者同源，不能互相替代。也不要以为「番茄辣椒」是原初配方：这些食材是后来传入西非的，当代形式是引入之后才成形的。",
+        "story_uses": "适合承担「作物传入改变主食」这一因果：一道菜的核心调料全部来自外来作物，因此它的出现时间直接标记了这些作物在当地可得的时点。庆典大锅与明火做法可用于婚礼、节庆与社区规模的场景；「哪国做得最好」的争论可作为文化认同与区域竞争的题材。",
+        "historical_scope": "本条的年代只到 Britannica 的说法：可能在 14 世纪于今塞内加尔一带的 Wolof 帝国最早成形，与 thiéboudienne 同源；当代含番茄辣椒洋葱的形式在那些作物传入西非之后才发展出来。具体传入时间已读来源未给，本条不作年代断言。8 月 22 日的「世界乔洛夫饭日」也在该条目内。",
+        "evidence_and_uncertainty": "定义、别名列表、传统配方与「先炒酱后下米」流程、明火与锅巴、各国米种差异、Wolof 帝国与 14 世纪的推测、与 thiéboudienne 的关系、jollof wars 与世界乔洛夫饭日，来自 cuisine_src_11（Britannica jollof rice）；塞内加尔起源与长粒米/番茄/辣椒/洋葱/香料一锅成菜、尼日利亚与加纳的「Jollof wars」、riz au gras 别名与 thieboudienne 为 UNESCO 非遗，来自 cuisine_src_34（Wikipedia Jollof rice）。缺口：番茄辣椒等作物的具体传入年代、各国变体的源流关系、地区间工艺差异的系统比较未被已读来源覆盖。review_status 保持 needs_review。"
+      },
+      "source_ids": ["cuisine_src_11", "cuisine_src_34"],
+      "related_ids": ["staples_rice", "produce_tomato", "flavors_chili_pepper", "produce_onion", "animal_food_chicken", "animal_food_beef", "animal_food_dried_salted_fish"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "cuisine_pizza",
+      "name": "披萨（意大利扁平发面团烤制菜）",
+      "aliases": ["披萨", "pizza", "比萨", "Margherita", "Margherita pizza", "Neapolitan pizza", "pissaladière", "Chicago-style pizza"],
+      "tags": ["food", "cooking", "cereal", "dairy", "trade"],
+      "summary": "意大利起源的扁平发面团烤制菜，高温速烤、热食；成败在面团与炉温，番茄只是 16 世纪传入后才成为常见配料。",
+      "details": {
+        "definition": "披萨是意大利起源的菜，由扁平的发酵面饼上铺橄榄油、牛至、番茄、橄榄、mozzarella 或其他芝士等组合，快速烘烤（商业场合常用加热到极高温的柴火炉）后热食。Margherita 是最简单、最传统的款式之一，配料为番茄或番茄酱、mozzarella 与罗勒。那不勒斯式用意大利水牛奶制的 mozzarella 或 fior di latte，配 San Marzano 番茄或 pomodorino vesuviano。罗马式常不用番茄而用洋葱与橄榄。利古里亚式近似法国普罗旺斯的 pissaladière，在橄榄与洋葱上再加鳀鱼。",
+        "mechanism": "两张技术要件：面团的发酵（决定饼底是否有气泡与韧性）与炉温、烤时（决定饼底是脆、软还是干）。高温短时使饼底快速定型、表面起斑而内部仍湿软；温度不够时只能拉长烤时，结果是饼底干硬。配料在饼底上的添加量也要控制，过多水分会浸软面团。",
+        "conditions": "需要小麦粉、发酵剂（多为酵母）、水与盐，以及能稳定高温的烤炉；柴火炉需持续的木柴。芝士类款式还需乳制供应链；番茄款式的出现依赖番茄在当地的可得性。商业制作需要能批量揉面与控温的设备。",
+        "exceptions": "不要把披萨当成「有番茄的饼」：番茄是 16 世纪才传入的作物，罗马式与利古里亚式至今可以不用番茄；把番茄当作定义会把前者排除。也不要把 Margherita 当作全意大利的共同原型——它只是一个具体款式，各地差异很大。各种非意大利变体（芝加哥深盘、加州式）属于衍生，不推翻本条对工艺的定义。",
+        "story_uses": "适合承担「炉温与城市饮食」这一因果：柴火炉需要持续木柴与专门砌筑，因此披萨店的出现可直接反推城镇的燃料供应与工匠分工。街头或店内就地热食的形态可用于市集与劳动区场景；番茄的有无可作为「该地能否拿到外来作物」的时间标记。",
+        "historical_scope": "披萨的时间锚点：pizza 一词首见于公元 997 年拉齐奥 Gaeta 的拉丁文献；现代披萨于 18 世纪或 19 世纪初在拿坡里由类似扁面包演变而成（Wikipedia）；番茄何时首次使用不确定，但不可能早于 16 世纪；Margherita 的 1889 年王室委托故事在 Britannica 与 Wikipedia 两处都被标为流行传说。美国：意大利移民 19 世纪末带入，第一家披萨店 Lombardi's 于 1905 年在纽约开业（Wikipedia；Britannica 只作「20 世纪初前后」）。2009 年拿坡里披萨在欧盟注册为传统特色保证（TSG）。本条不把传说当事实。",
+        "evidence_and_uncertainty": "定义、配料组合、柴火炉高温速烤、Margherita 配料与命名传说、那不勒斯式与罗马式与利古里亚式的差异、20 世纪初纽约首店与二战后美国兴盛，来自 cuisine_src_12（Britannica pizza）；pizza 一词 997 年首见、现代披萨 18/19 世纪在拿坡里成形、番茄不早于 16 世纪、1889 年 Margherita 传说、19 世纪末移民带入美国与 Lombardi's 1905 年纽约开业、2009 年 TSG 注册，来自 cuisine_src_35（Wikipedia Pizza）。缺口：各地区面团配比、现代商业变体的传播路线未被已读来源覆盖。review_status 保持 needs_review。"
+      },
+      "source_ids": ["cuisine_src_12", "cuisine_src_35"],
+      "related_ids": ["staples_wheat", "animal_food_cheese", "produce_tomato", "flavors_spice_blend", "animal_food_dried_salted_fish", "cuisine_naan"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "cuisine_risotto",
+      "name": "炖饭（北意大利分次加汤米饭菜）",
+      "aliases": ["炖饭", "risotto", "risotto alla milanese", "risott'", "riso", "arborio", "carnaroli", "mantecatura"],
+      "tags": ["food", "cooking", "cereal", "dairy"],
+      "summary": "北意大利（伦巴第）传统米饭菜：米先用黄油炒、再分次加高汤逐次吸收，最后加黄油与芝士成奶油质感；靠搅拌与淀粉形成黏稠度。",
+      "details": {
+        "definition": "炖饭是北意大利饮食的传统主食米饭菜，与 pilaf、paella 同属「米 + 汤 + 配料」一类。做法：用中长粒米（如 arborio 或 carnaroli，偏好波河谷本地品种），先以黄油（常拌洋葱丁）炒至微黄（有的厨师会加少量橄榄油提味），再分批加高汤（通常为小牛肉、牛肉、蔬菜或它们的组合），每加一勺就煮到米把液体吸收，再加下一勺，持续约 20 分钟；每杯米约用二至三杯高汤。煮到 al dente 后静置几分钟，再加黄油与刨好的芝士，使淀粉呈奶油状。",
+        "mechanism": "两个技术要点：一是「分次加汤 + 搅拌」，让米粒表层的淀粉不断释出形成黏稠的奶油质感，同时不磨破米粒；二是「最后加黄油与芝士」的乳化步骤（mantecatura），把脂肪搅进淀粉糊里得到光滑口感。传统厨师在过程中不停搅拌，现代做法有先洗净再炒、用富含淀粉的高汤代替部分搅拌。",
+        "conditions": "需要高淀粉含量的中长粒米（普通长粒米难以做出同样的结构）、黄油与芝士、高质量高汤，以及能持续加热与不断搅拌的人手。逐次加汤意味着整个烹饪过程不能离开炉子，因此对火候控制与操作者注意力要求高。",
+        "exceptions": "不要把炖饭与 paella 等同：paella 不搅拌、靠薄层慢煮形成锅巴（socarrat），炖饭则靠搅拌与淀粉形成奶油质感，两者目标相反。也不要把「加高汤煮米」都当作炖饭：没有逐步吸收与搅拌的环节就不是同一工艺。现代做法可加南瓜、豌、豆、菌、罗勒、贝类或 pancetta 作主菜，但这不改变基础的米与工艺。",
+        "story_uses": "适合承担「水稻传入改变饮食」这一因果：水稻在 8—9 世纪由摩尔人引入安达卢西亚，再向地中海欧洲扩散，波河谷成为最成功的承接区，这一链条可用来支撑作物传入与地方饮食形成的叙事。可加肉或纯素的多变性可用于阶层差异；需要持续搅拌的工艺可用于家庭分工与厨师技能的场景。",
+        "historical_scope": "炖饭的时间锚点（Wikipedia）：稻米在意大利南部种植已久、逐渐北传至波河谷沼泽；一般认为炖饭起源于今伦巴第；第一份可辨识为炖饭的食谱为 1809 年（黄油炒米加香肠、骨髓、洋葱与藏红花汤）；1854 年 Vialardi 食谱已有以 risotto 为名的菜，但米兰到底谁发明无法确定；与炖饭相关的米种是 20 世纪才有的，自 1914 年 Maratelli 开始。Britannica 另记水稻由摩尔人 8—9 世纪引入安达卢西亚。名称源于 riso（米）的俗语 risott'；Frederick I 的 risum optimum 说法是传说，本条不采。",
+        "evidence_and_uncertainty": "定义、米种（arborio/carnaroli 与波河谷本地种）、黄油炒米与分次加汤、约 20 分钟与二至三杯汤比例、al dente 与静置、最后加黄油与芝士、可加配料、水稻经安达卢西亚传入、名称来源与传说、19 世纪初的记载，来自 cuisine_src_13（Britannica risotto）；以汤煮至奶油状、多为第一道菜（primo）、稻米南种渐北传与波河谷适种、1809 年首份可辨识食谱与 1854 年 Vialardi、米种清单与 1914 年 Maratelli、tostatura 与白葡萄酒与分次高汤不停搅拌与 mantecatura，来自 cuisine_src_36（Wikipedia Risotto）。缺口：各地风格的开展历史、配方比例的地方差异、现代器具与工序细节未被已读来源覆盖。review_status 保持 needs_review。"
+      },
+      "source_ids": ["cuisine_src_13", "cuisine_src_36"],
+      "related_ids": ["staples_rice", "animal_food_butter", "animal_food_cheese", "animal_food_beef", "produce_onion", "cuisine_paella"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "cuisine_paella",
+      "name": "西班牙海鲜饭（瓦伦西亚藏红花米饭菜）",
+      "aliases": ["西班牙海鲜饭", "paella", "paellera", "瓦伦西亚饭", "paella valenciana"],
+      "tags": ["food", "cooking", "cereal", "aquatic_food", "facility"],
+      "summary": "西班牙地中海沿岸起源、以藏红花调味并配肉与海鲜的米饭菜；器具是决定形态的关键：双耳平底锅 paellera，传统直接从锅里吃。",
+      "details": {
+        "definition": "西班牙海鲜饭是西班牙饮食中一道以藏红花调味、配肉类、海鲜与蔬菜的米饭菜。起源于西班牙地中海沿岸的水稻产区，尤其与瓦伦西亚地区密切相关。名称来自 paellera——用来做它的双耳平底圆锅；传统上直接从锅里吃。具体做法：鸡肉、猪肉或兔肉与贝类、虾、贻贝、小龙虾、鱿鱼等用橄榄油配洋葱、大蒜与香草炒过后先取出；米与番茄、藏红花、高汤同煮，再把肉与海鲜拌回，最后以豌豆、pimiento 等蔬菜饰面。传统上在户外用柴火做。",
+        "mechanism": "薄层平铺是核心：米在宽而浅的锅里铺成一薄层，让每粒米均匀接触热量与汤汁，形成底层微焦而米粒分明的效果（而不是煮成粥）。藏红花提供颜色与香气，用量极少；高汤量决定最终是干爽还是湿润。炒香的肉与海鲜先取出、最后拌回，是为了不让它们在长时煮米中过熟。",
+        "conditions": "需要水稻（尤其能在地中海沿岸种植）、藏红花（价格极高、用量极少）、橄榄油、双耳平底锅与燃料。传统在户外用柴火，需要燃烧稳定且能控火；锅的直径决定一次能出多少份，因此大型聚餐需要特大的锅与更多柴火。",
+        "exceptions": "不要把西班牙海鲜饭固定为「一定有海鲜」：肉版（鸡、猪、兔）是传统做法的一部分，海鲜并非必选。也不要把「米加料同煮」都当作海鲜饭：它的特征是薄层与双耳浅锅，用深锅煮成饭粥不是同一工艺。与意大利炖饭的区别在于炖饭搅拌而 paella 不搅、目标是一层薄锅巴而非奶油质感。",
+        "story_uses": "适合承担「灌溉水稻与节庆聚餐」这一因果：能常年种水稻说明有灌溉系统与水源，可作为水利与农业制度的物证。大锅加户外柴火的做法可用于村落节庆与集体劳作的场景；藏红花的使用则能反推远距贸易与奢侈品的可得性。",
+        "historical_scope": "西班牙海鲜饭源自瓦伦西亚自治区（Wikipedia），也是该区标志之一；分 paella valenciana（兔、鸡、鸭、蜗牛）、paella mixta（畜禽肉）与 paella de marisco（海鲜）三型，瓦伦西亚人声称只有 valenciana 才算真海鲜饭。名称来自做它的宽而浅的传统锅（加泰罗尼亚语与瓦伦西亚语中 paella 即「煎锅」），可更早追至古法语与拉丁 patella。本条不在此定海鲜饭的起源年代。",
+        "evidence_and_uncertainty": "定义、藏红花调味、瓦伦西亚起源、paellera 与直接从锅吃、炒肉取出的顺序、米与番茄/藏红花/高汤同煮、豌豆与 pimiento 饰面、户外柴火，来自 cuisine_src_14（Britannica paella）；瓦伦西亚自治区标志地位、三型分法（valenciana/mixta/de marisco）与「只有 valenciana 才算」的本地主张、paella 即「煎锅」且词源可追至拉丁 patella，来自 cuisine_src_37（Wikipedia Paella）。缺口：起源年代、各地区配方的系统差异、锅具尺寸与火候参数未被已读来源覆盖。review_status 保持 needs_review。"
+      },
+      "source_ids": ["cuisine_src_14", "cuisine_src_37"],
+      "related_ids": ["staples_rice", "flavors_saffron", "produce_tomato", "produce_onion", "produce_garlic", "animal_food_chicken", "animal_food_pork", "cuisine_risotto"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "cuisine_taco",
+      "name": "塔可（墨西哥玉米饼包裹馅料）",
+      "aliases": ["塔可", "taco", "墨西哥卷饼", "tortilla", "tlacoyo"],
+      "tags": ["food", "cooking", "cereal", "trade"],
+      "summary": "墨西哥起源的手持食物：调味肉与蔬菜等馅料裹在折叠或卷起的玉米（或小麦）tortilla 里；馅料跨两大洲，是作物交换的直证。",
+      "details": {
+        "definition": "塔可是墨西哥起源、国际流行的手持食物，把调味的肉、蔬菜等馅料包在折叠或卷起的玉米或小麦 tortilla 中。玉米在墨西哥已至少驯化 9000 年，而磨碎玉米最早的用途很可能就是 tortilla——用玉米粉、生石灰与水做的扁平面包。名称来源不确定：可能是西班牙语的「木栓」，也可能更可能来自纳瓦特尔语 tlacoyo（一种相关的食物）。",
+        "mechanism": "tortilla 的制作是基础：玉米先用生石灰水煮（既软化籽粒又便于去壳，石灰还是墨西哥饮食的主要钙源），在 metate 石磨上磨成面团，再拍成薄圆片在 comal 上烙。taco 本身只是「面包 + 馅」的组装：tortilla 要保持软才能折叠，馅料的水分要控住不然会浸破饼。小麦 tortilla 的弹性更强但需小麦粉与面筋处理。",
+        "conditions": "需要玉米或小麦、生石灰、石磨与煎盘（comal）——这些是一套完整的加工设施，缺一样就退化为别的食物。馅料方面，前西班牙时期的墨西哥只有本地动物可用；欧亚家畜、奶酪、莴苣与甘蓝是随西班牙人来的，西红柿、土豆与辣椒则来自南美——因此「一份标准塔可」的配料来自多个大陆，这是本条最需要保留的历史事实。",
+        "exceptions": "不要把塔可与 tortilla 混为一条：tortilla 是饼，taco 是一种用法，同一张饼还能做 enchilada、tostada 与 burrito。也不要把「塔可里一定有肉」当定义：素食馅（烤豆泥、鳄梨、土豆、芝士）也是标准做法。把现代常见的牛肉与芝士当原初配方是错的：这些在西班牙人到来之后才出现。",
+        "story_uses": "适合承担「作物与家畜交换」这一因果：一份塔可的配料能同时证明玉米驯化、欧亚家畜引入与新大陆作物（番茄、土豆、辣椒）的可得性，可作为两个大陆接触之后的时间标记。街头现制与手持形式可用于市集与劳作间隙的场景；石磨与石灰处理则能反推与该工艺绑定的营养与器具链。",
+        "historical_scope": "本条的时间锚点：玉米在墨西哥驯化至少 9000 年（Britannica）；前西班牙时期的馅料可能为蛇、鬣蜥、犰狳、火鸡与螽斯；欧亚家畜、奶酪、莴苣与甘蓝随西班牙人传入。不在此定 taco 这个名字的出现年代（该条目明说词源不确定），也不给各地区变体的年代。Wikipedia 只给形态与馅料范围、归为 antojitos 街头食品，并区分 burrito（更大、卷起）与 taquito（卷起再炸）与 chalupa/tostada（先炸饼）。",
+        "evidence_and_uncertainty": "定义、玉米驯化时间、tortilla 与石灰处理、metate 与 comal、名称的两种词源假设、前西班牙时期馅料、西班牙人带入的食材、素食馅、美国与外国的流行，来自 cuisine_src_15（Britannica taco）；玉米或小麦 tortilla 盛馅对折徒手食用、馅料与饰料范围、antojitos 街头食品定位、与 burrito/taquito/chalupa 的区别，来自 cuisine_src_38（Wikipedia Taco）。玉米驯化与 tortilla 工艺又得到 cuisine_src_16（Britannica tortilla）与 cuisine_src_39（Wikipedia Tortilla）支持。缺口：名称出现的年代、各地变体的源流关系、现代商业链的细节未被已读来源覆盖。review_status 保持 needs_review。"
+      },
+      "source_ids": ["cuisine_src_15", "cuisine_src_16", "cuisine_src_38"],
+      "related_ids": ["staples_maize", "flavors_chili_pepper", "produce_tomato", "animal_food_beef", "animal_food_pork", "animal_food_cheese", "animal_food_turkey", "cuisine_tortilla"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "cuisine_tortilla",
+      "name": "tortilla（墨西哥石灰处理玉米薄饼）",
+      "aliases": ["tortilla", "玉米饼", "墨西哥薄饼", "metate", "comal", "tortillería", "nixtamal"],
+      "tags": ["food", "cooking", "cereal", "processing", "facility"],
+      "summary": "墨西哥未发酵玉米（或小麦）薄饼；关键工艺是先用生石灰水煮玉米再石磨成团，缺乏这一层的薄饼不只是口感差别，还会减少钙的来源。",
+      "details": {
+        "definition": "tortilla 是墨西哥的圆形薄扁面包，以未发酵玉米粉为主，较少用小麦粉。传统上，做 tortilla 的玉米先用生石灰水煮以软化籽粒并脱壳（这种石灰是墨西哥饮食中钙的主要来源）；籽粒在石磨（metate，一种鞍形磨）上磨碎，小块面团用手拍成薄圆片，再在 comal（陶或铁煎盘）上烙。今天大部分 tortilla 在 tortillería 买：面团机器搅拌、机器压片、经传送带过火。",
+        "mechanism": "石灰处理（nixtamalización）是核心：碱性条件下煮玉米使种皮与胚芽易除，同时改变淀粉与蛋白质结构，使面团能成团不裂，也提高了可用赖氨酸与钙。这一化学步骤需要石灰与控制好的浓度与时间。拍片要求面团含水均匀且醒过，太湿黏手、太干则裂；在 comal 上的时间决定中心是否熟透而不焦硬。",
+        "conditions": "需要玉米、生石灰或相应碱源、可加热的容器、石磨与煎盘。tortilla 极易陈化，因此传统上每天或每餐现买现做；在没有冷藏的条件下，陈化速度直接限制了它能否成主食。小麦版只需小麦粉与面筋，但需一套不同的磨粉与揉面工艺。",
+        "exceptions": "不要把 tortilla 与西班牙的土豆煎蛋饼（tortilla española）混为一谈：两者只是同名，工艺与原料都不同。也不要把它当成「玉米粉加水烙一下」：石灰处理是定义的一部分，跳过这一步得到的是另一类面食（且失去钙与可塑性）。tortilla 与「面包」也不同：它不发酵。",
+        "story_uses": "适合承担「主粮工艺与营养」这一因果：石灰处理不只是口感，它让玉米主粮能提供可利用的钙与氨基酸，因此是否掌握这一工艺会直接影响人群营养。每日现买现做可用来支撑市集与家庭时间分配的叙事；石磨与 comal 是可在遗址中留下的器物，可作为工艺存在的物证。",
+        "historical_scope": "本条不把石灰处理（nixtamalization）的起源当已定：Britannica 未给年代，cuisine_src_15（taco）只给出玉米在墨西哥驯化至少 9000 年。Wikipedia 另记：tortilla 是薄而圆的未发酵扁面包，最初以玉米制、今也有小麦版；玉米版是墨西哥与中美洲多数地区主食，小麦版多见于墨西哥北部与墨裔美国饮食；两类多已工业化，玉米版常用脱水 masa harina；小麦版只需面粉、水与油脂且一般更大。",
+        "evidence_and_uncertainty": "定义、玉米为主小麦为辅、石灰处理与钙源、metate 石磨与手工拍片、comal 烙、现代 tortillería 机器生产、易陈化与每日鲜买、作勺子或炸脆、作为 taco/enchilada/tostada/burrito 基底，来自 cuisine_src_16（Britannica tortilla）；玉米驯化时间得到 cuisine_src_15（taco）交叉支持；nixtamalization 成 masa 并在煎盘烤、小麦版只需面粉/水/油脂且更大、多已工业化与 masa harina、易变硬与可做 tortilla 汤/tostada/玉米片，来自 cuisine_src_39（Wikipedia Tortilla）。缺口：石灰处理工艺的起源年代与地区、各地区玉米品种差异未被已读来源覆盖。review_status 保持 needs_review。"
+      },
+      "source_ids": ["cuisine_src_16", "cuisine_src_15", "cuisine_src_39"],
+      "related_ids": ["staples_maize", "staples_wheat", "cuisine_taco"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "cuisine_ceviche",
+      "name": "腌鱼（南美柑橘汁腌生鱼）",
+      "aliases": ["腌鱼", "ceviche", "seviche", "cebiche", "酸橘汁腌鱼"],
+      "tags": ["food", "cooking", "aquatic_food", "preservation", "trade"],
+      "summary": "南美以柑橘汁腌生鱼或贝类的菜；关键前提是当日鲜鱼与可用柑橘——两者缺一就不能做，与「盐腌保存」不是同一原则。",
+      "details": {
+        "definition": "腌鱼是南美起源的菜，由生鱼或贝类用柑橘汁腌渍而成。秘鲁海岸的 Chincha 人是以航海见长的族群，至少一部分鱼获不煮就吃。西班牙人征服秘鲁后采行此菜，但改用他们引入的柠檬与来檬汁腌渍，遂得此名。词源有两条假设：一说来自阿拉伯语 sakbāj（醋煮肉），这也是西班牙语 escabeche（腌菜）的来源；一说源自 Chincha，克丘亚语作 sawichi。名称拼写有 ceviche、seviche、cebiche 三种。",
+        "mechanism": "枸橼酸使鱼肉的蛋白质变性，在外观与口感上变白变紧，形成类似「熟」的效果，但这与加热杀菌不是同一回事。时间与酸度决定口感：至少两小时才能到典型质地，泡太久会过硬。整个制作过程依靠低温鲜鱼，不是靠盐或发酵抑制腐坏。",
+        "conditions": "需要当日鲜鱼或贝类、足够量且便宜的柠檬或来檬、切片刀具与容器，以及可将成品保持冷的条件。典型配料是冷 salsa：辣椒、黄瓜、香菜、番茄、鳄梨、洋葱等。鱼种可用蟹、虾、红纹笛鲷、鲯鳅、鲣鱼等（常混合）。常配 tortilla 或玉米片，一般作开胃菜而非主餐。",
+        "exceptions": "不要把腌鱼当作安全的保存手段：「枸橼酸腌熟」不等于杀死所有病原体，鱼的冷链与新鲜度仍是前提。也不要把它与日本刺身或北欧腌渍鱼混为一类：后两者各有不同工艺与保存原理。墨西哥食谱声称其为墨西哥起源，该条目明确说此菜从秘鲁向外传得很早，因此不能把地方声称当作源流证据。",
+        "story_uses": "适合承担「水路与冷链」这一因果：能做腌鱼证明该地能当日获得鲜鱼且能拿到柑橘，缺少任一条就做不出来。作为开胃菜而非主餐的定位可用于市集、户内待客与渔港日市等场景；与刺身、北欧腌鱼并置时可用来说明「不加热处理鱼」有多种技术路线。",
+        "historical_scope": "本条的时间线索：Chincha 人在西班牙人到来前就生食部分鱼获；西班牙人引入柠檬与来檬后形成柑橘腌渍的做法（Britannica）；Wikipedia 另记安第斯沿岸居民在 16 世纪柑橘传入前用本地植物汁（如 tumbo，香蕉西番莲），且与不经修饰的日本刺身不同、酸浸不能保存鱼也不能杀死病原体；秘鲁视其为国菜并被 UNESCO 认定为人类非遗，智利、哥伦比亚、厄瓜多尔、墨西哥等太平洋沿岸国也各有版本。本条不在此定此菜的出现年代，也不在两种词源之间作断言。",
+        "evidence_and_uncertainty": "定义、Chincha 与西班牙人的关系、柠檬与来檬引入与名称由来、拼写变体、两小时腌渍与枸橼酸的「熟」、冷 salsa 配料与鱼种、配 tortilla 与玉米片、常作开胃菜、各地扩散与墨西哥的声称，来自 cuisine_src_17（Britannica ceviche）；太平洋沿岸多国各有版本、秘鲁国菜与 UNESCO 非遗、酸浸不杀菌与结构上仍生、柑橘前用 tumbo 等本地植物汁、调料含本地辣椒与中美洲以芥末替代、作主菜配红薯/玉米/鳄梨/炸大蕉，来自 cuisine_src_40（Wikipedia Ceviche）。缺口：出现年代、各地区配方的系统差异未被已读来源覆盖；本条不提供食品安全参数。review_status 保持 needs_review。"
+      },
+      "source_ids": ["cuisine_src_17", "cuisine_src_40"],
+      "related_ids": ["animal_food_dried_salted_fish", "animal_food_shrimp_prawn", "animal_food_oyster", "flavors_chili_pepper", "cuisine_tortilla", "cuisine_sushi"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "cuisine_pho",
+      "name": "越南粉（汤面、薄切牛肉）",
+      "aliases": ["越南粉", "pho", "phở", "越南牛肉粉", "bánh đa cua", "xáo"],
+      "tags": ["food", "cooking", "cereal", "aquatic_food", "trade"],
+      "summary": "越南汤面，以汤、面与肉为主，多为薄切牛肉；汤底靠八角桂皮等香料与鱼露，配料另上。起源与法国殖民时期的牛肉使用相关。",
+      "details": {
+        "definition": "越南粉是越南的汤面菜，以汤、面条与肉组成；最常见的蛋白质是薄切牛肉，有时用牛筋或牛肚。也可用鸡、鱼、猪或豆腐。汤底通常以一系列香料增香，如八角、丁香、桂皮、小豆蔻或芫荽，可加鱼露；传统配菜有葱、泰罗勒、青柠、豆芽、薄洋葱片与香菜；常配 hoisin 与 sriracha 酱拌入。它被视为越南国菜，12 月 12 日为「越南粉日」。",
+        "mechanism": "汤底是核心：多种香料（八角、丁香、桂皮、小豆蔻、芫荽）与鱼露、肉骨一起熬制，形成复合香气；越南粉常把肉片切得极薄，靠热汤的温度当场烫至半熟，因此上桌温度与切片厚度都是工艺参数。河内的做法以汤为焦点，有的摊子连香草也不加，以免稀释汤味。配料另上（香草、豆芽、青柠）让食客在最后一刻调整，而不是提前拌入。",
+        "conditions": "需要米制扁面（与小麦面不同，另有制作工艺）、大量肉骨与香料（其中多个属远距贸易品）、鱼露与长时熬汤的燃料。生牛肉片要求冷链与当日供应能力；缺少当日鲜肉的场合会改用熟肉或鸡。香草与豆芽需要当地可得的鲜菜供应。",
+        "exceptions": "不要把越南粉与「一般牛肉汤面」混为一条：它的识别点是米制扁面、香料汤底与配料后上的组合。也不要把「北方与南方做法相同」当作默认：该条目明确说 1954 年分治后南方厨师开始试验，加入冰糖与白萝卜等，肉的不同部位与不同汤底也随之出现。香草与豆芽不是必需：有的河内摊子刻意不加。",
+        "story_uses": "适合承担「殖民接触与饮食变迁」这一题材：牛肉在越南原本不是日常肉食，牛肉汤面的出现与法国殖民相关，可作为文化接触的物证。难民在海外开店而把它推向全球，可用于移民、餐饮业与城市街区变迁的场景；长时熬汤与当日鲜肉可反推燃料与冷链。",
+        "historical_scope": "本条的时间锚点：Britannica 把起源定在 19 世纪末法国殖民时期，推测是越南村民把法国牛肉加入 bánh đa cua（蟹汤扁米面），地点可能在北越河内附近；1954 年分治后北方人南迁把它带入南方；越南战争后难民在外开店而推向世界；词源有法语 feu 与中文 fen 两说，该条目并列为「同样可能」。Wikipedia 则记：它最早见于书面记载为 20 世纪初的越南北部，南定（Nam Định）居民被认为是最早做出越式粉的人，并明白说「因史料有限，起源仍有争论」。两来源对最早年代不完全一致（19 世纪末 vs 20 世纪初书面记载），本条只记「19 世纪末至 20 世纪初、起源仍有争论」。",
+        "evidence_and_uncertainty": "定义、牛肉为主与替代蛋白、汤底香料与鱼露、配菜与 hoisin/sriracha、国菜地位与 12 月 12 日、19 世纪末起源假设与 bánh đa cua 的前身、1954 年后的南北分化、战后难民传播、两种词源，来自 cuisine_src_18（Britannica pho）；汤/米制面条（bánh phở）/香草/肉的构成、南定居民被认为最早做出越式粉、最早书面记载为 20 世纪初越南北部、起源仍有争论且法中西传统均被认为有影响、河内与西贡风格在面条宽度/汤甜度/香草与酱料上不同，来自 cuisine_src_41（Wikipedia Pho）。缺口：起源确证、各地配方的系统差异、米制扁面的制作工艺未被已读来源覆盖。review_status 保持 needs_review。"
+      },
+      "source_ids": ["cuisine_src_18", "cuisine_src_41"],
+      "related_ids": ["staples_rice", "animal_food_beef", "flavors_fish_sauce", "flavors_star_anise", "flavors_coriander_seed", "produce_onion", "cuisine_tofu"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "cuisine_naan",
+      "name": "馕（南亚与中东发酵扁面包）",
+      "aliases": ["馕", "naan", "nân-e sangak", "naan-e-tunuk", "naan-e-tanuri", "keema naan", "garlic naan", "tandoor", "tawa"],
+      "tags": ["food", "cooking", "cereal", "dairy", "facility"],
+      "summary": "单层发酵扁面包，传统贴在 tandoor（可达 480℃）内壁烤或在 tawa 平锅上烙；发酵耗时曾使它成为上层食物，烤后刷 ghee 热食。",
+      "details": {
+        "definition": "馕是泪滴形的发酵扁面包，传统在 tandoor（圆柱形陶土炉）或木炭上烤。主料为白面或小麦粉与发酵剂（多为酵母），其余为温水、盐、ghee（澄清黄油）与酸奶；有时加奶、蛋或蜂蜜，也可用泡打粉或小苏打代替酵母以缩短时间。烤后通常刷 ghee 或黄油并热食，常用来抓酱、炖菜与咖喱代替餐具。",
+        "mechanism": "发酵产气使面团形成气孔，从而得软而蓬松的质地；面团保持单层，是为了能在极短时间内烤透而不焦。在 tandoor 里把饼贴在内壁上，依靠炉壁的高温直接传热，几十秒到几分钟就熟并起金褐色斑点；在 tawa 上则靠倒扣锅贴火。烤后刷油既增香也防止表面干硬。",
+        "conditions": "需要小麦粉、发酵剂、饮水、盐与乳制品（ghee、酸奶）；临时无法发酵时需泡打粉或小苏打作为替代。tandoor 可达 480℃，是一种高燃料强度、需要专门砌筑的设施；没有 tandoor 时可用 tawa 平锅，但金褐斑与膨胀度会不同。发酵耗时较长，这直接限制了它的产量与可得人群。",
+        "exceptions": "不要把馕与「所有扁面包」混为一条：本条的定义包含发酵与 tandoor/tawa 烘烤两个环节，无酵薄饼不在内。也不要把各种填馅变体当作独立物种：keema naan（羊肉糜）、Peshawari naan（椰子与干果）、Kashmiri naan（蜜饯樱桃、金黄葡萄干、扁桃、孜然、葫芦巴）、aloo naan（香料土豆泥）、garlic naan（蒜泥揉面）都是同一面团的变体；nan-e roghani 是阿富汗式，用黑种草籽与芝麻。",
+        "story_uses": "适合承担「专用炉具与阶层」这一题材：tandoor 需要持续燃料与砖砌工艺，并非家家可有，因此馕的普及度可直接反映城镇的公共炉灶与工匠分工。历史上因发酵耗时而主要为上层食物，这一点可用于阶层与宴席的场景；用饼代替餐具也能用来做旅行与野外饮食的设定。",
+        "historical_scope": "馕的时间线索：词源为波斯语 nân（面包通称）；Wikipedia 记英语最早见于 1803 年 William Tooke 游记（Britannica 作 1799，本条取「约 1799—1803」）；南亚方面，馕在伊斯兰德里苏丹国时期传入，最早提及为 1300 年代 Amir Khusrau 回忆录中的 Naan-e-Tunuk 与 Naan-e-Tanuri；1520 年代莫卧儿期因发酵耗时且手艺少人掌握而只有贵族享用（Ain-i-Akbari 记其与 kebab/kheema 同食）；至 1700 年代普及至平民。本条不在此定馕本身的起源年代。",
+        "evidence_and_uncertainty": "定义、配料与发酵剂、tandoor 温度与贴壁烤、tawa 代替、烤后刷 ghee、填馅变体列表、词源与 1300/16 世纪/1799 三个时间点，来自 cuisine_src_19（Britannica naan）；轻盈蓬松与金褐斑的特征、tawa 倒扣上色、nân 为面包通称、1803 年 Tooke 游记、德里苏丹国时期传入与 1300 年代 Khusrau 两种 naan、1520 年代莫卧儿期仅贵族享用与 Ain-i-Akbari 配 kebab/kheema、1700 年代普及至平民、缅甸 naan bya 与印尼 roti naan 与馕（新疆）等变体，来自 cuisine_src_42（Wikipedia Naan）。缺口：起源年代与地区、各地区面团配比与炉温差异未被已读来源覆盖。review_status 保持 needs_review。"
+      },
+      "source_ids": ["cuisine_src_19", "cuisine_src_42"],
+      "related_ids": ["staples_wheat", "animal_food_butter", "animal_food_yogurt", "animal_food_milk", "animal_food_egg", "flavors_cumin", "cuisine_curry"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "cuisine_curry",
+      "name": "咖喱（南亚香料酱汁菜与衍生）",
+      "aliases": ["咖喱", "curry", "kari", "masala", "garam masala", "curry powder", "sambar podi"],
+      "tags": ["food", "cooking", "spice", "trade", "condiment"],
+      "summary": "以磨碎混合香料调味的酱汁或浓汁菜，起源于印度；它是做法类别而非单一配方，南印与北印的香料路线差异极大。",
+      "details": {
+        "definition": "在西方用法中，咖喱指以磨碎混合香料调味的酱汁或浓汁菜，一般认为源于印度，后传至世界许多地区；名称来自泰米尔语 kari「酱」。注意这是「做法类别」而不是一种固定配方：每个地区都有自己的风味轮廓；印度的香料混合叫 masala，传统上在家庭自配；英属时期出现了商业化的 curry powder，让英国厨师能重现印度风味，但那不是印度本土传统用法。",
+        "mechanism": "香料需先烘炒再磨碎，才释放香气；印度咖喱的底多为洋葱、姜与蒜，再配小豆蔻、桂皮、丁香、芫荽、孜然、茴香籽、葫芦巴、芥末籽、黑胡椒与红椒、姜黄（提供特征黄色）。南印素食咖喱用 sambar podi 等本地配方，最为辛辣；北印经典的莫卧儿 garam masala 只用小豆蔻籽、桂皮、丁香与黑胡椒，不加辛辣料，变体可加芫荽与孜然籽。厚底锅与长时焖煮让香料与脂肪充分溶合。",
+        "conditions": "需要多种香料（多数属远距贸易品）、洋葱与姜蒜、脂肪与厚底锅。香料的价格与可得性直接决定一个地方能否做出完整配方的咖喱；只有部分香料的场合会退化为地方变体。热带香料产地与消费地之间的贸易路线是这类菜能否传开的前提。",
+        "exceptions": "不要把咖喱当作一种香料（curry powder 不等于 masala）：前者是英属时期为外人方便而商品化的混合粉，后者是印度家庭按菜自配。也不要把「加咖喱粉」等同于做印度菜。本条不把加勒比、泰国、日本、印尼的衍生菜当作同一种东西：它们各自是独立发展出的菜，只共享「香料 + 酱汁」这个框架。",
+        "story_uses": "适合承担「香料贸易」这一因果：一道完整配方的咖喱需要多种来自不同地区的香料，因此它的存在可直接证明该地与产地有贸易联系；garam masala 与南印配方的区别可用于地区差异与阶层（前者曾是宫廷与贵族菜）的场景。英属时期商品化 curry powder 的出现可作为「殖民地把地方做法标准化出口」的案例。",
+        "historical_scope": "咖喱的时间线索：中世纪印度的「原咖喱」以阿魏、小豆蔻、芫荽、孜然、姜等温和香料调味，辣度仅靠黑胡椒；现代咖喱发展的一个决定性步骤是辣椒传入印度（与番茄、土豆同属新旧大陆交换）；莫卧儿带来新式轻香料菜；英属时期出现 Anglo-Indian 饮食与 18 世纪 Hannah Glasse 的「currey the India way」食谱；19 世纪由印度契约糖工传到加勒比、由英国商人传到日本（Wikipedia 与 Britannica 两来源在「契约工时间」上只到世纪粒度）。本条不在此定咖喱的具体起源年代，也不把「咖喱起源于印度」推成单一地方。",
+        "evidence_and_uncertainty": "定义与词源、印度底料与香料列表、南印与北印的差异、masala 与 curry powder 的区别、向泰国、中国、印尼、日本、加勒比的传播与契约工来源，来自 cuisine_src_20（Britannica curry）；中世纪印度「原咖喱」的温和香料与黑胡椒、辣椒传入为新旧大陆交换、莫卧儿轻香料菜、Anglo-Indian 与 Hannah Glasse 18 世纪「currey the India way」、东南亚用香料糊与椰奶而中、韩用商品咖喱粉、海外餐馆按本地口味调整，来自 cuisine_src_43（Wikipedia Curry）。缺口：各地变体的源流、香料组合的具体比例、香料贸易的量与年代未被已读来源覆盖。review_status 保持 needs_review。"
+      },
+      "source_ids": ["cuisine_src_20", "cuisine_src_43"],
+      "related_ids": ["flavors_spice_blend", "flavors_turmeric", "flavors_cardamom", "flavors_cumin", "flavors_coriander_seed", "flavors_mustard", "produce_onion", "cuisine_naan", "cuisine_biryani"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "cuisine_samosa",
+      "name": "萨莫萨（南亚填馅油炸点心）",
+      "aliases": ["萨莫萨", "samosa", "sambusak", "三角饼", "keema samosa"],
+      "tags": ["food", "cooking", "cereal", "trade"],
+      "summary": "印度次大陆的油炸填馅面点（传统形为三角，也有锥与月牙）；馅料从香料土豆到羊肉糜、鱼糜都可，是「同一工艺、多种馅」的典型，不是一道固定菜。",
+      "details": {
+        "definition": "萨莫萨（shingara）是印度次大陆的油炸填馅面点。油炸或烘烤皆可；馅多为香料土豆、洋葱与豌豆，也可含芝士（paneer）、肉甚至鱼；形制随地区为三角、锥或月牙形。在南亚众多小吃中它可能最为知名；在印度、巴基斯坦、孟加拉与斯里兰卡都是流行街头食品，也因南亚侨民而遍及世界。它属于一个大的「填馅面点家族」，同类还有中东的 sambusak 与波兰的 pierogi。传统上为三角形，但大小从一口一个到很扎实的大件不等。",
+        "mechanism": "两层工艺：外皮要能包住馅而在油炸时不破（面团含水与静置决定延展性）；馅料要先做熟或至少调味均匀，因为油炸时间很短，不足以把生馅煮透。三角形是靠折叠封口形成的，封口不严会在油里裂开。油炸温度决定外皮是否酥而不吸油；可烘烤替代，但质地不同。",
+        "conditions": "需要小麦粉与油（炸需大量油）、馅料（土豆、花椰菜、羊肉糜、鱼糜或鸡肉）、香料与盐。大量油炸意味着燃料与油的双重消耗，因此它更常见于有街头饮食经济的城镇。可冷冻与工业预制，这使得它能在远离产地的市场出售。",
+        "exceptions": "不要把萨莫萨固定为「土豆馅」：从土豆配姜蒜到花椰菜、羊肉糜、鱼糜、鸡肉都可，风味可温和可极辣。也不要把它与同族的 sambusak 或 pierogi 当作同一食物：它们各自的皮与馅料传统不同。三角形是传统形而非强制形。",
+        "story_uses": "适合承担「街头小吃与油料消耗」这一因果：能稳定卖炸物说明该地有足够的油与燃料，可作为城镇经济与市集活跃度的物证。多种馅料可用于阶层与地区差异；因南亚侨民而遍及世界这一点可用于移民与港口城市的场景。",
+        "historical_scope": "本条依据 Britannica 与 Wikipedia 描述已确立的做法与分布。起源上：Britannica 未给年代；Wikipedia 记名称源自中古波斯语 sambosag（意为「三角形糕点」）、起源在中世纪初或更早，仍不是确切的起源地与年代。把它与 sambusak、pierogi 归为同族是同族关系描述，不代表三者同源或同时出现。",
+        "evidence_and_uncertainty": "定义、油炸或烘烤、三角形传统、大小范围、馅料范围与辣度、酥脆外皮、配薄荷或芫荽 chutney、家庭到工业化的生产规模、与 sambusak 和 pierogi 的同族关系，来自 cuisine_src_21（Britannica samosa）；shingara 别名、馅以香料土豆/洋葱/豌为主并可含 paneer 与肉鱼、名称来自中古波斯语 sambosag、形制随地区为三角/锥/月牙、起源中世纪初或更早、亦有甜馅版本，来自 cuisine_src_44（Wikipedia Samosa）。缺口：确切起源地、各地区皮与馅的具体差异、油温与配方参数未被已读来源覆盖。review_status 保持 needs_review。"
+      },
+      "source_ids": ["cuisine_src_21", "cuisine_src_44"],
+      "related_ids": ["staples_wheat", "staples_potato", "animal_food_mutton_lamb", "animal_food_rendered_fat", "flavors_cumin", "flavors_coriander_seed", "cuisine_curry", "cuisine_dumpling"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "cuisine_tamale",
+      "name": "塔马利（中美洲包叶蒸玉米面团）",
+      "aliases": ["塔马利", "tamale", "tamal", "tamales", "nacatamal", "tamal de olla"],
+      "tags": ["food", "cooking", "cereal", "processing", "storage"],
+      "summary": "以玉米 masa 等面团包入玉米苞叶或香蕉叶等包材后蒸制的中美洲食品，可有多种馅料；便于携带不等于耐储干粮。",
+      "details": {
+        "definition": "塔马利（英语 tamale，西班牙语 tamal，复数 tamales）是中美洲传统食品：以石灰处理玉米制成的 masa 面团（可加馅）包在玉米苞或香蕉叶中蒸熟。包叶可先去后食，也可直接当盘子用；馅可为肉、芝士、水果、蔬菜、香草、辣椒或任选，馅与煮汁均可调味。英语 tamale 是西班牙语 tamal 的英语化，tamal 来自纳瓦特尔语 tamalli；英语把复数 tamales 的 -es 误拆，形成了 tamale 这个单数形。",
+        "mechanism": "常见做法通过包叶盛装面团与馅料，再以蒸汽加热成型。碱处理玉米制成的 masa 是重要原料路径，但不同地区的面团和包法并不完全相同，不能断言未经碱处理的面团都无法成型。成品含水，包叶不构成长期保存或食用安全保证。",
+        "conditions": "需要玉米、石灰（或相应碱源）与磨制设备、可密封的蒸具与充足燃料、包叶（玉米苞或香蕉叶）；加馅版还需馅料与调味。批量制作很耗人力与时长（已读页转述《佛罗伦萨手抄本》中婚礼前煮两到三天的记载，属特定仪式的描述，不作通用工时）。可大量预做并携带或保温；因成品含水，携带不等于长期耐储。",
+        "exceptions": "不要把塔马利等同于「墨西哥粽子」一种：馅与包叶用法很多，至有完全无馅的版本（阿兹特克礼仪中就有不加任何调味与馅的「水塔马利」）。也不要把它与 tortilla 混为一条：tortilla 是烙的薄饼，塔马利是包着蒸的面团，两者工艺与器具需求不同（古典期马雅遗址缺煎盘，反而使一些学者认为塔马利可能早于 tortilla）。巴拿马的 tamal de olla 不包叶、直接填满烤盘，是该类的变体而非反例。",
+        "story_uses": "可描写家庭合作制作、节庆分工与携行饮食。包叶可兼作盛食材料，但便携不等于干燥或耐储；远行或军用情境仍需作者明确补给频率与保存条件，不从菜名自动生成无限期军粮。",
+        "historical_scope": "塔马利属于前哥伦布时期中美洲饮食传统，已读页面介绍了玛雅与阿兹特克等文化中的食用和仪式用途。页面中的极早起源年代及个别文明归属尚未交叉核定，本条不采用这些精确年代，也不将多个考古例子混为同一最早证据。",
+        "evidence_and_uncertainty": "定义、包叶与蒸制、馅与调味范围、词源（tamal 来自纳瓦特尔语 tamalli，英语 tamale 为逆向构词）、起源的多说、San Bartolo 壁画与约公元 100 年说、托尔特克与特奥蒂瓦坎的玉米苞、阿兹特克与马雅与奥尔梅克与托尔特克把它当便携军粮与神圣食物、Florentine Codex 记市场出售多种塔马利与婚礼前煮两三天、马雅古典期陶器与文字、古典期缺煎盘而可能早于 tortilla、哥斯达黎加圣诞塔马利，均来自 cuisine_src_45（Wikipedia Tamale）。本条没有 Britannica 页作交叉，“最早年代”自相不一的部分只列不选。review_status 保持 needs_review。"
+      },
+      "source_ids": ["cuisine_src_45"],
+      "related_ids": ["staples_maize", "produce_banana", "animal_food_turkey", "animal_food_pork", "animal_food_chicken", "flavors_chili_pepper", "cuisine_tortilla"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "cuisine_peking_duck",
+      "name": "北京烤鸭（脆皮片鸭与薄饼卷食）",
+      "aliases": ["北京烤鸭", "Peking duck", "挂炉烤鸭", "焖炉烤鸭"],
+      "tags": ["food", "cooking", "animal_product", "facility", "trade"],
+        "summary": "与北京饮食传统相关的烤鸭菜，重视鸭皮质地与片鸭手艺；常见呈现为脆皮片鸭配薄饼、葱、黄瓜与甜面酱卷食；挂炉与焖炉是并列的两类工艺（具体育鸭日龄与上菜程式因店家而异）。",
+      "details": {
+        "definition": "北京烤鸭是与北京饮食传统相关的烤鸭菜，重视鸭皮质地与片鸭手艺，常配薄饼、葱、黄瓜与甜面酱等食用。存在挂炉、焖炉等工艺，育鸭、片法和上菜顺序可因店家与时期而异；某一屠宰日龄不是整类菜肴的固定定义。",
+        "mechanism": "原料处理、干燥与烘烤条件共同影响皮肉质地，挂炉与焖炉是不同的热处理路径。片鸭与卷饼配食构成常见呈现方式，但不能将某一店家的皮肉分离、三段上菜等做法作为排除其他版本的通用判据。",
+        "conditions": "需要鸭、合适的烘烤设施、燃料和加工手艺，配菜及薄饼视呈现方式选择。商业餐饮可能依赖专门养殖与炉具供应，但不能从一份烤鸭反推出固定育肥日龄、炉体材料或店铺规模。",
+        "exceptions": "不要把北京烤鸭与「一般烤鸭」混为一条：判断依据是脆皮、以皮为主与当场片鸭这一套呈现，不是「烤过的鸭」。但皮肉分离、分三段上菜等具体做法因店家与时期而异，不能当整类菜的必要条件；某一屠宰日龄也不是定义。也不要把它与广式烧鸭或英国 aromatic duck 当作同一道菜。挂炉与焖炉是两条并列的工艺路线，不是新旧替代。",
+        "story_uses": "可用于餐饮铺面、待客礼仪与城市饮食手艺的场景。作者可另行设定养殖、炉具和商业组织，但不能由一份菜直接确定当地产业规模或固定历史店家的存在。",
+        "historical_scope": "本条依 Wikipedia Peking duck 的已读正文：南北朝已有烤鸭；元朝宫廷有烤鸭变体，1330 年忽思慧《饮膳正要》记「烧鸭子」；明后期完全成形并为宫廷主菜；1416 年北京前门鲜鱼口开首家专营店便宜坊；清乾隆朝（1736—1796）普及至上层；1864 年全聚德开业，杨全仁发展挂炉法。1971 年基辛格秘密访华时午餐吃烤鸭。本条不补充已读页以外的年代。",
+        "evidence_and_uncertainty": "定义（重视鸭皮质地与片鸭、可配薄饼与葱/黄瓜/甜面酱）、挂炉与焖炉两类工艺、历史年代（南北朝已有烤鸭、1330 年《饮膳正要》记「烧鸭子」、明后期成形、1416 年便宜坊、乾隆朝普及、1864 年全聚德与挂炉法）、1971 年基辛格午餐，来自 cuisine_src_46（Wikipedia Peking duck）。该页所记的「固定 65 日龄屠宰」「皮肉分离与分三段上菜」属特定店家做法，本条不当作整类菜的必要条件；全聚德与便宜坊是企业名，不列食物别名。本条只有 Wikipedia 一源。review_status 保持 needs_review。"
+      },
+      "source_ids": ["cuisine_src_46"],
+      "related_ids": ["animal_food_duck", "staples_wheat", "produce_cucumber", "flavors_soy_sauce"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "cuisine_kebab",
+      "name": "卡巴布（中西亚等地区的烤肉菜类）",
+      "aliases": ["卡巴布", "kebab", "kebap", "kabob", "shish kebab", "döner kebab", "doner"],
+      "tags": ["food", "cooking", "animal_product", "trade", "facility"],
+      "summary": "起源于中东的一大类烤肉菜：切块肉串在签上明火烤，也有入炉烤或做成炖菜；传统用羊肉，也会用牛、山羊、鸡、鱼甚至猪肉（取决于宗教禁忌）。",
+      "details": {
+        "definition": "卡巴布 kebab、kebap、kabob 等名称在不同地区涵盖多种肉菜，可涉及肉块或绞肉的签烤、炉烤，也存在锅制品种。肉种依地区与饮食习惯而异，不能统一限定为羊肉串；英语常见的 shish kebab、döner 只是其中部分类型。",
+        "mechanism": "卡巴布包含多种烤、煎或炖肉的地方做法。签烤、绞肉成型和垂直旋转烤制具有不同的器具与热处理条件；döner 可使用叠置肉片，也有绞肉版本，不能将所有品种归为同一肉糜工艺。",
+        "conditions": "肉种、调味与器具依具体地方菜选择。串烤需要签具，其他做法未必需要；热源也不必都是木炭。宗教和饮食习惯会限制部分原料，但不能由一道菜直接推定消费者的信仰。",
+        "exceptions": "不要把 kebab 固定为「羊肉串」：肉种随地区与禁忌变化，形式也含入炉烤与锅炖，不只签烤。也不要把它与 satay、chuan 这些衍生菜当作同源同菜：它们各自发展了本地肉种与佐料（新疆串多用羊肉，常见孜然、胡椒、芝麻与香油）。英语里的「kebab」常被窄用到 shish kebab，不足以覆盖中东与南亚的广义用法。",
+        "story_uses": "可用于街头餐饮、迁徙交流与地方配方改编的情节。具体热源、肉类供应和禁忌必须由世界设定确认；一道肉菜本身不足以证明当地宗教、屠宰方式或冷链。",
+        "historical_scope": "已读 Wikipedia Kebab 介绍了中东、波斯与安纳托利亚等相关饮食传统、历史食谱和跨地区传播。不同语言中 kebab 的范围不一致，古代词义也不能直接套用到现代某一种肉串；本条不裁定单一起源地点或最早年代。",
+        "evidence_and_uncertainty": "定义（中西亚等地区的烤肉菜类，含签烤、炉烤与锅制品种）、肉种随地区与饮食习惯而异、döner 可用叠置肉片也可用绞肉、英语常见 shish kebab 与 döner 只涵盖部分类型、历史传统与跨地区传播，来自 cuisine_src_47（Wikipedia Kebab）。该页提到的音节相近的阿拉伯语词典条目未在本次实读中核定，不作词源年代证据；中世纪食谱与旅行记只作历史叙述，不用于裁定单一起源地与最早年代。本条只有 Wikipedia 一源。review_status 保持 needs_review。"
+      },
+      "source_ids": ["cuisine_src_47"],
+      "related_ids": ["animal_food_mutton_lamb", "animal_food_goat", "animal_food_beef", "animal_food_chicken", "flavors_cumin", "flavors_black_pepper", "staples_sesame", "cuisine_naan"],
+      "review_status": "needs_review"
+    }
+  ]
+}

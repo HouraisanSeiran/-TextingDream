@@ -1,0 +1,643 @@
+{
+  "viewports": [
+    "1440x900",
+    "1366x768"
+  ],
+  "basemapNote": "底图是 fixture 16 位高度图经服务器掩膜的矩形色块，非最终 civ-atlas 画风，仅供布局/锚点验收",
+  "fixture": "fixture 地图是验收脚本现画的 16 位高度图，不是用户世界",
+  "generatedAt": "2026-10-28T16:13:07.387Z",
+  "checks": [
+    {
+      "check": "1440x900 新 context 里没有残留分栏偏好",
+      "ok": true,
+      "detail": "null"
+    },
+    {
+      "check": "1440x900 首次打开左栏默认 40%（不读旧偏好）",
+      "ok": true,
+      "detail": "left=576 right=858 ratio=0.402 flex=0 0 40%"
+    },
+    {
+      "check": "1440x900 play-map 真实响应是 ok 且有 bbox/player",
+      "ok": true,
+      "detail": "{\"jsonStatus\":200,\"status\":\"ok\",\"available\":true,\"url\":\"/api/sessions/0cc3537abdbf4399/play-map/basemap.png\",\"png\":{\"status\":200,\"type\":\"image/png\",\"bytes\":3205},\"player\":{\"location_id\":\"tianchao_capital\",\"name\":\"天朝都城\",\"lon\":108.89999999999998,\"lat\":34.3},\"bbox\":[85.10815982057784,121.49654741715158"
+    },
+    {
+      "check": "1440x900 basemap.png 真实响应 200 且是 PNG 字节",
+      "ok": true,
+      "detail": "{\"status\":200,\"type\":\"image/png\",\"bytes\":3205}"
+    },
+    {
+      "check": "1440x900 已关联地图的底图在 25s 内加载完成",
+      "ok": true,
+      "detail": "img.naturalWidth>0 = true"
+    },
+    {
+      "check": "1440x900 无横向溢出",
+      "ok": true,
+      "detail": "scrollW=1440 viewport=1440"
+    },
+    {
+      "check": "1440x900 左栏默认约 40%（可拖拽分栏）",
+      "ok": true,
+      "detail": "left=576 right=858 ratio=0.402"
+    },
+    {
+      "check": "1440x900 右栏是地图主画面（唯一一张底图已加载）",
+      "ok": true,
+      "detail": "mapWrap=858x777 right=858"
+    },
+    {
+      "check": "1440x900 倒三角（当前位置）已画出",
+      "ok": true,
+      "detail": "M 640.8305693342217 546.4221719193102 L 666.8305693342217 546.42217191"
+    },
+    {
+      "check": "1440x900 图例含「当前位置」",
+      "ok": true,
+      "detail": "[\"当前位置\",\"已探索\",\"已知未到\"]"
+    },
+    {
+      "check": "1440x900 地图状态栏简洁（不把算法免责写成正文）",
+      "ok": true,
+      "detail": "已探索 600 km"
+    },
+    {
+      "check": "1440x900 雾的说明移到 tooltip（可查但不占画面）",
+      "ok": true,
+      "detail": "可见范围是按玩法设定算的可达距离，不是真实视线，也不含地形遮蔽。\n范围外的格子由服务器直接画成雾色，客户端没有那里的地形。"
+    },
+    {
+      "check": "1440x900 顶部连接状态只给状态值、不含密钥",
+      "ok": true,
+      "detail": "离线模式 · 密钥已配置"
+    },
+    {
+      "check": "1440x900 左栏默认在「对话」页签",
+      "ok": true,
+      "detail": "chat"
+    },
+    {
+      "check": "1440x900 输入框在左栏内且底边不越界",
+      "ok": true,
+      "detail": "composer.bottom=809 left.bottom=900"
+    },
+    {
+      "check": "1440x900 倒三角尖端落在经纬度屏幕位置（默认视图，<=1px）",
+      "ok": true,
+      "detail": "dx=0.00 dy=0.00 want=1143.0,498.5 got=1143.0,498.5 overlay=858x777"
+    },
+    {
+      "check": "1440x900 地点状态属于 current/explored/known",
+      "ok": true,
+      "detail": "[\"current\",\"known\"]"
+    },
+    {
+      "check": "1440x900 可见半径写明是玩法距离",
+      "ok": true,
+      "detail": "radius=600"
+    },
+    {
+      "check": "1440x900 放大后尖端仍落在屏幕位置（<=1px）",
+      "ok": true,
+      "detail": "dx=0.00 dy=0.00 want=1217.2,531.0 got=1217.2,531.0 overlay=1341x1215"
+    },
+    {
+      "check": "1440x900 放大真的改变了底图尺寸",
+      "ok": true,
+      "detail": "before=858 after=1341"
+    },
+    {
+      "check": "1440x900 平移后尖端仍落在屏幕位置（<=1px）",
+      "ok": true,
+      "detail": "dx=0.00 dy=0.00 want=1307.2,571.0 got=1307.2,571.0 overlay=1341x1215"
+    },
+    {
+      "check": "1440x900 真实鼠标拖动真的平移了地图",
+      "ok": true,
+      "detail": "x 341 -> 431"
+    },
+    {
+      "check": "1440x900 平移只在放大后生效（默认视图不越界）",
+      "ok": true,
+      "detail": "x0=582"
+    },
+    {
+      "check": "1440x900 复位后尖端仍落在屏幕位置（<=1px）",
+      "ok": true,
+      "detail": "dx=0.00 dy=0.00 want=1143.0,498.5 got=1143.0,498.5 overlay=858x777"
+    },
+    {
+      "check": "1440x900 「复位」回到整张探索区域",
+      "ok": true,
+      "detail": "w 858 -> 858"
+    },
+    {
+      "check": "1440x900 底图已解码（canvas 尺寸 > 0）",
+      "ok": true,
+      "detail": "w=640 h=367"
+    },
+    {
+      "check": "1440x900 当前位置像素坐标在图内（不靠越界值碰巧通过）",
+      "ok": true,
+      "detail": "{\"x\":418,\"y\":210,\"rgb\":[127,179,111]}"
+    },
+    {
+      "check": "1440x900 底图角落像素是雾色（不是地形）",
+      "ok": true,
+      "detail": "tl=17,20,24 br=17,20,24 size=640x367"
+    },
+    {
+      "check": "1440x900 当前位置像素不是雾（已探索真地形）",
+      "ok": true,
+      "detail": "{\"x\":418,\"y\":210,\"rgb\":[127,179,111]}"
+    },
+    {
+      "check": "1440x900 正文区独立滚动（长内容可滚）",
+      "ok": true,
+      "detail": "scrollH=3232 clientH=266 scrollTop=2966"
+    },
+    {
+      "check": "1440x900 滚到底时输入框不压住正文",
+      "ok": true,
+      "detail": "probeBottom=176 composerTop=595"
+    },
+    {
+      "check": "1440x900 输入框底边不越出左栏",
+      "ok": true,
+      "detail": "composerBottom=809 leftBottom=900"
+    },
+    {
+      "check": "1440x900 分隔条拖动真的改变列宽（真实鼠标）",
+      "ok": true,
+      "detail": "before=576 after=806"
+    },
+    {
+      "check": "1440x900 分隔比例写入 localStorage 且在 28–64",
+      "ok": true,
+      "detail": "56"
+    },
+    {
+      "check": "1440x900 拖动结束后不再处于 resizing 状态",
+      "ok": true,
+      "detail": "resizing=false"
+    },
+    {
+      "check": "1440x900 历史页签可打开且有存档/章节",
+      "ok": true,
+      "detail": "{\"hidden\":false,\"scrollable\":false,\"listButtons\":2,\"chapters\":1}"
+    },
+    {
+      "check": "1440x900 物品页签有内容（不是空白）",
+      "ok": true,
+      "detail": "随身物品身上没有记下物品。属性与当地环境天赋 60 · 力量 45 · 敏捷 55 · 智慧 60 · 社交 50 · 韧性 55血量 160/160经度、纬度：108.9, 34.3海拔 420m · 流域 东部大河中游"
+    },
+    {
+      "check": "1440x900 「其他」收全部旧功能入口",
+      "ok": true,
+      "detail": "missing=[]"
+    },
+    {
+      "check": "1440x900 旧「城镇创作」页可打开且内容在",
+      "ok": true,
+      "detail": "{\"legacyHidden\":false,\"playHidden\":true,\"title\":\"城镇创作\",\"townVisible\":true,\"townText\":305}"
+    },
+    {
+      "check": "1440x900 旧「元素装配」页可打开且内容在",
+      "ok": true,
+      "detail": "{\"visible\":true,\"text\":1321}"
+    },
+    {
+      "check": "1440x900 「回到游玩」回到两栏壳（左 < 右）",
+      "ok": true,
+      "detail": "{\"play\":true,\"legacy\":true,\"left\":576,\"right\":858}"
+    },
+    {
+      "check": "1440x900 进出旧页后 current 不丢、不换会话",
+      "ok": true,
+      "detail": "current=0cc3537abdbf4399 expect=0cc3537abdbf4399"
+    },
+    {
+      "check": "1440x900 顶部 API 弹层真的打开了（不隐藏、在屏内、有尺寸）",
+      "ok": true,
+      "detail": "{\"hidden\":false,\"w\":560,\"h\":820,\"expanded\":\"true\"}"
+    },
+    {
+      "check": "1440x900 弹层里的表单可见且可操作（不是空壳）",
+      "ok": true,
+      "detail": "{\"formVisible\":true,\"inputs\":15,\"keyVisible\":true}"
+    },
+    {
+      "check": "1440x900 顶部弹层里的表单就是那一份（落在 api-pop-host）",
+      "ok": true,
+      "detail": "表单落点=api-pop-host"
+    },
+    {
+      "check": "1440x900 密钥框 type=password 且值为空（不回填）",
+      "ok": true,
+      "detail": "type=password value=\"\""
+    },
+    {
+      "check": "1440x900 再点入口能关闭弹层并把表单搬回 #api",
+      "ok": true,
+      "detail": "{\"hidden\":true,\"expanded\":\"false\",\"parent\":\"api\"}"
+    },
+    {
+      "check": "1440x900 Escape 能关闭弹层",
+      "ok": true,
+      "detail": "hidden=true"
+    },
+    {
+      "check": "1440x900 点弹层外部能关闭它",
+      "ok": true,
+      "detail": "hidden=true"
+    },
+    {
+      "check": "1440x900 API 旧页不再是空壳（表单搬回 #api 且可见）",
+      "ok": true,
+      "detail": "{\"parent\":\"api\",\"visible\":true,\"text\":472,\"fields\":12,\"keyValue\":\"\",\"formVisible\":true}"
+    },
+    {
+      "check": "1440x900 API 旧页里的密钥框仍为空（不回填）",
+      "ok": true,
+      "detail": "\"\""
+    },
+    {
+      "check": "1440x900 未关联地图时不显示任何底图",
+      "ok": true,
+      "detail": "mapVisible=false"
+    },
+    {
+      "check": "1440x900 未关联时给明确未关联文案 + 作者入口按钮",
+      "ok": true,
+      "detail": "这段旅程还没有关联 civ-atlas 地图去世界地图工具关联 civ-atlas 数据"
+    },
+    {
+      "check": "1440x900 重载后读回保存的分栏偏好（不是又退回 40%）",
+      "ok": true,
+      "detail": "stored=52 got=52.2% flex=0 0 52%"
+    },
+    {
+      "check": "1440x900 切回已关联会话后底图与标记都在",
+      "ok": true,
+      "detail": "true"
+    },
+    {
+      "check": "1440x900 两段会话的地图来源不串（一段 ok+bbox、一段 not_linked 无 bbox）",
+      "ok": true,
+      "detail": "{\"linkedStatus\":\"ok\",\"plainStatus\":\"not_linked\",\"linkedHasBbox\":true,\"plainHasBbox\":false,\"plainSource\":null,\"srcPrefix\":\"data:image/png;base64,\",\"overlayPaths\":1,\"currentId\":\"0cc3537abdbf4399\"}"
+    },
+    {
+      "check": "1440x900 已关联会话的底图以 data: 显示（CSP 下不用 blob）",
+      "ok": true,
+      "detail": "data:image/png;base64,"
+    },
+    {
+      "check": "1440x900 切到未关联会话：旧底图被收起、不再画倒三角",
+      "ok": true,
+      "detail": "{\"imgHidden\":true,\"src\":\"data:image/p\",\"overlay\":0,\"emptyShown\":true,\"currentId\":\"8de110fd0c9447be\"}"
+    },
+    {
+      "check": "1440x900 再切回已关联会话：底图与倒三角重新出现",
+      "ok": true,
+      "detail": "{\"backOk\":true,\"after\":{\"currentId\":\"0cc3537abdbf4399\",\"overlay\":1}}"
+    },
+    {
+      "check": "1440x900 可见品牌文案是 TextingDream（不出现旧名 TextileDream）",
+      "ok": true,
+      "detail": "{\"title\":\"织梦 · TextingDream\",\"brand\":\"TextingDream织梦\",\"legacyBrand\":\"织TextingDream织梦 · 叙事工作台\",\"visibleText\":false}"
+    },
+    {
+      "check": "1440x900 所有 /api 响应与 header 都不回显密钥",
+      "ok": true,
+      "detail": "[]"
+    },
+    {
+      "check": "1440x900 采到的 /api 响应数 > 3（截图前的真请求）",
+      "ok": true,
+      "detail": "49"
+    },
+    {
+      "check": "1440x900 无未捕获脚本异常",
+      "ok": true,
+      "detail": "[]"
+    },
+    {
+      "check": "1366x768 新 context 里没有残留分栏偏好",
+      "ok": true,
+      "detail": "null"
+    },
+    {
+      "check": "1366x768 首次打开左栏默认 40%（不读旧偏好）",
+      "ok": true,
+      "detail": "left=546 right=814 ratio=0.401 flex=0 0 40%"
+    },
+    {
+      "check": "1366x768 play-map 真实响应是 ok 且有 bbox/player",
+      "ok": true,
+      "detail": "{\"jsonStatus\":200,\"status\":\"ok\",\"available\":true,\"url\":\"/api/sessions/0cc3537abdbf4399/play-map/basemap.png\",\"png\":{\"status\":200,\"type\":\"image/png\",\"bytes\":3205},\"player\":{\"location_id\":\"tianchao_capital\",\"name\":\"天朝都城\",\"lon\":108.89999999999998,\"lat\":34.3},\"bbox\":[85.10815982057784,121.49654741715158"
+    },
+    {
+      "check": "1366x768 basemap.png 真实响应 200 且是 PNG 字节",
+      "ok": true,
+      "detail": "{\"status\":200,\"type\":\"image/png\",\"bytes\":3205}"
+    },
+    {
+      "check": "1366x768 已关联地图的底图在 25s 内加载完成",
+      "ok": true,
+      "detail": "img.naturalWidth>0 = true"
+    },
+    {
+      "check": "1366x768 无横向溢出",
+      "ok": true,
+      "detail": "scrollW=1366 viewport=1366"
+    },
+    {
+      "check": "1366x768 左栏默认约 40%（可拖拽分栏）",
+      "ok": true,
+      "detail": "left=546 right=814 ratio=0.401"
+    },
+    {
+      "check": "1366x768 右栏是地图主画面（唯一一张底图已加载）",
+      "ok": true,
+      "detail": "mapWrap=814x649 right=814"
+    },
+    {
+      "check": "1366x768 倒三角（当前位置）已画出",
+      "ok": true,
+      "detail": "M 640.8305693342217 546.4221719193102 L 666.8305693342217 546.42217191"
+    },
+    {
+      "check": "1366x768 图例含「当前位置」",
+      "ok": true,
+      "detail": "[\"当前位置\",\"已探索\",\"已知未到\"]"
+    },
+    {
+      "check": "1366x768 地图状态栏简洁（不把算法免责写成正文）",
+      "ok": true,
+      "detail": "已探索 600 km"
+    },
+    {
+      "check": "1366x768 雾的说明移到 tooltip（可查但不占画面）",
+      "ok": true,
+      "detail": "可见范围是按玩法设定算的可达距离，不是真实视线，也不含地形遮蔽。\n范围外的格子由服务器直接画成雾色，客户端没有那里的地形。"
+    },
+    {
+      "check": "1366x768 顶部连接状态只给状态值、不含密钥",
+      "ok": true,
+      "detail": "离线模式 · 密钥已配置"
+    },
+    {
+      "check": "1366x768 左栏默认在「对话」页签",
+      "ok": true,
+      "detail": "chat"
+    },
+    {
+      "check": "1366x768 输入框在左栏内且底边不越界",
+      "ok": true,
+      "detail": "composer.bottom=677 left.bottom=768"
+    },
+    {
+      "check": "1366x768 倒三角尖端落在经纬度屏幕位置（默认视图，<=1px）",
+      "ok": true,
+      "detail": "dx=0.00 dy=0.00 want=1084.4,421.0 got=1084.4,421.0 overlay=814x649"
+    },
+    {
+      "check": "1366x768 地点状态属于 current/explored/known",
+      "ok": true,
+      "detail": "[\"current\",\"known\"]"
+    },
+    {
+      "check": "1366x768 可见半径写明是玩法距离",
+      "ok": true,
+      "detail": "radius=600"
+    },
+    {
+      "check": "1366x768 放大后尖端仍落在屏幕位置（<=1px）",
+      "ok": true,
+      "detail": "dx=0.00 dy=0.00 want=1154.8,448.1 got=1154.8,448.1 overlay=1271x1015"
+    },
+    {
+      "check": "1366x768 放大真的改变了底图尺寸",
+      "ok": true,
+      "detail": "before=814 after=1271"
+    },
+    {
+      "check": "1366x768 平移后尖端仍落在屏幕位置（<=1px）",
+      "ok": true,
+      "detail": "dx=0.00 dy=0.00 want=1244.8,488.1 got=1244.8,488.1 overlay=1271x1015"
+    },
+    {
+      "check": "1366x768 真实鼠标拖动真的平移了地图",
+      "ok": true,
+      "detail": "x 324 -> 414"
+    },
+    {
+      "check": "1366x768 平移只在放大后生效（默认视图不越界）",
+      "ok": true,
+      "detail": "x0=552"
+    },
+    {
+      "check": "1366x768 复位后尖端仍落在屏幕位置（<=1px）",
+      "ok": true,
+      "detail": "dx=0.00 dy=0.00 want=1084.4,421.0 got=1084.4,421.0 overlay=814x649"
+    },
+    {
+      "check": "1366x768 「复位」回到整张探索区域",
+      "ok": true,
+      "detail": "w 814 -> 814"
+    },
+    {
+      "check": "1366x768 底图已解码（canvas 尺寸 > 0）",
+      "ok": true,
+      "detail": "w=640 h=367"
+    },
+    {
+      "check": "1366x768 当前位置像素坐标在图内（不靠越界值碰巧通过）",
+      "ok": true,
+      "detail": "{\"x\":418,\"y\":210,\"rgb\":[127,179,111]}"
+    },
+    {
+      "check": "1366x768 底图角落像素是雾色（不是地形）",
+      "ok": true,
+      "detail": "tl=17,20,24 br=17,20,24 size=640x367"
+    },
+    {
+      "check": "1366x768 当前位置像素不是雾（已探索真地形）",
+      "ok": true,
+      "detail": "{\"x\":418,\"y\":210,\"rgb\":[127,179,111]}"
+    },
+    {
+      "check": "1366x768 正文区独立滚动（长内容可滚）",
+      "ok": true,
+      "detail": "scrollH=3224 clientH=114 scrollTop=3110"
+    },
+    {
+      "check": "1366x768 滚到底时输入框不压住正文",
+      "ok": true,
+      "detail": "probeBottom=23 composerTop=463"
+    },
+    {
+      "check": "1366x768 输入框底边不越出左栏",
+      "ok": true,
+      "detail": "composerBottom=677 leftBottom=768"
+    },
+    {
+      "check": "1366x768 分隔条拖动真的改变列宽（真实鼠标）",
+      "ok": true,
+      "detail": "before=546 after=765"
+    },
+    {
+      "check": "1366x768 分隔比例写入 localStorage 且在 28–64",
+      "ok": true,
+      "detail": "56"
+    },
+    {
+      "check": "1366x768 拖动结束后不再处于 resizing 状态",
+      "ok": true,
+      "detail": "resizing=false"
+    },
+    {
+      "check": "1366x768 历史页签可打开且有存档/章节",
+      "ok": true,
+      "detail": "{\"hidden\":false,\"scrollable\":false,\"listButtons\":2,\"chapters\":1}"
+    },
+    {
+      "check": "1366x768 物品页签有内容（不是空白）",
+      "ok": true,
+      "detail": "随身物品身上没有记下物品。属性与当地环境天赋 60 · 力量 45 · 敏捷 55 · 智慧 60 · 社交 50 · 韧性 55血量 160/160经度、纬度：108.9, 34.3海拔 420m · 流域 东部大河中游"
+    },
+    {
+      "check": "1366x768 「其他」收全部旧功能入口",
+      "ok": true,
+      "detail": "missing=[]"
+    },
+    {
+      "check": "1366x768 旧「城镇创作」页可打开且内容在",
+      "ok": true,
+      "detail": "{\"legacyHidden\":false,\"playHidden\":true,\"title\":\"城镇创作\",\"townVisible\":true,\"townText\":305}"
+    },
+    {
+      "check": "1366x768 旧「元素装配」页可打开且内容在",
+      "ok": true,
+      "detail": "{\"visible\":true,\"text\":1321}"
+    },
+    {
+      "check": "1366x768 「回到游玩」回到两栏壳（左 < 右）",
+      "ok": true,
+      "detail": "{\"play\":true,\"legacy\":true,\"left\":546,\"right\":814}"
+    },
+    {
+      "check": "1366x768 进出旧页后 current 不丢、不换会话",
+      "ok": true,
+      "detail": "current=0cc3537abdbf4399 expect=0cc3537abdbf4399"
+    },
+    {
+      "check": "1366x768 顶部 API 弹层真的打开了（不隐藏、在屏内、有尺寸）",
+      "ok": true,
+      "detail": "{\"hidden\":false,\"w\":560,\"h\":688,\"expanded\":\"true\"}"
+    },
+    {
+      "check": "1366x768 弹层里的表单可见且可操作（不是空壳）",
+      "ok": true,
+      "detail": "{\"formVisible\":true,\"inputs\":15,\"keyVisible\":true}"
+    },
+    {
+      "check": "1366x768 顶部弹层里的表单就是那一份（落在 api-pop-host）",
+      "ok": true,
+      "detail": "表单落点=api-pop-host"
+    },
+    {
+      "check": "1366x768 密钥框 type=password 且值为空（不回填）",
+      "ok": true,
+      "detail": "type=password value=\"\""
+    },
+    {
+      "check": "1366x768 再点入口能关闭弹层并把表单搬回 #api",
+      "ok": true,
+      "detail": "{\"hidden\":true,\"expanded\":\"false\",\"parent\":\"api\"}"
+    },
+    {
+      "check": "1366x768 Escape 能关闭弹层",
+      "ok": true,
+      "detail": "hidden=true"
+    },
+    {
+      "check": "1366x768 点弹层外部能关闭它",
+      "ok": true,
+      "detail": "hidden=true"
+    },
+    {
+      "check": "1366x768 API 旧页不再是空壳（表单搬回 #api 且可见）",
+      "ok": true,
+      "detail": "{\"parent\":\"api\",\"visible\":true,\"text\":472,\"fields\":12,\"keyValue\":\"\",\"formVisible\":true}"
+    },
+    {
+      "check": "1366x768 API 旧页里的密钥框仍为空（不回填）",
+      "ok": true,
+      "detail": "\"\""
+    },
+    {
+      "check": "1366x768 未关联地图时不显示任何底图",
+      "ok": true,
+      "detail": "mapVisible=false"
+    },
+    {
+      "check": "1366x768 未关联时给明确未关联文案 + 作者入口按钮",
+      "ok": true,
+      "detail": "这段旅程还没有关联 civ-atlas 地图去世界地图工具关联 civ-atlas 数据"
+    },
+    {
+      "check": "1366x768 重载后读回保存的分栏偏好（不是又退回 40%）",
+      "ok": true,
+      "detail": "stored=52 got=52.2% flex=0 0 52%"
+    },
+    {
+      "check": "1366x768 切回已关联会话后底图与标记都在",
+      "ok": true,
+      "detail": "true"
+    },
+    {
+      "check": "1366x768 两段会话的地图来源不串（一段 ok+bbox、一段 not_linked 无 bbox）",
+      "ok": true,
+      "detail": "{\"linkedStatus\":\"ok\",\"plainStatus\":\"not_linked\",\"linkedHasBbox\":true,\"plainHasBbox\":false,\"plainSource\":null,\"srcPrefix\":\"data:image/png;base64,\",\"overlayPaths\":1,\"currentId\":\"0cc3537abdbf4399\"}"
+    },
+    {
+      "check": "1366x768 已关联会话的底图以 data: 显示（CSP 下不用 blob）",
+      "ok": true,
+      "detail": "data:image/png;base64,"
+    },
+    {
+      "check": "1366x768 切到未关联会话：旧底图被收起、不再画倒三角",
+      "ok": true,
+      "detail": "{\"imgHidden\":true,\"src\":\"data:image/p\",\"overlay\":0,\"emptyShown\":true,\"currentId\":\"8de110fd0c9447be\"}"
+    },
+    {
+      "check": "1366x768 再切回已关联会话：底图与倒三角重新出现",
+      "ok": true,
+      "detail": "{\"backOk\":true,\"after\":{\"currentId\":\"0cc3537abdbf4399\",\"overlay\":1}}"
+    },
+    {
+      "check": "1366x768 可见品牌文案是 TextingDream（不出现旧名 TextileDream）",
+      "ok": true,
+      "detail": "{\"title\":\"织梦 · TextingDream\",\"brand\":\"TextingDream织梦\",\"legacyBrand\":\"织TextingDream织梦 · 叙事工作台\",\"visibleText\":false}"
+    },
+    {
+      "check": "1366x768 所有 /api 响应与 header 都不回显密钥",
+      "ok": true,
+      "detail": "[]"
+    },
+    {
+      "check": "1366x768 采到的 /api 响应数 > 3（截图前的真请求）",
+      "ok": true,
+      "detail": "49"
+    },
+    {
+      "check": "1366x768 无未捕获脚本异常",
+      "ok": true,
+      "detail": "[]"
+    }
+  ],
+  "passed": 126,
+  "failed": 0
+}

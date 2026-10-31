@@ -16,11 +16,22 @@ from .summary import event_summary, has_excerpt, strip_excerpt, with_stage
 from .drama import resolve_check, outcome_cues, validate_cues, public_voice, cast_projection
 from . import local_rules
 from . import rewards as rewards_rules
+from . import pressure as pressure_rules
+from . import traits as traits_rules
+from . import start_profiles as start_rules
+from . import endings as endings_rules
+from . import free_actions
+from . import scene_judgment
+from . import npc_cards
+from . import civ_exploration
+from . import adventure_actions
 from .state_anchor import state_anchor
 from .atlas import validate_atlas, project_atlas
 from . import attributes
 from . import element_assembly
 from . import towns_store
+from . import play_map
+from . import world_history_store
 from .geography import Environment, Calendar, local_environment, is_daylight
 
 
@@ -36,18 +47,98 @@ def chars(value):
     return len(json.dumps(value, ensure_ascii=False))
 
 
+def revision_folder_slug(story_id):
+    """把一个故事 id 变成合法的包目录名（首次创建世界时用）。
+
+    只用 ASCII 字母数字与下划线：旧预制目录名（如「玄陆」）不再被当成默认值，
+    也不会因为 id 里带中文或符号而写到非法路径。冲突时后缀由调用方自行处理。
+    """
+    text = re.sub(r'[^A-Za-z0-9_]+', '_', str(story_id or '')).strip('_')
+    return (text or 'untitled')[:40]
+
+
+def _reject_reserved_action_ids(story):
+    """``adventure:`` 前缀保留给运行时算出来的方案。
+
+    只在包声明了 ``mechanics.adventure`` 时生效：老包里作者可能真有一个叫
+    ``adventure:xx`` 的静态动作，那时一个字节也不改。新机制包里如果还用这个前缀，
+    同一个 id 会同时指静态动作与动态方案，界面与确认凭据都会歧义，所以在打包时拒绝。
+    """
+    if adventure_actions.config(story) is None:
+        return
+    for event in story.get('events') or []:
+        for action in event.get('actions') or []:
+            if str(action.get('id', '')).startswith(adventure_actions.ID_PREFIX):
+                raise ValueError('事件 %s 的动作 %r 占用了保留前缀 %r（运行时方案专用）'
+                                 % (event.get('id'), action.get('id'),
+                                    adventure_actions.ID_PREFIX))
+
+
+#: 世界历史进入 prompt/surface 的上限：条目数与字符数都有界，空结果不加 key。
+WORLD_HISTORY_MAX_ITEMS = 8
+WORLD_HISTORY_MAX_CHARS = 1200
+#: 只透传这些字段（与 ``world_history_store.PUBLIC_ENTRY_FIELDS`` 的白名单同源）。
+WORLD_HISTORY_FIELDS = ('category', 'ref', 'year', 'kind', 'region', 'settlement_ref',
+                        'display_name', 'founded', 'role', 'location_id', 'summary')
+
 # Drop model-derived material first, engine-sourced material last: the model's own
 # prose is re-derivable from the replies still kept in `history`, whereas the world
 # canon in `knowledge` and the settlement in `last_summary` have no other copy in
 # the prompt. Whole entries only; a cut line would be a malformed claim.
-TRIM_ORDER = ('dialogue_knowledge', 'recalled_dialogue', 'history', 'memories', 'elements', 'knowledge')
+TRIM_ORDER = ('dialogue_knowledge', 'recalled_dialogue', 'history', 'memories',
+              'current_world_history',
+              'current_pressure', 'current_traits', 'npc_cards', 'current_elements', 'elements',
+              'knowledge')
+# ``current_world_history`` 是 dict 型块（``{'items': [...]}``），与 ``history``
+# （对话轮次列表）**不是一个东西**；它排在 memories 之后先被裁，因为世界设定比当下对话
+# 更好重取，且裁剪是整条丢弃、绝不切半句。
+# 基线里就以「列表」存在的键：清空后仍以 [] 保留（下游按「键在、可为空」写）。
+TRIM_LIST_KEYS = ('dialogue_knowledge', 'recalled_dialogue', 'history', 'memories',
+                  'elements', 'knowledge')
+
+
+def budget_for(preferences):
+    """The one character budget shared by every dynamic block.
+
+    Elements, traits and known warnings are NOT given extra room on top of this: the
+    caller hands each of them the remaining space and `trim_context` can drop them
+    again, so declaring a new block can never make a prompt larger than the budget.
+    """
+    return preferences['context_chars'] - 3000
 
 
 def trim_context(result, budget):
-    for key in TRIM_ORDER:
+    """Drop whole entries until the prompt fits; never slice a sentence.
+
+    三条契约：
+
+    1. 列表型内容块（`TRIM_LIST_KEYS`）**总是以容器存在**（启动时补齐为 `[]`，清空后仍保留 `[]`）——
+       下游有按「键在、可为空」读的地方（例如事件摘要回归读 `trimmed['dialogue_knowledge']`）。
+    2. 没声明新机制的旧包，`current_pressure` / `current_traits` / `current_elements`
+       **不会被凭空插入**：缺键就保持缺键，旧包的 prompt 一个字也不多。
+    3. 按 `TRIM_ORDER` 的优先级**级联**裁剪：先清完前一个块，再动下一个；
+       dict 型块（压力/特质/元素清单）只在它**本来就在**、且 `items` 被清空时才整个移除。
+    """
+    for key in TRIM_LIST_KEYS:
         result.setdefault(key, [])
-        while result[key] and chars(result) > budget:
-            result[key].pop(0 if key in ('history', 'dialogue_knowledge') else -1)
+    while chars(result) > budget:
+        for key in TRIM_ORDER:
+            item = result.get(key)
+            if isinstance(item, dict):
+                entries = item.get('items')
+                if entries:
+                    entries.pop()
+                    if not entries:
+                        result.pop(key, None)
+                    break
+                # 已经是空壳的 dict 块：直接移除，不留在 prompt 里。
+                result.pop(key, None)
+                break
+            elif item:
+                item.pop(0 if key in ('history', 'dialogue_knowledge') else -1)
+                break
+        else:
+            break
     if chars(result) > budget and has_excerpt(result.get('last_summary')):
         result['last_summary'] = strip_excerpt(result['last_summary'])
     if chars(result) > budget:
@@ -61,26 +152,34 @@ class Runtime:
         self.store, self.root = store, root
         self.recall = Recall(store)
         self.attribute_vectors = attributes.KeywordVectors(store)
-        source = root / 'StoryPackage' / '玄陆'
+        # 不再自动导入任何预制世界：
+        # 旧实现会在生产根里硬找 ``StoryPackage/玄陆``、``world_packages/玄陆_世界包.json``
+        # 与 ``character_packages/xuanlu_初始角色包.json`` 并直接在启动时提交成包 —— 用户
+        # 删掉旧故事后那里再也不会有人希望它回来。现在启动只做准备，有没有世界由数据说话。
         production = store.path.resolve() == (root / 'data/textiledream.sqlite3').resolve()
         self.library = root / 'StoryPackage' if production else store.path.parent / 'StoryPackage'
         self.character_directory = root / 'character_packages' if production else store.path.parent / 'character_packages'
         self.library.mkdir(parents=True, exist_ok=True)
         self.character_directory.mkdir(parents=True, exist_ok=True)
         self._recover_package_transaction()
-        selected = store.get('pointer', 'package', {}).get('folder', '玄陆')
-        directory = self.package_directory(selected)
-        if selected != '玄陆' and not directory.exists():
-            raise ValueError('已启用故事包目录不存在：'+selected)
-        if selected == '玄陆' and not directory.exists() and source.exists():
-            shutil.copytree(source, directory, ignore=shutil.ignore_patterns('生成记录', '历史文档'))
-        self.files = PackageFiles(directory)
-        if not store.get('pointer', 'package'):
-            story = self.files.read() if (directory / 'story.json').exists() else json.loads((root / 'world_packages/玄陆_世界包.json').read_text(encoding='utf-8'))
-            characters = json.loads((root / 'character_packages/xuanlu_初始角色包.json').read_text(encoding='utf-8'))
-            self.commit_package(story, characters, '导入初始世界与角色')
-        elif (directory / 'story.json').exists():
-            self.reload_documents()
+        pointer = store.get('pointer', 'package')
+        self.files = None
+        if pointer:
+            folder = pointer.get('folder')
+            if not folder:
+                raise ValueError('已启用故事包记录缺少目录名，请检查存档')
+            directory = self.package_directory(folder)
+            if not directory.exists():
+                raise ValueError('已启用故事包目录不存在：' + folder)
+            self.files = PackageFiles(directory)
+            if (directory / 'story.json').exists():
+                self.reload_documents()
+            else:
+                raise ValueError('已启用故事包缺少 story.json：' + folder)
+        else:
+            # 没有 pointer 就是**没有世界**：不构造隐藏默认故事，也不提交空包。
+            # 已经躺在库里但没被 pointer 指向的旧包不是当前世界，也不去猜。
+            self.files = None
         old_default = '用第一人称写简短小说段落。只描述可见信息，不替玩家决定意图。失败也要带来后续线索。不得将传闻写成已证实事实。'
         corpus = store.get('corpus', 'general')
         if not corpus:
@@ -89,7 +188,10 @@ class Runtime:
             store.put('corpus', 'default_before_compaction', corpus)
             store.put('corpus', 'general', {'text': ''})
         # Backfill old dialogue and repair derived note documents from committed saves.
+        # 没有世界时一个旅程也不该存在；旧旅程指向的包已不在就跳过它，不做删除。
         for session in store.all('session'):
+            if not store.get('package', session.get('revision')):
+                continue
             self.session_files(session).save_notes('旅程', session['id'], notebook(session))
 
     def package_directory(self, folder):
@@ -130,7 +232,9 @@ class Runtime:
             raise ValueError('故事包事务已重放，但日志未能删除，请检查权限后重启') from error
 
     def session_files(self, session):
-        folder = self.package(session['revision']).get('folder', '玄陆')
+        folder = self.package(session['revision']).get('folder')
+        if not folder:
+            raise ValueError('这个旅程绑定的故事包没有目录信息，无法写入笔记')
         return PackageFiles(self.package_directory(folder))
 
     def list_packages(self):
@@ -141,7 +245,8 @@ class Runtime:
             if (path / 'story.json').exists():
                 try:
                     story = PackageFiles(path).read()
-                    result.append({'folder':path.name,'title':story['title'],'active':path==self.files.directory})
+                    result.append({'folder':path.name,'title':story['title'],
+                                   'active': bool(self.files) and path == self.files.directory})
                 except (ValueError, OSError, KeyError):
                     result.append({'folder':path.name,'title':path.name,'error':'文档无效，请检查文件','active':False})
         return result
@@ -170,14 +275,48 @@ class Runtime:
             raise
 
     def package(self, revision=None):
-        revision = revision or self.store.get('pointer', 'package')['id']
+        pointer = self.store.get('pointer', 'package')
+        revision = revision or (pointer or {}).get('id')
+        if not revision:
+            raise ValueError('还没有可用的世界：请先创建或采纳一个世界，再开始旅程')
         package = self.store.get('package', revision)
         if not package:
             raise ValueError('故事包版本不存在')
         return package
 
+    def has_world(self):
+        """当前是否存在一个可用的世界（被 pointer 指向且包体在）。
+
+        只看两件事：有没有 pointer，以及那个 revision 的包在不在。
+        不去扫库里的旧包猜哪个能用 —— 没被指向的都不是当前世界。
+        """
+        pointer = self.store.get('pointer', 'package') or {}
+        revision = pointer.get('id')
+        return bool(revision) and bool(self.store.get('package', revision))
+
+    def empty_state(self):
+        """正式世界状态（bootstrap 用）：没有世界时明确说没有，而不是造假故事。
+
+        ``world`` 只给公开标识（revision / 标题 / 地点数），不下发任何作者私密内容；
+        没有世界时它是 ``None``，并且 ``can_start`` 为 False、带一句可操作原因。
+        """
+        world = None
+        if self.has_world():
+            package = self.package()
+            world = {'revision': package['id'],
+                     'title': package['story'].get('title', ''),
+                     'story_id': package['story'].get('id'),
+                     'places': len(package['story'].get('locations') or [])}
+        return {'world': world, 'packages': self.list_packages(),
+                'can_start': world is not None,
+                'reason': ('' if world is not None else
+                            '还没有可用的世界：请先创建或采纳一个世界，再开始旅程'),
+                'library': self.library.name}
+
     def validate_package(self, story, characters):
+        npc_cards.validate(story, characters)
         attributes.validate(story,characters)
+        scene_judgment.validate(story, characters)
         if story.get('mechanics',{}).get('calendar'):Calendar.model_validate(story['mechanics']['calendar'])
         for place in story['locations']:
             if place.get('environment'):Environment.model_validate(place['environment'])
@@ -191,6 +330,27 @@ class Runtime:
         # tampered payload hash, a dangling public scope or a broken typed rule. A package
         # without the key is untouched (old packages and old journeys behave as before).
         element_assembly.validate_package(story, characters)
+        # Map link: a package may declare which civ-atlas import the player map draws.
+        # Absent means "not linked" and stays byte-identical; present means every field is
+        # bounded (unknown keys refused, radius numeric and finite, no caller-supplied
+        # path) and every location's coordinates must project onto the basemap frame, so a
+        # broken link can never reach the player projection.
+        play_map.validate_story_map(story)
+        # Trait templates are pinned inside the package; if the same ref also appears in
+        # the element manifest, both copies must agree. Start profiles reference real
+        # places/items/characters/currencies and their entry event must be reachable.
+        traits_rules.validate_package(story, characters)
+        start_rules.validate_package(story, characters)
+        pressure_rules.validate_package(story, characters)
+        # 通用冒险行动声明：只有包真的声明了 mechanics.adventure 才检查（老包零影响）。
+        # 它同时把 ``adventure:`` 前缀锁给运行时方案：作者静态动作不得占用该命名空间，
+        # 否则界面里会出现同 ID 的两个不同动作。
+        _reject_reserved_action_ids(story)
+        adventure_actions.validate(story, characters)
+        # 世界历史：快照在采纳时就已复制进 mechanics.history，这里只查包自身形状与摘要，
+        # 不读 store（被删的源记录不能影响已采纳的旅程）。没这个块就是 no-op。
+        world_history_store.validate_package_history(story)
+        endings_rules.validate_package(story, characters)
         validate_points(story.get('knowledge', []))
         # Keep extension declarations in raw JSON; validate both base schema and references.
         StoryAssembly.model_validate({'story': story, 'characters': characters})
@@ -229,6 +389,8 @@ class Runtime:
                 raise ValueError('事件操作 ID 重复')
             for action in actions:
                 validate_cues(action.get('narrative_cues', {}))
+                # 作者公开的意图别名：有界、去重、非空；它是玩家可见文本，不替作者把关内容。
+                free_actions.validate_action_aliases(action)
                 check = action.get('check')
                 if check and not (0 <= check['difficulty'] <= 1):
                     raise ValueError('检定难度应在 0 到 1 之间')
@@ -279,6 +441,12 @@ class Runtime:
                 self.files = PackageFiles(self.package_directory(matching[-1].get('folder','玄陆')))
             elif self.files.directory == self.package_directory(current.get('folder','玄陆')):
                 self.files = PackageFiles(self.package_directory('导入_'+uid()))
+        if self.files is None:
+            # 首次创建世界：库里还没有 pointer，目录名由这次提交自己认领。
+            # 不沿用旧预制目录名，也不在启动时预先建好。
+            folder = 'world_' + revision_folder_slug(story.get('id'))
+            directory = self.package_directory(folder)
+            self.files = PackageFiles(directory)
         target = self.files.directory
         if target.parent.resolve() != self.library.resolve():
             self.files = previous
@@ -404,7 +572,17 @@ class Runtime:
             return current['id']
         return self.commit_package(story, chars, '从 StoryPackage 文件夹读取文档')
 
-    def new_session(self, title, mode):
+    def new_session(self, title, mode, profile_id=None):
+        """Create one journey.
+
+        Order is deliberate: the whole candidate snapshot is built (including the start
+        profile's engine-side grants) and only then is time advanced and the first event
+        entered. Applying the profile after ``advance``/``enter`` would run a schedule or
+        a one-shot effect against the OLD opening and then overwrite it.
+        """
+        # 没有世界时直接拒，不去 reload/构造隐藏故事：告诉用户可以做什么。
+        if not self.files:
+            raise ValueError('还没有可用的世界：请先创建或采纳一个世界，再开始旅程')
         self.reload_documents()
         p = self.package()
         hero = next(c for c in p['characters']['characters'] if c['role'] == '主角')
@@ -417,7 +595,15 @@ class Runtime:
         # An empty reward ledger when configured, so an event's `before` snapshot already
         # carries zeros and a rollback lands on the same shape. Unconfigured stays bare.
         rewards_rules.ensure(s, p['story'])
-        local_rules.advance(s,p['story'],p['characters'],0)
+        # Start profile runs on the candidate state, before any clock work. Any refusal
+        # (unknown currency/item/template/character, entry event unreachable) raises and
+        # nothing has been saved yet, so the failure is a zero write.
+        start_cfg = start_rules.config(p['story'])
+        profile = start_rules.resolve(start_cfg, profile_id)
+        start_rules.apply(s, p['story'], p['characters'], profile)
+        # One clock for everything: local resources/schedules AND story pressure.
+        # `advance` is the only entry point, so the two cannot drift apart.
+        pressure_rules.advance(s, p['story'], p['characters'], 0, effects=self.effects)
         self.enter(s)
         self.store.save_session(s)
         return s
@@ -435,9 +621,25 @@ class Runtime:
 
     def enter(self, s):
         possible = self.candidates(s)
-        if possible:
-            event = possible[0]
+        # A start profile names a specific entry event. It is honoured only while that
+        # event has never been played and is still eligible; afterwards normal queueing
+        # resumes, so the override cannot be reused to replay a finished opening.
+        start = s.get('start') or {}
+        forced = s.pop('forced_entry', None)
+        entry = forced or start.get('entry_event')
+        chosen = None
+        if entry and entry not in s['completed'] and (forced or not start.get('entry_consumed')):
+            chosen = next((e for e in possible if e['id'] == entry), None)
+            if chosen is not None and not forced:
+                start['entry_consumed'] = True
+        if chosen is None:
+            chosen = possible[0] if possible else None
+        if chosen is not None:
+            event = chosen
             story = self.package(s['revision'])['story']
+            # Authored scene entrances, not model-created teleportation.
+            for cid, place in story.get('mechanics', {}).get('scene_judgment', {}).get('scene_cast', {}).get(event['id'], {}).items():
+                s['characters'][cid]['location'] = place
             scene_id = event.get('major_scene_id', event['location_id'])
             scene = next((x for x in story.get('major_scenes', []) if x['id'] == scene_id), None)
             title = scene['title'] if scene else next(l['name'] for l in story['locations'] if l['id'] == event['location_id'])
@@ -486,6 +688,33 @@ class Runtime:
             if data:
                 result.append(data)
         return result
+
+    def world_history(self, s, story, audience):
+        """本旅程**绑定的那一版**包里已采纳的世界历史，按受众白名单投影。
+
+        三个不变量：
+
+        * 只读 ``story``（= ``package(session['revision'])['story']``），绝不按
+          ``snapshot_id`` 回查 store：源记录被删不能改变已采纳的旅程。
+        * 受众由调用方给（NPC 用它自己的 id），逐条按作者的 ``known_by`` / 地点 / 标记过滤。
+        * 条目数与字符数都有上限；空结果返回 ``None``，调用方就不加 key（旧包一字不变）。
+        """
+        rows = world_history_store.package_history_public(story, s, audience)
+        if not rows:
+            return None
+        items = []
+        for row in rows[:WORLD_HISTORY_MAX_ITEMS]:
+            entry = {key: value for key, value in row.items()
+                     if key in WORLD_HISTORY_FIELDS and value is not None}
+            if entry:
+                items.append(entry)
+        while items and chars({'items': items}) > WORLD_HISTORY_MAX_CHARS:
+            items.pop()
+        if not items:
+            return None
+        return {'basis': '作者为这个世界采纳的历史设定：只含已公开的条目，'
+                         '不代表未来的结局，也不代表角色一定知道',
+                'items': items}
 
     def memories(self, s, audience, query, k):
         records = s['heard'] if audience == 'player' else [r for r in s['beliefs'] if r['character'] == audience]
@@ -546,6 +775,11 @@ class Runtime:
             current_scene = next((x for x in p['story'].get('major_scenes', []) if x['id'] == s.get('last_scene_id')), None)
             result['scene'] = current_scene['title'] if current_scene else location['name']
         result['current_time'] = s['time']
+        # 世界历史：只从本 session revision 的包里读，按该受众白名单过滤；空就不加 key。
+        # 它与上面的 ``history``（对话轮次）是两个不同的键，后者一字不动。
+        chronicle = self.world_history(s, p['story'], audience)
+        if chronicle is not None:
+            result['current_world_history'] = chronicle
         if audience=='player':
             result['local_state']=local_rules.view(s,p['story'])
             hero=next(c for c in p['characters']['characters'] if c['id']==s['hero'])
@@ -625,12 +859,31 @@ class Runtime:
             result['current_anchor']={'location':npc_place['name'],'daytime':surface['daytime'],
                                       'inventory':[],'inventory_complete':False,'confirmed_records':[]}
             result['cast'] = cast_projection(p, viewpoint, [audience], audience)
+        cards = npc_cards.context(p, viewpoint, audience,
+                                  [audience] if audience != 'player' else
+                                  self.node(s)['participants'] if s['active'] else [])
+        if cards:
+            result['npc_cards'] = cards
         # Locked element manifest: projection only, never a library lookup. The journey
         # reads the snapshot inside its own package revision, so a library update or a
         # deletion cannot add element types to a running story.
         projected = element_assembly.context_elements(p['story'], audience, viewpoint)
         if projected is not None:
             result['current_elements'] = projected
+        # Traits and known warnings share the SAME character budget as everything else:
+        # they are handed the remaining room, then trimmed by the normal path below.
+        # Both return None when the package declares nothing, so old prompts are unchanged.
+        # `viewpoint` is used so an NPC only sees traits of people present at ITS location.
+        remaining = budget_for(preferences) - chars(result)
+        traits_block = traits_rules.context(p['story'], viewpoint, audience,
+                                            budget=remaining,
+                                            characters=p['characters'])
+        if traits_block is not None:
+            result['current_traits'] = traits_block
+        warning_block = pressure_rules.context(s, p['story'], audience)
+        if warning_block is not None:
+            # Only what this viewpoint already knows: never stage counts or thresholds.
+            result['current_pressure'] = warning_block
         anchor_place = location if audience == 'player' else npc_place
         result['current_anchor'].update(state_anchor(s, anchor_place, result.get('scene', anchor_place['name']), result['characters']))
         result['current_anchor'].setdefault('inventory_complete', True)
@@ -647,7 +900,7 @@ class Runtime:
                 result['current_anchor']['clock']['calendar']='类地365日历；solar给出年内日与统一游戏UTC偏移，不自动切换时区'
                 result['current_anchor']['unspecified']='日出日落按solar近似值；房间、天气与地形遮挡未确认'
         # Remove oldest contextual material first, never truncate malformed JSON.
-        budget = preferences['context_chars'] - 3000
+        budget = budget_for(preferences)
         trim_context(result, budget)
         # The element summary shares the same budget. Whole entries (or a whole fact list)
         # are dropped: never a sliced sentence, because cutting a clause can turn「不能」
@@ -764,26 +1017,27 @@ class Runtime:
         if not s['active']:
             self.enter(s)
         if not s['active']:
-            raise ValueError('当前地点没有可进入的事件，请从地图继续探索')
+            # 没有可进入的事件时，通用行动走各自的专用路径（休息=/wait、旅行=move），
+            # 而不是为了兼容伪造一个故事事件。这里给一句可操作的话，而非死按钮。
+            raise ValueError('当前地点没有可进入的事件：休息请用等待，旅行请用地图移动')
         node = self.node(s)
+        # 先解析并校验，再产生任何副作用：不合法时既没有 communicate，也没有 charge/effects。
+        plan = None
+        action = None
+        duration = cfg.turn_hours
+        if request.action_id:
+            if s['mode'] == 'observer' or (s['mode'] == 'mixed' and not node.get('player_enters', False)):
+                raise ValueError('旁观阶段可补述或注解，不能直接操作人物和物品')
+            action, plan, duration = self.resolve_action(s, node, request, package['story'])
         listeners=local_rules.communicate(s,node,request,cfg.memory_limit)
         if s['mode'] == 'mixed' and node.get('player_enters', False):
             s['characters'][s['hero']]['location'] = s['location']
         result = {'ends': False, 'outcome': '继续对话', 'voice': ''}
         result['input_channel']=request.channel
         result['listeners']=listeners
-        duration=cfg.turn_hours
         if request.action_id:
-            if s['mode'] == 'observer' or (s['mode'] == 'mixed' and not node.get('player_enters', False)):
-                raise ValueError('旁观阶段可补述或注解，不能直接操作人物和物品')
-            action = next((a for a in node['actions'] if a['id'] == request.action_id), None)
-            if not action or action['id'] in s['active']['actions_done']:
-                raise ValueError('操作不存在或已经执行')
-            if not all(s['flags'].get(k, False) == v for k, v in action.get('requires', {}).items()):
-                raise ValueError('操作条件尚未满足')
             success = True
             local_rules.charge(s,package['story'],action,node['id']+':'+action['id'])
-            duration=action.get('duration_hours',duration)
             if action.get('check'):
                 check = action['check']
                 hero = next(c for c in self.package(s['revision'])['characters']['characters'] if c['id'] == s['hero'])
@@ -811,7 +1065,12 @@ class Runtime:
                 result['reward_audit'] = audits
             result.update(ends=action.get('ends_event', False), outcome=action.get('success_text' if success else 'failure_text', action['label']))
             result['narrative'] = outcome_cues(action,success,bool(action.get('check')))
-            s['active']['actions_done'].append(action['id'])
+            # 可重复类（休息/旅行）不记 ``actions_done``：时间推进本身可以反复做。其余
+            # （动态的观察/调查/交涉/取物）与既有静态动作同语义：当前事件内只做一次，
+            # 回滚回事件起点后可重做；奖励靠既有 ``grant_id`` 幂等，不另开账本。
+            if plan is None or plan['kind'] not in adventure_actions.REPEATABLE:
+                s['active']['actions_done'].append(action['id'])
+        npc_cards.remember_action(package, s, node, action, result)
         # Deterministic personality response, biased by current state and beliefs.
         for cid in node['participants']:
             if cid == s['hero']:
@@ -854,9 +1113,12 @@ class Runtime:
             if branch.get('item_id') in s['inventory'] or (branch.get('memory_text') and any(branch['memory_text'] in m['text'] for m in s['heard'])):
                 result['special_dialogue'] = branch['text']
                 break
-        local_rules.advance(s,package['story'],package['characters'],duration)
+        # The clock and the story pressure share one entry point: `pressure_rules.advance`
+        # calls local_rules.advance first, then evaluates stages against the same time.
+        pressure_rules.advance(s, package['story'], package['characters'], duration,
+                               effects=self.effects)
         s['turn_index'] += 1
-        if len(s['active']['turns']) + 1 >= node.get('max_turns', 8):
+        if not scene_judgment.enabled(package['story']) and len(s['active']['turns']) + 1 >= node.get('max_turns', 8):
             result['ends'] = True
             result['outcome'] += ' 这次会面告一段落，未解决的疑问留待后续。'
         return result
@@ -866,11 +1128,13 @@ class Runtime:
                                    'channel':request.channel,'listeners':result.get('listeners',[])})
         s['usage'].append(usage)
         if result['ends']:
-            self.close_event(s)
+            self.close_event(s, resolved_exit=True)
         self.store.save_session(s)
         self.session_files(s).save_notes('旅程', s['id'], notebook(s))
 
-    def close_event(self, s):
+    def close_event(self, s, resolved_exit=False):
+        if scene_judgment.enabled(self.package(s['revision'])['story']) and not resolved_exit:
+            raise ValueError('请用本幕的离开或结算行动结束，避免跳过必要步骤')
         if not s['active'] or not s['active']['turns']:
             raise ValueError('至少完成一次交互才能结束事件')
         active = s['active']
@@ -883,6 +1147,21 @@ class Runtime:
         archive = {**active, 'summary': summary, 'after': self.snapshot(s)}
         s['archives'].append(archive)
         s['active'] = None
+        story = self.package(s['revision'])['story']
+        ending = None if s.get('ending') else endings_rules.resolve(s, story)
+        if ending is not None:
+            # A phase ending is sticky: it is recorded once and never re-derived from
+            # later prose or later pressure effects. Everything afterwards still moves
+            # flags and resources (a "lost" ending keeps going), but the recorded ending
+            # is never overwritten by a later condition that happens to match — otherwise
+            # pressure and endings could overwrite each other.
+            s['ending'] = {**ending, 'at': s['time']}
+            follow = ending.get('continue_event')
+            if follow and follow in {e['id'] for e in story['events']} \
+                    and follow not in s['completed']:
+                # A dedicated session key, not a field inside the start receipt: an
+                # ending without a start profile must not fabricate one.
+                s['forced_entry'] = follow
         # Continue sub-events inside the same major scene without creating a chat.
         if any(e.get('major_scene_id', e['location_id']) == s.get('last_scene_id', s.get('conversation', {}).get('scene_id')) for e in self.candidates(s)):
             self.enter(s)
@@ -903,22 +1182,236 @@ class Runtime:
         self.session_files(restored).save_notes('旅程', restored['id'], notebook(restored))
         return restored
 
-    def move(self, s, destination):
+    def resolve_action(self, s, node, request, story):
+        """解析这次要执行的动作：(action, plan, duration)。全部校验在副作用之前。
+
+        命名空间：静态 ``node['actions']`` 优先（旧按钮行为不变）；找不到时再在当前算出的
+        运行时方案里找（id 以 ``adventure:`` 开头）。
+
+        动态方案**必须**带确认凭据：方案是运行时算出来的，玩家看到的成本/时长/目标是
+        一份快照，不校验就等于允许拿旧摘要执行当下的不同动作。静态动作不传凭据时仍是
+        旧的直接按钮行为（有意的兼容，不是语义放宽）。
+
+        ``plan`` 与凭据验证用的是**同一次**计算结果，所以不存在「凭据验了 node.actions
+        而执行时找不到动态动作」的缺口。
+        """
+        package = self.package(s['revision'])
+        plans, refused = adventure_actions.scan(
+            s, package['story'], package['characters'])
+        plan = next((p for p in plans if p['action_id'] == request.action_id), None)
+        action = next((a for a in node.get('actions') or []
+                       if a['id'] == request.action_id), None)
+        if action is None and plan is not None and plan.get('supported'):
+            action = plan['action']
+        if action is None or action['id'] in ((s.get('active') or {}).get('actions_done') or []):
+            raise ValueError('操作不存在或已经执行')
+        confirm = getattr(request, 'confirm', None)
+        if action.get('requires_confirmation') and not confirm:
+            raise ValueError('这个行动有明确风险，请先查看并确认后果')
+        if plan is not None and plan.get('action') is action and not confirm:
+            raise ValueError('这个行动需要先确认（成本、时长与目标以确认摘要为准）')
+        if confirm:
+            free_actions.verify(s, package['story'], node, action['id'], confirm,
+                                plans=plans, characters=package['characters'])
+        if not all(s['flags'].get(k, False) == v
+                   for k, v in (action.get('requires') or {}).items()):
+            raise ValueError('操作条件尚未满足')
+        if not local_rules.affordable(s, package['story'], action):
+            raise ValueError('资源不足，无法执行该行动')
+        duration = action.get('duration_hours', local_rules.rules(package['story']).turn_hours)
+        return action, plan, duration
+
+    def local_action(self, s, action_id, confirm=None):
+        """在没有进行中的事件时执行一个**运行时方案**（休息等本地动作）。
+
+        返回语义固定如下，调用方不需要猜：
+
+        * 只在候选副本上执行，**不写库、不改入参 ``s``**；成功时返回 ``(result, work)``。
+        * 调用方（``Service``）在一次短锁内把 ``work`` 写回并 ``save_session`` 一次，
+          因此不会出现双重保存 / 双版 ``state_version``。
+        * 没有 ``active`` 事件时不记录对话轮，只写已结算的本地记录：
+          ``local.ledger``（资源）、``checks``（检定）、``facts``/``heard``（声明效果），
+          以及一行很小的 ``local_actions`` 审计条目。
+        * 确认凭据与活动内动作用同一个 ``free_actions.confirm_token``（``node`` 为空串）。
+        * 任何不满足（不存在/条件不足/资源不足/凭据过期/旁观模式）都在写入前抛错。
+        """
+        if s.get('active'):
+            raise ValueError('当前有进行中的事件，请用既有动作管线')
+        package = self.package(s['revision'])
+        story, characters = package['story'], package['characters']
+        if adventure_actions.config(story) is None:
+            raise ValueError('故事包没有声明通用行动')
+        plans, refused = adventure_actions.scan(s, story, characters)
+        plan = next((p for p in plans if p['action_id'] == action_id), None)
+        if plan is not None and plan['kind'] == 'travel':
+            # 旅行有它自己的入口（地图移动），不在这里结算。
+            raise ValueError('旅行请用地图移动（同一个时钟，不另外结算）')
+        if plan is None or not plan['supported'] or plan.get('action') is None:
+            hit = next((r for r in refused if r['action_id'] == action_id), None)
+            raise ValueError(hit['text'] if hit else '这里没有可确认的这个行动')
+        if s['mode'] == 'observer':
+            raise ValueError('旁观阶段不能直接操作人物和物品')
+        if not confirm:
+            raise ValueError('这个行动需要先确认（成本、时长与效果以确认摘要为准）')
+        free_actions.verify(s, story, None, action_id, confirm,
+                            plans=plans, characters=characters)
+        action = plan['action']
+        work = copy.deepcopy(s)
+        before = {'time': s['time'],
+                  'resources': dict((s.get('local') or {}).get('resources') or {})}
+        local_rules.charge(work, story, action, 'local:' + action_id)
+        audits = self.effects(work, action.get('effects', []), 'local:' + action_id)
+        pressure_rules.advance(work, story, characters, plan['duration_hours'],
+                               effects=self.effects)
+        work['local_actions'] = list(work.get('local_actions') or []) + [{
+            'action': action_id, 'kind': plan['kind'],
+            'at': work['time'], 'hours': plan['duration_hours']}]
+        result = {'outcome': action.get('success_text') or action['label'],
+                  'kind': plan['kind'], 'duration_hours': plan['duration_hours'],
+                  'ends': False, 'listeners': [],
+                  # 本次服务端已确认的结果：时长与资源确实变化了多少。只含公开字段，
+                  # 不推测隐藏恢复、不把并发更新冒称本次效果。
+                  'local_result': {
+                      'action_id': action_id, 'kind': plan['kind'],
+                      'hours': work['time'] - before['time'],
+                      'label': action['label'],
+                      'resources': [{'id': rid, 'before': before['resources'].get(rid, 0),
+                                     'after': (work.get('local') or {})
+                                              .get('resources', {}).get(rid, 0)}
+                                    for rid in sorted(action.get('costs') or {})]}}
+        public = rewards_rules.public_result(rewards_rules.rules(story), audits, work)
+        if public:
+            result['rewards'] = public
+        return result, work
+
+    def adventure_plans(self, s):
+        """当前可用的运行时方案（纯函数：不写 session、不写库）。
+
+        包没有声明 ``mechanics.adventure`` 时返回空列表，因此老包的 surface 与确认
+        路径完全不变。
+        """
+        package = self.package(s['revision'])
+        return adventure_actions.build(s, package['story'], package['characters'])
+
+    def require_travel(self, s, destination):
+        """确认这个目的地当前是一个**合法旅行方案**，否则在副作用前拒绝。
+
+        这里不做新的判定：判定只有一个地方（``adventure_actions``），本方法只是把结果
+        转成异常。所以「已知但被条件封锁的路线」不能靠直接调 ``move`` 绕过去，
+        ``world_mismatch`` / ``route_cost`` 之类缺口同样走不进去。
+        """
+        package = self.package(s['revision'])
+        plans, refused = adventure_actions.scan(s, package['story'], package['characters'])
+        wanted = 'adventure:travel:' + str(destination)
+        if any(p['action_id'] == wanted and p['supported'] and p.get('travel')
+               for p in plans):
+            return
+        hit = next((r for r in refused if r['action_id'] == wanted), None)
+        if hit is not None:
+            raise ValueError(hit['text'])
+        raise ValueError('这里没有通向该地点的路线')
+
+    def travel_hours(self, s, destination):
+        """这次移动**真实**会推进的小时数与来源。
+
+        有 ``mechanics.adventure`` 时，作者声明的路线耗时（``route.hours`` 或 travel 模板的
+        ``duration_hours``）优先，否则落回既有的 ``mechanics.local.travel_hours``；没有该
+        声明块的旧包永远返回 ``local.travel_hours`` —— 旧行为一个字不变。
+
+        这里只决定时长，不决定能不能走：相邻性、可见性与条件仍由 :meth:`move` 与
+        运行时方案的复核负责。
+        """
+        package = self.package(s['revision'])
+        story = package['story']
+        default_hours = local_rules.rules(story).travel_hours
+        if adventure_actions.config(story) is None:
+            return default_hours, 'local.travel_hours'
+        plan = free_actions.dynamic_plan(
+            s, story, 'adventure:travel:' + str(destination),
+            characters=package['characters'])
+        if plan is not None and plan.get('supported') and plan.get('travel'):
+            return plan['duration_hours'], plan['duration_source']
+        return default_hours, 'local.travel_hours'
+
+    def move(self, s, destination, hours=None):
+        """移动一个相邻地点，并**只**用 ``pressure_rules.advance`` 推进时钟。
+
+        ``hours`` 只给内部可信调用方（例如按已确认的旅行方案推进）：它不来自请求参数。
+        缺省时取 :meth:`travel_hours`，所以作者声明的路线耗时会真正生效，不会出现
+        「界面承诺 3 小时、实际推进 2 小时」。
+        """
         if s['active']:
             raise ValueError('先结束当前事件，再前往下一地点')
-        places = self.package(s['revision'])['story']['locations']
+        package = self.package(s['revision'])
+        story, characters = package['story'], package['characters']
+        places = story['locations']
         current = next(l for l in places if l['id'] == s['location'])
         if destination not in current['neighbors']:
             raise ValueError('只能前往相邻地点')
-        s['location'] = destination
-        package=self.package(s['revision'])
-        local_rules.advance(s,package['story'],package['characters'],local_rules.rules(package['story']).travel_hours)
-        if s['mode'] == 'protagonist':
-            s['characters'][s['hero']]['location'] = destination
-        if destination not in s['explored']:
-            s['explored'].append(destination)
-        self.enter(s)
+        # 新机制包：能走的路必须先是**当前算得出的合法旅行方案**，否则已知但被条件封锁的
+        # 路线只要直接 POST /move 就绕过了方案层。旧包（无声明块）保持原有规则。
+        plan = None
+        if adventure_actions.config(story) is not None:
+            self.require_travel(s, destination)
+            plan = free_actions.dynamic_plan(
+                s, story, 'adventure:travel:' + str(destination), characters=characters)
+        if hours is None:
+            hours = self.travel_hours(s, destination)[0]
+        costs = dict((plan or {}).get('travel', {}).get('costs') or {})
+        # 整次移动在**候选副本**上完成：先扣费、再改位置/推进时钟/进入事件，任何一步失败
+        # 都不回写调用方的 session（不会出现“钱扣了但压力阶段失败”的半提交）。
+        work = copy.deepcopy(s)
+        if costs:
+            local_rules.charge(work, story, {'costs': costs}, 'move:' + str(destination))
+        work['location'] = destination
+        pressure_rules.advance(work, story, characters, hours, effects=self.effects)
+        if work['mode'] == 'protagonist':
+            work['characters'][work['hero']]['location'] = destination
+        if destination not in work['explored']:
+            work['explored'].append(destination)
+        self.enter(work)
+        s.clear()
+        s.update(work)
+        # 一次保存；CAS 仍是已有的 state_version。持久化失败时调用方拿到异常，
+        # 且 state_version 未递增，不会伪装成已执行。
         self.store.save_session(s)
+
+    def adventure_surface(self, s, package, node):
+        """玩家可见的运行时方案段；包没声明 ``mechanics.adventure`` 时返回 ``None``。
+
+        三条约束：
+
+        1. 只用 ``adventure_actions.public()`` 的白名单字段——线索正文、分支正文、未发生
+           的结果都不进来；
+        2. 只有方案真的带可执行 action 且 ``supported`` 才附 ``confirm``；缺口（转交/实例/
+           带路费/带效果的休息）不附，避免“看着能点、一点就废”的按钮。
+        3. 事件未结束时旅行不装成可执行：标 ``blocked_active_event`` 并给一句公开可操作提示。
+        """
+        story = package['story']
+        if adventure_actions.config(story) is None:
+            return None
+        plans, refused = adventure_actions.scan(s, story, package['characters'])
+        rows = []
+        for plan in plans:
+            view = adventure_actions.public(plan, story)
+            if plan['action'] is not None and plan['supported']:
+                view['confirm'] = free_actions.confirm_token(s, node, plan['action'], story)
+            if plan['kind'] == 'travel' and s['active']:
+                view['execution'] = 'blocked_active_event'
+                view['hint'] = '先结束当前事件，再前往相邻地点'
+            elif plan['kind'] == 'travel':
+                view['execution'] = 'move'
+            elif plan['kind'] == 'rest' and plan['supported']:
+                view['execution'] = 'wait'
+            else:
+                view['execution'] = 'action' if view.get('confirm') else 'unsupported'
+            rows.append(view)
+        return {'plans': rows,
+                'refused': [{'action_id': r['action_id'], 'kind': r['kind'],
+                             'target': r['target'], 'reason': r['reason'],
+                             'text': r['text']} for r in refused],
+                'note': '这些目标是作者已配置且当前可见的；确认摘要不含未发生的结果。'
+                        '记账仍由既有动作管线/等待/移动完成，本段只是一个读视图。'}
 
     def surface(self, s):
         p = self.package(s['revision'])
@@ -926,9 +1419,31 @@ class Runtime:
         current = next(l for l in places if l['id'] == s['location'])
         visible = set(s['explored']) | set(current['neighbors'])
         node = self.node(s) if s['active'] else None
-        actions = [] if not node else [{'id': a['id'], 'label': a['label']} for a in node['actions'] if a['id'] not in s['active']['actions_done'] and all(s['flags'].get(k, False) == v for k, v in a.get('requires', {}).items()) and local_rules.affordable(s,p['story'],a)]
+        # Each action carries its cost and duration so the UI can show what confirming
+        # actually commits to; the confirm token is only handed out by /confirm/{action}.
+        # A package that declares none of the demo mechanics keeps the legacy two-field
+        # action shape, so an old package's surface payload stays byte-identical.
+        detailed = any(key in (p['story'].get('mechanics') or {})
+                       for key in ('start_profiles', 'pressure', 'endings', 'traits'))
+        available = [] if not node else [
+            a for a in node['actions']
+            if a['id'] not in s['active']['actions_done']
+            and all(s['flags'].get(k, False) == v for k, v in a.get('requires', {}).items())
+            and local_rules.affordable(s, p['story'], a)]
+        if detailed:
+            actions = []
+            for a in available:
+                summary = free_actions.summarise(a, p['story'])
+                actions.append({'id': a['id'], 'label': a['label'],
+                                'costs': summary['costs'],
+                                'duration_hours': summary['duration_hours'],
+                                'check': summary['check'],
+                                'ends_event': summary['ends_event']})
+        else:
+            actions = [{'id': a['id'], 'label': a['label']} for a in available]
         if s['mode'] == 'observer' or (s['mode'] == 'mixed' and node and not node.get('player_enters', False)):
             actions = []
+        adventure = self.adventure_surface(s, p, node)
         fatigue = s['characters'][s['hero']]['status'].get('疲劳', 0)
         surface = {'id': s['id'], 'title': s['title'], 'world': p['story']['title'], 'mode': s['mode'],
                 'abilities':{'values':attributes.values(next(c for c in p['characters']['characters'] if c['id']==s['hero']).get('attributes'),legacy=True),
@@ -951,11 +1466,35 @@ class Runtime:
             # The legacy `inventory` string list stays exactly as it was; the structured
             # holding view is added only when the author configured rewards.
             surface['rewards'] = rewards_rules.public_state(s, p['story'], 'player')
+        if scene_judgment.enabled(p['story']):
+            surface['short_scene'] = {'description': current.get('description', ''),
+                                      'travel_hours': local_rules.rules(p['story']).travel_hours}
+        exploration = civ_exploration.surface(s, p['story'], adventure)
+        if exploration is not None:
+            surface['exploration'] = exploration
         # Only towns bound to a place in THIS revision *and* within what this journey
         # knows reach the player view, and only through the public whitelist.
         town = towns_store.story_towns(p['story'], s['revision'], s)
         if town:
             surface['towns'] = town
+        # Start receipt, known warnings and the current phase ending. Each is omitted
+        # entirely when the package declares nothing, so an untouched package produces
+        # exactly the previous surface payload.
+        opening = start_rules.surface(s, p['story'])
+        if opening is not None:
+            surface['opening'] = opening
+        warnings = pressure_rules.known(s, p['story'], 'player')
+        if warnings:
+            surface['warnings'] = [row['text'] for row in warnings]
+        ending = s.get('ending') or endings_rules.resolve(s, p['story'])
+        if ending is not None:
+            surface['ending'] = ending
+        if adventure is not None:
+            surface['adventure'] = adventure
+        # 世界历史（玩家视角）。键名区别于 ``conversations``/``history`` 消费方。
+        chronicle = self.world_history(s, p['story'], 'player')
+        if chronicle is not None:
+            surface['world_history'] = chronicle
         return surface
 
     def approve(self, draft):

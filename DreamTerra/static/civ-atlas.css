@@ -1,0 +1,169 @@
+/* The atlas shell surrounds the native map without altering its projection. */
+.native-map-host .dream-host {
+  color: #263c32;
+  background: #edf0e8;
+}
+.native-map-host .dream-atlas-heading {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 5px 14px;
+  padding: 13px 20px 11px;
+  background: #f8f8f1;
+  border-bottom: 1px solid #d7dfd1;
+}
+.dream-atlas-heading > * { margin: 0; }
+.dream-atlas-heading .dream-atlas-kicker { color: #9a7954; font-size: 10px; font-weight: 700; }
+.dream-atlas-heading h1, .dream-atlas-heading h2, .dream-atlas-heading strong {
+  color: #203e31;
+  font: 600 20px/1.2 'Songti SC', 'SimSun', serif;
+}
+.dream-atlas-heading .dream-atlas-subtitle { color: #758579; font-size: 11px; line-height: 1.4; }
+.native-map-host .dream-atlas-toolbar {
+  position: relative;
+  z-index: 4;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 7px 12px;
+  padding: 8px 20px;
+  background: #f5f6ef;
+  border-bottom: 1px solid #cdd9cb;
+}
+.dream-atlas-controls, .dream-atlas-actions, .dream-atlas-layers {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.dream-atlas-controls { flex: 1 1 220px; min-width: 0; }
+.dream-atlas-actions { margin-left: auto; }
+.native-map-host .dream-atlas-toolbar button,
+.native-map-host .dream-atlas-toolbar select,
+.native-map-host .dream-atlas-journey summary {
+  min-height: 32px;
+  padding: 5px 9px;
+  border: 1px solid #c6d3c3;
+  border-radius: 3px;
+  background: #fffef9;
+  color: #29483a;
+  font: 12px/1.3 'Segoe UI', 'Microsoft YaHei', sans-serif;
+}
+.native-map-host .dream-atlas-toolbar select { min-width: 100px; max-width: 260px; }
+.native-map-host .dream-atlas-toolbar button { cursor: pointer; }
+.native-map-host .dream-atlas-toolbar button:hover,
+.native-map-host .dream-atlas-journey summary:hover { background: #e5eee2; }
+.native-map-host .dream-atlas-toolbar button:disabled { opacity: .48; cursor: default; }
+.dream-atlas-layers { padding-left: 10px; border-left: 1px solid #d1dbce; }
+.native-map-host .dream-atlas-layers button { border-color: transparent; background: transparent; color: #728579; }
+.native-map-host .dream-atlas-layers button[aria-pressed='true'] {
+  border-color: #b7cbb8;
+  background: #e2ece0;
+  color: #244a38;
+}
+.dream-atlas-journey { position: relative; }
+.dream-atlas-journey summary { cursor: pointer; list-style: none; white-space: nowrap; }
+.dream-atlas-journey summary::-webkit-details-marker { display: none; }
+.dream-atlas-journey summary::after { content: ' ▾'; color: #789181; }
+.dream-atlas-journey[open] { display: flex; align-items: center; gap: 5px; flex-wrap: wrap; }
+.native-map-host .dream-atlas-stage {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: hidden;
+  background: #e2e9df !important;
+}
+.dream-atlas-compass, .dream-atlas-legend, .dream-atlas-inspector {
+  position: absolute;
+  z-index: 2;
+  color: #395747;
+}
+.dream-atlas-compass {
+  top: 14px;
+  left: 16px;
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid #b7c8b7;
+  border-radius: 50%;
+  background: #f8f8f0e8;
+  font: 600 13px Georgia, serif;
+  pointer-events: none;
+}
+.dream-atlas-legend {
+  left: 16px;
+  bottom: 82px;
+  max-width: min(260px, calc(100% - 32px));
+  padding: 8px 11px;
+  border: 1px solid #c9d5c5;
+  background: #fafaf3ed;
+  font-size: 11px;
+  line-height: 1.6;
+  pointer-events: none;
+}
+.dream-atlas-inspector {
+  top: 14px;
+  right: 16px;
+  width: min(240px, calc(100% - 80px));
+  max-height: calc(100% - 110px);
+  overflow: auto;
+  padding: 10px 12px;
+  border: 1px solid #bfcebd;
+  border-top: 2px solid #a78b64;
+  background: #fbfbf5f2;
+  box-shadow: 0 5px 18px #25443718;
+  font-size: 12px;
+  line-height: 1.55;
+}
+.dream-atlas-inspector:empty, .dream-atlas-inspector[hidden] { display: none; }
+.dream-atlas-inspector summary { cursor: pointer; font-weight: 600; }
+.dream-atlas-legend strong,.dream-atlas-legend span,.dream-atlas-legend small { display:block; }
+.dream-atlas-legend strong { color:#29483a; font:600 14px/1.7 'Songti SC','SimSun',serif; }
+.dream-atlas-legend small { color:#829080; font-size:10px; margin-top:3px; }
+.dream-atlas-inspector h3 { margin:5px 0 8px; color:#274935; font:600 22px/1.3 'Songti SC','SimSun',serif; }
+.dream-atlas-inspector small { color:#7b8978; font-size:10px; }
+.dream-atlas-inspector p { margin:0 0 10px; }
+.dream-atlas-inspector dl { margin:10px 0; border-top:1px solid #dce1d1; }
+.dream-atlas-inspector dl div { display:flex; justify-content:space-between; gap:12px; padding:5px 0; }
+.dream-atlas-inspector dt { color:#84917e; }.dream-atlas-inspector dd { margin:0; }
+.dream-inspector-close { float:right; border:0; background:transparent; color:#6d7a68; font-size:18px; cursor:pointer; }
+.dream-atlas-toolbar .dream-zoom-value { min-width:36px; text-align:center; font:11px Georgia,serif; color:#6a7d69; }
+.dream-atlas-status { margin-bottom:72px; }
+.native-map-host .dream-atlas-toolbar select { width:auto; }
+.dream-atlas-journey[open] { flex-basis:100%; order:3; padding:7px 0 2px; border-top:1px solid #d7dfd1; }
+.native-map-host .dream-atlas-status {
+  z-index: 2;
+  flex: 0 0 auto;
+  min-height: 30px;
+  padding: 7px 20px;
+  border-top: 1px solid #d4ded1;
+  background: #f6f7f0 !important;
+  color: #718477;
+  font-size: 11px;
+  line-height: 1.4;
+}
+.player-map-bar, .player-map-foot { background: #f7f8f1; border-color: #d2ded0; }
+.player-map-bar { color: #244535; }
+.player-map-actions button { border-color: #c6d3c3; background: #fffef9; }
+.play-map-wrap { background: #e2e9df; }
+.player-map-foot { color: #708377; }
+@media (max-width: 700px) {
+  .native-map-host .dream-atlas-heading { padding: 8px 10px; gap: 3px 8px; }
+  .dream-atlas-heading h1, .dream-atlas-heading h2, .dream-atlas-heading strong { font-size: 17px; }
+  .dream-atlas-heading .dream-atlas-subtitle { display: none; }
+  .native-map-host .dream-atlas-toolbar { padding: 6px 10px; gap: 5px; }
+  .dream-atlas-controls { flex: 1 1 150px; }
+  .dream-atlas-actions { margin-left: 0; }
+  .dream-atlas-layers { padding-left: 0; border-left: 0; }
+  .native-map-host .dream-atlas-toolbar button,
+  .native-map-host .dream-atlas-toolbar select,
+  .native-map-host .dream-atlas-journey summary { min-height: 30px; padding: 4px 7px; font-size: 11px; }
+  .native-map-host .dream-atlas-toolbar select { max-width: 150px; }
+  .dream-atlas-compass { top: 8px; left: 9px; width: 32px; height: 32px; }
+  .dream-atlas-legend { left: 9px; bottom: 76px; padding: 5px 7px; font-size: 10px; }
+  .dream-atlas-inspector { top: 8px; right: 9px; width: min(175px, calc(100% - 70px)); padding: 7px 9px; font-size: 11px; }
+  .native-map-host .dream-atlas-status { padding: 5px 10px; }
+  .player-map-bar { padding: 7px 10px; }
+  .player-map-foot { padding: 5px 10px; }
+}

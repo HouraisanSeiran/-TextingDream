@@ -28,12 +28,10 @@ const townNav=el('button');
 townNav.dataset.page='towns';
 townNav.append(el('span','▦ 城镇创作'),el('small','作者'));
 townNav.onclick=()=>safe(()=>showPage('towns'));
-document.querySelector('nav').insertBefore(townNav,document.querySelector('nav button[data-page="traces"]'));
+// 插到「地图与世界」那组的最后；不假设某一页在哪个 nav 里
+document.querySelector('nav button[data-page="world-workshop"]').closest('nav').append(townNav);
 
-const townShowPage=showPage;
-showPage=async function(id){await townShowPage(id);if(id!=='towns')return;
- $('page-title').textContent='城镇创作';$('breadcrumb').textContent='工作空间 / 城镇创作';
- await refreshTowns();await refreshTownVersions()};
+TDNav.register('towns',{title:'城镇创作',enter:async()=>{await refreshTowns();await refreshTownVersions()}});
 
 let townDrafts=[],townVersions=[],activeTown=null;
 

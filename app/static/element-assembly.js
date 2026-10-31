@@ -45,12 +45,9 @@ const elementNav=el('button');
 elementNav.dataset.page='elements';
 elementNav.append(el('span','◆ 元素装配'),el('small','作者'));
 elementNav.onclick=()=>safe(()=>showPage('elements'));
-document.querySelector('nav').insertBefore(elementNav,document.querySelector('nav button[data-page="traces"]'));
+document.querySelector('nav button[data-page="world-workshop"]').closest('nav').append(elementNav);
 
-const elementShowPage=showPage;
-showPage=async function(id){await elementShowPage(id);if(id!=='elements')return;
- $('page-title').textContent='元素装配';$('breadcrumb').textContent='工作空间 / 元素装配';
- await eaLoadLibrary();await eaLoadPackage();await eaListDrafts()};
+TDNav.register('elements',{title:'元素装配',enter:async()=>{await eaLoadLibrary();await eaLoadPackage();await eaListDrafts()}});
 
 let eaInfo=null,eaPackageInfo=null,eaElements=[],eaRules=[],eaDraft=null,eaTarget=null;
 let eaPageState={offset:0,limit:20,total:0};
@@ -71,7 +68,7 @@ async function eaLoadLibrary(){
  const states=$('ea-state');states.replaceChildren(...eaInfo.states.map(s=>new Option(s.label,s.id)));
  const fields=$('ea-fields');fields.replaceChildren(el('p','公开字段（白名单，留空则只公开上面的说明）','muted'));
  for(const name of eaInfo.public_fields){
-  const line=el('label','inline');const box=el('input');box.type='checkbox';box.classList.add('ea-field');box.dataset.field=name;
+  const line=el('label',undefined,'inline');const box=el('input');box.type='checkbox';box.classList.add('ea-field');box.dataset.field=name;
   line.append(box,el('span',name));fields.append(line);
  }
 }
@@ -81,8 +78,8 @@ async function eaLoadPackage(){
  const places=$('ea-location');places.replaceChildren(new Option('不限地点',''));
  for(const place of eaPackageInfo.story.locations||[])places.append(new Option(place.name,place.id));
  const box=$('ea-known');box.replaceChildren(el('p','谁可以看到（known_by，留空=谁都看不到）','muted'));
- for(const who of ['player'].concat((eaPackageInfo.characters.characters||[]).map(c=>c.id))){
-  const line=el('label','inline');const box2=el('input');box2.type='checkbox';box2.classList.add('ea-known');box2.dataset.who=who;
+ for(const who of new Set(['player'].concat((eaPackageInfo.characters.characters||[]).map(c=>c.id)))){
+  const line=el('label',undefined,'inline');const box2=el('input');box2.type='checkbox';box2.classList.add('ea-known');box2.dataset.who=who;
   line.append(box2,el('span',who==='player'?'玩家':who));box.append(line);
  }
  eaFillRuleFrom();

@@ -41,15 +41,17 @@ function atlasViewer(host){
 const mapHost=el('div');mapHost.id='layered-player-map';$('map').querySelector('.map-viewport').hidden=true;$('map').querySelector('.toolbar').hidden=true;$('map').querySelector('.map-viewport').after(mapHost);
 const playerAtlas=atlasViewer(mapHost),oldDrawMap=drawMap;
 drawMap=function(){oldDrawMap();playerAtlas.update(current?.atlas,current?.places||[])};
-$('map').querySelector('.intro p').textContent='地形、水系、政区、文化、商路与地点 · 点击标记阅读资料';
+$('map').querySelector('.intro p').textContent='地形、水系、政区、文化、商路与地点 · 点击标记阅读资料；这里是旧图册兼容，游玩地图在右栏（服务器掩膜）';
 
+// 旧图册在「其他 → 旅程地图 · 旧图册」里保留（它的 DOM id 与渲染都不变），但不再
+// 在游玩左栏挂第二张常驻地图：右栏只有一张 civ-atlas 掩膜底图。这里只留一行文字兼容，
+// 告诉玩家去哪看旧设定里的示意坐标。
 const surfaceMapPanel=el('div');surfaceMapPanel.id='surface-map-panel';
-const surfaceMapToggle=el('input');surfaceMapToggle.type='checkbox';surfaceMapToggle.id='show-current-map';
-surfaceMapToggle.checked=localStorage.getItem('textiledream-show-map')==='true';
-const mapLabel=el('label');mapLabel.append(surfaceMapToggle,document.createTextNode('显示当前地图'));
-const surfaceMapBody=el('div');surfaceMapBody.id='surface-current-map';surfaceMapBody.hidden=!surfaceMapToggle.checked;
-const surfaceMapTitle=el('p',undefined,'muted'),surfaceMapView=el('div');surfaceMapBody.append(surfaceMapTitle,surfaceMapView);surfaceMapPanel.append(mapLabel,surfaceMapBody);
-$('surface-journeys').after(surfaceMapPanel);const conversationAtlas=atlasViewer(surfaceMapView);
-function updateConversationMap(){surfaceMapTitle.textContent=current?current.world+' · 当前位置：'+current.location+' · 旅程版本 '+current.revision:'请先选择旅程';if(surfaceMapToggle.checked)conversationAtlas.update(current?.atlas,current?.places||[])}
-surfaceMapToggle.onchange=()=>{localStorage.setItem('textiledream-show-map',String(surfaceMapToggle.checked));surfaceMapBody.hidden=!surfaceMapToggle.checked;updateConversationMap()};
+const surfaceMapBody=el('div');surfaceMapBody.id='surface-current-map';
+const surfaceMapTitle=el('p',undefined,'muted'),surfaceMapView=el('div');
+surfaceMapBody.append(surfaceMapTitle);surfaceMapPanel.append(surfaceMapBody);
+$('panel-other').append(surfaceMapPanel);
+function updateConversationMap(){surfaceMapTitle.textContent=current
+ ? '旧图册：'+current.world+' · 当前位置：'+current.location+' · 旅程版本 '+current.revision+' · 在「旅程地图 · 旧图册」里看示意坐标'
+ : '旧图册：选择旅程后显示。'}
 const renderBeforeMap=render;render=function(){renderBeforeMap();updateConversationMap()};

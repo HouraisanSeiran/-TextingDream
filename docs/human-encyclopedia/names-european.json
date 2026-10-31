@@ -1,0 +1,404 @@
+{
+  "schema_version": 1,
+  "group": "names-european",
+  "status": "candidate",
+  "note": "欧洲姓名与命名传统候选池；示例名只用于创作，不等于历史人口统计或身份判定。",
+  "sources": [
+    {
+      "id": "names_europe_behind",
+      "title": "Behind the Name: European usage",
+      "url": "https://www.behindthename.com/names/usage",
+      "access": "read",
+      "supports": "按语言、地区和历史用途整理欧洲名字；具体拼写与时代用法需逐名核对。",
+      "rights_note": "仅做事实范围与术语核对；条目为自行转述的待审候选，不复制原文。"
+    },
+    {
+      "id": "names_europe_english",
+      "title": "English language — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/English-language",
+      "access": "read",
+      "supports": "英语语言与历史背景；不把现代英语名字外推到所有历史时期。",
+      "rights_note": "仅做事实范围与术语核对；条目为自行转述的待审候选，不复制原文。"
+    },
+    {
+      "id": "names_europe_french",
+      "title": "French language — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/French-language",
+      "access": "read",
+      "supports": "法语语言背景；地区、阶层与历史拼写存在差异。",
+      "rights_note": "仅做事实范围与术语核对；条目为自行转述的待审候选，不复制原文。"
+    },
+    {
+      "id": "names_europe_german",
+      "title": "German language — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/German-language",
+      "access": "read",
+      "supports": "德语语言背景；复合姓氏、方言和历史拼写需按时代处理。",
+      "rights_note": "仅做事实范围与术语核对；条目为自行转述的待审候选，不复制原文。"
+    },
+    {
+      "id": "names_europe_italian",
+      "title": "Italian language — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/Italian-language",
+      "access": "read",
+      "supports": "意大利语语言背景；地区和家族命名差异明显。",
+      "rights_note": "仅做事实范围与术语核对；条目为自行转述的待审候选，不复制原文。"
+    },
+    {
+      "id": "names_europe_slavic",
+      "title": "Slavic languages — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/Slavic-languages",
+      "access": "read",
+      "supports": "斯拉夫语族背景；各语言的姓名后缀和转写不可互换。",
+      "rights_note": "仅做事实范围与术语核对；条目为自行转述的待审候选，不复制原文。"
+    },
+    {
+      "id": "names_europe_greek",
+      "title": "Greek language — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/Greek-language",
+      "access": "read",
+      "supports": "希腊语语言背景；古典、拜占庭和现代姓名应分开处理。",
+      "rights_note": "仅做事实范围与术语核对；条目为自行转述的待审候选，不复制原文。"
+    },
+    {
+      "id": "names_europe_celtic",
+      "title": "Celtic languages — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/Celtic-languages",
+      "access": "read",
+      "supports": "凯尔特语族背景；“凯尔特风”不是单一姓名系统。",
+      "rights_note": "仅做事实范围与术语核对；条目为自行转述的待审候选，不复制原文。"
+    }
+  ],
+  "elements": [
+    {
+      "id": "names_europe_english",
+      "name": "英语姓名池",
+      "aliases": [
+        "威廉",
+        "爱德华",
+        "爱丽丝",
+        "埃莉诺",
+        "托马斯",
+        "玛格丽特",
+        "贝克",
+        "库珀",
+        "伍德",
+        "哈珀"
+      ],
+      "tags": [
+        "names",
+        "european",
+        "english"
+      ],
+      "summary": "以英语地区个人名、家族名和职业/地名姓为灵感的创作姓名池。",
+      "details": {
+        "definition": "英语姓名池：池内示例：威廉、爱德华、爱丽丝、埃莉诺、托马斯、玛格丽特、贝克、库珀、伍德、哈珀。",
+        "mechanism": "以语言、媒介、讲述场合与受众共同形成意义；创作时先固定说话者、传播者和听者。",
+        "conditions": "需要明确的语言/地区、时代层、社会场合和可接触的传播媒介；名字还需固定转写方式。",
+        "exceptions": "现代创作可以改写形式，但不能把现实传统的一个变体声称为全部传统；个别角色的选择也可以违背群体惯例。",
+        "story_uses": "用于角色卡、城镇文化、传闻、契约、节庆或线索表达；失败时可以改变玩家理解，却不直接改写世界事实。",
+        "historical_scope": "候选资料用于跨时期创作参考；现实历史、宗教与语言边界必须在具体世界包中另行限定。",
+        "evidence_and_uncertainty": "来源只支持条目的概述范围；名字池是创作示例，不是人口统计，也不能单独决定角色阶层、性格、宗教或国籍。"
+      },
+      "source_ids": [
+        "names_europe_english",
+        "names_europe_behind"
+      ],
+      "related_ids": [],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "names_europe_french",
+      "name": "法语姓名池",
+      "aliases": [
+        "让",
+        "皮埃尔",
+        "克莱尔",
+        "玛德琳",
+        "路易",
+        "伊莎贝尔",
+        "杜邦",
+        "勒鲁",
+        "莫罗",
+        "拉丰"
+      ],
+      "tags": [
+        "names",
+        "european",
+        "french"
+      ],
+      "summary": "以法语个人名、复合名、家族名和地名姓为灵感的创作姓名池。",
+      "details": {
+        "definition": "法语姓名池：池内示例：让、皮埃尔、克莱尔、玛德琳、路易、伊莎贝尔、杜邦、勒鲁、莫罗、拉丰。",
+        "mechanism": "以语言、媒介、讲述场合与受众共同形成意义；创作时先固定说话者、传播者和听者。",
+        "conditions": "需要明确的语言/地区、时代层、社会场合和可接触的传播媒介；名字还需固定转写方式。",
+        "exceptions": "现代创作可以改写形式，但不能把现实传统的一个变体声称为全部传统；个别角色的选择也可以违背群体惯例。",
+        "story_uses": "用于角色卡、城镇文化、传闻、契约、节庆或线索表达；失败时可以改变玩家理解，却不直接改写世界事实。",
+        "historical_scope": "候选资料用于跨时期创作参考；现实历史、宗教与语言边界必须在具体世界包中另行限定。",
+        "evidence_and_uncertainty": "来源只支持条目的概述范围；名字池是创作示例，不是人口统计，也不能单独决定角色阶层、性格、宗教或国籍。"
+      },
+      "source_ids": [
+        "names_europe_french",
+        "names_europe_behind"
+      ],
+      "related_ids": [],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "names_europe_germanic",
+      "name": "德语/日耳曼姓名池",
+      "aliases": [
+        "汉斯",
+        "弗里德里希",
+        "格蕾塔",
+        "安娜",
+        "奥托",
+        "玛蒂尔达",
+        "施密特",
+        "瓦格纳",
+        "克莱因",
+        "霍夫曼"
+      ],
+      "tags": [
+        "names",
+        "european",
+        "germanic"
+      ],
+      "summary": "以德语区个人名、复合名、家族名和职业姓为灵感的创作姓名池。",
+      "details": {
+        "definition": "德语/日耳曼姓名池：池内示例：汉斯、弗里德里希、格蕾塔、安娜、奥托、玛蒂尔达、施密特、瓦格纳、克莱因、霍夫曼。",
+        "mechanism": "以语言、媒介、讲述场合与受众共同形成意义；创作时先固定说话者、传播者和听者。",
+        "conditions": "需要明确的语言/地区、时代层、社会场合和可接触的传播媒介；名字还需固定转写方式。",
+        "exceptions": "现代创作可以改写形式，但不能把现实传统的一个变体声称为全部传统；个别角色的选择也可以违背群体惯例。",
+        "story_uses": "用于角色卡、城镇文化、传闻、契约、节庆或线索表达；失败时可以改变玩家理解，却不直接改写世界事实。",
+        "historical_scope": "候选资料用于跨时期创作参考；现实历史、宗教与语言边界必须在具体世界包中另行限定。",
+        "evidence_and_uncertainty": "来源只支持条目的概述范围；名字池是创作示例，不是人口统计，也不能单独决定角色阶层、性格、宗教或国籍。"
+      },
+      "source_ids": [
+        "names_europe_german",
+        "names_europe_behind"
+      ],
+      "related_ids": [],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "names_europe_italian",
+      "name": "意大利语姓名池",
+      "aliases": [
+        "马可",
+        "卢卡",
+        "乔瓦尼",
+        "比安卡",
+        "朱莉娅",
+        "贝娅特丽切",
+        "罗西",
+        "孔蒂",
+        "费雷蒂",
+        "莫雷蒂"
+      ],
+      "tags": [
+        "names",
+        "european",
+        "italian"
+      ],
+      "summary": "以意大利语区个人名、家族名和地域姓为灵感的创作姓名池。",
+      "details": {
+        "definition": "意大利语姓名池：池内示例：马可、卢卡、乔瓦尼、比安卡、朱莉娅、贝娅特丽切、罗西、孔蒂、费雷蒂、莫雷蒂。",
+        "mechanism": "以语言、媒介、讲述场合与受众共同形成意义；创作时先固定说话者、传播者和听者。",
+        "conditions": "需要明确的语言/地区、时代层、社会场合和可接触的传播媒介；名字还需固定转写方式。",
+        "exceptions": "现代创作可以改写形式，但不能把现实传统的一个变体声称为全部传统；个别角色的选择也可以违背群体惯例。",
+        "story_uses": "用于角色卡、城镇文化、传闻、契约、节庆或线索表达；失败时可以改变玩家理解，却不直接改写世界事实。",
+        "historical_scope": "候选资料用于跨时期创作参考；现实历史、宗教与语言边界必须在具体世界包中另行限定。",
+        "evidence_and_uncertainty": "来源只支持条目的概述范围；名字池是创作示例，不是人口统计，也不能单独决定角色阶层、性格、宗教或国籍。"
+      },
+      "source_ids": [
+        "names_europe_italian",
+        "names_europe_behind"
+      ],
+      "related_ids": [],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "names_europe_iberian",
+      "name": "西班牙/葡萄牙姓名池",
+      "aliases": [
+        "迭戈",
+        "卡洛斯",
+        "伊莎贝尔",
+        "卡门",
+        "若昂",
+        "贝阿特丽斯",
+        "加西亚",
+        "罗德里格斯",
+        "席尔瓦",
+        "科斯塔"
+      ],
+      "tags": [
+        "names",
+        "european",
+        "iberian"
+      ],
+      "summary": "以伊比利亚个人名、复合名和双家族姓为灵感的创作姓名池。",
+      "details": {
+        "definition": "西班牙/葡萄牙姓名池：池内示例：迭戈、卡洛斯、伊莎贝尔、卡门、若昂、贝阿特丽斯、加西亚、罗德里格斯、席尔瓦、科斯塔。",
+        "mechanism": "以语言、媒介、讲述场合与受众共同形成意义；创作时先固定说话者、传播者和听者。",
+        "conditions": "需要明确的语言/地区、时代层、社会场合和可接触的传播媒介；名字还需固定转写方式。",
+        "exceptions": "现代创作可以改写形式，但不能把现实传统的一个变体声称为全部传统；个别角色的选择也可以违背群体惯例。",
+        "story_uses": "用于角色卡、城镇文化、传闻、契约、节庆或线索表达；失败时可以改变玩家理解，却不直接改写世界事实。",
+        "historical_scope": "候选资料用于跨时期创作参考；现实历史、宗教与语言边界必须在具体世界包中另行限定。",
+        "evidence_and_uncertainty": "来源只支持条目的概述范围；名字池是创作示例，不是人口统计，也不能单独决定角色阶层、性格、宗教或国籍。"
+      },
+      "source_ids": [
+        "names_europe_behind",
+        "names_europe_english"
+      ],
+      "related_ids": [],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "names_europe_slavic",
+      "name": "斯拉夫姓名池",
+      "aliases": [
+        "亚历山大",
+        "米哈伊尔",
+        "安娜",
+        "娜杰日达",
+        "米拉",
+        "卡塔琳娜",
+        "伊万诺夫",
+        "科瓦尔斯基",
+        "诺瓦克",
+        "彼得罗夫"
+      ],
+      "tags": [
+        "names",
+        "european",
+        "slavic"
+      ],
+      "summary": "按东、南、西斯拉夫语言背景提供个人名、父名和家族后缀的创作池。",
+      "details": {
+        "definition": "斯拉夫姓名池：池内示例：亚历山大、米哈伊尔、安娜、娜杰日达、米拉、卡塔琳娜、伊万诺夫、科瓦尔斯基、诺瓦克、彼得罗夫。",
+        "mechanism": "以语言、媒介、讲述场合与受众共同形成意义；创作时先固定说话者、传播者和听者。",
+        "conditions": "需要明确的语言/地区、时代层、社会场合和可接触的传播媒介；名字还需固定转写方式。",
+        "exceptions": "现代创作可以改写形式，但不能把现实传统的一个变体声称为全部传统；个别角色的选择也可以违背群体惯例。",
+        "story_uses": "用于角色卡、城镇文化、传闻、契约、节庆或线索表达；失败时可以改变玩家理解，却不直接改写世界事实。",
+        "historical_scope": "候选资料用于跨时期创作参考；现实历史、宗教与语言边界必须在具体世界包中另行限定。",
+        "evidence_and_uncertainty": "来源只支持条目的概述范围；名字池是创作示例，不是人口统计，也不能单独决定角色阶层、性格、宗教或国籍。"
+      },
+      "source_ids": [
+        "names_europe_slavic",
+        "names_europe_behind"
+      ],
+      "related_ids": [],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "names_europe_greek",
+      "name": "希腊语姓名池",
+      "aliases": [
+        "尼科斯",
+        "安德烈亚斯",
+        "埃琳妮",
+        "索菲娅",
+        "德米特里",
+        "伊莲娜",
+        "帕帕佐普洛斯",
+        "尼古拉迪斯"
+      ],
+      "tags": [
+        "names",
+        "european",
+        "greek"
+      ],
+      "summary": "结合古典、拜占庭和现代希腊语背景的创作姓名池。",
+      "details": {
+        "definition": "希腊语姓名池：池内示例：尼科斯、安德烈亚斯、埃琳妮、索菲娅、德米特里、伊莲娜、帕帕佐普洛斯、尼古拉迪斯。",
+        "mechanism": "以语言、媒介、讲述场合与受众共同形成意义；创作时先固定说话者、传播者和听者。",
+        "conditions": "需要明确的语言/地区、时代层、社会场合和可接触的传播媒介；名字还需固定转写方式。",
+        "exceptions": "现代创作可以改写形式，但不能把现实传统的一个变体声称为全部传统；个别角色的选择也可以违背群体惯例。",
+        "story_uses": "用于角色卡、城镇文化、传闻、契约、节庆或线索表达；失败时可以改变玩家理解，却不直接改写世界事实。",
+        "historical_scope": "候选资料用于跨时期创作参考；现实历史、宗教与语言边界必须在具体世界包中另行限定。",
+        "evidence_and_uncertainty": "来源只支持条目的概述范围；名字池是创作示例，不是人口统计，也不能单独决定角色阶层、性格、宗教或国籍。"
+      },
+      "source_ids": [
+        "names_europe_greek",
+        "names_europe_behind"
+      ],
+      "related_ids": [],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "names_europe_celtic",
+      "name": "凯尔特语族姓名池",
+      "aliases": [
+        "布兰",
+        "康纳",
+        "奥因",
+        "梅芙",
+        "布里吉德",
+        "格温",
+        "麦克劳德",
+        "奥康纳",
+        "琼斯",
+        "埃文斯"
+      ],
+      "tags": [
+        "names",
+        "european",
+        "celtic"
+      ],
+      "summary": "提供爱尔兰、威尔士、苏格兰等背景的创作姓名池。",
+      "details": {
+        "definition": "凯尔特语族姓名池：池内示例：布兰、康纳、奥因、梅芙、布里吉德、格温、麦克劳德、奥康纳、琼斯、埃文斯。",
+        "mechanism": "以语言、媒介、讲述场合与受众共同形成意义；创作时先固定说话者、传播者和听者。",
+        "conditions": "需要明确的语言/地区、时代层、社会场合和可接触的传播媒介；名字还需固定转写方式。",
+        "exceptions": "现代创作可以改写形式，但不能把现实传统的一个变体声称为全部传统；个别角色的选择也可以违背群体惯例。",
+        "story_uses": "用于角色卡、城镇文化、传闻、契约、节庆或线索表达；失败时可以改变玩家理解，却不直接改写世界事实。",
+        "historical_scope": "候选资料用于跨时期创作参考；现实历史、宗教与语言边界必须在具体世界包中另行限定。",
+        "evidence_and_uncertainty": "来源只支持条目的概述范围；名字池是创作示例，不是人口统计，也不能单独决定角色阶层、性格、宗教或国籍。"
+      },
+      "source_ids": [
+        "names_europe_celtic",
+        "names_europe_behind"
+      ],
+      "related_ids": [],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "names_europe_nordic",
+      "name": "北日耳曼姓名池",
+      "aliases": [
+        "埃里克",
+        "莱夫",
+        "英格丽",
+        "弗蕾雅",
+        "斯文",
+        "阿斯特丽德",
+        "安德森",
+        "约翰逊",
+        "埃里克松"
+      ],
+      "tags": [
+        "names",
+        "european",
+        "nordic"
+      ],
+      "summary": "以北欧个人名、父名/母名和自然意象为灵感的创作姓名池。",
+      "details": {
+        "definition": "北日耳曼姓名池：池内示例：埃里克、莱夫、英格丽、弗蕾雅、斯文、阿斯特丽德、安德森、约翰逊、埃里克松。",
+        "mechanism": "以语言、媒介、讲述场合与受众共同形成意义；创作时先固定说话者、传播者和听者。",
+        "conditions": "需要明确的语言/地区、时代层、社会场合和可接触的传播媒介；名字还需固定转写方式。",
+        "exceptions": "现代创作可以改写形式，但不能把现实传统的一个变体声称为全部传统；个别角色的选择也可以违背群体惯例。",
+        "story_uses": "用于角色卡、城镇文化、传闻、契约、节庆或线索表达；失败时可以改变玩家理解，却不直接改写世界事实。",
+        "historical_scope": "候选资料用于跨时期创作参考；现实历史、宗教与语言边界必须在具体世界包中另行限定。",
+        "evidence_and_uncertainty": "来源只支持条目的概述范围；名字池是创作示例，不是人口统计，也不能单独决定角色阶层、性格、宗教或国籍。"
+      },
+      "source_ids": [
+        "names_europe_german",
+        "names_europe_behind"
+      ],
+      "related_ids": [],
+      "review_status": "needs_review"
+    }
+  ]
+}

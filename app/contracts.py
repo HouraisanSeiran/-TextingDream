@@ -11,6 +11,15 @@ class Turn(Strict):
     action_id: str | None = None
     channel: Literal['speech','thought','action','note'] = 'action'
     listeners: list[str] | None = Field(default=None,max_length=20)
+    # Optional confirmation token from /intent or /confirm/{action_id}. When present it
+    # must match the action, costs and state version exactly; when absent the legacy
+    # direct-button behaviour is unchanged.
+    confirm: str | None = Field(default=None, min_length=8, max_length=64)
+
+
+class IntentRequest(Strict):
+    """A free-form intention turned into bounded candidates. Never an effect."""
+    text: str = Field(min_length=1, max_length=500)
 
 
 class WaitRequest(Strict):
@@ -70,10 +79,12 @@ class Preferences(Strict):
 class NewSession(Strict):
     title: str = Field(default='新的旅程', min_length=1, max_length=80)
     mode: Literal['protagonist', 'observer', 'mixed'] = 'protagonist'
+    profile: str | None = Field(default=None, max_length=60)
 
 
 class Move(Strict):
     location_id: str
+    expected_version: int | None = Field(default=None, ge=0, strict=True)
 
 
 class Corpus(Strict):

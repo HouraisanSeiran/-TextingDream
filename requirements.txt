@@ -3,4 +3,8 @@ uvicorn[standard]>=0.30
 pydantic>=2.8
 httpx>=0.27
 jinja2>=3.1
+# 16-bit heightmap decode for the civ-atlas adapter (app/map_import.py) — single pixel decoder
+pillow>=10
+numpy>=2.0
+scipy>=1.13
 

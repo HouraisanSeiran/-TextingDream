@@ -1,0 +1,13 @@
+/* Notion-style narrative workbench layer. */
+.prose, #play-left #surface .prose { font-family: Georgia, 'Times New Roman', 'Songti SC', 'SimSun', serif; line-height: 1.85; color: #37352f; }
+#play-left .panel-head, #play-left .item-row, #play-left .actions button, #play-map-bar, .map-side, #spatial-block { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft YaHei', sans-serif; }
+#play-tabs { gap: 0; border-bottom: 1px solid #e9e9e7; }
+#play-tabs button { border-radius: 6px 6px 0 0; border-bottom: 2px solid transparent; }
+#play-tabs button[aria-selected="true"], #play-tabs button.on { color: #37352f; border-bottom-color: #2383e2; background: transparent; }
+#play-left .item-row { border-bottom-color: #e9e9e7; }
+#play-map-wrap { background: #f7f6f3; }
+.sp-toolbar { border-bottom-color: #e9e9e7; }
+.sp-tool-group { border-color: #e9e9e7; background: #f7f6f3; border-radius: 6px; }
+.sp-tool-group > .map-btn, .sp-tool-group > button { border-radius: 6px; }
+.sp-tool-group > .map-btn.on { background: #e3e1db; color: #37352f; box-shadow: none; }
+.sp-kind-field select { background: #fff; color: #37352f; border: 1px solid #e9e9e7; border-radius: 6px; }

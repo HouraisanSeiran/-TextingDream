@@ -1,0 +1,723 @@
+{
+  "id": "short_bridge",
+  "title": "雾桥：八便士的路",
+  "premise": "你护送药师玛拉的药箱过河。桥费8便士，护送报酬12便士；你可以支付、查证后以劳动换票，也可以先把关系弄僵。",
+  "character_package_id": "short_bridge_cast",
+  "locations": [
+    {
+      "id": "bridge_gate",
+      "name": "雾桥岗亭",
+      "description": "木牌写着通行8便士，参与修桥者免本次费用。桥吏奥伦守着栏杆，药师玛拉的药箱等着过河。",
+      "neighbors": [
+        "riverbank",
+        "far_bank"
+      ],
+      "scenes": []
+    },
+    {
+      "id": "riverbank",
+      "name": "桥下河岸",
+      "description": "一处旧渡口露出泥地，断裂的横梁能从这里看清。河水并不适合临时游过去。",
+      "neighbors": [
+        "bridge_gate"
+      ],
+      "scenes": []
+    },
+    {
+      "id": "far_bank",
+      "name": "对岸药棚",
+      "description": "送药的人在棚下等候，能听见河对面的敲钉声。",
+      "neighbors": [
+        "bridge_gate"
+      ],
+      "scenes": []
+    }
+  ],
+  "events": [
+    {
+      "id": "gate",
+      "title": "谁有权收这笔钱",
+      "location_id": "bridge_gate",
+      "participants": [
+        "player",
+        "guard",
+        "mara"
+      ],
+      "player_enters": true,
+      "player_goal": "谁有权收这笔钱",
+      "next_events": [
+        "bank"
+      ],
+      "entry_flags": {},
+      "exit_flag": "finished_gate",
+      "max_turns": 40,
+      "actions": [
+        {
+          "id": "read_toll",
+          "label": "读清收费与免票条件",
+          "success_text": "木牌明示：通行8便士，修桥劳动可抵本次费用。",
+          "effects": [
+            {
+              "op": "flag",
+              "id": "terms",
+              "value": true
+            },
+            {
+              "op": "information",
+              "text": "桥费8便士；修桥劳动可免票。",
+              "known_by": [
+                "player"
+              ],
+              "confirmed": true
+            }
+          ],
+          "requires": {},
+          "ends_event": false,
+          "duration_hours": 0,
+          "intent_aliases": []
+        },
+        {
+          "id": "hear_mara",
+          "label": "问玛拉为什么赶路",
+          "success_text": "玛拉要把药箱送到对岸，愿付你12便士护送费，不要求你冒险下水。",
+          "effects": [
+            {
+              "op": "flag",
+              "id": "escort",
+              "value": true
+            },
+            {
+              "op": "information",
+              "text": "护送药箱抵达可得12便士。",
+              "known_by": [
+                "player"
+              ],
+              "confirmed": true
+            }
+          ],
+          "requires": {},
+          "ends_event": false,
+          "duration_hours": 0,
+          "intent_aliases": []
+        },
+        {
+          "id": "accuse",
+          "label": "当众指责桥吏借机敛财",
+          "success_text": "我当众指责奥伦敛财，但手头还没有贪污证据。",
+          "effects": [],
+          "requires": {},
+          "ends_event": false,
+          "duration_hours": 0,
+          "intent_aliases": [],
+          "requires_confirmation": true,
+          "risk_notice": "公开指控可能破坏谈判关系；不是已经查明犯罪。",
+          "social": {
+            "success": {
+              "guard": [
+                "stern",
+                "explain"
+              ]
+            }
+          }
+        },
+        {
+          "id": "inspect_route",
+          "label": "先去桥下核实路况",
+          "success_text": "我决定先看实物，再讨论费用。接下来前往桥下河岸。",
+          "effects": [],
+          "requires": {
+            "terms": true,
+            "escort": true
+          },
+          "ends_event": true,
+          "duration_hours": 0,
+          "intent_aliases": []
+        }
+      ]
+    },
+    {
+      "id": "bank",
+      "title": "横梁上的裂口",
+      "location_id": "riverbank",
+      "participants": [
+        "player"
+      ],
+      "player_enters": true,
+      "player_goal": "横梁上的裂口",
+      "next_events": [
+        "bargain"
+      ],
+      "entry_flags": {},
+      "exit_flag": "finished_bank",
+      "max_turns": 40,
+      "actions": [
+        {
+          "id": "read_damage",
+          "label": "辨认横梁裂口",
+          "success_text": "我辨认出受潮开裂的横梁，收费至少有实际维修对象。",
+          "effects": [],
+          "requires": {},
+          "ends_event": false,
+          "duration_hours": 0,
+          "intent_aliases": [],
+          "check": {
+            "attribute": "wisdom",
+            "difficulty": 0.45
+          },
+          "failure_text": "雾气遮住了裂口，我需要靠近慢慢观察。",
+          "success": [
+            {
+              "op": "flag",
+              "id": "evidence",
+              "value": true
+            },
+            {
+              "op": "information",
+              "text": "桥下横梁受潮开裂，需要加固。",
+              "known_by": [
+                "player"
+              ],
+              "confirmed": true
+            }
+          ],
+          "failure": []
+        },
+        {
+          "id": "slow_inspection",
+          "label": "沿岸慢慢查看一小时",
+          "success_text": "我沿岸绕到能看清的位置，确认横梁确实损坏。",
+          "effects": [
+            {
+              "op": "flag",
+              "id": "evidence",
+              "value": true
+            },
+            {
+              "op": "information",
+              "text": "横梁确实损坏；河上没有可用的免费渡船。",
+              "known_by": [
+                "player"
+              ],
+              "confirmed": true
+            }
+          ],
+          "requires": {
+            "evidence": false
+          },
+          "ends_event": false,
+          "duration_hours": 1,
+          "intent_aliases": []
+        },
+        {
+          "id": "find_timber",
+          "label": "找出堆放的修桥木料",
+          "success_text": "我找到岗亭公开堆放的备用木料，没有拿走它们。",
+          "effects": [
+            {
+              "op": "flag",
+              "id": "timber",
+              "value": true
+            }
+          ],
+          "requires": {},
+          "ends_event": false,
+          "duration_hours": 0,
+          "intent_aliases": []
+        },
+        {
+          "id": "return_gate",
+          "label": "带着证据返回岗亭",
+          "success_text": "我准备回岗亭提出具体方案。",
+          "effects": [],
+          "requires": {
+            "evidence": true,
+            "timber": true
+          },
+          "ends_event": true,
+          "duration_hours": 0,
+          "intent_aliases": []
+        }
+      ]
+    },
+    {
+      "id": "bargain",
+      "title": "钱、劳动与面子",
+      "location_id": "bridge_gate",
+      "participants": [
+        "player",
+        "guard",
+        "mara"
+      ],
+      "player_enters": true,
+      "player_goal": "钱、劳动与面子",
+      "next_events": [
+        "delivery"
+      ],
+      "entry_flags": {},
+      "exit_flag": "finished_bargain",
+      "max_turns": 40,
+      "actions": [
+        {
+          "id": "show_evidence",
+          "label": "说明裂梁与木料的位置",
+          "success_text": "我说明了实际看到的损坏，没有把猜测当事实。",
+          "effects": [
+            {
+              "op": "flag",
+              "id": "explained",
+              "value": true
+            }
+          ],
+          "requires": {},
+          "ends_event": false,
+          "duration_hours": 0,
+          "intent_aliases": [],
+          "social": {
+            "success": {
+              "guard": [
+                "listen"
+              ],
+              "mara": [
+                "grateful"
+              ]
+            }
+          }
+        },
+        {
+          "id": "repair_bridge",
+          "label": "尝试帮忙加固横梁",
+          "success_text": "我按桥吏指示固定好横梁，得到本次免票。",
+          "effects": [],
+          "requires": {
+            "explained": true
+          },
+          "ends_event": false,
+          "duration_hours": 1,
+          "intent_aliases": [],
+          "check": {
+            "attribute": "strength",
+            "difficulty": 0.5
+          },
+          "failure_text": "我没能稳住重木，没有完成修复；可以改付通行费。",
+          "success": [
+            {
+              "op": "flag",
+              "id": "pass",
+              "value": true
+            }
+          ],
+          "failure": [],
+          "social": {
+            "success": {
+              "guard": [
+                "respect"
+              ]
+            }
+          }
+        },
+        {
+          "id": "pay_toll",
+          "label": "支付8便士通行费",
+          "success_text": "我支付了8便士，拿到通行许可。",
+          "effects": [
+            {
+              "op": "flag",
+              "id": "pass",
+              "value": true
+            }
+          ],
+          "requires": {
+            "pass": false
+          },
+          "ends_event": false,
+          "duration_hours": 0,
+          "intent_aliases": [],
+          "costs": {
+            "pence": 8
+          }
+        },
+        {
+          "id": "cross",
+          "label": "与玛拉一起过桥",
+          "success_text": "我护着药箱走向桥面。接下来前往对岸药棚。",
+          "effects": [],
+          "requires": {
+            "pass": true
+          },
+          "ends_event": true,
+          "duration_hours": 0,
+          "intent_aliases": []
+        }
+      ]
+    },
+    {
+      "id": "delivery",
+      "title": "药箱落地之后",
+      "location_id": "far_bank",
+      "participants": [
+        "player",
+        "mara"
+      ],
+      "player_enters": true,
+      "player_goal": "药箱落地之后",
+      "next_events": [],
+      "entry_flags": {},
+      "exit_flag": "finished_delivery",
+      "max_turns": 40,
+      "actions": [
+        {
+          "id": "deliver_medicine",
+          "label": "交付药箱并领取12便士",
+          "success_text": "药箱完整交付，我收到约定的12便士。",
+          "effects": [
+            {
+              "op": "resource",
+              "id": "pence",
+              "delta": 12
+            },
+            {
+              "op": "flag",
+              "id": "delivered",
+              "value": true
+            }
+          ],
+          "requires": {},
+          "ends_event": false,
+          "duration_hours": 0,
+          "intent_aliases": []
+        },
+        {
+          "id": "donate",
+          "label": "拿出4便士添置药棚灯油",
+          "success_text": "我把4便士交给药棚作为灯油钱。",
+          "effects": [
+            {
+              "op": "flag",
+              "id": "donated",
+              "value": true
+            }
+          ],
+          "requires": {
+            "delivered": true
+          },
+          "ends_event": false,
+          "duration_hours": 0,
+          "intent_aliases": [],
+          "costs": {
+            "pence": 4
+          }
+        },
+        {
+          "id": "finish_bridge",
+          "label": "记录这次通行，继续上路",
+          "success_text": "我记下今天用钱、劳动与证据换来的路。",
+          "effects": [
+            {
+              "op": "flag",
+              "id": "delivered_end",
+              "value": true
+            }
+          ],
+          "requires": {
+            "delivered": true
+          },
+          "ends_event": true,
+          "duration_hours": 0,
+          "intent_aliases": []
+        },
+        {
+          "id": "remain_helper",
+          "label": "留在药棚帮忙整理",
+          "success_text": "我决定留下帮忙，暂缓自己的旅程。",
+          "effects": [
+            {
+              "op": "flag",
+              "id": "helper_end",
+              "value": true
+            }
+          ],
+          "requires": {
+            "delivered": true
+          },
+          "ends_event": true,
+          "duration_hours": 0,
+          "intent_aliases": []
+        }
+      ]
+    }
+  ],
+  "items": [],
+  "mechanics": {
+    "attributes": {
+      "version": 1,
+      "scale": [
+        0,
+        100
+      ],
+      "axes": [
+        {
+          "id": "talent",
+          "name": "天赋",
+          "keywords": {
+            "low": [
+              "感应迟缓",
+              "按步骤练习",
+              "谨慎引导"
+            ],
+            "medium": [
+              "感知灵力",
+              "稳定引导",
+              "熟练需训练"
+            ],
+            "high": [
+              "灵力敏感",
+              "精细引导",
+              "易察能量变化"
+            ]
+          }
+        },
+        {
+          "id": "strength",
+          "name": "力量",
+          "keywords": {
+            "low": [
+              "借助工具",
+              "节省力气",
+              "避免硬扛"
+            ],
+            "medium": [
+              "稳妥发力",
+              "常规负重",
+              "调整支点"
+            ],
+            "high": [
+              "有力支撑",
+              "重物搬运",
+              "控制力道"
+            ]
+          }
+        },
+        {
+          "id": "agility",
+          "name": "敏捷",
+          "keywords": {
+            "low": [
+              "提前避让",
+              "缓步试探",
+              "留足距离"
+            ],
+            "medium": [
+              "及时闪避",
+              "协调动作",
+              "保持平衡"
+            ],
+            "high": [
+              "迅速变向",
+              "精细动作",
+              "快速撤步"
+            ]
+          }
+        },
+        {
+          "id": "wisdom",
+          "name": "智慧",
+          "keywords": {
+            "low": [
+              "先问清楚",
+              "单步判断",
+              "需要明确线索"
+            ],
+            "medium": [
+              "比较线索",
+              "识别明显危险",
+              "选择应变"
+            ],
+            "high": [
+              "识别矛盾",
+              "多步预判",
+              "察觉陷阱线索"
+            ]
+          }
+        },
+        {
+          "id": "social",
+          "name": "社交",
+          "keywords": {
+            "low": [
+              "直述需要",
+              "简短回应",
+              "少用言外之意"
+            ],
+            "medium": [
+              "接住话题",
+              "解释立场",
+              "适度转折"
+            ],
+            "high": [
+              "调整措辞",
+              "试探需求",
+              "协商让步"
+            ]
+          }
+        },
+        {
+          "id": "resilience",
+          "name": "韧性",
+          "keywords": {
+            "low": [
+              "及时休息",
+              "承认疲惫",
+              "规避消耗"
+            ],
+            "medium": [
+              "保持节奏",
+              "承受压力",
+              "恢复呼吸"
+            ],
+            "high": [
+              "耐受消耗",
+              "逆境坚持",
+              "缓慢释放紧张"
+            ]
+          }
+        }
+      ],
+      "hp": {
+        "base": 50,
+        "per_resilience": 2
+      },
+      "note": "天赋仅为原灵力亲合度的显示改名。属性约束能力，不等于性格、道德或已知秘密。"
+    },
+    "local": {
+      "turn_hours": 0,
+      "travel_hours": 1,
+      "resources": [
+        {
+          "id": "pence",
+          "name": "旅费（12便士=1先令）",
+          "unit": "便士",
+          "initial": 18,
+          "maximum": 10000
+        }
+      ]
+    },
+    "scene_judgment": {
+      "version": 1,
+      "law": "桥费公开为8便士，修桥可免一次。未经证实的贪污指控不是事实；桥吏无权临时增设罚款。",
+      "actors": {
+        "guard": {
+          "values": "守规矩，担心桥塌后担责；会听证据，但讨厌当众被指作贼。",
+          "choices": {
+            "listen": {
+              "line": "桥吏奥伦承认你提供了实际证据，愿意听一个替代方案。",
+              "trust_delta": 0.15,
+              "flags": {
+                "guard_listens": true
+              }
+            },
+            "stern": {
+              "line": "奥伦要求你收回无证据的指控，谈判气氛明显变差。",
+              "trust_delta": -0.2,
+              "flags": {
+                "guard_offended": true
+              }
+            },
+            "explain": {
+              "line": "奥伦压住怒气，再次说明通行费的用途，没有追加罚款。",
+              "trust_delta": -0.05,
+              "flags": {}
+            },
+            "respect": {
+              "line": "奥伦认可你的修桥劳动，按公开约定免去本次通行费。",
+              "trust_delta": 0.15,
+              "flags": {
+                "toll_waived": true
+              }
+            }
+          }
+        },
+        "mara": {
+          "values": "急着送药，不愿看到别人为她送命；喜欢实际帮助。",
+          "choices": {
+            "grateful": {
+              "line": "药师玛拉感谢你探清路况，愿意支付约定的护送费。",
+              "trust_delta": 0.15,
+              "flags": {}
+            }
+          }
+        }
+      },
+      "scene_cast": {
+        "delivery": {
+          "mara": "far_bank"
+        }
+      }
+    },
+    "endings": {
+      "version": 1,
+      "endings": [
+        {
+          "id": "delivered_end",
+          "title": "药箱与通行证",
+          "summary": "药箱送达，你得到了报酬，也看到了规则背后的实际需要。",
+          "kind": "saved",
+          "condition": {
+            "all_flags": {
+              "delivered_end": true
+            },
+            "not_flags": [
+              "helper_end"
+            ]
+          },
+          "priority": 2
+        },
+        {
+          "id": "helper_end",
+          "title": "多留一盏灯",
+          "summary": "药箱已送达，你留在药棚帮忙。",
+          "kind": "negotiated",
+          "condition": {
+            "all_flags": {
+              "helper_end": true
+            },
+            "not_flags": [
+              "delivered_end"
+            ]
+          },
+          "priority": 1
+        }
+      ]
+    },
+    "start_profiles": {
+      "version": 1,
+      "default_profile": "traveller",
+      "profiles": [
+        {
+          "id": "traveller",
+          "title": "雾桥：八便士的路",
+          "summary": "你护送药师玛拉的药箱过河。桥费8便士，护送报酬12便士；你可以支付、查证后以劳动换票，也可以先把关系弄僵。",
+          "identity": "手头不宽裕的外乡旅人",
+          "location": "bridge_gate",
+          "goal": "谁有权收这笔钱",
+          "entry_event": "gate",
+          "relations": {
+            "guard": {
+              "trust": 0.5,
+              "note": "初次相识"
+            },
+            "mara": {
+              "trust": 0.5,
+              "note": "初次相识"
+            }
+          },
+          "known": [
+            {
+              "id": "opening",
+              "text": "你护送药师玛拉的药箱过河。桥费8便士，护送报酬12便士；你可以支付、查证后以劳动换票，也可以先把关系弄僵。"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

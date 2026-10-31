@@ -1,0 +1,48 @@
+{
+  "machine": {
+    "os": "Windows_NT 10.0.26200",
+    "cpu": "AMD Ryzen 7 7735HS with Radeon Graphics",
+    "ramGiB": 15,
+    "browser": "156.0.4314.50"
+  },
+  "generationMs": 9334,
+  "overview": {
+    "zoom": "1.000",
+    "shownTowns": "4",
+    "drawMs": "1.70",
+    "worldId": "dt_7732399a346ace775f42dc54",
+    "width": 1208,
+    "height": 735
+  },
+  "regional": {
+    "zoom": "3.815",
+    "shownTowns": "4",
+    "drawMs": "3.50",
+    "worldId": "dt_7732399a346ace775f42dc54",
+    "width": 1208,
+    "height": 735
+  },
+  "local": {
+    "zoom": "9.313",
+    "shownTowns": "3",
+    "drawMs": "3.40",
+    "worldId": "dt_7732399a346ace775f42dc54",
+    "width": 1208,
+    "height": 735
+  },
+  "narrow": {
+    "zoom": "1.000",
+    "shownTowns": "3",
+    "drawMs": "1.50",
+    "worldId": "dt_7732399a346ace775f42dc54",
+    "width": 332,
+    "height": 483
+  },
+  "playerRequests": [
+    "http://127.0.0.1:8768/api/sessions/8345818b8b4440f4/play-map",
+    "http://127.0.0.1:8768/api/bootstrap",
+    "http://127.0.0.1:8768/maps/world-hypsometric.png",
+    "http://127.0.0.1:8768/api/sessions/8345818b8b4440f4/play-map/basemap.png"
+  ],
+  "errors": []
+}

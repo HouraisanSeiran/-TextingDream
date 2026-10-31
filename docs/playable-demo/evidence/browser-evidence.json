@@ -1,0 +1,24 @@
+{
+  "base": "http://127.0.0.1:8899",
+  "errors": [
+    "console.error: Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:8899/favicon.ico"
+  ],
+  "bad_responses": [],
+  "response_count": 42,
+  "overflow_desktop": 0,
+  "overflow_mobile": 0,
+  "start_profiles": [
+    "本地居民",
+    "外来旅人",
+    "行会学徒"
+  ],
+  "actions": [
+    "听掌柜报两种价\n不花资源",
+    "把账页上的出入核一遍\n可支使的人手 × 1 · 1 小时 · 检定 wisdom",
+    "这个差事我不接\n不花资源",
+    "先拿一捆沙袋再说\n不花资源"
+  ],
+  "confirm": "把账页上的出入核一遍\n\n成本：可支使的人手 × 1\n\n时长：1 小时\n\n检定：wisdom · 难度 0.35\n\n这一步会结束当前事件",
+  "opening": "本地居民\n\n身份：米市街的本地居民，家里有一间小杂货铺\n\n目标：保住这一季的粮价，别让人把水当成涨价的理由\n\n粮行今天挂了两块价牌：现货一个价，汛期定金另一个价\n南浅滩的旧纤道水浅，人能走，船不能",
+  "intent": "没有匹配到已配置的动作；引擎不裁定未配置的行动，这句话只作为台词或描述，不改变状态"
+}

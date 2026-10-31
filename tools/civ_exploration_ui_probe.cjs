@@ -1,0 +1,70 @@
+const {chromium}=require(require.resolve('playwright',{paths:[require('path').resolve('external/civ-atlas')]}));
+const assert=require('assert');
+const fs=require('fs');
+(async()=>{
+  fs.mkdirSync('artifacts/civ-exploration',{recursive:true});
+  const browser=await chromium.launch({executablePath:'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe',headless:true});
+  const page=await browser.newPage({viewport:{width:1440,height:1000}});
+  const errors=[],playerAuthorRequests=[];
+  let player=false;
+  page.on('pageerror',e=>errors.push(e.message));
+  page.on('request',r=>{if(player&&r.url().includes('/api/inner/native-world'))playerAuthorRequests.push(r.url());});
+  try {
+    await page.goto('http://127.0.0.1:8979/');
+    const button=page.getByRole('button',{name:'生成城镇并探索'});
+    await button.waitFor({state:'visible',timeout:60000});
+    await page.waitForFunction(()=>!Array.from(document.querySelectorAll('button')).find(b=>b.textContent==='生成城镇并探索')?.disabled);
+    await page.screenshot({path:'artifacts/civ-exploration/author.png'});
+    await button.click();
+    await page.locator('#exploration-panel').waitFor({state:'visible',timeout:60000});
+    player=true;
+    await page.locator('#exploration-town-map svg').waitFor({state:'visible'});
+    await page.evaluate(()=>window.TDConversationDrawer?.close());
+    const first=await page.evaluate(()=>({id:current.id,location:current.exploration.location_id,time:current.local_state.clock.elapsed_hours}));
+    const move=async id=>{
+      await page.locator(`[data-destination="${id}"]`).click();
+      await page.locator('#travel-confirm').waitFor({state:'visible'});
+      const response=page.waitForResponse(r=>r.url().endsWith('/move')&&r.request().method()==='POST');
+      await page.locator('#travel-go').click();
+      const r=await response;assert(r.ok(),await r.text());
+      await page.waitForFunction(id=>current.exploration.location_id===id,id);
+    };
+    await move(first.location+'_market');
+    assert.equal(await page.evaluate(()=>current.local_state.clock.elapsed_hours),first.time+1);
+    await page.screenshot({path:'artifacts/civ-exploration/town.png'});
+    await move(first.location);
+    await page.getByRole('button',{name:'世界道路',exact:true}).click();
+    await page.locator('#play-map-img').waitFor({state:'visible',timeout:60000});
+    await page.screenshot({path:'artifacts/civ-exploration/roads.png'});
+    const next=await page.evaluate(()=>current.exploration.destinations.find(d=>!d.id.startsWith(current.exploration.town.id+'_')));
+    assert(next,'real snapshot must have an outward road from selected town');
+    await page.getByRole('button',{name:'前往'+next.name,exact:true}).click();
+    await page.locator('#travel-confirm').waitFor({state:'visible'});
+    await page.locator('#travel-cancel').click();
+    await move(next.id);
+    assert.equal(await page.evaluate(()=>current.local_state.clock.elapsed_hours),first.time+2+next.hours);
+    player=false; // The existing home screen deliberately opens in author mode.
+    await page.reload();
+    await page.waitForFunction(()=>window.__textileDreamToken);
+    await page.evaluate(id=>window.loadSession(id),first.id);
+    player=true;
+    await page.locator('#exploration-panel').waitFor({state:'visible',timeout:60000});
+    assert.equal(await page.evaluate(()=>current.exploration.location_id),next.id);
+    await page.evaluate(()=>window.TDConversationDrawer?.close());
+    await page.setViewportSize({width:390,height:844});
+    await page.locator('#exploration-town-map .town-node[aria-disabled="false"]').first().click();
+    await page.locator('#travel-confirm').waitFor({state:'visible'});
+    await page.locator('#travel-cancel').click();
+    assert.equal(await page.evaluate(()=>current.exploration.location_id),next.id);
+    assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));
+    await page.screenshot({path:'artifacts/civ-exploration/mobile.png'});
+    assert.equal(errors.length,0,errors.join('\n'));
+    assert.equal(playerAuthorRequests.length,0,'player requested author snapshot');
+    console.log('PASS: native author generation, town move, world road travel, elapsed time, reload persistence, player map isolation.');
+    fs.writeFileSync('artifacts/civ-exploration/browser.json',JSON.stringify({passed:true,start:first,arrival:next.id,errors,playerAuthorRequests},null,2));
+  } catch(e) {
+    await page.screenshot({path:'artifacts/civ-exploration/failure.png'});
+    console.error('Notices:',await page.locator('#notice').textContent(),errors);
+    throw e;
+  } finally {await browser.close();}
+})().catch(e=>{console.error(e);process.exitCode=1});

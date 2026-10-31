@@ -18,7 +18,18 @@ api用后即删.txt
 data/
 logs/
 artifacts/
+temp_dl/
 
 # 由旅程临时生成的记录，属于派生数据而不是世界设定
 StoryPackage/*/生成记录/
 StoryPackage/*/历史文档/
+
+# civ-atlas 本体（external/civ-atlas）——**整目录不入库**。
+# 原因：上游是 AGPL-3.0 的第三方源码，带 1895 个文件 + 节点依赖；直接 stage 进去会让
+# 根仓变成「半个 vendor 仓」，也和本仓分支无关。
+# 可重建的东西不靠 ignore 藏着，而是落在仓里：
+#   · 固定 commit + SHA-256 + 安装/启动命令：docs/civ-atlas-install.md
+#   · 本工程对上游的全部改动（补丁）：docs/civ-atlas-patch/
+#   · 导出工具：tools/civ_atlas_export.js
+# 按 docs/civ-atlas-install.md 重下一遍 tar 快照、打上那个补丁，就得到逐字相同的树。
+external/

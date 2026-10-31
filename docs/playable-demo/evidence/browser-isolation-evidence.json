@@ -1,0 +1,11 @@
+{
+  "candidate": "把账页上的出入核一遍\n成本：可支使的人手 × 1 · 时长：1 小时 · 检定：wisdom · 难度 0.35 · 这一步会结束当前事件",
+  "confirm": "把账页上的出入核一遍\n\n成本：可支使的人手 × 1\n\n时长：1 小时\n\n检定：wisdom · 难度 0.35\n\n这一步会结束当前事件",
+  "leaks_in_candidate": [],
+  "leaks_in_confirm": [],
+  "branch_shown_after_execution": [
+    "账上进的比出的少"
+  ],
+  "pageerrors": [],
+  "bad_responses": []
+}

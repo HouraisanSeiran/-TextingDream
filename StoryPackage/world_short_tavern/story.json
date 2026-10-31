@@ -1,0 +1,786 @@
+{
+  "id": "short_tavern",
+  "title": "铜杯酒馆：一条衬裤的风波",
+  "premise": "你有18便士，想赶上傍晚渡船。酒保贝丝丢了运货单，愿付8便士寻回。你可以认真帮忙，也可以惹出一场需要收拾的恶作剧。",
+  "character_package_id": "short_tavern_cast",
+  "locations": [
+    {
+      "id": "hall",
+      "name": "铜杯酒馆",
+      "description": "贝丝把空账夹放上柜台。码头的船傍晚出发，她愿付8便士找回丢在后院的运货单。麦酒每杯2便士。",
+      "neighbors": [
+        "yard",
+        "quay"
+      ],
+      "scenes": []
+    },
+    {
+      "id": "yard",
+      "name": "酒馆后院",
+      "description": "运货木箱靠着墙。贝丝在另一头清点空桶；近处晾衣绳上有她的贴身衬裤，伸手可及，但不是无主物。",
+      "neighbors": [
+        "hall"
+      ],
+      "scenes": []
+    },
+    {
+      "id": "quay",
+      "name": "旧码头",
+      "description": "船工正收绳，船票12便士，也可先替他搬一批绳箱挣6便士。",
+      "neighbors": [
+        "hall"
+      ],
+      "scenes": []
+    }
+  ],
+  "events": [
+    {
+      "id": "welcome",
+      "title": "一杯酒与一份委托",
+      "location_id": "hall",
+      "participants": [
+        "player",
+        "bess"
+      ],
+      "player_enters": true,
+      "player_goal": "挣到船费，决定怎样对待酒馆里的人。",
+      "next_events": [
+        "yard_search"
+      ],
+      "entry_flags": {},
+      "exit_flag": "finished_welcome",
+      "max_turns": 40,
+      "actions": [
+        {
+          "id": "read_prices",
+          "label": "看看价目与船期",
+          "success_text": "我确认了麦酒2便士、船票12便士。",
+          "effects": [
+            {
+              "op": "flag",
+              "id": "prices",
+              "value": true
+            },
+            {
+              "op": "information",
+              "text": "酒馆找单报酬8便士；渡船票12便士。",
+              "known_by": [
+                "player"
+              ],
+              "confirmed": true
+            }
+          ],
+          "requires": {},
+          "ends_event": false,
+          "duration_hours": 0,
+          "intent_aliases": []
+        },
+        {
+          "id": "buy_ale",
+          "label": "买一杯麦酒（2便士）",
+          "success_text": "我付了2便士，喝下一杯麦酒。",
+          "effects": [],
+          "requires": {
+            "tavern_banned": false
+          },
+          "ends_event": false,
+          "duration_hours": 0,
+          "intent_aliases": [
+            "喝酒",
+            "买酒"
+          ],
+          "costs": {
+            "pence": 2
+          }
+        },
+        {
+          "id": "ask_job",
+          "label": "问清运货单与报酬",
+          "success_text": "贝丝指向后院木箱：单据印有蓝色船锚。找到后她支付8便士。",
+          "effects": [
+            {
+              "op": "flag",
+              "id": "job_known",
+              "value": true
+            },
+            {
+              "op": "information",
+              "text": "寻找蓝色船锚印的运货单，不需要拿走别人的衣物。",
+              "known_by": [
+                "player"
+              ],
+              "confirmed": true
+            }
+          ],
+          "requires": {},
+          "ends_event": false,
+          "duration_hours": 0,
+          "intent_aliases": []
+        },
+        {
+          "id": "go_search",
+          "label": "接下委托，准备去后院",
+          "success_text": "我答应找单，走到后门。接下来可前往后院。",
+          "effects": [],
+          "requires": {
+            "job_known": true
+          },
+          "ends_event": true,
+          "duration_hours": 0,
+          "intent_aliases": []
+        }
+      ]
+    },
+    {
+      "id": "yard_search",
+      "title": "木箱与晾衣绳",
+      "location_id": "yard",
+      "participants": [
+        "player",
+        "bess"
+      ],
+      "player_enters": true,
+      "player_goal": "木箱与晾衣绳",
+      "next_events": [
+        "settle"
+      ],
+      "entry_flags": {},
+      "exit_flag": "finished_yard_search",
+      "max_turns": 40,
+      "actions": [
+        {
+          "id": "inspect_crates",
+          "label": "仔细查看木箱",
+          "success_text": "我在木箱缝里发现了蓝色印章。",
+          "effects": [
+            {
+              "op": "flag",
+              "id": "searched",
+              "value": true
+            }
+          ],
+          "requires": {},
+          "ends_event": false,
+          "duration_hours": 0,
+          "intent_aliases": [],
+          "check": {
+            "attribute": "wisdom",
+            "difficulty": 0.45
+          },
+          "failure_text": "我没能一眼找到单据，可以花时间逐只搬开木箱。",
+          "success": [
+            {
+              "op": "flag",
+              "id": "invoice",
+              "value": true
+            },
+            {
+              "op": "information",
+              "text": "蓝色船锚运货单夹在木箱底部。",
+              "known_by": [
+                "player"
+              ],
+              "confirmed": true
+            }
+          ],
+          "failure": []
+        },
+        {
+          "id": "search_slowly",
+          "label": "花一小时逐箱检查",
+          "success_text": "我逐箱查看，终于找到了运货单。",
+          "effects": [
+            {
+              "op": "flag",
+              "id": "invoice",
+              "value": true
+            },
+            {
+              "op": "flag",
+              "id": "searched",
+              "value": true
+            },
+            {
+              "op": "information",
+              "text": "运货单已经找到。",
+              "known_by": [
+                "player"
+              ],
+              "confirmed": true
+            }
+          ],
+          "requires": {
+            "invoice": false
+          },
+          "ends_event": false,
+          "duration_hours": 1,
+          "intent_aliases": []
+        },
+        {
+          "id": "steal_linen",
+          "label": "尝试偷走晾衣绳上的衬裤",
+          "success_text": "我取下了衬裤。贝丝没有看见这次取物；我还没有展示它。",
+          "effects": [],
+          "requires": {
+            "linen_held": false
+          },
+          "ends_event": false,
+          "duration_hours": 0,
+          "intent_aliases": [
+            "偷内裤",
+            "偷衬裤"
+          ],
+          "check": {
+            "attribute": "agility",
+            "difficulty": 0.6
+          },
+          "failure_text": "我伸手时碰响了衣夹，贝丝看见了这次未遂偷取。",
+          "success": [
+            {
+              "op": "flag",
+              "id": "linen_held",
+              "value": true
+            },
+            {
+              "op": "resource",
+              "id": "linen",
+              "delta": 1
+            }
+          ],
+          "failure": [],
+          "requires_confirmation": true,
+          "risk_notice": "这是偷取有主私物；失败可能被发现。成功也不等于可以公开炫耀。",
+          "social": {
+            "failure": {
+              "bess": [
+                "warn",
+                "report"
+              ]
+            }
+          }
+        },
+        {
+          "id": "show_linen",
+          "label": "向贝丝炫耀偷来的衬裤",
+          "success_text": "我举起衬裤炫耀。贝丝亲眼看见，偷取已暴露。",
+          "effects": [
+            {
+              "op": "flag",
+              "id": "exposed",
+              "value": true
+            }
+          ],
+          "requires": {
+            "linen_held": true
+          },
+          "ends_event": false,
+          "duration_hours": 0,
+          "intent_aliases": [],
+          "requires_confirmation": true,
+          "risk_notice": "会让贝丝知道你拿了衣物，可能损害关系、被拒绝招待或被报官。",
+          "social": {
+            "success": {
+              "bess": [
+                "ban",
+                "report"
+              ]
+            }
+          }
+        },
+        {
+          "id": "return_linen",
+          "label": "归还衬裤并赔礼",
+          "success_text": "我归还了衬裤，并为拿取私物赔礼。",
+          "effects": [
+            {
+              "op": "flag",
+              "id": "linen_held",
+              "value": false
+            },
+            {
+              "op": "resource",
+              "id": "linen",
+              "delta": -1
+            }
+          ],
+          "requires": {
+            "linen_held": true
+          },
+          "ends_event": false,
+          "duration_hours": 0,
+          "intent_aliases": [],
+          "social": {
+            "success": {
+              "bess": [
+                "reserve",
+                "accept"
+              ]
+            }
+          }
+        },
+        {
+          "id": "finish_yard",
+          "label": "带着运货单回到柜台",
+          "success_text": "我收好运货单，准备回酒馆交付。",
+          "effects": [],
+          "requires": {
+            "invoice": true
+          },
+          "ends_event": true,
+          "duration_hours": 0,
+          "intent_aliases": []
+        }
+      ]
+    },
+    {
+      "id": "settle",
+      "title": "报酬与关系",
+      "location_id": "hall",
+      "participants": [
+        "player",
+        "bess"
+      ],
+      "player_enters": true,
+      "player_goal": "报酬与关系",
+      "next_events": [
+        "departure"
+      ],
+      "entry_flags": {},
+      "exit_flag": "finished_settle",
+      "max_turns": 40,
+      "actions": [
+        {
+          "id": "deliver_invoice",
+          "label": "交付运货单，领取8便士",
+          "success_text": "我交出运货单。贝丝按约付了8便士；这笔报酬不是原谅的证明。",
+          "effects": [
+            {
+              "op": "resource",
+              "id": "pence",
+              "delta": 8
+            },
+            {
+              "op": "flag",
+              "id": "paid",
+              "value": true
+            }
+          ],
+          "requires": {},
+          "ends_event": false,
+          "duration_hours": 0,
+          "intent_aliases": []
+        },
+        {
+          "id": "help_barrels",
+          "label": "替贝丝把空桶归位",
+          "success_text": "我帮贝丝归拢空桶，不另索报酬。",
+          "effects": [],
+          "requires": {
+            "tavern_banned": false,
+            "report_planned": false
+          },
+          "ends_event": false,
+          "duration_hours": 1,
+          "intent_aliases": [],
+          "social": {
+            "success": {
+              "bess": [
+                "thanks"
+              ]
+            }
+          }
+        },
+        {
+          "id": "leave_for_quay",
+          "label": "结束交谈，去码头",
+          "success_text": "我把余下的话留在酒馆，准备前往码头。",
+          "effects": [],
+          "requires": {
+            "paid": true
+          },
+          "ends_event": true,
+          "duration_hours": 0,
+          "intent_aliases": []
+        }
+      ]
+    },
+    {
+      "id": "departure",
+      "title": "傍晚的渡船",
+      "location_id": "quay",
+      "participants": [
+        "player",
+        "ferryman"
+      ],
+      "player_enters": true,
+      "player_goal": "傍晚的渡船",
+      "next_events": [],
+      "entry_flags": {},
+      "exit_flag": "finished_departure",
+      "max_turns": 40,
+      "actions": [
+        {
+          "id": "dock_work",
+          "label": "搬一批绳箱，挣6便士",
+          "success_text": "我花一小时搬好绳箱，船工支付6便士。",
+          "effects": [
+            {
+              "op": "resource",
+              "id": "pence",
+              "delta": 6
+            }
+          ],
+          "requires": {},
+          "ends_event": false,
+          "duration_hours": 1,
+          "intent_aliases": [],
+          "social": {
+            "success": {
+              "ferryman": [
+                "respect"
+              ]
+            }
+          }
+        },
+        {
+          "id": "sail",
+          "label": "买船票离开（12便士）",
+          "success_text": "我付清船票，登上渡船。酒馆里的关系与这次选择一起留在存档中。",
+          "effects": [
+            {
+              "op": "flag",
+              "id": "sail",
+              "value": true
+            }
+          ],
+          "requires": {},
+          "ends_event": true,
+          "duration_hours": 0,
+          "intent_aliases": [],
+          "costs": {
+            "pence": 12
+          }
+        },
+        {
+          "id": "stay",
+          "label": "留在港口，改日再走",
+          "success_text": "我留下旅费，决定明天再走。今天建立或破坏的关系不会因此消失。",
+          "effects": [
+            {
+              "op": "flag",
+              "id": "stay",
+              "value": true
+            }
+          ],
+          "requires": {},
+          "ends_event": true,
+          "duration_hours": 0,
+          "intent_aliases": []
+        }
+      ]
+    }
+  ],
+  "items": [],
+  "mechanics": {
+    "attributes": {
+      "version": 1,
+      "scale": [
+        0,
+        100
+      ],
+      "axes": [
+        {
+          "id": "talent",
+          "name": "天赋",
+          "keywords": {
+            "low": [
+              "感应迟缓",
+              "按步骤练习",
+              "谨慎引导"
+            ],
+            "medium": [
+              "感知灵力",
+              "稳定引导",
+              "熟练需训练"
+            ],
+            "high": [
+              "灵力敏感",
+              "精细引导",
+              "易察能量变化"
+            ]
+          }
+        },
+        {
+          "id": "strength",
+          "name": "力量",
+          "keywords": {
+            "low": [
+              "借助工具",
+              "节省力气",
+              "避免硬扛"
+            ],
+            "medium": [
+              "稳妥发力",
+              "常规负重",
+              "调整支点"
+            ],
+            "high": [
+              "有力支撑",
+              "重物搬运",
+              "控制力道"
+            ]
+          }
+        },
+        {
+          "id": "agility",
+          "name": "敏捷",
+          "keywords": {
+            "low": [
+              "提前避让",
+              "缓步试探",
+              "留足距离"
+            ],
+            "medium": [
+              "及时闪避",
+              "协调动作",
+              "保持平衡"
+            ],
+            "high": [
+              "迅速变向",
+              "精细动作",
+              "快速撤步"
+            ]
+          }
+        },
+        {
+          "id": "wisdom",
+          "name": "智慧",
+          "keywords": {
+            "low": [
+              "先问清楚",
+              "单步判断",
+              "需要明确线索"
+            ],
+            "medium": [
+              "比较线索",
+              "识别明显危险",
+              "选择应变"
+            ],
+            "high": [
+              "识别矛盾",
+              "多步预判",
+              "察觉陷阱线索"
+            ]
+          }
+        },
+        {
+          "id": "social",
+          "name": "社交",
+          "keywords": {
+            "low": [
+              "直述需要",
+              "简短回应",
+              "少用言外之意"
+            ],
+            "medium": [
+              "接住话题",
+              "解释立场",
+              "适度转折"
+            ],
+            "high": [
+              "调整措辞",
+              "试探需求",
+              "协商让步"
+            ]
+          }
+        },
+        {
+          "id": "resilience",
+          "name": "韧性",
+          "keywords": {
+            "low": [
+              "及时休息",
+              "承认疲惫",
+              "规避消耗"
+            ],
+            "medium": [
+              "保持节奏",
+              "承受压力",
+              "恢复呼吸"
+            ],
+            "high": [
+              "耐受消耗",
+              "逆境坚持",
+              "缓慢释放紧张"
+            ]
+          }
+        }
+      ],
+      "hp": {
+        "base": 50,
+        "per_resilience": 2
+      },
+      "note": "天赋仅为原灵力亲合度的显示改名。属性约束能力，不等于性格、道德或已知秘密。"
+    },
+    "local": {
+      "turn_hours": 0,
+      "travel_hours": 1,
+      "resources": [
+        {
+          "id": "pence",
+          "name": "旅费（12便士=1先令）",
+          "unit": "便士",
+          "initial": 18,
+          "maximum": 10000
+        },
+        {
+          "id": "linen",
+          "name": "暂持的贝丝衬裤",
+          "unit": "件",
+          "initial": 0,
+          "maximum": 1
+        }
+      ]
+    },
+    "scene_judgment": {
+      "version": 1,
+      "law": "港郡禁止盗取私物。受害者可要求归还、拒绝服务或报官；报官意愿不等于卫兵已知或罚款已执行。",
+      "actors": {
+        "bess": {
+          "values": "勤恳、看重尊严；帮助可以挣得信任，拿贴身衣物公开羞辱会触到底线。",
+          "choices": {
+            "thanks": {
+              "line": "贝丝记下了你的帮助，愿意替你作一次介绍。",
+              "trust_delta": 0.15,
+              "flags": {
+                "tavern_friend": true
+              }
+            },
+            "warn": {
+              "line": "贝丝严肃警告你停止拿她的私人物品开玩笑。",
+              "trust_delta": -0.15,
+              "flags": {
+                "warned": true
+              }
+            },
+            "ban": {
+              "line": "贝丝要求你归还衣物，并明确拒绝继续招待你。",
+              "trust_delta": -0.3,
+              "flags": {
+                "tavern_banned": true
+              }
+            },
+            "report": {
+              "line": "贝丝决定去报官；此刻卫兵尚未接报，也没有罚款落账。",
+              "trust_delta": -0.3,
+              "flags": {
+                "report_planned": true
+              }
+            },
+            "accept": {
+              "line": "贝丝接受了归还与赔礼，但说明信任需要慢慢修复。",
+              "trust_delta": 0.1,
+              "flags": {
+                "amends": true
+              }
+            },
+            "reserve": {
+              "line": "贝丝收回衣物，保留戒心，没有立即原谅。",
+              "trust_delta": 0,
+              "flags": {
+                "amends": true
+              }
+            }
+          }
+        },
+        "ferryman": {
+          "values": "务实，守约，愿意用有偿劳动帮助手头紧的旅人。",
+          "choices": {
+            "respect": {
+              "line": "船工承认你按约办事，替你留好一个座位。",
+              "trust_delta": 0.1,
+              "flags": {}
+            }
+          }
+        }
+      },
+      "scene_cast": {
+        "welcome": {
+          "bess": "hall"
+        },
+        "yard_search": {
+          "bess": "yard"
+        },
+        "settle": {
+          "bess": "hall"
+        }
+      }
+    },
+    "endings": {
+      "version": 1,
+      "endings": [
+        {
+          "id": "sail",
+          "title": "带着后果出发",
+          "summary": "你付清船票离港。钱账结清，但在人心里留下了什么，取决于你如何对待贝丝。",
+          "kind": "saved",
+          "condition": {
+            "all_flags": {
+              "sail": true
+            },
+            "not_flags": [
+              "stay"
+            ]
+          },
+          "priority": 2
+        },
+        {
+          "id": "stay",
+          "title": "留下的旅人",
+          "summary": "你留在港口，保留旅费与尚待修复的关系。",
+          "kind": "negotiated",
+          "condition": {
+            "all_flags": {
+              "stay": true
+            },
+            "not_flags": [
+              "sail"
+            ]
+          },
+          "priority": 1
+        }
+      ]
+    },
+    "start_profiles": {
+      "version": 1,
+      "default_profile": "traveller",
+      "profiles": [
+        {
+          "id": "traveller",
+          "title": "铜杯酒馆：一条衬裤的风波",
+          "summary": "你有18便士，想赶上傍晚渡船。酒保贝丝丢了运货单，愿付8便士寻回。你可以认真帮忙，也可以惹出一场需要收拾的恶作剧。",
+          "identity": "手头不宽裕的外乡旅人",
+          "location": "hall",
+          "goal": "挣到船费，决定怎样对待酒馆里的人。",
+          "entry_event": "welcome",
+          "relations": {
+            "bess": {
+              "trust": 0.5,
+              "note": "初次相识"
+            },
+            "ferryman": {
+              "trust": 0.5,
+              "note": "初次相识"
+            }
+          },
+          "known": [
+            {
+              "id": "opening",
+              "text": "你有18便士，想赶上傍晚渡船。酒保贝丝丢了运货单，愿付8便士寻回。你可以认真帮忙，也可以惹出一场需要收拾的恶作剧。"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

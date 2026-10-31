@@ -1,0 +1,879 @@
+{
+  "story": {
+    "id": "short_market",
+    "title": "雨后粮市：最后一袋麦子",
+    "premise": "你带着18便士替面包师采购干麦。成本、品质与名声都在这笔小交易里：诺尔收货支付16便士，你要先辨认哪袋值得买。",
+    "worldview": {
+      "premise": "你带着18便士替面包师采购干麦。成本、品质与名声都在这笔小交易里：诺尔收货支付16便士，你要先辨认哪袋值得买。 架空西幻港郡；1镑=20先令=240便士，1先令=12便士。价格为游戏设计值。允许恶作剧，但人物有自己的底线。"
+    },
+    "character_package_id": "short_market_cast",
+    "locations": [
+      {
+        "id": "market",
+        "name": "雨后的粮市",
+        "description": "最后一袋干麦标价12便士，旁边还有一袋受潮麦。粮商艾达看着人群；诺尔的面包铺等着开炉。",
+        "neighbors": [
+          "storehouse",
+          "bakery"
+        ],
+        "scenes": []
+      },
+      {
+        "id": "storehouse",
+        "name": "粮仓门廊",
+        "description": "门廊挂着这一批货的登记簿，检验盘里分别放着干麦和受潮麦样本。",
+        "neighbors": [
+          "market"
+        ],
+        "scenes": []
+      },
+      {
+        "id": "bakery",
+        "name": "未开炉的面包铺",
+        "description": "炉火尚未点起。诺尔承诺干麦送达支付16便士，若只有潮麦则宁可停炉。",
+        "neighbors": [
+          "market"
+        ],
+        "scenes": []
+      }
+    ],
+    "events": [
+      {
+        "id": "request",
+        "title": "最后一袋麦子",
+        "location_id": "market",
+        "participants": [
+          "player",
+          "seller"
+        ],
+        "player_enters": true,
+        "player_goal": "最后一袋麦子",
+        "next_events": [
+          "inspection"
+        ],
+        "entry_flags": {},
+        "exit_flag": "finished_request",
+        "max_turns": 40,
+        "actions": [
+          {
+            "id": "read_offer",
+            "label": "核对两袋麦子的价格",
+            "success_text": "干麦12便士，受潮麦便宜但不适合这次烘焙委托。",
+            "effects": [
+              {
+                "op": "flag",
+                "id": "offer",
+                "value": true
+              }
+            ],
+            "requires": {},
+            "ends_event": false,
+            "duration_hours": 0,
+            "intent_aliases": []
+          },
+          {
+            "id": "read_order",
+            "label": "读诺尔留下的委托条",
+            "success_text": "诺尔只收干麦，送到面包铺支付16便士。",
+            "effects": [
+              {
+                "op": "flag",
+                "id": "order",
+                "value": true
+              },
+              {
+                "op": "information",
+                "text": "面包铺只收干麦，送达报酬16便士；不接受混入潮粮。",
+                "known_by": [
+                  "player"
+                ],
+                "confirmed": true
+              }
+            ],
+            "requires": {},
+            "ends_event": false,
+            "duration_hours": 0,
+            "intent_aliases": []
+          },
+          {
+            "id": "poison_accusation",
+            "label": "喊艾达在麦子里下毒",
+            "success_text": "我喊出下毒指控，但当前没有任何毒物证据。",
+            "effects": [],
+            "requires": {},
+            "ends_event": false,
+            "duration_hours": 0,
+            "intent_aliases": [],
+            "requires_confirmation": true,
+            "risk_notice": "可能损害艾达名誉及你们的关系；受潮不等于下毒。",
+            "social": {
+              "success": {
+                "seller": [
+                  "resent",
+                  "defend"
+                ]
+              }
+            }
+          },
+          {
+            "id": "go_storehouse",
+            "label": "先去门廊核对登记与样本",
+            "success_text": "我准备查看公开样本与登记簿，再决定购买。",
+            "effects": [],
+            "requires": {
+              "offer": true,
+              "order": true
+            },
+            "ends_event": true,
+            "duration_hours": 0,
+            "intent_aliases": []
+          }
+        ]
+      },
+      {
+        "id": "inspection",
+        "title": "账册与麦粒",
+        "location_id": "storehouse",
+        "participants": [
+          "player"
+        ],
+        "player_enters": true,
+        "player_goal": "账册与麦粒",
+        "next_events": [
+          "purchase"
+        ],
+        "entry_flags": {},
+        "exit_flag": "finished_inspection",
+        "max_turns": 40,
+        "actions": [
+          {
+            "id": "inspect_grain",
+            "label": "比较干麦与潮麦",
+            "success_text": "我认出受潮痕迹，确认干麦可以区分出来。",
+            "effects": [],
+            "requires": {},
+            "ends_event": false,
+            "duration_hours": 0,
+            "intent_aliases": [],
+            "check": {
+              "attribute": "wisdom",
+              "difficulty": 0.4
+            },
+            "failure_text": "我暂时拿不准，需要对照标注样本慢慢看。",
+            "success": [
+              {
+                "op": "flag",
+                "id": "quality",
+                "value": true
+              },
+              {
+                "op": "information",
+                "text": "潮麦有结块和受潮气味，不是毒物证据。",
+                "known_by": [
+                  "player"
+                ],
+                "confirmed": true
+              }
+            ],
+            "failure": []
+          },
+          {
+            "id": "compare_samples",
+            "label": "花一小时对照标注样本",
+            "success_text": "我反复对照，终于能区分两袋麦子的状态。",
+            "effects": [
+              {
+                "op": "flag",
+                "id": "quality",
+                "value": true
+              }
+            ],
+            "requires": {
+              "quality": false
+            },
+            "ends_event": false,
+            "duration_hours": 1,
+            "intent_aliases": []
+          },
+          {
+            "id": "read_ledger",
+            "label": "查看登记簿中的进货日期",
+            "success_text": "账册记录昨夜搬运受雨，卖方没有证据表明下毒；干麦挂牌12便士。",
+            "effects": [
+              {
+                "op": "flag",
+                "id": "ledger",
+                "value": true
+              },
+              {
+                "op": "information",
+                "text": "账册记录受雨搬运；没有查到毒物证据。",
+                "known_by": [
+                  "player"
+                ],
+                "confirmed": true
+              }
+            ],
+            "requires": {},
+            "ends_event": false,
+            "duration_hours": 0,
+            "intent_aliases": []
+          },
+          {
+            "id": "return_market",
+            "label": "带着核对结果返回粮市",
+            "success_text": "我准备回去按事实谈价格。",
+            "effects": [],
+            "requires": {
+              "quality": true,
+              "ledger": true
+            },
+            "ends_event": true,
+            "duration_hours": 0,
+            "intent_aliases": []
+          }
+        ]
+      },
+      {
+        "id": "purchase",
+        "title": "怎样成交",
+        "location_id": "market",
+        "participants": [
+          "player",
+          "seller"
+        ],
+        "player_enters": true,
+        "player_goal": "怎样成交",
+        "next_events": [
+          "baking"
+        ],
+        "entry_flags": {},
+        "exit_flag": "finished_purchase",
+        "max_turns": 40,
+        "actions": [
+          {
+            "id": "explain_quality",
+            "label": "只谈品质，不作无证据指控",
+            "success_text": "我说明干麦与潮麦的区别，没有把受潮说成下毒。",
+            "effects": [
+              {
+                "op": "flag",
+                "id": "explained",
+                "value": true
+              }
+            ],
+            "requires": {},
+            "ends_event": false,
+            "duration_hours": 0,
+            "intent_aliases": [],
+            "social": {
+              "success": {
+                "seller": [
+                  "respect"
+                ]
+              }
+            }
+          },
+          {
+            "id": "bargain",
+            "label": "尝试把干麦谈到10便士",
+            "success_text": "艾达同意以10便士出售这袋干麦。尚未付款，也尚未取得麦子。",
+            "effects": [],
+            "requires": {
+              "explained": true
+            },
+            "ends_event": false,
+            "duration_hours": 0,
+            "intent_aliases": [],
+            "check": {
+              "attribute": "social",
+              "difficulty": 0.5
+            },
+            "failure_text": "艾达没有接受降价，仍按12便士出售。",
+            "success": [
+              {
+                "op": "flag",
+                "id": "discount",
+                "value": true
+              }
+            ],
+            "failure": []
+          },
+          {
+            "id": "buy_discount",
+            "label": "按议定价买干麦（10便士）",
+            "success_text": "我付了10便士，取得一袋干麦。",
+            "effects": [
+              {
+                "op": "flag",
+                "id": "grain",
+                "value": true
+              },
+              {
+                "op": "resource",
+                "id": "wheat",
+                "delta": 1
+              }
+            ],
+            "requires": {
+              "discount": true,
+              "grain": false
+            },
+            "ends_event": false,
+            "duration_hours": 0,
+            "intent_aliases": [],
+            "costs": {
+              "pence": 10
+            }
+          },
+          {
+            "id": "buy_full",
+            "label": "按挂牌价买干麦（12便士）",
+            "success_text": "我付了12便士，取得一袋干麦。",
+            "effects": [
+              {
+                "op": "flag",
+                "id": "grain",
+                "value": true
+              },
+              {
+                "op": "resource",
+                "id": "wheat",
+                "delta": 1
+              }
+            ],
+            "requires": {
+              "grain": false,
+              "discount": false
+            },
+            "ends_event": false,
+            "duration_hours": 0,
+            "intent_aliases": [],
+            "costs": {
+              "pence": 12
+            }
+          },
+          {
+            "id": "carry_grain",
+            "label": "带干麦去面包铺",
+            "success_text": "我收好干麦，准备去面包铺交付。",
+            "effects": [],
+            "requires": {
+              "grain": true
+            },
+            "ends_event": true,
+            "duration_hours": 0,
+            "intent_aliases": []
+          }
+        ]
+      },
+      {
+        "id": "baking",
+        "title": "开炉之前",
+        "location_id": "bakery",
+        "participants": [
+          "player",
+          "baker"
+        ],
+        "player_enters": true,
+        "player_goal": "开炉之前",
+        "next_events": [],
+        "entry_flags": {},
+        "exit_flag": "finished_baking",
+        "max_turns": 40,
+        "actions": [
+          {
+            "id": "deliver_grain",
+            "label": "交付干麦，领取16便士",
+            "success_text": "我交付一袋干麦，诺尔支付16便士，麦子不再由我持有。",
+            "effects": [
+              {
+                "op": "resource",
+                "id": "pence",
+                "delta": 16
+              },
+              {
+                "op": "resource",
+                "id": "wheat",
+                "delta": -1
+              },
+              {
+                "op": "flag",
+                "id": "grain",
+                "value": false
+              },
+              {
+                "op": "flag",
+                "id": "delivered",
+                "value": true
+              }
+            ],
+            "requires": {},
+            "ends_event": false,
+            "duration_hours": 0,
+            "intent_aliases": [],
+            "social": {
+              "success": {
+                "baker": [
+                  "trust"
+                ]
+              }
+            }
+          },
+          {
+            "id": "buy_bread",
+            "label": "花2便士预订一份面包",
+            "success_text": "我付了2便士预订面包；面包尚未烤好。",
+            "effects": [
+              {
+                "op": "flag",
+                "id": "bread_reserved",
+                "value": true
+              }
+            ],
+            "requires": {
+              "delivered": true
+            },
+            "ends_event": false,
+            "duration_hours": 0,
+            "intent_aliases": [],
+            "costs": {
+              "pence": 2
+            }
+          },
+          {
+            "id": "keep_profit",
+            "label": "结清账目，留下利润",
+            "success_text": "我结清这趟交易，把余钱留作下一段旅费。",
+            "effects": [
+              {
+                "op": "flag",
+                "id": "profit_end",
+                "value": true
+              }
+            ],
+            "requires": {
+              "delivered": true
+            },
+            "ends_event": true,
+            "duration_hours": 0,
+            "intent_aliases": []
+          },
+          {
+            "id": "share_profit",
+            "label": "捐出4便士给铺里的学徒",
+            "success_text": "我从这趟收入中拿出4便士给学徒添饭。",
+            "effects": [
+              {
+                "op": "flag",
+                "id": "shared_end",
+                "value": true
+              }
+            ],
+            "requires": {
+              "delivered": true
+            },
+            "ends_event": true,
+            "duration_hours": 0,
+            "intent_aliases": [],
+            "costs": {
+              "pence": 4
+            }
+          }
+        ]
+      }
+    ],
+    "items": [],
+    "knowledge": [
+      {
+        "id": "currency",
+        "title": "港郡钱币与行情",
+        "visibility": "public",
+        "keywords": [
+          "钱",
+          "便士",
+          "先令",
+          "镑",
+          "物价"
+        ],
+        "content": "以便士记账。12便士=1先令，20先令=1镑。麦酒2便士，渡船12便士，半日短工约6至12便士。这里只是游戏行情，不是历史价格考证。",
+        "requires": []
+      }
+    ],
+    "mechanics": {
+      "attributes": {
+        "version": 1,
+        "scale": [
+          0,
+          100
+        ],
+        "axes": [
+          {
+            "id": "talent",
+            "name": "天赋",
+            "keywords": {
+              "low": [
+                "感应迟缓",
+                "按步骤练习",
+                "谨慎引导"
+              ],
+              "medium": [
+                "感知灵力",
+                "稳定引导",
+                "熟练需训练"
+              ],
+              "high": [
+                "灵力敏感",
+                "精细引导",
+                "易察能量变化"
+              ]
+            }
+          },
+          {
+            "id": "strength",
+            "name": "力量",
+            "keywords": {
+              "low": [
+                "借助工具",
+                "节省力气",
+                "避免硬扛"
+              ],
+              "medium": [
+                "稳妥发力",
+                "常规负重",
+                "调整支点"
+              ],
+              "high": [
+                "有力支撑",
+                "重物搬运",
+                "控制力道"
+              ]
+            }
+          },
+          {
+            "id": "agility",
+            "name": "敏捷",
+            "keywords": {
+              "low": [
+                "提前避让",
+                "缓步试探",
+                "留足距离"
+              ],
+              "medium": [
+                "及时闪避",
+                "协调动作",
+                "保持平衡"
+              ],
+              "high": [
+                "迅速变向",
+                "精细动作",
+                "快速撤步"
+              ]
+            }
+          },
+          {
+            "id": "wisdom",
+            "name": "智慧",
+            "keywords": {
+              "low": [
+                "先问清楚",
+                "单步判断",
+                "需要明确线索"
+              ],
+              "medium": [
+                "比较线索",
+                "识别明显危险",
+                "选择应变"
+              ],
+              "high": [
+                "识别矛盾",
+                "多步预判",
+                "察觉陷阱线索"
+              ]
+            }
+          },
+          {
+            "id": "social",
+            "name": "社交",
+            "keywords": {
+              "low": [
+                "直述需要",
+                "简短回应",
+                "少用言外之意"
+              ],
+              "medium": [
+                "接住话题",
+                "解释立场",
+                "适度转折"
+              ],
+              "high": [
+                "调整措辞",
+                "试探需求",
+                "协商让步"
+              ]
+            }
+          },
+          {
+            "id": "resilience",
+            "name": "韧性",
+            "keywords": {
+              "low": [
+                "及时休息",
+                "承认疲惫",
+                "规避消耗"
+              ],
+              "medium": [
+                "保持节奏",
+                "承受压力",
+                "恢复呼吸"
+              ],
+              "high": [
+                "耐受消耗",
+                "逆境坚持",
+                "缓慢释放紧张"
+              ]
+            }
+          }
+        ],
+        "hp": {
+          "base": 50,
+          "per_resilience": 2
+        },
+        "note": "天赋仅为原灵力亲合度的显示改名。属性约束能力，不等于性格、道德或已知秘密。"
+      },
+      "local": {
+        "turn_hours": 0,
+        "travel_hours": 1,
+        "resources": [
+          {
+            "id": "pence",
+            "name": "旅费（12便士=1先令）",
+            "unit": "便士",
+            "initial": 18,
+            "maximum": 10000
+          },
+          {
+            "id": "wheat",
+            "name": "干麦",
+            "unit": "袋",
+            "initial": 0,
+            "maximum": 1
+          }
+        ]
+      },
+      "scene_judgment": {
+        "version": 1,
+        "law": "不得以潮粮冒充干粮；未经证实不得把受潮说成下毒。议价自愿，成交前不能直接拿走商品。",
+        "actors": {
+          "seller": {
+            "values": "精打细算，想保住生意名声；能接受有证据的议价，不接受无端称其下毒。",
+            "choices": {
+              "respect": {
+                "line": "粮商艾达认可你先查证再议价，愿意继续与你交易。",
+                "trust_delta": 0.15,
+                "flags": {}
+              },
+              "resent": {
+                "line": "艾达要求你澄清没有证据的下毒指控，信任受到损害。",
+                "trust_delta": -0.2,
+                "flags": {
+                  "seller_offended": true
+                }
+              },
+              "defend": {
+                "line": "艾达拿出登记簿为自己辩解，没有凭你的指控承认下毒。",
+                "trust_delta": -0.1,
+                "flags": {}
+              }
+            }
+          },
+          "baker": {
+            "values": "关心能否开炉和雇工生计，不愿让潮粮混进好粮。",
+            "choices": {
+              "trust": {
+                "line": "面包师诺尔认可你把品质和价格讲清楚，下次愿意再托你办事。",
+                "trust_delta": 0.15,
+                "flags": {
+                  "baker_friend": true
+                }
+              }
+            }
+          }
+        }
+      },
+      "endings": {
+        "version": 1,
+        "endings": [
+          {
+            "id": "profit_end",
+            "title": "一笔干净的小生意",
+            "summary": "你按实物品质完成交易，获得利润与合作机会。",
+            "kind": "traded",
+            "condition": {
+              "all_flags": {
+                "profit_end": true
+              },
+              "not_flags": [
+                "shared_end"
+              ]
+            },
+            "priority": 2
+          },
+          {
+            "id": "shared_end",
+            "title": "分出去的四便士",
+            "summary": "你完成交易，并把一部分收入留给学徒。",
+            "kind": "negotiated",
+            "condition": {
+              "all_flags": {
+                "shared_end": true
+              },
+              "not_flags": [
+                "profit_end"
+              ]
+            },
+            "priority": 1
+          }
+        ]
+      },
+      "start_profiles": {
+        "version": 1,
+        "default_profile": "traveller",
+        "profiles": [
+          {
+            "id": "traveller",
+            "title": "雨后粮市：最后一袋麦子",
+            "summary": "你带着18便士替面包师采购干麦。成本、品质与名声都在这笔小交易里：诺尔收货支付16便士，你要先辨认哪袋值得买。",
+            "identity": "手头不宽裕的外乡旅人",
+            "location": "market",
+            "goal": "最后一袋麦子",
+            "entry_event": "request",
+            "relations": {
+              "seller": {
+                "trust": 0.5,
+                "note": "初次相识"
+              },
+              "baker": {
+                "trust": 0.5,
+                "note": "初次相识"
+              }
+            },
+            "known": [
+              {
+                "id": "opening",
+                "text": "你带着18便士替面包师采购干麦。成本、品质与名声都在这笔小交易里：诺尔收货支付16便士，你要先辨认哪袋值得买。"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "characters": {
+    "id": "short_market_cast",
+    "title": "雨后粮市：最后一袋麦子·人物",
+    "characters": [
+      {
+        "id": "player",
+        "name": "我",
+        "public_name": "我",
+        "role": "主角",
+        "location_id": "market",
+        "personality": {},
+        "state": {},
+        "attributes": {
+          "talent": 55,
+          "strength": 55,
+          "agility": 55,
+          "wisdom": 55,
+          "social": 55,
+          "resilience": 55
+        }
+      },
+      {
+        "id": "seller",
+        "name": "粮商艾达",
+        "public_name": "粮商艾达",
+        "role": "次要角色",
+        "location_id": "market",
+        "personality": {
+          "贪婪": 0.6,
+          "谨慎": 0.7
+        },
+        "state": {},
+        "attributes": {
+          "talent": 55,
+          "strength": 55,
+          "agility": 55,
+          "wisdom": 55,
+          "social": 55,
+          "resilience": 55
+        }
+      },
+      {
+        "id": "baker",
+        "name": "面包师诺尔",
+        "public_name": "面包师诺尔",
+        "role": "次要角色",
+        "location_id": "bakery",
+        "personality": {
+          "责任": 0.8
+        },
+        "state": {},
+        "attributes": {
+          "talent": 55,
+          "strength": 55,
+          "agility": 55,
+          "wisdom": 55,
+          "social": 55,
+          "resilience": 55
+        }
+      }
+    ]
+  },
+  "playtest": {
+    "target_minutes": [
+      15,
+      20
+    ],
+    "measured_minutes": null,
+    "route": [
+      "read_offer",
+      "read_order",
+      "go_storehouse",
+      "@storehouse",
+      "inspect_grain",
+      "?compare_samples",
+      "read_ledger",
+      "return_market",
+      "@market",
+      "explain_quality",
+      "bargain",
+      "?buy_discount",
+      "?buy_full",
+      "carry_grain",
+      "@bakery",
+      "deliver_grain",
+      "buy_bread",
+      "keep_profit"
+    ],
+    "alternative": [
+      "read_offer",
+      "read_order",
+      "poison_accusation",
+      "go_storehouse",
+      "@storehouse",
+      "compare_samples",
+      "read_ledger",
+      "return_market",
+      "@market",
+      "explain_quality",
+      "buy_full",
+      "carry_grain",
+      "@bakery",
+      "deliver_grain",
+      "share_profit"
+    ],
+    "pacing": "约12–18次行动，穿插6–10轮追问、阅读与权衡；快速点击会更短。"
+  }
+}

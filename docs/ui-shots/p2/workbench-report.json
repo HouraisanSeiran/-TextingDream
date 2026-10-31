@@ -1,0 +1,109 @@
+{
+  "checks": [
+    {
+      "n": "1440 右图有底图（需关联 civ-atlas 才可见）",
+      "ok": false,
+      "d": "{\"imgHidden\":true,\"imgRect\":[0,0,0,0],\"ovRect\":[582,52,858,843],\"aspect\":\"auto\",\"natural\":[0,0],\"fit\":\"fill\"}"
+    },
+    {
+      "n": "1440 圈选工具条在地图区内",
+      "ok": true,
+      "d": "{\"inStage\":true,\"heights\":[30,0],\"gap\":77}"
+    },
+    {
+      "n": "1440 工具条按钮同高",
+      "ok": false,
+      "d": "30,0"
+    },
+    {
+      "n": "1440 正文行高 ≈1.8 且字号非硬编码",
+      "ok": true,
+      "d": "{\"size\":\"17px\",\"lh\":\"30.6px\",\"family\":\"Georgia, \\\"Times New Roman\\\", \\\"Songti SC\\\", SimSun, \\\"Noto Serif\"}"
+    },
+    {
+      "n": "1440 无横向溢出",
+      "ok": true,
+      "d": "{\"scrollW\":1440,\"clientW\":1440}"
+    },
+    {
+      "n": "1440 无 JS 错误",
+      "ok": true,
+      "d": ""
+    },
+    {
+      "n": "1366 右图有底图（需关联 civ-atlas 才可见）",
+      "ok": false,
+      "d": "{\"imgHidden\":true,\"imgRect\":[0,0,0,0],\"ovRect\":[552,48,814,665],\"aspect\":\"auto\",\"natural\":[0,0],\"fit\":\"fill\"}"
+    },
+    {
+      "n": "1366 圈选工具条在地图区内",
+      "ok": true,
+      "d": "{\"inStage\":true,\"heights\":[30,0],\"gap\":77}"
+    },
+    {
+      "n": "1366 工具条按钮同高",
+      "ok": false,
+      "d": "30,0"
+    },
+    {
+      "n": "1366 正文行高 ≈1.8 且字号非硬编码",
+      "ok": true,
+      "d": "{\"size\":\"17px\",\"lh\":\"30.6px\",\"family\":\"Georgia, \\\"Times New Roman\\\", \\\"Songti SC\\\", SimSun, \\\"Noto Serif\"}"
+    },
+    {
+      "n": "1366 无横向溢出",
+      "ok": true,
+      "d": "{\"scrollW\":1366,\"clientW\":1366}"
+    },
+    {
+      "n": "1366 无 JS 错误",
+      "ok": true,
+      "d": ""
+    }
+  ],
+  "geo": {
+    "1366": {
+      "imgHidden": true,
+      "imgRect": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "ovRect": [
+        552,
+        48,
+        814,
+        665
+      ],
+      "aspect": "auto",
+      "natural": [
+        0,
+        0
+      ],
+      "fit": "fill"
+    },
+    "1440": {
+      "imgHidden": true,
+      "imgRect": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "ovRect": [
+        582,
+        52,
+        858,
+        843
+      ],
+      "aspect": "auto",
+      "natural": [
+        0,
+        0
+      ],
+      "fit": "fill"
+    }
+  },
+  "failed": 4
+}

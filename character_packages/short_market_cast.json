@@ -1,0 +1,62 @@
+{
+  "id": "short_market_cast",
+  "title": "雨后粮市：最后一袋麦子·人物",
+  "characters": [
+    {
+      "id": "player",
+      "name": "我",
+      "public_name": "我",
+      "role": "主角",
+      "location_id": "market",
+      "personality": {},
+      "state": {},
+      "attributes": {
+        "talent": 55,
+        "strength": 55,
+        "agility": 55,
+        "wisdom": 55,
+        "social": 55,
+        "resilience": 55
+      }
+    },
+    {
+      "id": "seller",
+      "name": "粮商艾达",
+      "public_name": "粮商艾达",
+      "role": "次要角色",
+      "location_id": "market",
+      "personality": {
+        "贪婪": 0.6,
+        "谨慎": 0.7
+      },
+      "state": {},
+      "attributes": {
+        "talent": 55,
+        "strength": 55,
+        "agility": 55,
+        "wisdom": 55,
+        "social": 55,
+        "resilience": 55
+      }
+    },
+    {
+      "id": "baker",
+      "name": "面包师诺尔",
+      "public_name": "面包师诺尔",
+      "role": "次要角色",
+      "location_id": "bakery",
+      "personality": {
+        "责任": 0.8
+      },
+      "state": {},
+      "attributes": {
+        "talent": 55,
+        "strength": 55,
+        "agility": 55,
+        "wisdom": 55,
+        "social": 55,
+        "resilience": 55
+      }
+    }
+  ]
+}

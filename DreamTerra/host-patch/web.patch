@@ -1,0 +1,31 @@
+--- a/app/web.py
++++ b/app/web.py
+@@ -147,6 +147,8 @@
+     token = secrets.token_urlsafe(32)
+     app.mount('/static', StaticFiles(directory=ROOT / 'app/static'), name='static')
+     app.mount('/maps', StaticFiles(directory=ROOT / 'assets/maps'), name='maps')
++    from DreamTerra import service as dreamterra
++    dreamterra.install(app, service, ROOT)
+ 
+     # ---- 原生宿主（civ-atlas）前端产物 ---------------------------------
+     # 独立前缀 /native-map：绝对不能挂到 /static 下面，那里已经被上面的旧壳抢占了。
+@@ -315,11 +317,19 @@
+ 
+     @app.get('/api/sessions/{id}/play-map')
+     def play_map_projection(id: str):
++        terrain_context = dreamterra.context(service.store, service.runtime, id)
++        if terrain_context:
++            return dreamterra.player_projection(terrain_context, id)
+         s, story, status, context = _play_map_context(id)
+         return play_map.projection(s, story, status=status, context=context, session_id=id)
+ 
+     @app.get('/api/sessions/{id}/play-map/basemap.png')
+     def play_map_basemap(id: str):
++        terrain_context = dreamterra.context(service.store, service.runtime, id)
++        if terrain_context:
++            _, _, world, arrays, _, mask, _ = terrain_context
++            return Response(dreamterra.image(world, arrays, mask), media_type='image/png',
++                            headers={'X-Play-Map': 'fog-masked'})
+         s, story, status, context = _play_map_context(id)
+         if status != play_map.STATUS_OK:
+             # No fallback image and no unrelated basemap: the JSON says why.

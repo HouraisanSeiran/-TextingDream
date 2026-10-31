@@ -680,6 +680,99 @@ def apply(session, cfg, claims, source):
 # ------------------------------------------------------------------ public projection
 
 
+def seed_start(session, story, wallet=None, items=None, source='start:opening'):
+    """开局的引擎侧发放：钱货与物品实例，**与模型正文完全无关**。
+
+    与 ``apply`` 的区别只在意图，不在权威：同样写 ``session['rewards']``、
+    同样走白名单整数、同样在深拷贝上完成——任何一条非法（未知货币/模板、
+    超额、超上限）都抛错，调用方此时还没保存，因此整条开局零写入。
+
+    ``source`` 必须以 ``start:`` 开头：这既让来源可审计，也让 ``grant_id``
+    与后续事件奖励天然落在不同命名空间（同一来源动作不会重发，不同来源互不影响）。
+    """
+    cfg = rules(story)
+    wallet = dict(wallet or {})
+    items = list(items or [])
+    if not wallet and not items:
+        return None
+    if cfg is None:
+        raise ValueError('开局要发放钱货或物品实例，但故事包未配置 mechanics.rewards')
+    if not isinstance(source, str) or not source.startswith('start:'):
+        raise ValueError('开局发放的来源必须以 start: 开头')
+    if not isinstance(wallet, dict) or not isinstance(items, list):
+        raise ValueError('开局发放参数类型无效')
+    ensure(session, story)
+    result = copy.deepcopy(state(session, cfg))
+    currencies = {x.id: x for x in cfg.currencies}
+    templates = {x.id: x for x in cfg.templates}
+    audits = []
+    for currency_id in sorted(wallet):
+        amount = wallet[currency_id]
+        if isinstance(amount, bool) or not isinstance(amount, int):
+            raise ValueError('开局钱货必须是整数：%s' % currency_id)
+        if currency_id not in currencies:
+            raise ValueError('开局钱货引用了未声明的货币：' + currency_id)
+        if amount < 0:
+            raise ValueError('开局钱货不能为负：' + currency_id)
+        if amount == 0:
+            continue
+        currency = currencies[currency_id]
+        before = result['wallet'].get(currency_id, 0)
+        after = before + amount
+        if after > currency.maximum:
+            raise ValueError('%s 超出配置上限，开局整条拒绝' % currency.name)
+        result['wallet'][currency_id] = after
+        identifier = grant_id(session, source, 'currency:' + currency_id)
+        grant = {'id': identifier, 'reward': 'start:' + currency_id,
+                 'kind': 'currency', 'branch': 'start', 'source': source,
+                 'time': session.get('time', 0), 'rules_version': RULES_VERSION,
+                 'seed': str(session.get('seed', ''))[:8], 'object': currency_id,
+                 'before': before, 'after': after, 'account': None}
+        result['grants'].append(grant)
+        result['ledger'].append({'time': session.get('time', 0), 'grant': identifier,
+                                 'reward': grant['reward'], 'kind': 'currency',
+                                 'object': currency_id, 'before': before, 'after': after,
+                                 'source': source, 'rules_version': RULES_VERSION,
+                                 'branch': 'start', 'account': None})
+        audits.append({'kind': 'currency', 'object': currency_id,
+                       'before': before, 'after': after, 'amount': amount,
+                       'source': source})
+    for template_id in items:
+        template = templates.get(template_id)
+        if template is None:
+            raise ValueError('开局物品实例引用了未定义的模板：' + str(template_id))
+        if len(result['items']) >= cfg.max_items:
+            raise ValueError('已持有物品数量达到上限，开局整条拒绝')
+        identifier = grant_id(session, source, 'item:' + template_id)
+        if any(g['id'] == identifier for g in result['grants']):
+            continue
+        stats = _stats(cfg, template, {}, disclose_hidden=True)
+        if stats['value'] > cfg.max_value_per_grant:
+            raise ValueError('开局物品价值超过单次上限，开局整条拒绝')
+        item_id = 'itm_' + hashlib.sha256(identifier.encode('utf-8')).hexdigest()[:16]
+        instance = _instance(cfg, session, template, {}, True,
+                             {'grant': identifier, 'item_id': item_id, 'source': source})
+        result['items'].append(instance)
+        result['grants'].append({'id': identifier, 'reward': 'start:' + template_id,
+                                 'kind': 'item', 'branch': 'start', 'source': source,
+                                 'time': session.get('time', 0),
+                                 'rules_version': RULES_VERSION,
+                                 'seed': str(session.get('seed', ''))[:8],
+                                 'object': item_id, 'before': None, 'after': item_id,
+                                 'account': None})
+        result['ledger'].append({'time': session.get('time', 0), 'grant': identifier,
+                                 'reward': 'start:' + template_id, 'kind': 'item',
+                                 'object': item_id, 'before': None, 'after': item_id,
+                                 'source': source, 'rules_version': RULES_VERSION,
+                                 'branch': 'start', 'account': None})
+        audits.append({'kind': 'item', 'object': item_id, 'template': template_id,
+                       'value': stats['value'], 'source': source})
+    # 全部通过才写回；失败路径不会留下半批。
+    session['rewards'] = result
+    return {'source': source, 'grants': audits,
+            'note': '开局由引擎发放，与模型正文无关；命名空间 start: 与事件奖励隔离'}
+
+
 def _template(cfg, instance):
     return next((x for x in cfg.templates if x.id == instance.get('template')), None)
 

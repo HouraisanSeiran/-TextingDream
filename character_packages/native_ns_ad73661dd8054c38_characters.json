@@ -1,0 +1,22 @@
+{
+  "id": "native_ns_ad73661dd8054c38_characters",
+  "title": "????????????",
+  "characters": [
+    {
+      "id": "player",
+      "name": "我",
+      "role": "主角",
+      "location_id": "city_0",
+      "personality": {},
+      "state": {},
+      "attributes": {
+        "talent": 50,
+        "strength": 50,
+        "agility": 50,
+        "wisdom": 50,
+        "social": 50,
+        "resilience": 50
+      }
+    }
+  ]
+}

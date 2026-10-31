@@ -1,6 +1,7 @@
 from typing import Literal
 from pydantic import BaseModel, Field, ConfigDict
 from .drama import DialogueProfile
+from .npc_cards import NPCCard
 
 class Worldview(BaseModel):
     """故事包的最高语义层级；下级内容都受它约束。"""
@@ -23,6 +24,7 @@ class Character(BaseModel):
     beliefs: list[dict] = Field(default_factory=list)
     location_id: str | None = None
     dialogue_profile: DialogueProfile | None = None
+    npc_card: NPCCard | None = None
     attributes: dict[str,float] = Field(default_factory=dict)
 
 class CharacterPackage(BaseModel):

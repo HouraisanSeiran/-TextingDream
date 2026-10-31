@@ -1,0 +1,48 @@
+{
+  "note": "作者链路核验（真实 Edge + 真实 .civsnap + 临时沙箱）。只保留 status/method/path/base 与快照 refs；不含 token、API key、文件系统路径。",
+  "story_id": "xuanlu-world-001",
+  "revision": "7f51ddc7455243c2",
+  "map_and_history_same_import": true,
+  "play_map_import_matches": true,
+  "mechanics_map": {
+    "kind": "civ_atlas",
+    "import_id": "sn_2f3648720158",
+    "world_basis_id": null,
+    "fog": {
+      "reveal_radius_km": 300.0
+    }
+  },
+  "history": [
+    {
+      "snapshot_id": "hs_837d62b2bc979717",
+      "import_id": "sn_2f3648720158",
+      "base_year": 1500.0,
+      "adopted_from_revision": "c039f944d0dd44d0"
+    }
+  ],
+  "import_record": {
+    "id": "sn_2f3648720158",
+    "sha256": "2f364872015835be5a905876c6bdf5aec9acd3b675e48dded6472f80c438bfe1",
+    "sums_verified_by": [
+      "server"
+    ]
+  },
+  "play_map_link": {
+    "kind": "civ_atlas",
+    "import_id": "sn_2f3648720158",
+    "world_basis_id": null,
+    "reveal_radius_km": 300.0
+  },
+  "public_history": [
+    {
+      "ref": "casnap:2f364872015835be:wmvrpuwi29m3yi/unknown/polity/0",
+      "display_name": "艾拉斯",
+      "founded": 511.9765625,
+      "category": "polities",
+      "snapshot_id": "hs_837d62b2bc979717",
+      "revision": "c039f944d0dd44d0"
+    }
+  ],
+  "public_history_from_a_revision_without_adoption": [],
+  "validate": true
+}

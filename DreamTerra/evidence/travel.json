@@ -1,0 +1,12 @@
+{
+  "origin": "town-9383",
+  "destination": "town-10659",
+  "distance_km": 11.65685424949238,
+  "hours": 4,
+  "clock_before": 8,
+  "clock_after": 12,
+  "persisted": true,
+  "player_places": 3,
+  "world_towns": 12,
+  "server_masked": true
+}

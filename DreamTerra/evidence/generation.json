@@ -1,0 +1,35 @@
+{
+  "platform": "Windows-11-10.0.26200-SP0",
+  "processor": "AMD64 Family 25 Model 68 Stepping 1, AuthenticAMD",
+  "python": "3.12.14",
+  "world_id": "dt_7732399a346ace775f42dc54",
+  "parameters": {
+    "seed": 20261020,
+    "size_km": 512,
+    "water_fraction": 0.38,
+    "river_density": 1.5,
+    "rainfall": 1.0,
+    "mountains": 1.0,
+    "settlements": 48,
+    "year": 100
+  },
+  "stats": {
+    "wetland_cells": 209,
+    "floodplain_cells": 7419,
+    "lake_cells": 4841,
+    "river_segments": 2578,
+    "towns": 48,
+    "roads": 47,
+    "water_balance_error_m3_s": 4.547473508864641e-13
+  },
+  "sparse_river_segments": 1132,
+  "crossings": 255,
+  "three_generations_seconds": 20.85395410000274,
+  "checks": [
+    "identical arrays and world data",
+    "density changes channels, not elevation or drainage",
+    "wetland entry",
+    "downstream chains",
+    "road adjacency and crossings"
+  ]
+}
