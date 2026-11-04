@@ -238,6 +238,82 @@ class Route(Strict):
     import_id: str | None = Field(default=None, max_length=40)
 
 
+# ------------------------------------------------------- 未匹配意图的有界兜底
+#: 兜底尝试专用的 id 前缀：``fallback:<kind>:<target_kind>:<target_id>``。
+FALLBACK_PREFIX = 'fallback:'
+#: 兜底尝试留下的记录标记前缀：``fallback_tried:<kind>:<target_kind>:<target_id>``。
+FALLBACK_FLAG_PREFIX = 'fallback_tried:'
+FallbackKind = Literal['observe', 'ask', 'persuade', 'sneak', 'force', 'rest']
+FALLBACK_KINDS = ('observe', 'ask', 'persuade', 'sneak', 'force', 'rest')
+HintKind = Literal['observe', 'ask', 'persuade', 'sneak', 'force']
+HINT_KINDS = ('observe', 'ask', 'persuade', 'sneak', 'force')
+MAX_RELATIONSHIP_DELTA = 0.05
+MAX_FALLBACK_HINTS = 300
+#: 确定性关键词表（只做归类，不做语义理解）。命中位置最靠前的那一类胜出；
+#: 同一位置取更长的关键词，再按 ``FALLBACK_KINDS`` 顺序。
+FALLBACK_KEYWORDS = {
+    'observe': ('观察', '查看', '打量', '端详', '环顾', '检查', '翻找', '看看', '搜', '瞧'),
+    'ask': ('打听', '请教', '询问', '问'),
+    'persuade': ('说服', '讲价', '砍价', '恳请', '央求', '商量', '劝', '求'),
+    'sneak': ('偷偷', '悄悄', '潜入', '溜', '藏', '躲'),
+    'force': ('硬闯', '强行', '砸', '撬', '踹', '撞', '推'),
+    'rest': ('休息', '打盹', '喘口气', '歇', '睡'),
+}
+#: 同一分句里、关键词之前出现这些字就视为被否定（「不想偷偷溜」不算 sneak）。
+FALLBACK_NEGATION_CHARS = ('不', '没', '别', '勿')
+FALLBACK_CLAUSE_MARKS = ('，', '。', '；', '！', '？', ',', '.', ';', '!', '?', '、')
+#: 默认属性/难度/文案；作者可在 ``fallback.kinds.<kind>`` 逐项覆盖。
+FALLBACK_DEFAULTS = {
+    'observe': {'attribute': 'wisdom', 'difficulty': 0.4, 'label': '试着仔细查看{target}',
+                'success_text': '我仔细查看了{target}。', 'failure_text': '我看了一圈{target}，没看出什么名堂。'},
+    'ask': {'attribute': 'social', 'difficulty': 0.4, 'label': '试着向{target}打听',
+            'success_text': '我向{target}打听了一番。', 'failure_text': '我向{target}打听，没问出什么。'},
+    'persuade': {'attribute': 'social', 'difficulty': 0.6, 'label': '试着说服{target}',
+                 'success_text': '我把话说得恳切，{target}的态度松动了些。',
+                 'failure_text': '我试着说服{target}，没能说动。'},
+    'sneak': {'attribute': 'agility', 'difficulty': 0.55, 'label': '试着在{target}悄悄行动',
+              'success_text': '我在{target}悄悄行动，没惊动谁。',
+              'failure_text': '我想在{target}悄悄行动，却弄出了动静。'},
+    'force': {'attribute': 'strength', 'difficulty': 0.55, 'label': '试着对{target}硬来',
+              'success_text': '我对{target}使了把力气。', 'failure_text': '我对{target}硬来了一下，没成。'},
+    'rest': {'attribute': None, 'difficulty': None, 'label': '在{target}歇一会儿',
+             'success_text': '我在{target}歇了一会儿。', 'failure_text': '我在{target}歇了一会儿。'},
+}
+FALLBACK_EMPTY_TEXT = '没有得到新的、可以确认的信息。'
+FALLBACK_NOTE = ('没有匹配到作者配置的动作；这是一次有界的通用尝试：只做检定、推进时间，'
+                 '最多给出作者预先写好的线索或细微的关系变化，不会产生钱、物或确认的事实。')
+
+
+class FallbackKindConfig(Strict):
+    """一类兜底尝试的作者覆盖；不写的项落回 :data:`FALLBACK_DEFAULTS`。"""
+    enabled: bool = True
+    attribute: str | None = Field(default=None, min_length=1, max_length=20)
+    difficulty: float | None = Field(default=None, ge=0, le=1)
+    duration_hours: int | None = Field(default=None, ge=0, le=24, strict=True)
+    label: str = Field(default='', max_length=60)
+    success_text: str = Field(default='', max_length=300)
+    failure_text: str = Field(default='', max_length=300)
+
+
+class FallbackHint(Strict):
+    """作者预先写好的一条兜底信息：只在成功时、按声明顺序取下一条未给出的。"""
+    id: str = Field(pattern=ID)
+    target: Target
+    kinds: list[HintKind] = Field(default_factory=lambda: list(HINT_KINDS), max_length=5)
+    requires: Condition = Field(default_factory=Condition)
+    text: str = Field(min_length=1, max_length=300)
+
+
+class FallbackConfig(Strict):
+    enabled: bool = False
+    duration_hours: int = Field(default=1, ge=0, le=24, strict=True)
+    kinds: dict[FallbackKind, FallbackKindConfig] = Field(default_factory=dict)
+    repeat_difficulty_step: float = Field(default=0.2, ge=0, le=1)
+    relationship_delta: float = Field(default=MAX_RELATIONSHIP_DELTA, ge=0,
+                                      le=MAX_RELATIONSHIP_DELTA)
+    hints: list[FallbackHint] = Field(default_factory=list, max_length=MAX_FALLBACK_HINTS)
+
+
 class AdventureConfig(Strict):
     version: int = Field(strict=True)
     clues: list[Clue] = Field(default_factory=list, max_length=MAX_CLUES)
@@ -246,6 +322,7 @@ class AdventureConfig(Strict):
     templates: list[Template] = Field(default_factory=list, max_length=MAX_TEMPLATES)
     rest_hours: int = Field(default=8, ge=0, le=MAX_HOURS, strict=True)
     max_rest_hours: int = Field(default=MAX_HOURS, ge=1, le=MAX_HOURS, strict=True)
+    fallback: FallbackConfig | None = None
 
     @model_validator(mode='after')
     def _rest_bounds(self):
@@ -387,6 +464,21 @@ def validate(story, characters=None):
             raise ValueError('give 模板必须点名接收人（不点名就不存在转交方案）')
         if unknown:
             raise ValueError('give 模板的接收人不存在：%s' % '、'.join(sorted(unknown)))
+
+    if cfg.fallback is not None:
+        for kind, spec in cfg.fallback.kinds.items():
+            if spec.attribute is not None:
+                if kind == 'rest':
+                    raise ValueError('兜底 rest 不做检定，不能声明属性')
+                _axis(spec.attribute)
+        seen = set()
+        for hint in cfg.fallback.hints:
+            if hint.id in seen:
+                raise ValueError('兜底提示 ID 重复：' + hint.id)
+            seen.add(hint.id)
+            if not hint.kinds:
+                raise ValueError('兜底提示 %s 至少要有一个尝试类别' % hint.id)
+            _check_target(hint.target, places, items, characters)
     return cfg
 
 
@@ -954,17 +1046,21 @@ def describe(session, story, action_id, characters=None, rest_hours=None):
     return plan
 
 
-def public(plan, story):
+def public(plan, story, session=None, node=None, characters=None, push=None):
     """玩家可见的确认摘要：**白名单**字段，不含未发生的结果或任何隐藏文本。
 
     只放：动作 id/标签、公开目标、成本、时长（含时长来源）、检定、是否结束事件、
     作者公开的意图别名，以及本次是否 ``supported``、缺什么能力、旅行/等待的结构参数。
     ``success_text`` / ``failure_text`` / ``narrative_cues`` / 线索与分支的正文一律不出现。
     执行所需的完整 action definition 只在 :func:`describe` 里，归引擎内部。
+
+    给了 ``session`` 且包开了判定 v2 时，``check`` 里会多一个 ``check.v2`` 公开段
+    （处境/效果/把握/因素/加码/钟）；旧包与不传 session 的调用方拿到同样的字段。
     """
     if plan is None:
         return None
-    view = free_actions.summarise(plan['action'], story) if plan.get('action') else {
+    view = free_actions.summarise(plan['action'], story, session, node, characters, push) \
+        if plan.get('action') else {
         'action_id': plan['action_id'], 'label': plan['label'], 'costs': [],
         'duration_hours': plan['duration_hours'], 'check': None, 'ends_event': False,
         'intent_aliases': list(plan.get('intent_aliases') or [])}
@@ -1048,3 +1144,248 @@ def suggest(session, story, intent, characters=None, rest_hours=None):
             'note': ('候选只引用作者已声明的目标与效果，且不含未发生的结果。'
                      + NEED_WIRING_TEXT
                      + ('有多个同分候选，请自己挑一个。' if len(top) > 1 else ''))}
+
+
+# ------------------------------------------------- 未匹配意图的有界兜底（纯规则）
+def fallback_config(story):
+    """``mechanics.adventure.fallback``，且 ``enabled: true`` 时返回它；否则 ``None``。
+
+    没有 ``mechanics.adventure``、没有 ``fallback`` 键、或 ``enabled`` 不是 true，
+    兜底整体 no-op：旧包与已开启冒险行动但没开兜底的包逐字节不变。
+    """
+    cfg = config(story)
+    if cfg is None or cfg.fallback is None or not cfg.fallback.enabled:
+        return None
+    return cfg.fallback
+
+
+def classify(intent):
+    """确定性关键词归类：返回 ``FALLBACK_KINDS`` 之一或 ``None``（不命中/被否定）。
+
+    规则：在归一化文本里找每个关键词**未被否定**的最早出现位置（同一分句里、关键词
+    之前出现「不/没/别/勿」视为否定；分句按中英文标点切）；位置最靠前者胜，同位置取
+    更长关键词，再按类顺序。这是字面匹配，不是语义理解。
+    """
+    text = free_actions.normalize(intent)
+    if not text:
+        return None
+    best = None
+    for order, kind in enumerate(FALLBACK_KINDS):
+        for word in FALLBACK_KEYWORDS[kind]:
+            start = text.find(word)
+            while start >= 0:
+                clause = max(text.rfind(mark, 0, start) for mark in FALLBACK_CLAUSE_MARKS)
+                window = text[clause + 1:start]
+                if not any(ch in window for ch in FALLBACK_NEGATION_CHARS):
+                    key = (start, -len(word), order)
+                    if best is None or key < best[0]:
+                        best = (key, kind)
+                    break
+                start = text.find(word, start + 1)
+    return best[1] if best else None
+
+
+def _kind_spec(fb, kind):
+    """该类的有效设置（默认值 + 作者覆盖），以及是否启用。"""
+    base = dict(FALLBACK_DEFAULTS[kind])
+    over = fb.kinds.get(kind)
+    enabled = True
+    hours = fb.duration_hours
+    if over is not None:
+        enabled = over.enabled
+        if over.attribute is not None:
+            base['attribute'] = over.attribute
+        if over.difficulty is not None:
+            base['difficulty'] = over.difficulty
+        if over.duration_hours is not None:
+            hours = over.duration_hours
+        for key in ('label', 'success_text', 'failure_text'):
+            if getattr(over, key):
+                base[key] = getattr(over, key)
+    base['duration_hours'] = hours
+    return base, enabled
+
+
+def fallback_targets(session, story, characters=None):
+    """兜底尝试可落到的目标：**只**来自当前地点可见的人物/物体/地点。
+
+    人物 = ``_scene``（同地点、未被作者藏起）；物体 = 当前地点、``_perceivable`` 的
+    ``story['items']``；地点 = 当前地点 + ``play_map.visible_places`` 里的当前邻接。
+    返回顺序固定：npc → object → place，各自按 id。
+    """
+    place = _current_place(session, story)
+    if place is None:
+        return []
+    rows = [dict(row) for row in _scene(session, story, characters)]
+    items = [{'kind': 'object', 'id': item['id'], 'name': item.get('name') or item['id']}
+             for item in story.get('items') or []
+             if item.get('location_id') == place['id'] and _perceivable(item, session)
+             and item['id'] not in (session.get('inventory') or [])]
+    rows.extend(sorted(items, key=lambda row: row['id']))
+    rows.append({'kind': 'place', 'id': place['id'], 'name': place.get('name') or place['id']})
+    neighbours = set(place.get('neighbors') or [])
+    others = [{'kind': 'place', 'id': row['id'], 'name': row['name']}
+              for row in play_map.visible_places(session, story)
+              if row['id'] in neighbours and row['id'] != place['id']]
+    rows.extend(sorted(others, key=lambda row: row['id']))
+    return rows
+
+
+def resolve_fallback_target(session, story, intent, characters=None):
+    """意图里**原句包含**的可见目标公开名；最长者胜，并列按 npc→object→place 顺序。
+
+    解析不到 → 当前地点。只比对玩家可见的名字（人物用 public_name），不比对 id 或私名。
+    """
+    rows = fallback_targets(session, story, characters)
+    if not rows:
+        return None
+    text = free_actions.normalize(intent)
+    hits = [(len(free_actions.normalize(row['name'])), -index, row)
+            for index, row in enumerate(rows)
+            if row['name'] and free_actions.normalize(row['name']) in text]
+    if hits:
+        hits.sort(key=lambda hit: (-hit[0], -hit[1]))
+        return hits[0][2]
+    return next(row for row in rows if row['kind'] == 'place')
+
+
+def fallback_flag(kind, target_row):
+    return '%s%s:%s:%s' % (FALLBACK_FLAG_PREFIX, kind, target_row['kind'], target_row['id'])
+
+
+def fallback_action_id(kind, target_row):
+    return '%s%s:%s:%s' % (FALLBACK_PREFIX, kind, target_row['kind'], target_row['id'])
+
+
+def _given_hints(session):
+    return {row.get('hint') for row in (session.get('fallback_log') or []) if row.get('hint')}
+
+
+def _information_pool(session, story, fb, kind, target_row):
+    """成功时可给出的信息：作者 ``fallback.hints`` 优先，其次匹配的 clues 里的 information。
+
+    只取**未给出过**的第一条（声明顺序，确定性）。clue 里的其它 op（flag/resource/fact…）
+    一律不取；information 一律降为未确认、只给玩家（``confirmed=False``，不进 facts）。
+    """
+    given = _given_hints(session)
+    # 玩家已经听到过的同一段文本（例如已经用正式的观察动作拿到了这条线索）不再重发。
+    heard = {row.get('text') for row in session.get('heard') or []}
+    for hint in fb.hints:
+        if (hint.target.kind == target_row['kind'] and hint.target.id == target_row['id']
+                and kind in hint.kinds and hint.requires.met(session)
+                and 'hint:' + hint.id not in given and hint.text not in heard):
+            return {'id': 'hint:' + hint.id, 'text': hint.text}
+    if kind != 'observe' or target_row['kind'] not in ('place', 'object'):
+        return None
+    clue_kind = 'observe' if target_row['kind'] == 'place' else 'investigate'
+    for clue in config(story).clues:
+        if (clue.target.kind != target_row['kind'] or clue.target.id != target_row['id']
+                or clue_kind not in clue.action_kinds or not clue.requires.met(session)):
+            continue
+        for index, effect in enumerate(clue.effects):
+            key = 'clue:%s:%d' % (clue.id, index)
+            if effect.op == 'information' and key not in given and effect.text not in heard:
+                return {'id': key, 'text': effect.text}
+    return None
+
+
+def build_fallback(session, story, characters, kind, target_row):
+    """一条兜底方案（含引擎内部的 ``action``）；该类被作者关掉时返回 ``None``。
+
+    重复规则（确定性）：``fallback_tried:<kind>:<target_kind>:<target_id>`` 已为真时，
+    难度 + ``repeat_difficulty_step``（封顶 1），且**不再产生任何关系变化**；信息仍只从
+    有限的作者池里取下一条未给出的，池空就只有通用回执。
+    """
+    fb = fallback_config(story)
+    if fb is None or target_row is None or kind not in FALLBACK_KINDS:
+        return None
+    spec, enabled = _kind_spec(fb, kind)
+    if not enabled:
+        return None
+    flag = fallback_flag(kind, target_row)
+    flags = session.get('flags') or {}
+    repeat = bool(flags.get(flag)) if kind != 'rest' else False
+    action_id = fallback_action_id(kind, target_row)
+    name = target_row.get('name') or target_row['id']
+    label = _fill(spec['label'], target=name)
+    action = {'id': action_id, 'label': label, 'ends_event': False,
+              'duration_hours': spec['duration_hours']}
+    information = None
+    relationship = {'success': {}, 'failure': {}}
+    if kind != 'rest':
+        difficulty = float(spec['difficulty'])
+        if repeat:
+            difficulty = min(1.0, round(difficulty + fb.repeat_difficulty_step, 4))
+        action['check'] = {'attribute': _axis(spec['attribute']), 'difficulty': difficulty}
+        action['effects'] = [{'op': 'flag', 'id': flag, 'value': True}]
+        information = _information_pool(session, story, fb, kind, target_row)
+        delta = min(fb.relationship_delta, MAX_RELATIONSHIP_DELTA)
+        if not repeat and delta > 0:
+            if kind == 'persuade' and target_row['kind'] == 'npc':
+                relationship['success'][target_row['id']] = delta
+                relationship['failure'][target_row['id']] = -delta
+            elif kind in ('force', 'sneak'):
+                # 失败被目击：此刻同地点、可见的人物都看见了。
+                for row in _scene(session, story, characters):
+                    relationship['failure'][row['id']] = -delta
+    success_text = _fill(spec['success_text'], target=name)
+    if kind != 'rest':
+        success_text += (information['text'] if information else FALLBACK_EMPTY_TEXT)
+    action['success_text'] = success_text
+    action['failure_text'] = _fill(spec['failure_text'], target=name)
+    if information is not None:
+        action['success'] = [{'op': 'information', 'text': information['text'],
+                              'known_by': ['player'], 'confirmed': False}]
+    return {'action_id': action_id, 'kind': 'fallback', 'fallback_kind': kind,
+            'target': dict(target_row), 'label': label, 'supported': True,
+            'unsupported': [], 'action': action, 'duration_hours': spec['duration_hours'],
+            'duration_source': 'fallback', 'notes': [], 'intent_aliases': [],
+            'repeat': repeat, 'flag': flag if kind != 'rest' else None,
+            'information': information, 'relationship': relationship}
+
+
+def fallback_from_id(session, story, characters, action_id):
+    """按 id 重建兜底方案（执行/确认时用）：目标必须**此刻仍可见**，否则 ``None``。"""
+    if not isinstance(action_id, str) or not action_id.startswith(FALLBACK_PREFIX):
+        return None
+    if fallback_config(story) is None:
+        return None
+    parts = action_id[len(FALLBACK_PREFIX):].split(':')
+    if len(parts) != 3:
+        return None
+    kind, target_kind, target_id = parts
+    row = next((r for r in fallback_targets(session, story, characters)
+                if r['kind'] == target_kind and r['id'] == target_id), None)
+    if row is None:
+        return None
+    return build_fallback(session, story, characters, kind, row)
+
+
+def fallback_for_intent(session, story, intent, characters=None):
+    """意图 → 至多一条兜底方案；未开启、未命中类别或没有当前地点时 ``None``。"""
+    if fallback_config(story) is None:
+        return None
+    kind = classify(intent)
+    if kind is None:
+        return None
+    target = resolve_fallback_target(session, story, intent, characters)
+    if target is None:
+        return None
+    return build_fallback(session, story, characters, kind, target)
+
+
+def fallback_public(plan, story, session=None, node=None, characters=None):
+    """兜底候选的玩家可见摘要：白名单。信息正文、成功/失败文本、关系幅度都不出现。
+
+    给了 ``session`` 且包开了判定 v2 时，``check`` 里会多一个 ``check.v2`` 公开段。
+    兜底尝试不提供危险钟与默认资源代价：它永远不发钱物、不写事实。
+    """
+    view = free_actions.summarise(plan['action'], story, session, node, characters)
+    view = {key: view[key] for key in ('action_id', 'label', 'costs', 'duration_hours',
+                                       'check', 'ends_event', 'intent_aliases')}
+    view.update({'kind': 'fallback', 'fallback_kind': plan['fallback_kind'],
+                 'target': {k: plan['target'][k] for k in ('kind', 'id', 'name')},
+                 'repeat': plan['repeat'], 'supported': True})
+    if plan['repeat']:
+        view['repeat_notice'] = '这件事已经试过一次：再试更难，也不会再改变谁对你的看法。'
+    return view

@@ -1,0 +1,1248 @@
+{
+  "schema_version": 1,
+  "status": "candidate",
+  "group": "western-alchemy",
+  "genres": [
+    "western_fantasy",
+    "dark_fantasy"
+  ],
+  "updated": "2026-10-31",
+  "scope_note": "本文件是西方奇幻／黑暗奇幻题材常见魔药（potion / elixir / unguent）的候选设定素材，20 条，不是数据库实现，也不是任何故事包已采纳的正典。与同目录 western.json 分工：western.json 已记「药剂与灵药」「炼金术」「魔法材料与稀有矿草」「魔法的代价与反噬」四条主干条目，写的是这一整类东西的经济、制度与代价框架；本文件只记**具体用途分型**（止血、解毒、催眠、遗忘、变形、飞行、隐身、爱情、狂战、元素抵御、水下呼吸、解石、真话、尺寸变化、抗魔、复活），不复写那四条的框架内容，跨文件时用文字指向而不复制。与 western-biology.json 分工：药材的具体生态、采集禁忌与栽培条件记在那里，本文件只以文字呼应其植物与动物来源，不复制其条目内容。",
+  "safety_note": "**本文件是游戏／小说设定素材，不是医药资料。** 全部条目刻意不写任何现实可操作的配方、配伍、剂量、浓度、服用量、炮制温度与时间，也不写有毒植物的处理方式或解毒做法。文件中的「剂量」一律只作为**维度名称**出现（起效时间量级、有效次数、累积上限等），不给任何数值。文件中不出现任何「可治疗某病」的现实医疗主张：条目内的效力都是虚构世界的设定，不是被验证的事实。若读者需要现实医药信息，本文件不提供也不应被当作依据。",
+  "schema_alignment_note": "details 使用 app/encyclopedia.py 的 DETAIL_SECTIONS 七规范键，全部为字符串且齐备：definition（定义与边界）、mechanism（可并存的运作机制）、conditions（实质依赖：材料来源、制备门槛、生效条件、剂量维度、副作用、供应控制、法律与道德处境）、exceptions（合理变体与反例）、story_uses（叙事与制度后果）、historical_scope（历史与民俗层／本项目设计归纳的限定与改编边界）、evidence_and_uncertainty（来源支持与设计归纳的分界，以及不确定处）。review_status 一律 needs_review，detail_status 一律 needs_detail，未经主审逐条实质核验不升格。",
+  "design_vs_history_note": "三类内容必须分清：(1) **历史与民俗中确有此说的观念**——每条均在 historical_scope 与 evidence_and_uncertainty 中点名其所依据的已读来源，并限定地域与时期；(2) **本项目设计归纳**——效力机制、制备门槛、供应控制者、法律处境等绝大多数具体安排，凡属归纳均就地标注「本项目设计归纳」；(3) **纯原创设定**——如抗魔力药剂、尺寸变化粉、隐身油的具体规则。药效一律不作为已验证事实。",
+  "hard_exclusions_note": "全组统一的硬性边界（逐条在 excludes 或 details.historical_scope 中另有具体化）：痊愈、复活、长生、万能解毒均**不默认成立**。复活类只在世界设定明确允许时成立，且通常需要等价交换或不可逆损失；万能解毒剂的「万能」只是宣称而非事实；任何药剂都不默认无副作用、不默认可量产、不默认在市场上随处可买。",
+  "tag_conventions": {
+    "kind": "每条必带 kind:item。本文件只记可消耗的制剂，不记器具、矿草与施法能力本身。",
+    "tradition": "统一 tradition:western，表示其母题归属西方（欧洲／地中海／近东）传统谱系；真实存在的药材与真实药物史同样沿用该标签，但会在 evidence_and_uncertainty 中说明哪部分是民俗记录、哪部分是项目归纳。",
+    "effect": "效力分组，如 effect:healing、effect:antidote、effect:sleep、effect:memory_erasure、effect:transformation、effect:flight、effect:invisibility、effect:compelled_affection、effect:frenzy、effect:fire_resistance、effect:water_breathing、effect:petrification_release、effect:compelled_speech、effect:size_change、effect:magic_resistance、effect:resurrection。一个物品可带多个 effect 标签表示它能做几件事，不表示它每件都做得好。",
+    "route": "给药路线，用以区分「同样叫药但用法与风险完全不同」：route:ingested、route:topical、route:inhaled、route:contact。同一 effect 的不同 route 在制度与道德处境上往往相反。",
+    "cost": "虚构代价，如 cost:scarce_reagent、cost:long_brewing、cost:rapid_failure、cost:addiction、cost:tolerance、cost:rebound、cost:irreversible_loss、cost:lethal_risk、cost:dosage_risk、cost:consent_violation、cost:fraud_risk、cost:social_stigma、cost:withdrawal、cost:timing_window、cost:equivalent_exchange、cost:self_harm、cost:narrow_specificity、cost:short_duration、cost:unreliable_output、cost:torture_adjacent、cost:identity_risk、cost:aftermath_collapse、cost:reversibility_risk、cost:temporary。",
+    "role": "叙事与制度功能，如 role:medical_supply、role:quest_object、role:plot_device、role:weapon、role:tool、role:contraband、role:interrogation_tool、role:taboo_marker、role:transport_tool、role:legend_tier、role:control_mechanism。",
+    "not_handwritten": "不手写 genre: 与 category: 标签：导入器会按 genres 字段追加 genre:<题材>、按 category 字段追加 category:item。"
+  },
+  "retrieval_note": "本轮（2026-10-31）实际检索与抓取记录，逐条如实：**成功取得正文并已通读者 26 页，全部列入 sources 且 access=read**（Britannica：alchemy、philosopher's stone、elixir、immortality、resurrection、berserker、witchcraft、witches' sabbath、aphrodisiac、Lethe、torture、poison、antidote、Medusa、Gorgon、Circe、amulet、magic、Asclepius、Odin、Valhalla、werewolf、belladonna、mandrake、salamander、Proteus）。**抓取失败者 19 处，如实登记为 unavailable，本文件未引用其任何内容**：Britannica 的 theriac、panacea、philtre、love-potion、truth-serum、mithridatium、topic/poison、invisibility、homunculus、nepenthe、moly、Heimdall、salamander-mythology 均返回 HTTP 404；Met Museum 的 toah/hd/alch 与 toah/hd/alcm 均 404；World History Encyclopedia 的 alchemy 页在传输层失败（malformed HTTP response）；英文维基百科 Theriac 与 Love_potion 两页连接超时。**方法学局限如实记录**：本轮通用网页搜索对英文母题词召回质量很差（把 Britannica、elixir、World History、love、flying 等当作导航词与词典条目返回），因此改为直接指定已知 Britannica 条目地址抓取正文；这意味着被 404 挡住的题目（尤其万应解毒剂 theriac、爱情药 philtre、真话剂 truth serum 三条独立词条）没有取得独立正文，相关段落只能依靠解毒剂、催情药、酷刑三条的近邻内容旁证，缺口已在各条证据节中标明。",
+  "sources": [
+    {
+      "id": "western_alc_src_britannica_alchemy",
+      "title": "Britannica: alchemy",
+      "url": "https://www.britannica.com/topic/alchemy",
+      "access": "read",
+      "supports": "炼金术是思辨性思想形态，目标包括贱金属转金银与寻找治病、延寿之法；12 世纪拉丁欧洲以此词称呼与占星相对应的一支；各文化证据丰俭不均，希腊炼金术几乎只靠单一约八万字手稿，中国炼金术多存于道藏约百部「书」中，印度与伊斯兰炼金术从未被系统汇集；「炼金术究竟是什么」本身仍有争议，词根 chem 来源不明。",
+      "rights_note": "Britannica 条目为版权内容，仅作简短原创归纳，不复制原文段落。"
+    },
+    {
+      "id": "western_alc_src_britannica_philosophers_stone",
+      "title": "Britannica: philosopher's stone",
+      "url": "https://www.britannica.com/topic/philosophers-stone",
+      "access": "read",
+      "supports": "哲人石是西方炼金术中所求的未知物质，别称「酊剂」「粉末」，被认为可将贱金属转为贵金属；炼金术士相信可由它制出长生灵药；因炼金术关涉灵魂之完善，哲人石被认为能治病、延寿并带来灵性振兴；操作上以梨形玻璃坩埚（赫尔墨斯之瓶／哲人蛋）加热贱金属，并观察黑（旧物之死）、白（转银之色）、红（最高阶段，转金之色）的颜色次序；此追寻自中世纪延续至 17 世纪末，积累起后来化学、冶金学与药理学的知识基础。",
+      "rights_note": "同上，仅归纳。"
+    },
+    {
+      "id": "western_alc_src_britannica_elixir",
+      "title": "Britannica: elixir",
+      "url": "https://www.britannica.com/topic/elixir-alchemy",
+      "access": "read",
+      "supports": "elixir 在炼金术中指被认为能把贱金属变为金的物质；同一词更完整作 elixir vitae（长生灵药），指可无限延寿之物，被认为与哲人石相关；中国道教徒既求「不死之药」，也发展冥想、呼吸与饮食等「内丹」之术以求长生；在药学语境中，elixir 通常指含芳香物、通常含药物质的加甜水醇溶液。",
+      "rights_note": "同上，仅归纳；药学定义只作词义说明，不构成任何制剂指导。"
+    },
+    {
+      "id": "western_alc_src_britannica_immortality",
+      "title": "Britannica: immortality",
+      "url": "https://www.britannica.com/topic/immortality",
+      "access": "read",
+      "supports": "不朽在哲学与宗教中指个人心理、精神或肉体存在的无限延续；各传统对来世形态设想差异极大（赏罚之地、轮回、肉身复活等）；相信来世在历史上分布极广，但「分布广」不能证明其为真；柏拉图主张灵魂不可毁，亚里士多德不主张个人不朽，伊壁鸠鲁派否认死后有意识；犹太教、基督教、伊斯兰教与琐罗亚斯德教各有复活与末后审判的说法。",
+      "rights_note": "同上，仅归纳；宗教教义只作信仰记述，不当作事实断言。"
+    },
+    {
+      "id": "western_alc_src_britannica_resurrection",
+      "title": "Britannica: resurrection",
+      "url": "https://www.britannica.com/topic/resurrection-religion",
+      "access": "read",
+      "supports": "复活指神性或人性存在从死里起来且仍保有自身位格，身体可能改变也可能不变；肉身复活的信仰主要与基督教相联，亦见于后期犹太教与伊斯兰教，琐罗亚斯德教另有终末复活与最后审判；古代中东宗教思想为神性存在（如植物神塔穆兹）的复活提供了背景，但对人个人复活的信仰当时尚未出现；希腊罗马思想有灵魂不朽而无肉身复活；基督教叙述强调复活后的耶稣不是单纯复苏的尸体或鬼魂，而是实质性的转变。",
+      "rights_note": "同上，仅归纳；教义叙述不作事实断言。"
+    },
+    {
+      "id": "western_alc_src_britannica_berserker",
+      "title": "Britannica: berserker",
+      "url": "https://www.britannica.com/topic/berserker",
+      "access": "read",
+      "supports": "狂战士是前中世纪与中世纪诺斯与日耳曼史料及民俗中崇拜奥丁的桀骜战士团成员，受雇于王室与贵族充任卫队与突击队；其战场凶暴与兽皮装束促成了欧洲狼人传说的形成；究竟披熊皮狼皮作战还是赤膊（不穿锁甲）作战，挂毯与其他材料两说并存；他们在东道社群中随意奸杀（即所谓「发狂」），在诺斯萨迦中常作反派；一首多成于 9 世纪的古诺斯诗歌记其为挪威金发哈拉尔一世（在位 872—930）的亲卫。",
+      "rights_note": "同上，仅归纳。"
+    },
+    {
+      "id": "western_alc_src_britannica_witchcraft",
+      "title": "Britannica: witchcraft",
+      "url": "https://www.britannica.com/topic/witchcraft",
+      "access": "read",
+      "supports": "巫术一词通常指借超自然或秘术之力害人，拉丁语称 maleficium；近代早期（15—17 世纪）欧洲与美洲殖民地发生大规模巫术审判，当时基督徒常把巫视为在巫魔会上崇拜魔鬼的撒旦信徒；害人方式常依赖 Frazer 所称「交感巫术」——相信分有某种共同性的事物之间存在看不见的联系，故指甲、头发、排泄物皆可成为施术媒介，欧洲另有以人偶插针施咒之说；「巫能飞行」之说既见于近代早期欧洲（15—17 世纪），也见于北美、撒哈拉以南非洲、南亚与美拉尼西亚，欧洲有骑扫帚之说；多地另有巫能变形之说（如印度古吉拉特 Dang 地方信巫能化虎；2 世纪阿普列乌斯《变形记》中的巫能化为鸟）。",
+      "rights_note": "同上，仅归纳；各地信仰按记述登记，不当作事实。"
+    },
+    {
+      "id": "western_alc_src_britannica_witches_sabbath",
+      "title": "Britannica: witches' sabbath",
+      "url": "https://www.britannica.com/topic/witches-sabbath",
+      "access": "read",
+      "supports": "巫魔会是基督教欧洲传统中巫的夜间集会，概念始于 14 世纪中叶、最早见于宗教裁判所记录，或受阿普列乌斯与佩特罗尼乌斯等古典作家所记欢宴启发；据称巫以涂抹特制油膏而能凌空赴会，或骑魔鬼供给的公羊、山羊、狗前往；常见会址包括德国哈茨山布罗肯峰、基辅附近秃山、瑞典 Blocula 与法国奥弗涅 Puy-de-Dôme；常见日期包括五朔节前夜（4 月 30 日）与万圣节前夜（10 月 31 日）等；一名认罪者供称集会达一万人。**注意：该条目只记「涂抹油膏即可飞行」这一当时供述中的说法，未提供任何膏方内容。**",
+      "rights_note": "同上，仅归纳；本文件据此只取「有此一说」这一层，不重述任何配方。"
+    },
+    {
+      "id": "western_alc_src_britannica_aphrodisiac",
+      "title": "Britannica: aphrodisiac",
+      "url": "https://www.britannica.com/topic/aphrodisiac",
+      "access": "read",
+      "supports": "催情物指被认为能激起性兴奋的各种刺激，分心理生理类（视、触、嗅、听）与内服类（食物、酒、药物、爱情药、药剂）；尽管文学与民间兴趣长久，几乎无科学研究，多数著作只是传统或民俗材料的汇编；历史上被赋予催情力的食物以鱼、蔬、香料最流行，但其中未鉴定出能对泌尿生殖道产生直接生理反应的化学物质，其名声基于民俗而非事实；有说法认为这类归因源于古代的「形似即有力」观念（如人参根与犀角粉）；除酒精与大麻等可经去抑制而致性兴奋者外，现代医学承认的催情物极少，主要是斑蝥素类与育亨宾，二者均以刺激泌尿道起作用，斑蝥素接触皮肤即起疱，**内服作催情物被认为极其危险**；育亨宾多为研究者认为其临床变化源于暗示，因为只有毒性剂量才有刺激效应。",
+      "rights_note": "同上，仅归纳。**本文件不据此写任何催情制剂的做法**；该来源的价值恰在于指出此类效力不被支持且部分做法危险。"
+    },
+    {
+      "id": "western_alc_src_britannica_lethe",
+      "title": "Britannica: Lethe",
+      "url": "https://www.britannica.com/topic/Lethe",
+      "access": "read",
+      "supports": "忘川（Lethe，希腊语「遗忘」）是厄里斯之女、遗忘的化身，也是冥府中一河或一平原之名；俄耳甫斯教认为新死者饮忘川之水便失掉对前生的全部记忆，入教者则被教导去寻记忆之河 Mnemosyne，以终结灵魂的轮回；莱巴迪亚附近特罗福尼乌斯神谕处（被认为是冥府入口）有两处泉，分别名为 Lethe 与 Mnemosyne；阿里斯托芬《蛙》提到忘川平原，柏拉图《理想国》第十卷说亡灵在转世前须饮「无忆之河」；拉丁诗人笔下忘川是冥府五河之一。",
+      "rights_note": "同上，仅归纳；神话母题按信仰记述登记，不当作事实。"
+    },
+    {
+      "id": "western_alc_src_britannica_torture",
+      "title": "Britannica: torture",
+      "url": "https://www.britannica.com/topic/torture",
+      "access": "read",
+      "supports": "酷刑指为逼取信息、逼供或惩罚而故意施加严重身心痛苦，通常由公职人员或相当权力者施行；其有效性虽被历史上许多人（如亚里士多德、培根）辩护，但早在罗马时期即被批评为**促使受害者说谎**；古希腊罗马对非公民与奴隶合法用刑取证；中世纪早期欧洲曾以神判（ ordeal）本身作为审判，即以嫌疑人对剧痛的反映判定罪否；中世纪后期酷刑再度用于重罪取供，供词被称为「证据之王」，名义上受严格条件限制；苏格兰 1708 年、法国 1798 年废除，至 19 世纪初欧洲多数地区正式废弃；此后对嫌疑人的暴力本身即构成犯罪。",
+      "rights_note": "同上，仅归纳。"
+    },
+    {
+      "id": "western_alc_src_britannica_poison",
+      "title": "Britannica: poison",
+      "url": "https://www.britannica.com/science/poison-biochemistry",
+      "access": "read",
+      "supports": "毒物指经摄入、吸入、吸收或注入而损害活体组织、致伤致死之物；毒性判定的核心是剂量——剂量足够时连水也有毒；「某药是治疗还是毒物取决于剂量」；毒物可按来源分为微生物、植物、动物与合成四类，植物毒例举颠茄生物碱；形态影响吸收（固体须先溶解，颗粒越小溶得越快而相对毒性越高，举三氧化二砷为例）；有机化学物较易穿过富脂细胞膜故吸收更充分；毒物学系统研究常被认为始于 16 世纪帕拉塞尔苏斯强调毒的化学本性并提出剂量概念，19 世纪 Orfila 把毒素化学与其生物效应相关联。",
+      "rights_note": "同上，仅归纳；该条目的剂量与吸收原理只作「为什么药与毒只隔一线」的设定依据，不构成本文件任何剂量指导。"
+    },
+    {
+      "id": "western_alc_src_britannica_antidote",
+      "title": "Britannica: antidote",
+      "url": "https://www.britannica.com/science/antidote",
+      "access": "read",
+      "supports": "解毒剂指用以抵消毒物或毒素作用的药剂，可经口、静脉或有时经皮给药；其作用方式包括直接中和毒物、在体内引起相反效应、与毒物结合以阻止吸收或使其失活或使其无法与受体结合、或占据受体以阻断毒物结合；有些毒物须在体内转化为另一形态才有活性，其解毒剂即中断该转化。**该条目未列任何具体药方、剂量或制备法。**",
+      "rights_note": "同上，仅归纳；本文件据此只写「解毒有多种互斥的作用路径」这一层。"
+    },
+    {
+      "id": "western_alc_src_britannica_medusa",
+      "title": "Britannica: Medusa",
+      "url": "https://www.britannica.com/topic/Medusa-Greek-mythology",
+      "access": "read",
+      "supports": "美杜莎是戈耳工中最著名者，以对视者即刻化为石头著称；她是三戈耳工中唯一有死者，故珀尔修斯能斩其首；通常被画成有翼女身、发为蛇；据奥维德《变形记》（约公元 8 年）她本以美发著称，因波塞冬在雅典娜神庙中侵犯她而遭诅咒；珀尔修斯借格拉埃三女神提供的飞鞋、装首级的袋子与哈得斯的隐形帽，并依雅典娜所嘱以磨亮盾面反照而不直视，用赫尔墨斯的镰刀斩之；其首级后归雅典娜置于神盾；赫拉克勒斯曾自雅典娜处取得一绺同样有石化之力的头发，交给公主斯忒罗佩以护特革亚城，示之于人即引风暴退敌；**据说其血滴落地成蛇，雅典娜把残血分给医神阿斯克勒庇俄斯，右侧之血能活人，左侧之血有毒**。",
+      "rights_note": "同上，仅归纳；神话叙述按信仰记述登记，不当作事实。"
+    },
+    {
+      "id": "western_alc_src_britannica_gorgon",
+      "title": "Britannica: Gorgon",
+      "url": "https://www.britannica.com/topic/Gorgon",
+      "access": "read",
+      "supports": "戈耳工是希腊神话中的怪物形象；荷马只说一个戈耳工是冥府怪物，赫西俄德增为三个（斯忒诺、欧律阿勒、美杜莎），并说她们是海神福耳库斯与其姊妹妻刻托之女；古风与早期古典艺术中三戈耳工为有翼女身、发为蛇、圆脸扁鼻、舌垂外露、巨齿突出；珀尔修斯借哈得斯之帽（或盔）隐形而逃脱另两姐妹的追击；美杜莎被斩首后其首级有使观者化石之力；gorgoneion（美杜莎之头的图像）被古希腊罗马广泛用作护符，见于建筑、器物与武器，用以辟邪眼。",
+      "rights_note": "同上，仅归纳。"
+    },
+    {
+      "id": "western_alc_src_britannica_circe",
+      "title": "Britannica: Circe",
+      "url": "https://www.britannica.com/topic/Circe-Greek-mythology",
+      "access": "read",
+      "supports": "喀耳刻是希腊神话中以变形术闻名的女巫，能借药物与咒语把人变成狼、狮等兽类；《奥德赛》中她把奥德修斯的同伴变成猪；她的法术对奥德修斯本人失效；她的魅惑源于草药知识，既用于变形也用于治疗性药剂；她能以幻术遮蔽日月、召请黑夜女神尼克斯一类幽冥之力，并擅长死灵术；她养着一群野兽，可能是被她变形的人或被她驯服的兽；奥德修斯依赫尔墨斯之劝先服下 moly 草，因而在她分食时免于被变形；他迫使她恢复同伴原形后在她处停留一年。",
+      "rights_note": "同上，仅归纳；该条目未描述 moly 的性状与用法，本文件亦不补写。"
+    },
+    {
+      "id": "western_alc_src_britannica_amulet",
+      "title": "Britannica: amulet",
+      "url": "https://www.britannica.com/topic/amulet",
+      "access": "read",
+      "supports": "护符指被认为具有护身或招福之力的天然或人造物件，随身携带或置于欲加影响的场所（屋顶、田地）；amulet 与 talisman 常互用，但 talisman 有时被定义为刻有符记的护符；天然护符包括宝石、金属、动物齿爪、骨、植物，人造护符包括宗教徽章与小像；信者认为其力来自与自然力的关联、宗教联系，或来自在有利时辰以仪式方式制作；古埃及 MacGregor 纸草列有 75 种护符，最常见者为圣甲虫，生者死者皆佩，被认为可在来世恢复死者之心；在埃及，原本在护符上诵读以赋予其力的咒文后来也被刻写并直接佩戴。",
+      "rights_note": "同上，仅归纳；本条价值在于说明「以仪式赋予物件效力」这一观念的古老与普遍，不涉任何配方。"
+    },
+    {
+      "id": "western_alc_src_britannica_magic",
+      "title": "Britannica: magic",
+      "url": "https://www.britannica.com/topic/magic-supernatural-phenomenon",
+      "access": "read",
+      "supports": "魔法被视为一种借不可见之力影响事件的理性或思维方式，与宗教、科学在西传统中被区分而界线多有争议；被归入魔法的实践包括占卜、占星、咒语、炼金术、巫术、通灵与死灵术；魔法之效力常被认为取决于施术者的状态与表演，据信其掌握接触不可见之力的特殊知识与相应言行；材料层面，人类学文献常把魔法所用之物称为「药」，包括草药、动物部位、宝石、圣物与道具，被认为本身有效或经咒语仪式赋力；**其中有些意在治病的材料确有生理作用**（罂粟广泛作麻醉、某些中国用法以柳皮止痛、中世纪欧洲以大蒜与洋葱作抗菌），另一些意在害人的材料（如蟾蜍提取物与蟾蜍二烯内酯类）确为已知毒物；另一些材料与所欲结果只有象征关系（如以羊肩胛骨占卜、在仪式中以蜡像害人）。",
+      "rights_note": "同上，仅归纳；所列材料只作「其中一部分本就有效、一部分本就致命、还有一部分只靠象征」的三分依据，不构成本文件任何制剂指导。"
+    },
+    {
+      "id": "western_alc_src_britannica_asclepius",
+      "title": "Britannica: Asclepius",
+      "url": "https://www.britannica.com/topic/Asclepius",
+      "access": "read",
+      "supports": "阿斯克勒庇俄斯是希腊罗马的医神，阿波罗之子，由半人马喀戎教授医术；**宙斯因怕他使所有人不死而以雷霆击杀他**；其崇拜起于色萨利而广布希腊，因被认为能在梦中治病，在埃皮达鲁斯的庙中睡祷（incubation）成为常习；公元前 293 年其崇拜传入罗马，称 Aesculapius；其标志是缠蛇之杖，是唯一真正的医学象征，而与之相似但无关的商神杖（带翼双蛇杖）虽常被用作医学标志，实为赫尔墨斯的法杖、商旅之护符，与医学无关。",
+      "rights_note": "同上，仅归纳。该条目对「医者使人不死即遭天罚」的记述，是本文件复活与长生类条目「效力必有反噬」这一设定的直接来源。"
+    },
+    {
+      "id": "western_alc_src_britannica_odin",
+      "title": "Britannica: Odin",
+      "url": "https://www.britannica.com/topic/Odin-Norse-deity",
+      "access": "read",
+      "supports": "奥丁是诺斯神话主要神祇之一；罗马史家塔西佗记条顿人崇拜墨丘利，而 dies Mercurii（墨丘利之日）与 Wednesday（Woden 之日）相合，故所指当为沃登即奥丁；早期奥丁为战神，在英雄文学中作英雄的保护者，阵亡战士入瓦尔哈拉；狼与渡鸦归于他；其魔法坐骑斯莱普尼尔八足、齿刻鲁纳，能驰过空中与海上；奥丁是诸神中的大魔法师并与鲁纳相联，也是诗人之神；其形象为高个子老者、长须、独眼（另一眼换取智慧）。",
+      "rights_note": "同上，仅归纳。"
+    },
+    {
+      "id": "western_alc_src_britannica_valhalla",
+      "title": "Britannica: Valhalla",
+      "url": "https://www.britannica.com/topic/Valhalla-Norse-mythology",
+      "access": "read",
+      "supports": "瓦尔哈拉是诺斯神话中阵亡战士的殿堂，他们在奥丁统领下于彼处宴乐；被描述为以盾为顶的华宫，战士每日食一头被宰后每晚又完复如初的野猪，饮自山羊乳房产出的酒液，其乐事是每日互相厮杀；他们将如此活到 Ragnarök（末日），届时从宫中 540 道门涌出，随奥丁与巨人作战；据说英雄战死沙场正因奥丁需要他们增强自己在末日的兵力。",
+      "rights_note": "同上，仅归纳。**注意：该条目所述「每日被宰而复完的野猪」是神话中的再生母题，不是可复制的药剂机制；本文件不据此推出任何复活制剂。**"
+    },
+    {
+      "id": "western_alc_src_britannica_werewolf",
+      "title": "Britannica: werewolf",
+      "url": "https://www.britannica.com/topic/werewolf",
+      "access": "read",
+      "supports": "狼人是传说中能变形为狼或狼人混合形态的人，许多故事说变形在夜间、常在满月影响下发生；成因包括诅咒、被另一狼人咬伤或抓伤、饮狼爪印中的水、在新月受孕、与魔鬼立约，以及**使用魔法斗篷或狼皮制成的腰带**；据民俗学家 Carol Rose，古希腊相信吃狼肉混人肉可不可逆地变成狼人；部分故事中变形可随意志，但最著名者称变形不自愿且只在满月下发生，日出后当事人可能不记得，但夜间所受之伤仍在；罗马称被法术或草药变成狼者为 versipellis；16 世纪法国有数名男子自称持有**能把他们变成狼的魔法油膏**，认罪后以火刑处死；1589 年德国富农 Peter Stubbe 在酷刑下供称持有一条用于变形的魔法腰带；另说被以驱魔、放血、催吐或饮醋「治愈」。",
+      "rights_note": "同上，仅归纳。**本条目所列成因（油膏、腰带、兽皮）属供述与民俗记录，条目本身即指出这些供词多在酷刑下取得、真假难辨；本文件据此只写「以涂抹或穿戴物触发变形」这一母题层，不写任何膏方。**"
+    },
+    {
+      "id": "western_alc_src_britannica_belladonna",
+      "title": "Britannica: belladonna",
+      "url": "https://www.britannica.com/plant/belladonna",
+      "access": "read",
+      "supports": "颠茄（Atropa belladonna，亦称 deadly nightshade）是茄科高大灌木状草本，原产中欧与南欧欧亚的林地与荒地，高约 1.5 米，叶暗绿、花紫或绿白、浆果甜而黑亮如樱桃、根粗大渐尖；**全株剧毒**；在法国等地被栽培以取生物碱（天仙子胺、东莨菪碱、阿托品），用于镇静、兴奋与解痉；因天然生物碱的毒性与不良副作用，后来开发了若干合成与半合成衍生物以规避之。",
+      "rights_note": "同上，仅归纳。**本文件只取其「同科植物既入药又剧毒、且毒性逼出了替代品」这一层，不写任何部位、处理或用量。**"
+    },
+    {
+      "id": "western_alc_src_britannica_mandrake",
+      "title": "Britannica: mandrake",
+      "url": "https://www.britannica.com/plant/mandrake-Mandragora-genus",
+      "access": "read",
+      "supports": "曼德拉草为茄科 Mandragora 属六种致幻植物，原产地中海与喜马拉雅；根粗大而常分叉、略似人形，在宗教与迷信实践中使用史很长；**全株含托烷生物碱、被认为有毒**；最著名的 M. officinarum 自古即以其毒著称，古代用作麻醉剂与催情物，并被信有某些魔力；其根被认为操于幽暗的地灵之手，只能在月光下、经适当祈祷与仪式、由以绳系于植物的黑狗代拔方可安全出土，人的手不得触碰；中世纪认为拔出时它发出尖叫，未堵耳者会被杀死或逼疯；离土之后方可用于有益用途，如治病、致爱、助孕与安眠；今日仍偶用于顺势疗法与民间医药，并在现代巫术与秘术实践中使用。",
+      "rights_note": "同上，仅归纳；**传说层（尖叫致死、黑狗代拔）与可核层（含托烷生物碱、有毒）在条目内已分开陈述，本文件只采用其分层结论，不提供任何取材部位、剂量或加工流程。**"
+    },
+    {
+      "id": "western_alc_src_britannica_salamander",
+      "title": "Britannica: salamander",
+      "url": "https://www.britannica.com/animal/salamander",
+      "access": "read",
+      "supports": "蝾螈属有尾两栖类约 740 种，分 10 科，含真螈、泥螈、大鲵与无肺螈；多见于淡水与潮湿林地，主要分布于北半球温带；体短、四足、皮肤湿润，长 10—15 厘米，许多有保护色或鲜艳斑纹；中国大鲵与日本大鲵可长逾 1.5—2 米；典型种类有幼体期，幼体具外鳃、上下颌有齿而无眼睑，这些幼体特征可在性成熟后仍保留（幼态延续），如泥螈与墨西哥钝口螈；以昆虫、蠕虫、螺类及同类为食；与其他两栖类一样经皮肤吸水，需要潮湿栖地，低温区常冬眠；多数成体昼伏夜出。",
+      "rights_note": "同上，仅归纳。**该条目完全没有涉及「火中不死」的传说，本文件据此把「火 salamander」明确标为未取得来源的母题，不写入任何条目的事实层。**"
+    },
+    {
+      "id": "western_alc_src_britannica_proteus",
+      "title": "Britannica: Proteus",
+      "url": "https://www.britannica.com/topic/Proteus-Greek-mythology",
+      "access": "read",
+      "supports": "普罗透斯是希腊神话中预言性的海上老者、海中畜群（如海豹）的牧者，受海神波塞冬管辖，居法罗斯岛或卡帕托斯岛；他知过去现在未来却不愿吐露，欲问者须在其正午睡时突袭并缚住他；即便被捉，他仍会化作各种形状以求脱身；若捉者握紧不放，他终将恢复本形、给出所求答案，然后潜入海中；荷马《奥德赛》第四卷中是墨涅拉俄斯捉他，维吉尔《农事诗》第四卷中是阿里斯泰俄斯；因其能随意变形，有人视之为创世原初物质的象征，英文 protean（形状善变）即由此而来。",
+      "rights_note": "同上，仅归纳。该条目是本文件「变形类药剂必须设有强制回归条件」这一设计的重要参照。"
+    },
+    {
+      "id": "western_alc_src_theriac_404",
+      "title": "Britannica: theriac",
+      "url": "https://www.britannica.com/topic/theriac",
+      "access": "unavailable",
+      "supports": "未取得正文：该地址返回 HTTP 404。本文件因此**没有任何关于万应解毒剂（theriac）的历史断言**，相关段落一律标为缺口。",
+      "rights_note": "无内容可引，零引用。"
+    },
+    {
+      "id": "western_alc_src_panacea_404",
+      "title": "Britannica: panacea",
+      "url": "https://www.britannica.com/topic/panacea",
+      "access": "unavailable",
+      "supports": "未取得正文：HTTP 404。本文件关于「万应药」的历史叙述因此不作断言。",
+      "rights_note": "无内容可引，零引用。"
+    },
+    {
+      "id": "western_alc_src_philtre_404",
+      "title": "Britannica: philtre",
+      "url": "https://www.britannica.com/topic/philtre",
+      "access": "unavailable",
+      "supports": "未取得正文：HTTP 404。爱情药的独立词条缺失，本文件该条只能依 aphrodisiac 与 witchcraft 两条近邻内容旁证，已在条目内标明。",
+      "rights_note": "无内容可引，零引用。"
+    },
+    {
+      "id": "western_alc_src_love_potion_404",
+      "title": "Britannica: love potion",
+      "url": "https://www.britannica.com/topic/love-potion",
+      "access": "unavailable",
+      "supports": "未取得正文：HTTP 404。",
+      "rights_note": "无内容可引，零引用。"
+    },
+    {
+      "id": "western_alc_src_truth_serum_404",
+      "title": "Britannica: truth serum",
+      "url": "https://www.britannica.com/topic/truth-serum",
+      "access": "unavailable",
+      "supports": "未取得正文：HTTP 404。真话剂的独立词条缺失，本文件该条只能依 torture 条目（供词不可靠、以刑取供的批评）旁证，缺口已在条目内标明。",
+      "rights_note": "无内容可引，零引用。"
+    },
+    {
+      "id": "western_alc_src_mithridatium_404",
+      "title": "Britannica: mithridatium",
+      "url": "https://www.britannica.com/topic/mithridatium",
+      "access": "unavailable",
+      "supports": "未取得正文：HTTP 404。本文件因此不写任何「以毒养抗」的历史细节。",
+      "rights_note": "无内容可引，零引用。"
+    },
+    {
+      "id": "western_alc_src_poison_topic_404",
+      "title": "Britannica: poison（topic 路径）",
+      "url": "https://www.britannica.com/topic/poison",
+      "access": "unavailable",
+      "supports": "该 topic 路径 404；改由 science/poison-biochemistry 取得正文并列为 read 来源。此处如实登记失败地址。",
+      "rights_note": "无内容可引，零引用。"
+    },
+    {
+      "id": "western_alc_src_invisibility_404",
+      "title": "Britannica: invisibility",
+      "url": "https://www.britannica.com/topic/invisibility",
+      "access": "unavailable",
+      "supports": "未取得正文：HTTP 404。隐身药的独立词条缺失；本文件该条只能以 magic 与 amulet 两条的「交感巫术、仪式赋力」旁证，明确标为设计归纳。",
+      "rights_note": "无内容可引，零引用。"
+    },
+    {
+      "id": "western_alc_src_homunculus_404",
+      "title": "Britannica: homunculus",
+      "url": "https://www.britannica.com/topic/homunculus",
+      "access": "unavailable",
+      "supports": "未取得正文：HTTP 404。本文件因此不写人造生命／生长类药剂的任何历史细节。",
+      "rights_note": "无内容可引，零引用。"
+    },
+    {
+      "id": "western_alc_src_nepenthe_404",
+      "title": "Britannica: nepenthe",
+      "url": "https://www.britannica.com/topic/nepenthe",
+      "access": "unavailable",
+      "supports": "未取得正文：HTTP 404。忘忧类药剂的这一具体母题未被取用。",
+      "rights_note": "无内容可引，零引用。"
+    },
+    {
+      "id": "western_alc_src_moly_404",
+      "title": "Britannica: moly",
+      "url": "https://www.britannica.com/topic/moly",
+      "access": "unavailable",
+      "supports": "未取得正文：HTTP 404。抗魔草（moly）只由 Circe 条目间接提及，本文件不写其性状与用法。",
+      "rights_note": "无内容可引，零引用。"
+    },
+    {
+      "id": "western_alc_src_heimdall_404",
+      "title": "Britannica: Heimdall",
+      "url": "https://www.britannica.com/topic/Heimdall-Norse-mythology",
+      "access": "unavailable",
+      "supports": "未取得正文：HTTP 404。本文件不引用其内容。",
+      "rights_note": "无内容可引，零引用。"
+    },
+    {
+      "id": "western_alc_src_met_alchemy_404",
+      "title": "Met Museum: Alchemy（toah/hd/alch）",
+      "url": "https://www.metmuseum.org/toah/hd/alch/hd_alch.htm",
+      "access": "unavailable",
+      "supports": "未取得正文：HTTP 404（另试 hd_alcm 亦 404）。博物馆侧的一手工艺图像说明未能取证，属本文件的来源缺口。",
+      "rights_note": "无内容可引，零引用。"
+    },
+    {
+      "id": "western_alc_src_whe_alchemy_fail",
+      "title": "World History Encyclopedia: alchemy",
+      "url": "https://www.worldhistory.org/alchemy/",
+      "access": "unavailable",
+      "supports": "抓取在传输层失败（malformed HTTP response），未取得任何正文。本文件未引用其内容。",
+      "rights_note": "无内容可引，零引用。"
+    },
+    {
+      "id": "western_alc_src_wikipedia_theriac_fail",
+      "title": "Wikipedia: Theriac",
+      "url": "https://en.wikipedia.org/wiki/Theriac",
+      "access": "unavailable",
+      "supports": "连接超时，未取得正文。本文件未引用其内容。",
+      "rights_note": "无内容可引，零引用。"
+    },
+    {
+      "id": "western_alc_src_wikipedia_love_potion_fail",
+      "title": "Wikipedia: Love potion",
+      "url": "https://en.wikipedia.org/wiki/Love_potion",
+      "access": "unavailable",
+      "supports": "连接超时，未取得正文。本文件未引用其内容。",
+      "rights_note": "无内容可引，零引用。"
+    },
+    {
+      "id": "western_alc_src_salamander_myth_404",
+      "title": "Britannica: salamander（神话义项）",
+      "url": "https://www.britannica.com/topic/salamander-mythology",
+      "access": "unavailable",
+      "supports": "未取得正文：HTTP 404。因此「火中蝾螈」母题在本文件中**没有来源支撑**，凡涉及处均标为未取得来源，不写入事实层。",
+      "rights_note": "无内容可引，零引用。"
+    }
+  ],
+  "elements": [
+    {
+      "id": "western_alc_clotting_draught",
+      "name": "止血药酒",
+      "aliases": [
+        "凝血饮",
+        "止血剂",
+        "伤口药酒"
+      ],
+      "summary": "候选设定：以草木浸制的内服药酒，用于在战场上让伤口尽快凝止、缩短失血时间。它是同目录「药剂与灵药」主干条目下的一个用途分型；只管「血止得住」，不管伤口愈合、感染与失掉的血量。",
+      "genres": [
+        "western_fantasy",
+        "dark_fantasy"
+      ],
+      "category": "item",
+      "tags": [
+        "kind:item",
+        "tradition:western",
+        "effect:healing",
+        "effect:bleeding_control",
+        "route:ingested",
+        "cost:scarce_reagent",
+        "cost:rapid_failure",
+        "cost:tolerance",
+        "role:medical_supply",
+        "role:plot_device"
+      ],
+      "details": {
+        "definition": "止血药酒指以草木浸制或煎制的内服药液，用途单一：让开放性伤口尽快止住流血、把「还能不能撑到有人处理」这段时间买下来。边界有三条：其一，它不愈合伤口、不防感染、不生新肉，那是外敷愈伤膏的事，两者不能互相替代；其二，它不补回已经失掉的血量，也不恢复体力，喝完照样虚弱、照样可能昏过去；其三，它不是「不死药」——若伤及大血管或脏腑，或失血已过某个临界，药只能延缓，不能扭转。它与同目录 western.json 所记「药剂与灵药」的关系是：那一条写这一整类东西的经济与制度框架，本条只写战场上一个具体用途的做法与难处。",
+        "mechanism": "可并存的几种设定路线（同一世界只取一类或明说并存）：(1) **凝血路线**——药性直接作用于血，使血在伤口处更快结住，代价是全身的血也变稠，于是中风、气短、旧伤处发硬；(2) **收敛路线**——使血脉收紧、伤口缩合，见效快但极痛，且对深创无效；(3) **续命路线**——不真正的止血，而是把失血带来的昏厥与虚弱往后推一段时间，等药效过去，账一起算；(4) **象征路线**——效力来自配方所依据的对应关系（某物形似血脉、某物生于战场、某物取自从未流血的兽），与化学成分无关，因此严格依赖时辰、采集地与施药者的仪式状态。四种路线都会在同一个世界上被人混着用，且互相看不起。",
+        "conditions": "**材料来源**：草木与矿物原料取自同目录 western-biology.json 所记的那些山地与林缘物种——柳属灌丛（喜湿、割条可再生的那一类）、山楂与白蜡的林地、紫杉与橡树的禁伐林、以及蕨丛与蘑菇所在的受扰地带；动物侧则涉及猎场与牧区的副产物（鹿、狼、渡鸦所在的猎区与悬赏牧区）。这些地方各自有主：林主、牧场、禁伐林的世代许可持有人、教区与庄园。**本文件只写「去哪取、要谁准」，不写取哪个部位、如何配伍、如何炮制——这不属于设定层可以向读者交付的东西。** **制备门槛**：需要一位懂行的炮制者（行会师傅、修道院医室、游方药师三者知识体系互不承认）、一套能熬能滤的器具与稳定燃料、足以报废数批原料的试错预算、以及一处不会被邻居举报的后厨。炼制失败常见形态是被当成假药或毒药——同一锅东西，剂量与火候一变，性质就翻面，这一点与真实毒物学「剂量决定一切」的道理同构，但本文件不据此给任何数值。**生效条件与剂量维度**（只给维度）：起效时间量级、有效持续时长、单次用量口径、累计使用上限、个体耐受差异、伤情严重程度的适用范围。**副作用与滥用**：反复使用会走到「血太稠」那一端；会形成耐受，于是下次要更浓；久服者伤口结得快但旧伤处发硬、四肢发凉；用过量的人可能止住了外血却死于内结。**谁控制供应**：炼药行会（把持工序与师承）、修道院医室（把持知识与抄本）、王室军需（把持成批采购与配给）、以及黑市（把持掺假与无照销售）。**法律与道德处境**：多数城邦会要求行会许可与查验印记；向敌军售药属资敌罪；给死囚或战俘试用新配方是常见但从不写进章程的做法；医者若因药失效而致人死亡，责任归属（制药者、开方者、还是给药的同伴）本身就是好戏。",
+        "exceptions": "合理变体与反例：(1) 大量市售「止血药酒」其实只有安慰作用，真正的效力来自伤者相信它有效——这不解构设定，反而给出「假药市场」这一条现实的经济线；(2) 可设定所有此类药剂都有明确的毒性上限，超过即为毒；(3) 可设定世界的医药水平极低，一剂真药是绝无仅有的遗物，于是它从补给品变成任务目标；(4) 可设定效力依赖采集时辰与施药者状态，因此同一配方在不同人手里效果天差地别，这为「谁是真正的炮制者」提供了剧情；(5) 可设定它只在特定伤型（切伤、刺伤）有效而对钝器内伤完全无用。反例（不该写的）：喝了就立刻满血复活继续战斗；随处可买且无副作用；把现实药物剂量写成操作指引。",
+        "story_uses": "一、**冒险节奏**：一支队伍能走多远，取决于带了几剂、以及谁在中途用掉了别人那份。二、**分配即政治**：战前配给谁、战后先救谁，是最不需要额外设定的道德场面。三、**假药与查验**：一枚印记能决定一个江湖药贩的生死，也能掩护一个真正懂行的人。四、**耐受与戒断**：长期靠药撑着的老兵，会在某一天发现药不再管用，而他已不能再流血。五、**责任的归属**：药失效之后的三方互控（制药的、开方的、给药的），足以撑一整段法庭戏。六、**与主干条目的呼应**：它的价格、产地与禁运，直接由 western.json 所记的「魔法材料与稀有矿草」决定，本条不重复那套经济学。",
+        "historical_scope": "**历史与民俗层（可引来源）**：真实存在的药物史里，「材料本身有生理作用」与「材料只靠象征起作用」是两回事——Britannica 魔法条目明确指出被归入法术范畴的材料中，罂粟被广泛用作麻醉、某些中国用法以柳皮止痛、中世纪欧洲以大蒜与洋葱作抗菌，而另一些被寄望害人的材料（蟾蜍提取物一类）本身就是已知毒物；同一条目也指出剂量是判定毒与药的关键，Britannica 毒物条目则进一步说明剂量足够时连水也有毒、颗粒大小会改变相对毒性。这些只支持一件事：**「同一物既治病又致命」是有历史与药理依据的观念**，而不是说任何具体止血药真的能止血。**本项目设计归纳（不可引来源）**：药酒这一剂型、四类机制的分法、耐受与反效果的具体形态、行会／修道院／军需／黑市四家把持供应的格局、以及查验印记与资敌罪的制度安排，全部是本项目为叙事需要所做的归纳。**改编边界**：不要把本条写成「中世纪已有成体系的战地输血与止血医学」；不要把现实植物名当作可用说明书；若世界设有魔法，也不要让药效替代魔法，两者应是互不承认的两套体系。",
+        "evidence_and_uncertainty": "**来源支持**：Britannica magic 条目关于「魔法材料中确有一部分具生理作用、另一部分本身即毒物、还有一部分只靠象征」的三分；Britannica poison 条目关于剂量决定毒性与吸收受形态影响；Britannica antidote 条目关于解毒作用的多条互斥路径（用于说明「作用机制可以并存但不叠加」）。**本项目设计归纳**：四类机制、耐受与反效果、供应四家、法律责任分配、剂量维度清单。**不确定性**：本文件没有、也不打算取得任何真实止血制剂的配方或工艺来源；「止血药酒」作为一个剂型在史料中的具体形态，本文件未取证，因此不开历史断言。凡读者需要现实医药信息，本文件不适用也不应被援引。"
+      },
+      "source_ids": [
+        "western_alc_src_britannica_magic",
+        "western_alc_src_britannica_poison",
+        "western_alc_src_britannica_antidote"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "western_alc_healing_unction",
+      "name": "外敷愈伤膏",
+      "aliases": [
+        "生肌膏",
+        "伤口油膏",
+        "缝合替代膏"
+      ],
+      "summary": "候选设定：涂在伤口上的油脂膏，宣称能让创口合拢、生新肉。与内服的止血药酒分工不同——它管「口子合不合得上」，不管失血与内里损伤；两者常被商人捆成一包卖出，实际上谁也替代不了谁。",
+      "genres": [
+        "western_fantasy",
+        "dark_fantasy"
+      ],
+      "category": "item",
+      "tags": [
+        "kind:item",
+        "tradition:western",
+        "effect:healing",
+        "effect:wound_closure",
+        "route:topical",
+        "cost:scarce_reagent",
+        "cost:long_brewing",
+        "cost:rapid_failure",
+        "role:medical_supply"
+      ],
+      "details": {
+        "definition": "外敷愈伤膏指以油脂、蜡或树脂为基底、调入草木与矿物、涂覆于创口的半固体制剂。边界有四条：其一，它不补血、不救失血性昏厥（那是止血药酒与休养的事）；其二，它不杀菌——这个世界多半还没有「菌」这个概念，人们只知道「脏的伤口会烂」，因此它更常被希望「把烂东西拔出来」，而不是「消毒」；其三，它不能接骨、不能缝内脏；其四，它不保证愈合，只改变愈合的速度与形态，而形态往往比速度更值钱：一条平复的疤与一条隆起流脓的疤，决定一个人还能不能拉弓、还能不能被认出来。",
+        "mechanism": "可并存的几条路线（同一世界建议只取一到两条并明说）：(1) **封闭路线**——形成一层隔绝外界的膜，减少污物进入，代价是把已经进去的东西一起封在里面；(2) **引流路线**——反向设计，故意让伤口保持「敞着能流」的状态，用刺激性材料迫使它把脏东西排出来，代价是剧痛与更长的愈合期；(3) **生肌路线**——直接催新肉，见效慢但留下好疤，材料最贵；(4) **象征路线**——效力来自材料与伤口的对应关系（以形补形、以生于不腐之树的材料防腐），与成分无关，严格依赖采集时机与施膏者的仪式状态。四种路线在史料与民间常被混讲，在同一部作品里最好让不同流派各执一说且互相攻击，这本身就是可写的冲突。",
+        "conditions": "**材料从哪来**：草木侧取材于 western-biology.json 所记的那些树与丛——柳（喜湿、割条可再生，苦味树皮）、山楂与白蜡的林地、紫杉（叶与种子含毒、红色假种皮不含，慢生因而「砍一棵要等几个世代」）、槲寄生（半寄生，浆果有毒，须爬树采集且要林主许可）、蕨丛与蘑菇所在受扰地带；另可借用该文件所记的原创生态「灯藓」——它只在持续渗水的岩面成片生长、离开湿度即枯，若设定为「必须保持湿润的敷料」，那么膏药的保存与运输立刻成为一个真实的物流问题。动物与矿物侧涉及牧区与猎场（鹿、狼、渡鸦所在区域）以及矿区的副产物。**这些地方各自有主**：林主、禁伐林的世代许可持有人、牧场、教区、庄园；同一味料在不同领地上采集，法律后果完全不同。**本文件只写「去哪取、要谁准」，不写取哪个部位、如何配伍、火候与炮制流程。** **制备门槛**：需要懂行的炮制者（外科理发师行会、修道院医室、游方药师三套知识互不承认）、稳定的油脂与蜡来源（养蜂与牧羊的产能本身就是一条经济线）、可控制火候的器具、以及在失败中报废数批原料的预算。**炼制失败的典型形态**：膏体腐坏发臭、涂上即灼痛起疱、或封住伤口后三日发黑肿胀——失败品与成功品外观差别极小，这正是掺假市场存在的原因。**生效条件与剂量维度（只给维度不给数值）**：涂布厚度、覆盖面积、换药间隔量级、连续使用天数上限、创口类型（切、刺、烧、咬）的适用范围、伤者体质差异。**副作用与滥用**：封闭型膏药把污物关在里面，于是「治好表面、烂在里面」；含毒植物来源的膏药可经创面吸收而致全身反应（这一点有药理依据：Britannica 毒物条目说明吸收途径与形态直接影响毒性，经皮亦是途径之一）；反复使用可致局部溃烂、起疱、皮肤变硬；成瘾性低但「依赖」高——伤员会相信只有这一味膏能救自己。**谁控制供应**：行会把持工序与师承；修道院把持知识与抄本、并在饥荒年成为唯一的施药点；王室军需把持成批采购与随军配给；黑市把持掺假、无照行医与「战地特供」。**法律与道德处境**：无照行医在各城邦都是可罚之罪，但战场上没人查牌照；把失败品卖给伤兵是最常见的欺诈；尸体上的膏药可作投毒案的物证，因此验膏与验尸往往同时进行。",
+        "exceptions": "合理变体与反例：(1) 可设定绝大多数市售愈伤膏只有清洁与安抚作用，真正的愈合仍靠时间与体质，这让「药」的社会功能（安慰、仪式、归责）比药理更重要；(2) 可设定有一味膏确实有效但极稀缺，于是它成为赏格而非商品；(3) 可设定不同流派对「该封还是该敞」争执不下，而两派都有失败病例，作品不给裁断；(4) 可设定某些伤口无论用什么膏都不愈合，把「治不好」写成世界规则而不是剧情漏洞；(5) 可设定膏药在特定时辰或由特定人（处女、神职、刽子手）涂抹才生效，效力因此被社会身份绑架。反例（不该写的）：一夜生肌、无疤、无需换药；把它写成广谱抗菌药；把现实植物部位与配比写成可操作的制作说明。",
+        "story_uses": "一、**代价可见**：每一次受伤都要谈「用什么膏、谁付钱、留不留疤」，战斗的结果因此延伸到战后数周。二、**身份与身体**：疤的形态决定一个人还能不能当兵、能不能被家族认回、能不能继承——愈伤膏于是成了社会流动的工具。三、**流派斗争**：外科理发师、修道院医室与游方药师争夺同一种伤口的处置权，争夺的其实是执照与税。四、**物证**：一罐膏在谋杀案里可以是凶器、也可以是凶手的破绽。五、**物流戏**：以灯藓一类「离开湿度即死」的材料作敷料，可把整条补给线写成必须赶时间的问题。六、**与主干条目的呼应**：价格与禁运由 western.json 的「魔法材料与稀有矿草」决定，本条不再复写那套经济学。",
+        "historical_scope": "**历史与民俗层（可引来源）**：Britannica 魔法条目指出，被归入法术范畴的「药」里，一部分确有生理作用（罂粟作麻醉、柳皮止痛、中世纪欧洲以大蒜与洋葱作抗菌），另一部分本身即毒物，还有一部分与所欲结果只有象征关系；Britannica 毒物条目说明吸收途径（摄入、吸入、吸收、注入）与物理形态都会改变毒性。这两条只支持一个结论：**「外敷之物可以既有真实作用又有纯象征成分」是有依据的观念，且经皮吸收是一种真实存在的途径**——不足以证明任何具体愈伤膏有效。Britannica 曼德拉草条目另记「离土之后方可用于有益用途，如治病、致爱、助孕与安眠」，这只说明「先有禁忌、后才有用途」这一叙事结构在中世纪材料中确实存在，不构成任何用法。**本项目设计归纳（不可引来源）**：四类路线、封闭与引流之争、换药间隔与涂布厚度这类剂量维度、行会／修道院／军需／黑市四家格局、验膏与验尸同时进行的制度安排，全部为本项目为叙事需要所做的归纳。**改编边界**：不要写成「中世纪已有外科无菌与抗生素」；不要让膏药替代魔法或神迹；不要把 western-biology 里记过的植物再展开一遍生态描写，那属于该文件。",
+        "evidence_and_uncertainty": "**来源支持**：Britannica magic（材料三分：真有效／真致命／仅象征）、Britannica poison（吸收途径与形态影响毒性、剂量决定性质）、Britannica mandrake（禁忌先于用途的叙事结构、传说层与可核层的分层）。**本项目设计归纳**：全部机制路线、制备门槛、失败形态、供应与控制、法律责任。**不确定性**：本文件未取得任何关于历史愈伤膏配方、工艺或疗效的可靠来源，也不打算取得；「外敷膏」在史料中的具体形态未取证，因此不设历史断言。凡读者需要现实医药信息，本文件不适用。"
+      },
+      "source_ids": [
+        "western_alc_src_britannica_magic",
+        "western_alc_src_britannica_poison",
+        "western_alc_src_britannica_mandrake"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "western_alc_universal_antidote",
+      "name": "万应解毒剂（宣称型）",
+      "aliases": [
+        "解毒万灵丹",
+        "百毒解",
+        "宫廷解药"
+      ],
+      "summary": "候选设定：号称能解一切毒的成药。本条的立场是**「万能」只是宣称，不是事实**——真正有效的解毒剂总是针对某一类作用路径，而毒的种类远多于解的种类；因此这味药在剧情里的主要功能不是治病，而是制造误判、行骗与权力的错觉。",
+      "genres": [
+        "western_fantasy",
+        "dark_fantasy"
+      ],
+      "category": "item",
+      "tags": [
+        "kind:item",
+        "tradition:western",
+        "effect:antidote",
+        "route:ingested",
+        "cost:narrow_specificity",
+        "cost:fraud_risk",
+        "cost:dosage_risk",
+        "cost:timing_window",
+        "role:quest_object",
+        "role:plot_device"
+      ],
+      "details": {
+        "definition": "万应解毒剂指在特定文化中被宣称可解百毒的成药，形态多为陈年膏、药丸或浸酒。边界必须写死三条：其一，**「万能」是它的社会身份，不是它的效力**——按其宣称使用它的人，会在真正中毒时得到错误的安全感；其二，它不 reversing 已经造成的器官损伤，也不把死人救活；其三，它与同目录另设的「复活灵药」「长生灵药」不是同一层东西，绝不能互相顶替。它与 western.json 所记「药剂与灵药」的关系是：那一条给这一整类的经济与制度框架，本条只写「号称万能」这一特殊社会现象及其代价。",
+        "mechanism": "按 Britannica 解毒剂条目，解毒在原理上至少有四条互不相同、且不能互相替代的路径：直接中和毒物；在体内引起相反效应；与毒物结合以阻止吸收、使其失活或使其无法与受体结合；占据受体以阻断毒物结合。另有第五类：有些毒物须在体内转化为另一形态才有活性，其解毒即中断该转化。**这五条路径互斥地针对不同毒物，因此「一味解百毒」在结构上就不成立**——这正是本条的设计支点。可选取的设定方案：(1) **广而不深**——这味药对许多毒都有「一点点」作用，但每一种都不足以单独救命，于是它的正确用法是拖延与争取时间，而不是治愈；(2) **定向伪装**——它只对某一族毒真正有效，但因为该族毒是贵族最常遇到的（下毒者惯用、医师惯识），于是被误认为万能；(3) **纯骗局**——完全无效，靠安慰效应与「病人本来就没死」的幸存者偏差维持名声；(4) **有代价的强解**——确实能压住大部分毒，但以损耗脏腑为代价，救回一条命、废掉半个人。",
+        "conditions": "**材料从哪来**：宣称配方里最贵的两味通常来自「越难取越可信」的方向——独角兽角材（western-biology.json 记明：「角可防毒」是传说，且该文件已读来源本身即指出中世纪流通的所谓角材实为犀角与独角鲸牙）、鸡蛇的毒与骨（同一文件记其为「一瞥或一口气即可毁坏生命」的蛇形小兽，唯有鼬与公鸡之啼能制，活体几乎不可采）、曼德拉草（全株含托烷生物碱、被认为有毒）、以及紫杉一类本身有毒的树木。**这里有一条关键的设计诚实**：材料越毒，「以毒攻毒」的说法就越容易被相信，也越容易把人一起毒死。其余辅料来自矿区、牧区与林缘，各有其主。**本文件只写来源与门槛，不写配伍、部位、火候与炮制。** **制备门槛**：需要一位能读懂旧抄本的药师（识字本身就是稀缺资源）、一套能长期陈放的容器与场地、足以支撑「陈化数年」的资本——这味药最贵的不是材料而是**时间**，因此只有王室、教会与大商人压得起。**生效条件与剂量维度（只给维度）**：中毒到给药的时间差量级、毒物类别适用范围、给药次数上限、与伤者体重的相对量级、以及「是否已出现可见症状」这一分界。**副作用与滥用**：把真中毒误判为「已解」而延误处置；药本身含毒，久服积毒；耐受导致剂量越吃越大；最恶的一种滥用是**用它来试毒**——先让仆从或犬只服用，再让主人进食。**谁控制供应**：王室宝库与宫廷药师（把持真品与鉴定权）、教会（把持「圣物级」解药的正当性）、行会（把持仿制与售卖许可）、黑市（把持假货、过期陈货与「战地版」）。**法律与道德处境**：毒杀案一旦发生，第一件事是查谁能拿到解药——于是持有万应解药本身可能成为嫌疑；向宫廷供应假解药是重罪，但取证极难；用活人试药在道德上不可辩护，却在多数设定里都被默许。",
+        "exceptions": "合理变体与反例：(1) 可设定它确实对某一族毒有真实效力，且这个事实被严格保密——于是「它到底是真的还是骗的」成为读者与人物的共同悬念；(2) 可设定真正的中毒案件里，它从来没能救过人，但每一次失败都被解释为「送来得太晚」，名声因此不倒；(3) 可设定多个互不相容的「万应解药」传统（宫廷派、教会派、民间派），彼此宣称对方是骗术；(4) 可设定世界里根本没有一种药能解一切毒，而全部剧情围绕「人们相信有」展开——这是本条最推荐的一种用法。反例（不该写的）：吃下去百毒不侵；万能解药真的万能；把现实解毒原理与剂量写成可操作说明。",
+        "story_uses": "一、**误判的引擎**：中毒者服下它、症状暂缓、众人松一口气、然后在第三幕崩溃——这是最简单也最有力的一条戏剧线。二、**权力与信任**：谁手里有「真品」，谁就掌握了让贵族敢吃饭的能力；一顿宴席的政治意义由此成立。三、**审判与举证**：毒杀案里，解药的存在与来源可以同时是证据与陷阱。四、**伦理场面**：要不要用仆从试药——一句话就能把人物定死。五、**与传说层的接口**：独角兽角材的检验与伪造（western-biology.json 已有「角杯检定所」一类原创设定），可直接接到本条的供应链上，用文字指向而不重复。六、**市场与骗局**：假解药是最容易写的黑市商品，因为它的买主在买的时候无法验货。",
+        "historical_scope": "**历史与民俗层**：可引的只有原理层——Britannica 解毒剂条目列出的五条互斥作用路径，说明「解毒」在结构上就是分型的；Britannica 毒物条目说明剂量决定毒与药、形态影响吸收；Britannica 魔法条目说明被寄望「防毒」的材料里，一部分确实致命、一部分只靠象征。**须明说的来源缺口**：本轮试图取得 theriac（万应解毒剂的历史名物）与 panacea（万应药）两条独立词条的正文，两处均返回 HTTP 404，因此**本文件不对这两种历史名物作任何断言**——包括它们的成分、年代、使用范围与效力评价。相关空白在此如实登记，不用其他条目内容冒充。**本项目设计归纳**：宣称型四方案、试毒与鉴定制度、供应四家、把「万能」定义为一个社会信念而非药理事实这一立场，均为本项目归纳。**改编边界**：不要把本条写成「中世纪欧洲确有万应解药且有效」；不要用某部作品的专有名称替代通用类型名；不要把现实解毒剂的作用机制当成可照做的处置流程。",
+        "evidence_and_uncertainty": "**来源支持**：Britannica antidote（五条互斥解毒路径，且该条目本身未列任何具体药方、剂量或制备法）、Britannica poison（剂量与形态）、Britannica magic（材料的真有效／真致命／仅象征三分）、Britannica aphrodisiac（旁证：广泛流传的「有效」名声可以完全建立在民俗与暗示之上，而不需要任何化学依据——该条目对催情物的评价正是这一逻辑的现成例证）。**未取得**：theriac、panacea 两条 404；World History Encyclopedia 与英文维基相关页抓取失败。**本项目设计归纳**：全部机制方案与制度安排。**不确定性**：本条的核心断言——「万能解毒剂不成立」——在设定层是**设计选择**而非历史结论；真实历史中是否有人真的相信并制作此类成药，本文件因来源缺失而不作判断。"
+      },
+      "source_ids": [
+        "western_alc_src_britannica_antidote",
+        "western_alc_src_britannica_poison",
+        "western_alc_src_britannica_magic",
+        "western_alc_src_britannica_aphrodisiac"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "western_alc_soporific_draught",
+      "name": "催眠安神药",
+      "aliases": [
+        "安眠药酒",
+        "睡药",
+        "镇痛麻药"
+      ],
+      "summary": "候选设定：使人昏睡、迟钝、暂时不觉痛的药。战场上用来接骨拔箭，暗巷里用来劫财，宫廷里用来治失眠——同一味药在这三种场合是三件不同的东西。本条明确：**镇静与致死之间没有一条可靠的界线**，因此「一剂必倒而不过量」是设定特权，不是可以随手写的能力。",
+      "genres": [
+        "western_fantasy",
+        "dark_fantasy"
+      ],
+      "category": "item",
+      "tags": [
+        "kind:item",
+        "tradition:western",
+        "effect:sleep",
+        "effect:sedation",
+        "effect:analgesia",
+        "route:ingested",
+        "route:inhaled",
+        "cost:dosage_risk",
+        "cost:addiction",
+        "cost:tolerance",
+        "cost:consent_violation",
+        "role:medical_supply",
+        "role:contraband"
+      ],
+      "details": {
+        "definition": "催眠安神药指能造成睡意、昏睡或痛觉迟钝的制剂，可为内服药酒、烟熏、海绵浸液或油膏。边界四条：其一，它不等于麻醉——真正意义上的可控外科麻醉在这个技术层里不可靠，因此「手术」往往是「把人按住了快点做」；其二，它不治病，只改变感受与意识；其三，它不能精准控制深度，深一点就是死，这一点在设计上必须留一个可见的悬崖；其四，它与「真话剂」不是同一味药，尽管在现实中同一类药物常被同时寄望于两种用途（这正是本条要写的误用）。",
+        "mechanism": "可并存的几条路线：(1) **致幻／迷乱路线**——使人脱离现实、痛觉迟钝但意识混乱，代价是醒来后的记忆断裂与长时间谵妄；(2) **深抑路线**——直接压下意识与呼吸，倒得快，也死得快；(3) **镇痛路线**——保留意识、只切除痛觉，最适合接骨，但伤者会清醒地看着自己的手术；(4) **象征路线**——效力来自「睡」这一行为的模仿（摇篮曲、罂粟形、夜间开花之物、以夜行兽的材料入药），严格依赖时辰与施药者。同一世界建议：民间用 (4)、军队用 (3)、盗匪用 (2)、医师在两者之间犹豫。",
+        "conditions": "**材料从哪来**：主要来自 western-biology.json 所记的几类有毒或致幻草木——曼德拉草（该文件记明其全株含托烷生物碱、被认为有毒，古代用作麻醉剂与催情物，且传说层另有「拔出时尖叫」之说，两层必须分开写）、颠茄一类茄科有毒植物（同为茄科、同样剧毒）、蘑菇（该文件特别强调：毒种与可食种外形相近、毒性随生态条件与地理变化、个体差异可致同席他人无恙而一人中毒——这条「辨识不可靠」正是本药最真实的门槛）、紫杉（叶与种子含毒）、以及罂粟一类（Britannica 魔法条目明确记载其被广泛用作麻醉）。动物与矿物辅料来自牧区与矿区。**本文件只写来源与门槛，不写部位、配伍、剂量与炮制。** **制备门槛**：需要能稳定重复的炮制者（一次成功不难，次次一样难）、能算清「这一次比上一次浓了多少」的计量手段——而这恰是此技术层最缺的东西；还需要一个不会被邻居举报的场地，因为炼这种药的烟本身就让人昏睡。**生效条件与剂量维度（只给维度）**：体重与体质相对量级、给药到起效的时间差、睡眠持续时长量级、镇痛深度与意识保留程度、连续使用天数上限、以及「最后一次给药距现在多久」这一安全间隔维度。**副作用与滥用**：醒后头痛、呕吐、记忆空白、数日恍惚；呼吸变浅，与酒同用尤险；耐受来得快，于是剂量逐步上升，走向悬崖；成瘾与戒断（失眠、颤抖、幻觉）在长期使用者身上几乎是必然。**谁控制供应**：修道院药圃与医师（把持「正当用途」）、随军外科与江湖接骨师（把持实战用法）、盗匪与妓院（把持暗巷用途）、以及黑市（把持掺假与「过浓」的次品）。**法律与道德处境**：**这是全组道德最脏的一条**——同一味药既用于救人（拔箭、接骨、生产中止痛），也用于使人失去反抗能力后行凶或侵夺，因此对它的管制从来不彻底，因为每一座城都需要它。持有过量可作犯罪预备的推定；医师给人开药致其被害，责任如何分配，是极好的法庭戏；**任何使用都涉及同意问题：未经同意使人失去意识，在本文件所设的世界里应被视为重罪**，而不是浪漫桥段。",
+        "exceptions": "合理变体与反例：(1) 可设定这类药对某些人几乎无效（长期使用者、特定体质、饮者），于是「谁没倒」成为破案关键；(2) 可设定味道无法完全掩盖，因此下药需要配同味的酒菜——这给下毒戏加了一层真实的手艺门槛；(3) 可设定它只会让人「听话而清醒」，不会让人睡着（两种药不可混用）；(4) 可设定世上根本无人能精准控制剂量，因此每次手术都是一次赌博，而医师会先给最不重要的人用药以试深浅；(5) 可设定教会视之为僭越——让人失去上帝所赐的清醒，是一种罪。反例（不该写的）：一撮即倒、剂量随剧情需要伸缩、醒来毫无后遗、被用作浪漫情节而不涉同意问题。",
+        "story_uses": "一、**手术场面**：把人按住、灌药、在清醒与昏睡之间做决定，比任何战斗都紧张。二、**暗巷**：劫案、绑票、灭口，药理上的不可控正好写成意外与灭口动机。三、**调查线**：城里连续出现「睡过去之后什么都没了」的案子，于是查药源就是查人。四、**成瘾者**：一个靠它才能入睡的老兵或贵妇，是最好用的堕落弧线。五、**制度**：城邦对它的登记、限量与「谁可以买」的争论，直接映射现实中所有成瘾物质的管制困境，但本条不给任何现实做法。六、**与植物文件的接口**：它把 western-biology.json 里「辨识不可靠」这一条生态事实，转成了本条的工艺风险，两者用文字指向、不重复。",
+        "historical_scope": "**历史与民俗层（可引来源）**：Britannica 魔法条目明确记载罂粟被广泛用作麻醉剂、某些中国用法以柳皮止痛、中世纪欧洲以大蒜与洋葱作抗菌，并指出材料中另有一些本身就属已知毒物（如蟾蜍提取物一类）；同一条目强调剂量是「药」与「毒」的分界。Britannica 曼德拉草条目记载其古代被用作麻醉剂与催情物、全株有毒，并给出中世纪「拔出时尖叫能杀死未堵耳者」的传说层——本文件采用其分层，不采用其效力。Britannica 颠茄条目记载该科植物全株剧毒、其生物碱被用于镇静与解痉，且**正因天然生物碱的毒性与副作用，后来才开发了替代衍生物**——这一条最值得引：它说明「效果与危险同源」不是文学修辞，而是这类物质的固有性质。**本项目设计归纳**：四条机制路线、剂量维度清单、供应四家、法律责任与同意问题的处理方式。**改编边界**：不要把本条写成「中世纪已有安全全身麻醉」；不要给任何可照着做的用药说明；不要把它当成情节便利——它每一次出现都应该有代价。",
+        "evidence_and_uncertainty": "**来源支持**：Britannica magic（罂粟麻醉、柳皮止痛、剂量决定性质）、Britannica mandrake（古代麻醉用途＋全株有毒＋传说层分层）、Britannica belladonna（全株剧毒、生物碱用于镇静解痉、毒性逼出替代衍生物）、Britannica poison（剂量与吸收）。**本项目设计归纳**：全部机制、门槛、副作用形态、管制与责任安排。**不确定性**：本文件不提供、也未取得任何关于具体剂量、浓度、炮制或使用方式的可操作信息，且刻意不写；「催眠安神」作为一个剂型在不同史料中的具体形态，本文件未取证，故不作历史断言。本条涉及现实中的成瘾与下药问题，仅作虚构设定讨论，不构成任何现实建议。"
+      },
+      "source_ids": [
+        "western_alc_src_britannica_magic",
+        "western_alc_src_britannica_mandrake",
+        "western_alc_src_britannica_belladonna",
+        "western_alc_src_britannica_poison"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "western_alc_oblivion_draught",
+      "name": "忘忧药（记忆抹除剂）",
+      "aliases": [
+        "遗忘饮",
+        "无忆药",
+        "忘川水（拟）"
+      ],
+      "summary": "候选设定：使人失掉一段记忆的药。它不让人『想开』，而是把那段经历本身取走——因此它既是止痛药，也是最彻底的暴力。本条明确：**抹除不可精确到『只删那一件事』**，记忆是连着的，取走一段总会带走别的。",
+      "genres": [
+        "western_fantasy",
+        "dark_fantasy"
+      ],
+      "category": "item",
+      "tags": [
+        "kind:item",
+        "tradition:western",
+        "effect:memory_erasure",
+        "effect:forgetting",
+        "route:ingested",
+        "cost:irreversible_loss",
+        "cost:identity_risk",
+        "cost:consent_violation",
+        "cost:dosage_risk",
+        "role:plot_device",
+        "role:contraband"
+      ],
+      "details": {
+        "definition": "忘忧药指能使人失去某段记忆的制剂，多为饮剂或浸酒。边界四条：其一，它不做心理治疗——它抹掉的是记录，不是伤痛本身，被抹者常留下无法解释的恐惧与空白；其二，它**不可精确选择范围**，剂量与体质的差异决定它带走多少，因此「只删掉那一夜」是设定特权而非常态；其三，它不可逆——本文件不设「恢复记忆的解药」，若某世界要设，必须另立条目并交代代价；其四，它与「真话剂」相反但同源，两者在药理与制度上常被同一批人掌握，这一点本身就是戏。",
+        "mechanism": "可并存的几条路线：(1) **留白路线**——被抹的那段时间成为空洞，本人知道自己有空白，于是会不断追问，反而更容易撞上真相；(2) **替换路线**——不是删掉，而是塞进一段假的，被抹者坚信自己记得别的事，这类最可怕也最难查；(3) **遗忘之河路线**——象征性地取自「饮忘川则忘前生」的母题，效力不来自成分而来自「饮下」这一行为与地点、时辰、司仪；因此换个人、换个地方做同一件事就完全无效；(4) **渐蚀路线**——不一次抹净，而是让记忆像受潮的字迹一样慢慢化开，先失细节、再失人名、最后连自己是谁也模糊。",
+        "conditions": "**材料从哪来**：草木侧与 western-biology.json 所记的致幻与有毒植物同源——曼德拉草（全株含托烷生物碱、被认为有毒，其致幻方向正是「记忆断裂」这一效果的生态基础）、蘑菇（该文件强调毒种与可食种外形相近、毒性随生态条件变化、个体差异可致同席他人无恙而一人中毒，这条「同一批药对不同人效果不同」正是本条最需要的设计接口）、颠茄一类茄科毒草、以及紫杉。**须诚实标注**：另有一支完全走象征路线的传统，材料只是水——取自特定的泉、井或河段，此时决定效力的是地点与仪式而非成分，这是纯设定层，无来源。**本文件只写来源与门槛，不写部位、配伍、剂量与炮制。** **制备门槛**：真正难的不是材料而是**判断**——抹多少、抹哪一段、抹完以后这个人还能不能干活。因此这门手艺的核心是「问诊」而非「炼制」，而问诊所依赖的信任恰恰是最容易被滥用的东西。**生效条件与剂量维度（只给维度）**：被抹时间段的长度、抹除彻底程度（模糊／断裂／替换）、起效时间差、一次性还是分次、被抹者的意志与体质、以及「施术者对被抹者了解多少」这一条——它常比剂量更决定结果。**副作用与滥用**：空白处会长出替代记忆（本人自行编造）；技能性记忆可能一并受损（不会写字、认不得路）；情绪失调与长期惊惧；分次使用会累积成大面积缺损，最终连身份也不稳。**谁控制供应**：宫廷（处置丑闻与继承人）、教会（裁定谁「应当忘记」）、刑狱（对上刑后的人做善后）、黑市（最畅销的成药，因为每个人都有一段想删的事）。**法律与道德处境**：**这是全组最直接触及同意问题的一条**——未经同意抹除他人记忆，在本文件所设的世界里应视为重罪，与伤害、绑架同级；但现实中的麻烦是：被抹者醒来不会知道自己被抹，因此举证几乎不可能，于是这条法律在多数城邦只是纸面。另有一条极好的灰色地带：**被害人自己请求被抹**（为了活下去），于是医者要在「救人」与「毁掉一个人」之间做判断。",
+        "exceptions": "合理变体与反例：(1) 可设定药只能抹掉「近期的、尚未被反复讲述过的」记忆，越是被反复讲述、被写下来、被他人记住的事越抹不掉——这让「说出来」成为一种抵抗；(2) 可设定它对某些人无效（长期使用者、有特殊训练者、饮者），于是出现「忘不掉的人」这一角色；(3) 可设定抹除会留下身体痕迹（瞳色、口音、字迹），于是身份可以被反查；(4) 可设定有真正的解药但代价极高（以另一段记忆换回），把「恢复」写成交易；(5) 可设定这味药其实是骗局，被抹者只是被灌醉并与众人串供，于是「记忆」变成集体暴力的产物。反例（不该写的）：精准删除单条记忆且不留副作用；抹完就彻底没有后患；把抹除写成温柔的解救而不涉同意。",
+        "story_uses": "一、**调查线**：一桩案子的关键证人主动要求被抹，于是查案变成「抢救一段正在消失的记忆」。二、**身份悬念**：主角身上有大片空白，而空白处的替代记忆彼此矛盾。三、**权力工具**：王朝更替后新君命人「善后」，被抹的是整整一代人的见证。四、**伦理场面**：母亲请求抹掉孩子对某件事的记忆——读者会自己站边，作者不必裁断。五、**与主干条目的呼应**：它的价格、禁运与执照归 western.json 的「魔法管制与执照」「禁忌与禁书」管，本条不重复那套制度。六、**对抗手段**：把事写下来、讲给三个人听、刻在石头上——这些笨办法才是本条给出的唯一抵抗。",
+        "historical_scope": "**历史与民俗层（可引来源）**：Britannica 忘川（Lethe）条目记：俄耳甫斯教认为新死者饮忘川之水便失去对前生的全部记忆，入教者被教导去寻记忆之河 Mnemosyne 以终结轮回；特罗福尼乌斯神谕处有两泉，分别名为 Lethe 与 Mnemosyne；阿里斯托芬《蛙》提到忘川平原；柏拉图《理想国》第十卷说亡灵转世前须饮「无忆之河」；拉丁诗人笔下忘川为冥府五河之一。**这只支持一件事：在希腊罗马传统中，「饮水即忘」是一个成体系的观念，且它与「记忆」构成一对可选的、方向相反的选择**——本条的第三类机制正是照这一结构写的。Britannica 曼德拉草条目提供了「致幻植物造成意识改变」的可核底板（其致幻与毒性已在该文件分层记录）。**本项目设计归纳**：四类机制、剂量维度、副作用形态、供应四家、法律责任与「被害人自请被抹」这一伦理设定。**改编边界**：不要把忘川写成可以随意舀取的现实水体；不要把本条写成「心理学上的创伤治疗」；不要用某部作品的专有药名。",
+        "evidence_and_uncertainty": "**来源支持**：Britannica Lethe（饮水即忘的成体系观念、忘川与记忆之河的对偶、在俄耳甫斯教与柏拉图文本中的位置）、Britannica mandrake（致幻植物的可核底板与其传说层的分层）。**未取得**：Britannica nepenthe 条目返回 404，因此本文件不采用「忘忧」这一具体古典名物的任何细节。**本项目设计归纳**：全部机制、门槛、副作用与制度安排。**不确定性**：本文件没有任何关于「抹除记忆」这一效果在现实中可行的主张，也没有取得任何相关来源；四类机制中只有第三类有母题依据，其余三类纯属设计。本条涉及同意与人身完整性，全部内容仅作虚构设定讨论。"
+      },
+      "source_ids": [
+        "western_alc_src_britannica_lethe",
+        "western_alc_src_britannica_mandrake"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "western_alc_shapeshift_draught",
+      "name": "变形药剂",
+      "aliases": [
+        "化形饮",
+        "兽形药",
+        "换形药酒"
+      ],
+      "summary": "候选设定：使人（或兽）暂时变成另一种形体的药。它的核心不是「变成什么」，而是**「还回不回得来」**——同一条母题在记载里既可以是自愿的技艺，也可以是惩罚与诅咒，本条的写法偏向后者：变形容易，回归要付钱。",
+      "genres": [
+        "western_fantasy",
+        "dark_fantasy"
+      ],
+      "category": "item",
+      "tags": [
+        "kind:item",
+        "tradition:western",
+        "effect:transformation",
+        "effect:shapeshifting",
+        "route:ingested",
+        "route:topical",
+        "cost:reversibility_risk",
+        "cost:identity_risk",
+        "cost:timing_window",
+        "cost:scarce_reagent",
+        "role:plot_device",
+        "role:taboo_marker"
+      ],
+      "details": {
+        "definition": "变形药剂指能使人取得另一种形体的制剂，可为饮剂、涂抹油膏或需配合兽皮／腰带一类外物使用。边界必须写死四条：其一，它不提供新形体的「用法」——变成狼不等于会像狼一样行动，多数设定里这正是最危险的部分（意识与本能错位）；其二，**回归不是自动的**，必须另设条件（时辰、口令、另一味药、或被人叫出本名）；其三，它不改变衣物、负重与伤口，因此变形常留下可追查的物证；其四，它与同目录另设的「尺寸变化药」不是一回事：那是同一形体放大缩小，这是换了形体。",
+        "mechanism": "可并存的路线（同一世界只取一条并明说，因为它们的政治含义完全不同）：(1) **药剂路线**——药本身携带新形体，最直接，也最容易被伪造与下药（于是变形可以成为谋害手段）；(2) **外物路线**——药只是辅助，真正起作用的是兽皮、斗篷或腰带，破坏外物即可解除，因此「把皮烧掉」是一种解药；(3) **契约路线**——形体的取得要与某存在立约，药只是凭据，代价在别处结算；(4) **惩罚路线**——变形不是被求得的，而是被施加的，药只是媒介，被变形者没有选择权（这一条最接近记载中的样貌）；(5) **技艺路线**——变形是可训练的，药仅助其入门，长期修习者可以不用药。",
+        "conditions": "**材料从哪来**：走兽路线取材于 western-biology.json 所记的猎场生物——狼（该文件记其家庭群、领域与牲畜冲突，并有「狼账」「狼道」等原创制度）、鹿（角林、拾角权）、渡鸦（食腐、囤物、能模仿少数词句、圈养可活数十年）；奇幻侧则可指向同一文件的原创生态模板（如灯藓、锈蚀藤——前者只能靠湿度维持，用作「变形期间必须保持的媒介」极合适）；植物侧取自蕨丛（孢生、根状茎扩张，「无花无种」的特性正好承载「无形体状态」这一设定）与蘑菇（菌丝体在地下、地面所见只是子实体——这是「本体与外形分离」的现成隐喻）。**这些物各自有主**：猎场属林主与王室、狼有悬赏与赔偿账、渡鸦受纹章与门第保护。**本文件只写来源与门槛，不写部位、配伍、剂量与炮制。** **制备门槛**：需要一位通晓兽类的炮制者（猎户、驯兽人、或行会里的「形变师」）、一段足以让身体适应的隔离期、以及在失败时能制住被变形者的手段（锁、笼、人手）。**生效条件与剂量维度（只给维度）**：变形彻底程度（外形／内部／两者）、起效与消退的时间量级、单次持续时长、可叠加次数上限、被变形者的意志配合程度、以及**「是否保留语言与记忆」这一最关键的分档**。**副作用与滥用**：意识与本能错位（做出清醒时不会做的事）；反复变形造成「回不全」，每次回来都少一点人的部分；伤口与衣物不随之改变，因而变形往往暴露；长期使用者会出现无法自控的局部变形（手、眼、声），这在社群眼里就是「已经不像人了」。**谁控制供应**：行会（把持技艺与师承）、王室猎场（把持最关键的兽材）、教会（把持「什么是人、什么不是」的判断权）、黑市（把持无照与「一次性的」次品）。**法律与道德处境**：变形者在多数城邦不具完全法律人格，因此**被变形者的财产、婚约与继承在变形期间如何处置，是最能出戏的一条**；给他人下变形药等同人身伤害；变形后犯下的罪行由谁承担，各派说法完全不同（教会论、行会论、王室论三套）。",
+        "exceptions": "合理变体与反例：(1) 可设定变形完全可逆且无副作用，代价转到社会层（被识破、被逐出社群）——这样药就退为工具，戏全在人间；(2) 可设定不可逆，因此每一次使用都是一次性的人生选择，这比「有解药」沉重得多；(3) 可设定只有兽能变形而人不能，或反之；(4) 可设定传说中的「变形油膏」其实只是致幻剂，被涂抹者以为自己变了，实际只是发狂——**这一条最值得推荐：它让所有记载都能被两个方向解读，作者不必裁断**；(5) 可设定变形需要被变形者自愿，因此强迫无效，于是「下药」只能造成中毒而非变形。反例（不该写的）：变形随心所欲且无代价；变成兽就自动获得兽的战斗力；把变形写成纯粹的酷炫工具。",
+        "story_uses": "一、**身份悬念**：城里有东西在夜里咬人，问题不是「它是什么」，而是「它曾经是谁」。二、**法律戏**：一件遗产、一桩婚约、一次继承，全卡在「他在那三夜里算不算人」。三、**忠诚与背叛**：能让人变形的药是最直接的胁迫工具——不杀人，只让人失去作人的资格。四、**回归的条件**：把「如何让他变回来」写成一道需要多人协作的谜题（叫出本名、烧掉兽皮、在特定时辰给药），这场协作本身就是情节。五、**与植物/动物文件的接口**：狼账、角林、纹章鸦群这些已记的制度，正好提供「谁有资格用哪种兽材」的社会前提，本条以文字指向、不复制。六、**黑暗奇幻方向**：把变形写成社群清剿异类的借口，与 western.json 的「巫术审判」相接。",
+        "historical_scope": "**历史与民俗层（可引来源）**：Britannica 狼人条目记——狼人是传说中能变形为狼或狼人混合形态的人，成因包括诅咒、被同类咬伤、饮狼爪印之水、新月受孕、与魔鬼立约，以及**使用魔法斗篷或狼皮腰带**；希腊有「食狼肉混人肉可不可逆地变为狼人」之说；罗马称被法术或草药变成狼者为 versipellis（换皮者）；16 世纪法国有数名男子自称持有**能把他们变成狼的魔法油膏**，认罪后被处火刑；1589 年德国 Peter Stubbe 在酷刑下供称持有一条变形腰带。Britannica 女巫条目记多地有「巫能变形」之说（印度古吉拉特 Dang 信巫能化虎；2 世纪阿普列乌斯《变形记》中的巫能化为鸟）。Britannica 喀耳刻条目记她「借药物与咒语」把人变成狼、狮与猪，而奥德修斯因先服 moly 草而免于变形——**这是「变形可被另一味药阻断」这一母题的来源**。Britannica 普罗透斯条目记其被捉住后不断化形，只有被牢牢抓住才恢复本形并作答——**这是「强制回归条件」这一设计的母题依据**。**重要限定**：上述供述多在酷刑下取得，条目本身即指出真假难辨；本文件因此只取「母题存在」这一层，不取任何具体配方。**本项目设计归纳**：五条机制路线、剂量维度、供应四家、法律人格的三派争论。**改编边界**：不要把变形写成变身战斗技能；不要用任何作品专有的变形药名；不要写任何油膏的成分与制法。",
+        "evidence_and_uncertainty": "**来源支持**：Britannica werewolf（变形成因含油膏、腰带、兽皮；供述可信度问题；versipellis 一词）、Britannica witchcraft（多地变形信仰的分布）、Britannica Circe（药物＋咒语致变形；moly 可阻断）、Britannica Proteus（强制回归条件）。**未取得**：Britannica salamander-mythology 与 moly 两条均 404，因此本文件不写「火中蝾螈」与「抗魔草」的任何细节，凡涉及处只作母题提及。**本项目设计归纳**：全部机制分档、剂量维度、制度与法律安排。**不确定性**：文献中的变形叙述属信仰与供述记录，不是事实；本文件不主张现实中存在任何致变形物质，也不提供任何相关做法。"
+      },
+      "source_ids": [
+        "western_alc_src_britannica_werewolf",
+        "western_alc_src_britannica_witchcraft",
+        "western_alc_src_britannica_circe",
+        "western_alc_src_britannica_proteus"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "western_alc_flying_unguent",
+      "name": "飞行药膏",
+      "aliases": [
+        "凌空油膏",
+        "夜行膏",
+        "赴会油"
+      ],
+      "summary": "候选设定：涂在身上便能离地飞行的油膏。关于它最重要的一点不是「能不能飞」，而是**这个说法从哪来**——现存最可靠的记载只说当时被指控者『供称』涂膏即可飞赴夜会，从未给出膏方。因此本条同时写出两个可用方向：真的会飞，或只是让人以为自己飞了。",
+      "genres": [
+        "western_fantasy",
+        "dark_fantasy"
+      ],
+      "category": "item",
+      "tags": [
+        "kind:item",
+        "tradition:western",
+        "effect:flight",
+        "route:topical",
+        "cost:timing_window",
+        "cost:aftermath_collapse",
+        "cost:social_stigma",
+        "cost:unreliable_output",
+        "role:transport_tool",
+        "role:taboo_marker"
+      ],
+      "details": {
+        "definition": "飞行药膏指涂抹于皮肤后使涂者离地、或使其相信自己离地赴会的油膏。边界四条：其一，它不提供飞行术——不带方向感、不带高度控制、不带降落手段，因此「会飞」与「能安全落地」是两件事；其二，它通常只对涂抹者起作用，不载人载物，这决定了它在军事上远不如在私事上有用；其三，**它必须与「是不是真的飞了」这个不确定性共存**：本文件建议世界内保留两派解释（真飞行／致幻后自认飞行），因为记载本身只到「供称」为止；其四，它与「变形药剂」同为涂抹型，但在制度上处境相反——变形有劳作价值，飞行几乎只与夜会、私通与逃亡相连。",
+        "mechanism": "可并存的路线：(1) **真飞行路线**——涂后身体失重，可在夜间离地、随风移动，高度与距离有限，天亮即坠，代价是落地时的伤与数日虚脱；(2) **致幻路线**——涂者并未离地，只是陷入长时间幻觉，醒来时满身泥、脚上磨破、邻人证其彻夜在外——**这一条能把所有『我去了夜会』的证词都变成可解释的错觉，同时不否定任何人的真诚**；(3) **混合路线**——药使人睡眠与幻觉，而「飞行」由另一存在（坐骑、差役、梦中的路）提供，于是膏只是入场券；(4) **象征路线**——膏本身无药理，效力来自涂抹的部位与次序、以及涂抹时所念的言语，换成别人照做就无效。同一世界建议让 (1) 与 (2) 并存于不同人群的信念中，永不裁断。",
+        "conditions": "**材料从哪来**：一切涂抹型药膏都需要油脂基底，而油脂来自牧区与养蜂（羊、蜂蜡），这本身就是一条产能约束；效力材料取自 western-biology.json 所记的致幻与有毒草木——曼德拉草（全株含托烷生物碱、被认为有毒，古代用作麻醉与致幻方向，且其「月光下由黑狗代拔、人手不可触」的采集禁忌恰好与「夜间秘密操作」这一母题严丝合缝）、颠茄一类茄科毒草、蘑菇（该文件强调辨识不可靠、毒性随生态与地理变化）、蕨丛（无花无种，「无根而生」正好承载「不用翅膀」的想象）、以及夜行生物所在的林缘与岩隙。**注意一条诚实的空白**：本文件试图取得「火中蝾螈」与「夜行兽」相关独立词条均失败（salamander-mythology 返回 404），因此凡涉及此类材料只作母题提及，不作事实陈述。**本文件只写来源与门槛，不写膏方、部位、配比与炮制。** **制备门槛**：需要能控制油脂稠度与防腐的炮制者、一个不会被看见的炼制场所（气味与烟本身就是线索）、以及**愿意在自己身上试的人**——这类药的每一次改良都以试药者的伤为代价。**生效条件与剂量维度（只给维度）**：涂布面积与部位、起效延迟量级、可维持时长的量级、单次最大高度／距离的量级、月相与时辰的适用窗口、以及「涂抹后是否必须裸身或空腹」这类由世界观自定的前提。**副作用与滥用**：落地伤、长时间虚脱、皮肤溃烂；致幻版的后果是社会性的——涂者坚信自己赴过会，于是被定罪，而**供词本身在酷刑下取得**（这一点有来源支持，见下）；长期使用者会出现昼夜颠倒与判断力衰退。**谁控制供应**：无人正式控制——这正是它的问题所在：它没有行会、没有执照、没有可查验的印记，因此每一次出现都被当成异端线索；配方只在口头与家内流传，失传极快，也因此常被伪造。**法律与道德处境**：**这是全组法律处境最险的一条**：持有它本身就是「与夜会有关」的旁证，而夜会又被视为背教；于是持有、涂抹、乃至仅仅被邻居指认曾于夜间外出，都足以构成一场审判。**同时必须写明：审判所依据的供词多在刑求下取得，历史条目本身即指出这类供述的真实性难以判断**，因此本条不把「飞行」当作已被证实的犯罪事实。",
+        "exceptions": "合理变体与反例：(1) 可设定它完全无效，全部「飞行」都是集体幻觉与互相指认的产物——这是最有力的一种写法，因为它把超自然问题转成社会问题；(2) 可设定它只对特定人有效（未曾生育者、特定血统、被某存在眷顾者），于是「谁能飞」成为身份政治；(3) 可设定飞行有严格的高度与时辰限制，天亮即坠，于是每一次夜行都是一次限时任务；(4) 可设定它其实是「灵魂离体」而非肉身飞行，身体留在床上，因此可以被目击证伪；(5) 可设定它必须成对使用（一人涂一人领路），于是「谁领路」成了权力关系。反例（不该写的）：涂上就能自由翱翔、无时长限制、可载人；把它写成便利的旅行手段而不带社会代价；把任何历史膏方内容抄进设定。",
+        "story_uses": "一、**审判戏**：一味膏、一个邻居的证词、一场刑求，足以毁掉一个人——而读者知道它可能真的有效，也可能完全无效。二、**夜行任务**：限时、限高、天亮必坠，天然的任务结构。三、**两个真相**：让不同角色分别持有「真飞」与「幻觉」两种解释，全书不作裁断，读者自行判断。四、**地下传承**：配方只在母女之间口头流传，失传与伪造并存，于是「真的那一份」成为争夺物。五、**与主干条目接口**：夜会这一母题在 western.json 的「害人巫术」「巫术审判」中已有制度框架，本条只写药本身，用文字指向而不复写。六、**反向使用**：在黑暗奇幻里，它可以被写成掌权者制造恐惧的工具——先散布「有人会飞」，再出售恐惧的解法。",
+        "historical_scope": "**历史与民俗层（可引来源）**：Britannica 巫魔会条目明确记载——巫魔会是基督教欧洲传统中巫的夜间集会，概念始于 14 世纪中叶、最早见于宗教裁判所记录；据称**巫以涂抹特制油膏而能凌空赴会**，或骑魔鬼供给的公羊、山羊、狗前往；常见会址包括德国哈茨山布罗肯峰、基辅附近秃山、瑞典 Blocula 与法国奥弗涅 Puy-de-Dôme；常见日期包括 4 月 30 日与 10 月 31 日等；一名认罪者供称集会达一万人。**必须同时写明**：该条目只记「涂抹油膏即可飞行」这一当时供述中的说法，**未提供任何膏方内容**；Britannica 女巫条目亦记「巫能飞行」之说见于近代早期欧洲（15—17 世纪）、北美、撒哈拉以南非洲、南亚与美拉尼西亚，欧洲有骑扫帚之说。Britannica 酷刑条目指出，供词在酷刑下取得，其有效性自罗马时期即被批评为促使受害者说谎——**这条是解读上述供述的关键限定**。Britannica 曼德拉草条目提供了「致幻植物＋夜间仪式性采集」这一可核底板（其致幻与毒性已在该文件分层记录）。**本项目设计归纳**：四条机制路线、涂布与时辰等剂量维度、无行会控制的制度设定、以及「真飞／幻觉」双解并存的写法。**改编边界**：不要把本条写成可复制的膏方或操作说明；不要把供述当作史实；不要用某部作品的专有名称。",
+        "evidence_and_uncertainty": "**来源支持**：Britannica witches' sabbath（「涂膏即可飞赴夜会」这一说法的存在、年代、会址与日期；且未提供膏方）、Britannica witchcraft（飞行信仰的地理分布、骑扫帚之说）、Britannica torture（供词在刑求下取得且被批评为不可靠）、Britannica mandrake（致幻植物的可核底板与其采集禁忌）。**未取得**：salamander-mythology、invisibility、truth-serum 等条 404；Wikipedia 相关页超时。**本项目设计归纳**：四条机制、剂量维度、制度设定、双解并存的结构。**不确定性**：本文件不主张现实中存在任何致飞行物质，也不提供或复述任何膏方；「飞行」在本文件中始终是一个**待解释的现象**，而不是既定事实。"
+      },
+      "source_ids": [
+        "western_alc_src_britannica_witches_sabbath",
+        "western_alc_src_britannica_witchcraft",
+        "western_alc_src_britannica_torture",
+        "western_alc_src_britannica_mandrake"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "western_alc_invisibility_oil",
+      "name": "隐身油",
+      "aliases": [
+        "隐形膏",
+        "无形之油",
+        "不见药"
+      ],
+      "summary": "候选设定：涂抹或服用后使人不被看见的制剂。本条刻意把它写成**有缺陷的隐身**：没有真正的「不存在」，只有「不被注意」或「不被看见」的某一种，而这两者留下的破口正是全部剧情所在。",
+      "genres": [
+        "western_fantasy",
+        "dark_fantasy"
+      ],
+      "category": "item",
+      "tags": [
+        "kind:item",
+        "tradition:western",
+        "effect:invisibility",
+        "route:topical",
+        "route:ingested",
+        "cost:short_duration",
+        "cost:narrow_specificity",
+        "cost:unreliable_output",
+        "cost:scarce_reagent",
+        "role:tool",
+        "role:contraband"
+      ],
+      "details": {
+        "definition": "隐身油指涂抹于身或服下后使人不可见的制剂。边界四条：其一，**不可见不等于不在场**——脚印、呼吸、气味、影子、被碰倒的东西、狗的反应，都是它管不到的；(2) 它通常有明确的失效条件（动作过大、被水冲掉、时辰到、见血），这些条件就是它的「价目表」；(3) 它不使人穿过物体，也不使人不发声；(4) 它与「变形药剂」区分：变形是换形体，隐身是保留形体而取消被看见这一件事。",
+        "mechanism": "可并存的几条路线，且彼此的世界观完全不同，必须选一条：(1) **光学路线**——不反射光，因此也看不见自己（这一条最贵也最干净，代价是使用者会撞墙）；(2) **注意力路线**——不是看不见，而是看的人会自动忽略，因此**目击者事后能回忆起「好像有东西过去」**，这一条最容易破案；(3) **形而上路线**——涂抹者的「形」被暂时取下，本体仍在，因此对兽类、对镜子、对某些存在依然可见；(4) **象征路线**——效力来自「遮蔽」这一行为的模仿（以夜行兽的皮、以遮天之物的碎屑、在不被看见的时刻制作），严格依赖时辰与制作者。推荐 (2) 或 (3)，因为它们把破口留给了剧情。",
+        "conditions": "**材料从哪来**：植物侧取自 western-biology.json 所记——灯藓（该文件记其只在地下渗水岩面成片生长、持续发弱光、离湿度即枯；若设定「以发光之物来制『不见』」，这构成一条极漂亮的悖论式配方思路，但本文件不给出任何做法）、蕨丛（无花无种、以孢子繁殖，「没有可见的繁殖部分」正好承载「抹去外显」）、蘑菇（地下的菌丝体是本体、地面所见只是子实体，这一「本体与显现分离」的生态事实是本条最有力的取材依据）；动物侧取自渡鸦（该文件记其机警、能模仿少数词句、圈养可活数十年——鸦群在场本身就是极好的反制手段）。矿物侧来自矿区，属 western.json「魔法材料与稀有矿草」的范畴。**这些物各有其主**：地下渗水层属矿主与教会、林地属林主、鸦受纹章保护。**本文件只写来源与门槛，不写部位、配伍与炮制。** **制备门槛**：需要能处理挥发性气味与油脂的场地（气味本身会暴露制作者）、一套足以「试错而无害」的试验方法（这在没有药理概念的世界里几乎不可能）、以及一名敢在自己身上试的人。**生效条件与剂量维度（只给维度）**：涂抹覆盖比例（局部／全身）、起效延迟、可维持时长的量级、被水或汗破坏的阈值、动作幅度与是否发声的容限、以及「对哪些观察者有效」这一最关键的适用范围维度。**副作用与滥用**：看不见自己的身体导致自伤；对他人而言「有东西在动」会引发集体恐慌与私刑；反复使用可致畏光与判断力下降；若走 (3) 路线，长期使用者会逐渐难以被自家人认出——**社会性消失早于物理性消失**，这是本条最值得写的后患。**谁控制供应**：无人公开控制——它在多数城邦属违禁品，因为它唯一的用途就是绕过门、墙与看门人；因此供应只有黑市、盗贼网络与宫廷密探三条线。**法律与道德处境**：持有即推定为犯罪预备，与「万能钥匙」同级；在涉及隐私与内室的场合，它比任何武器都更令人恐惧，因此量刑极重；同时也有一条灰色地带——**守卫与使节有时被允许持有**，于是「谁合法地拥有不被看见的能力」直接映射权力结构。",
+        "exceptions": "合理变体与反例：(1) 可设定它只对特定人有效（对陌生人有效、对亲近者无效），于是最想躲的人恰恰躲不开；(2) 可设定有效期极短（一次呼吸、一段路），于是它变成精密任务的道具而非常态能力；(3) 可设定失效条件与血、水、铁或名字相关——**被叫出名字即显形**，这是最有民俗味道的一种；(4) 可设定它根本不生效，所谓隐身只是买家一厢情愿，于是它在剧情里变成骗局与讼案；(5) 可设定世界里有可靠的反制（鸦群、犬、撒粉、镜面、钟声），这比让它无解好得多。反例（不该写的）：隐身即无敌；可长时间随身携带随意使用；无视气味、声音与物理痕迹。",
+        "story_uses": "一、**潜入任务**：真正的紧张感来自「能撑多久」与「什么东西会暴露我」，而不是「我看不见」。二、**反制戏**：撒粉、放狗、放鸦、关窗——守方用最土的办法对抗最贵的药，这比法术对轰好看。三、**信任崩塌**：一旦知道世上真有这种东西，任何密室与私语都变得不可靠，这是全书氛围的转折点。四、**骗局**：卖假隐身油的贩子，是最容易写的市井角色。五、**制度**：许可与禁制的清单本身就能写出一整套权力关系。六、**与主干条目接口**：宫廷密探、盗贼网络、魔法管制与执照三处制度在 western.json 中已有，本条只写工具本身。",
+        "historical_scope": "**历史与民俗层（可引来源）**：本条的「以物赋力」这一层有来源支持——Britannica 护符条目记：护符被认为具有护身或招福之力，其力可来自与自然力的关联、宗教联系，或**来自在有利时辰以仪式方式制作**；古埃及 MacGregor 纸草列 75 种护符，圣甲虫最常见，且原本在护符上诵读以赋力的咒文后来也被刻写并直接佩戴。Britannica 魔法条目记：魔法效力常被认为取决于施术者的状态与表演，其材料可分为确有生理作用者、本身即毒物者、以及只与结果有象征关系者——**「隐身」在本文件中属于第三类：只靠象征与仪式，没有任何成分依据**。Britannica 珀尔修斯相关条目（Gorgon／Medusa）记哈得斯之帽（或盔）能予人隐形，珀尔修斯借此逃脱追击——这表明「以一件外物获得隐形」是希腊神话中已有的母题，**但那是器物而非药剂**，两者的差别必须在设定里写清。**未取得的来源**：Britannica invisibility 独立条目返回 404，因此本文件对「隐身」这一概念本身不作历史断言。**本项目设计归纳**：四条机制路线、剂量维度、反制手段清单、制度安排与法律处境。**改编边界**：不要写成「隐身即无敌」；不要把器物型隐形的神话直接改写成药剂；不要编造任何配方或材料处理方式。",
+        "evidence_and_uncertainty": "**来源支持**：Britannica amulet（以仪式与时辰赋力于物件这一观念的古老与普遍）、Britannica magic（材料三分，隐身在设定中属纯象征一类）、Britannica Gorgon 与 Medusa（哈得斯之帽赋予隐形的母题，且其为器物）。**未取得**：Britannica invisibility 404。**本项目设计归纳**：全部机制、门槛、副作用与制度。**不确定性**：本条是四类中最缺来源的一条——它与「护符赋力」「器物隐形」两个既有母题相邻，但**没有任何来源支持「药剂形式的隐身」这一具体形态**，因此本条整体应视为纯原创设定，不得引为史实。"
+      },
+      "source_ids": [
+        "western_alc_src_britannica_amulet",
+        "western_alc_src_britannica_magic",
+        "western_alc_src_britannica_gorgon",
+        "western_alc_src_britannica_medusa"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "western_alc_love_philtre",
+      "name": "爱情药（致爱饮）",
+      "aliases": [
+        "媚药",
+        "情药",
+        "迷情饮"
+      ],
+      "summary": "候选设定：据说能使人爱上饮者的药。本条的核心不是药效，而是**它一定是错的**：要么无效（于是整件事变成欺骗），要么有效（于是整件事变成以药代刀的人身侵夺）。任何把它写成浪漫桥段的写法，都在替一个不同意的人做决定。",
+      "genres": [
+        "western_fantasy",
+        "dark_fantasy"
+      ],
+      "category": "item",
+      "tags": [
+        "kind:item",
+        "tradition:western",
+        "effect:compelled_affection",
+        "route:ingested",
+        "cost:consent_violation",
+        "cost:fraud_risk",
+        "cost:dosage_risk",
+        "cost:social_stigma",
+        "role:plot_device",
+        "role:taboo_marker"
+      ],
+      "details": {
+        "definition": "爱情药指被认为能使饮用者爱上某个人（通常是给药者）的制剂，多为饮剂，也有涂抹与熏香之说。边界必须写死四条：其一，**它不是催情物**——催情物在设定里作用于身体，爱情药作用于意志，后者严重得多；其二，它不能指定「爱上谁」以外的内容（不保证忠贞、不保证不变心、不保证不被识破）；其三，它不解决被爱者原本的处境（家族、婚约、信仰），只是强行抹掉了一条拒绝的理由；其四，**它在道德上恒等于人身侵夺**，无论给药者的动机多动人。",
+        "mechanism": "可并存的路线，且每一条对「作品在说什么」的影响完全不同，必须明确选择：(1) **真效路线**——确实制造出被指定的爱意，于是全书必须面对一件事：这份感情是被制造的，而当事人不知道自己被制造过；这是最沉重也最诚实的写法；(2) **无效路线**——完全无效，起作用的是酒、暗示与当事人本来就有的好感；于是药成为一种自欺与误会机器，最适合写喜剧与悲剧之间的那条线；(3) **半效路线**——只抹掉羞怯与顾虑，使原本有的心意说出口；这条最容易被写成浪漫，但也最容易被滥用，因此必须在设定里规定它有明确的时间与剂量上限，且清醒后仍会反悔；(4) **转移路线**——药效不产生爱，而产生执念与占有，被药者会做出本人清醒时绝不会做的事，事后记得却无法解释。",
+        "conditions": "**材料从哪来**：草木侧取自 western-biology.json 与真实植物史交叠的那批致幻与有毒草木——曼德拉草（该文件记明：古代被用作麻醉剂与**催情物**，全株含托烷生物碱、被认为有毒；且其「离土之后可用于治病、致爱、助孕与安眠」这一说法在条目里明确属传说与民俗层）、颠茄一类茄科毒草（全株剧毒）、蘑菇（辨识不可靠、个体差异大）、紫杉与蕨丛。另有一支传统完全走象征路线——取自「形似即有力」的对应（某物形似器官、某物成对生长、某物在特定节日采集），Britannica 催情物条目正是把这类归因解释为「形似即有力」的观念，因此这一支在设定里有据可依。**本文件只写来源与门槛，不写部位、配伍、剂量与炮制。** **制备门槛**：真正的门槛不在炼制而在**隐蔽**——它必须尝不出来、看不出颜色变化、且能在宴席上准确递到某一个人手里；因此这门手艺的核心是「投递」而非「炼制」，而投递所需的信任关系（仆人、侍女、酒监）才是真正稀缺的东西。**生效条件与剂量维度（只给维度）**：起效延迟量级、持续时长量级、单次与累计上限、饮者与给药者的既有关系（陌生人／熟人／仇人）、目标的意志强度、以及「是否需要持续接触」这一条——它决定这味药是利器还是一次性的陷阱。**副作用与滥用**：被药者的自我断裂（做出自己不理解的事）；清醒后的羞耻、恐惧与报复；长期使用造成情感钝化与依赖；药本身含毒时会出现身体症状，从而暴露；**最严重的一种滥用是把它当作婚姻与继承的工具**，此时受害者往往终身无法举证。**谁控制供应**：**没有正当供应**——任何行会都不敢公开卖它，因此供应只有三条线：黑市、私下传授的老妇或侍女网络、以及宫廷内部（那里最需要它，也最讳言它）。**法律与道德处境**：**这是全组道德最不可辩护的一条**。在多数设定里它应被列为重罪，与下毒同级；但举证极难，因为受害者往往不愿承认自己曾被药，而承认之后也未必有人信。另有一条必须写的反差：**同一批人在判别人时最严厉，在自己动心时最宽容**——这正是这条目最该被用到的戏剧张力所在。",
+        "exceptions": "合理变体与反例：(1) 可设定它彻底无效，全书没有一例成功，于是「爱情药」成为一种社会迷信与伤人的借口；(2) 可设定它有效但极短（一夜、一顿饭），于是使用者必须反复给，而反复给就必然被发现；(3) 可设定它对已经恨着给药者的人效果更差，甚至反向引起厌恶——这让「强求」自带惩罚；(4) 可设定有可靠的反制（尝味者、试酒、教会查验、特定护符——护符的意义恰在于「外力庇护」这一母题，见 Britannica 护符条目）；(5) 可设定它的效果不可指定对象，只放大饮者已有的情感，于是「给错人」成为最常见的悲剧。反例（不该写的）：把它写成两情相悦的助攻；被药者醒来后感谢给药者；用它解决「她不喜欢我」这类问题。",
+        "story_uses": "一、**同意作为主轴**：一次给药就把一段关系定义成侵夺，全书后续所有柔情都带血。二、**法庭戏**：如何证明自己被药过？侍女、酒监、药师、医生四方证词互相矛盾。三、**复仇线**：被药者清醒后反手用同一味药，是最冷的一种报复。四、**政治婚姻**：两个家族用一味药把一桩婚事做成，然后两国为它开战。五、**误判**：给药者以为自己在求爱，被药者以为自己真的动了心——直到药停。六、**与主干条目的呼应**：它的流通由 western.json 的「魔法管制与执照」「地下帮会与盗贼网络」管，本条只写药本身与其道德处境。",
+        "historical_scope": "**历史与民俗层（可引来源）**：Britannica 催情物条目明确指出——尽管文学与民间兴趣长久，对这类东西几乎无科学研究，多数著作只是传统与民俗材料的汇编；被赋予催情力的食物中未鉴定出能产生直接生理反应的化学物质，其名声建筑在民俗而非事实之上；并指出这类归因可能源于古代「形似即有力」的观念（举人参根与犀角粉为例）；除酒精等经去抑制起作用者外，现代医学承认的催情物极少，且其中斑蝥素类接触皮肤即起疱、**内服作为催情物被认为极其危险**，育亨宾的临床变化多被认为源于暗示，因为只有毒性剂量才有刺激效应。Britannica 曼德拉草条目记其古代被用作麻醉剂与催情物，并记「离土之后可用于治病、**致爱**、助孕与安眠」——注意这一整段在该条目中属传说与民俗记述。Britannica 魔法条目记被归入法术的材料中一部分本身即毒物。**这些只支持一个结论：历史上确实有人相信并制作此类东西，而可靠的评价方向恰好相反——其效力不被支持，其危险是真实的。** **本文件据此只写「相信它有效」这一社会事实，绝不写任何实现方式。** **须明说的来源缺口**：Britannica 的 philtre 与 love potion 两条独立词条均返回 404，英文维基 Love_potion 页连接超时，因此本文件对「爱情药」这一名物的历史沿革、具体文本与年代**不作任何断言**。**本项目设计归纳**：四条机制路线、门槛与投递结构、副作用形态、以及「它在道德上恒等于侵夺」这一立场判断。**改编边界**：不要把它写成浪漫助攻；不要给它任何可复制的做法；不要用某部作品的专有药名。",
+        "evidence_and_uncertainty": "**来源支持**：Britannica aphrodisiac（此类效力不被科学支持、名声源于民俗与暗示、部分做法危险、形似即有力的归因）、Britannica mandrake（古代催情用途与「致爱」说法属民俗层、全株有毒）、Britannica magic（材料三分中「本身即毒物」一类）、Britannica amulet（以仪式与时辰赋力的观念，可作反制手段的母题依据）。**未取得**：philtre 404、love potion 404、Wikipedia Love_potion 超时。**本项目设计归纳**：全部机制、门槛、副作用与制度；以及「爱情药在道德上恒等于人身侵夺」这一**本项目立场**（不是史料结论，也不是对所有作品的要求，但在本文件的使用口径下应作为默认前提）。**不确定性**：本条没有任何支持「致爱饮」真实有效的来源，且已读来源的方向相反；一切效力均属虚构设定。"
+      },
+      "source_ids": [
+        "western_alc_src_britannica_aphrodisiac",
+        "western_alc_src_britannica_mandrake",
+        "western_alc_src_britannica_magic",
+        "western_alc_src_britannica_amulet"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "western_alc_berserk_draught",
+      "name": "狂战药",
+      "aliases": [
+        "战狂饮",
+        "熊皮药",
+        "无畏药酒"
+      ],
+      "summary": "候选设定：战前服下、使人不畏痛不畏死、力气暴增的药。它的代价从来不在战场上结算——药效过去之后，人会记得自己做过的每一件事，而这件事恰恰是它最不可爱的地方。",
+      "genres": [
+        "western_fantasy",
+        "dark_fantasy"
+      ],
+      "category": "item",
+      "tags": [
+        "kind:item",
+        "tradition:western",
+        "effect:frenzy",
+        "effect:pain_immunity",
+        "route:ingested",
+        "cost:aftermath_collapse",
+        "cost:self_harm",
+        "cost:addiction",
+        "cost:tolerance",
+        "role:weapon",
+        "role:control_mechanism"
+      ],
+      "details": {
+        "definition": "狂战药指战前服用后使人进入不计伤痛、不畏死亡、力气与攻击性同时上升的状态的制剂。边界四条：其一，它**不增加技巧**——服用者的战术水平不升，只会更狠更近；(2) 它不区分敌我，这是它最常被设计的破口；(3) 它不消除伤害，只是暂时不计——伤照受、血照流，账在后面；其四，它与「力量增益」不同：后者只加力气，前者改的是判断力，而改判断比加力气危险得多。",
+        "mechanism": "可并存的路线（同一世界只取一条，因为它们的道德评价不同）：(1) **痛觉截断路线**——只切除痛觉与恐惧，人还是清醒的，于是他能清楚地做自己在做的事；这一条最残忍；(2) **兽化狂怒路线**——意识被压到很低，只剩下攻击本能，事后记忆残缺；这一条给角色留了「我不记得」的退路，也正因此最容易被滥用；(3) **仪式附身路线**——力气与无畏来自穿着兽皮、呼喊与鼓声，药只是配角；于是同一个人的「发狂」是可被旁观者制造的，社群可以决定何时让谁发狂；(4) **代偿路线**——药提前支取体力与生命，效果越好，事后倒得越狠。",
+        "conditions": "**材料从哪来**：走兽与猎场路线直接呼应 western-biology.json 所记——狼（家庭群、领域、与牲畜的冲突、并有「狼账」「狼道」等原创制度）、鹿（角林与角林禁猎）、渡鸦（奥丁的鸟，见下）；草木侧取自该文件所记的致幻与有毒草木（曼德拉草、颠茄类、蘑菇）与蕨丛；矿物与酒类属 western.json「魔法材料与稀有矿草」与「采矿与冶炼」的范畴。**这些物各有其主**：猎场属王室与林主、狼有悬赏与赔偿账、兽皮与兽骨受狩猎法与纹章约束。**本文件只写来源与门槛，不写部位、配伍、剂量与炮制。** **制备门槛**：门槛很低——这是它最大的问题。它不需要精密器具，只需要一个敢配的人和一批敢喝的人，因此它无法被垄断，也就无法被管制。真正稀缺的是**敢下命令让别人喝的人**：给谁喝、什么时候喝、喝多少，是军权而非药理问题。**生效条件与剂量维度（只给维度）**：起效延迟量级、有效持续时长量级、单次用量相对量级、连续作战日数上限、个体耐受与既往使用史、以及「是否与酒同用」这一常被忽略的致命变量。**副作用与滥用**：事后虚脱、脱力、发热；伤口在被察觉前已恶化；记忆断裂与被追问时的自相矛盾；反复使用造成长期亢奋、失眠与判断力衰退，最终连平时也无法平静；成瘾性极强，因为它给的是「什么都不怕」这种感觉。**更狠的一层：药效期间犯下的暴行不会被药效带走**——战后审判时，「我当时在药里」在多数城邦不构成免责。**谁控制供应**：军队（随军药师与军需）、雇佣兵团队（自己配自己喝，因此品质参差）、竞技场与角斗班主（把它当生意）、以及王室禁卫（把持最「干净」的那一版）。**法律与道德处境**：给士兵发药是否等同「免除其道德责任」，是各城邦法理上最大的争点；**强迫战俘、死囚或农奴服药送上第一线**，是所有设定里都该出现而从不写进战报的事；教会可能视之为「使人失去理性」，因而属罪；而军队永远会辩称这是必要之恶。",
+        "exceptions": "合理变体与反例：(1) 可设定它完全不增强力量，只切除恐惧，于是服用者会做出愚蠢而勇敢的事——这是最真实的一种；(2) 可设定它对某些人无效（有人天生不怕痛），于是「能喝药」成为筛选标准，进而形成一支特殊的部队与一种特殊的身份；(3) 可设定药效可被外力打断（鼓声停、兽皮被夺、被叫出本名），于是敌方可以专门针对它；(4) 可设定它只能一次，第二次就致命，于是每个老兵身上都只有一次机会；(5) 可设定服用者事后完全不记得，而旁人记得——这比「记得」更令人不安，因为它把真相交给旁观者。反例（不该写的）：喝了就变强而无后患；把狂暴写成纯粹的帅气；把战后崩溃省略。",
+        "story_uses": "一、**战前仪式**：发药的那只手决定谁是炮灰，这个场面本身就是权力图。二、**战后审判**：一个人站在法庭上说自己当时在药里，而法庭要不要接受，是全书最锋利的一问。三、**老兵的崩塌**：长期使用者再也回不到平静，这是最好用的堕落弧线。四、**敌方反制**：不与他打，只等他自己崩溃——战术层面的高级写法。五、**伦理**：军医要不要给一个十七岁的新兵发药，这个问题不需要答案就能撑满一章。六、**与主干条目接口**：随军供给与军需制度在 western.json 的「围城与攻防」「骑士道与骑士团」中有框架，本条只写药。",
+        "historical_scope": "**历史与民俗层（可引来源）**：Britannica 狂战士条目记——狂战士是前中世纪与中世纪诺斯与日耳曼史料与民俗中崇拜奥丁的桀骜战士团成员，受雇于王室与贵族充任卫队与突击队；其战场凶暴与兽皮装束促成了欧洲狼人传说的形成；究竟披熊皮狼皮作战还是赤膊（不穿锁甲）作战，挂毯与其他材料两说并存；他们在东道社群中随意奸杀（即所谓「发狂」），在诺斯萨迦中常作反派；一首多成于 9 世纪的古诺斯诗歌记其为挪威金发哈拉尔一世（在位 872—930）的亲卫。Britannica 奥丁条目记狼与渡鸦归于奥丁、他是诸神中的大魔法师并与鲁纳相联；Britannica 瓦尔哈拉条目记阵亡战士在彼处每日互相厮杀、直到末日随奥丁出战——**这三条共同支持一个关键点：在诺斯材料里，「发狂」是一种被制度化的战争角色，而不是药理产物**。本条的「仪式附身路线」正是照这一结构写的。**重要限定**：已读来源**没有**提到任何使战士发狂的饮品或药物（已读条目未载此类内容），因此本文件不主张历史上存在「狂战药」，不引用任何配方，也不把「berserker 曾经服药」写成史实。**本项目设计归纳**：四条机制、剂量维度、军队与角斗场的供应结构、以及「药效不免责」这一法理设定。**改编边界**：不要把本条写成历史上真实存在的战士药；不要把狂暴写成无代价的强化；不要用某部作品的专有名称。",
+        "evidence_and_uncertainty": "**来源支持**：Britannica berserker（狂战士作为被制度化的战争角色、其凶暴与社会后果、史料两说）、Britannica Odin（狼与渡鸦、鲁纳与魔法）、Britannica Valhalla（战士每日厮杀与末日出战的结构）、Britannica werewolf（狼皮与兽皮赋予战斗狂怒的母题，且其供述可信度存疑）。**本项目设计归纳**：四条机制、全部门槛与副作用、供应四家、以及法律责任的处理。**不确定性**：**本条最需要标注的诚实点**：已读来源没有任何关于「发狂药物」的记载，本条的药理层面完全是本项目设计，不得被称为史料；而「狂战士」这一历史角色的存在本身是可引的。"
+      },
+      "source_ids": [
+        "western_alc_src_britannica_berserker",
+        "western_alc_src_britannica_odin",
+        "western_alc_src_britannica_valhalla",
+        "western_alc_src_britannica_werewolf"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "western_alc_ember_ward_unguent",
+      "name": "抗火油膏",
+      "aliases": [
+        "避火膏",
+        "耐火油",
+        "炉前膏"
+      ],
+      "summary": "候选设定：涂抹后使皮肤与衣物暂时不畏火焰的油膏。它最实用的价值不在战场而在作坊——锻炉、窑口、玻璃与陶工都需要它；而它最危险的滥用也不在战场而在审判，因为「不怕火」曾是一种证明清白的方法。",
+      "genres": [
+        "western_fantasy",
+        "dark_fantasy"
+      ],
+      "category": "item",
+      "tags": [
+        "kind:item",
+        "tradition:western",
+        "effect:fire_resistance",
+        "route:topical",
+        "cost:short_duration",
+        "cost:scarce_reagent",
+        "cost:rapid_failure",
+        "cost:social_stigma",
+        "role:tool",
+        "role:taboo_marker"
+      ],
+      "details": {
+        "definition": "抗火油膏指涂于皮肤或浸渍衣物后，使被涂部分在有限时间内不易被火灼伤的制剂。边界四条：其一，它**只抗热，不抗烟**——窒息、烟气与失明它一概不管，而火灾死人多数死于这些；其二，它作用于被涂到的部位，因此「全身涂抹」本身就是一件奢侈的事；(3) 它有明确上限：温度越高、时间越长，穿过去只是迟早，因此世界设定应给出「能扛过什么、扛不过什么」的可感知分界（例如能徒手翻动炭火，但不能走进火室）；其四，它不使衣物不燃烧，除非衣物本身也处理过。",
+        "mechanism": "可并存的路线：(1) **隔绝路线**——在皮肤外形成隔热层，效力随层厚与覆盖面积变化，磨损即失效；(2) **导热路线**——不隔热，而把热迅速散开，因此涂者摸到烫的东西不会起疱，但整体受热依旧；(3) **仪式路线**——效力来自「与火立约」一类观念，因此必须由特定的人、在特定时刻涂抹，且涂抹者若破戒即立刻失效（这一条最能写出「谁有资格当炉前工」的社会结构）；(4) **代偿路线**——把烧伤延后：当时不觉痛，数小时后一起翻上来，这一条最阴险，也最适合写工伤与赔偿。",
+        "conditions": "**材料从哪来**：矿物侧来自矿区（属 western.json「魔法材料与稀有矿草」「采矿与冶炼」的范畴）；动物侧涉及两栖类（western-biology.json 记蝾螈类为有尾两栖、皮肤湿润、需潮湿栖地、多数成体昼伏夜出）——**须诚实标注：本轮试图取得「火中蝾螈」的独立词条失败（salamander-mythology 返回 404），而 Britannica 的生物学条目完全没有涉及「火中不死」，因此本文件把这一母题明确列为「未取得来源」，只作民间想象提及，不写入事实层。** 植物侧取自该文件所记的紫杉（慢生、含毒、成材以世代计）与蕨丛（孢子繁殖、需水）等；另可指向该文件的原创生态「灯藓」（只在渗水岩面生长、离湿度即枯）——若设定「抗火膏必须以湿生之物为基底」，则保存与施工立刻成为真实的工艺问题。**这些物各有其主**：矿属矿主、林地属林主、渗水层属教会或矿主。**本文件只写来源与门槛，不写部位、配伍与炮制。** **制备门槛**：需要能长期维持高温的炉具与燃料（这本身就是一笔资本）、能测知「这一次比上一次更耐烧」的比较方法、以及愿意把手伸进火里试的人。作坊里的老师傅与行会师傅是唯一掌握这套判断的人，因此这门手艺天然与行会制度绑定。**生效条件与剂量维度（只给维度）**：涂布厚度与覆盖面积、起效延迟、可耐受的温度档与时长量级、遇水或汗的失效阈值、以及「是否可重复叠加」这一关键设定。**副作用与滥用**：因为不觉痛而过度暴露，造成深层损伤；封闭型膏体在高温下软化流淌，反而粘住皮肤；长期使用导致皮肤硬化、失去排汗，工人在夏天因此倒下；代偿型则把工伤推迟到下班后，从而使雇主得以推卸责任——**这一条是本条最该写的经济后果**。**谁控制供应**：行会（把持工序、师承与「炉前工」的准入）、王室工坊与大教堂工程（把持最大宗的采购）、矿区（把持原料）、以及黑市（把持次品与「一次性」的便宜货，卖给买不起正品的小工）。**法律与道德处境**：供应给工人是雇主责任的一部分，因此「谁该出这笔钱」是劳工冲突的焦点；**更要紧的一条**：在把「蹈火」当作神判或验罪手段的文化里，持有此膏等于掌握「伪造清白」的能力，因此它可能被定为亵渎之罪；反过来，**若被控者涂了膏而毫发无伤，审判者会认定这是更大的罪证**（借外物欺骗神判），这是本条最好的反转。",
+        "exceptions": "合理变体与反例：(1) 可设定它只对「明火」有效而对「烧红的铁」无效，于是不同的刑与工各有不同的防护；(2) 可设定它对全身有效但只有极短的时限（一次冲过火场），于是它成为一次性的战术道具；(3) 可设定效力与信仰／誓约挂钩，破誓即失效——这给了「炉前工不许说谎」一类极好的行业规矩；(4) 可设定它根本不防烧伤，只防痛，于是工伤照样发生，只是没人喊；(5) 可设定它只对特定来源的火有效（柴火、炭火、火山、龙焰各算一种），于是世界的火被分成几类，采矿与战争各有其限制。反例（不该写的）：全免疫火焰；可长期随身使用；把它写成战斗中随便吃的增益。",
+        "story_uses": "一、**作坊与劳工**：谁付膏钱、谁承担烧伤、工人能不能拒绝下炉——不需任何超自然设定就有戏。二、**审判**：蹈火验罪，一边是信仰，一边是一罐膏；真相与神意在此分家。三、**潜入与破坏**：一次冲过火场救人、放火或取物，限时结构天然成立。四、**工伤与赔偿**：代偿型膏药把伤推迟，于是雇主可以否认因果，这是极好的法理场面。五、**行会准入**：能不能当炉前工取决于有没有人肯教你涂膏，于是技艺变成身份。六、**与主干条目接口**：矿冶与行会制度在 western.json 中已有，本条只写药。",
+        "historical_scope": "**历史与民俗层（可引来源）**：本条可引的最扎实一条是**神判**——Britannica 酷刑条目记：中世纪早期欧洲曾以神判（ordeal）本身作为审判，即以嫌疑人对极端痛苦的反映来判定罪否；后来酷刑再度被用于重罪取供，供词被称为「证据之王」，名义上受严格条件限制。这支持「以火与痛来判定罪否」的制度确实存在，而**它同时给出本条最好的戏剧装置：若有人能以药改变这场判定的结果**。另一条可引的是 Britannica 魔法条目的材料三分（一部分确有生理作用、一部分本身即毒、一部分只靠象征），用以说明「防护性涂抹物」在世界观上可以同时具备真实与象征两层。**未取得／须明说的空白**：salamander-mythology 返回 404，Britannica 蝾螈生物学条目完全不涉「火中不死」，因此**本文件不主张「火中蝾螈」是可靠的民俗记载**；凡涉及处只标为民间想象，不引为事实。**本项目设计归纳**：四条机制、剂量维度、行会与工坊结构、以及「涂膏蹈火反而成为更大罪证」这一反转。**改编边界**：不要把抗火写成火焰免疫；不要把神判写成可靠的科学检验；不要编造任何膏方或材料处理。",
+        "evidence_and_uncertainty": "**来源支持**：Britannica torture（神判作为审判方式的存在与年代；供词与痛苦的证据地位）、Britannica magic（材料三分，防护性涂抹物可真可象征）、Britannica salamander（生物学层面：有尾两栖类、皮肤湿润、需潮湿栖地——用于说明「蝾螈」作为取材对象时的真实生态约束，**且该条目完全不涉火中不死**）。**未取得**：salamander-mythology 404。**本项目设计归纳**：全部机制、门槛、副作用、行会与法律责任安排。**不确定性**：本条的抗火效力无任何来源支撑，属纯设定；「火中蝾螈」在本文件中**不是**被登记为可靠民俗的母题，只是被注明「有此一说而未取证」。"
+      },
+      "source_ids": [
+        "western_alc_src_britannica_torture",
+        "western_alc_src_britannica_magic",
+        "western_alc_src_britannica_salamander"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "western_alc_water_breathing_draught",
+      "name": "水下呼吸药",
+      "aliases": [
+        "潜行饮",
+        "鱼肺药",
+        "深水药"
+      ],
+      "summary": "候选设定：服下后可长时间在水下呼吸的制剂。它把「水」从一个边界变成一条通道，因此它改变的不是个人能力，而是地图：城墙、护城河、港口与沉船在这味药面前都不再是屏障。",
+      "genres": [
+        "western_fantasy",
+        "dark_fantasy"
+      ],
+      "category": "item",
+      "tags": [
+        "kind:item",
+        "tradition:western",
+        "effect:water_breathing",
+        "route:ingested",
+        "cost:short_duration",
+        "cost:scarce_reagent",
+        "cost:timing_window",
+        "cost:rapid_failure",
+        "role:transport_tool",
+        "role:quest_object"
+      ],
+      "details": {
+        "definition": "水下呼吸药指服下后使人在水中仍能取得空气（或不需要空气）的制剂。边界四条：其一，它**只管呼吸，不管温度、压力与视线**——冷、暗、深与水流仍然致命，深水中的压力问题尤其不能靠药糊过去；(2) 它有时间上限，而这个上限直接决定任务的边界；(3) 它不使人在水中行动自如：衣物吸水变重、火把熄灭、声音传不远，因此真正的瓶颈往往是装备；(4) 它与「变形为水生」不同：那是换形体，这是保留人形而在水中呼吸。",
+        "mechanism": "可并存的路线：(1) **取自水生的路线**——以水生或两栖生物为材，让人暂时具备其呼吸方式；这一条的取材直接对应 western-biology.json 所记的两栖类（皮肤湿润、可经皮肤吸水、幼体具外鳃、部分种类幼态延续而终生保留幼体特征）——**「幼态延续」是本条最好的生物学支点**：它给出了「保留水生器官」这一设定在真实生态中的参照；(2) **携带空气路线**——药不改变身体，而是把空气「带」在身上（肺、血、或某种介质），因此它总有耗尽的一刻，且耗尽时会突然失效；(3) **免除需要路线**——干脆暂时不需要呼吸，代价是这段时间身体不排废气，事后必然有一段难受的补偿期；(4) **仪式路线**——效力来自与水域存在（河神、海之老者一类母题）的约定，因此必须守约，违约即在水下失效。",
+        "conditions": "**材料从哪来**：水生与两栖生物（western-biology.json 记蝾螈类为约 740 种的有尾两栖，多居淡水与潮湿林地、经皮肤吸水、低温时冬眠，并有中国大鲵与日本大鲵这类巨大种类）；海生一侧可指向该文件所记的「海蛇与巨物目击」（该条目已明确其多可用误认解释，故不宜作真实生物取材）与「人鱼群体与浅海生态」（该条目明令不得作素材采集与驯养处理，本条据此**不取人鱼为材料**，只在叙事上作交涉对象）；植物侧取自水生与湿生草木、以及该文件所记的原创生态「灯藓」（它只在持续渗水的岩面成片生长、离湿度即枯——若设定为「必须保持湿润才能维持药效」，那么药本身的保存就是一个极好的限制）。**这些物各有其主**：水域属领主与渔权持有者、海岸属港口与关税、渗水层属矿主。**本文件只写来源与门槛，不写部位、配伍、剂量与炮制。** **制备门槛**：需要能保持低温或湿润的容器（这在没有冷藏的世界里是一项真实的物流难题）、能判断「这一批还能不能救命」的经验、以及一个愿意先下水试的人。**生效条件与剂量维度（只给维度）**：起效延迟量级、可维持时长的量级、下潜深度档、水温档、单次与累计上限、以及「失效过程是骤停还是渐弱」这一最关键的设定选择（骤停能写出恐慌，渐弱能写出算计）。**副作用与滥用**：出水后的剧烈不适与咳喘；因长期不呼吸造成的血行问题；耳与鼻的损伤；心理上的依赖——用过的人会不愿再坐船。**谁控制供应**：港口与渔民行会（把持实际用法与水域知识）、王室海军（把持批量供应与军事用途）、走私者（把持绕过关税的水路）、以及水边的隐修者与采药人（把持材料本身）。**法律与道德处境**：这是全组最容易被「国家化」的一条——**能水下呼吸的人等于一支能绕过城墙与关卡的部队**，因此各国会同时做三件事：装备自己的水军、禁止向民间出售、以及把掌握配方的人列为战略资源（厚养或软禁）。民间则相反：走私、逃税、私渡与逃婚都靠它，于是它的黑市价格与刑责同步升高。",
+        "exceptions": "合理变体与反例：(1) 可设定它只让人「不窒息」而仍需呼吸，因此在污水中照样会中毒——这一条把水质变成剧情变量；(2) 可设定它有时限而无法延长，于是每一次下潜都是一场限时任务；(3) 可设定它对某些人无效或危险（心肺弱者、儿童、饮酒者），于是「谁先下水」成为选择；(4) 可设定效力可被淡水与海水区分，于是「带错药」是常见的葬身原因；(5) 可设定它其实是把人的呼吸「借」给水里某个存在，因此每次使用都要还债——这条最能写出黑暗奇幻的味道。反例（不该写的）：水下自由行动、无时限、顺带解决寒冷与压力与视线；把它写成随便买的旅行补给。",
+        "story_uses": "一、**地图被改写**：护城河、港口、水牢与沉船从此都不是终点，作者必须重画一次地图。二、**限时潜行**：一口气的时间就是整个任务的预算。三、**国家垄断**：禁止民间持有，于是它成为走私品与战略物资，同时引出「谁在偷偷养着那个药师」。四、**救援**：沉船、落水、水牢——三种最直接的用法，各有不同的道德重量。五、**债**：借水的呼吸要还，这条线可以让一个角色在数章之后付出代价。六、**与主干条目接口**：港口、关税与海军在 western.json 的「跨城贸易同盟」「围城与攻防」中有框架，本条只写药。",
+        "historical_scope": "**历史与民俗层（可引来源）**：本条**没有**任何支持「水下呼吸药剂」的历史或民俗来源，须明确写成纯设计。可以引的只有相邻的两层：(1) Britannica 魔法条目关于「施术者状态与表演决定效力、材料可分真有效／真致命／仅象征三类」的框架，用以说明本条属于「纯象征＋设定」一类；(2) western-biology.json 已核的两栖类生态（经皮肤吸水、幼体具外鳃、幼态延续、需潮湿栖地）——这为「保留水生器官」这一设定提供了**生物学参照而非依据**。另可引 Britannica 普罗透斯条目（海上老者、海中畜群之牧者）作为「与水域存在交涉」这一机制的神话母题来源，但须注明那是变形与预言之神，**与水无关**。**本项目设计归纳**：四条机制、门槛、剂量维度、国家垄断与走私的经济结构、以及「借呼吸要还债」这一设定。**改编边界**：不要把它写成水下自由行动；不要忽略温度、压力与视线；不要用人鱼一类被明令禁止资源化的智慧族群作材料。",
+        "evidence_and_uncertainty": "**来源支持**：Britannica magic（效力框架与材料三分）、Britannica Proteus（与水域存在交涉的母题，且该神与「水」无直接权能，仅取其「立约」结构）。**旁证**：western-biology.json 的两栖类生态（该文件已读来源）——作为生物学参照。**本项目设计归纳**：全部效力、机制、门槛、副作用、制度。**不确定性**：本条**完全没有**历史或民俗依据，属纯原创设定；已读来源中无任何与水呼吸药剂相关的记载。"
+      },
+      "source_ids": [
+        "western_alc_src_britannica_magic",
+        "western_alc_src_britannica_proteus"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "western_alc_winter_draught",
+      "name": "御寒药酒",
+      "aliases": [
+        "耐寒饮",
+        "雪线药",
+        "北行药酒"
+      ],
+      "summary": "候选设定：服下后使人长时间不觉寒冷、可在雪线以上行动的制剂。它最要紧的一条边界是：**不觉冷不等于不失温**——冻伤与冻死照样发生，只是没人提前察觉。因此这味药从来不是安全保障，而是一种把死亡推后并且变得安静的赌博。",
+      "genres": [
+        "western_fantasy",
+        "dark_fantasy"
+      ],
+      "category": "item",
+      "tags": [
+        "kind:item",
+        "tradition:western",
+        "effect:cold_resistance",
+        "route:ingested",
+        "cost:short_duration",
+        "cost:rapid_failure",
+        "cost:self_harm",
+        "cost:scarce_reagent",
+        "role:tool",
+        "role:quest_object"
+      ],
+      "details": {
+        "definition": "御寒药酒指服下后使人对低温的痛感与颤抖反应减弱、并能在严寒中维持行动的制剂。边界四条：其一，**它不产生热**（除非特意设定为产热型，那就必须同时交代燃料与耗竭），它多数只是改变感受与血管反应；其二，它不保护末端——手足、耳鼻与面部照样冻伤，而服药者往往最晚发现；其三，它有时限，且失效常常发生在最冷的那一段路上；其四，天寒时最常见的事故不是冻死，而是**误判**：以为自己还能再走一段。",
+        "mechanism": "可并存的路线：(1) **觉阈路线**——压低冷感，人照常失温，只是不觉得，于是它是「安静的杀手」；(2) **产热路线**——短时间提高身体产热，代价是耗尽后急剧崩塌，且必须吃下大量食物「付燃料钱」；(3) **护末路线**——只保住手足与面部（冻伤最先发生的部位），于是它常以「手套膏」「面油」的形式出现而非饮剂；(4) **仪式路线**——效力来自与山、冬或北风一类存在的约定，须守戒（不携铁、不饮水、不说话），违约即在雪线上失效。",
+        "conditions": "**材料从哪来**：草木侧取自 western-biology.json 所记的寒地林缘物种——紫杉（常绿、极慢生、含毒，冬季仍可取）、山楂与白蜡（活篱与材种专供所在）、蕨丛与蘑菇（受扰地与仙环所在，后者该文件已有「仙环纪年」一类原创设定）；动物侧取自狼（该文件记其家庭群与领域，并有「狼账」「狼道」等制度——「狼道」作为迁徙路线被设为公共地役，正好可作雪线商道的原型）、鹿（角林）、渡鸦（该文件记其机警、食腐、极长寿，能在极寒处找到尸体，因而与「谁死在雪线上」这一情节天然相合）；矿物侧来自矿区。**这些物各有其主**：猎场、禁伐林、牧场与矿各有资格人。**本文件只写来源与门槛，不写部位、配伍、剂量与炮制。** **制备门槛**：需要能在冬季继续作业的场所（屋里炼它，等于屋里也要冷）、大量燃料（这本身就是寒地的稀缺物），以及一个能判断「这批药在零下的天气里还有效吗」的经验者——**药本身的保存就是门槛**：多数液体在寒地会冻、会裂、会失活。**生效条件与剂量维度（只给维度）**：起效延迟量级、可维持时长的量级、可耐受的温度档与风档、单次与累计上限、以及「末梢保护是否覆盖」这一关键分档。**副作用与滥用**：不觉得冷因而过度暴露；血管反应被改变后，回暖时反而更痛；冻伤在无痛状态下形成，事后才发现组织已坏死；连续使用使身体失去对冷的正常调节，撤药后一段时期内更怕冷。**谁控制供应**：山地向导与商队（把持实用经验与路线知识）、边境驻军（把持成批采购）、修道院（把持知识并常是雪线上唯一的收容处）、以及走私者（把持绕过山口的近路）。**法律与道德处境**：向平民出售通常不违法，这是它相对「干净」的地方；但**雇佣向导时，谁负责给队员配药**，是山区雇佣契约里最常引起纠纷的条款；向敌军或逃犯售药可构成协助罪；另有一条极现实的经济面：**药钱往往由雇主出，而雇主要求工人签下「自愿不携药」以省钱**——这是本条最该写的一幕。",
+        "exceptions": "合理变体与反例：(1) 可设定它只防冷而不防风，于是「风」成为雪线上真正的敌人，风向与地形因此重要；(2) 可设定它只对某类体质有效，于是队伍必须按体质排班；(3) 可设定它有明确的失效征兆（打冷战停止、忽然觉得暖和）——**「忽然觉得暖和」在极寒中是濒死的征兆**，这是本条最好的恐怖细节；(4) 可设定它必须与高热量食物同用，于是补给线决定成败；(5) 可设定它其实是一种缓慢的毒，长期使用者寿命缩短而不自知。反例（不该写的）：吃了就不怕冷也无冻伤；把雪线写成可以靠一瓶药随便穿越的区域；忽略燃料与食物。",
+        "story_uses": "一、**登山与商道**：药、粮、风与夜构成四重预算，任何一项不足都要人命。二、**忽然的暖意**：一个人说「我暖和了」，同行者脸色一变——一句台词就能结束一个角色。三、**雇主与工人**：药钱谁出、签不签「自愿不携药」，把超自然设定直接接到劳资冲突上。四、**无人区与尸首**：渡鸦会先找到死人，而药瓶在尸体旁，于是死因成为悬案。五、**边境军事**：谁能过山口，谁就能打对方的后背。六、**与主干条目接口**：山地、猎场与商道在 western.json 的「跨城贸易同盟」「采矿与冶炼」中有框架，本条只写药。",
+        "historical_scope": "**历史与民俗层（可引来源）**：本条没有直接对应的历史条目。可引的相邻层只有两条：(1) Britannica 魔法条目关于「效力取决于施术者状态与材料三类（真有效／真致命／只靠象征）」的框架，用以说明本条属设定层；(2) Britannica 毒物条目关于剂量决定性质、以及「任何物质在足量时都是毒物」的表述——这一点对「御寒药其实是慢毒」这一变体提供了原理性参照。**未取得**：本节未取得任何关于御寒药剂、防冻油脂或高寒行军药物的可靠来源，因此**不作任何相关历史断言**，包括北方民族如何应对严寒的具体做法。**本项目设计归纳**：四条机制路线、剂量维度、副作用与「忽然觉得暖和」这一濒死征兆的用法、供应四家、以及雇主与工人之间围绕药钱的契约冲突。**改编边界**：不要把它写成保暖的替代品；不要忽略食物与燃料；不要把极地探险写成靠一瓶药就能解决的旅行。",
+        "evidence_and_uncertainty": "**来源支持**：Britannica magic（效力框架与材料三分）、Britannica poison（剂量决定性质；足量时任何物质都有毒——用于支撑「御寒药是慢毒」这一变体的原理层）。**本项目设计归纳**：全部机制、门槛、副作用与制度。**不确定性**：本条完全没有专属来源，效力层面为纯原创设定；与真实保暖／防冻做法的任何相似都属巧合，本文件不提供也不主张任何实际操作。"
+      },
+      "source_ids": [
+        "western_alc_src_britannica_magic",
+        "western_alc_src_britannica_poison"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "western_alc_petrifaction_release",
+      "name": "解石药",
+      "aliases": [
+        "苏石饮",
+        "解僵药",
+        "返生油"
+      ],
+      "summary": "候选设定：能把被石化的人恢复原状的制剂。关于它最有价值的一点是：**石化在世界里一旦可逆，石化就从死亡降级为监禁**——于是问题不再是「能不能救」，而是「谁有权决定他什么时候回来」。",
+      "genres": [
+        "western_fantasy",
+        "dark_fantasy"
+      ],
+      "category": "item",
+      "tags": [
+        "kind:item",
+        "tradition:western",
+        "effect:petrification_release",
+        "route:topical",
+        "cost:scarce_reagent",
+        "cost:timing_window",
+        "cost:irreversible_loss",
+        "cost:narrow_specificity",
+        "role:quest_object",
+        "role:plot_device"
+      ],
+      "details": {
+        "definition": "解石药指能使被石化者恢复血肉之躯的制剂。边界必须写死四条：其一，它**只对被石化者有效**，对死者无效——石化与死亡在这个世界里必须是两种截然不同的状态，否则复活与解石会互相吞并；其二，它不保证恢复完整：被石化的时间越长，回来的人越可能缺一块（那期间被磕掉的手指不会长回来）；其三，它需要接触到石化体，因此**石化像本身可能已被当作建材、界石、雕像或圣物**，救人的第一步往往是把它从某个地方搬出来；其四，它不可逆地消耗——一瓶救一个人，没有第二次。",
+        "mechanism": "可并存的路线：(1) **接触路线**——涂抹或浇淋石化体表面，由外向内恢复，因此石化体越大越费，且厚处（躯干）最后恢复；这条最能写出「救到一半」的场面；(2) **经口路线**——须让石化体「服下」，于是必须先让嘴部恢复，一个非常具体的技术难题；(3) **对源路线**——药不作用于石化体，而作用于造成石化的源头（斩断施术者、破坏其凭依物），于是救人与战斗合为一件事；(4) **仪式路线**——须在石化体「记得自己是谁」的条件下进行（呼唤本名、出示其物、由其血亲触碰），于是身份与关系成为药效的一部分。",
+        "conditions": "**材料从哪来**：本条的材料逻辑天然与「石」相关，因此主要取自矿物与地下（属 western.json「魔法材料与稀有矿草」「采矿与冶炼」的范畴）；植物侧取其对立面——western-biology.json 所记的蕨丛（孢子繁殖、根状茎能钻入石隙，是罕见的「能破石」的活物）、灯藓（只在渗水岩面成片生长，说明岩石并非全然死寂）、槲寄生（半寄生，靠吸器插入寄主取水取养——**这是本条最贴切的生物学类比：以活的侵入破开硬的封锁**）；动物侧可取渡鸦（该文件记其食腐、囤物、能模仿少数词句——若设定「须听见自己的名字才回得来」，鸦学人语这一可核事实就成了极好的情节机关）。**须诚实标注**：本轮试图取得鸡蛇／石化蜥相关独立词条失败（basilisk 在上一轮已 404，本文件中亦未另取），而 western-biology.json 已记明该动物的来源只支持「以目光或气息毁坏动植物生命」，**不支持「把人变成石像」**——该文件的立场是「石像化是后世引申」。因此本条与「石化」的关系必须由作者显式设为世界规则，不能伪称民俗。**本文件只写来源与门槛，不写部位、配伍、剂量与炮制。** **制备门槛**：需要能辨认「这是石化还是死亡」的人——误判会浪费唯一的药；需要搬运与固定石化体的手段（重量、破损、运输费用）；需要一个能在场主持仪式的人（血亲、司仪、或施术者的对手）。**生效条件与剂量维度（只给维度）**：石化时长档、石化体体积与厚度档、恢复的完整程度、单次用量、以及**「多久之后彻底不可逆」这一关键门槛**——它把故事变成与时间的赛跑。**副作用与滥用**：恢复过程中的剧痛与错位感；长期石化者的时间感断裂（以为只过了一夜）；残缺不可补；更残酷的一条：**恢复后仍带着石化期间的记忆**（听见周围人谈论自己、被当作建材、被凿掉一角），这是本条最好的心理素材。**谁控制供应**：无人能稳定生产——因此它通常以「最后一份」的形式出现；掌握者多为教会（把持「谁配回来」的判断）、王室（把持典藏与独占）、或某个不肯交出的个人。**法律与道德处境**：一旦可逆，「石化」在法理上更接近**监禁**而非处死，于是谁有权解除、以及**把仇敌石化后供起来**（既不杀也不放）成为最阴的一种刑罚；相反，把已石化者当作雕刻材料买卖，在多数设定里应是严重的亵渎与盗尸之罪。",
+        "exceptions": "合理变体与反例：(1) 可设定解石药根本不存在，石化即永久死亡，于是「解石」只是传说与骗局——这是最克制的写法；(2) 可设定它只对被石化未久者有效，于是每个石化像旁都有人日夜计算日子；(3) 可设定恢复后的人失去被石化期间的记忆（仁慈）或全部记得（残忍），两种都是有效选择，但不能两头都占；(4) 可设定必须由造成石化者亲手解除，于是「求敌人」成为唯一的门；这条最能出戏；(5) 可设定它只对某一类石化有效（目光致石、药致石、诅咒致石各算一种），于是症状的判定成为一门专业。反例（不该写的）：随手一瓶就把广场上所有雕像都救回来；把解石当作复活的替代品；把石化期间的痛苦一笔带过。",
+        "story_uses": "一、**与时间的赛跑**：期限、体积与破损三重压力，天然的任务结构。二、**雕像即人**：广场上的石像可能是三百年前的市长，而城里人一直拿它当长椅——这一幕一旦写明，整个世界的历史都变得可疑。三、**刑罚争论**：石化算不算死刑？谁有权解除？两个派别可以用一桩案子打完一场战争。四、**残缺**：被救回的人少了一只手，而那只手在某个收藏家手里——寻物与寻人合一。五、**记忆**：他在石中听得见一切，包括妻子改嫁。六、**与主干条目接口**：石化母题与「鸡蛇与石化蜥」条目在 western-biology.json 中已记（含「封锁令与检疫」一类原创设定），本条只写解药，用文字指向而不复制。",
+        "historical_scope": "**历史与民俗层（可引来源）**：本条最强的来源支撑来自石化母题本身——Britannica 美杜莎条目记其以对视者即刻化石著称，珀尔修斯依雅典娜所嘱以磨亮盾面反照而不直视才得斩之；其首级后归雅典娜置于神盾；赫拉克勒斯得一绺同样有石化之力的头发护特革亚城。Britannica 戈耳工条目记珀尔修斯借哈得斯之帽隐形以逃脱追击、其首级有使观者化石之力，且 gorgoneion 被广泛用作辟邪护符。**这两条支持的是「石化作为母题的存在与它的解法（不直视、借反照、靠护符）」，而完全不支持任何「解石药」**——须明确写成：本条的药剂形式是本项目设定，不是史料。Britannica 护符条目另有「以仪式与时辰赋力于物件」的观念，可作为仪式路线的母题参照。**须明说的空白**：石化蜥（basilisk）独立条目在上一轮采集时即返回 404，western-biology.json 已据实登记，且该文件明确指出「把人变成石像」属后世引申；本文件沿用该口径。**本项目设计归纳**：四条机制、门槛与剂量维度、残缺与记忆的副作用、以及「可逆的石化等于监禁」这一法理设定。**改编边界**：不要把解石药写成随手可得的消耗品；不要把石化与死亡混为一谈；不要伪称民俗中存在解石配方。",
+        "evidence_and_uncertainty": "**来源支持**：Britannica Medusa（化石之目光；以反照与回避为解法的母题；其首级与头发保有石化之力）、Britannica Gorgon（石化母题的地位与护符化使用）、Britannica amulet（仪式赋力的观念，可作仪式路线的参照）。**未取得**：basilisk／鸡蛇的独立正文在本轮与上一轮均未取得（可用的只有 western-biology.json 已读的 cockatrice 条目，且该条目只支持「以目光或气息毁坏生命」，不支持石化）。**本项目设计归纳**：全部药剂形态、机制、门槛、副作用与制度。**不确定性**：解石药在历史上与民俗中**没有对应物**，本条属纯原创设定；石化本身作为母题则确有其据。"
+      },
+      "source_ids": [
+        "western_alc_src_britannica_medusa",
+        "western_alc_src_britannica_gorgon",
+        "western_alc_src_britannica_amulet"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "western_alc_truth_draught",
+      "name": "真话剂",
+      "aliases": [
+        "吐真药",
+        "直言之饮",
+        "审问药"
+      ],
+      "summary": "候选设定：使人在一定时间内无法说谎、或无法控制自己说什么的药剂。本条与「催眠安神药」不同，它把问题从药理移到法理：**靠药剂得到的供词算不算证据**——而已读来源恰好提供了关键的一面：以刑求供从来被批评为使受害者说谎。",
+      "genres": [
+        "western_fantasy",
+        "dark_fantasy"
+      ],
+      "category": "item",
+      "tags": [
+        "kind:item",
+        "tradition:western",
+        "effect:compelled_speech",
+        "route:ingested",
+        "cost:torture_adjacent",
+        "cost:consent_violation",
+        "cost:narrow_specificity",
+        "cost:dosage_risk",
+        "role:interrogation_tool",
+        "role:contraband"
+      ],
+      "details": {
+        "definition": "真话剂指使人暂时无法说谎、或使话语不受意志控制的制剂。边界必须写死五条：其一，**「无法说谎」不等于「说出真相」**——被药者可能真心相信假事（被灌输者、记忆有误者、疯癫者），于是药只交出他的信念，不交出事实；其二，它不能指定回答哪些问题，因此可能连带吐出不该问的；其三，它有明确的失效与耐受——惯用者或被施过同类药者可能无效；其四，**它属于刑讯谱系**：即使没有疼痛，其本质仍是绕过意志取得口供，因此必须有明确的同意与法律边界；其五，它与「忘忧药」相对但同源，常被同一批机构掌握。",
+        "mechanism": "可并存的路线：(1) **抑制路线**——压住说谎所需的自我控制，于是话直着出来，代价是此人同时失去一切社交过滤（会侮辱审问者、泄露自己的秘密、说出不该说的名字）；(2) **解除抑制的迷乱路线**——近似醉态，人变得多话而混乱，**说的真假混杂**，这是最真实也最有戏剧性的一种；(3) **强制应答路线**——只对直接问句生效，无法回避，但可以用沉默拖延；这条给被问者留了唯一的抵抗；(4) **象征路线**——效力来自「以某种不能说谎之物为材」的对应（天平、镜、未经说谎之口的水），因此依赖地点与司仪，换地方即无效。",
+        "conditions": "**材料从哪来**：草木侧与 western-biology.json 所记的致幻草木同源——曼德拉草（全株含托烷生物碱、被认为有毒；该文件并记其为「茄科致幻植物」，且其「致幻方向」正是「抑制与迷乱」这一效应的生态基础）、颠茄类（同科、同样剧毒）、蘑菇（辨识不可靠、个体差异大）；动物侧可取渡鸦（该文件记其「能模仿少数词句」——一只会学人语的鸟在审问场景中能做出极好的反讽）；另有一支完全走象征路线（见上），属纯设定。**本文件只写来源与门槛，不写部位、配伍、剂量与炮制。** **制备门槛**：真正的门槛在**控制**——必须在药效期内把话引导到该问的地方，这要求审问者本人受过训练；而这类训练的持有者永远是少数机构（宗教法庭、王室密探、城市刑狱）。**生效条件与剂量维度（只给维度）**：起效延迟量级、可维持时长的量级、强制程度（不能回避／可以沉默／只能点头摇头）、单次与累计上限、被问者的耐受与既往史、以及**「是否保留事后记忆」这一关键分档**——不记得的人无法自辩，记得的人无法入睡。**副作用与滥用**：事后头痛、失语、羞耻与自毁；反复使用造成长期失序与人格改变；**最要紧的一条**：药效期内说出的内容一旦被采信，就会成为一个人一生的定性，而这句话可能只是他相信的错事。**谁控制供应**：宗教法庭（把持正当性与记录）、王室密探与刑狱（把持实际使用）、行会（拒绝承认其可靠性，因此拒绝制造）、黑市（卖「审讯版」，多为假货或过量）。**法律与道德处境**：**这一条必须写成灰色而非黑白**——一边是「它比刑求温和」，另一边是「它同样绕过同意」；已读来源提供的历史经验恰好是反面教材：Britannica 酷刑条目记，以刑取供的有效性自罗马时期即被批评为促使受害者说谎，而中世纪后期供词被称为「证据之王」、名义上受严格条件限制；苏格兰 1708 年、法国 1798 年废止酷刑，至 19 世纪初欧洲多数地区正式废弃。**因此本条推荐的设定是：多数法域不承认药剂供词，但审讯者照用不误——用来找线索，而不是用来定罪。** 另须写明：对囚犯、战俘、仆役与未成年者使用，是本条最该被写出来而常被省略的暴力。",
+        "exceptions": "合理变体与反例：(1) 可设定它根本不存在，全部「真话药」都是逼供者用来给自己壮胆的说辞——这是最有力的写法；(2) 可设定它对真心相信假事的人完全无效，于是它成了检验信念而非事实的工具；(3) 可设定被药者能察觉自己被药（味道、身体感），于是他可以故意说错以自保；(4) 可设定它只能让人不回避，但可以用冗长的回答把关键信息淹没；(5) 可设定教会视之为僭越——强取人口中的话等于侵犯上帝所赐的自由意志，于是用它的人自己成了异端。反例（不该写的）：吃了就问出全部真相；把供词当作确证；把它当作不流血的正当手段而不设争议。",
+        "story_uses": "一、**审判**：一份药剂下的供词，判一个人死，而全书都在问它算不算数。二、**反向**：被药者故意说出自己相信的假事，把追查者引向错误方向。三、**代价**：施用者自己也必须喝一次以示公正——而他有一件不能说的事。四、**失言**：药效让人失去社交过滤，于是一句与案情无关的话毁掉一整场政治。五、**机构**：谁有权用它，直接画出这个世界的权力图。六、**与主干条目接口**：审讯与异端审判的制度框架在 western.json 的「异端审判」「魔法管制与执照」中已有，本条只写药。",
+        "historical_scope": "**历史与民俗层（可引来源）**：Britannica 酷刑条目是本条的主要依托——它记：酷刑指为逼取信息、逼供或惩罚而故意施加严重身心痛苦，通常由公职人员施行；其有效性虽被历史上许多人辩护，但早在罗马时期即被批评为**促使受害者说谎**；古希腊罗马对非公民与奴隶合法用刑取证；中世纪早期欧洲曾以神判本身作为审判；中世纪后期酷刑再度用于重罪取供，供词被称为「证据之王」，名义上受严格条件限制；苏格兰 1708 年、法国 1798 年废除，至 19 世纪初欧洲多数地区正式废弃，此后对嫌疑人的暴力本身即构成犯罪。**这些支持三件事**：(1)「以非自愿手段取得口供」是一个有漫长制度史的问题；(2) 这类供词历来被质疑不可靠；(3) 对这种手段的废除有明确的时间与地域节点。**须明说的来源缺口**：Britannica 的 truth serum 独立词条返回 404，因此本文件**不对「吐真药」这一近现代名物作任何断言**——包括它的出现时间、用途与效力评价。**本项目设计归纳**：四条机制、剂量维度、副作用、供应四家、「多數法域不承认药剂供词但仍照用」这一设定。**改编边界**：不要把本条写成可靠的侦讯工具；不要省略同意与权力关系；不要用某部作品的专有药名。",
+        "evidence_and_uncertainty": "**来源支持**：Britannica torture（以刑取供的制度史、其被批评为促使说谎、废除的时间节点——这是本条最重要的认识论依据）、Britannica mandrake／belladonna（致幻与迷乱的物质底板，且均已分层记录其毒性与传说层）、Britannica poison（剂量决定性质）。**未取得**：truth serum 404。**本项目设计归纳**：全部机制、门槛、副作用、制度与法律立场。**不确定性**：本条没有任何支持「真话剂」有效的来源，恰恰相反，已读来源对「以非自愿手段取得的口供」持明确怀疑；本条的效力层面为纯虚构设定。"
+      },
+      "source_ids": [
+        "western_alc_src_britannica_torture",
+        "western_alc_src_britannica_mandrake",
+        "western_alc_src_britannica_belladonna",
+        "western_alc_src_britannica_poison"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "western_alc_growth_shrink_powder",
+      "name": "增减药（生长与缩小）",
+      "aliases": [
+        "巨化粉",
+        "缩小药",
+        "尺寸之剂"
+      ],
+      "summary": "候选设定：使身体或物件在一段时间内变大或变小的一对制剂，通常同源异配。它是全组最「纯设定」的一条：既没有历史对应物，也没有民俗母题可依；本条因此把它的价值全部放在**尺度改变带来的物理后果**上——力气、负重、衣物、门与楼梯。",
+      "genres": [
+        "western_fantasy",
+        "dark_fantasy"
+      ],
+      "category": "item",
+      "tags": [
+        "kind:item",
+        "tradition:western",
+        "effect:size_change",
+        "route:ingested",
+        "cost:rapid_failure",
+        "cost:dosage_risk",
+        "cost:scarce_reagent",
+        "cost:reversibility_risk",
+        "role:tool",
+        "role:plot_device"
+      ],
+      "details": {
+        "definition": "增减药指使身体（或物件）在一段时间内变大或变小的一类制剂，两向常由同一配方加减而成。边界必须写死五条：其一，**尺度改变不带来等比例的力量**——变大不等于变强，变小则往往真的变弱；若世界设定力量随体积增长，必须明说，并承担随之而来的全部后果；其二，衣物、装备与随身之物不随之改变（除非另设），因此每次使用都要处理「东西怎么办」；其三，它有明确时限，且失效是**瞬时回弹**，若此时人处于狭窄处，回弹本身即为致命事件；其四，它不改变体重所引起的一切（踩塌地板、压坏坐骑、被风掀走）；其五，它不太可能只作用一次——反复使用会累积创伤。",
+        "mechanism": "可并存的路线：(1) **密度路线**——体积变而质量不变，于是变小时密度极高（可穿门缝但会压穿楼板），变大时则轻飘飘（能跳但不能打）；这一条最能算出好戏；(2) **等比例路线**——质量与体积同比，于是变大就是真的变重、变强、也变笨拙，且脚下的东西先垮；(3) **视界路线**——不改变肉体，而改变与外界尺度的关系（世界相对变小），代价是这种改变**只对被施者成立**，旁人看不出异样，于是两个人在同一房间里对「桌子有多大」意见不同；(4) **仪式路线**——效力来自与某物的比照（以巨兽之骨、以蚁丘之土），因此必须在特定场所进行，离开即失效。",
+        "conditions": "**材料从哪来**：本条没有可对应的历史材料，取材只能走「尺度对比」的象征逻辑，因此全部属设定层。可落地的生态呼应来自 western-biology.json：蘑菇（地下的菌丝体是本体、地面所见只是子实体——「本体极大而显现极小」是尺度母题的现成参照）、蕨丛（孢子微小、成体高大，同一生命跨极大尺度）、蝾螈类（该文件未单列，但 Britannica 蝾螈条目记多数种类仅 10—15 厘米，而中国大鲵可长逾 1.5—2 米——**同目之内近二十倍的体型差，是本条最诚实的取材依据**）、以及该文件所记的原创生态锈蚀藤与灯藓（成片/成点、可蔓延可枯死，适合作为「尺度失控」的隐喻）。矿物与「巨兽之骨」一类属 western.json「魔法材料与稀有矿草」范畴。**须诚实标注**：本轮试图取得 homunculus（人造小人）条目返回 404，因此本文件**不引用任何「瓶中小人」的炼金术传统细节**。**本文件只写来源与门槛，不写部位、配伍、剂量与炮制。** **制备门槛**：高——因为它需要极精确的「量」，而在没有标准计量的世界里，「多一点」就等于压塌一间房；因此它天然属于学院、宫廷与少数秘传者，而不属于民间。**生效条件与剂量维度（只给维度）**：尺度变化倍数档、起效延迟、持续时长量级、回弹方式（瞬时／渐进）、被作用对象（人／物／衣物是否连带）、以及「多剂叠加是否线性」这一最危险的维度。**副作用与滥用**：回弹时的损伤（骨折、压伤、窒息）；反复使用者出现持续的骨痛与身形不稳；变小后的心理后果（恐惧、依赖、不愿恢复）；变大后的心脏与关节负担。**谁控制供应**：法师学院与宫廷药师（把持精确配方与「量」，并因此把持准入）、剧院与竞技场（把持公开演示的生意）、军方（把持「把人变大送上城墙」一类的具体用途）、黑市（把持失控的次品）。**法律与道德处境**：**这是全组唯一能直接改写身体形态的药，因此它天然落在「谁有权决定一个人的大小」这一问题上**：把战俘缩小以省口粮、把儿童变大以充兵、把债务人缩小以关进匣子——每一条都该在本文件所设的世界里被明确规定为严重罪行，同时每一座城都在暗中做。相对温和的一面是民事：契约、继承与婚姻中对「此人当时是否为原身大小」的争论，足以让法官束手。",
+        "exceptions": "合理变体与反例：(1) 可设定它只对物件有效，对活物无效——这立刻去掉全部伦理麻烦，也去掉大部分戏；(2) 可设定它有严格的安全倍数区间，超出即死，于是「精确」本身就是一门技艺；(3) 可设定回弹是不可逆的一次性设定（只能变大不能变回），于是它成为一种刑罚；(4) 可设定它其实是致幻剂，被施者只是「觉得自己变了」，于是整个尺度的超自然性被抽掉；(5) 可设定两个方向必须成对使用（先缩后涨，反之亦然），于是使用者必须随身带两瓶，丢一瓶就是灾难。反例（不该写的）：变大就变强而无负重代价；缩小后仍保有原力；衣物问题忽略不计；回弹永远安全。",
+        "story_uses": "一、**物理喜剧与物理悲剧一线之隔**：变小后从桌上掉下来是喜剧，掉进汤里是悲剧。二、**越狱与潜入**：门缝、锁孔、通风口——但它同时带来「怎么把东西带走」这个真实问题。三、**负重与运输**：把大宗货物缩小运输再复原，是最直接的商业用法，也最容易被垄断与课税。四、**战争**：把人变大推上城墙，或把敌军的粮车缩小——两种用法各有极坏的后果。五、**伦理**：把债务人缩进匣子里，是这条目最黑暗也最不需要额外设定的用法。六、**与主干条目接口**：学院、行会与军需在 western.json 中已有制度框架，本条只写药。",
+        "historical_scope": "**历史与民俗层（可引来源）**：本条**没有任何历史或民俗对应物**，须明确写成纯原创设定。可引的只有两处间接参照：(1) Britannica 魔法条目关于「材料与所欲结果之间可以只有象征关系」的框架，用以说明本条属纯象征／纯设定一类；(2) Britannica 蝾螈条目提供的**同目内体型差**（多数种类 10—15 厘米，而中国大鲵可长逾 1.5—2 米）——这是「同一类生命跨极大尺度」这一设定在真实生态中的参照，但它只支持「尺度差异存在」，不支持任何增减药物。**未取得**：homunculus 404，故不引用「人造小人」传统。**本项目设计归纳**：四条机制、门槛与剂量维度、副作用、供应四家、以及「谁有权决定一个人的大小」这一法理问题。**改编边界**：不要把尺度改变写成无代价的能力；不要忽略质量、负重与衣物；不要把它写成纯粹的儿童读物式玩笑。",
+        "evidence_and_uncertainty": "**来源支持**：Britannica magic（象征性因果的框架）、Britannica salamander（同目内的体型跨度，作为尺度差异的生态参照）。**本项目设计归纳**：全部效力、机制、门槛、副作用与制度。**不确定性**：本条是全组来源最弱的一条，**完全没有历史或民俗依据**，属纯原创设定；与任何作品的相似均属类型层面的巧合，本文件不使用任何作品的专有名称或具体规则。"
+      },
+      "source_ids": [
+        "western_alc_src_britannica_magic",
+        "western_alc_src_britannica_salamander"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "western_alc_magic_ward_elixir",
+      "name": "抗魔药",
+      "aliases": [
+        "护法饮",
+        "破咒剂",
+        "抗术药"
+      ],
+      "summary": "候选设定：服下后一段时间内使法术难以附着于己身的制剂。它是全组唯一的**纯原创设定**：既无历史对应物，也无民俗母题，因此在世界设定里必须由作者显式立法——而它一旦存在，就会立刻重画整个魔法秩序。",
+      "genres": [
+        "western_fantasy",
+        "dark_fantasy"
+      ],
+      "category": "item",
+      "tags": [
+        "kind:item",
+        "tradition:western",
+        "effect:magic_resistance",
+        "route:ingested",
+        "cost:short_duration",
+        "cost:narrow_specificity",
+        "cost:social_stigma",
+        "cost:scarce_reagent",
+        "role:control_mechanism",
+        "role:contraband"
+      ],
+      "details": {
+        "definition": "抗魔药指服下后在一定时间内使人对法术、诅咒或附体一类作用具有抵抗力的制剂。边界必须写死五条：其一，**它抵抗的是「法术」这一类别，而不是一切伤害**——刀剑、火、坠落、疾病一概照旧，若设定为全抗，则整个战斗体系必须重建；其二，它通常只抗某几类（直接作用的、需接触的、需知名的），因此「抗魔」必须细分，否则等于万能；其三，它不解除已经生效的法术（那是「破咒」而非「抗魔」，是另一件东西）；其四，它有时限，且在时限内使人对治疗性法术也同样抗拒——**这一条是它最漂亮的代价**：一个喝了抗魔药的伤员，救不回来；其五，它属于纯原创设定，须由作者显式写入世界规则，不能伪称民俗。",
+        "mechanism": "可并存的路线：(1) **屏蔽路线**——身周形成阻隔，法术到不了，同时也挡掉有益的；(2) **扰频路线**——不阻挡而扰乱，使法术偏移、打偏或反噬施术者；这一条最危险，因为反噬的后果可能落在旁观者身上；(3) **知名为钥路线**——若法术需知对象之名或持其物才能生效，则药做的事是「使自己暂时不成为那个对象」（改名、涂面、以他人之物替换），于是它是一门伪装术而非药理；(4) **代偿路线**——把法术的效转移到别处（另一人、一件物、一个抵押），于是每次服用都在别处留下一笔账。",
+        "conditions": "**材料从哪来**：本条无历史材料可依，只能走象征与生态类比。可落地的呼应来自 western-biology.json 与 western.json：(1) 槲寄生（该文件记其半寄生，靠吸器插入寄主取水取养，且浆果有毒，采集须爬树并得林主许可）——「寄生于强者以自存」这一生态事实，是「抗魔」最贴切的取材隐喻；(2) 紫杉（极慢生、含毒、砍一棵要等几个世代）——以极慢与剧毒承载「代价高昂的护身物」；(3) 灯藓（只在渗水岩面成片、离湿度即枯）——以「环境依赖」承载「抗魔状态不可移植」；(4) 矿物与晶体属 western.json「魔法材料与稀有矿草」的范畴，而 western.json 的「魔法的代价与反噬」一条已写明代价可分为消耗／不可逆／条件／债务／社会五类，本条的代偿路线正是照那一分类写的（用文字指向，不复制）。**须诚实标注**：本轮试图取得 moly（喀耳刻神话中使人免于变形的草药）条目的正文返回 404，因此本文件**不写 moly 的任何性状与用法**，只在「喀耳刻」条目已读的范围内承认「存在一味可阻断变形的草」这一母题。**本文件只写来源与门槛，不写部位、配伍、剂量与炮制。** **制备门槛**：极高——因为它需要一位真正懂法术原理的人来设计「挡什么」；这就是它最大的社会后果：**抗魔药只能由施法者制造**，于是「反抗魔法」的能力永远掌握在魔法阶层自己手里。**生效条件与剂量维度（只给维度）**：可抵抗的法术类别档、起效延迟与持续时长的量级、单次与累计上限、是否影响治疗性法术、以及「对施术者知不知名」这一分档。**副作用与滥用**：屏蔽型会连治疗一起挡掉；扰频型会造成法术反噬，伤及无辜；代偿型把代价转给别人，这在道德上近乎献祭；长期使用者会出现「法术盲」——再也感受不到任何法术的作用，包括好的。**谁控制供应**：法师学院与公会（把持原理与配方，因此把持整个反制市场）、教会（把持「以信仰代替药剂」的替代方案并因此与学院争夺人心）、王室（把持批量采购与配给，用于使节与刺客）、黑市（把持假货，而假货在这里特别致命：以为自己被护住的人会主动走进法术射程）。**法律与道德处境**：**这是全组最容易引出政治的一条**——一旦平民也能抗魔，魔法阶层的垄断就破了；因此各国会有三种态度并存：禁止向非施法者出售（维护垄断）、由国家统一发放给出征部队（军事化）、以及暗中补贴民间使用（制衡教会与学院）。反过来，持有抗魔药本身可能被当作「图谋不轨」的旁证；而在猎巫语境里，抗魔药会被说成「魔鬼所赐的护符」，于是持有者反而更容易被定罪。",
+        "exceptions": "合理变体与反例：(1) 可设定它根本不存在，世上一切「抗魔」都是信仰、护符与自欺——这是最省事也最有戏的写法（Britannica 护符条目正好提供了「以物件与仪式获得庇护」这一可引的观念底座）；(2) 可设定它只抗某一类法术（附体、诅咒、幻术各算一类），于是「对症」成为一门专业；(3) 可设定它必须提前服下、无法应急，于是它改变的是准备而非战斗；(4) 可设定它的效力与服用者的信念挂钩，因此怀疑者无效——这让它在故事里天然偏向虔信者；(5) 可设定它使人「不被法术看见」而非「挡住法术」，于是它更接近隐身而非护甲。反例（不该写的）：喝了就法术免疫；顺手把刀剑与疾病也一起抗了；把它写成可以随时买到的补给。",
+        "story_uses": "一、**垄断被打破**：一味药让平民也能挡下贵族法师的一击，这就是一场社会变革的起点。二、**救不回来的人**：伤员喝了抗魔药，牧师治不了他——这一幕把药理与信仰同时逼到墙角。三、**赝品**：最贵的假货，因为它卖的是「安全感」，而买家无法验证。四、**刺客与使节**：国家配给的抗魔药，是外交场合最实在的一件行李。五、**反噬**：扰频型把法术弹回施术者，于是「谁先动手」变成一场博弈。六、**与主干条目接口**：魔法的代价、魔法管制与执照、法师学院三处在 western.json 中已有框架，本条只写药。",
+        "historical_scope": "**历史与民俗层（可引来源）**：本条**没有任何历史或民俗对应物**，必须明确写成纯原创设定。可引的只有两处相邻观念：(1) Britannica 护符条目记——护符被认为具有护身之力，其力可来自与自然力的关联、宗教联系，或来自在有利时辰以仪式方式制作；古埃及 MacGregor 纸草列 75 种护符。**这支持「以物获得庇护」这一观念的古老，但不支持任何抗魔药剂**；(2) Britannica 魔法条目记——魔法效力常被认为取决于施术者的状态与表演，其材料可分为确有生理作用、本身即毒物、以及只与结果有象征关系三类；本条属第三类。**须明说的来源缺口**：Britannica moly 与 invisibility 两条均返回 404，因此本文件不写「抗魔术草」的任何具体内容。**本项目设计归纳**：四条机制、门槛与剂量维度、副作用、供应四家、以及「抗魔药只能由施法者制造，因此反抗魔法的能力永远在魔法阶层手里」这一社会推论。**改编边界**：不要把抗魔写成法术免疫；不要让它顺带抗物理伤害；不要伪称历史上存在此类药剂。",
+        "evidence_and_uncertainty": "**来源支持**：Britannica amulet（以物与仪式获得庇护的观念）、Britannica magic（施术者状态决定效力、材料三分——本条属纯象征一类）、Britannica Circe（存在一味可阻断变形的草这一母题，**且该条目未描述其性状与用法，本文件亦不补写**）。**未取得**：moly 404、invisibility 404。**本项目设计归纳**：全部效力、机制、门槛、副作用、制度与社会后果。**不确定性**：本条是全组**唯一一条完全没有任何历史或民俗依据**的条目，属纯原创设定；其存在本身即是对世界魔法规则的一次立法，须由作者显式声明。"
+      },
+      "source_ids": [
+        "western_alc_src_britannica_amulet",
+        "western_alc_src_britannica_magic",
+        "western_alc_src_britannica_circe"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "western_alc_revivifying_elixir",
+      "name": "复生灵药（传说层）",
+      "aliases": [
+        "还魂饮",
+        "回生药",
+        "起死之剂"
+      ],
+      "summary": "候选设定：据说能把死人唤回的灵药。**本条限定在传说层**：在绝大多数设定里它并不存在、或只存在过一次、或每次成功都要在别处付出一笔不可逆的代价。它的功能不是给队伍一个复活按钮，而是让「死」这件事在世界里仍然有分量。",
+      "genres": [
+        "western_fantasy",
+        "dark_fantasy"
+      ],
+      "category": "item",
+      "tags": [
+        "kind:item",
+        "tradition:western",
+        "effect:resurrection",
+        "route:ingested",
+        "cost:equivalent_exchange",
+        "cost:irreversible_loss",
+        "cost:timing_window",
+        "cost:scarce_reagent",
+        "role:legend_tier",
+        "role:quest_object"
+      ],
+      "details": {
+        "definition": "复生灵药指被认为能使死者复起的制剂，属传说层。边界必须写死六条：其一，**它不默认成立**——在多数世界设定里它或不存在、或不可复制、或只在特定条件下一次有效；其二，它不保证回来的是「原来那个人」：身体可能改变、记忆可能残缺、性情可能偏移，已读来源对复活叙述的记述恰好强调「不是单纯复苏的尸体」；其三，它有时间窗（死后多久之内），超过即彻底无效；其四，它必有代价，且代价通常不可逆：寿命、另一条命、施术者的某部分、或一笔日后偿还的债；其五，它与「解石药」「万应解毒剂」严格分层，不可互相替代；其六，**它绝不能成为消耗品**——一旦可批量生产，死亡在这个世界里就失去意义，全部情节张力随之瓦解。",
+        "mechanism": "可并存的路线（同一世界只取一条，且必须写明该世界是否允许复活）：(1) **不等价交换路线**——以另一条命、一段寿命或一件不可替代之物换回，于是每一次复生都是一次道德抉择；(2) **未完成之事路线**——只有「有未了之责」的人回得来，因此复生本身成为一项判决：他还有账没结；(3) **时限路线**——只能在死后极短时间内施行，于是复生变成抢救而非逆转；(4) **仪式路线**——药只是媒介，真正起作用的是神意、契约或某个存在的许可；于是药可以被伪造，而仪式不能；(5) **伪复生路线**——所谓复生其实是让人以另一种状态回来（不腐、不饥、不眠），代价是永远不再是人；这条最适合黑暗奇幻。",
+        "conditions": "**材料从哪来**：传说层的取材逻辑天然指向「一次性、不可再生」之物——western-biology.json 所记的不死鸟（该文件明写它是**独一的、以世纪为周期的**存在，羽毛与灰烬才是可流通物，且每一件都可被追溯与伪造，甚至可作政治物证）、独角兽角材（该文件明写角材是**不可再生的一次性资源**，且流通的所谓角材多为犀角与独角鲸牙）、以及紫杉一类「砍一棵要等几个世代」的慢生木材。这些都是极好的「复生药材料」，因为它们本身就把「稀缺」写进了生态。**须诚实标注**：不死鸟条目本身明确指出它「不是可反复刷新的复活道具」，因此本文件**不把不死鸟写成可采集的复活原料**，只把它写成传说层的凭据来源。**同时必须标注**：本轮试图取得 theriac 与 panacea 两条均 404，故不引用万应药传统。**本文件只写来源与门槛，不写部位、配伍、剂量与炮制。** **制备门槛**：不可达——这正是它作为传说层的意义。若作者要让某人真的制成它，必须同时交代三件事：他凭什么（知识来源）、他付了什么（不可逆代价）、以及世界为什么允许这一次（规则例外）。**生效条件与剂量维度（只给维度）**：死后时间窗、身体完整程度、死因类别（是否适用于一切死法）、复生完整度、代价量级、以及「是否可重复」这一最关键的开关。**副作用与滥用**：回来的人与生前不完全相同（记忆、性情、身体）；施术者承受反噬（寿命、健康、或某种不可逆的失去）；世界层面的后果——若某一地复生变得可能，则该地的继承、婚约、债务与刑罚体系全部失效，因此**任何政权都必须对此立法**。**谁控制供应**：无人能稳定控制——它通常以「唯一的一份」形式出现，掌握者是教会（把持「谁配复生」的判断）、王室（把持典藏与独占）、或某个不愿交出的个人。**法律与道德处境**：**复生一旦成为可能，第一批被挑战的就是继承法与刑罚**：死而复活的人，其财产归谁？已改嫁的配偶算不算重婚？已执行的死刑算不算误杀？教会通常会把复生权牢牢握在手里，因为它同时是神学问题与财政问题；而民间对「回来的人」的态度往往不是欢迎，而是恐惧与排斥——**这一层比药理更值得写**。",
+        "exceptions": "合理变体与反例：(1) 可设定它根本不存在，全部「复生」都是骗局、误判死亡或他人代死——这是最有力的写法；(2) 可设定它存在但只对特定死因有效（溺、伤、中毒各算一类），于是「怎么死的」决定「能不能救」；(3) 可设定代价由请求者承担而非施术者，于是「求人复生」变成一场交易；(4) 可设定复生者带回了不该带回的东西（记忆、债、某个跟着回来的存在），这条最适合黑暗奇幻；(5) 可设定它只能一次，且世界因此记住这一次——复生成为历史事件而非机制。反例（不该写的）：复活药水随身携带；死了就喝一瓶；把复生写成无代价的情节修复术。",
+        "story_uses": "一、**代价的抉择**：以一条命换一条命，谁来决定换谁。二、**继承与法理**：回来的人站在自己坟前，而他的庄园已经易主——一场官司可以写满一卷。三、**回来的不是他**：性情与记忆的偏移，是最好用的恐怖与悲伤。四、**教会与王权**：谁能复生，谁就掌握了让人恐惧与信服的权力。五、**时间窗**：一场必须在多久之内完成的奔走，天然的情节引擎。六、**与主干条目接口**：不死鸟与角材在 western-biology.json 中已有（含「周期司」「角杯检定所」一类原创设定），本条只写药，用文字指向而不复制。",
+        "historical_scope": "**历史与民俗层（可引来源）**：Britannica 复活条目记——复活指神性或人性存在从死里起来且仍保有自身位格，身体可能改变也可能不变；肉身复活的信仰主要与基督教相联，亦见于后期犹太教与伊斯兰教，琐罗亚斯德教另有终末复活与最后审判；古代中东宗教思想为神性存在的复活提供背景，但对人个人复活的信仰当时尚未出现；希腊罗马思想有灵魂不朽而无肉身复活；基督教叙述强调复活后的耶稣**不是单纯复苏的尸体或鬼魂，而是实质性的转变**。Britannica 不朽条目记——各传统对来世形态设想差异极大，相信来世在历史上分布极广，但「分布广」不能证明其为真。Britannica 阿斯克勒庇俄斯条目记——宙斯因怕医神使所有人不死而以雷霆击杀他；**这一条是「使人不死必遭天罚」这一设定最直接的来源**。Britannica 瓦尔哈拉条目记战士每日食一头被宰后每晚又完复如初的野猪——**须明确标注：这是神话中的再生母题，不是可复制的药剂机制**。**本项目设计归纳**：五条机制、时间窗与代价维度、供应与制度、以及「继承法与刑罚首先被挑战」这一推论。**改编边界**：不要把复生写成可重复的技术；不要把宗教复活教义当作可操作的机制；不要让不死鸟成为可采集的复活原料（western-biology.json 已明确反对这一点）。",
+        "evidence_and_uncertainty": "**来源支持**：Britannica resurrection（复活的定义、各传统的分布、复活后身体「实质性转变」而非单纯复苏）、Britannica immortality（来世观念的多样性；分布广不等于为真）、Britannica Asclepius（使人不死即遭天罚——本条「必有代价」的母题依据）、Britannica Valhalla（再生母题，且明确不是药剂机制）。**未取得**：theriac／panacea 404，故不引用万应药传统。**本项目设计归纳**：全部机制、门槛、代价形态、制度与法理推论。**不确定性**：复生药剂在历史与民俗中**没有对应物**；已读来源记录的是宗教信仰与神话母题，不是可操作的机制。本条整体属设定层，且**默认不成立**，须由作者显式允许。"
+      },
+      "source_ids": [
+        "western_alc_src_britannica_resurrection",
+        "western_alc_src_britannica_immortality",
+        "western_alc_src_britannica_asclepius",
+        "western_alc_src_britannica_valhalla"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "western_alc_longevity_elixir",
+      "name": "长生灵药（传说层）",
+      "aliases": [
+        "延寿灵药",
+        "哲人石之酊",
+        "不老剂"
+      ],
+      "summary": "候选设定：据说能无限延寿的灵药，在西方炼金术传统里与「哲人石」及其酊剂相关。**本条限定在传说层并明确不默认成立**：延寿在多数设定里是「把老年的病痛一起延长」，而不是「停止变老」；真正的问题是——一个活得比所有人都久的人，社会该如何处置他。",
+      "genres": [
+        "western_fantasy",
+        "dark_fantasy"
+      ],
+      "category": "item",
+      "tags": [
+        "kind:item",
+        "tradition:western",
+        "effect:longevity",
+        "route:ingested",
+        "cost:irreversible_loss",
+        "cost:equivalent_exchange",
+        "cost:scarce_reagent",
+        "cost:long_brewing",
+        "role:legend_tier",
+        "role:quest_object"
+      ],
+      "details": {
+        "definition": "长生灵药指被认为可无限延寿或极大延长寿命的制剂，在炼金术传统里常与哲人石及其「酊剂」相联。边界必须写死六条：其一，**它不默认成立**——是否存在、是否可复制、是否只成功过一次，全部由作者显式规定；其二，**延寿不等于不老**：可设定为「不再变老」「老而不死」「死了再起来」三种完全不同的形态，三者的社会后果天差地别；其三，它不保证健康——活得久与活得好是两件事，而「老而不死」是最残酷的一种；其四，它必有代价，且代价往往是不可逆的（记忆、情感、感官、或与他人的关系）；其五，它不能是批量产品，否则世界的人口、继承与政权更替全部失效；其六，它与「复生灵药」分层：一个延长，一个唤回，绝不可互换。",
+        "mechanism": "可并存的路线：(1) **停止衰老路线**——身体状态被冻结在某一年，于是问题变成「冻结在哪一年」这件事本身（这是一次极其残酷的选择）；(2) **缓慢延寿路线**——衰老变慢但不停，于是活两百岁的人最后一百年都在病痛里；这一条最接近「有代价的长生」；(3) **周期性复壮路线**——每隔若干年需重新服用，于是服用的供应链成为命脉，而断供即崩；(4) **转化路线**——人不再是原来那种存在（不饥不眠、或半石半肉），于是「长生」的代价是「不再是人」；这条最适合黑暗奇幻；(5) **纯骗局路线**——所谓灵药只是毒药与安慰，服用者早死而名声不倒。",
+        "conditions": "**材料从哪来**：炼金术传统给出的材料逻辑是「越不可能存在越可信」——同一物既是金属转化的媒介，又是延寿的灵药，因此它必须极其稀有。可落地的呼应：矿物与晶体（属 western.json「魔法材料与稀有矿草」「采矿与冶炼」的范畴，且该文件已写明「矿藏存在不等于可采储量」，这条现实约束可直接移植为「灵药材料存在但取不到」）；草木侧取自 western-biology.json 所记的紫杉（极慢生、极长寿、含毒——**「长寿且有毒」是本条最贴切的取材**）与槲寄生（半寄生、四季常绿、被除治又被供奉，双面性极强）；动物侧取不死鸟（该文件明写其为独一、以世纪为周期的存在，羽毛与灰烬才是可流通物且可被伪造）。**这些都不是可采集的量产原料**，这正是本条的条件。**本文件只写来源与门槛，不写部位、配伍、剂量与炮制。** **制备门槛**：传统上以「年」计的工序与试错，加上足以支撑长年无成果的资本——因此追求它的从来不是穷人，而是国王、教会与大商人；而这些人的共同点是：他们最怕死，也最请得起骗子。**生效条件与剂量维度（只给维度）**：延寿幅度量级、是否停止衰老、单次有效年限、是否需要重复服用、代价类型与量级、以及「是否可停止」这一最人性的开关（能停的人才能选择死）。**副作用与滥用**：老而不死、病痛叠加；记忆饱和（活太久而记不住新事，只剩旧事）；情感钝化；与他人的关系必然断裂（所有同龄人都会死）；**社会后果更重**：继承永不发生，于是子嗣、贵族与政权都陷入僵局， assassination 取代继承成为唯一的更替方式。**谁控制供应**：**无一例外的极少数**——宫廷药师与王室宝库（把持真品与鉴定）、教会（把持「谁配长生」的神学判断，并通常反对，因为长生挑战了死后审判的秩序）、炼金术士与学院（把持工艺与秘密）、黑市（把持绝大多数假货）。**法律与道德处境**：**长生一旦可能，第一件被摧毁的就是继承制度**：一个活了两百年的领主，他的孙子已经是老人，而曾孙们永远等不到；这必然引出刺杀、分家、以及「法定死亡年龄」这类极有戏的制度发明。教会方面通常会把追求长生判为僭越（**阿斯克勒庇俄斯因使人不死而遭雷击，是这一判断最直接的母题依据**）；而王室的态度是双重的：公开谴责，私下资助。",
+        "exceptions": "合理变体与反例：(1) 可设定它根本不存在，全部追求者都死于试药，于是这条目变成一部「骗局与执念」的历史；(2) 可设定它只成功过一次，于是那唯一的一个活人成为世界的活化石与政治难题；(3) 可设定它只延长寿命不延长健康，于是「活得最久的人最想死」；(4) 可设定延寿的代价是记忆（每多活百年就忘掉一段人生），于是长生等于缓慢的自毁；(5) 可设定它只对将死之人有效（在死前服下则可续命若干年），于是它成为一门昂贵的临终生意。反例（不该写的）：喝了就永生无副作用；把它写成可以给全队都来一份的补给；把长生当作解决剧情问题的工具。",
+        "story_uses": "一、**继承的僵局**：一个不肯死的领主，与三代等不及的继承人，是一条完整政治线的起点。二、**唯一的那个人**：全世界只有一个长生者，他的证词能改写历史，而他有理由说谎。三、**断供**：周期性复壮型一旦断供就崩，于是控制供应链等于控制他。四、**代价的可见性**：一个记不住昨天的人，却记得三百年前的那场雨——这条细节比任何设定说明都有力。五、**教会与炼金术士**：一个说这是僭越，一个说这是对造物的完善，两派可以打完一本书。六、**与主干条目接口**：哲人石、炼金术与「魔法材料与稀有矿草」在 western.json 中已有专条（本文件不复写其框架），本条只写「以它延寿」这一用途的社会后果。",
+        "historical_scope": "**历史与民俗层（可引来源）**：Britannica 炼金术条目记——炼金术是思辨性思想形态，目标包括贱金属转金银与**寻找治病、延寿之法**；12 世纪拉丁欧洲以此词称与占星相对应的一支；证据在各文化中丰俭不均，希腊炼金术几乎只靠单一约八万字手稿，印度与伊斯兰炼金术从未被系统汇集，「炼金术究竟是什么」至今仍有争议。Britannica 哲人石条目记——哲人石是西方炼金术中所求的未知物质，别称「酊剂」「粉末」，被认为可将贱金属转为贵金属；炼金术士相信**可由它制出长生灵药**；因炼金术关涉灵魂之完善，哲人石被认为能治病、延寿并带来灵性振兴；其追寻自中世纪延续至 17 世纪末，积累了后来化学、冶金学与药理学的知识基础。Britannica 灵药（elixir）条目记——elixir 在炼金术中指能把贱金属变为金的物质，同一词更完整作 **_elixir vitae_（长生灵药）**，指可无限延寿之物，被认为与哲人石相关；并记中国道教徒既求「不死之药」，也发展冥想、呼吸与饮食等「内丹」之术。Britannica 不朽条目记——各传统对来世与不朽的设想差异极大，且「相信者众」不能证明其为真。**这些支持的是「炼金术士确实以延寿为目标、并确实相信有这种东西」这一历史事实**，而完全不支持任何灵药真的有效。**须明说的来源缺口**：theriac／panacea 404，故不引万应药；Met Museum 的炼金术专题页 404，故无图像与工艺的一手说明。**本项目设计归纳**：五条机制、剂量与代价维度、供应四家、以及「继承制度首先被摧毁」这一社会推论。**改编边界**：不要把本条写成可复制的技术；不要把「炼金术士相信」写成「客观有效」；不要用某部作品的专有药名。",
+        "evidence_and_uncertainty": "**来源支持**：Britannica alchemy（炼金术的目标包含治病与延寿；证据分布不均与定义争议）、Britannica philosopher's stone（哲人石及其「酊剂」；相信可由此制出长生灵药；追求史的时间跨度与知识外溢）、Britannica elixir（_elixir vitae_ 的明确定义与它和哲人石的关系；道教不死之药与内丹）、Britannica immortality（不朽观念的多样性；分布广不等于为真）、Britannica Asclepius（使人不死遭天罚的母题）。**本项目设计归纳**：全部机制、门槛、代价形态、供应与制度推论。**不确定性**：长生灵药在史料中是**被追求与被相信的对象**，而非已被证实的产物；本条一切效力均属虚构设定，且**默认不成立**。"
+      },
+      "source_ids": [
+        "western_alc_src_britannica_alchemy",
+        "western_alc_src_britannica_philosophers_stone",
+        "western_alc_src_britannica_elixir",
+        "western_alc_src_britannica_immortality",
+        "western_alc_src_britannica_asclepius"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "western_alc_strength_draught",
+      "name": "力量药",
+      "aliases": [
+        "举鼎饮",
+        "力士药",
+        "筋骨酒"
+      ],
+      "summary": "候选设定：短时间内大幅提高力气与耐受的制剂。它与「狂战药」的分工是：狂战改的是判断力，力量药只改力气——因此它更干净、更贵、也更适合被写进契约与比赛，而不是战场。",
+      "genres": [
+        "western_fantasy",
+        "dark_fantasy"
+      ],
+      "category": "item",
+      "tags": [
+        "kind:item",
+        "tradition:western",
+        "effect:strength",
+        "effect:endurance",
+        "route:ingested",
+        "cost:self_harm",
+        "cost:rapid_failure",
+        "cost:tolerance",
+        "cost:scarce_reagent",
+        "role:tool",
+        "role:contraband"
+      ],
+      "details": {
+        "definition": "力量药指短时间内提高肌肉力量、握力与耐力的制剂。边界四条：其一，**它不提高技术、不提高判断，也不保护关节与骨骼**——力气来自药，支撑力气的结构仍来自本人，因此过量使用者多毁在肌腱与后背；其二，它不提高速度与反应；其三，它有时限，且药效过去后的虚弱期往往与用力程度成正比；其四，它与「狂战药」严格区分：后者会改判断与敌我识别，前者不会，因此**在规则化的场合（比赛、搬运、建筑）人们只敢用它，不敢用狂战药**。",
+        "mechanism": "可并存的路线：(1) **透支路线**——把未来的力气提前支取，用完必须还，还的时候是几天起不来床；(2) **募集路线**——不增加总力，而是解除身体对自身力量的自我保护限制，因此代价是**撕裂与骨折**（这有现实类比：肌体对自身力量的限制是保护机制），这一条最值得写；(3) **转化路线**——把别的东西换成力气（脂肪、体温、寿命），于是服用者在冬天会格外难熬；(4) **契约路线**——力气来自某个存在的授予，守约则持续，违约即被收回并留下标记，于是它天然与信仰、誓言和纹章相联。",
+        "conditions": "**材料从哪来**：动物侧直接呼应 western-biology.json——鹿（角林、拾角权、鹿角年脱，**鹿角是每年可再生而需付出代价的「力」之象征**）、狼（家庭群、领域、悬赏与赔偿账）、以及马匹与耕畜（属庄园与军需）；草木侧取自该文件所记的橡树（长寿命、木质坚韧，并有「界树诉讼」与「伐桩萌蘖权」一类原创制度）、白蜡木（弹性木、材种专供——**「弹性」是本条最好的取材词**）、紫杉（坚韧宜弓、慢生）；矿物侧来自矿区。**这些物各有其主，且多数被军需优先征用**（western.json「材种专供」一类制度即可直接接上）。**本文件只写来源与门槛，不写部位、配伍、剂量与炮制。** **制备门槛**：中等——配方不难，难的是「量」与「人」：需要知道给什么体格的人用多少（而这在没有计量的世界里只能靠经验），也需要一个能判断「这个人还能不能再扛一次」的人；后一种判断通常由教头、军医或矿上的老工头掌握。**生效条件与剂量维度（只给维度）**：起效延迟量级、有效持续时长量级、单次相对量级、累计次数上限、体格与训练程度的适配、以及「是否与负重叠加」这一关键分档。**副作用与滥用**：肌腱与韧带伤、椎间盘损伤、心脏负担；虚脱期与服役安排冲突；耐受导致加量，加量导致伤；长期使用者体型走形并提前失去劳动能力——**这一条最该写，因为它是真实世界里所有「以身体换钱」的职业的共同结局**。**谁控制供应**：军队与竞技（把持最常见的使用场景）、矿主与工头（把持劳工用的那一档，质量最差，量最大）、行会（把持「正规」的那一档，并因此把持准入）、黑市（把持无照与过量）。**法律与道德处境**：在体育与比武中，用它通常等同于作弊，因而有一套查验与处罚制度（查验手段可以是验尿、验汗、验脉，都极不精确，因此冤案极多）；在劳动中，**雇主鼓励使用它属重大过失**，因为它把工伤责任从设备转移到工人身体；在军中，它被视为装备的一部分，因而士兵没有拒绝权——**「士兵能不能拒绝喝」这个问题，是本条最锋利的一处**。",
+        "exceptions": "合理变体与反例：(1) 可设定它只提高握力与举力而不提高耐力，于是它在建筑与搬运上极有用，在战斗中几乎无用；(2) 可设定它对受过训练的人效果显著、对普通人几乎无效——于是它成为身份标志；(3) 可设定它只能一次，第二次会撕裂旧伤，于是老兵身上都留着一笔账；(4) 可设定它的效力可被感知（发热、耳鸣、视野变窄），于是「谁喝了」在场上瞒不住；(5) 可设定它其实是安慰剂加上痛觉抑制，于是所谓「力士」只是更敢用力的人。反例（不该写的）：喝了就变强而无结构代价；把它写成战斗中随意的增益；让它在比赛里无需查验与争议。",
+        "story_uses": "一、**比武与作弊**：查验手段粗糙，冤案与包庇并行，一场比赛可以写成一场审判。二、**劳工**：矿上按量计酬，工人自己买药，伤了就换人——这条线不需要任何魔法就有力。三、**军中拒绝权**：士兵能不能拒绝喝，是一个真正的伦理问题。四、**建筑与工程**：把巨石搬上去的那一夜，靠的是药而不是技术，而这件事会被记进编年史。五、**老兵的代价**：一个曾经能举起城门的人，五十岁时连碗都端不稳。六、**与主干条目接口**：材种专供、军需与行会准入在 western.json 中已有框架，本条只写药。",
+        "historical_scope": "**历史与民俗层（可引来源）**：本条没有直接对应的历史条目。可引的相邻层有三处：(1) Britannica 魔法条目记——被归入法术的材料中，一部分确有生理作用（罂粟作麻醉、柳皮止痛、中世纪欧洲以大蒜与洋葱作抗菌），另一部分本身即毒，还有一部分只靠象征；本条属设定层；(2) Britannica 毒物条目记——剂量决定性质，足量时任何物质都有毒，且形态与吸收途径影响后果；这为「加量导致自伤」提供了原理性参照；(3) Britannica 狂战士条目记——诺斯材料中的凶暴战士是被制度化的战争角色，其装束与行为有史料两说——这提示：**「以某种外部手段使人变强」这一想象在史料中存在，但已读来源并未记载任何具体药物**。**本项目设计归纳**：四条机制、门槛与剂量维度、副作用、供应四家、以及比赛查验与劳动责任这两处制度设计。**改编边界**：不要把力量药写成无代价的增益；不要忽略肌腱、骨骼与心脏；不要把它和狂战药混为一谈。",
+        "evidence_and_uncertainty": "**来源支持**：Britannica magic（材料三分与效力框架）、Britannica poison（剂量决定性质、吸收途径影响后果——支撑「加量与自伤」的原理层）、Britannica berserker（外部手段使人变强的想象有史料相邻物，但无具体药物记载）。**本项目设计归纳**：全部机制、门槛、副作用、制度与伦理设定。**不确定性**：本条效力层面为纯原创设定；已读来源中没有任何关于「增强力气的药剂」的记载，因此不作历史断言。"
+      },
+      "source_ids": [
+        "western_alc_src_britannica_magic",
+        "western_alc_src_britannica_poison",
+        "western_alc_src_britannica_berserker"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    }
+  ]
+}

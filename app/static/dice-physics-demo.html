@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>织梦 · 多面骰物理沙盘（测试）</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="atelier.css">
+  <script defer src="dice.js"></script>
+  <script defer src="dice-physics-demo.js"></script>
+</head>
+<body>
+  <main class="dice-lab">
+    <header>
+      <h1>多面骰物理沙盘</h1>
+      <p class="dice-lab-warning" role="note"><strong>仅供测试：</strong>这里的自由投掷不写存档、不决定剧情。游戏里的判定只以服务端结果为准。</p>
+    </header>
+    <div class="dice-lab-controls" role="toolbar" aria-label="沙盘控制">
+      <div class="dice-lab-kinds" role="radiogroup" aria-label="骰型">
+        <label><input type="radio" name="kind" value="6"> d6</label>
+        <label><input type="radio" name="kind" value="8"> d8</label>
+        <label><input type="radio" name="kind" value="12"> d12</label>
+        <label><input type="radio" name="kind" value="20" checked> d20</label>
+      </div>
+      <button type="button" id="lab-throw" title="采样新的姿态与运动参数后投掷">投一次</button>
+      <label><input type="checkbox" id="lab-fixed" title="同一骰型及Seed重复相同初始参数"> 固定复现</label>
+      <label>Seed <input type="number" id="lab-seed" value="1729" required min="0" max="4294967295" step="1" aria-label="固定投掷种子" title="默认投掷后显示本次Seed；勾选固定复现可再次使用" style="width:8em"></label>
+      <button type="button" id="lab-pause" aria-pressed="false">暂停</button>
+      <button type="button" id="lab-reset" title="回到初始静止位置；保留骰型、复现模式与Seed">重置</button>
+      <label class="dice-lab-static"><input type="checkbox" id="lab-static"> 静态查看（不播放运动，只看静止骰子）</label>
+    </div>
+    <div class="dice-lab-stage">
+      <canvas id="lab-canvas" aria-label="骰子桌面：按住骰子拖动后松开即可投出" role="img"></canvas>
+    </div>
+    <p id="lab-readout" class="dice-lab-readout" role="status" aria-live="polite">无围墙地面：拖动投出，停稳后保留结果。</p>
+    <p class="dice-lab-note muted">近似刚体：无围墙地面，保留重力、摩擦和角阻尼；相机跟随骰子，停稳后保留结果。只有一颗骰子，没有骰子之间的碰撞；倾斜太大时显示“卡边/未定”，可重投。</p>
+  </main>
+</body>
+</html>

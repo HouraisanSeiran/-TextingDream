@@ -21,7 +21,7 @@ from fastapi.testclient import TestClient
 from app import world_history_store as whs
 from app.service import Service
 from app.storage import Store
-from app.web import create_app
+from tests.fixtures_world import world_app as create_app
 
 from tests.test_civ_atlas_history import civ_block
 

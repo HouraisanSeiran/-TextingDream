@@ -228,6 +228,8 @@ def make_service(story=None, characters=None):
     (chars / 'xuanlu_初始角色包.json').write_text(
         json.dumps(characters, ensure_ascii=False, indent=2), encoding='utf-8')
     svc = Service(Store(root / 'demo.sqlite3'), root)
+    from tests.fixtures_world import adopt_world
+    adopt_world(svc.runtime, story, characters)
     svc.provider.configure({'offline': True})
     return tmp, svc
 

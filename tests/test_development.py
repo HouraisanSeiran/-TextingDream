@@ -5,16 +5,17 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch
 from fastapi.testclient import TestClient
+from tests.fixtures_world import world_service
 from app.service import Service
 from app.storage import Store
 from app.contracts import Turn, DevelopmentRequest
-from app.web import create_app
+from tests.fixtures_world import world_app as create_app
 
 ROOT=Path(__file__).resolve().parents[1]
 
 class DevelopmentTests(unittest.TestCase):
     def setUp(self):
-        self.tmp=tempfile.TemporaryDirectory();self.svc=Service(Store(Path(self.tmp.name)/'t.sqlite3'),ROOT)
+        self.tmp=tempfile.TemporaryDirectory();self.svc=world_service(Store(Path(self.tmp.name)/'t.sqlite3'),ROOT)
         self.svc.provider.configure({'base_url':'https://api.deepseek.com','model':'deepseek-v4-pro','offline':True,'max_tokens':8000})
         self.rt=self.svc.runtime;self.s=self.rt.new_session('成长测试','protagonist')
         asyncio.run(self.svc.turn(self.s['id'],Turn(message='带上万言机',action_id='pack')))

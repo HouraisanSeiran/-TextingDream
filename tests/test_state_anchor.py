@@ -1,6 +1,7 @@
 import tempfile
 import unittest
 from pathlib import Path
+from tests.fixtures_world import world_service
 from app.service import Service
 from app.storage import Store
 
@@ -10,7 +11,7 @@ ROOT = Path(__file__).resolve().parents[1]
 class StateAnchorTests(unittest.TestCase):
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory()
-        self.svc = Service(Store(Path(self.tmp.name) / 'test.sqlite3'), ROOT)
+        self.svc = world_service(Store(Path(self.tmp.name) / 'test.sqlite3'), ROOT)
         self.rt = self.svc.runtime
         self.s = self.rt.new_session('时空边界', 'protagonist')
 

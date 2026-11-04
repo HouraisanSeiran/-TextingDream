@@ -15,6 +15,91 @@
   let startConfig = { configured: false, profiles: [] };
   let pendingIntent = '';
   let pending = null;
+  let confirmRequest = 0;
+  let lastCheck = null;
+  let lastCheckSession = null;
+  // Set only while a confirmed action that carries a v2 check is in flight, so a
+  // new roll that happens to equal the previous one still animates once.
+  let expectCheck = false;
+  let actionBusy = false;
+  let sessionEpoch = 0;
+  let checkOverlay = null;
+  let overlayFocus = null;
+  let overlayResize = null;
+
+  function positionCheckOverlay() {
+    if (!checkOverlay || !checkOverlay.open) return;
+    const anchor = byId('story-text') || byId('play-left');
+    if (!anchor) return;
+    const scroller = byId('surface') || anchor;
+    const rect = scroller.getBoundingClientRect();
+    const width = Math.min(380, Math.max(240, rect.width - 24), innerWidth - 24);
+    const left = Math.max(12, Math.min(rect.left + rect.width / 2 - width / 2, innerWidth - width - 12));
+    const composer = byId('chat-form');
+    const inputTop = composer && !composer.hidden ? composer.getBoundingClientRect().top : innerHeight;
+    const desiredTop = Math.max(12, rect.top + 12);
+    const top = Math.min(desiredTop, Math.max(12, innerHeight - 220));
+    checkOverlay.style.width = width + 'px';
+    checkOverlay.style.left = left + 'px';
+    checkOverlay.style.top = top + 'px';
+    checkOverlay.style.maxHeight = Math.max(160, Math.min(innerHeight - top - 12,
+      inputTop > top + 160 ? inputTop - top - 8 : innerHeight - top - 100)) + 'px';
+    checkOverlay.dataset.anchor = 'surface';
+  }
+
+  function closeCheckOverlay() {
+    if (!checkOverlay) return;
+    const host = checkOverlay.querySelector('.dice-overlay-result');
+    if (host && window.TDDice) window.TDDice.stop(host);
+    if (checkOverlay.open) checkOverlay.close();
+  }
+
+  function showCheckOverlay(check) {
+    // Never cover an unsubmitted author/player confirmation dialog.
+    if (document.querySelector('dialog[open]:not(#demo-dice-overlay)')) return;
+    if (!checkOverlay) {
+      checkOverlay = el('dialog', undefined, 'dice-overlay');
+      checkOverlay.id = 'demo-dice-overlay';
+      checkOverlay.setAttribute('aria-labelledby', 'demo-dice-overlay-title');
+      const head = el('div', undefined, 'dice-overlay-head');
+      const title = el('strong', '判定结果');
+      title.id = 'demo-dice-overlay-title';
+      const close = el('button', '×', 'dice-overlay-close');
+      close.type = 'button'; close.title = '关闭判定结果';
+      close.setAttribute('aria-label', '关闭判定结果');
+      close.addEventListener('click', closeCheckOverlay);
+      head.append(title, close);
+      checkOverlay.append(head, el('div', undefined, 'dice-overlay-result'));
+      checkOverlay.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') { event.preventDefault(); closeCheckOverlay(); }
+      });
+      checkOverlay.addEventListener('close', () => {
+        if (checkOverlay.open) return;
+        window.TDDice.stop(checkOverlay.querySelector('.dice-overlay-result'));
+        if (overlayFocus && overlayFocus.isConnected) overlayFocus.focus({ preventScroll: true });
+      });
+      document.body.append(checkOverlay);
+      const anchor = byId('surface') || byId('play-left');
+      if (anchor && window.ResizeObserver) {
+        overlayResize = new ResizeObserver(positionCheckOverlay);
+        overlayResize.observe(anchor);
+      }
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && checkOverlay.open && !document.querySelector('dialog:modal')) {
+          event.preventDefault(); closeCheckOverlay();
+        }
+      });
+      window.addEventListener('resize', positionCheckOverlay);
+      window.addEventListener('scroll', positionCheckOverlay, true);
+    }
+    if (!checkOverlay.open) {
+      overlayFocus = document.activeElement;
+      checkOverlay.show();
+    }
+    positionCheckOverlay();
+    window.TDDice.roll(checkOverlay.querySelector('.dice-overlay-result'), check, { mode: 'spin' });
+    checkOverlay.querySelector('button').focus({ preventScroll: true });
+  }
 
   function el(tag, text, cls) {
     const node = document.createElement(tag);
@@ -86,7 +171,8 @@
       '<div class="toolbar"><button type="button" id="demo-confirm-cancel">再想想</button>' +
       '<button type="button" id="demo-confirm-run" class="primary">确认执行</button></div></form>';
     document.body.append(dialog);
-    byId('demo-confirm-cancel').onclick = () => { dialog.close(); pending = null; };
+    byId('demo-confirm-cancel').onclick = () => { dialog.close(); pending = null; confirmRequest += 1; };
+    dialog.addEventListener('cancel', () => { pending = null; confirmRequest += 1; });
     byId('demo-confirm-run').onclick = () => runPending(dialog);
     return dialog;
   }
@@ -100,31 +186,67 @@
     if (action.risk_notice) lines.push('可能的后果：' + action.risk_notice);
     lines.push(action.costs && action.costs.length ? '成本：' + costText(action.costs) : '成本：不花资源');
     if (action.duration_hours) lines.push('时长：' + action.duration_hours + ' 小时');
-    if (action.check && action.check.attribute) {
+    if (action.check && action.check.attribute && !action.check.v2) {
       lines.push('检定：' + action.check.attribute + ' · 难度 ' + action.check.difficulty);
     }
     if (action.ends_event) lines.push('这一步会结束当前事件');
     return lines;
   }
 
-  function openConfirm(action) {
-    const dialog = ensureConfirmDialog();
+  function drawConfirm(action) {
     const body = byId('demo-confirm-body');
     body.replaceChildren(el('p', action.label, 'confirm-title'));
     detailLines(action).forEach((line) => body.append(el('p', line, 'confirm-line')));
+    const v2 = action.check && action.check.v2;
+    byId('demo-confirm').classList.toggle('has-check-v2', Boolean(v2));
+    if (v2 && window.TDDice) {
+      window.TDDice.preview(body, v2, { push: action.selectedPush, onPush: refreshPush });
+    }
     const run = byId('demo-confirm-run');
     if (!action.confirm) {
       body.append(el('p', '没有拿到确认凭据，请重新获取候选（可能状态已经变了）。', 'muted'));
       run.disabled = true;
     } else {
-      run.disabled = false;
+      run.disabled = Boolean(v2 && (v2.refused || v2.blocked));
     }
+  }
+
+  function openConfirm(action) {
+    const dialog = ensureConfirmDialog();
+    confirmRequest += 1;
     pending = action;
-    dialog.showModal();
+    drawConfirm(action);
+    if (!dialog.open) dialog.showModal();
+  }
+
+  async function refreshPush(push) {
+    if (!pending || !current) return;
+    const request = ++confirmRequest;
+    const sessionId = current.id;
+    const action = pending;
+    byId('demo-confirm-run').disabled = true;
+    const body = byId('demo-confirm-body');
+    let status = body.querySelector('.check-refresh-status');
+    if (!status) { status = el('p', '', 'check-refresh-status muted'); status.setAttribute('role', 'status'); body.append(status); }
+    status.textContent = '正在更新加码与确认凭据…';
+    try {
+      const next = await api('/sessions/' + encodeURIComponent(sessionId) + '/confirm/'
+        + encodeURIComponent(action.action_id || action.id) + (push ? '?push=' + encodeURIComponent(push) : ''));
+      if (request !== confirmRequest || pending !== action || !current || current.id !== sessionId) return;
+      pending = Object.assign({}, next, { selectedPush: push || null });
+      drawConfirm(pending);
+    } catch (error) {
+      if (request !== confirmRequest || pending !== action) return;
+      // The old token cannot be used with the newly selected push.
+      status.textContent = '加码确认未更新：' + error.message + '。请重新选择加码或重新打开动作。';
+    }
   }
 
   async function runPending(dialog) {
-    if (!pending || typeof current === 'undefined' || !current) return;
+    if (!pending || typeof current === 'undefined' || !current || actionBusy || byId('demo-confirm-run').disabled) return;
+    const v2 = pending.check && pending.check.v2;
+    if (v2 && (v2.refused || v2.blocked)) return;
+    confirmRequest += 1;
     const action = pending;
     dialog.close();
     if (action.kind === 'move') {
@@ -136,13 +258,20 @@
     const message = pendingIntent || action.label;
     pending = null;
     pendingIntent = '';
+    const sessionId = current.id;
+    const epoch = sessionEpoch;
+    actionBusy = true;
     try {
-      current = await api('/sessions/' + current.id + '/chat', 'POST', {
+      const response = await api('/sessions/' + sessionId + '/chat', 'POST', {
         message,
         action_id: action.action_id,
         channel: 'action',
         confirm: action.confirm || undefined,
+        ...(action.check && action.check.v2 ? { push: action.selectedPush || null } : {}),
       });
+      if (sessionEpoch !== epoch || !current || current.id !== sessionId) return;
+      expectCheck = Boolean(action.check && action.check.v2);
+      current = response;
       const intent = byId('demo-intent-text');
       if (intent) intent.value = '';
       // 无事件时服务端不会产生模型正文。这里只展示**服务端已确认**的结果：
@@ -150,7 +279,10 @@
       showLocalResult(current && current.local_result);
       render();
     } catch (error) {
-      say(error.message);
+      expectCheck = false;
+      if (sessionEpoch === epoch) say(error.message);
+    } finally {
+      if (sessionEpoch === epoch) actionBusy = false;
     }
   }
 
@@ -170,6 +302,7 @@
   // 展示目的地与时长，避免不确认就直接跳走。不传任何客户端计算的时长。
   function openMoveConfirm(row) {
     const dialog = ensureConfirmDialog();
+    dialog.classList.remove('has-check-v2');
     const body = byId('demo-confirm-body');
     body.replaceChildren(el('p', '前往 ' + (row.target && row.target.name
       ? row.target.name : row.label), 'confirm-title'));
@@ -212,7 +345,7 @@
   async function confirmAction(actionId) {
     if (!current) return;
     try {
-      openConfirm(await api('/sessions/' + current.id + '/confirm/' + actionId));
+      openConfirm(await api('/sessions/' + current.id + '/confirm/' + encodeURIComponent(actionId)));
     } catch (error) {
       say(error.message);
     }
@@ -248,7 +381,7 @@
   function drawAdventure(box, known) {
     const rows = adventureRows().filter((row) => !known.has(row.action_id));
     if (!rows.length) return 0;
-    box.append(el('p', '就地能做的事（已做过的不会重复出现；缺执行器的不会列出）', 'muted'));
+    box.append(el('p', '就地能做的事', 'actions-label'));
     rows.forEach((row) => {
       const button = el('button');
       button.type = 'button';
@@ -287,27 +420,30 @@
       shown.add(action.id);
     });
     const extra = drawAdventure(box, shown);
-    if (!actions.length && !extra) {
-      box.append(el('p', '此刻没有引擎能替你执行的动作。可以直接说话，或描述你想做什么。', 'muted'));
-    }
+    // 没有可执行动作时不占正文位置：输入栏的提示已经说明可以直接说话。
+    box.hidden = !actions.length && !extra;
   }
 
   // ------------------------------------------------------- 自由意图 -> 有界候选
+  // 输入栏上方的浮层（#composer-pop），由工具按钮 #tool-intent 开关。
   function ensureIntentBox() {
     let box = byId('demo-intent');
     if (box) return box;
-    const form = byId('chat-form');
-    if (!form || !form.parentNode) return null;
-    box = el('div', undefined, 'demo-intent');
+    const host = byId('composer-pop');
+    if (!host) return null;
+    box = el('div', undefined, 'demo-intent pop-card');
     box.id = 'demo-intent';
-    box.innerHTML = '<label class="muted">想做但上面没列出的事：引擎只会从已声明的动作里挑候选，不会因为一句话就改状态。</label>' +
-      '<div class="intent-row"><input id="demo-intent-text" maxlength="500" placeholder="例如：我想把沙袋压上闸板">' +
-      '<button type="button" id="demo-intent-run">看看能做什么</button></div><div id="demo-intent-result"></div>';
-    form.parentNode.insertBefore(box, form);
+    box.hidden = true;
+    box.innerHTML = '<div class="pop-head"><strong>想做别的事</strong><span class="muted">引擎只会从已声明的动作里挑候选，一句话不会直接改状态。</span>' +
+      '<button type="button" class="pop-close" data-pop-close aria-label="关闭">×</button></div>' +
+      '<div class="pop-row"><input id="demo-intent-text" maxlength="500" placeholder="例如：我想把沙袋压上闸板" aria-label="想做的事">' +
+      '<button type="button" id="demo-intent-run" class="primary">看看能做什么</button></div><div id="demo-intent-result" class="intent-result"></div>';
+    host.append(box);
     byId('demo-intent-run').onclick = () => askIntent();
     byId('demo-intent-text').addEventListener('keydown', (event) => {
       if (event.key === 'Enter' && !event.shiftKey) { event.preventDefault(); askIntent(); }
     });
+    box.addEventListener('td-pop-open', () => byId('demo-intent-text').focus());
     return box;
   }
 
@@ -337,20 +473,21 @@
   }
 
   // -------------------------------------------------- 起点回执 / 预警 / 结局
-  function panel(id, cls) {
+  // 开局、场景卡、预警进右侧信息栏（#info-scene）；结局与判定结果紧跟正文（#story-after）。
+  function panel(id, cls, where) {
     let node = byId(id);
     if (node) return node;
-    const anchor = byId('story-text');
-    if (!anchor || !anchor.parentNode) return null;
+    const host = byId(where === 'story' ? 'story-after' : 'info-scene');
+    if (!host) return null;
     node = el('div', undefined, cls);
     node.id = id;
-    anchor.parentNode.insertBefore(node, anchor);
+    host.append(node);
     return node;
   }
 
   function drawDemoPanels() {
     const surface = current;
-    if (!surface) return;
+    if (!surface) { closeCheckOverlay(); return; }
     if (byId('close-event')) byId('close-event').hidden = Boolean(surface.short_scene);
     const scene = panel('short-scene', 'demo-card');
     if (scene) {
@@ -380,6 +517,7 @@
         }
       }
     }
+    if (window.TDDice) drawChecks(surface);
     const opening = panel('demo-opening', 'demo-card');
     if (opening) {
       opening.replaceChildren();
@@ -410,13 +548,53 @@
       }
     }
 
-    const ending = panel('demo-ending', 'demo-card demo-ending');
+    const ending = panel('demo-ending', 'demo-card demo-ending', 'story');
     if (ending) {
       ending.replaceChildren();
       if (surface.ending) {
         ending.hidden = false;
         ending.append(el('strong', '阶段结局 · ' + (surface.ending.title || surface.ending.id)));
         ending.append(el('p', surface.ending.summary || ''));
+        const recap = el('details', undefined, 'journey-recap');
+        recap.append(el('summary', '回顾'));
+        const body = el('div');
+        recap.append(body);
+        let loaded = false;
+        recap.addEventListener('toggle', async () => {
+          if (!recap.open || loaded) return;
+          loaded = true;
+          body.textContent = '正在读取…';
+          try {
+            const data = await api('/sessions/' + surface.id + '/recap');
+            body.replaceChildren(el('h3', '关键选择'));
+            const list = el('ol');
+            data.timeline.forEach((row) => {
+              const range = row.time_range || {};
+              const time = row.time == null ? range.from + '–' + range.to : row.time;
+              const check = row.check ? ' · ' + row.check.attribute + ' · '
+                + (row.check.success ? '成功' : '失败') : '';
+              list.append(el('li', row.label + '（游戏时刻 ' + time + '）' + check));
+            });
+            body.append(list, el('h3', '谁记住了你'));
+            if (!data.remembered.length) body.append(el('p', '暂无已知记录', 'muted'));
+            data.remembered.forEach((row) => body.append(el('p', row.name + '：' + row.text)));
+            body.append(el('h3', '开局 → 现在'));
+            const before = data.holdings.opening;
+            const now = data.holdings.now;
+            ['wallet', 'resources'].forEach((key) => {
+              const previous = new Map(before[key].map((row) => [row.id, row.amount]));
+              now[key].forEach((row) => body.append(el('p', row.name + '：'
+                + (previous.get(row.id) || 0) + ' → ' + row.amount + (row.unit || ''))));
+            });
+            new Set([...Object.keys(before.items), ...Object.keys(now.items)]).forEach((name) =>
+              body.append(el('p', name + '：' + (before.items[name] || 0) + ' → ' + (now.items[name] || 0))));
+            body.append(el('p', '还有 ' + data.unseen_endings + ' 种结局未见', 'muted'));
+          } catch (error) {
+            loaded = false;
+            body.textContent = error.message;
+          }
+        });
+        ending.append(recap);
         ending.append(el('p', surface.ending.kind === 'lost'
           ? '这一段没有保住，但存档继续：还可以走动、说话、接着收拾。'
           : '这一段已经定下，不会被后面的叙述改写。', 'muted'));
@@ -426,15 +604,84 @@
     }
   }
 
+  function drawChecks(surface) {
+    const scene = byId('short-scene');
+    let clockHost = byId('demo-clocks');
+    if (surface.clocks && surface.clocks.length) {
+      if (!clockHost) { clockHost = el('div'); clockHost.id = 'demo-clocks'; }
+      // Reattach after the scene card is redrawn; older packages get no new UI.
+      if (scene) {
+        if (!surface.short_scene) scene.append(el('strong', surface.location || '当前场景'));
+        scene.hidden = false;
+        scene.append(clockHost);
+      } else {
+        const anchor = byId('info-scene');
+        if (anchor) anchor.append(clockHost);
+      }
+      clockHost.hidden = false;
+      window.TDDice.clocks(clockHost, surface.clocks);
+    } else if (clockHost) clockHost.remove();
+    const check = surface.last_check || surface.check_public
+      || (surface.result && (surface.result.last_check || surface.result.check_public));
+    let host = byId('demo-last-check');
+    const fresh = surface.id !== lastCheckSession;
+    if (fresh) closeCheckOverlay();
+    lastCheckSession = surface.id;
+    if (!check) {
+      if (host) host.remove();
+      lastCheck = null;
+      expectCheck = false;
+      return;
+    }
+    if (!host) host = panel('demo-last-check', 'check-result', 'story');
+    if (!host) return;
+    // A reload/session switch only shows the stored result statically. The
+    // request-local flag is set after a successful confirmed check response;
+    // changed fingerprints alone never reopen the floating view.
+    const key = JSON.stringify(check);
+    const animate = !fresh && expectCheck;
+    expectCheck = false;
+    if (animate || fresh || key !== lastCheck || !host.firstChild) {
+      lastCheck = key;
+      window.TDDice.roll(host, check, { animate: false });
+      if (animate) showCheckOverlay(check);
+    }
+  }
+
   // --------------------------------------------------------------- 装到已有界面上
   function install() {
     if (!byId('new-form') || !byId('actions')) return;
     ensureConfirmDialog();
     ensureIntentBox();
+    const inner = byId('inner');
+    if (inner && !byId('unmatched-intents')) {
+      const log = el('details', undefined, 'unmatched-intents');
+      log.id = 'unmatched-intents';
+      log.append(el('summary', '未匹配意图'));
+      const rows = el('div');
+      log.append(rows);
+      log.addEventListener('toggle', async () => {
+        if (!log.open) return;
+        rows.textContent = '正在读取…';
+        try {
+          const data = await api('/inner/unmatched-intents?limit=100');
+          rows.replaceChildren();
+          if (!data.items.length) rows.append(el('p', '暂无记录', 'muted'));
+          data.items.forEach((row) => {
+            const item = el('div', undefined, 'unmatched-intent-row');
+            item.append(el('p', row.text), el('small', row.package_id + ' · ' + row.revision
+              + ' · ' + row.location_id + (row.event_id ? ' / ' + row.event_id : '') + ' · ' + row.created));
+            rows.append(item);
+          });
+        } catch (error) { rows.textContent = error.message; }
+      });
+      inner.prepend(log);
+    }
 
     const form = byId('new-form');
     form.onsubmit = (event) => {
       event.preventDefault();
+      sessionEpoch += 1; actionBusy = false; expectCheck = false; closeCheckOverlay();
       (async () => {
         try {
           const body = { title: byId('session-title').value, mode: byId('session-mode').value };
@@ -449,6 +696,20 @@
       })();
     };
 
+    const originalLoadSession = loadSession;
+    loadSession = async function () {
+      sessionEpoch += 1;
+      actionBusy = false;
+      expectCheck = false;
+      closeCheckOverlay();
+      return originalLoadSession.apply(this, arguments);
+    };
+    window.loadSession = loadSession;
+    const originalAuthorMode = window.TDEnterAuthorMode;
+    if (originalAuthorMode) window.TDEnterAuthorMode = function () {
+      sessionEpoch += 1; actionBusy = false; expectCheck = false; closeCheckOverlay();
+      return originalAuthorMode.apply(this, arguments);
+    };
     const originalRender = render;
     render = function () {
       originalRender.apply(this, arguments);

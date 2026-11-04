@@ -7,6 +7,7 @@ from unittest.mock import patch
 import httpx
 from app.storage import Store
 from app.provider import Provider
+from tests.fixtures_world import world_service
 from app.service import Service
 from app.contracts import DraftRequest
 from app.recall import Recall
@@ -72,7 +73,7 @@ class WorkerRecallTests(unittest.TestCase):
         self.assertEqual(provider._active,0)
 
     def test_failed_batch_preserves_sibling_and_surface_can_overlap(self):
-        svc=Service(self.store,ROOT)
+        svc=world_service(self.store,ROOT)
         svc.provider.configure({'offline':False})
         active=0;peak=0
         async def complete(system,context,**kwargs):
@@ -90,7 +91,7 @@ class WorkerRecallTests(unittest.TestCase):
         self.assertEqual(len(self.store.all('draft')),1)
 
     def test_npc_cannot_retrieve_player_private_chat(self):
-        svc=Service(self.store,ROOT)
+        svc=world_service(self.store,ROOT)
         s=svc.runtime.new_session('隔离测试','protagonist')
         s['active']['turns']=[{'input':'第一次做炒肉白粥','reply':'秘密配方桂花'}]*20
         prefs=svc.preferences()

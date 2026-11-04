@@ -15,6 +15,9 @@ class Turn(Strict):
     # must match the action, costs and state version exactly; when absent the legacy
     # direct-button behaviour is unchanged.
     confirm: str | None = Field(default=None, min_length=8, max_length=64)
+    # v2 checks only: at most one push option per check. Its cost is charged together
+    # with the action cost before the die is rolled, and it is part of the confirm token.
+    push: str | None = Field(default=None, min_length=1, max_length=60)
 
 
 class IntentRequest(Strict):
@@ -42,6 +45,7 @@ class Element(Strict):
 
 class ApiSettings(Strict):
     base_url: str = 'https://api.deepseek.com'
+    protocol: Literal['openai', 'anthropic'] = 'openai'
     model: str = Field(default='deepseek-flash', min_length=1, max_length=120)
     dialogue_model: str = Field(default='', max_length=120)
     author_model: str = Field(default='', max_length=120)
@@ -54,6 +58,13 @@ class ApiSettings(Strict):
     clear_key: bool = False
     offline: bool = True
     max_tokens: int = Field(default=8192, ge=200, le=65536)
+
+
+class ConnectionSettings(Strict):
+    base_url: str
+    api_key: str = Field(default='', max_length=600)
+    protocol: Literal['openai', 'anthropic'] = 'openai'
+    model: str | None = Field(default=None, min_length=1, max_length=120)
 
 
 class BatchDraftRequest(Strict):

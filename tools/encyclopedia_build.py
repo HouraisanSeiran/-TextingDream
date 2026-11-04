@@ -9,6 +9,8 @@
     D:\\anaconda\\python.exe -X utf8 -m tools.encyclopedia_build --out temp/db.sqlite3
     D:\\anaconda\\python.exe -X utf8 -m tools.encyclopedia_build --with-traits --with-cuisine
     python -m tools.encyclopedia_build --with-traits --with-cuisine --with-culture --with-attributes
+    D:\\anaconda\\python.exe -X utf8 -m tools.encyclopedia_build --with-fantasy-biology
+    D:\\anaconda\\python.exe -X utf8 -m tools.encyclopedia_build --with-alchemy
 
 约定：
 
@@ -27,6 +29,14 @@
 * 文化与姓名分区（诗歌/小说/口述传统、亚洲姓名、欧洲姓名）是
   ``CULTURE_GROUPS``：只有显式传 ``--with-culture`` 才构入；姓名池不会自动决定
   角色身份、阶层、宗教或性格。
+* 奇幻生物分区（种族／西幻动植物／东方玄幻动植物）是**另一份独立名单**
+  ``FANTASY_BIOLOGY_GROUPS``：只有显式传 ``--with-fantasy-biology`` 才构入，
+  可与上面任何开关组合。三份文件由采集侧定稿、条数会变，本文件**不写死它们的条数**；
+  种族／兽／草木的区分靠条目自带的 ``kind:race`` / ``kind:fauna`` / ``kind:flora``
+  与 ``tradition:*`` 标签做检索，引擎不读标签做判定。
+* 魔药／丹药分区（西幻魔药／东方丹药）是 ``FANTASY_ALCHEMY_GROUPS``：同样只有显式传
+  ``--with-alchemy`` 才构入，与 ``--with-fantasy-biology`` **互不隐含**（只要生物不自动带药，
+  反之亦然）。它们是游戏与小说素材，**不是任何现实用药依据**，也不含配方剂量。
 * ``docs/element-catalog/shared-themes.json`` 是聚类索引、不是元素，**故意不在名单里**
   （导入会被元素库拒绝）。
 * 源 JSON 只读，本工具从不改写它们。
@@ -97,16 +107,55 @@ CULTURE_GROUPS = (
 ATTRIBUTE_GROUPS = (
     'docs/playable-demo/character-attributes.json',
 )
+# 奇幻生物分区（种族 / 西幻动植物 / 东方玄幻动植物）也是独立名单：
+# 默认不进库，只有 ``--with-fantasy-biology`` 才构入。三份文件由采集侧逐条定稿，
+# 条数会变，所以这里同样不写死任何数字，也不靠 ``docs/element-catalog/*.json`` 通配——
+# 同目录还有 shared-themes（聚类索引）与后续候选文件，通配会把它们默默带进交付库。
+# 顺序固定为「... → 种族 → 西幻生物 → 东方生物」，不与其他名单交错。
+FANTASY_BIOLOGY_GROUPS = (
+    'docs/element-catalog/fantasy-races.json',
+    'docs/element-catalog/western-biology.json',
+    'docs/element-catalog/eastern-biology.json',
+)
+# 魔药／丹药分区：同样独立名单，只有 ``--with-alchemy`` 才构入。
+# 与奇幻生物分组但互不隐含：只要生物不自动带药，反之亦然。
+# 内容仍待审候选，不构成任何现实用药依据。
+FANTASY_ALCHEMY_GROUPS = (
+    'docs/element-catalog/western-alchemy.json',
+    'docs/element-catalog/eastern-alchemy.json',
+)
+# 现实药材、方剂与西方菜系分区：同样逐文件显式登记，不用通配。
+# 药材与方剂是**文献与设定资料**，不含剂量与处方，不构成医疗建议；
+# 已与其他组重合的条目已在源文件里除出（见 tools/encyclopedia_merge）：
+# 它们的补充内容并入了原有元素，所以这里的文件条数是归并后的结果。
+REALITY_HERBS_GROUPS = (
+    'docs/element-catalog/reality-herbs-roots.json',
+    'docs/element-catalog/reality-herbs-aerial.json',
+    'docs/element-catalog/reality-herbs-other.json',
+    'docs/element-catalog/reality-herbs-western.json',
+)
+FORMULA_GROUPS = (
+    'docs/element-catalog/reality-formulae.json',
+)
+CUISINE_WESTERN_GROUPS = (
+    'docs/element-catalog/cuisine-french.json',
+    'docs/element-catalog/cuisine-british.json',
+)
 # 带特质的历史基线（旧交付口径）；不带任何开关时仍是 ``GROUPS``。
 LATEST_GROUPS = GROUPS + TRAIT_GROUPS
 
 
-def groups_for(with_traits=False, with_cuisine=False, with_attributes=False, with_culture=False):
+def groups_for(with_traits=False, with_cuisine=False, with_attributes=False, with_culture=False,
+               with_fantasy_biology=False, with_alchemy=False, with_reality_herbs=False,
+               with_formulae=False, with_cuisine_western=False):
     """要构库的显式名单。
 
     不给开关 = 历史 14 组。with_attributes 显式追加现有六项属性资料。
-    给了哪个就追加哪个分区；两个都给时顺序是「14 组 → 特质 → 饮食」。
-    默认值保持向后兼容，旧调用 ``groups_for(False)`` / ``groups_for(True)`` 行为不变。
+    给了哪个就追加哪个分区；都给了时顺序是
+    「14 组 → 特质 → 饮食 → 属性 → 文化 → 种族 → 西幻生物 → 东方生物 → 西幻魔药 → 东方丹药」。
+    默认值保持向后兼容：旧调用 ``groups_for(False)`` / ``groups_for(True)`` /
+    ``groups_for(True, True, True)`` / ``groups_for(with_culture=True)`` 行为全部不变；
+    新参数追加在末尾且默认为 False，因此旧的**位置传参**也不会被改变含义。
     """
     groups = LATEST_GROUPS if with_traits else GROUPS
     if with_cuisine:
@@ -115,6 +164,16 @@ def groups_for(with_traits=False, with_cuisine=False, with_attributes=False, wit
         groups = groups + ATTRIBUTE_GROUPS
     if with_culture:
         groups = groups + CULTURE_GROUPS
+    if with_fantasy_biology:
+        groups = groups + FANTASY_BIOLOGY_GROUPS
+    if with_alchemy:
+        groups = groups + FANTASY_ALCHEMY_GROUPS
+    if with_reality_herbs:
+        groups = groups + REALITY_HERBS_GROUPS
+    if with_formulae:
+        groups = groups + FORMULA_GROUPS
+    if with_cuisine_western:
+        groups = groups + CUISINE_WESTERN_GROUPS
     return groups
 
 
@@ -207,7 +266,8 @@ def check(out_path, as_json=False, groups=None):
 def build_parser():
     parser = argparse.ArgumentParser(
         prog='encyclopedia_build',
-        description='按显式名单（默认 14 组；可选 --with-traits / --with-cuisine / --with-attributes）'
+        description='按显式名单（默认 14 组；可选 --with-traits / --with-cuisine / --with-attributes'
+                    ' / --with-culture / --with-fantasy-biology）'
                     '可复现地生成人类百科候选库（幂等、只读源 JSON）',
     )
     parser.add_argument('--out', default=DEFAULT_OUT,
@@ -224,12 +284,27 @@ def build_parser():
                         help='追加现有六项角色属性定义；沿用 attribute_v1，不改变角色数值或检定公式')
     parser.add_argument('--with-culture', action='store_true',
                         help='追加诗歌、小说、叙事传统和亚洲/欧洲姓名池（3 个显式分区）')
+    parser.add_argument('--with-fantasy-biology', action='store_true',
+                        help='追加奇幻生物分区（种族 / 西幻动植物 / 东方玄幻动植物，3 个显式分区）；'
+                             '可与上面任何开关组合')
+    parser.add_argument('--with-alchemy', action='store_true',
+                        help='追加魔药分区（西幻魔药 / 东方丹药，2 个显式分区）；'
+                             '与 --with-fantasy-biology 独立，不互相隐含')
+    parser.add_argument('--with-reality-herbs', action='store_true', dest='with_reality_herbs',
+                        help='追加现实药材分区（根茎 / 茎叶花果实 / 皮木菌矿物动物 / 西方草药，4 个显式分区）；'
+                             '为文献与设定资料，不构成医疗建议')
+    parser.add_argument('--with-formulae', action='store_true',
+                        help='追加现实经典方剂分区（只录药味名称与出处，不含剂量与服法）')
+    parser.add_argument('--with-cuisine-western', action='store_true', dest='with_cuisine_western',
+                        help='追加西方菜系分区（法餐 / 英国菜）')
     return parser
 
 
 def main(argv=None):
     args = build_parser().parse_args(argv)
-    groups = groups_for(args.with_traits, args.with_cuisine, args.with_attributes, args.with_culture)
+    groups = groups_for(args.with_traits, args.with_cuisine, args.with_attributes, args.with_culture,
+                        args.with_fantasy_biology, args.with_alchemy, args.with_reality_herbs,
+                        args.with_formulae, args.with_cuisine_western)
     try:
         if args.check:
             return check(args.out, args.json, groups)

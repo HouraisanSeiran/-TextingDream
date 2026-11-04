@@ -268,66 +268,67 @@ class WorldGenerator:
 
     async def generate(self, request):
         svc = self.service
-        draft = {'id':uid(),'kind':request.kind,'created':now(),'status':'draft','request':request.model_dump()}
-        # 元素清单在**创建草稿时**就固定：缺省是本包当前快照，显式引用只能是它的子集。
-        # 生成器不会自己去库里挑新条目，也不替作者确认候选状态。
-        manifest, element_notes = None, []
-        if request.kind != 'expand':
-            manifest, element_notes = svc.elements.pin_manifest(request.elements or None)
-        draft['element_manifest'] = manifest
-        draft['element_warnings'] = element_notes
-        if request.kind == 'expand':
-            svc.runtime.reload_documents()
-            p=svc.runtime.package()
-            draft['base_revision']=p['id']
-            draft['worldview']={'title':p['story']['title'],'overview':p['story']['worldview']['premise']}
-            example={'knowledge':[{'id':'expansion_example','title':'商路维护','category':'交通与社会',
-                'keywords':['道路','维护'],'content':'离线示例：各地维护义务、资金与通行季节待作者补充。','visibility':'author','status':'离线模板'}],
-                'atlas':Atlas().model_dump(mode='json')}
-            context={'request':request.model_dump(),'overview':p['story']['worldview']['premise'],
-                'knowledge':retrieve(p['story'],request.instruction,'author'),
-                'existing_knowledge_ids':[k['id'] for k in p['story'].get('knowledge',[])],
-                'existing_map_ids':[f['id'] for f in p['story'].get('atlas',{}).get('features',[])],
-                'locations':[{k:l[k] for k in ('id','name','coordinates','neighbors') if k in l} for l in p['story']['locations']],
-                'schema':ExpansionBlueprint.model_json_schema(),'example':example,
-                'elements':element_assembly.author_context(element_assembly.package_manifest(p['story']))}
-        elif request.kind == 'complete':
-            example={**world_example(request.city_count),'worldview':worldview_example(request.title,request.historical_reference)}
-            context={'request':request.model_dump(),'schema':CompleteBlueprint.model_json_schema(),'example':example,
-                     'elements':element_assembly.author_context(manifest)}
-        elif request.kind == 'worldview':
-            example = worldview_example(request.title, request.historical_reference)
-            schema = WorldviewBlueprint.model_json_schema()
-            context = {'request':request.model_dump(), 'example':example, 'schema':schema,
-                       'elements':element_assembly.author_context(manifest)}
-        else:
-            if request.worldview_draft_id:
-                foundation = self.get(request.worldview_draft_id)
-                if foundation['kind'] != 'worldview':
-                    raise ValueError('请选择世界观草稿作为基础')
-                view = copy.deepcopy(foundation['data'])
-                if foundation['status'] == 'saved':
-                    folder = svc.runtime.package_directory(foundation['folder'])
-                    view['overview'] = (folder/'总概.md').read_text(encoding='utf-8-sig').strip()
-                    view['knowledge'] = [read_point(p) for p in sorted((folder/'知识点').rglob('*.md'))]
-                    view = WorldviewBlueprint.model_validate(view).model_dump()
-                    validate_points(view['knowledge'])
-            else:
+        async with svc.lock:
+            draft = {'id':uid(),'kind':request.kind,'created':now(),'status':'draft','request':request.model_dump()}
+            # 元素清单在**创建草稿时**就固定：缺省是本包当前快照，显式引用只能是它的子集。
+            # 生成器不会自己去库里挑新条目，也不替作者确认候选状态。
+            manifest, element_notes = None, []
+            if request.kind != 'expand':
+                manifest, element_notes = svc.elements.pin_manifest(request.elements or None)
+            draft['element_manifest'] = manifest
+            draft['element_warnings'] = element_notes
+            if request.kind == 'expand':
                 svc.runtime.reload_documents()
-                source = svc.runtime.package()['story']
-                # Keep the whole foundation on disk, but retrieve only relevant points for AI.
-                view = {'title':request.title,'overview':source['worldview']['premise'],
-                        'knowledge':copy.deepcopy(source.get('knowledge', []))}
-                # Existing packages can have more than the creation form's 24 points.
-            draft['worldview'] = view
-            example = world_example(request.city_count)
-            context = {'request':request.model_dump(), 'overview':view['overview'],
-                       'knowledge':retrieve({'knowledge':view['knowledge']}, request.instruction, 'author'),
-                       'example':example,'schema':WorldBlueprint.model_json_schema(),
-                       'elements':element_assembly.author_context(manifest)}
-        system = template('generator')
-        if len(system) + len(stable_json(context)) > svc.preferences()['context_chars']:
-            raise ValueError('生成上下文超过预算，请缩短要求或提高设置中的上下文预算')
+                p=svc.runtime.package()
+                draft['base_revision']=p['id']
+                draft['worldview']={'title':p['story']['title'],'overview':p['story']['worldview']['premise']}
+                example={'knowledge':[{'id':'expansion_example','title':'商路维护','category':'交通与社会',
+                    'keywords':['道路','维护'],'content':'离线示例：各地维护义务、资金与通行季节待作者补充。','visibility':'author','status':'离线模板'}],
+                    'atlas':Atlas().model_dump(mode='json')}
+                context={'request':request.model_dump(),'overview':p['story']['worldview']['premise'],
+                    'knowledge':retrieve(p['story'],request.instruction,'author'),
+                    'existing_knowledge_ids':[k['id'] for k in p['story'].get('knowledge',[])],
+                    'existing_map_ids':[f['id'] for f in p['story'].get('atlas',{}).get('features',[])],
+                    'locations':[{k:l[k] for k in ('id','name','coordinates','neighbors') if k in l} for l in p['story']['locations']],
+                    'schema':ExpansionBlueprint.model_json_schema(),'example':example,
+                    'elements':element_assembly.author_context(element_assembly.package_manifest(p['story']))}
+            elif request.kind == 'complete':
+                example={**world_example(request.city_count),'worldview':worldview_example(request.title,request.historical_reference)}
+                context={'request':request.model_dump(),'schema':CompleteBlueprint.model_json_schema(),'example':example,
+                         'elements':element_assembly.author_context(manifest)}
+            elif request.kind == 'worldview':
+                example = worldview_example(request.title, request.historical_reference)
+                schema = WorldviewBlueprint.model_json_schema()
+                context = {'request':request.model_dump(), 'example':example, 'schema':schema,
+                           'elements':element_assembly.author_context(manifest)}
+            else:
+                if request.worldview_draft_id:
+                    foundation = self.get(request.worldview_draft_id)
+                    if foundation['kind'] != 'worldview':
+                        raise ValueError('请选择世界观草稿作为基础')
+                    view = copy.deepcopy(foundation['data'])
+                    if foundation['status'] == 'saved':
+                        folder = svc.runtime.package_directory(foundation['folder'])
+                        view['overview'] = (folder/'总概.md').read_text(encoding='utf-8-sig').strip()
+                        view['knowledge'] = [read_point(p) for p in sorted((folder/'知识点').rglob('*.md'))]
+                        view = WorldviewBlueprint.model_validate(view).model_dump()
+                        validate_points(view['knowledge'])
+                else:
+                    svc.runtime.reload_documents()
+                    source = svc.runtime.package()['story']
+                    # Keep the whole foundation on disk, but retrieve only relevant points for AI.
+                    view = {'title':request.title,'overview':source['worldview']['premise'],
+                            'knowledge':copy.deepcopy(source.get('knowledge', []))}
+                    # Existing packages can have more than the creation form's 24 points.
+                draft['worldview'] = view
+                example = world_example(request.city_count)
+                context = {'request':request.model_dump(), 'overview':view['overview'],
+                           'knowledge':retrieve({'knowledge':view['knowledge']}, request.instruction, 'author'),
+                           'example':example,'schema':WorldBlueprint.model_json_schema(),
+                           'elements':element_assembly.author_context(manifest)}
+            system = template('generator')
+            if len(system) + len(stable_json(context)) > svc.preferences()['context_chars']:
+                raise ValueError('生成上下文超过预算，请缩短要求或提高设置中的上下文预算')
         if svc.provider.config()['offline']:
             data, usage = example, {'mode':'offline','calls':0}
             svc.provider.offline_trace('generator_'+request.kind, context, data)
@@ -335,10 +336,13 @@ class WorldGenerator:
             data, usage = await svc.provider.complete(system, context, json_mode=True,
                                                        scope='generator_'+request.kind, max_tokens=request.output_tokens)
             usage['calls'] = 1
-        draft['data'] = self.validate(draft, data)
-        draft['usage'] = usage
-        svc.store.put('world_generation', draft['id'], draft)
-        return draft
+        async with svc.lock:
+            if svc.store.get('world_generation', draft['id']) is not None:
+                raise ValueError('生成草稿标识已存在，请重试')
+            draft['data'] = self.validate(draft, data)
+            draft['usage'] = usage
+            svc.store.put('world_generation', draft['id'], draft)
+            return draft
 
     def edit(self, identity, data):
         draft = self.get(identity)

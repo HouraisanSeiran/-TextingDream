@@ -1,0 +1,1665 @@
+{
+  "story": {
+    "id": "short_town_day",
+    "title": "铜杯镇的一天",
+    "premise": "早晨八点，你有18便士，其中6便士要付昨夜食宿。诺尔的干麦委托要垫12便士，收货付16便士。傍晚六点前办好雾桥通行，赶傍晚船；桥费8便士。",
+    "worldview": {
+      "premise": "早晨八点，你有18便士，其中6便士要付昨夜食宿。诺尔的干麦委托要垫12便士，收货付16便士。傍晚六点前办好雾桥通行，赶傍晚船；桥费8便士。 架空西幻港郡；1镑=20先令=240便士，1先令=12便士。价格为游戏设计值。允许恶作剧，但人物有自己的底线。"
+    },
+    "character_package_id": "short_town_day_cast",
+    "locations": [
+      {
+        "id": "town_hall",
+        "name": "铜杯酒馆",
+        "description": "早晨八点。贝丝的柜台旁挂着待收的衣物。粮市往返各一小时，雾桥也需一小时。",
+        "neighbors": [
+          "town_market",
+          "town_bridge"
+        ],
+        "scenes": []
+      },
+      {
+        "id": "town_market",
+        "name": "雨后粮市",
+        "description": "艾达卖最后一袋干麦，12便士；诺尔在同一市场的烤炉边收货，支付16便士。",
+        "neighbors": [
+          "town_hall",
+          "town_bridge"
+        ],
+        "scenes": []
+      },
+      {
+        "id": "town_bridge",
+        "name": "雾桥",
+        "description": "奥伦守着8便士的桥口。桥另一头的傍晚船免费载客；必须在傍晚六点前办好通行。",
+        "neighbors": [
+          "town_hall",
+          "town_market"
+        ],
+        "scenes": []
+      }
+    ],
+    "events": [
+      {
+        "id": "town_open",
+        "title": "八点的铜杯",
+        "location_id": "town_hall",
+        "participants": [
+          "player",
+          "bess"
+        ],
+        "player_enters": true,
+        "player_goal": "在傍晚六点前办好雾桥通行，赶上傍晚船。",
+        "next_events": [
+          "town_trade"
+        ],
+        "entry_flags": {},
+        "exit_flag": "finished_town_open",
+        "max_turns": 40,
+        "actions": [
+          {
+            "id": "day_terms",
+            "label": "读清今天的委托、桥费与船期",
+            "success_text": "干麦成本12便士，送达收16便士。桥费8便士；傍晚六点（开局后10小时）截止，错过可留下做工等明天。",
+            "effects": [
+              {
+                "op": "flag",
+                "id": "day_terms",
+                "value": true
+              },
+              {
+                "op": "information",
+                "text": "今天傍晚六点前办好通行；酒馆到粮市、粮市到酒馆、酒馆到雾桥均一小时。",
+                "known_by": [
+                  "player"
+                ],
+                "confirmed": true
+              }
+            ],
+            "requires": {},
+            "ends_event": false,
+            "duration_hours": 0,
+            "intent_aliases": []
+          },
+          {
+            "id": "day_breakfast",
+            "label": "付清食宿欠账（6便士）",
+            "success_text": "我支付昨夜食宿6便士，剩12便士用于采购。",
+            "effects": [
+              {
+                "op": "flag",
+                "id": "breakfast_paid",
+                "value": true
+              }
+            ],
+            "requires": {},
+            "ends_event": false,
+            "duration_hours": 0,
+            "intent_aliases": [],
+            "costs": {
+              "pence": 6
+            }
+          },
+          {
+            "id": "day_prank",
+            "label": "当着贝丝把衬裤套在头上再归还",
+            "success_text": "贝丝亲眼看见我擅拿衣物又放回。去桥口送桶的跑腿听见争执，将转述此事；奥伦只能听到传闻，不是目击者。",
+            "effects": [
+              {
+                "op": "flag",
+                "id": "day_prank",
+                "value": true
+              }
+            ],
+            "requires": {},
+            "ends_event": false,
+            "duration_hours": 0,
+            "intent_aliases": [],
+            "requires_confirmation": true,
+            "risk_notice": "会破坏信用；桥吏可能拒绝赊账，谈价更难。衣物归还不抹去冒犯。",
+            "social": {
+              "success": {
+                "bess": [
+                  "warn"
+                ]
+              }
+            }
+          },
+          {
+            "id": "day_to_market",
+            "label": "接下诺尔的采购委托，去粮市",
+            "success_text": "我带着采购钱离开柜台。",
+            "effects": [],
+            "requires": {
+              "day_terms": true,
+              "breakfast_paid": true
+            },
+            "ends_event": true,
+            "duration_hours": 0,
+            "intent_aliases": []
+          }
+        ]
+      },
+      {
+        "id": "town_trade",
+        "title": "同一笔钱的两种用途",
+        "location_id": "town_market",
+        "participants": [
+          "player",
+          "seller",
+          "baker"
+        ],
+        "player_enters": true,
+        "player_goal": "同一笔钱的两种用途",
+        "next_events": [
+          "town_return"
+        ],
+        "entry_flags": {},
+        "exit_flag": "finished_town_trade",
+        "max_turns": 40,
+        "actions": [
+          {
+            "id": "day_inspect",
+            "label": "辨认哪一袋是干麦",
+            "success_text": "我认出了干麦的松散颗粒。",
+            "effects": [],
+            "requires": {},
+            "ends_event": false,
+            "duration_hours": 1,
+            "intent_aliases": [],
+            "check": {
+              "attribute": "wisdom",
+              "difficulty": 0.4,
+              "clock": {
+                "id": "grain_deal"
+              }
+            },
+            "failure_text": "我看不准；诺尔愿意用一小时带我对照标注样本。",
+            "success": [
+              {
+                "op": "flag",
+                "id": "day_quality",
+                "value": true
+              }
+            ],
+            "failure": [
+              {
+                "op": "flag",
+                "id": "day_inspect_failed",
+                "value": true
+              },
+              {
+                "op": "information",
+                "text": "诺尔可带你对照样本，不需要再掷骰。",
+                "known_by": [
+                  "player"
+                ],
+                "confirmed": true
+              }
+            ]
+          },
+          {
+            "id": "day_compare",
+            "label": "请诺尔带着对照样本（一小时）",
+            "success_text": "诺尔带我逐粒对照，确认了干麦。",
+            "effects": [
+              {
+                "op": "flag",
+                "id": "day_quality",
+                "value": true
+              }
+            ],
+            "requires": {
+              "day_quality": false
+            },
+            "ends_event": false,
+            "duration_hours": 1,
+            "intent_aliases": []
+          },
+          {
+            "id": "day_buy",
+            "label": "买下干麦（12便士）",
+            "success_text": "我支付12便士，手头现金用尽，取得干麦；现在不能再用这笔钱付桥费。",
+            "effects": [
+              {
+                "op": "flag",
+                "id": "day_grain",
+                "value": true
+              },
+              {
+                "op": "resource",
+                "id": "wheat",
+                "delta": 1
+              }
+            ],
+            "requires": {
+              "day_quality": true
+            },
+            "ends_event": false,
+            "duration_hours": 0,
+            "intent_aliases": [],
+            "costs": {
+              "pence": 12
+            }
+          },
+          {
+            "id": "day_deliver",
+            "label": "把干麦送到市场烤炉，收16便士",
+            "success_text": "诺尔验收干麦支付16便士；其中12便士归还采购本钱，4便士是利润。",
+            "effects": [
+              {
+                "op": "resource",
+                "id": "pence",
+                "delta": 16
+              },
+              {
+                "op": "flag",
+                "id": "day_grain",
+                "value": false
+              },
+              {
+                "op": "flag",
+                "id": "day_delivered",
+                "value": true
+              },
+              {
+                "op": "resource",
+                "id": "wheat",
+                "delta": -1
+              }
+            ],
+            "requires": {
+              "day_grain": true
+            },
+            "ends_event": false,
+            "duration_hours": 1,
+            "intent_aliases": []
+          },
+          {
+            "id": "day_share",
+            "label": "把4便士利润分给学徒，请诺尔写收据",
+            "success_text": "我拿出4便士给学徒添饭，诺尔写下署名收据，可带回给贝丝看。",
+            "effects": [
+              {
+                "op": "flag",
+                "id": "day_shared",
+                "value": true
+              },
+              {
+                "op": "information",
+                "text": "诺尔的收据：旅人把4便士采购利润分给了学徒。",
+                "known_by": [
+                  "player"
+                ],
+                "confirmed": true
+              }
+            ],
+            "requires": {
+              "day_delivered": true
+            },
+            "ends_event": false,
+            "duration_hours": 0,
+            "intent_aliases": [],
+            "costs": {
+              "pence": 4
+            }
+          },
+          {
+            "id": "day_lamp",
+            "label": "再捐4便士给市场灯油",
+            "success_text": "我又捐出4便士；若已分享利润，现在只余8便士，刚好够原价桥费。",
+            "effects": [
+              {
+                "op": "flag",
+                "id": "day_lamp",
+                "value": true
+              }
+            ],
+            "requires": {
+              "day_shared": true
+            },
+            "ends_event": false,
+            "duration_hours": 0,
+            "intent_aliases": [],
+            "costs": {
+              "pence": 4
+            }
+          },
+          {
+            "id": "day_return",
+            "label": "结清交易，带收据回酒馆",
+            "success_text": "我离开市场，回铜杯酒馆取行李。",
+            "effects": [],
+            "requires": {
+              "day_delivered": true
+            },
+            "ends_event": true,
+            "duration_hours": 0,
+            "intent_aliases": []
+          }
+        ]
+      },
+      {
+        "id": "town_return",
+        "title": "带回来的不只是钱",
+        "location_id": "town_hall",
+        "participants": [
+          "player",
+          "bess"
+        ],
+        "player_enters": true,
+        "player_goal": "带回来的不只是钱",
+        "next_events": [
+          "town_depart"
+        ],
+        "entry_flags": {},
+        "exit_flag": "finished_town_return",
+        "max_turns": 40,
+        "actions": [
+          {
+            "id": "day_introduction",
+            "label": "出示分享利润的收据，请贝丝介绍船工",
+            "success_text": "贝丝核对收据，愿意为这次善意作介绍；奥伦接受船工介绍信可免本次桥费。",
+            "effects": [],
+            "requires": {
+              "day_shared": true,
+              "day_prank": false
+            },
+            "ends_event": false,
+            "duration_hours": 0,
+            "intent_aliases": [],
+            "social": {
+              "success": {
+                "bess": [
+                  "trust"
+                ]
+              }
+            }
+          },
+          {
+            "id": "day_amends",
+            "label": "赔付洗衣与停工损失（8便士）",
+            "success_text": "贝丝接受8便士的损失赔付；已经传出去的故事不会因此收回。",
+            "effects": [
+              {
+                "op": "flag",
+                "id": "day_amends",
+                "value": true
+              }
+            ],
+            "requires": {
+              "day_prank": true
+            },
+            "ends_event": false,
+            "duration_hours": 0,
+            "intent_aliases": [],
+            "costs": {
+              "pence": 8
+            }
+          },
+          {
+            "id": "day_to_bridge",
+            "label": "取好行李，前往雾桥",
+            "success_text": "我离开酒馆，去办通行。",
+            "effects": [],
+            "requires": {
+              "day_prank": false
+            },
+            "ends_event": true,
+            "duration_hours": 0,
+            "intent_aliases": []
+          },
+          {
+            "id": "day_rumor_to_bridge",
+            "label": "跟送桶跑腿一起去雾桥",
+            "success_text": "跑腿先走一步，把酒馆争执转述给奥伦；贝丝告诉我这消息已经传开。奥伦只听到传闻，不是目击者。",
+            "effects": [
+              {
+                "op": "flag",
+                "id": "rumor_arrived",
+                "value": true
+              },
+              {
+                "op": "information",
+                "text": "跑腿转述：酒馆里有人把贝丝的衬裤套在头上，据说就是这位旅人；奥伦没有亲眼见到。",
+                "known_by": [
+                  "player",
+                  "guard"
+                ],
+                "confirmed": false
+              }
+            ],
+            "requires": {
+              "day_prank": true
+            },
+            "ends_event": true,
+            "duration_hours": 0,
+            "intent_aliases": []
+          }
+        ]
+      },
+      {
+        "id": "town_depart",
+        "title": "传闻、信用与八便士",
+        "location_id": "town_bridge",
+        "participants": [
+          "player",
+          "guard"
+        ],
+        "player_enters": true,
+        "player_goal": "传闻、信用与八便士",
+        "next_events": [],
+        "entry_flags": {},
+        "exit_flag": "finished_town_depart",
+        "max_turns": 40,
+        "actions": [
+          {
+            "id": "day_hear_rumor",
+            "label": "听奥伦转述跑腿的传闻",
+            "success_text": "奥伦明确说自己只是听说，没有据此罚款；但不愿承担你的赊账风险。",
+            "effects": [
+              {
+                "op": "flag",
+                "id": "day_rumor_heard",
+                "value": true
+              }
+            ],
+            "requires": {
+              "rumor_arrived": true
+            },
+            "ends_event": false,
+            "duration_hours": 0,
+            "intent_aliases": []
+          },
+          {
+            "id": "day_credit",
+            "label": "请求记下8便士桥费，明日偿还",
+            "success_text": "奥伦同意本次赊账8便士。欠款留在旅程，不是免费免除。",
+            "effects": [
+              {
+                "op": "flag",
+                "id": "secured",
+                "value": true
+              },
+              {
+                "op": "flag",
+                "id": "day_debt",
+                "value": true
+              },
+              {
+                "op": "resource",
+                "id": "toll_debt",
+                "delta": 8
+              },
+              {
+                "op": "information",
+                "text": "欠奥伦8便士桥费，约定明日偿还。",
+                "known_by": [
+                  "player"
+                ],
+                "confirmed": true
+              }
+            ],
+            "requires": {
+              "day_prank": false,
+              "secured": false,
+              "day_missed": false
+            },
+            "ends_event": false,
+            "duration_hours": 0,
+            "intent_aliases": []
+          },
+          {
+            "id": "day_bargain",
+            "label": "尝试以修桥换票",
+            "success_text": "我按指示修好栏杆，可在截止前登记免票通行。",
+            "effects": [],
+            "requires": {
+              "day_prank": false,
+              "secured": false,
+              "day_missed": false
+            },
+            "ends_event": false,
+            "duration_hours": 1,
+            "intent_aliases": [],
+            "check": {
+              "attribute": "strength",
+              "difficulty": 0.45,
+              "danger_clock": {
+                "id": "guard_doubt",
+                "failure": 1,
+                "disaster": 2
+              },
+              "social": {
+                "target": "guard",
+                "appeals": [
+                  "public_price",
+                  "labor"
+                ],
+                "violates": []
+              }
+            },
+            "failure_text": "我没能稳住木料；可以改付8便士，或请求赊账。",
+            "success": [
+              {
+                "op": "flag",
+                "id": "day_repair_done",
+                "value": true
+              }
+            ],
+            "failure": [
+              {
+                "op": "flag",
+                "id": "day_repair_failed",
+                "value": true
+              }
+            ],
+            "social": {
+              "success": {
+                "guard": [
+                  "respect"
+                ]
+              }
+            }
+          },
+          {
+            "id": "day_hard_bargain",
+            "label": "在传闻影响下尝试以修桥换票",
+            "success_text": "虽然奥伦谨慎，我仍完成了要求更严的修补，可在截止前登记通行。",
+            "effects": [],
+            "requires": {
+              "rumor_arrived": true,
+              "secured": false,
+              "day_missed": false
+            },
+            "ends_event": false,
+            "duration_hours": 1,
+            "intent_aliases": [],
+            "check": {
+              "attribute": "strength",
+              "difficulty": 0.7,
+              "danger_clock": {
+                "id": "guard_doubt",
+                "failure": 1,
+                "disaster": 2
+              },
+              "push_allowed": [
+                "strain"
+              ],
+              "position": "desperate"
+            },
+            "failure_text": "奥伦不接受这次修补，也不肯赊账；仍可付公开的8便士，或者搬木料两小时抵票。",
+            "success": [
+              {
+                "op": "flag",
+                "id": "day_repair_done",
+                "value": true
+              }
+            ],
+            "failure": [
+              {
+                "op": "flag",
+                "id": "day_repair_failed",
+                "value": true
+              }
+            ]
+          },
+          {
+            "id": "day_carry",
+            "label": "修补失败后搬两小时木料抵桥费",
+            "success_text": "我按公开劳动约定搬完木料，可在截止前登记通行；这不修复酒馆信用。",
+            "effects": [
+              {
+                "op": "flag",
+                "id": "day_repair_done",
+                "value": true
+              }
+            ],
+            "requires": {
+              "day_repair_failed": true,
+              "secured": false,
+              "day_missed": false
+            },
+            "ends_event": false,
+            "duration_hours": 2,
+            "intent_aliases": []
+          },
+          {
+            "id": "day_register_work",
+            "label": "在截止前登记已完成的修桥劳动",
+            "success_text": "奥伦核对完成的劳动，登记免票通行。",
+            "effects": [
+              {
+                "op": "flag",
+                "id": "secured",
+                "value": true
+              }
+            ],
+            "requires": {
+              "day_repair_done": true,
+              "secured": false,
+              "day_missed": false
+            },
+            "ends_event": false,
+            "duration_hours": 0,
+            "intent_aliases": []
+          },
+          {
+            "id": "day_wait",
+            "label": "在桥口等五小时再决定",
+            "success_text": "五小时过去了；船期不会因为我犹豫而推迟。",
+            "effects": [],
+            "requires": {
+              "secured": false
+            },
+            "ends_event": false,
+            "duration_hours": 5,
+            "intent_aliases": [],
+            "requires_confirmation": true,
+            "risk_notice": "等待可能超过傍晚六点的通行期限，错过后可留下做工。"
+          },
+          {
+            "id": "day_pay",
+            "label": "按公开价格付8便士桥费",
+            "success_text": "我付8便士取得通行；没有传闻罚款。",
+            "effects": [
+              {
+                "op": "flag",
+                "id": "secured",
+                "value": true
+              }
+            ],
+            "requires": {
+              "secured": false,
+              "day_missed": false
+            },
+            "ends_event": false,
+            "duration_hours": 0,
+            "intent_aliases": [],
+            "costs": {
+              "pence": 8
+            }
+          },
+          {
+            "id": "day_letter",
+            "label": "出示贝丝的船工介绍信",
+            "success_text": "奥伦核对介绍信，按船工预留名额免去本次桥费。",
+            "effects": [
+              {
+                "op": "flag",
+                "id": "secured",
+                "value": true
+              },
+              {
+                "op": "flag",
+                "id": "day_letter_used",
+                "value": true
+              }
+            ],
+            "requires": {
+              "introduced": true,
+              "secured": false,
+              "day_missed": false
+            },
+            "ends_event": false,
+            "duration_hours": 0,
+            "intent_aliases": []
+          },
+          {
+            "id": "day_sail",
+            "label": "过桥登船，保留今天的账目",
+            "success_text": "我办妥通行后登船，离开铜杯镇。",
+            "effects": [
+              {
+                "op": "flag",
+                "id": "day_normal",
+                "value": true
+              }
+            ],
+            "requires": {
+              "secured": true,
+              "day_prank": false,
+              "day_letter_used": false,
+              "day_missed": false
+            },
+            "ends_event": true,
+            "duration_hours": 0,
+            "intent_aliases": []
+          },
+          {
+            "id": "day_friend_sail",
+            "label": "带着介绍信过桥登船",
+            "success_text": "我带着学徒的谢意与贝丝的信任登船。",
+            "effects": [
+              {
+                "op": "flag",
+                "id": "day_friend",
+                "value": true
+              }
+            ],
+            "requires": {
+              "secured": true,
+              "day_letter_used": true,
+              "day_missed": false
+            },
+            "ends_event": true,
+            "duration_hours": 0,
+            "intent_aliases": []
+          },
+          {
+            "id": "day_prank_sail",
+            "label": "带着信用损失过桥登船",
+            "success_text": "我可以离镇，但赔付、传闻与被拒绝的赊账都留在记录里。",
+            "effects": [
+              {
+                "op": "flag",
+                "id": "day_chaos",
+                "value": true
+              }
+            ],
+            "requires": {
+              "secured": true,
+              "rumor_arrived": true,
+              "day_missed": false
+            },
+            "ends_event": true,
+            "duration_hours": 0,
+            "intent_aliases": []
+          },
+          {
+            "id": "day_stay",
+            "label": "自愿错过今天的船，明天再走",
+            "success_text": "我决定留镇，明天凭劳动重新挣旅费。",
+            "effects": [
+              {
+                "op": "flag",
+                "id": "day_missed",
+                "value": true
+              }
+            ],
+            "requires": {},
+            "ends_event": true,
+            "duration_hours": 0,
+            "intent_aliases": []
+          }
+        ]
+      },
+      {
+        "id": "town_tomorrow",
+        "title": "错过之后还有明天",
+        "location_id": "town_bridge",
+        "participants": [
+          "player",
+          "guard"
+        ],
+        "player_enters": true,
+        "player_goal": "错过之后还有明天",
+        "next_events": [],
+        "entry_flags": {
+          "day_missed": true
+        },
+        "exit_flag": "finished_town_tomorrow",
+        "max_turns": 40,
+        "actions": [
+          {
+            "id": "day_next_work",
+            "label": "帮奥伦整理木料，挣明日旅费8便士",
+            "success_text": "船已离开；我做两小时工挣8便士，明天仍能重新出发。",
+            "effects": [
+              {
+                "op": "resource",
+                "id": "pence",
+                "delta": 8
+              },
+              {
+                "op": "flag",
+                "id": "day_rebuilt",
+                "value": true
+              }
+            ],
+            "requires": {},
+            "ends_event": false,
+            "duration_hours": 2,
+            "intent_aliases": []
+          },
+          {
+            "id": "day_next_close",
+            "label": "记下明日计划，结束今天",
+            "success_text": "今天错过了船，明天的路仍然开着。",
+            "effects": [],
+            "requires": {},
+            "ends_event": true,
+            "duration_hours": 0,
+            "intent_aliases": []
+          }
+        ]
+      }
+    ],
+    "items": [],
+    "knowledge": [
+      {
+        "id": "currency",
+        "title": "港郡钱币与行情",
+        "visibility": "public",
+        "keywords": [
+          "钱",
+          "便士",
+          "先令",
+          "镑",
+          "物价"
+        ],
+        "content": "以便士记账。12便士=1先令，20先令=1镑。麦酒2便士，渡船12便士，半日短工约6至12便士。这里只是游戏行情，不是历史价格考证。",
+        "requires": []
+      }
+    ],
+    "mechanics": {
+      "attributes": {
+        "version": 1,
+        "scale": [
+          0,
+          100
+        ],
+        "axes": [
+          {
+            "id": "talent",
+            "name": "天赋",
+            "keywords": {
+              "low": [
+                "感应迟缓",
+                "按步骤练习",
+                "谨慎引导"
+              ],
+              "medium": [
+                "感知灵力",
+                "稳定引导",
+                "熟练需训练"
+              ],
+              "high": [
+                "灵力敏感",
+                "精细引导",
+                "易察能量变化"
+              ]
+            }
+          },
+          {
+            "id": "strength",
+            "name": "力量",
+            "keywords": {
+              "low": [
+                "借助工具",
+                "节省力气",
+                "避免硬扛"
+              ],
+              "medium": [
+                "稳妥发力",
+                "常规负重",
+                "调整支点"
+              ],
+              "high": [
+                "有力支撑",
+                "重物搬运",
+                "控制力道"
+              ]
+            }
+          },
+          {
+            "id": "agility",
+            "name": "敏捷",
+            "keywords": {
+              "low": [
+                "提前避让",
+                "缓步试探",
+                "留足距离"
+              ],
+              "medium": [
+                "及时闪避",
+                "协调动作",
+                "保持平衡"
+              ],
+              "high": [
+                "迅速变向",
+                "精细动作",
+                "快速撤步"
+              ]
+            }
+          },
+          {
+            "id": "wisdom",
+            "name": "智慧",
+            "keywords": {
+              "low": [
+                "先问清楚",
+                "单步判断",
+                "需要明确线索"
+              ],
+              "medium": [
+                "比较线索",
+                "识别明显危险",
+                "选择应变"
+              ],
+              "high": [
+                "识别矛盾",
+                "多步预判",
+                "察觉陷阱线索"
+              ]
+            }
+          },
+          {
+            "id": "social",
+            "name": "社交",
+            "keywords": {
+              "low": [
+                "直述需要",
+                "简短回应",
+                "少用言外之意"
+              ],
+              "medium": [
+                "接住话题",
+                "解释立场",
+                "适度转折"
+              ],
+              "high": [
+                "调整措辞",
+                "试探需求",
+                "协商让步"
+              ]
+            }
+          },
+          {
+            "id": "resilience",
+            "name": "韧性",
+            "keywords": {
+              "low": [
+                "及时休息",
+                "承认疲惫",
+                "规避消耗"
+              ],
+              "medium": [
+                "保持节奏",
+                "承受压力",
+                "恢复呼吸"
+              ],
+              "high": [
+                "耐受消耗",
+                "逆境坚持",
+                "缓慢释放紧张"
+              ]
+            }
+          }
+        ],
+        "hp": {
+          "base": 50,
+          "per_resilience": 2
+        },
+        "note": "天赋仅为原灵力亲合度的显示改名。属性约束能力，不等于性格、道德或已知秘密。"
+      },
+      "local": {
+        "turn_hours": 0,
+        "travel_hours": 1,
+        "resources": [
+          {
+            "id": "pence",
+            "name": "旅费（12便士=1先令）",
+            "unit": "便士",
+            "initial": 18,
+            "maximum": 10000
+          },
+          {
+            "id": "wheat",
+            "name": "干麦",
+            "unit": "袋",
+            "initial": 0,
+            "maximum": 1
+          },
+          {
+            "id": "toll_debt",
+            "name": "欠奥伦的桥费",
+            "unit": "便士",
+            "initial": 0,
+            "maximum": 8
+          }
+        ]
+      },
+      "scene_judgment": {
+        "version": 1,
+        "law": "衣物有主，不得擅拿。传闻不是目击事实，不触发罚款；8便士桥费公开，介绍信或约定劳动可免票。",
+        "actors": {
+          "bess": {
+            "values": "看重尊严，也看重把收入分给学徒的实际行动。",
+            "choices": {
+              "trust": {
+                "line": "贝丝听完诺尔的收据，认可你分享利润，写了船工介绍信。",
+                "trust_delta": 0.2,
+                "flags": {
+                  "introduced": true
+                }
+              },
+              "warn": {
+                "line": "贝丝要求你把衣物放下；赔礼不代表她立刻信任你。",
+                "trust_delta": -0.2,
+                "flags": {}
+              }
+            }
+          },
+          "guard": {
+            "values": "传闻不是定罪证据，但赊账是他自行承担的信用风险。",
+            "choices": {
+              "respect": {
+                "line": "奥伦确认你完成修桥劳动，提醒你须在截止前登记免票。",
+                "trust_delta": 0.1,
+                "flags": {}
+              }
+            }
+          }
+        }
+      },
+      "endings": {
+        "version": 1,
+        "endings": [
+          {
+            "id": "day_normal",
+            "title": "一笔生意，一张通行证",
+            "summary": "你完成采购、付清或约定桥费后离镇。",
+            "kind": "traded",
+            "condition": {
+              "all_flags": {
+                "day_normal": true
+              },
+              "not_flags": [
+                "day_friend",
+                "day_chaos",
+                "day_missed"
+              ]
+            },
+            "priority": 4
+          },
+          {
+            "id": "day_friend",
+            "title": "收据换来的介绍信",
+            "summary": "分享利润得到实际信任，省下桥费。",
+            "kind": "negotiated",
+            "condition": {
+              "all_flags": {
+                "day_friend": true
+              },
+              "not_flags": [
+                "day_normal",
+                "day_chaos",
+                "day_missed"
+              ]
+            },
+            "priority": 3
+          },
+          {
+            "id": "day_chaos",
+            "title": "胡闹也要付账",
+            "summary": "你离开了镇子，但传闻、赔付与信用损失并未被抹掉。",
+            "kind": "saved",
+            "condition": {
+              "all_flags": {
+                "day_chaos": true
+              },
+              "not_flags": [
+                "day_normal",
+                "day_friend",
+                "day_missed"
+              ]
+            },
+            "priority": 2
+          },
+          {
+            "id": "day_missed",
+            "title": "船走了，明天还在",
+            "summary": "你错过今天的船，可以留下做工挣明日旅费。",
+            "kind": "lost",
+            "condition": {
+              "all_flags": {
+                "day_missed": true
+              },
+              "not_flags": [
+                "day_normal",
+                "day_friend",
+                "day_chaos"
+              ]
+            },
+            "continue_event": "town_tomorrow",
+            "priority": 1
+          }
+        ]
+      },
+      "start_profiles": {
+        "version": 1,
+        "default_profile": "traveller",
+        "profiles": [
+          {
+            "id": "traveller",
+            "title": "铜杯镇的一天",
+            "summary": "早晨八点，你有18便士，其中6便士要付昨夜食宿。诺尔的干麦委托要垫12便士，收货付16便士。傍晚六点前办好雾桥通行，赶傍晚船；桥费8便士。",
+            "identity": "手头不宽裕的外乡旅人",
+            "location": "town_hall",
+            "goal": "在傍晚六点前办好雾桥通行，赶上傍晚船。",
+            "entry_event": "town_open",
+            "relations": {
+              "bess": {
+                "trust": 0.5,
+                "note": "初次相识"
+              },
+              "seller": {
+                "trust": 0.5,
+                "note": "初次相识"
+              },
+              "baker": {
+                "trust": 0.5,
+                "note": "初次相识"
+              },
+              "guard": {
+                "trust": 0.5,
+                "note": "初次相识"
+              }
+            },
+            "known": [
+              {
+                "id": "opening",
+                "text": "早晨八点，你有18便士，其中6便士要付昨夜食宿。诺尔的干麦委托要垫12便士，收货付16便士。傍晚六点前办好雾桥通行，赶傍晚船；桥费8便士。"
+              }
+            ]
+          }
+        ]
+      },
+      "adventure": {
+        "version": 1,
+        "routes": [
+          {
+            "origin": "town_hall",
+            "destination": "town_market",
+            "hours": 1,
+            "kind": "town_lane"
+          },
+          {
+            "origin": "town_market",
+            "destination": "town_hall",
+            "hours": 1,
+            "kind": "town_lane"
+          },
+          {
+            "origin": "town_hall",
+            "destination": "town_bridge",
+            "hours": 1,
+            "kind": "town_lane"
+          },
+          {
+            "origin": "town_bridge",
+            "destination": "town_hall",
+            "hours": 1,
+            "kind": "town_lane"
+          },
+          {
+            "origin": "town_market",
+            "destination": "town_bridge",
+            "hours": 1,
+            "kind": "town_lane"
+          },
+          {
+            "origin": "town_bridge",
+            "destination": "town_market",
+            "hours": 1,
+            "kind": "town_lane"
+          }
+        ],
+        "fallback": {
+          "enabled": true,
+          "duration_hours": 1,
+          "hints": [
+            {
+              "id": "hall_prices",
+              "target": {
+                "kind": "place",
+                "id": "town_hall"
+              },
+              "kinds": [
+                "observe",
+                "ask"
+              ],
+              "text": "柜台账单写着昨夜食宿6便士；付清后还剩12便士采购本钱。"
+            },
+            {
+              "id": "hall_receipt",
+              "target": {
+                "kind": "place",
+                "id": "town_hall"
+              },
+              "kinds": [
+                "observe",
+                "ask"
+              ],
+              "text": "贝丝说她肯看诺尔署名的收据，不会只凭自夸作介绍。"
+            },
+            {
+              "id": "market_samples",
+              "target": {
+                "kind": "place",
+                "id": "town_market"
+              },
+              "kinds": [
+                "observe",
+                "ask"
+              ],
+              "text": "诺尔指着标注样本：拿不准可以请他一起对照，不必押运气。"
+            },
+            {
+              "id": "market_profit",
+              "target": {
+                "kind": "place",
+                "id": "town_market"
+              },
+              "kinds": [
+                "observe",
+                "ask"
+              ],
+              "text": "12便士成本、16便士收货款，中间4便士才是这笔生意的利润。"
+            },
+            {
+              "id": "bridge_labor",
+              "target": {
+                "kind": "place",
+                "id": "town_bridge"
+              },
+              "kinds": [
+                "observe",
+                "ask"
+              ],
+              "text": "桥牌写着修桥失败后可搬木料抵票，但劳动完成还须在六点前登记。"
+            },
+            {
+              "id": "bridge_tomorrow",
+              "target": {
+                "kind": "place",
+                "id": "town_bridge"
+              },
+              "kinds": [
+                "observe",
+                "ask"
+              ],
+              "text": "错过今天的船，桥口仍有明日短工；这不等于今天能免费登船。"
+            }
+          ]
+        }
+      },
+      "pressure": {
+        "version": 1,
+        "pressures": [
+          {
+            "id": "day_boat",
+            "title": "傍晚六点截止的通行",
+            "stages": [
+              {
+                "id": "warning",
+                "kind": "warning",
+                "at_hours": 0,
+                "known_by": [
+                  "player"
+                ],
+                "public_text": "早晨八点；开局后10小时即傍晚六点，须在此之前办妥通行。",
+                "effects": []
+              },
+              {
+                "id": "escalation",
+                "kind": "escalation",
+                "at_hours": 15,
+                "when": {
+                  "not_flags": [
+                    "secured"
+                  ]
+                },
+                "known_by": [
+                  "player"
+                ],
+                "public_text": "下午三点，离通行截止还剩三小时。",
+                "effects": [
+                  {
+                    "op": "flag",
+                    "id": "day_last_call",
+                    "value": true
+                  }
+                ]
+              },
+              {
+                "id": "missed",
+                "kind": "trigger",
+                "at_hours": 18,
+                "when": {
+                  "not_flags": [
+                    "secured"
+                  ]
+                },
+                "known_by": [
+                  "player"
+                ],
+                "public_text": "傍晚六点，船工停止接收通行名单。今天错过了，但可留镇做工。",
+                "effects": [
+                  {
+                    "op": "flag",
+                    "id": "day_missed",
+                    "value": true
+                  }
+                ]
+              },
+              {
+                "id": "reserved",
+                "kind": "lift",
+                "at_hours": 0,
+                "when": {
+                  "all_flags": {
+                    "secured": true
+                  },
+                  "not_flags": [
+                    "day_missed"
+                  ]
+                },
+                "known_by": [
+                  "player"
+                ],
+                "public_text": "通行已登记，船工留好座位；不用再赶这道期限。",
+                "effects": []
+              },
+              {
+                "id": "guard_private",
+                "kind": "warning",
+                "at_hours": 0,
+                "known_by": [
+                  "guard"
+                ],
+                "public_text": "奥伦私记：收班后要清点备用铁钉。",
+                "effects": []
+              }
+            ]
+          }
+        ]
+      },
+      "checks": {
+        "version": 2,
+        "tier_mode": "margin_four",
+        "die": "d20",
+        "display": "transparent",
+        "default_position": "risky",
+        "default_effect": "standard",
+        "factors": [
+          {
+            "id": "terms_read",
+            "label": "你读过今天的委托与期限",
+            "mod": 1,
+            "when": {
+              "kind": "flag",
+              "id": "day_terms",
+              "value": true
+            }
+          },
+          {
+            "id": "prank_credit",
+            "label": "酒馆里的信用已经受损",
+            "mod": -2,
+            "when": {
+              "kind": "flag",
+              "id": "day_prank",
+              "value": true
+            }
+          },
+          {
+            "id": "receipt",
+            "label": "你手里有诺尔署名的收据",
+            "mod": 2,
+            "when": {
+              "kind": "flag",
+              "id": "day_shared",
+              "value": true
+            }
+          }
+        ],
+        "push": [
+          {
+            "id": "extra_look",
+            "label": "再仔细看一遍",
+            "fatigue": 0.1,
+            "bonus": 2
+          },
+          {
+            "id": "strain",
+            "label": "咬牙硬撑",
+            "fatigue": 0.2,
+            "advantage": true
+          }
+        ],
+        "clocks": [
+          {
+            "id": "grain_deal",
+            "label": "干麦生意",
+            "segments": 4,
+            "kind": "progress",
+            "known_by": [
+              "player"
+            ],
+            "on_full": [
+              {
+                "op": "flag",
+                "id": "day_deal_clean",
+                "value": true
+              }
+            ]
+          },
+          {
+            "id": "guard_doubt",
+            "label": "桥吏的疑虑",
+            "segments": 4,
+            "kind": "danger",
+            "known_by": [
+              "player"
+            ]
+          },
+          {
+            "id": "guard_note",
+            "label": "奥伦私下的笔记",
+            "segments": 3,
+            "kind": "progress",
+            "known_by": [
+              "guard"
+            ]
+          }
+        ],
+        "social": {
+          "guard": {
+            "interests": [
+              "public_price",
+              "labor"
+            ],
+            "boundaries": [
+              "theft"
+            ],
+            "trust_weight": 10,
+            "refusal_text": "奥伦不肯为传闻里的失礼作担保。",
+            "absent_text": "奥伦此刻不在桥口。"
+          },
+          "bess": {
+            "interests": [
+              "honest_receipt"
+            ],
+            "boundaries": [
+              "theft",
+              "family"
+            ],
+            "trust_weight": 10,
+            "refusal_text": "贝丝不愿再谈这件衣物。"
+          }
+        },
+        "default_costs": [
+          {
+            "kind": "time",
+            "hours": 1
+          }
+        ],
+        "retry": {
+          "same_approach": "refuse"
+        }
+      }
+    }
+  },
+  "characters": {
+    "id": "short_town_day_cast",
+    "title": "铜杯镇的一天·人物",
+    "characters": [
+      {
+        "id": "player",
+        "name": "我",
+        "public_name": "我",
+        "role": "主角",
+        "location_id": "town_hall",
+        "personality": {},
+        "state": {},
+        "attributes": {
+          "talent": 55,
+          "strength": 55,
+          "agility": 55,
+          "wisdom": 55,
+          "social": 55,
+          "resilience": 55
+        }
+      },
+      {
+        "id": "bess",
+        "name": "贝丝",
+        "public_name": "贝丝",
+        "role": "次要角色",
+        "location_id": "town_hall",
+        "personality": {
+          "责任": 0.8
+        },
+        "state": {},
+        "attributes": {
+          "talent": 55,
+          "strength": 55,
+          "agility": 55,
+          "wisdom": 55,
+          "social": 55,
+          "resilience": 55
+        }
+      },
+      {
+        "id": "seller",
+        "name": "粮商艾达",
+        "public_name": "粮商艾达",
+        "role": "次要角色",
+        "location_id": "town_market",
+        "personality": {
+          "谨慎": 0.7
+        },
+        "state": {},
+        "attributes": {
+          "talent": 55,
+          "strength": 55,
+          "agility": 55,
+          "wisdom": 55,
+          "social": 55,
+          "resilience": 55
+        }
+      },
+      {
+        "id": "baker",
+        "name": "面包师诺尔",
+        "public_name": "面包师诺尔",
+        "role": "次要角色",
+        "location_id": "town_market",
+        "personality": {
+          "责任": 0.8
+        },
+        "state": {},
+        "attributes": {
+          "talent": 55,
+          "strength": 55,
+          "agility": 55,
+          "wisdom": 55,
+          "social": 55,
+          "resilience": 55
+        }
+      },
+      {
+        "id": "guard",
+        "name": "桥吏奥伦",
+        "public_name": "桥吏奥伦",
+        "role": "次要角色",
+        "location_id": "town_bridge",
+        "personality": {
+          "责任": 0.9
+        },
+        "state": {},
+        "attributes": {
+          "talent": 55,
+          "strength": 55,
+          "agility": 55,
+          "wisdom": 55,
+          "social": 55,
+          "resilience": 55
+        }
+      }
+    ]
+  },
+  "playtest": {
+    "target_minutes": [
+      15,
+      20
+    ],
+    "measured_minutes": null,
+    "route": [
+      "day_terms",
+      "day_breakfast",
+      "day_to_market",
+      "@town_market",
+      "day_inspect",
+      "?day_compare",
+      "day_buy",
+      "day_deliver",
+      "day_return",
+      "@town_hall",
+      "day_to_bridge",
+      "@town_bridge",
+      "day_pay",
+      "day_sail"
+    ],
+    "alternative": [
+      "day_terms",
+      "day_breakfast",
+      "day_to_market",
+      "@town_market",
+      "day_inspect",
+      "?day_compare",
+      "day_buy",
+      "day_deliver",
+      "day_share",
+      "day_lamp",
+      "day_return",
+      "@town_hall",
+      "day_introduction",
+      "day_to_bridge",
+      "@town_bridge",
+      "day_letter",
+      "day_friend_sail"
+    ],
+    "pacing": "约12–18次行动，穿插6–10轮追问、阅读与权衡；快速点击会更短。",
+    "chaos": [
+      "day_terms",
+      "day_breakfast",
+      "day_prank",
+      "day_to_market",
+      "@town_market",
+      "day_compare",
+      "day_buy",
+      "day_deliver",
+      "day_return",
+      "@town_hall",
+      "day_amends",
+      "day_rumor_to_bridge",
+      "@town_bridge",
+      "day_hear_rumor",
+      "day_pay",
+      "day_prank_sail"
+    ]
+  }
+}

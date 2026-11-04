@@ -4,7 +4,8 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch
 from fastapi.testclient import TestClient
-from app.web import create_app
+from tests.fixtures_world import world_app as create_app
+from tests.fixtures_world import world_service
 from app.service import Service
 from app.storage import Store
 from app.reply_direction import ReplyDirectionRequest,draft_reply
@@ -13,7 +14,7 @@ ROOT=Path(__file__).resolve().parents[1]
 
 class ReplyDirectionTests(unittest.TestCase):
     def setUp(self):
-        self.tmp=tempfile.TemporaryDirectory();self.svc=Service(Store(Path(self.tmp.name)/'t.sqlite3'),ROOT)
+        self.tmp=tempfile.TemporaryDirectory();self.svc=world_service(Store(Path(self.tmp.name)/'t.sqlite3'),ROOT)
         self.svc.provider.configure({'offline':True});self.s=self.svc.runtime.new_session('方向','protagonist')
     def tearDown(self):self.tmp.cleanup()
     def test_draft_does_not_change_game_or_memories(self):

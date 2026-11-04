@@ -4,7 +4,7 @@ from .contracts import Element, Preferences
 from .provider import Provider
 from .runtime import Runtime, uid, now
 from .prompts import surface_prefix, author_prefix, template
-from .knowledge import retrieve, extract_notes, notebook
+from .knowledge import retrieve, extract_notes
 from . import attributes
 from . import scene_judgment
 
@@ -110,9 +110,7 @@ class Service:
         """
         result, work = self.runtime.local_action(
             s, request.action_id, getattr(request, 'confirm', None))
-        self.store.save_session(work)
-        self.runtime.session_files(work).save_notes(
-            '旅程', work['id'], notebook(work))
+        self.runtime.save_session_with_notes(work)
         surface = self.runtime.surface(work)
         # 无事件时没有模型叙述。只附上**服务端已确认**的最小回执（时长与资源前后），
         # 不写进 turns/archives、不冒充模型回复；持久化已由上面一次 save_session 完成。
@@ -235,12 +233,17 @@ class Service:
                 raise ValueError('请先完成至少一个事件')
             if len(text) > self.preferences()['context_chars'] - 2000:
                 raise ValueError('归档超出单次润色预算，请提高预算；原始小说仍可导出')
-            if self.provider.config()['offline']:
-                result, usage = text, {'mode':'offline', 'calls':0}
-                self.provider.offline_trace('polish', {'text': text}, result)
-            else:
-                result, usage = await self.provider.complete(template('polish'), {'text':text}, scope='polish')
-                usage['calls'] = 1
+            expected_version = s.get('state_version', 0)
+        if self.provider.config()['offline']:
+            result, usage = text, {'mode':'offline', 'calls':0}
+            self.provider.offline_trace('polish', {'text': text}, result)
+        else:
+            result, usage = await self.provider.complete(template('polish'), {'text':text}, scope='polish')
+            usage['calls'] = 1
+        async with self.lock:
+            s = self.store.session(session_id)
+            if s.get('state_version', 0) != expected_version:
+                raise ValueError('旅程已被其他操作更新，请刷新后重试')
             s['polished'] = {'text': result, 'archive_ids': [a['id'] for a in s['archives']], 'usage': usage}
             self.store.save_session(s)
             return {'text': result, 'usage': usage}

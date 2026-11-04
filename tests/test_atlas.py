@@ -3,6 +3,7 @@ import copy
 import tempfile
 import unittest
 from pathlib import Path
+from tests.fixtures_world import world_service
 from app.service import Service
 from app.storage import Store
 from app.world_generator import GenerateWorldRequest
@@ -15,7 +16,7 @@ ROOT=Path(__file__).resolve().parents[1]
 class AtlasTests(unittest.TestCase):
     def setUp(self):
         self.tmp=tempfile.TemporaryDirectory()
-        self.svc=Service(Store(Path(self.tmp.name)/'t.sqlite3'),ROOT)
+        self.svc=world_service(Store(Path(self.tmp.name)/'t.sqlite3'),ROOT)
         self.svc.provider.configure({'offline':True})
         self.rt=self.svc.runtime
     def tearDown(self):self.tmp.cleanup()

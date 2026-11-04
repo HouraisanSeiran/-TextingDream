@@ -12,6 +12,7 @@ from pathlib import Path
 from fastapi.testclient import TestClient
 
 from app import towns
+from tests.fixtures_world import world_service
 from app.service import Service
 from app.storage import Store
 from app.town_schema import DraftRequest, TownInput
@@ -30,7 +31,7 @@ class TownCase(unittest.TestCase):
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory()
         self.path = Path(self.tmp.name) / 'towns.sqlite3'
-        self.svc = Service(Store(self.path), ROOT)
+        self.svc = world_service(Store(self.path), ROOT)
         self.svc.provider.configure({'offline': True})
         self.towns = self.svc.towns
         self.rt = self.svc.runtime
@@ -86,7 +87,7 @@ class DeterminismTests(TownCase):
     def test_ids_are_stable_across_a_restart(self):
         draft = self.draft()
         snapshot = self.towns.snapshot(draft)
-        restart = Service(Store(self.path), ROOT)
+        restart = world_service(Store(self.path), ROOT)
         again = restart.towns.snapshot(restart.towns.get_draft(draft['id']))
         self.assertEqual(snapshot['town_id'], again['town_id'])
         self.assertEqual(json.dumps(snapshot, sort_keys=True),
@@ -303,7 +304,7 @@ class ConcurrencyTests(TownCase):
 
     def test_two_store_handles_interleaved_publish_and_edit(self):
         draft = self.draft()
-        other = Service(Store(self.path), ROOT)
+        other = world_service(Store(self.path), ROOT)
         # The second handle edits first, bumping the draft revision in the database.
         other.towns.edit_stage(draft['id'], 'skeleton', draft['stages'][0]['data'],
                                draft['revision'])
@@ -375,7 +376,7 @@ class PublicationTests(TownCase):
     def test_version_survives_restart(self):
         draft = self.draft()
         published = self.towns.publish(draft['id'], draft['revision'])
-        restart = Service(Store(self.path), ROOT)
+        restart = world_service(Store(self.path), ROOT)
         again = restart.towns.get_version(published['version']['id'])
         self.assertEqual(again['content_hash'], published['version']['content_hash'])
         self.assertEqual(again['snapshot']['skeleton']['display_name'],
@@ -419,7 +420,7 @@ class AdoptionTests(TownCase):
         draft = self.draft()
         version = self.towns.publish(draft['id'], draft['revision'])['version']
         # A separate database has its own town library, so the version is unknown there.
-        other = Service(Store(Path(self.tmp.name) / 'other.sqlite3'), ROOT)
+        other = world_service(Store(Path(self.tmp.name) / 'other.sqlite3'), ROOT)
         other_pkg = other.runtime.package()
         with self.assertRaisesRegex(TownError, '城镇版本不存在'):
             other.towns.adopt(version['id'], other_pkg['id'],
@@ -505,7 +506,7 @@ class JourneyIsolationTests(TownCase):
         self.adopt(version)
         exported = copy.deepcopy(self.rt.package())
 
-        empty = Service(Store(Path(self.tmp.name) / 'imported.sqlite3'), ROOT)
+        empty = world_service(Store(Path(self.tmp.name) / 'imported.sqlite3'), ROOT)
         empty.runtime.commit_package(copy.deepcopy(exported['story']),
                                      copy.deepcopy(exported['characters']),
                                      '导入导出包')
@@ -611,7 +612,7 @@ class LegacyCompatibilityTests(unittest.TestCase):
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory()
         self.path = Path(self.tmp.name) / 'legacy.sqlite3'
-        self.svc = Service(Store(self.path), ROOT)
+        self.svc = world_service(Store(self.path), ROOT)
         self.svc.provider.configure({'offline': True})
         self.rt = self.svc.runtime
 

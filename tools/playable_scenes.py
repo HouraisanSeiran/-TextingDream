@@ -1,4 +1,4 @@
-"""Three authored short adventures. Export sources or install through the running API."""
+"""Authored short adventures. Export sources or install through the running API."""
 import argparse
 import json
 from pathlib import Path
@@ -269,8 +269,173 @@ def market():
     return data
 
 
+def town_day():
+    """One town, one wallet, and explicitly authored consequences between scenes."""
+    actors = {
+        'bess': {'values': '看重尊严，也看重把收入分给学徒的实际行动。', 'choices': {
+            'trust': choice('贝丝听完诺尔的收据，认可你分享利润，写了船工介绍信。', .2, introduced=True),
+            'warn': choice('贝丝要求你把衣物放下；赔礼不代表她立刻信任你。', -.2)}},
+        'guard': {'values': '传闻不是定罪证据，但赊账是他自行承担的信用风险。', 'choices': {
+            'respect': choice('奥伦确认你完成修桥劳动，提醒你须在截止前登记免票。', .1)}},
+    }
+    places = [
+        place('town_hall', '铜杯酒馆', '早晨八点。贝丝的柜台旁挂着待收的衣物。粮市往返各一小时，雾桥也需一小时。', ['town_market', 'town_bridge']),
+        place('town_market', '雨后粮市', '艾达卖最后一袋干麦，12便士；诺尔在同一市场的烤炉边收货，支付16便士。', ['town_hall', 'town_bridge']),
+        place('town_bridge', '雾桥', '奥伦守着8便士的桥口。桥另一头的傍晚船免费载客；必须在傍晚六点前办好通行。', ['town_hall', 'town_market']),
+    ]
+    opening = event('town_open', '八点的铜杯', 'town_hall', ['bess'], [
+        action('day_terms', '读清今天的委托、桥费与船期', '干麦成本12便士，送达收16便士。桥费8便士；傍晚六点（开局后10小时）截止，错过可留下做工等明天。', effects=[flag('day_terms'), info('今天傍晚六点前办好通行；酒馆到粮市、粮市到酒馆、酒馆到雾桥均一小时。')]),
+        action('day_breakfast', '付清食宿欠账（6便士）', '我支付昨夜食宿6便士，剩12便士用于采购。', cost=6, effects=[flag('breakfast_paid')]),
+        action('day_prank', '当着贝丝把衬裤套在头上再归还', '贝丝亲眼看见我擅拿衣物又放回。去桥口送桶的跑腿听见争执，将转述此事；奥伦只能听到传闻，不是目击者。', risk='会破坏信用；桥吏可能拒绝赊账，谈价更难。衣物归还不抹去冒犯。', effects=[flag('day_prank')], social={'success': {'bess': ['warn']}}),
+        action('day_to_market', '接下诺尔的采购委托，去粮市', '我带着采购钱离开柜台。', requires={'day_terms': True, 'breakfast_paid': True}, end=True),
+    ], 'town_trade', '在傍晚六点前办好雾桥通行，赶上傍晚船。')
+    trade = event('town_trade', '同一笔钱的两种用途', 'town_market', ['seller', 'baker'], [
+        action('day_inspect', '辨认哪一袋是干麦', '我认出了干麦的松散颗粒。', check=('wisdom', .4), hours=1, success=[flag('day_quality')], failure='我看不准；诺尔愿意用一小时带我对照标注样本。', fail=[flag('day_inspect_failed'), info('诺尔可带你对照样本，不需要再掷骰。')]),
+        action('day_compare', '请诺尔带着对照样本（一小时）', '诺尔带我逐粒对照，确认了干麦。', requires={'day_quality': False}, hours=1, effects=[flag('day_quality')]),
+        action('day_buy', '买下干麦（12便士）', '我支付12便士，手头现金用尽，取得干麦；现在不能再用这笔钱付桥费。', cost=12, requires={'day_quality': True}, effects=[flag('day_grain'), {'op': 'resource', 'id': 'wheat', 'delta': 1}]),
+        action('day_deliver', '把干麦送到市场烤炉，收16便士', '诺尔验收干麦支付16便士；其中12便士归还采购本钱，4便士是利润。', hours=1, requires={'day_grain': True}, effects=[money(16), flag('day_grain', False), flag('day_delivered'), {'op': 'resource', 'id': 'wheat', 'delta': -1}]),
+        action('day_share', '把4便士利润分给学徒，请诺尔写收据', '我拿出4便士给学徒添饭，诺尔写下署名收据，可带回给贝丝看。', cost=4, requires={'day_delivered': True}, effects=[flag('day_shared'), info('诺尔的收据：旅人把4便士采购利润分给了学徒。')]),
+        action('day_lamp', '再捐4便士给市场灯油', '我又捐出4便士；若已分享利润，现在只余8便士，刚好够原价桥费。', cost=4, requires={'day_shared': True}, effects=[flag('day_lamp')]),
+        action('day_return', '结清交易，带收据回酒馆', '我离开市场，回铜杯酒馆取行李。', requires={'day_delivered': True}, end=True),
+    ], 'town_return')
+    rumor = '跑腿转述：酒馆里有人把贝丝的衬裤套在头上，据说就是这位旅人；奥伦没有亲眼见到。'
+    rumor_effect = {'op': 'information', 'text': rumor, 'known_by': ['player', 'guard'], 'confirmed': False}
+    home = event('town_return', '带回来的不只是钱', 'town_hall', ['bess'], [
+        action('day_introduction', '出示分享利润的收据，请贝丝介绍船工', '贝丝核对收据，愿意为这次善意作介绍；奥伦接受船工介绍信可免本次桥费。', requires={'day_shared': True, 'day_prank': False}, social={'success': {'bess': ['trust']}}),
+        action('day_amends', '赔付洗衣与停工损失（8便士）', '贝丝接受8便士的损失赔付；已经传出去的故事不会因此收回。', cost=8, requires={'day_prank': True}, effects=[flag('day_amends')]),
+        action('day_to_bridge', '取好行李，前往雾桥', '我离开酒馆，去办通行。', requires={'day_prank': False}, end=True),
+        action('day_rumor_to_bridge', '跟送桶跑腿一起去雾桥', '跑腿先走一步，把酒馆争执转述给奥伦；贝丝告诉我这消息已经传开。奥伦只听到传闻，不是目击者。', requires={'day_prank': True}, effects=[flag('rumor_arrived'), rumor_effect], end=True),
+    ], 'town_depart')
+    depart = event('town_depart', '传闻、信用与八便士', 'town_bridge', ['guard'], [
+        action('day_hear_rumor', '听奥伦转述跑腿的传闻', '奥伦明确说自己只是听说，没有据此罚款；但不愿承担你的赊账风险。', requires={'rumor_arrived': True}, effects=[flag('day_rumor_heard')]),
+        action('day_credit', '请求记下8便士桥费，明日偿还', '奥伦同意本次赊账8便士。欠款留在旅程，不是免费免除。', requires={'day_prank': False, 'secured': False, 'day_missed': False}, effects=[flag('secured'), flag('day_debt'), {'op': 'resource', 'id': 'toll_debt', 'delta': 8}, info('欠奥伦8便士桥费，约定明日偿还。')]),
+        action('day_bargain', '尝试以修桥换票', '我按指示修好栏杆，可在截止前登记免票通行。', requires={'day_prank': False, 'secured': False, 'day_missed': False}, check=('strength', .45), hours=1, success=[flag('day_repair_done')], failure='我没能稳住木料；可以改付8便士，或请求赊账。', fail=[flag('day_repair_failed')], social={'success': {'guard': ['respect']}}),
+        action('day_hard_bargain', '在传闻影响下尝试以修桥换票', '虽然奥伦谨慎，我仍完成了要求更严的修补，可在截止前登记通行。', requires={'rumor_arrived': True, 'secured': False, 'day_missed': False}, check=('strength', .7), hours=1, success=[flag('day_repair_done')], failure='奥伦不接受这次修补，也不肯赊账；仍可付公开的8便士，或者搬木料两小时抵票。', fail=[flag('day_repair_failed')]),
+        action('day_carry', '修补失败后搬两小时木料抵桥费', '我按公开劳动约定搬完木料，可在截止前登记通行；这不修复酒馆信用。', hours=2, requires={'day_repair_failed': True, 'secured': False, 'day_missed': False}, effects=[flag('day_repair_done')]),
+        action('day_register_work', '在截止前登记已完成的修桥劳动', '奥伦核对完成的劳动，登记免票通行。', requires={'day_repair_done': True, 'secured': False, 'day_missed': False}, effects=[flag('secured')]),
+        action('day_wait', '在桥口等五小时再决定', '五小时过去了；船期不会因为我犹豫而推迟。', hours=5, requires={'secured': False}, risk='等待可能超过傍晚六点的通行期限，错过后可留下做工。'),
+        action('day_pay', '按公开价格付8便士桥费', '我付8便士取得通行；没有传闻罚款。', cost=8, requires={'secured': False, 'day_missed': False}, effects=[flag('secured')]),
+        action('day_letter', '出示贝丝的船工介绍信', '奥伦核对介绍信，按船工预留名额免去本次桥费。', requires={'introduced': True, 'secured': False, 'day_missed': False}, effects=[flag('secured'), flag('day_letter_used')]),
+        action('day_sail', '过桥登船，保留今天的账目', '我办妥通行后登船，离开铜杯镇。', requires={'secured': True, 'day_prank': False, 'day_letter_used': False, 'day_missed': False}, effects=[flag('day_normal')], end=True),
+        action('day_friend_sail', '带着介绍信过桥登船', '我带着学徒的谢意与贝丝的信任登船。', requires={'secured': True, 'day_letter_used': True, 'day_missed': False}, effects=[flag('day_friend')], end=True),
+        action('day_prank_sail', '带着信用损失过桥登船', '我可以离镇，但赔付、传闻与被拒绝的赊账都留在记录里。', requires={'secured': True, 'rumor_arrived': True, 'day_missed': False}, effects=[flag('day_chaos')], end=True),
+        action('day_stay', '自愿错过今天的船，明天再走', '我决定留镇，明天凭劳动重新挣旅费。', effects=[flag('day_missed')], end=True),
+    ])
+    aftermath = event('town_tomorrow', '错过之后还有明天', 'town_bridge', ['guard'], [
+        action('day_next_work', '帮奥伦整理木料，挣明日旅费8便士', '船已离开；我做两小时工挣8便士，明天仍能重新出发。', hours=2, effects=[money(8), flag('day_rebuilt')]),
+        action('day_next_close', '记下明日计划，结束今天', '今天错过了船，明天的路仍然开着。', end=True),
+    ])
+    aftermath['entry_flags'] = {'day_missed': True}
+    ends = [ending('day_normal', '一笔生意，一张通行证', '你完成采购、付清或约定桥费后离镇。', 'traded'),
+            ending('day_friend', '收据换来的介绍信', '分享利润得到实际信任，省下桥费。', 'negotiated'),
+            ending('day_chaos', '胡闹也要付账', '你离开了镇子，但传闻、赔付与信用损失并未被抹掉。'),
+            ending('day_missed', '船走了，明天还在', '你错过今天的船，可以留下做工挣明日旅费。', 'lost')]
+    ends[-1]['continue_event'] = 'town_tomorrow'
+    normal = ['day_terms', 'day_breakfast', 'day_to_market', '@town_market', 'day_inspect', '?day_compare', 'day_buy', 'day_deliver', 'day_return', '@town_hall', 'day_to_bridge', '@town_bridge', 'day_pay', 'day_sail']
+    alternative = ['day_terms', 'day_breakfast', 'day_to_market', '@town_market', 'day_inspect', '?day_compare', 'day_buy', 'day_deliver', 'day_share', 'day_lamp', 'day_return', '@town_hall', 'day_introduction', 'day_to_bridge', '@town_bridge', 'day_letter', 'day_friend_sail']
+    data = base('town_day', '铜杯镇的一天', '早晨八点，你有18便士，其中6便士要付昨夜食宿。诺尔的干麦委托要垫12便士，收货付16便士。傍晚六点前办好雾桥通行，赶傍晚船；桥费8便士。', places,
+                [person('bess', '贝丝', 'town_hall', {'责任': .8}), person('seller', '粮商艾达', 'town_market', {'谨慎': .7}), person('baker', '面包师诺尔', 'town_market', {'责任': .8}), person('guard', '桥吏奥伦', 'town_bridge', {'责任': .9})], actors,
+                '衣物有主，不得擅拿。传闻不是目击事实，不触发罚款；8便士桥费公开，介绍信或约定劳动可免票。',
+                [opening, trade, home, depart, aftermath], ends, normal, alternative)
+    mechanics = data['story']['mechanics']
+    mechanics['local']['resources'].append({'id': 'wheat', 'name': '干麦', 'unit': '袋', 'initial': 0, 'maximum': 1})
+    mechanics['local']['resources'].append({'id': 'toll_debt', 'name': '欠奥伦的桥费', 'unit': '便士', 'initial': 0, 'maximum': 8})
+    mechanics['adventure'] = {'version': 1, 'routes': [
+        {'origin': a, 'destination': b, 'hours': 1, 'kind': 'town_lane'}
+        for a, b in [('town_hall', 'town_market'), ('town_market', 'town_hall'), ('town_hall', 'town_bridge'), ('town_bridge', 'town_hall'), ('town_market', 'town_bridge'), ('town_bridge', 'town_market')]]}
+    mechanics['pressure'] = {'version': 1, 'pressures': [{'id': 'day_boat', 'title': '傍晚六点截止的通行', 'stages': [
+        {'id': 'warning', 'kind': 'warning', 'at_hours': 0, 'known_by': ['player'], 'public_text': '早晨八点；开局后10小时即傍晚六点，须在此之前办妥通行。', 'effects': []},
+        {'id': 'escalation', 'kind': 'escalation', 'at_hours': 15, 'when': {'not_flags': ['secured']}, 'known_by': ['player'], 'public_text': '下午三点，离通行截止还剩三小时。', 'effects': [flag('day_last_call')]},
+        {'id': 'missed', 'kind': 'trigger', 'at_hours': 18, 'when': {'not_flags': ['secured']}, 'known_by': ['player'], 'public_text': '傍晚六点，船工停止接收通行名单。今天错过了，但可留镇做工。', 'effects': [flag('day_missed')]},
+        {'id': 'reserved', 'kind': 'lift', 'at_hours': 0, 'when': {'all_flags': {'secured': True}, 'not_flags': ['day_missed']}, 'known_by': ['player'], 'public_text': '通行已登记，船工留好座位；不用再赶这道期限。', 'effects': []},
+        {'id': 'guard_private', 'kind': 'warning', 'at_hours': 0, 'known_by': ['guard'], 'public_text': '奥伦私记：收班后要清点备用铁钉。', 'effects': []},
+    ]}]}
+    mechanics['adventure']['fallback'] = {
+        'enabled': True, 'duration_hours': 1, 'hints': [
+            {'id': 'hall_prices', 'target': {'kind': 'place', 'id': 'town_hall'}, 'kinds': ['observe', 'ask'], 'text': '柜台账单写着昨夜食宿6便士；付清后还剩12便士采购本钱。'},
+            {'id': 'hall_receipt', 'target': {'kind': 'place', 'id': 'town_hall'}, 'kinds': ['observe', 'ask'], 'text': '贝丝说她肯看诺尔署名的收据，不会只凭自夸作介绍。'},
+            {'id': 'market_samples', 'target': {'kind': 'place', 'id': 'town_market'}, 'kinds': ['observe', 'ask'], 'text': '诺尔指着标注样本：拿不准可以请他一起对照，不必押运气。'},
+            {'id': 'market_profit', 'target': {'kind': 'place', 'id': 'town_market'}, 'kinds': ['observe', 'ask'], 'text': '12便士成本、16便士收货款，中间4便士才是这笔生意的利润。'},
+            {'id': 'bridge_labor', 'target': {'kind': 'place', 'id': 'town_bridge'}, 'kinds': ['observe', 'ask'], 'text': '桥牌写着修桥失败后可搬木料抵票，但劳动完成还须在六点前登记。'},
+            {'id': 'bridge_tomorrow', 'target': {'kind': 'place', 'id': 'town_bridge'}, 'kinds': ['observe', 'ask'], 'text': '错过今天的船，桥口仍有明日短工；这不等于今天能免费登船。'},
+        ]}
+    data['playtest']['chaos'] = ['day_terms', 'day_breakfast', 'day_prank', 'day_to_market', '@town_market', 'day_compare', 'day_buy', 'day_deliver', 'day_return', '@town_hall', 'day_amends', 'day_rumor_to_bridge', '@town_bridge', 'day_hear_rumor', 'day_pay', 'day_prank_sail']
+    _town_day_checks(mechanics, data['story'])
+    return data
+
+
+def _town_day_checks(mechanics, story):
+    # 开启判定 v2（d20）的试点内容，并把三个既有检定接上钟与社交画像。
+    #
+    # 这是**内容试点**，不是新规则：判定、档位、钟全在 app/checks.py。
+    #
+    # * 三个检定（认麦 / 修桥 / 传闻下的修桥）改走 d20 四档（差值判定），difficulty 仍照旧换算成 DC；
+    # * 认麦成功推进「干麦生意」进度钟，修桥失败/恶化推进「桥吏的疑虑」危险钟；
+    # * 桥吏与贝丝的底线/诉求是**作者声明**的结构（不从自然语言猜），不进任何玩家投影；
+    # * 重试用 refuse：同样的做法刚失败过就换办法，而不是反复押同一杆。
+    #
+    # 时钟仍只有一个：钟的进度按**行动**推进，不推游戏时间，也不另开第二套时间。
+    mechanics['checks'] = {
+        'version': 2, 'tier_mode': 'margin_four', 'die': 'd20', 'display': 'transparent',
+        'default_position': 'risky', 'default_effect': 'standard',
+        'factors': [
+            # 「读过今天的委托与期限」只让已经读过的局面轻松一点：没读过就没有这 +1。
+            {'id': 'terms_read', 'label': '你读过今天的委托与期限', 'mod': 1,
+             'when': {'kind': 'flag', 'id': 'day_terms', 'value': True}},
+            # 胡闹传出去以后，当面的交涉更难；这条对玩家可见（信用是公开的）。
+            {'id': 'prank_credit', 'label': '酒馆里的信用已经受损', 'mod': -2,
+             'when': {'kind': 'flag', 'id': 'day_prank', 'value': True}},
+            # 拿着署名收据：这笔生意的凭据，对交涉有利。
+            {'id': 'receipt', 'label': '你手里有诺尔署名的收据', 'mod': 2,
+             'when': {'kind': 'flag', 'id': 'day_shared', 'value': True}},
+        ],
+        'push': [
+            {'id': 'extra_look', 'label': '再仔细看一遍', 'fatigue': 0.1, 'bonus': 2},
+            {'id': 'strain', 'label': '咬牙硬撑', 'fatigue': 0.2, 'advantage': True},
+        ],
+        'clocks': [
+            {'id': 'grain_deal', 'label': '干麦生意', 'segments': 4, 'kind': 'progress',
+             'known_by': ['player'], 'on_full': [flag('day_deal_clean')]},
+            {'id': 'guard_doubt', 'label': '桥吏的疑虑', 'segments': 4, 'kind': 'danger',
+             'known_by': ['player']},
+            # 奥伦自己的笔记：只有他能看到这个钟。
+            {'id': 'guard_note', 'label': '奥伦私下的笔记', 'segments': 3, 'kind': 'progress',
+             'known_by': ['guard']},
+        ],
+        'social': {
+            'guard': {'interests': ['public_price', 'labor'], 'boundaries': ['theft'],
+                      'trust_weight': 10,
+                      'refusal_text': '奥伦不肯为传闻里的失礼作担保。',
+                      'absent_text': '奥伦此刻不在桥口。'},
+            'bess': {'interests': ['honest_receipt'], 'boundaries': ['theft', 'family'],
+                     'trust_weight': 10,
+                     'refusal_text': '贝丝不愿再谈这件衣物。'},
+        },
+        # 成功但有代价时，引擎从这一组按声明顺序取第一条可执行的代价（多花一小时）。
+        'default_costs': [{'kind': 'time', 'hours': 1}],
+        'retry': {'same_approach': 'refuse'},
+    }
+    by_id = {entry['id']: entry
+             for event in story['events'] for entry in event.get('actions') or []}
+    # 认麦：成功推进「干麦生意」；失败只给下一步提示（不软锁）。
+    by_id['day_inspect']['check']['clock'] = {'id': 'grain_deal'}
+    # 修桥：失败/恶化让桥吏更起疑（数字可省，默认 1/2）；付公开价的活不推这个钟。
+    for name in ('day_bargain', 'day_hard_bargain'):
+        by_id[name]['check']['danger_clock'] = {'id': 'guard_doubt', 'failure': 1,
+                                                'disaster': 2}
+    # 传闻下的修桥只剩「硬撑」：这时候塞钱不是对话的一部分。
+    by_id['day_hard_bargain']['check']['push_allowed'] = ['strain']
+    # chaos 路线的孤注一掷只提高效果，不改变四档差值边界。
+    by_id['day_hard_bargain']['check']['position'] = 'desperate'
+    # 与桥吏当面交涉：诉求来自他公开的定价与劳动，底线是财物（作者声明，不是模型猜）。
+    by_id['day_bargain']['check']['social'] = {'target': 'guard',
+                                               'appeals': ['public_price', 'labor'],
+                                               'violates': []}
+    return mechanics['checks']
+
+
 def scenes():
-    return [tavern(), bridge(), market()]
+    return [tavern(), bridge(), market(), town_day()]
 
 
 def export():
@@ -278,7 +443,7 @@ def export():
     for data in scenes():
         path = OUT / (data['story']['id'] + '.json')
         path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
-    print('Exported 3 short scenes to', OUT)
+    print('Exported', len(scenes()), 'short scenes to', OUT)
 
 
 def install(url):
@@ -304,7 +469,7 @@ def install(url):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--install', help='Install and create three fresh journeys through this local API URL')
+    parser.add_argument('--install', help='Install and create four fresh journeys through this local API URL')
     args = parser.parse_args()
     export()
     if args.install:

@@ -1,5 +1,11 @@
 import copy
 import unittest
+import pytest
+
+_tokenizers = pytest.importorskip('tokenizers', reason='Optional benchmark dependency tokenizers is unavailable')
+if not hasattr(_tokenizers, 'Tokenizer'):
+    pytest.skip('Optional tokenizers.Tokenizer is unavailable', allow_module_level=True)
+
 from tools.million_context_benchmark import targets,grade,filler,POSITIONS
 from tools.analyze_million_context import content_answer
 

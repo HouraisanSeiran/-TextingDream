@@ -305,27 +305,66 @@
     {
       "id": "flavors_black_pepper",
       "name": "胡椒（黑胡椒与白胡椒）",
-      "aliases": ["黑胡椒", "白胡椒", "胡椒粒", "peppercorn", "Piper nigrum"],
-      "tags": ["spice", "condiment", "food", "crop"],
+      "aliases": [
+        "黑胡椒",
+        "白胡椒",
+        "胡椒粒",
+        "peppercorn",
+        "Piper nigrum",
+        "black pepper"
+      ],
+      "tags": [
+        "spice",
+        "condiment",
+        "food",
+        "crop",
+        "part:fruit",
+        "habitat:tropical",
+        "trait:pungent",
+        "trade:spice",
+        "trade:currency",
+        "role:medicine_historical"
+      ],
       "summary": "胡椒科藤本的果实；同一颗果实因采收成熟度与是否去掉外果皮而成为黑胡椒或白胡椒，风味强度随之不同。它是旧大陆最早进入长途贸易的香料之一，在古代地中海曾被用来缴贡甚至充当支付手段。",
       "details": {
         "definition": "胡椒是胡椒科（Piperaceae）胡椒属藤本 Piper nigrum 的果实，商品形态分为黑胡椒（整果）与白胡椒（去外果皮后的种子），研磨后作通用调味料。它属于“香料”这一按植物部位分类的商品，可食部位是果实而非叶或根。",
         "mechanism": "辛辣与香气来自果实中的生物碱与挥发油共同作用，特征性辣味主要来自胡椒碱一类的成分，挥发油则提供接近辛香的气息但不提供灼辣感。这种“香而辣”的双重性质使它既能给淡味食物（粥、蛋、奶酪）提供刺激，又能在不改变主味的情况下压住腥膻。",
         "conditions": "需要长雨季、较高温度与部分遮荫，并且必须攀附于树或支柱生长；通常用茎段扦插繁殖，定植后 2—5 年开始结果，经济寿命可长达数十年。黑胡椒的做法是果穗开始转红时采收、浸热水后铺开晒干；白胡椒则要先让外果皮软化再搓洗去掉，干燥后再分级，因此同样的原料会因这一步多寡分出两个商品类别，并带来风味与价格差。",
         "exceptions": "“pepper”一名在英语世界里被套用到大量无关植物上，辣椒、花椒、粉红胡椒、甚至一些只作观赏的“胡椒树”都不同科不同属，不能互相替代。白胡椒并不等于“更精制的黑胡椒”，它是另一条加工路径的产物，风味更干净但刺激性弱。产地迁移使同一物种在不同土壤与雨季条件下风味差异明显，不能把某一产区的品质特征当作该物种的普遍属性。",
-        "story_uses": "适合承载三类叙事：一是价格的虚构与产地隐瞒（转手商散布产地有守卫怪兽之类的传闻以维持高价，史书里确有此类记载被同时代人驳斥）；二是赋税与支付替代（以胡椒征贡、以胡椒折价）；三是寻找直航的动因——欧洲商人被中间商层层加价，最终促成绕过陆路的海上远征。也可用于表现“同一商品的不同等级如何被分级与掺假”。",
+        "story_uses": "适合承载三类叙事：一是价格的虚构与产地隐瞒（转手商散布产地有守卫怪兽之类的传闻以维持高价，史书里确有此类记载被同时代人驳斥）；二是赋税与支付替代（以胡椒征贡、以胡椒折价）；三是寻找直航的动因——欧洲商人被中间商层层加价，最终促成绕过陆路的海上远征。也可用于表现“同一商品的不同等级如何被分级与掺假”。\n\n【补充条目：胡椒｜reality-herbs-aerial｜real_world】\n印度马拉巴尔海岸原产的木质藤本果实；曾充当交换媒介与贡赋单位，是中世纪欧洲「为一种香料开辟海路」的直接起因之一。\n定义：胡椒为胡椒科木质藤本（Piper nigrum）的果实（胡椒粒），原产印度马拉巴尔海岸；黑、白胡椒为同一果实的两种处理产物（herb_aerial_src_04）。注意：它与「花椒」「辣椒」均无关。本条为文献与设定资料，不构成医疗建议，不可据此用药。\n条件：生境与采收：需长雨季、较高温度与部分荫蔽，多以茎插繁殖并需树或支柱供攀附，常见于茶与咖啡园的间作；2—5 年开始结果、可产 40 年（herb_aerial_src_04）。果实转红时采摘；浸热水后晒干转为黑胡椒；去外果皮者为白胡椒（herb_aerial_src_04）。本条只说明「黑/白差异来自处理而非品种」，不记任何时长与温度参数。本条为文献与设定资料，不构成医疗建议，不可据此用药。\n例外：易混与例外：一是黑胡椒与白胡椒同果不同处理，风味与价格不同；二是与花椒、辣椒、粉红胡椒（实为不同科）全部无关，中文「胡椒」一词经常被泛用；三是同名异物——胡椒树（Schinus molle）等植物被称为「胡椒」但非香料（herb_aerial_src_04）；四是长期贮存会失香，且粉末极易掺假。本条为文献与设定资料，不构成医疗建议，不可据此用药。\n证据与不确定性：证据分层：来源支持——原产地、藤本与攀附、果实尺寸与成熟色、胡椒碱为风味来源、2—5 年结果与 40 年产量、黑/白处理差异、古希腊罗马以胡椒征贡、威尼斯与热那亚的分销与海路起因（herb_aerial_src_04）；香料贸易总体脉络（herb_aerial_src_20）。不确定：各时期价格与贸易量本文件未取得；「胡椒作药」的具体文献年代未核。本条为文献与设定资料，不构成医疗建议，不可据此用药。",
         "historical_scope": "原产印度马拉巴尔海岸，早期已在东南亚热带广泛栽培；罗马经埃及与印度之间的海运使其大量流入地中海；中世纪威尼斯与热那亚成为欧洲主要分销者，其近乎垄断的地位刺激了寻找东行海路的努力；此后葡萄牙、荷兰、英国先后介入，产地扩展到印尼与非洲、美洲热带。起源、传播、普及三个环节相隔上千年，不可合并为一个时间点。",
         "evidence_and_uncertainty": "科属、产地、栽培条件与黑白胡椒的加工差别由百科条目直接支撑；贸易结构与“以胡椒征贡/作交换媒介”亦有支撑。具体年代（哪个世纪胡椒在某一地区成为日常调味）与价格量级没有可靠依据，本项目不作断言；本条的 story_uses 属创作推演，不是史料结论。"
       },
-      "source_ids": ["flavors_src_black_pepper", "flavors_src_spice_trade", "flavors_src_spice_herb"],
-      "related_ids": ["flavors_clove", "flavors_nutmeg_mace", "flavors_chili_pepper"],
-      "review_status": "needs_review"
+      "source_ids": [
+        "flavors_src_black_pepper",
+        "flavors_src_spice_trade",
+        "flavors_src_spice_herb"
+      ],
+      "related_ids": [
+        "flavors_clove",
+        "flavors_nutmeg_mace",
+        "flavors_chili_pepper"
+      ],
+      "review_status": "needs_review",
+      "merged_from": [
+        "reality-herbs-aerial/herb_aerial_hujiao"
+      ]
     },
     {
       "id": "flavors_cinnamon",
       "name": "肉桂（锡兰肉桂）",
-      "aliases": ["锡兰肉桂", "真肉桂", "Ceylon cinnamon", "Cinnamomum verum"],
-      "tags": ["spice", "condiment", "food", "crop"],
+      "aliases": [
+        "锡兰肉桂",
+        "真肉桂",
+        "Ceylon cinnamon",
+        "Cinnamomum verum"
+      ],
+      "tags": [
+        "spice",
+        "condiment",
+        "food",
+        "crop"
+      ],
       "summary": "樟科常绿树的内层树皮，剥取后套叠成卷分级的香料。它在古埃及已用于宗教与保存场合，在中世纪欧洲是可入药的贵重品，近代更成为东印度公司贸易中利润最高的香料之一。",
       "details": {
         "definition": "肉桂指樟科（Lauraceae）樟属 Cinnamomum verum 的内层干树皮，成品为多层薄皮套叠卷成的筒状物；同属另有数种被当作“肉桂”出售，风味与厚度不同，其中最重要的是桂皮。可食部位是树皮，不涉及果实与叶。",
@@ -336,110 +375,300 @@
         "historical_scope": "原产斯里兰卡与印度马拉巴尔海岸、缅甸一带，后引种南美与西印度群岛。古埃及用于保存与宗教用途；中世纪欧洲用于宗教仪式与调味；16 世纪后随直航贸易大量进入欧洲，成为荷兰东印度公司贸易中利润最高的商品之一。驯化与原产是一件事，成为欧洲日常商品是另一件相隔很久的事。",
         "evidence_and_uncertainty": "植物学、剥制与分级流程、历史用途与公司贸易地位均由百科条目直接支撑。肉桂各物种在古籍中的具体指称无法确证；本条关于“等级形成价格梯级”的表述属工艺逻辑推演。"
       },
-      "source_ids": ["flavors_src_cinnamon", "flavors_src_spice_trade", "flavors_src_cassia"],
-      "related_ids": ["flavors_cassia", "flavors_nutmeg_mace", "flavors_clove"],
+      "source_ids": [
+        "flavors_src_cinnamon",
+        "flavors_src_spice_trade",
+        "flavors_src_cassia"
+      ],
+      "related_ids": [
+        "flavors_cassia",
+        "flavors_nutmeg_mace",
+        "flavors_clove"
+      ],
       "review_status": "needs_review"
     },
     {
       "id": "flavors_cassia",
       "name": "桂皮（中国肉桂）",
-      "aliases": ["桂皮", "中国肉桂", "cassia", "Cinnamomum cassia", "桂子"],
-      "tags": ["spice", "condiment", "food", "crop"],
+      "aliases": [
+        "桂皮",
+        "中国肉桂",
+        "cassia",
+        "Cinnamomum cassia",
+        "桂子",
+        "肉桂",
+        "真肉桂",
+        "锡兰肉桂",
+        "Cinnamomum verum",
+        "cinnamon",
+        "肉桂（桂皮）",
+        "桂",
+        "玉桂"
+      ],
+      "tags": [
+        "spice",
+        "condiment",
+        "food",
+        "crop",
+        "part:stem",
+        "habitat:tropical",
+        "trait:aromatic",
+        "trade:spice",
+        "trade:monopoly",
+        "role:luxury_good",
+        "part:bark",
+        "trait:counterfeit_prone",
+        "role:trade_good",
+        "role:ritual_material",
+        "trade:long_distance"
+      ],
       "summary": "桂皮是肉桂近缘树种的树皮，香气更烈更厚、皮更厚；其未熟干果（桂子）与树皮同作香料。它在东亚料理与五香类配方中常见，也与真正的肉桂长期混称。",
       "details": {
         "definition": "桂皮指樟属 Cinnamomum cassia 及其近缘种（如越南肉桂）的树皮，成品多为单层厚皮卷成的筒或片；桂子是其未成熟的干燥果实。它与锡兰肉桂同属不同种，厚度、香气强度与适用场景都不同。",
         "mechanism": "挥发性芳香醛含量高于锡兰肉桂，因此同样用量下香气更冲、更“厚”，在长时间加热的炖煮与油脂多的菜式中不容易被盖掉；这也使它在甜味较轻、需要香料撑住主味的菜肴里更合适。",
         "conditions": "树皮自枝条剥下后晾干，干燥过程中自行卷曲成筒；部分商品会先刮去外皮，薄的刮皮货色偏红褐、厚的未刮皮货色偏灰。桂子则是采收未熟果实后干燥。两者都靠“干燥定形”这一步完成商品化，不需要复杂设备，但需要稳定的晾晒场地与分选人力。",
         "exceptions": "同名异物的问题在这一条目上尤其严重：Cassia 也是豆科决明属的属名，那一类植物提供的是药用叶（如番泻叶），与香料桂皮毫无关系。此外，各地所称“cinnamon”可能是桂皮，尤其在北美，研磨品常不标物种；因此拿一份配方去复原风味时，不能假定其“肉桂”就是锡兰肉桂。",
-        "story_uses": "适合写“名称与实物脱节”的交易场景：契约、账册、关税率表里写的是同一个词，交货的却是不同物种，等级争议由此产生。也适合写陆路贸易与海运贸易的品味差：更烈的桂皮在偏好厚重香气的地区更受欢迎，价格却未必更高。",
+        "story_uses": "适合写“名称与实物脱节”的交易场景：契约、账册、关税率表里写的是同一个词，交货的却是不同物种，等级争议由此产生。也适合写陆路贸易与海运贸易的品味差：更烈的桂皮在偏好厚重香气的地区更受欢迎，价格却未必更高。\n\n【补充条目：肉桂｜reality-herbs-aerial｜real_world】\n取树皮的内层、卷成筒状的香料；曾经比黄金更贵，是「产地保密—垄断—偷种—价格崩落」这条链条最完整的案例。\n定义：肉桂是真肉桂（Cinnamomum verum）的干燥内层树皮，卷成筒状（quill）后分级出售的香料；同属近缘种（桂皮 cassia、越南肉桂、印尼肉桂、马拉巴尔肉桂）亦作肉桂来源（herb_aerial_src_01）。注意：本条为香料与贸易史条目，不是用药条目。本条为文献与设定资料，不构成医疗建议，不可据此用药。\n条件：生境与采收：原产斯里兰卡、马拉巴尔海岸与缅甸，亦在南美与西印度栽培；喜湿润而排水良好的土壤，树高很少超过 15 米（herb_aerial_src_01）。主收在湿季、齐地砍取萌枝，刮皮、用黄铜棒松皮、剥下后套卷成约 107 厘米的长筒，干燥数日后揉紧、再入弱光干燥，最后用二氧化硫熏白并分级（herb_aerial_src_01）。本条记录这一流程只为说明「香料是加工品而非野生采集物」，不构成任何工艺指导。本条为文献与设定资料，不构成医疗建议，不可据此用药。\n例外：易混与例外：一是真肉桂与桂皮（cassia）常被混称，二者香豆素含量差别显著，来源指出后者长期大量使用与肝脏风险相关（herb_aerial_src_01）；二是同名异物——巴西肉桂、牙买加肉桂、马达加斯加肉桂均非本种（herb_aerial_src_03 对肉豆蔻的同名现象有类似记述）；三是硫熏这一工序意味着成品有加工残留问题，是掺假与品质争议的常见入口。本条为文献与设定资料，不构成医疗建议，不可据此用药。\n证据与不确定性：证据分层：来源支持——原产地、树高、挥发油主成分、采收与卷筒分级流程、古埃及与中世纪欧洲用途、荷兰东印度公司的获利地位、桂皮香豆素更高的风险提示（herb_aerial_src_01）；贸易抬价传说与老普林尼的批评、锡兰的转口地位（herb_aerial_src_20）；垄断与偷种的可比案例（herb_aerial_src_03）。不确定：具体历史价格与利润幅度来源未给，本文件不给数字；硫熏残留的实际规模未核。本条为文献与设定资料，不构成医疗建议，不可据此用药。\n\n【补充条目：肉桂（桂皮）｜reality-herbs-other｜eastern】\n樟属树木的内层树皮，既是汉文本草里的「桂」、也是古代地中海与欧洲祭祀与调味的上等香料，一度贵过黄金。它把「一种树皮如何把产地变成堡垒、把药铺与厨房同时卷进一条航线」写成了可复用的剧情骨架。\n定义：本条指樟科樟属肉桂（Cinnamomum verum，旧称 C. zeylanicum）及同属数种（cassia 肉桂 C. cassia、越南肉桂 C. loureiroi、印尼肉桂 C. burmannii、马拉巴尔肉桂 C. citriodorum）的干燥树皮。汉文文献把「桂」分指树皮、嫩枝与心材，名实历代不一；本条只记树皮这一形态，不把三者等同。可核的是植物学与商品学事实（属、种、产地、采制流程、精油含量），性味与功用属传统医学记述，见 mechanism 一节。\n条件：产地：原产斯里兰卡（旧称锡兰）、印度马拉巴尔海岸与缅甸，今亦栽培于南美与西印度群岛；商品上分「真肉桂」与「桂皮」两大宗，后者来自近缘种、皮更厚、气味更冲。采制：主产季在雨季，贴地截取萌条，刮外皮、以铜棒揉松、剖开剥皮，皮片套接成筒并填同等级碎皮维持形状，晾四五日后于弱光下续干，再按等级分选。产量与稀缺性：含精油约百分之零点五至一，主成分为桂醛；产地高度集中、远程运输成本高，故在近代以前长期被少数商路垄断。\n例外：名实之辨是本草一支的老问题：同一「桂」字在不同朝代可能指树皮、嫩枝或心材，厚薄与老嫩另有等级之分。近似种极多，真肉桂与桂皮并非同物，有文献指出桂皮类香豆素含量显著高于真肉桂，长期大量食用被提示可能影响肝脏。伪品常见以其他樟属树皮充代、以老树厚皮冒充薄皮上品、以蒸煮过的「提油皮」充新货。本条只记录这些问题的存在，不给任何感官或理化判定步骤。\n证据与不确定性：本条为文献与设定资料，不构成医疗建议，不可据此用药。来源支持：肉桂为樟属常绿小乔木、原产斯里兰卡与马拉巴尔海岸及缅甸、树皮采制的套筒成形流程、含精油百分之零点五至一并以桂醛为主、埃及用于防腐与宗教、中世纪欧洲用于宗教仪式与调味、后为荷兰东印度公司最赚钱香料、桂皮类香豆素显著高于真肉桂并提示肝脏风险（hro_src_britannica_cinnamon）；本草文献收录植物、动物与三类药材且《本草纲目》载药 1892 种（hro_src_britannica_tcm）。不确定与缺口：汉文「桂」的名实演变本组未取得一手本草原文，只作概括；「比黄金更贵」属通行历史叙述，具体年代与比价未核。设计归纳：行会验货、三套法律并管、贡赋式采购的生态代价为本项目推演。",
         "historical_scope": "原产中国南部与越南、印尼一带，长期作为东亚与东南亚的香料与药材商品；与锡兰肉桂在欧洲市场上长期并行流通，近代因海运成本下降与分级标准出现才逐渐被区分对待。它进入欧洲的时间与其成为欧洲日常调味品的时间不是一回事。",
         "evidence_and_uncertainty": "物种、商品形态、香气强度比较、产区等级差别与混称现象均有来源支撑。桂皮“在某个地区从何时起被普遍当作肉桂出售”缺乏具体文献，本条不作年代断言。"
       },
-      "source_ids": ["flavors_src_cassia", "flavors_src_cinnamon", "flavors_src_spice_herb"],
-      "related_ids": ["flavors_cinnamon", "flavors_star_anise", "flavors_sichuan_pepper"],
-      "review_status": "needs_review"
+      "source_ids": [
+        "flavors_src_cassia",
+        "flavors_src_cinnamon",
+        "flavors_src_spice_herb"
+      ],
+      "related_ids": [
+        "flavors_cinnamon",
+        "flavors_star_anise",
+        "flavors_sichuan_pepper"
+      ],
+      "review_status": "needs_review",
+      "merged_from": [
+        "reality-herbs-aerial/herb_aerial_rougui",
+        "reality-herbs-other/herb_other_cinnamon_bark"
+      ]
     },
     {
       "id": "flavors_ginger",
       "name": "姜（生姜与干姜）",
-      "aliases": ["生姜", "干姜", "ginger", "Zingiber officinale", "green ginger"],
-      "tags": ["spice", "condiment", "food", "crop"],
+      "aliases": [
+        "生姜",
+        "干姜",
+        "ginger",
+        "Zingiber officinale",
+        "green ginger",
+        "姜炭",
+        "炮姜",
+        "白姜",
+        "鲜姜",
+        "母姜",
+        "姜皮"
+      ],
+      "tags": [
+        "spice",
+        "condiment",
+        "food",
+        "crop",
+        "part:rhizome",
+        "habitat:tropical_cultivated",
+        "trait:processing_defined",
+        "trait:warming_tradition",
+        "role:kitchen_and_medicine",
+        "trade:bulk_commodity",
+        "trait:dual_use",
+        "trait:staple_spice",
+        "role:food_staple",
+        "role:trade_commodity",
+        "trade:long_distance"
+      ],
       "summary": "姜科植物的根茎，鲜用或干用都是香料：新鲜者辛香清亮、干燥研磨后转为温暖厚重。它是最早横跨印度洋与地中海的长途商品之一，也是少数可以糖渍保存的香料。",
       "details": {
         "definition": "姜是姜科（Zingiberaceae）姜属 Zingiber officinale 的地下根茎。可食部位为根茎，鲜品常称生姜或 green ginger，干品研磨后即干姜粉。地上茎叶不作调味使用。",
         "mechanism": "辛辣来自姜辣素类成分，香气来自以姜烯为主的挥发油。鲜根茎中前者以较刺激的形式存在，干燥与加热会使成分转化，辣感变得温和而回味更长；这解释了为什么同一原料在鲜用与干用时分属两种不同的调味角色。",
         "conditions": "以带芽根段种植，长期无性繁殖使其已不再结籽，因此种源完全依赖留种根茎——这是一种把病害风险累积进种苗的栽培方式。采收即挖出根茎、洗净、晒干；商品可分为未刮皮、部分刮皮与完全去皮三类，去皮程度直接影响外观等级与香气损失速度。糖渍保存的做法是把去皮根茎在糖浆中煮制。",
         "exceptions": "“姜”在各地还指多种近缘植物（如高良姜、沙姜一类），风味与用途不同，不能互换。日本等地把姜片作为两道菜之间清口之用，这与“加在菜里调味”是不同用法。干燥方式与切片厚度对最终辛辣感影响很大，因此同名商品的风味差异不能仅归因于产地。",
-        "story_uses": "适合表现“种苗即命脉”的农业风险（无性繁殖使一场病害可以毁掉整个地区的种植基础）、糖渍保存带来的跨季商品、以及香料在不同饮食结构中的角色差（清口用、去腥用、暖身用并不相同）。",
+        "story_uses": "适合表现“种苗即命脉”的农业风险（无性繁殖使一场病害可以毁掉整个地区的种植基础）、糖渍保存带来的跨季商品、以及香料在不同饮食结构中的角色差（清口用、去腥用、暖身用并不相同）。\n\n【补充条目：干姜｜reality-herbs-roots｜eastern】\n姜的干燥根状茎。它与生姜同源而异制、性味方向相反，是「同一植物的同一部位因加工而分属两种性质」的第二组范本（第一组是地黄）；在商品上又按干燥与炒炭分成数档，属于「加工层级越多、加价越高」的典型。本条为文献与设定资料，不构成医疗建议，不可据此用药。\n定义：姜科姜属植物姜的干燥根状茎，呈扁平块状、具指状分枝、表面灰黄或浅灰棕、粗糙具环节，质坚实，断面黄白、粉性或颗粒性，气香特异、味辛辣。与生姜同源，差别在干燥与是否炒炭。本条为文献与设定资料，不构成医疗建议，不可据此用药。\n条件：以姜的根状茎为原料，产姜区皆可加工；干燥需连续作业，遇连阴雨则霉变风险骤升。因原料与生姜完全共用，**干姜与生姜之间存在直接的原料竞争**：鲜品价高时工厂倾向卖鲜姜，干姜供应随之收紧，反之亦然。这一层联动的市场价格关系在其经济史材料中可以观察到。\n例外：① 干姜、生姜、炮姜、姜炭互不相同，混用会使叙述失真。② 「姜能解半夏南星之毒」一类说法属传统记述，**本文件不采信为可用做法，也不提供任何以此为据的处置**。③ 与「沙姜」「高良姜」「姜黄」等名称相近的根状茎并非同物，市场上有互充。④ 姜的品种与产地（南方各省、山东青州等）会明显影响香气与辛辣度，同名不同质。\n证据与不确定性：来源支持（可核）：干姜为干燥根状茎、性状（扁平块状、指状分枝、断面粉性、气香特异）、产地为全国大部分地区并主产四川贵州、干姜与姜炭的分档、《本草纲目》与《本草经疏》对干姜与炮姜的论述、《本经》「生者尤良」的比较（herb_root_src_50）；姜为姜科多年生草本、根状茎自古作香料与药物、干燥根状茎形态与按刮皮程度分级（herb_root_src_10）；根状茎为地下茎（herb_root_src_15）。本项目归纳：「原料共用的价格跷跷板」属推演。不确定：干姜与生姜在古代何时被明确分立，本文件未取得文献学专门研究。\n\n【补充条目：生姜｜reality-herbs-roots｜real_world】\n姜的新鲜根状茎，是全目录里「药与食边界最模糊」的一条：它同时是香料、蔬菜、糖果原料、清口之物与药材，因此它的药材市场永远与农产品市场重叠。它在世界史上的位置也不在药铺，而在香料贸易的航线上。本条为文献与设定资料，不构成医疗建议，不可据此用药。\n定义：姜科姜属植物姜的新鲜根状茎，辛辣芳香。注意它是**根状茎（地下茎）**而非根。同一根状茎干燥后成为另一味商品「干姜」，二者的性味归属不同。本条为文献与设定资料，不构成医疗建议，不可据此用药。\n条件：原产东南亚热带，喜温暖湿润、不耐寒、怕强光直射、忌连作；植株只能在无霜期生长，遇霜则根状茎失去发芽能力。栽培用根茎（种姜）繁殖，需窖藏越冬，而贮藏期对温度与湿度极敏感：过低受冻、升温后易腐，过高则病害蔓延。收储环节的技术门槛因此远高于种植本身。\n例外：① **腐烂的姜不可食**：这一条是明确的定性风险，文献强调腐烂后产生有害物质，**「烂姜不烂味」的民间说法没有依据**；本条目不写任何取舍或处理办法。② 姜皮、姜汁、干姜、炮姜各有其名，不可混称。③ 「冬吃萝卜夏吃姜」一类谚语属民俗，不当作医学规律。④ 名称漂移：中文「姜」与英文 ginger 覆盖的范围大体一致，但西文语境中「ginger」也指姜科其他芳香根茎，贸易合同里必须靠学名锁定。\n证据与不确定性：来源支持（可核）：姜的科属与可能的东南亚原产地、根状茎作香料调味食品与药物、属名源自希腊语再上溯梵语、印度与中国自古已知、1 世纪入地中海、11 世纪在英国已广为人知、西班牙人带入西印度与墨西哥、1547 年从圣地亚哥出口、长期以根茎切段繁殖以致不再结籽、采收与干燥方式、按刮皮程度分级、在日本作清口之用（herb_root_src_10）；姜原产东南亚、喜温暖湿润不耐寒、低于 20℃ 发芽缓慢、遇霜根茎失去发芽能力、忌连作、窖藏温度过低受冻而升温后易腐、腐烂姜产生有害物质（herb_root_src_51）；根状茎为地下茎（herb_root_src_15）。本项目归纳：「无性繁殖的脆弱性可作世界设定」属推演。不确定：姜作为香料进入各地餐桌的具体年代与路线在不同文献中口径不一，本文件只取该条目的说法。",
         "historical_scope": "学名源自梵语对姜的称呼，经希腊语转写而来，说明它在南亚早已是具名的商品；印度与中国的使用可溯至很早，公元 1 世纪前后由商人带入地中海地区，11 世纪已在英格兰为人所知；西班牙人征服美洲后不久把它带到西印度与墨西哥，16 世纪中叶已有从美洲输出至西班牙的记录。传入、普及与本土化种植是三个不同阶段。",
         "evidence_and_uncertainty": "语源链、传播节点年份、繁殖方式、糖渍做法与商品分级由来源直接支撑。古代医书中的姜用途属史料记载，本条不将其作为功效依据；各地“姜”类近缘植物的具体指称需另行核对。"
       },
-      "source_ids": ["flavors_src_ginger", "flavors_src_spice_trade", "flavors_src_spice_herb"],
-      "related_ids": ["flavors_turmeric", "flavors_cardamom", "flavors_black_pepper"],
-      "review_status": "needs_review"
+      "source_ids": [
+        "flavors_src_ginger",
+        "flavors_src_spice_trade",
+        "flavors_src_spice_herb"
+      ],
+      "related_ids": [
+        "flavors_turmeric",
+        "flavors_cardamom",
+        "flavors_black_pepper"
+      ],
+      "review_status": "needs_review",
+      "merged_from": [
+        "reality-herbs-roots/herb_root_dried_ginger",
+        "reality-herbs-roots/herb_root_fresh_ginger"
+      ]
     },
     {
       "id": "flavors_clove",
       "name": "丁香（花蕾）",
-      "aliases": ["丁香", "丁子香", "clove", "Syzygium aromaticum"],
-      "tags": ["spice", "condiment", "food", "crop"],
+      "aliases": [
+        "丁香",
+        "丁子香",
+        "clove",
+        "Syzygium aromaticum",
+        "鸡舌香"
+      ],
+      "tags": [
+        "spice",
+        "condiment",
+        "food",
+        "crop",
+        "part:flower",
+        "habitat:tropical",
+        "trait:aromatic",
+        "trade:spice",
+        "trade:monopoly",
+        "role:medicine_historical"
+      ],
       "summary": "桃金娘科常绿树未开放的花蕾，晒干后香气极强、穿透力远超同重量其他香料。它的产地曾被压缩到两座岛屿以维持价格，是“以稀缺维持高价”的典型商品。",
       "details": {
         "definition": "丁香是桃金娘科（Myrtaceae）蒲桃属 Syzygium aromaticum 的干燥花蕾。可食部位是花蕾，不是果实或树皮；同株其他部位不作香料商品。",
         "mechanism": "香气与刺激性主要来自以丁子香酚为主的挥发油，其含量在干花蕾中占比很高，因此极少量即可盖过整锅菜的气味。这种“压倒性”特征使它在配方里通常承担定调或防腐角色，而不是提供层次。",
         "conditions": "树高可达 8—12 米，通常以种子繁殖并需遮荫育苗；约第五年开花，单株年产干花蕾可达数十公斤。花蕾在夏末与冬季分两批手采，采后晒干。手采时机决定等级：过早则香气不足，过晚则花已开放、商品价值大跌。",
         "exceptions": "丁香的强烈香气使其用量极难把握，过量会压掉整道菜的其他味道，这在各地食谱里都留下“少放”的经验性提示。产地集中并非自然结果：17 世纪曾以人为限制栽培范围来制造稀缺，直到 18 世纪种苗被偷运出去才被打破——这说明“某地专产”有时是制度造成的而非生态决定的。",
-        "story_uses": "非常适合承载垄断与走私叙事：限产、毁树、偷运种苗、以刑罚禁止外传，都是史料有据的方向；也适合写港口转口贸易（考古在印度洋古港发现丁香，可支撑“产地与消费地之间隔着多个转手环节”）。另可写“以香料养香气”的社交习俗。",
+        "story_uses": "非常适合承载垄断与走私叙事：限产、毁树、偷运种苗、以刑罚禁止外传，都是史料有据的方向；也适合写港口转口贸易（考古在印度洋古港发现丁香，可支撑“产地与消费地之间隔着多个转手环节”）。另可写“以香料养香气”的社交习俗。\n\n【补充条目：丁香｜reality-herbs-aerial｜real_world】\n桃金娘科常绿乔木的干燥花蕾，原产马鲁古群岛；含于口中清口气、作为贡品与五香粉成分，它是「小体积高单价」香料贸易的原型。\n定义：丁香为桃金娘科常绿乔木（Syzygium aromaticum）的干燥花蕾，原产印尼马鲁古群岛（herb_aerial_src_02）。花蕾长 13—19 毫米、红褐色，含 14—20% 挥发油，主成分为丁子香酚（herb_aerial_src_02）。本条为香料史与药材史条目。本条为文献与设定资料，不构成医疗建议，不可据此用药。\n条件：生境与采收：热带常绿树、高 8—12 米，叶小对生、具腺点；通常以种子繁殖并种于荫蔽处，约第五年开始开花；花蕾在夏末与冬季各手摘一次后晒干（herb_aerial_src_02）。单株年产量可观（来源给出具体数值，本文件不复述），意味着种植密度与劳力安排直接决定收益，是典型的「小而贵」现金作物。本条为文献与设定资料，不构成医疗建议，不可据此用药。\n例外：易混与例外：一是「丁香」在中文里与观赏植物丁香（Syringa，木犀科）同名异物，二者毫无亲缘，文献检索时极易混淆；二是丁香与母丁香（未成熟果实）是不同商品；三是丁香与肉豆蔻衣（mace）在外观上不同但常在同一批香料中混售；四是「含于口中清口气」是礼仪用法，与药用是两回事，不可写成疗效。本条为文献与设定资料，不构成医疗建议，不可据此用药。\n证据与不确定性：证据分层：来源支持——原产地、树高、花蕾尺寸与含油率、手摘与晒干、五年始花与产量、爪哇使者入汉廷的朝贡记录、锡兰转口、葡萄牙与荷兰的垄断与法国人偷种、五香粉成分（herb_aerial_src_02）；五香粉中含丁香（herb_aerial_src_05、herb_aerial_src_07）。不确定：各时期的贸易量与价格本文件未取得；「丁香作药」的具体文献年代未核。本条为文献与设定资料，不构成医疗建议，不可据此用药。",
         "historical_scope": "原产摩鹿加群岛（香料群岛）。公元 200 年前已有爪哇使节携丁香到汉廷的记载；10—12 世纪经锡兰古港转口至印度、罗马与阿拉伯；中世纪晚期欧洲用于保存、调味与点缀；16 世纪葡萄牙发现并控制产地近百年，17 世纪荷兰接手并限缩产地，18 世纪后期法国人将种苗带出，产地扩展到印度洋岛屿与新大陆。起源、转口、垄断、破除垄断四段相隔极远。",
         "evidence_and_uncertainty": "植物学、采收与干燥、挥发油主成分、产地垄断与破除的时间线均有来源支撑。古代具体产量与价格没有可靠数据，本条不给出数字。"
       },
-      "source_ids": ["flavors_src_clove", "flavors_src_spice_trade", "flavors_src_nutmeg"],
-      "related_ids": ["flavors_nutmeg_mace", "flavors_black_pepper", "flavors_cinnamon"],
-      "review_status": "needs_review"
+      "source_ids": [
+        "flavors_src_clove",
+        "flavors_src_spice_trade",
+        "flavors_src_nutmeg"
+      ],
+      "related_ids": [
+        "flavors_nutmeg_mace",
+        "flavors_black_pepper",
+        "flavors_cinnamon"
+      ],
+      "review_status": "needs_review",
+      "merged_from": [
+        "reality-herbs-aerial/herb_aerial_dingxiang"
+      ]
     },
     {
       "id": "flavors_nutmeg_mace",
       "name": "肉豆蔻与肉豆蔻衣",
-      "aliases": ["肉豆蔻", "肉豆蔻衣", "豆蔻皮", "nutmeg", "mace", "Myristica fragrans"],
-      "tags": ["spice", "condiment", "food", "crop"],
+      "aliases": [
+        "肉豆蔻",
+        "肉豆蔻衣",
+        "豆蔻皮",
+        "nutmeg",
+        "mace",
+        "Myristica fragrans",
+        "肉果",
+        "玉果"
+      ],
+      "tags": [
+        "spice",
+        "condiment",
+        "food",
+        "crop",
+        "part:seed",
+        "habitat:tropical",
+        "trait:aromatic",
+        "trait:psychoactive",
+        "trade:spice",
+        "trade:monopoly"
+      ],
       "summary": "同一颗果实提供两种商品：种子是肉豆蔻，包在种子外的鲜红假种皮是肉豆蔻衣。香气相近而用法不同，曾长期是欧洲最昂贵的香料之一，并因此成为垄断与偷运种苗的对象。",
       "details": {
         "definition": "肉豆蔻是肉豆蔻科（Myristicaceae）肉豆蔻属 Myristica fragrans 的种子；肉豆蔻衣（mace）是包裹该种子的分枝状假种皮。可食部位分别是种子与假种皮，果肉在产地在本地食用但不进入长途贸易。",
         "mechanism": "两者都富含挥发油，香气基调相近但肉豆蔻衣更细腻偏花香、肉豆蔻更甜厚，因此同一道菜里同时使用不会重复而会叠加层次。挥发油以萜类为主，另可榨出固定油（俗称肉豆蔻脂），这说明它同时是香料与油料资源，但作为食用香料时用量极小。",
         "conditions": "树高可达二十米，播种后约八年结果，二十五年进入盛期，可连续结果六十年以上。采后先剥下假种皮摊平晒干（肉豆蔻衣），种子则在壳内逐日翻晒六至八周，直到摇之有声、种仁与硬壳分离，再破壳取出。整果出售前常浸石灰水，以防途中发芽——这是运输环节的关键处理，与风味无关而与商品存活率有关。",
         "exceptions": "肉豆蔻用量过大时有明显的中枢神经作用，史料与现代资料都记有不适反应，因此它是“少量使用”的典型香料，不能按其他香料的用量类比。产地专属性也带制度色彩：17 世纪曾以限产与销毁维持价格，英法则设法取得可育种子引种别处，产地在 18 世纪后大幅扩散。市面上另有多种植物的果实或种子被冠以“某地肉豆蔻”之名，与真品不同科，不能替代。",
-        "story_uses": "同株双商品的设定非常适合写“分级与分账”：同一批货按部位拆成两个价格档次，账册与税则随之复杂化。也适合写引种与间谍（可育种子、活的种苗、懂处理工艺的工匠三者缺一不可），以及“整果浸灰防发芽”这类细小工艺如何决定贸易成败。",
+        "story_uses": "同株双商品的设定非常适合写“分级与分账”：同一批货按部位拆成两个价格档次，账册与税则随之复杂化。也适合写引种与间谍（可育种子、活的种苗、懂处理工艺的工匠三者缺一不可），以及“整果浸灰防发芽”这类细小工艺如何决定贸易成败。\n\n【补充条目：肉豆蔻｜reality-herbs-aerial｜real_world】\n马鲁古群岛原产常绿乔木的种子，假种皮即「肉豆蔻衣」；曾是荷兰垄断的核心商品，**大剂量时有致幻与中毒风险**。\n定义：肉豆蔻为马鲁古群岛原产的常绿乔木（Myristica fragrans）的种子，包裹种子的肉质假种皮即「肉豆蔻衣」（mace），同为一类香料（herb_aerial_src_03）。本条为文献与设定资料，不构成医疗建议，不可据此用药。\n条件：生境与采收：热带常绿树、高可达约 20 米，播后八年结果、25 年盛果、可结果 60 年以上；果为下垂核果、外形似杏，成熟后裂开露出红色假种皮；取衣与种子后分别干燥，种子需在数周内翻动干燥至可摇响（herb_aerial_src_03）。本条只记「长时间干燥与翻动」这一产业事实，不给任何工艺参数。本条为文献与设定资料，不构成医疗建议，不可据此用药。\n例外：易混与例外：一是同名异物极多——牙买加肉豆蔻（Monodora myristica）、巴西肉豆蔻、秘鲁肉豆蔻、马达加斯加肉豆蔻、加州肉豆蔻均非本种（herb_aerial_src_03）；二是肉豆蔻与肉豆蔻衣虽同果而出，商品与价格不同；三是**整颗出售的肉豆蔻曾蘸石灰以防发芽**（herb_aerial_src_03）——这一防萌处理既是垄断的手段，也成了品质与词条判定的争议点；四是**大量摄入的精神活性与中毒风险属可核事实，不得当作「香料多吃无妨」**。本条为文献与设定资料，不构成医疗建议，不可据此用药。\n证据与不确定性：证据分层：来源支持——原产地、株高、结果年限、果实结构与干燥翻动、挥发油与固定油含量区间、荷兰与英法的垄断博弈、蘸石灰防发芽、**大量食用致谵妄与致幻、中毒可致抽搐与心悸**、同名异物名单（herb_aerial_src_03）。不确定：致幻与中毒的具体剂量关系本文件**刻意不给**；各时期贸易量未取得。本条只写毒性成分类别与误用后果的定性风险，不写减毒、安全用量、解救方法或任何可照做的处置步骤。本条为文献与设定资料，不构成医疗建议，不可据此用药。",
         "historical_scope": "原产摩鹿加群岛，主要栽培地长期限于该区与后来的西印度群岛。约 17 世纪起在欧洲成为昂贵商品，围绕其供应出现限产与反限产的多国角力。它在欧洲的普及是 18—19 世纪产地扩散之后的事，与它最初作为奢侈品的阶段相隔两百余年。",
         "evidence_and_uncertainty": "植物学、两种商品的关系、始果期、晒制与浸灰处理、价格地位与产销角力均有来源支撑。关于“用量过大有精神作用”的记述来自百科的概述，本项目只作风险提示，不提供任何剂量或用法；古代药用记载一律不作功效依据。"
       },
-      "source_ids": ["flavors_src_nutmeg", "flavors_src_clove", "flavors_src_spice_trade"],
-      "related_ids": ["flavors_clove", "flavors_cardamom", "flavors_cinnamon"],
-      "review_status": "needs_review"
+      "source_ids": [
+        "flavors_src_nutmeg",
+        "flavors_src_clove",
+        "flavors_src_spice_trade"
+      ],
+      "related_ids": [
+        "flavors_clove",
+        "flavors_cardamom",
+        "flavors_cinnamon"
+      ],
+      "review_status": "needs_review",
+      "merged_from": [
+        "reality-herbs-aerial/herb_aerial_roudoukou"
+      ]
     },
     {
       "id": "flavors_cardamom",
       "name": "小豆蔻",
-      "aliases": ["小豆蔻", "绿豆蔻", "黑豆蔻", "cardamom", "Elettaria cardamomum"],
-      "tags": ["spice", "condiment", "food", "crop"],
+      "aliases": [
+        "小豆蔻",
+        "绿豆蔻",
+        "黑豆蔻",
+        "cardamom",
+        "Elettaria cardamomum",
+        "豆蔻",
+        "白豆蔻",
+        "爪哇白豆蔻"
+      ],
+      "tags": [
+        "spice",
+        "condiment",
+        "food",
+        "crop",
+        "part:fruit",
+        "part:seed",
+        "habitat:tropical",
+        "trait:aromatic",
+        "trade:spice"
+      ],
       "summary": "姜科植物带三棱的蒴果，内含数十粒带香气的种子；整荚、去壳籽与粉三种形态用途不同。它同时出现在南亚咸味配方、中东咖啡与北欧糕点中，是跨菜系使用最广的高价香料之一。",
       "details": {
         "definition": "小豆蔻指姜科（Zingiberaceae）小豆蔻属 Elettaria cardamomum 的干燥果实或种子。商品分整荚、去壳籽（decorticated）与粉；另有近缘的“黑豆蔻”风味偏烟熏厚重，与绿豆蔻不是同一商品。",
         "mechanism": "香气物质主要储存在种皮下的细胞中，因此整荚完整时香气保存最久，一旦破荚或研粉便迅速挥发——这决定了它的商品形态与使用顺序（整荚入锅、用时才研）。香气带凉意与柠檬调，与肉桂、肉豆蔻、丁香的暖调互补，所以常同时出现。",
         "conditions": "在湿润林下生长，喜荫；果穗在将近成熟时采摘或剪取，随后晒干或以烘房干燥，也有以硫熏漂白成乳白色的做法。整荚干燥后以风选去掉小梗。去壳取籽、焙炒再研磨是使用端的工序；焙炒会改变香气走向，因此“炒过再磨”与“直接磨”不是等价操作。",
         "exceptions": "“豆蔻”一名在中文语境里极易混用：肉豆蔻、草果、白豆蔻等分属不同科属，用途与用量差别很大，不能按名称互换。产地结构也很特殊：现代世界市场大部分供应来自危地马拉，而该地的小豆蔻是由欧洲咖啡种植者引入的——这说明今天的主产地与历史原产地可以完全不同，不能据现代产量反推古代分布。",
-        "story_uses": "适合写“引种改变产地格局”的长周期故事：一种香料在原生地是林下作物，被移植到另一个大陆后成为主产，原生地反而变成次要供应者。也适合写形态与价格的关系（整荚、去壳、粉末三级），以及咖啡与茶里加香的社交场景。",
+        "story_uses": "适合写“引种改变产地格局”的长周期故事：一种香料在原生地是林下作物，被移植到另一个大陆后成为主产，原生地反而变成次要供应者。也适合写形态与价格的关系（整荚、去壳、粉末三级），以及咖啡与茶里加香的社交场景。\n\n【补充条目：豆蔻｜reality-herbs-aerial｜eastern】\n姜科多年生草本的干燥果实或种子；原产南印度湿润森林，今多由危地马拉供给世界市场，按重量计属最贵香料之列。\n定义：豆蔻类药材为姜科植物白豆蔻、爪哇白豆蔻的成熟果实（herb_aerial_src_44）；作为香料的「小豆蔻」则为姜科多年生草本 Elettaria cardamomum 的干燥果实或种子（herb_aerial_src_06）。两者在中文与英文里常被混称，须分开。本条为文献与设定资料，不构成医疗建议，不可据此用药。\n条件：生境与采收：喜湿润森林环境，叶茎自 1.5—6 米、花序长约 1 米；果在近熟时采摘或剪下、清洗后日晒或在加热房中干燥；可用硫磺熏白至乳白；除梗去莃后即「去壳豆蔻」（herb_aerial_src_06）。栽培集中在印度、斯里兰卡与危地马拉，**世界市场多数需求由危地马拉供给（由欧洲咖啡种植者引入）**（herb_aerial_src_06）。10—12 月果实黄绿未开裂时采收（herb_aerial_src_44）。本条为文献与设定资料，不构成医疗建议，不可据此用药。\n例外：易混与例外：一是「豆蔻」在中文可指姜科多种（白豆蔻、草豆蔻、肉豆蔻等），不属同一物；二是绿与黑豆蔻为不同种与工艺，黑者烟熏、绿者温和（herb_aerial_src_06）；三是硫熏使成品有残留争议，是品质与掺假的入口；四是去壳与带壳在报价与贮存上都不同；五是肉豆蔻（Myristica）与豆蔻（Elettaria/Amomum）分属不同科，中文名称易误。本条为文献与设定资料，不构成医疗建议，不可据此用药。\n证据与不确定性：证据分层：来源支持——属与科、原产地、花果形态、含油量与主成分、近熟采收与干燥、硫熏增白、去壳商品、危地马拉主供、16 世纪入欧、最贵香料之列、**更强疗效主张缺乏医学证实**（herb_aerial_src_06）；豆蔻类药材的采收期与药用部位（herb_aerial_src_44）。不确定：中国本土豆蔻类与南亚小豆蔻的分类对应关系来源未统一，本文件不合并。本条为文献与设定资料，不构成医疗建议，不可据此用药。",
         "historical_scope": "原产南印度湿润林，野生采集与栽培长期并存；16 世纪中叶传入欧洲。它在南亚的日常使用远早于在欧洲的认知，二者不可混为一谈。现代主产区向中美洲转移是 19—20 世纪的事。",
         "evidence_and_uncertainty": "物种、形态、干燥与去壳流程、绿/黑两类差别、产地结构与入欧时间均有来源支撑。具体哪个世纪成为某地日常用料缺乏文献，本条不作断言；“豆蔻”类中文名与物种的对应关系需另行核对。"
       },
-      "source_ids": ["flavors_src_cardamom", "flavors_src_spice_herb", "flavors_src_cinnamon"],
-      "related_ids": ["flavors_nutmeg_mace", "flavors_cinnamon", "flavors_clove"],
-      "review_status": "needs_review"
+      "source_ids": [
+        "flavors_src_cardamom",
+        "flavors_src_spice_herb",
+        "flavors_src_cinnamon"
+      ],
+      "related_ids": [
+        "flavors_nutmeg_mace",
+        "flavors_cinnamon",
+        "flavors_clove"
+      ],
+      "review_status": "needs_review",
+      "merged_from": [
+        "reality-herbs-aerial/herb_aerial_xiaodoukou"
+      ]
     },
     {
       "id": "flavors_cumin",
       "name": "孜然（枯茗）",
-      "aliases": ["孜然", "枯茗", "cumin", "Cuminum cyminum", "comino"],
-      "tags": ["spice", "condiment", "food", "crop"],
+      "aliases": [
+        "孜然",
+        "枯茗",
+        "cumin",
+        "Cuminum cyminum",
+        "comino"
+      ],
+      "tags": [
+        "spice",
+        "condiment",
+        "food",
+        "crop"
+      ],
       "summary": "伞形科一年生植物的分果，气味厚重、带土腥与暖意，是混合香料与咖喱类配方的基础成分。它在地中海、南亚、北非与拉美都被当作日常调料，是少数真正跨文化通用的香料。",
       "details": {
         "definition": "孜然是伞形科（Apiaceae）孜然属 Cuminum cyminum 的干燥分果，商品称“籽”但实为果实。可食部位是果实，整粒或研磨使用；植株细弱、叶细裂，不作蔬菜。",
@@ -450,15 +679,34 @@
         "historical_scope": "原产地中海地区，后在印度、中国、墨西哥等地广泛栽培。它在旧大陆西段的早期使用与其在南亚成为配方基底的时期不必同步；作为商品进入长途贸易的时间也晚于它作为本地调料的时期。",
         "evidence_and_uncertainty": "物种、产地、形态、精油含量与用途范围由来源支撑。具体传入某地的时间与路径缺乏可靠依据，本条不作年代断言；传统药用部分只记录其曾经存在。"
       },
-      "source_ids": ["flavors_src_cumin", "flavors_src_spice_herb"],
-      "related_ids": ["flavors_coriander_seed", "flavors_chili_pepper", "flavors_spice_blend"],
+      "source_ids": [
+        "flavors_src_cumin",
+        "flavors_src_spice_herb"
+      ],
+      "related_ids": [
+        "flavors_coriander_seed",
+        "flavors_chili_pepper",
+        "flavors_spice_blend"
+      ],
       "review_status": "needs_review"
     },
     {
       "id": "flavors_coriander_seed",
       "name": "芫荽籽（香菜籽）",
-      "aliases": ["芫荽籽", "香菜籽", "胡荽", "coriander", "Coriandrum sativum", "cilantro"],
-      "tags": ["spice", "condiment", "food", "crop"],
+      "aliases": [
+        "芫荽籽",
+        "香菜籽",
+        "胡荽",
+        "coriander",
+        "Coriandrum sativum",
+        "cilantro"
+      ],
+      "tags": [
+        "spice",
+        "condiment",
+        "food",
+        "crop"
+      ],
       "summary": "同一株植物提供两种截然不同的商品：叶是香草（鲜用），籽是香料（干用）。籽带柠檬与鼠尾草般的温和香气，是香肠、咖喱与北欧糕点里常见的“打底”香料。",
       "details": {
         "definition": "芫荽是伞形科芫荽属 Coriandrum sativum；其嫩叶（英文 cilantro）按植物部位分类属“香草”，其干燥分果（coriander seed）属“香料”。两者气味差别极大，在商品与菜谱中是两种东西。",
@@ -469,15 +717,37 @@
         "historical_scope": "原产地中海与中东一带，使用记录可溯至公元前五千年；罗马人用其为面包增香。它在欧洲、南亚、拉美与中国都被接纳，但主要用途（叶用还是籽用）差别很大，不能把一地的习惯当作通例。",
         "evidence_and_uncertainty": "物种、双商品关系、分果形态、精油与早期使用记录由来源支撑。传入各地的具体时间不作断言；“肥皂味”属感知差异，来源未给出机制细节，本条只描述现象。"
       },
-      "source_ids": ["flavors_src_coriander", "flavors_src_spice_herb", "flavors_src_cumin"],
-      "related_ids": ["flavors_cumin", "flavors_spice_blend", "flavors_fennel_seed"],
+      "source_ids": [
+        "flavors_src_coriander",
+        "flavors_src_spice_herb",
+        "flavors_src_cumin"
+      ],
+      "related_ids": [
+        "flavors_cumin",
+        "flavors_spice_blend",
+        "flavors_fennel_seed"
+      ],
       "review_status": "needs_review"
     },
     {
       "id": "flavors_chili_pepper",
       "name": "辣椒",
-      "aliases": ["辣椒", "干辣椒", "甜椒", "灯笼椒", "chili pepper", "bell pepper", "Capsicum", "cayenne"],
-      "tags": ["spice", "condiment", "food", "crop"],
+      "aliases": [
+        "辣椒",
+        "干辣椒",
+        "甜椒",
+        "灯笼椒",
+        "chili pepper",
+        "bell pepper",
+        "Capsicum",
+        "cayenne"
+      ],
+      "tags": [
+        "spice",
+        "condiment",
+        "food",
+        "crop"
+      ],
       "summary": "美洲起源的茄科果实，干燥研磨后成为全球用量最大的辛辣调味料之一。它在 15 世纪末随远航进入旧大陆，此后数百年间重塑了非洲、南亚与东亚的日常口味结构。",
       "details": {
         "definition": "辣椒指茄科（Solanaceae）辣椒属 Capsicum 的若干物种与栽培品种的果实。可食部位是果实，鲜用、干用、制粉或制酱；不同物种与品种的辣度与香气差别极大，不能按名称一概而论。甜椒（灯笼椒、bell pepper）是同属内不产辣味的栽培类型，属本条覆盖范围——它与辣椒的区分在品种与辣味有无，不在物种层级；因此本组不为甜椒另立条目，produce 组也不为其立蔬菜条目，只把“作为鲜食蔬菜的一面”归 produce，本组只记其调味与干制制粉的一面。",
@@ -488,72 +758,177 @@
         "historical_scope": "原产美洲，多个物种由美洲原住民分别驯化，其中 C. annuum 的驯化中心在墨西哥。15 世纪末由哥伦布一行带入欧洲，此后传入非洲与亚洲并广泛栽培。它是本组中少数“起源晚近、扩散极快”的条目，与胡椒、肉桂这类旧大陆香料的时间尺度完全不同。",
         "evidence_and_uncertainty": "美洲起源、多物种独立驯化、墨西哥驯化中心、15 世纪末传入欧洲、辣椒素机制与辣度标度的存在均有来源支撑。具体传入某一地区的确切年份与路线缺乏可靠依据，本项目不作断言；各地饮食转辣的时间点属史学争议区。"
       },
-      "source_ids": ["flavors_src_chili", "flavors_src_sichuan_pepper", "flavors_src_spice_trade"],
-      "related_ids": ["flavors_sichuan_pepper", "flavors_black_pepper", "flavors_spice_blend"],
+      "source_ids": [
+        "flavors_src_chili",
+        "flavors_src_sichuan_pepper",
+        "flavors_src_spice_trade"
+      ],
+      "related_ids": [
+        "flavors_sichuan_pepper",
+        "flavors_black_pepper",
+        "flavors_spice_blend"
+      ],
       "review_status": "needs_review"
     },
     {
       "id": "flavors_sichuan_pepper",
       "name": "花椒",
-      "aliases": ["花椒", "川椒", "Sichuan pepper", "Zanthoxylum", "山椒"],
-      "tags": ["spice", "condiment", "food", "crop"],
+      "aliases": [
+        "花椒",
+        "川椒",
+        "Sichuan pepper",
+        "Zanthoxylum",
+        "山椒",
+        "蜀椒",
+        "Zanthoxylum bungeanum"
+      ],
+      "tags": [
+        "spice",
+        "condiment",
+        "food",
+        "crop",
+        "part:fruit",
+        "part:leaf",
+        "habitat:mountain",
+        "trait:pungent",
+        "trade:spice",
+        "trait:quarantine"
+      ],
       "summary": "芸香科花椒属的干燥果皮，提供柑橘样香气与独特的“麻”感；它与胡椒、辣椒都无亲缘，麻的机制也与辣完全不同。是东亚复合香料与麻味菜式的核心。",
       "details": {
         "definition": "花椒指芸香科（Rutaceae）花椒属 Zanthoxylum 若干种的干燥果皮（商品称“椒”实为果皮），主要物种包括中国花椒与红花椒，另有绿花椒少量栽培；日本与韩国使用同属近缘种。可食部位是果皮，黑色种子通常弃去。",
         "mechanism": "麻感来自一类被称为山椒素的不饱和酰胺，它作用于感知轻触的躯体感觉神经元，产生细微振动与麻刺感；这与辣椒素激活痛觉通路产生灼烧感的机制几乎相反。因此在麻与辣同用时，麻会削弱辣的尖锐度，使其他香气更容易浮现——这是“麻辣”组合被反复采用的感官基础。",
         "conditions": "多为雌雄异株的落叶灌木或小乔木，栽培时通常修剪矮化以便采收。果实在成熟期采摘、晒干，果皮开裂后与种子分离。植株较抗病虫，但作为柑橘近缘植物，其果实与苗木的跨境流动长期受植物检疫限制。",
         "exceptions": "名称极度易混：它不是胡椒，不是辣椒，也不是“山胡椒”那类樟科植物。检疫史也提醒人们“香料”可以是植物病害的载体：20 世纪后期曾被以柑橘溃疡病风险为由禁止入境，后来以加热处理为条件解禁，条件又在数年后取消——这类规定变化属于制度史，与风味无关但影响贸易。",
-        "story_uses": "适合写“感官机制决定配方”：麻与辣互相修饰，所以两者常同时出现，而这一点在文字食谱里常被写成“少许”，无法传达。也适合写检疫与走私（香料被当作病害载体而禁运）、以及地方菜系把某种麻感当作身份标记。",
+        "story_uses": "适合写“感官机制决定配方”：麻与辣互相修饰，所以两者常同时出现，而这一点在文字食谱里常被写成“少许”，无法传达。也适合写检疫与走私（香料被当作病害载体而禁运）、以及地方菜系把某种麻感当作身份标记。\n\n【补充条目：花椒｜reality-herbs-aerial｜eastern】\n芸香科花椒属的干燥果皮，麻感来自羟基-α-山椒素；五香粉成分之一，且在北方部分地区连鲜叶都可作香辛料。\n定义：花椒为芸香科花椒属（Zanthoxylum）数种植物干燥果皮的香辛料，主种为 Z. simulans 与 Z. bungeanum，Z. armatum 少量栽培；**与黑胡椒、辣椒均无关**（herb_aerial_src_05）。本条为文献与设定资料，不构成医疗建议，不可据此用药。\n条件：生境与栽培：落叶灌木或小乔木、多干，树高可达 7 米，皮革质复叶常有 5—15 枚卵形齿状小叶且带刺；多雌雄异株，但部分雄株也能结果、部分雌株可自花结实；栽培者常修剪矮化以便采收（herb_aerial_src_05）。鲜叶在华北部分地区也作香料，并常用于大豆麦粉发酵酱（herb_aerial_src_05）。本条为文献与设定资料，不构成医疗建议，不可据此用药。\n例外：易混与例外：一是三色（红、绿）花椒分属不同种，商品颜色与产地不对应；二是历史上的检疫例外——**1968 年因担心传播柑橘溃疡病，美国禁止进口花椒；2004 年解禁并要求装运前加热处理以杀灭细菌；2007 年该要求被静默取消**（herb_aerial_src_05），这是一个「植物检疫如何演变为贸易壁垒又退场」的完整案例；三是同名异物——日本山椒（Z. piperitum，sansho）与韩国的 chopi 均为近缘而非同种（herb_aerial_src_05）；四是花椒的麻与胡椒的辛常被混谈。本条为文献与设定资料，不构成医疗建议，不可据此用药。\n证据与不确定性：证据分层：来源支持——主种与属、与胡椒辣椒无关、麻感的化学成分与受体机制、叶形与雌雄结构、矮化采收、鲜叶与发酵酱用途、1968/2004/2007 的检疫与解禁时间线、近缘的同名异物（herb_aerial_src_05）。不确定：麻感强度的定量描述本文件不给；中国本土的栽培史年代未取得。本条为文献与设定资料，不构成医疗建议，不可据此用药。",
         "historical_scope": "原产中国，长期在东亚料理中使用；同属近缘种在日本、韩国、印度等地各有本地用法。它与美洲辣椒的相遇是 16 世纪以后的事，今天所谓“麻辣”组合的形成晚于花椒本身的长期使用。",
         "evidence_and_uncertainty": "物种归属、果皮部位、麻感物质与作用机制、五香类配方中的地位、检疫禁令时间与条件由来源支撑。花椒在中国各代的普及程度与用量缺乏量化依据，本条不作断言。"
       },
-      "source_ids": ["flavors_src_sichuan_pepper", "flavors_src_chili", "flavors_src_star_anise"],
-      "related_ids": ["flavors_star_anise", "flavors_cassia", "flavors_chili_pepper"],
-      "review_status": "needs_review"
+      "source_ids": [
+        "flavors_src_sichuan_pepper",
+        "flavors_src_chili",
+        "flavors_src_star_anise"
+      ],
+      "related_ids": [
+        "flavors_star_anise",
+        "flavors_cassia",
+        "flavors_chili_pepper"
+      ],
+      "review_status": "needs_review",
+      "merged_from": [
+        "reality-herbs-aerial/herb_aerial_huajiao"
+      ]
     },
     {
       "id": "flavors_star_anise",
       "name": "八角（大茴香）",
-      "aliases": ["八角", "大茴香", "star anise", "Illicium verum"],
-      "tags": ["spice", "condiment", "food", "crop"],
+      "aliases": [
+        "八角",
+        "大茴香",
+        "star anise",
+        "Illicium verum",
+        "大茹香",
+        "八角茹香"
+      ],
+      "tags": [
+        "spice",
+        "condiment",
+        "food",
+        "crop",
+        "part:fruit",
+        "habitat:subtropical",
+        "trait:aromatic",
+        "trait:adulterant_risk",
+        "trade:spice"
+      ],
       "summary": "星状排布的干燥果实，香气以茴香脑为主，甜润带甘草调。它是东亚复合香料与炖煮菜的关键成分，也是现代工业提取某类化学中间体的原料。",
       "details": {
         "definition": "八角是八角科（五味子科）八角属 Illicium verum 的干燥果实，由六至八枚蓇葖果呈星状围绕中轴排列。可食部位是果实（含其中的种子）。",
         "mechanism": "香气主体为茴香脑，甜而扩散性强，能在油脂中充分溶解，因此适合长时间炖煮与卤制。它与茴香（伞形科）香气相似但无亲缘，属于典型的“趋同香气、不同来源”。",
         "conditions": "常绿树，原产中国东南与越南；果实成熟采收后干燥即为商品。干燥果的挥发油含量较高，整颗保存优于粉末。近年它还被当作某类抗流感药物合成中间体的工业原料来源，形成食用与药用两条需求线。",
         "exceptions": "最大的风险来自近缘种混淆：日本八角等物种有毒，外观相似，若混入商品会造成严重后果——这说明“按名称买香料”在没有物种鉴别的流通体系里是有风险的，本条只作风险提示，不提供鉴别方法。它与茴香、孜然同被用于复合配方，但三者不可按体积互换。",
-        "story_uses": "适合写“外形相似而性质不同的货物”如何造成事故与信任危机，以及由此产生的检验行当。也适合写一种香料被工业化需求（制药中间体）重新定价，导致食用市场与工业市场争抢同一原料。",
+        "story_uses": "适合写“外形相似而性质不同的货物”如何造成事故与信任危机，以及由此产生的检验行当。也适合写一种香料被工业化需求（制药中间体）重新定价，导致食用市场与工业市场争抢同一原料。\n\n【补充条目：八角｜reality-herbs-aerial｜eastern】\n中国东南部与越南原产的星状果实，五香粉成分之一；**最大的风险不在自身，而在可能与有毒近缘种混入掺假**。\n定义：八角为中国东南部与越南原产常绿乔木（Illicium verum）的干燥果实，因蓇葖果呈星状排列得名；单果含 6—8 枚蓇葖、每枚一粒种子（herb_aerial_src_07）。本条为文献与设定资料，不构成医疗建议，不可据此用药。\n条件：生境与采收：亚热带常绿乔木，原产中国东南与越南北部；果熟后采下干燥。五香粉组合为八角、小茹香、桂皮、丁香、花椒（herb_aerial_src_07、herb_aerial_src_05）；亦为越南粉（pho）调味（herb_aerial_src_07）。若用作工业原料，则需较大规模收集与分选，产区与加工能力成为瓶颈（属设计归纳）。本条为文献与设定资料，不构成医疗建议，不可据此用药。\n例外：**最重要的例外是掺假风险**：来源明确记载，中国八角的香料中**可能混入日本八角（Illicium anisatum）与广东八角（I. lanceolatum）等有毒近缘种**（herb_aerial_src_07）。这种「形态相近、肉眼难分」的结构，使验货成为一整条行业的生死线。本条只写毒性成分类别与误用后果的定性风险，不写减毒、安全用量、解救方法或任何可照做的处置步骤。另：八角的甜味常被写成与茴香相同，但两者并非近缘（herb_aerial_src_07）。本条为文献与设定资料，不构成医疗建议，不可据此用药。\n证据与不确定性：证据分层：来源支持——原产地、星状结构与蓇葖数、含油量与主成分、甘草样味与抗真菌活性、五香粉成分、越南粉用途、莽草酸与奥司他韦的关系、**可能被有毒近缘种混入**、传统用途（herb_aerial_src_07）。不确定：掺假发生频率与地区分布本文件未取得，**且不给任何辨识方法**。本条只写毒性成分类别与误用后果的定性风险，不写减毒、安全用量、解救方法或任何可照做的处置步骤。本条为文献与设定资料，不构成医疗建议，不可据此用药。",
         "historical_scope": "原产中国东南与越南，长期作为东亚香料与传统配方成分；作为工业原料的大规模需求是近现代现象，与其传统用途相隔极远。它进入欧洲饮食的时间晚于胡椒、肉桂等旧大陆香料，主要经近代贸易与复合配方传播。",
         "evidence_and_uncertainty": "物种、果实结构、主成分、混伪风险、配方地位与工业用途由来源支撑。具体传入欧洲与普及的时间缺乏可靠依据；传统药用记载不作功效依据。"
       },
-      "source_ids": ["flavors_src_star_anise", "flavors_src_cassia", "flavors_src_fennel"],
-      "related_ids": ["flavors_fennel_seed", "flavors_cassia", "flavors_sichuan_pepper"],
-      "review_status": "needs_review"
+      "source_ids": [
+        "flavors_src_star_anise",
+        "flavors_src_cassia",
+        "flavors_src_fennel"
+      ],
+      "related_ids": [
+        "flavors_fennel_seed",
+        "flavors_cassia",
+        "flavors_sichuan_pepper"
+      ],
+      "review_status": "needs_review",
+      "merged_from": [
+        "reality-herbs-aerial/herb_aerial_bajiao"
+      ]
     },
     {
       "id": "flavors_fennel_seed",
       "name": "茴香籽",
-      "aliases": ["茴香籽", "小茴香", "fennel seed", "Foeniculum vulgare"],
-      "tags": ["spice", "condiment", "food", "crop"],
+      "aliases": [
+        "茴香籽",
+        "小茴香",
+        "fennel seed",
+        "Foeniculum vulgare",
+        "茴香",
+        "谷茴香",
+        "Foeniculum vulgare fruit"
+      ],
+      "tags": [
+        "spice",
+        "condiment",
+        "food",
+        "crop",
+        "part:fruit",
+        "habitat:cultivated",
+        "trait:aromatic",
+        "trade:spice",
+        "role:condiment"
+      ],
       "summary": "伞形科植物的小型分果，香气与八角相似而更清淡，是复合香料、腌渍与香肠配方里的常用籽类香料。同株的叶与膨大茎基部另作蔬菜，属于 produce 组的范围。",
       "details": {
         "definition": "茴香籽是伞形科茴香属 Foeniculum vulgare 的干燥分果。可食部位是果实；同种的叶与佛罗伦萨茴香的膨大叶基作蔬菜食用，那部分不属本组。",
         "mechanism": "香气主体为茴香脑与芬酮，前者提供甜润的茴香调，后者带来一点清凉与苦感，二者比例决定“偏甜”还是“偏药感”。整籽在油脂中受热后香气释放更充分，因此常见做法是先焙后研或整籽入油。",
         "conditions": "多年生草本，原产地中海与安纳托利亚，在温带广泛栽培。果序成熟后收割晒干脱粒。它在澳大利亚与美国部分地区被列为入侵种——一种被广泛栽培的香料作物同时可以是入侵植物，这两件事并不矛盾。",
         "exceptions": "名称混淆极多：茴香（fennel）、孜然（cumin）、葛缕子（caraway）、八角（star anise）在中文里常被笼统称作“茴香”类，实际分属不同科属，风味与用量都不同。此外“茴香”在部分地区专指作蔬菜的球茎茴香，讨论香料时应明确指籽。",
-        "story_uses": "适合写“同一植物两种商品、两个行当”：菜农与香料商做的是不同生意，名称却在市场上共用。也适合写入侵种与栽培种的界线如何随环境变化而移动。",
+        "story_uses": "适合写“同一植物两种商品、两个行当”：菜农与香料商做的是不同生意，名称却在市场上共用。也适合写入侵种与栽培种的界线如何随环境变化而移动。\n\n【补充条目：小茴香｜reality-herbs-aerial｜eastern】\n伞形科茴香的果实（双悬果），五香粉成分之一；同名异物多、容易与蒿香、八角混淆，是「基础调料」里最容易被忽视的一类。\n定义：小茴香为伞形科茴香（Foeniculum）的干燥成熟果实（双悬果），是中式五香粉的组分之一（herb_aerial_src_05、herb_aerial_src_07 均将其列为五香粉成分）。本条为文献与设定资料，不构成医疗建议，不可据此用药。\n条件：生境与栽培：茴香为伞形科一二年生或多年生草本，栽培于温带与亚热带；果实成熟后割取全株、晒干脱粒。作为调料与药材的双重身份，使它的供给同时受厨用与药用需求驱动。本条为文献与设定资料，不构成医疗建议，不可据此用药。\n例外：易混与例外：一是「茴香」在中文可指小茴香（伞形科）或大茴香（八角科）——两者不同科，这是最典型的同名异物；二是与「蒿香」（八角属）方言混称；三是茴香叶（茴香菜）是蔬菜，与果实（小茴香）是不同商品；四是与同科的苗香、葛缕子（caraway）果实形态相近，必需靠气味区分。本条为文献与设定资料，不构成医疗建议，不可据此用药。\n证据与不确定性：证据分层：来源支持——五香粉由八角、小茴香、桂皮、丁香、花椒组成（herb_aerial_src_07、herb_aerial_src_05）。**不确定：小茴香自身的植物学描述、性味、产地与采收本文件未取得专门来源（Fennel 页抓取失败，herb_aerial_src_92 已如实记录），故本条不引这些断言**；茴香脑与小茴香风味的对应关系属化学通性推论，标为设计归纳。本条为文献与设定资料，不构成医疗建议，不可据此用药。",
         "historical_scope": "原产地中海与安纳托利亚，后随栽培扩散至温带各地。它作为香料在旧大陆西段与南亚都有长期使用，但各地的具体用法不必相同；作为复合配方成分的流行程度随配方体系而变。",
         "evidence_and_uncertainty": "物种、形态、精油主成分、蔬菜用途的并存、入侵种地位由来源支撑。传入各地的时间与具体配方比例缺乏依据，本条不作断言。"
       },
-      "source_ids": ["flavors_src_fennel", "flavors_src_star_anise", "flavors_src_spice_herb"],
-      "related_ids": ["flavors_star_anise", "flavors_cumin", "flavors_spice_blend"],
-      "review_status": "needs_review"
+      "source_ids": [
+        "flavors_src_fennel",
+        "flavors_src_star_anise",
+        "flavors_src_spice_herb"
+      ],
+      "related_ids": [
+        "flavors_star_anise",
+        "flavors_cumin",
+        "flavors_spice_blend"
+      ],
+      "review_status": "needs_review",
+      "merged_from": [
+        "reality-herbs-aerial/herb_aerial_xiaohuixiang"
+      ]
     },
     {
       "id": "flavors_saffron",
       "name": "藏红花（番红花柱头）",
-      "aliases": ["藏红花", "番红花", "saffron", "Crocus sativus"],
-      "tags": ["spice", "condiment", "food", "crop"],
+      "aliases": [
+        "藏红花",
+        "番红花",
+        "saffron",
+        "Crocus sativus"
+      ],
+      "tags": [
+        "spice",
+        "condiment",
+        "food",
+        "crop"
+      ],
       "summary": "番红花的三枚柱头，手工摘取后干燥；既是香料也是着色剂。因单位重量所需花朵数量极多，长期被视为最昂贵的香料，也曾被当作织物染料与身份象征。",
       "details": {
         "definition": "藏红花是鸢尾科番红花属 Crocus sativus 花的干燥柱头（每朵三枚）。可食部位是柱头，不是花瓣或全花。它同时是香料与着色剂，两重身份带来不同的定价与用途逻辑。",
@@ -564,15 +939,33 @@
         "historical_scope": "被认为原产地中海东部、小亚细亚与伊朗一带，长期在伊朗与克什米尔栽培；早期栽培重心在小亚细亚某地区，10 世纪经阿拉伯人传入西班牙，十字军时代前后在西欧重新流通。它在东亚的出现很晚（约蒙古时期以后），与它在南欧、西亚的长期使用不可混谈。",
         "evidence_and_uncertainty": "物种、部位、采收与烘干方式、产出比、主产国、色素成分、历史传播节点与染料用途由来源支撑。“最昂贵”为长期通说，但价格排名随年份与品类变化，不宜当作固定事实；古代药用与仪式用法只作记载，不作功效依据。"
       },
-      "source_ids": ["flavors_src_saffron", "flavors_src_spice_trade", "flavors_src_spice_herb"],
-      "related_ids": ["flavors_turmeric", "flavors_cinnamon", "flavors_black_pepper"],
+      "source_ids": [
+        "flavors_src_saffron",
+        "flavors_src_spice_trade",
+        "flavors_src_spice_herb"
+      ],
+      "related_ids": [
+        "flavors_turmeric",
+        "flavors_cinnamon",
+        "flavors_black_pepper"
+      ],
       "review_status": "needs_review"
     },
     {
       "id": "flavors_turmeric",
       "name": "姜黄",
-      "aliases": ["姜黄", "郁金", "turmeric", "Curcuma longa"],
-      "tags": ["spice", "condiment", "food", "crop"],
+      "aliases": [
+        "姜黄",
+        "郁金",
+        "turmeric",
+        "Curcuma longa"
+      ],
+      "tags": [
+        "spice",
+        "condiment",
+        "food",
+        "crop"
+      ],
       "summary": "姜科植物的根茎，既是调味料也是强烈着色剂；成品芥末酱的黄色主要来自它。它的加工顺序（先煮后晒再打磨）决定了商品外观，也长期伴随以染色增亮为动机的掺假问题。",
       "details": {
         "definition": "姜黄是姜科姜属 Curcuma longa 的根茎。可食部位是根茎；商品多以粉末形式流通。它同时是香料与染料，这两重属性在历史上长期并行。",
@@ -583,15 +976,34 @@
         "historical_scope": "原产南印度与印尼，自古在印度洋周边栽培；古代兼作香料、染料与香料油用途，至今在南亚是日常用料。它在欧洲的普及与咖喱类复合调味料的传播有关，时间远晚于其在南亚的长期使用。",
         "evidence_and_uncertainty": "物种、加工顺序、色素与精油成分、作为芥末酱着色成分、孟加拉掺假事件与其后果由来源支撑。古代药用宣称、现代保健功效均不作事实断言；本条不提供任何使用剂量。"
       },
-      "source_ids": ["flavors_src_turmeric", "flavors_src_mustard", "flavors_src_spice_herb"],
-      "related_ids": ["flavors_mustard", "flavors_ginger", "flavors_chili_pepper"],
+      "source_ids": [
+        "flavors_src_turmeric",
+        "flavors_src_mustard",
+        "flavors_src_spice_herb"
+      ],
+      "related_ids": [
+        "flavors_mustard",
+        "flavors_ginger",
+        "flavors_chili_pepper"
+      ],
       "review_status": "needs_review"
     },
     {
       "id": "flavors_mustard",
       "name": "芥末（芥籽与芥酱）",
-      "aliases": ["芥末", "芥子", "mustard", "Sinapis alba", "Brassica juncea"],
-      "tags": ["spice", "condiment", "food", "crop"],
+      "aliases": [
+        "芥末",
+        "芥子",
+        "mustard",
+        "Sinapis alba",
+        "Brassica juncea"
+      ],
+      "tags": [
+        "spice",
+        "condiment",
+        "food",
+        "crop"
+      ],
       "summary": "芥菜类种子本身无气味，遇水后经酶反应才生成辛辣物质——这使它成为“现调现用”的典型调味料。白芥与褐芥的辛辣性质不同，分别支撑了欧美两大酱型。",
       "details": {
         "definition": "芥末指十字花科白芥 Sinapis alba 与褐芥 Brassica juncea 的种子及其制品；商品分籽、干粉与调好的酱三类。可食部位是种子；同株的叶与膨大茎在多地作蔬菜，那部分属 produce 范围。",
@@ -602,15 +1014,34 @@
         "historical_scope": "白芥源地中海，褐芥源喜马拉雅一带；种子作香料的记录可溯至很早的印度与两河流域文献。它在欧洲与中国都长期栽培，但作为“调好的酱”进入规模化商品流通要晚得多。今天的机械化生产与历史上的手工磨制不可混为一谈。",
         "evidence_and_uncertainty": "两个物种、酶促产辣的机制、三种商品形态、加醋与淀粉的作用、温带种植的特殊性、20 世纪贸易量地位由来源支撑。古代文献中的芥末记载只用于说明“当时已知此物”，不用于推断配方细节；具体调和比例属可执行工艺，本项目不记录。"
       },
-      "source_ids": ["flavors_src_mustard", "flavors_src_spice_herb", "flavors_src_condiment"],
-      "related_ids": ["flavors_turmeric", "flavors_vinegar", "flavors_black_pepper"],
+      "source_ids": [
+        "flavors_src_mustard",
+        "flavors_src_spice_herb",
+        "flavors_src_condiment"
+      ],
+      "related_ids": [
+        "flavors_turmeric",
+        "flavors_vinegar",
+        "flavors_black_pepper"
+      ],
       "review_status": "needs_review"
     },
     {
       "id": "flavors_vanilla",
       "name": "香草（香荚兰）",
-      "aliases": ["香草", "香荚兰", "香子兰", "vanilla", "Vanilla planifolia"],
-      "tags": ["spice", "condiment", "food", "crop"],
+      "aliases": [
+        "香草",
+        "香荚兰",
+        "香子兰",
+        "vanilla",
+        "Vanilla planifolia"
+      ],
+      "tags": [
+        "spice",
+        "condiment",
+        "food",
+        "crop"
+      ],
       "summary": "兰科藤本植物的未熟果荚。鲜荚完全没有香气，香气是在采后数月的发汗与日晒中由酶作用生成的——它因此是“工艺制造香气”的极端案例，也是劳动力成本推高价格的典型。",
       "details": {
         "definition": "香草指兰科（Orchidaceae）香草属 Vanilla 的若干种，商品为经熟成干燥的未成熟果荚（俗称“豆”）。可食部位是果荚；主要商业种为墨西哥/波旁香草，另有塔希提与西印度类型。",
@@ -621,15 +1052,35 @@
         "historical_scope": "原产墨西哥与中美洲北部、南美北部；阿兹特克人早以香草为可可饮料增香，西班牙人于 16 世纪将其带回欧洲，此后逐渐成为甜食与饮品的主调香料。它在欧洲的普及依赖糖与可可的供应扩张，三者互为条件。",
         "evidence_and_uncertainty": "物种、部位、熟成流程与时长、授粉限制、结晶判据、与原住民可可饮料的关系由来源支撑。具体传入各国的时间不作断言；合成香料的工业史超出本条来源范围，只能定性提及。"
       },
-      "source_ids": ["flavors_src_vanilla", "flavors_src_cocoa", "flavors_src_spice_herb"],
-      "related_ids": ["flavors_cocoa", "flavors_cane_sugar", "flavors_cinnamon"],
+      "source_ids": [
+        "flavors_src_vanilla",
+        "flavors_src_cocoa",
+        "flavors_src_spice_herb"
+      ],
+      "related_ids": [
+        "flavors_cocoa",
+        "flavors_cane_sugar",
+        "flavors_cinnamon"
+      ],
       "review_status": "needs_review"
     },
     {
       "id": "flavors_spice_blend",
       "name": "复合香料配方（五香、咖喱粉、混合香料）",
-      "aliases": ["五香粉", "咖喱粉", "混合香料", "garam masala", "five-spice powder", "ras el hanout"],
-      "tags": ["condiment", "spice", "food", "cooking"],
+      "aliases": [
+        "五香粉",
+        "咖喱粉",
+        "混合香料",
+        "garam masala",
+        "five-spice powder",
+        "ras el hanout"
+      ],
+      "tags": [
+        "condiment",
+        "spice",
+        "food",
+        "cooking"
+      ],
       "summary": "把多种香料按比例配合成的商品或家制配方。它的存在说明香料的核心知识不是“认识某一种”，而是“如何配比与顺序”——因此配方本身成为可交易、可保密、也可被标准化的东西。",
       "details": {
         "definition": "复合香料指两种以上香料（有时含香草、籽类、干果）按既定比例组合的调味品，形态有粉、整料包与酱。中华五香类配方以八角、桂皮、丁香、茴香、花椒为主要构成；南亚 garam masala 以小豆蔻、肉桂、丁香、胡椒等为主。它属于“调味料”层面的加工品，不是单一植物商品。",
@@ -640,15 +1091,36 @@
         "historical_scope": "复合香料的使用在多个地区长期存在，但“预混粉作为包装商品”是较晚的形态，依赖研磨设备、密封包装与零售渠道。因此历史上的复合香料多为家制或店家现配，与现代货架上的预混粉不是同一种东西。",
         "evidence_and_uncertainty": "五香类与 garam masala 的主要构成、多种香料的互补关系、粉末易挥发与焙炒临界点由来源间接支撑（各单一香料条目）。具体配比、比例、工艺顺序属可执行配方，规范禁止记录，本条不给任何比例数字；“某配方属某地正统”缺乏依据，不作断言。"
       },
-      "source_ids": ["flavors_src_spice_herb", "flavors_src_star_anise", "flavors_src_cardamom", "flavors_src_sichuan_pepper"],
-      "related_ids": ["flavors_star_anise", "flavors_cassia", "flavors_cardamom", "flavors_chili_pepper"],
+      "source_ids": [
+        "flavors_src_spice_herb",
+        "flavors_src_star_anise",
+        "flavors_src_cardamom",
+        "flavors_src_sichuan_pepper"
+      ],
+      "related_ids": [
+        "flavors_star_anise",
+        "flavors_cassia",
+        "flavors_cardamom",
+        "flavors_chili_pepper"
+      ],
       "review_status": "needs_review"
     },
     {
       "id": "flavors_vinegar",
       "name": "醋",
-      "aliases": ["醋", "米醋", "酒醋", "麦芽醋", "vinegar"],
-      "tags": ["condiment", "food", "processed_material", "cooking"],
+      "aliases": [
+        "醋",
+        "米醋",
+        "酒醋",
+        "麦芽醋",
+        "vinegar"
+      ],
+      "tags": [
+        "condiment",
+        "food",
+        "processed_material",
+        "cooking"
+      ],
       "summary": "含酒精的稀液经醋酸菌氧化生成的酸味液体，既是调味料也是腌渍介质。它的酸度足以抑制其他微生物，因此长期承担“让食物过季不坏”的功能，而不只是加酸味。",
       "details": {
         "definition": "醋是稀酒精液经醋酸菌作用生成醋酸与水后的产物，成品食醋约含百分之四醋酸（以常见的餐桌醋而言）。原料可为葡萄酒、苹果酒、麦芽、米、糖蜜等；不同原料带来不同有机酸与酯类，形成风味差别。它是加工品而非原料作物。",
@@ -659,15 +1131,35 @@
         "historical_scope": "起源很早，作为商品可能最初以酒制成（语源即“酸酒”）。技术改进长期缓慢，主要围绕通气方式；近代才出现强制通气与连续生产。它在腌渍、酱料与凉拌中的角色随各地饮食结构不同，不能一概而论。",
         "evidence_and_uncertainty": "两步发酵、醋酸菌作用、成品酸度、原料与风味关系、通气与产酸速率的关系、主要用途由来源支撑。具体发酵条件、菌种、时间、配比等可执行参数本项目刻意不记录；“某种醋在某一时代已普遍使用”缺乏依据，不作断言。"
       },
-      "source_ids": ["flavors_src_vinegar", "flavors_src_mustard", "flavors_src_condiment"],
-      "related_ids": ["flavors_mustard", "flavors_wine", "flavors_soy_sauce"],
+      "source_ids": [
+        "flavors_src_vinegar",
+        "flavors_src_mustard",
+        "flavors_src_condiment"
+      ],
+      "related_ids": [
+        "flavors_mustard",
+        "flavors_wine",
+        "flavors_soy_sauce"
+      ],
       "review_status": "needs_review"
     },
     {
       "id": "flavors_soy_sauce",
       "name": "酱油",
-      "aliases": ["酱油", "豉油", "soy sauce", "shoyu", "tamari", "jiang you"],
-      "tags": ["condiment", "food", "processed_material", "cooking"],
+      "aliases": [
+        "酱油",
+        "豉油",
+        "soy sauce",
+        "shoyu",
+        "tamari",
+        "jiang you"
+      ],
+      "tags": [
+        "condiment",
+        "food",
+        "processed_material",
+        "cooking"
+      ],
       "summary": "以大豆（配合小麦或面粉）经曲霉制曲、盐渍发酵后榨取的液态调味料。它由古代的“酱”演变而来，是东亚饮食中用途最广的咸鲜味来源，也是少数以发酵产生“鲜味”的商品。",
       "details": {
         "definition": "酱油是东亚与东南亚的液态发酵调味料，主要由大豆、小麦或面粉、盐与曲菌共同作用后榨取而成。它属于加工调味品，不是单一植物商品；原料中的大豆与小麦分别归 staples 组，此处只讨论其制成品。",
@@ -678,15 +1170,35 @@
         "historical_scope": "起源可追至中国以肉与粟制酱的古法，约两千年前改为以大豆为主，随后形成“酱油”这一液态制品；日本式另有发展路径，两国做法在原料处理上分化。它在东亚成为日常调味料是长期演变的结果，不能归结为某一朝代或某一人物的发明。",
         "evidence_and_uncertainty": "原料、制曲与发酵期、加热过滤、中国式与日本式的原料差别、白酱油与 tamari 的特点、速成法及其评价、钠含量由来源支撑。具体菌种管理、温湿度、盐比等可执行参数不记录；古代酱与今日酱油之间的连续性问题，来源只给出概述性说法，本项目不作精确断言。"
       },
-      "source_ids": ["flavors_src_soy_sauce", "flavors_src_miso", "flavors_src_fish_sauce"],
-      "related_ids": ["flavors_miso", "flavors_fish_sauce", "flavors_vinegar"],
+      "source_ids": [
+        "flavors_src_soy_sauce",
+        "flavors_src_miso",
+        "flavors_src_fish_sauce"
+      ],
+      "related_ids": [
+        "flavors_miso",
+        "flavors_fish_sauce",
+        "flavors_vinegar"
+      ],
       "review_status": "needs_review"
     },
     {
       "id": "flavors_fish_sauce",
       "name": "鱼露",
-      "aliases": ["鱼露", "鱼酱油", "nam pla", "nuoc mam", "patis", "fish sauce"],
-      "tags": ["condiment", "food", "processed_material", "cooking"],
+      "aliases": [
+        "鱼露",
+        "鱼酱油",
+        "nam pla",
+        "nuoc mam",
+        "patis",
+        "fish sauce"
+      ],
+      "tags": [
+        "condiment",
+        "food",
+        "processed_material",
+        "cooking"
+      ],
       "summary": "鱼与盐长期发酵后渗出的褐色液体，是东南亚咸鲜调味的基础。它把极易腐败的渔获转化为可长期保存、可长途运输的调味料，是保存技术塑造饮食的典型案例。",
       "details": {
         "definition": "鱼露是以淡水或海水鱼与盐在大容器中长期发酵、再取出的褐色富蛋白液体，可再于日光下陈化。它在泰国、越南、菲律宾、柬埔寨、缅甸、印尼各有本地名称；中国烹饪中的蚝油属类似思路的制品。它属于加工调味品。",
@@ -697,15 +1209,33 @@
         "historical_scope": "在东南亚长期作为日常调味料使用，各地名称与用法并行并存。它与东亚的豆制发酵调味料属于不同原料路线，二者在近代因贸易与移民而互相渗透，但起源路径不同，不能合并叙述。",
         "evidence_and_uncertainty": "定义、原料、发酵与取出方式、日光陈化、地域分布与各地名称、与蚝油的相似性由来源支撑。该来源条目很短，不支撑工艺参数、发酵时长、盐比、营养数据；具体数值本项目不记录。"
       },
-      "source_ids": ["flavors_src_fish_sauce", "flavors_src_soy_sauce", "flavors_src_condiment"],
-      "related_ids": ["flavors_soy_sauce", "flavors_miso", "flavors_vinegar"],
+      "source_ids": [
+        "flavors_src_fish_sauce",
+        "flavors_src_soy_sauce",
+        "flavors_src_condiment"
+      ],
+      "related_ids": [
+        "flavors_soy_sauce",
+        "flavors_miso",
+        "flavors_vinegar"
+      ],
       "review_status": "needs_review"
     },
     {
       "id": "flavors_miso",
       "name": "味噌",
-      "aliases": ["味噌", "miso", "kome miso", "mugi miso"],
-      "tags": ["condiment", "food", "processed_material", "cooking"],
+      "aliases": [
+        "味噌",
+        "miso",
+        "kome miso",
+        "mugi miso"
+      ],
+      "tags": [
+        "condiment",
+        "food",
+        "processed_material",
+        "cooking"
+      ],
       "summary": "大豆与谷物加盐、以曲发酵成的酱状调味料，兼作汤底与腌渍介质。它的熟成期长短由气候决定，同一工艺在寒冷地区可拖到两年以上，因此“产地气候”直接进入风味。",
       "details": {
         "definition": "味噌是以蒸煮大豆、谷物（米或麦）、盐与曲共同发酵成的酱状调味料。曲指接上 Aspergillus oryzae 的蒸米或豆，同时是酱油、清酒与味噌的共同起点。以米制曲者称米味噌，以麦者称麦味噌。",
@@ -716,15 +1246,35 @@
         "historical_scope": "一般认为可能经朝鲜半岛自中国的酱类制品传入日本，此后在日本发展出米味噌、麦味噌等体系；其成为家常汤底是长期演变的结果，不宜归于单一时点。它与酱油同源而异流，二者的分化时间在来源中只有概述，不作精确断言。",
         "evidence_and_uncertainty": "原料、曲的定义与共用性、米/麦味噌之分、品类规模、气候与熟成期、冷藏保存期、用途由来源支撑。具体盐比、温湿度、发酵管理属可执行参数，本项目不记录；传入路径为“可能”而非定论。"
       },
-      "source_ids": ["flavors_src_miso", "flavors_src_soy_sauce", "flavors_src_fish_sauce"],
-      "related_ids": ["flavors_soy_sauce", "flavors_fish_sauce", "flavors_vinegar"],
+      "source_ids": [
+        "flavors_src_miso",
+        "flavors_src_soy_sauce",
+        "flavors_src_fish_sauce"
+      ],
+      "related_ids": [
+        "flavors_soy_sauce",
+        "flavors_fish_sauce",
+        "flavors_vinegar"
+      ],
       "review_status": "needs_review"
     },
     {
       "id": "flavors_tea",
       "name": "茶（茶树嫩叶饮品）",
-      "aliases": ["茶", "tea", "Camellia sinensis", "绿茶", "black tea", "oolong"],
-      "tags": ["beverage", "food", "crop", "processed_material"],
+      "aliases": [
+        "茶",
+        "tea",
+        "Camellia sinensis",
+        "绿茶",
+        "black tea",
+        "oolong"
+      ],
+      "tags": [
+        "beverage",
+        "food",
+        "crop",
+        "processed_material"
+      ],
       "summary": "以茶树嫩叶与芽冲泡的饮料。同一片叶子因加工中是否让多酚氧化而分成不发酵、半发酵、发酵三大类，这是“一种原料、多种工艺、多个商品”的典型结构。",
       "details": {
         "definition": "茶饮来自山茶科山茶属 Camellia sinensis 的嫩叶与芽，冲泡或煮饮。商品按制造工艺分为不发酵（绿）、半发酵（乌龙类）与发酵（红）三大类；另有以芽与幼叶为主、极轻氧化的类型。可食部位是叶与芽，不是果实或根。",
@@ -735,15 +1285,34 @@
         "historical_scope": "原产东亚（中国西南至中南半岛北部一带的扇形区域），栽培与饮用长期在中国发展；传说归传说，约 3 世纪前后转为日常饮料的说法较为常见。9 世纪前后传入日本，17 世纪由荷兰与英国东印度公司输入欧洲，19 世纪英国在印度与锡兰建立种植园，随后扩展到非洲与南美。起源、日常化、全球化三段相隔上千年。",
         "evidence_and_uncertainty": "物种与两个主要变种、工艺四阶段与三类划分、成分（咖啡因与多酚）的角色、中国传说与 3 世纪日常化、日本与欧洲输入年份、印度与锡兰种植园的时间由来源支撑。具体到某一地区“何时普及到平民”缺乏量化资料，不作断言；健康功效的表述来源本身就带保留语气，本条不作事实结论。"
       },
-      "source_ids": ["flavors_src_tea", "flavors_src_coffee", "flavors_src_spice_trade"],
-      "related_ids": ["flavors_coffee", "flavors_cocoa", "flavors_cane_sugar"],
+      "source_ids": [
+        "flavors_src_tea",
+        "flavors_src_coffee",
+        "flavors_src_spice_trade"
+      ],
+      "related_ids": [
+        "flavors_coffee",
+        "flavors_cocoa",
+        "flavors_cane_sugar"
+      ],
       "review_status": "needs_review"
     },
     {
       "id": "flavors_coffee",
       "name": "咖啡",
-      "aliases": ["咖啡", "coffee", "Coffea arabica", "Coffea canephora", "robusta"],
-      "tags": ["beverage", "food", "crop", "processed_material"],
+      "aliases": [
+        "咖啡",
+        "coffee",
+        "Coffea arabica",
+        "Coffea canephora",
+        "robusta"
+      ],
+      "tags": [
+        "beverage",
+        "food",
+        "crop",
+        "processed_material"
+      ],
       "summary": "茜草科咖啡属灌木的种子经焙炒研磨后冲煮的饮料。它的制成品价值来自多道初处理与焙炒，而产地、处理法与树种共同决定杯中风味，是“农产品经工艺变成嗜好品”的典型链条。",
       "details": {
         "definition": "咖啡饮料由咖啡属 Coffea 的种子（俗称豆）经干燥、焙炒、研磨后冲煮而成；主要商业种为阿拉伯种（C. arabica）与罗布斯塔种（C. canephora）。可食部位是种子；果肉在初处理中被除去。",
@@ -754,15 +1323,37 @@
         "historical_scope": "原产非洲（阿拉伯种与罗布斯塔种皆为非洲起源），15 世纪自埃塞俄比亚某地区引至南阿拉伯栽培，此后经奥斯曼与欧洲贸易网络扩散，17 世纪后随殖民体系在美洲、亚洲建立种植园。起源、区域性栽培、全球商品三段相隔数百年。",
         "evidence_and_uncertainty": "植物学、两种主要栽培种的气候与海拔要求、咖啡带范围、15 世纪引种、三种初处理方法、含水率区间、荫栽与日晒栽的差异与病害由来源支撑。传入各地区的确切年代不作断言；关于“咖啡何时成为欧洲大众饮料”的叙述来源未及，本条不写。"
       },
-      "source_ids": ["flavors_src_coffee", "flavors_src_fao_coffee_postharvest", "flavors_src_tea"],
-      "related_ids": ["flavors_tea", "flavors_cocoa", "flavors_cane_sugar"],
+      "source_ids": [
+        "flavors_src_coffee",
+        "flavors_src_fao_coffee_postharvest",
+        "flavors_src_tea"
+      ],
+      "related_ids": [
+        "flavors_tea",
+        "flavors_cocoa",
+        "flavors_cane_sugar"
+      ],
       "review_status": "needs_review"
     },
     {
       "id": "flavors_cocoa",
       "name": "可可与巧克力",
-      "aliases": ["可可", "可可豆", "巧克力", "cocoa", "chocolate", "xocoatl", "Theobroma cacao"],
-      "tags": ["beverage", "food", "crop", "processed_material", "sweetener"],
+      "aliases": [
+        "可可",
+        "可可豆",
+        "巧克力",
+        "cocoa",
+        "chocolate",
+        "xocoatl",
+        "Theobroma cacao"
+      ],
+      "tags": [
+        "beverage",
+        "food",
+        "crop",
+        "processed_material",
+        "sweetener"
+      ],
       "summary": "可可树的种子经发酵、干燥、焙炒、研磨成膏，再压脂成粉或加糖成固体巧克力。它先是美洲的仪式饮料与货币，后经欧洲加糖改造为甜饮与固体甜食，是“原料不变而商品性质彻底改变”的案例。",
       "details": {
         "definition": "可可指由可可树 Theobroma cacao 的种子经发酵、干燥、焙炒、研磨得到的制品（可可膏、可可脂、可可粉）；巧克力是以可可膏（或加可可脂）与糖等制成的食品。可食部位是种子；果肉在发酵中被利用但不作商品。",
@@ -773,15 +1364,34 @@
         "historical_scope": "原产亚马逊与奥里诺科河流域，陶器残留提示数千年前已被消费；三千年前玛雅、托尔特克与阿兹特克已广泛栽培，并用作祭仪饮料与货币。1502 年由哥伦布带回，16 世纪传入西班牙并加糖改造，17 世纪上半期进入意大利与法国、伦敦出现巧克力商号，19 世纪出现压脂制粉、加脂加糖的固体巧克力与加奶粉的牛奶巧克力。",
         "evidence_and_uncertainty": "物种与原产地、早期消费证据、原住民做法与货币用途、传播与工艺年表（1502/1606/1657/1828/1847/1876）由来源支撑。至于“某地何时普及为日常饮品”，来源只描述上流社会与商号，未给平民消费数据，本条不作断言。"
       },
-      "source_ids": ["flavors_src_cocoa", "flavors_src_vanilla", "flavors_src_sugarcane"],
-      "related_ids": ["flavors_vanilla", "flavors_cane_sugar", "flavors_coffee", "flavors_tea"],
+      "source_ids": [
+        "flavors_src_cocoa",
+        "flavors_src_vanilla",
+        "flavors_src_sugarcane"
+      ],
+      "related_ids": [
+        "flavors_vanilla",
+        "flavors_cane_sugar",
+        "flavors_coffee",
+        "flavors_tea"
+      ],
       "review_status": "needs_review"
     },
     {
       "id": "flavors_beer",
       "name": "啤酒（谷物发酵饮料）",
-      "aliases": ["啤酒", "麦酒", "ale", "lager", "beer"],
-      "tags": ["beverage", "food", "processed_material"],
+      "aliases": [
+        "啤酒",
+        "麦酒",
+        "ale",
+        "lager",
+        "beer"
+      ],
+      "tags": [
+        "beverage",
+        "food",
+        "processed_material"
+      ],
       "summary": "以谷物为主料、经糖化与发酵得到的低度酒精饮料。它是最古老的加工饮料之一，技术变化集中在两处：是否加酒花，以及用上浮还是下沉的酵母——这两点分出了今天的主要类型。",
       "details": {
         "definition": "啤酒是以水浸出谷物（多为发芽干燥的大麦）中的可发酵物、加或不加酒花煮沸后经酵母发酵所得的低度酒精饮料。酒精度通常低于烈酒与多数果酒。它是加工品，主要原料归 staples 组，此处只讨论制成品与工艺。",
@@ -792,15 +1402,32 @@
         "historical_scope": "公元前 6000 年前两河流域已用大麦制啤酒；埃及墓葬浮雕显示过以谷物制饼再发酵的做法；酿造技术自中东传入欧洲，酒花在欧洲的推广是后来的事。近代温度计、糖度计、纯种酵母培养与巴氏消毒把酿造从经验手艺推向可测量的工业流程。",
         "evidence_and_uncertainty": "早期酿造证据、酒花传播、上浮与下沉发酵的出现时点、修道院与工业化的关键节点由来源支撑。具体配方、温度、时间与比例属可执行工艺，本项目不记录；各地“啤酒”涵盖的饮料范围差异很大，本条不试图统一。"
       },
-      "source_ids": ["flavors_src_beer", "flavors_src_distilled_spirit", "flavors_src_wine"],
-      "related_ids": ["flavors_wine", "flavors_distilled_spirit", "flavors_mead"],
+      "source_ids": [
+        "flavors_src_beer",
+        "flavors_src_distilled_spirit",
+        "flavors_src_wine"
+      ],
+      "related_ids": [
+        "flavors_wine",
+        "flavors_distilled_spirit",
+        "flavors_mead"
+      ],
       "review_status": "needs_review"
     },
     {
       "id": "flavors_wine",
       "name": "葡萄酒",
-      "aliases": ["葡萄酒", "wine", "Vitis vinifera", "果酒"],
-      "tags": ["beverage", "food", "processed_material"],
+      "aliases": [
+        "葡萄酒",
+        "wine",
+        "Vitis vinifera",
+        "果酒"
+      ],
+      "tags": [
+        "beverage",
+        "food",
+        "processed_material"
+      ],
       "summary": "葡萄汁经酵母发酵得到的酒精饮料。它的特殊性在于：原料本身含糖与水分比例合适，几乎不需添加即可发酵；而保存方式的每一次改进（陶罐、木桶、玻璃瓶与软木塞）都改变了它可以被运输与陈放多久。",
       "details": {
         "definition": "葡萄酒指葡萄汁经发酵所得的酒精饮料，商业上以欧洲葡萄 Vitis vinifera 为主；以其他水果发酵者通常冠以该果名（如桃酒）。可食部位是果实，原料种植归 produce，此处讨论其发酵制成品。",
@@ -811,15 +1438,35 @@
         "historical_scope": "公元前 4000 年前中东已栽培欧洲葡萄，埃及公元前 2500 年有酿酒记录；希腊与罗马将其带到地中海与欧洲内陆诸河谷；罗马帝国崩溃后宗教仪式维持了产业，修会经营并发展了许多著名产区；哥伦布以后传入美洲，19 世纪随移民形成新世界产业。起源、扩散、产业化的时间跨度极大。",
         "evidence_and_uncertainty": "物种、发酵与陈放机制、颜色来源、早期栽培与埃及记录、希腊罗马与修会的角色、传播到美洲、根瘤蚜与嫁接方案、容器演进、产地法规的由来由来源支撑。具体年代与产量数据来源未给，本条不作断言；“某地自古酒质最佳”属评价性说法，不采用。"
       },
-      "source_ids": ["flavors_src_wine", "flavors_src_vinegar", "flavors_src_beer"],
-      "related_ids": ["flavors_vinegar", "flavors_beer", "flavors_distilled_spirit"],
+      "source_ids": [
+        "flavors_src_wine",
+        "flavors_src_vinegar",
+        "flavors_src_beer"
+      ],
+      "related_ids": [
+        "flavors_vinegar",
+        "flavors_beer",
+        "flavors_distilled_spirit"
+      ],
       "review_status": "needs_review"
     },
     {
       "id": "flavors_distilled_spirit",
       "name": "蒸馏酒",
-      "aliases": ["蒸馏酒", "烈酒", "烧酒", "白兰地", "威士忌", "distilled spirit", "aqua vitae"],
-      "tags": ["beverage", "food", "processed_material"],
+      "aliases": [
+        "蒸馏酒",
+        "烈酒",
+        "烧酒",
+        "白兰地",
+        "威士忌",
+        "distilled spirit",
+        "aqua vitae"
+      ],
+      "tags": [
+        "beverage",
+        "food",
+        "processed_material"
+      ],
       "summary": "把发酵液的酒精以加热汽化再冷凝的方式浓缩所得的饮料，酒精度显著高于发酵酒。它把“易腐的农产品”变成“可长期存放、便于运输、且易于征税的高价值商品”，因此很早便成为财政与管制的对象。",
       "details": {
         "definition": "蒸馏酒是对发酵液（果酒、蜜酒、谷物发酵液等）加热，使酒精先于水汽化后冷凝，从而提高乙醇浓度的饮料。与发酵酒的区别在于浓度，而非原料。它属于加工品，其原料分别归 staples、produce 与本组的蜂蜜等条目。",
@@ -830,15 +1477,33 @@
         "historical_scope": "公元前 800 年前中国已有以米酒蒸馏的记录；阿拉伯蒸馏法经接触传入欧洲，欧洲的蒸馏酒生产在 8 世纪后明显扩大；最早的蒸馏酒以葡萄与蜂蜜为原料，谷物原料的使用时间较晚。17 世纪起多国开始对产销实施管制。各地区的起点不同，不可用一条时间线统摄。",
         "evidence_and_uncertainty": "原理、早期记录、阿拉伯方法的传播、原料先后、设备演进、燃料依赖与管制时点由来源支撑。具体工艺参数与设备设计本项目刻意省略；关于“谁最先发明蒸馏”属争议问题，本条不作断言。"
       },
-      "source_ids": ["flavors_src_distilled_spirit", "flavors_src_wine", "flavors_src_beer"],
-      "related_ids": ["flavors_wine", "flavors_beer", "flavors_mead", "flavors_cane_sugar"],
+      "source_ids": [
+        "flavors_src_distilled_spirit",
+        "flavors_src_wine",
+        "flavors_src_beer"
+      ],
+      "related_ids": [
+        "flavors_wine",
+        "flavors_beer",
+        "flavors_mead",
+        "flavors_cane_sugar"
+      ],
       "review_status": "needs_review"
     },
     {
       "id": "flavors_mead",
       "name": "蜂蜜酒",
-      "aliases": ["蜂蜜酒", "mead", "蜜酒"],
-      "tags": ["beverage", "food", "processed_material", "sweetener"],
+      "aliases": [
+        "蜂蜜酒",
+        "mead",
+        "蜜酒"
+      ],
+      "tags": [
+        "beverage",
+        "food",
+        "processed_material",
+        "sweetener"
+      ],
       "summary": "以蜂蜜加水稀释后发酵所得的酒精饮料。在蔗糖尚未普及的时代，它是把“甜”转成“可存放的酒”的主要方式之一；它的存在依赖蜂蜜的可得性，因此与养蜂业与野生蜜源直接绑定。",
       "details": {
         "definition": "蜂蜜酒是以蜂蜜为主要糖源、加水稀释后经酵母发酵而成的酒精饮料。它属于加工饮料，原料蜂蜜归本组的糖源条目；本条只讨论发酵制品本身。",
@@ -849,15 +1514,32 @@
         "historical_scope": "蜂蜜在古代长期是几乎唯一的甜味来源，并被用于发酵制酒与调配其他酒类，这一点有来源支撑；蜂蜜酒在北欧、东欧、非洲之角等地各有传统。由于专门条目抓取失败，本条不对具体地区的时间线作断言。",
         "evidence_and_uncertainty": "证据较薄：直接来源只有蜂蜜条目中提到“蜂蜜被用于制蜜酒并与其他酒混合”，以及蒸馏酒条目提到最早蒸馏酒以蜂蜜为原料。因此本条只作定性描述，不含年代、地区细节与产量；蜂蜜酒专条抓取失败（403），已在 sources 中如实登记为 unavailable，相关空白见 evidence 说明。"
       },
-      "source_ids": ["flavors_src_honey", "flavors_src_distilled_spirit"],
-      "related_ids": ["flavors_honey", "flavors_beer", "flavors_wine"],
+      "source_ids": [
+        "flavors_src_honey",
+        "flavors_src_distilled_spirit"
+      ],
+      "related_ids": [
+        "flavors_honey",
+        "flavors_beer",
+        "flavors_wine"
+      ],
       "review_status": "needs_review"
     },
     {
       "id": "flavors_honey",
       "name": "蜂蜜",
-      "aliases": ["蜂蜜", "蜜", "honey", "honeycomb"],
-      "tags": ["sweetener", "food", "animal_product", "condiment"],
+      "aliases": [
+        "蜂蜜",
+        "蜜",
+        "honey",
+        "honeycomb"
+      ],
+      "tags": [
+        "sweetener",
+        "food",
+        "animal_product",
+        "condiment"
+      ],
       "summary": "蜂类以花蜜酿成的甜味液体，在蔗糖普及之前长期是许多地区几乎唯一的甜味来源，并被用于保存果品、调制酒饮与仪式场合。它的香气完全由蜜源植物决定。",
       "details": {
         "definition": "蜂蜜是蜜蜂等蜂类从花蜜采集后，在蜜囊中经转化与去水成熟、贮存于蜂巢中的甜味液体。它属于动物来源的天然产物（animal_product），不是植物部位；巢体由蜂蜡与蜂胶构成。",
@@ -868,15 +1550,37 @@
         "historical_scope": "在多个古文明中作为主要甜味来源，并用于制蜜酒与调配其他酒类；埃及用于保存与丧葬场合，南亚等地用于保存果品与制作甜食。蔗糖普及之后它在多数地区从“基础甜味”退为“风味甜味”，这一转变的时间各地差异极大，不可一概而论。",
         "evidence_and_uncertainty": "来源、成分与水分的转化关系、结晶现象、古代用途与制蜜酒的记载由来源支撑。关于“蜂蜜可长期不坏”的具体条件、各地区产量与消费量，来源未给，本条不作断言；保健与药用声明一律不作事实结论。"
       },
-      "source_ids": ["flavors_src_honey", "flavors_src_sugarcane", "flavors_src_maple_syrup"],
-      "related_ids": ["flavors_mead", "flavors_cane_sugar", "flavors_beet_sugar", "flavors_maple_syrup"],
+      "source_ids": [
+        "flavors_src_honey",
+        "flavors_src_sugarcane",
+        "flavors_src_maple_syrup"
+      ],
+      "related_ids": [
+        "flavors_mead",
+        "flavors_cane_sugar",
+        "flavors_beet_sugar",
+        "flavors_maple_syrup"
+      ],
       "review_status": "needs_review"
     },
     {
       "id": "flavors_cane_sugar",
       "name": "蔗糖（甘蔗糖）",
-      "aliases": ["蔗糖", "甘蔗糖", "白糖", "红糖", "cane sugar", "Saccharum officinarum", "molasses"],
-      "tags": ["sweetener", "food", "crop", "processed_material"],
+      "aliases": [
+        "蔗糖",
+        "甘蔗糖",
+        "白糖",
+        "红糖",
+        "cane sugar",
+        "Saccharum officinarum",
+        "molasses"
+      ],
+      "tags": [
+        "sweetener",
+        "food",
+        "crop",
+        "processed_material"
+      ],
       "summary": "以甘蔗茎汁经澄清、浓缩、结晶、离心分蜜得到的结晶糖。它是人类第一次能大规模生产“纯甜”，由此从奢侈品变成日常调味与保存的基础原料，也把热带种植与全球贸易紧紧绑在一起。",
       "details": {
         "definition": "蔗糖指以甘蔗 Saccharum officinarum 的茎汁为原料制得的结晶糖（成品多为白糖，另分出糖蜜与红糖类副产品）。可食部位是茎中汁液；甘蔗本身作为糖料作物属本组讨论的原料一侧，其田间栽培细节与其他主粮有别，故不归 staples 的谷物条目。",
@@ -887,15 +1591,34 @@
         "historical_scope": "甘蔗原产热带亚洲，制糖技术长期在南亚与东亚发展；中世纪经伊斯兰世界传入地中海，随后随殖民体系扩展到美洲与加勒比，形成大规模种植园经济。结晶糖的规模化与普及是近代的事，与最初作为药材与香料的阶段相隔上千年。",
         "evidence_and_uncertainty": "植物学、生长期差异、繁殖与宿根栽培、提汁澄清浓缩结晶分蜜的流程概要、副产物用途、焚田做法与争议由来源支撑。具体产量、价格与劳动制度细节来源未给，本条不作断言；工艺参数不记录。"
       },
-      "source_ids": ["flavors_src_sugarcane", "flavors_src_cocoa", "flavors_src_honey"],
-      "related_ids": ["flavors_beet_sugar", "flavors_honey", "flavors_maple_syrup", "flavors_distilled_spirit"],
+      "source_ids": [
+        "flavors_src_sugarcane",
+        "flavors_src_cocoa",
+        "flavors_src_honey"
+      ],
+      "related_ids": [
+        "flavors_beet_sugar",
+        "flavors_honey",
+        "flavors_maple_syrup",
+        "flavors_distilled_spirit"
+      ],
       "review_status": "needs_review"
     },
     {
       "id": "flavors_beet_sugar",
       "name": "甜菜糖",
-      "aliases": ["甜菜糖", "糖用甜菜", "beet sugar", "Beta vulgaris"],
-      "tags": ["sweetener", "food", "crop", "processed_material"],
+      "aliases": [
+        "甜菜糖",
+        "糖用甜菜",
+        "beet sugar",
+        "Beta vulgaris"
+      ],
+      "tags": [
+        "sweetener",
+        "food",
+        "crop",
+        "processed_material"
+      ],
       "summary": "从温带块根作物甜菜根中提取的结晶糖，化学上与蔗糖完全相同。它的产业意义在于把“产糖”从热带垄断中解放出来，使温带国家也能自产糖——这是一条由封锁与替代需求推动的技术路线。",
       "details": {
         "definition": "甜菜糖是从糖用甜菜 Beta vulgaris 的根中提取的结晶蔗糖。它与蔗糖（甘蔗糖）在化学上是同一物质，差别在原料作物、产区气候与加工路线，而不是成品性质。可食部位是块根。",
@@ -906,15 +1629,32 @@
         "historical_scope": "糖用甜菜作为糖源的产业化始于 19 世纪初，与欧洲大陆的贸易封锁和技术改良密切相关；此后在中欧、东欧与北美形成大规模产业。它比蔗糖晚得多，属于“近代替代品”而非古老甜味来源，讨论古代甜味时不应把甜菜糖计入。",
         "evidence_and_uncertainty": "化学同一性、原料与含糖量区间、温水提汁与结晶流程概要、制糖不需骨炭、糖厂多只产白糖、19 世纪初的技术突破与政令由来源支撑。该页为策展式摘要，不支撑完整产量史与劳动组织；具体工艺参数与年代细节不作进一步断言。"
       },
-      "source_ids": ["flavors_src_beet_sugar", "flavors_src_sugarcane", "flavors_src_honey"],
-      "related_ids": ["flavors_cane_sugar", "flavors_honey", "flavors_maple_syrup"],
+      "source_ids": [
+        "flavors_src_beet_sugar",
+        "flavors_src_sugarcane",
+        "flavors_src_honey"
+      ],
+      "related_ids": [
+        "flavors_cane_sugar",
+        "flavors_honey",
+        "flavors_maple_syrup"
+      ],
       "review_status": "needs_review"
     },
     {
       "id": "flavors_maple_syrup",
       "name": "枫糖浆",
-      "aliases": ["枫糖浆", "枫糖", "maple syrup", "maple sugar"],
-      "tags": ["sweetener", "food", "processed_material"],
+      "aliases": [
+        "枫糖浆",
+        "枫糖",
+        "maple syrup",
+        "maple sugar"
+      ],
+      "tags": [
+        "sweetener",
+        "food",
+        "processed_material"
+      ],
       "summary": "北美枫树春季树液经蒸发浓缩成的甜味糖浆。它的生产窗口只有几周，且需大量燃料把稀薄树液熬浓——因此它是一种“以能源换甜味”的季节性产品，也与特定树种的分布严格绑定。",
       "details": {
         "definition": "枫糖浆是浓缩北美枫树（以糖枫与黑枫为主）树液所得的甜味糖浆；同源还可制枫糖。它不是从果实或茎汁（如甘蔗）取得，而是取自休眠期树干中流动的树液，这使它与其他糖源在原料性质上明显不同。",
@@ -925,8 +1665,16 @@
         "historical_scope": "欧洲殖民者到来之前，大湖与圣劳伦斯河流域的原住民已在使用；此后三百余年间工艺以开孔、引流、熬煮为主，20 世纪后期才引入机械钻孔、管道集液与集中蒸发。它在 19 世纪因廉价蔗糖竞争而失去大众市场地位，这一点是理解其今日定位的关键。",
         "evidence_and_uncertainty": "树种、原住民先行使用、开孔与冻融条件、固形物比例与得率、产季长度、19 世纪被蔗糖取代、20 世纪技术改良由来源支撑。具体产量与产区份额来源给出的是宏观估计，本条只作定性引用；枫糖的古代使用细节不作断言。"
       },
-      "source_ids": ["flavors_src_maple_syrup", "flavors_src_sugarcane", "flavors_src_honey"],
-      "related_ids": ["flavors_cane_sugar", "flavors_beet_sugar", "flavors_honey"],
+      "source_ids": [
+        "flavors_src_maple_syrup",
+        "flavors_src_sugarcane",
+        "flavors_src_honey"
+      ],
+      "related_ids": [
+        "flavors_cane_sugar",
+        "flavors_beet_sugar",
+        "flavors_honey"
+      ],
       "review_status": "needs_review"
     }
   ]

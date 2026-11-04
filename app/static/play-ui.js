@@ -1,4 +1,5 @@
-/* 地图主画面：作者原件与服务端已掩膜的旅程地图分容器挂载；底部对话栏覆盖地图。
+/* 地图主画面 + 故事手记。作者原件与服务端已掩膜的旅程地图分容器挂载；
+ * 故事手记收起时是地图底部的一条，展开后占满整块地图区（三栏：旅程存档 / 正文 / 信息栏）。
  * 玩家地图只读当前 session 的 play-map 路由，永不读取作者原件。地点文字用 textContent。
  */
 (function () {
@@ -6,10 +7,10 @@
   const byId = (id) => document.getElementById(id);
   if (!byId('play') || !byId('surface')) return;          // 旧界面不在：静默跳过
 
-  const TAB_KEY = 'textiledream-play-tab';
-  const TABS = ['chat', 'history', 'items', 'other'];
+  const LAYOUT_KEY = 'textiledream-chat-layout';
   // 玩家地图节点存在时才安装缩放、服务端掩膜图与位置标记；作者地图另有宿主。
   const hasPlayerMap = Boolean(byId('play-map-img'));
+  const narrow = () => window.matchMedia('(max-width: 1100px)').matches;
 
   function el(tag, text, cls) {
     const node = document.createElement(tag);
@@ -27,146 +28,118 @@
   }
   const apiBase = (path, method, body) => api(path, method, body);
 
-  // --------------------------------------------------------------- 底部对话层及页签
+  // ------------------------------------------------------- 故事手记：展开 = 占满地图区
   function setDrawerOpen(open) {
     const drawer = byId('play-left'), handle = byId('conversation-handle');
     if (!drawer) return;
-    if (!open && drawer.contains(document.activeElement) && document.activeElement !== handle) handle?.focus();
+    if (!open && drawer.contains(document.activeElement)) handle?.focus();
+    if (!open) closePop();
     drawer.classList.toggle('is-expanded', open);
     drawer.classList.toggle('is-collapsed', !open);
     if (handle) handle.setAttribute('aria-expanded', String(open));
     const content = byId('conversation-content');
     if (content) { content.inert = !open; content.setAttribute('aria-hidden', String(!open)); }
-  }
-  function showTab(name, persist) {
-    const tab = TABS.includes(name) ? name : 'chat';
-    setDrawerOpen(true);
-    document.querySelectorAll('#play-tabs button').forEach((b) => {
-      const on = b.dataset.tab === tab;
-      b.classList.toggle('on', on);
-      b.setAttribute('aria-selected', on ? 'true' : 'false');
-    });
-    byId('surface').hidden = tab !== 'chat';
-    for (const other of ['history', 'items', 'other']) {
-      const panel = byId('panel-' + other);
-      if (panel) panel.hidden = other !== tab;
-    }
-    if (persist) { try { localStorage.setItem(TAB_KEY, tab); } catch (error) { /* 忽略 */ } }
-    if (tab === 'history') drawHistory();
-    if (tab === 'items') drawItems();
-    if (tab === 'other') drawOther();
+    // 展开时地图被完全盖住：不让它继续接键盘焦点。
+    const map = byId('play-right');
+    if (map) { map.inert = open; map.setAttribute('aria-hidden', String(open)); }
+    if (open) { syncSidePanels(); scrollStory(false); }
+    else if (hasPlayerMap) requestAnimationFrame(applyTransform);
   }
 
-  function drawHistory() {
-    const box = byId('panel-history');
+  // 正文滚到底：加载旅程与发送后。force=false 时只在玩家本来就在底部附近时跟随。
+  function scrollStory(force) {
+    const box = byId('surface');
     if (!box) return;
-    // 历史面板里就放旧侧栏的存档 + 章节列表（app.js 已把 #surface-journeys 搬到这里），
-    // 也由 render() 持续重画；这里只在页签打开时确保章节列表存在。
-    if (!byId('conversations') && current) render();
+    const near = box.scrollHeight - box.scrollTop - box.clientHeight < 160;
+    if (force || near || !scrollStory.done) {
+      requestAnimationFrame(() => { box.scrollTop = box.scrollHeight; });
+      scrollStory.done = true;
+    }
   }
+  window.TDScrollStory = scrollStory;
 
-  // ------------------------------------------------------------------- 物品栏
-  function drawItems() {
-    const box = byId('panel-items');
-    if (!box) return;
-    box.replaceChildren();
-    const head = el('div', undefined, 'panel-head');
-    head.append(el('h3', '随身物品'));
-    box.append(head);
-    if (!current) {
-      box.append(el('p', '选择或新建一段旅程后显示。', 'muted'));
-      return;
-    }
-    const rewards = current.rewards;
-    const names = current.inventory || [];
-    if (rewards && rewards.wallet && rewards.wallet.length) {
-      box.append(el('p', '钱货：' + rewards.wallet.map((w) => w.name + ' ' + w.amount + (w.unit || '')).join(' · '), 'muted'));
-    }
-    if (rewards && rewards.items && rewards.items.length) {
-      for (const item of rewards.items) {
-        const card = el('div', undefined, 'item-row');
-        const hidden = item.identified === false;
-        // 名称单独一段（可省略号 + title 全文），材质/品质/重量另起一段：
-        // 长名只在短列表里收起，数量与状态永远完整可见。
-        const name = el('strong', String(item.label || ''), 'item-name');
-        name.title = [
-          item.label,
-          hidden ? '未鉴定' : item.material,
-          hidden ? '' : item.quality,
-          '重 ' + item.weight,
-        ].filter(Boolean).join(' · ');
-        card.append(name);
-        const meta = [hidden ? '未鉴定' : '', hidden ? '' : item.material,
-                      hidden ? '' : item.quality, '重 ' + item.weight];
-        card.append(el('span', meta.filter(Boolean).join(' · '), 'item-meta'));
-        if (!hidden && item.figures === 'visible_estimate') {
-          card.append(el('small', '以上为可见估值，不含未披露的效果；不是最终裁定值'));
-        }
-        if (item.enchantments && item.enchantments.length) {
-          card.append(el('small', '附魔：' + item.enchantments.map((e) => e.name + ' ' + e.level + '级').join('、')));
-        }
-        box.append(card);
-      }
-    } else if (names.length) {
-      const list = el('ul', undefined, 'item-list');
-      names.forEach((name) => list.append(el('li', name)));
-      box.append(list);
+  // ------------------------------------------------------- 左栏（存档）与右栏（信息）的开关
+  // 宽屏时三栏并排、开关写进本地；窄屏时两侧变成覆盖在正文上的抽屉，默认收起。
+  let layout = { rail: true, info: true };
+  try { Object.assign(layout, JSON.parse(localStorage.getItem(LAYOUT_KEY) || '{}')); } catch (error) { /* 忽略 */ }
+  let narrowOpen = { rail: false, info: false };
+  function syncSidePanels() {
+    const drawer = byId('play-left');
+    if (!drawer) return;
+    const small = narrow();
+    const rail = small ? narrowOpen.rail : layout.rail;
+    const info = small ? narrowOpen.info : layout.info;
+    drawer.classList.toggle('rail-off', !rail);
+    drawer.classList.toggle('info-off', !info);
+    drawer.classList.toggle('is-narrow', small);
+    byId('rail-toggle')?.setAttribute('aria-expanded', String(rail));
+    byId('info-toggle')?.setAttribute('aria-expanded', String(info));
+  }
+  function toggleSide(which) {
+    if (narrow()) {
+      narrowOpen = { rail: false, info: false, [which]: !narrowOpen[which] };
     } else {
-      box.append(el('p', '身上没有记下物品。', 'muted'));
+      layout[which] = !layout[which];
+      try { localStorage.setItem(LAYOUT_KEY, JSON.stringify(layout)); } catch (error) { /* 忽略 */ }
     }
-    const facts = el('details');
-    facts.append(el('summary', '属性与当地环境'));
-    const body = el('div');
-    facts.append(body);
-    const abilities = current.abilities;
-    if (abilities) {
-      const namesMap = { talent: '天赋', strength: '力量', agility: '敏捷', wisdom: '智慧', social: '社交', resilience: '韧性' };
-      body.append(el('p', Object.entries(abilities.values).map(([k, v]) => (namesMap[k] || k) + ' ' + v).join(' · '), 'muted'));
-      body.append(el('p', '血量 ' + abilities.health.current + '/' + abilities.health.maximum, 'muted'));
-    }
-    const geo = current.geography;
-    if (geo && geo.coordinates) body.append(el('p', '经度、纬度：' + geo.coordinates.join(', '), 'muted'));
-    if (geo && geo.environment) {
-      body.append(el('p', '海拔 ' + geo.environment.elevation_m + 'm · 流域 ' + (geo.environment.basin || '未设定'), 'muted'));
-    }
-    box.append(facts);
+    syncSidePanels();
+  }
+  function closeNarrowSides() {
+    if (!narrow() || (!narrowOpen.rail && !narrowOpen.info)) return false;
+    narrowOpen = { rail: false, info: false };
+    syncSidePanels();
+    return true;
   }
 
-  // ------------------------------------------------------------------- 其他
-  const OTHER_ENTRIES = [
-    ['notebook', '知识点记录簿', '旅途里记下的条录，只列已公开的内容'],
-    ['map', '旅程地图 · 旧图册', '旧设定里的示意坐标与图册（不是游玩地图）'],
-    ['world-workshop', '世界创作', '世界观、地理、文明与故事包'],
-    ['map-tools', '世界地图工具', '导入 civ-atlas 世界、选点、建城镇'],
-    ['towns', '城镇创作', '四阶段城镇草稿与发布'],
-    ['elements', '元素装配', '从本地百科库挑条目固定到故事包'],
-    ['inner', '里层创作', '生成候选、审核、包版本与审计'],
-    ['traces', '模型输入输出', '实际请求与响应（含隐藏设定）'],
-    ['api', 'API 配置', '连接模型、密钥与并发'],
-    ['settings', '设置', '阅读、上下文预算与通用语料'],
-  ];
-  function drawOther() {
-    const box = byId('panel-other');
-    if (!box) return;
-    box.replaceChildren();
-    const head = el('div', undefined, 'panel-head');
-    head.append(el('h3', '其他'));
-    box.append(head);
-    const guide = el('details', undefined, 'other-help');
-    guide.append(el('summary', '玩法与地图帮助'));
-    guide.append(el('p', '作者地图显示世界原件；进入旅程后，右侧只请求服务器已遮罩的玩家地图。未关联地图时会明确提示，不显示作者全图。', 'muted'));
-    guide.append(el('p', '作者地图可用滚轮缩放、拖动平移；需要圈地时，展开左侧「地图与圈地工具」。', 'muted'));
-    guide.append(el('p', '关键动作由引擎给候选与成本，说一句话不会直接改状态；只说话的回合只会影响对话。', 'muted'));
-    box.append(guide);
-    const list = el('div', undefined, 'other-list');
-    for (const [page, title, hint] of OTHER_ENTRIES) {
-      const row = el('button', undefined, 'other-row');
-      row.type = 'button';
-      row.append(el('span', title), el('small', hint));
-      row.onclick = () => safe(() => showPage(page));
-      list.append(row);
+  // ------------------------------------------------------- 输入栏浮层（AI 起草 / 想做别的事）
+  const POP_TOOLS = { 'reply-direction-panel': 'tool-draft', 'demo-intent': 'tool-intent' };
+  let openPop = null;
+  function closePop() {
+    if (!openPop) return;
+    const card = byId(openPop);
+    if (card) card.hidden = true;
+    byId(POP_TOOLS[openPop])?.setAttribute('aria-expanded', 'false');
+    byId(POP_TOOLS[openPop])?.classList.remove('on');
+    byId('chat-form')?.classList.remove('has-pop');
+    openPop = null;
+  }
+  function showPop(id) {
+    const card = byId(id);
+    if (!card) return;
+    if (openPop === id) { closePop(); return; }
+    closePop();
+    card.hidden = false;
+    openPop = id;
+    byId(POP_TOOLS[id])?.setAttribute('aria-expanded', 'true');
+    byId(POP_TOOLS[id])?.classList.add('on');
+    byId('chat-form')?.classList.add('has-pop');
+    card.dispatchEvent(new Event('td-pop-open'));
+  }
+  window.TDComposerPop = { open: showPop, close: closePop };
+
+  function installComposer() {
+    for (const [pop, tool] of Object.entries(POP_TOOLS)) {
+      const button = byId(tool);
+      if (button) button.onclick = () => showPop(pop);
     }
-    box.append(list);
+    byId('composer-pop')?.addEventListener('click', (event) => {
+      if (event.target.closest('[data-pop-close]')) closePop();
+    });
+    document.addEventListener('pointerdown', (event) => {
+      if (!openPop) return;
+      if (event.target.closest('#composer-pop, .composer-tools, dialog')) return;
+      closePop();
+    });
+    // 输入框随内容增高（1–8 行），不再一开始就占两行。
+    const message = byId('message');
+    if (message) {
+      const fit = () => {
+        message.style.height = 'auto';
+        message.style.height = Math.min(message.scrollHeight + 2, 200) + 'px';
+      };
+      message.addEventListener('input', fit);
+      fit();
+    }
   }
 
   // ------------------------------------------------------------- 顶部 API 弹层
@@ -181,7 +154,7 @@
     wrap.append(el('p', '连接模型。密钥只存在本地服务内存：不回填、不进地址栏、不进日志。', 'muted'));
     const host = el('div');
     host.id = 'api-pop-host';          // 给个可识别的落点，便于对账表单去哪了
-    wrap.append(host, el('p', '更多作者选项（并发、推理强度、超时）在左侧「其他 → API 配置」。', 'muted'));
+    wrap.append(host);
     pop.append(wrap);
     if (page && !byId('api-moved-note')) {
       // 弹层开着的时候这一页仍然可用（表单被搬进弹层）；给一行说明，避免看着像坏了。
@@ -585,22 +558,33 @@
     });
   }
 
-  // --------------------------------------------------------------- 接线旧逻辑
+  // --------------------------------------------------------------- 接线
   function installPlayChrome() {
     const drawer = byId('play-left');
     const handle = byId('conversation-handle');
-    const newButton = byId('play-new');
-    const newSession = byId('new-session');
-    // 对话层默认收起，留出完整地图；显式点击手记、页签或输入框才展开。
+    // 对话层默认收起，留出完整地图；点击手记、存档或新建对话才展开。
     setDrawerOpen(false);
     if (handle) handle.onclick = () => setDrawerOpen(!drawer.classList.contains('is-expanded'));
+    for (const id of ['drawer-collapse']) {
+      const button = byId(id);
+      if (button) button.onclick = () => setDrawerOpen(false);
+    }
+    byId('rail-toggle')?.addEventListener('click', () => toggleSide('rail'));
+    byId('info-toggle')?.addEventListener('click', () => toggleSide('info'));
+    window.addEventListener('resize', syncSidePanels);
     document.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape' && drawer?.classList.contains('is-expanded')
-          && !byId('new-dialog')?.open && byId('api-pop')?.hidden) setDrawerOpen(false);
+      if (event.key !== 'Escape' || !drawer?.classList.contains('is-expanded')) return;
+      if (document.querySelector('dialog[open]') || !byId('api-pop')?.hidden) return;
+      if (openPop) { closePop(); return; }
+      if (closeNarrowSides()) return;
+      setDrawerOpen(false);
     });
-    if (newButton && newSession) newButton.onclick = () => { newSession.click(); };
-    const left = byId('workspace-new-chat');
-    if (left && newSession) left.onclick = () => { newSession.click(); };
+    // 新建对话只有对话栏里这一个入口（存档栏顶部 + 空态卡片）。
+    const openNew = () => { setDrawerOpen(true); openNewDialog(); };
+    for (const id of ['journey-new', 'journey-empty-new']) {
+      const button = byId(id);
+      if (button) button.onclick = openNew;
+    }
     const newWorld = byId('workspace-new-world');
     if (newWorld) newWorld.onclick = () => safe(async () => {
       if (window.__tdNativeMode !== 'author') await window.TDEnterAuthorMode();
@@ -621,8 +605,7 @@
     const mapTools = byId('workspace-map-tools');
     const toolbox = byId('native-map-toolbox');
     if (mapTools && toolbox) {
-      const tooltip = '在作者地图中查看和编辑圈地草稿';
-      mapTools.title = tooltip;
+      mapTools.title = '在作者地图中查看和编辑圈地草稿';
       const setToolsOpen = (open) => {
         toolbox.hidden = !open;
         mapTools.setAttribute('aria-expanded', String(open));
@@ -636,23 +619,10 @@
       window.TDOpenMapTools = () => setToolsOpen(true);
     }
     const workspaceApi = byId('workspace-api');
-    if (workspaceApi) workspaceApi.onclick = () => {
-      const toggle = byId('api-toggle');
-      if (toggle) toggle.click();
-    };
+    if (workspaceApi) workspaceApi.onclick = () => byId('api-toggle')?.click();
     const back = byId('back-to-play');
     if (back) back.onclick = () => safe(() => showPage('surface'));
-    const tabs = byId('play-tabs');
-    if (tabs) {
-      tabs.addEventListener('click', (event) => {
-        const button = event.target.closest('button[data-tab]');
-        if (button) { showTab(button.dataset.tab, true); }
-      });
-    }
-    const form = byId('chat-form');
-    if (form) form.addEventListener('focusin', () => setDrawerOpen(true));
-    const message = byId('message');
-    if (message) message.addEventListener('focus', () => setDrawerOpen(true));
+    byId('message')?.addEventListener('focus', () => setDrawerOpen(true));
     const elements = byId('workspace-elements');
     if (elements) elements.onclick = () => safe(async () => { await showPage('elements'); });
     const authorMap = byId('workspace-author-map');
@@ -664,7 +634,7 @@
         ['world-workshop', '世界创作'], ['notebook', '知识点记录簿'],
         ['towns', '城镇创作'], ['map-tools', '世界地图工具'],
         ['inner', '里层创作'], ['traces', '模型输入输出'],
-        ['settings', '设置'], ['map', '旅程地图 · 旧图册'],
+        ['settings', '设置'],
       ];
       for (const [target, title] of menuEntries) {
         const item = el('button', title, 'workspace-sub-link');
@@ -677,19 +647,28 @@
         otherButton.setAttribute('aria-expanded', String(!otherMenu.hidden));
       };
     }
+    // 旅程存档列表（对话栏左栏）。标题由服务端给出，一律 textContent。
     window.TDWorkspaceSync = (sessions, api) => {
-      const box = byId('workspace-sessions');
+      const box = byId('journey-list');
       if (box) {
         box.replaceChildren(...(sessions || []).map((session) => {
-          const item = el('button', session.title || '未命名旅程');
+          const title = session.title || '未命名旅程';
+          const item = el('button', undefined, 'journey-item');
           item.type = 'button';
-          item.title = session.title || '未命名旅程';
+          item.title = title;
           item.dataset.sessionId = session.id;
+          item.append(el('span', title, 'journey-title'));
           item.classList.toggle('selected', !!current && session.id === current.id);
-          item.onclick = () => safe(async () => { authorMap?.classList.remove('selected'); await loadSession(session.id); });
+          if (current && session.id === current.id) item.setAttribute('aria-current', 'true');
+          item.onclick = () => safe(async () => {
+            authorMap?.classList.remove('selected');
+            closeNarrowSides();
+            await loadSession(session.id);
+            scrollStory(true);
+          });
           return item;
         }));
-        if (!(sessions || []).length) box.append(el('p', '还没有旅程。', 'muted'));
+        if (!(sessions || []).length) box.append(el('p', '还没有旅程。', 'muted rail-empty'));
       }
       const hint = byId('workspace-api-hint');
       if (hint && api) hint.textContent = api.offline ? '离线模式' : api.has_key ? '已连接' : '待配置';
@@ -697,20 +676,16 @@
       if (mode && api) mode.textContent = api.offline ? '离线测试' : '已连接 · ' + (api.model || '模型');
     };
     window.TDWorkspaceSyncCurrent = (session) => {
-      const box = byId('workspace-sessions');
-      if (box) box.querySelectorAll('button').forEach((button) => button.classList.toggle('selected', button.dataset.sessionId === session?.id));
+      byId('journey-list')?.querySelectorAll('button').forEach((button) => {
+        const on = button.dataset.sessionId === session?.id;
+        button.classList.toggle('selected', on);
+        if (on) button.setAttribute('aria-current', 'true'); else button.removeAttribute('aria-current');
+      });
       const worldLabel = byId('world-label');
       if (worldLabel && session) worldLabel.textContent = session.world || '织梦';
-      const badge = byId('play-badge');
-      if (badge && session) badge.textContent = session.world || '织梦';
-      const mapLegend = document.querySelector('.map-player-legend');
-      if (mapLegend) mapLegend.hidden = !!session;
-      const place = byId('play-place');
-      if (place && session) place.textContent = [session.location, session.daytime].filter(Boolean).join(' · ');
       const summary = byId('conversation-summary');
       if (summary && session) summary.textContent = [session.current_scene || session.event?.title, session.location].filter(Boolean).join(' · ') || '继续这段旅程';
     };
-    // 旧版把页签存在浏览器里；地图优先的新壳每次进入先显示对话页签。
     document.querySelectorAll('#legacy nav button[data-page="surface"]').forEach((b) => {
       b.onclick = () => safe(() => showPage('surface'));
     });
@@ -720,15 +695,11 @@
     const base = render;
     render = function () {
       base.apply(this, arguments);
-      const badge = byId('play-badge');
-      if (badge && current) badge.textContent = current.world || 'TextingDream';
-      const place = byId('play-place');
-      if (place) {
-        place.textContent = current ? '· ' + current.location + ' · ' + current.daytime : '';
+      if (current) {
+        byId('play-badge').textContent = current.title || current.world || '故事手记';
+        byId('play-place').textContent = [current.location, current.daytime].filter(Boolean).join(' · ');
       }
-      if (byId('panel-items') && !byId('panel-items').hidden) drawItems();
-      if (byId('panel-other') && !byId('panel-other').hidden) drawOther();
-      if (byId('panel-history') && !byId('panel-history').hidden) drawHistory();
+      scrollStory(false);
       safe(() => loadMap(false));
       return undefined;
     };
@@ -737,6 +708,7 @@
   window.addEventListener('DOMContentLoaded', () => {
     try {
       installPlayChrome();
+      installComposer();
       installApiPopover();
       // 从「其他 → API 配置」进来时先关掉弹层，让表单又回到旧页里（同一份 DOM）。
       TDNav.register('api', {
@@ -749,7 +721,7 @@
       });
       installMapControls();
       installRenderHooks();
-      showTab('chat', false);
+      syncSidePanels();
       setDrawerOpen(false);
       // 顶栏连接状态：只显示状态值，不显示密钥。
       const baseBootstrap = bootstrap;
@@ -768,11 +740,9 @@
     }
   });
 
-  // 供其它脚本（历史列表）用的最小接口。
+  // 供其它脚本用的最小接口。
   window.PlayUI = {
-    showTab,
     resetView,
     refreshMap: () => loadMap(true),
-    otherEntries: OTHER_ENTRIES.map((row) => row[0]),
   };
 })();

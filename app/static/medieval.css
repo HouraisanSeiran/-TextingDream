@@ -1,0 +1,140 @@
+/* 织梦 · 中世纪魔幻预设。
+ * 叠在 retro.css 之上：结构规则沿用 retro，这里只换变量（色板/字体/投影）和加少量装饰。
+ * 语汇：陈旧羊皮纸 + 深橡木与镶金顶栏 + 酒红蜡封主按钮 + 双线金边卡片 + 柔和压印投影。
+ * 只在 html[data-ui-theme="medieval"] 时生效（theme.js 同时会禁用本表）。 */
+html[data-ui-theme="medieval"] {
+  --rt-paper: #e8d8b0;
+  --rt-paper-2: #dcc797;
+  --rt-card: #f3e6c4;
+  --rt-cream: #f8eed4;
+  --rt-ink: #2e1d12;
+  --rt-ink-soft: #5a4128;
+  --rt-muted: #7f6748;
+  --rt-line: #c4a874;
+  --rt-orange: #7a1f22;      /* 酒红：主动作、强调 */
+  --rt-orange-d: #5c1518;
+  --rt-mustard: #c9a14a;     /* 镶金：悬停、徽记 */
+  --rt-mustard-l: #dcb862;
+  --rt-teal: #2f4a2c;        /* 林绿：选中态 */
+  --rt-teal-d: #223720;
+  --rt-dot: rgba(94,60,24,.06);
+  --rt-dot-map: rgba(94,60,24,.18);
+  --rt-focus: rgba(201,161,74,.35);
+  --rt-placeholder: #9c8460;
+  --rt-backdrop: rgba(30,18,10,.55);
+  --rt-bar-bg: #24170e;
+  --rt-bar-text: #dcc797;
+  --rt-bar-line: #8a6a3a;
+  --rt-bar-hover: #3a2716;
+  --rt-ok: #9cbf6a;
+  --rt-ok-soft: rgba(156,191,106,.25);
+  --rt-white: #fbf3dc;
+  --rt-map-bg: #d9c391;
+  --rt-shadow: 0 1px 0 rgba(255,246,220,.6) inset, 0 2px 0 var(--rt-line), 0 6px 14px rgba(46,29,18,.28);
+  --rt-shadow-sm: 0 1px 0 rgba(255,246,220,.5) inset, 0 3px 8px rgba(46,29,18,.25);
+  --rt-r: 4px;
+  --rt-r-sm: 3px;
+  --rt-serif: 'Palatino Linotype', 'Book Antiqua', 'STKaiti', 'KaiTi', 'Songti SC', 'SimSun', serif;
+  --rt-mono: 'Palatino Linotype', 'Book Antiqua', 'STKaiti', 'KaiTi', serif;
+  --rt-sans: 'Palatino Linotype', 'Book Antiqua', 'Songti SC', 'SimSun', 'Microsoft YaHei', serif;
+  --rt-stripes: linear-gradient(90deg, transparent 0, var(--rt-mustard) 12%, #f0d58a 50%, var(--rt-mustard) 88%, transparent 100%);
+}
+
+/* 纸面：纸纹斑驳代替点阵 */
+html[data-ui-theme="medieval"] body {
+  background-image:
+    radial-gradient(ellipse at 20% 10%, rgba(255,240,200,.55), transparent 55%),
+    radial-gradient(ellipse at 85% 90%, rgba(120,80,30,.16), transparent 50%),
+    radial-gradient(var(--rt-dot) .8px, transparent .8px);
+  background-size: auto, auto, 14px 14px;
+}
+html[data-ui-theme="medieval"] h1, html[data-ui-theme="medieval"] h2, html[data-ui-theme="medieval"] h3 { letter-spacing: .06em; }
+html[data-ui-theme="medieval"] .eyebrow,
+html[data-ui-theme="medieval"] .section-label,
+html[data-ui-theme="medieval"] .workspace-kicker,
+html[data-ui-theme="medieval"] #legacy #breadcrumb { text-transform: none; letter-spacing: .18em; font-style: italic; }
+
+/* 卡片：双线金边 */
+html[data-ui-theme="medieval"] .card,
+html[data-ui-theme="medieval"] details,
+html[data-ui-theme="medieval"] dialog,
+html[data-ui-theme="medieval"] #api-pop,
+html[data-ui-theme="medieval"] body .map-stage,
+html[data-ui-theme="medieval"] body .map-side {
+  border: 1px solid var(--rt-ink-soft);
+  outline: 1px solid var(--rt-line); outline-offset: -5px;
+}
+html[data-ui-theme="medieval"] dialog h2 { border-bottom: 1px solid var(--rt-line); text-align: center; }
+html[data-ui-theme="medieval"] dialog h2::before, html[data-ui-theme="medieval"] dialog h2::after { content: ' ❦ '; color: var(--rt-mustard); }
+
+/* 主按钮：蜡封酒红 + 金边 */
+html[data-ui-theme="medieval"] .primary,
+html[data-ui-theme="medieval"] #play .primary,
+html[data-ui-theme="medieval"] #legacy .primary,
+html[data-ui-theme="medieval"] body .map-btn.primary {
+  background: linear-gradient(#8e2a2c, var(--rt-orange) 55%, var(--rt-orange-d));
+  border: 1px solid var(--rt-mustard); color: #f6e7c4; letter-spacing: .08em;
+  box-shadow: 0 0 0 1px var(--rt-orange-d), 0 3px 8px rgba(46,29,18,.35);
+}
+html[data-ui-theme="medieval"] .primary:hover,
+html[data-ui-theme="medieval"] #play .primary:hover,
+html[data-ui-theme="medieval"] #legacy .primary:hover {
+  background: linear-gradient(#a03234, #87252a 55%, var(--rt-orange-d)); transform: none;
+  box-shadow: 0 0 0 1px var(--rt-orange-d), 0 0 10px rgba(201,161,74,.55);
+}
+html[data-ui-theme="medieval"] .primary:active { transform: translateY(1px); }
+
+/* 顶栏：深橡木 + 镶金线 */
+html[data-ui-theme="medieval"] #topbar {
+  background: linear-gradient(#2f1e12, var(--rt-bar-bg));
+  border-bottom: 1px solid var(--rt-mustard);
+}
+html[data-ui-theme="medieval"] #topbar::after { height: 2px; bottom: 3px; opacity: .8; }
+html[data-ui-theme="medieval"] #topbar .logo {
+  border-radius: 50% 50% 46% 46%; background: radial-gradient(circle at 35% 30%, #a3393b, var(--rt-orange) 60%, #4a1012);
+  border: 2px solid var(--rt-mustard); box-shadow: 0 0 0 2px #24170e, 0 0 0 3px var(--rt-bar-line);
+  color: #f3dfae; font-family: var(--rt-serif);
+}
+html[data-ui-theme="medieval"] #topbar .tb-title { font-family: var(--rt-serif); letter-spacing: .2em; color: #f0dcae; }
+html[data-ui-theme="medieval"] #topbar .tb-title small { color: var(--rt-mustard); text-transform: none; letter-spacing: .14em; font-style: italic; }
+html[data-ui-theme="medieval"] #topbar .tb-btn { border-radius: var(--rt-r-sm); border-color: var(--rt-bar-line); color: #e6d2a4; }
+html[data-ui-theme="medieval"] #topbar .tb-btn.primary { background: linear-gradient(#dcb862, var(--rt-mustard)); color: #2e1d12; border: 1px solid #f0d58a; box-shadow: 0 2px 6px rgba(0,0,0,.4); }
+
+/* 侧栏：羊皮卷轴边 */
+html[data-ui-theme="medieval"] #workspace-sidebar,
+html[data-ui-theme="medieval"] #legacy .sidebar {
+  border-right: 1px solid var(--rt-ink-soft);
+  box-shadow: inset -6px 0 10px -6px rgba(46,29,18,.35);
+}
+html[data-ui-theme="medieval"] #workspace-sidebar .workspace-label::before { content: '✦ '; color: var(--rt-mustard); }
+html[data-ui-theme="medieval"] #workspace-sidebar .workspace-featured { border: 1px solid var(--rt-mustard); }
+html[data-ui-theme="medieval"] #workspace-sidebar .workspace-action span,
+html[data-ui-theme="medieval"] #workspace-sidebar .workspace-link > span:first-child { color: var(--rt-orange); }
+html[data-ui-theme="medieval"] .workspace-intro { border-bottom: 1px solid var(--rt-line); position: relative; }
+html[data-ui-theme="medieval"] .workspace-intro::after { content: '❦'; position: absolute; left: 50%; bottom: -9px; transform: translateX(-50%); padding: 0 6px; background: var(--rt-paper-2); color: var(--rt-mustard); font-size: 13px; line-height: 16px; }
+
+/* 地图外壳 */
+html[data-ui-theme="medieval"] #play-right .dream-atlas-compass { border-radius: 50%; background: radial-gradient(circle, var(--rt-cream), var(--rt-paper-2)); border: 1px solid var(--rt-ink-soft); outline: 1px solid var(--rt-mustard); outline-offset: 2px; color: var(--rt-orange); }
+html[data-ui-theme="medieval"] #play-right .dream-atlas-inspector { border-top: 3px double var(--rt-mustard); }
+html[data-ui-theme="medieval"] #play-right .native-map-host .dream-atlas-heading h2::before { content: '❦ '; color: var(--rt-mustard); }
+
+/* 故事手记：书页 */
+html[data-ui-theme="medieval"] #play-left.conversation-drawer:not(.is-expanded) {
+  border: 1px solid var(--rt-ink-soft); outline: 1px solid var(--rt-line); outline-offset: -5px; border-radius: 6px;
+  box-shadow: 0 10px 30px rgba(46,29,18,.38);
+}
+html[data-ui-theme="medieval"] #play-left .chat-head::after { height: 1px; bottom: -3px; }
+html[data-ui-theme="medieval"] #play-left .conversation-handle::before { content: '❦'; color: var(--rt-orange); }
+html[data-ui-theme="medieval"] #play-left .journey-rail, html[data-ui-theme="medieval"] #play-left .info-panel { border-color: var(--rt-ink-soft); border-width: 1px; }
+html[data-ui-theme="medieval"] #play-left .chat-head { border-bottom: 1px solid var(--rt-ink-soft); }
+html[data-ui-theme="medieval"] #play-left .composer-box, html[data-ui-theme="medieval"] #play-left .pop-card { border: 1px solid var(--rt-ink-soft); outline: 1px solid var(--rt-line); outline-offset: -4px; box-shadow: var(--rt-shadow-sm); }
+html[data-ui-theme="medieval"] #play-left .rail-label::before { content: '✦ '; color: var(--rt-mustard); }
+html[data-ui-theme="medieval"] #play-left #story-text .prose::first-letter { font-size: 2.1em; float: left; line-height: 1; margin: 2px 6px 0 0; color: var(--rt-orange); font-family: var(--rt-serif); }
+html[data-ui-theme="medieval"] #play-left .turn .input { font-style: italic; color: var(--rt-teal); }
+html[data-ui-theme="medieval"] #play-left .turn .input::before { content: '§ '; color: var(--rt-mustard); }
+html[data-ui-theme="medieval"] #play-left .actions button { border: 1px solid var(--rt-ink-soft); }
+html[data-ui-theme="medieval"] #play-left .actions button:hover { background: var(--rt-mustard-l); transform: none; }
+html[data-ui-theme="medieval"] #play-left .chips span { border-radius: var(--rt-r-sm); }
+html[data-ui-theme="medieval"] #legacy > main > header::after { height: 2px; bottom: -4px; }
+html[data-ui-theme="medieval"] #legacy .intro h2 { border-bottom: 1px solid var(--rt-mustard); }
+html[data-ui-theme="medieval"] #legacy .logo { border-radius: 50%; background: radial-gradient(circle at 35% 30%, #a3393b, var(--rt-orange) 60%, #4a1012); border: 2px solid var(--rt-mustard); }

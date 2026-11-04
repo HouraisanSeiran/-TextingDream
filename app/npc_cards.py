@@ -109,12 +109,22 @@ def context(package, session, audience, participants):
     return {'items': rows} if rows else None
 
 
-def remember_action(package, session, node, action, result):
-    """Only declared, co-located witnesses remember the executed branch, never prose."""
+def remember_action(package, session, node, action, result, witnesses=None):
+    """Only declared, co-located witnesses remember the executed branch, never prose.
+
+    ``witnesses``（可选）：判定 v2 的 ``concealed`` 检定算出的**实际**目击集合
+    （作者声明的 witnesses ∪ 察觉成功者，且都已在同地）。给了它就用它替换原先的
+    「witnesses ∪ social[branch]」，因为没察觉的 NPC 不应该记忆、也不应该作反应；
+    不给时（旧包、未声明 concealed）保持原有声明式目击行为，逐字节不变。
+    """
     if not action:
         return
     branch = result.get('narrative', {}).get('result', 'success')
-    witnesses = set(action.get('witnesses', [])) | set(action.get('social', {}).get(branch, {}))
+    if witnesses is None:
+        witnesses = (set(action.get('witnesses', []))
+                     | set(action.get('social', {}).get(branch, {})))
+    else:
+        witnesses = set(witnesses)
     actors = {c['id']: c for c in package['characters']['characters']}
     for cid in sorted(witnesses):
         if (cid == session['hero'] or cid not in node['participants']

@@ -533,6 +533,8 @@ class PipelineCompatibilityTests(unittest.TestCase):
             json.dumps(characters_doc(), ensure_ascii=False, indent=2), encoding='utf-8')
         self.root, self.story = root, story
         self.svc = Service(Store(root / 'adv.sqlite3'), root)
+        from tests.fixtures_world import adopt_world
+        adopt_world(self.svc.runtime, story, characters_doc())
         self.svc.provider.configure({'offline': True})
 
     def tearDown(self):

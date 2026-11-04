@@ -14,6 +14,7 @@ from pathlib import Path
 from fastapi.testclient import TestClient
 
 from app import towns
+from tests.fixtures_world import world_service
 from app.service import Service
 from app.storage import Store
 from app.town_schema import DraftRequest, TownInput
@@ -27,7 +28,7 @@ class TownCase(unittest.TestCase):
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory()
         self.path = Path(self.tmp.name) / 'towns.sqlite3'
-        self.svc = Service(Store(self.path), ROOT)
+        self.svc = world_service(Store(self.path), ROOT)
         self.svc.provider.configure({'offline': True})
         self.towns = self.svc.towns
         self.rt = self.svc.runtime

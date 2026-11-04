@@ -4,8 +4,8 @@
 
 > **本轮（增补两组）**：构库名单从 12 组扩到 **14 组**，新增 `food-supplement`（23 条 / 30 来源）与 `craft-supplement`（24 条 / 34 来源），共 **+47 条**；全名单预期为 **528 条元素、502 条来源记录**。两个增补组是新增 namespace，**不改动**旧 12 组的任何行（同库导入旧内容逐字段不变，见 §11）；交付库仍待主编验收后显式生成，本环节只用临时库。
 
-- 代码：`app/encyclopedia.py`（库与导入/查询实现）、`tools/encyclopedia_cli.py`（CLI）、`tools/encyclopedia_build.py`（按显式 14 组名单构库，可选 `--with-traits` / `--with-cuisine`）
-- 测试：`tests/test_encyclopedia.py`（库与 CLI 本体）、`tests/test_encyclopedia_supplement.py`（14 组名单扩展与两个增补组集成）、`tests/test_encyclopedia_traits.py`（特质分区）、`tests/test_encyclopedia_cuisine.py`（饮食分区）
+- 代码：`app/encyclopedia.py`（库与导入/查询实现）、`tools/encyclopedia_cli.py`（CLI）、`tools/encyclopedia_build.py`（按显式 14 组名单构库，可选 `--with-traits` / `--with-cuisine` / `--with-attributes` / `--with-culture` / `--with-fantasy-biology`）
+- 测试：`tests/test_encyclopedia.py`（库与 CLI 本体）、`tests/test_encyclopedia_supplement.py`（14 组名单扩展与两个增补组集成）、`tests/test_encyclopedia_traits.py`（特质分区）、`tests/test_encyclopedia_cuisine.py`（饮食分区）、`tests/test_culture_catalog.py`（文化／姓名分区）、`tests/test_encyclopedia_attributes.py`（属性分区）、`tests/test_encyclopedia_fantasy_biology.py`（奇幻生物分区：种族／西幻动植物／东方玄幻动植物）
 - 数据来源：`docs/human-encyclopedia/*.json`（新七节 schema，含 food-supplement / craft-supplement 两个增补组）、`docs/element-catalog/*.json`（原六组 274 元素）。**本模块只读它们，从不改写。**
 
 > **后面的分区是显式开关，不默认入库**：特质在 `TRAIT_GROUPS`（`--with-traits`），
@@ -13,6 +13,10 @@
 > 旧测试里的 14 / 528 / 502 与 15 / 551 / 505 断言全部保留未改。
 > 饮食分区还在增补，它的条数会变，**本文不写它的固定数字**：要当前值就自己跑一句
 > `--with-traits --with-cuisine --check`（读源文件重算）。
+>
+> **奇幻生物分区（本轮新增）**：种族／西幻动植物／东方玄幻动植物在另一份显式名单
+> `FANTASY_BIOLOGY_GROUPS`，对应开关 `--with-fantasy-biology`，同样默认不进库，
+> 可与其他开关任意组合。三份内容文件由采集侧定稿，**本文不写它们的固定条数**。
 
 ---
 
@@ -185,6 +189,72 @@ D:\anaconda\python.exe -X utf8 -m tools.encyclopedia_cli init --db temp.sqlite3
 
 退出码：`0` 成功；`1` 领域错误（校验失败、找不到、冲突、超限）；`2` 参数用法错误（argparse）。
 
+### 7.1 构库开关（`tools.encyclopedia_build`）
+
+不带任何开关时仍是**历史 14 组 / 528 条 / 502 来源**；其余分区全部是显式开关、默认不入库：
+
+```powershell
+# 只加成奇幻生物（种族 / 西幻动植物 / 东方玄幻动植物）
+D:\anaconda\python.exe -X utf8 -m tools.encyclopedia_build --with-fantasy-biology
+
+# 叠加：特质 + 饮食 + 属性 + 文化 + 奇幻生物（顺序固定）
+... -m tools.encyclopedia_build --with-traits --with-cuisine --with-attributes --with-culture --with-fantasy-biology
+
+# 先核对不带这些分区的旧库（不改库、不改源 JSON）
+... -m tools.encyclopedia_build --check
+```
+
+| 开关 | 名单常量 | 文件 |
+|---|---|---|
+| （无） | `GROUPS` | 历史 14 组 |
+| `--with-traits` | `TRAIT_GROUPS` | `docs/playable-demo/character-traits.json` |
+| `--with-cuisine` | `CUISINE_GROUPS` | `docs/human-encyclopedia/cuisine.json` |
+| `--with-attributes` | `ATTRIBUTE_GROUPS` | `docs/playable-demo/character-attributes.json` |
+| `--with-culture` | `CULTURE_GROUPS` | 叙事传统 + 亚洲/欧洲姓名池（3 份） |
+| `--with-fantasy-biology` | `FANTASY_BIOLOGY_GROUPS` | `fantasy-races.json` / `western-biology.json` / `eastern-biology.json` |
+| `--with-alchemy` | `FANTASY_ALCHEMY_GROUPS` | `western-alchemy.json` / `eastern-alchemy.json` |
+
+追加顺序固定为「14 组 → 特质 → 饮食 → 属性 → 文化 → 奇幻生物 → 魔药」，同一文件不会被重复构入。
+`--with-fantasy-biology` 与 `--with-alchemy` **互不隐含**：只要生物不自动带药，反之亦然。
+所有名单都**逐文件写死、不用通配**；`shared-themes.json`（聚类索引）始终不进名单。
+这两个开关**不改动引擎、世界包与 API**，也不自动导入运行期；库里的新组仍是待审候选。
+魔药分区是游戏与小说素材，**不是任何现实用药依据**，也不含配方与剂量。
+
+奇幻生物分区用**标签**做检索入口，而不是给引擎加分类逻辑：
+
+```powershell
+# 种族（kind:race）、兽类（kind:fauna）、草木类（kind:flora）
+... search --db temp.sqlite3 --all-tag kind:race --limit 20
+# 按题材/传统维度（tradition:eastern / tradition:western）
+... search --db temp.sqlite3 --all-tag tradition:western --limit 20
+# 魔药与方剂统一是物品（kind:item），药效与代价是检索维度
+... search --db temp.sqlite3 --all-tag kind:item --limit 30
+... search --db temp.sqlite3 --all-tag role:legend_tier --limit 20
+```
+
+### 7.2 重合归并（`tools.encyclopedia_merge`）
+
+新分区里与**已有元素重名或同别名**的条目（例：西方草药里的“鼠尾草”与已有香料条目、法餐菜品与已有食材），不要新建重复元素，而是并到原元素上：
+
+```powershell
+# 先干跑看计划（默认不写任何文件）
+... -m tools.encyclopedia_merge --candidate docs/element-catalog/reality-herbs-western.json
+# 确认无误再写：追加【补充条目】块、并检索标签、记 merged_from
+... -m tools.encyclopedia_merge --candidate docs/element-catalog/reality-herbs-western.json --apply
+```
+
+规则：
+
+- 名字比较忽略括号限定语与空白（「胡椒（黑胡椒）」≡「胡椒」），命中后追加到 `--section` 指定的详情分节（默认 `story_uses`），形成一次**新版本**，原分节不清空。
+- 只并 `part:` / `trait:` / `role:` / `trade:` / `effect:` / `habitat:` / `origin:` / `taxon:` / `source_text:` 这些检索前缀；`kind:` 与 `tradition:` **不并**（一个元素只取一个传统），`genre:` / `category:` 由导入器派生。
+- 旧 schema 的元素（没有 `tags` 键）**不会**被添上 `tags`，因为引擎会丢弃这类原生标签；内容仍会并进 `details`。
+- `merged_from` 记录「分区/元素 id」，便于追溯哪条补充来自哪个采集分区。
+- 未命中的条目不处理，它们该留在自己的新分区里。
+
+新组的条数随采集侧定稿变化，**本文不写固定数字**；要当前值就跑
+`--with-fantasy-biology --with-alchemy --check`。注意：`--check` 只核对**已存在**的库与名单是否一致，
+不会替你把新组导进旧库——旧库要包含这些组，得重新构库或显式 `import` 对应 JSON。
+
 ---
 
 ## 8. 导出文件格式
@@ -220,7 +290,9 @@ D:\anaconda\python.exe -X utf8 -m tools.encyclopedia_cli init --db temp.sqlite3
 2. **不做兼容性判定**：标签只用于检索，不构成「这个元素能进那个世界」的证明；依赖/排除条件仍是自然语言，引擎不读。
 3. **不做事实核验**：库只记录 `access` / `review_status` / `detail_status` 原值，不评判内容真假。
 4. **不做版本分支**：`current_version` 单调前移，没有「回退到旧版本作为当前」的操作（历史永远可读）。
-5. **未导入的组**：采集侧仍在交付，`docs/human-encyclopedia/*.json` 里正在被写入的半份文件（JSON 尚不可解析）会被跳过；测试对这种文件自动 `skip` 而不是失败，也不把条数写死。正式批量导入待所有组交付后进行。
+5. **构库遇到半份文件会明确报错，不静默跳过**：`tools.encyclopedia_build` 在源 JSON 缺失、JSON 不可解析或校验失败时直接退 1，并在 stderr 点名缺哪份文件（`缺少采集 JSON，未建库` / `拒绝：…`），**不会**跳过后继续建一份“看起来成功”的库。
+   - 已进入正式交付的三份奇幻生物分区文件（§12）还更进一步：缺文件 / 坏 JSON / 空 `elements`还会使测试**失败**（`ContentNotDeliverable`），不再是“准备中跳过”。
+   - 其他仍在采集中的候选分区（例如还在增补的饮食）仍不把条数写死：条数从源文件现算，本说明不给固定数字。
 6. 元素归属改不了命名空间：同一 namespace 一旦按某个 adapter/group 建过，就不能改挂到别处（`Conflict`）。
 7. **不支持 schema 1 升级**：旧库没记录 pin，无法反推历史证据（见 §2）。只能重建库并重新导入采集 JSON。
 
@@ -322,3 +394,101 @@ D:\anaconda\python.exe -X utf8 -m tools.encyclopedia_cli init --db temp.sqlite3
 **本环节没有做的**：没有生成或覆写 `artifacts/human-encyclopedia/encyclopedia.sqlite3`（留给主代理验收后显式导入）；没有改写两个增补源 JSON（它们由采集侧定稿）；没有动 `app/encyclopedia.py` 内部、`data/`、`StoryPackage/` 或游戏 runtime；没有做 git 提交。
 
 附：本环节末尾以**只读**方式核对当时已存在的 `artifacts/human-encyclopedia/encyclopedia.sqlite3`（由主代理生成，本环节未写入），得到 14 组 / 528 元素版本 / 502 来源版本 / 未解析关联 0，命名空间含 `food-supplement` 与 `craft-supplement`；`food_supp_water_chestnut` 的标签已为 `aquatic_food`（旧 `root_tuber` 已移除），增补条目仍均 `needs_review` + `needs_detail`，craft 条目来源 pin 为 v1 且关联全 `resolved`。库内容的验收与交付决定权在主编。
+
+---
+
+## 12. 本轮：奇幻生物分区（种族 / 西幻动植物 / 东方玄幻动植物）
+
+本节只记**构库侧接入**这一层。三份内容文件由采集侧定稿，本环节**不写、不改**它们，也不写正式数据库。
+
+### 12.1 改动点（只有两处代码 + 两处文档）
+
+| 文件 | 改动 |
+|---|---|
+| `tools/encyclopedia_build.py` | 新增 `FANTASY_BIOLOGY_GROUPS`（三份逐文件显式登记）；`groups_for` 末尾新增 `with_fantasy_biology=False`；新增 `--with-fantasy-biology`；docstring / description 同步 |
+| `tests/test_encyclopedia_fantasy_biology.py` | 新增（名单/flag 兼容、三组导入、`kind:*` / `tradition:*` 检索、来源 pin、幂等、状态不升格、`--check`） |
+| `docs/human-encyclopedia/database-使用说明.md` | §7.1 构库开关表 + 本节 |
+
+**没有改**：`app/encyclopedia.py`（引擎不需要改——“三组”走的就是现有新七节 schema 与 `source_ids` 解析路径）、世界包、API、`data/`、`StoryPackage/`、游戏 runtime；没有安装依赖、没有启动服务、没有碰 Terragenesis；没有动文化/姓名/特质/饮食/属性各分区已有的数据与来源问题。
+
+### 12.2 向后兼容的硬约束（已逐条断言）
+
+- 不给开关 = 历史 14 组 / 528 / 502，一字节不变。
+- `groups_for(True, True, True)`、`groups_for(with_culture=True)` 等**旧的位置传参**含义不变（新参数在末尾且默认 `False`）。
+- 追加顺序固定：`14 组 → 特质 → 饮食 → 属性 → 文化 → 种族 → 西幻生物 → 东方生物`，同一文件不重复构入。
+- 三份文件既不在 `GROUPS`，也不在任何其他名单里，更不在 `EXCLUDED`（它们是元素文档，不是聚类索引）。
+- 名单逐文件写死、不使用通配。
+
+### 12.3 检索入口：靠标签，不靠引擎分类
+
+新组用条目自带的标签检索，引擎不读标签做判定：
+
+| 标签 | 含义 |
+|---|---|
+| `kind:race` | 种族（种族组每条都是它） |
+| `kind:fauna` | 兽/动物（两份生物组）|
+| `kind:flora` | 草木/植物（两份生物组）|
+| `kind:<其它>` | 允许的扩展分类（如 `kind:spirit`）；必须是合法小写 token |
+| `tradition:eastern` / `tradition:western` | 题材/传统维度 |
+
+`search --all-tag kind:race`、`search --all-tag tradition:western` 均可直接使用；命名空间限定（`--namespace fantasy-races` 等）照旧。
+
+**`kind` 不是封闭枚举**：库只把它当检索标签，不参与“元素能不能进某个世界”的判定。
+所以内容侧把某条从 `kind:fauna` 改成 `kind:spirit`（如东方山精）**不需要改代码或引擎**，
+只影响该条计入 fauna / flora 的计数；测试因此不写死 kind 的完整取值集，而是要求：
+每条恰有一个格式合法的 `kind:*`、种族组全为 `kind:race`、两份生物组的 `fauna` 与
+`flora` 各不少于 8 条。
+
+### 12.4 内容可交付的最低约束（正式交付口径）
+
+**缺文件、JSON 坏成半份、`elements` 为空、没有任何 `sources`，一律测试失败**——
+不再有“准备中就 skip”的模式。理由：库要能建、名单要能核对，内容没齐就是没齐。
+读取阶段先抛 `ContentNotDeliverable`（`AssertionError` 子类），把具体哪份文件、
+哪个位置坏了直接报出来。
+
+三份内容文件还需要同时满足：
+
+| 约束 | 口径 |
+|---|---|
+| kind 分类 | 每条恰 1 个 `kind:*` 且格式合法；种族组全为 `kind:race` |
+| 生物覆盖 | 西幻、东方两份生物组的 `kind:fauna` / `kind:flora` **各 ≥ 8** |
+| tradition | 种族组按条目分 `tradition:eastern` / `tradition:western`（两者都要有），两份生物组各自单传统 |
+| 七节正文 | 七个分节都存在且**非空**（`legacy_schema` 用旧七节口径） |
+| 来源引用 | 被引用的来源必须真实存在于本文档；且必须 `access: read` |
+| 无来源条目 | 允许（纯原创新生态/类型模板），但 `source_ids` 为空时 `evidence_and_uncertainty` 必须写明“来源：无”，且库里不得凭空多出来源行 |
+| 审查状态 | 全部 `needs_review` + `needs_detail`；导入不升格 |
+
+> `access: read` 只表示采集侧**声称读过正文**，**不等于事实已核验**。测试能验的是：引用不悬空、
+> 来源版本 pin 可追溯、`access` 如实入库、状态未被提升。事实核验仍是后续人工审阅的事。
+
+### 12.5 本环节的测试范围
+
+| 范围 | 命令 |
+|---|---|
+| 新增奇幻生物测试 | `python -X utf8 -m unittest tests.test_encyclopedia_fantasy_biology` |
+| 库与 CLI 本体 + 14 组增补（基线回归） | `python -X utf8 -m unittest tests.test_encyclopedia tests.test_encyclopedia_supplement` |
+| 特质/饮食/文化/属性（基线回归） | `python -X utf8 -m unittest tests.test_encyclopedia_traits tests.test_encyclopedia_cuisine tests.test_culture_catalog tests.test_encyclopedia_attributes` |
+
+新增测试分四组：
+
+1. **名单与兼容**（不依赖内容）：显式三文件、非通配、不被旧开关带入、默认 14 组与旧位置传参等价、叠加顺序、flag 解析。
+2. **交付守卫**：缺文件 / 坏 JSON / 空 `elements` / 无 `sources` 必须失败（用临时副本验守卫本身，不动真文件）。
+3. **内容与库**：三组真导入、kind/tradition 约束、七节非空、来源 `access=read` 与 pin 完整、复导幂等、`--check` 遇缺组退 1。
+4. **合成自检**：用临时合成文档跑「三组 → 导入 → 标签检索 → 命名空间隔离 → 幂等 → 状态不升格」，把“接入代码坏了”与“内容变了”分开。
+
+> 本轮**不写最终测试数字**（条数与用例数会随内容修订变动）：具体运行结果由主代理跑后回填。
+
+### 12.6 交付库怎么办
+
+本文**不写三组的固定条数**（内容仍可能微调）。要导进正式库，主代理显式跑：
+
+```powershell
+# 只加成奇幻生物
+D:\anaconda\python.exe -X utf8 -m tools.encyclopedia_build --with-fantasy-biology
+# 或与已有分区叠加
+... --with-traits --with-cuisine --with-attributes --with-culture --with-fantasy-biology
+# 核对
+... --with-fantasy-biology --check
+```
+
+注意：`--check` 只核对**已存在**的库与名单是否一致，不会把新组补进旧库；旧库要包含这三组得重新构库或显式 `import` 三份 JSON。本环节**没有**生成或覆写 `artifacts/human-encyclopedia/encyclopedia.sqlite3`。

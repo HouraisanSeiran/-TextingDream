@@ -6,6 +6,7 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch
 from fastapi.testclient import TestClient
+from tests.fixtures_world import world_service
 from app.service import Service
 from app.storage import Store
 from app.web import create_app
@@ -19,7 +20,7 @@ class WorldGeneratorTests(unittest.TestCase):
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory()
         self.db = Path(self.temp.name) / 'test.sqlite3'
-        self.service = Service(Store(self.db), ROOT)
+        self.service = world_service(Store(self.db), ROOT)
         self.service.provider.configure({'base_url':'https://api.deepseek.com','model':'deepseek-chat','offline':True,'max_tokens':1200})
         self.rt = self.service.runtime
         self.gen = self.service.world_generator
@@ -33,7 +34,8 @@ class WorldGeneratorTests(unittest.TestCase):
     def test_end_to_end_files_activation_play_and_restart(self):
         self.service.store.put('settings','preferences',{'conversation_mode':'scene'})
         old = self.rt.new_session('旧旅程','protagonist')
-        original = (self.rt.files.directory/'总概.md').read_bytes()
+        original_folder = self.rt.files.directory
+        original = (original_folder/'总概.md').read_bytes()
         foundation = self.generate('worldview')
         f = self.gen.save(foundation['id'])
         self.assertTrue((self.rt.library/f['folder']/'总概.md').exists())
@@ -43,7 +45,7 @@ class WorldGeneratorTests(unittest.TestCase):
         self.assertIn('公共渡口',world['worldview']['overview'])
         saved = self.gen.save(world['id'])
         self.assertEqual(saved, self.gen.save(world['id']))
-        self.assertEqual(original,(self.rt.library/'玄陆/总概.md').read_bytes())
+        self.assertEqual(original,(original_folder/'总概.md').read_bytes())
         revision = self.rt.activate_package(saved['folder'])
         p = self.rt.package()
         self.assertEqual(revision,p['id'])
@@ -59,11 +61,11 @@ class WorldGeneratorTests(unittest.TestCase):
                 self.rt.move(new,f'place_{i+1}')
         self.assertEqual(len(new['archives']),3)
         self.assertEqual(len(self.rt.conversations(new)),3)
-        restart = Service(Store(self.db),ROOT)
+        restart = world_service(Store(self.db),ROOT)
         self.assertEqual(restart.runtime.files.directory.name,saved['folder'])
         self.assertEqual(restart.runtime.surface(old)['world'],'玄陆：万国灵潮')
-        self.assertTrue((self.rt.library/'玄陆/生成记录/旅程'/ (old['id']+'.md')).exists())
-        self.rt.activate_package('玄陆')
+        self.assertTrue((original_folder/'生成记录/旅程'/ (old['id']+'.md')).exists())
+        self.rt.activate_package(original_folder.name)
         self.assertEqual(original,(self.rt.files.directory/'总概.md').read_bytes())
 
     def test_current_large_worldview_and_invalid_generated_output(self):

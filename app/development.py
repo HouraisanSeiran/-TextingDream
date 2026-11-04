@@ -95,12 +95,16 @@ class Development:
             payload={**context,'request':request.instruction,'schema':DevelopmentProposal.model_json_schema()}
             if len(template('development'))+len(stable_json(payload))>svc.preferences()['context_chars']:
                 raise ValueError('发展证据超过上下文预算，请调整设置')
-            if svc.provider.config()['offline']:
-                data={'character_id':request.character_id,'assessment':'离线模式不推断角色成长，保持不变。','changes':[]}
-                usage={'calls':0,'mode':'offline'}
-                svc.provider.offline_trace('development',payload,data)
-            else:
-                data,usage=await svc.provider.complete(template('development'),payload,json_mode=True,scope='development')
+            base_fingerprint=fingerprint(s)
+        if svc.provider.config()['offline']:
+            data={'character_id':request.character_id,'assessment':'离线模式不推断角色成长，保持不变。','changes':[]}
+            usage={'calls':0,'mode':'offline'}
+            svc.provider.offline_trace('development',payload,data)
+        else:
+            data,usage=await svc.provider.complete(template('development'),payload,json_mode=True,scope='development')
+        async with svc.lock:
+            if fingerprint(svc.store.session(session_id)) != base_fingerprint:
+                raise ValueError('旅程已变化，请重新评估')
             data=self.validate(data,context)
             draft={'id':uid(),'session_id':session_id,'base_fingerprint':fingerprint(s),'created':now(),
                    'context':context,'proposal':data,'usage':usage,'status':'pending',

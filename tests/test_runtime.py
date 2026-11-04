@@ -7,6 +7,7 @@ import unittest
 from unittest.mock import patch
 from fastapi.testclient import TestClient
 from app.contracts import DraftRequest, Turn
+from tests.fixtures_world import world_service
 from app.service import Service, offline_surface
 from app.storage import Store
 from app.web import create_app
@@ -18,7 +19,7 @@ class RuntimeTests(unittest.TestCase):
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory()
         self.path = Path(self.tmp.name) / 'test.sqlite3'
-        self.service = Service(Store(self.path), ROOT)
+        self.service = world_service(Store(self.path), ROOT)
         self.service.provider.configure({'base_url': 'https://api.deepseek.com', 'model':'deepseek-chat', 'offline':True, 'max_tokens':1200})
         self.rt = self.service.runtime
         self.s = self.rt.new_session('测试', 'protagonist')
@@ -54,7 +55,7 @@ class RuntimeTests(unittest.TestCase):
         context = json.dumps(self.rt.context(self.s, 'player', '道路', self.service.preferences()), ensure_ascii=False)
         self.assertNotIn('3天', context)
         # Creating a fresh service loads the identical persisted state.
-        restarted = Service(Store(self.path), ROOT)
+        restarted = world_service(Store(self.path), ROOT)
         self.assertEqual(restarted.store.session(self.s['id']), self.s)
         self.rt.move(self.s, 'western_port')
         self.turn('ask')

@@ -6,10 +6,9 @@ from fastapi.responses import FileResponse, JSONResponse, Response
 from fastapi.staticfiles import StaticFiles
 from starlette.concurrency import run_in_threadpool
 from pydantic import BaseModel, ConfigDict, Field, ValidationError
-from .contracts import ApiSettings, Corpus, DraftRequest, BatchDraftRequest, Element, IntentRequest, Move, NewSession, PackageEdit, Preferences, Turn, DevelopmentRequest, WaitRequest
+from .contracts import ApiSettings, ConnectionSettings, Corpus, DraftRequest, BatchDraftRequest, Element, IntentRequest, Move, NewSession, PackageEdit, Preferences, Turn, DevelopmentRequest, WaitRequest
 from .recall import dialogue_records
 from .cache_metrics import cache_usage
-from . import token_usage
 from . import local_rules
 import copy
 from .service import Service
@@ -276,10 +275,26 @@ def create_app(db_path=None):
         story = service.runtime.package(s['revision'])['story']
         return {'known': pressure_rules.known(s, story, 'player')}
 
+    @app.get('/api/sessions/{id}/recap')
+    def journey_recap(id: str):
+        from . import recap
+        s = service.store.session(id)
+        p = service.runtime.package(s['revision'])
+        return recap.build(p['story'], s, p['characters'])
+
+    @app.get('/api/inner/unmatched-intents')
+    def unmatched_intents(limit: int = 100, package_id: str | None = None):
+        if not 1 <= limit <= 500:
+            raise ValueError('limit 必须在 1..500')
+        rows = service.store.all('unmatched_intent')
+        if package_id is not None:
+            rows = [r for r in rows if r['package_id'] == package_id]
+        return {'items': list(reversed(rows))[:limit], 'total': len(rows)}
+
     @app.post('/api/sessions/{id}/intent')
     async def journey_intent(id: str, req: IntentRequest):
-        # Read-only: turns an intention into bounded candidates. Saves nothing, so a
-        # GET-style exploration can never advance state.
+        # Candidate exploration never advances journey state. Only unjudged
+        # requests append an author diagnostic in the existing documents store.
         from . import free_actions
         s = service.store.session(id)
         p = service.runtime.package(s['revision'])
@@ -287,21 +302,34 @@ def create_app(db_path=None):
         node = service.runtime.node(s) if s['active'] else None
         from . import scene_judgment
         if scene_judgment.enabled(p['story']):
-            return await scene_judgment.intent(service, s, p['story'], node, req.text)
-        result = free_actions.suggest(s, p['story'], node, req.text)
+            result = await scene_judgment.intent(service, s, p['story'], node, req.text)
+        else:
+            result = free_actions.suggest(s, p['story'], node, req.text, characters=p['characters'])
         if node is None and not result['matched']:
             result['note'] = ('当前没有进行中的事件；只有本地行动（休息等）可作为候选，'
                               '其余输入只会作为对话或描述')
+        if result.get('unjudged'):
+            from .runtime import now, uid
+            service.store.record_unmatched_intent({
+                'id': uid(), 'session_id': id, 'package_id': p['story']['id'],
+                'revision': s['revision'], 'location_id': s['location'],
+                'event_id': node['id'] if node else None,
+                'text': req.text[:200], 'created': now()})
         return result
 
     @app.get('/api/sessions/{id}/confirm/{action_id}')
-    def journey_confirm(id: str, action_id: str):
+    def journey_confirm(id: str, action_id: str, push: str | None = None):
+        """确认预览。``push`` 是判定 v2 的可选加码：换加码会拿到**新凭据**与对应预览。
+
+        旧包与不传 push 的调用方行为一字不变（凭据仍是不带 push 的那一份）。
+        """
         from . import free_actions
         s = service.store.session(id)
         p = service.runtime.package(s['revision'])
         # 没有进行中的事件时只有本地行动（node=None）；事件动作仍只在活动中可用。
         node = service.runtime.node(s) if s['active'] else None
-        return free_actions.describe(s, p['story'], node, action_id)
+        return free_actions.describe(s, p['story'], node, action_id, characters=p['characters'],
+                                     push=push)
 
     @app.get('/api/sessions/{id}')
     def surface(id: str):
@@ -349,6 +377,16 @@ def create_app(db_path=None):
     @app.get('/api/sessions/{id}/notebook')
     def knowledge_notebook(id: str):
         return notebook(service.store.session(id))
+
+    @app.post('/api/sessions/{id}/notes-sync')
+    def retry_notes_sync(id: str):
+        synced = service.runtime.rebuild_session_notes(id)
+        # A newer save may commit during the rebuild. Its marker stays pending;
+        # retrying notes never repeats an action or increments the journey version.
+        pending = service.store.get('session_notes_pending', id)
+        ready = synced and not pending
+        return {'notes_sync': {'status': 'synced' if ready else 'pending',
+                               'message': '笔记已同步' if ready else '旅程已保存，笔记待同步'}}
 
     @app.get('/api/sessions/{id}/towns')
     def journey_towns(id: str):
@@ -834,7 +872,7 @@ def create_app(db_path=None):
 
     @app.post('/api/inner/world-pipelines/{id}/next')
     async def advance_pipeline(id:str):
-        async with service.lock:return await pipeline.advance(id)
+        return await pipeline.advance(id)
 
     @app.put('/api/inner/world-pipelines/{id}')
     async def edit_pipeline(id:str,req:StageEdit):
@@ -947,8 +985,7 @@ def create_app(db_path=None):
 
     @app.post('/api/inner/generators')
     async def generator_generate(req: GenerateWorldRequest):
-        async with service.lock:
-            return await service.world_generator.generate(req)
+        return await service.world_generator.generate(req)
 
     @app.put('/api/inner/generators/{id}')
     async def generator_edit(id: str, req: GeneratorEdit):
@@ -978,7 +1015,7 @@ def create_app(db_path=None):
     def token_usage_summary(hours: float = 24):
         if not 0.25 <= hours <= 720:
             raise ValueError('统计窗口必须在 0.25 到 720 小时之间')
-        return token_usage.summarize(service.store.all('trace'), hours=hours)
+        return service.store.token_usage_summary(hours=hours)
 
     @app.get('/api/inner/traces/{id}')
     def trace(id: str):
@@ -1203,8 +1240,16 @@ def create_app(db_path=None):
 
     @app.put('/api/settings/api')
     def set_api(req: ApiSettings):
-        service.provider.configure(req.model_dump())
+        service.provider.configure(req.model_dump(exclude_unset=True))
         return service.provider.public_config()
+
+    @app.put('/api/settings/connection')
+    async def set_connection(req: ConnectionSettings):
+        return await service.provider.connect(req.base_url, req.protocol, req.api_key, req.model)
+
+    @app.post('/api/settings/connection/models')
+    async def connection_models(req: ConnectionSettings):
+        return await service.provider.discover_models(req.base_url, req.protocol, req.api_key)
 
     @app.post('/api/settings/api/test')
     async def test_api():

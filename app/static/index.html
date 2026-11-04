@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>织梦 · TextingDream</title><link rel="stylesheet" href="/static/style.css"><link rel="stylesheet" href="/static/map-tools.css"><link rel="stylesheet" href="/static/narrative-workbench.css"><link rel="stylesheet" href="/static/atelier.css?v=12"><script defer src="/static/app.js"></script><script defer src="/static/workers.js"></script><script defer src="/static/atlas.js"></script><script defer src="/static/generators.js"></script><script defer src="/static/world-workshop.js"></script><script defer src="/static/development.js"></script><script defer src="/static/reply-direction.js"></script><script defer src="/static/towns.js"></script><script defer src="/static/element-assembly.js"></script><script defer src="/static/playable-demo.js"></script><script defer src="/static/map-import.js"></script><script defer src="/static/world-history.js"></script><script defer src="/static/spatial-planner.js"></script><script defer src="/static/play-ui.js?v=2"></script><script defer src="/static/native-map.js"></script><link rel="stylesheet" href="/static/exploration.css"><script defer src="/static/exploration-ui.js"></script><script defer src="/static/npc-cards.js"></script></head>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>织梦 · TextingDream</title><link rel="stylesheet" href="/static/style.css"><link rel="stylesheet" href="/static/map-tools.css"><link rel="stylesheet" href="/static/narrative-workbench.css"><link rel="stylesheet" href="/static/atelier.css?v=13"><script defer src="/static/app.js?v=3"></script><script defer src="/static/workers.js?v=2"></script><script defer src="/static/atlas.js?v=2"></script><script defer src="/static/generators.js"></script><script defer src="/static/world-workshop.js"></script><script defer src="/static/development.js"></script><script defer src="/static/reply-direction.js?v=2"></script><script defer src="/static/towns.js"></script><script defer src="/static/element-assembly.js"></script><script defer src="/static/dice.js"></script><script defer src="/static/playable-demo.js?v=2"></script><script defer src="/static/map-import.js"></script><script defer src="/static/world-history.js"></script><script defer src="/static/spatial-planner.js"></script><script defer src="/static/play-ui.js?v=4"></script><script defer src="/static/native-map.js"></script><link rel="stylesheet" href="/static/exploration.css"><link rel="stylesheet" href="/static/element-codex.css?v=1"><link rel="stylesheet" href="/static/retro.css?v=3" data-theme-sheet="retro"><link rel="stylesheet" href="/static/medieval.css?v=2" data-theme-sheet="medieval"><script src="/static/theme.js?v=1"></script><script defer src="/static/exploration-ui.js?v=2"></script><script defer src="/static/npc-cards.js"></script></head>
 <body>
 <div id="notice" role="status" hidden></div>
 <!-- ================= 主界面：工作区 / 世界地图 / 故事手记 ================= -->
@@ -9,7 +9,6 @@
   <span class="tb-spacer"></span>
   <span id="conn-state" class="tb-conn" role="status">正在连接…</span>
   <button id="api-toggle" class="tb-btn" type="button" aria-expanded="false" aria-controls="api-pop">连接设置</button>
-  <button id="play-new" class="tb-btn primary" type="button">新建对话</button>
  </header>
  <div id="api-pop" class="api-pop" hidden></div>
  <div id="play-body">
@@ -18,11 +17,8 @@
    <button id="workspace-api" class="workspace-link workspace-api-entry" type="button"><span aria-hidden="true">⌁</span> API 配置 <small id="workspace-api-hint">连接模型</small></button>
    <p class="workspace-label">开始</p>
    <button id="workspace-new-world" class="workspace-link" type="button"><span aria-hidden="true">✧</span> 新建世界</button>
-   <button id="workspace-new-chat" class="workspace-action workspace-featured" type="button"><span aria-hidden="true">＋</span> 新建对话</button>
    <button id="workspace-elements" class="workspace-link" type="button"><span aria-hidden="true">▦</span> 元素数据库</button>
    <button id="workspace-author-map" class="workspace-link" type="button"><span aria-hidden="true">◎</span> 世界地图</button>
-   <p class="workspace-label">旅程存档</p>
-   <div id="workspace-sessions" class="workspace-sessions"></div>
    <p class="workspace-label">工具</p>
    <button id="workspace-map-tools" class="workspace-link" type="button" aria-expanded="false" aria-controls="native-map-toolbox"><span aria-hidden="true">⌗</span> 地图与圈地工具</button>
    <div id="native-map-toolbox" class="native-map-toolbox" hidden></div>
@@ -39,22 +35,52 @@
      <div class="player-map-foot"><span id="play-map-note"></span><div id="play-map-legend" class="play-map-legend"></div></div>
     </div>
    </section>
+   <!-- 故事手记：收起时是地图底部的一条；展开后占满地图区，三栏 = 旅程存档 / 正文 / 信息栏 -->
    <section id="play-left" class="conversation-drawer is-collapsed" aria-label="对话与记录">
-    <button id="conversation-handle" class="conversation-handle" type="button" aria-expanded="false" aria-controls="conversation-content"><span class="handle-title">故事手记</span><span id="conversation-summary" class="muted">选择或新建一段旅程</span><span class="handle-toggle" aria-hidden="true">⌃</span></button>
+    <button id="conversation-handle" class="conversation-handle" type="button" aria-expanded="false" aria-controls="conversation-content"><span class="handle-title">故事手记</span><span id="conversation-summary" class="muted">选择或新建一段旅程</span><span class="handle-toggle">展开 <span aria-hidden="true">⌃</span></span></button>
     <div id="conversation-content" class="conversation-content">
-     <div id="play-left-head">
-      <div class="plh-line"><span id="play-badge" class="tb-world">—</span><span id="play-place" class="muted"></span></div>
-      <div id="play-tabs" role="tablist" aria-label="对话面板">
-       <button type="button" role="tab" data-tab="chat" class="on" aria-selected="true">对话</button>
-       <button type="button" role="tab" data-tab="history" aria-selected="false">历史</button>
-       <button type="button" role="tab" data-tab="items" aria-selected="false">物品</button>
-       <button type="button" role="tab" data-tab="other" aria-selected="false">其他</button>
-      </div>
+     <aside id="journey-rail" class="journey-rail" aria-label="旅程存档">
+      <button id="journey-new" class="journey-new" type="button"><span aria-hidden="true">＋</span> 新建对话</button>
+      <p class="rail-label">旅程存档</p>
+      <div id="journey-list" class="journey-list"></div>
+      <p id="chapter-label" class="rail-label" hidden>本旅程章节</p>
+      <div id="conversations" class="journey-list chapter-list"></div>
+     </aside>
+     <div class="chat-col">
+      <header id="play-left-head" class="chat-head">
+       <button id="rail-toggle" class="icon-btn" type="button" aria-controls="journey-rail" aria-expanded="true" title="显示 / 隐藏旅程存档">☰ 存档</button>
+       <div class="chat-head-title"><strong id="play-badge">故事手记</strong><span id="play-place"></span></div>
+       <button id="info-toggle" class="icon-btn" type="button" aria-controls="info-panel" aria-expanded="true" title="显示 / 隐藏信息栏">信息 ☷</button>
+       <button id="drawer-collapse" class="icon-btn" type="button" title="收起对话，回到地图（Esc）">回到地图 <span aria-hidden="true">⌄</span></button>
+      </header>
+      <section id="surface" class="page">
+       <div class="reading">
+        <div id="journey-empty" class="journey-empty"><h2>开始一段旅程</h2><p class="muted">新建一段对话，或从左侧的旅程存档继续。</p><button id="journey-empty-new" class="primary" type="button">＋ 新建对话</button></div>
+        <header class="scene-head"><h2 id="event-title"></h2><p id="event-goal" class="muted"></p><div id="status-line" class="chips"></div></header>
+        <div id="story-text"></div>
+        <div id="story-after"></div>
+        <div id="actions" class="actions"></div>
+       </div>
+       <form id="chat-form" class="composer">
+        <div id="composer-pop" class="composer-pop"></div>
+        <div class="composer-box">
+         <select id="input-channel" class="channel-select" aria-label="输入方式" title="行动：描述你做什么；说出口：在场者能听见；内心与作者注：不传播"><option value="action">行动</option><option value="speech">说出口</option><option value="thought">内心活动</option><option value="note">作者注</option></select>
+         <textarea id="message" rows="1" placeholder="说些什么，或描述你的行动意图…" maxlength="3000"></textarea>
+         <button type="submit" class="primary send-btn" title="发送（Enter）">发送</button>
+        </div>
+        <div class="composer-tools">
+         <button id="tool-draft" class="tool-btn" type="button" aria-expanded="false" aria-controls="reply-direction-panel">✦ AI 起草台词</button>
+         <button id="tool-intent" class="tool-btn" type="button" aria-expanded="false" aria-controls="demo-intent">◇ 想做别的事</button>
+         <span class="composer-hint">Enter 发送 · Shift+Enter 换行</span>
+        </div>
+       </form>
+      </section>
      </div>
-     <div id="panel-history" class="play-panel" role="tabpanel" hidden></div>
-     <div id="panel-items" class="play-panel" role="tabpanel" hidden></div>
-     <div id="panel-other" class="play-panel" role="tabpanel" hidden></div>
-     <section id="surface" class="page"><div class="reading"><h2 id="event-title">从一次选择开始</h2><p id="event-goal" class="muted">建立一段新旅程，或从左侧继续存档。</p><div id="status-line" class="chips"></div><div id="story-text"></div><div id="actions" class="actions"></div><div class="toolbar"><button id="close-event">结束当前事件</button><button id="export-story">导出文本</button></div><details><summary>事件归档与回滚</summary><div id="archives"></div></details></div><form id="chat-form" class="composer"><textarea id="message" rows="2" placeholder="说些什么，或描述你的行动意图…" maxlength="3000"></textarea><div><span class="muted" title="关键动作由引擎给出候选与成本；只说话的回合只影响对话">自由输入</span><button type="submit" class="primary">发送 ↑</button></div></form></section>
+     <aside id="info-panel" class="info-panel" aria-label="旅程信息">
+      <div id="info-scene" class="info-scene"></div>
+      <details id="info-local" class="info-card" open><summary>资源与时间</summary><div id="local-state"></div><div class="ls-wait"><label>等待<input id="wait-hours" type="number" min="1" max="24" value="1"> 小时</label><button id="wait-local" type="button">等待</button></div><small id="wait-hint">本地推进时间，不调用 AI；事件进行中不能等待。</small></details>
+      <details id="info-journey" class="info-card"><summary>本段旅程</summary><div class="toolbar"><button id="close-event" type="button">结束当前事件</button><button id="export-story" type="button">导出文本</button></div><p class="rail-label">事件归档与回滚</p><div id="archives"></div></details>
+     </aside>
     </div>
    </section>
   </section>
@@ -63,12 +89,12 @@
 
 <!-- ================= 旧功能层：旧页面原样保留（DOM id 不变） ================= -->
 <div id="legacy" hidden>
-<aside class="sidebar"><div class="brand"><span class="logo">织</span><div>TextingDream<small>织梦 · 叙事工作台</small></div></div><button id="new-session" class="new">＋ 新的旅程</button><p class="section-label">工作空间</p><nav>
+<aside class="sidebar"><div class="brand"><span class="logo">织</span><div>TextingDream<small>织梦 · 叙事工作台</small></div></div><p class="section-label">工作空间</p><nav>
 <button data-page="surface" class="selected">◌ <span>表层对话</span><small>游玩</small></button>
+<button data-page="map">◎ <span>旅程地图</span><small>旧图册</small></button>
 <button data-page="notebook">▤ <span>知识点记录簿</span><small>所闻</small></button>
 </nav>
 <p class="section-label">地图与世界</p><nav>
-<button data-page="map">◎ <span>旅程地图</span><small>旧图册</small></button>
 <button data-page="world-workshop">✧ <span>世界创作</span><small>设定</small></button>
 </nav>
 <p class="section-label">创作与调试</p><nav>
@@ -76,13 +102,14 @@
 <button data-page="traces">≡ <span>模型输入输出</span><small>调试</small></button>
 <button data-page="api">⌁ <span>API 配置</span></button>
 <button data-page="settings">⚙ <span>设置</span></button></nav>
-<p class="section-label">旅程存档</p><div id="sessions" class="session-list"></div><div class="sidebar-bottom"><span class="dot"></span><span id="mode-label">正在连接…</span><small>本地工作空间</small></div></aside>
+<div class="sidebar-bottom"><span class="dot"></span><span id="mode-label">正在连接…</span><small>本地工作空间</small></div></aside>
 <main><header><div><span id="breadcrumb">工作空间 / 表层对话</span><h1 id="page-title">表层对话</h1></div><button id="back-to-play" class="tb-btn" type="button">← 回到游玩</button></header>
 <section id="notebook" class="page" hidden><div class="intro"><h2>旅途知识点</h2><p>状态层确认的记录排在前面；对话正文只是“说过什么”，仍是叙述，不代表已核实。</p></div><div class="toolbar"><input id="notebook-search" placeholder="搜索关键词或原文"><button id="refresh-notebook">刷新记录</button></div><div id="notebook-list"></div></section>
 <section id="inner" class="page" hidden><div class="intro"><h2>在幕后构建世界</h2><p>完整设定留在里层。公开字段由作者选择，运行时再按角色、地点和解锁条件筛选。</p></div><form id="generate-form" class="card"><label>创作类型<select id="kind"><option value="character">人物</option><option value="item">物品</option><option value="place">地点</option><option value="event">事件</option><option value="fact">事实 / 隐藏信息</option><option value="worldview">世界观</option></select></label><textarea id="instruction" rows="3" placeholder="例如：生成一位守护商路的旅人，表面身份是商人，有一段未公开的过去。" maxlength="4000" required></textarea><button class="primary">生成候选</button><small>离线模式生成可编辑示例；API 模式按指令创作。</small></form><div class="two-col"><div><h3>创作记录</h3><div id="drafts"></div></div><div class="card"><h3 id="draft-title">候选详情</h3><textarea id="draft-json" rows="18" spellcheck="false" placeholder="选择左侧候选，查看完整结构"></textarea><p class="muted">public_fields 留空表示不公开。secret 等隐藏字段不会自动进入表层。</p><div class="toolbar"><button id="save-draft">保存编辑</button><button id="approve-draft" class="primary">批准为新版本</button><button id="reject-draft">拒绝</button></div></div></div><details><summary>故事包与角色包 · 编辑 / 导入 / 导出</summary><p>编辑保存为新版本，已有旅程绑定旧版本；新建旅程使用最新版本。</p><textarea id="package-json" rows="18" spellcheck="false"></textarea><div class="toolbar"><button id="save-package">保存新版本</button><button id="export-package">导出组合包</button><label class="file">导入组合包<input id="import-package" type="file" accept=".json"></label></div></details><details><summary>版本历史</summary><div id="versions"></div></details><details><summary>运行审计 · 事实 / 信念 / 玩家所闻 / 检定</summary><button id="inspect">刷新当前旅程</button><pre id="audit"></pre></details></section>
 <section id="map" class="page" hidden><div class="intro"><h2>旅程地图 · 旧图册</h2><p>这里只作文本兼容：旧设定里的示意坐标与图册条目。游玩地图在右侧；若故事包已关联地图，右侧由服务器按已探索范围掩膜。</p></div><div class="toolbar"><button id="zoom-out">−</button><button id="zoom-in">＋</button><button id="reset-map">复位</button><label><input id="show-fog" type="checkbox" checked>探索迷雾</label></div><div class="map-viewport"><div id="map-canvas"><img src="/maps/world.svg" alt="包含亚洲、欧洲、非洲的世界地图"><svg id="map-overlay" viewBox="0 0 1440 720" aria-label="游戏地点与探索迷雾"></svg></div></div><div id="map-places" class="place-grid"></div><p class="muted">底图为公共领域数据，地图坐标仅用于测试，不表示真实历史疆域。<a href="https://www.naturalearthdata.com/about/terms-of-use/" target="_blank" rel="noreferrer">来源与许可</a></p></section>
-<section id="api" class="page" hidden><div class="intro"><h2>连接你的模型</h2><p>默认使用 DeepSeek。两个控制台共用模型连接，分别组织上下文。</p></div><form id="api-form" class="card settings-form"><label>API 地址<input id="api-url" type="url" required></label><label>模型名称<input id="api-model" required></label><label>API Key<input id="api-key" type="password" autocomplete="off" placeholder="留空保留当前密钥"></label><p id="key-status" class="muted"></p><small>密钥只保存在本次服务内存中，不会写进地址栏、日志或快照。重启后可重新填写，或使用 DEEPSEEK_API_KEY 环境变量。</small><label>最大输出 token<input id="max-tokens" type="number" min="200" max="8000"></label><label class="inline"><input id="offline" type="checkbox"> 离线测试模式（不调用 API）</label><div class="toolbar"><button class="primary">保存配置</button><button id="test-api" type="button">测试连接</button><button id="clear-key" type="button">清除密钥</button></div></form></section>
+<div id="panel-other" hidden></div>
+<section id="api" class="page" hidden><div class="intro"><h2>连接你的模型</h2><p>填写请求地址与密钥，选择服务支持的协议。</p></div><form id="api-form" class="card settings-form"><label>请求地址<input id="api-url" type="url" required placeholder="https://api.example.com/v1"></label><label>API Key<input id="api-key" type="password" autocomplete="off" placeholder="填写 API Key"></label><label>AI 接入协议<select id="api-protocol"><option value="openai">OpenAI 兼容（Chat Completions）</option><option value="anthropic">Anthropic（Messages）</option></select></label><p id="key-status" class="muted" role="status"></p><div class="model-picker"><button id="request-models" type="button">请求模型</button><label>请求模型<select id="api-model" disabled><option value="">请先请求模型</option></select></label><small id="models-status" role="status">请求可用模型后选择，点击保存配置生效。仅拉取列表，不发送对话。</small></div><small>本地免密服务可留空。密钥仅保存在本次服务内存。</small><div class="toolbar"><button class="primary">保存配置</button><button id="test-api" type="button">测试连接</button><button id="clear-key" type="button">清除密钥</button></div></form></section>
 <section id="settings" class="page" hidden><div class="intro"><h2>让故事按你的节奏展开</h2><p>阅读、上下文预算与通用语料。</p></div><form id="settings-form" class="card settings-form"><label>主题<select id="theme"><option value="dark">深色</option><option value="light">浅色</option></select></label><label>正文字号<input id="font-size" type="number" min="14" max="24"></label><label>相关记忆条数<input id="memory-k" type="number" min="1" max="12"></label><label>当前事件保留轮数<input id="history-turns" type="number" min="1" max="12"></label><label>上下文字符预算<input id="context-chars" type="number" min="6000" max="40000" step="1000"></label><small>字符预算用于限制请求规模，不等于模型 token 数；实际 token 用量见里层运行审计。</small><button class="primary">保存设置</button></form><div class="card"><h3>通用语料</h3><p class="muted">跨故事使用的表达与叙事约束。不要放入角色秘密或具体剧情真相。</p><textarea id="corpus" rows="7" maxlength="6000"></textarea><button id="save-corpus">保存通用语料</button></div></section>
 </main></div>
-<dialog id="new-dialog"><form id="new-form"><h2>新建对话</h2><label>对话名称<input id="session-title" value="西行见闻" required maxlength="80"></label><label>叙事视角<select id="session-mode"><option value="protagonist">主角</option><option value="observer">旁观者</option><option value="mixed">混合（由事件决定入场）</option></select></label><p class="muted">以最新故事包创建独立存档。</p><div class="toolbar"><button type="button" id="cancel-new">取消</button><button class="primary">创建对话</button></div></form></dialog><script src="/static/world-systems.js"></script>
+<dialog id="new-dialog"><form id="new-form"><h2>新建对话</h2><label>对话名称<input id="session-title" value="西行见闻" required maxlength="80"></label><label>叙事视角<select id="session-mode"><option value="protagonist">主角</option><option value="observer">旁观者</option><option value="mixed">混合（由事件决定入场）</option></select></label><p class="muted">以最新故事包创建独立存档。</p><div class="toolbar"><button type="button" id="cancel-new">取消</button><button class="primary">创建对话</button></div></form></dialog><script src="/static/world-systems.js?v=2"></script>
 </body></html>

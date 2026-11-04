@@ -11,6 +11,7 @@ from fastapi.testclient import TestClient
 
 from app import rewards as R
 from app.contracts import Turn
+from tests.fixtures_world import world_service
 from app.service import Service
 from app.storage import Store
 from app.web import create_app
@@ -31,7 +32,7 @@ class RewardCase(unittest.TestCase):
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory()
         self.path = Path(self.tmp.name) / 'rewards.sqlite3'
-        self.svc = Service(Store(self.path), ROOT)
+        self.svc = world_service(Store(self.path), ROOT)
         self.svc.provider.configure({'offline': True})
         self.rt = self.svc.runtime
         if self.use_config:
@@ -169,6 +170,8 @@ class ConfigTests(RewardCase):
         package['story'].setdefault('mechanics', {})['rewards'] = fragment()
         self.rt.commit_package(package['story'], package['characters'], '配置奖励')
         with TestClient(create_app(Path(self.tmp.name) / 'web.sqlite3')) as client:
+            from tests.fixtures_world import adopt_world
+            adopt_world(client.app.state.service.runtime, package['story'], package['characters'])
             boot = client.get('/api/bootstrap').json()
             headers = {'X-TextileDream-Token': boot['token']}
             self.assertEqual(client.get('/api/inner/rewards').status_code, 403)
@@ -681,7 +684,7 @@ class PersistenceTests(RewardCase):
         wallet = copy.deepcopy(self.s['rewards']['wallet'])
         items = copy.deepcopy(self.s['rewards']['items'])
         version = self.s['state_version']
-        restarted = Service(Store(self.path), ROOT)
+        restarted = world_service(Store(self.path), ROOT)
         reloaded = restarted.store.session(self.s['id'])
         self.assertEqual(reloaded['rewards']['wallet'], wallet)
         self.assertEqual(reloaded['rewards']['items'], items)

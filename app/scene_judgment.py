@@ -2,6 +2,10 @@
 from pydantic import BaseModel, ConfigDict, Field
 from . import free_actions, npc_cards
 
+#: 判定 v2 的档位中文名（给模型的是档位事实，不是可改的数值）。
+CHECKS_TIER_LABELS = {'critical': '大成功', 'success': '成功', 'partial': '成功但有代价',
+                      'setback': '失败但前进', 'disaster': '失败且恶化', 'refused': '拒绝'}
+
 
 class Reaction(BaseModel):
     model_config = ConfigDict(extra='forbid')
@@ -95,16 +99,27 @@ def context(runtime, session, request, result, action):
                          'heard_input': request.message if cid in result.get('listeners', []) else None,
                          'known': [{k: r[k] for k in ('text', 'kind', 'certainty', 'distortion') if k in r}
                                    for r in session['beliefs'] if r.get('character') == cid][-5:]})
-    for cid, choices in (action or {}).get('social', {}).get(branch, {}).items():
+    # 目击者：判定 v2 的 concealed 检定给了**实际**目击集合时，只把真正看见的人放进
+    # observers（没察觉的 NPC 不作反应、不记忆）；否则沿用作者声明的 social[branch]。
+    witness_set = result.get('witnesses')
+    if witness_set is not None:
+        social_rows = {cid: list((cfg.get('actors', {}).get(cid, {}).get('choices') or {}))
+                       for cid in witness_set}
+    else:
+        social_rows = (action or {}).get('social', {}).get(branch, {})
+    for cid, choices in social_rows.items():
         if session['characters'][cid]['location'] != session['location']:
             continue
         actor = next(c for c in package['characters']['characters'] if c['id'] == cid)
         rule = cfg['actors'][cid]
+        usable = [key for key in choices if key in (rule.get('choices') or {})]
+        if not usable:
+            continue
         observers.append({'id': cid, 'name': actor.get('public_name', actor['name']),
                           'personality': actor.get('personality', {}), 'values': rule['values'],
                           'trust': session.get('development', {}).get(cid, {}).get('relationships', {}).get(session['hero'], {}).get('trust', .5),
                           'observed': result['outcome'],
-                          'choices': {key: rule['choices'][key]['line'] for key in choices}})
+                          'choices': {key: rule['choices'][key]['line'] for key in usable}})
     actors = {c['id']: c for c in package['characters']['characters']}
     for row in partners + observers:
         card = npc_cards.project(actors[row['id']], session, 'player')
@@ -118,9 +133,19 @@ def context(runtime, session, request, result, action):
             'money': session['local']['resources'].get('pence'),
             'known': [r['text'] for r in session['heard'][-5:]],
             'history': (session.get('active') or {}).get('turns', [])[-3:]}
-    if request.action_id and action and action.get('check'):
-        data['check'] = {k: session['checks'][-1][k] for k in
-                         ('attribute', 'probability', 'success', 'margin')}
+    if request.action_id and action and action.get('check') \
+            and not (result.get('check_public') or {}).get('refused'):
+        audit = session['checks'][-1]
+        if audit.get('rules_version') in ('d20_v2', 'd20_margin_v3'):
+            # v2：只给档位与结果，不给 modifier/dc/total/margin——模型不得反转或升级档位。
+            data['check'] = {'attribute': audit['attribute'], 'success': audit['success'],
+                             'tier': audit.get('tier'),
+                             'tier_label': (session.get('last_check') or {}).get('tier_label')
+                             or CHECKS_TIER_LABELS.get(audit.get('tier'), ''),
+                             'boundary': '档位是引擎已裁定的事实，不能反转或升级。'}
+        else:
+            data['check'] = {k: audit[k] for k in
+                             ('attribute', 'probability', 'success', 'margin')}
     return data
 
 
@@ -174,12 +199,20 @@ async def narrate(service, session, request, result, action):
 
 
 async def intent(service, session, story, node, text):
-    fallback = free_actions.suggest(session, story, node, text)
+    """把玩家意图变成候选。
+
+    ``characters`` 必须从本 session 的 revision 取真实人物文档并**逐层传下去**：判定 v2
+    的候选预览要用主角真实属性算修正与把握，也要用真实在场 NPC 判断社交目标与兜底目标。
+    不传就会退化成「主角属性按 50」的兼容降级——那会让确认时看到的风险与真正结算的
+    风险不一致，所以这里是生产入口，不是可省略的参数。
+    """
+    characters = service.runtime.package(session['revision'])['characters']
+    fallback = free_actions.suggest(session, story, node, text, characters=characters)
     if service.provider.config()['offline']:
         fallback['note'] = '离线：按公开动作匹配。复合行为分步执行，确认后才改变状态。'
         return fallback
-    actions = free_actions.available_with(session, story, node)
-    choices = [free_actions.summarise(a, story) for a in actions]
+    actions = free_actions.available_with(session, story, node, characters=characters)
+    choices = [free_actions.summarise(a, story, session, node, characters) for a in actions]
     if not choices:
         return fallback
     response, _ = await service.provider.complete(
@@ -194,6 +227,7 @@ async def intent(service, session, story, node, text):
         return {'matched': [], 'ambiguous': False, 'unjudged': True, 'note': selected.reason}
     if selected.action_id not in {a['id'] for a in actions}:
         raise ValueError('模型建议了不存在的行动，请重新描述')
-    item = free_actions.describe(session, story, node, selected.action_id)
+    item = free_actions.describe(session, story, node, selected.action_id,
+                                 characters=characters)
     return {'matched': [item], 'ambiguous': False, 'unjudged': False,
             'note': selected.reason + ' 本次只执行确认框中的一步。'}

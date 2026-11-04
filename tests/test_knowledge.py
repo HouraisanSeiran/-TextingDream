@@ -3,6 +3,7 @@ import json
 import tempfile
 import unittest
 from pathlib import Path
+from tests.fixtures_world import world_service
 from app.service import Service
 from app.storage import Store
 from app.contracts import Turn, DraftRequest
@@ -15,7 +16,7 @@ ROOT = Path(__file__).resolve().parents[1]
 class KnowledgeTests(unittest.TestCase):
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory()
-        self.service = Service(Store(Path(self.temp.name) / 'test.sqlite3'), ROOT)
+        self.service = world_service(Store(Path(self.temp.name) / 'test.sqlite3'), ROOT)
         self.rt = self.service.runtime
         self.s = self.rt.new_session('知识测试', 'protagonist')
 

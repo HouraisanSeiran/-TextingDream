@@ -11,7 +11,8 @@ def _time(value):
     if not isinstance(value, str):
         return None
     try:
-        return datetime.fromisoformat(value.replace("Z", "+00:00"))
+        parsed = datetime.fromisoformat(value.replace("Z", "+00:00"))
+        return parsed.replace(tzinfo=timezone.utc) if parsed.tzinfo is None else parsed.astimezone(timezone.utc)
     except ValueError:
         return None
 
@@ -20,8 +21,11 @@ def _number(value):
     return value if isinstance(value, int) and not isinstance(value, bool) and value >= 0 else None
 
 
-def _rates(rows, first, last):
-    seconds = max(1.0, (last - first).total_seconds()) if first and last else None
+def _rates(rows, hours):
+    seconds = hours * 3600 if hours is not None and hours > 0 else None
+    offline = sum(row['status'] == 'offline' for row in rows)
+    blocked = sum(row['status'] == 'blocked' for row in rows)
+    rows = [row for row in rows if row['status'] not in ('offline', 'blocked')]
     observed = [row for row in rows if row["input_tokens"] is not None or row["output_tokens"] is not None]
     input_values = [row["input_tokens"] for row in rows if row["input_tokens"] is not None]
     output_values = [row["output_tokens"] for row in rows if row["output_tokens"] is not None]
@@ -33,9 +37,11 @@ def _rates(rows, first, last):
     # report the rate over the requests that actually reported cache accounting.
     total_hit = sum(hit_values) if hit_values else None
     total_miss = sum(miss_values) if miss_values else None
-    total = (total_in or 0) + (total_out or 0) if total_in is not None or total_out is not None else None
+    total = total_in + total_out if rows and len(input_values) == len(rows) and len(output_values) == len(rows) else None
     return {
         "calls": len(rows), "telemetry_calls": len(observed),
+        "offline_traces": offline, "blocked_traces": blocked,
+        "input_usage_calls": len(input_values), "output_usage_calls": len(output_values),
         "unknown_usage_calls": len(rows) - len(observed),
         "input_tokens": total_in, "output_tokens": total_out, "total_tokens": total,
         "avg_input_tokens": round(mean(input_values), 1) if input_values else None,
@@ -58,7 +64,7 @@ def summarize(traces, hours=None, now=None):
     rows = []
     for trace in traces or []:
         created = _time(trace.get("created"))
-        if cutoff and (created is None or created < cutoff):
+        if cutoff and (created is None or created < cutoff or created > now):
             continue
         usage = trace.get("usage") or {}
         cache = cache_usage(usage)
@@ -72,8 +78,8 @@ def summarize(traces, hours=None, now=None):
     by_scope = {}
     for scope in sorted({row["scope"] for row in rows}):
         subset = [row for row in rows if row["scope"] == scope]
-        by_scope[scope] = _rates(subset, subset[0]["created"] if subset else None, subset[-1]["created"] if subset else None)
+        by_scope[scope] = _rates(subset, hours)
     return {"window_hours": hours, "from": first.isoformat() if first else None,
             "to": last.isoformat() if last else None,
-            "overall": _rates(rows, first, last), "by_scope": by_scope,
-            "note": "只统计供应商返回 usage 的请求；缺少 usage 的请求显示为未知，不能当作 0 token。窗口内只有一个请求时，速率是该请求的观测值，不是长期平均。"}
+            "overall": _rates(rows, hours), "by_scope": by_scope,
+            "note": "每小时为已报告用量除以所选窗口时长；覆盖不完整时仅反映已知用量。无明确窗口时速率未知。离线和未发送的记录不计入调用。"}

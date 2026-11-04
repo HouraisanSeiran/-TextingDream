@@ -9,6 +9,7 @@ from datetime import datetime, timezone
 from .contracts import Element
 from .models import StoryAssembly
 from .knowledge import PackageFiles, retrieve, notebook, validate_points, atomic_text, fsync_directory
+from .file_locks import file_lock
 from . import package_transaction
 from .recall import Recall, dialogue_records, vector
 from .context_stage import stage_history
@@ -21,6 +22,7 @@ from . import traits as traits_rules
 from . import start_profiles as start_rules
 from . import endings as endings_rules
 from . import free_actions
+from . import checks
 from . import scene_judgment
 from . import npc_cards
 from . import civ_exploration
@@ -64,14 +66,20 @@ def _reject_reserved_action_ids(story):
     ``adventure:xx`` 的静态动作，那时一个字节也不改。新机制包里如果还用这个前缀，
     同一个 id 会同时指静态动作与动态方案，界面与确认凭据都会歧义，所以在打包时拒绝。
     """
-    if adventure_actions.config(story) is None:
+    cfg = adventure_actions.config(story)
+    if cfg is None:
         return
+    # ``fallback:`` 只在包声明了 ``mechanics.adventure.fallback`` 块时才保留（不论 enabled），
+    # 没写这个块的既有冒险包一个字节也不改。
+    prefixes = [adventure_actions.ID_PREFIX]
+    if cfg.fallback is not None:
+        prefixes.append(adventure_actions.FALLBACK_PREFIX)
     for event in story.get('events') or []:
         for action in event.get('actions') or []:
-            if str(action.get('id', '')).startswith(adventure_actions.ID_PREFIX):
-                raise ValueError('事件 %s 的动作 %r 占用了保留前缀 %r（运行时方案专用）'
-                                 % (event.get('id'), action.get('id'),
-                                    adventure_actions.ID_PREFIX))
+            for prefix in prefixes:
+                if str(action.get('id', '')).startswith(prefix):
+                    raise ValueError('事件 %s 的动作 %r 占用了保留前缀 %r（运行时方案专用）'
+                                     % (event.get('id'), action.get('id'), prefix))
 
 
 #: 世界历史进入 prompt/surface 的上限：条目数与字符数都有界，空结果不加 key。
@@ -192,7 +200,33 @@ class Runtime:
         for session in store.all('session'):
             if not store.get('package', session.get('revision')):
                 continue
-            self.session_files(session).save_notes('旅程', session['id'], notebook(session))
+            self.rebuild_session_notes(session['id'])
+
+    def save_session_with_notes(self, session):
+        """Commit the authoritative save and a durable note-rebuild marker together."""
+        pending = {'id': session['id'], 'version': session.get('state_version', 0) + 1}
+        self.store.save_session(session, records=[('session_notes_pending', session['id'], pending)])
+        self.rebuild_session_notes(session['id'])
+
+    def rebuild_session_notes(self, session_id):
+        """Rebuild derived Markdown from the committed save; leave failures pending."""
+        identity = hashlib.sha256(str(session_id).encode('utf-8')).hexdigest()
+        lock = self.store.path.resolve().parent / '.notes-locks' / (self.store.path.name + '.' + identity + '.lock')
+        try:
+            with file_lock(lock):
+                # Read after acquiring the lock: a previous publisher may have waited
+                # while a newer state committed. Only this publisher may clear its marker.
+                session = self.store.session(session_id)
+                self.session_files(session).save_notes('旅程', session_id, notebook(session))
+                with self.store.transact() as db:
+                    row = db.execute('SELECT body FROM documents WHERE kind=? AND id=?',
+                                     ('session_notes_pending', session_id)).fetchone()
+                    if row and json.loads(row[0]).get('version', -1) <= session['state_version']:
+                        db.execute('DELETE FROM documents WHERE kind=? AND id=?',
+                                   ('session_notes_pending', session_id))
+        except OSError:
+            return False
+        return True
 
     def package_directory(self, folder):
         if not folder or folder.startswith('.') or '/' in folder or '\\' in folder or ':' in folder:
@@ -352,6 +386,8 @@ class Runtime:
         world_history_store.validate_package_history(story)
         endings_rules.validate_package(story, characters)
         validate_points(story.get('knowledge', []))
+        # 判定 v2：只有包显式声明 mechanics.checks 才校验（旧包与 v1 公式一字不变）。
+        checks.validate_all(story, characters)
         # Keep extension declarations in raw JSON; validate both base schema and references.
         StoryAssembly.model_validate({'story': story, 'characters': characters})
         if story['character_package_id'] != characters['id']:
@@ -392,11 +428,18 @@ class Runtime:
                 # 作者公开的意图别名：有界、去重、非空；它是玩家可见文本，不替作者把关内容。
                 free_actions.validate_action_aliases(action)
                 check = action.get('check')
-                if check and not (0 <= check['difficulty'] <= 1):
+                if check and not (checks.enabled(story) and check.get('dc') is not None) \
+                        and not (0 <= check['difficulty'] <= 1):
                     raise ValueError('检定难度应在 0 到 1 之间')
                 for branch in ('effects', 'success', 'failure'):
                     for effect in action.get(branch, []):
-                        if effect.get('op') not in ('flag', 'take', 'fact', 'rumor', 'status', 'resource', 'information','health'):
+                        # 判定 v2 的钟推进：只有声明了 mechanics.checks 的包里合法，
+                        # 旧包（没有这个键）照旧拒绝。
+                        allowed_ops = ('flag', 'take', 'fact', 'rumor', 'status',
+                                       'resource', 'information', 'health')
+                        if checks.enabled(story):
+                            allowed_ops += ('clock',)
+                        if effect.get('op') not in allowed_ops:
                             raise ValueError('未支持的状态操作')
                         if effect['op'] == 'take' and effect['id'] not in items:
                             raise ValueError('物品不存在')
@@ -592,6 +635,9 @@ class Runtime:
              'characters': {c['id']: {'location': c['location_id'], 'status': copy.deepcopy(c.get('state', {}))} for c in p['characters']['characters']},
              'facts': [], 'beliefs': [], 'heard': [], 'seed': uid(), 'checks': [], 'active': None,
              'archives': [], 'usage': [], 'turn_index': 0, 'decisions': []}
+        # 判定 v2：钟与尝试记录属于快照状态，开局就建好，回滚能回到同一形状。
+        # 没有 mechanics.checks 的包不加任何键（旧存档形状不变）。
+        checks.ensure(s, p['story'])
         # An empty reward ledger when configured, so an event's `before` snapshot already
         # carries zeros and a rollback lands on the same shape. Unconfigured stays bare.
         rewards_rules.ensure(s, p['story'])
@@ -986,6 +1032,12 @@ class Runtime:
                 for audience in effect['known_by']:
                     if audience=='player':s['heard'].append({**record,'id':uid()})
                     else:s['beliefs'].append({**record,'id':uid(),'character':audience,'kind':'information'})
+            elif op == 'clock':
+                # 判定 v2 的进度/危险钟。状态写在 ``session['clocks']``（随快照回滚），
+                # 满格时 ``on_full`` 恰好执行一次；旧包没有 mechanics.checks，上面已经
+                # 在包校验里拒绝了这个 op。
+                checks.advance_clock(s, p['story'], effect['id'], int(effect['delta']),
+                                     effects=self.effects, source=source)
             elif op == 'status':
                 status = s['characters'][s['hero']]['status']
                 status[effect['id']] = max(0, min(1, status.get(effect['id'], 0) + effect['delta']))
@@ -1035,7 +1087,26 @@ class Runtime:
         result = {'ends': False, 'outcome': '继续对话', 'voice': ''}
         result['input_channel']=request.channel
         result['listeners']=listeners
-        if request.action_id:
+        extra_hours = 0
+        witnesses = None
+        if request.action_id and plan is not None and plan.get('kind') == 'fallback':
+            # 未匹配意图的有界兜底：只检定 + 白名单效果；可重复，不进 actions_done。
+            settled = self._fallback_turn(s, package, plan, node['id'])
+            result.update(settled)
+            extra_hours = settled.get('extra_hours', 0)
+            witnesses = settled.get('witnesses')
+        elif request.action_id and checks.enabled(package['story']) and action.get('check'):
+            # 判定 v2：社交底线/自动成功/重试/加码/钟/察觉全在 checks 里，这里只接线。
+            # refused 时不扣成本、不推进时长、不进 actions_done，只给一条公开回执。
+            settled = self._v2_turn(s, package, node, action, request)
+            result.update(settled['result'])
+            extra_hours = settled['extra_hours']
+            witnesses = settled['witnesses']
+            duration = duration or 0
+            if not settled['refused'] and (plan is None
+                                           or plan['kind'] not in adventure_actions.REPEATABLE):
+                s['active']['actions_done'].append(action['id'])
+        elif request.action_id:
             success = True
             local_rules.charge(s,package['story'],action,node['id']+':'+action['id'])
             if action.get('check'):
@@ -1070,7 +1141,9 @@ class Runtime:
             # 回滚回事件起点后可重做；奖励靠既有 ``grant_id`` 幂等，不另开账本。
             if plan is None or plan['kind'] not in adventure_actions.REPEATABLE:
                 s['active']['actions_done'].append(action['id'])
-        npc_cards.remember_action(package, s, node, action, result)
+        # 目击集合：判定 v2 的 concealed 检定会给出**实际**目击者；未声明的动作仍用
+        # 既有的「作者声明的 witnesses ∪ social[branch]」这条路径（逐字节不变）。
+        npc_cards.remember_action(package, s, node, action, result, witnesses=witnesses)
         # Deterministic personality response, biased by current state and beliefs.
         for cid in node['participants']:
             if cid == s['hero']:
@@ -1115,7 +1188,9 @@ class Runtime:
                 break
         # The clock and the story pressure share one entry point: `pressure_rules.advance`
         # calls local_rules.advance first, then evaluates stages against the same time.
-        pressure_rules.advance(s, package['story'], package['characters'], duration,
+        # v2 的 partial 默认代价可能是「多花一小时」：它并入同一个时钟，不另开第二个。
+        pressure_rules.advance(s, package['story'], package['characters'],
+                               int(duration or 0) + int(extra_hours or 0),
                                effects=self.effects)
         s['turn_index'] += 1
         if not scene_judgment.enabled(package['story']) and len(s['active']['turns']) + 1 >= node.get('max_turns', 8):
@@ -1129,8 +1204,7 @@ class Runtime:
         s['usage'].append(usage)
         if result['ends']:
             self.close_event(s, resolved_exit=True)
-        self.store.save_session(s)
-        self.session_files(s).save_notes('旅程', s['id'], notebook(s))
+        self.save_session_with_notes(s)
 
     def close_event(self, s, resolved_exit=False):
         if scene_judgment.enabled(self.package(s['revision'])['story']) and not resolved_exit:
@@ -1178,9 +1252,113 @@ class Runtime:
         restored['archives'] = copy.deepcopy(s['archives'][:index])
         restored['active'] = None
         self.enter(restored)
-        self.store.save_session(restored)
-        self.session_files(restored).save_notes('旅程', restored['id'], notebook(restored))
+        self.save_session_with_notes(restored)
         return restored
+
+    def _v2_turn(self, s, package, node, action, request):
+        """判定 v2 的一次动作结算（就地改 ``s``）：社交门槛 → 骰子 → 档位 → 后果。
+
+        顺序严格按规格 §8：可行性（成本/目标在场/社交底线）全部在掷骰与副作用之前。
+        ``refused`` 时**不扣成本、不推进时间、不进 actions_done**，直接返回公开回执；
+        ``blocked``（同样做法刚失败过且作者选了 refuse）在写入前抛错。
+        """
+        story, characters = package['story'], package['characters']
+        plan_row = checks.plan(s, story, characters, node, action, request.push)
+        if plan_row['refused']:
+            refused = checks.execution_refusal(story, plan_row['refused'])
+            s['last_check'] = refused
+            return {'refused': True, 'witnesses': set(), 'extra_hours': 0,
+                    'result': {'ends': False, 'outcome': plan_row['refused'],
+                               'narrative': {'result': 'failure', 'checked': False,
+                                             'keywords': ['受阻', '仍保留选择'],
+                                             'boundary': '这是引擎裁定的拒绝；不扣成本、'
+                                                         '不推进时间，也不产生任何结果效果。'},
+                               'check_public': refused}}
+        if plan_row['blocked']:
+            raise ValueError(plan_row['blocked'])
+        if s['mode'] == 'observer' or (s['mode'] == 'mixed' and not node.get('player_enters', False)):
+            raise ValueError('旁观阶段可补述或注解，不能直接操作人物和物品')
+        source = node['id'] + ':' + action['id']
+        attempt_no = len(checks.attempts(s, node, action))
+        local_rules.charge(s, story, action, source)
+        option = plan_row['push']
+        if option is not None:
+            # 加码代价在掷骰前扣除；付不起已经在校验/确认阶段拒绝，这里是对状态的最后一道检查。
+            if option.cost:
+                local_rules.charge(s, story, {'costs': dict(option.cost)}, source + ':push')
+            if option.fatigue:
+                status = s['characters'][s['hero']]['status']
+                status['疲劳'] = min(1, status.get('疲劳', 0) + option.fatigue)
+            if option.relationship is not None:
+                target = plan_row['social']['target']
+                block = s.setdefault('development', {}).setdefault(target, {}) \
+                    .setdefault('relationships', {}).setdefault(s['hero'], {})
+                block['trust'] = round(max(0, min(1, block.get('trust', .5)
+                                                   + option.relationship.delta)), 3)
+        seed = '%s:%s:%s' % (s['seed'], node['id'], action['id'])
+        if attempt_no:
+            # 可重复动作/兜底：每次尝试用不同的骰，但同一次尝试在回滚后结果不变。
+            seed = '%s:%d' % (seed, attempt_no)
+        # 冻结：用**扣成本与加码代价之前**算好的那一份 plan 结算。重新 plan 会读取
+        # 扣费后的状态（疲劳升高、信任下降、钱变少导致资源因素变化），使实际 DC/修正
+        # 与玩家确认时看到的那一份不一致——那等于让代价反过来改已经确认的判定。
+        resolved = checks.resolve(s, story, characters, node, action, request.push, seed,
+                                  planned=plan_row)
+        resolved = {**resolved, 'seed': seed}
+        consequences = checks.consequences(s, story, characters, node, action, resolved)
+        before_clocks = checks.clock_state(s, story)
+        # 钟与档位效果同批应用：任何一个失败都不会留下半套。
+        batch = list(consequences['effects'])
+        for change in consequences['clocks']:
+            batch.append({'op': 'clock', 'id': change['id'], 'delta': change['delta']})
+        audits = self.effects(s, batch, source)
+        for row in consequences['relationships']:
+            block = s.setdefault('development', {}).setdefault(row['character'], {}) \
+                .setdefault('relationships', {}).setdefault(s['hero'], {})
+            block['trust'] = round(max(0, min(1, block.get('trust', .5) + row['delta'])), 3)
+        if consequences['hints']:
+            s['check_hints'] = list(s.get('check_hints') or []) + list(consequences['hints'])
+        checks.record_attempt(s, node, action, resolved['tier'], request.push)
+        notice_info = checks.notice(s, story, characters, node, action, resolved, seed)
+        clock_changes = []
+        for change in consequences['clocks']:
+            row = checks.clock_public_row(s, story, change['id'])
+            if row is None:
+                continue
+            after = row['filled']
+            was = before_clocks.get(change['id'], {}).get('filled', 0)
+            clock_changes.append({'id': change['id'], 'label': row['label'],
+                                  'segments': row['segments'], 'kind': row['kind'],
+                                  'from': was, 'to': after, 'changed': after != was})
+        public = checks.public_result(s, story, resolved, node, action, notice_info,
+                                      clock_changes)
+        # 本轮那一条（只保留本轮）：surface 的 ``last_check`` 就是它。
+        s['last_check'] = public
+        s['checks'].append({
+            'rules_version': resolved['rules_version'], 'attribute': resolved['attribute'],
+            'seed': seed, 'success': resolved['success'], 'tier': resolved['tier'],
+            'rolled': resolved['rolled'], 'dice': resolved['dice'], 'kept': resolved['kept'],
+            'advantage': resolved['advantage'], 'modifier': resolved['total_mod'],
+            'dc': resolved['dc'], 'total': resolved['total'], 'margin': resolved['margin'],
+            'position': resolved['position'], 'effect': resolved['effect'],
+            'push': option.id if option is not None else None,
+            # 作者侧审计（不进玩家投影与模型上下文）：因素全文与目标。
+            'factors': [{'id': r['id'], 'mod': r['mod'], 'visibility': r['visibility']}
+                        for r in resolved['factors']],
+            'social_target': resolved['social']['target']})
+        outcome = consequences['text']
+        public_rewards = rewards_rules.public_result(rewards_rules.rules(story), audits, s)
+        result = {'ends': action.get('ends_event', False), 'outcome': outcome,
+                  'narrative': outcome_cues(action, resolved['success'], True),
+                  'check_public': public}
+        if public_rewards:
+            result['rewards'] = public_rewards
+        if audits:
+            result['reward_audit'] = audits
+        if notice_info is not None:
+            result['witnesses'] = sorted(notice_info['witnesses'])
+        return {'refused': False, 'witnesses': notice_info['witnesses'] if notice_info else None,
+                'extra_hours': consequences['extra_hours'], 'result': result}
 
     def resolve_action(self, s, node, request, story):
         """解析这次要执行的动作：(action, plan, duration)。全部校验在副作用之前。
@@ -1203,16 +1381,39 @@ class Runtime:
                        if a['id'] == request.action_id), None)
         if action is None and plan is not None and plan.get('supported'):
             action = plan['action']
+        if action is None and plan is None and str(request.action_id).startswith(
+                adventure_actions.FALLBACK_PREFIX):
+            # 兜底尝试：按 id 重建（目标必须此刻仍可见），与动态方案一样**必须**带凭据。
+            plan = adventure_actions.fallback_from_id(
+                s, package['story'], package['characters'], request.action_id)
+            if plan is not None:
+                action = plan['action']
         if action is None or action['id'] in ((s.get('active') or {}).get('actions_done') or []):
             raise ValueError('操作不存在或已经执行')
         confirm = getattr(request, 'confirm', None)
+        push = getattr(request, 'push', None) if checks.enabled(package['story']) else None
         if action.get('requires_confirmation') and not confirm:
             raise ValueError('这个行动有明确风险，请先查看并确认后果')
+        if plan is not None and plan.get('kind') == 'fallback' and not confirm:
+            raise ValueError('这次尝试需要先确认（类别、目标、检定与时长以确认摘要为准）')
         if plan is not None and plan.get('action') is action and not confirm:
             raise ValueError('这个行动需要先确认（成本、时长与目标以确认摘要为准）')
+        if checks.enabled(package['story']) and action.get('check') and not confirm:
+            # 判定 v2：骰子、档位、钟与目击全部由引擎裁定，所以这次尝试**必须**先确认，
+            # 界面看到的那一份预览（含加码与道具代价）就是将要结算的那一份。
+            raise ValueError('这次检定需要先确认（处境、效果、加码与时限以确认摘要为准）')
         if confirm:
             free_actions.verify(s, package['story'], node, action['id'], confirm,
-                                plans=plans, characters=package['characters'])
+                                plans=plans, characters=package['characters'], push=push)
+        if checks.enabled(package['story']) and action.get('check'):
+            # v2：换加码/换做法都必须重新取凭据；社交拒绝与重试阻断在写入前就拒绝。
+            if confirm:
+                planned = checks.plan(s, package['story'], package['characters'], node,
+                                      action, push)
+                if planned['blocked']:
+                    raise ValueError(planned['blocked'])
+            free_actions._check_push_affordable(s, package['story'],
+                                                checks.config(package['story']), action, push)
         if not all(s['flags'].get(k, False) == v
                    for k, v in (action.get('requires') or {}).items()):
             raise ValueError('操作条件尚未满足')
@@ -1242,6 +1443,8 @@ class Runtime:
         if adventure_actions.config(story) is None:
             raise ValueError('故事包没有声明通用行动')
         plans, refused = adventure_actions.scan(s, story, characters)
+        if str(action_id).startswith(adventure_actions.FALLBACK_PREFIX):
+            return self._local_fallback(s, package, plans, action_id, confirm)
         plan = next((p for p in plans if p['action_id'] == action_id), None)
         if plan is not None and plan['kind'] == 'travel':
             # 旅行有它自己的入口（地图移动），不在这里结算。
@@ -1282,6 +1485,169 @@ class Runtime:
         public = rewards_rules.public_result(rewards_rules.rules(story), audits, work)
         if public:
             result['rewards'] = public
+        return result, work
+
+    #: 兜底结算允许落地的 op（白名单）。关系微调不走 op，单独写 development。
+    FALLBACK_OPS = ('flag', 'information')
+
+    def _fallback_turn(self, s, package, plan, scope):
+        """结算一次兜底尝试（就地改 ``s``，调用方负责在候选副本上调用并保存）。
+
+        效果白名单：
+
+        * ``flag``：只允许这次尝试自己的 ``fallback_tried:...`` 记录标记；
+        * ``information``：只给玩家、恒为未确认（进 ``heard``，不进 ``facts``），文本必须是
+          作者池里这次选中的那一条；
+        * 关系微调：写 ``development.<cid>.relationships.<hero>.trust``（与 scene_judgment /
+          start_profiles 同一处），单次幅度封顶 ``MAX_RELATIONSHIP_DELTA``。
+
+        不发钱、不发物、不改 inventory、不写 fact、不改 active、不结束事件。
+        掷骰种子含「本尝试已做过几次」，所以重试不会永远复制同一个骰子，而回滚后（日志随
+        快照恢复）同一步的结果不变。
+        """
+        action = plan['action']
+        story, characters = package['story'], package['characters']
+        info = plan.get('information')
+        log = s.setdefault('fallback_log', [])
+        attempts = sum(1 for row in log if row.get('action') == action['id'])
+        success = True
+        check = action.get('check')
+        source = 'fallback:' + scope + ':' + action['id']
+        # 兜底发生在哪个事件里（无事件时只有 scope 本身）：v2 的 plan/consequences 需要
+        # 一个带 id 与 participants 的节点视图，这里按当前 active 事件现搭一份。
+        active = s.get('active') or {}
+        node = {'id': active.get('node', scope),
+                'participants': [c['id'] for c in (characters or {}).get('characters') or []]}
+        if check and checks.enabled(story):
+            # 判定 v2 的兜底：同样的 d20 五档，但绝不发钱物、不写事实、不推风险钟。
+            seed = f"{s['seed']}:{scope}:{action['id']}:{attempts}"
+            frozen = checks.plan(s, story, characters, node, action, None)
+            resolved = checks.resolve(s, story, characters, node, action, None, seed,
+                                      planned=frozen)
+            resolved = {**resolved, 'seed': seed}
+            consequences = checks.consequences(s, story, characters, node, action, resolved,
+                                               scope='fallback', include_base=False)
+            batch = [effect for effect in consequences['effects']
+                     if effect.get('op') in self.FALLBACK_OPS]
+            for effect in batch:
+                if effect['op'] == 'flag' and effect.get('id') != plan.get('flag'):
+                    raise ValueError('兜底尝试只能写自己的记录标记')
+                if effect['op'] == 'information' and (
+                        effect.get('confirmed') or effect.get('known_by') != ['player']
+                        or info is None or effect.get('text') != info['text']):
+                    raise ValueError('兜底信息只能来自作者池且不确认为事实')
+            self.effects(s, batch, source)
+            success = resolved['success']
+            given_v2 = info['text'] if (success and info) else None
+            log.append({'action': action['id'], 'kind': plan['fallback_kind'],
+                        'target': {'kind': plan['target']['kind'], 'id': plan['target']['id']},
+                        'at': s['time'], 'success': success, 'repeat': plan['repeat'],
+                        'hint': info['id'] if given_v2 else None, 'relationship': [],
+                        'tier': resolved['tier']})
+            public = checks.public_result(s, story, resolved)
+            s['last_check'] = public
+            s['checks'].append({
+                'rules_version': resolved['rules_version'], 'attribute': resolved['attribute'],
+                'seed': seed, 'success': success, 'tier': resolved['tier'],
+                'rolled': resolved['rolled'], 'dice': resolved['dice'],
+                'kept': resolved['kept'], 'advantage': resolved['advantage'],
+                'modifier': resolved['total_mod'], 'dc': resolved['dc'],
+                'total': resolved['total'], 'margin': resolved['margin'],
+                'position': resolved['position'], 'effect': resolved['effect'],
+                'push': None, 'fallback': True})
+            outcome = consequences['text'] or action['success_text' if success
+                                                     else 'failure_text']
+            return {'ends': False, 'outcome': outcome,
+                    'narrative': outcome_cues(action, success, True),
+                    'check_public': public,
+                    'extra_hours': consequences['extra_hours'],
+                    'witnesses': None,
+                    'fallback': {'kind': plan['fallback_kind'],
+                                 'target': plan['target'].get('name') or plan['target']['id'],
+                                 'result': 'success' if success else 'failure',
+                                 'information': given_v2,
+                                 'boundary': '这是一次通用尝试：只能表达上述结果，'
+                                             '不得新增物品、钱财、通行、事实或关系变化。'}}
+        if check:
+            hero = next(c for c in characters['characters'] if c['id'] == s['hero'])
+            axis = attributes.ALIASES.get(check['attribute'], check['attribute'])
+            vals = attributes.values(hero.get('attributes'),
+                                     legacy=set(hero.get('attributes', {})) != set(attributes.AXES))
+            ability = vals[axis] / 100 if axis in vals else .5
+            fatigue = s['characters'][s['hero']]['status'].get('疲劳', 0)
+            seed = f"{s['seed']}:{scope}:{action['id']}:{attempts}"
+            audit = resolve_check(seed, check['attribute'], ability, check['difficulty'], fatigue)
+            audit['ability_defaulted'] = axis not in vals
+            success = audit['success']
+            s['checks'].append(audit)
+        batch = list(action.get('effects') or [])
+        if success:
+            batch += list(action.get('success') or [])
+        for effect in batch:
+            if effect.get('op') not in self.FALLBACK_OPS:
+                raise ValueError('兜底尝试只允许记录标记与作者信息')
+            if effect['op'] == 'flag' and effect.get('id') != plan.get('flag'):
+                raise ValueError('兜底尝试只能写自己的记录标记')
+            if effect['op'] == 'information' and (
+                    effect.get('confirmed') or effect.get('known_by') != ['player']
+                    or info is None or effect.get('text') != info['text']):
+                raise ValueError('兜底信息只能来自作者池且不确认为事实')
+        source = 'fallback:' + scope + ':' + action['id']
+        self.effects(s, batch, source)
+        changes = []
+        cap = adventure_actions.MAX_RELATIONSHIP_DELTA
+        for cid, delta in sorted((plan.get('relationship') or {}).get(
+                'success' if success else 'failure', {}).items()):
+            if cid == s['hero'] or cid not in s['characters']:
+                continue
+            delta = max(-cap, min(cap, float(delta)))
+            state = s.setdefault('development', {}).setdefault(cid, {}).setdefault(
+                'relationships', {}).setdefault(s['hero'], {})
+            old = state.get('trust', .5)
+            state['trust'] = round(max(0, min(1, old + delta)), 3)
+            changes.append({'character': cid, 'trust_delta': round(state['trust'] - old, 3)})
+        given = info['text'] if (success and info) else None
+        log.append({'action': action['id'], 'kind': plan['fallback_kind'],
+                    'target': {'kind': plan['target']['kind'], 'id': plan['target']['id']},
+                    'at': s['time'], 'success': success, 'repeat': plan['repeat'],
+                    'hint': info['id'] if given else None, 'relationship': changes})
+        outcome = action['success_text' if success else 'failure_text']
+        return {'ends': False, 'outcome': outcome,
+                'narrative': outcome_cues(action, success, bool(check)),
+                # 给模型的只有这一小块：类别、目标公开名、检定结果、实际给出的信息文本。
+                'fallback': {'kind': plan['fallback_kind'],
+                             'target': plan['target'].get('name') or plan['target']['id'],
+                             'result': ('success' if success else 'failure') if check else 'done',
+                             'information': given,
+                             'boundary': '这是一次通用尝试：只能表达上述结果，'
+                                         '不得新增物品、钱财、通行、事实或关系变化。'}}
+
+    def _local_fallback(self, s, package, plans, action_id, confirm):
+        """没有进行中事件时的兜底尝试：与 ``local_action`` 同语义（候选副本、不写库）。"""
+        story, characters = package['story'], package['characters']
+        if s['mode'] == 'observer':
+            raise ValueError('旁观阶段不能直接操作人物和物品')
+        plan = adventure_actions.fallback_from_id(s, story, characters, action_id)
+        if plan is None:
+            raise ValueError('这里没有可确认的这个尝试')
+        if not confirm:
+            raise ValueError('这次尝试需要先确认（类别、目标、检定与时长以确认摘要为准）')
+        free_actions.verify(s, story, None, action_id, confirm,
+                            plans=plans, characters=characters)
+        work = copy.deepcopy(s)
+        before = work['time']
+        settled = self._fallback_turn(work, package, plan, 'local')
+        pressure_rules.advance(work, story, characters, plan['duration_hours'],
+                               effects=self.effects)
+        work['local_actions'] = list(work.get('local_actions') or []) + [{
+            'action': action_id, 'kind': 'fallback',
+            'at': work['time'], 'hours': plan['duration_hours']}]
+        result = {**settled, 'kind': 'fallback', 'duration_hours': plan['duration_hours'],
+                  'listeners': [],
+                  'local_result': {'action_id': action_id, 'kind': 'fallback',
+                                   'hours': work['time'] - before,
+                                   'label': plan['action']['label'], 'resources': [],
+                                   'outcome': settled['outcome']}}
         return result, work
 
     def adventure_plans(self, s):
@@ -1393,7 +1759,7 @@ class Runtime:
         plans, refused = adventure_actions.scan(s, story, package['characters'])
         rows = []
         for plan in plans:
-            view = adventure_actions.public(plan, story)
+            view = adventure_actions.public(plan, story, s, node, package['characters'])
             if plan['action'] is not None and plan['supported']:
                 view['confirm'] = free_actions.confirm_token(s, node, plan['action'], story)
             if plan['kind'] == 'travel' and s['active']:
@@ -1425,6 +1791,8 @@ class Runtime:
         # action shape, so an old package's surface payload stays byte-identical.
         detailed = any(key in (p['story'].get('mechanics') or {})
                        for key in ('start_profiles', 'pressure', 'endings', 'traits'))
+        # 判定 v2 的包也要给成本/时长/检定的完整字段，否则界面拿不到处境与把握。
+        detailed = detailed or checks.enabled(p['story'])
         available = [] if not node else [
             a for a in node['actions']
             if a['id'] not in s['active']['actions_done']
@@ -1433,12 +1801,16 @@ class Runtime:
         if detailed:
             actions = []
             for a in available:
-                summary = free_actions.summarise(a, p['story'])
-                actions.append({'id': a['id'], 'label': a['label'],
-                                'costs': summary['costs'],
-                                'duration_hours': summary['duration_hours'],
-                                'check': summary['check'],
-                                'ends_event': summary['ends_event']})
+                summary = free_actions.summarise(a, p['story'], s, node, p['characters'])
+                row = {'id': a['id'], 'label': a['label'],
+                       'costs': summary['costs'],
+                       'duration_hours': summary['duration_hours'],
+                       'check': summary['check'],
+                       'ends_event': summary['ends_event']}
+                v2 = (summary.get('check') or {}).get('v2')
+                if v2:
+                    row['check_v2'] = v2
+                actions.append(row)
         else:
             actions = [{'id': a['id'], 'label': a['label']} for a in available]
         if s['mode'] == 'observer' or (s['mode'] == 'mixed' and node and not node.get('player_enters', False)):
@@ -1462,6 +1834,8 @@ class Runtime:
                 'places': [{'id': l['id'], 'name': l['name'], 'coordinates': l.get('coordinates', [0, 0]), 'explored': l['id'] in s['explored'], 'current': l['id'] == s['location'], 'can_move': l['id'] in current['neighbors'] and not s['active']} for l in places if l['id'] in visible],
                 'inventory': [i['name'] for i in p['story']['items'] if i['id'] in s['inventory']],
                 'elements': self.project_elements(s, 'player')}
+        if self.store.get('session_notes_pending', s['id']):
+            surface['notes_sync'] = {'status': 'pending', 'message': '旅程已保存，笔记待同步'}
         if rewards_rules.rules(p['story']):
             # The legacy `inventory` string list stays exactly as it was; the structured
             # holding view is added only when the author configured rewards.
@@ -1495,6 +1869,11 @@ class Runtime:
         chronicle = self.world_history(s, p['story'], 'player')
         if chronicle is not None:
             surface['world_history'] = chronicle
+        # 判定 v2：玩家可见的钟与「本轮那一条」结算结果。旧包缺这两个键（保持缺键）。
+        if checks.enabled(p['story']):
+            surface['clocks'] = checks.public_clocks(s, p['story'], 'player')
+            if s.get('last_check') is not None:
+                surface['last_check'] = s['last_check']
         return surface
 
     def approve(self, draft):

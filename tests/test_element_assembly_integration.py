@@ -16,11 +16,12 @@ from fastapi.testclient import TestClient
 from app import element_assembly as ea
 from app import towns
 from app.contracts import Turn
+from tests.fixtures_world import world_service
 from app.service import Service
 from app.storage import Store
 from app.town_schema import DraftRequest as TownDraftRequest, TownInput
 from app.towns_store import TownError
-from app.web import create_app
+from tests.fixtures_world import world_app as create_app
 from app.world_generator import GenerateWorldRequest
 from app.world_pipeline import PipelineRequest, WorldPipeline
 
@@ -122,7 +123,7 @@ class JourneyTests(AssemblyCase):
     def test_export_imports_into_an_empty_database(self):
         self.commit_wheat({'public_description': '当地以小麦为主食。'})
         exported = copy.deepcopy(self.svc.runtime.package())
-        empty = Service(Store(self.dir / 'imported.sqlite3'), ROOT)
+        empty = world_service(Store(self.dir / 'imported.sqlite3'), ROOT)
         empty.runtime.commit_package(copy.deepcopy(exported['story']),
                                      copy.deepcopy(exported['characters']), '导入组合包')
         manifest = empty.elements.manifest()
@@ -693,7 +694,7 @@ class RecoveryTests(AssemblyCase):
     def restart(self, token='next-boot-token'):
         """模拟进程重启：换一个 owner token 重建 Service（包事务日志已由 Runtime 先恢复）。"""
         with patch.object(ea, 'PROCESS_TOKEN', token):
-            return Service(Store(self.dir / 'state.sqlite3'), ROOT)
+            return world_service(Store(self.dir / 'state.sqlite3'), ROOT)
 
     def test_startup_recovery_repairs_a_crashed_commit(self):
         draft = self.svc.elements.save_draft([self.selection(WHEAT)], [])

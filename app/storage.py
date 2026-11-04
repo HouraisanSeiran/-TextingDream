@@ -2,7 +2,20 @@
 import json
 import sqlite3
 from contextlib import contextmanager
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
+
+from .token_usage import _time, summarize
+
+USAGE_RETENTION_DAYS = 90
+
+
+def _usage_record(trace):
+    """Metering stays independent of prompt/response retention."""
+    record = {key: trace[key] for key in ('id', 'scope', 'status', 'usage') if key in trace}
+    created = _time(trace.get('created'))
+    record['created'] = created.isoformat() if created else None
+    return record
 
 
 def dumps(value):
@@ -23,7 +36,22 @@ class Store:
                 CREATE TABLE IF NOT EXISTS facts(session TEXT, id TEXT, body TEXT, PRIMARY KEY(session,id));
                 CREATE TABLE IF NOT EXISTS beliefs(session TEXT, id TEXT, body TEXT, PRIMARY KEY(session,id));
                 CREATE TABLE IF NOT EXISTS heard(session TEXT, id TEXT, body TEXT, PRIMARY KEY(session,id));
+                CREATE TABLE IF NOT EXISTS model_usage(id TEXT PRIMARY KEY, created TEXT, body TEXT NOT NULL);
+                CREATE INDEX IF NOT EXISTS model_usage_created ON model_usage(created);
             ''')
+            # Backfill available legacy traces once. Deleted historical traces cannot
+            # be reconstructed, so earlier windows are explicitly marked incomplete.
+            db.execute('BEGIN IMMEDIATE')
+            metadata = db.execute('SELECT body FROM documents WHERE kind=? AND id=?',
+                                  ('settings', 'token_usage_history')).fetchone()
+            if metadata is None:
+                for row in db.execute('SELECT body FROM documents WHERE kind=?', ('trace',)).fetchall():
+                    record = _usage_record(json.loads(row[0]))
+                    db.execute('INSERT OR IGNORE INTO model_usage VALUES(?,?,?)',
+                               (record['id'], record['created'], dumps(record)))
+                db.execute('INSERT INTO documents VALUES(?,?,?)',
+                           ('settings', 'token_usage_history', dumps({
+                               'complete_since': datetime.now(timezone.utc).isoformat()})))
 
     @contextmanager
     def connect(self):
@@ -58,13 +86,38 @@ class Store:
         return [json.loads(r[0]) for r in rows]
 
     def record_trace(self, trace, limit=200):
+        usage = _usage_record(trace)
+        cutoff = (datetime.now(timezone.utc) - timedelta(days=USAGE_RETENTION_DAYS)).isoformat()
         with self.connect() as db:
+            db.execute('INSERT OR REPLACE INTO model_usage VALUES(?,?,?)',
+                       (usage['id'], usage['created'], dumps(usage)))
+            db.execute('DELETE FROM model_usage WHERE created < ?', (cutoff,))
             db.execute('INSERT OR REPLACE INTO documents VALUES(?,?,?)', ('trace', trace['id'], dumps(trace)))
             db.execute('DELETE FROM documents WHERE kind=? AND id NOT IN (SELECT id FROM documents WHERE kind=? ORDER BY rowid DESC LIMIT ?)', ('trace', 'trace', limit))
 
     def clear_traces(self):
+        """Clear debug bodies; independently retained usage remains available."""
         with self.connect() as db:
             db.execute('DELETE FROM documents WHERE kind=?', ('trace',))
+
+    def token_usage_summary(self, hours=24, now=None):
+        now = now or datetime.now(timezone.utc)
+        retention_start = now - timedelta(days=USAGE_RETENTION_DAYS)
+        cutoff = max(now - timedelta(hours=hours), retention_start) if hours is not None else retention_start
+        with self.connect() as db:
+            rows = db.execute('SELECT body FROM model_usage WHERE created >= ? AND created <= ? ORDER BY created,id',
+                              (cutoff.isoformat(), now.isoformat())).fetchall()
+            metadata = db.execute('SELECT body FROM documents WHERE kind=? AND id=?',
+                                  ('settings', 'token_usage_history')).fetchone()
+        report = summarize([json.loads(row[0]) for row in rows], hours=hours, now=now)
+        started = _time(json.loads(metadata[0]).get('complete_since')) if metadata else now
+        complete_since = max(started or now, retention_start)
+        report['coverage'] = {
+            'complete_since': complete_since.isoformat(),
+            'window_complete': hours is not None and now - timedelta(hours=hours) >= complete_since,
+            'retention_days': USAGE_RETENTION_DAYS,
+        }
+        return report
 
     def put(self, kind, id, value):
         self.put_many([(kind, id, value)])
@@ -113,3 +166,12 @@ class Store:
             for table in ('facts', 'beliefs', 'heard'):
                 state[table] = [json.loads(r[0]) for r in db.execute(f'SELECT body FROM {table} WHERE session=? ORDER BY rowid', (id,))]
         return state
+
+    def record_unmatched_intent(self, record, limit=500):
+        """Append an author-only diagnostic without changing any session version."""
+        with self.transact() as db:
+            db.execute('INSERT INTO documents VALUES(?,?,?)',
+                       ('unmatched_intent', record['id'], dumps(record)))
+            db.execute('DELETE FROM documents WHERE kind=? AND id NOT IN '
+                       '(SELECT id FROM documents WHERE kind=? ORDER BY rowid DESC LIMIT ?)',
+                       ('unmatched_intent', 'unmatched_intent', limit))

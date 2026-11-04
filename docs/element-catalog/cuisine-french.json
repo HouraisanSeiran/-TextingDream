@@ -1,0 +1,1201 @@
+{
+  "schema_version": 1,
+  "status": "candidate",
+  "group": "cuisine-french",
+  "genres": ["real_world"],
+  "compiled_note": "法国菜系菜品候选资料（元素库·现实基础侧）。不是完整食谱集，不是数据库记录，也没有被任何故事包采纳为正典。只收能用于小说与游戏世界构建的成品菜、技法体系与饮食制度：宫廷与高级菜、地方菜、面包与酥点、奶酪熟成与命名。**食材级条目不在此重复**：小麦、黑麦、荞麦、马铃薯、甘蓝、洋葱、大蒜、韭葱、芜菁、胡萝卜、番茄、茄子、苹果、梨、葡萄、樱桃、核桃、榛、乳、黄油、奶酪、蛋、牛肉、猪肉、羊肉、禽、鳕、牡蛎、蛤、虾、火腿、香肠、熬炼脂肪、干腌鱼、盐、醋、芥末、藏红花、胡椒、肉豆蔻、丁香、葡萄酒、苹果酒（蒸馏酒与啤酒）等均已在 staples / produce / flavors / animal-foods / food-supplement / materials 各组立条，本条只写菜品如何依赖它们，并以 related_catalog_ids 指向。做法只写到技法与工序顺序，**不给克数配比、不写成可执行食谱**，也不写强制喂食、宰杀与保存的具体操作参数。食品与菜名存在不等于当前世界存在，也不自动生成配方、库存或市场。全部条目 review_status=needs_review、detail_status=needs_detail，不代表事实审定完成。",
+  "sources": [
+    {
+      "id": "cuisine_fr_src_01",
+      "title": "French cuisine — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/French-cuisine",
+      "access": "read",
+      "supports": "法国菜为数百年来在法国发展出的菜式与烹饪技术；因地区与季节而变，以浓郁风味、优质本土食材、精致呈现著称，常配葡萄酒与奶酪；标志性菜品含 steak frites、gratin dauphinoise、coq au vin、bouillabaisse、ratatouille 与 quiche；法国发展出 charcuterie（腌腊肉与 pâté）传统，常作 assortiment 上桌。社会史：中世纪宫廷以丰盛宴席显示贵族财富与地位，菜用牛猪禽鱼并加菠菜、藏红花增色；14 世纪 Taillevent（Guillaume Tirel）为当时最负盛名的厨师；16 世纪中叶凯瑟琳·德·美第奇携意大利厨师入法，带来松露、甜面包、朝鲜蓟与 aspic、quenelle、custard 等精致做法；17 世纪 La Varenne 强调适度与食材质量胜于铺张与数量，其《Le Cuisinier François》(1651) 被视为第一部真正的法国食谱；1789 年大革命后食物更便宜可得、厨师开始开餐馆；19 世纪 Carême 主张烹饪既是艺术也是科学，创四种母酱（béchamel、velouté、espagnole、allemande）；Escoffier 改为五种母酱（béchamel、velouté、espagnole、hollandaise、tomato），把 allemande 降为二级，提倡应季食材、取消繁复配饰，并确立 mise en place；1960—70 年代 nouvelle cuisine。技法：mirepoix、en papillote、déglace、sous vide。地区菜：Choucroute Garnie（阿尔萨斯）为酸菜与白葡萄酒、猪肉、香肠同煮，有时加火腿、培根或马铃薯，以杜松子、丁香、月桂调味。法国美食 2010 年列入 UNESCO 名录。",
+      "rights_note": "Britannica 条目，商业百科；仅事实核对与自行转述，不复制原文段落；对外分发需另行处理授权。"
+    },
+    {
+      "id": "cuisine_fr_src_02",
+      "title": "Bouillabaisse — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/bouillabaisse",
+      "access": "read",
+      "supports": "马赛鱼汤是起源于法国地中海沿岸的复合鱼汤，普罗旺斯菜的代表；食谱繁多但马赛做法被公认最正宗；除鱼与贝类外含橄榄油、洋葱、番茄、大蒜、欧芹、藏红花、茴香、百里香、月桂与橙皮；正宗者必须用地中海鱼（含不可少的 racasse 等骨多岩鱼，以及 whiting、海鳗、鲻、chapon、 saint-pierre 等），用龙虾与蟹，巴黎版本用贻贝；所有材料必须快速同煮；rouille（蒜、红椒、面包屑与鱼汤制成的酱）在上桌时加入以提味；该菜曾获文学赞誉，如 Thackeray 在巴黎享用后所作歌谣。",
+      "rights_note": "Britannica 条目；仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "cuisine_fr_src_03",
+      "title": "Ratatouille — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/ratatouille",
+      "access": "read",
+      "supports": "普罗旺斯起源的时令蔬菜炖菜，含南瓜类、番茄与其他园蔬与香草；名出 ratouiller（搅动液体）与 tatouiller（打、摇）；经典做法是切块或切片蔬菜在橄榄油中炒至微褐以保持形状，再加水小火炖、不时搅动使味融合；常用西葫芦、番茄、蒜、甜椒、茄子，典型香料为罗勒与百里香；成菜有炖烂后回锅煎脆与多汁炖菜两路，各地不同；洋葱是否加入在当地厨师间有分歧，Robuchon 主张各类蔬菜分别炒再于炖煮阶段合并；共识是蔬菜须切好且不过煮、保持各自可辨认；已知最早食谱为 19 世纪，名称最早见于 18 世纪末，菜本身可能远早于此；为尼斯代表菜，是「农家菜被提升为高级餐饮」的典型（2007 年同名动画亦引用）；常温食，也可作夏日冷食；本身为素与纯素，但常配烤肉或鱼。",
+      "rights_note": "Britannica 条目；仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "cuisine_fr_src_04",
+      "title": "Gastronomic meal of the French — UNESCO Intangible Cultural Heritage",
+      "url": "https://ich.unesco.org/en/RL/gastronomic-meal-of-the-french-00437",
+      "access": "read",
+      "supports": "法国美食宴（repas gastronomique des Français）2010 年列入人类非物质文化遗产代表作名录；它是庆祝出生、婚礼、生日、周年、成就与团聚等人生重要时刻的习俗性社会实践，是让人聚在一起享受饮食艺术的节庆性一餐；强调共聚、味觉愉悦、人与自然的产物之间的平衡；要素包括：从不断丰富的食谱库中精选菜品、购买优质且最好本地、风味相配的食材、食物与葡萄酒搭配、布置美丽餐桌、进食时的具体动作如闻与品；须遵守固定结构——以 apéritif（餐前酒）开始、以 liqueurs 结束，其间至少四道：前菜、鱼和/或肉配蔬菜、奶酪、甜点；掌握深层知识并守护记忆的 gastronomes 看护这一实践的活态传承，尤其向年轻世代口传与书面传递；它拉近家人朋友圈层并强化社会纽带。",
+      "rights_note": "UNESCO 名录官方页面；仅事实核对与自行转述，不复制原文段落；引用应以「UNESCO 名录条目」而非「法规」方式表述。"
+    },
+    {
+      "id": "cuisine_fr_src_05",
+      "title": "Cassoulet — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/cassoulet",
+      "access": "read",
+      "supports": "卡苏莱是白豆与肉同烤的法国菜，得名于其炊具 cassole d'Issel；起源于西南部朗格多克；曾是简单的农家饭，后被发展为丰富复杂的菜；Castelnaudary 的基本版在豆之外加鲜猪肉与火腿，以及番茄、蒜、洋葱、香草与汤；Carcassonne 版另加羊肉与时令山鹑；Toulouse 版在基本版上加鸭或 confit d'oie（在鹅油中炖存鹅块）与图卢兹香肠；顶部以面包屑与鹅油形成脆壳。",
+      "rights_note": "Britannica 条目；仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "cuisine_fr_src_06",
+      "title": "Croissant — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/croissant",
+      "access": "read",
+      "supports": "可颂是典型月牙形的法国糕点，其法语名即来自月牙形；虽更早有关于 croissant 的烹饪记载，今天所知的配方最早只出现于 1906 年；其大流行看来是 20 世纪的现象；以酵母面团擀压分层裹入黄油制成；因黄油昂贵，许多面包师用麦淇淋等更便宜的替代品，故法国多数面包房供两种：croissant 与 croissant au beurre（含黄油者）；前者更像面包，后者远为浓郁；面包师的常见做法是把不含黄油者弯成明显弧形、把含黄油者拉直，以便清楚区分；理想可颂外脆起层、内部柔软可撕开；常填甜馅（杏仁、杏仁膏、巧克力）或咸馅（奶酪、菠菜、火腿）。",
+      "rights_note": "Britannica 条目；仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "cuisine_fr_src_07",
+      "title": "Foie gras — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/foie-gras",
+      "access": "read",
+      "supports": "鹅肝是法国菜的珍味，为经强制喂食育肥的鹅或鸭的肝；公认最佳产自斯特拉斯堡一带；理想质地非常紧实细腻，色泽乳白带粉；常填入酥皮烤成 pâté de foie gras，可热食或冷食；批或酥皮以果冻衬里，鹅肝以白兰地、调味料与松露调制；也可作泥状配面包或吐司与果冻、配饰菜或薄饼，或作 terrine；21 世纪初动物权倡导者指出以长管插入喉部强制喂食不人道并致肝病变；2006 年芝加哥成为美国首个立法禁止餐馆供应该菜的城市，两年后禁令废止。",
+      "rights_note": "Britannica 条目；仅事实核对与自行转述，不复制原文段落；本条不转述任何喂食操作细节。"
+    },
+    {
+      "id": "cuisine_fr_src_08",
+      "title": "Soup — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/soup",
+      "access": "read",
+      "supports": "汤是把肉、禽、鱼、豆类或蔬菜与调味料在水中、高汤、乳或其他液体介质里煮成的液态食物；煮汤之古老与容器的发明同步，在能耐直火的陶罐出现之前以把烧热石头投入液体之法煮汤；长时煮汤能从少量、骨多或过韧而无法另用的鱼与肉中取得营养；在西方较清淡的汤常作第一道，较浓稠厚实的汤则是便餐的主菜（显著例外为北欧与东欧的水果汤，常作甜点）；多种汤冷食，经典冷汤举法国 vichyssoise（马铃薯与韭葱）、西班牙 gazpacho 等；consommé 可冷食，此时因所用带骨肉中的天然明胶而呈冻状；许多汤以高汤为底，清汤可用另煮的蔬菜、面食或米、quenelle 或饺子、水波蛋等作饰；浓汤可用面粉或蛋增稠的酱汁、或蔬菜泥（加或不加黄油与奶油）取得稠度；bisque 与 chowder 通常是贝类或鱼、有时加肉或菜的奶油汤；厚实的炖煮型汤见各地农家菜，常组合根茎蔬菜、豆类与烟熏或鲜肉，如意大利 minestrone、法国 garbure。",
+      "rights_note": "Britannica 条目；仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "cuisine_fr_src_09",
+      "title": "Artisanal know-how and culture of baguette bread — UNESCO Intangible Cultural Heritage",
+      "url": "https://ich.unesco.org/en/RL/artisanal-know-how-and-culture-of-the-baguette-bread-01883",
+      "access": "read",
+      "supports": "法棍面包的手工技艺与文化 2022 年列入 UNESCO 人类非物质文化遗产代表作名录；法棍是法国全年最受喜爱与消费最多的面包；传统生产过程包括称量与混合原料、揉面、发酵、分割、松弛、手工成型、二次发酵、在面团上划浅口（面包师的签名）与烘烤；与其他面包不同，法棍只用四种原料（面粉、水、盐与引子和/或酵母），每位面包师由此得到独特的产品；需要特定知识与技术——小批量、全天烘烤，成品随温度与湿度而变；它还生成有别于其他面包的消费方式与社会实践，如每日到面包房购买、与长形相配的专用陈列架；其脆皮与有嚼劲的瓤造成独特的感官体验；用于家庭餐、餐馆以及工作场所与学校食堂；技艺主要经工作培训传承，将学校课程与面包房在岗实践结合，使未来面包师掌握原料、工具与流程知识。",
+      "rights_note": "UNESCO 名录官方页面；仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "cuisine_fr_src_10",
+      "title": "Charcuterie — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/charcuterie",
+      "access": "read",
+      "supports": "charcuterie 是法语词，指调制肉制品，如香肠、火腿、培根与 pâté；近年美国流行以 charcuterie board 作开胃菜或派对小吃，严格说应只含法国肉制品，但词义已扩大到兼含各种奶酪、坚果、水果、蔬菜、面包、饼干乃至酱汁；词源为 chair cuit（熟肉）；最初只限猪肉，因中世纪行会规章要求 charcuteries 只能卖猪肉与猪脂；该词原本指售卖场所（charcutier 的店）而非肉本身，charcutier 制备、烹煮与保存猪肉切块，有时也做别的食物，如四旬斋期（Lent）守斋者吃腌鱼而非肉；今天多数 charcuterie 仍为猪肉；腌腊一般经盐渍、烟熏、风干与腌制，并非每类肉都用全部工序；部分工序由环境决定——意大利空气较干可行风干，法国火腿常湿腌；较有名的 jambon de Paris 常以猪皮包裹并在他自身汁液中煮；最著名产区为奥弗涅（里昂附近）与阿尔萨斯（东北、靠德国边境），两区都以猪肉与古老猪种著称，制品中多有特色；有 charcutier 制 boudins noirs（血肠）与多种内脏制品；鸭 confit、galantine 与鹅肝批已进入 charcuterie 领域，terrine 亦然；地区变体如 saucisson sec 在法国南部近似 salami，在阿尔萨斯加肉豆蔻与肉桂，东部 saucisson aux noisettes 用本地榛子。",
+      "rights_note": "Britannica 条目；仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "cuisine_fr_src_11",
+      "title": "Truffle — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/science/truffle-fungus",
+      "access": "read",
+      "supports": "块菌（Tuber 属）是地下食用菌，作为美食珍味受重视；真块菌属 Tuber，主要原产温带；大小自豌豆至橙子；产孢子的子实体为地下或近地表的球状体，切面幼时白色均质，老熟转为深色并带浅色纹理；法国块菌业重要，所采约三分之一出口；主要 truffières 在南部，尤以 Périgord 与普罗旺斯—阿尔卑斯—蓝色海岸，但法国大部都有采集；法国政府曾对大片荒地造林，因许多最佳产区靠种树（尤其橡树）而丰产；块菌常深达约 30 厘米，难以徒手发现，近地表者成熟时会顶裂土面、有经验者可辨，晨昏可见小黄蝇在群落上方盘旋；通常靠训练过的犬或母猪寻获（母猪被类似公猪信息素的香气吸引）；直接商业栽培困难；生于开阔林地钙质土，与树根形成菌根共生；栽培须翻钙质土、种橡实或苗、撒布块菌区土壤、以轻耕耙维持地况；三年后开林并修枝；有处以孢子接种，更多任其自然；若出现须约五年后，八至十年后才较有利可图，五至 25 年后产量最大；Tuber 约 185 种；法国菜中最受重视者为 Périgord 块菌（T. melanosporum），据说 15 世纪末开始受青睐，褐或黑色、圆形、覆多角疣突，气味明显怡人；另有冬白块菌 T. magnatum 等；「假块菌」属担子菌，一般不可食。",
+      "rights_note": "Britannica 条目；仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "cuisine_fr_src_12",
+      "title": "Nouvelle cuisine — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/nouvelle-cuisine",
+      "access": "read",
+      "supports": "新料理是 1960—70 年代起源于法国的国际烹饪风格，强调新鲜、轻盈与风味清晰；针对更油更重的高级菜（grande cuisine）而发，凸显食材自然的色香味，减少脂肪、糖、精制淀粉与盐，并受日本式摆盘影响；1972 年这批创新被命名为 nouvelle cuisine；基本特征包括以收汁替代勾芡、小份新奇组合艺术化装大盘、回到重视采购、对质地与细节极度讲究；1960 年代若干年轻厨师开始不满 grande cuisine 的僵化体系，多人出自 Fernand Point 门下；早期人物有 Paul Bocuse、Michel Guérard 与评论家 Henri Gault、Christian Millau，后者 1969 年创办 Le Nouveau Guide 抗议米其林「保守堡垒」；1973 年 Gault 发表「新料理十诫」（不煮过头、用新鲜优质产品、菜单清淡、不系统性地现代主义、吸取新技术、避免腌菜腌肉与发酵食品、去掉浓厚酱汁、不忽视营养学、不矫饰摆盘、要有创意）；批评者包括《世界报》的 La Reynière、社会学家 Claude Fischler（1979 年讽刺其「苏格拉底式厨师」）、美国 Julia Child；Senderens 1978 年引入酱油曾遭批。",
+      "rights_note": "Britannica 条目；仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "cuisine_fr_src_13",
+      "title": "Hollandaise sauce — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/hollandaise-sauce",
+      "access": "read",
+      "supports": "荷兰酱是法国烹饪的经典酱之一，由黄油、蛋黄、柠檬汁与胡椒制成，通常配鱼、蛋或蔬菜；法语名意为「来自荷兰」，但它很可能源自诺曼底，初名 sauce Isigny（以产乳的 Calvados 城镇 Isigny-sur-Mer 命名）；因该区是新教胡格诺派重镇、许多人避迫害逃往荷兰，配方可能自荷兰重回法国，因而得名；已知最早配方用醋；1758 年发表的一版用 bouillon 与面粉而不用蛋；既已有其他配料，用蛋作乳化剂并非绝对必要；现今形式在 19 世纪初已在法国确立，此后不久传入他处；1860 年 Delmonico's 已把荷兰酱用于 eggs Benedict；20 世纪初经 Escoffier 大量使用（他称之为五大母酱之一）而成为菜单标配；历来多配芦笋、贝类或水波鲑鱼，并作 eggs Benedict 的浇头；与 béarnaise 相似：荷兰酱把极软的黄油搅入蛋黄与柠檬汁、在低火上边搅边慢加热；béarnaise 以醋与葡萄酒代替柠檬汁，加龙蒿与红葱，黄油通常先澄清；因蛋黄极易过热至 unwanted 的硬实，荷兰酱常被视为家庭厨师的难点。",
+      "rights_note": "Britannica 条目；仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "cuisine_fr_src_14",
+      "title": "Brioche — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/brioche",
+      "access": "read",
+      "supports": "布里欧修是柔软似蛋糕的法国面包，微甜、黄油对面粉比例高；17 世纪已到巴黎，brioche 一词至少 15 世纪已在使用；Marie-Antoinette「让他们吃 brioche」之语常被传说为她说，但该语句出现在她之前的著述中；以酵母面团富化黄油、蛋、乳与少量糖而成柔软易碎质地；黄油比例常达面粉的一半至四分之三，且通常揉三次（普通面包两次）；瓤嫩金黄、风味微甜；在法国常作早餐或下午茶配咖啡或热巧克力；brioche à tête 用斜边凹槽模烤、顶上嵌一小球面团；brioche Nanterre 以面球排入长方形模，brioche Parisienne 类似但排成圆形；Saint-Pierre-d'Albigny 村有以藏红花或茴香调味的特产 brioche，称「圣阿加莎之手」，指年轻母亲与乳母主保圣人的断手；素面包与简单小圆包更普及。",
+      "rights_note": "Britannica 条目；仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "cuisine_fr_src_15",
+      "title": "Grande cuisine — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/grande-cuisine",
+      "access": "read",
+      "supports": "grande cuisine（亦称 haute cuisine）是法国经典高级菜，自 16 世纪发端，至 19 世纪盛大的宴席达到全盛；赏味标准为重浓郁、柔滑、平衡与精致呈现；与农家或市民菜不同（后者厚味粗粝反被容许甚至可取），高级菜追求醇和的和谐与「有秩序的艺术外观」；法国丰沃的牧场、乳业、葡萄园与农田，兼有大西洋与地中海两岸海岸线，为其厨师提供无可比拟的原料；精致烹饪随 1533 年凯瑟琳·德·美第奇到来（松露、甜面包、朝鲜蓟、aspic、quenelle、custard——这些菜不用重酱与过强香料来掩饰技艺不足），随之而有餐桌礼仪与器具的进步；此后法国菜史即是这一美学的发展：取得最好原料、以细致组合引出风味层次、以对匀称与色彩的讲究上菜；La Varenne（17 世纪）、Carême（18 世纪末）、Escoffier（19 世纪）以著作与所训练的众多厨师推进法国菜的系统化，并在创制新菜的过程中积累关于原料性质的系统知识；由此发展出高汤与酱汁的 master 技法，并层层衍出变体，例如 espagnole（褐色酱）可加适当的香草、蔬菜与调味料而无穷变化；对肉、鱼、蛋、黄油、面粉、糖等原料的性质有系统探究，结果可凭复现加热、湿度与比例条件来预期；braising、roasting、sautéing 等方法被形式化并按肉、鱼、蔬菜各自需求调整；厨师之间凭对技法的共同理解以简写方式交流食谱并彼此累积。高级菜也常被联想为浮夸过度的宫廷菜与维多利亚式奢靡，此说有其真实处，但现代法国菜已大幅减轻与简化。",
+      "rights_note": "Britannica 条目；仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "cuisine_fr_src_16",
+      "title": "Cheese — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/cheese",
+      "access": "read",
+      "supports": "奶酪是以乳凝固所得凝乳为主的营养食品；乳若不及时使用会自然变酸凝固，排出的乳清含可溶成分而留下半固体凝乳即新鲜奶酪；有些地方至今仍靠自然凝固或加果汁、浸出液使乳分为凝乳与乳清；制酪可能在人类自野生或家养动物取乳后不久即出现；《圣经》记「牛群奶酪」被送给大卫王；至约公元前 1000 年已用牛乳（且推定也用其他动物乳）制酪；古希腊罗马与北欧早期人群都懂得并重视奶酪，做法常被保密；作为保存技术，约十体积乳制成一体积奶酪；凝乳由乳中主要蛋白酪蛋白在乳酸（由乳糖经微生物作用）足够或受凝乳酶作用时形成；凝乳酶通常取自小牛胃以盐水浸出制成；凝固瞬间乳中成分（含大部分脂肪、酪蛋白与其他水不溶物）都在凝乳内；凝乳经切割破碎以排出乳清，但总有一部分乳清留在凝乳中；数百品种来自牛、山羊、绵羊、水牛、马、骆马与牦牛乳，差异来自乳的选择与处理、脂肪调整、加热或巴氏杀菌、加酶或细菌霉菌酵母培养；凝乳形成随温度、时间、酸度、凝乳酶与酸的比例、排乳清的速度与程度而变；熟成与盐渍（curing）是奶酪内发生的生物与化学变化，受含水量、酸度、质地、形状、大小与微生物影响，改变组织与风味；熟成前称 fresh 或 green，熟成后称 cured、aged 或 ripened；化学变化大致为脂肪分解为脂肪酸、蛋白分解为氨基酸、乳糖转为乳酸醋酸丙酸与双乙酰与二氧化碳；风味物质含挥发性脂肪酸、酮、酯、醇、肽、氨基酸、氨与硫化氢；现代工厂按标准配方与技法量产、产品更均一但品种更少；制酪在荷兰、法国、意大利与瑞士数百年间具有首要经济意义；某些奶酪在历史上与特定地区关联；Roquefort 松散的结构只在冷湿气氛中（如 Roquefort 洞穴的天然条件）才形成蓝霉。",
+      "rights_note": "Britannica 条目；仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "cuisine_fr_src_17",
+      "title": "Sauerkraut — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/sauerkraut",
+      "access": "read",
+      "supports": "酸菜（sauerkraut）是发酵白甘蓝，是中欧烹饪中重要的蔬菜制备；做法是把白甘蓝细切、与大盐分层置于大陶罐或木盆，覆以压重的盖，最好在 15.5 摄氏度（60 华氏度）以下发酵至少一个月；商品化者罐装或散装出售；发酵期间有时加入葛缕子、胡椒粒与杜松子；常与烟熏肉和香肠同食，见于 choucroute garnie 与 Berner Platte 等菜；是很古老的制备，罗马人已知，在西方失传后于 13 世纪经鞑靼人自中国再传入；凡以甘蓝为主菜之处几乎都做某种酸菜。",
+      "rights_note": "Britannica 条目；仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "cuisine_fr_src_18",
+      "title": "Macaron — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/macaron",
+      "access": "read",
+      "supports": "马卡龙是甜的小圆形法式夹心饼，以蛋白霜、杏仁粉、糖与食用色素制成，夹黄油霜、巧克力甘纳许、杏仁膏、果酱或果泥等馅；不可与 macaroon 混淆，两者名称同出拉丁 maccare（磨成细末）且有些共同原料，但马卡龙大小一致、颜色多，椰丝蛋白饼金黄、形状不规则且远为易做；马卡龙是古老且很受欢迎的法国点心，但起源在别处：其祖先是 15 世纪末首制于意大利的杏仁饼，数百年间在威尼斯诸修院中广泛烘制；16 世纪初传入法国，或由 1533 年凯瑟琳·德·美第奇的厨师带来；在大革命前基本为贵族与富人所享，革命后两位修女在修道院关闭后避居南锡（洛林）以售卖马卡龙为生，被称为 Soeurs Macarons，其居住与工作之处今以其命名；由单枚耐嚼的杏仁饼演化为双片夹馅版，大约发展于 1830 年代；有学者称 Ladurée 的 Pierre Desfontaines 于 1930 年创制，他被普遍认为创造了今称巴黎马卡龙的彩色品种；巴黎之外有夏特尔、蒙莫里永、亚眠等地区变体，差别主要在馅（水果、果冻、奶油、椰子、甘纳许、果酱），也以不同香料乃至利口酒入面团（如 Saint-Émilion 马卡龙用甜白葡萄酒）；理想马卡龙应正圆光滑，每片顶部有一圈小裙边以拦住馅，夹好后外脆内软。",
+      "rights_note": "Britannica 条目；仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "cuisine_fr_src_19",
+      "title": "Geographical indications and quality schemes explained — European Commission (DG AGRI)",
+      "url": "https://agriculture.ec.europa.eu/farming/geographical-indications-and-quality-schemes/geographical-indications-and-quality-schemes-explained_en",
+      "access": "read",
+      "supports": "欧盟质量政策的目的是保护特定产品名称，以推广其与地理来源及传统技艺相关的独特性；产品名称若与产地有特定联系可获「地理标志」（GI）；受 GI 承认的产品列入地理标志登记册，登记册也含各产品的地理与生产规格；GI 被承认为知识产权，在欧盟与贸易谈判中地位日重；三类地理标志：PDO（受保护原产地名称，食品与葡萄酒）、PGI（受保护地理标志，食品与葡萄酒）、GI（烈酒）；PDO 与 PGI 的差别主要在原料须有多少来自该地区、或生产过程有多少须在该区域内完成：PDO 要求生产、加工与制备的每一环节都在特定地区（葡萄酒须葡萄全部来自该地理区域）；PGI 对多数产品要求生产、加工或制备至少有一个阶段在该地区，葡萄酒则要求至少 85% 的葡萄来自该地理区域；TSG（传统特产保证）凸显传统面向（做法或成分）而不绑定特定地理区域，保护其不被仿制与误用；其他质量用语含「山地产品」（原料与饲料来自山区，加工也须在该区）与「欧盟最外围地区产品」；成员国主管机关须采取措施在其境内保护已登记名称，并防止与制止以该名称非法生产或销售；非欧产品若原产国与欧盟有含相互保护的双边或区域协定也可注册；登记可在 eAmbrosia 与 GIview 查询；2024 年 5 月 13 日新生效的法规（EU 2024/1143）合并食品、葡萄酒与烈酒三部门程序、加强对 GI 作为配料与在线使用的保护、允许生产者团体把某些可持续做法写入规格、设立受承认的 GI 生产者团体。",
+      "rights_note": "欧盟委员会官方政策说明页；仅转述其制度框架与定义，不复制原文段落。该页描述的是当代欧盟制度，不得倒推为法国历史上固有的制度。"
+    },
+    {
+      "id": "cuisine_fr_src_20",
+      "title": "Dairy product — Cheese: Ripening — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/dairy-product/Ripening",
+      "access": "read",
+      "supports": "多数奶酪须经不同时长的熟成，以完成把新鲜凝乳转变为具特色陈年奶酪所需的化学变化；这些变化由三个主要来源的酶催化：凝乳时加入的凝乳酶或其他动物或植物来源的酶制剂、在奶酪内部或表面生长的微生物、以及奶酪原料乳本身；熟成时间可短至一个月（如 Brie）或一年以上（如风味强烈的 cheddar）；奶酪熟成受细菌、酶与熟成室物理条件交互影响，反应速度由室内温度与湿度以及奶酪含水量决定；多数奶酪中乳糖继续被发酵为乳酸与乳酸盐，或被水解成其他糖，故 Emmentaler 与 cheddar 等陈年奶酪无残余乳糖；蛋白与脂在熟成中被分解，蛋白分解（proteolysis）程度同时影响成品风味与组织；蓝纹奶酪独特的熟成来自 P. roqueforti 或 P. glaucum 的霉菌孢子，它们在压榨前加入乳或凝乳，并以针刺入空气激活；表面熟成奶酪（Gruyère、brick、Port Salut、Limburger）的风味兼来自内部熟成与表面环境，Limburger 的 Brevibacterium linens 造成红褐表面并使蛋白分解为氨基氮，气味对某些人刺鼻而风味与组织受许多人喜爱；并非所有奶酪都熟成——cottage、cream、ricotta 与多数 mozzarella 制成即可出售，风味甜嫩并常与其他食物组合；因乳、菌、酶、霉与技术流程组合极多，全世界有数百品种，按硬度或熟成方式分类最有效，表列含 Cantal、cheddar、Emmentaler、Gruyère、Munster、Roquefort、Brie、Camembert、Neufchâtel（法国）、Pont l'Évêque 等。",
+      "rights_note": "Britannica 条目；仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "cuisine_fr_src_21",
+      "title": "Fondue — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/fondue",
+      "access": "read",
+      "supports": "奶酪火锅是瑞士菜，以融化的奶酪制成，通常含 Emmentaler、Vacherin 与 Gruyère 中的一种或多种；做法是把白葡萄酒在擦过蒜的厚重陶锅 caquelon 中加热，把擦碎的奶酪连同少量玉米淀粉与肉豆蔻或樱桃酒（kirsch）的调味加入热酒中；众人围锅共食；食客各得小块硬皮面包，以长柄叉叉起蘸食热混合物；锅底余下的锅巴由食客分食；有传说称此菜源于 16 世纪新教与天主教瑞士人交战期间，双方在当日战事后休战、共食一道相似的菜，一方出面包一方出奶酪。",
+      "rights_note": "Britannica 条目；仅事实核对与自行转述，不复制原文段落；该条的起源叙述明确标为传说，本条不当作史实。"
+    },
+    {
+      "id": "cuisine_fr_src_22",
+      "title": "Aspic — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/aspic",
+      "access": "read",
+      "supports": "肉冻（aspic）是以牛、小牛、鸡或鱼的骨在汤中慢炖所得液体高汤制成的咸味清冻；冷藏时因腱中的天然明胶溶入汤中而凝固；有时加入商品片状或粉状明胶以确保硬挺的定型；用途包括包裹与镀面冷肉与鱼、蛋、水波或烤禽、蔬菜；切碎或切成形状的清冻可装饰冷盘；多种食物可与清冻结合置于装饰模具中；把蛋黄酱或 sauce velouté 与液体清冻混合即得 chaud-froid，可着色并用于装饰冷食。",
+      "rights_note": "Britannica 条目；仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "cuisine_fr_src_23",
+      "title": "Pâté — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/pate",
+      "access": "read",
+      "supports": "pâté 在法语中意为 paste；在法国菜里指填馅酥皮，功能类似英国的 pie；该词加修饰语后另指两种不同制品：pâté en terrine 是把肉、野味或鱼的混合物以板油或其他动物脂包裹、或衬在深椭圆或长方模中烹制、不用酥皮、冷食；pâté en croûte 是把肉、野味或鱼馅在酥皮中烹制、热食或冷食；英美用法中的 pâté 来自 pâté en terrine，更确切的简称是 terrine；某些 pâté 在法国与特定场合相关：pâté de Pâques 以绞肉、碎猪肉、鸡或兔肉与硬煮蛋填制，是普瓦图（Poitou）地区的复活节特产；pâté de foie gras 是以特别育肥的鹅或鸭肝填制的酥皮批，被视为珍味。",
+      "rights_note": "Britannica 条目；仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "cuisine_fr_src_24",
+      "title": "Custard — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/custard",
+      "access": "read",
+      "supports": "蛋奶糊（custard）是蛋、乳、糖与调味料的混合物，靠加热使蛋蛋白凝固而获得稠度；烤蛋奶糊含全蛋，使成品凝为凝胶；flan 或 crème caramel 是在涂了焦糖的皿中烤的蛋奶糊，脱模时焦糖化为酱汁；crème brûlée 是在烤好的蛋奶糊上撒糖、以烤炉上火或称为 salamander 的热铁使糖焦化，糖在蛋奶糊上形成薄脆壳；boiled custard 可省去蛋白，隔热水慢煮至浓奶油状，又称 crème anglaise，可作水果与糕点的酱汁，或并入 trifle 与米布丁等甜点；最浓郁的冰淇淋以蛋奶糊为基底，此时蛋白有时打至硬挺再把蛋奶糊拌入；Bavarian cream 是以明胶加硬的蛋奶糊；咸味蛋奶糊中最著名的例子是 quiche——以奶酪、洋葱、火腿或培根、或切碎蔬菜调味的蛋奶糊填入法式塔皮的咸塔。",
+      "rights_note": "Britannica 条目；仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "cuisine_fr_src_25",
+      "title": "Pastry — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/pastry",
+      "access": "read",
+      "supports": "pastry 是以面粉、盐、较高比例脂肪与少量液体构成的硬面团，也可含糖或调味；多数仅靠蒸汽膨发，丹麦酥则以酵母起发；擀成薄片衬派模或塔模、或包裹馅料；禽、牛柳与其他肉块以及 pâté 有时以 en croûte 方式包入酥皮；较厚的面片可做成壳、风车、月牙（如做可颂）或编辫，有馅无馅皆可；技法与配料的差异造成质地差别：想酥松起层，用低筋粉与黄油、猪油或植物起酥油快速混合，使脂肪成小粒，液体最少、尽量少揉；起层的极端是 pâte feuilletée，以包入黄油的酥皮反复折叠，形成数百层面粉与黄油，烤时升至未烤高度的 12 倍；酵母面团以类似方式裹入黄油即得 wienbrod（丹麦酥）；short pastry 是各料充分混匀、成品酥软细致、易碎而不起层；需要拉伸力的酥点用高筋粉，加蛋与更多液体增加延展性，phyllo 与 strudel 属此类。",
+      "rights_note": "Britannica 条目；仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "cuisine_fr_src_26",
+      "title": "Baking — Wafers and biscuits / Puff pastry / Choux pastry — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/baking/Wafers-and-biscuits",
+      "access": "read",
+      "supports": "起层酥皮与泡芙皮都属以蒸汽膨发的产品（泡芙常作奶油泡芙与闪电泡芙的壳，起层酥皮用于 patty shells 与 napoleons）；起层酥皮（puff pastry）以层状脂肪与面团构成，脂肪比例通常不低于成品生坯的 30%；面团须易延展而不特别富弹性，故常用硬质与软质小麦粉混合；脂肪须近乎蜡状并在擀压过程中保持固态；黄油虽常用却并不特别适合，因其融点低，擀压时易混入面团，专做酥皮的师傅常用含高融点脂肪的特制麦淇淋；基本做法是把面团擀成均匀厚度的长方形，把脂肪涂覆于三分之二表面，折叠成三层包住两层脂肪，冷藏后再擀回原面积，如此反复数次，最后一次擀至成形所需厚度；制作正确的起层酥皮烤时可膨胀达十倍，焦点是层压时卷入的微小气泡；泡芙皮（choux pastry）用完全不同方法：面粉、盐、黄油与沸水混合成较硬的面团，再以搅打拌入全蛋；小块面团置于烤盘上、先以高温烤，拌合时形成的气泡在烤温下急速膨胀、内部充满大而不规则的孔洞，外表褐化凝固成较硬的壳，内部大致中空，可注入甜或咸的馅。",
+      "rights_note": "Britannica 条目；仅事实核对与自行转述，不复制原文段落。注意该页写起层酥皮可膨胀达十倍，而同书 pastry 条写 12 倍，两处口径不一，本条并列保留。"
+    },
+    {
+      "id": "cuisine_fr_src_27",
+      "title": "Blue cheese — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/blue-cheese",
+      "access": "read",
+      "supports": "蓝纹奶酪指若干内部带蓝或绿霉脉纹的奶酪；重要的具名品种包括英国 Stilton、法国 Roquefort 与意大利 Gorgonzola；多数蓝纹以牛乳制，但 Roquefort 用母羊乳；P. roqueforti 的孢子混入乳或凝乳；在三至六个月的熟成期内，霉在奶酪天然的小而不规则的开口与机器打的孔中生长；Roquefort 与部分 Gorgonzola 在洞穴中熟成，洞穴稳定潮湿的气氛赋予其独特性格；蓝纹质地可软滑也可碎散，风味典型地尖锐辛香；往往相当咸，但不应过咸或发苦；除上述之外知名的还有法国 Bleu de Bresse 与 Bleu d'Auvergne、丹麦 Danablu、英国 Blue Cheshire 等。",
+      "rights_note": "Britannica 条目；仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "cuisine_fr_src_28",
+      "title": "Cider — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/cider",
+      "access": "read",
+      "supports": "苹果酒（cider）是果（通常苹果）的压榨汁作饮料，梨制者称 perry；多数欧洲国家该名只指发酵汁，北美则把未经永久防腐处理的新鲜汁称 sweet cider、经过自然发酵者称 hard cider、经处理防败并密封者称 apple juice；营养上苹果汁或苹果酒蛋白、脂肪、抗坏血酸与维生素 A 都低，碳水适中且其中约 75% 是易吸收的糖；制作是把苹果磨成细浆（pomace）后压榨，硬苹果酒的汁直接入发酵桶或桶；若要甜型须提早过滤以保留一定比例未发酵糖，若要干型则须发酵至糖全部或大部转为酒精；通常靠苹果上野生酵母自然发酵，也有生产者把鲜汁巴氏杀菌后接种纯培养酵母；约三个月后过滤除去沉淀与浑浊；熟成数月乃至两三年可改善风味；部分硬苹果酒充气而成起泡型；英国式（scrumpy 或 West Country cider）以更高度数、更多单宁、通常不充气且浑浊、以小批量传统法制作而著称；法国是产量最大的国家，尤在诺曼底与布列塔尼；法国制的苹果酒必须以鲜苹果汁或苹果与梨的混合汁发酵，并须符合不同类别的特定标准、各有名称；多数其他产国的管制较松。",
+      "rights_note": "Britannica 条目；仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "cuisine_fr_src_29",
+      "title": "Buckwheat — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/plant/buckwheat",
+      "access": "read",
+      "supports": "荞麦（Fagopyrum esculentum）是蓼科草本及其可食种子；在东欧部分地区是伪谷类主粮，去壳的籽粒（groats）作 kasha 如米般煮食；荞麦粉不适合做面包，但可单用或与小麦粉混合做烙饼（美、加称 buckwheat cakes）；碳水与蛋白含量高，含少量维生素 B1 与 B2；近缘的苦荞 F. tataricum 用法相似、主要栽培于东亚；荞麦是速生一年生，叶心形、茎红而中空、白花成顶生花序、由蜂等昆虫传粉，三角形种子外包坚韧的深褐或灰色壳；在好土上产量低于真谷物，但特别适应干旱丘陵与冷凉气候，因成熟快可作晚季作物；花供花粉与花蜜，可作蜜源作物；可抑草、招引益虫、作绿肥翻入土中；常作禽与家畜饲料，英格兰认为尤适喂雉。",
+      "rights_note": "Britannica 条目；仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "cuisine_fr_src_30",
+      "title": "Braising — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/braising",
+      "access": "read",
+      "supports": "braising 是在密闭容器中以油与水分慢加热肉类或蔬菜；与炖（食物浸在液体中）及加盖烤（不加液体）都不同；可视为加盖烤与蒸的结合；做法是先在开盖锅中以少量脂肪把食物煎上色，再覆锅续煮，肉常置于一层蔬菜之上，上色完成后可加少量液体；fricasseeing 一词可指以 braising 法做小块禽、兔或小牛肉的炖菜；大块肉的 braising 有时称 pot-roasting。",
+      "rights_note": "Britannica 条目；仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "cuisine_fr_src_31",
+      "title": "Stew — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/stew",
+      "access": "read",
+      "supports": "炖（stew）是肉、禽或鱼通常配蔬菜在密闭容器中以液体小火烹制的菜；做得当时从不沸腾，而在约 88 摄氏度（190 华氏度）微沸，这一过程使较韧的食物变软并融合风味；要炖的肉切块、禽分件、鱼切排或块；褐色炖先把肉块（有时连部分蔬菜）在热脂中煎上色再加液体；禽与娇嫩的小牛、羊肉炖常 à blanc 不上色；常加根茎蔬菜（胡萝卜、洋葱、芜菁、欧防风、马铃薯）、番茄与芹菜；随烹煮形成的酱汁可靠把蔬菜打泥、或加入面粉或蛋黄来增稠；法国 ragout à brun 是以蒜、番茄与香草调味的褐色炖菜；navarin 是羊肉或成羊肉做的 ragout à brun，navarin à la printanière 以新薯、胡萝卜、豌豆、洋葱与芜菁作配；fricassée 与 blanquette 是禽（fricassée）、小牛或羊的白色炖菜，以蘑菇、温和蔬菜与香草细致调味，酱汁以蛋黄与奶油增稠；鱼炖中举法国 meurette、matelote、cotriade 与 bouillabaisse。",
+      "rights_note": "Britannica 条目；仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "cuisine_fr_src_32",
+      "title": "Sauce — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/sauce",
+      "access": "read",
+      "supports": "酱汁是在食物烹制中加入或与之同上的液态或半液态混合物，提供风味、润度与质地和颜色的对比，也可作为容纳食物的介质（如奶油鸡的 velouté）；许多酱以 roux 起手——面粉与脂肪同煮数分钟以去除面粉生味并使其能吸收最大量液体，褐色酱则把 roux 煮至面粉开始变色的程度；往 roux 中加入酱汁的液体成分（乳或奶油、高汤、葡萄酒、烤肉盘中的汁等），随后加调味与固体（洋葱、蘑菇、松露碎），煮至所需稠度；法国白酱 béchamel 与褐酱 espagnole 是数十种复杂变体的基础；有些酱以加入面包屑增稠；以蛋黄增稠的包括蛋黄酱及其变体（蛋黄与植物油的冷乳化）与荷兰酱及其变体（蛋黄与黄油的热乳化），典型添加物为香草、蒜、橙皮或切碎的蔬菜；希腊 avgolemono 以高汤、柠檬汁与蛋黄制成；黄油与香草及调味料加热成适用于鱼、蔬、禽与内脏的多样酱汁，黄油可煮至褐（beurre noir）并以柠檬汁、醋或刺山柑提味；beurre blanc 是把收浓的调味液搅打入未完全融化的软化黄油；油与醋类酱汁如 vinaigrette 多用于沙拉与冷菜；番茄酱为番茄泥加香草、香料与蔬菜、有时加火腿或培根；果泥也可称酱并配浓厚肉类；甜点酱含 boiled custard（crème anglaise）与以黄油和糖煮至糖开始焦化的甜酱；传统法式 remoulade 以蛋黄酱、芥末、红葱、刺山柑与香草制成，aioli 主要由蒜与橄榄油构成。",
+      "rights_note": "Britannica 条目；仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "cuisine_fr_src_33",
+      "title": "Meringue — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/meringue",
+      "access": "read",
+      "supports": "蛋白霜是打至硬挺的蛋白与糖的混合物，用于糖果与甜点；1720 年由瑞士糕点师 Gasparini 发明之说属于「归功于」；蛋白霜可作小「吻」食用，或作水果、冰淇淋、布丁等的壳与顶；以裱花袋在烤盘上挤出形状，在低温烤箱中彻底烘乾；通常不烤上色而保持象牙色；vacherin 与 schaumtorte 是素蛋白霜壳，dacquoise 是加入磨碎坚果与玉米淀粉的蛋白霜；意大利蛋白霜以热糖浆的形式加入糖，用于覆盖布丁与冰淇淋。",
+      "rights_note": "Britannica 条目；仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "cuisine_fr_src_34",
+      "title": "Restaurant — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/restaurant",
+      "access": "read",
+      "supports": "餐馆是公众可购买饮食的场所；最终被称为 restaurant 的公共餐厅起源于法国，法国人持续对其发展作出主要贡献；第一位餐馆经营者被认为是 A. Boulanger，1765 年在巴黎开汤铺，门上招牌写 restoratives 或 restaurants 指店内所售汤与肉汤，制度由此得名；此前客栈常供 table d'hôte（店主配菜），咖啡馆卖饮料，而 Boulanger 的店可能是第一处任何食客都能从有选择的菜单点菜的公共场所；1782 年第一家豪华餐馆 La Grande Taverne de Londres 在巴黎创立，主人 Antoine Beauvilliers 是当时重要烹饪作家与权威，后著《L'art du cuisinier》(1814)；Brillat-Savarin 赞其首创雅致厅堂、机敏侍者、精选酒窖与高超厨艺四要素之合，并记其会指着某菜说该避、某菜该立点、同时取钥匙自去取酒；大革命前贵族家中有繁复的烹饪机构，革命减少私宅雇工后，许多厨师转入餐馆厨房或自开食肆；1804 年巴黎已有 500 多家餐馆；拿破仑时期 Palais-Royal 成为巴黎名店聚集地，Véry 的菜单列十几种汤、二十几种鱼、15 种牛肉主菜、20 种羊肉主菜与大量配菜，Balzac 与美食作家 Grimod de la Reynière 常往；19 世纪巴黎最著名的餐馆是 Café Anglais，厨师 Adolphe Dugléré 创 sole Dugléré 与 potage Germiny，1867 年 6 月 7 日该店为三位皇室客人举办著名的「三皇晚宴」，菜含 à la reine 奶油鸡舒芙蕾、鲽鱼柳、扇贝比目鱼、à la portugaise 鸡、à la parisienne 龙虾、à la rouennaise 鸭、烤圃鹀与八种葡萄酒；Escoffier 在 Ritz 旗下豪华酒店组织厨房，发展出 brigade de cuisine（chef 或 gros bonnet、sauce chef、entremettier、rôtisseur、garde manger），其时代各职职责分明，现代因人力成本与服务速度要求而多有交叠。",
+      "rights_note": "Britannica 条目；仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "cuisine_fr_src_35",
+      "title": "Auguste Escoffier — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/biography/Auguste-Escoffier",
+      "access": "read",
+      "supports": "Escoffier（1846 年 10 月 28 日生于法国 Villeneuve-Loubet，1935 年 2 月 12 日卒于蒙特卡洛）是法国烹饪家，被称为「厨中之王、王之厨师」；曾任 Savoy 酒店（1890—98）与之后 Carlton 酒店的厨房总监，在伦敦赢得世界声誉，其名成为古典法国菜的代称；1859 年 13 岁在尼斯的舅舅餐馆起步，1865 年赴巴黎 Petit Moulin Rouge，后被征入伍；普法战争（1870—71）间任莱茵军第二师总部主厨，在 Metz 围城被俘，后为 Mac-Mahon 与拿破仑三世掌厨；1880—90 年代为《Art Culinaire》撰写战时炊事回忆；1884 年在蒙特卡洛 Grand Hotel 遇 Ritz；1890 年在 Savoy 建立 brigade de cuisine（受其军旅经验启发的等级化厨房结构），厨房中每人专司一职，提高效率、简化沟通，使 chef de cuisine 得以统观全局，效率提升使餐馆能扩充菜单、提高菜品复杂度并缩短供餐时间，此制此后通行全球、至今仍是厨房组织的核心原则；1893 年为女高音 Nellie Melba 创 peach Melba；1899 与 Ritz 转往 Carlton，1902 年 Ritz 离开而 Escoffier 留任至 1920 年退休；威廉二世曾谓「我是德国皇帝，你是厨师的皇帝」；1920 年获荣誉军团勋章，为首位获此勋的厨师，1928 年升为军官；著有《Le Guide culinaire》（1903，与 Gilbert、Fetu 合著，按上菜顺序列菜并含最早的 à la carte 菜单）、《Le Livre des menus》(1912)、《Ma cuisine》(1934)，其厨房组织理念经 Montagné 的《Larousse Gastronomique》(1938) 广为传播；该页列其五大母酱为 hollandaise、béchamel、velouté、tomato 与 espagnole。",
+      "rights_note": "Britannica 条目；仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "cuisine_fr_src_36",
+      "title": "Gastronomy — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/gastronomy",
+      "access": "read",
+      "supports": "gastronomy 是选择、制备、上菜与享用美食的技艺，以食物、文化与传统的关联为基础；世界可分为若干美食区（东南亚以米为主食、印度与印尼以大量香料为特色、地中海以橄榄油为共同点、北欧与北美用多种烹饪脂但共同点是小麦、拉美以玉米为主食）；历史脉络：以火烹食是第一步，法国南部 Ariège 的 Les Trois Frères 洞穴壁画描绘了这类早期共食场面；亚述、巴比伦、波斯与埃及诸文明已有讲究的选料、制备、上菜与享用；古希腊重节制，就餐时卧榻并配音乐、诗与舞，伊壁鸠鲁主义提供生活哲学基础；罗马平民以麦粥、鱼与松子为食，而皇帝与富豪宴席极尽奢华（多至百种鱼、自阿尔卑斯运冰、遣使赴帝国边陲搜求珍味、在法国采蘑菇），但作者认为罗马人重珍奇而非真正的美食家；中世纪大部分时期宴席粗豪奢华，高卢较富裕人家整块牛肉羊肉猪肉上桌，野味常见（野猪、刺猬、狍、鹤、鹭、孔雀），查理曼点缀厅堂但食物粗劣、菜单少变化；《Le Viandier》（约 1375，Taillevent 为查理六世掌厨）是第一部重要的法国食谱，与罗马人一样以面包而非面粉作酱汁增稠剂（面粉为近两百年之事），大量用姜、肉桂、丁香、肉豆蔻（经西班牙与意大利而来的摩尔影响），菜单以汤、肉与禽为主且调味极重以致掩盖食物本味——当时烹饪的主要目的是掩盖（因缺冷藏食物常已变质）而非衬托；意大利文艺复兴是转折点，15 世纪初意大利富商饮食已甚精致；意大利被称西方烹饪之母，其最大贡献也许是对法国的影响，关键事件是 16 世纪凯瑟琳·德·美第奇携受文艺复兴烹饪训练的佛罗伦萨厨师入法，带来 aspic、甜面包、朝鲜蓟心、松露、肝 crépinette、禽肉 quenelle、蛋白杏仁饼、冰淇淋与 zabaglione，并带来餐桌的新雅致（女性入席成为常规而非例外、Cellini 打造的银器、威尼斯水晶杯与釉陶）；其表亲玛丽·德·美第奇亦推动，其时代出现 La Varenne 的《Le Cuisinier françois》(1652)。",
+      "rights_note": "Britannica 条目；仅事实核对与自行转述，不复制原文段落；其中带评价性的判断（如「罗马人并非真正的美食家」）属该条目作者的立场，不当作史实。"
+    },
+    {
+      "id": "cuisine_fr_src_37",
+      "title": "Marie-Antoine Carême — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/biography/Marie-Antoine-Careme",
+      "access": "read",
+      "supports": "Carême（1784 年 6 月 8 日生于巴黎，1833 年 1 月 12 日卒于巴黎）是服务欧洲王室的法国厨师，著有多部经典，并推进「烹饪既是艺术也是科学」的观念；常被视为法国美食的奠基者，也是 grande cuisine 的先驱；出身贫寒，15 岁在巴黎餐馆做厨房助手，很快转到 Talleyrand 常光顾的时髦糕点铺；其华丽的雕塑式糖果点心上过拿破仑的餐桌；此后为 Talleyrand 掌厨 12 年、为英国摄政王（后来的乔治四世）2 年，并先后短暂为俄国沙皇亚历山大一世、维也纳宫廷、巴黎的英国大使馆、符腾堡亲王、Londonderry 侯爵与 Bagration 公主掌厨，随后在 Rothschild 男爵的 Ferrières 庄园七年；其菜以装饰与繁复铺陈著称、近于宏大，合于旧欧洲社会；主要著作含《Le Cuisinier parisien》(1828)、《Le Pâtissier royal parisien》(1828)、《Le Pâtissier pittoresque》(1842) 与《Le Maître d'hôtel français》(1820)；其理念（重视摆盘的艺术性与新鲜食材）在欧洲尤其法国的餐馆中流行，而大革命推动了餐馆的发展——被废贵族的厨师需要谋职。",
+      "rights_note": "Britannica 条目；仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "cuisine_fr_src_38",
+      "title": "Guild — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/guild-trade-association",
+      "access": "read",
+      "supports": "行会是工匠或商人为了互助与保护、并促进本行业利益而结成的团体；11 至 16 世纪盛行于欧洲，构成当时经济与社会结构的重要部分；分商人行会与手工业行会两类；行会建立本地或本行业的贸易垄断、设定并维持商品质量标准与交易诚信、力求稳定价格，并设法控制城镇政府以促进成员利益；13 世纪西欧多数城镇的商人行会由最富有最有影响力的市民组成，随 12、13 世纪城镇自治而主导市议会，得以通过规范一切经济活动的立法；手工业行会稍后兴起，源于分工扩展中的城镇，成员为同一街区若干家庭作坊的师傅；内部结构以学徒制为基础，分明为 master、journeyman、apprentice；学徒是儿童或少年，住师傅家、由师傅供给衣食住与教育，无酬工作，服务期五至九年；期满成为 journeyman，可为不同师傅工作并领工资；能提供技术能力证明（masterpiece）者可升为 master，开设自己的作坊并招收学徒；行会政策掌于少数职员与顾问会议之手；行会官员与行会法庭调查工艺低劣与不公平竞争并处以罚金；行会常奉主保圣人、维持礼拜堂、行善、建会馆以供宴会与集会；古罗马有 collegia，西罗马灭亡后行会自欧洲消失六百余年。",
+      "rights_note": "Britannica 条目；仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "cuisine_fr_src_39",
+      "title": "Tripe — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/tripe",
+      "access": "read",
+      "supports": "tripe 是作为食物消费的反刍动物胃，通常来自牛或小牛，也有羊或鹿；该词指胃，更精确说是构成消化流水线的四个胃室，四部分都可做成 tripe，各有质地与味道，都需要刷洗方可食；tripe 是多国菜中暖身汤的基础；把四种胃与牛蹄、洋葱、胡萝卜同炖至多十小时，可得诺曼底的特色菜 tripes à la mode de Caen（小牛 tripe 通常被认为最适合此菜）；西班牙 callos a la madrileña 与辣味 chorizo 及 morcilla 同炖，墨西哥 menudo 加辣椒；英格兰以蜂窝胃配洋葱与白汁曾是贫民食物，至今在北部仍是怀旧菜；四种子胃同炖风味浓郁、胶质而强劲；tripe 质地取决于所用胃室与制法；1950 年代 United Cattle Products 在英格兰北部经营 150 多家 tripe 餐馆，1970 年代因快餐兴起而出售；tripe 在英格兰仍被视为工人阶级食物，其他地方多视为地方菜。",
+      "rights_note": "Britannica 条目；仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "cuisine_fr_src_40",
+      "title": "INAO — Institut national de l'origine et de la qualité（法国国家原产地与质量研究所）官网",
+      "url": "https://www.inao.gouv.fr/",
+      "access": "read",
+      "supports": "INAO 负责法国质量与原产地官方识别标志（SIQO）的承认与保护，有八十余年历史；法国有逾 1200 个产品在 SIQO 之下（AOP、IGP、Label Rouge、bio 等）；2023 年 INAO 管理 1232 个产品，其中 366 个葡萄酒 AOP/AOC、18 个烈酒 AOC、5 个苹果酒与梨酒 AOC/AOP、107 个农业食品 AOP（其中 51 个乳制品）、2 个林业 AOC；另有 77 个葡萄酒 IGP、35 个烈酒 IG、2 个苹果酒 IGP、156 个农业食品 IGP、6 个 STG 与 438 个 Label Rouge；法国以 52 个乳制 AOP 居欧洲奶酪、黄油数量首位；该页新闻提到法国正面临历史性干旱（仅作环境背景，不作本条断言）；近期新获承认者如 Mothais sur feuille（山羊全脂生乳软质奶酪）与「Oie du Sud-Ouest」「Confit d'oie du Sud-Ouest」「Foie gras d'oie du Sud-Ouest」等西南鹅产品。",
+      "rights_note": "法国官方机构页面（法文）；仅转述其制度与数字，不复制原文段落；数字为该页所载 2023 年口径，会随时间变化，引用须标年份。"
+    },
+    {
+      "id": "cuisine_fr_src_41",
+      "title": "Pot-au-feu — Encyclopaedia Britannica（无完整条目，为策展摘录页）",
+      "url": "https://www.britannica.com/topic/pot-au-feu",
+      "access": "read",
+      "supports": "该页无完整条目，仅有策展摘录：pot-au-feu 字面意为「火上的锅」，是肉与蔬菜同煮的法国菜；其页面的人工智能摘要给出「起源于 1791 年」之说，但该摘要由 AI 生成、无可核依据，本条**不采用**该年代；另一处摘录称法国牛肉炖锅 pot-au-feu 是越南粉最明显的先驱，同时称该菜名也可能来自「粉」的越南读音，两说并列。",
+      "rights_note": "Britannica 策展摘录页（非完整条目，含 AI 生成摘要）；只取可核的形态描述，明确排除其 AI 摘要给出的年代，不复制原文段落。"
+    },
+    {
+      "id": "cuisine_fr_src_42",
+      "title": "Seafood — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/seafood",
+      "access": "read",
+      "supports": "海鲜指可食水生动物（不含哺乳动物），含淡水产与海产；几乎一切无毒水生种都被人类食用；鱼与海鲜可能是谷类之后人类最重要的食物，提供全球约 15% 的蛋白摄入；瘦鱼肉按重量含 18—25% 蛋白，与牛肉或禽相当但热量低得多（鱼每克蛋白 4—10 千卡，瘦肉 10—20，肥肉可达 30）；海鲜涵盖硬骨鱼、鲨、鳐、锯鳐、鲟、七鳃鳗、甲壳类（龙虾、蟹、虾、对虾、螯虾）、软体动物（蛤、牡蛎、鸟蛤、贻贝、蛾螺、蜗牛、鲍、扇贝）、头足类（鱿、章鱼、乌贼）、可食水母、海龟、蛙以及海胆与海参；因鱼极易腐坏，历史上大部分渔获在不能鲜食时被干制、烟熏、盐渍、腌或发酵，即便这些做法在技术上不再必要，其造成的独特风味仍维持了持续需求；鱼可整条或切排、切柳、切块烹制，甲壳类与多数软体动物通常整只活体下锅，较大较韧的软体动物则剁碎或切片并拍打嫩化；大量海鲜生食或以腌渍改性；此外鱼与部分贝类的卵以及龟卵亦食，caviar 为鲟鱼卵，今与奢华同义，但在 19 世纪后期全球鲟鱼资源骤减之前相对便宜常见；鱼可水煮、快炒、炙、烤、油炸、蒸或生食，且常组合成炖、汤、浓汤的基础；烹鱼的主要考虑是避免过熟，经验法则是每英寸厚度十分钟、加酱汁再加五分钟、冷冻者加倍；一般而言越娇嫩瘦的鱼配越温和的调味，风味越强劲、肉越粗或越肥者配越浓的调味。",
+      "rights_note": "Britannica 条目；仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "cuisine_fr_src_43",
+      "title": "Bread — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/bread",
+      "access": "read",
+      "supports": "面包是以面粉或谷物粉加水揉和、有时经发酵后烘烤的食品；最早的面包出现于新石器时代、近一万二千年前，可能以大麦等粗碎谷物加水成团置于热石上、覆以热灰烤成；埃及人发现让小麦面团发酵可产生气体而成轻盈蓬松的面包，并发明了烤炉；只有小麦与黑麦粉能产生制作发酵面包所需的面筋，小麦更令人满意；其他配料含液体（乳或水）、动物或植物起酥油、盐与糖；面包类型含无酵的扁面包（中东、亚洲、非洲仍普遍，主用玉米、大麦、小米、荞麦等缺面筋的谷物以及小麦、黑麦）与发酵面包（白面包、黑麦面包、全麦面包），长而窄、皮脆的长条形面包如法棍属简单白面包一类；酸面团是把面粉与水混合放置数日、靠空气中天然酵母发酵而产生酸味；中世纪英格兰穷人主食面包以黑麦为主、常掺其他谷物或豆粉制成的粉；约 1865 年英国白面包的价格才降到黑面包之下；中世纪晚期行会复兴并扩张，学徒须经数年见习、常经 journeyman 过渡才能成为 master，13 世纪一位法国作者列出 20 种在形状、调味、制法与面粉质量上各异的面包，行会规章严格规定尺寸与质量。",
+      "rights_note": "Britannica 条目；仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "cuisine_fr_src_44",
+      "title": "Steak frites — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/steak-frites",
+      "access": "read",
+      "supports": "牛排配薯条是牛肉排配炸马铃薯条的简单菜；其起源可追溯至法国与比利时，两国都把此菜视为本国菜的主流；也可在世界各地的法式小餐馆（bistro）中见到；有许多变体——不同酱汁、不同牛排部位与不同调味随地区而异；过去通常用 rump steak，当代部位包括 porterhouse、rib eye 与 flank；可配肉汁或酱汁，包括以澄清黄油、香草与蛋黄制成的 béarnaise。",
+      "rights_note": "Britannica 条目；仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "cuisine_fr_src_45",
+      "title": "Baking（烘焙：历史、配料与机制）— Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/baking",
+      "access": "read",
+      "supports": "烘焙是以干热尤其炉内加热的烹饪法，可能是最古老的烹饪法之一；最早的谷物处理可能是干炒，后以水煮成全粒或碎粒的粥，再把一层稠粥摊在热石上烤成原始的扁面包；封闭式烤具与烤炉的发展使更厚实的糕与面包成为可能；发酵现象可能最早在面团或粥放置数小时出现变质时被观察到，其中某些微生物引起的变化被视为可取，逐步掌握该过程便产生了发酵面包的传统方法；早期烘焙品由混合种子制成、以大麦为主，而小麦粉因对发酵的反应更优而最终成为首选谷物；酿造与烘焙在早期文明中关系密切（稠粥发酵成宜烤的面团、稀糊成一种啤酒，二者都需要发酵的「秘术」与谷物供给）；至公元前 2600 年埃及人已能做出原理与今日相似的发酵面包并保有酸面团接种；埃及人发展出最早的烤炉（下为火膛、上为烤室）；罗马在公元前 2 世纪中叶之前没有职业面包师，此后富裕家庭开始光顾多为被释奴出身的职业面包师，罗马的面包师行会后来被组织成受政府规定的「团体」，该业最终成为义务与世袭；中世纪早期技术倒退，中世纪晚期行会复兴并扩张；19 世纪中叶以后技术加速，因原料纯度与功能改善、设备减少对个人技艺的依赖，自动化开始取代批量作业；20 世纪中期烘焙业的一大成就是维生素与矿物质的营养强化。",
+      "rights_note": "Britannica 条目；仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "cuisine_fr_src_46",
+      "title": "Consommé — Encyclopaedia Britannica（摘录片段）",
+      "url": "https://www.britannica.com/topic/consomme",
+      "access": "read",
+      "supports": "该页仅有指向 soup 条目的摘录片段：consommé 可冷食，此时因所用带骨肉中的天然明胶而呈冻状。属摘录级，不支撑更多细节。",
+      "rights_note": "Britannica 摘录页（非完整条目）；仅取该片段作交叉印证，不复制原文段落。"
+    },
+    {
+      "id": "cuisine_fr_src_47",
+      "title": "Choucroute garnie — Encyclopaedia Britannica（策展摘录页）",
+      "url": "https://www.britannica.com/topic/choucroute-garnie",
+      "access": "read",
+      "supports": "该页无完整条目，仅有策展摘录与 AI 汇总：choucroute garnie 是以酸菜烹煮并与肉同上的菜；酸菜本身是中欧饮食中发酵白甘蓝的制备，做法为细切甘蓝与盐分层置于陶罐或木盆、覆以压盖、最好在 15.5 摄氏度以下发酵至少一个月，发酵期间可加葛缕子、胡椒粒或杜松子；该菜由来古老，罗马人已知，13 世纪再传入欧洲；通常配烟熏肉与香肠。条目要点另见 cuisine_fr_src_01 与 cuisine_fr_src_17。",
+      "rights_note": "Britannica 策展摘录页（含 AI 生成摘要）；只取与 sauerkraut 正文一致的形态描述，不复制原文段落。"
+    },
+    {
+      "id": "cuisine_fr_src_un_01",
+      "title": "French cuisine — Wikipedia（英文版）",
+      "url": "https://en.wikipedia.org/wiki/French_cuisine",
+      "access": "unavailable",
+      "supports": "本次尝试读取失败（连接超时，对端未响应）。未取得任何正文，故不用于任何条目。",
+      "rights_note": "失败如实登记；零引用。"
+    },
+    {
+      "id": "cuisine_fr_src_un_02",
+      "title": "法国菜 — 维基百科（中文版）",
+      "url": "https://zh.wikipedia.org/wiki/%E6%B3%95%E5%9B%BD%E8%8F%9C",
+      "access": "unavailable",
+      "supports": "本次尝试读取失败（连接超时）。未取得任何正文，故不用于任何条目。",
+      "rights_note": "失败如实登记；零引用。"
+    },
+    {
+      "id": "cuisine_fr_src_un_03",
+      "title": "Cuisine française — Wikipédia（法文版）",
+      "url": "https://fr.wikipedia.org/wiki/Cuisine_fran%C3%A7aise",
+      "access": "unavailable",
+      "supports": "本次尝试读取失败（连接超时）。未取得任何正文，故不用于任何条目。",
+      "rights_note": "失败如实登记；零引用。"
+    },
+    {
+      "id": "cuisine_fr_src_un_04",
+      "title": "Quiche — Encyclopaedia Britannica（该路径）",
+      "url": "https://www.britannica.com/topic/quiche",
+      "access": "unavailable",
+      "supports": "返回 HTTP 404，无该条目。洛林咸派一类的做法改由 custard（cuisine_fr_src_24）与 pastry（cuisine_fr_src_25）两页的蛋奶糊与塔皮部分支撑；「洛林」这一地理限定与培根的具体搭配未取得来源。",
+      "rights_note": "失败如实登记；零引用，但缺口已在相关条目中点明。"
+    },
+    {
+      "id": "cuisine_fr_src_un_05",
+      "title": "Baguette — Encyclopaedia Britannica（该路径）",
+      "url": "https://www.britannica.com/topic/baguette",
+      "access": "unavailable",
+      "supports": "返回 HTTP 404。法棍改由 UNESCO 名录条目（cuisine_fr_src_09）与 bread（cuisine_fr_src_43）支撑。",
+      "rights_note": "失败如实登记；零引用。"
+    },
+    {
+      "id": "cuisine_fr_src_un_06",
+      "title": "Boeuf bourguignon — Encyclopaedia Britannica（该路径）",
+      "url": "https://www.britannica.com/topic/boeuf-bourguignon",
+      "access": "unavailable",
+      "supports": "返回 HTTP 404。勃艮第红酒炖牛肉的技法面改由 braising（cuisine_fr_src_30）与 stew（cuisine_fr_src_31）支撑；该菜的勃艮第归属与具体用料组合未取得专门来源。",
+      "rights_note": "失败如实登记；零引用，缺口已在条目中点明。"
+    },
+    {
+      "id": "cuisine_fr_src_un_07",
+      "title": "Éclair — Encyclopaedia Britannica（该路径）",
+      "url": "https://www.britannica.com/topic/eclair",
+      "access": "unavailable",
+      "supports": "返回 HTTP 404。闪电泡芙与泡芙皮改由 baking 页的 choux pastry 一节（cuisine_fr_src_26）支撑。",
+      "rights_note": "失败如实登记；零引用。"
+    },
+    {
+      "id": "cuisine_fr_src_un_08",
+      "title": "Soufflé — Encyclopaedia Britannica（该路径）",
+      "url": "https://www.britannica.com/topic/souffle",
+      "access": "unavailable",
+      "supports": "返回 HTTP 404（另一拼写路径返回 HTTP 400）。舒芙蕾改由 meringue（cuisine_fr_src_33）、custard（cuisine_fr_src_24）与 restaurant（cuisine_fr_src_34）中 1867 年三皇晚宴的 à la reine 奶油鸡舒芙蕾一句支撑；其起源与命名史未取得来源。",
+      "rights_note": "失败如实登记；零引用，缺口已在条目中点明。"
+    },
+    {
+      "id": "cuisine_fr_src_un_09",
+      "title": "Tarte Tatin — Encyclopaedia Britannica（该路径）",
+      "url": "https://www.britannica.com/topic/tarte-tatin",
+      "access": "unavailable",
+      "supports": "返回 HTTP 404。塔类做法改由 pastry（cuisine_fr_src_25）与 custard（cuisine_fr_src_24）支撑。",
+      "rights_note": "失败如实登记；零引用。"
+    },
+    {
+      "id": "cuisine_fr_src_un_10",
+      "title": "Crêpe — Encyclopaedia Britannica（该路径）",
+      "url": "https://www.britannica.com/topic/crepe",
+      "access": "unavailable",
+      "supports": "返回 HTTP 404。布列塔尼荞麦薄饼的饼皮原料改由 buckwheat（cuisine_fr_src_29）支撑；其地方归属与做法细节未取得来源。",
+      "rights_note": "失败如实登记；零引用，缺口已在条目中点明。"
+    },
+    {
+      "id": "cuisine_fr_src_un_11",
+      "title": "Béchamel sauce — Encyclopaedia Britannica（该路径）",
+      "url": "https://www.britannica.com/topic/bechamel-sauce",
+      "access": "unavailable",
+      "supports": "返回 HTTP 404。白汁的做法改由 sauce（cuisine_fr_src_32）与 French cuisine（cuisine_fr_src_01）的母酱段落支撑。",
+      "rights_note": "失败如实登记；零引用。"
+    },
+    {
+      "id": "cuisine_fr_src_un_12",
+      "title": "Lent — Encyclopaedia Britannica（该路径）",
+      "url": "https://www.britannica.com/topic/Lent",
+      "access": "unavailable",
+      "supports": "被站点人机校验拦截（HTTP 403），未取得正文。斋期与禁食对菜式的影响改由 charcuterie（cuisine_fr_src_10）中「四旬斋期守斋者吃腌鱼而非肉」一句支撑，其余细节未取得来源。",
+      "rights_note": "失败如实登记；零引用。"
+    },
+    {
+      "id": "cuisine_fr_src_un_13",
+      "title": "AOP — Appellation d'origine protégée（INAO 该路径）",
+      "url": "https://www.inao.gouv.fr/Les-signes-officiels-de-la-qualite-et-de-l-origine-SIQO/Appellation-d-origine-protegee-IGP-1",
+      "access": "unavailable",
+      "supports": "返回 HTTP 404。原产地命名的制度框架改由欧盟委员会页面（cuisine_fr_src_19）与 INAO 首页（cuisine_fr_src_40）支撑。",
+      "rights_note": "失败如实登记；零引用。"
+    },
+    {
+      "id": "cuisine_fr_src_un_14",
+      "title": "Croissant（Alimentarium 食品博物馆词条）",
+      "url": "https://www.alimentarium.org/en/factsheet/croissant",
+      "access": "unavailable",
+      "supports": "返回 HTTP 500，未取得正文。可颂的做法与年代改由 Britannica croissant（cuisine_fr_src_06）支撑。",
+      "rights_note": "失败如实登记；零引用。"
+    },
+    {
+      "id": "cuisine_fr_src_un_15",
+      "title": "Gastronomy（UNESCO 非物质文化遗产专题页，该路径）",
+      "url": "https://www.unesco.org/en/intangible-heritage/gastronomy",
+      "access": "unavailable",
+      "supports": "返回 HTTP 404。法国美食宴改由 UNESCO 名录条目（cuisine_fr_src_04）支撑。",
+      "rights_note": "失败如实登记；零引用。"
+    }
+  ],
+  "elements": [
+    {
+      "id": "cuisine_fr_grande_cuisine",
+      "name": "高级菜与宫廷宴席体系（grande cuisine / haute cuisine 及其上菜结构）",
+      "aliases": ["grande cuisine", "haute cuisine", "高级菜", "宫廷菜", "service à la française", "repas gastronomique", "法国美食宴"],
+      "category": "item",
+      "tags": ["kind:cuisine_style", "tradition:western", "cuisine:french", "course:main", "technique:braise", "technique:bake", "occasion:court", "occasion:festival", "class_marker:elite", "role:status_display", "role:kitchen_hierarchy", "trade:guild"],
+      "summary": "自 16 世纪发端、至 19 世纪宴席达于全盛的一套「以技法与呈现秩序标示身份」的做菜与办宴制度；它既是菜，也是等级。写宫廷场景时，一桌菜的复杂度就是权力排名。",
+      "details": {
+        "definition": "高级菜指法国经典的高级烹饪体系，其标准不是昂贵食材堆叠，而是重浓郁、柔滑、平衡与精致的呈现；与农家或市民菜相反，后者容许甚至欣赏厚味粗粝，前者追求醇和的和谐与有秩序的艺术外观。它同时是一套宴席制度：UNESCO 名录所记的法国美食宴要求固定结构——餐前酒开始、餐后利口酒结束，其间至少四道（前菜、鱼和/或肉配蔬菜、奶酪、甜点），并讲究菜品精选、本地优质食材、菜与酒的搭配、餐桌布置以及席间闻与品的具体动作。",
+        "mechanism": "技法层面的核心是把「原料性质的可复现知识」变成可传授的工序：先建立高汤与母酱的骨架，再在其上层层衍出变体（例如褐色酱可加不同香草、蔬菜与调味料而无穷变化）；煎上色、焖、烤、快炒等方法被形式化，并按肉、鱼、蔬菜各自的需求调整。呈现层面的核心是把复杂度做成可读的秩序：一套菜单里每道菜的浓淡、温度、色彩与上菜节奏彼此配合，使食客能看出厨房的分工与训练水平。厨师之间靠对技法的共同理解以简写方式交流食谱，这套简写使技艺可以跨师徒、跨城市复制。",
+        "conditions": "需要三样东西同时存在：稳定的高级食材供给（乳、黄油、葡萄酒、禽、野味、海鱼，依赖牧场、葡萄园与两条海岸线）；能负担非生产性耗材的雇主（宫廷、教会高层、后来的豪华餐馆与大资产阶级）；以及能把技艺写成书并把厨师训练成队伍的机构（食谱著作、行会学徒制、后来的厨房等级制）。缺一样，高级菜就退化为一次性炫富或无法复制的孤例。",
+        "exceptions": "不要把高级菜等同于「法国菜的全部」：地方菜、市民菜与农家菜是它的对照面，也是它取材与再诠释的对象（普罗旺斯炖菜被视为农家菜被提升为高级餐饮的典型）。也不要把高级菜等同于「奢靡」：19 世纪以来它多次自我简化，20 世纪的新料理更是直接以减脂减糖、去掉浓厚酱汁为纲领。还有一层常被忽略的反向可能：宫廷菜可能出于保存条件不足而以重香料掩盖不新鲜，这在早期食谱里是常态而非技艺不足。",
+        "story_uses": "①身份与财政：宴席规模、菜品道数、上菜顺序与酒单可以直接量化一个家族的财力与政治位置，一场办不起的宴就是衰败的公开宣告。②行会与厨师等级：厨房里的岗位分工（汤菜、酱汁、烤肉、冷盘与采买）本身就是一个小型官僚体系，谁掌酱汁谁掌采买往往决定了谁能贪、谁能卡人。③餐馆制度与评论家：宫廷解体后厨师流出、开餐馆谋生，公共菜单与美食评论随之出现，一个评论家的笔可以决定一家店的生死，这类冲突极适合写成文人复仇或商业暗战。④战时与饥荒：当黄油、糖、奶油断供，整套高级菜的语法随之崩塌，能用替代品维持「看起来仍是高级菜」的厨师才是真正被争夺的人。⑤地区对抗：地方菜支持者与巴黎中心派的口味政治可作派系隐喻。",
+        "historical_scope": "本条限法国，16 世纪至 20 世纪；其中「UNESCO 名录」所记的四道结构限 2010 年申报时所述的当代实践，不能倒推为中世纪宫廷的上菜法。凯瑟琳·德·美第奇 1533 年携佛罗伦萨厨师入法、La Varenne 1651 年《Le Cuisinier François》、Carême 的四种母酱、Escoffier 改为五种母酱并确立 mise en place，都是法国的具体节点，不外推到其他欧洲宫廷。改编边界：架空世界可以借用「技法体系 + 宴席结构 + 厨师等级」这三件套，但不应顺带断言该世界必有葡萄酒产区、行会或宫廷；也不要让一个厨师凭天才凭空跳过原料与燃料的限制。",
+        "evidence_and_uncertainty": "来源支持：高级菜的定义与审美标准、原料地理基础、凯瑟琳入法与餐桌礼仪的连带、三位厨师的系统化作用、高汤与酱汁技法及其变体、烹饪方法的形式化、厨师间以技法简写交流，均据 cuisine_fr_src_15（Britannica grande cuisine）；UNESCO 名录的四道结构与宴会要素据 cuisine_fr_src_04；文化史脉络（中世纪宴席以量显富、Taillevent 以面包增稠、文艺复兴转折）据 cuisine_fr_src_36。存在两处口径差异，本条并列不合并：母酱数目（Carême 四种，Escoffier 五种）与《Le Cuisinier françois》的年份（1651 与 1652 两个说法分别出现在 cuisine_fr_src_01 与 cuisine_fr_src_36）。缺口：本条未取得任何具体菜单的全文与价格；「一桌菜读出权力」是设计归纳，不是史料。review_status 保持 needs_review。"
+      },
+      "source_ids": ["cuisine_fr_src_15", "cuisine_fr_src_04", "cuisine_fr_src_36", "cuisine_fr_src_01"],
+      "related_catalog_ids": ["animal_food_butter", "animal_food_cheese", "flavors_wine", "tools_kitchen_knife", "cuisine_fr_roux_white_sauce", "cuisine_fr_consomme", "cuisine_fr_restaurant_review"],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "cuisine_fr_consomme",
+      "name": "清汤（consommé：澄清高汤，可冷食成冻）",
+      "aliases": ["consommé", "清汤", "澄清汤", "consommé jelly", "bouillon"],
+      "category": "item",
+      "tags": ["kind:dish", "tradition:western", "cuisine:french", "course:starter", "technique:clarify", "technique:simmer", "occasion:court", "class_marker:elite", "role:kitchen_hierarchy", "trade:butcher"],
+      "summary": "以带骨肉长时煮出高汤、再澄清得到的清汤；因骨与腱的天然明胶，冷后自成冻。它是高级菜的「地基考试」：一锅汤见不清，厨房的等级就立不住。",
+      "details": {
+        "definition": "清汤是高汤体系的精炼端：以肉与带骨肉在液体中长时煮出可溶性物质，再去掉悬浮物与浑浊，得到透明而有味、冷却后能凝成冻的汤。它与依靠淀粉或菜泥增稠的浓汤是两条路，判断标准是透明度与胶凝能力，而不是料多。清汤在菜单上通常作第一道，也可冷食，此时以冻的形态上桌。",
+        "mechanism": "工序列清楚：先用冷水起锅、缓慢升温以利血水与可溶蛋白析出并凝成浮沫，撇除后维持微沸而不翻滚（翻滚会把脂肪与碎屑打散成乳浊）；以骨与腱提供明胶，使冷却后成冻；澄清阶段以蛋白（有时连碎肉）作吸附与过滤载体，把细小微粒带起成浮层后撇去。整套工艺的关键是温度上限与时间，而不是配方比例——换句话说，这是一道用火候控制换取透明度的菜。",
+        "conditions": "需要足量带骨肉与腱（牛、小牛、禽或鱼骨皆可），大量燃料以维持数小时微沸，以及能撇沫、过滤的容器与布；冷食成冻还依赖低温环境或冰窖，否则夏季根本不成菜。清汤是「把边角料变成身份符号」的菜：它需要的不是好肉，而是长期占用的燃料与人工——正因如此它天然标记阶级。",
+        "exceptions": "清汤不等于「没有料的汤」：它的成本几乎全在燃料与时间。冷食版与热食版不是同一道菜：热清汤讲究香气与温度，冷清汤讲究胶凝是否清亮、离模是否完整。也不要把它与肉冻混为一谈——肉冻是以清汤为材料的成形菜（见 cuisine_fr_aspic），清汤只是它的原料状态。鱼类清汤的澄清更脆，过度加热即浑浊，因此鱼清汤在宴席上通常是厨房当日状态的最好指标。",
+        "story_uses": "①厨房等级：清汤是全厨房唯一无法临时遮掩的东西，浑浊就说明撇沫的人不专心、火候无人管；可用来写一次「面试式」的宴席。②消耗与权力：数小时燃料换一锅透明液体，是太平年景才办得起的事；战乱与燃料短缺时，先消失的菜常常就是它。③冷食版适合夏季宴与病中膳食，可写医者、乳母、临终关怀场景。④若把清汤当暗号（例如某家宴必上清汤），可用以暗示旧秩序的延续或体面破产前的最后坚持。",
+        "historical_scope": "本条限西欧与法国的清汤一类，年代上主要对应 17 世纪至 19 世纪的法国厨房（该体系在 19 世纪被系统写入食谱并标准化）。不得把清汤当作所有欧洲汤的通则：以面包或面粉增稠的汤在更早的法国食谱里才是主流（Taillevent 以面包作增稠剂，参见 cuisine_fr_src_36）。改编边界：架空世界可以用「澄清 + 胶凝」这套机制，但必须给足燃料与低温条件；不要写成一勺粉末冲出的万能汤。",
+        "evidence_and_uncertainty": "来源支持：汤作为液态食物与其长时煮制能从骨多、肉少的渔获与肉中取得营养，清汤可用另煮的蔬菜、面食、quenelle、水波蛋等作饰，consommé 冷食时因带骨肉中的天然明胶呈冻状，均据 cuisine_fr_src_08（Britannica soup）；同一句亦见于摘录页 cuisine_fr_src_46，两处一致。缺口：已读来源未给澄清的具体工序（蛋白吸附、肉糜澄清层等）与所需时长，本条对工序只作机制性概述，不提供参数；「清汤是厨房状态的指标」属设计归纳。review_status 保持 needs_review。",
+        "note_on_usage": "作为共食体系的地基，它与浓汤、母酱共同构成高级菜的「三层骨架」。"
+      },
+      "source_ids": ["cuisine_fr_src_08", "cuisine_fr_src_46", "cuisine_fr_src_36"],
+      "related_catalog_ids": ["animal_food_beef", "animal_food_chicken", "animal_food_egg", "materials_salt", "tools_pottery_cooking_pot", "cuisine_fr_potage", "cuisine_fr_aspic"],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "cuisine_fr_potage",
+      "name": "浓汤与菜泥汤（potage：以淀粉、蛋黄或菜泥增稠的汤）",
+      "aliases": ["potage", "浓汤", "菜泥汤", "purée soup", "bisque", "garbure", "velouté soup"],
+      "category": "item",
+      "tags": ["kind:dish", "tradition:western", "cuisine:french", "course:starter", "course:main", "technique:simmer", "technique:puree", "occasion:tavern", "occasion:famine", "class_marker:common", "role:daily_staple", "trade:miller"],
+      "summary": "与清汤相对的浓汤体系：靠面粉、蛋黄、乳或菜泥取得稠度，能靠一碗汤把根茎、豆类与零星肉皮喂饱一家人。它是饥荒、修道院与平民餐桌的主力。",
+      "details": {
+        "definition": "浓汤（potage 一类）指以增稠手段取得厚实口感的汤：面粉或蛋增稠的酱汁、蔬菜泥（加或不加黄油与奶油），以及 bisque、chowder 这类以贝类或鱼、有时加肉或菜与奶油或乳制成的奶油汤。厚实的炖煮型汤在各地农家菜中尤其常见，常把根茎蔬菜、豆类与烟熏或鲜肉组合起来，法国的 garbure 是一个例子。清汤与浓汤在西式菜单上的位置不同：较清淡的汤作第一道，较浓稠厚实的汤在便餐里可当主菜。",
+        "mechanism": "增稠路线有三条，各有代价：淀粉（面粉糊）便宜稳定但会掩盖香气；蛋黄与奶油细腻但怕沸腾，一滚就结块分层；菜泥最能保留原料本味，但需要先煮透再打细并回锅调稠度。组合顺序通常是先炒香配料、加液体煮透、再决定用哪条路收尾，因为增稠方式决定最后能否再加热。真正的手艺在于判断这锅汤「值不值得用蛋」，而这种判断与当日的乳、蛋、面粉价格直接相关。",
+        "conditions": "原料门槛低但燃料门槛不低：豆类与根茎都要长时煮软，因此汤的普及度与柴薪价格、是否有常年不熄的灶相关。修道院、军队、医院与监狱这些「大锅机构」是浓汤的现实温床——它们有人口规模、固定开饭时刻与边角料。供汤还依赖容器与运输：能在街边卖汤，意味着有人能持续供柴供水并承担当日不卖完的损失。",
+        "exceptions": "不要把浓汤一律归为穷人的食物：bisque 一类奶油贝类汤在高级菜里价格不低，而菜泥汤也可能以松露、禽汤打底而进入宴会。也不要以为「汤」必然是热的：水果汤在北欧、东欧常作甜点，法国亦有以马铃薯与韭葱冷食的 vichyssoise，冷热之别是菜单位置的区别而不是等级的区别。另一个例外是汤的「二次生命」：剩汤在下一顿被加料、收干或浇在面包上，这一循环在账册里看不出来，却是平民厨房的真实逻辑。",
+        "story_uses": "①饥荒与配给：浓汤是「把一份粮扩成十碗」的技术，写荒年时可写汤越煮越稀、越稀越咸（咸味能骗饿）。②机构生活：修道院、济贫院、军营与寄宿学校的汤锅是最稳定的日常冲突舞台——排队次序、勺子大小、谁负责分肉都能量化权力。③阶级反差：同一口锅里，主人桌上的是清汤与酱汁，仆人厨房里的是加了面包的浓汤，两菜同源是最省事的对比。④市场与物价：汤摊与卖汤人的出现，意味着城市里有一批「不做饭只买热食」的人，可写城市化的早期形态。⑤毒与药：汤是下药最容易的载体，也是照顾病人最常用的食物，一体两面。",
+        "historical_scope": "本条以「浓汤 = 增稠路线」为分类依据，具体菜名只举已读来源中出现者（bisque、chowder、garbure、vichyssoise）。potage 一词本身在已读来源中未给出定义，故本条把 potage 当作浓汤体系的法语通称处理，**该名称的历史归属存疑**，见第七节。年代与地域上，长时煮汤的古老性、以及浓汤作为便餐主菜的位置属西欧通例，不推到东亚（东亚的汤在正餐中的位置与功能不同，该来源亦如此区分）。改编边界：可自由设计汤的配方与吃法，但不要给出「某种汤能治病」的现实医学断言。",
+        "evidence_and_uncertainty": "来源支持：汤的定义与液体介质、长时煮制吸取营养、清汤作第一道而浓汤作便餐主菜、水果汤作甜点的例外、冷汤举例含 vichyssoise、浓汤的三条增稠路线、bisque 与 chowder 的构成、厚实炖煮型汤与 garbure，均据 cuisine_fr_src_08。缺口与不确定：①potage 一词未被已读来源定义，本条只把它当浓汤通称，属**待核**；②未取得任何具体汤品的配方与年代；③「大锅机构是浓汤温床」与「剩汤循环」属设计归纳，非史料。review_status 保持 needs_review。"
+      },
+      "source_ids": ["cuisine_fr_src_08"],
+      "related_catalog_ids": ["staples_common_bean", "staples_pea", "staples_potato", "produce_cabbage", "food_supp_leek", "animal_food_rendered_fat", "materials_salt", "tools_pottery_cooking_pot", "cuisine_fr_consomme"],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "cuisine_fr_roux_white_sauce",
+      "name": "面糊增稠与白汁体系（roux、béchamel、velouté、espagnole）",
+      "aliases": ["roux", "面糊", "béchamel", "白汁", "velouté", "espagnole", "褐酱", "mother sauce", "母酱"],
+      "category": "item",
+      "tags": ["kind:technique", "tradition:western", "cuisine:french", "course:sauce", "technique:emulsify", "technique:thicken", "occasion:court", "occasion:tavern", "class_marker:elite", "role:kitchen_hierarchy", "trade:miller"],
+      "summary": "以面粉与脂肪同煮成 roux 再兑入液体的增稠体系；白汁与褐酱是数十种变体的母体。它是法国厨房的通用语法——会这一手，才谈得上「做酱」。",
+      "details": {
+        "definition": "roux 是面粉与脂肪同煮数分钟所得的糊，作用是去掉面粉生味、并使其能吸收尽可能多的液体；往 roux 里加乳或奶油、高汤、葡萄酒或烤肉盘中的汁，再添调味与固体（洋葱、蘑菇、松露碎），煮至所需稠度，即得一条酱汁路线。法国白酱 béchamel（乳 + 白 roux）与褐酱 espagnole（褐色 roux + 褐色高汤 + 番茄泥 + 香料蔬菜）被视为数十种复杂变体的基础；béchamel 与 velouté（以高汤代替乳）在 19 世纪被列入母酱，espagnole 亦然。",
+        "mechanism": "关键在于面粉的焙炒程度与液体加入的方式：焙炒越久颜色越深、风味越偏坚果与焦香，但增稠力下降；液体必须分次或一次性快速搅入以避免结块，之后靠微沸让淀粉充分糊化。酱的最终稠度不是靠加粉补救，而是靠「粉与液的比例在起手时就定对」——因此这套体系在厨房里是**预判型**技术，不是修补型技术。母酱的价值也在这里：它把判断变成可传授的规则，使不同厨房的出品能彼此替代、彼此比较。",
+        "conditions": "需要面粉（依赖磨坊与小麦供应）、稳定的脂肪（黄油、猪油或熬炼脂肪）、乳或高汤，以及能持续搅拌的人手与不太猛的火。白汁在乳与黄油便宜的地方才日常；褐酱依赖褐色高汤，而褐色高汤又依赖烤肉与骨，因此它是「有肉的日子」的产物。燃料与锅具也设限：厚底锅能稳住糊化温度，薄铜锅易糊底。",
+        "exceptions": "不要把「所有法式酱汁都从 roux 起手」当作通则：以蛋黄增稠的热乳化（荷兰酱）、以蛋黄与油的冷乳化（蛋黄酱）、以收浓与黄油搅打的 beurre blanc、以面包屑增稠、以菜泥增稠都是另立的路线。也不要以为母酱是固定清单：19 世纪的四种与后来的五种口径不同，allemande 被降为二级酱，这说明「母酱」是教材与行规的产物而非自然分类。另一处常见误解是把白汁当作廉价替代品——它在 17—19 世纪的高级菜里是正经的技法考核项，只是到 20 世纪被新料理当成应削减的对象。",
+        "story_uses": "①学徒与考核：把「第一次独立做酱」写成成人礼式的场景，失败的样子（结块、发灰、分离）非常直观，读者立刻懂。②物资断供：面粉或黄油短缺时，厨房会先换掉哪条酱、留下哪条酱，能反映这家人的取舍与体面。③行会与招牌：一个家族以某条酱的变体立名（例如某馆子的白汁配方不外传），可作商业机密与继承冲突的核心。④阶级：市民厨房的酱靠面粉与乳，宫廷的酱靠高汤与松露，同一份「酱汁」在两处是两种物价。⑤战时：以面粉替黄油的替代做法，是饥饿年代最易写的细节。",
+        "historical_scope": "本条讲技法与体系，不锁定任何单一名店的配方。年代上，以面粉作增稠剂在法国是近两百年之事（更早的法国食谱以面包作酱汁增稠剂，Taillevent 即如此），因此不要把「白汁」倒推为中世纪法国菜的常态。母酱清单随教材变化（Carême 四种、Escoffier 五种），本条并列保留。改编边界：架空世界可自由设定增稠物（面粉、米粉、豆粉、面包屑、蛋黄、血），但不要同时保留「淀粉必然便宜」这一现代前提——在磨坊不足的世界里，面粉可能比乳更贵。",
+        "evidence_and_uncertainty": "来源支持：roux 的构成与作用、加液体后再加调味与固体、béchamel 与 espagnole 作为数十种变体之基础、以面包屑增稠、以蛋黄增稠的另两条路线，据 cuisine_fr_src_32（Britannica sauce）；母酱名单的两种口径（Carême 四种含 allemande，Escoffier 五种把 allemande 降级并加入 hollandaise 与 tomato）分别据 cuisine_fr_src_01 与 cuisine_fr_src_35；褐色酱可加香草蔬菜与调味而无穷变化、技法形式化，据 cuisine_fr_src_15；早期以面包增稠据 cuisine_fr_src_36。缺口：béchamel 专页返回 404（cuisine_fr_src_un_11），故白汁的命名与人名来源未取得，本条不写其起源故事；亦未取得任何比例参数，按规范不提供。review_status 保持 needs_review。"
+      },
+      "source_ids": ["cuisine_fr_src_32", "cuisine_fr_src_01", "cuisine_fr_src_35", "cuisine_fr_src_15", "cuisine_fr_src_36"],
+      "related_catalog_ids": ["staples_wheat", "animal_food_butter", "animal_food_milk", "animal_food_cheese", "flavors_wine", "flavors_nutmeg_mace", "tools_kitchen_knife"],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "cuisine_fr_hollandaise",
+      "name": "荷兰酱与贝亚恩酱（热乳化蛋黄黄油酱）",
+      "aliases": ["hollandaise", "sauce hollandaise", "荷兰酱", "béarnaise", "sauce béarnaise", "sauce Isigny", "emulsion sauce"],
+      "category": "item",
+      "tags": ["kind:technique", "tradition:western", "cuisine:french", "course:sauce", "technique:emulsify", "occasion:court", "occasion:tavern", "class_marker:elite", "role:kitchen_hierarchy", "trade:poultry"],
+      "summary": "把极软的黄油一点点搅进蛋黄与酸味液体而成的热乳化酱，配鱼、蛋与蔬菜；温度窗口极窄，分离是常态。它是「酱汁台」这一岗位的招牌菜。",
+      "details": {
+        "definition": "荷兰酱是法国烹饪的经典酱之一，以黄油、蛋黄、柠檬汁与胡椒制成，通常配鱼、蛋或蔬菜；与它相似的是 béarnaise：以醋与葡萄酒代替柠檬汁，加龙蒿与红葱，黄油通常先澄清。两者的共同点是靠蛋黄把油脂乳化成顺滑的乳状液，因此都属于「热乳化」这一族，与以蛋黄和植物油冷乳化的蛋黄酱同族而工序不同。",
+        "mechanism": "工序是分次而非一次：蛋黄与酸味液体先在低火上搅打至微微增稠（这一步决定成品能否挂住），再把极软的黄油以细流分次搅入，使油相被分散成极细的液滴而不聚合；一旦温度过高，蛋黄蛋白过度凝固，乳化相崩溃即「分离」。因此成败判据不是配方而是温度与搅打节奏——这也是它被视为家庭厨师难点的原因。补救手段（另起蛋黄重新搅入）本身也是可写的厨房桥段：能不能救回来，直接反映厨龄。",
+        "conditions": "需要新鲜蛋、黄油、酸味来源（柠檬或醋酒）、能隔水加热或极低火源的灶、以及腾得出手持续搅打的人。黄油质量决定上限：这道酱本质上是「把黄油的风味以另一种形态呈现」，黄油不好，技法再好也只是稀油。柠檬则牵动物流——无柠檬季节可用醋，但风味走向不同，这一替代在菜单上必须改口。它不适合提前久放，因此只能在有客人等着的场合现做，这直接决定了它在宴席组织中的位置：靠近上菜时刻的岗位。",
+        "exceptions": "不要把荷兰酱与蛋黄酱混为一道：一个是热乳化、以黄油为油相，一个是冷乳化、以植物油为油相，稳定机制与失败形态都不同。也不要把荷兰酱当作自古以来如此：已知最早的荷兰酱配方用醋，1758 年发表的一版用 bouillon 与面粉而完全不用蛋——也就是说「用蛋黄作乳化剂」并非绝对必要，现今形式是 19 世纪初才在法国确立的。命名上还有一层反讽：法语名意为「来自荷兰」，但它很可能源自诺曼底，原名 sauce Isigny，得名于产乳的卡尔瓦多斯城镇；因该区胡格诺派信徒避迫害逃往荷兰，配方可能经荷兰回到法国。",
+        "story_uses": "①压力测试：把「新人第一次上酱汁台」写成高潮，一滴分离就是当众失格，适合写厨房内部的等级暴力。②地理与迁徙：一个「名字指向别处、实际源于本地」的酱，是天生的流亡与改名故事——写菜名的来历，等于写一群人的迁徙。③季节与替代：无柠檬季用醋、无黄油用替代脂，可写黑市与配给年代的将就。④行会与保密：酱方作为嫁妆或遗产的一部分，可写配方争夺。⑤评论家：一道酱的分离或成功，被评论家看见或没看见，可作命运的分岔点。",
+        "historical_scope": "限西欧与法国，17 世纪有记载、19 世纪初成今形、20 世纪初随 Escoffier 把它列入五大母酱而成为菜单标配，1860 年纽约 Delmonico's 已用它做 eggs Benedict（说明其外传之早）。改编边界：可以替换酸味与香草，但不要把「热乳化」写成不受温度限制的魔法；也不要让没有蛋与黄油的地区凭空做出这道酱——替代品世界应有替代品的名字。",
+        "evidence_and_uncertainty": "来源支持：荷兰酱的构成与用途、诺曼底 Isigny 来源说与经荷兰回流的命名机制、最早配方用醋、1758 年版用 bouillon 与面粉而不用蛋、19 世纪初在法国确立并外传、1860 年 Delmonico's 与 eggs Benedict、Escoffier 把它列为五大母酱之一、与 béarnaise 的差别（醋酒代柠檬、加龙蒿与红葱、黄油先澄清）、蛋黄过热的风险，均据 cuisine_fr_src_13；五大母酱之名亦见 cuisine_fr_src_35。缺口：未取得任何温度、时长与比例参数（按规范不写）；「酱汁台岗位决定其现做」属设计归纳。review_status 保持 needs_review。"
+      },
+      "source_ids": ["cuisine_fr_src_13", "cuisine_fr_src_35", "cuisine_fr_src_32"],
+      "related_catalog_ids": ["animal_food_egg", "animal_food_butter", "produce_lemon_lime", "flavors_vinegar", "flavors_wine", "animal_food_salmon", "cuisine_fr_roux_white_sauce"],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "cuisine_fr_aspic",
+      "name": "肉冻与冻釉（aspic、chaud-froid 及装饰模具）",
+      "aliases": ["aspic", "肉冻", "冻釉", "chaud-froid", "gelée", "冷盘模具"],
+      "category": "item",
+      "tags": ["kind:dish", "tradition:western", "cuisine:french", "course:starter", "technique:gelatinize", "technique:chill", "occasion:court", "occasion:festival", "class_marker:elite", "role:status_display", "trade:butcher"],
+      "summary": "以带骨肉的高汤凝成的咸味清冻，用来包裹、镀面与装饰冷菜；它是「没有低温就做不出来」的菜，因此一桌肉冻等于一份冷藏与人工的清单。",
+      "details": {
+        "definition": "肉冻是以牛、小牛、鸡或鱼的骨慢炖所得液体高汤制成的咸味清冻，冷藏时因腱中的天然明胶溶入汤中而凝固，有时另加商品片状或粉状明胶以保证硬挺的定型。它既可以是独立的一道冷菜（清冻切块或切片作装饰），也可以是镀在冷肉、鱼、蛋、水波禽或蔬菜外面的一层「冻釉」；把蛋黄酱或 velouté 与液体清冻混合即得 chaud-froid，可着色并用于装饰冷食。多种食物可与清冻结合置于装饰模具中成形。",
+        "mechanism": "机制是明胶的溶—凝可逆：加热时明胶溶入汤中，降温时形成三维网状把液体锁住；明胶浓度决定成冻的硬挺度，酸与酶会削弱胶凝，过度沸腾亦会降解。工艺顺序是先取得清澈而有胶质的高汤，再决定它作为「容器」还是「镀层」：作镀层要求极清、极透明并且能在冷食表面均匀挂住，因此对外观的控制比对味道更苛刻。装饰模具则再加一层空间设计——哪一块肉、哪一片菜放在哪一面，脱模后才可见，这是一种「倒着做」的摆盘。",
+        "conditions": "三件事缺一不可：足量的骨与腱（清汤需要长时间才能析出足够明胶）、可靠低温（冰窖、地窖、冬季、后来的冰箱）、以及能承担失败损失的雇主——脱模破裂即全功尽弃。这解释了为什么肉冻在温带寒冷地区与有大冰窖的贵族厨房里发达，而在热带与贫家厨房里罕见。透明与完整是两道门槛：透明度靠澄清，完整性靠模具与降温速度。",
+        "exceptions": "不要把肉冻与果冻混为一谈：一个是咸味肉汤体系，一个是果汁与糖体系，虽然共用胶凝原理。也不要以为它是纯粹的「老派」：以明胶辅助定型在今天仍是商业厨房的常规做法。另有两处常见误认：一是以为肉冻必须含肉块（清冻本身即可作装饰），二是以为 chaud-froid 是热的（名称为「热冷」，实为冷食上的冷酱装饰）。在斋期与禁食语境下，鱼骨清冻是肉冻的合法替代，这一替换在菜单史上非常实用。",
+        "story_uses": "①冷链与权力：一桌完整的肉冻可以反推这家有冰窖、有能守夜的仆人、有承担失败的余粮，是最经济的世界构建道具。②倒着的摆盘：模具菜「倒着做」的工序很适合写成阴谋隐喻——所见的那一面是一开始就设计好的。③浪费与惩罚：脱模破裂即报废，可写厨房罚则、也可写故意破坏。④斋期：以鱼骨清冻替代肉冻，可写守斋与破戒的张力。⑤衰败：当冰源断绝或仆人减少，最先消失的菜就是这类需要持续照看的冷盘。",
+        "historical_scope": "本条限西欧与法国的冷盘体系，具体年代上限不强断（已读来源未给）；技术上它依赖明胶的天然来源，商品明胶的出现只被写为「有时另加」，未给年代。改编边界：架空世界的肉冻可以成立，但必须有低温手段与胶质来源（骨、皮、鱼鳔、某些海藻），否则只能写成冬季限定或干脆写成肉汤；不要写「靠魔法凝固」而不交代代价。",
+        "evidence_and_uncertainty": "来源支持：肉冻以牛、小牛、鸡或鱼的骨慢炖高汤制成、冷藏时因腱中天然明胶凝固、可另加商品明胶、用于包裹与镀面冷肉冷鱼蛋水波或烤禽与蔬菜、切碎切形作装饰、多种食物可与清冻结合置于装饰模具、chaud-froid 为蛋黄酱或 velouté 与液体清冻混合而成，均据 cuisine_fr_src_22（Britannica aspic）。交叉印证：consommé 冷食成冻的同一机制见 cuisine_fr_src_08。缺口：商品明胶的出现与普及年代、冰窖在法国厨房中的具体使用方式，均未取得来源；「一桌肉冻＝冷藏清单」属设计归纳。review_status 保持 needs_review。"
+      },
+      "source_ids": ["cuisine_fr_src_22", "cuisine_fr_src_08"],
+      "related_catalog_ids": ["animal_food_beef", "animal_food_chicken", "animal_food_cod", "animal_food_egg", "flavors_vinegar", "tools_storage_jar", "cuisine_fr_consomme"],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "cuisine_fr_pate_terrine",
+      "name": "肉批与陶罐批（pâté en terrine、pâté en croûte）",
+      "aliases": ["pâté", "terrine", "pâté en terrine", "pâté en croûte", "肉批", "陶罐批", "pâté de Pâques"],
+      "category": "item",
+      "tags": ["kind:dish", "tradition:western", "cuisine:french", "course:starter", "technique:chill", "technique:bake", "occasion:tavern", "occasion:festival", "class_marker:common", "role:preservation", "trade:butcher"],
+      "summary": "同一名字下其实有三种东西：填馅酥皮、以动物脂包裹或衬模冷食的陶罐批、以及在酥皮中烤的批。分清它们，才谈得上写「肉批」。",
+      "details": {
+        "definition": "pâté 在法语里意为糊或面团：在法国菜中指填馅酥皮（功能类似英国的 pie）。加修饰语后另指两种不同制品：pâté en terrine 是把肉、野味或鱼的混合物以板油或其他动物脂包裹、或衬在深椭圆或长方模中烹制、不用酥皮、冷食；pâté en croûte 是把同样的馅在酥皮中烹制、热食或冷食。英美用法里的 pâté 其实来自 pâté en terrine，更准确的简称是 terrine。某些 pâté 与特定节令绑定，例如 pâté de Pâques 以绞肉、碎猪肉、鸡或兔肉与硬煮蛋填制，是普瓦图地区的复活节特产。",
+        "mechanism": "工艺分两条：陶罐一路靠脂肪包裹或无皮衬模，把馅料压实在模中低温长烤，再彻底冷却使脂肪凝固、结构稳定，切片才不散——因此它是「先烤后冻」的菜，成败判据在于冷却是否充分。酥皮一路靠酥皮本身形成外壳与隔热，馅在壳内被蒸烤定型，可热食亦可冷食。两路都依赖同一件事：馅内的脂肪与结缔组织要在长烤中软化并把水分锁住，所以「瘦」的馅料反而难做。",
+        "conditions": "需要可用的动物脂（猪脂、板油、鹅脂）、模具或酥皮、能维持稳定低温的长时间烤炉，以及冷却用的凉处。它是典型的保存型菜：出模冷却后可存放数日，因此天然适合行旅、乡间待客与节庆前的提前准备。猪肉供应与屠宰季节（传统上在冷天）直接决定能做多少；这也是它与 charcuterie 体系共享原料与工具的原因。",
+        "exceptions": "①不要把 pâté 与 terrine 当同义词：terrine 严格指陶罐那一路，pâté en croûte 才是酥皮带壳的那一路。②不要以为它必然是冷菜：pâté en croûte 可热食。③不要把它写成「高级菜专属」：它起源于家常保存手段，进宴会靠的是把边角料做得体面。④鹅肝批（pâté de foie gras）虽同名，但其关键在育肥肝这一原料，与普通肉批不是同一生产链，两者的等级与伦理争议也不同。⑤「批」的馅料可含野味，因此它既可以指向平民的猪，也可以指向领主的猎场，这一点在阶级叙事里非常好用。",
+        "story_uses": "①节庆与年历：把 pâté de Pâques 之类与节令绑定的批写成家族仪式的固定项，可用来标记时间流逝与家族兴衰。②保存与行旅：切片不散的陶罐批是最合理的旅途口粮与礼物，可写长途、可写贿赂（送一罐自制的批）。③屠宰季：冷天杀猪、当日做批、分赠邻里，是乡间社会关系的年度结算。④阶级反差：同一配方在农舍是过冬食物，在城堡是开胃冷盘。⑤掩盖：pâté 的馅看不见，本身适合承接「里面掺了什么」的悬疑——劣肉、替代肉、乃至不该出现的肉。",
+        "historical_scope": "本条限法国及受其影响的西欧用法，未锁定年代（已读来源未给 pâté 的早期年代）。普瓦图的复活节批、鹅肝批为来源所举的具体例子，不外推到其他地区。改编边界：架空世界可自由设定馅料与模具，但「无低温则需当日吃完」这条物理约束不应被抹掉；写「猎场—厨房」链条时也要交代野味是否合法取得。",
+        "evidence_and_uncertainty": "来源支持：pâté 的三种含义（填馅酥皮、en terrine、en croûte）、terrine 为英美 pâté 的实际来源、pâté de Pâques 的节令与地区与馅料、pâté de foie gras 的定位，均据 cuisine_fr_src_23（Britannica pâté）；它与 charcuterie 体系共享原料与工具、以及 terrine 已进入 charcuterie 领域，据 cuisine_fr_src_10；酥皮包馅（en croûte）的技法据 cuisine_fr_src_25。缺口：早期年代、具体工艺参数、模具形制的演化均未取得来源；「屠宰季决定产量」属设计归纳。review_status 保持 needs_review。"
+      },
+      "source_ids": ["cuisine_fr_src_23", "cuisine_fr_src_10", "cuisine_fr_src_25"],
+      "related_catalog_ids": ["animal_food_pork", "animal_food_ham_bacon", "animal_food_sausage", "animal_food_rendered_fat", "animal_food_egg", "staples_wheat", "cuisine_fr_charcuterie_lyon", "cuisine_fr_foie_gras"],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "cuisine_fr_foie_gras",
+      "name": "鹅肝（foie gras：育肥禽肝，及其批与陶罐做法）",
+      "aliases": ["foie gras", "鹅肝", "pâté de foie gras", "肥肝", "confit d'oie"],
+      "category": "item",
+      "tags": ["kind:dish", "tradition:western", "cuisine:french", "course:starter", "technique:charcuterie", "occasion:court", "occasion:festival", "class_marker:elite", "role:status_display", "trade:poultry"],
+      "summary": "以育肥鸭或鹅的肝制成的珍味，常填入酥皮或以陶罐冷食；它同时是顶级宴席的象征与当代动物伦理争议的焦点——非常适合承载「体面与残酷同席」的题材。",
+      "details": {
+        "definition": "鹅肝指经人工育肥的鹅或鸭的肝，作为法国菜的珍味；公认最佳产自斯特拉斯堡一带。理想质地非常紧实细腻，色泽乳白带粉。常见形态包括填入酥皮的 pâté de foie gras（可热食或冷食）、以果冻衬里并以白兰地、调味料与松露调制的批、作泥状配面包或吐司与果冻、配饰菜或薄饼，以及作 terrine 的形态。它也已被纳入 charcuterie 的领域。",
+        "mechanism": "技术本质是让禽肝在短期内大幅增大并改变脂肪分布，从而得到极细腻、可切片或可抹的质地；再以盐渍、低温熟成与（或）酥皮、陶罐封装定型，并用甜酒与松露补香。工序重心在「后的处理」而不只是原料：肝的血管处理、温度控制与压制决定了切片是否光洁、入口是否不带血腥。这类工序与肉批共用同一套装备（模具、凉处、脂肪），因此做鹅肝的地方通常也做批。",
+        "conditions": "依赖三件事：可育肥的禽群（鹅或鸭），专门的人力与场地，以及能负担「把大量饲料转化为少量肝」这一低效率转换的财力。价格因此极高，产出又受季节与禽群规模限制。冷链与熟成空间同样是硬条件。伦理层面亦是一项条件：在当代若干司法辖区该做法被立法限制，2006 年芝加哥曾立法禁止餐馆供应该菜（两年后废止），说明它随时可能被政治行动切断供应链。",
+        "exceptions": "①不要把它写成「法国人日常」：它的成本决定它是节庆与宴席的菜，日常吃它反而是近代富裕与旅游经济的结果。②不要与普通禽肝或肝酱（pâté de campagne 一类）混为一谈，两者原料链完全不同。③名称与地理的绑定存在多处：斯特拉斯堡被写为最佳产地，而西南部也有以鹅为主的产区并已取得官方标志（见 INAO 所记的西南鹅产品），不可只写一处。④同名异菜：pâté de foie gras 强调的是「以酥皮填装的批」，鹅肝本身不等于批。",
+        "story_uses": "①体面与残酷：一场以鹅肝为头盘的宴会，同时在后台进行育肥——把两处并置，几乎不需要评论就能形成道德压力。②价格与行情：以一份鹅肝的钱折算成农工日数，可立刻量化阶级。③禁令与走私：立法禁止后出现的黑市、私厨与「你不知道这盘从哪来」的对话，是极好的悬疑引擎。④季节与技术人：育肥与处理需要专门的师傅，可写成被各方争夺的手艺人。⑤地方对立：斯特拉斯堡与西南产区的声誉之争，可作地方荣誉与旅游经济的冲突线。",
+        "historical_scope": "限法国与受其影响的西欧；年代上本条只写到 21 世纪初的争议节点（动物权团体提出批评；2006 年芝加哥立法禁止、两年后废止），不据此写更早的起源史（已读来源未给古史）。地理上并置斯特拉斯堡与西南鹅产品两处。改编边界：可以写育肥制度的存在与代价，但不提供任何强制喂食的操作细节；也不要把它写成「只有法国有」——该来源只说法国的菜与产地，未作全球比较。",
+        "evidence_and_uncertainty": "来源支持：鹅肝是育肥鹅或鸭的肝、最佳产地为斯特拉斯堡一带、理想质地与色泽、以酥皮烤成 pâté de foie gras 并可热可冷、批以果冻衬里并以白兰地与松露调制、可作泥与 terrine、21 世纪初的动物权批评与 2006 年芝加哥禁令及两年后废止，均据 cuisine_fr_src_07（Britannica foie gras）；进入 charcuterie 领域据 cuisine_fr_src_10；西南鹅产品取得官方标志据 cuisine_fr_src_40。缺口：育肥工艺参数、历史起源、产量与价格数据均未取得（按规范亦不写操作细节）。review_status 保持 needs_review。"
+      },
+      "source_ids": ["cuisine_fr_src_07", "cuisine_fr_src_10", "cuisine_fr_src_40"],
+      "related_catalog_ids": ["animal_food_goose", "animal_food_duck", "animal_food_pork", "flavors_distilled_spirit", "flavors_wine", "staples_wheat", "cuisine_fr_pate_terrine", "cuisine_fr_truffle_cookery"],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "cuisine_fr_truffle_cookery",
+      "name": "松露入菜（truffes：佩里格黑块菌的用法与场地）",
+      "aliases": ["truffle", "truffe", "松露", "块菌", "Tuber melanosporum", "Périgord truffle", "truffière"],
+      "category": "item",
+      "tags": ["kind:technique", "tradition:western", "cuisine:french", "course:sauce", "course:main", "occasion:court", "occasion:festival", "class_marker:elite", "role:luxury_good", "role:foraging", "trade:forager"],
+      "summary": "以香气主导的珍味用法：松露不是一道菜，而是一种把「场合」加上去的材料。它的价格来自采集的不确定性与产地的稀缺，非常适合写黑市、赌局与季候经济。",
+      "details": {
+        "definition": "本条写「松露入菜」这一用法体系，而不是块菌这一生物（生物与产地属性另属自然与食材资料）。法国菜中最受重视的栽培种级珍味是佩里格块菌（Tuber melanosporum），据说在 15 世纪末开始受青睐；此外有冬白块菌等高价种。用法上，松露多以极薄的片、碎或泥进入菜肴与酱汁，常与禽、蛋、肥肝及酥皮批结合，起的是「给场合加冕」的作用，而不是提供热量或主结构。",
+        "mechanism": "松露的价值几乎全在挥发性香气，因此工艺的重心是「少加热、晚加入、密闭保香」：长时间高温会把香气赶走，所以常见做法是把松露夹入密闭的容器或酥皮内，与脂肪或蛋这类能吸附香气的介质共处，令香气渗入；或者在上桌前才刨片。这意味着松露菜的成功与否与上菜节奏强绑定：厨房要先算准客人何时入座，才决定何时开罐。",
+        "conditions": "供给端是最硬的约束：块菌生于地下（常深达约 30 厘米），难以徒手发现，通常靠训练的犬或母猪寻获（母猪被类似公猪信息素的香气吸引）；生于开阔的钙质土、与树根形成菌根共生；直接商业栽培困难，栽培需翻钙质土、栽橡实或苗、撒布块菌区土壤、轻耕维持地况，若出现须约五年后，八至十年后才较有利可图，五至 25 年后产量最大。因此松露是「采集经济」而非「农业经济」：产量随年景与林地状况剧烈波动，价格随之摆动。",
+        "exceptions": "①不要把松露当「越多越好」：它的作用是点香，过量的用法在技术上是浪费而非奢侈。②不要把松露与「假块菌」混同：后者属担子菌，一般不可食。③不要把它当作全年可得：采集有季节性，菜单上「今日有松露」本身就是一条情报。④松露的稀缺并非纯天然：法国政府曾对大片荒地造林，因为许多最佳产区靠种树（尤其橡树）而丰产；也就是说产地是被人为经营出来的，这为「谁有权在谁的林子里采」埋下冲突。⑤同名异物的风险高：多种 Tuber 都被叫「黑松露」，等级与价格差异极大，冒充是这门生意里的常态。",
+        "story_uses": "①信息与价格：松露季的行情是最好的「世界活着」的指标，可用来交代年景、贸易路线与通货膨胀。②黑市与欺瞒：以廉价种冒充佩里格、以假块菌混入，可写成市场骗局或宴席丑闻。③林地与产权：松露长在别人家的橡树林下，采集权、偷采与猎犬越界是最自然的地方冲突。④季节仪式：松露宴作为一年一度的场合，可承载求婚、结盟与和解。⑤人物的嗅觉：靠鼻子与经验判等级的老师傅，是一个很好的「不可替代者」角色，也是可被挖角或被淘汰的旧技术象征。",
+        "historical_scope": "限法国南部（佩里格、普罗旺斯—阿尔卑斯—蓝色海岸为主要 truffière，但法国大部都有采集），松露业约三分之一出口。佩里格块菌「15 世纪末开始受青睐」是来源的转述语气（据说），不作定论。改编边界：架空世界可以有块菌类珍味，但应保留「地下、需动物寻获、与树共生、产量不稳」这四项特征，否则它就只是一般的贵重香料；不要写成可稳定农场量产而价格不变。",
+        "evidence_and_uncertainty": "来源支持：块菌为 Tuber 属地下食用菌、法国块菌业与出口比例、主要产区、政府造林与橡树的关联、深度约 30 厘米与犬或母猪寻获、钙质土与菌根共生、栽培流程与五年/八至十年/五至 25 年的产出节奏、佩里格块菌为法国菜最受重视者且据说 15 世纪末受青睐、假块菌一般不可食，均据 cuisine_fr_src_11（Britannica truffle）；松露作为凯瑟琳入法时带来的珍味之一，据 cuisine_fr_src_01 与 cuisine_fr_src_36；鹅肝批以松露调味，据 cuisine_fr_src_07；松露碎作为酱汁固体添加物，据 cuisine_fr_src_32。缺口：法国本地各松露菜的具体做法与年代未取得来源，故本条不写具体菜品清单；采集与保存的操作细节按规范不写。review_status 保持 needs_review。"
+      },
+      "source_ids": ["cuisine_fr_src_11", "cuisine_fr_src_01", "cuisine_fr_src_36", "cuisine_fr_src_32", "cuisine_fr_src_07"],
+      "related_catalog_ids": ["food_supp_cultivated_mushroom", "animal_food_pork", "animal_food_egg", "animal_food_butter", "produce_walnut", "cuisine_fr_foie_gras", "cuisine_fr_seafood_platter"],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "cuisine_fr_seafood_platter",
+      "name": "海鲜拼盘（plateau de fruits de mer：生食贝类与整只甲壳类的冷盘）",
+      "aliases": ["plateau de fruits de mer", "海鲜拼盘", "fruits de mer", "海鲜冷盘", "生蚝盘"],
+      "category": "item",
+      "tags": ["kind:dish", "tradition:western", "cuisine:french", "course:starter", "technique:raw", "technique:chill", "occasion:festival", "occasion:tavern", "class_marker:elite", "role:status_display", "trade:fisher"],
+      "summary": "把生食的贝类与整只煮熟的甲壳类摊在冰上、配酸味蘸料的一套冷盘。它是「离海多远」与「冷链多强」的公开告白——也是沿海餐馆最诚实的一张菜单。",
+      "details": {
+        "definition": "海鲜拼盘是一类冷盘的统称：把可生食的贝类（尤其牡蛎、蛤、贻贝）与整只烹熟的甲壳类（蟹、虾、龙虾、螯虾）以及有时蜗牛等软体动物，连同蘸料与面包分层摆在铺冰的大盘上食用。它不是一道「配方菜」而是一套陈列与供应制度，其内容随渔获、季节与店家等级变动。生食部分是它的核心：整只活体下锅的甲壳类与生食的贝类是两句不同的技术语言，同盘并列恰好说明了海鲜处理的两条路。",
+        "mechanism": "技术上有三件事：保活与保鲜（贝类需在低温湿冷中存活，甲壳类需在烹后迅速降温）、分批烹煮（不同种类体量与质地差异极大，同锅会过熟或不足）、以及在极短时间内完成摆盘与上桌。这道菜的真正难点不是烹饪而是调度：它要求厨房在客人坐下之后才开始大部分工作，因此与「翻台速度」和「渔获到店时间」直接冲突。",
+        "conditions": "距海岸的距离与冷链强度是第一条件：贝类可短途活运，甲壳类死后品质骤降，因此越往内陆价格与风险越高。第二条件是冰：这道菜的呈现方式以冰为舞台，没有冰就没有这道菜的样子。第三是可靠的分级与检验——生食贝类对水质与养殖区管理极其敏感，产区的卫生制度事实上是这道菜的前提。第四是蘸料所依赖的酸味（柠檬或醋）与脂肪（黄油、蛋黄酱类），这些在温带需外购。",
+        "exceptions": "①不要把它写成一盘「随便的海鲜」：生食与熟食的分区、种类顺序与蘸料搭配是它的语言，混做成一锅就变成鱼汤或炖菜。②不要把生食当作绝对安全：来源只说大量海鲜生食或以腌渍改性，未给任何安全阈值，本条不作安全性断言。③同名异制：巴黎式的马赛鱼汤会加贻贝，这说明「沿海菜」在首都的再版本会自行增补原料，不可据巴黎版本反推马赛传统。④伦理与季节：甲壳类通常整只活体下锅、部分软体动物需拍打嫩化，这些处理方式本身就是可供叙事使用的残酷细节，但不写操作。⑤阶级：同一渔港的渔获，在渔家是杂鱼锅，在城里餐馆是冰上陈盘，价差全在陈列与冷链。",
+        "story_uses": "①冷链与距离：一盘冰上生蚝可以立刻告诉读者这座城市离海多远、有没有铁路与冰窖，是最经济的地理说明。②渔港与拍卖：清晨的渔获分级与竞标，可写价格波动、欠债与垄断。③宴会排名：拼盘的层数、种类数与甲壳类的个头可以直接读出主办者的财力与客人的座次。④风险：生食带来的疾病与谣言，是沿海城市最好的公共卫生剧情——检疫、封港与替罪羊。⑤赊账经济：海鲜几乎不能存货，因此围绕它的交易必然是现金或极短期的信用，可写渔夫与餐馆之间的依附关系。",
+        "historical_scope": "本条描述的是这类冷盘的通行形态，不锁定某一名店或某个年代（已读来源未给这道拼盘作为菜名的历史）。原料侧的年代与地理限定见各食材条目；马赛鱼汤的巴黎版本加贻贝、甲壳类整只活体下锅、软体动物需拍打嫩化，均据已读来源。改编边界：架空世界可以有这道菜，但必须同时具备海岸或可靠冷链、制冰或天然冰源、以及能承担「当日卖不完即报废」的资本；不要把内陆城市写成能天天供应生食贝类。",
+        "evidence_and_uncertainty": "来源支持：海鲜的范围（含贝类与甲壳类）、鱼易腐故历史上多被干制烟熏盐渍腌或发酵、甲壳类与多数软体动物通常整只活体烹制、较大较韧的软体动物需剁碎或切片并拍打嫩化、大量海鲜生食或以腌渍改性、烹鱼须避免过熟、越娇嫩者配越温和调味，均据 cuisine_fr_src_42（Britannica seafood）；马赛鱼汤巴黎版加贻贝、并用龙虾与蟹，据 cuisine_fr_src_02。缺口：**「plateau de fruits de mer」作为菜名本身未被已读来源描述**，本条据原料与处理方式的来源归纳其形态，属本项目归纳，待补专门来源；亦未取得任何冰上陈列与卫生制度的历史材料。review_status 保持 needs_review。"
+      },
+      "source_ids": ["cuisine_fr_src_42", "cuisine_fr_src_02"],
+      "related_catalog_ids": ["animal_food_oyster", "animal_food_clam", "animal_food_shrimp_prawn", "animal_food_cod", "produce_lemon_lime", "flavors_vinegar", "animal_food_dried_salted_fish"],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "cuisine_fr_boeuf_bourguignon",
+      "name": "勃艮第红酒炖牛肉（bœuf bourguignon 一类：以红葡萄酒代部分液体焖煮牛肉）",
+      "aliases": ["bœuf bourguignon", "boeuf bourguignon", "勃艮第红酒炖牛肉", "红酒炖牛肉", "bœuf à la bourguignonne"],
+      "category": "item",
+      "tags": ["kind:dish", "tradition:western", "cuisine:french", "course:main", "technique:braise", "technique:simmer", "occasion:tavern", "occasion:festival", "class_marker:common", "role:daily_staple", "trade:butcher", "trade:vintner"],
+      "summary": "以红葡萄酒代替（或补足）焖煮液体、把韧性牛肉块煨到可切断的褐色焖菜。它把「酒的产区」写进了家常菜：有什么酒，就有什么味道。",
+      "details": {
+        "definition": "这一类菜属法国褐色焖煮（braising 与炖之间的地带）：牛肉切块先在热脂中煎上色，再加少量液体、覆锅慢煨，液体中以红葡萄酒为主或占相当比例，常配洋葱、胡萝卜、蒜、香草与蘑菇。它属「褐色」一路（先上色再加液体），与以白汁收尾的白色炖菜（blanquette、fricassée）相对。名为「勃艮第」是把产地写在菜名上的典型做法——酒与牛同为该地区的物产符号。",
+        "mechanism": "机制分三段：①上色：在开盖锅中以少量脂肪把肉块表面煎褐，产生焦香与色泽，这是「褐色」的来源；②煨：覆锅、维持微沸（传统上从不滚沸，而在接近 90 摄氏度的温度带缓慢作用），使胶原转化为明胶、纤维松散；③收尾：开盖收汁或以少量面粉、菜泥调稠，最后加入另炒的蘑菇与珍珠洋葱以补口感层次。酒的酸与单宁在这一过程中既提供风味，也影响肉的软化速度——这就是为什么「用好酒」与「用剩酒」会做出不同的菜，而不是同一道菜的两种排场。",
+        "conditions": "需要三样：适合长煨的韧性部位（肩、腱、胸腹一类，瘦而嫩的部位反而会柴）；足量红葡萄酒（意味着当地有葡萄园与酒 surplus，或能买到便宜桶装酒）；以及能长时间占据炉火或灶眼的容器（厚壁锅）。燃料与时间是隐形条件：这道菜是「便宜的肉 + 昂贵的火」的组合，因此它在柴薪相对充裕、牛肉较便宜的社会里最盛。",
+        "exceptions": "①不要把它当作「法国人天天吃」：长煨数小时的菜在燃料紧张的家庭里是周日或节庆菜。②不要把酒当作可随意替换的点缀：无酒年代确有以醋水、苹果酒或纯高汤替代的做法，但那是另一道菜的名字与味道，菜单上必须改口。③不要把它与炖牛肉汤（pot-au-feu 一路，先煮后分食汤与肉）混为一谈：一个是「煮取」体系，一个是「煨浓」体系。④同名变体极多：加橄榄油与番茄即向地中海偏移，加培根与蘑菇即向酒馆风偏移，地区差异真实存在。⑤「勃艮第」是地理标签，用它命名就承担了产地期待；在没有该产区的架空世界里，菜名必须自造。",
+        "story_uses": "①酒与阶级：同一种做法用庄园酒与用村酒，是两种菜也是两种身份；酒的好坏可以成为主客之间的公开羞辱。②时间与火：以「煨了几小时」量化一个家庭的燃料余裕，比直接说穷富更可信。③产区政治：酒税、霜冻、歉收与封路会直接改变这道菜的味道，可写年份与价格波动。④团体菜：大锅焖菜最适合写团体（修院、军营、行会聚餐、村宴），分肉的不均是最古老的冲突。⑤秘密配方：以「谁家的酒配比」作人情与交易的筹码。",
+        "historical_scope": "本条限法国（尤其东部与中部酒区）及受其影响的西欧菜式，年代上限不强断——已读来源未给这道菜的具体起源年代或命名时间（专页返回 404，见 cuisine_fr_src_un_06），故**不写其起源故事与获奖传说**。技法侧的年代与限定如下：braising 与 stew 的定义、微沸而非滚沸、褐色路线先上色再加液体，均属西欧烹饪通例，不外推到以蒸、炒为主的其他菜系。改编边界：可以自由设定酒种、配菜与锅具，但不要保留「长时煨煮不需要燃料」这一现代前提；也不要让缺酒的地区自然而然做出「红酒」炖牛肉。",
+        "evidence_and_uncertainty": "来源支持：braising 为密闭容器中以油与水分慢加热、与炖（浸在液体中）及加盖烤（不加液体）的区别、先煎上色后覆锅续煮、肉常置于蔬菜层上、上色后可加少量液体（cuisine_fr_src_30）；炖菜从不沸腾而约 88 摄氏度微沸、褐色炖先煎上色再加液体、常加根茎蔬菜与番茄芹菜、酱汁可打泥或加面粉蛋黄增稠（cuisine_fr_src_31）；红葡萄酒为法国菜常用配饮与烹调要素、coq au vin 等以酒入菜的菜为法国菜代表（cuisine_fr_src_01）。缺口：**本菜的名称、起源年代、勃艮第归属与典型用料组合未取得专门来源**（Britannica 该路径 404），故相关表述标为待核；酒在软化肉过程中的具体作用属一般机制归纳，未取得来源支持。review_status 保持 needs_review。"
+      },
+      "source_ids": ["cuisine_fr_src_30", "cuisine_fr_src_31", "cuisine_fr_src_01"],
+      "related_catalog_ids": ["animal_food_beef", "flavors_wine", "produce_onion", "produce_carrot", "food_supp_cultivated_mushroom", "animal_food_ham_bacon", "flavors_black_pepper", "tools_pottery_cooking_pot", "cuisine_fr_pot_au_feu"],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "cuisine_fr_choucroute",
+      "name": "阿尔萨斯酸菜炖肉（choucroute garnie：酸菜与猪肉、香肠同煮）",
+      "aliases": ["choucroute garnie", "choucroute", "阿尔萨斯酸菜炖肉", "酸菜炖肉", "sauerkraut"],
+      "category": "item",
+      "tags": ["kind:dish", "tradition:western", "cuisine:french", "course:main", "technique:ferment", "technique:simmer", "occasion:tavern", "occasion:festival", "class_marker:common", "role:preservation", "trade:butcher", "trade:brewer"],
+      "summary": "以发酵白甘蓝为骨架、把猪肉部位与香肠一起炖进去的阿尔萨斯主菜。它是「保存技术决定菜系」的最好例子：先有能过冬的酸菜，才有这道菜。",
+      "details": {
+        "definition": "这道菜是以酸菜（发酵白甘蓝）与白葡萄酒同煮猪肉与香肠，有时另加火腿、培根或马铃薯，并以杜松子、丁香与月桂调味。酸菜本身不是法国独有：它是中欧烹饪中重要的蔬菜制备，把白甘蓝细切后与盐分层置于大陶罐或木盆，覆以压重的盖，在偏低温下发酵至少一个月，其间有时加入葛缕子、胡椒粒与杜松子。阿尔萨斯位于法国东北、紧邻德国，这道菜正是「政治边界与饮食边界不重合」的典型。",
+        "mechanism": "两道工序叠在一起：①发酵：盐把甘蓝细胞里的水抽出形成盐水，乳酸菌在缺氧、偏低温的环境中把糖转成酸，酸度上升即抑制腐败菌，于是秋收的甘蓝能过冬；②炖：把酸菜与酒、香料、猪肉各部位与香肠同锅慢煮，酸味解脂、脂肪润酸，两者互补。顺序上通常先把酸菜漂洗去部分酸、铺底，再把肉类分层放入，让脂与烟熏味往下渗，最后以马铃薯吸汁。成败判据是酸度与脂肪的平衡，而非某一种肉。",
+        "conditions": "硬条件有三：甘蓝的秋季收成（一年一季，因此这道菜本质上是冬季菜）、能维持偏低温的发酵空间（地窖、冷室）、以及盐的稳定供应。烟熏与腌腊肉是第二层条件：在没有冷藏的年代，把猪肉变成火腿、培根与香肠才是「有肉可加」的前提。酒与香料（杜松子、丁香、月桂）说明它位于香料贸易的末端可达处。",
+        "exceptions": "①不要把它当作「法国菜的典型」：酸菜体系严格说是中欧的（该制备在罗马人已知、西方失传后于 13 世纪经鞑靼人自中国再传入），阿尔萨斯这道菜是边界地区的产物。②不要以为酸菜等于德国菜：凡以甘蓝为主菜之处几乎都做某种酸菜，归属权之争本身可作民族主义叙事的材料。③不要把它写成素菜：它的骨架虽为蔬菜，但风味与体面来自肉，纯素的酸菜是另一种（更穷或更俭）的吃法。④同名变体：瑞士有近似组合（Berner Platte），不要把两国菜混成一菜。⑤工业罐装改变了这道菜的季节性，这一点在写近现代时要注意区分。",
+        "story_uses": "①边界与身份：一道菜在两个国家的菜单上都属「本国传统」，是写民族主义、同化与地方自治最好的入口。②过冬与储备：酸菜罐的数量可量化一个家庭的冬储，也是邻里借贷的实物货币。③屠宰季与行会：香肠与腌肉指向屠夫行会与冷天杀猪的节奏。④战争与配给：战时腌菜与罐头成为战略物资，可写征用、黑市与「今年的酸菜不够酸」。⑤气味与偏见：发酵食品的气味常被外来者当作落后标志，可作歧视与反讽的细节。",
+        "historical_scope": "本条限阿尔萨斯（法国东北、靠德国边境）及中欧酸菜体系；年代上限不强断——已读来源未给这道菜的定型年代，只给酸菜制备的古老性与其在 13 世纪再传入欧洲的转述。改编边界：架空世界可以有发酵甘蓝类菜，但需要甘蓝栽培、盐、低温窖藏与陶/木容器四项条件；不要写成四季可做的鲜菜，也不要把「酸菜」当作任何腌菜的通用代称。",
+        "evidence_and_uncertainty": "来源支持：Choucroute Garnie 属阿尔萨斯菜、为酸菜与白葡萄酒、猪肉、香肠同煮、有时加火腿培根或马铃薯、以杜松子丁香月桂调味（cuisine_fr_src_01）；酸菜的制备（细切白甘蓝与盐分层、压重、15.5 摄氏度以下发酵至少一个月、可加葛缕子胡椒粒杜松子）、常与烟熏肉和香肠同食并见于 choucroute garnie 与 Berner Platte、罗马人已知而 13 世纪再传入、凡以甘蓝为主菜处几乎都做某种酸菜（cuisine_fr_src_17）；choucroute garnie 与酸菜的连带另见摘录页（cuisine_fr_src_47）。缺口：这道菜的定型年代、阿尔萨斯与德国的归属争议、以及马铃薯何时进入该菜，均未取得来源；「酸菜罐即冬储计量」属设计归纳。review_status 保持 needs_review。"
+      },
+      "source_ids": ["cuisine_fr_src_01", "cuisine_fr_src_17", "cuisine_fr_src_47"],
+      "related_catalog_ids": ["produce_cabbage", "animal_food_pork", "animal_food_ham_bacon", "animal_food_sausage", "staples_potato", "flavors_wine", "materials_salt", "flavors_spice_blend", "cuisine_fr_charcuterie_lyon"],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "cuisine_fr_quiche_lorraine",
+      "name": "洛林咸派（quiche：以蛋奶糊填塔皮的咸塔）",
+      "aliases": ["quiche", "quiche lorraine", "洛林咸派", "咸派", "savoury custard tart"],
+      "category": "item",
+      "tags": ["kind:dish", "tradition:western", "cuisine:french", "course:starter", "course:main", "technique:bake", "technique:set_custard", "occasion:tavern", "occasion:fasting", "class_marker:common", "role:portable_food", "trade:egg_farmer"],
+      "summary": "以蛋奶糊凝在塔皮里的咸塔；技术上它是一道「咸味蛋奶糊」，因此成败全在蛋与乳的凝固，而不在馅料多寡。洛林之名与培根的组合是它的地方标签。",
+      "details": {
+        "definition": "quiche 是咸味蛋奶糊的塔：以奶酪、洋葱、火腿或培根、或切碎蔬菜调味的蛋奶糊填入法式塔皮烤成。它的技术基座是蛋奶糊（蛋、乳、糖与调味料的混合物，靠加热使蛋蛋白凝固而获得稠度）与塔皮（较硬的面团，多以脂肪与少量液体制成，擀开衬模）。因此它在菜系分类上跨了两条线：既是「蛋菜」，也是「酥点」。",
+        "mechanism": "工序是塔皮先成型（常先空烤定型以防底部湿软），再倒入调好味的蛋奶糊，入炉烤至蛋液刚好凝固。核心判据是凝固点：不足则中心流动，过头则蛋白过度收缩出水、呈蜂窝状。这使 quiche 的温度窗口与荷兰酱同类——都是蛋蛋白的凝固控制，只是介质不同。馅料的作用是提供风味与质地对比（脂、咸、甜），并在蛋液凝固时被固定住；过多的湿馅会把底部泡软，这是厨房里最常见的失误。",
+        "conditions": "需要乳、蛋、脂肪（塔皮用）、面粉、盐，以及能维持稳定炉温的烤炉。它真正的优势是「可冷食、可提前做、可切片携带」，因此在市集、旅店与长途旅程的供给史上位置很稳。奶酪与培根是可选而非必要：加什么取决于当地有什么。燃料与炉具是门槛：没有可调温的烤炉，蛋奶糊极易在底部凝固前先焦面。",
+        "exceptions": "①不要把 quiche 等同于「洛林咸派」：quiche 是一类咸塔的通称，洛林只是其中一种地理版本；已读来源证实的是「quiche 一词」与「咸塔做法」，**洛林版本的定型、培根是否为原始配料、以及其名称史均未取得来源**（专页 404）。②不要把它与甜蛋奶糊塔（如以焦糖或水果做的）混为一谈：同一套凝固机制，两种菜单位置。③不要以为它必然含奶酪：配方随地区与家计而变。④冷食不等于剩菜：它是刻意的冷盘选项，适合野餐、旅途与守斋日（无肉的蛋奶糊塔是斋期的合理菜式）。⑤它曾长期被误当「法国乡土的粗食」，但作为塔类它需要炉与模具，其实是城镇与市集的产物。",
+        "story_uses": "①可携带性：切片冷食、不易坏的咸塔最适合写旅人、信使、赶集与工地的口粮，也能写成「谁给的那一块」这种人情细节。②炉与垄断：有烤炉的村庄与没烤炉的村庄差别巨大，公共烤炉的收费与排程可作基层权力斗争的舞台。③斋期与替代：无肉版本作为守斋菜，可写「同一模具里装不同的馅」来标记宗教节律。④成本核算：蛋、乳、培根三项价格波动决定这道菜是家常还是待客。⑤失败可写：中心不凝、底部湿软、表面烧焦，三种失败对应三种疏忽，很好用。",
+        "historical_scope": "本条限法国及受其影响的西欧塔类，年代上限不强断：已读来源只给「quiche 为咸味蛋奶糊塔、以奶酪洋葱火腿或培根或切碎蔬菜调味」，未给洛林版本年代。改编边界：架空世界可自由设定馅料与塔皮，但需要蛋、乳、面粉与可调温的烤炉；不要把冷食版写成「不需要炉」的菜。",
+        "evidence_and_uncertainty": "来源支持：蛋奶糊的定义与以蛋蛋白凝固取得稠度、咸味蛋奶糊最著名的例子为 quiche（以奶酪、洋葱、火腿或培根、或切碎蔬菜调味填入法式塔皮的咸塔）——据 cuisine_fr_src_24（Britannica custard）；塔皮与塔模的技法、tart 一类以 short pastry 制作且常先空烤（baked blind）后再填馅——据 cuisine_fr_src_25；quiche 被列为法国菜的代表菜之一——据 cuisine_fr_src_01。缺口：**洛林版本的地理与配料史、名称年代均未取得来源**（cuisine_fr_src_un_04 记录 404），本条已如实标注。review_status 保持 needs_review。"
+      },
+      "source_ids": ["cuisine_fr_src_24", "cuisine_fr_src_25", "cuisine_fr_src_01"],
+      "related_catalog_ids": ["animal_food_egg", "animal_food_milk", "animal_food_cheese", "animal_food_ham_bacon", "staples_wheat", "animal_food_butter", "produce_onion", "cuisine_fr_puff_pastry"],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "cuisine_fr_bouillabaisse",
+      "name": "马赛鱼汤（bouillabaisse：多鱼同煮的普罗旺斯鱼汤）",
+      "aliases": ["bouillabaisse", "马赛鱼汤", "普罗旺斯鱼汤", "rouille"],
+      "category": "item",
+      "tags": ["kind:dish", "tradition:western", "cuisine:french", "course:main", "technique:boil_fast", "technique:simmer", "occasion:tavern", "occasion:festival", "class_marker:common", "role:daily_staple", "trade:fisher", "trade:spice_trade"],
+      "summary": "把多种地中海岩鱼与贝类快速同煮的鱼汤，配蒜辣酱 rouille 与面包。它的规矩不是配方，而是「必须用地中海的鱼」——一道由渔获定义、由地理限定的菜。",
+      "details": {
+        "definition": "马赛鱼汤是起源于法国地中海沿岸的复合鱼汤，为普罗旺斯菜的代表之一；食谱极多，但马赛做法被公认最正宗。除鱼与贝类外，传统用料含橄榄油、洋葱、番茄、大蒜、欧芹、藏红花、茴香、百里香、月桂与橙皮。正宗者必须用地中海鱼，包括不可少的 racasse（一种骨多的岩鱼）以及 whiting、海鳗、鲻、chapon、saint-pierre 等；也用龙虾与蟹，而巴黎版本另加贻贝。所有材料必须快速同煮；上桌时加入 rouille（蒜、红椒、面包屑与鱼汤制成的酱）以提味。",
+        "mechanism": "关键在于「快」与「分层」：先以橄榄油与香料蔬菜建立底味，再把不同质地与体量的鱼按耐煮程度先后下锅，以大火短时间把风味逼出而不把肉煮散；藏红花与橙皮提供色泽与香气的上扬，rouille 在席上补足辛香与稠度。它的技术哲学与长时煨煮相反——不是「越久越浓」，而是「够浓就停」。这也解释了为什么它必须由熟悉当日渔获的人来掌锅：配方无法替代对鱼体的判断。",
+        "conditions": "①渔获多样性：它要求一次能得到多种鱼（包括卖相差、骨多的岩鱼），也就是一个成熟的沿海鱼市与分级体系；单一种类的鱼做不出这道菜的性格。②橄榄油、藏红花与橙皮：把这道菜绑在地中海贸易网里，藏红花尤其昂贵，其可得性直接标记阶层与年代。③陶锅与大火：需要能承直火、导热均匀的容器。④面包与 rouille 的配套：这道菜不是孤立的汤，而是一套「汤 + 酱 + 面包」的吃法。",
+        "exceptions": "①不要把它写成「什么鱼都能做」：来源明确「真鱼汤必须用地中海鱼」，其中还有不可少的骨多岩鱼——这类鱼正是它从渔家杂锅升为名菜的物质基础。②不要把巴黎版本当正统：巴黎版加贻贝、可能另加甲壳类，是内陆再版本，不可据以反推马赛传统。③不要以为越煮越好：与勃艮第炖牛肉相反，它的判据是快速同煮。④同名变体多：邻近地区有各自的鱼汤（如 cotriade、matelote 一类），不要混成一菜。⑤它曾被文学抬高（Thackeray 在巴黎吃过之后写诗），这层「文人加冕」本身可作叙事材料：一道渔家菜如何因文人的一篇文章而改变价格。",
+        "story_uses": "①渔市与分级：这道菜的原料单就是一张渔获清单，可写拍卖、压价与「好鱼卖城里、杂鱼留给自家」。②地理的硬边界：写一个内陆城市试图复刻它，必然要在鱼、藏红花与冰上付出代价——这是最自然的地理课。③阶层上升：一道渔家菜被文人赞美后进了高级餐馆，价格与做法随之改变，是「文化资本如何改造食物」的现成案例。④藏红花与走私：昂贵香料的可疑来源可作黑市线索。⑤共同进食：一锅汤配一份酱与面包，是团体菜；谁先舀、谁分到蟹，是现成的等级展演。",
+        "historical_scope": "限法国地中海沿岸（马赛为核心）与普罗旺斯菜系；年代上限不强断——已读来源未给这道菜的起源年代，只给其地域归属与原料规制。改编边界：架空世界可写鱼汤类菜，但要保留「多鱼种、需骨多小鱼、昂贵香料、快速同煮、配套蘸酱」这几项特征；不要把它写成任何沿海地区都能自然出现的菜。",
+        "evidence_and_uncertainty": "来源支持：鱼汤的产地与普罗旺斯归属、马赛做法最正宗、除鱼与贝类外的用料清单（橄榄油、洋葱、番茄、大蒜、欧芹、藏红花、茴香、百里香、月桂、橙皮）、必须用地中海鱼及所列鱼种、用龙虾与蟹、巴黎版用贻贝、全部材料快速同煮、上桌加 rouille、Thackeray 的文学赞誉——均据 cuisine_fr_src_02（Britannica bouillabaisse）；鱼炖一类中法国有 meurette、matelote、cotriade 与 bouillabaisse，说明其为鱼炖家族的一员——据 cuisine_fr_src_31。缺口：起源年代、马赛本地的规制（如是否有行业宪章）与 rouille 的具体配比未取得来源；藏红花与橙皮的贸易链条细节亦未取得。review_status 保持 needs_review。"
+      },
+      "source_ids": ["cuisine_fr_src_02", "cuisine_fr_src_31"],
+      "related_catalog_ids": ["animal_food_cod", "animal_food_oyster", "animal_food_shrimp_prawn", "produce_tomato", "produce_onion", "produce_garlic", "flavors_saffron", "flavors_fennel_seed", "staples_olive", "tools_pottery_cooking_pot", "cuisine_fr_seafood_platter"],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "cuisine_fr_ratatouille",
+      "name": "普罗旺斯炖菜（ratatouille：夏蔬分炒再合炖）",
+      "aliases": ["ratatouille", "普罗旺斯炖菜", "尼斯炖菜", "ratouiller", "tatouiller"],
+      "category": "item",
+      "tags": ["kind:dish", "tradition:western", "cuisine:french", "course:main", "course:side", "technique:saute", "technique:simmer", "occasion:tavern", "occasion:fasting", "class_marker:common", "role:daily_staple", "trade:market_gardener"],
+      "summary": "把夏季园蔬分别炒过再合起来小火炖的普罗旺斯菜；素、可冷食、看天吃饭。「农家菜被提升为高级餐饮」的标本，也是夏季菜园过剩时的唯一出路。",
+      "details": {
+        "definition": "普罗旺斯起源的时令蔬菜炖菜，含南瓜类（如西葫芦）、番茄与其他园蔬与香草；常见用料为西葫芦、番茄、蒜、甜椒、茄子，典型香料为罗勒与百里香。名称出自两个近义词：ratouiller（搅动液体）与 tatouiller（打、摇），都指向「把一锅东西搅动」这一动作。它本身为素与纯素，但常配烤肉或鱼。",
+        "mechanism": "经典做法是先把切块或切片的蔬菜在橄榄油中炒至微褐，让表面定型、保住形状，再加水小火炖并不时搅动使味道融合；也有把各类蔬菜分别炒熟、到炖煮阶段才合并的做法（Robuchon 主张这一路）。成菜有「炖烂再回锅煎脆」与「多汁炖菜」两路，各地不同。共识是蔬菜必须切好且不过煮，使每种仍可辨认——这条判据比任何配方都重要，因为它直接决定了这道菜是「一锅糊」还是「一道菜」。",
+        "conditions": "它依赖的是菜园的同期过剩：地中海夏季的园子会同时给出番茄、茄子、甜椒与瓜类，而这几样不耐久存，于是必须一次处理掉。橄榄油是它的脂肪基础，香草（罗勒、百里香）是随手可得的调味。燃料方面它要求能把一锅菜维持小火一段时间，但不需要烤炉或精密温控，因此比塔类更平民。它也几乎不需要肉，所以在斋期与贫家厨房里同样是主力。",
+        "exceptions": "①不要把它当作「法式炖菜」的通称：它与以肉为基础的焖炖菜是两条线（无肉、无高汤、以橄榄油为脂）。②「洋葱要不要加」在当地厨师间确有分歧，不要写成定论。③不要把「炖得越烂越好」当标准：来源明确要求每种蔬菜仍可辨认。④同名异制：地方变体在成菜湿度与是否回锅煎脆上差别真实，热食与冷食是两种吃法而非两种等级。⑤它有文化史上的二次生命：2007 年同名动画把它推到全球，此后「家常菜被名人化」的现象本身可作叙事材料。",
+        "story_uses": "①季节与菜园：这道菜就是一张夏末的收成清单，可用来交代气候、土质与灌溉条件。②斋期与素日：无肉版本在禁食期是主力菜，可在同一桌上与肉菜形成对照。③冷食与旅途：冷食版适合夏日市集、田间午餐与长途携带。④阶级上升：从农家锅到高级餐馆的菜单，价格翻数倍而做法变化不大——是「文化资本定价」的现成案例。⑤分配冲突：一锅菜里谁能夹到茄子，是很细的日常权力描写。",
+        "historical_scope": "限普罗旺斯与尼斯（该菜为尼斯代表菜）；年代上，**已知最早食谱为 19 世纪、名称最早见于 18 世纪末**，而菜本身可能远早于此——这三个时间点必须分开写，不得合并成「起源于 18 世纪」。改编边界：架空世界可以有类似的夏蔬合炖菜，但需同时有番茄、茄子、甜椒与瓜类的同季可得性与食用油；缺一样，菜的性格就变。不要把「纯素」当作它在历史上的标签——素食作为一种主张是晚近的事，而这道菜无肉只是因为它出身农家。",
+        "evidence_and_uncertainty": "来源支持：产地与名称的两个词源、经典做法（橄榄油炒至微褐定型后加水小火炖并不时搅动）、常用蔬菜与香料、成菜的两路湿度差别、洋葱之争与 Robuchon 的分炒主张、蔬菜需保持可辨认的共识、最早食谱为 19 世纪而名称最早见于 18 世纪末且菜可能更早、尼斯代表菜与「农家菜被提升为高级餐饮」的定位、2007 年同名动画、可冷食、本身素与纯素但常配烤肉或鱼——均据 cuisine_fr_src_03（Britannica ratatouille）。缺口：番茄、茄子、甜椒传入欧洲的年代细节另属食材条目（该页未展开）；「菜园同期过剩」的经济机制属本项目归纳。review_status 保持 needs_review。"
+      },
+      "source_ids": ["cuisine_fr_src_03"],
+      "related_catalog_ids": ["produce_tomato", "produce_eggplant", "produce_squash_pumpkin", "produce_onion", "produce_garlic", "staples_olive", "flavors_spice_blend", "cuisine_fr_cassoulet"],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "cuisine_fr_cassoulet",
+      "name": "卡苏莱砂锅（cassoulet：白豆与肉同烤，取炊具名）",
+      "aliases": ["cassoulet", "卡苏莱", "卡苏莱砂锅", "cassole d'Issel", "confit d'oie"],
+      "category": "item",
+      "tags": ["kind:dish", "tradition:western", "cuisine:french", "course:main", "technique:bake", "technique:confit", "occasion:festival", "occasion:tavern", "class_marker:common", "role:daily_staple", "trade:butcher", "trade:potter"],
+      "summary": "白豆与猪肉、香肠（及可选的鸭鹅confit、羊肉、山鹑）在同一口陶锅里烤到表面结壳的朗格多克菜。它的名字来自锅，不来自豆——这本身就是一条物质史线索。",
+      "details": {
+        "definition": "卡苏莱是白豆与肉同烤的法国菜，得名于其炊具 cassole d'Issel（一种浅陶锅）；起源于法国西南部的朗格多克。它曾是简单的农家饭，后被发展为丰富复杂的菜。三个城镇各有版本：Castelnaudary 的基本版在豆之外加鲜猪肉与火腿，以及番茄、蒜、洋葱、香草与汤；Carcassonne 版另加羊肉与时令山鹑；Toulouse 版在基本版上加鸭或 confit d'oie（在鹅油中炖存鹅块）与图卢兹香肠。顶部以面包屑与鹅油形成脆壳。",
+        "mechanism": "工序是「分层 + 长烤 + 结壳」：豆先煮至将软，肉与香肠先行处理（鲜肉煎香、腌腊肉略煮去盐、confit 直接取用），然后把豆与肉分层装入陶锅、加汤入炉长烤；烤的过程中表层反复结壳，传统做法是多次把壳压回或另加面包屑与脂以形成新的壳。这层壳既是技术判据（有没有壳、壳是否均匀）也是身份标志（用鹅油还是别的脂）。陶锅的厚壁让热传导平缓，是「不起泡、慢慢收」的物质条件。",
+        "conditions": "①豆：需白豆（菜豆一类）的稳定供给，意味着豆类与谷物的轮作与储存。②肉：鲜猪肉之外还需要腌腊肉与香肠——即屠宰季与腌腊体系，因此在没有冷藏的年代它天然是冷天菜。③脂：鹅油或鸭脂是该菜风味与「体面」的核心，指向西南部的家禽育肥业。④陶锅：形状与厚壁是菜的物理前提；没有那种浅锅，就不是这道菜。⑤燃料：长烤数小时，是燃料密集的菜。",
+        "exceptions": "①不要把三个城镇版本合成一锅：它们的分歧（加不加羊肉与山鹑、加不加 confit 与图卢兹香肠）正是地方荣誉之争的载体。②不要以为它一直被当作「名菜」：它曾是农家饭，被「复杂化」之后才成为地区象征——这条上升路径与普罗旺斯炖菜同类。③不要把 confit 只当「油封鸭腿」这一商品形态：在这道菜的语境里，confit 是指在家禽自身脂肪中炖存的肉块，是一种保存技术的产物。④不要把它写成素食：豆虽是主体，但风味与热量来自肉与脂。⑤「同名异菜」的风险：多个城镇都自称正宗，写外部视角时可用「你到底吃的是哪一座城的卡苏莱」作为地方身份的点题。",
+        "story_uses": "①冬储与屠宰季：一锅卡苏莱可以反推这家有几口陶锅、腌了多少肉、有没有鹅。②地方荣誉：三城之争是最好的地域政治素材——评委、招牌、游客与价格全都可以卷进去。③团体与分配：长桌上一口大锅，分到 confit 的人与只分到豆的人，身份立现。④燃料与时间：数小时的炉火占用，是「这家人不缺柴」的公开证明。⑤器皿与手艺：菜名取自陶锅，可写陶匠、窑与锅形的地域差异，是一条少见的物质线索。",
+        "historical_scope": "限法国西南部朗格多克（Castelnaudary、Carcassonne、Toulouse 三处为代表）；年代上限不强断——已读来源未给定型年代。改编边界：架空世界可写豆与肉同烤的菜，但需同时具备豆类栽培、腌腊肉体系、动物脂与耐热陶锅；不要让它出现在既无陶锅也无腌肉的地方。另注意：本条的「confit」指在禽脂中炖存的保存法，与「糖渍果物」的同名词是两件事。",
+        "evidence_and_uncertainty": "来源支持：卡苏莱为白豆与肉同烤的法国菜、得名于炊具 cassole d'Issel、起源于朗格多克、曾是农家饭后被复杂化、三个城镇版本的差别（Castelnaudary 加鲜猪肉与火腿及番茄蒜洋葱香草与汤；Carcassonne 另加羊肉与时令山鹑；Toulouse 加鸭或 confit d'oie 与图卢兹香肠）、以面包屑与鹅油形成顶部脆壳——均据 cuisine_fr_src_05（Britannica cassoulet）；confit d'oie 为「在鹅油中炖存的鹅块」的释义亦见该条；菜豆与腌腊肉的原料属性见 staples_common_bean 与 animal_food_ham_bacon 各条。缺口：定型年代、三城之争的史料、豆种（如 lingot）差异均未取得来源；「多次压壳」的具体次数与工序属本项目归纳，未取得来源支持。review_status 保持 needs_review。"
+      },
+      "source_ids": ["cuisine_fr_src_05"],
+      "related_catalog_ids": ["staples_common_bean", "animal_food_pork", "animal_food_ham_bacon", "animal_food_sausage", "animal_food_duck", "animal_food_goose", "animal_food_rendered_fat", "produce_tomato", "tools_pottery_cooking_pot", "cuisine_fr_ratatouille"],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "cuisine_fr_fondue_savoyarde",
+      "name": "萨瓦奶酪火锅（fondue：融奶酪配酒与面包围锅共食）",
+      "aliases": ["fondue", "fondue savoyarde", "奶酪火锅", "caquelon", "fondue au fromage"],
+      "category": "item",
+      "tags": ["kind:dish", "tradition:western", "cuisine:french", "course:main", "technique:emulsify", "technique:melt", "occasion:tavern", "occasion:festival", "class_marker:common", "role:communal_meal", "trade:dairy_farmer"],
+      "summary": "在擦过蒜的陶锅里以白葡萄酒融奶酪、众人用长叉蘸面包的围锅菜。它是「山区冬季 + 乳品过剩 + 共食」三件事的合成物，也是餐桌上最直白的社交机制。",
+      "details": {
+        "definition": "奶酪火锅是以融化奶酪制成的围锅菜，通常含 Emmentaler、Vacherin 与 Gruyère 中的一种或多种；做法是把白葡萄酒在擦过蒜的厚重陶锅 caquelon 中加热，把擦碎的奶酪连同少量玉米淀粉与肉豆蔻或樱桃酒（kirsch）的调味加入热酒中，众人围锅共食，各以长柄叉叉起小块硬皮面包蘸食；锅底余下的锅巴由食客分食。虽然本条按「法国萨瓦」立条，但已读来源把 fondue 明确写作**瑞士**菜——这层归属差异必须保留，见第七节。",
+        "mechanism": "技术核心是「酒 + 淀粉 + 温度」三件套的乳化稳定：酒提供酸与风味并使奶酪蛋白分散，少量淀粉抑制油水分离，温度过高则会分离出油、过低则结块拉丝不匀。围锅共食的机制则是社交性的：一口锅、一套长叉、一条规则（掉面包的人受罚之类的民间约定），把「共享」变成可执行的行为约束。锅底的锅巴按例分食，是这套仪式里唯一有「先来后到」意味的分配。",
+        "conditions": "①山区乳业的季节性过剩：夏季放牧产乳多而运输困难，把乳做成硬质奶酪才存得住；冬季则以奶酪换热量。②白葡萄酒：在产酒区边缘（如萨瓦）可获得。③厚壁陶锅与稳定热源：需能持续小火加热且不局部焦糊。④硬皮面包：蘸取需要结构结实的面包。⑤耐寒与共食的空间：这是冬季菜，桌面本身就是取暖点。",
+        "exceptions": "①**国别归属存疑**：Britannica 把 fondue 写作瑞士菜，法国萨瓦一侧的同名菜在来源中未被单独描述，故本条不把「法国起源」当定论。②不要把「传说」当史实：该来源记有一则传说称此菜源于 16 世纪瑞士新教与天主教交战期间双方休战共食，一方出面包一方出奶酪——来源明确标为传说，不得用作年代依据。③不要把它写成奶酪随便混：混合品种的比例与选择是各家招牌，写「都一样」会抹掉地方差异。④不要把共食规则当笑话：掉面包受罚之类的约定是真实的社交压力装置。⑤樱桃酒（kirsch）虽常被称「传统必需」，但来源只把它列为调味选项之一（与肉豆蔻并列），故不作必需。",
+        "story_uses": "①冬季与共食：围锅是最自然的「同一桌人必须互动」的舞台，谁的长叉伸得远、谁的面包掉了，都能写成关系戏。②山区经济：乳品过剩与运输困难是这道菜的经济底座，可写牧道、转场与奶酪窖。③归属争议：一道菜在两个国家的菜单上都是「本国传统」，可作民族主义与旅游宣传的素材。④稀缺与替代：缺酒、缺硬面包、缺奶酪时这道菜会退化成什么，是写饥荒与战时很好的细节。⑤惩罚与羞辱：共食规则的「罚」是群体内部等级的日常展演。",
+        "historical_scope": "已读来源把 fondue 定位为瑞士菜，年代上只给一则 16 世纪的传说（标为传说，不作依据），未给成形年代。本条以「萨瓦」为条目标题是为了服务法国菜系的分区需要，但**法国一侧的具体历史未取得来源**，写作时应把它当作阿尔卑斯山区共有的乳品菜而非某一国的专利。改编边界：架空世界可写融奶酪共食，但需硬质奶酪、酒或酸味、耐热陶锅与冬季共食习惯；不要把热带或乳品不足地区写成能常年吃这道菜。",
+        "evidence_and_uncertainty": "来源支持：fondue 为瑞士菜、以 Emmentaler/Vacherin/Gruyère 中一种或多种融化奶酪制成、白葡萄酒在擦过蒜的厚重陶锅 caquelon 中加热、加入擦碎奶酪与少量玉米淀粉及肉豆蔻或 kirsch 调味、众人围锅共食、以长柄叉蘸硬皮面包块、锅底锅巴由食客分食、16 世纪交战双方休战共食的传说——均据 cuisine_fr_src_21（Britannica fondue）。缺口：**法国萨瓦版本的历史与名称未取得来源**；共食惩罚规则的具体内容未取得来源；奶酪混合比例的差异亦未取得来源。review_status 保持 needs_review。"
+      },
+      "source_ids": ["cuisine_fr_src_21", "cuisine_fr_src_16"],
+      "related_catalog_ids": ["animal_food_cheese", "animal_food_milk", "animal_food_butter", "flavors_wine", "flavors_nutmeg_mace", "flavors_distilled_spirit", "staples_wheat", "tools_pottery_cooking_pot", "cuisine_fr_cheese_aging_institution"],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "cuisine_fr_normandy_cider_pork",
+      "name": "诺曼底苹果酒炖肉（以苹果酒代酒的焖煮与诺曼底乳脂菜系）",
+      "aliases": ["porc au cidre", "cidre", "诺曼底苹果酒炖肉", "苹果酒炖猪肉", "Normandy cuisine"],
+      "category": "item",
+      "tags": ["kind:dish", "tradition:western", "cuisine:french", "course:main", "technique:braise", "technique:ferment", "occasion:tavern", "occasion:festival", "class_marker:common", "role:daily_staple", "trade:orchard", "trade:dairy_farmer"],
+      "summary": "在无葡萄园的北方以发酵苹果酒代替葡萄酒、配合黄油与乳脂来焖肉的菜系。它证明「酒的替代物」可以独立成一整套风味：不是将就，而是另一种菜。",
+      "details": {
+        "definition": "本条概括诺曼底与布列塔尼一带以苹果酒（cider）代替葡萄酒入菜的焖煮体系：猪肉或禽先在脂中上色，再以苹果酒为主要液体慢煨，常配苹果、洋葱与乳脂收尾。苹果酒是果（通常苹果）的压榨汁经发酵而成的饮料，梨制者称 perry；在欧洲多数国家该名只指发酵汁。它与「无酒可用的将就」不同——法国是苹果酒产量最大的国家，尤在诺曼底与布列塔尼，且法国制的苹果酒必须以鲜苹果汁或苹果与梨的混合汁发酵，并须符合不同类别的特定标准、各有名称。",
+        "mechanism": "机制与红葡萄酒焖煮同族而风味走向不同：苹果酒的酸与果香在长煨中渗入肉里，收尾时以乳脂或黄油补厚度，于是同一套「上色—覆锅慢煨—收汁」的工序在北方生出另一支味道。这道菜也依赖苹果酒的发酵控制：要甜型须提早过滤以保留未发酵糖，要干型则须发酵至糖大部分转为酒精，而不同选择的成酒在锅里表现不同（越干越能把酸带出来）。当地还以苹果酒配餐饮用，所谓「同一物既是饮料又是调料」，节省了一整套供应链。",
+        "conditions": "①果园：温带苹果的稳定产量，且需专门用于酿酒的酸涩品种（该来源提到有专门为优质苹果酒而栽培的「cider apples」）。②发酵与储存：木桶、酒窖与数月到两三年的熟成空间。③乳：黄油与奶油是这个菜系收尾的必需品，因此它天然落在有乳业的北方。④缺葡萄园这一「负面条件」在此反而是形成条件——它决定了当地不会照抄南方的酒法。",
+        "exceptions": "①不要把苹果酒等同「苹果汁」：在多数欧洲国家该名称只指发酵汁，而北美把它分成 sweet cider（未防腐的新鲜汁）、hard cider（自然发酵者）与 apple juice（处理防败并密封者）——这套区分在写跨地域场景时很容易出错。②不要把这道菜写成「穷人版的红酒炖牛肉」：它是独立成系的北方菜，有自己命名的酒、品种与标准。③不要以为苹果酒只是饮品：它同时是饮料、调料与（在蒸馏后）烈酒的原料。④同名与近名的陷阱：梨制者为 perry，不是 cider。⑤布列塔尼与诺曼底并列时要注意两者各有侧重（布列塔尼另有荞麦与薄饼体系），不要混成一地。",
+        "story_uses": "①负面条件成菜：一个地区「没有葡萄园」如何长出自己的酒与菜，是极好的世界构建范例——写架空世界时，可用同样的逻辑从「缺什么」推出菜系。②果园与年成：苹果的丰歉、霜冻与病害直接决定酒价与菜价。③双用途物资：同一桶液体既是日常饮料又是烹调必需品，一旦断供，饭桌与酒馆同时塌。④走私与税：酒类历来是征税与走私的重灾区，可写关卡、掺水与私酿。⑤地域偏见：北方以苹果酒代酒，常被南方讥为次等，这类傲慢可以写成角色偏见。",
+        "historical_scope": "本条限法国诺曼底与布列塔尼的苹果酒体系及以其代酒焖煮的做法；已读来源**未给这道具体菜的定型年代与配方**，只给苹果酒的制作、分类与法制的地区归属，故相关断言限于饮品端。苹果酒的工艺与法国标准、以及「法国产量最大、以鲜苹果汁或苹果与梨的混合汁发酵并按不同类别命名」均据来源。改编边界：架空世界可写以果酒代葡萄酒的菜系，但需有果园、发酵与乳业三项条件；不要保留「葡萄酒必然比果酒高级」这一现代酒类等级观。",
+        "evidence_and_uncertainty": "来源支持：苹果酒为果的压榨汁饮料、梨制者为 perry、欧洲多国该名只指发酵汁、北美的三分法、制作流程（磨浆压榨、野生酵母或接种纯培养、三个月后过滤、熟成数月到两三年、部分充气）、甜型与干型的发酵控制、英国式与法国式的分别、法国产量最大且集中在诺曼底与布列塔尼、法国制苹果酒须以鲜苹果汁或苹果与梨的混合汁发酵并按不同类别命名、有专门栽培的 cider apples——均据 cuisine_fr_src_28（Britannica cider）；黄油与乳脂在法国北方菜中的角色见 animal_food_butter 条。缺口：**「苹果酒炖猪肉」这一具体菜的名称、配方与年代未取得来源**，本条据饮品来源与焖煮技法（cuisine_fr_src_30、cuisine_fr_src_31）归纳，属本项目归纳，待补专门来源。review_status 保持 needs_review。"
+      },
+      "source_ids": ["cuisine_fr_src_28", "cuisine_fr_src_30", "cuisine_fr_src_31"],
+      "related_catalog_ids": ["produce_apple", "produce_pear", "animal_food_pork", "animal_food_butter", "animal_food_milk", "animal_food_chicken", "flavors_wine", "cuisine_fr_boeuf_bourguignon"],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "cuisine_fr_galette_bretonne",
+      "name": "布列塔尼荞麦薄饼（galette de sarrasin：咸味荞麦饼皮）",
+      "aliases": ["galette", "galette de sarrasin", "galette bretonne", "布列塔尼薄饼", "荞麦薄饼", "crêpe"],
+      "category": "item",
+      "tags": ["kind:dish", "tradition:western", "cuisine:french", "course:main", "technique:griddle", "occasion:tavern", "occasion:famine", "class_marker:common", "role:daily_staple", "trade:miller"],
+      "summary": "在铁板上摊薄的荞麦饼皮，包咸馅折成方或卷成筒；荞麦不适合做面包，却极适合做饼。它是贫瘠土壤上「没有小麦也能有主食」的答案。",
+      "details": {
+        "definition": "布列塔尼薄饼是以荞麦粉调成的稀糊在热铁板上摊成薄饼、再包入咸馅（奶酪、蛋、火腿、蔬菜等）折叠食用的地方主食；与之相对的甜味小麦薄饼（crêpe）是同一技法体系的另一支。技术上它属无酵、薄摊、直火平面加热一类，与烤炉面包是两条完全不同的路线。",
+        "mechanism": "荞麦粉不适合做面包（缺面筋，无法形成持气网络），但正是这一缺点使它成为理想的薄饼原料：不需要膨发，只需把粉与水调成能流动的糊，摊在热板上迅速糊化定型。工序顺序是调糊（常需静置）—热板抹油—舀糊摊开—翻面—加馅折叠。判据是薄、匀与边缘的脆度；面糊稀稠与板温是仅有的两个变量，因此这门手艺的训练成本低、复制速度快，适合成为街头与市集的标准食物。",
+        "conditions": "①荞麦：它「在好土上产量低于真谷物，但特别适应干旱丘陵与冷凉气候，因成熟快可作晚季作物」——这正好解释它为何在布列塔尼这类土壤与气候不利的地区成为主粮。②热板与燃料：需能持续加热的平板铁与相对便宜的燃料。③盐：咸味版本的定位。④馅料：乳与蛋是常见搭配，也说明它落在有乳业的西北部。荞麦还兼作蜜源与绿肥，并与禽畜饲料共用，使它在农家经济里不是单一用途作物。",
+        "exceptions": "①不要把荞麦当谷物：它是蓼科植物，与小麦无关；这一点在写「粮食」与「伪谷物」的分野很重要。②不要把甜咸两版混为一谈：荞麦咸饼与小麦甜饼是同一技法的两个分支，用粉与馅都不同，写「可丽饼」时尤其容易混淆。③不要把荞麦饼写成「穷人才吃」的单一叙事：它在当地是日常主食而非救济食物，直到近代才被重新包装成地方风味。④同名风险：galette 一词在法国还指多种扁形饼或糕（如国王饼一类），跨地区使用时须限定。⑤荞麦在其他文化中的用法（东欧 kasha、美加 buckwheat cakes）不要与布列塔尼这条线混成同一起源。",
+        "story_uses": "①贫瘠土壤的智慧：以「什么作物能在这种土上活」推出当地主食，是最扎实的世界构建方法。②街头与市集：低门槛、快出品、单手可食，使它天然属于市集、集市日与劳工午餐。③铁板与家庭分工：摊饼往往是一人守板、多人备料，这种分工很适合写家庭内部的日常协奏或压迫。④作物与饥荒：荞麦作为晚季救急作物，可在歉收年成为「还吃得上的那一口」。⑤重估与旅游化：一种穷地方的日常食物被改造为地方名片，价格与做法随之变化，可写文化商品化。",
+        "historical_scope": "本条限法国西北部（布列塔尼）及邻近地区；荞麦的栽培属性、晚季与冷凉适应性、以及「荞麦粉不适合作面包但可做烙饼」来自 Britanica 的荞麦条目，未给传入欧洲或布列塔尼的具体年代——**该菜的名称、年代与地方定型史未取得来源**（Britannica crêpe 页返回 404，见 cuisine_fr_src_un_10）。改编边界：架空世界可写无面筋谷物的薄饼主食，但需有可用的热板与燃料；不要把荞麦写成能发酵成面包的谷物。",
+        "evidence_and_uncertainty": "来源支持：荞麦为蓼科草本及其可食种子、在东欧部分地区为伪谷类主粮、荞麦粉不适合做面包但可单用或与小麦粉混合做烙饼、适应干旱丘陵与冷凉气候且成熟快可作晚季作物、产量低于真谷物、花为蜜源、可作绿肥与禽畜饲料——均据 cuisine_fr_src_29（Britannica buckwheat）；煎饼类（griddle cakes）的平面直火加热属性亦见该条。缺口：**布列塔尼荞麦薄饼本身的名称、年代与做法未取得来源**，本条据原料属性与烹饪方式归纳，属本项目归纳，待补专门来源（Écomusée 或地方文化机构为宜）。review_status 保持 needs_review。"
+      },
+      "source_ids": ["cuisine_fr_src_29", "cuisine_fr_src_45"],
+      "related_catalog_ids": ["staples_buckwheat", "animal_food_egg", "animal_food_cheese", "animal_food_butter", "animal_food_milk", "materials_salt", "cuisine_fr_brioche"],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "cuisine_fr_charcuterie_lyon",
+      "name": "里昂与奥弗涅的猪肉冷盘体系（charcuterie：行会、腌腊与冷盘）",
+      "aliases": ["charcuterie", "charcutier", "猪肉冷盘", "里昂冷盘", "奥弗涅冷盘", "saucisson sec", "boudin noir", "jambon de Paris"],
+      "category": "item",
+      "tags": ["kind:institution", "tradition:western", "cuisine:french", "course:starter", "technique:curing", "technique:smoke", "occasion:tavern", "occasion:fasting", "class_marker:common", "role:preservation", "trade:butcher", "trade:guild"],
+      "summary": "以猪肉为核心的腌腊与冷盘体系，以及支撑它的行会规章：中世纪行规要求 charcuterie 只能卖猪肉与猪脂。它既是保存技术，也是一套职业身份与门槛。",
+      "details": {
+        "definition": "charcuterie 是法语词，指调制肉制品，如香肠、火腿、培根与 pâté；词源为 chair cuit（熟肉）。它原本指售卖场所而非肉本身——是 charcutier 的店，而 charcutier 制备、烹煮与保存猪肉切块，有时也做别的食物（如四旬斋期守斋者吃的腌鱼而非肉）。今天多数 charcuterie 仍为猪肉；腌腊一般经盐渍、烟熏、风干与腌制，并非每类肉都用全部工序。法国最著名的产区是奥弗涅（里昂附近）与阿尔萨斯（东北、靠德国边境），两区都以猪肉与古老猪种著称。",
+        "mechanism": "技术上靠「盐—干—烟—时」四要素的组合降水分、抑菌并生成风味：盐渍降水分活度，风干继续脱水，烟熏附抑菌与香气，时间则让酶与微生物改变质地。这套组合的选择由环境决定——意大利空气较干可行风干，法国火腿则常湿腌；jambon de Paris 常以猪皮包裹并在自身汁液中煮。品种上，saucisson sec（干腌香肠）在法国南部近似 salami，在阿尔萨斯加肉豆蔻与肉桂，东部 saucisson aux noisettes 用本地榛子——同一类制品的地区差异正来自当地可得物。",
+        "conditions": "①猪：这是体系的单一原料基础，行规甚至把经营品种限定为猪肉与猪脂。②盐：整个体系的硬前提，盐的税与供应直接决定产量与合法性。③气候与空间：风干需要合适的温湿度，湿腌需要容器与盐水，烟熏需要燃料与烟室。④行会与市场：中世纪的行会规章通过限定品种、规定质量与价格、控制入行，把「谁可以做」变成制度；这也是 charcutier 与屠夫、与厨师之间界限的历史来源。⑤斋期：斋期规定吃腌鱼而非肉，于是 charcutier 在这一时段兼售腌鱼——一条把宗教历法与商业弹性连起来的细节。",
+        "exceptions": "①不要把 charcuterie 只当作「冷盘拼盘」：这是近年美国流行开胃菜式的用法，严格说应只含法国肉制品，但词义已扩大到兼含奶酪、坚果、水果、蔬菜、面包、饼干乃至酱汁。②不要以为它只做猪肉制品：鸭 confit、galantine、鹅肝批与 terrine 都已进入这一领域。③不要以为它是「农家自制」而不涉制度：行会规章对品种与质量的限定是它成形的关键之一；反过来，规章也可能是垄断与排斥的工具。④同名异地：saucisson sec 在南部与阿尔萨斯是两种味道，不可互推。⑤不要把它与「火腿」混为一条：火腿只是其中一类制品，另属既有食材条目。",
+        "story_uses": "①行会与门槛：谁能挂 charcutier 的招牌，是现成的执照、考试与排斥剧情；行会法庭查低劣工艺与不公平竞争的设定也很好用。②盐与税：盐价与盐税波动直接改变腌腊业的成本与黑市规模。③斋期与生意：斋期不许卖肉、于是改卖腌鱼，这种「跟着历法改货架」的细节非常适合写市镇日常。④地域品牌：南部、阿尔萨斯与东部的配方差异，可写地方自豪与商标之争。⑤公共卫生：腌腊是保存技术，也是食物中毒与掺假的温床，可写检验、告发与替罪羊。",
+        "historical_scope": "本条限法国（尤奥弗涅、里昂与阿尔萨斯）及西欧腌腊体系。年代上只有一处明确制度锚点：**中世纪行会规章要求 charcuteries 只能卖猪肉与猪脂**（该来源如此表述，未给具体世纪）；行会本身的兴盛期据另一来源为 11 至 16 世纪。改编边界：架空世界可写腌腊业，但需盐、猪、气候/烟室与市场准入制度四项条件；不要把它写成无需盐的魔法保存法，也不要让没有行会的社会自然出现「行会规章」这类门槛。",
+        "evidence_and_uncertainty": "来源支持：charcuterie 的三种含义与被扩大的用法、词源 chair cuit、原本只限猪肉且中世纪行会规章如此要求、原本指店铺、charcutier 兼在斋期做腌鱼、多数仍为猪肉、腌腊四道工序与并非每类都用全部工序、环境决定风干或湿腌、jambon de Paris 的猪皮包裹与自汁煮、最著名产区为奥弗涅与阿尔萨斯及两区的猪种、boudins noirs 与内脏制品、鸭 confit 与鹅肝批与 terrine 已进入该领域、saucisson sec 的地区差异——均据 cuisine_fr_src_10（Britannica charcuterie）；行会的类型、规章内容与 11—16 世纪兴盛期据 cuisine_fr_src_38（Britannica guild）；腌腊与冷藏技术另见 animal_food_brit_curing 与 animal_food_brit_refrigeration 两条。缺口：行会规章的具体年代与条文、盐税制度、各产区的产量与价格均未取得来源。review_status 保持 needs_review。"
+      },
+      "source_ids": ["cuisine_fr_src_10", "cuisine_fr_src_38", "cuisine_fr_src_39"],
+      "related_catalog_ids": ["animal_food_pork", "animal_food_ham_bacon", "animal_food_sausage", "animal_food_rendered_fat", "animal_food_dried_salted_fish", "materials_salt", "flavors_mustard", "cuisine_fr_pate_terrine"],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "cuisine_fr_baguette",
+      "name": "法棍（baguette：四料长棍面包与手工技艺）",
+      "aliases": ["baguette", "法棍", "法式长棍面包", "baguette de tradition", "pain"],
+      "category": "item",
+      "tags": ["kind:bread", "tradition:western", "cuisine:french", "course:bread", "technique:bake", "technique:ferment", "occasion:tavern", "class_marker:common", "role:daily_staple", "trade:baker"],
+      "summary": "只用面粉、水、盐与酵母／引子四料、全天小批量烤出的长棍面包。它把「每日到面包房」变成一种社会节奏：面包不只是食物，还是出门的理由。",
+      "details": {
+        "definition": "法棍是法国全年最受喜爱、消费量最大的面包。与其他面包不同，它只用四种原料（面粉、水、盐与引子和／或酵母），每位面包师由此得到独特的产品。传统生产过程是：称量与混合原料、揉面、发酵、分割、松弛、手工成型、二次发酵、在面团上划浅口（被称为「面包师的签名」）与烘烤。它在长而窄、皮脆这一类简单白面包中自成一格。",
+        "mechanism": "技术核心是「四料 + 时间 + 手工成型 + 高温」：原料越少，风味就越依赖发酵时间与面团处理；成型时的张力决定入炉后能否挺立并向上开口；划口既是装饰也是控制——切口给面团一个预设的膨胀通道，使长条在高温下按需裂开。成品判据是脆皮与有嚼劲的瓤，这两者由蒸汽与炉温的配合决定。它还必须有社交侧机制：法棍要在全天小批量地烤，成品随温度与湿度变化，于是消费必然是高频、就近、当日的。",
+        "conditions": "①面粉：依赖磨坊与小麦供应，这是「四料」里唯一不能自给的。②燃料与烤炉：需能维持高温的炉。③面包师的手：技艺主要经工作培训传承，把学校课程与面包房在岗实践结合，使未来面包师掌握原料、工具与流程知识。④空间与陈列：法棍的长形需要专用陈列架，也生成「每日到面包房购买」这一社会实践。⑤市场密度：因为当日吃、不耐久放，其存在依赖街区内的人口密度与面包房密度。",
+        "exceptions": "①不要把它写成「法国面包的通称」：它只是法国最普及的一种，乡村与地方各有自己的圆面包与黑麦面包。②不要以为四料等于简单：原料越少，容错越低，温度与湿度一变成品就变，这是面包师的核心焦虑。③不要把「划口」当纯装饰：它是控制膨胀的技术动作。④不要把「法棍」倒推为古代食物：长棍面包属简单白面包一类，而白面包在欧洲长期是较贵的一档（英国直到约 1865 年白面包价格才降到黑面包之下），因此它在历史上的阶级含义与现代不同。⑤不要忽略它的制度面：2022 年其手工技艺与文化被列入 UNESCO 名录，说明「一种面包的做法」也可以成为国家级文化资产。",
+        "story_uses": "①每日节奏：到面包房买面包是城市与村镇最稳定的日常仪式，可用来标记时间、邻里关系与街区变迁。②面包师的手艺与身份：手艺靠学徒制传承，因此可写师傅与学徒、传承与断代。③价格与配给：面包价格历来是最敏感的政治指标，可写暴动、限价与掺假。④长形而脆弱：法棍易折、当日吃完，因此它是「带着走」却不耐长途的食物，可用于区分短途与长途场景。⑤技艺申遗：一种日常食物被列为文化遗产之后，谁算「真正的手艺人」就成了争夺对象——非常适合写地方政治与旅游经济。",
+        "historical_scope": "本条限法国；年代上锚点明确但少：**法棍的手工技艺与文化 2022 年列入 UNESCO 代表作名录**，其余历史演变未取得来源（Britannica 的 baguette 专页返回 404，见 cuisine_fr_src_un_05）。长棍面包属「简单白面包」一类，以及白面包与黑面包的价格关系（英国约 1865 年白面包才便宜于黑面包），据 bread 条目，且该例为英国，不可直接套法国。改编边界：架空世界可写法棍类面包，但需面粉、盐、高温炉与高频城市市场四项条件；不要把「四料」当作缺粮年代的替代品。",
+        "evidence_and_uncertainty": "来源支持：法棍为法国全年最受喜爱与消费最多的面包、传统生产流程九步含划浅口、只用四料（面粉水盐与引子和／或酵母）、小批量全天烘烤且成品随温湿度变化、生成每日购买与专用陈列架等社会实践、脆皮与有嚼劲的瓤、用于家庭餐与餐馆以及工作场所与学校食堂、技艺主要经工作培训传承并含学校课程与在岗实践、2022 年列入 UNESCO 名录——均据 cuisine_fr_src_09（UNESCO 名录条目）；长棍面包属简单白面包一类、法棍在越南亦流行、白面包与黑面包价格关系——据 cuisine_fr_src_43（Britannica bread）。缺口：法棍的起源年代、其与维也纳面包的关系、19—20 世纪法国面包业的技术变化均未取得来源；「面包价格是政治指标」属一般历史常识层面的归纳，未在本条来源中取得支持。review_status 保持 needs_review。"
+      },
+      "source_ids": ["cuisine_fr_src_09", "cuisine_fr_src_43"],
+      "related_catalog_ids": ["staples_wheat", "materials_salt", "animal_food_butter", "animal_food_cheese", "cuisine_fr_croissant"],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "cuisine_fr_croissant",
+      "name": "可颂（croissant：酵母面团裹脂层压的月牙酥点）",
+      "aliases": ["croissant", "可颂", "羊角面包", "croissant au beurre", "viennoiserie"],
+      "category": "item",
+      "tags": ["kind:bread", "tradition:western", "cuisine:french", "course:bread", "technique:laminate", "technique:bake", "occasion:tavern", "class_marker:common", "role:breakfast_food", "trade:baker"],
+      "summary": "酵母面团反复裹入油脂层压后卷成月牙形的酥点；黄油贵，于是多数面包房同时卖「含黄油」与「不含」两种——同一柜台上的阶级差，就写在形状里。",
+      "details": {
+        "definition": "可颂是典型月牙形的法国糕点（其法语名即来自月牙形）。虽更早有关于 croissant 的烹饪记载，今天所知的配方最早只出现于 1906 年，其大流行看来是 20 世纪的现象。它以酵母面团擀压分层裹入黄油制成；因黄油昂贵，许多面包师使用麦淇淋等更便宜的替代品，故法国多数面包房同时供两种：croissant 与 croissant au beurre（含黄油者）。前者更像面包，后者远为浓郁。理想的可颂外脆起层、内部柔软可撕开。",
+        "mechanism": "技术核心是「层压」：面团与脂交替叠层，擀压与折叠反复进行，使脂成为连续而薄的夹层；烤时层间的水汽化把面片顶开，形成可辨的蜂窝剖面。温度管理是全部难点——脂必须在擀压过程中保持可塑而不融化，一旦融进面团，层就消失，成品变成普通面包。这一机制与起层酥皮同族，区别在可颂用酵母面团（起发与层压并存）。",
+        "conditions": "①小麦粉与酵母、②黄油或替代脂（价格决定配方）、③冷环境与操作空间（层压需要反复冷藏回温）、④烤炉。它还依赖一种特殊的经济条件：**在同一家店里同时供应两种等级**——含黄油者与不含者，并以形状区分（常见做法是把不含黄油者弯成明显弧形、把含黄油者拉直）。这说明原料差价足以在成品层面被制度化，而不是被隐藏。",
+        "exceptions": "①不要把可颂当「古代法国早餐」：今天所知的配方最早只出现在 1906 年，大流行是 20 世纪的事。②不要把「月牙形」当作工艺标志：形状可作区分手段而非质量证明——按来源，弯曲与拉直恰恰是用来区分含脂与不含脂的。③不要把它与起层酥皮（pâte feuilletée）混为一谈：前者含酵母，后者不含。④不要把它写成纯甜点：它常填甜馅（杏仁、杏仁膏、巧克力）或咸馅（奶酪、菠菜、火腿），两种路都在。⑤「可颂与维也纳面包的关系」未取得来源，写起源时不要断言。",
+        "story_uses": "①同柜两价：一家面包房同时卖「有黄油」与「没黄油」的可颂，且以形状区分——这是最经济、最不着一字的阶级描写。②替代品经济学：黄油涨价、掺假与替代脂是食品工业的经典冲突，可写配方守旧派与成本派的对立。③层压与手艺：层压是「手一慢就毁」的技术，适合写师徒压力与失败。④二十世纪的早餐：它的大流行与近代城市早餐习惯同步，可用来标记时代感。⑤形状即标签：用形状区分等级这种做法本身就是社会符号学的现成例子，可写「懂行的人一眼就看出」。",
+        "historical_scope": "限法国（及受其影响的西欧），年代锚点为「现今配方最早见于 1906 年、大流行属 20 世纪」；更早的 croissant 记载存在但未被该来源具体描述，故本条不写更早的历史。改编边界：架空世界可写层压酥点，但需小麦、酵母、固态脂与可控低温操作空间；不要把「可颂」当作任何月牙形面包的通称，也不要写无脂社会的可颂。",
+        "evidence_and_uncertainty": "来源支持：月牙形与名称来源、更早有烹饪记载但今之配方最早见于 1906 年、大流行是 20 世纪现象、以酵母面团擀压分层裹黄油制成、黄油昂贵故多以麦淇淋替代、故多数店供 croissant 与 croissant au beurre 两种、前者更像面包后者更浓郁、以弯曲与拉直区分两者、理想质地外脆内软可撕开、常填甜或咸馅——均据 cuisine_fr_src_06（Britannica croissant）；起层酥皮与酵母面包裹脂（wienbrod／丹麦酥）的技法同族性据 cuisine_fr_src_25。缺口：可颂与维也纳面包的源流关系、1906 年之前的具体记载、法国各地配方差异均未取得来源；Alimentarium 词条返回 HTTP 500（cuisine_fr_src_un_14）。review_status 保持 needs_review。"
+      },
+      "source_ids": ["cuisine_fr_src_06", "cuisine_fr_src_25"],
+      "related_catalog_ids": ["staples_wheat", "animal_food_butter", "produce_almond", "flavors_cocoa", "animal_food_cheese", "cuisine_fr_baguette", "cuisine_fr_puff_pastry"],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "cuisine_fr_brioche",
+      "name": "布里欧修（brioche：高脂高蛋的富化酵母面包）",
+      "aliases": ["brioche", "布里欧修", "brioche à tête", "brioche Nanterre", "brioche Parisienne"],
+      "category": "item",
+      "tags": ["kind:bread", "tradition:western", "cuisine:french", "course:bread", "technique:bake", "technique:enrich", "occasion:court", "occasion:festival", "class_marker:elite", "role:status_display", "trade:baker", "trade:dairy_farmer"],
+      "summary": "黄油比例高到接近面粉一半至四分之三的富化酵母面包；揉三次而非两次。它是「面包」这一日常物的奢侈版本，也是那句著名误传「让他们吃 brioche」的载体。",
+      "details": {
+        "definition": "布里欧修是柔软似蛋糕的法国面包，微甜，黄油对面粉比例高。它以酵母面团富化黄油、蛋、乳与少量糖而成柔软易碎的质地；黄油比例常达面粉的一半至四分之三，且通常揉三次（普通面包两次）。瓤嫩金黄、风味微甜，在法国常作早餐或下午茶配咖啡或热巧克力。常见形制有 brioche à tête（以斜边凹槽模烤、顶上嵌一小球面团）、brioche Nanterre（面球排入长方形模）、brioche Parisienne（类似但排成圆形）；另有以藏红花或茴香调味的地区特产。",
+        "mechanism": "技术核心是「在高脂面团里建立面筋」：脂会阻碍面筋形成，所以工序上必须先把面团揉出结构，再逐步把黄油揉入，并靠多次揉制（三次）把脂均匀分散而不破坏网络；低温与时间同样是必要条件，否则脂析出、发酵失控。成品判据是「撕开有丝、入口即化」——这是脂与气共同作用的结果，而不是靠多加糖。形制上的差异（顶球、排球、环排）反映模具与分份方式，不影响面团本身。",
+        "conditions": "①黄油与蛋：比例如此之高，意味着它本质上是「把乳与禽蛋的产出转成主食口感」的菜，因此它依赖乳业与禽群，超出一般面包的条件。②糖：少量糖在此不是甜味来源而是发酵与上色的调节。③低温操作与时间：高脂面团需要冷、需要等。④模具：多种形制各有其模。因此布里欧修的可得性随黄油价格剧烈波动——它是最能反映「黄油通胀」的一种食品。",
+        "exceptions": "①不要把著名的「让他们吃 brioche」（常译「让他们吃蛋糕」）当作玛丽·安托瓦内特的真实语录：该来源明确指出这句话出现在她之前的著述中。②不要把 brioche 等同于「甜面包」：它的糖很少，甜感来自脂与蛋。③不要以为形制不同就是不同配方：à tête／Nanterre／Parisienne 主要是分份与模具之别。④不要把地区特产当作普遍做法：以藏红花或茴香调味的「圣阿加莎之手」是 Saint-Pierre-d'Albigny 一村之事，且其命名指向年轻母亲与乳母的主保圣人断手，与其说是口味更不如说是地方信仰与节令的物证。⑤不要把它写成「古代宫廷独有」：17 世纪已到巴黎、词至少 15 世纪已在使用，但普及程度随黄油价格而变。",
+        "story_uses": "①黄油的通胀：一份布里欧修的成本几乎就是黄油成本，可用来把物价变动写进日常（「今年的 brioche 小了一圈」）。②那句名言的反用：把「让他们吃 brioche」作为贵族无知的笑柄，同时点出它原本不是她说的——非常适合写谣言如何变成历史。③形制与场合：顶球的大模只在节庆出现，日常是小圆包，形制本身就是场合的标尺。④地方信仰：以圣人断手命名的特产面包，可写地方崇拜、乳母行当与节令。⑤早餐与阶层：能天天以富化面包作早餐的家庭，其乳与蛋的消耗量本身就是阶层指标。",
+        "historical_scope": "限法国；年代锚点：17 世纪已到巴黎，brioche 一词至少 15 世纪已在用。改编边界：架空世界可写富化面包，但需高黄油、蛋、乳与糖四项奢侈品同时可得，因此它天然只属于有余粮的社会层级；不要让缺乳地区做出真正的 brioche ——替代品应另有名字。",
+        "evidence_and_uncertainty": "来源支持：布里欧修为柔软似蛋糕的法国面包、微甜、黄油比例高、17 世纪已到巴黎、词至少 15 世纪已在用、玛丽·安托瓦内特那句「让他们吃 brioche」实为传说且语句见于她之前的著述、以酵母面团富化黄油蛋乳与少量糖、黄油比例常达面粉一半至四分之三、通常揉三次而普通面包两次、瓤嫩金黄风味微甜、常作早餐或下午茶配咖啡或热巧克力、三种形制（à tête／Nanterre／Parisienne）、Saint-Pierre-d'Albigny 以藏红花或茴香调味的圣阿加莎之手及其命名含义、素面包与简单小圆包更普及——均据 cuisine_fr_src_14（Britannica brioche）；面包揉制与发酵的一般机制据 cuisine_fr_src_43 与 cuisine_fr_src_45。缺口：布里欧修在法国各地的配方差异、其与「富化面包」这一大类的历史关系未取得来源；「黄油价格决定其可得性」属本项目归纳。review_status 保持 needs_review。"
+      },
+      "source_ids": ["cuisine_fr_src_14", "cuisine_fr_src_43", "cuisine_fr_src_45"],
+      "related_catalog_ids": ["staples_wheat", "animal_food_butter", "animal_food_egg", "animal_food_milk", "flavors_cane_sugar", "flavors_saffron", "cuisine_fr_croissant"],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "cuisine_fr_choux_eclair",
+      "name": "泡芙皮与闪电泡芙（pâte à choux、chouquette、éclair 一类）",
+      "aliases": ["pâte à choux", "choux pastry", "泡芙皮", "闪电泡芙", "éclair", "chou", "profiterole"],
+      "category": "item",
+      "tags": ["kind:technique", "tradition:western", "cuisine:french", "course:dessert", "technique:bake", "technique:steam_leaven", "occasion:tavern", "occasion:festival", "class_marker:common", "role:patisserie", "trade:baker"],
+      "summary": "以沸水烫面再加蛋搅打成糊、靠蒸汽撑出中空外壳的技法；同一个壳可装奶油、慕斯或咸馅。它的判据是「空腔是否够大、壳是否挺」。",
+      "details": {
+        "definition": "泡芙皮（choux pastry）用与酥皮完全不同的方法制作：把面粉、盐、黄油与沸水混合成较硬的面团，再以搅打拌入全蛋；小块面团置于烤盘、先以高温烤。烤时拌合形成的气泡急速膨胀，内部充满大而不规则的孔洞，外表褐化凝固成较硬的壳，内部大致中空，可注入甜或咸的馅。它属以蒸汽膨发的产品一类（与起层酥皮同族而工艺不同），常用于制作奶油泡芙与闪电泡芙的壳。",
+        "mechanism": "关键技术有两步：①烫面——以沸水与脂同煮面粉，使淀粉预先糊化，面团才能容纳大量蛋液而不流散；②加蛋——蛋量与搅打程度决定面糊的稠度，过稠则膨胀不足，过稀则塌陷。入炉后先高温定型，靠内部水分汽化把壳顶起，待结构固定后再降温烘透，否则出炉即回缩。成败判据是「空腔大、壳挺、内部干」三件事同时成立；这三件事互相牵制，因此它是手艺型技法而非配方型。",
+        "conditions": "需要面粉、黄油、水、蛋与盐，以及能分阶段控温的烤炉。它的经济优势是：原料普通、出品快、壳可提前烤好，因此适合商业糕饼店与街头摊。填充物则是另一条成本线——奶油、巧克力、果泥的价格决定同一只壳的等级。咸馅版本（如以虾佐酱填充）说明这套技术不专属于甜点。",
+        "exceptions": "①不要与起层酥皮混为一谈：一个是烫面加蛋靠蒸汽撑壳，一个是面团裹脂靠层间蒸汽顶开，成败机制不同。②不要以为泡芙皮必然是甜的：来源明确其空腔可注入甜或咸的馅。③不要把「泡芙」当作一个具体菜名：它首先是壳，再被填充成不同成品（奶油泡芙、闪电泡芙等）。④同一壳的等级差完全在馅与表面装饰，因此它特别适合写「同一原料、不同定价」。⑤闪电泡芙的具体形制史与命名由来未取得来源（Britannica éclair 页 404），不要编造。",
+        "story_uses": "①同一壳的多重身份：农家的粗糖小泡芙与城里名店的细长泡芙，成本差在馅与装饰，可写「形式如何制造价钱」。②烫面与火候：需要先煮再搅再烤三段，适合写「一步错就全废」的厨房紧张戏。③可预制性：壳能提前烤好待用，因此它适合宴会与外卖，也是「什么能提前、什么必须现做」这条厨房调度线的一环。④填充即欺骗：中空的壳看不见里面，写「填了什么」的悬疑非常自然。⑤节庆与街头：撒糖的圆泡芙是市集食物，细长带釉的是橱窗商品。",
+        "historical_scope": "本条讲技法与壳的使用，不锁定任何具体糕点的年代；已读来源未给泡芙皮的发明者或年代（该传统上归于 16 世纪的一位意大利籍糕点师，但**本条来源未载，故不写**）。改编边界：架空世界可写烫面蒸汽膨发的技法，但需小麦粉、脂、蛋与可控烤炉；不要把它写成无需蛋的配方。",
+        "evidence_and_uncertainty": "来源支持：起层酥皮与泡芙皮同属以蒸汽膨发的产品、泡芙常作奶油泡芙与闪电泡芙的壳、泡芙皮以面粉盐黄油与沸水混合成较硬面团再以搅打拌入全蛋、小块先以高温烤、气泡急速膨胀形成大而不规则孔洞、外表褐化凝固成较硬壳而内部大致中空、可注入甜或咸的馅——均据 cuisine_fr_src_26（Britannica baking: Wafers and biscuits）；蒸汽膨发的一般原理亦见 cuisine_fr_src_45。缺口：**泡芙皮与闪电泡芙的名称史、发明年代与命名由来均未取得来源**（cuisine_fr_src_un_07 记录 404），本条不作相关断言。review_status 保持 needs_review。"
+      },
+      "source_ids": ["cuisine_fr_src_26", "cuisine_fr_src_45"],
+      "related_catalog_ids": ["staples_wheat", "animal_food_butter", "animal_food_egg", "animal_food_milk", "flavors_cocoa", "flavors_vanilla", "flavors_cane_sugar", "cuisine_fr_puff_pastry"],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "cuisine_fr_puff_pastry",
+      "name": "千层酥与起层酥皮（pâte feuilletée：裹脂折叠成百层的酥皮）",
+      "aliases": ["pâte feuilletée", "puff pastry", "千层酥", "起层酥皮", "vol-au-vent", "napoleon", "mille-feuille"],
+      "category": "item",
+      "tags": ["kind:technique", "tradition:western", "cuisine:french", "course:dessert", "course:starter", "technique:laminate", "technique:bake", "occasion:court", "occasion:festival", "class_marker:elite", "role:patisserie", "trade:baker"],
+      "summary": "把脂裹进面团反复折叠、烤时靠层间水汽顶起十数倍的酥皮。它是「结构即技术」的极致：所有难点都在温度，而不在配方。",
+      "details": {
+        "definition": "起层酥皮由层状脂肪与面团构成，脂肪比例通常不低于成品生坯的 30%；面团须易延展而不特别富弹性，故常用硬质与软质小麦粉混合；脂肪须近乎蜡状并在擀压过程中保持固态。基本做法是把面团擀成均匀厚度的长方形，把脂肪涂覆于三分之二表面，折叠成三层包住两层脂肪，冷藏后再擀回原面积，如此反复数次，最后一擀至成形所需厚度。制作正确的起层酥皮烤时可膨胀达原厚的十倍（另一处来源写至十二倍，两说并列）。用途包括馅壳（如 vol-au-vent）与层叠甜点（如 napoleon／mille-feuille）。",
+        "mechanism": "全部机制在「层」与「水汽」：折叠使面团与脂交替成百层，烤时每层脂中的水汽化，把相邻面片顶开，形成可辨的层与酥。因此成败判据是层是否完整可辨——而破坏层的第一杀手是温度：脂一旦在擀压中软化融进面团，层就并合，成品只会是一块硬饼。黄油虽常用却并不特别适合，因其融点低，专做酥皮的师傅常用含高融点脂肪的特制麦淇淋。这也是一个罕见的技术反转：家常认为「黄油更好」，而专业认为高融点脂更可控。",
+        "conditions": "①小麦粉（硬软混用以取得延展而不弹的质地）、②高比例固态脂、③可控低温与操作空间（反复冷藏）、④烤炉。它的门槛全在设备与人手：需要能保持低温的工作面与足够的时间窗。因此它属于有专业厨房才能稳定产出的技法，而这也是它天然标记「节庆与高级」的原因。",
+        "exceptions": "①不要把起层酥皮与泡芙皮混为一谈：一个靠层间蒸汽顶开，一个靠烫面糊整体膨胀。②不要以为「黄油越多越好」：来源明确黄油融点低而不特别适合，专业做法常用高融点脂。③不要给出唯一膨胀倍率：同一部百科的两处条目分别写十倍与十二倍，本条并列保留，不作单一数据。④同名异制：pâte feuilletée 与「千层」「拿破仑」等成品名不是同一层级，前者是皮，后者是件的组装。⑤不要把它当作古代技术：它与后世专业厨房的温度管理强绑定，写古代场景时须交代冰源与操作空间。",
+        "story_uses": "①温度即秘密：所有失败都归因于温度，因此「谁能保持操作间够冷」直接等于谁做得出这道点心——是写厨房设施差距的好切口。②黄油还是麦淇淋：来源记录了专业选择高融点脂的理由，这个「反直觉的正确做法」非常适合写成老师傅与学徒的争执。③层数即工时：折叠数次、每次冷藏，工时与冷藏空间决定产能，可写订单与产能的冲突。④组装与欺骗：层叠甜点靠组装，视觉上极为壮观而结构脆弱，可写「看起来完好、一切就塌」的隐喻。⑤节庆件：大馅壳（vol-au-vent）是宴会用的，可标记场合等级。",
+        "historical_scope": "本条限西欧与法国的酥皮体系，年代上限不强断（已读来源未给起源年代）。膨胀倍率的两处口径（十倍／十二倍）并列保留，均出自同一部百科的不同条目——这类内部不一致在写作引用时必须标明出处，不可择一当定论。改编边界：架空世界可写层压酥皮，但需固态脂、小麦粉、可控低温与烤炉；不要把无低温条件下的成品写成同样起层。",
+        "evidence_and_uncertainty": "来源支持：起层酥皮以层状脂肪与面团构成、脂肪比例通常不低于成品生坯 30%、面团须易延展而不富弹性故常混用硬软小麦粉、脂肪须近乎蜡状并保持固态、黄油因融点低而不特别适合故常用高融点特制麦淇淋、基本折叠流程（涂覆三分之二、折三层、冷藏、擀回、反复数次）、正确制作烤时可膨胀达十倍、焦点是层压卷入的微小空气泡、成品应匀称且外层脆酥——均据 cuisine_fr_src_26（Britannica baking）；pâte feuilletée 由包入黄油的酥皮反复折叠形成数百层、烤时升至未烤高度的 12 倍、用于 patty shells 与 napoleons——据 cuisine_fr_src_25（Britannica pastry）。缺口：pâte feuilletée 的起源年代与命名史未取得来源；两处倍率差异的原因（是否为不同定义下的计量）不明。review_status 保持 needs_review。"
+      },
+      "source_ids": ["cuisine_fr_src_25", "cuisine_fr_src_26"],
+      "related_catalog_ids": ["staples_wheat", "animal_food_butter", "animal_food_rendered_fat", "materials_salt", "flavors_cane_sugar", "cuisine_fr_croissant", "cuisine_fr_quiche_lorraine"],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "cuisine_fr_creme_caramel_brulee",
+      "name": "焦糖蛋奶冻与烤糖脆壳（crème caramel／flan 与 crème brûlée）",
+      "aliases": ["crème caramel", "flan", "crème brûlée", "焦糖布丁", "烤糖脆壳", "custard"],
+      "category": "item",
+      "tags": ["kind:dish", "tradition:western", "cuisine:french", "course:dessert", "technique:set_custard", "technique:caramelize", "occasion:tavern", "occasion:festival", "class_marker:common", "role:patisserie", "trade:dairy_farmer"],
+      "summary": "同一套蛋奶凝固技术下的两个变体：一个在模底铺焦糖、脱模时糖化为汁；一个在表面撒糖烧成薄脆片。二者都是「用蛋与乳把便宜材料做成体面甜点」的范例。",
+      "details": {
+        "definition": "蛋奶糊（custard）是蛋、乳、糖与调味料的混合物，靠加热使蛋蛋白凝固而获得稠度；烤蛋奶糊含全蛋，使成品凝为凝胶。flan 或 crème caramel 是在涂了焦糖的皿中烤的蛋奶糊，脱模时焦糖化为酱汁；crème brûlée 是在烤好的蛋奶糊上撒糖、以烤炉上火或称为 salamander 的热铁使糖焦化，糖在蛋奶糊上形成薄脆壳。另有一支以隔水慢煮至浓奶油状的 boiled custard（crème anglaise），作酱汁或甜点的基底。",
+        "mechanism": "三者的共同判据是蛋蛋白的凝固控制：不足则不凝，过头则出水、呈蜂窝。焦糖版的关键在「两段糖」——模底的糖先焦化成酱，烤时被蛋奶糊覆盖、脱模才流出；脆壳版的关键在「后段糖」——成品的表面撒糖后以极高温瞬时焦化，形成与冷蛋奶之间的温差与质地对比。二者都把糖放在工序的两端，因此失败形态也不同：前者怕焦糖过苦或粘模，后者怕糖受潮不脆或烧过头发苦。",
+        "conditions": "需要乳、蛋、糖，以及「水浴」这种间接加热方式（否则外层先凝、中心仍液）；脆壳版还需要上火或可烧灼的热铁。它的经济优势在于原料极普通，却能靠形式显得精致——因此它是最典型的「家常材料 + 餐馆呈现」的甜点。糖的价格是分水岭：糖贵时它只出现在节庆。",
+        "exceptions": "①不要把 crème caramel 与 crème brûlée 混为一谈：一个糖在底部（脱模成汁），一个糖在表面（烧成脆片），工序顺序相反。②不要把 crème anglaise（boiled custard）当作同一种东西：它是流动的酱汁，不是凝冻。③不要把它写成需要名贵原料的甜点：它的材料是最普通的蛋乳糖，贵的是糖与炉。④咸味蛋奶糊（quiche）与本条同源而不同位：一个是甜点，一个是前菜/主菜。⑤「焦糖布丁」这一中文通称在两个变体之间摇摆，写作时应指明是底部焦糖还是表面脆壳。",
+        "story_uses": "①糖的稀缺：糖价决定它出现在日常还是节庆，是写「甜」这件事的社会史最省笔墨的入口。②水浴与火候：需要水浴的甜点必须有能稳定控温的炉与足够耐心，可写厨房设施与人力。③脆壳的表演性：当场烧糖是席前的表演动作，可写厨师的舞台感与客人的期待。④模与脱模：焦糖版必须脱模，成败在众人眼前——非常适合写「一切就看这一下」。⑤剩料利用：以蛋乳糖三样做成体面甜点，是节俭与体面的平衡，可写家计的精细。",
+        "historical_scope": "本条限西欧与法国的蛋奶冻甜点体系；年代上限不强断——已读来源未给两个变体的起源年代。改编边界：架空世界可写蛋奶凝固类甜点，但需蛋、乳、糖与间接加热手段；不要在无糖社会里写焦糖壳，可改用蜜、果汁收浓等替代并另起名字。",
+        "evidence_and_uncertainty": "来源支持：蛋奶糊的定义与以蛋蛋白凝固取得稠度、烤蛋奶糊含全蛋而成凝胶、flan 或 crème caramel 在涂焦糖的皿中烤且脱模时焦糖化汁、crème brûlée 撒糖以烤炉上火或 salamander 焦化成脆壳、boiled custard 又称 crème anglaise 且可作酱汁、最浓郁冰淇淋以蛋奶糊为基底、Bavarian cream 以明胶加硬、咸味蛋奶糊最著名者为 quiche——均据 cuisine_fr_src_24（Britannica custard）；salamander 为热铁的做法亦见该条。缺口：两个变体的起源年代、命名史与地区差异未取得来源；「糖价决定出现场合」属本项目归纳。review_status 保持 needs_review。"
+      },
+      "source_ids": ["cuisine_fr_src_24"],
+      "related_catalog_ids": ["animal_food_egg", "animal_food_milk", "flavors_cane_sugar", "flavors_beet_sugar", "flavors_vanilla", "cuisine_fr_quiche_lorraine"],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "cuisine_fr_souffle",
+      "name": "舒芙蕾（soufflé：蛋白霜撑起的膨发烤蛋糊）",
+      "aliases": ["soufflé", "舒芙蕾", "souffle", "soufflé à la reine"],
+      "category": "item",
+      "tags": ["kind:dish", "tradition:western", "cuisine:french", "course:dessert", "course:main", "technique:foam", "technique:bake", "occasion:court", "occasion:tavern", "class_marker:elite", "role:service_theatre", "trade:pastry_chef"],
+      "summary": "把打发的蛋白拌入风味基料、入炉膨起后必须立即上桌的菜；它的成败有一半发生在客人等的那几分钟里。既是甜点也是咸菜（如 à la reine 奶油鸡舒芙蕾）。",
+      "details": {
+        "definition": "舒芙蕾是以打发的蛋白（蛋白霜）拌入带风味的基料（蛋奶糊、菜泥或肉泥）后入模烘烤、靠气泡膨胀而膨起的一类菜。它有甜咸两路：甜味者作甜点，咸味者作主菜或头盘。一个可考的著名实例是 1867 年巴黎 Café Anglais 的「三皇晚宴」中的 à la reine 奶油鸡舒芙蕾，说明它在 19 世纪已是高级宴席的标准件。技术上它属于以蛋白泡沫为膨发来源的一族，与蛋白霜（meringue）共用同一物理基础。",
+        "mechanism": "机制有两段：①起泡——蛋白打至硬挺时裹入大量空气形成泡沫，拌入基料时必须用翻拌而非搅拌，才能保住气泡；②定型——入炉后气泡受热膨胀、蛋白凝固、淀粉或蛋奶糊提供骨架，使膨起的高度在出炉后的短时间内维持。因此它的判据是「高、匀、不塌」，而这三项都随时间衰减：出炉即开始回缩，所以上菜节奏是配方的一部分。",
+        "conditions": "需要蛋（尤其蛋白）、糖或咸味基料、能提供稳定高温的烤炉、以及能让成品直送的厨房动线。它还依赖「模具」：模壁的附着与导热决定能否均匀爬升。文化条件同样重要——只有存在「客人坐定、菜品按序上桌」的宴席或餐馆制度，这道菜才有意义；在家庭随意的餐桌上，它来不及被看到。",
+        "exceptions": "①不要把舒芙蕾只当甜点：咸味版（如奶油鸡）在 19 世纪已是宴席菜。②不要把它与蛋白霜（meringue）等同：蛋白霜本身可作壳或顶，舒芙蕾是蛋白霜与基料的复合体并入模烘烤。③不要承诺「可以提前做好」：它的判据随时间崩溃，这正是它在菜单位置上的特殊性。④不要无视失败可能：塌陷、分层、底部积水都是常见失败，写实感往往来自这些细节。⑤**本条缺少专门的起源与命名来源**（Britannica 该路径返回 404 与 400，见 cuisine_fr_src_un_08），故不写其发明者与年代。",
+        "story_uses": "①服务的极限：一道必须在出炉后数十秒内送到客人面前的菜，是「厨房到餐桌的距离」的极限测试；可写楼梯、侍者、与一路上的意外。②表演与声望：膨起的瞬间是席前的可见奇观，适合写厨师的舞台人格与客人的虚荣。③失败即羞辱：塌陷发生在所有人眼前，是最好的当众失格场面。④菜单结构：它必须排在宴席的特定位置（通常是需要高潮的地方），可用来写菜单编排的心机。⑤军民两态：同一个词在甜点与主菜两处出现，可写「同一技术在不同阶级餐桌上的两种命运」。",
+        "historical_scope": "本条限法国与受其影响的西欧；年代上只有一个可引的实例（1867 年三皇晚宴的 à la reine 奶油鸡舒芙蕾，据 restaurant 条目），**其起源、命名与发明者未取得来源，故不写**。改编边界：架空世界可写蛋白泡沫膨发的菜，但需蛋、烤炉与可即时上菜的宴席制度；不要把「提前做好」的便利强加给这类菜。",
+        "evidence_and_uncertainty": "来源支持：蛋白霜为打至硬挺的蛋白与糖的混合物、可作壳与顶、以裱花袋挤出后在低温烤箱烘干、意大利蛋白霜以热糖浆打入（cuisine_fr_src_33）；1867 年 6 月 7 日巴黎 Café Anglais 为三位皇室客人举办的晚宴菜单含 à la reine 奶油鸡舒芙蕾（cuisine_fr_src_34）；糕点的膨发与蛋白作用的机制见 cuisine_fr_src_45。缺口：**舒芙蕾作为独立菜式的定义、起源、命名与工艺细节均未取得专门来源**（cuisine_fr_src_un_08），本条的「蛋白霜拌基料入模烤」是据蛋白霜与烘焙机制的归纳，属本项目归纳；请优先补 Britannica 或法国文化机构专页。review_status 保持 needs_review。"
+      },
+      "source_ids": ["cuisine_fr_src_33", "cuisine_fr_src_34", "cuisine_fr_src_45"],
+      "related_catalog_ids": ["animal_food_egg", "animal_food_milk", "animal_food_butter", "animal_food_cheese", "flavors_cane_sugar", "cuisine_fr_choux_eclair", "cuisine_fr_restaurant_review"],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "cuisine_fr_macaron",
+      "name": "马卡龙（macaron：蛋白杏仁粉夹心饼）",
+      "aliases": ["macaron", "马卡龙", "巴黎马卡龙", "Soeurs Macarons", "macaroon"],
+      "category": "item",
+      "tags": ["kind:dish", "tradition:western", "cuisine:french", "course:dessert", "technique:foam", "technique:bake", "occasion:festival", "class_marker:elite", "role:patisserie", "trade:pastry_chef"],
+      "summary": "以蛋白霜与杏仁粉烤成的两片圆壳、夹馅合成的小圆饼。它有一部罕见的「阶级史」：从修道院与贵族专享，经大革命后两位修女摆摊售卖而变成商品。",
+      "details": {
+        "definition": "马卡龙是甜的小圆形法式夹心饼，以蛋白霜、杏仁粉、糖与食用色素制成，夹黄油霜、巧克力甘纳许、杏仁膏、果酱或果泥等馅。它不可与 macaroon 混淆：两者名称同出拉丁 maccare（磨成细末）且有共同原料，但马卡龙大小一致、颜色多；椰丝蛋白饼（macaroon）金黄、形状不规则且远为易做。理想马卡龙应正圆光滑，每片顶部有一圈小「裙边」以拦住馅，夹好后外脆内软。",
+        "mechanism": "机制在「蛋白霜的起泡 + 杏仁粉的油脂 + 静置结皮」三者的配合：杏仁粉提供油脂与坚果香，同时削弱结构，使壳能薄而不韧；蛋白霜提供气泡；入炉前静置使表面结皮，蒸汽才能从下方顶出那圈「裙边」。判据是圆、平、有裙边、不空不裂——这些全部是 interfacial 现象，因此对环境湿度与杏仁粉的含油量极敏感。这也解释了它为何长期是「专业与业余之间」的分界线。",
+        "conditions": "①杏仁粉：这是它真正的瓶颈，杏仁的产地与价格直接决定成本（杏仁在法国并非大宗本土物产）。②糖与蛋：蛋白霜的基础。③稳定的低湿环境：湿度高则裙边不现。④烤炉的精确控温。⑤馅料：甘纳许、黄油霜、果酱等各自依赖可可、乳与水果的供应。它因此是一种「供应链很长的点心」：单价高不仅因为工时，也因为每一项原料都跨区。",
+        "exceptions": "①不要把它与椰丝蛋白饼（macaroon）混为一谈，也不要据名称相同推出同源成品。②不要把它当作「自古如此的巴黎甜点」：其祖先是 15 世纪末首制于意大利的杏仁饼，数百年间在威尼斯诸修院中广泛烘制；16 世纪初传入法国，或由 1533 年凯瑟琳·德·美第奇的厨师带来。③双片夹馅版大约发展于 1830 年代；有学者称 Ladurée 的 Pierre Desfontaines 于 1930 年创制，他被普遍认为创造了今称巴黎马卡龙的彩色品种——两说并存，不可合并成单一发明人。④不要忽略阶级史：大革命前它基本为贵族与富人所享；革命后两位修女在修道院关闭后避居南锡，以售卖马卡龙为生，被称为 Soeurs Macarons——这是「宗教机构解体如何催生一门生意」的现成案例。⑤地区变体真实存在（夏特尔、蒙莫里永、亚眠等），差别主要在馅，也有以香料或利口酒入面团者。",
+        "story_uses": "①机构解体与手艺流出：修道院关闭、修女摆摊，是最干净的一条「制度崩塌 → 手工经济」的因果链。②长供应链的点心：杏仁、糖、可可、乳各自远方而来，一颗马卡龙可用来翻译整张贸易图。③颜色即商品：彩色品种是 20 世纪的发明，可写「外观创新如何打开新市场」。④技艺的门槛：裙边、正圆、不空——失败形态极易描写，适合写考核与评比。⑤发明权之争：两套说法（1830 年代成形 vs 1930 年名店创制）正好写成两家的公关战。",
+        "historical_scope": "限法国（巴黎为彩色版中心，另有夏特尔、蒙莫里永、亚眠等地区变体）；年代锚点：祖先为 15 世纪末意大利杏仁饼、16 世纪初传入法国、双片夹馅版约 1830 年代成形、1930 年 Ladurée 的 Pierre Desfontaines 被归功为彩色巴黎马卡龙、大革命后南锡的 Soeurs Macarons。改编边界：架空世界可写蛋白杏仁饼类点心，但需杏仁、糖与蛋白三项同时可得；不要把马卡龙写成平民日常食品，它的单价来自长供应链与低容错。",
+        "evidence_and_uncertainty": "来源支持：马卡龙的原料与馅料种类、与 macaroon 的区别与共同词源、理想质地与裙边、祖先为 15 世纪末意大利杏仁饼且在威尼斯修院烘制、16 世纪初传入法国或由凯瑟琳的厨师带来、大革命前为贵族与富人所享、革命后两位修女在南锡售卖并被称为 Soeurs Macarons 且其居所今以其命名、双片夹心版约发展于 1830 年代、Pierre Desfontaines 于 1930 年被归功且被普遍认为创造彩色品种、巴黎外的地区变体（夏特尔、蒙莫里永、亚眠）与以香料或利口酒入面团者（如 Saint-Émilion 用甜白葡萄酒）——均据 cuisine_fr_src_18（Britannica macaron）；凯瑟琳入法所携珍味中含杏仁饼（macaroons）一说亦见 cuisine_fr_src_36。缺口：杏仁的产地与价格、各地区变体的配方细节未取得来源；「裙边」的物理机制表述属本项目据烘焙一般原理的归纳。review_status 保持 needs_review。"
+      },
+      "source_ids": ["cuisine_fr_src_18", "cuisine_fr_src_36", "cuisine_fr_src_26"],
+      "related_catalog_ids": ["produce_almond", "animal_food_egg", "flavors_cane_sugar", "flavors_cocoa", "animal_food_butter", "flavors_vanilla", "cuisine_fr_choux_eclair"],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "cuisine_fr_cheese_aging_institution",
+      "name": "奶酪熟成与产地命名制度（affinage、AOP／AOC 与「产地即品牌」）",
+      "aliases": ["affinage", "奶酪熟成", "AOP", "AOC", "INAO", "PDO", "产地命名", "appellation d'origine"],
+      "category": "institution",
+      "tags": ["kind:institution", "tradition:western", "cuisine:french", "course:cheese", "technique:ferment", "technique:age", "occasion:court", "occasion:tavern", "class_marker:elite", "role:regulation", "trade:dairy_farmer", "trade:merchant"],
+      "summary": "把「什么地方、怎么做」变成可保护的名字的制度：熟成决定风味，产地命名决定价格。它既是技术（酶与微生物的时间），也是法律（谁能用这个名字）。",
+      "details": {
+        "definition": "本条是制度条目而非某一品种：①技术侧——熟成（affinage）：多数奶酪须经不同时长的熟成，把新鲜凝乳转变为具特色的陈年奶酪；②制度侧——产地命名与质量标志：法国由 INAO 负责质量与原产地官方识别标志（SIQO）的承认与保护，欧盟层面则以地理标志（PDO／PGI／GI 与 TSG）保护与特定地理来源及传统技艺相关的产品名称，并把地理标志承认为知识产权。两者合起来构成「一种奶酪凭什么贵」的完整答案。",
+        "mechanism": "熟成侧由三个来源的酶催化：凝乳时加入的凝乳酶或其他动植物来源酶制剂、在奶酪内部或表面生长的微生物、以及原料乳本身；反应速度由熟成室的温度与湿度以及奶酪含水量决定。变化大致是脂肪分解为脂肪酸、蛋白分解为氨基酸（proteolysis 同时影响风味与组织）、乳糖转为乳酸等，风味物质含挥发性脂肪酸、酮、酯、醇、肽、氨基酸、氨与硫化氢。蓝纹靠 P. roqueforti 或 P. glaucum 的孢子，且须以针刺入空气激活；表面熟成奶酪的风味则兼来自内部与表面环境（如 B. linens 造成红褐表面）。制度侧机制是把「地区 + 做法 + 原料来源」写进规格：PDO 要求生产、加工与制备的每一环节都在特定地区；PGI 对多数产品只要求其中一个阶段在该地区；TSG 则保护做法而不绑定地理。登记后由成员国主管机关在其境内保护并制止非法使用。",
+        "conditions": "①熟成空间：能维持稳定温湿度的窖或洞（Roquefort 便利用洞穴的天然冷湿气氛）；②时间与资本：熟成期从一个月到一年以上，这段时间奶酪不能变现，因此需要能压得住的资金；③原料乳的稳定供给与集乳半径；④制度前提：需要有登记册、规格文本、检查机关与可执行的处罚——即一个有能力「禁止别人用这个名字」的行政体系。这四项合起来说明：好奶酪不是自然的产物，而是时间 + 资本 + 法律的合成物。",
+        "exceptions": "①不要把 AOP／AOC 倒推为古老制度：本条来源描述的是**当代**欧盟与法国的制度框架（INAO 有八十余年历史、欧盟 GI 体系含 2024 年新生效的法规），法国大革命前的行会规章与地方惯例是另一回事，不可混为一谈。②不要以为熟成越久越好：并非所有奶酪都熟成，cottage、cream、ricotta 与多数 mozzarella 制成即可出售，风味甜嫩并常与其他食物组合。③不要让地理标志等于质量等级：它保护的是「来源与做法的关联」，不是口味排序；同一 PDO 之内质量差异仍然很大。④不要忽略规模差异：现代工厂按标准配方量产、产品更均一但品种更少——标准化会压缩地方品种的生存空间。⑤同名异地风险：法国的 Neufchâtel 与美国同名产品分属不同体系，写作时须指明。",
+        "story_uses": "①法律即价格：一场关于「谁有权在奶酪上刻这个名字」的官司，可以直接写成地方共同体与外来厂商的对抗，也是最好的「制度如何变成钱」的教学案例。②时间与资本：熟成期意味着现金流被锁在地窖里，可写借贷、抵押与破产——一场火灾就能让一个家族垮掉。③洞穴与地理：Roquefort 依赖洞穴的天然冷湿，这类「不可复制的场地」是极好的稀缺资产与争夺对象。④检验与作弊：以次充好、掺乳、伪造产地是最自然的丑闻线；检查员的角色兼具威权与腐败的可能。⑤标准化与失落：工厂量产使品种减少，可写「一种奶酪消失」作为文化消亡的具体象征。⑥战争与配额：乳与盐的配给会直接改写整个体系。",
+        "historical_scope": "制度侧须严格限定年代：INAO 的当代 SIQO 体系与欧盟 2024 年新生效的法规、以及 2023 年 INAO 管理 1232 个产品的数字，都是**当代**信息，不得倒推为「法国自古如此」。熟成技术侧属一般奶酪工艺，不限法国。地域上，本条以法国与欧盟为例，不表示其他国家的原产地保护制度同构。改编边界：架空世界若要有类似制度，须同时给出登记册、规格、检查与处罚的执行能力；没有行政能力的世界里，产地声誉只能靠行会、口碑或领主特许来维持，那是另一种（更脆弱的）机制。",
+        "evidence_and_uncertainty": "来源支持：熟成由三类酶催化、时长自一个月（Brie）到一年以上（cheddar）、温湿度与含水量决定反应速度、蛋白分解影响风味与组织、蓝纹以 P. roqueforti 孢子并针刺激活、表面熟成奶酪与 B. linens 的作用、并非所有奶酪都熟成（cottage/cream/ricotta/多数 mozzarella）、工厂量产使品种减少、制酪在荷兰法国意大利瑞士具长期经济意义、某些奶酪与特定地区历史关联、Roquefort 需冷湿洞穴——均据 cuisine_fr_src_16 与 cuisine_fr_src_20；蓝纹的熟成期三至六个月与 Roquefort 用母羊乳——据 cuisine_fr_src_27；PDO／PGI／GI／TSG 的定义与差别、GI 作为知识产权的地位、成员国的保护义务、2024 年新法规——据 cuisine_fr_src_19；INAO 的职责、SIQO 产品数量与 2023 年分类数字、52 个乳制 AOP 居欧洲首位——据 cuisine_fr_src_40。缺口：法国 AOC 制度的起源年代与其与 20 世纪葡萄酒运动的关联未取得来源（INAO 的 AOP 专页返回 404，cuisine_fr_src_un_13）；各产区的产量、价格与规格文本未取得。review_status 保持 needs_review。"
+      },
+      "source_ids": ["cuisine_fr_src_16", "cuisine_fr_src_20", "cuisine_fr_src_27", "cuisine_fr_src_19", "cuisine_fr_src_40"],
+      "related_catalog_ids": ["animal_food_cheese", "animal_food_milk", "animal_food_goat", "animal_food_sheep", "animal_food_cattle", "animal_food_butter", "flavors_wine", "cuisine_fr_fondue_savoyarde"],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "cuisine_fr_pot_au_feu",
+      "name": "火上锅（pot-au-feu：肉与蔬菜同煮，先汤后肉分食）",
+      "aliases": ["pot-au-feu", "火上锅", "牛肉蔬菜锅", "boiled dinner"],
+      "category": "item",
+      "tags": ["kind:dish", "tradition:western", "cuisine:french", "course:main", "course:starter", "technique:simmer", "occasion:tavern", "occasion:famine", "class_marker:common", "role:daily_staple", "trade:butcher"],
+      "summary": "把肉与根茎蔬菜同锅长煮、先喝汤再吃肉的日常菜。它的名字就是它的装置——「火上的锅」，而这只锅往往整天不熄。",
+      "details": {
+        "definition": "pot-au-feu 字面意为「火上的锅」，是肉与蔬菜同煮的法国菜（属炖煮一类）。它的结构是「一次烹煮、两道上桌」：先以长时煮出的汤作头道（常配面包或面条），再把煮软的肉与蔬菜作主菜，佐盐、芥末与酸黄瓜一类。它与「煨浓」体系的差别在于：pot-au-feu 追求的是清而有味的汤与可切片的肉，而不是收浓的酱汁。",
+        "mechanism": "机制是长时低温的萃取与软化：冷水起锅缓慢升温以利血水与可溶物析出，撇沫后维持微沸（炖煮一类传统上从不滚沸，而在接近 90 摄氏度的温度带作用），使胶原转为明胶、纤维松散，同时把风味留在汤里。分层入锅的次序就是技术：耐煮的肉与骨先下、根茎蔬菜后下、易烂的（如马铃薯）最后下，才能同时达到「肉可切、菜可食、汤可喝」。",
+        "conditions": "①一口能整日占用的厚锅与稳定燃料——这是它最硬的物质条件，也是它成为「家常」的前提：锅不熄，家里的热与汤都不缺。②韧性部位的肉与骨（便宜而耐煮）。③根茎蔬菜与盐。④面包或面食作为汤的配套。它因此在柴薪相对宽裕、肉类不贵的乡村与小城最盛；在城市贫民窟，同一道菜会退化为「汤 + 面包」而肉极少。",
+        "exceptions": "①不要把它与「煨浓」的炖菜混为一谈：一个是取清汤并吃肉，一个是收浓汁。②不要把它的起源年代当作已知：该来源**仅为策展摘录页，其中由 AI 生成的摘要给出「起源于 1791 年」之说，无可核依据，本条不采用**。③不要忽略它的「两段性」：先汤后肉的顺序是菜的结构，也是分配的关键——汤人人有份，肉则按份分。④不要把 pot-au-feu 与 pho 的源流关系当定论：该来源称 pot-au-feu 是越南粉「最明显的先驱」，同时称该菜名也可能来自「粉」的越南读音，两说并列。⑤地区变体很多（加禽、加腌肉、加不同根茎），不要写死一种配方。",
+        "story_uses": "①不熄的锅：一整天占着火眼的锅，是家庭经济与居住条件的直接证据；也可写「谁负责看锅」这类细碎的权力。②汤与肉的分配：同一锅出来的两样东西差价极大，分肉的不均是最日常的阶级展演。③冬季与燃料：柴价上涨时先减的是煮的时间，可写「今年的汤薄了」。④节庆与周日：长煮菜是周日菜，可标记周历与家庭聚会。⑤跨文化回声：若写殖民或贸易接触场景，可用「同一只锅在两地变成两道菜」作为文化转译的具体意象，但须标明源流有争议。",
+        "historical_scope": "本条限法国及西欧的「煮取」体系；**年代不明**——已读来源未给其起源，且该页的 AI 摘要给出的年份不可用（见 cuisine_fr_src_41）。技法侧的微沸温度带（约 88 摄氏度）、褐色与白色两条炖法，据炖煮条目，属西欧通例。改编边界：架空世界可写同锅长煮、汤肉分食的日常菜，但需稳定燃料与便宜耐煮的肉；不要在缺柴社会写「整天不熄的锅」。",
+        "evidence_and_uncertainty": "来源支持：pot-au-feu 字面意为「火上的锅」、为肉与蔬菜同煮的法国菜、属炖煮一类、以及「pot-au-feu 是越南粉最明显的先驱」与「菜名也可能来自粉的越南读音」两说并列——均据 cuisine_fr_src_41（Britannica 策展摘录页）；长时低温微沸使韧肉软化并融合风味、约 88 摄氏度、根茎蔬菜与增稠方式——据 cuisine_fr_src_31。明确排除：该页 AI 摘要给出的「起源于 1791 年」不采用。缺口：**本菜的起源年代、地区变体与「先汤后肉」分食制度均未取得可核来源**；「不熄的锅」这一经济含义属本项目归纳。review_status 保持 needs_review。"
+      },
+      "source_ids": ["cuisine_fr_src_41", "cuisine_fr_src_31"],
+      "related_catalog_ids": ["animal_food_beef", "animal_food_pork", "animal_food_ham_bacon", "produce_carrot", "food_supp_leek", "food_supp_turnip", "staples_potato", "materials_salt", "flavors_mustard", "tools_pottery_cooking_pot", "cuisine_fr_boeuf_bourguignon"],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "cuisine_fr_potee_auvergnate",
+      "name": "奥弗涅豆焖肉与腌肉菜锅（potée：豆与腌肉的冬季大锅菜）",
+      "aliases": ["potée", "potée auvergnate", "奥弗涅豆焖肉", "豆焖肉", "petit salé aux lentilles", "冬季大锅菜"],
+      "category": "item",
+      "tags": ["kind:dish", "tradition:western", "cuisine:french", "course:main", "technique:simmer", "occasion:tavern", "occasion:famine", "class_marker:common", "role:daily_staple", "trade:butcher", "trade:market_gardener"],
+      "summary": "中部山地以豆类、腌肉与根茎蔬菜同锅长煮的冬季主力菜。它不像卡苏莱那样以结壳为判据，而是以「一锅能喂多少人」为判据——最朴素的一种丰盛。",
+      "details": {
+        "definition": "potée 是法国中部与东部山地（奥弗涅为代表）一类冬季大锅菜的统称：以豆类（兵豆、菜豆等）、腌腊猪肉（咸肉、香肠、火腿皮）与根茎蔬菜（甘蓝、胡萝卜、芜菁、韭葱、马铃薯）同锅长煮，煮好后肉与菜单独取出切片、汤另上。它属「煮取」而非「煨浓」体系，与 pot-au-feu 同族，区别在于它以豆为碳水主体、以腌腊肉为主要动物蛋白。",
+        "mechanism": "机制是「咸味扩散 + 豆的软化 + 一锅多出」：腌肉先下水把盐与烟熏味释入汤中，豆在含盐与脂肪的液体中久煮至绵软，根茎蔬菜按耐煮程度分批下；最后把固体取出分切、汤留存。判据是豆是否绵而不散、咸度是否可接受——腌肉的盐量直接决定整锅的咸，因此「先泡、先煮、后加」的处理顺序就是技术。它的一锅多出（汤、肉、豆、菜可分四样上桌）使它成为最经济的待客方案。",
+        "conditions": "①豆类：需能长期储存的干豆，是冬储的核心。②腌腊猪肉：冷天宰猪、盐渍风干，才有一年可用的咸肉与香肠。③根茎与甘蓝：耐存的冬季蔬菜。④大锅与燃料：与 pot-au-feu 同。⑤水：长煮菜耗水，需近水源。这些条件共同把它锁在「有冬储习惯的农业社会」，也解释了它为何在山区与寒冷地带最盛。",
+        "exceptions": "①不要把 potée 与卡苏莱混为一谈：后者以陶锅烤到表面结壳、并有一套三城之争；前者是煮锅菜，判据是豆的绵软与咸度。②不要把它写成「穷人的菜」而忽略其丰盛面：有腌肉可放的年份，它就是丰盛的；缺肉的年份它退化为豆汤。③不要以为豆与腌肉是可选搭配：豆提供热量与体积、腌肉提供盐与脂，两者互补，缺一不可。④同名极泛：potée 在法国多地存在，各地用料随物产变化，不要以奥弗涅一地的配方概括全部。⑤「petit salé aux lentilles」（腌肉配兵豆）是近亲而非同菜，写菜名时应区分。",
+        "story_uses": "①冬储账本：豆缸、腌肉条数与盐的存量，是最可信的家庭「资产负债表」。②一锅四样：同一锅能分出汤、肉、豆、菜四样上桌，分配方案本身就是家内等级的地图。③山区与贫困：这类菜最盛之处正是土壤与气候不利的山区，可写「贫瘠如何靠技术变成温饱」。④待客与体面：能否在锅里加一块像样的腌肉，是农家的体面线。⑤饥荒与替代：荒年把豆换成更差的谷物、把腌肉减到只剩调味，是最真实的衰减曲线。",
+        "historical_scope": "本条限法国中部与东部山地（奥弗涅等）及西欧同类冬季大锅菜；**已读来源未给此类菜的名称史与定型年代**，其定义由「煮取体系 + 冬储原料」推得，属本项目归纳。技法侧（长时微沸、根茎蔬菜、腌腊肉与豆的组合）有炖煮与腌腊两条来源支持。改编边界：架空世界可写冬季大锅菜，但需干豆储存、腌腊肉体系与耐存根茎三项条件；不要在无盐社会写这类菜。",
+        "evidence_and_uncertainty": "来源支持：炖菜在密闭容器中以液体小火烹制、约 88 摄氏度微沸使韧食软化并融合风味、常加根茎蔬菜（胡萝卜、洋葱、芜菁、欧防风、马铃薯）与番茄芹菜、厚实炖煮型汤常见于各地农家菜并组合根茎蔬菜豆类与烟熏或鲜肉（如法国 garbure）——均据 cuisine_fr_src_31 与 cuisine_fr_src_08；腌腊工序需盐渍烟熏风干腌制、并非每类肉都用全部工序——据 cuisine_fr_src_10；奥弗涅为 charcuterie 著名产区、以猪肉与古老猪种著称——据 cuisine_fr_src_10。缺口：**「potée auvergnate／奥弗涅豆焖肉」这一具体菜名、配方与年代均未取得专门来源**，本条据炖煮与腌腊两条来源归纳，属本项目归纳，待补法国地方文化机构（如 Écomusée、地区旅游局或 INAO 产品页）来源。review_status 保持 needs_review。"
+      },
+      "source_ids": ["cuisine_fr_src_31", "cuisine_fr_src_08", "cuisine_fr_src_10"],
+      "related_catalog_ids": ["staples_lentil", "staples_common_bean", "animal_food_ham_bacon", "animal_food_sausage", "animal_food_pork", "produce_cabbage", "produce_carrot", "food_supp_turnip", "staples_potato", "materials_salt", "cuisine_fr_pot_au_feu", "cuisine_fr_cassoulet"],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "cuisine_fr_restaurant_review",
+      "name": "餐馆制度与美食评论（restaurant、brigade de cuisine 与评论家的权力）",
+      "aliases": ["restaurant", "餐馆制度", "brigade de cuisine", "厨房分工", "gastronome", "美食评论", "bistro", "米其林指南"],
+      "category": "institution",
+      "tags": ["kind:institution", "tradition:western", "cuisine:french", "course:main", "occasion:court", "occasion:tavern", "class_marker:elite", "role:kitchen_hierarchy", "role:critic", "trade:guild"],
+      "summary": "公共菜单、厨房分工与评论家三位一体的制度：大革命把厨师从贵族家里赶出来，餐馆接住了他们；分工把烹饪变成可管理的工业；评论家则决定谁值得排队。",
+      "details": {
+        "definition": "本条是制度条目：①餐馆（restaurant）——公众可购买饮食的场所，其现代形态起源于法国；②厨房分工（brigade de cuisine）——把厨房按岗位切分（主厨 gros bonnet、酱汁副手、汤菜与甜点 entremettier、烤肉 rôtisseur、冷盘与采买 garde manger），每人专司一职；③美食评论与指南——从 19 世纪的美食作家到 20 世纪的指南与批评刊物，构成对餐馆的第三方评价权力。三者在法国互相塑造：没有餐馆就没有公共菜单，没有分工就没有稳定出品，没有评论就没有名声与价格。",
+        "mechanism": "餐馆的机制是「菜单 + 点菜 + 桌面服务」：第一位被记作餐馆经营者的是 1765 年在巴黎开汤铺的 A. Boulanger，招牌写 restoratives／restaurants（指汤与肉汤），制度由此得名；它与此前的客栈（table d'hôte，由店主配菜）与咖啡馆（只卖饮料）不同，关键在于「任何食客都能从有选择的菜单点菜」。分工的机制是把技艺切成可替换的岗位，从而提高效率、简化沟通，并使主厨能统观全局——效率提升又反过来允许菜单更复杂、供餐更快。评论的机制是把口味转成公共判断：从 Brillat-Savarin 对餐厅主人的品评，到 1969 年 Gault 与 Millau 创办 Le Nouveau Guide 抗议米其林「保守堡垒」，再到以「星」为单位的评级，评论家的笔成了市场准入的第二道门。",
+        "conditions": "①城市化与现金经济：有一批「不做饭、买热食」的顾客；②法律与行会环境：革命后旧的行会与宫廷雇佣体系松动，厨师可以自营；②专业人才供给：宫廷与贵族厨房解体后释放出大量训练有素的厨师（巴黎 1804 年已有 500 多家餐馆）；③资本与场所：厅堂、酒窖、侍者与厨房设备都是固定投入；④信息渠道：报纸、指南与后来的评级体系，让远方顾客能判断一家店。",
+        "exceptions": "①不要把「餐馆」当作自古有之：客栈与酒馆长期存在，但「菜单点菜」是 18 世纪后期法国的新事物。②不要把分工当作永久的黄金标准：该来源明确指出在其时代的职责分明，但现代因人力成本上升与服务速度要求，各职已有广泛交叠——也就是说分工是可变的组织形式，不是烹饪的本质。③不要以为评论家总是权威：他们自身也被攻击（新料理的争论中，评论家既是推手也是靶子），而且评价体系会自我政治化。④不要把「星」当作纯质量指标：它同时是商业与民族主义情绪的容器。⑤不要忽略女性与移民在厨房中的位置：已读来源的叙述以名厨为主线，不能据此认为厨房劳动只有名厨。",
+        "story_uses": "①菜单即制度：一张能点菜的菜单本身就标志着「顾客有选择权」，可写它出现的那一刻如何改变城市生活。②厨房里的官僚制：岗位等级、职责边界与「谁的指示优先」是最现成的职场冲突模型；把军队式等级搬进厨房，可写服从与反抗。③评论家的一支笔：一家店因一句话暴红或暴死，是极好的复仇与投机题材；也可写评论家被收买。④指南与反抗：以创办刊物对抗既有指南的历史（1969 年 Le Nouveau Guide 对米其林的挑战）可作「新势力挑战旧权威」的模板。⑤宴席作为外交：19 世纪的「三皇晚宴」式场面说明一桌菜可以承载国事。⑥阶级与门槛：门口、衣帽间、菜单价格与侍者态度都是可写的边界装置。",
+        "historical_scope": "限法国（巴黎为核心）与受其影响的西欧北美；年代锚点明确：1765 年 Boulanger 的汤铺、1782 年第一家豪华餐馆 La Grande Taverne de Londres 与主人 Beauvilliers、1804 年巴黎逾 500 家餐馆、1867 年 6 月 7 日 Café Anglais 的三皇晚宴、1890 年 Escoffier 在 Savoy 建立 brigade de cuisine、1969 年 Le Nouveau Guide 创刊、1972 年 nouvelle cuisine 得名。改编边界：架空世界可以有餐馆与评论，但需城市化、现金经济、可自营的法律空间与信息渠道四项条件；不要在没有印刷与城市的社会里写「指南评级」。",
+        "evidence_and_uncertainty": "来源支持：餐馆的定义与法国起源、1765 年 A. Boulanger 的汤铺与得名、与 table d'hôte 及咖啡馆的区别、「菜单点菜」的关键性、1782 年第一家豪华餐馆与 Beauvilliers、Brillat-Savarin 的四要素评价、革命后厨师转入餐馆、1804 年 500 多家、Palais-Royal 与 Véry 的菜单规模、Café Anglais 与 1867 年三皇晚宴的菜目、Escoffier 的 brigade 与其职责及现代交叠——均据 cuisine_fr_src_34（Britannica restaurant）；brigade 的军事灵感来源与 1890 年在 Savoy 建立——据 cuisine_fr_src_35；Gault 与 Millau 1969 年创刊、1972 年命名、1973 年十诫与评论界反弹——据 cuisine_fr_src_12；UNESCO 名录中 gastronomes 守护传统实践的角色——据 cuisine_fr_src_04。缺口：餐馆价格、工资与顾客构成的社会史数据未取得；法国的行会（餐饮业）与餐馆制度之间的过渡细节亦未取得。review_status 保持 needs_review。"
+      },
+      "source_ids": ["cuisine_fr_src_34", "cuisine_fr_src_35", "cuisine_fr_src_12", "cuisine_fr_src_04", "cuisine_fr_src_38"],
+      "related_catalog_ids": ["society_craft_guild", "society_merchant_guild", "cuisine_fr_grande_cuisine", "cuisine_fr_souffle", "cuisine_fr_steak_frites"],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "cuisine_fr_steak_frites",
+      "name": "牛排配薯条（steak frites：小餐馆的标准主菜）",
+      "aliases": ["steak frites", "牛排配薯条", "bistro", "小餐馆菜", "entrecôte frites"],
+      "category": "item",
+      "tags": ["kind:dish", "tradition:western", "cuisine:french", "course:main", "technique:pan_fry", "technique:deep_fry", "occasion:tavern", "class_marker:common", "role:restaurant_staple", "trade:butcher"],
+      "summary": "牛排配炸薯条，法比两国都视为主流菜；它是小餐馆与小酒馆的标准件，也是「简单菜考验基本功」的代表——火候与薯条两样都不能错。",
+      "details": {
+        "definition": "牛排配薯条是牛肉排配炸马铃薯条的简单菜，起源可追溯至法国与比利时，两国都把它视为本国菜的主流，也可在世界各地的法式小餐馆（bistro）中见到。它有诸多变体：不同酱汁、不同牛排部位与不同调味随地区而异。可配肉汁或酱汁，包括以澄清黄油、香草与蛋黄制成的 béarnaise。",
+        "mechanism": "两件事同时进行：①牛排——以干热快速上色，表面褐化形成风味而内部保持所需熟度，判据是「外焦里嫩」的梯度；②薯条——马铃薯切条后需经两次不同温度的油炸（先低温脱水定型、再高温上色脆化），否则外焦内软或吸油。两样都必须现做现上，因此这道菜的厨房调度要求极高：它要求在同几分钟内完成两种不同热源的工作，这也是它成为餐馆基本功考题的原因。",
+        "conditions": "①牛肉：部位从传统 rump 到当代的 porterhouse、rib eye、flank，说明可得部位随屠宰与供应链而变。②马铃薯与大量炸用油：油炸是耗油工艺，油的价格与复用次数直接决定成本。③两种热源（煎台与油锅）与排烟。④酱汁线：béarnaise 一类需要蛋与黄油，可视为附加的等级标记。这道菜的普及度与「牛肉便宜、油炸可行」这两项条件强相关。",
+        "exceptions": "①不要把它当作「法国的国菜」：来源明确它是法国与比利时两国共享的传统，归属之争本身可作素材。②不要以为简单等于容易：两项热源同时精确控制，是它的真正门槛。③不要把薯条当作配菜而忽略它是独立工序：它的成败往往比牛排更能区分厨房水平。④不要固定部位：传统用 rump、当代常见 porterhouse／rib eye／flank，写不同年代应换部位。⑤不要把它写成高级菜：它属于小餐馆与酒馆的日常，是「便宜而正确」这一类价值。",
+        "story_uses": "①小餐馆的日常：这是最适合写「低价的正确」的一道菜——不昂贵，但要求准确。②国别之争：法比两国都视其为本国菜，可写菜单上的措辞如何成为民族情绪。③油炸的成本：油的复用与废弃是餐饮成本的黑洞，可写偷工减料与卫生检查。④火候即评价：一块过熟的牛排足以让常客不再来，可写口碑的脆弱。⑤酱汁加价：同一块肉是否配 béarnaise，是可标价的等级差。",
+        "historical_scope": "限法国与比利时及受其影响的西欧北美；**已读来源未给其起源年代与命名史**，仅给「起源可追溯至法国与比利时」与部位、酱汁的当代差异。改编边界：架空世界可写煎肉配炸薯类，但需牛肉、食用油与两种热源；不要在缺油社会写油炸主食。",
+        "evidence_and_uncertainty": "来源支持：牛排配薯条为牛肉排配炸马铃薯条的菜、起源可追溯至法国与比利时且两国都视为主流、可见于世界各地的法式小餐馆、有多种变体（酱汁、部位、调味随地区而异）、过去多用 rump 而当代部位包括 porterhouse／rib eye／flank、可配肉汁或包括 béarnaise 的酱汁、薯条可粗可细——均据 cuisine_fr_src_44（Britannica steak frites）；béarnaise 以醋酒、龙蒿与红葱并常先澄清黄油制成——据 cuisine_fr_src_13。缺口：起源年代、命名史与「两次油炸」的具体工艺均未在已读来源中得到明确描述（本条对双炸的表述属一般烹饪机制归纳）；bistro 一词的来源未取得。review_status 保持 needs_review。"
+      },
+      "source_ids": ["cuisine_fr_src_44", "cuisine_fr_src_13"],
+      "related_catalog_ids": ["animal_food_beef", "staples_potato", "animal_food_butter", "animal_food_egg", "materials_salt", "flavors_black_pepper", "cuisine_fr_restaurant_review", "cuisine_fr_hollandaise"],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    }
+  ]
+}

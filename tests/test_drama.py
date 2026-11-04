@@ -5,6 +5,7 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch
 from app.drama import resolve_check,outcome_cues,cast_projection
+from tests.fixtures_world import world_service
 from app.service import Service
 from app.storage import Store
 from app.contracts import Turn
@@ -28,7 +29,7 @@ class DramaTests(unittest.TestCase):
 
     def test_runtime_effects_and_per_character_cues(self):
         with tempfile.TemporaryDirectory() as tmp:
-            svc=Service(Store(Path(tmp)/'test.sqlite3'),ROOT);rt=svc.runtime
+            svc=world_service(Store(Path(tmp)/'test.sqlite3'),ROOT);rt=svc.runtime
             s=rt.new_session('分支测试','protagonist')
             request=Turn(message='收拾行装',action_id='pack')
             result=rt.prepare_turn(s,request);rt.finish_turn(s,request,'收起万言机。',result,{'calls':0})

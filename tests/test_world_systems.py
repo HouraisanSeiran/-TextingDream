@@ -5,6 +5,7 @@ import unittest
 from pathlib import Path
 from app import attributes
 from app.geography import Environment, estimate, solar, local_environment
+from tests.fixtures_world import world_service
 from app.service import Service
 from app.storage import Store
 from app.recall import Recall
@@ -16,7 +17,7 @@ ROOT=Path(__file__).resolve().parents[1]
 class WorldSystemsTests(unittest.TestCase):
     def setUp(self):
         self.tmp=tempfile.TemporaryDirectory();self.store=Store(Path(self.tmp.name)/'test.sqlite3')
-        self.svc=Service(self.store,ROOT);self.rt=self.svc.runtime
+        self.svc=world_service(self.store,ROOT);self.rt=self.svc.runtime
     def tearDown(self):self.tmp.cleanup()
 
     def test_six_axes_required_and_legacy_rename(self):

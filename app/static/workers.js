@@ -1,21 +1,4 @@
-const apiExtras = el('div');
-apiExtras.innerHTML = `<datalist id="model-options"><option value="deepseek-flash">DeepSeek V4.1 Flash</option><option value="deepseek-v4-pro">DeepSeek V4 Pro</option></datalist>
-<p>V4.1 Flash 的请求名是 deepseek-flash。以下模型留空则使用默认模型。</p>
-<label>对话模型（表层 / 润色）<input id="dialogue-model" list="model-options" maxlength="120" placeholder="使用默认模型"></label>
-<label>创作模型（背景 / 道具 / 人物发展）<input id="author-model" list="model-options" maxlength="120" placeholder="使用默认模型"></label>
-<label>推理模式<select id="thinking-mode"><option value="enabled">开启</option><option value="disabled">关闭</option></select></label>
-<label>推理强度<select id="reasoning-effort"><option value="low">低</option><option value="high">高</option><option value="max">最高</option></select></label>
-<label>温度（DeepSeek 仅关闭推理时生效）<input id="temperature" type="number" min="0" max="2" step="0.1"></label>
-<label>请求超时（秒）<input id="timeout-seconds" type="number" min="15" max="600"></label>
-<label>最大并发请求数<input id="max-concurrency" type="number" min="1" max="8"></label>
-<small>两个任务分别组织上下文，共享连接和并发上限。里层候选经审核后生效；旅程状态变更仍串行处理。</small>`;
-$('api-form').insertBefore(apiExtras, $('api-form').querySelector('.toolbar'));
-$('api-model').setAttribute('list','model-options');
-$('max-tokens').max='65536';
-const apiFields=[['dialogue-model','dialogue_model'],['author-model','author_model'],['thinking-mode','thinking_mode'],['reasoning-effort','reasoning_effort'],['temperature','temperature'],['timeout-seconds','timeout_seconds'],['max-concurrency','max_concurrency']];
-function fillWorkerSettings(){for(const [id,key] of apiFields)$(id).value=apiConfig[key]??'';}
-function workerSettings(){const result={};for(const [id,key] of apiFields)result[key]=['temperature','timeout_seconds','max_concurrency'].includes(key)?Number($(id).value):$(id).value;return result;}
-$('surface-thinking').parentElement.lastChild.textContent=' 启用模型推理（与 API 配置同步，对话及创作均生效）';
+$('surface-thinking').parentElement.lastChild.textContent=' 启用模型推理（服务支持时生效）';
 const recallOptions=el('div');
 recallOptions.innerHTML='<label><input id="recall-enabled" type="checkbox" checked> 按需检索旧对话</label><label>记忆相关性阈值<input id="recall-threshold" type="number" min="0.05" max="0.9" step="0.01" value="0.12"></label><small>本地 TF-IDF 文本向量，无额外 API 消耗。近期上下文照常保留，旧原文只在相关时召回；不是通用语义嵌入。</small>';
 $('settings-form').prepend(recallOptions);
@@ -39,12 +22,22 @@ const recallPanel=el('div',undefined,'card');
 recallPanel.innerHTML='<h3>聊天记忆检索 · 里层查看</h3><input id="recall-query" maxlength="3000" placeholder="第一次做的炒肉和白粥好不好吃"><button id="recall-search">查找当前旅程原文</button><pre id="recall-result"></pre>';
 batch.after(recallPanel);
 $('recall-search').onclick=()=>safe(async()=>{if(!current)throw Error('请先打开一个旅程');const r=await api('/inner/sessions/'+current.id+'/recall?query='+encodeURIComponent($('recall-query').value));$('recall-result').textContent=JSON.stringify(r,null,2)});
-const inputMode=el('label');inputMode.innerHTML='输入方式<select id="input-channel"><option value="action">行动 / 自由描述</option><option value="speech">说出口（在场参与者可听见）</option><option value="thought">内心活动（不传播）</option><option value="note">作者注（不传播）</option></select>';
-$('chat-form').prepend(inputMode);
-const localPanel=el('details');localPanel.innerHTML='<summary>资源、时间与日程 · 本地运算</summary><pre id="local-state"></pre><label>等待小时<input id="wait-hours" type="number" min="1" max="24" value="1"></label><button id="wait-local" type="button">等待（不调用 AI）</button><small>事件结束后可等待；具体资源与日程由当前旅程绑定的故事包定义。未定义的资源不会凭空生成。</small>';
-$('surface').append(localPanel);
+// 输入方式（#input-channel）与「资源与时间」（#local-state）已在 index.html 的对话栏里；这里只管渲染。
+function drawLocalState(state){
+ const box=$('local-state');box.replaceChildren();
+ if(!state){box.append(el('p','当前故事包没有定义资源与日程。','muted'));return}
+ const c=state.clock||{};
+ if(c.day!==undefined)box.append(el('p','第 '+c.day+' 天 · '+String(c.hour).padStart(2,'0')+':00'+(c.elapsed_hours!==undefined?' · 已过 '+c.elapsed_hours+' 小时':''),'ls-clock'));
+ for(const r of state.resources||[]){
+  const row=el('div',undefined,'ls-row');row.append(el('span',r.name),el('strong',r.amount+(r.unit||'')+(r.maximum?' / '+r.maximum:'')));
+  if(r.maximum){const bar=el('i',undefined,'ls-bar');bar.style.setProperty('--fill',Math.max(0,Math.min(100,100*r.amount/r.maximum))+'%');row.append(bar)}
+  box.append(row);
+ }
+ if((state.upcoming||[]).length){box.append(el('p','即将发生','rail-label'));for(const t of state.upcoming.slice(0,4))box.append(el('p',t.title+' · '+t.in_hours+' 小时后','ls-line'))}
+ if((state.notices||[]).length){box.append(el('p','最近消息','rail-label'));for(const n of state.notices.slice(-3))box.append(el('p',n.text,'ls-line'))}
+}
 const renderBeforeLocal=render;
-render=function(){renderBeforeLocal();if(!current)return;const state=current.local_state;$('local-state').textContent=state?JSON.stringify(state,null,2):'尚无本地状态';$('wait-local').disabled=!!current.event;};
+render=function(){renderBeforeLocal();if(!current)return;drawLocalState(current.local_state);$('wait-local').disabled=!!current.event;$('wait-hint').hidden=!current.event;};
 $('wait-local').onclick=()=>safe(async()=>{if(!current)throw Error('请先打开旅程');current=await api('/sessions/'+current.id+'/wait','POST',{hours:Number($('wait-hours').value)});render();notice('时间已由本地推进，未调用模型')});
 const rulesEditor=el('details');rulesEditor.innerHTML='<summary>本地资源与日程规则 · 作者配置</summary><p>不调用AI。保存为故事包新版本；新旅程使用新规则，已有旅程保持原版本。跨午夜日程需拆为两段，资源数量为整数。</p><button id="load-local-rules">读取规则</button><button id="example-local-rules">填入测试示例（未保存）</button><textarea id="local-rules-json" rows="16" spellcheck="false"></textarea><button id="save-local-rules">校验并保存新版本</button>';
 $('inner').append(rulesEditor);

@@ -7,6 +7,7 @@ from pathlib import Path
 from unittest.mock import patch
 
 from app.contracts import Turn
+from tests.fixtures_world import world_service
 from app.service import Service
 from app.storage import ConcurrentUpdateError, Store, dumps
 
@@ -151,7 +152,7 @@ class ServiceConcurrencyTests(unittest.TestCase):
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory()
         self.path = Path(self.tmp.name) / 'service.sqlite3'
-        self.service = Service(Store(self.path), ROOT)
+        self.service = world_service(Store(self.path), ROOT)
         self.service.provider.configure({'base_url': 'https://api.deepseek.com',
                                          'model': 'deepseek-chat', 'offline': False,
                                          'max_tokens': 1200})

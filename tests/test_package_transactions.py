@@ -15,6 +15,7 @@ from unittest.mock import patch
 
 from app import package_transaction
 from app.contracts import DraftRequest, Turn
+from tests.fixtures_world import world_service
 from app.service import Service, offline_surface
 from app.storage import Store
 
@@ -28,16 +29,12 @@ class PackageCase(unittest.TestCase):
         self.tmp = tempfile.TemporaryDirectory()
         self.base = Path(self.tmp.name)
         self.path = self.base / 'test.sqlite3'
-        self.service = Service(Store(self.path), ROOT)
+        self.service = world_service(Store(self.path), ROOT)
         self.service.provider.configure({'base_url': 'https://api.deepseek.com',
                                          'model': 'deepseek-chat', 'offline': True,
                                          'max_tokens': 1200})
         self.rt = self.service.runtime
-        # Start every test from the pristine templates and never inherit a journal.
-        ignore = shutil.ignore_patterns('.*')
-        for source, target in ((ROOT / 'StoryPackage', self.rt.library),
-                               (ROOT / 'character_packages', self.rt.character_directory)):
-            shutil.copytree(source, target, dirs_exist_ok=True, ignore=ignore)
+        # The explicitly committed fixture is the pristine package library.
         self.journal = package_transaction.journal_path(self.rt.library)
 
     def tearDown(self):
@@ -213,7 +210,7 @@ class CommitInterruptionTests(PackageCase):
                 self.rt.commit_package(self.candidate()['story'], package['characters'], '中断')
         self.assertFalse(self.journal.exists())
         self.assertEqual(self.leftovers(), [])
-        restarted = Service(Store(self.path), ROOT).runtime
+        restarted = world_service(Store(self.path), ROOT).runtime
         self.assertEqual(restarted.files.read(), before)
         self.assertEqual(restarted.package()['id'], package['id'])
 
@@ -308,7 +305,7 @@ class CommitCleanupTests(PackageCase):
         self.assertTrue(self.journal.exists())
         self.assertTrue(self.rt.package_directory(pointer['folder']).exists())
         # A restart replays the journal as committed: it only retries the deletion.
-        restarted = Service(Store(self.path), ROOT).runtime
+        restarted = world_service(Store(self.path), ROOT).runtime
         self.assertFalse(self.journal.exists())
         self.assertEqual(restarted.package()['id'], stored['id'])
         self.assertEqual(restarted.files.read()['worldview']['premise'],
@@ -332,6 +329,8 @@ class CommitCleanupTests(PackageCase):
         pristine = self.base / 'pristine'
         target = self.rt.package_directory(package['folder'])
         shutil.copytree(target, pristine)
+        pristine_characters = self.base / 'pristine_characters'
+        shutil.copytree(self.rt.character_directory, pristine_characters)
         damages = {
             'empty story.json': lambda p: (p / 'story.json').write_text('', encoding='utf-8'),
             'broken story.json': lambda p: (p / 'story.json').write_text('{oops', encoding='utf-8'),
@@ -371,7 +370,7 @@ class CommitCleanupTests(PackageCase):
                 shutil.copytree(pristine, target)
                 shutil.rmtree(backup)
                 shutil.rmtree(self.rt.character_directory)
-                shutil.copytree(ROOT / 'character_packages', self.rt.character_directory,
+                shutil.copytree(pristine_characters, self.rt.character_directory,
                                 dirs_exist_ok=True, ignore=shutil.ignore_patterns('.*'))
                 self.rt.store.put('pointer', 'package', {'id': package['id'], 'folder': target.name})
 
@@ -466,7 +465,7 @@ class CommitCleanupTests(PackageCase):
         shutil.copy2(backup / 'story.json', target / 'story.json')
         self.write_journal(data)
         # A stale on-disk journal with a pointer still at the old revision: roll back.
-        restarted = Service(Store(self.path), ROOT).runtime
+        restarted = world_service(Store(self.path), ROOT).runtime
         self.assertFalse(self.journal.exists())
         self.assertEqual(restarted.files.read(), before)
         self.assertFalse(backup.exists())

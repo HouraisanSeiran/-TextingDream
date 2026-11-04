@@ -118,11 +118,16 @@ def effective_duration(action, story):
     return local_rules.rules(story).turn_hours
 
 
-def summarise(action, story):
+def summarise(action, story, session=None, node=None, characters=None, push=None):
     """候选的**公开**摘要（玩家确认的就是这一份，也是唯一进候选的字段集）。
 
     未发生的结果（`success_text` / `failure_text`）与作者隐藏提示（`narrative_cues`）
     一律不在这里出现；它们只在真正执行后由 narrate 分支呈现。
+
+    判定 v2 的包会在 ``check`` 里多一个 ``v2`` 段（处境/效果/把握/因素/加码/钟）。
+    它由 :mod:`app.checks` 的纯函数算出来，只含**允许公开**的部分：没有隐藏因素、
+    没有 NPC 的底线与信任数值、没有隐藏钟，也没有任何未发生档位的文本。
+    没有 ``session`` 或包没开 v2 时，旧包的 payload 逐字节不变。
     """
     check = action.get('check') or None
     aliases = [item for item in (action.get('intent_aliases') or []) if item]
@@ -135,15 +140,23 @@ def summarise(action, story):
             'intent_aliases': aliases}
     if action.get('risk_notice'):
         result['risk_notice'] = action['risk_notice']
+    if check and session is not None:
+        from . import checks
+        if checks.enabled(story):
+            block = checks.preview(session, story, characters, node, action, push)
+            if block is not None:
+                result['check']['v2'] = block
     return result
 
 
-def confirm_token(session, node, action, story):
+def confirm_token(session, node, action, story, push=None):
     """确认凭据：把「这一次、这个事件、这个动作、这份成本」绑在一起。
 
     包含 ``state_version``，所以任何状态推进都会让旧凭据失效（CAS）。
     只哈希公开信息：成本、**有效时长**、完整的检定（属性 + 难度）；
     所以「同难度换了属性」或「0 小时 ↔ 缺省」都会让旧凭据失效。
+
+    判定 v2 的加码 id 也在这份凭据里：换加码就换凭据，旧凭据不能用来执行新的加码。
     """
     check = action.get('check') or {}
     payload = {'session': session.get('id', ''),
@@ -159,6 +172,13 @@ def confirm_token(session, node, action, story):
                'duration': effective_duration(action, story),
                'check': {'attribute': check.get('attribute'),
                          'difficulty': check.get('difficulty')} if check else None}
+    from . import checks
+    cfg = checks.config(story)
+    if cfg is not None and cfg.tier_mode == 'margin_four':
+        payload['rules'] = cfg.model_dump()
+        payload['check'] = check
+    if push:
+        payload['push'] = push
     text = json.dumps(payload, ensure_ascii=False, sort_keys=True)
     return hashlib.sha256(text.encode('utf-8')).hexdigest()[:32]
 
@@ -288,8 +308,9 @@ def suggest(session, story, node, intent, plans=None, characters=None):
     """
     actions = available_with(session, story, node, plans, characters)
     if not actions:
-        return {'matched': [], 'ambiguous': False, 'unjudged': True,
-                'note': '此刻没有引擎可以替你执行的动作；这句话只会作为对话或描述'}
+        return _with_fallback({'matched': [], 'ambiguous': False, 'unjudged': True,
+                               'note': '此刻没有引擎可以替你执行的动作；这句话只会作为对话或描述'},
+                              session, story, node, intent, characters)
     negated = _has_negation(intent)
     stripped = intent.replace('不', '').replace('没', '')
     scored = []
@@ -305,15 +326,16 @@ def suggest(session, story, node, intent, plans=None, characters=None):
         rank = value if value >= MIN_OVERLAP else MIN_OVERLAP
         scored.append((rank, action))
     if not scored:
-        return {'matched': [], 'ambiguous': False, 'unjudged': True,
-                'note': '没有匹配到已配置的动作；引擎不裁定未配置的行动，'
-                        '这句话只作为台词或描述，不改变状态'}
+        return _with_fallback({'matched': [], 'ambiguous': False, 'unjudged': True,
+                               'note': '没有匹配到已配置的动作；引擎不裁定未配置的行动，'
+                                       '这句话只作为台词或描述，不改变状态'},
+                              session, story, node, intent, characters)
     scored.sort(key=lambda row: (-row[0], row[1]['id']))
     best = scored[0][0]
     top = [(value, action) for value, action in scored if value == best]
     rows = []
     for value, action in scored[:MAX_CANDIDATES]:
-        item = summarise(action, story)
+        item = summarise(action, story, session, node, characters)
         item['confirm'] = confirm_token(session, node, action, story)
         item['match'] = value
         rows.append(item)
@@ -322,6 +344,26 @@ def suggest(session, story, node, intent, plans=None, characters=None):
             'note': ('候选按已配置动作的字符重叠（含作者公开别名整条命中）排序；'
                      '这是弱匹配，不是语义理解。确认具体动作与成本后才会执行。'
                      + ('有多个同分候选，请自己挑一个。' if len(top) > 1 else ''))}
+
+
+def _with_fallback(result, session, story, node, intent, characters):
+    """静态与动态候选都为空时，若包**显式**开启了 ``mechanics.adventure.fallback``，
+    给出至多 1 条「通用尝试」候选；否则原样返回（旧包逐字节不变）。
+
+    候选只含白名单摘要 + 既有 ``confirm_token``；信息正文、成功/失败文本不出现。
+    有候选时 ``unjudged`` 为 ``False``（引擎会裁定这次尝试），并带 ``fallback: True``。
+    """
+    from . import adventure_actions
+    if adventure_actions.fallback_config(story) is None:
+        return result
+    plan = adventure_actions.fallback_for_intent(session, story, intent, characters)
+    if plan is None:
+        return result
+    item = adventure_actions.fallback_public(plan, story, session, node, characters)
+    item['confirm'] = confirm_token(session, node, plan['action'], story)
+    item['match'] = 0
+    return {'matched': [item], 'ambiguous': False, 'unjudged': False, 'fallback': True,
+            'note': adventure_actions.FALLBACK_NOTE}
 
 
 def resolve_action(session, story, node, action_id, plans=None, characters=None):
@@ -338,6 +380,12 @@ def resolve_action(session, story, node, action_id, plans=None, characters=None)
         if plan.get('supported') and plan.get('action') \
                 and plan['action']['id'] == action_id:
             return plan['action']
+    # 兜底尝试（``fallback:`` 前缀）：按 id 重建，目标必须此刻仍可见。
+    if isinstance(action_id, str) and action_id.startswith('fallback:'):
+        from . import adventure_actions
+        plan = adventure_actions.fallback_from_id(session, story, characters, action_id)
+        if plan is not None:
+            return plan['action']
     return None
 
 
@@ -349,10 +397,17 @@ def dynamic_plan(session, story, action_id, plans=None, characters=None):
     return None
 
 
-def describe(session, story, node, action_id, plans=None, characters=None):
+def describe(session, story, node, action_id, plans=None, characters=None, push=None):
     """单个动作的确认摘要（GET 用，只读）。动作不可用时报错并说明缺什么。
 
     静态与动态两个命名空间都支持；凭据同一个 ``confirm_token``（CAS 靠 state_version）。
+
+    判定 v2 的包可以选择一个加码（``push``）。加码代价与动作成本一起在此处预检：
+    付不起就拒绝，而且**零副作用**（这里不扣钱、不写库、不推进时间）；返回的凭据
+    已经把加码 id 绑进去，旧凭据不能用来执行新的加码。
+
+    ``check.v2.refused`` / ``blocked`` 有值时，这个动作就**不能执行**：调用方（界面）
+    据此禁用确认，而不是等执行时才发现。
     """
     done = (session.get('active') or {}).get('actions_done') or []
     from . import local_rules
@@ -371,23 +426,62 @@ def describe(session, story, node, action_id, plans=None, characters=None):
                  if int(((session.get('local') or {}).get('resources') or {})
                         .get(spec['id'], 0)) < spec['amount']]
         raise ValueError('资源不够，缺：' + '、'.join(short))
-    item = summarise(action, story)
-    item['confirm'] = confirm_token(session, node, action, story)
+    if action_id.startswith('fallback:'):
+        from . import adventure_actions
+        plan = adventure_actions.fallback_from_id(session, story, characters, action_id)
+        item = adventure_actions.fallback_public(plan, story, session, node, characters)
+        item['confirm'] = confirm_token(session, node, action, story)
+        return item
+    from . import checks
+    if checks.enabled(story) and action.get('check'):
+        # 加码代价与预览用的是同一份判断：付不起就在这里拒绝，零副作用。
+        _check_push_affordable(session, story, checks.config(story), action, push)
+    item = summarise(action, story, session, node, characters, push)
+    item['confirm'] = confirm_token(session, node, action, story, push)
     return item
 
 
-def verify(session, story, node, action_id, token, plans=None, characters=None):
+def _check_push_affordable(session, story, cfg, action, push):
+    """加码的代价在掷骰前扣除：付不起就在**任何副作用之前**拒绝。"""
+    if not push or cfg is None:
+        return
+    option = next((row for row in cfg.push if row.id == push), None)
+    if option is None:
+        raise ValueError('没有这个加码选项：' + str(push))
+    allowed = (action.get('check') or {}).get('push_allowed')
+    if allowed is not None and push not in allowed:
+        raise ValueError('这个动作不能用这个加码：' + str(push))
+    if option.cost:
+        from . import local_rules
+        if not local_rules.affordable(session, story, {'costs': dict(option.cost)}):
+            short = [spec['name'] for spec in _costs_of({'costs': dict(option.cost)}, story)
+                     if int(((session.get('local') or {}).get('resources') or {})
+                            .get(spec['id'], 0)) < spec['amount']]
+            raise ValueError('加码付不起，缺：' + '、'.join(short))
+    if option.relationship is not None:
+        target = checks_social_target(action)
+        if target is None:
+            raise ValueError('这个动作没有社交目标，不能用动用人情的加码')
+
+
+def checks_social_target(action):
+    from . import checks
+    return checks.social_target(action)
+
+
+def verify(session, story, node, action_id, token, plans=None, characters=None, push=None):
     """执行前核对确认凭据。任何不符都在副作用之前抛错。
 
     静态与动态动作共用同一个凭据算法；动态动作**必须**带凭据（由 Runtime 强制），
     静态动作不传凭据时保持旧的直接按钮行为（由 ``Runtime`` 决定传不传）。
+    判定 v2 的加码 id 已进凭据：换加码就必须重新取凭据。
     """
     if not isinstance(token, str) or not token:
         raise ValueError('确认凭据无效')
     action = resolve_action(session, story, node, action_id, plans, characters)
     if action is None:
         raise ValueError('动作不存在：' + action_id)
-    expected = confirm_token(session, node, action, story)
+    expected = confirm_token(session, node, action, story, push)
     if token != expected:
         raise ValueError('确认已过期或与当前动作/成本不符，请重新确认后执行')
     return action

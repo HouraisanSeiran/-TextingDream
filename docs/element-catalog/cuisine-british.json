@@ -1,0 +1,1608 @@
+{
+  "schema_version": 1,
+  "status": "candidate",
+  "group": "cuisine-british",
+  "genres": [
+    "real_world"
+  ],
+  "compiled_note": "英国菜系（含「抽象／怪诞」传统菜）候选资料（元素库·现实基础侧）。不是完整食谱集，不是数据库记录，也没有被任何故事包采纳为正典。取舍标准：只收成品菜与饮食制度，重点是**有历史依据的英国怪诞菜**，每条都要能解释「它为什么长成这样」（战后配给、工业化与城市贫民饮食、阶级与羞耻、地方节庆怪俗、航海与保存、宗教斋期与血食禁忌）。**食材级条目不在此重复**：小麦、燕麦、大麦、马铃薯、豌豆、乳、禽蛋、黄油、奶酪、鳕、鲱与小型群游鱼、猪肉、牛肉、羊肉、香肠、火腿与腌熏猪肉、熬炼动物脂肪、干腌鱼、盐、醋、芥末、胡椒、啤酒、茶、蔗糖、洋葱、甘蓝、胡萝卜、芜菁、陶制炊具、厨刀、储藏罐、马口铁等均已在 staples / produce / flavors / animal-foods / food-supplement / materials / tools 各组立条，本组只写菜品如何依赖它们，并以 related_catalog_ids 指向。做法只写到技法与工序顺序，**不给克数配比、不写成可执行食谱**；不写宰杀、灌制与长期保存的操作参数。菜名与做法的存在不等于当前世界存在，也不自动生成配方、库存或市场价格。全部条目 review_status=needs_review、detail_status=needs_detail。证据分层：凡本次未取得来源的流行段子，一律在第七条 details.evidence_and_uncertainty 中标为「未取证说法」，不写进 mechanism。",
+  "distinct_from": {
+    "docs/human-encyclopedia/cuisine.json": "24 条（寿司、饺子、拉面、泡菜、豆腐、比尔亚尼、鹰嘴豆泥、法拉费、库斯库斯、英吉拉、乔洛夫饭、披萨、炖饭、海鲜饭、塔可、tortilla、腌鱼、越南粉、馕、咖喱、萨莫萨、塔马利、北京烤鸭、卡巴布）全部为非英式菜，逐条比对无同名、无同菜。",
+    "docs/element-catalog/cuisine-french.json": "33 条法餐。仅两处需点名：本组 cuisine_uk_canned_meat 里的腌牛肉（corned beef）与法餐组无条目重叠；本组 cuisine_uk_moulded_gelatin 与 cuisine_fr_aspic 都涉及明胶成冻，但前者是英国与北美家庭／中产餐桌的模具凝胶甜咸冷盘（含果冻沙拉一支），后者是法式咸冻与冻釉技法体系，两者在来源与叙事上分开立条、互相以 related_ids 引用，不合并。"
+  },
+  "sources": [
+    {
+      "id": "cuisine_uk_src_01",
+      "title": "Haggis — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/haggis",
+      "access": "read",
+      "supports": "哈吉斯为苏格兰国菜，属 pudding 一类：羊（或其它动物）的肝、心、肺切碎，与牛或羊的板油、燕麦片混拌，以洋葱、cayenne 辣椒粉与其它香料调味，装进羊胃煮。18 世纪中期以来被视为独具苏格兰特色的菜，但长期在英格兰也流行，英国作家 Gervase Markham（约 1568—1637）在《The English Huswife》（1615）中即已提及；其源更古，Apicius、Aristophanes 乃至 Homer 都提到成分相近的菜。haggis 一词 15 世纪首见，词源不明。它价廉、咸香、耐饥；在苏格兰旧时被视为乡野之食，经 Robert Burns 1786 年《To a Haggis》一诗而著名；21 世纪则带仪式上桌，尤其 Burns Night（每年 1 月 25 日，Burns 生日）与 Hogmanay（苏格兰新年），可伴风笛。通常配芜菁（苏格兰语 neeps）与薯泥（tatties）， customary drink 为苏格兰威士忌。",
+      "rights_note": "Britannica 条目；仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "cuisine_uk_src_02",
+      "title": "Black pudding — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/black-pudding",
+      "access": "read",
+      "supports": "黑布丁是含血的香肠，流行于不列颠群岛，通常作早餐食物；至少自 1400 年代起即为英国饮食中有记录的一项，实际更古：Homer《Odyssey》提到「填满脂肪与血的」香肠，古罗马人吃过其变体，西班牙 morcilla 与法国 boudin noir 为对应物。它出现在不列颠群岛式全套早餐中，与煎面包、蛋、烘豆、培根、番茄片等同列。通常用猪血、洋葱与肉豆蔻、姜、肉豆蔻衣等香料香草，以燕麦片（更常见）或大麦黏结，灌进牛肚类肠衣，再煮或烤、炙或煎。地方变体用牛血或羊血，有些配方加板油。成品是干质香肠，多切片或掰碎入馔；可入冰淇淋（香肠碎似巧克力豆），也可加入 bubble and squeak、薯泥肉汁。裹进苏格兰蛋即被称作 Manchester egg（该新花样据说源于此）。血与香料使风味微甜、带一丝金属味且辛辣。宗教改革时期它成为争议对象：1652 年后来任英格兰林肯主教的 Thomas Barlow 主张，既然希伯来饮食法禁食血，基督徒也应如此；Methodists 尤避之。另有一则或属传闻的轶事：玫瑰战争期间曼彻斯特附近一役，交战方弹尽，互掷黑布丁；此事今日以 Ramsbottom 的年度 World Black Pudding Throwing Championships 纪念。适量食用被视为有益（血提供锌与铁），但钠与脂肪可偏高；Liz Truss 任环境大臣时曾把黑布丁列入「必吃」英国食物；尽管如此，许多英国人尤其年轻者已不食。",
+      "rights_note": "Britannica 条目；仅事实核对与自行转述。"
+    },
+    {
+      "id": "cuisine_uk_src_03",
+      "title": "Yorkshire pudding — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/Yorkshire-pudding",
+      "access": "read",
+      "supports": "约克郡布丁是英国来源的烤制面包布丁，通常作烤牛肉的配食。旧式英国周日午餐的核心是烤牛肉，在现代烤炉进入厨房前多以明火转叉烤，烤肉下置金属盘承接滴落的油脂与肉汁；肉烤好后，把蛋、面粉与奶调成的面糊倒入盘中，面糊像舒芙蕾一样膨起，接触灼热牛脂的底部形成脆壳；随即将布丁切块、浇肉汁，作前菜吃，较少与烤肉同上，因为它被视为须趁热立刻上桌的菜。面包布丁在不列颠各地常见，约克郡居首主要因该菜最早见于 18 世纪当地出版的食谱书；一部早期食谱称其脆性源于猛火，与约克郡人刚烈性情相合，但这种本质化说法未被广泛接受。英格兰南部的面包布丁多不以热脂烘烤，故更软、更像布丁；生于利兹、居于伦敦的冷门小说家 Charles Hooton 在 1836 年《Adventures of Bilberry Thurland》中讥其为「像铅饼」，但真正做好的约克郡布丁轻而膨松。可配牛肉以外的猪肉、羊肉；今日多在烤炉而非炉火中做，但原料不变：金属盘内加烤肉滴油，高温（逾 200℃／400℉）加热至几乎冒烟，倒入面粉、奶、蛋（盐可选）调成的面糊，烤 15—20 分钟。部分现代配方用马芬模做小份。",
+      "rights_note": "Britannica 条目；仅事实核对与自行转述。技法参数仅作来源记述，不作为可执行配方。"
+    },
+    {
+      "id": "cuisine_uk_src_04",
+      "title": "Scotch egg — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/Scotch-egg",
+      "access": "read",
+      "supports": "苏格兰蛋是英国传统菜：剥壳的白煮蛋裹香肠肉、滚面包屑，油炸或烘烤至脆；是常见的酒吧与野餐食物，在英国通常冷食。起源说法互相竞争：伦敦食品百货 Fortnum & Mason 主张 1738 年为本店为乘马车远行的富裕旅客所创；另一说认为源自印度北部的 nargisi kofta（碎肉裹蛋配咖喱），由归国军人等传入英格兰；第三说称由苏格兰农人作为廉价菜发明。世界各地变体常见；美国多热食并配 ranch 等蘸酱。",
+      "rights_note": "Britannica 条目；仅事实核对与自行转述。"
+    },
+    {
+      "id": "cuisine_uk_src_05",
+      "title": "Welsh rarebit — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/Welsh-rarebit",
+      "access": "read",
+      "supports": "威尔士兔子是英国传统菜：烤面包上覆咸味切达奶酪酱，酱通常含啤酒或麦酒、Worcestershire 酱、cayenne、芥末与红椒粉。若上面再加一枚蛋，则称 buck rarebit。名字来源不明：Welsh rabbit 一词最早引用见于 1725 年，替代拼写 rarebit（此词除本菜外别无意义）出现于 1785 年。流行传说称，这道无肉菜之所以用肉名，是因威尔士农民买不起肉，以奶酪替代；无论起源如何，此菜今日是英国饮食的常备项与常见酒吧食物，常配一品脱啤酒或麦酒。",
+      "rights_note": "Britannica 条目；仅事实核对与自行转述。"
+    },
+    {
+      "id": "cuisine_uk_src_06",
+      "title": "Bubble and squeak — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/bubble-and-squeak",
+      "access": "read",
+      "supports": "bubble and squeak 是常见英国菜，成分为蔬菜、尤以马铃薯与甘蓝为主，平底锅煎，作配菜。它始于 18 世纪，原亦含肉，典型做法用周日烤肉的剩料、次日再吃；当代版本多无肉，蔬菜可广泛替换，但关键原料是马铃薯——它把其它成分黏在一起。菜名据说源自煎制时发出的声响。类似以煎蔬菜为底的菜有爱尔兰 colcannon 与苏格兰 rumbledethumps。",
+      "rights_note": "Britannica 条目；仅事实核对与自行转述。"
+    },
+    {
+      "id": "cuisine_uk_src_07",
+      "title": "Fish and chips — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/fish-and-chips",
+      "access": "read",
+      "supports": "炸鱼薯条是不列颠群岛的经典菜：裹面糊油炸的鱼（通常鳕或黑线鳕）配炸薯条；各地差异主要在配食而非主料——英格兰典型用盐与麦芽醋，苏格兰常要 salt and sauce（麦芽或白醋调甜咸棕色酱），tartar 酱在英格兰更常见，爱尔兰多用柠檬角与番茄酱，mushy peas（煮成近糊的 marrowfat 豌豆）各地都受欢迎；炸鱼薯条店也普遍供应咖喱酱与棕色肉汁。据全国行业协会，联合王国有逾一万家此类店，近四分之一英国人每周至少吃一次。此菜长期被视为工人阶级食物，其起源与 19 世纪中期工业革命顶峰同期。炸鱼一支被认为吸收了 15 世纪末至 16 世纪初被逐出伊比利亚后抵英的 Sephardic 犹太人的烹饪法——裹糊炸鱼传统在他们中早已确立，可能因可在周五安息日前做好、次日冷食而不违教规；按「犹太方式」烹的鱼曾是伦敦受欢迎的街头食物。普遍认为自比利时移民的犹太人 Joseph Malin 最先配对二者，1863 年在东伦敦开店（此前已在街头售卖）；另有把起源归于曼彻斯特附近摊贩的说法，但都把年代定于该时代。Yeadon（利兹与布拉德福德附近）一家店 1865—2016 营业，自称世界最老。此菜是少数在二战期间不受配给限制的食物，因首相 Winston Churchill 认为它有益国民士气，甚至是击败纳粹德国的助力之一。2016 年英国环境食品与农村事务部研究称其消费近年已被披萨、卡巴布等外卖夺去显著份额。",
+      "rights_note": "Britannica 条目（含该站 AI 摘要块，本条只采用与正文一致的要点）；仅事实核对与自行转述。"
+    },
+    {
+      "id": "cuisine_uk_src_08",
+      "title": "Scone — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/scone",
+      "access": "read",
+      "supports": "司康是英国来源的速发面包（quick bread），以发酵的大麦粉或燕麦片制，揉成圆形后切四份再烘烤，传统在铁板上烤；最早的司康在英格兰与威尔士乡间厨房悬于炉火的铸铁锅中烘成。随东方贸易兴起，司康成为「饮茶」这一时尚仪式的组成部分，至今在不列颠及前帝国许多地区每日热食、抹黄油。除面粉、小苏打、糖与盐之外，司康可加凝脂奶油与蛋而更丰；面团短揉，擀开切形（常为三角），烤前刷预留的蛋清；有些配方用薯泥；以小苏打／泡打粉发的面团有时含无核小葡萄干，切成圆、楔、菱形后入炉。",
+      "rights_note": "Britannica 条目；仅事实核对与自行转述。"
+    },
+    {
+      "id": "cuisine_uk_src_09",
+      "title": "Cornish clotted cream — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/Cornish-clotted-cream",
+      "access": "read",
+      "supports": "康沃尔凝脂奶油是源自英格兰西南康沃尔的浓奶油，乳脂率最低 55%；质地厚而软，像顺滑的奶油奶酪，风味浓郁微甜，被形容为「带坚果味的熟乳」。传统上康沃尔农家不在乳品间而在厨房制作，取乳最丰最浓时：把奶加热（不煮沸）到微沸温度，静置冷却过夜，次日撇取表面如毯凝结的奶油，熟练者能把它像瑞士卷一样卷起；今日流程更机械化，先撇奶油再在浅盘中加热。它是受欧洲与英国法律保护的名称，要求之一是乳源须来自康沃尔。最佳状态表面有粗糙、部分结晶的金色硬壳，质地致密。德文郡（Devon）亦产凝脂奶油；它是传统英式奶油茶（cream tea）的基石，与温热司康和草莓酱同食。《Oxford Companion to Food》推测因其近似中东的 kaymak，可能两千年前由腓尼基商人传入康沃尔，但无存世证据支持该说。",
+      "rights_note": "Britannica 条目；仅事实核对与自行转述。含一处来源自标为无证据的推测，本条照录并标明。"
+    },
+    {
+      "id": "cuisine_uk_src_10",
+      "title": "Gelatin — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/gelatin",
+      "access": "read",
+      "supports": "明胶是具凝胶性的动物蛋白，主用于食品与家庭烹调，也有工业用途；由胶原（存在于动物皮与骨）经碱或酸预处理后煮沸皮、骨与组织提取而来。它是易消化但营养不完整的蛋白，缺某些氨基酸。无味颗粒明胶几乎无味无臭，色淡黄至琥珀；也有加糖、香料、酸与色的细粉混合品。干燥密封常温下可长期稳定。明胶浸入液体吸水膨胀，液体加热则膨胀颗粒融化，与液体形成溶胶（黏度升高），冷却则固化为凝胶；凝胶在更高温度下可逆回溶胶，溶胶冷却又可成凝胶；凝固时间与软硬受蛋白与糖浓度及温度影响。明胶可打发起泡，并作乳化剂与稳定剂；用于肉冻、汤冻、糖果、aspic 与模具甜点，也用于稳定冰淇淋、棉花糖等乳浊与泡沫食品。水果果冻与明胶制品相似，但其固化靠果胶这一天然植物物质。明胶大部分产量用于食品工业。",
+      "rights_note": "Britannica 条目；仅事实核对与自行转述。"
+    },
+    {
+      "id": "cuisine_uk_src_11",
+      "title": "Aspic — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/aspic",
+      "access": "read",
+      "supports": "aspic 是以牛、犊、鸡或鱼的骨长煮所得汤汁制成的咸味清冻；冷藏时因腱部溶出的天然明胶而凝结，有时加商品片状或粉状明胶以确保硬挺。用途包括为冷肉、鱼、蛋、水煮或烤禽、蔬菜镀面与挂冻；切碎或切形的 plain aspic 用于装饰冷盘；多种食物可与 aspic 在装饰模具中结合。蛋黄酱或 velouté 酱与液态 aspic 混合可得 chaud-froid，这种酱可着色并用于装饰冷食。",
+      "rights_note": "Britannica 条目；仅事实核对与自行转述。"
+    },
+    {
+      "id": "cuisine_uk_src_12",
+      "title": "Pudding — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/pudding",
+      "access": "read",
+      "supports": "pudding 是若干种以柔软、海绵状、浓厚质地为共同特征的食物的通称。在美国几乎总指以乳或果汁调香、以玉米淀粉／葛根粉／面粉／木薯／米／面包／蛋增稠的甜点；较少的咸味布丁是菜泥、类舒芙蕾菜或玉米布丁一类蛋奶糊；hasty pudding 是玉米糊。在英国，pudding 被用作甜点的通称；除美式甜点布丁外，还有以板油酥皮包裹水果的水煮布丁、以发面糊蒸的布丁、加糖面团或酥皮制成并常拌干鲜果的水煮布丁，以及以圣诞李子布丁为极致的一类丰盛水煮布丁（干果、糖渍果皮、香料、面包屑、切碎板油、蛋与白兰地等调味）。咸味布丁是水煮或蒸制的菜：肉（最知名者为牛排配腰子）、野味、禽与蔬菜裹在板油酥皮中。黑布丁与白布丁是加谷物的香肠，黑色以猪血上色。配烤牛肉的约克郡布丁是烤制的富蛋面糊。",
+      "rights_note": "Britannica 条目；仅事实核对与自行转述。"
+    },
+    {
+      "id": "cuisine_uk_src_13",
+      "title": "Pie — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/pie",
+      "access": "read",
+      "supports": "派是以酥皮铺在浅容器内、填入甜或咸馅再烘烤的菜，可加盖上层酥皮，烤至皮脆馅熟。在美国自殖民时期起流行，苹果派已成都市家庭烹饪象征；典型美式派圆形、径 20—25 厘米、厚 5—8 厘米，馅多为水果、蛋奶糊或糕点奶酱。在联合王国，肉、野味与鱼派自中世纪起即为主食级菜品，牛排配腰子、猪肉、野味、犊肉配火腿、禽等皆常见。tart 与派相似、名称常混用；tart 用 short 酥皮而非起层酥皮，常先空烤再填馅；flan 是放在烤盘上的活底模 tart。",
+      "rights_note": "Britannica 条目；仅事实核对与自行转述。"
+    },
+    {
+      "id": "cuisine_uk_src_14",
+      "title": "Steak and kidney pie — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/steak-and-kidney-pie",
+      "access": "read",
+      "supports": "牛排腰子派是英国传统菜：切丁牛肉、洋葱与腰子（通常取羊或猪）在棕色肉汁中煮后，裹酥皮烘烤；有时加蘑菇与培根，肉汁可加各种麦酒，尤其 stout。此菜可溯至 19 世纪，被视为英国国菜之一，有若干押韵俚语别称，如 Kate and Sydney Pie。与牛排腰子布丁密切相关。",
+      "rights_note": "Britannica 条目；仅事实核对与自行转述。"
+    },
+    {
+      "id": "cuisine_uk_src_15",
+      "title": "Steak and kidney pudding — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/steak-and-kidney-pudding",
+      "access": "read",
+      "supports": "牛排腰子布丁是英国传统菜：切丁牛肉、洋葱与腰子（一般为羊或猪）在棕色肉汁中煮后，裹柔软的板油酥皮并蒸数小时；肉中有时加蘑菇与培根，肉汁可掺 stout 或其它麦酒。首个付印食谱据称可溯至 1860 年代，此后成为英国国菜之一，押韵俚语别称如 Kate and Sydney Pud。与牛排腰子派密切相关。",
+      "rights_note": "Britannica 条目；仅事实核对与自行转述。"
+    },
+    {
+      "id": "cuisine_uk_src_16",
+      "title": "Kippers — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/kippers",
+      "access": "read",
+      "supports": "kipper 是英国标志性早餐菜：鲱鱼经开背、清理、盐渍与烟熏（即 kippering）后，通常再炙、烤或煎。最好的 kipper 呈浅铜色（深色者往往因染色而非烟熏，故不受欢迎），产自英格兰北部、马恩岛与苏格兰。常配黄油与柠檬，有时加一枚水波蛋；也可配茶或作晚餐。",
+      "rights_note": "Britannica 条目；仅事实核对与自行转述。"
+    },
+    {
+      "id": "cuisine_uk_src_17",
+      "title": "Smoking（食品烟熏保存）— Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/smoking-food-preservation",
+      "access": "read",
+      "supports": "烟熏是让腌过的肉与鱼接触烟，以保存并增香着色的加工法；烟的干燥作用有助于保存，木烟中若干化学物（如甲醛与某些醇）本身也是天然防腐剂。烟熏是最古老的保存法之一，可能紧接火烹出现；在北欧与北美西北部的鱼类烟熏、欧洲与美国的火腿烟熏中达高度精巧。20 世纪中期因化学防腐剂流行而一度衰退，晚期又因所谓天然／健康食品运动复兴。技术上把肉挂起或置于架上放在容烟室内；商业烟熏房常数层高、以蒸汽管补热，山核桃木屑为首选燃料；必须用硬木明火，云杉、松等软木含树脂，会在肉面成膜并带来苦味。烟熏房温度一般 43—71℃，时长自数小时至数日，取决于肉种与含水量；熏后尽快冷藏、切分包装。美国常见商业烟熏品为猪牛肉火腿、培根腹肉与香肠，业余者亦熏奶酪、坚果种子、硬煮蛋与浆果、内脏等。为缩短流程，商业肉品有时以浸渍或涂布防腐剂溶液「人工烟熏」，因无自然干燥作用，几无保存效果。",
+      "rights_note": "Britannica 条目；仅事实核对与自行转述。工艺参数仅作来源记述，不构成操作指南。"
+    },
+    {
+      "id": "cuisine_uk_src_18",
+      "title": "Canning — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/canning-food-processing",
+      "access": "read",
+      "supports": "罐藏是把食物密封于气密容器后加热杀菌以防腐败的保存法。1809 年法国 Nicolas Appert 应政府为陆军与海军保存食物之需、经长期研究发明：把食物紧封于瓶或罐中、加热至某温度并维持一段时间，之后保持密封至食用。50 年后 Louis Pasteur 才解释：热杀死食物中的微生物，密封阻止新微生物进入。1810 年英格兰 Peter Durand 为以镀锡铁罐代替瓶子申请专利，1820 年前已大量向皇家海军供应罐装食品。欧洲罐藏法随后传入美国，后者终成自动化罐藏与罐产量的世界领先者。19 世纪末 Samuel C. Prescott 与 William Underwood 描述具体的时间—温度杀菌要求，使罐藏建立科学基础。早期罐由镀锡铁板卷成筒身、上下底手工锡焊；20 世纪初被以联锁折边压合的现代卫生式（开口）罐取代，端盖接缝加聚合物密封胶。现代马口铁罐 98.5% 为薄钢板加薄锡层，全自动线每分钟数百罐。流程为清洗与预处理、热烫（blanch）、装罐（多在真空下）、封盖、杀菌、冷却、贴标入库；装罐时常加盐水或糖浆以替出空气，装后经热水或蒸汽排气箱加热使食物膨胀驱除残余空气，封罐杀菌冷却后内容收缩形成部分真空。密封罐在高压蒸汽釜中约 116℃ 杀菌。低酸蔬菜需达 120℃ 以防肉毒中毒，胖罐不可食用。罐藏保留大部分营养：蛋白、碳水与脂肪不受影响，维生素 A、C、D 与 B2 亦不受影响，B1 的保留取决于用热，部分维生素与矿物质可能溶入盐水或糖浆，若连同液体食用则仍保有营养价值。罐头厂通常靠近原料产区以便采后尽快装罐。",
+      "rights_note": "Britannica 条目；仅事实核对与自行转述。杀菌参数仅作来源记述，不构成家庭操作指南。"
+    },
+    {
+      "id": "cuisine_uk_src_19",
+      "title": "SPAM — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/SPAM-food",
+      "access": "read",
+      "supports": "SPAM 是商标肉制品，主料为绞猪肉与火腿。1937 年上市，名字是 spiced ham 的缩合，由纽约演员 Ken Daigneau 所拟（其兄弟为厂商 Hormel 高管）；主料为猪肩肉这一原本少用的部位。以大萧条末期「易制、价廉」的午餐肉定位受欢迎。二战期间盟军士兵消耗逾一亿磅，战后盟国与战败轴心国平民亦食用；苏联后来的领导人赫鲁晓夫称 SPAM 救了战时俄军。并非人人喜爱：Hormel 档案中保存着吃厌了的服役人员来信。1959 年售出十亿罐，2012 年达八十亿罐（该公司最后一次公布销量）。1991 年在明尼苏达州奥斯汀总部开设该产品的博物馆。配方为猪肉与火腿、盐、糖、马铃薯淀粉、水与亚硝酸钠，混合绞肉后装罐、真空封口、罐内烹熟，冷却后出厂。有十余种变体；在夏威夷尤受欢迎（SPAM musubi 以 SPAM 片夹米饭与芝麻、外包海苔），在菲律宾菜中亦为主食级食材，韩国为世界第二大消费国。SPAM 一词也进入英语：英国军中俚语指被派去干苦差（如暴雨中站岗）；更普遍地指不受欢迎的群发邮件，源自英国电视喜剧《Monty Python's Flying Circus》一剧中餐馆每道菜都含 SPAM 的著名段子。",
+      "rights_note": "Britannica 条目；仅事实核对与自行转述。"
+    },
+    {
+      "id": "cuisine_uk_src_20",
+      "title": "Rationing — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/rationing",
+      "access": "read",
+      "supports": "配给是政府对稀缺资源与消费品实行计划性、限制性分配的 policy，通常在战争、饥荒或其它国家紧急状态下实施。配给可分几类：非正式配给（在正式管制前劝导消费者减少消费，或供应方自行分配稀缺货源）；按用途配给（禁止某商品较次要的用途）；按数量配给（限制可得时段，或给所有已知与获准的申领者分配配额）；按价值配给（限制消费者在无法标准化的商品上的支出额，允许在限额内自选）；计点配给（给每件商品定点数、给每个消费者一定点数，在关键且持续短缺、人们开始以未配给商品替代配给商品从而使短缺扩散时采用）。配给经济中的消费者通常被劝导购买政府债券或增加储蓄存款，以免未花掉的钱被用于增加购买未配给商品或黑市购买。",
+      "rights_note": "Britannica 条目（Money 栏目）；仅事实核对与自行转述。**该页不含英国战时与战后配给的具体年份与配额**，本条据此不写年份。"
+    },
+    {
+      "id": "cuisine_uk_src_21",
+      "title": "Corned beef — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/corned-beef",
+      "access": "read",
+      "supports": "腌牛肉（corned beef）是以盐腌制的牛胸肉；corn 指腌渍所用的大颗粒岩盐（与 kernel 同源）。北美做法把牛胸肉在盐与香料中腌两至三周，之后洗去多余盐分再小火煮，成肉质嫩、色粉红、咸鲜带 umami。**按一般英式用法，新鲜腌牛肉称 salt beef，而罐装版本仍用 corned 之名**。因胸肉粗韧，腌渍通常要两三周，煮约三小时或用压力锅。与源自土耳其的 pastrami 相似，但后者可用多个部位、更肥、常经烟熏。此菜与爱尔兰菜及圣帕特里克节强关联，但今日形态多归因于美国爱尔兰移民：爱尔兰历史上牛肉稀缺昂贵，古代爱尔兰社会以牛为财富尺度，故并不常食；丰年节庆更可能吃爱尔兰培根（一种火腿），整个饮食文化更重猪肉。到美国后移民发现牛肉充裕价廉，并从纽约等移民中心的犹太邻居处接触腌牛肉（其质地近似爱尔兰培根），与东欧主食甘蓝、马铃薯同食；爱尔兰消费者与犹太肉铺的联系、以及牛肉的易得，共同把腌牛肉确立为爱尔兰裔美国传统。现代爱尔兰商业牛肉生产已增长；而英格兰与苏格兰长期以牛肉为主食，21 世纪初其消费的包括罐装腌牛肉多自阿根廷与乌拉圭进口。历史上爱尔兰作为英国经济殖民地时，为对英出口而生产腌牛肉，该业因爱尔兰盐税显著低于英国而更有利可图。",
+      "rights_note": "Britannica 条目；仅事实核对与自行转述。"
+    },
+    {
+      "id": "cuisine_uk_src_22",
+      "title": "Potato chip（英式 crisp／薯片）— Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/potato-chip",
+      "access": "read",
+      "supports": "薯片是切薄后油炸或烘烤至脆的马铃薯片，可在烹后加盐或调味。发明被归于 George Crum（本名 George Speck，1824 年生，父为非裔美国人、母为 Huron 人），1853 年他在纽约 Saratoga Springs 的 Moon's Lake House 任厨师：一位客人退回炸马铃薯并称切片太厚，Crum 切得更薄仍不满意，恼怒之下切成极薄片炸成无法用叉取食的脆盘，客人反而大喜，其他客人随即点要，该店遂以 Saratoga chips 供应；Crum 后来自营餐馆亦供应，薯片逐渐在新英格兰餐馆流行。19 世纪末企业家如 William Tappenden 开始设公司把薯片送进杂货店；早期以木桶或玻璃容器散装称量，客人买到桶底时多已陈软破碎。1926 年加州女商人 Laura Scudder（亦受训为护士与律师）开发把两张蜡纸压合成袋以保存薯片，后来发展为玻璃纸袋与玻璃纸（glassine）袋。1920 年代机械削皮机与连续油炸机问世，使大批量加工成为可能。1930 年代后期 Herman Lay 的公司首次成功把品牌薯片行销全美。今日薯片可炸可烤，形态多，有加盐、无盐或以烧烤、酸奶油洋葱、切达奶酪、醋、辣味等调味的版本；以干马铃薯片复水压模成形的均质零食（如 Pringles）亦属此类。",
+      "rights_note": "Britannica 条目；仅事实核对与自行转述。"
+    },
+    {
+      "id": "cuisine_uk_src_23",
+      "title": "Sausage — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/sausage",
+      "access": "read",
+      "supports": "香肠是细切调味的肉制品，可为生鲜、烟熏或腌渍，通常灌入肠衣；亦有鱼与禽类香肠。sausage 一词源自拉丁 salsus（盐渍），指一种已使用数世纪的食物加工法；古巴比伦、希腊与罗马已知多种香肠，早期北美印第安人制 pemmican。中世纪以来欧洲各城市以本地香肠知名，frankfurter、bologna、romano 皆以产地命名。现代加工中肉含量常为牛肉或猪肉，也可含其它肉类与肉品加工副产物；其它添加物可含水、谷物、植物淀粉、大豆粉、防腐剂与人工色素。香料与调味涵盖盐以及视族群或地方来源而定的芫荽、肉豆蔻、丁香、蒜、醋、肉豆蔻衣、胡椒、辣椒或开心果。肠衣可为动物内脏、涂蜡织物袋或现代塑料／重组胶原肠衣；无肠衣香肠以纤维素肠衣灌制后浸热水再浸冷水，形成可剥除的薄蛋白膜。干香肠主要在保存困难的温暖地区发展，生鲜与熟香肠则在较冷气候发展。加工法含烹煮、腌渍（盐水）与烟熏（常在腌后）；后两者原为保存，今主要用于风味。按加工法分为生鲜、未煮烟熏、煮熟烟熏、煮熟、熟肉特制品（午餐肉与三明治抹酱，多为无肠衣的块状）与干香肠；除干香肠外均需冷藏，干香肠在凉爽储藏下保质期长。",
+      "rights_note": "Britannica 条目；仅事实核对与自行转述。"
+    },
+    {
+      "id": "cuisine_uk_src_24",
+      "title": "Offal（内脏与副产物肉）— Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/offal",
+      "access": "read",
+      "supports": "offal 指牛与犊、羊与羔、猪胴体上各种非肌肉部位，可直接食用或用于其它食品生产。自烹饪发明起内脏即为人类饮食一部分——火烹使原本难以消化的部位变得可食。营养上，若干内脏在某些维生素、矿物质与蛋白形态上比肌肉组织更丰富（如犊肝是铁的重要来源，胸腺的 alburnin 水溶性蛋白远高于牛肉）。牛内脏含胃（tripe）、脑、心、肝、舌、肾；犊另有脊髓、蹄、肠系膜与胸腺；羊与羔内脏含肾、舌、脑、蹄、胃、心、肝与肺（lights）；猪则含肝、肾、脑、蹄与头。猪肠用作香肠容器，**猪血是黑布丁的成分**。内脏在西方烹饪全谱中地位突出：脑、肝、肚、肺、蹄在美国长期与乡村烹饪相关，猪肠（chitterlings）或被视为乡村贫民的原型食物，通常以煮或炸、重调味供食；另一些如供煎的犊肝、作冷盘的肉冻肚与腌牛舌则常见于都市食品店，其它多需特别订购。欧洲高级菜中内脏是众多经典菜的基础，如 tripe à la mode de Caen 与炙胸腺。",
+      "rights_note": "Britannica 条目；仅事实核对与自行转述。"
+    },
+    {
+      "id": "cuisine_uk_src_25",
+      "title": "Public house（英式酒馆）— Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/public-house",
+      "access": "read",
+      "supports": "public house（俗称 pub）是供在店内饮用酒精饮料的场所；传统 pub 原产于不列颠及受英国影响地区。英格兰普通法早期即把为旅客福祉的社会责任加于客栈与酒馆，宣布其为 public house，须接待所有状况合理、愿付价钱的旅客，供食、饮与住宿。都铎英格兰（1485—1603）以王室法令要求部分客栈主维持马厩，另有客栈主兼作非官方邮政、为王家邮驿备马。17 世纪中期部分酒馆甚至发行非官方钱币，由店主担保可兑为本国通货。至 1800 年代许多此类场所内部被分隔，以区隔不同阶级的客人。public house（客栈或酒馆）在社会地位上被视为高于 alehouse、beerhouse 与 ginshop。早期客栈与酒馆以简单招牌识别，如狮、海豚、黑天鹅；许多斑斓店名（Bag o'Nails、Goat and Compass、Elephant and Castle）实为历史、教会或其它专名短语的讹变。18 世纪许多店名后加 Arms，表示受某贵族家族保护，亦有纹章招牌指涉客栈所在地的原初所有权。传统上由持照的酒类零售商（licensed victualler）或 publican 拥有经营，至 20 世纪初许多已由少数酿酒公司拥有或关联；20 世纪后期与 21 世纪初，独立拥有经营的 pub 增多。",
+      "rights_note": "Britannica 条目；仅事实核对与自行转述。"
+    },
+    {
+      "id": "cuisine_uk_src_26",
+      "title": "Pickling（腌渍保存）— Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/pickling-preservation-process",
+      "access": "read",
+      "supports": "腌渍是借助发酵并常用盐来控制微生物活动、稳定食物组织的保存法，常用于果蔬（如黄瓜），改变其质地与色泽而延长保存。可发酵碳水被转为酸，受控盐浓度营造有利于目标发酵的环境。肉亦可干腌或以含硝酸钠、糖与醋的腌液保存。腌渍品风味取决于地方配方，常含香料、莳萝等香草以及不同甜酸度。相关条目另记：鲜果蔬在水溶液中 24 小时后软化并开始缓慢的混合发酵—腐败，加盐抑制不良微生物活动、为所需发酵创造有利环境；腌渍法可以加盐、糖、乙酸（醋）与酒精保存产物；发酵与腌渍蔬菜均以酸保存，腌渍蔬菜包括黄瓜、青番茄、洋葱、萝卜与甘蓝；腌鱼以强腌液（盐溶入鱼体体液形成）在密闭桶中保存，用于鲱等脂肪较多的鱼。",
+      "rights_note": "Britannica 策展页（部分为相关条目摘录与 AI 摘要）；只取与所引条目正文一致的事实要点，参数不转作操作指南。"
+    },
+    {
+      "id": "cuisine_uk_src_27",
+      "title": "Vinegar — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/vinegar",
+      "access": "read",
+      "supports": "醋是把多种稀酒精液体发酵成含乙酸液体的产物；原料可为苹果或葡萄（葡萄酒醋或苹果酒醋）、发芽大麦或燕麦（麦芽醋）、工业酒精（蒸馏白醋），亦有以啤酒、糖、米等制成者。作为商品，醋大概最早由葡萄酒制成（法语 vin 酒、aigre 酸）。两步法：果汁等液体中的糖经酵母酶转为酒精与二氧化碳，酒精再经 Acetobacter 细菌在有氧下与大气氧结合成乙酸与水；来源原料带来的有机酸与酯决定风味与香气差异；食醋约含 4% 乙酸。1864 年 Pasteur 证明是 Acetobacter 完成该转化；这类细菌共生协作，产生足够的乙酸以阻止其它生物入侵。醋的主要用途是调味与保存（腌渍）肉、鱼、水果与蔬菜；作调味品时常用蒜、洋葱、龙蒿或其它香草香料加香；与油及调味料混合即为 vinaigrette 冷酱，用于蔬菜沙拉及冷食蔬菜、肉与鱼；亦常用于腌泡液，并广泛用于腌渍黄瓜与其它蔬菜。",
+      "rights_note": "Britannica 条目；仅事实核对与自行转述。"
+    },
+    {
+      "id": "cuisine_uk_src_28",
+      "title": "Oatmeal — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/oatmeal",
+      "access": "read",
+      "supports": "oatmeal 是把燕麦（Avena）在乳或水等液体中熬煮而成的谷物食品，可加甜并以奶油、水果、坚果种子或香料点缀；燕麦多作饲料，oatmeal 则为主要的人类食用形式。原料可为整粒燕麦米、钢切燕麦（Irish oats，切碎的燕麦米）、苏格兰燕麦（磨碎的燕麦米）、压片燕麦、快熟燕麦与即食燕麦，质地、风味与烹时不同。供人食用的燕麦须在收获后尽快加工，因其脂肪含量高易酸败；烘烤与压片可缩短烹时。历史：燕麦已知数千年，最早的人类食用证据在 3 万年前（野生燕麦磨成糊状）；古希腊罗马知其可食但多由动物与农民食用；罗马人把燕麦带入不列颠，在凉湿气候下繁盛；至 1500 年燕麦已是英格兰、爱尔兰、苏格兰与威尔士的重要谷物。在苏格兰，燕麦除作 oatmeal 外亦见于 oatcakes 与 haggis 等菜。苏格兰常见做法以磨碎的燕麦米煮成较稠、质地较少的粥，常配奶油同食。",
+      "rights_note": "Britannica 条目（含该站 AI 摘要块）；只取与正文一致的要点。"
+    },
+    {
+      "id": "cuisine_uk_src_29",
+      "title": "Vegemite — Encyclopaedia Britannica（内含英国 Marmite 的记述）",
+      "url": "https://www.britannica.com/topic/vegemite",
+      "access": "read",
+      "supports": "Vegemite 是以酵母与蔬菜提取物制成、深棕色、营养丰富的涂抹酱，在澳大利亚及澳侨社群广受欢迎。20 世纪初，英国的食品产品 Marmite 主导了英国及部分英联邦的「预制汤底」市场；此名取自法语 marmite，即一种搪瓷铸铁锅；这种酵母与蔬菜提取物的混合品在澳大利亚尤为流行。1922 年澳洲食品化学家 Cyril P. Callister 为争取本土市场份额开发了初名 Pure Vegetable Extract 的产品，次年征名得 Vegemite 这一商标（显然把竞争者的名字与 vegetable 缩合）。它用啤酒生产的副产物酿造酵母与蔬菜提取物制成，加盐、麦芽提取物与多种 B 族维生素（烟酸、硫胺素、核黄素），呈深棕色、硬度似果冻，在澳洲炎热气候下耐存、货架稳定。二战期间海运进口品的短缺使 Vegemite 得以主导市场；与许多食物一样，到 1942 年它也受配给限制。战后供应恢复，它成为澳洲食品柜的常备品。原意推广为汤与炖菜的添加物（与 Marmite 一样），后来流行作吐司与饼干的涂抹、意面调味与烤肉釉料，甚至被推广为婴儿食品。其味被描述为鲜咸带苦、带一丝 umami，属需习惯之味。",
+      "rights_note": "Britannica 条目；仅取其中关于英国 Marmite 的用例（名称来源、酵母与蔬菜提取物、20 世纪初主导预制汤底市场、耐存），不把澳洲 Vegemite 的年份与人物移用到 Marmite 上。"
+    },
+    {
+      "id": "cuisine_uk_src_30",
+      "title": "Burns Night — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/Burns-Night",
+      "access": "read",
+      "supports": "Burns Night 是纪念苏格兰民族诗人 Robert Burns 的庆典，每年 1 月 25 日（其生日）举行；庆典含一顿传统的 Burns Supper，其核心是苏格兰国菜 haggis——以羊的 pluck（心、肝、肺）混燕麦、板油与香料，装入羊胃煮成。晚宴常以风笛开场，随后朗诵 Burns 的颂诗《To a Haggis》；夜间还有其歌曲与诗作演出、祝酒，最后合唱《Auld Lang Syne》；威士忌是席间惯常的搭配。庆典规模从朋友小聚到繁复仪式不等。",
+      "rights_note": "Britannica 策展页（含 AI 摘要与条目摘录）；只取与 haggis 条目一致的事实。"
+    },
+    {
+      "id": "cuisine_uk_src_31",
+      "title": "Cornwall — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/place/Cornwall-unitary-authority-England",
+      "access": "read",
+      "supports": "康沃尔是英格兰西南端的统一 authority 与历史郡，占据伸入大西洋的半岛，行政中心 Truro。康沃尔与德文郡都与用于「无处不在的英国司康」上的著名凝脂奶油相关。康沃尔是英格兰各郡中最偏远的：东界在 Tamar 河，距伦敦约 320 公里，最西的 Penzance 再远 130 公里、紧邻 Land's End。气候受海影响：大风与海雾常见，降雨频繁且大（高地尤甚），夏暖冬相对温和，故植被繁茂。经济以乡村资源为基础：谷地牧草宜乳牛，高地有大片粗放放牧；近海避风处园艺重要，温和的冬季利于种植娇嫩与早熟作物。旅游业凭自然环境现为主要收入来源，沿海许多小渔港（St Ives、Newquay、Polperro）成为繁忙度假地；康沃尔亦是第二住宅与退休的热门郡，二者共同带来乡村社会结构的基本变化。锡矿开采至少三千年，中世纪康沃尔锡矿工获特 privileg 并置于锡矿法庭（stannary courts）的独立司法管辖下；20 世纪浅层矿竭、深层成本高，1980 年代国际锡价崩盘后最后几座矿被允许关闭；2006 年康沃尔与西德文的铜锡矿区被列为 UNESCO 世界遗产。",
+      "rights_note": "Britannica 条目；仅事实核对与自行转述。"
+    },
+    {
+      "id": "cuisine_uk_src_32",
+      "title": "Eel — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/animal/eel",
+      "access": "read",
+      "supports": "鳗是鳗鲡目（Anguilliformes）八百余种硬骨鱼的统称，体细长如虫；包括常见淡水鳗与凶猛的海鳝。所有鳗大概都经历大洋中的叶状幼体（leptocephalus）阶段，变态为幼鳗；成体长度自 10 厘米至 3.5 米；各大洋自沿岸至中层均有分布，热带海域多样性最高。**只有淡水鳗科（Anguillidae）在部分地区数量丰富且被视为珍贵食物，具重要经济意义**，最知名者为北美鳗（A. rostrata）与欧洲鳗（A. anguilla）。叶状幼体可在大洋表层漂浮长达两年半才变态；欧洲淡水鳗约十年达成成熟，成熟后洄游至产卵场（某些种的已知产卵场为马尾藻海）并在产卵后死亡。鳗可经皮肤呼吸，在水中占总摄氧 15%，在空气中升至 50%。欧洲鳗幼鳗上溯淡水通常发生在 10 月至次年 3 月。",
+      "rights_note": "Britannica 条目（含该站 AI 摘要块）；只取与正文一致的要点。"
+    },
+    {
+      "id": "cuisine_uk_src_33",
+      "title": "Haddock — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/haddock",
+      "access": "read",
+      "supports": "黑线鳕（Melanogrammus aeglefinus）是鳕科 Gadidae 中具价值的北大西洋食用鱼，**常被烟熏后以 finnan haddie 之名出售**；为底栖肉食鱼，以无脊椎动物与部分鱼为食。形似鳕，同样有颏须、两枚臀鳍与三枚背鳍，但侧线为深色而非浅色，且两肩各有一明显深斑；体色上灰或褐、下较浅；体长约至 90 厘米、重约 11 公斤。",
+      "rights_note": "Britannica 条目；仅事实核对与自行转述。"
+    },
+    {
+      "id": "cuisine_uk_src_34",
+      "title": "Salad — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/salad",
+      "access": "read",
+      "supports": "沙拉是多种以冷食为主的菜的统称，分为绿叶沙拉、蔬菜沙拉、面食／豆类／谷物沙拉、含肉禽海鲜的混合沙拉与水果沙拉。最早的沙拉是野生绿叶与香草加盐，是春季最早的蔬菜食物、作漫长冬季之后的补剂。蔬菜沙拉可为生或熟蔬菜的腌渍或调酱混合物，常以番茄、四季豆、黄瓜、甜菜与蘑菇为底；coleslaw 源自荷兰语 kool（甘蓝），为切丝甘蓝配蛋黄酱或醋基调味。以米、面食、马铃薯、干豆、bulgur 等淀粉为底的沙拉功能类似。混合沙拉加入肉、禽、海鲜、蛋或奶酪即成轻主菜。水果配甜味酱常作甜点；Waldorf 沙拉以苹果、核桃与芹菜配蛋黄酱。**「明胶（Gelatins）常被用于各种水果或蔬菜沙拉」**。最简单调味汁为油与醋（通常三比一）加油盐、香草，常加第戎芥末；奶油类调味以蛋黄酱、甜或酸奶油或含蛋、面粉、乳或奶油的熟酱为基。",
+      "rights_note": "Britannica 条目；仅事实核对与自行转述。"
+    },
+    {
+      "id": "cuisine_uk_src_35",
+      "title": "Chowder — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/chowder",
+      "access": "read",
+      "supports": "chowder 在北美饮食中是通常含鱼或贝类（尤其蛤）的浓汤；chowder 一词是法语 chaudière（大锅）的讹变，可能源自布列塔尼渔民、传至纽芬兰再扩散到新斯科舍、新不伦瑞克与新英格兰。标准新英格兰式含鱼或贝类、腌猪油、洋葱、马铃薯与乳；曼哈顿式以番茄替乳。18 世纪的 chowder 更多样：有肉或禽的，常加葡萄酒、香料、香草、苹果酒等；以捣碎的普通饼干或船用硬饼作增稠。",
+      "rights_note": "Britannica 条目；仅事实核对与自行转述。用于「鱼加乳加薯的浓汤」这一技法对照，不作为 Cullen skink 的直接来源。"
+    },
+    {
+      "id": "cuisine_uk_src_36",
+      "title": "Batter — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/batter-food",
+      "access": "read",
+      "supports": "面糊（batter）是面粉与液体加其它配料（如膨松剂、起酥油、糖、盐、蛋与各种调味）的混合物，用于制作烘焙品与其它食品。与之相似但更稠而有延展性、可塑形擀开者为面团；面糊液体比例更高、更稀，可搅拌、倾倒、以勺落下。以面糊制的烘焙品主要靠所烤容器成形，包括饼干、马芬、司康、玉米面包、层蛋糕与天使蛋糕；天使蛋糕与海绵蛋糕面糊通常不加膨松剂，靠搅打或打发混入的大量小气泡在烘焙中膨胀而起发；煎饼亦以面糊制；面糊也用作煎或炸食物的裹层。",
+      "rights_note": "Britannica 条目；仅事实核对与自行转述。"
+    },
+    {
+      "id": "cuisine_uk_src_37",
+      "title": "Cuisine（菜系的形成条件）— Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/cuisine",
+      "access": "read",
+      "supports": "菜系是一地区或人群传统的食物与制作方法。塑造菜系的主要因素是气候（大体决定厨师可得的原料）、经济条件（调节珍味与进口食品的贸易）与宗教或节制消费的法律（规定某些食物为必需或禁止）。气候也影响燃料供给：中国烹饪把食物先切小再烹，主要受为节省稀缺柴炭而需快熟所塑造。以烟熏、腌渍与醋渍保存供冬季食用的食物在世界各菜系中一直重要——即使这些保存技法不再为维持足够食物所必需，其改变后的风味仍被保留。世界菜系传统上按主要食材（尤其谷物与烹调用油脂）的共同使用划分区域。主食的使用跨越经济与阶级差别：即使职业厨师的高级菜与家庭简朴饮食对比鲜明，食物偏好仍是区域文化中的统一因素。",
+      "rights_note": "Britannica 条目；仅事实核对与自行转述。"
+    },
+    {
+      "id": "cuisine_uk_src_38",
+      "title": "Stargazy Pie — Atlas Obscura（地方饮食条目）",
+      "url": "https://www.atlasobscura.com/foods/stargazy-pie",
+      "access": "read",
+      "supports": "仰望星空派是康沃尔的一道菜，会吓到一些食客，主要因鱼头从酥皮里探出。传统上在 Tom Bawcock's Eve 供应——这是英格兰康沃尔 Mousehole 村在圣诞节期举行的节庆。此派毫不掩饰其原料：除马铃薯与蛋等基本材料外，其辨识度来自穿透酥皮、朝天而立的完整鱼头（有时还有鱼尾）。一般用类似鳀的小鱼 pilchard，但用其它鱼种也不会有人抱怨。此菜据说起源于纪念 16 世纪 Mousehole 民间英雄 Tom Bawcock 出海的那一夜：他不顾危险的风暴出海捕鱼，传说带回足够渔获终结了当地饥荒；某些版本说他带着猫同行，猫帮助平息了风暴。今日该节庆还有点亮灯笼等活动，但 Tom Bawcock 的传说最著名的仍是这只醒目的鱼头派。",
+      "rights_note": "Atlas Obscura 编辑条目（大众旅行／饮食写作，非学术期刊）；仅用于地方节庆形态与传说层的记述，不视为史料考证。"
+    },
+    {
+      "id": "cuisine_uk_src_39",
+      "title": "Jellied Eels — Atlas Obscura（地方饮食条目）",
+      "url": "https://www.atlasobscura.com/foods/jellied-eels",
+      "access": "read",
+      "supports": "18 世纪伦敦人把鳗鱼冻当作廉价、富营养的一餐；Cockney 人爱上了这种经泰晤士河易得的生物。相应地，以廉价羊肉派与薯泥为业的 pie-and-mash 店把鳗鱼加入供应。东伦敦的店主把这道工人阶级爱物切段，与醋、洋葱片、胡椒粒、月桂叶与盐同煮；混合物冷却时，熟鳗的胶质蛋白凝固成包住鱼肉的咸味冻。食客把这种似 aspic 的冻浇上热辣椒醋，或与浇了 liquor（一种不含酒精的欧芹酱）的派与薯泥同食。数世纪后，二战配给使鳗鱼冻的流行达到高峰；战争结束时仅伦敦就有 100 家以上的鳗鱼与派店。但随后十年，随着供应减少，伦敦人兴趣减退——原因是泰晤士河污染加剧；1957 年自然史博物馆宣布该河生物性死亡，报纸称其为「管理不善的露天下水道」。店主以能取得的任何鳗鱼冻维持传统；此后河鱼种群几度起伏，但泰晤士河不被预期回到昔日丰盛状态。尽管它不再是穷人的方便食物，甜味鳗鱼冻仍吸引食客前往留存的老店。",
+      "rights_note": "Atlas Obscura 编辑条目（大众饮食写作）；用于伦敦东部 pie-and-mash 店的供应形态与 20 世纪中期的兴衰线索，具体年份与机构说法照录并标注为单一来源。"
+    },
+    {
+      "id": "cuisine_uk_src_40",
+      "title": "Cullen skink — BBC Good Food（食谱页，只取工序序列）",
+      "url": "https://www.bbcgoodfood.com/recipes/cullen-skink",
+      "access": "read",
+      "supports": "该页把 Cullen skink 描述为把黑线鳕、马铃薯、乳、洋葱与欧芹煨成浓汤，配硬皮面包作饱腹的午餐或晚餐。工序序列：在锅中融黄油、煎洋葱至透明而不上色；加马铃薯与水煮开后转小火煨；同时把黑线鳕另锅以乳浸没、小火煮至刚熟，取出鱼（保留乳）、稍凉后掰成大块并去骨；把保留的乳与鱼块放回马铃薯锅中再煮数分钟，调味、撒欧芹上桌。",
+      "rights_note": "BBC Good Food 食谱页；**只取其工序顺序与原料构成，不转抄任何克数、容量与时长**，本条因此不构成可执行食谱。"
+    },
+    {
+      "id": "cuisine_uk_src_41",
+      "title": "Jelly — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/jelly",
+      "access": "read",
+      "supports": "jelly 是半透明的糖果类制品，由各种水果或蔬菜的滤清汁（单用或混用）加甜、煮沸、慢煨并凝结而成，常借果胶、明胶或类似物质凝结。多数水果与浆果及许多蔬菜的汁都适合做 jelly；高果胶的汁（如柑橘与苹果）与糖同煮后易于凝结，也可加入低果胶的果汁、蔬菜汁或香草汁促凝。果酱、conserves 与 marmalade 与 jelly 的区别在于含整果或果肉。在美国等地，水果与浆果 jelly 抹于早餐面包，或用于花生酱果冻三明治；果酱与 preserves 是英国茶点中司康与其它烘焙品的常见配食。蔬菜与香草 jelly（如以辣椒、番茄或薄荷制成）传统上配羊肉等肉菜。**以海藻提取的 agar 制成的 jelly 以清澈与质地见长**，用于包裹糖果或以之制仿水果片。",
+      "rights_note": "Britannica 条目；仅事实核对与自行转述。"
+    },
+    {
+      "id": "cuisine_uk_src_42",
+      "title": "Pickle（腌黄瓜）— Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/pickle",
+      "access": "read",
+      "supports": "pickle 是经腌渍的黄瓜；用于腌渍的小黄瓜属葫芦科，与南瓜、葫芦、西瓜同科，可能是地球上最古老的腌渍食物之一，世界各地都吃，在美国极受欢迎，在北欧与东欧许多地方被视为美味，中东部分地区亦食。**在北欧较冷的气候中，腌液多为风味浓烈的醋调物，配胡椒粒、芥末籽、莳萝、辣根、盐以及辣椒、肉桂、丁香、姜等香料**；在俄罗斯，咸鲜辛辣的腌渍切片常作为传统前菜 zakuski 的一部分，与伏特加同饮；在土耳其、黎巴嫩等较暖气候可见盐水腌制的变体，与橄榄、腌根菜与腌辣椒同作前菜；在北美主要调味为莳萝，偏好较甜较温和的口味。好的腌渍品外脆内软，甜酸平衡。",
+      "rights_note": "Britannica 条目；仅事实核对与自行转述。"
+    },
+    {
+      "id": "cuisine_uk_src_43",
+      "title": "Food preservation（食品保存原理）— Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/food-preservation",
+      "access": "read",
+      "supports": "食品保存是使食物在收获或屠宰后不致腐败的诸方法，实践可溯至史前。最古老的方法有干燥、冷藏与发酵，现代方法包括罐藏、巴氏杀菌、冷冻、辐照与添加化学物；包装材料的进步在现代保存中作用重要。保存通过抑制微生物生长、降低酶活性与防止导致哈败的脂肪酸氧化来控制腐败。影响细菌生长的因素含养分可得性、水分、pH、氧水平与抑制性物质；温度与 pH 显著影响生长速率（嗜热、中温、耐冷三组），多数细菌在中性环境最佳；多数细菌在水活度低于 0.91 时不生长，但某些嗜盐菌可在低于 0.75 时生长；降低水活度可经加糖、甘油、盐等溶质或脱水实现。氧需求分专性需氧、专性厌氧与兼性厌氧。",
+      "rights_note": "Britannica 条目（含该站 AI 摘要块）；只取与正文一致的原理性要点。"
+    },
+    {
+      "id": "cuisine_uk_src_un_01",
+      "title": "Stargazy pie — Wikipedia（英文版）",
+      "url": "https://en.wikipedia.org/wiki/Stargazy_pie",
+      "access": "unavailable",
+      "supports": "本次尝试读取失败（连接超时，对端未响应）。未取得任何正文，故不用于任何条目。",
+      "rights_note": "失败如实登记；零引用。"
+    },
+    {
+      "id": "cuisine_uk_src_un_02",
+      "title": "哈吉斯 — 维基百科（中文版）",
+      "url": "https://zh.wikipedia.org/wiki/%E5%93%88%E5%90%89%E6%96%AF",
+      "access": "unavailable",
+      "supports": "本次尝试读取失败（连接超时）。未取得任何正文，故不用于任何条目；哈吉斯条由 Britannica（src_01、src_30）与 oatmeal（src_28）支撑。",
+      "rights_note": "失败如实登记；零引用。"
+    },
+    {
+      "id": "cuisine_uk_src_un_03",
+      "title": "Jellied eels — Wikipedia（英文版）",
+      "url": "https://en.wikipedia.org/wiki/Jellied_eels",
+      "access": "unavailable",
+      "supports": "本次尝试读取失败（连接超时）。未取得正文；鳗鱼冻条改由 Atlas Obscura（src_39）、Britannica eel（src_32）、gelatin（src_10）与 aspic（src_11）支撑。",
+      "rights_note": "失败如实登记；零引用。"
+    },
+    {
+      "id": "cuisine_uk_src_un_04",
+      "title": "Toad in the hole — Encyclopaedia Britannica（该路径）",
+      "url": "https://www.britannica.com/topic/toad-in-the-hole",
+      "access": "unavailable",
+      "supports": "返回 HTTP 404，无该条目。菜名史与最早文献因此缺失；技法面改由 batter（src_36）与 Yorkshire pudding（src_03）的面糊—热脂机制、以及 sausage（src_23）支撑，条目内已标明缺口。",
+      "rights_note": "失败如实登记；零引用。"
+    },
+    {
+      "id": "cuisine_uk_src_un_05",
+      "title": "Marmite — Encyclopaedia Britannica（该路径）",
+      "url": "https://www.britannica.com/topic/Marmite",
+      "access": "unavailable",
+      "supports": "返回 HTTP 404。Marmite 的公司史（发明人、年代、伯顿的厂址）因此缺失；可用的只有 Vegemite 条目（src_29）里关于英国 Marmite 的名称来源、原料性质与 20 世纪初市场地位的记述。另试 /topic/Marmite-food-product 亦返回 404。",
+      "rights_note": "失败如实登记；零引用。"
+    },
+    {
+      "id": "cuisine_uk_src_un_06",
+      "title": "BBC Food（食谱页，含 Stargazy pie 等）",
+      "url": "https://www.bbc.co.uk/food/recipes/stargazypie_85073",
+      "access": "unavailable",
+      "supports": "本次尝试读取失败（连接超时）。BBC 域名的食谱、历史与新闻页在本次环境中均不可达；英国国内机构一手材料因此缺位，相关缺口已在各条 evidence_and_uncertainty 中写明。",
+      "rights_note": "失败如实登记；零引用。"
+    },
+    {
+      "id": "cuisine_uk_src_un_07",
+      "title": "BBC History — Victorians（维多利亚时代栏目）",
+      "url": "https://www.bbc.co.uk/history/british/victorians",
+      "access": "unavailable",
+      "supports": "本次尝试读取失败（连接超时）。维多利亚时代城市贫民饮食与公共卫生的一手叙述因此缺位。",
+      "rights_note": "失败如实登记；零引用。"
+    },
+    {
+      "id": "cuisine_uk_src_un_08",
+      "title": "The British Museum（官网首页）",
+      "url": "https://www.britishmuseum.org/",
+      "access": "unavailable",
+      "supports": "本次尝试读取失败（请求超时）。博物馆藏品与饮食考古材料因此缺位。",
+      "rights_note": "失败如实登记；零引用。"
+    },
+    {
+      "id": "cuisine_uk_src_un_09",
+      "title": "English Heritage（官网）",
+      "url": "https://www.english-heritage.org.uk/",
+      "access": "unavailable",
+      "supports": "域名解析失败（no such host），未取得正文。地方史与节庆材料因此缺位。",
+      "rights_note": "失败如实登记；零引用。"
+    },
+    {
+      "id": "cuisine_uk_src_un_10",
+      "title": "National Trust（官网）",
+      "url": "https://www.nationaltrust.org.uk/",
+      "access": "unavailable",
+      "supports": "域名解析失败（no such host），未取得正文。",
+      "rights_note": "失败如实登记；零引用。"
+    },
+    {
+      "id": "cuisine_uk_src_un_11",
+      "title": "Imperial War Museums — 英国战时配给专页",
+      "url": "https://www.iwm.org.uk/history/what-you-need-to-know-about-rationing-in-wartime-britain",
+      "access": "unavailable",
+      "supports": "域名解析失败（no such host），未取得正文。**英国配给的具体起始与结束年份、各类食品的配额因此未取得来源**，本组所有涉配给的年份均按未取证处理或不予书写。",
+      "rights_note": "失败如实登记；零引用。"
+    },
+    {
+      "id": "cuisine_uk_src_un_12",
+      "title": "National Museums Scotland（官网）",
+      "url": "https://www.nms.ac.uk/",
+      "access": "unavailable",
+      "supports": "返回 HTTP 403（人机校验页），未取得正文。苏格兰饮食的一手收藏材料因此缺位。",
+      "rights_note": "失败如实登记；零引用。"
+    },
+    {
+      "id": "cuisine_uk_src_un_13",
+      "title": "Historic England（官网）",
+      "url": "https://historicengland.org.uk/listing/the-list/",
+      "access": "unavailable",
+      "supports": "域名解析失败（no such host），未取得正文。",
+      "rights_note": "失败如实登记；零引用。"
+    },
+    {
+      "id": "cuisine_uk_src_un_14",
+      "title": "TasteAtlas — Stargazy pie",
+      "url": "https://www.tasteatlas.com/stargazy-pie",
+      "access": "unavailable",
+      "supports": "返回 HTTP 403（人机校验页），未取得正文。食谱聚合站的配方因此未被使用。",
+      "rights_note": "失败如实登记；零引用。"
+    },
+    {
+      "id": "cuisine_uk_src_un_15",
+      "title": "Cookbook: Stargazy Pie — Wikibooks（英文版）",
+      "url": "https://en.wikibooks.org/wiki/Cookbook:Stargazy_Pie",
+      "access": "unavailable",
+      "supports": "本次尝试读取失败（连接超时）。因此本组不给该派的任何配方级参数。",
+      "rights_note": "失败如实登记；零引用。"
+    },
+    {
+      "id": "cuisine_uk_src_un_16",
+      "title": "Alimentarium（食品博物馆）",
+      "url": "https://www.alimentarium.org/en/factsheet/ketchup",
+      "access": "unavailable",
+      "supports": "返回 HTTP 500，未取得正文。食品博物馆口径的菜式史因此缺位。",
+      "rights_note": "失败如实登记；零引用。"
+    },
+    {
+      "id": "cuisine_uk_src_un_17",
+      "title": "The Guardian — 食谱与饮食栏目",
+      "url": "https://www.theguardian.com/food/2020/jan/22/how-to-make-stargazy-pie",
+      "access": "unavailable",
+      "supports": "本次尝试读取失败（连接超时）。",
+      "rights_note": "失败如实登记；零引用。"
+    },
+    {
+      "id": "cuisine_uk_src_un_18",
+      "title": "Historic UK — Stargazy Pie（地方文化网站）",
+      "url": "https://www.historic-uk.com/CultureUK/Stargazy-Pie/",
+      "access": "unavailable",
+      "supports": "本次尝试读取失败（连接超时）。地方节庆的英方通俗叙述因此缺位，只能依赖 Atlas Obscura（src_38）。",
+      "rights_note": "失败如实登记；零引用。"
+    },
+    {
+      "id": "cuisine_uk_src_un_19",
+      "title": "Britannica — Cullen skink / Cornish pasty / British cuisine / yeast extract（该组路径）",
+      "url": "https://www.britannica.com/topic/Cullen-skink",
+      "access": "unavailable",
+      "supports": "以上路径均返回 HTTP 404（无该条目）。Cullen skink 因此只由 BBC Good Food 的工序页（src_40）与 Britannica haddock（src_33）支撑，名称来历与地方史未取得来源。",
+      "rights_note": "失败如实登记；零引用。"
+    },
+    {
+      "id": "cuisine_uk_src_un_20",
+      "title": "Britannica — clotted cream / British cuisine / afternoon tea（该组路径）",
+      "url": "https://www.britannica.com/topic/clotted-cream",
+      "access": "unavailable",
+      "supports": "clotted-cream 与 British-cuisine、afternoon-tea 三个路径均返回 HTTP 404。奶油茶的具体制度史因此缺失，改由 Cornish clotted cream（src_09）、scone（src_08）与 Cornwall（src_31）支撑。",
+      "rights_note": "失败如实登记；零引用。"
+    },
+    {
+      "id": "cuisine_uk_src_un_21",
+      "title": "Britannica — jellied eels / jelly dessert / Jell-O / pickled onion / blood sausage / meat pie / whitebait / steak-and-kidney（其余尝试路径）",
+      "url": "https://www.britannica.com/topic/jellied-eels",
+      "access": "unavailable",
+      "supports": "以上各路径均返回 HTTP 404。鳗鱼冻的英国史由 src_39 与 src_32 承担；果冻沙拉由 gelatin（src_10）、salad（src_34）、jelly（src_41）承担；腌洋葱无专条，改由 pickling（src_26）、pickle（src_42）与 vinegar（src_27）承担；黑布丁与腰子派自有专条（src_02、src_14、src_15）。",
+      "rights_note": "失败如实登记；零引用。"
+    },
+    {
+      "id": "cuisine_uk_src_un_22",
+      "title": "encyclopedia.com — Rationing（社会学词条）",
+      "url": "https://www.encyclopedia.com/social-sciences-and-law/sociology-and-social-reform/sociology-general-terms-and-concepts/rationing",
+      "access": "unavailable",
+      "supports": "连接被远端强制关闭，未取得正文。",
+      "rights_note": "失败如实登记；零引用。"
+    },
+    {
+      "id": "cuisine_uk_src_un_23",
+      "title": "Wikipedia（simple／m.wikipedia）、Wikiwand、Wikibooks 等镜像与衍生站",
+      "url": "https://simple.wikipedia.org/wiki/Stargazy_pie",
+      "access": "unavailable",
+      "supports": "以上站点本次均连接超时（含 simple.wikipedia、en.m.wikipedia、wikiwand、newworldencyclopedia），未取得任何正文。维基系来源在本组**零引用**。",
+      "rights_note": "失败如实登记；零引用。"
+    },
+    {
+      "id": "cuisine_uk_src_un_24",
+      "title": "britishfoodhistory.com（英国饮食史博客）",
+      "url": "https://www.britishfoodhistory.com/",
+      "access": "unavailable",
+      "supports": "返回 HTTP 403（人机校验挑战页），未取得正文。",
+      "rights_note": "失败如实登记；零引用。"
+    }
+  ],
+  "elements": [
+    {
+      "id": "cuisine_uk_stargazy_pie",
+      "name": "仰望星空派（康沃尔整鱼头朝上的节庆鱼派）",
+      "aliases": [
+        "stargazy pie",
+        "stargazey pie",
+        "starry-gazy pie",
+        "Star-Gazy Pie",
+        "Tom Bawcock's pie",
+        "星眼鱼派",
+        "沙丁鱼仰望派",
+        "莫斯霍尔鱼头派"
+      ],
+      "category": "item",
+      "tags": [
+        "kind:dish",
+        "tradition:western",
+        "cuisine:british",
+        "region:cornwall",
+        "course:main",
+        "technique:bake",
+        "technique:pastry",
+        "era:early_modern",
+        "era:contemporary",
+        "class_marker:common",
+        "occasion:festival",
+        "occasion:seasonal",
+        "role:festival_food",
+        "role:tourism_spectacle",
+        "trade:fisher"
+      ],
+      "summary": "康沃尔 Mousehole 村在圣诞节期的 Tom Bawcock 之夜吃的整鱼派：鱼头（有时连鱼尾）穿过酥皮朝上，薯与蛋在下面。它把渔汛、饥荒传说与村社节庆压进一只派里，是「靠海的人把风险摆上桌」最直白的一种菜。",
+      "details": {
+        "definition": "仰望星空派是英国西南端康沃尔郡（Cornwall）Mousehole（莫斯霍尔）村的地方节庆鱼派，英文通行作 stargazy pie 或 stargazey pie。形态是深盘酥皮里填薯、蛋一类配料，整条小型群游鱼——传统用 pilchard（沙丁鱼一类的小型鲱科鱼）——的头（有时还有尾）从派皮穿出、朝上如望星，因而得名。它不是日常主食而是特定夜晚的仪式性食物，与 Tom Bawcock's Eve 这个圣诞节期的地方节庆绑定。与英国普通的家常鱼派有两条关键区别：鱼不作去头去骨的细处理，整鱼可辨；成品必须先被「看见」再被吃——识别性来自露出的鱼头而非馅料。",
+        "mechanism": "工序骨架是「热盘热脂起酥皮 + 预熟馅料 + 整鱼定位 + 短时高温烤」。两个技术要点：①酥皮与馅的水分关系——薯、蛋一类含水高的馅须先煮或半熟化，否则底部酥皮会被浸软而塌；②鱼头定位——鱼身埋进馅中，头颈从预先开口的派皮穿出，使烘烤与出炉后都保持直立可辨。鱼在馅内靠自身油脂与周边淀粉类料互为润滑，熟成不靠翻动，而靠盘底受热与炉温把底部烤透。整形目的即展示：出锅即上桌、鱼头向上、酥皮完整，「仰望」这一视觉叙事才成立。",
+        "conditions": "依赖季节性可得且价廉的整条小型远洋鱼（pilchard 一类）、酥皮所需的麦粉与油脂、以及能一次烤透的炉具。薯与蛋是填馅的体积来源，属可替换项。村社层面的前提是一个仍被记得的固定节令与愿意操办的人（家庭、酒馆或村会）——没有节庆，这道菜就退化成猎奇展品。冬季缺乏新鲜蔬果，薯、蛋与咸香料的比重因此上升，口味偏咸而非清鲜。",
+        "exceptions": "①鱼种不固定：今日常见沙丁鱼、鲱类或地方可得的小鱼，替代说法很多；②露头形态不一：有的只露头，有的头尾并露，有的把鱼头朝外放射排列；③并非全年供应，多数只在节庆、集市或观光场景出现；④与普通康沃尔鱼派、与「鱼派配薯泥」的家常做法不是同一道菜，不能互相替换；⑤现代食谱把它做成展示品，与村社仪式语境下的食物分属两种用途。",
+        "story_uses": "①节庆与怪俗：一个村子每年固定重演一场「饥荒被渔获终结」的戏，食物是道具，谁办得起、谁掌勺就是村里的位置。②渔业的赌局：派里的鱼是今年渔汛的结果，鱼小鱼少时这道菜的体面程度随之下降，可写成一村人集体焦虑的具象。③旅游与猎奇消费：外来客为一颗鱼头拍照，本地人靠它卖纪念品——同一道菜同时被看与被吃，适合写「地方被外人重新定义」。④羞耻与代际：把头与眼留在盘中会令部分食客不适，餐桌上的拒绝可作城乡、阶级与代际差异的符号。⑤仪式性叙事的用途：传说里的英雄、风暴与猫都不可考，但村社需要共同的起源故事，可写「明知不实仍要维护的共同体叙事」。",
+        "historical_scope": "本条限定在康沃尔西南端 Mousehole 一带的地方节庆语境，时间上以 20—21 世纪仍在举行的 Tom Bawcock's Eve 为核心；传说中的 16 世纪事件属口传叙事层，不能当已证实的史实。改编边界：架空世界可借用「季节性渔获 + 定时节庆 + 可展示的整鱼造型」三件套，但不应顺带断言该世界必有酥皮麦作或特定鱼种；也不能把「派必须仰望」当成一切渔业文化的通用习俗。",
+        "evidence_and_uncertainty": "有来源支持的部分：Mousehole 的 Tom Bawcock's Eve 是圣诞节期地方节庆；派中含马铃薯与蛋，用整条 pilchard 一类小鱼，鱼头（有时鱼尾）穿出酥皮朝上而得名；传说称 16 世纪村民 Tom Bawcock 冒风暴出海、带回足够渔获终结当地饥荒，部分版本说他带着猫、猫平息了风暴（据 cuisine_uk_src_38）。康沃尔是英格兰最偏远的郡，渔港与旅游并存、乡村社会结构正被第二住宅与退休迁入改变（据 cuisine_uk_src_31）。属本项目归纳或未取证的部分：①「鱼头朝上是让鱼油回流馅内」这一解释，本次读到的页面未给出，标为未取证说法，故不写入 mechanism；②该派的最早文献年代与早期食谱形态未取得来源；③pilchard 渔汛的具体月份未取得来源；④en.wikipedia、Cookbook 食谱页与几家地方文化网站本次读取失败（un_01、un_15、un_18），地方史细节保持缺口语表述。review_status 维持 needs_review。"
+      },
+      "source_ids": [
+        "cuisine_uk_src_38",
+        "cuisine_uk_src_31",
+        "cuisine_uk_src_37"
+      ],
+      "related_ids": [
+        "cuisine_uk_kippers",
+        "cuisine_uk_cullen_skink",
+        "cuisine_uk_jellied_eels"
+      ],
+      "related_catalog_ids": [
+        "animal_food_herring",
+        "animal_food_dried_salted_fish",
+        "staples_potato",
+        "animal_food_egg",
+        "staples_wheat",
+        "materials_salt",
+        "tools_pottery_cooking_pot"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "cuisine_uk_jellied_eels",
+      "name": "鳗鱼冻（伦敦东部的鳗鱼冻与 pie-and-mash 店）",
+      "aliases": [
+        "jellied eels",
+        "eel jelly",
+        "伦敦鳗鱼冻",
+        "pie and mash",
+        "pie-and-mash shop",
+        "鳗鱼派薯泥店"
+      ],
+      "category": "item",
+      "tags": [
+        "kind:dish",
+        "tradition:western",
+        "cuisine:british",
+        "region:london",
+        "course:main",
+        "course:snack",
+        "technique:boil",
+        "technique:chill",
+        "technique:gelatinize",
+        "era:industrial",
+        "era:interwar",
+        "era:postwar_rationing",
+        "class_marker:poverty_food",
+        "class_marker:common",
+        "occasion:everyday",
+        "role:daily_staple",
+        "role:street_food",
+        "role:nostalgia_marker",
+        "trade:fisher"
+      ],
+      "summary": "把切段的鳗鱼与醋、洋葱、胡椒粒、月桂同煮，冷却后鱼自身的胶质凝成咸冻——18 世纪伦敦的廉价饱餐，二战配给期再度走红，随后因泰晤士河污染与供应萎缩退成怀旧符号。它同时是「河流能吃」与「河流已死」两份证据。",
+      "details": {
+        "definition": "鳗鱼冻（jellied eels）是把鳗鱼切段、调味水煮后连汤冷却、靠鱼体胶质自然凝成咸冻的冷食，伦敦东部工人阶级饮食的代表。它通常与 pie-and-mash 店成套出现：以廉价羊肉派、薯泥与一种不含酒精的欧芹酱（liquor）为主，鳗鱼冻是加点的蛋白质。与法式 aspic 的差别在于：鳗鱼冻不靠额外加明胶、不镀面装饰，它的凝胶来自鳗鱼皮骨自身，且是店里的日常货而非宴席冷盘。",
+        "mechanism": "工序是「切段—加酸与香料同煮—连汤入容器—冷却定冻」。技法要点三条：①鳗鱼富含胶质，煮出的汤冷却后能自行成冻，因此不需要另加凝固剂；②醋在两道工序里起作用——煮时参与调味并降低 pH，食时又以热辣椒醋作浇头，酸与胶质的黏口感互相压制，这决定了它「必须配酸」的吃法；③定冻靠静置冷却而非冷藏速凝，凝胶在温度回升时会回软，所以它是冷食、且宜当日吃完。pie-and-mash 店一侧的配套技法是：派用廉价肉馅与硬酥皮以撑住长时间保温，薯泥作体积，liquor 以欧芹与面粉调成稀酱作浇汁。",
+        "conditions": "依赖城市河流或近海可捕的淡水／降海鳗（欧洲鳗与北美鳗是经济上最重要的两种），以及醋、洋葱、胡椒粒、月桂与盐这类便宜调味。鳗鱼曾是随河水而来的近乎免费蛋白，因此这道菜的成立前提是「水体尚能产鱼 + 城市里有大量需要廉价热食的劳动力」。当河流污染、鳗资源下降，原料成本结构翻转，这道菜就失去存在理由。缺鳗时没有等价替代——用其它鱼成冻的质地与风味都不同，这正是它难以被工业化复制的原因。",
+        "exceptions": "①冷热两吃：多数冷食，也有偏好温食者；②浇头分岔：热辣椒醋与 liquor 是两个体系，同一家店可以都给；③地域外扩散有限，主要属伦敦东部与泰晤士河口一带，不宜说成全英普及；④鳗鱼种与来源随年代变化，河鳗、海鳗、进口货都出现过；⑤现代存续店多以「传统」为卖点，客户结构已从本地工薪转为猎奇者与怀旧者，同一个名字下的两种生意。",
+        "story_uses": "①工业城市的廉价热量：以一碗胶质冷食加薯泥支撑一天体力，写贫民区时比写「饥饿」更有质感。②环境史的铁证：1957 年自然史博物馆宣布泰晤士河生物性死亡、报纸称其为管理不善的露天下水道——一条河从食物来源变成污染指标，可作城市衰败的可量化转折。③配给期的黑马：战时配给反而把鳗鱼冻推上高峰，战争结束时仅伦敦就有上百家鳗鱼与派店，可写「短缺如何改写口味等级」。④阶级羞耻与怀旧：这道菜同时被外人当作笑料、被本地人当作身份标记，写一个离开东区又回来的人最省力。⑤家族生意：一家店、一口锅、一份不外传的醋配比，天然的遗产争夺场景。",
+        "historical_scope": "本条限伦敦与泰晤士河口，时间重点在 18 世纪至 20 世纪中期，20 世纪后半为衰退期。改编边界：可借用「靠自身胶质成冻 + 必须配酸 + 与廉价派薯泥成套」的结构，但不应顺带断言该世界有被污染的河流或鳗资源崩溃；也不要把它写成全英国的国民菜——它始终是地方与阶级性很强的食物。",
+        "evidence_and_uncertainty": "有来源支持的部分：18 世纪伦敦人把鳗鱼冻当作廉价、富营养的一餐，泰晤士河使其易得；以廉价羊肉派与薯泥为业的 pie-and-mash 店把鳗鱼加入供应；东伦敦店主把鳗鱼切段，与醋、洋葱片、胡椒粒、月桂叶与盐同煮，冷却时胶质蛋白凝固成咸冻；食客浇热辣椒醋或与浇 liquor（不含酒精的欧芹酱）的派薯泥同食；二战配给使流行达到高峰，战争结束时仅伦敦即有 100 家以上鳗鱼与派店；随后十年因供应减少与泰晤士河污染而兴趣减退；1957 年自然史博物馆宣布该河生物性死亡（据 cuisine_uk_src_39，属大众饮食写作的单一来源）；鳗鱼中只有淡水鳗科具重要经济意义、欧洲鳗约十年成熟、幼鳗上溯期为 10 月至次年 3 月（据 cuisine_uk_src_32）；明胶溶胶—凝胶可逆、冷却固化受蛋白与糖浓度及温度影响（据 cuisine_uk_src_10）；aspic 靠骨汤天然明胶凝冻、可另加商品明胶（据 cuisine_uk_src_11），本条据此说明两者差别。属归纳或未取证：①「英国配给于何年何月对何种食品实施」未取得来源（见 un_11），故不写年份；②pie-and-mash 店的确切起源年代与 liquor 的配方史未取得来源；③鳗鱼冻在 19 世纪的销售量、价格与消费人群结构无数据；④etymology（名称何时固定为 jellied eels）未取得来源。"
+      },
+      "source_ids": [
+        "cuisine_uk_src_39",
+        "cuisine_uk_src_32",
+        "cuisine_uk_src_10",
+        "cuisine_uk_src_11",
+        "cuisine_uk_src_07"
+      ],
+      "related_ids": [
+        "cuisine_uk_stargazy_pie",
+        "cuisine_uk_pub_counter_snack",
+        "cuisine_uk_moulded_gelatin"
+      ],
+      "related_catalog_ids": [
+        "flavors_vinegar",
+        "produce_onion",
+        "flavors_black_pepper",
+        "materials_salt",
+        "staples_potato",
+        "animal_food_mutton_lamb",
+        "tools_pottery_cooking_pot"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "cuisine_uk_black_pudding",
+      "name": "黑布丁（血肠：猪血与燕麦灌制的早餐香肠）",
+      "aliases": [
+        "black pudding",
+        "blood pudding",
+        "blood sausage",
+        "黑布丁",
+        "血布丁",
+        "斯托克波特黑布丁",
+        "Stornoway black pudding",
+        "drisheen"
+      ],
+      "category": "item",
+      "tags": [
+        "kind:dish",
+        "tradition:western",
+        "cuisine:british",
+        "region:northern_europe",
+        "course:breakfast",
+        "technique:charcuterie",
+        "technique:boil",
+        "technique:pan_fry",
+        "era:medieval",
+        "era:industrial",
+        "era:contemporary",
+        "class_marker:common",
+        "class_marker:poverty_food",
+        "occasion:everyday",
+        "occasion:festival",
+        "role:preservation",
+        "role:taboo_food",
+        "role:contested_symbol",
+        "trade:butcher"
+      ],
+      "summary": "猪血、洋葱与肉豆蔻一类香料，用燕麦黏结成肠，煮或烤后切片煎。它是「一头猪全部吃掉」的产物，也是英国最容易被宗教与健康话语同时攻击的一道早餐；一场可能并不存在的掷布丁战役至今还有年度锦标赛。",
+      "details": {
+        "definition": "黑布丁是含血的香肠，流行于不列颠群岛，通常作早餐食物；至少自 1400 年代起即为英国饮食中有记录的一项。做成后是干质香肠，多切片或掰碎入馔，出现在不列颠群岛式全套早餐里，与煎面包、蛋、烘豆、培根、番茄片同列。与同族的白布丁（不加血）相对，也与欧陆的 morcilla（西班牙）、boudin noir（法国）构成同一技术家族的不同地方版本。",
+        "mechanism": "工序是「取血防凝—以谷物与香料调稠—灌肠—煮定—再煎或烤」。三个技术要点：①血必须新鲜并搅动防凝，否则无法与其它料混匀；②黏结靠燕麦片（更常见）或大麦吸住液体，血提供水分与蛋白，受热后凝固成可切的糕体；③先水煮定型再切片煎，是「两次加热」结构——煮给凝固与灭菌，煎给表面脆壳与脂香。地方配方另加板油增加润感，肠衣用牛肚一类。风味上血与香料共同给出微甜、略带金属感且辛辣的印象，因此它常与酸味或甜味配菜搭配。",
+        "conditions": "依赖屠宰现场的即时付产物：血、肠衣、板油与内脏——即「必须在猪被杀的当天做」的时间窗口，这决定了它天生是农家与小镇屠宰日的产物，而非可以跨地长途贩运的商品。谷物黏结剂用当地可得者（燕麦或大麦），香料则依赖进口，因此香料越便宜，这道菜越普及。缺血的场合没有等价替代，只能退为白布丁。宗教环境是另一项硬条件：凡禁食血的教派，这道菜直接被排除。",
+        "exceptions": "①血源可换：地方变体用牛血或羊血；②黏结剂分燕麦派与大麦派；③形态分支：有的切片煎、有的掰碎入其它菜（如 bubble and squeak、薯泥肉汁），也有做成冰淇淋配料一类的新花样；④与苏格兰蛋结合被称为 Manchester egg（据称该新花样源于曼彻斯特）；⑤宗教例外：1652 年 Thomas Barlow（后任英格兰林肯主教）主张基督徒应依希伯来饮食法禁血，Methodists 尤避之；⑥代际例外：当代许多英国人、尤其年轻者已把它排除在饮食之外。",
+        "story_uses": "①屠宰日的经济学：一头猪身上不能浪费的部分被做成可存放数日的肠，写农家一年一次的杀猪场面时它是最自然的道具。②宗教冲突的可食化：一条关于「基督徒该不该吃血」的神学争论落到餐盘上，足以支撑一场教区冲突。③战争与荒诞纪念：玫瑰战争期间曼彻斯特附近一役据说弹尽后互掷黑布丁，今日以 Ramsbottom 的年度世界掷黑布丁锦标赛纪念——真伪可疑的传说被制度化，正适合写「地方靠一个笑话维持身份」。④健康话语的反转：血提供锌与铁被视为有益，但钠与脂肪偏高；政客把它列入「必吃英国食物」清单，同时年轻人正在放弃它——一道菜同时被国家收编与被日常抛弃。⑤阶级标记：它便宜、耐放、味道强，是贫民蛋白的典型，也是被中产重新包装成「手工传统」的对象。",
+        "historical_scope": "本条限不列颠群岛，技术家族可上溯至古典时代（Homer 与罗马人均有记载），英国记录自 15 世纪起。改编边界：可借用「屠宰付产物 + 谷物黏结 + 两次加热 + 血食禁忌」四要素，但不要把它当成所有欧洲血肠的同义词——morcilla 与 boudin noir 的调味与场合不同；也不要把掷布丁锦标赛的传说当作史实引进世界观。",
+        "evidence_and_uncertainty": "有来源支持的部分（据 cuisine_uk_src_02）：黑布丁为含血香肠、流行于不列颠群岛、通常作早餐；至少自 1400 年代起见于英国记录，实际更古（Homer《Odyssey》提到填满脂肪与血的香肠，古罗马亦有，西班牙 morcilla 与法国 boudin noir 为对应物）；出现在全套早餐中；通常以猪血、洋葱与肉豆蔻／姜／肉豆蔻衣等香料，用燕麦片（更常见）或大麦黏结，灌进牛肚类肠衣，煮或烤、炙或煎；地方变体用牛血或羊血，部分加板油；成品干质，多切片或掰碎；可用于冰淇淋、bubble and squeak 与薯泥肉汁；裹进苏格兰蛋即称 Manchester egg；1652 年 Thomas Barlow 的血食主张与 Methodists 的回避；玫瑰战争掷布丁的轶事被标为「或属传闻」，今日以 Ramsbottom 年度锦标赛纪念；血提供锌与铁但钠与脂肪可偏高；Liz Truss 任环境大臣时列入「必吃」，许多英国人尤其年轻者已不食。内脏作为副产物肉的营养与阶级面向据 cuisine_uk_src_24（猪血为黑布丁成分、猪肠作香肠容器）；香肠的分类与加工法据 cuisine_uk_src_23。未取证／需注意：①掷布丁事件本身在来源中即被标为可能虚构，本条目照录为「地方传说」而不作史实；②各地方变体（Stornoway、Bury、Stockport 等）的具体差异与年代未取得来源，故只在别名中列出通行地名、正文不展开；③英国黑布丁的现代产量与消费数据未取得来源。"
+      },
+      "source_ids": [
+        "cuisine_uk_src_02",
+        "cuisine_uk_src_23",
+        "cuisine_uk_src_24"
+      ],
+      "related_ids": [
+        "cuisine_uk_haggis",
+        "cuisine_uk_scotch_egg",
+        "cuisine_uk_pub_counter_snack"
+      ],
+      "related_catalog_ids": [
+        "staples_oats",
+        "staples_barley",
+        "animal_food_pork",
+        "animal_food_sausage",
+        "animal_food_rendered_fat",
+        "flavors_nutmeg_mace",
+        "produce_onion",
+        "materials_salt"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "cuisine_uk_haggis",
+      "name": "哈吉斯（羊杂燕麦馅，装羊胃煮）",
+      "aliases": [
+        "haggis",
+        "哈吉斯",
+        "羊肚包",
+        "Burns supper haggis",
+        "Haggis neeps and tatties",
+        "vegetarian haggis"
+      ],
+      "category": "item",
+      "tags": [
+        "kind:dish",
+        "tradition:western",
+        "cuisine:british",
+        "region:scotland",
+        "course:main",
+        "technique:boil",
+        "technique:stuff_casing",
+        "era:early_modern",
+        "era:contemporary",
+        "class_marker:poverty_food",
+        "class_marker:common",
+        "occasion:festival",
+        "occasion:national_holiday",
+        "role:national_symbol",
+        "role:preservation",
+        "role:ceremonial_food",
+        "trade:butcher"
+      ],
+      "summary": "把羊的心、肝、肺剁碎，与板油、燕麦和香料拌成馅装进羊胃里煮。它本是乡野穷人把整只羊吃干净的办法，18 世纪被一首诗和一场生日晚宴改写成国家象征——同一道菜既是穷人的蛋白，也是国族的仪式道具。",
+      "details": {
+        "definition": "哈吉斯是苏格兰的国菜，属 pudding 一类：羊（或其它动物）的肝、心、肺切碎，与牛或羊的板油、燕麦片混拌，以洋葱、cayenne 辣椒粉与其它香料调味，混合物装进羊胃里煮。上桌时常配芜菁（苏格兰语 neeps）与薯泥（tatties），惯饮为苏格兰威士忌。它在英国饮食里属「布丁」这一广义类别，与黑布丁同族——都以碎肉／内脏加谷物灌装成形。",
+        "mechanism": "工序是「内脏煮或焯—剁碎—与板油和燕麦拌馅—调味—装胃袋—长时水煮」。技术要点：①燕麦既吸水又吸脂，是把稀软的内脏与板油变成可切可盛的结构材料，比例决定成品的「松散」或「紧实」；②板油提供脂润与香气，缺脂则口感干涩；③羊胃作肠衣，在煮制中同时贡献膜质包裹与部分风味；④整颗下水煮，热通过组织缓慢传导，成品是「可切块的湿馅」而非汤。风味靠香料压住内脏气息，cayenne 的作用是提香去腥而非求辣。",
+        "conditions": "成立前提是「整只羊都要被吃掉」的资源条件：心、肝、肺、板油与胃袋都是屠宰付产物，单卖不值钱，合起来却能成为一顿正经主食；燕麦则是苏格兰凉湿气候下最可靠的谷物。此外需要一段够长的煮制时间与一个能密封的煮具。当代的硬约束是食材法规（肺在许多司法辖区不得作食品出售），这直接导致现代商业版改用其它部位或做成素食版。",
+        "exceptions": "①并非自古专属苏格兰：18 世纪中期以来才被视为独具苏格兰特色，长期在英格兰也流行（1615 年 Gervase Markham《The English Huswife》即提及），源更古，Apicius、Aristophanes 乃至 Homer 都提到成分相近的菜；②名称 haggis 首见于 15 世纪，词源不明；③素食哈吉斯是现代发明，靠豆类与燕麦模拟结构与脂香；④罐装与速食版本把仪式性摊平成商品；⑤地位反转：旧时被视为乡野之食，21 世纪却带仪式上桌，可伴风笛。",
+        "story_uses": "①国族象征的制造成本极低：一道用下水和燕麦做成的菜被一首诗与一场生日晚宴抬成民族标志，适合写「象征是如何被挑中的」。②阶级羞耻的翻转：同一道菜在乡间意味着穷，在 Burns Night 上意味着正统——一条身份线可写两个方向。③节庆制度的权力：Burns Night 固定于 1 月 25 日，风笛开场、朗诵《To a Haggis》、祝酒、以《Auld Lang Syne》收尾，谁被安排朗诵、谁被安排上菜，就是一场小型的社会排序。④禁忌与法规：肺不得入食的规定可写成传统与行政的正面冲突。⑤外来者的试吃：游客被劝「闭眼吃一口」，这道菜天然适合做文化冲击的第一个关口。",
+        "historical_scope": "本条以苏格兰为核心、兼及英格兰的同源记载；时间上覆盖 15 世纪（名称首见）至 21 世纪（仪式化与素食化）。改编边界：可借用「下水 + 谷物 + 胃袋 + 长煮 + 节庆朗诵」的组合，但不要把它写成苏格兰自古独有的古老秘方——这一「独有性」本身就是 18 世纪以后建构的；也不要默认该世界有羊胃可作肠衣或燕麦可栽培。",
+        "evidence_and_uncertainty": "有来源支持的部分（据 cuisine_uk_src_01）：成分（羊或其它动物的肝、心、肺切碎，与牛或羊板油、燕麦片混拌，以洋葱、cayenne 与其它香料调味，装进羊胃煮）；18 世纪中期以来被视为独具苏格兰特色，但长期在英国流行，Gervase Markham《The English Huswife》（1615）即可为证；源更古，Apicius、Aristophanes 与 Homer 都提到成分相近的菜；haggis 一词 15 世纪首见、词源不明；价廉、咸香、耐饥；旧时在苏格兰被视为乡野之食，经 Robert Burns 1786 年《To a Haggis》著名，21 世纪带仪式上桌，尤其 Burns Night（1 月 25 日）与 Hogmanay，可伴风笛；通常配 neeps（芜菁）与 tatties（薯泥），惯饮苏格兰威士忌。Burns Night 的流程（风笛开场、朗诵《To a Haggis》、诗与歌、祝酒、《Auld Lang Syne》、威士忌）据 cuisine_uk_src_30。燕麦在苏格兰亦见于 oatcakes 与 haggis，且苏格兰常用磨碎燕麦米煮稠粥（据 cuisine_uk_src_28）。未取证／需注意：①「哈吉斯起源为古代苏格兰牧人便携干粮」一类说法本次未取得来源，不写入；②现代肺类食材禁令的具体法域与年份未取得来源，故只写「许多司法辖区」；③素食哈吉斯的具体成分与年代未取得来源；④zh.wikipedia 对应条目读取失败（un_02）。"
+      },
+      "source_ids": [
+        "cuisine_uk_src_01",
+        "cuisine_uk_src_30",
+        "cuisine_uk_src_28",
+        "cuisine_uk_src_24"
+      ],
+      "related_ids": [
+        "cuisine_uk_black_pudding",
+        "cuisine_uk_cullen_skink"
+      ],
+      "related_catalog_ids": [
+        "staples_oats",
+        "animal_food_mutton_lamb",
+        "animal_food_rendered_fat",
+        "produce_onion",
+        "flavors_black_pepper",
+        "food_supp_turnip",
+        "staples_potato",
+        "materials_salt"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "cuisine_uk_toad_in_the_hole",
+      "name": "蟾蜍在洞（香肠卧面糊烤）",
+      "aliases": [
+        "toad in the hole",
+        "蟾蜍在洞",
+        "香肠面糊派",
+        "sausage in batter",
+        "sausage toad"
+      ],
+      "category": "item",
+      "tags": [
+        "kind:dish",
+        "tradition:western",
+        "cuisine:british",
+        "region:northern_england",
+        "course:main",
+        "technique:bake",
+        "era:industrial",
+        "era:interwar",
+        "era:postwar_rationing",
+        "class_marker:common",
+        "class_marker:poverty_food",
+        "occasion:everyday",
+        "role:daily_staple",
+        "role:stretch_protein",
+        "trade:butcher",
+        "trade:egg_farmer"
+      ],
+      "summary": "把香肠丢进热油、倒入与约克郡布丁同族的稀面糊烤到膨起——香肠只露头，像蟾蜍从洞里探头。它是一道「用面糊把肉撑开」的菜：肉的份量可以很小，体积与饱腹感靠面糊和油补上。",
+      "details": {
+        "definition": "蟾蜍在洞是英国的家常烤制菜：香肠（或其它肉块）在烤盘内以热脂定型后，倒入与约克郡布丁同族的稀面糊（面粉、乳、蛋、盐）烘烤，面糊在四周膨起把香肠半埋，露出的肠头形似从洞里探出的蟾蜍，因而得名。与约克郡布丁的关系是同一套面糊与热脂机制、不同配料：前者以肉为主角，后者是烤肉的副产物。",
+        "mechanism": "工序骨架是「盘与脂先烧到极热—放香肠定型上色—快速倒入稀面糊—高热短烤—出炉即食」。三个技术要点：①面糊必须稀（液体比例高于面团），使它能在热脂上流动并在入炉瞬间产生蒸汽与气泡而膨发；②垫底脂必须近乎冒烟，否则面糊贴盘处不结成脆壳而是渗油变软；③温度窗口窄——面糊倒入后不能开门、不能久置，出炉后停止膨发即刻回落，因此它被规定为「必须立刻上桌」的菜。香肠事先在热脂中半熟，既上色也把脂香带进面糊。",
+        "conditions": "依赖香肠（或其它廉价肉）、面粉、乳与蛋，以及能承受高热干烤的金属盘与炉具。它的经济学是「扩容」：少量肉即可取得一大盘热食的体积与饱足，因此在肉配给的年代比在丰裕年代更常见。乳与蛋的可得性直接决定面糊的膨发高度，缺蛋时成品塌陷，这是它在短缺期最容易露馅的地方。",
+        "exceptions": "①肉不限于香肠：可用其它肉块或剩肉；②可加洋葱、香草或在盘底铺洋葱以增甜；③份量形态分支：整盘烤或分模小份；④与「面糊裹香肠油炸」的另一种同名物（英国以外也有把整根裹糊炸的版本）不是同一做法；⑤现代常配肉汁与豌豆或蔬菜，构成完整一餐而非单菜。",
+        "story_uses": "①配给期的厨房算术：一根香肠如何喂饱四个人，是短缺经济最具体的考题，面糊就是答案。②阶级的味觉：它便宜、饱人、外观滑稽，长期被当作「穷人的派」，可写体面与不体面的张力。③家庭分工：孩子负责盯炉、不许开门，一个命令式的家规可以撑起一整场戏。④地方名声：北方家常菜的标签使它成为地域自尊的对象，也是南方人取笑的对象。⑤字面的恐怖：菜名确实来自「洞里的蟾蜍」，可作怪诞菜名的入门样本——名字骇人，实物平庸，这种落差本身就是喜感来源。",
+        "historical_scope": "本条限英格兰（尤以北方为叙述中心）的家常菜语境，时间重点在 19 世纪工业化至 20 世纪中期配给年代，当代仍属日常。改编边界：可借用「热脂 + 稀面糊 + 少量肉 + 高热短烤」这套机制（它与约克郡布丁同源，机制可移植），但**不应断言菜名史或最早文献年代**——本次未取得来源；也不要把「面糊菜」当成任何有炉具的社会都会自发产生的形态，它需要麦作、乳与蛋的稳定供给。",
+        "evidence_and_uncertainty": "有来源支持的部分：稀面糊的构成与行为（面粉加液体及膨松剂／起酥油／糖／盐／蛋等，液体比例高于面团，可倾倒、以勺落下；面糊制品主要靠所烤容器成形；面糊亦用作煎炸裹层）据 cuisine_uk_src_36；约克郡布丁的「金属盘加热脂至近冒烟、倒入面粉奶蛋面糊、短时烤、须趁热上桌」这一整套机制据 cuisine_uk_src_03（本条把该机制移用于带肉的版本，属本项目归纳）；香肠的原料、肠衣与加工分类据 cuisine_uk_src_23；副产物与廉价肉在阶级饮食中的位置据 cuisine_uk_src_24。**未取证并因此不写入 mechanism 的部分**：①菜名「蟾蜍在洞」的最早用例与年代；②该菜与 18 世纪「肉藏面糊」一类做法的具体传承关系；③Britannica 对应路径本次返回 404（un_04），故无专门条目可引；④BBC 食谱页不可达（un_06），故不给任何配方级参数。此三条缺口是本条最薄弱处，review 时建议优先补英国地方饮食史来源。"
+      },
+      "source_ids": [
+        "cuisine_uk_src_36",
+        "cuisine_uk_src_03",
+        "cuisine_uk_src_23",
+        "cuisine_uk_src_24"
+      ],
+      "related_ids": [
+        "cuisine_uk_yorkshire_pudding",
+        "cuisine_uk_steak_kidney_pie"
+      ],
+      "related_catalog_ids": [
+        "staples_wheat",
+        "animal_food_sausage",
+        "animal_food_egg",
+        "animal_food_milk",
+        "animal_food_rendered_fat",
+        "produce_onion"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "cuisine_uk_steak_kidney_pie",
+      "name": "牛肉腰子派与牛排腰子布丁（酥皮／板油皮两路）",
+      "aliases": [
+        "steak and kidney pie",
+        "steak and kidney pudding",
+        "Kate and Sydney Pie",
+        "Kate and Sydney Pud",
+        "牛肉腰子派",
+        "牛排腰子布丁",
+        "腰子派"
+      ],
+      "category": "item",
+      "tags": [
+        "kind:dish",
+        "tradition:western",
+        "cuisine:british",
+        "course:main",
+        "technique:bake",
+        "technique:steam",
+        "technique:braise",
+        "technique:pastry",
+        "era:victorian",
+        "era:industrial",
+        "era:contemporary",
+        "class_marker:common",
+        "occasion:everyday",
+        "occasion:tavern",
+        "role:daily_staple",
+        "role:pub_food",
+        "role:national_symbol",
+        "trade:butcher",
+        "trade:baker"
+      ],
+      "summary": "牛肉丁、洋葱与腰子在棕色肉汁里煮好，再裹酥皮烤（派）或裹板油酥皮蒸数小时（布丁）。同一份馅、两种外壳：烤的是皮脆可携，蒸的是皮软耐放——它同时是酒馆食物、工厂午餐与「英国国菜」清单上的常客。",
+      "details": {
+        "definition": "牛排腰子派（steak and kidney pie）是英国传统菜：切丁牛肉、洋葱与腰子（通常取羊或猪）在棕色肉汁中煮后裹酥皮烘烤，可加蘑菇与培根，肉汁可掺各种麦酒尤其 stout。牛排腰子布丁（steak and kidney pudding）是同一份馅裹柔软的板油酥皮、蒸数小时而成，首个付印食谱据称可溯至 1860 年代。两者互为近亲，各有押韵俚语别称（Kate and Sydney Pie／Pud）。与「肉派」这一大类的关系是：它属英国自中世纪以来的肉、野味与鱼派主食传统，但把内脏（腰子）与肌肉（牛排）配在同一馅里，是它的特征。",
+        "mechanism": "共同的前半段是「上色—加洋葱—以肉汁或麦酒微沸至软」。技术要点三条：①两种质地要同步——牛排需长煮才软，腰子久煮则硬且失香，所以腰子常在后期放入或以大小与切法控制受热；②棕色肉汁靠先煎上色与麦酒提供颜色与酸度，稠度以面粉或收汁取得，太稠会在壳内糊成块；③外壳决定工艺：酥皮需高温烤使皮起层而馅已熟，故馅必须先煮好再入壳；板油酥皮则相反，靠长时间湿热蒸汽把皮与馅一起做熟，皮吸收肉汁而变软厚。派可冷食携带（皮是容器），布丁必须热食（皮是主食的一部分）。",
+        "conditions": "依赖牛肉（尤其需长煮的便宜部位）、腰子等内脏、洋葱、麦粉与油脂（派用起层酥皮、布丁用板油）、以及可作肉汁基底的麦酒。它成立的经济条件是「便宜部位 + 长时加热 + 面粉扩容」：内脏单卖不值钱但能提供浓郁风味，面粉把一份肉摊成多人份。派还依赖能烤的炉（早期为烤炉或面包房共用炉），布丁依赖能持续供汽的煮锅——这也是它更常见于家庭与机构厨房、派更常见于店铺的原因。",
+        "exceptions": "①腰子来源可换（羊、猪、牛）；②可加蘑菇、培根、牡蛎等增益料，各地不一；③派与布丁并非可互换：一个烤一个蒸，皮的性质与食用场景都不同；④与「肉布丁」大类里的其它成员（如以板油皮包水果的甜布丁）共用词而非共用菜；⑤现代商业版常用预煮馅与预制冷冻皮，风味与结构都与旧法不同——同一名字下的两种东西。",
+        "story_uses": "①工业城市的便携热量：皮能包住馅、冷了也能吃，工厂门口与工地上的午餐可以只靠它，写通勤与班次时比写「吃饭」更有细节。②酒馆的标准件：它是酒馆食物谱系里最稳的一道，写酒吧场景时可作「点什么就看出身份」的判据。③国族清单的政治：它被列为「英国国菜」之一，这类清单本身就是战后身份焦虑的产物。④押韵俚语与地下语：Kate and Sydney 这类顺口替代是伦敦土语的活样本，可写同一句话在两代人之间的不通。⑤节俭的技艺：把腰子这种「不体面」的部位做成受人追捧的菜，是厨房技艺对阶级偏见的胜利，也是它作为怀旧符号的资本。",
+        "historical_scope": "派一条限 19 世纪以后的英国，并入「自中世纪起英国以肉派为主食」的大传统；布丁的付印食谱以 1860 年代为起点。改编边界：可借用「便宜部位长煮 + 内脏与肌肉同馅 + 外壳决定食用场景」的组合，但不要让外壳与烹饪方式互相矛盾（烤与蒸不能互换）；也不要默认该世界有起层酥皮所需的黄油或板油酥皮所需的肾部硬脂。",
+        "evidence_and_uncertainty": "有来源支持的部分：派的成分（牛肉丁、洋葱、羊或猪腰子、棕色肉汁、可加蘑菇培根与 stout）与「19 世纪起源、被视为英国国菜之一、押韵别称 Kate and Sydney Pie」据 cuisine_uk_src_14；布丁的成分、柔软板油酥皮、蒸数小时、首个付印食谱可溯至 1860 年代与押韵别称 Kate and Sydney Pud 据 cuisine_uk_src_15；联合王国自中世纪起以肉、野味、鱼派为主食级菜品，牛排腰子为常见馅之一据 cuisine_uk_src_13；pudding 在英国作甜点通称之外，咸味布丁是肉、野味、禽与蔬菜裹板油酥皮水煮或蒸制，最知名者为牛排腰子；板油（suet）为牛羊肾部与腰部硬脂，是板油布丁的关键原料据 cuisine_uk_src_12 与 cuisine_uk_src_24（后者另记牛、羊、猪内脏的具体范围与内脏在西餐中的阶级位置）。未取证／需注意：①腰子在馅中的具体投放时机与切法处理属本项目技术归纳，来源只给成分不给工序；②「派起源于把馅装进硬壳以利保存」一类说法本次未取得来源，故不写入 mechanism；③各地方变体（如以牡蛎增鲜的版本）未取得来源；④现代商业产量的数据未取得来源。"
+      },
+      "source_ids": [
+        "cuisine_uk_src_14",
+        "cuisine_uk_src_15",
+        "cuisine_uk_src_13",
+        "cuisine_uk_src_12",
+        "cuisine_uk_src_24"
+      ],
+      "related_ids": [
+        "cuisine_uk_toad_in_the_hole",
+        "cuisine_uk_yorkshire_pudding",
+        "cuisine_uk_pub_counter_snack"
+      ],
+      "related_catalog_ids": [
+        "animal_food_beef",
+        "animal_food_pork",
+        "animal_food_mutton_lamb",
+        "produce_onion",
+        "staples_wheat",
+        "animal_food_rendered_fat",
+        "flavors_beer",
+        "flavors_black_pepper",
+        "animal_food_ham_bacon"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "cuisine_uk_scotch_egg",
+      "name": "苏格兰蛋（香肠肉裹白煮蛋，裹屑炸）",
+      "aliases": [
+        "Scotch egg",
+        "苏格兰蛋",
+        "Manchester egg",
+        "苏格兰鸡蛋",
+        "picnic egg"
+      ],
+      "category": "item",
+      "tags": [
+        "kind:dish",
+        "tradition:western",
+        "cuisine:british",
+        "region:scotland",
+        "course:snack",
+        "technique:deep_fry",
+        "technique:wrap",
+        "era:victorian",
+        "era:industrial",
+        "era:contemporary",
+        "class_marker:common",
+        "occasion:everyday",
+        "occasion:tavern",
+        "occasion:picnic",
+        "role:portable_food",
+        "role:pub_food",
+        "role:tourism_spectacle",
+        "trade:butcher",
+        "trade:egg_farmer"
+      ],
+      "summary": "白煮蛋剥壳、裹一层香肠肉、滚面包屑、炸到外壳脆响，通常冷食。三种互相竞争的起源说（百货公司为马车旅客所创、印度碎肉裹蛋的变体、苏格兰农人的廉价菜）至今没有定论——一道小食背后是一场没人能赢的归属权争夺。",
+      "details": {
+        "definition": "苏格兰蛋是英国传统菜：剥壳的白煮蛋裹香肠肉、滚面包屑，油炸或烘烤至脆。最常见的食用方式是冷食，是酒吧与野餐的常备项。它的结构是三层——蛋、肉、屑壳，三层各自独立又必须同时成立（蛋要溏或全熟、肉要熟透、壳要脆而不脱），因此它是一道「装配型」而非「混合型」的菜。",
+        "mechanism": "工序是「煮蛋定熟—冷却剥壳—香肠肉压成片包覆（须完全密封不留缝）—滚面粉／蛋液／面包屑—油炸或烘烤」。三个技术要点：①包覆必须无接缝、无气泡，否则油炸时肉层裂开、蛋被油浸；②肉层要压得均匀，厚薄不一会导致一端已焦另一端未熟；③外层三重裹法（粉—液—屑）是让壳在油中脱水成脆膜，并使肉汁不外泄的常用手段。冷食的场合要求它在冷后不渗油、不返软，这反过来约束了裹粉与炸制温度的选择。",
+        "conditions": "依赖禽蛋、香肠肉（猪为主）、面包屑与炸用油，三者都需稳定供应：蛋的可得性决定它能否成为廉价品，肉的肥瘦比决定包覆能否成片，油的成本决定它是日常还是节庆食物。它天然适合外带与冷食，因此与野餐、通勤、酒吧柜台这些「不在餐桌前吃饭」的场景绑定。",
+        "exceptions": "①三种起源说并存且互相竞争：伦敦食品百货 Fortnum & Mason 主张 1738 年为本店为乘马车远行的富裕旅客所创；一说源自印度北部的 nargisi kofta（碎肉裹蛋配咖喱），由归国军人等传入英格兰；一说为苏格兰农人所创的廉价菜；②变体众多：以黑布丁参与裹制的版本被称 Manchester egg（据称该新花样源于曼彻斯特）；③美国多热食并配 ranch 等蘸酱，与英国冷食习惯分岔；④可与其它肉（野味、鱼浆）替换，但已属另一类。",
+        "story_uses": "①归属权争夺：一家百货公司、一段殖民回流、一个农业穷地方，三者都想认领它——写「谁有权说这道菜是我们的」，比写菜本身更有戏。②阶级与场合的双重性：同一道小食既以「为富裕旅客所创」自我标榜，又是酒馆柜台上的便宜货，两个叙事可以并存于同一家店。③冷食的技术约束：一道必须冷吃才体面的炸物，天然适合旅途、野餐与伪装成便餐的密会。④酒吧食物谱系：与腌洋葱、薯片同处一个柜台，是最容易写「点单即阶级」的场景。⑤变体的地方自尊：Manchester egg 这类新造变体是地方给自己的一个玩笑式名片。",
+        "historical_scope": "本条限不列颠群岛，19 世纪以后为叙述重点（Fortnum & Mason 自述的 1738 年只是主张、非确证），当代仍为常见酒吧与野餐食物。改编边界：可借用「蛋—肉—壳」三层装配与冷食设计，但**不要把任何一条起源说写成定论**，也不应默认该世界有面包屑工业或廉价炸油。",
+        "evidence_and_uncertainty": "有来源支持的部分（据 cuisine_uk_src_04）：苏格兰蛋为剥壳白煮蛋裹香肠肉、滚面包屑后油炸或烘烤至脆的英国传统菜；是常见的酒吧与野餐食物，在英国通常冷食；三种起源说（Fortnum & Mason 主张 1738 年为马车旅客所创；源自印度北部 nargisi kofta 经归国军人传入；苏格兰农人所创的廉价菜）；世界各地变体常见，美国多热食并配 ranch 等蘸酱。以黑布丁裹制的版本被称 Manchester egg、据称源于曼彻斯特，据 cuisine_uk_src_02；香肠肉的原料与肠衣／加工分类据 cuisine_uk_src_23。**未取证并因此不写入 mechanism 的部分**：①「最早食谱」与「名称第一次出现」均未取得来源；②三种起源说在来源中即并列呈现、无一方成立，「1738 年」仅为该百货公司的自述，不作史实；③BBC 与地方史网站本次不可达（un_06、un_18），英国一侧的一手材料缺位；④现代消费数据（年销量、酒吧供应比例）未取得来源。"
+      },
+      "source_ids": [
+        "cuisine_uk_src_04",
+        "cuisine_uk_src_02",
+        "cuisine_uk_src_23"
+      ],
+      "related_ids": [
+        "cuisine_uk_black_pudding",
+        "cuisine_uk_pub_counter_snack",
+        "cuisine_uk_welsh_rarebit"
+      ],
+      "related_catalog_ids": [
+        "animal_food_egg",
+        "animal_food_sausage",
+        "animal_food_pork",
+        "staples_wheat",
+        "materials_salt"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "cuisine_uk_yorkshire_pudding",
+      "name": "约克郡布丁（烤肉滴油盘里烤的富蛋面糊）",
+      "aliases": [
+        "Yorkshire pudding",
+        "约克郡布丁",
+        "batter pudding",
+        "dripping pudding",
+        "popover",
+        "Toad-in-the-hole batter"
+      ],
+      "category": "item",
+      "tags": [
+        "kind:dish",
+        "tradition:western",
+        "cuisine:british",
+        "region:northern_england",
+        "course:side",
+        "course:starter",
+        "technique:bake",
+        "technique:steam_leaven",
+        "era:early_modern",
+        "era:industrial",
+        "era:contemporary",
+        "class_marker:common",
+        "occasion:festival",
+        "occasion:sunday_dinner",
+        "role:daily_staple",
+        "role:status_display",
+        "trade:baker",
+        "trade:butcher"
+      ],
+      "summary": "面糊倒进承接烤牛肉滴油的灼热金属盘，靠高热与蒸汽膨起、底部结成脆壳。它原本是烤肉旁边的副产物——一块肉能喂多少人，取决于这盘面糊能膨多高；南北做法之差至今被当作地方性格的证据。",
+      "details": {
+        "definition": "约克郡布丁是英国来源的烤制面包布丁，通常作烤牛肉的配食。旧式英国周日午餐的核心是烤牛肉，在现代烤炉进入厨房之前多以明火转叉烤，烤肉下方置金属盘承接滴落的油脂与肉汁；肉烤好后把蛋、面粉与奶调成的面糊倒入盘中，面糊像舒芙蕾一样膨起，接触灼热牛脂的底部形成脆壳。成品切块、浇肉汁，传统上作前菜吃，较少与烤肉同上，因为它被视为必须趁热立刻上桌的菜。它属于英国「布丁」这一广义类别中的烤制一支，与蒸制或水煮的板油布丁、与同为面糊的蟾蜍在洞同族。",
+        "mechanism": "工序骨架是「盘与脂预热到近冒烟—倒面糊—高热短烤—立刻上桌」。三个技术要点：①脂温决定成败——脂不够热，面糊贴盘处不结脆壳而渗油，膨发也起不来；②面糊是稀的（液体比例高于面团），可在热脂上流动，入炉后靠水分瞬间汽化与气泡膨胀把体积顶起来，因此不需要酵母一类生物膨松；③出炉即塌——膨发依赖温度差，一旦离炉便回落，所以「必须立刻吃」不是讲究而是技术事实。面糊成分固定（面粉、奶、蛋，盐可选），说明它的膨发不靠配方复杂，而靠热工与时机。",
+        "conditions": "成立前提是一次能产生大量滴油的烤肉：没有明火转叉烤肉的厨房，就没有那盘近冒烟的牛脂，这道菜也就失去最经济的做法（现代改用烤炉与另取的滴油，属条件的替代）。麦粉、乳与蛋的稳定供给决定面糊能否膨起，缺蛋时成品塌陷；燃料与炉温控制是另一半条件——旧式明火与现代烤炉给出的是同一种热工效果的两种实现。它还是「一餐里的时间秩序」：布丁先上、烤肉后上，这个顺序本身就是厨房产能的安排。",
+        "exceptions": "①可配牛肉以外的猪肉、羊肉；②形态分支：整盘烤或分模做成小份；③南北差异：英格兰南部的面包布丁多不以热脂烘烤，故更软、更像布丁；北部以热脂烤出脆壳，1836 年小说家 Charles Hooton 讥其为「像铅饼」，但做得好时轻而膨松；④性质化说法存在但不成立：一部 18 世纪早期食谱称其脆性源于猛火、与约克郡人刚烈性情相合，这种说法未被广泛接受；⑤归属依据是文献而非地理：它居首主要因最早见于 18 世纪在约克郡出版的食谱书，面包布丁在全不列颠本就常见。",
+        "story_uses": "①热工与阶级：同一块肉，配一盘膨得高的布丁可以喂更多人，这是短缺厨房里最容易量化的体面。②「必须趁热」的家规：出炉即上桌的技术事实可以写成一条谁都不敢违抗的家规，迟到的人吃到的是塌掉的布丁。③地方性格的神话：一道菜被用来论证一群人的性格，这种本质化说法本身是最好的讽刺材料——写地方自尊时不必驳倒它，只需让它被说出来。④文献决定正统：不是最好吃的地方赢，而是最早印食谱的地方赢，可作「谁掌握书写谁定义传统」的样本。⑤南北之争的日常摩擦：软与脆、铅饼与云朵，两派各有话说，一顿饭就能挑起地域对立。",
+        "historical_scope": "本条限不列颠（尤以英格兰北部为叙述中心），文献起点为 18 世纪的约克郡食谱书，19 世纪出现关于其质地的公开争论，20 世纪随着明火烤架退出家庭厨房而改为烤炉做法。改编边界：可借用「热脂 + 稀面糊 + 高热短烤 + 出炉即食」这套机制，但不要把它写成任何有麦作与炉具的社会必然会自发产生的菜——它依赖「烤一大块肉」这一特定烹饪事件；也不要断言「约克郡人性格刚烈」这类本质化说法为事实。",
+        "evidence_and_uncertainty": "有来源支持的部分（据 cuisine_uk_src_03）：约克郡布丁为英国来源的烤制面包布丁，通常配烤牛肉；旧式明火转叉烤、下方金属盘接滴油、肉烤好后倒面糊、面糊如舒芙蕾膨起、触脂处结脆壳；切块浇肉汁作前菜、较少与烤肉同上、须趁热；面包布丁在全不列颠常见而约克郡居首是因 18 世纪当地食谱书最早记录；早期食谱的「猛火—刚烈性情」本质化说法未被广泛接受；南部面包布丁不以热脂烤故更软；Hooton 1836 年「像铅饼」的讥评；可配猪肉羊肉；今日多烤箱做法、原料不变、金属盘高温加热至近冒烟后倒面糊烤 15—20 分钟；部分现代配方用小模。面糊的性质（液体比例高于面团、可倾倒、靠容器成形、蒸汽与气泡膨发）据 cuisine_uk_src_36；pudding 在英国既作甜点通称也指配烤牛肉的富蛋烤面糊据 cuisine_uk_src_12。未取证／需注意：①滴油盘布丁与更早的「面糊裹肉」做法之间的具体传承关系未取得来源；②「popover」等北美近亲的名称史未取得来源；③周日晚餐制度在阶级间的分布差异未取得来源。"
+      },
+      "source_ids": [
+        "cuisine_uk_src_03",
+        "cuisine_uk_src_36",
+        "cuisine_uk_src_12"
+      ],
+      "related_ids": [
+        "cuisine_uk_toad_in_the_hole",
+        "cuisine_uk_steak_kidney_pie"
+      ],
+      "related_catalog_ids": [
+        "staples_wheat",
+        "animal_food_egg",
+        "animal_food_milk",
+        "animal_food_beef",
+        "animal_food_rendered_fat",
+        "materials_salt"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "cuisine_uk_marmite",
+      "name": "马麦酱（酵母提取物咸膏，与「爱它或恨它」的分裂）",
+      "aliases": [
+        "Marmite",
+        "马麦酱",
+        "yeast extract",
+        "酵母提取物",
+        "Vegemite（澳洲同族）",
+        "Bovril-like spread",
+        "marmite jar"
+      ],
+      "category": "item",
+      "tags": [
+        "kind:condiment",
+        "tradition:western",
+        "cuisine:british",
+        "course:condiment",
+        "course:breakfast",
+        "technique:ferment",
+        "technique:reduce",
+        "era:industrial",
+        "era:victorian",
+        "era:postwar_rationing",
+        "era:contemporary",
+        "class_marker:common",
+        "occasion:everyday",
+        "role:preservation",
+        "role:byproduct_use",
+        "role:national_symbol",
+        "trade:brewer",
+        "trade:merchant"
+      ],
+      "summary": "啤酒酿造的废酵母被熬成深褐色的咸膏，抹在吐司上——一种把工业副产物变成国民早餐的技术，也是一种把人分成「爱它」与「恨它」两派的社会装置。它几乎不依赖任何稀缺原料，因而在短缺年代格外可靠。",
+      "details": {
+        "definition": "马麦酱（Marmite）是英国产的深褐色、可涂抹的酵母提取物咸膏，名称取自法语 marmite（一种搪瓷铸铁锅）。按英国用法它主要作吐司与饼干的涂抹、汤与炖菜的添加物；澳洲的同族产品 Vegemite 由啤酒副产物的酿造酵母与蔬菜提取物制成，加盐、麦芽提取物与多种 B 族维生素，质地似硬果冻、货架稳定。它属「咸鲜涂抹酱」这一类，与奶酪、腌鱼、肉酱同处早餐桌，却是唯一几乎完全由工业副产物制成的成员。",
+        "mechanism": "技术要点是把液态副产物变成可长期存放的膏体：①酵母经自溶与浓缩，把细胞内容物转成富含氨基酸与核苷酸的可溶物——咸鲜味（umami）的来源；②加盐既是调味也是防腐，使成品在高盐下无需冷藏即可货架稳定；③熬到水分足够低、质地接近硬果冻，涂抹时不流淌。食用方式决定风味呈现：薄抹借油脂与碳水缓冲咸苦，厚抹则把咸苦直接暴露，因此「抹多厚」是这门手艺真正的门槛，也是口味分裂的技术根源。",
+        "conditions": "前提是啤酒工业的存在：没有大规模酿造，就没有稳定的废酵母流。这条产业链使马麦酱的成本与产量都绑定在酿酒业而非农业上——它不占用耕地、不与口粮竞争，因此在战争与配给年代反而是可靠蛋白与 B 族维生素的来源。家用层面需要面包（吐司）作为载体，以及黄油一类脂肪来平衡咸苦。缺盐、缺密封容器或气候过于湿热时，货架稳定性下降。",
+        "exceptions": "①同族不同名：澳洲 Vegemite 与英国 Marmite 不是同一配方，也不可互换叙事——Vegemite 是 1922 年为争夺本土市场而开发、1923 年征名得商标，二战海运中断使其主导澳洲市场、1942 年亦受配给，这些是澳洲的事，不能移用到英国 Marmite 上；②用法分歧：原推广定位是汤与炖菜的添加物（与 Marmite 一致），后来才成为涂抹酱，并被推广作婴儿食品、意面调味与烤肉釉料；③口味两极：其味被描述为鲜咸带苦、带一丝 umami，属需习惯之味，因此家庭内部常出现明确的分裂；④与「牛肉汁膏」（Bovril 一类）不同类，后者以肉提取物为基底。",
+        "story_uses": "①工业副产物的胜利：一种废料成为国民食品，写工厂城镇时它是「没有浪费」这一信条最具体的证据。②短缺年代的可靠蛋白：不占耕地、耐存放、B 族维生素丰富，在配给回忆里它是「还能抹点味道」的小确幸。③口味即身份：爱它或恨它是最廉价也最顽固的部落标记，家庭早餐桌上的一罐足以写出一场代际冷战。④品牌的殖民回声：同一技术在澳洲被改名、在战时因海运中断而本地化，可作「帝国供应链断裂后地方工业如何接手」的案例。⑤玩笑与营销：把「爱它或恨它」做成官方口号，说明分歧本身可以被商品化。",
+        "historical_scope": "本条以英国 Marmite 为核心，兼记澳洲 Vegemite 作为同族对照；时间上从 19 世纪末—20 世纪初的酵母提取物工业到当代。改编边界：可借用「工业副产物 + 高盐浓缩 + 耐存放 + 涂抹」这套机制，但**不要断言该世界必有啤酒工业**，也不要替英国 Marmite 编造发明人与建厂年代——本次未取得来源（见缺口）。",
+        "evidence_and_uncertainty": "有来源支持的部分（据 cuisine_uk_src_29）：20 世纪初英国食品产品 Marmite 主导英国及部分英联邦的「预制汤底」市场，名称取自法语 marmite（搪瓷铸铁锅），这种酵母与蔬菜提取物的混合品在澳洲尤受欢迎；Vegemite 于 1922 年由澳洲食品化学家 Cyril P. Callister 开发（初名 Pure Vegetable Extract），1923 年征名得商标；以啤酒副产物的酿造酵母与蔬菜提取物制，加盐、麦芽提取物与烟酸／硫胺素／核黄素等 B 族维生素，深棕色、质地似硬果冻，在炎热气候下耐存、货架稳定；原推广为汤与炖菜的添加物（与 Marmite 一样），后流行作吐司与饼干涂抹、意面调味与烤肉釉料，甚至被推广为婴儿食品；其味被描述为鲜咸带苦、带一丝 umami、属需习惯之味；二战海运短缺使其主导澳洲市场，1942 年亦受配给。配给的一般机制（按数量／按点分配、短缺时以未配给品替代）据 cuisine_uk_src_20。**重要缺口**：①英国 Marmite 的发明人、发明年代、建厂地点与公司史均未取得来源——Britannica 的 Marmite 条目路径返回 404（un_05），另试 /topic/Marmite-food-product 亦 404；因此本条不写任何关于英国 Marmite 的创立年份与人物。②「一战期间因维生素 B 缺乏而推广」一类流行说法本次无来源，标为未取证，不写入 mechanism。③英国 Marmite 的现代产量与出口数据未取得来源。"
+      },
+      "source_ids": [
+        "cuisine_uk_src_29",
+        "cuisine_uk_src_20"
+      ],
+      "related_ids": [
+        "cuisine_uk_canned_meat",
+        "cuisine_uk_pub_counter_snack",
+        "cuisine_uk_welsh_rarebit"
+      ],
+      "related_catalog_ids": [
+        "flavors_beer",
+        "materials_salt",
+        "staples_wheat",
+        "animal_food_butter",
+        "flavors_vinegar"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "cuisine_uk_scone_cream_tea",
+      "name": "司康与凝脂奶油茶（cream tea 及其涂抹顺序之争）",
+      "aliases": [
+        "scone",
+        "cream tea",
+        "Cornish clotted cream",
+        "Devonshire cream tea",
+        "司康",
+        "凝脂奶油茶",
+        "奶油茶",
+        "Devon method",
+        "Cornwall method"
+      ],
+      "category": "item",
+      "tags": [
+        "kind:bread",
+        "kind:dish",
+        "tradition:western",
+        "cuisine:british",
+        "region:southwest_england",
+        "course:bread",
+        "course:dessert",
+        "technique:bake",
+        "technique:griddle",
+        "era:victorian",
+        "era:contemporary",
+        "class_marker:elite",
+        "class_marker:common",
+        "occasion:afternoon_tea",
+        "occasion:festival",
+        "role:status_display",
+        "role:tourism_spectacle",
+        "trade:baker",
+        "trade:dairy_farmer"
+      ],
+      "summary": "一块速发面饼配一层厚到能卷起来的凝脂奶油与果酱：奶油的制法要求「乳最丰时、隔夜静置、次日撇取」，因此它天生是夏季与产乳区的食物。而先抹奶油还是先抹果酱，把德文郡与康沃尔变成了两个互不相让的阵营。",
+      "details": {
+        "definition": "司康是英国来源的速发面包（quick bread），以发酵的大麦粉或燕麦片制，揉成圆形后切四份再烘烤，传统在铁板上烤，最早的司康在英格兰与威尔士乡间厨房悬于炉火的铸铁锅中烘成。凝脂奶油（clotted cream）是源自康沃尔的浓奶油，乳脂率最低 55%，质地厚而软如顺滑的奶油奶酪，表面可有粗糙、部分结晶的金色硬壳。二者合成的「奶油茶」（cream tea）以温热司康、凝脂奶油与果酱为固定组合，是英国茶点制度里最著名的一档；德文郡亦产凝脂奶油，与康沃尔并列。",
+        "mechanism": "司康一侧靠化学膨松与短揉：以小苏打／泡打粉发面，面团短揉后擀开切形（常为三角），烤前刷预留的蛋清以求上色；短揉是为了不生成过多面筋，成品才松而不是韧。凝脂奶油一侧靠热与静置的分离：把乳加热（不煮沸）至微沸温度后静置冷却过夜，乳脂上浮并在表面结成毯状，次日撇取；熟练者能把这一层像瑞士卷一样卷起。关键在温度窗口与时间——温度过高会沸溢、过低则结不成层；时间不足则脂层太薄。今日工业化流程改为先撇奶油再在浅盘中加热，得到一致质地，但表壳的结晶感变弱。",
+        "conditions": "凝脂奶油依赖「产乳区 + 乳脂含量高的季节乳 + 隔夜静置的耐心」，因此它的传统做法与康沃尔、德文郡的乳牛牧场经济直接绑定；名称受欧洲与英国法律保护，要求之一是乳源须来自康沃尔，这把地理变成了配方的一部分。司康一侧依赖麦粉、膨松剂、糖与盐，以及铁板或烤炉。奶油茶作为一餐，还需要茶（随东方贸易兴起的饮茶仪式）与果酱（糖与水果的保存技术）——四样东西分别来自牧场、麦田、贸易与糖业，任何一环缺失就只剩「面饼抹奶油」。",
+        "exceptions": "①涂抹顺序是活着的争议：德文郡习惯与康沃尔习惯相反，两地都自认正统；②司康形态分支：铁板圆饼切四份、烤箱三角、加无核小葡萄干、以薯泥代部分面粉；③凝脂奶油不是普通打发奶油，也不是奶油奶酪，三者不可互换；④名称受保护，非康沃尔乳源不得称 Cornish clotted cream；⑤「腓尼基商人两千年前传入」一说是来源自标的推测，无存世证据支持——这是最容易被当作史实转述的一条。",
+        "story_uses": "①地理即配方：乳源被写进受保护的名称里，一条法律把「哪头牛产的奶」变成商品身份，适合写产地意识与地方保护主义。②季节与耐心：只能在乳最丰时做、必须静置过夜，这种节奏决定了谁能供货——写农家时，奶油比牛更能说明作息。③顺序之争作为身份标记：先奶油还是先果酱，是成本极低的划界仪式，一顿下午茶就能演出一场地方对抗。④阶级双重性：奶油茶既被当作乡间农家的食物，又被上层茶点制度收编成体面仪式，同一套组合在两个阶级各有说法。⑤旅游与表演：它现在是被端给游客的「地方体验」，本地人自己怎么吃反而次要，可写「地方被消费」的温和版本。",
+        "historical_scope": "本条限英格兰西南部（康沃尔、德文郡）与英国茶点制度，时间上以 19 世纪饮茶普及至当代为主；司康的文献起点更早（最早的司康在乡间炉火铸铁锅中烤成）。改编边界：可借用「化学膨松短揉面饼 + 加热静置撇取的高脂奶油 + 果酱」这套组合，但不要默认该世界有受保护名称制度或茶叶贸易；也不要断言涂抹顺序之争有任何官方裁决——它至今没有。",
+        "evidence_and_uncertainty": "有来源支持的部分：司康为英国来源的速发面包、以大麦粉或燕麦片制、揉圆切四份、传统铁板烤、最早在英格兰与威尔士乡间炉火铸铁锅中烘成；随东方贸易使司康成为「饮茶」仪式的一部分，至今每日热食抹黄油；可加凝脂奶油与蛋、短揉、切形（常三角）、烤前刷蛋清、有些配方用薯泥、有时含无核小葡萄干（据 cuisine_uk_src_08）。凝脂奶油源自康沃尔、乳脂率最低 55%、质地厚软、风味浓郁微甜如「带坚果味的熟乳」；传统在农家厨房取乳最丰时加热至微沸而不煮沸、静置冷却过夜、次日撇取毯状奶油、熟练者可卷起；今日流程更机械化；受欧洲与英国法律保护、乳源须来自康沃尔；最佳状态表面有粗糙部分结晶的金色硬壳；德文郡亦产；是奶油茶的基石，与温热司康和草莓酱同食；《Oxford Companion to Food》推测其近似中东 kaymak、可能两千年前由腓尼基商人传入，但无存世证据（据 cuisine_uk_src_09）。康沃尔与德文郡都与用于「无处不在的英国司康」上的著名凝脂奶油相关（据 cuisine_uk_src_31）。jelly／果酱与 preserves 是英国茶点中司康与其它烘焙品的常见配食（据 cuisine_uk_src_41）。**未取证并因此不写入 mechanism 的部分**：①德文郡与康沃尔各自的涂抹顺序（先奶油或先果酱）及其起源——本次未取得任何来源，故只在 exceptions 里写「顺序相反」，不指定谁先；②「cream tea」一词的最早用例与年代；③奶油茶作为商业茶室产品的兴起年代；④Britannica 的 clotted-cream 与 afternoon-tea 路径均返回 404（un_20），英国茶点制度的一手材料缺位。"
+      },
+      "source_ids": [
+        "cuisine_uk_src_08",
+        "cuisine_uk_src_09",
+        "cuisine_uk_src_31",
+        "cuisine_uk_src_41"
+      ],
+      "related_ids": [
+        "cuisine_uk_marmite",
+        "cuisine_uk_kippers"
+      ],
+      "related_catalog_ids": [
+        "staples_wheat",
+        "staples_barley",
+        "staples_oats",
+        "animal_food_milk",
+        "animal_food_butter",
+        "animal_food_egg",
+        "flavors_tea",
+        "flavors_cane_sugar"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "cuisine_uk_kippers",
+      "name": "烟熏鲱鱼（kipper）与芬南黑线鳕（finnan haddie）",
+      "aliases": [
+        "kippers",
+        "kipper",
+        "烟熏鲱鱼",
+        "finnan haddie",
+        "finnan haddock",
+        "熏鱼早餐",
+        "cold-smoked herring"
+      ],
+      "category": "item",
+      "tags": [
+        "kind:dish",
+        "tradition:western",
+        "cuisine:british",
+        "region:northern_england",
+        "course:breakfast",
+        "technique:smoke",
+        "technique:curing",
+        "technique:grill",
+        "era:victorian",
+        "era:industrial",
+        "era:contemporary",
+        "class_marker:common",
+        "class_marker:elite",
+        "occasion:everyday",
+        "role:preservation",
+        "role:breakfast_food",
+        "trade:fisher",
+        "trade:fishmonger"
+      ],
+      "summary": "鲱鱼开背、清理、盐渍、冷熏，再炙或煎——把极易腐坏的小型群游鱼变成可跨季节食用的早餐蛋白。真正好的成品是浅铜色；颜色太深往往意味着染过而非熏过，这一点把「工艺真伪」直接写在鱼皮上。",
+      "details": {
+        "definition": "kipper 是英国标志性早餐菜：鲱鱼经开背、清理、盐渍与烟熏（即 kippering）后，通常再炙、烤或煎。最好的 kipper 呈浅铜色，产自英格兰北部、马恩岛与苏格兰；深色者往往因染色而非烟熏，故不受欢迎。常配黄油与柠檬，有时加一枚水波蛋，也可配茶或作晚餐。同族的 finnan haddie 是以黑线鳕烟熏而成的产品，属同一「冷熏白肉／红肉鱼」技术家族的另一种鱼。",
+        "mechanism": "工序是「开背去脏—盐渍—冷熏—临食再加热」。三个技术要点：①开背使鱼体摊平、盐与烟能均匀进入，短时内完成渗透；②盐渍先夺走表层水分、抑制微生物，烟再以干燥作用与木烟中的防腐成分（如甲醛与某些醇）叠加保鲜，同时赋予颜色与香气；③冷熏而非热熏——温度低到鱼肉蛋白不变性，成品仍是「生腌熏鱼」，必须临食再炙或煎。用材上必须硬木明火，云杉、松等软木含树脂，会在鱼面成膜并带来苦味。色泽因此是工艺指标而非装饰：真熏的浅铜色来自烟与脂的反应，染色则给出不自然的深色。",
+        "conditions": "依赖季节性且极易腐坏的小型群游鱼（鲱类）与鳕科白肉鱼；鲱鱼一旦离水腐败极快，因此烟熏必须发生在渔港近旁，形成「渔汛—腌熏—外运」的产业链。还需要盐（便宜且大量）、燃料（硬木木屑）与能控温的熏房。作为早餐蛋白，它还要与面包、黄油、茶配套——这些条件同时具备时，烟熏鱼才可能成为城市早餐的常规项而非渔村的自用食物。",
+        "exceptions": "①鱼种分支：鲱鱼作 kipper，黑线鳕作 finnan haddie，两者工艺同族而风味不同；②热熏与冷熏不同，热熏成品可直接食用，冷熏必须复热；③颜色真伪：深色可来自染色，故「浅铜色」是品质主张；④在家常餐桌上它可作早餐、晚餐或配茶，时间不固定；⑤与腌渍鲱鱼（pickle-cure，在密闭桶中以强腌液保存，用于脂肪较多的鱼）是不同保存路线，一个靠烟、一个靠盐液；⑥「人工烟熏」（浸渍或涂布防腐剂溶液）几无保存效果，属仿制。",
+        "story_uses": "①渔汛的时限：鲱鱼离水即腐，熏房必须建在港口旁——一个产业的空间布局就这样被腐败速度决定。②早餐的阶级线：熏鱼既进渔村厨房，也进体面早餐，同一条鱼在不同的餐桌上代表不同的身份。③色泽即信誉：浅铜色与染色的区分，是消费者唯一能做的品质判断，可写市集上的欺诈与行会式的自律。④保存的地理：硬木与软木的差别决定风味成败，把「附近有什么树」写进了菜里，是航海与林业史最容易被忽略的接口。⑤气味作为记忆：熏鱼的气味强烈而持久，是写「回到故乡的清晨」最省事的嗅觉锚点。",
+        "historical_scope": "本条限不列颠（英格兰北部、马恩岛、苏格兰），时间重点在 19 世纪工业化渔业至当代。改编边界：可借用「开背 + 盐渍 + 冷熏 + 临食复热」这套工艺链，但不要断言该世界必有硬木林或熏房；冷熏的低温要求与热熏的成品可直接食用是必须分清的两件事，不可混用。",
+        "evidence_and_uncertainty": "有来源支持的部分（据 cuisine_uk_src_16）：kipper 是英国标志性早餐菜，鲱鱼经开背、清理、盐渍与烟熏后通常再炙、烤或煎；最好的呈浅铜色（深色者往往因染色而非烟熏）、产自英格兰北部、马恩岛与苏格兰；常配黄油与柠檬、有时加水波蛋，也可配茶或作晚餐。烟熏工艺的机制（烟的干燥作用、木烟中甲醛与某些醇的防腐性、必须硬木明火、软木含树脂会成膜致苦、熏后尽快冷藏、人工烟熏几无保存效果）据 cuisine_uk_src_17；黑线鳕常被烟熏后以 finnan haddie 之名出售、为鳕科具价值的北大西洋食用鱼（据 cuisine_uk_src_33）；腌渍鲱鱼以强腌液在密闭桶中保存、用于脂肪较多的鱼（据 cuisine_uk_src_26）。未取证／需注意：①kipper 与 finnan haddie 的具体工艺参数（盐度、熏房温度、时长）本条不写，来源给出的熏房温度与时长属一般烟熏工艺，未标明适用于这两种鱼；②「kipper」作为人的引申义（英国俚语）未取得来源；③各产地（Craster、Isle of Man 等）的名称保护与差异未取得来源；④Britannica 无独立的 finnan haddie 条目，只有 haddock 条目中的一句。"
+      },
+      "source_ids": [
+        "cuisine_uk_src_16",
+        "cuisine_uk_src_17",
+        "cuisine_uk_src_33",
+        "cuisine_uk_src_26"
+      ],
+      "related_ids": [
+        "cuisine_uk_cullen_skink",
+        "cuisine_uk_stargazy_pie",
+        "cuisine_uk_scone_cream_tea"
+      ],
+      "related_catalog_ids": [
+        "animal_food_herring",
+        "animal_food_cod",
+        "animal_food_dried_salted_fish",
+        "materials_salt",
+        "animal_food_butter",
+        "produce_lemon_lime",
+        "flavors_tea"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "cuisine_uk_canned_meat",
+      "name": "罐装肉与午餐肉式制品（corned beef 罐头、SPAM 一类）",
+      "aliases": [
+        "canned meat",
+        "corned beef（罐装）",
+        "salt beef",
+        "bully beef",
+        "SPAM",
+        "luncheon meat",
+        "罐装炖肉",
+        "腌牛肉罐头"
+      ],
+      "category": "item",
+      "tags": [
+        "kind:preserved_product",
+        "tradition:western",
+        "cuisine:british",
+        "course:main",
+        "course:lunch",
+        "technique:can",
+        "technique:curing",
+        "technique:sterilize",
+        "era:victorian",
+        "era:interwar",
+        "era:postwar_rationing",
+        "class_marker:common",
+        "class_marker:poverty_food",
+        "occasion:everyday",
+        "occasion:famine",
+        "role:preservation",
+        "role:military_ration",
+        "role:postwar_staple",
+        "role:nostalgia_marker",
+        "trade:merchant",
+        "trade:butcher"
+      ],
+      "summary": "把肉绞碎、腌制、装罐、密封后罐内烹熟，得到一种无需冷藏、可跨年存放、可跨洋运输的蛋白。它先是军需与远洋补给，再是配给年代的厨房底牌，最后成为「吃过就再也不想吃」的集体记忆——同一种技术，在三个阶段被赋予三种完全不同的情绪。",
+      "details": {
+        "definition": "罐装肉指以气密容器密封后加热杀菌的肉制品，生产上属于罐藏（canning）一支；英国饮食语境里最典型的两类是罐装腌牛肉（corned beef，按一般英式用法新鲜腌牛肉称 salt beef，罐装版仍用 corned 之名）与午餐肉式碎肉制品（以 SPAM 为代表：绞猪肉与火腿加盐、糖、马铃薯淀粉、水与亚硝酸钠，装罐、真空封口、罐内烹熟）。它在这套菜系里的位置是「无需厨房的蛋白」：不依赖冷藏、不依赖燃料，开罐即可食或简单加热。",
+        "mechanism": "工序链是「腌制／绞碎调味—装罐—排气—封罐—高压蒸汽杀菌—冷却」。四个技术要点：①腌制提供初始的抑菌与风味（corn 指腌渍用的大颗粒岩盐，与 kernel 同源）；②装罐时加盐水或糖浆以替出空气，装后经热水或蒸汽排气箱加热使食物膨胀驱除残余空气，封罐杀菌冷却后内容收缩形成部分真空；③密封罐在高压蒸汽釜中约 116℃ 杀菌，低酸蔬菜需达 120℃ 以防肉毒中毒，胖罐不可食用——这是「罐头会杀人」的技术底座；④绞碎与淀粉／水的加入既改善口感也降低成本，使同一罐肉可被切、压、煎、切丁而不散。罐藏保留大部分营养，B1 的保留取决于用热，部分维生素与矿物质可能溶入盐水或糖浆。",
+        "conditions": "前提是一整套工业能力：镀锡铁罐（马口铁）的制造、密封接缝工艺、高压蒸汽杀菌设备、以及能把罐运到战壕与远洋船上的物流。历史线索是 1809 年法国 Appert 应陆军与海军之需发明、1810 年英格兰 Peter Durand 为镀锡铁罐申请专利、1820 年前已大量供应皇家海军；19 世纪末 Prescott 与 Underwood 给出时间—温度杀菌要求，使它从经验变成科学。短缺年代的直接推力是配给：当鲜肉受配额限制，罐装品成为替代与补充。社会层面还需要「愿意吃罐头」的接受度——它最初是军需与探险食品，进入家庭餐桌需要一次口味与体面的让步。",
+        "exceptions": "①罐装与鲜制同名不同物：英式 fresh corned beef 称 salt beef，罐装版保留 corned 之名，两者在餐桌上不通用；②品牌化制品有明确商业史：SPAM 于 1937 年上市，名字是 spiced ham 的缩合，主料为猪肩肉这一原本少用的部位；二战期间盟军士兵消耗逾一亿磅，战后盟国与战败轴心国平民亦食用，赫鲁晓夫称其救了战时俄军，但 Hormel 档案里也保存着吃厌了的服役人员来信；③并非处处受欢迎：在夏威夷（SPAM musubi）与菲律宾、韩国地位远高于英国；④「爱尔兰菜」是 diaspora 重构：爱尔兰历史上牛肉稀缺昂贵，节庆更可能吃爱尔兰培根（一种火腿），今日的圣帕特里克节腌牛肉配甘蓝多归因于美国爱尔兰移民从犹太邻居处接触腌牛肉；⑤胖罐、锈罐不可食是硬性例外。",
+        "story_uses": "①军需—家庭—羞耻的三段史：同一个罐头，在战壕里是希望、在配给厨房里是底牌、在战后一代的记忆里是「再也不想吃」，可写三代人对同一件物品的三种态度。②帝国的物流：罐头使「英格兰与苏格兰长期以牛肉为主食、而 21 世纪初其罐装腌牛肉多自阿根廷与乌拉圭进口」成为常态，食物来源与实际产地分离，是写全球供应链最早的样本。③殖民与税收：爱尔兰曾为对英出口生产腌牛肉，且因爱尔兰盐税显著低于英国而更有利可图——一罐肉的利润可以追到税制。④配给算术：按配额与点数兑换的机制（配给分非正式／按用途／按数量／按价值／计点五类）天然适合写成一张可被作弊、被倒卖、被黑市绕开的规则表。⑤开罐即食的场景：不需要火、不需要厨房的蛋白，适合写逃亡、封锁、断电与野地。",
+        "historical_scope": "本条以英国及其帝国内外供应为语境，时间从 19 世纪初罐藏发明到 20 世纪中期配给年代及当代；SPAM 的商业史以 1937 年起算。改编边界：可借用「密封 + 高压杀菌 + 真空」这套机制与其「无需冷藏」的后果，但不要默认该世界有马口铁或高压釜；也不要把美澳的接受度（夏威夷、菲律宾、韩国）当成英国的情况。",
+        "evidence_and_uncertainty": "有来源支持的部分：罐藏的原理、1809 年 Appert 为军需发明、1810 年 Durand 的镀锡铁罐专利、1820 年前供应皇家海军、19 世纪末的时间—温度杀菌科学化、装罐排气封罐杀菌冷却流程、约 116℃ 杀菌与低酸食品需 120℃、胖罐不可食、营养保留情况（据 cuisine_uk_src_18）。SPAM 的 1937 年上市、名称由来、猪肩肉主料、大萧条末期的定位、二战逾一亿磅、赫鲁晓夫的评价、服役人员来信、1959 年十亿罐与 2012 年八十亿罐、1991 年博物馆、配方构成、夏威夷／菲律宾／韩国的情况、英国军中俚语与 Monty Python 的来源（据 cuisine_uk_src_19）。腌牛肉的词源（corn 为粗粒岩盐）、北美两至三周腌渍与煮制、**英式 salt beef／罐装 corned 的用名差别**、与 pastrami 的异同、爱尔兰历史上牛肉稀缺与以牛为财富尺度、节庆更可能吃爱尔兰培根、美国爱尔兰移民从犹太邻居处接触腌牛肉并与甘蓝马铃薯同食、英格兰与苏格兰长期以牛肉为主食且 21 世纪初罐装品多自阿根廷与乌拉圭进口、爱尔兰作为经济殖民地时因盐税低而有利可图（据 cuisine_uk_src_21）。配给的五种类型与消费者被劝导购债储蓄（据 cuisine_uk_src_20）；保存的一般原理与「抑制微生物、降低酶活性、防脂肪酸氧化」三路（据 cuisine_uk_src_43）。**未取证并因此不在正文写年份的部分**：①英国战时与战后配给的具体起止年份与逐项配额——IWMs 专页不可达（un_11），Britannica 的 rationing 页不含英国年份；②「spam」作为垃圾邮件一词与 Monty Python 段子的关联在某来源中有记载（src_19），但该来源同时含 AI 摘要块，本条只保留与正文一致的部分。"
+      },
+      "source_ids": [
+        "cuisine_uk_src_18",
+        "cuisine_uk_src_19",
+        "cuisine_uk_src_21",
+        "cuisine_uk_src_20",
+        "cuisine_uk_src_43"
+      ],
+      "related_ids": [
+        "cuisine_uk_marmite",
+        "cuisine_uk_pub_counter_snack",
+        "cuisine_uk_steak_kidney_pie"
+      ],
+      "related_catalog_ids": [
+        "animal_food_beef",
+        "animal_food_pork",
+        "animal_food_ham_bacon",
+        "materials_salt",
+        "materials_tinplate",
+        "staples_potato",
+        "flavors_cane_sugar"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "cuisine_uk_moulded_gelatin",
+      "name": "模具凝胶冷盘与维多利亚式果冻沙拉（jellied salad）",
+      "aliases": [
+        "moulded gelatin",
+        "jelly salad",
+        "gelatin salad",
+        "aspic mould",
+        "果冻沙拉",
+        "模具冻",
+        "jellied consommé",
+        "Victorian jelly"
+      ],
+      "category": "item",
+      "tags": [
+        "kind:dish",
+        "tradition:western",
+        "cuisine:british",
+        "course:starter",
+        "course:dessert",
+        "course:side",
+        "technique:gelatinize",
+        "technique:chill",
+        "technique:mould",
+        "era:victorian",
+        "era:interwar",
+        "era:postwar_rationing",
+        "class_marker:elite",
+        "class_marker:common",
+        "occasion:festival",
+        "occasion:sunday_dinner",
+        "role:status_display",
+        "role:service_theatre",
+        "role:preservation",
+        "trade:dairy_farmer",
+        "trade:butcher"
+      ],
+      "summary": "把汤、肉、菜、果统统一冻结成模具的形状，是维多利亚时代最体面的一种炫技：它要的是冰、模具与时间，而不是昂贵的原料。等明胶变成廉价粉末，同一种技术就从宴席冷盘下沉为家庭甜点与「把剩菜变成体面」的手段。",
+      "details": {
+        "definition": "本条指以明胶成冻的模具冷盘这一族，涵盖两条支线：咸的一支（以骨汤天然明胶凝成的 aspic，用于镀面、挂冻与装饰模具，也含以蛋黄酱或 velouté 与液态 aspic 混合的 chaud-froid）与甜／沙拉的一支（以果汁、糖与明胶或果胶凝成的 jelly，以及把水果、蔬菜甚至咸料嵌进凝胶的 jellied salad）。它与法式 aspic 的技术同源，但社会史不同：法式一支是高级厨房的技法体系，本条更强调英式家庭与中产餐桌上的模具冻——包括战后配给与廉价明胶普及后「什么都能冻」的那一段。",
+        "mechanism": "核心是明胶的溶胶—凝胶可逆性：明胶浸液吸水膨胀，加热融化成溶胶（黏度升高），冷却固化为凝胶；凝胶在更高温度下可逆回溶胶，溶胶冷却又成凝胶；凝固时间与软硬受蛋白与糖浓度及温度影响。三个操作要点：①模具必须「倒着做」——先摆装饰，再倒入部分凝的胶液固定，最后灌满，脱模靠短时浸温水面；②酸性水果与某些生鲜（含蛋白酶）会削弱凝胶强度，故甜冻常用高果胶果汁（柑橘、苹果）与糖同煮，或另加明胶或 agar 补强；③盐与糖都夺水，咸冻的调味须比热菜更重，否则冷藏后风味变钝。它同时是一种「时间成本」菜：凝固靠静置，不能加速。",
+        "conditions": "维多利亚期的硬条件是冰：能稳定取得冰或冰窖的家庭才能让大模具冻成形，因此这道菜在有无冷藏之间划出一条阶级线。明胶来源分两路——厨房自己熬骨取胶（费时、味杂）与商品明胶（片状或粉状，稳定、无味），后者使这道菜从宴席走进日常。糖与水果（或罐头水果）是甜支线的原料，肉与骨汤是咸支线的原料。当代的替代是 agar（海藻提取），它以清澈与质地见长，但凝结行为与明胶不同，不可按同比例互换。",
+        "exceptions": "①咸甜两支不可混谈：aspic 与 jelly 在技法上同族、在社会史与用途上分属两套；②与法式 aspic／chaud-froid 的技术同源但语境不同，法国组已单独立条，本条不合并；③素食替代：agar 制冻不依赖动物胶，风味与口感皆不同；④果冻沙拉在 20 世纪中期达到普及高峰，此后被视为过时，评价转向嘲弄——同一道菜的地位可以在一代人之内翻转；⑤脱模失败是常态，成品是否完整本身就是技艺的公开测验。",
+        "story_uses": "①冰的阶级线：拥有一座冰窖，等于拥有一道能立起来的菜——最省字的阶级描写是一道没塌的模具冻。②炫技与时间：凝固不能加速，客人到点未到、菜先化了，一场宴席的成败就被一条物理规律决定。③把剩菜做成体面：明胶能把零碎的水果、菜与肉重新组织成有形状的东西，这是短缺厨房最实用的一种魔术。④技术下沉的通例：从宫廷冷盘到家庭甜点，同一种技法随原料降价而改换阶级，可作「普及不是进步而是降价」的案例。⑤过时即羞耻：果冻沙拉从体面象征变成笑料，写两代人对同一道菜的态度差，比写任何政治立场都直接。",
+        "historical_scope": "本条以英国（兼及北美同型）家庭与中产餐桌为主，时间上从 19 世纪维多利亚期的模具冻全盛，经 20 世纪中期明胶粉末普及与果冻沙拉流行，到其后的污名化。改编边界：可借用「溶胶—凝胶可逆 + 模具倒做 + 温度窗口」这套机制，但不要默认该世界有商品明胶或可靠冰源；也不要把法式高级厨房的 aspic 体系与本条的家庭模具冻等量齐观。",
+        "evidence_and_uncertainty": "有来源支持的部分：明胶的提取（胶原经碱或酸预处理后煮沸皮骨组织）、营养不完整、颗粒品无味、吸水膨胀、加热成溶胶、冷却成凝胶、凝胶可逆回溶胶、凝固时间与软硬受蛋白糖浓度与温度影响、可打发起泡并作乳化稳定剂、用于肉冻汤冻糖果 aspic 与模具甜点、水果果冻靠果胶固化（据 cuisine_uk_src_10）。aspic 以骨汤天然明胶凝成、有时加商品明胶以确保硬挺、用于镀面挂冻与装饰模具、与蛋黄酱或 velouté 混合成 chaud-froid（据 cuisine_uk_src_11）。**「明胶常被用于各种水果或蔬菜沙拉」**这一句据 cuisine_uk_src_34；jelly 的制法与凝结（果汁加甜煮沸慢煨、常借果胶／明胶凝结、高果胶汁与糖同煮易凝、agar 制 jelly 以清澈与质地见长）、以及果酱类是英国茶点中司康的常见配食（据 cuisine_uk_src_41）。未取证／需注意：①「维多利亚时代模具冻的具体流行年代、代表食谱与器具商」本次未取得来源；②果冻沙拉在美国中西部与摩门教社群的地方史未取得来源，本条不写；③「明胶由煮骨废料工业化生产导致价格暴跌的具体年代」未取得来源；④Britannica 的 jelly-dessert 与 Jell-O 路径均返回 404（un_21），品牌与商业史缺位。"
+      },
+      "source_ids": [
+        "cuisine_uk_src_10",
+        "cuisine_uk_src_11",
+        "cuisine_uk_src_34",
+        "cuisine_uk_src_41"
+      ],
+      "related_ids": [
+        "cuisine_uk_jellied_eels",
+        "cuisine_uk_canned_meat",
+        "cuisine_fr_aspic"
+      ],
+      "related_catalog_ids": [
+        "flavors_cane_sugar",
+        "produce_apple",
+        "produce_citrus_orange",
+        "animal_food_rendered_fat",
+        "tools_storage_jar",
+        "materials_glass"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "cuisine_uk_cullen_skink",
+      "name": "卡伦石龙子鱼汤（Cullen skink：烟熏黑线鳕、薯与乳的浓汤）",
+      "aliases": [
+        "Cullen skink",
+        "卡伦石龙子",
+        "卡伦鱼汤",
+        "smoked haddock chowder",
+        "finnan haddie soup",
+        "苏格兰烟熏鱼汤"
+      ],
+      "category": "item",
+      "tags": [
+        "kind:dish",
+        "tradition:western",
+        "cuisine:british",
+        "region:scotland",
+        "course:starter",
+        "course:main",
+        "technique:simmer",
+        "technique:poach",
+        "era:industrial",
+        "era:contemporary",
+        "class_marker:common",
+        "occasion:everyday",
+        "occasion:winter",
+        "role:daily_staple",
+        "role:famine",
+        "trade:fisher",
+        "trade:dairy_farmer"
+      ],
+      "summary": "烟熏黑线鳕、马铃薯、洋葱与乳同煨成浓汤，配硬皮面包就是一餐。它把三件互不相干的东西缝在一起——港口熏房的保存鱼、田里的薯、牧场的乳——因此它同时是渔村菜、冬季菜与「用少量贵重蛋白喂饱全家」的算法。",
+      "details": {
+        "definition": "Cullen skink 是苏格兰东北部（Cullen 一带）的浓汤：以烟熏黑线鳕、马铃薯、洋葱与乳同煨而成，常加黄油起锅、以欧芹点缀，配硬皮面包作饱腹的午餐或晚餐。它属「鱼 + 乳 + 薯」的浓汤家族（与北美 chowder 的技法结构相近，但来源与地域不同），与清汤类苏格兰肉汤（broth）形成对照：一个以鱼乳为主，一个以羊牛与根茎为主。名称中 skink 的来历本次未取得来源。",
+        "mechanism": "工序序列是「黄油煎洋葱至透明不上色—加马铃薯与水煨软—另锅以乳浸没烟熏鱼小火煮至刚熟—取鱼保乳—鱼稍凉后掰大块去骨—把乳与鱼回锅再煮数分钟—调味撒欧芹」。四个技术要点：①鱼与乳分开煮，是为了让鱼肉不因长时间沸腾而碎散、也让乳不因鱼的盐分而被过度调味；②烟熏鱼自带咸与烟香，整锅的盐量因此由鱼决定，先煮后调是唯一安全的顺序；③马铃薯既是体积也是天然增稠剂，煨到边缘化开时汤体自然变浓，不必另加面粉；④洋葱只煎至透明不上色，是为保持汤色浅白——一旦上色，成品就变成另一类褐色汤。",
+        "conditions": "依赖三样地方产物同时可得：港口熏房的烟熏白肉鱼（黑线鳕在苏格兰东北部常以 finnan haddie 的形式流通）、马铃薯、以及乳。苏格兰东北部是渔业与农业并存的沿海地带，这三样在同一市集上能凑齐，这道汤才成立。季节上它是冬季与冷天的食物：热量高、成本低、一锅可喂多人。经济上是「少量贵重蛋白 + 大量廉价填充」的算法，鱼只是调味级用量，薯与乳才是主体。",
+        "exceptions": "①鱼种可换：烟熏黑线鳕是标准，也有用其它烟熏白鱼或鲜鱼的版本；②浓稠度分岔：有的追求可立勺的厚，有的偏稀；③名称与拼写不统一（skink 的来历不明），不宜当作固定古名；④与北美 chowder 结构相近但**不是同一来源**，不可用 chowder 的年表替代它的历史；⑤现代餐馆版常加奶油或提高鱼的比重，与家用版是两种成本结构。",
+        "story_uses": "①三个产业的交点：熏房、薯田与牧场在这碗汤里各出一份，写地方经济时它比任何统计都直观。②鱼只是调味：一小块烟熏鱼给整锅汤提供咸鲜，是短缺厨房最典型的「以味代量」手法。③冬季与配给：热、稠、便宜、可批量，这类汤在寒冷与紧缩年代的地位远高于丰裕年代。④港口与内地的关系：鱼必须来自能熏的地方，因此这道汤的分布图就是熏鱼流通图。⑤名字的门槛：一个外人念不出的名字（Cullen skink）足以成为「你是不是本地人」的第一道测试。",
+        "historical_scope": "本条限苏格兰东北部沿海（Cullen 一带），时间上以 19 世纪渔业与农业并存的年代至当代为主。改编边界：可借用「烟熏鱼另煮 + 薯作增稠 + 乳作汤体 + 洋葱不上色」这套工序，但**不要推断名称来源或最早食谱年代**——本次未取得来源；也不要把 chowder 的布列塔尼—纽芬兰源流套到它身上。",
+        "evidence_and_uncertainty": "有来源支持的部分：Cullen skink 是把黑线鳕、马铃薯、乳、洋葱与欧芹煨成浓汤、配硬皮面包作饱腹午餐或晚餐的菜；工序序列为黄油煎洋葱至透明不上色、加马铃薯与水煮开转小火煨、另锅以乳浸没黑线鳕小火煮至刚熟并保留乳、鱼稍凉后掰大块去骨、乳与鱼回锅再煮数分钟、调味撒欧芹（据 cuisine_uk_src_40，食谱页；本条**只取工序顺序与原料构成，不转抄任何克数、容量与时长**）。黑线鳕常被烟熏后以 finnan haddie 之名出售（据 cuisine_uk_src_33）。chowder 为北美「鱼或贝类 + 腌猪油 + 洋葱 + 马铃薯 + 乳」的浓汤、词源为法语 chaudière 的讹变、18 世纪版本更多样并以捣碎饼干增稠（据 cuisine_uk_src_35，仅作技法对照，**不作为本条的史源**）。未取证／需注意：①名称中 skink 的语源、以及「Cullen」与这道汤绑定的最早年代，本次均未取得来源；Britannica 的 Cullen-skink 路径返回 404（un_19）；②「原本是渔民的早餐」一类说法无来源，不写入；③烟熏鱼在 Scottish 东北部的具体流通与 finnan 工艺参数未取得来源；④BBC Good Food 是食谱类来源，其陈述限于原料与工序，不含史实。"
+      },
+      "source_ids": [
+        "cuisine_uk_src_40",
+        "cuisine_uk_src_33",
+        "cuisine_uk_src_35"
+      ],
+      "related_ids": [
+        "cuisine_uk_kippers",
+        "cuisine_uk_stargazy_pie",
+        "cuisine_uk_haggis"
+      ],
+      "related_catalog_ids": [
+        "animal_food_cod",
+        "animal_food_dried_salted_fish",
+        "staples_potato",
+        "animal_food_milk",
+        "animal_food_butter",
+        "produce_onion",
+        "flavors_black_pepper"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "cuisine_uk_welsh_rarebit",
+      "name": "威尔士兔子（rarebit：奶酪酱烤吐司）",
+      "aliases": [
+        "Welsh rarebit",
+        "Welsh rabbit",
+        "buck rarebit",
+        "威尔士兔子",
+        "威尔士干酪吐司",
+        "rarebit"
+      ],
+      "category": "item",
+      "tags": [
+        "kind:dish",
+        "tradition:western",
+        "cuisine:british",
+        "region:wales",
+        "course:snack",
+        "course:main",
+        "technique:melt",
+        "technique:emulsify",
+        "technique:grill",
+        "era:early_modern",
+        "era:industrial",
+        "era:contemporary",
+        "class_marker:common",
+        "class_marker:poverty_food",
+        "occasion:tavern",
+        "occasion:everyday",
+        "role:pub_food",
+        "role:meat_substitute",
+        "role:portable_food",
+        "trade:dairy_farmer",
+        "trade:baker"
+      ],
+      "summary": "烤面包上覆一层切达奶酪、麦酒、芥末与 cayenne 调成的咸酱，炙到起泡。它是一道「用名字冒充肉」的菜：叫 rabbit 却没有兔，被解释成穷人用奶酪替代买不起的肉——这个名字的来历至今不明，但「以奶酪顶肉」的经济逻辑确实是它长期的位置。",
+      "details": {
+        "definition": "威尔士兔子是英国传统菜：烤面包上覆咸味切达奶酪酱，酱通常含啤酒或麦酒、Worcestershire 酱、cayenne、芥末与红椒粉；若上面再加一枚蛋，则称 buck rarebit。名字来源不明——Welsh rabbit 的最早引用见于 1725 年，替代拼写 rarebit（此词除本菜外别无意义）出现于 1785 年。它在这套菜系里的生态位是「酒吧与家常的奶酪热食」：比三明治热、比派便宜、比纯奶酪更像一餐。",
+        "mechanism": "工序骨架是「奶酪与液体在受控热下乳化成顺滑酱—涂厚于烤面包—上火炙至起泡上色」。四个技术要点：①奶酪受热会先出油后结块，故必须借助液体（麦酒）、酸（芥末、Worcestershire）与持续搅动让脂肪与水相不分家，这一步与荷兰酱同理，只是用奶酪代替蛋黄；②麦酒同时提供液体、酸与风味，是这道菜不能省的成分；③cayenne 与红椒粉在奶酪的高脂环境里提香而不显辣；④炙的火力要猛而短，使表面起泡焦香、内部仍流动——过久则酱变韧。面包必须厚切并先烤硬，否则会被酱汁泡软。",
+        "conditions": "依赖奶酪（切达为主）、麦酒、面包与芥末这四样，都是英国本土可稳定取得之物：牧场、麦田、酿造与磨芥末构成了它的全部前提。它的经济位置是「肉的替代」：在肉贵或受配给时，一盘热奶酪吐司能提供蛋白与饱足，因此它长期被归在便宜、体面但不上等的食物里。酒吧作为场景还需要一个能烤能炙的火源与一只耐火的盘子。",
+        "exceptions": "①加蛋即成 buck rarebit，属公认变体；②奶酪可换（各地用本地硬质奶酪），但风味随之改变；③「以奶酪替代肉的穷人菜」只是流行解释之一，来源明言名字起源不明，不可当定论；④与「奶酪吐司（cheese on toast）」的界线模糊：rarebit 的酱是预先调制的，奶酪吐司则是直接把奶酪片铺上去烤，两者常被混称；⑤名称的两种拼写在文献中并存（1725 年的 rabbit 与 1785 年的 rarebit），不宜择一为唯一正确。",
+        "story_uses": "①用名字冒充肉：一道无肉菜顶着肉名，是短缺经济最温和的一种自嘲，适合写穷人如何在语言里保住体面。②酒吧的标准热食：与腌洋葱、薯片、苏格兰蛋同处一个柜台，是最容易写「点什么就看得出身份」的场景。③民族标签的轻蔑与自认：菜名里带「威尔士」而被解释为「劣质替代品」，这类命名本身就是一种地域偏见，可以正面写也可以反用为地方骄傲。④语言的化石：rarebit 是只在这道菜里存在的词，写文献考据与误拼的传播史最方便。⑤素与不素之间：它常被当作「没有肉的一餐」，但在斋期、配给或穷困时又是正经的替代方案，立场随语境滑动。",
+        "historical_scope": "本条限不列颠（威尔士标签、英格兰与苏格兰的酒吧与家常餐桌），文献起点为 18 世纪初（1725 年 Welsh rabbit、1785 年 rarebit），当代仍为常见酒吧食物。改编边界：可借用「奶酪 + 酒 + 酸 + 芥末乳化成酱 + 猛火炙」这套机制，但不要默认该世界有切达或麦酒；也不要把「穷人替代肉」的解释当成已证实的词源。",
+        "evidence_and_uncertainty": "有来源支持的部分（据 cuisine_uk_src_05）：威尔士兔子为烤面包上加咸味切达奶酪酱的英国传统菜，酱通常含啤酒或麦酒、Worcestershire 酱、cayenne、芥末与红椒粉；若上置一蛋则称 buck rarebit；名字起源不明，Welsh rabbit 最早引用见于 1725 年、替代拼写 rarebit 出现于 1785 年、且 rarebit 一词除本菜外别无意义；流行传说称无肉菜之所以用肉名是因威尔士农民买不起肉而以奶酪替代；此菜今日是英国饮食常备项与常见酒吧食物，常配一品脱啤酒或麦酒。菜系形成的因素（气候决定原料、经济条件调节贸易、宗教或节制消费的法律规定某些食物为必需或禁止；主食的使用跨越经济与阶级差别）据 cuisine_uk_src_37。未取证／需注意：①「Welsh」在菜名中是否含贬义（如「威尔士式的劣质仿制品」）本次未取得来源，故不写入 mechanism，只在 story_uses 中作为可写的解释提出；②与 cheese on toast 的界线无来源界定，属本项目归纳；③奶酪乳化的具体机理（钙、pH 与磷酸盐的作用）本次未取得来源，本条只写操作层面的要点；④Britannica 该页无历史年代以外的更多细节。"
+      },
+      "source_ids": [
+        "cuisine_uk_src_05",
+        "cuisine_uk_src_37"
+      ],
+      "related_ids": [
+        "cuisine_uk_pub_counter_snack",
+        "cuisine_uk_scotch_egg",
+        "cuisine_uk_marmite"
+      ],
+      "related_catalog_ids": [
+        "animal_food_cheese",
+        "animal_food_butter",
+        "staples_wheat",
+        "flavors_beer",
+        "flavors_mustard",
+        "flavors_vinegar",
+        "animal_food_egg"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "cuisine_uk_pub_counter_snack",
+      "name": "酒吧柜台小食（腌洋葱、薯片与咸味零嘴）",
+      "aliases": [
+        "pub snacks",
+        "pickled onions",
+        "pickled egg",
+        "crisps",
+        "酒吧小食",
+        "腌洋葱",
+        "腌蛋",
+        "薯片（英式 crisp）",
+        "bar snacks"
+      ],
+      "category": "item",
+      "tags": [
+        "kind:dish",
+        "kind:institution",
+        "tradition:western",
+        "cuisine:british",
+        "course:snack",
+        "technique:pickle",
+        "technique:ferment",
+        "technique:deep_fry",
+        "era:victorian",
+        "era:industrial",
+        "era:interwar",
+        "era:contemporary",
+        "class_marker:common",
+        "occasion:tavern",
+        "occasion:everyday",
+        "role:pub_food",
+        "role:preservation",
+        "role:social_lubricant",
+        "trade:publican",
+        "trade:brewer"
+      ],
+      "summary": "一罐腌洋葱、一包薯片、一枚腌蛋——不是为了吃饱，而是为了让一杯酒能喝得下去。它们是盐、酸与油的三重奏：久存的酸物让人再要一杯，油炸淀粉让人多留半小时。而酒吧在 19 世纪把店内分隔开来、按阶级安置客人，柜台上的小食正是那条线的标志物。",
+      "details": {
+        "definition": "本条指英式酒吧（public house）柜台上供应的咸味小食族群：以醋与香料腌渍的洋葱与蛋、油炸马铃薯片（英式称 crisps）、以及同类的咸味零嘴。它不是一道菜，而是一个「食物—场所」组合：小食与酒的搭配关系、以及它所在的柜台空间，才是它的定义。它与酒吧本身（作为受普通法约束、须接待旅客的场所）在制度上互为表里，因此本条同时带 kind:institution 标签。",
+        "mechanism": "三条技术路线各自解决一件事。①腌渍：以醋、盐与香料控制微生物并改变质地，北欧较冷气候的腌液多为风味浓烈的醋调物，配胡椒粒、芥末籽、莳萝、辣根、盐与辣椒、肉桂、丁香、姜等香料；酸与盐共同造就「越吃越想再喝一口」的刺激。②油炸淀粉：马铃薯切薄片油炸或烘烤至脆，烹后加盐或调味；脆、咸、含油三者使它在室温下仍可口，且不易立刻变质（现代包装解决了返潮问题）。③常备化：这三样都能长期存放于柜台后，不占厨房、不需即时烹制，因此可以「随时供应」——这一点决定了酒吧能卖食物而不成为餐馆。",
+        "conditions": "前提是一个以饮酒为主、以食物为辅的场所：客人站着或坐在柜台边，不太可能用刀叉，因此小食必须「徒手可食、单手可食、不占桌面」。还需要醋、盐、香料与油的稳定供给，以及玻璃罐、木桶、后来的密封袋等容器。制度条件是酒吧的法律身份：英格兰普通法早期即把为旅客福祉的责任加于客栈与酒馆，宣布其为须接待所有状况合理、愿付价钱的旅客并供食、饮与住宿的场所——「供食」的义务是这条食物线的制度起点。",
+        "exceptions": "①腌渍品不限于洋葱：蛋、黄瓜、甜菜、核桃等都入同一体系；②薯片在英式语境是 crisp，与美式 chips（薯条）不同名不同物；③薯片的商业化史属美国线索（1853 年 Saratoga Springs 的 George Crum 故事、1926 年 Laura Scudder 的蜡纸袋、1920 年代机械削皮机与连续油炸机、1930 年代后期 Herman Lay 的品牌行销），英国酒吧的柜台小食与之共享技术但不共享年表；④酒吧内部在 1800 年代被分隔以区隔不同阶级的客人，public house 在社会地位上被视为高于 alehouse、beerhouse 与 ginshop——同一间店里，小食的档次随所在隔间而变；⑤当代酒吧越来越多供应正餐，柜台小食从主体退为配角。",
+        "story_uses": "①点单即阶级：在柜台前要什么，比穿什么更能说明位置，一杯酒配一包薯片与一杯酒配一份派，是两种人生。②盐与酸的经济学：咸酸小食让人多喝，这是场所与食物之间最古老的一种共谋，可写掌柜的算盘与酒客的自制力。③空间的隔断：19 世纪把店内分隔以区隔阶级客人，这条物理界线可以被写成一场「走错隔间」的冲突。④保存技术的残余：腌渍原本是为过冬，如今只为下酒——技术失去必要性之后靠风味存活，这是饮食史最常见的存活方式。⑤不成为餐馆的餐馆：只要柜台后有几罐酸的与几袋脆的，一个只卖酒的场所就能自称供食，制度的弹性正好用来写灰色经营。",
+        "historical_scope": "本条限不列颠（英格兰为主）的酒吧空间，时间从 19 世纪的酒吧分层与腌渍常备，经 20 世纪薯片的工业包装化，到当代酒吧餐食化。改编边界：可借用「腌渍 + 油炸 + 常备化 + 徒手可食」这套组合，但不要默认该世界有玻璃罐、密封袋或马铃薯；也不要把美国的薯片年表直接移植为英国的酒吧史。",
+        "evidence_and_uncertainty": "有来源支持的部分：public house 的定义、普通法对其须接待旅客并供食饮住宿的责任、都铎时期维持马厩与兼作邮政、17 世纪中期部分酒馆发行非官方钱币、1800 年代内部被分隔以区隔不同阶级的客人、社会地位高于 alehouse／beerhouse／ginshop、店名的讹变与 Arms 的含义、由持照酒类零售商经营而 20 世纪初多由酿酒公司拥有、20 世纪后期独立经营增多（据 cuisine_uk_src_25）。腌渍的机制（发酵与盐控制微生物、可发酵碳水转酸、受控盐浓度营造有利发酵、肉可干腌或腌液保存、风味取决于地方配方）以及「腌渍蔬菜包括黄瓜、青番茄、洋葱、萝卜与甘蓝」（据 cuisine_uk_src_26）。北欧较冷气候的腌液构成（醋调物配胡椒粒、芥末籽、莳萝、辣根、盐与辣椒肉桂丁香姜等香料）、pickle 可能是最古老的腌渍食物之一、好的腌渍品外脆内软甜酸平衡（据 cuisine_uk_src_42）。醋的两步发酵与「主要用途是调味与保存肉、鱼、水果与蔬菜」（据 cuisine_uk_src_27）。薯片的定义、1853 年 Crum 的故事、19 世纪末商业化散装、1926 年 Scudder 的蜡纸袋、1920 年代机械削皮机与连续油炸机、1930 年代后期 Lay 的品牌行销、现代调味与压模成形零食（据 cuisine_uk_src_22）。**未取证并因此不写入 mechanism 的部分**：①英式酒吧柜台小食的具体起源年代与「免费小食」制度的存在与消亡；②腌洋葱与腌蛋在英国酒吧成为标配的年代；③「咸食促饮」的定量研究；④英国薯片消费数据。以上四项本次均未取得来源，正文只写机制与大致时代，不给年份。"
+      },
+      "source_ids": [
+        "cuisine_uk_src_25",
+        "cuisine_uk_src_26",
+        "cuisine_uk_src_42",
+        "cuisine_uk_src_27",
+        "cuisine_uk_src_22"
+      ],
+      "related_ids": [
+        "cuisine_uk_scotch_egg",
+        "cuisine_uk_welsh_rarebit",
+        "cuisine_uk_canned_meat",
+        "cuisine_uk_marmite"
+      ],
+      "related_catalog_ids": [
+        "flavors_vinegar",
+        "materials_salt",
+        "produce_onion",
+        "staples_potato",
+        "flavors_mustard",
+        "flavors_beer",
+        "tools_storage_jar",
+        "animal_food_egg"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    }
+  ]
+}

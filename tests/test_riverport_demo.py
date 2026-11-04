@@ -82,6 +82,7 @@ def settle(svc, session, steps=4):
     return s
 
 
+@unittest.skipUnless(PACKAGE.exists() and CHARACTERS.exists(), 'Legacy riverport demo assets were deleted; no self-contained fixture is available')
 class RiverportPackageTests(unittest.TestCase):
     def test_activation_does_not_touch_other_packages(self):
         tmp, svc = make_service()
@@ -175,6 +176,7 @@ class RiverportPackageTests(unittest.TestCase):
                 tmp.cleanup()
 
 
+@unittest.skipUnless(PACKAGE.exists() and CHARACTERS.exists(), 'Legacy riverport demo assets were deleted; no self-contained fixture is available')
 class RiverportRouteTests(unittest.TestCase):
     def setUp(self):
         self.tmp, self.svc = make_service()

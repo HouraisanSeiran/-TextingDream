@@ -1,9 +1,9 @@
 'use strict';
 // Loaded after existing deferred scripts; surface data contains no hidden NPC attributes.
 window.addEventListener('DOMContentLoaded',()=>{
- const card=el('details');card.id='world-systems';card.className='card';
- card.append(el('summary','我的属性与当地环境'));
- const body=el('div');card.append(body);$('surface-journeys').after(card);
+ const card=el('details');card.id='world-systems';card.className='info-card';
+ card.append(el('summary','属性、物品与当地环境'));
+ const body=el('div');card.append(body);$('info-local').after(card);
  const names={talent:'天赋',strength:'力量',agility:'敏捷',wisdom:'智慧',social:'社交',resilience:'韧性'};
  // Public holdings only: labels and balances the engine already disclosed. Everything is
  // written with textContent (el()), never innerHTML, so author-supplied names cannot

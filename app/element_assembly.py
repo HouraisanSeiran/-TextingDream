@@ -1496,6 +1496,8 @@ class ElementAssembly:
 
     def pin_manifest(self, refs=None, base_revision=None):
         """生成草稿固定清单：缺省取当前包快照，显式 refs 只能是它的子集。"""
+        if not base_revision and not refs and not self.service.store.get('pointer', 'package'):
+            return None, []
         story = self.service.runtime.package(base_revision)['story'] if base_revision else \
             self.service.runtime.package()['story']
         base = package_manifest(story)

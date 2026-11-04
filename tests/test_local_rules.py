@@ -6,17 +6,18 @@ from pathlib import Path
 from unittest.mock import patch
 from fastapi.testclient import TestClient
 from app import local_rules as local
+from tests.fixtures_world import world_service
 from app.service import Service
 from app.storage import Store
 from app.contracts import Turn
-from app.web import create_app
+from tests.fixtures_world import world_app as create_app
 
 ROOT=Path(__file__).resolve().parents[1]
 
 
 class LocalRulesTests(unittest.TestCase):
     def setUp(self):
-        self.tmp=tempfile.TemporaryDirectory();self.svc=Service(Store(Path(self.tmp.name)/'t.sqlite3'),ROOT)
+        self.tmp=tempfile.TemporaryDirectory();self.svc=world_service(Store(Path(self.tmp.name)/'t.sqlite3'),ROOT)
         self.svc.provider.configure({'offline':True});self.rt=self.svc.runtime
         p=copy.deepcopy(self.rt.package())
         p['story'].setdefault('mechanics',{})['local']={

@@ -1,0 +1,1600 @@
+{
+  "schema_version": 1,
+  "status": "candidate",
+  "group": "reality-herbs-other",
+  "genres": [
+    "real_world"
+  ],
+  "compiled_note": "现实基础库·中药材专题（皮木脂、菌藻、矿物与动物类）候选目录。不是数据库实现，不是任何故事包已采纳的正典，也未进入 data/。本文件只做设定与史料条目：**不写剂量、配伍比例、煎煮温度与时长、炮制火候参数、服用方法、疗程、频次、适应症指导，也不写「可治某病」**；一律用「历史上曾如此记载」「文献把它记作」这类描述句式而非指导句式。每条的 evidence_and_uncertainty 首句固定写明「本条为文献与设定资料，不构成医疗建议，不可据此用药」。矿物与重金属类（朱砂、雄黄等）只写毒性后果与历史中毒教训，不写减毒、安全用量或解救方法；动物类（穿山甲、熊胆、虎骨等）只作历史、伦理与制度问题条目，写明现代法律与国际公约禁止或严格管制贸易，不写获取或使用方式。菌藻类逐条说明真菌不是植物，kind 仅作检索口径。与 reality-physical / reality-human / 四组题材库重叠处只做文字指向，不复制同名条目。",
+  "sources": [
+    {
+      "id": "hro_src_britannica_cinnabar",
+      "title": "Cinnabar | Definition & Facts (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/science/cinnabar",
+      "access": "read",
+      "supports": "辰砂为硫化汞（HgS）、是汞的主要矿石矿物；常与黄铁矿、白铁矿、辉锑矿共生，产于近期火山岩附近的矿脉与热泉沉积；最重要矿床在西班牙阿尔马登，已开采两千年；其他产地在秘鲁万卡维利卡、意大利尤德里奥、美国加州海岸山脉；黑辰砂（等轴晶系）加热至 400—550 ℃ 转为辰砂。",
+      "rights_note": "第三方百科条目，仅作事实核对与自行转述，不复制原文段落；本条目不采用任何药用内容。"
+    },
+    {
+      "id": "hro_src_baike_cinnabar",
+      "title": "辰砂（百度百科词条）",
+      "url": "https://baike.baidu.com/item/%E8%BE%B0%E7%A0%82/2298305",
+      "access": "read",
+      "supports": "辰砂以古辰州（今湖南沅陵一带）得名、民间称朱砂丹砂赤丹汞砂、含汞质量分数约 86.2%；摩氏硬度 2—2.5、比重约 8—8.2、三方晶系、低温热液矿物；中国产地为湖南新晃、贵州铜仁、陕西、浙江昌化等，世界产地含西班牙阿尔马登、意大利尤德里奥、美国加州；新石器时代已用于彩陶与木器涂料（甘肃秦安大地湾、河姆渡漆碗），商周用于涂朱甲骨、棺底铺撒、青铜与玉器包裹；贵州万山曾为中国最大汞工业基地、因长期开采的环境破坏于 2002 年关闭；伪品有赭石（赤铁矿，含三氧化二铁）、染色矿渣砂粒、掺赭石或铁粉等类；词条另记「含朱砂的中成药过量服用致汞中毒的实例」与毒性症状。",
+      "rights_note": "中文百科词条，含大量药用主治、配伍、剂量与理化检验操作；本目录**只取**历史应用、产地、开采政策、伪品类别与中毒记载，**不采用**其任何性味主治、剂量、方剂与检验步骤。"
+    },
+    {
+      "id": "hro_src_britannica_mercury",
+      "title": "Mercury | Definition, Uses, Density, & Facts (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/science/mercury-chemical-element",
+      "access": "read",
+      "supports": "汞是室温下唯一液态金属、熔点 −38.83 ℃、沸点 356.62 ℃、比重 13.5；公元前 1500 年埃及已知，名字来自 6 世纪炼金术；「其毒性很早就被认识，但主要用途曾是医疗」；主要矿石为红色硫化物辰砂；地壳平均丰度约每吨岩石 0.08 克；辰砂经焙烧并冷凝汞蒸气而提汞；汞有毒，可经吸入蒸气、摄入可溶化合物或经皮肤吸收中毒；汞能与金、银成汞齐，历史上用于从矿石中提取金银。",
+      "rights_note": "第三方百科条目，仅作事实核对与自行转述；本条目只取毒性与矿冶史，不记录任何提汞或防护操作参数。"
+    },
+    {
+      "id": "hro_src_britannica_realgar",
+      "title": "Realgar | Sulfide, Arsenic & Antimony (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/science/realgar",
+      "access": "read",
+      "supports": "雄黄是砷的重要矿石、红色或橙色、含砷与硫；通常为矿脉中的次要组分，与雌黄共生；长期见光会崩解为雌黄；中国人曾用雄黄雕刻，但这些雕件同样见光劣化；单斜晶系、柱状晶体。",
+      "rights_note": "第三方百科条目，仅作事实核对与自行转述；不记录任何药用或加工内容。"
+    },
+    {
+      "id": "hro_src_britannica_gypsum",
+      "title": "Gypsum | Definition, Uses, & Facts (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/science/gypsum",
+      "access": "read",
+      "supports": "石膏为含水硫酸钙（CaSO4·2H2O）、常见硫酸盐矿物、摩氏硬度 2（指甲可划）；见于二叠系与三叠系沉积建造的大片矿层、盐湖与盐盘、盐丘盖岩；由海水卤水沉积或硬石膏水化而成，水化过程体积增大约 30%—50% 并造成硬石膏层强烈褶皱；透明细粒变种称雪花石膏，用于雕像与装饰；纤维状变种称纤维石膏；主要生产国有西班牙、泰国、美国、土耳其、俄罗斯；约四分之三产量经煅烧用作熟石膏与建材，原矿用作助熔剂、肥料、纸张与纺织填料、波特兰水泥缓凝剂。",
+      "rights_note": "第三方百科条目，仅作事实核对与自行转述；不采用其任何工业配比或工艺参数。"
+    },
+    {
+      "id": "hro_src_britannica_talc",
+      "title": "Talc | Definition, Uses, & Facts (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/science/talc",
+      "access": "read",
+      "supports": "滑石为常见硅酸盐矿物、摩氏硬度最低（1）、有皂感或油腻感，致密块体称皂石；高纯度致密集合体称块滑石；自古用于雕刻、饰物与器皿（亚述滚印、埃及圣甲虫、中国雕像）；耐多数试剂与中等热度；用于润滑剂、皮革整理、化妆与爽身粉、陶瓷/涂料/纸张/屋面材料/塑料/橡胶填料、杀虫剂载体、谷物抛光温和磨料；为变质矿物，常与蛇纹石、透闪石、镁橄榄石及碳酸盐共生；化学式 Mg3Si4O10(OH)2，结构几乎恒定，不易接纳铁铝替代。",
+      "rights_note": "第三方百科条目，仅作事实核对与自行转述；不采用其任何工业或日用配方。"
+    },
+    {
+      "id": "hro_src_britannica_hematite",
+      "title": "Hematite | Definition, Uses, & Facts (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/science/hematite",
+      "access": "read",
+      "supports": "赤铁矿为氧化铁（Fe2O3）、重而较硬，因含铁约 70% 且储量大而成为最重要铁矿石；名出希腊语「血」，指其红色；金属光泽粗粒变种称镜铁矿、薄片状称云母赤铁矿；软细土状变种称红赭石或赭土，用作颜料；提纯品（红粉）用于抛光平板玻璃；最重要矿床为沉积成因，北美苏必利尔湖区年产近 7500 万吨；亦见于巴西米纳斯吉拉斯、委内瑞拉、加拿大；常为风化产物与沉积岩的染色剂。",
+      "rights_note": "第三方百科条目，仅作事实核对与自行转述。"
+    },
+    {
+      "id": "hro_src_britannica_magnetite",
+      "title": "Magnetite | Magnetic Properties, Iron Oxide, Magnetism (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/science/magnetite",
+      "access": "read",
+      "supports": "磁铁矿为氧化铁矿物（Fe3O4）、尖晶石族一个系列的主要成员、又称极磁铁矿或磁铁矿石；在火成岩、变质岩、花岗伟晶岩、石陨石与高温硫化物脉中成黑色至褐黑色、金属光泽、中等硬度的八面体与块体；同系列含镁铁矿、锌铁尖晶石、锰铁尖晶石、镍铁尖晶石，均有磁性但后二者较弱；磁铁矿常具明显南北极，约公元前 500 年即已知其磁性。",
+      "rights_note": "第三方百科条目，仅作事实核对与自行转述。"
+    },
+    {
+      "id": "hro_src_britannica_oracle_bone",
+      "title": "Oracle bone | Chinese artifact (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/science/oracle-bone",
+      "access": "read",
+      "supports": "甲骨为商代（约前 1600—前 1046）用于占卜的遗物；问题刻于骨或龟甲之上，随后加热至开裂，由裂纹形态解读答案，所问涉及祭祀、收成、天气与军事；这些刻辞是已知最早的汉文形式，已识别三千余字、约半数可释读；安阳一带商代晚期都城出土的甲骨为龟腹甲与牛肩胛骨，用于高度规范化的祭祀占卜体系；甲骨刻辞显示至迟公元前 14 世纪已定回归年 365¼ 日、朔望月 29½ 日。",
+      "rights_note": "第三方百科条目，仅作事实核对与自行转述。"
+    },
+    {
+      "id": "hro_src_britannica_fungus",
+      "title": "Fungus | Definition, Characteristics, Types, & Facts (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/science/fungus",
+      "access": "read",
+      "supports": "真菌界约 14.4 万已知种，含酵母、锈菌、黑粉菌、霉菌与蘑菇；历史上真菌曾被归入植物界，但因缺叶绿素且细胞壁与细胞膜成分独特而与植物分开；真菌由菌丝（hyphae）组成菌丝体，自尖端生长，先在体外消化有机物再吸收；黏菌与卵菌等「类真菌」不属于真菌界而多归色藻界；菇类并非数量或经济上最重要的一群，只是最易辨认。",
+      "rights_note": "第三方百科条目，仅作事实核对与自行转述（本文件用来说明菌藻类不是植物）。"
+    },
+    {
+      "id": "hro_src_britannica_ganoderma",
+      "title": "Ganoderma | Description, Fungus, Pathogen, Parasite, Saprotroph (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/science/Ganoderma",
+      "access": "read",
+      "supports": "灵芝属为灵芝科（多孔菌目）300 余种木腐真菌；广布，成架状或瘤状，作为腐生菌分解枯木或作为寄生物侵害阔叶树、针叶树与棕榈的活木；部分种寄主专一而多数寄主范围宽，若干种是经济上重要的植物病原；包括灵芝（G. lucidum）在内的数个种常用于亚洲传统医学；菌盖可逾 60 厘米、可为一年生或多年生、颜色白黄褐红至深紫、部分有漆样光泽；以酶降解木质素与纤维素使木材漂白；侵染活树可致死，G. zonatum 曾造成亚洲油棕业重大损失。",
+      "rights_note": "第三方百科条目；本目录**不采用**其任何药用主张（原文仅以「用于传统医学」「研究者关注」表述），只取分类、生境、腐生/寄生习性与经济影响。"
+    },
+    {
+      "id": "hro_src_britannica_cordyceps",
+      "title": "Cordyceps | Description, Fungus, Insects, Supplement, Uses (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/science/Cordyceps",
+      "access": "read",
+      "supports": "虫草属为 300 余种真菌，多数为内寄生菌，侵染并消化昆虫及其他节肢动物；除南极外各大洲均有分布、亚洲尤其多样；孢子多带黏性，附着寄主后萌发侵染菌丝穿透体壁，在体内生长并杀死寄主，随后自寄主头部附近伸出孢子梗；多种有悠久的草药与中医使用史；西藏高原与喜马拉雅地区的冬虫夏草 2007 年由 Cordyceps sinensis 改隶 Ophiocordyceps sinensis，仍以旧名在市面流通，菌与虫尸一并使用、常作热饮，被称有抗炎与抗癌性质并常被当作壮阳与增强体能之物；该种为世界上最贵的真菌，优质者可达每公斤 11 万美元，是产地农村重要现金来源，因权属与采集准入发生过暴力甚至致死冲突；过度采集致显著下降，被 IUCN 列为易危，气候变化预计进一步影响其种群。",
+      "rights_note": "第三方百科条目；本目录**只取**分类、寄生生活史、价格、权属冲突、过度采集与保护等级，**不采用**其任何功效、用法或「壮阳」类主张。"
+    },
+    {
+      "id": "hro_src_britannica_kelp",
+      "title": "Kelp | Definition, Major Genera, & Facts (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/science/kelp",
+      "access": "read",
+      "supports": "海带目（Laminariales）约 30 属褐藻，在较冷海域成大型海岸海藻；提供关键栖息地并为鱼类与无脊椎动物的重要食物；19 世纪初以前其灰分是重要的钾与碘来源；多种产生褐藻胶（algin），用于轮胎制造、冰淇淋防结晶、食品悬浮与乳化；Laminaria 属有长扁叶片、主要分布于北大西洋与北太平洋沿岸、长 1—3 米、固着器与叶片之间有分生组织；巨藻 Macrocystis 最大，一种可达 60 米以上，仅在水温低于 18—20 ℃ 时繁殖；Nereocystis（牛海带）为一年生、见于深水强潮处、可达 40 米，其气囊含多达 10% 一氧化碳。",
+      "rights_note": "第三方百科条目；不采用任何食用或药用主张。"
+    },
+    {
+      "id": "hro_src_baike_fuling",
+      "title": "茯苓（百度百科词条）",
+      "url": "https://baike.baidu.com/item/%E8%8C%AF%E8%8B%93",
+      "access": "read",
+      "supports": "茯苓为多孔菌科真菌茯苓（Poria cocos）的干燥菌核；多于 7—9 月采挖，除泥沙后堆置「发汗」、摊晾、反复数次至表面皱缩内部水分大部散失后阴干，称「茯苓个」，切制者称茯苓块与茯苓片；外皮薄而粗糙、棕褐至黑褐、有皱缩纹理、体重质坚实、断面颗粒性、外层淡棕内部白色、少数中间抱有松根；产地含河北、河南、山东、安徽、浙江、福建、广东、广西、湖南、湖北、四川、贵州、云南、山西，主产安徽、云南、湖北。",
+      "rights_note": "中文百科词条，含性味、归经、功效、主治、配伍、剂量与炮制；本目录**只取**基质、采收季节、加工阶段名称、性状与产地，**不采用**任何功效主治、剂量、方剂与炮制参数。"
+    },
+    {
+      "id": "hro_src_baike_zhuling",
+      "title": "猪苓多孔菌（百度百科词条）",
+      "url": "https://baike.baidu.com/item/%E7%8C%AA%E8%8B%93",
+      "access": "read",
+      "supports": "猪苓（Polyporus umbellatus）为多孔菌科真菌；收录于生态环境部与中国科学院发布的《中国生物多样性红色名录—大型真菌卷》，评估等级为 LC（无危）。",
+      "rights_note": "中文百科词条，本组只取到导言与保护等级，正文极短；不采用任何药用内容。本来源为**导言级**，不能支撑形态、生境与药用细节。"
+    },
+    {
+      "id": "hro_src_britannica_cinnamon",
+      "title": "Cinnamon | Plant, Spice, History, & Uses (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/topic/cinnamon",
+      "access": "read",
+      "supports": "肉桂为樟属常绿小乔木（Cinnamomum verum）及其树皮所得香料；原产斯里兰卡（旧称锡兰）、印度马拉巴尔海岸与缅甸，亦栽培于南美与西印度群岛；香料为干燥内层树皮、红棕至棕色、气香而味温甜；含精油 0.5%—1%，主成分为桂醛；采制为雨季截取萌条、以半圆刀刮皮、以铜棒揉松、剖开剥皮、套接成约 107 厘米长的筒并填同等级碎皮、晾四五日后于弱光下续干、以二氧化硫漂白并按等级分选；曾比黄金更贵，埃及用于防腐与宗教，中世纪欧洲用于宗教仪式与调味，后为荷兰东印度公司最赚钱的香料；近缘种 cassia（C. cassia）、越南肉桂、印尼肉桂、马拉巴尔肉桂亦作肉桂商品；桂皮类香豆素含量显著高于真肉桂、可能影响肝脏，长期使用一般不被建议。",
+      "rights_note": "第三方百科条目，含「传统医学」段与若干药理表述；本目录**不采用**这些功效表述与肝脏相关用量建议，只取植物学、采制流程、贸易史与香豆素差异这一化学事实。"
+    },
+    {
+      "id": "hro_src_baike_eucommia",
+      "title": "杜仲（百度百科词条）",
+      "url": "https://baike.baidu.com/item/%E6%9D%9C%E4%BB%B2",
+      "access": "read",
+      "supports": "杜仲（Eucommia ulmoides）为杜仲科植物、落叶乔木、高可达 20 米；树皮灰褐粗糙、内含橡胶、折断拉开有多数细丝；叶椭圆至卵形、边缘有锯齿；翅果扁平、长 3—3.5 厘米；早春开花、秋后果熟；喜温暖湿润与阳光、耐严寒（成株 −30 ℃ 可存活）、对土壤要求不严；生长幼期缓慢、速生期 7—20 年、50 年后基本停止；为中国特有种，分布于陕西、甘肃、河南、湖北、四川、云南、贵州、湖南、安徽、江西、广西、浙江，现广泛栽种；杜仲属曾有多达 14 种、后在大陆与欧洲相继灭绝，现存者为孑遗植物，已列入《中国植物红皮书—稀有濒危植物》；采皮传统有半环剥与环剥两法、剥后二三年树皮可再生；药材性状为板片状或卷片状、厚 3—10 毫米、外表面灰棕、内表面暗紫、折断有银白色丝状物相连。",
+      "rights_note": "中文百科词条，含性味归经、功效主治、配伍、剂量、炮制与大量药膳做法；本目录**只取**形态、生长习性、分布、孑遗与稀有状况、采皮方式与药材性状，**不采用**任何功效、剂量、炮制火候、药膳与用法内容。"
+    },
+    {
+      "id": "hro_src_baike_phellodendron",
+      "title": "黄柏（百度百科词条）",
+      "url": "https://baike.baidu.com/item/%E9%BB%84%E6%9F%8F",
+      "access": "read",
+      "supports": "黄柏为芸香科黄檗属植物黄皮树（Phellodendron chinense）的干燥树皮，习称「川黄柏」；乔木高达 15 米、成年树栓层厚而纵裂、内皮黄色；小叶 7—15 片；核果蓝黑色；花期 5—6 月、果期 9—11 月；分布于四川、贵州、湖北、云南、陕西、江西、浙江，主产四川、贵州；4—7 月剥取树皮、刮去粗皮、干燥；商品另有关黄柏（Phellodendron amurense）一支，与黄皮树相似而栓皮厚、有弹性、内层鲜黄色；主要含小檗碱等生物碱。",
+      "rights_note": "中文百科词条，含性味归经、功效主治、大量方剂配伍、剂量与药膳；本目录**只取**基质、形态、分布、采收月份、商品分支持与伪品/近缘种信息，**不采用**任何功效、剂量与方剂内容。"
+    },
+    {
+      "id": "hro_src_baike_moutan",
+      "title": "牡丹皮（百度百科词条）",
+      "url": "https://baike.baidu.com/item/%E7%89%A1%E4%B8%B9%E7%9A%AE",
+      "access": "read",
+      "supports": "牡丹皮为毛茛科芍药属植物牡丹（Paeonia suffruticosa）的干燥根皮；主产安徽、四川、湖南、湖北、陕西；种子播种 4—6 年、分株 3 年收获，9 月下旬至 10 月上旬地上部枯萎时挖根、去泥与须根、趁鲜抽出木心晒干为「原丹皮」，刮去表皮并去木心者为「刮丹皮」；连丹皮呈筒状或半筒状、长 5—20 厘米、直径 0.5—1.2 厘米、厚 0.1—0.4 厘米，外表面灰褐或黄褐、有横长皮孔样突起与细根痕、栓皮脱落处粉红色，内表面有细纵纹并常见发亮结晶，断面淡粉红、粉性、气芳香；刮丹皮外表面有刮刀削痕；牡丹为落叶小灌木、高 1—2 米、花大而色变异极大、花期 4—5 月，全国多栽培供观赏。",
+      "rights_note": "中文百科词条，含性味、功效主治、剂量、炮制辅料比例与药理；本目录**只取**基质、产区、采收年限与时节、加工阶段名称、药材性状与观赏栽培背景，**不采用**任何功效、剂量、炮制参数与药理主张。"
+    },
+    {
+      "id": "hro_src_britannica_mulberry",
+      "title": "Mulberry | Description, Uses, & Major Species (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/plant/mulberry-plant",
+      "access": "read",
+      "supports": "桑属（Morus）约 10 种小至中型乔木，属桑科，果实甜可食；原产温带亚洲与北美，数种因果实与观赏而栽培；桑叶是蚕的重要饲料；落叶、叶有锯齿、互生；花小而成葇荑状；果实由整个花序发育而成；红桑为北美东部最大者、常达 21 米；白桑（M. alba）原产亚洲、长期在意大利以南欧洲栽培、因白色果实得名、其叶用作蚕饲料、已在北美东部归化；黑桑（M. nigra）原产西亚、到 15 世纪前意大利曾广泛栽培以养蚕、其后为白桑取代。",
+      "rights_note": "第三方百科条目；不采用任何桑白皮的药用内容（该来源未涉及）。"
+    },
+    {
+      "id": "hro_src_britannica_silkworm",
+      "title": "Silkworm moth | Lepidoptera, Bombyx mori, Cocooning (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/animal/silkworm-moth",
+      "access": "read",
+      "supports": "家蚕（Bombyx mori）的幼虫用于缠丝已有数千年；原产中国但已传至全世界并完全驯化，物种已不见于野外；成虫翅展 40—50 毫米、口器退化或缺失、成虫寿命两至三天且不食、不能飞；雌虫产卵约 300—500 粒、在 24—29 ℃ 下约 7—14 日孵化；幼虫除桑叶外亦食桑橙与莴苣叶；茧由一根平均约 915 米长的连续丝线构成；以热风或蒸汽杀死蚕蛹以保全丝线供商业使用；亲缘最近的野生种为 B. mandarina。",
+      "rights_note": "第三方百科条目；本目录只取驯化状态、生活史与饲育关系，不采用任何药用内容。"
+    },
+    {
+      "id": "hro_src_britannica_wolfberry",
+      "title": "Wolfberry | plant (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/plant/wolfberry",
+      "access": "read",
+      "supports": "wolfberry 一名可指两种植物：其一为枸杞（Lycium barbarum 与 L. chinense），亚洲落叶灌木、结鲜红色浆果，富含维生素 A、C、抗氧化物与矿物质，在中医中已有两千余年使用史；其二为北美白果雪果（Symphoricarpos occidentalis，忍冬科）。",
+      "rights_note": "第三方百科条目，本条目只取到 **Quick Summary 级**内容，正文未展开；不采用其中任何功效表述。"
+    },
+    {
+      "id": "hro_src_britannica_frankincense",
+      "title": "Frankincense | Definition, Tree, History, Uses, & Facts (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/topic/frankincense",
+      "access": "read",
+      "supports": "乳香为含挥发油的芳香树脂，用于香与香水；古代即因祭祀与药用而贵重，今仍是重要香树脂，尤见于罗马天主教与东正教会；取自乳香属（Boswellia，橄榄科）树木，主要用 B. frereana、B. sacra、B. papyrifera、B. serrata，产于索马里、也门哈德拉毛、阿曼及印度巴基斯坦部分地区；在树干上切口，渗出乳状汁液、接触空气后硬化；多采自栽培树，亦有野生来源；数个乳香属种（含 B. papyrifera）在原产地受生境丧失、牲畜过牧、甲虫侵害与火情改变之威胁；古埃及用于宗教仪式，构成犹太圣所香的一部分；基督教传统中为东方三博士献予婴儿耶稣的三礼之一；老普林尼记优质乳香特征并称其为毒芹中毒的解毒药；阿维森纳曾广泛推荐；中国与东方长期内服外用。",
+      "rights_note": "第三方百科条目；本目录**只取**植物学、产地、采割与硬化、生态威胁与宗教史，**不采用**其解毒、疗效与芳疗主治表述。"
+    },
+    {
+      "id": "hro_src_britannica_myrrh",
+      "title": "Myrrh | Description, Trees, Aromatic, Incense, Fragrance, & Facts (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/topic/myrrh",
+      "access": "read",
+      "supports": "没药（阿拉伯语 murr「苦」）为没药属（Commiphora，橄榄科）数种树木所产苦味芳香、黄至红棕色树脂胶；主要两类为 herabol（C. myrrha，产埃塞俄比亚、阿拉伯、索马里）与 bisabol（C. erythraea，阿拉伯种）；生于干旱岩石丘陵、高可达 3 米；树皮自然裂开或被切伤时树脂自树皮树脂道流出，接触空气后缓慢硬化为球状或不规则块，称「泪」；古代在中东与地中海地区贵重，为昂贵香、香水与化妆品成分，亦用于局部外敷与防腐；《新约》中为东方三博士三礼之一，常被解读为对其死亡的预示；中世纪欧洲亦视为稀有珍贵；近代商业价值甚微，主要用作牙粉、香水与保护剂成分。",
+      "rights_note": "第三方百科条目；本目录**只取**植物来源、产地、采割与硬化、古代用途与宗教史、价值变迁，**不采用**其「轻微防腐、收敛、驱风」等药性表述与任何用法。"
+    },
+    {
+      "id": "hro_src_baike_asafoetida",
+      "title": "阿魏（百度百科词条）",
+      "url": "https://baike.baidu.com/item/%E9%98%BF%E9%AD%8F",
+      "access": "read",
+      "supports": "阿魏为伞形科植物新疆阿魏（Ferula sinkiangensis）或阜康阿魏（F. fukanensis）的树脂；春末夏初盛花期至初果期可采，以盛花期为佳，分次由茎上部往下斜割、收集渗出乳状树脂、阴干；药材为不规则块状与脂膏状、表面蜡黄至棕黄、块状者体轻似蜡、断面有孔隙、新切面颜色较浅、放置后渐深、脂膏状者黏稠灰白；具强烈持久的蒜样特异臭气、味辛辣、嚼之灼烧感；生于戈壁滩及荒山、分布新疆。",
+      "rights_note": "中文百科词条，含性味、功效、主治、配伍与用量；本目录**只取**基质、采收季节与方法、性状与生境，**不采用**任何功效、剂量与方剂内容。"
+    },
+    {
+      "id": "hro_src_britannica_dragons_blood",
+      "title": "Dragon's blood | Medicinal Uses, Ancient Rituals & Healing Properties (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/science/dragons-blood-resin",
+      "access": "read",
+      "supports": "龙血竭为红色树脂，得自黄藤属（Daemonorops）数种棕榈的果实，用于着色清漆与漆器；曾因收敛性在欧洲被当作药物，今用于小提琴清漆与照相制版防侧蚀；商品龙血竭多来自马来西亚与印尼的 D. draco（藤本棕榈）；其他来源含索科特拉岛的 Dracaena cinnabari、加那利群岛的 Dracaena draco、墨西哥的 Croton draco 与秘鲁厄瓜多尔的 Croton lechleri（当地用于伤口与收敛）。",
+      "rights_note": "第三方百科条目；本目录**只取**多源同名、产地与商品用途，**不采用**其药用主张。另：中文「血竭」在汉文本草中主要指棕榈科麒麟竭（Daemonorops draco）类树脂，与英文条目所列多源同名现象需分开看，见条内说明。"
+    },
+    {
+      "id": "hro_src_britannica_rosin",
+      "title": "Rosin | Solvent-free, Resin-based, Adhesives (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/science/rosin",
+      "access": "read",
+      "supports": "松香（rosin/colophony）为半透明、脆而易碎的树脂，用于清漆与多种制造；遇热发黏、有微弱松木气味；脂松香为松树含油树脂蒸馏后的残渣（挥发组分为松节油），木松香由树桩溶剂萃取而得、颜色通常更深；松香及其衍生物主要用于肥皂、清漆、封蜡、印刷油墨、干燥剂、纸张施胶、黏合剂、结合剂、焊接助熔剂、涂料亮油与桶用沥青；亦用于弦乐器弓毛、舞者鞋底与舞台地板防滑；欧洲主要来源为法国吉伦特与朗德省大量栽培的海岸松（Pinus pinaster），北欧取自欧洲赤松，美国取自长叶松与火炬松。",
+      "rights_note": "第三方百科条目；不采用任何药用内容。"
+    },
+    {
+      "id": "hro_src_britannica_tcm",
+      "title": "Traditional Chinese medicine (TCM) | Description, History, & Facts (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/topic/traditional-Chinese-medicine",
+      "access": "read",
+      "supports": "中医为至少 2300 年历史的医学体系、以维持或恢复阴阳平衡为目标；已知最早的中医文献为公元前 3 世纪《黄帝内经》；1578 年李时珍刊《本草纲目》，载药 1892 种、方约 11000 首；中医本草涵盖植物、动物与矿物药；典型药铺柜中以干燥的植物与动物材料为主，亦用蛇、蝎、昆虫、鹿角等干燥动物部位；麻黄为近代由中药发展出麻黄碱的例证；另有五行（木火土金水）与经脉等理论框架。",
+      "rights_note": "第三方百科条目，属对一种医学体系的描述；本目录引用它只为说明「本草文献确实收录动植物矿物三类药材、并有 1892 种这一量级」，**不据此主张任何疗效**，也不把中医理论当作已证实的生理机制。"
+    },
+    {
+      "id": "hro_src_britannica_pearl",
+      "title": "Pearl | Natural, Cultured, & Color (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/topic/pearl-gemstone",
+      "access": "read",
+      "supports": "珍珠为软体动物体内形成的结核、成分与壳内层珍珠母相同；异物侵入外套膜后，壳分泌细胞附着其上逐层堆积珍珠层；珍珠层主成分为文石（CaCO3）与少量贝壳硬蛋白；以色泽、光泽与「晕彩」为价值标准，形状越接近正圆或水滴、光泽越深则价越高；只有壳内衬珍珠母的软体动物（某些海水牡蛎与淡水蚌）所产才是真正的好珠；不规则者称巴洛克珠，附着于壳面者称泡珠；最优质的「东方珠」产自波斯湾（阿曼至卡塔尔一带），水深 8—20 英寻；其他产地含印度与斯里兰卡之间的马纳尔湾、印尼西里伯斯外海、南太平洋诸岛，美洲的加利福尼亚湾、墨西哥湾与墨西哥太平洋岸；中国淡水采珠早于公元前 1000 年已知；养殖珍珠普及后各地采珠业显著衰退；珍珠母镶嵌自至少公元前 2500 年起用于装饰。",
+      "rights_note": "第三方百科条目；不采用任何药用内容。"
+    },
+    {
+      "id": "hro_src_britannica_oyster",
+      "title": "Oyster | Shell, Mollusk, Nutrition, & Aquaculture (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/animal/oyster",
+      "access": "read",
+      "supports": "牡蛎为牡蛎科（真牡蛎）或珍珠贝科（珍珠牡蛎）的双壳软体动物，见于各大洋温带与暖水海岸；以鳃上纤毛打动水流滤食微小有机颗粒，每小时可过水 2—3 加仑；两壳由弹性韧带相连、由一大闭壳肌闭合；真牡蛎作为食物已被养殖两千余年；可食牡蛎多为巨牡蛎属（Crassostrea）；可食牡蛎三至五年可收；欧洲平牡蛎自挪威至摩洛哥、经地中海入黑海；美洲牡蛎自圣劳伦斯湾至西印度群岛；日本牡蛎最大可达约 30 厘米；珍珠在牡蛎壳内由珍珠层围绕异物堆积而成，普通食用牡蛎所产珍珠无光泽、无价值，优质天然珠见于少数东方种类（如波斯湾的 Meleagrina vulgaris）。",
+      "rights_note": "第三方百科条目；不采用任何药用或营养主张。"
+    },
+    {
+      "id": "hro_src_britannica_cicada",
+      "title": "Cicada | Sound, Shell, Life Cycle, Map, & Facts (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/animal/cicada",
+      "access": "read",
+      "supports": "蝉科为 3000 余种发音昆虫，见于全球热带与温带、荒漠草原与森林；长期被用作民间药物、宗教与货币象征，并是人类与其他生物的重要食物来源，出现于多种文化的神话、文学与音乐中，某些亚洲种的雄虫甚至被养在笼中听鸣；体长 2—5 厘米、短触角、两对透明膜翅、三只单眼排成三角形；仅有吸食汁液的口器、无上颚，故不咬人，也无用以刺的产卵器；生活史为卵—若虫—成虫，雌虫产卵于木质组织，若虫入土吸食多年生植物根汁、通常五次蜕皮；成熟若虫多在近处树木上完成末次蜕皮，背面裂开、成虫自此缓慢钻出，留下中空的「蜕」（exuviae）；有翅成虫仅活数周。",
+      "rights_note": "第三方百科条目；本目录**只取**形态、生活史与「留下空蜕」这一可核事实及民间用途的存在，**不采用**任何药用主张。"
+    },
+    {
+      "id": "hro_src_britannica_earthworm",
+      "title": "Earthworm | Annelid, Burrowing & Soil Fertility (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/animal/earthworm",
+      "access": "read",
+      "supports": "蚯蚓为寡毛纲 1800 余种陆生环节动物；见于全球水分与有机质足够的土壤；体分环状体节（L. terrestris 可达 150 节）、部分内脏按节重复；第 32—37 节间为环带、产生包卵的茧；雌雄同体而异体受精；食物为腐烂植物与其他生物，同时吞入大量土、沙与细砾，估计每日吞吐与自身体重相当的食料与土壤；无肺、以湿润皮肤呼吸；不能视物听声，但对光与振动敏感；钻穴可深达 2 米；达尔文曾对其活动做过最细致的研究之一；亦作钓饵，故英文又称 angleworm。",
+      "rights_note": "第三方百科条目；不采用任何药用内容。"
+    },
+    {
+      "id": "hro_src_britannica_gecko",
+      "title": "Gecko | Species, Diet, & Facts (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/animal/gecko",
+      "access": "read",
+      "supports": "壁虎为有鳞目壁虎亚目（Gekkota）六个科、1000 余种蜥蜴；多为小型、夜行、皮肤柔软、体短壮、头大、四肢发达，趾端常有黏附垫；多数全长 3—15 厘米（尾约占一半）；适应自荒漠至丛林，部分栖于人类住所，多数食虫；除南极外各大洲温暖地区均常见；多数卵生、卵白色硬壳，常产树皮下或叶背；多数有毒腺之外的发音能力，叫声自微弱咔嗒至尖锐吠声；尾部可自割并再生，亦作脂肪贮存；大壁虎（Gekko gecko）为最大种，长 25—35 厘米，产东南亚，灰底带红与白色斑点与横带，常被当宠物出售。",
+      "rights_note": "第三方百科条目；不采用任何药用内容。"
+    },
+    {
+      "id": "hro_src_britannica_antler",
+      "title": "Antler | anatomy (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/animal/antler",
+      "access": "read",
+      "supports": "鹿角为鹿科动物额骨上生出的成对实心骨质结构；与永久且覆角质的洞角不同，鹿角每年脱落并重长，脱落受激素变化（交配季后睾酮下降）影响；生长期覆一层称「茸」的皮肤、富血管与神经，长成后茸皮脱落（通常在交配季前）；鹿角用于雄鹿之间的角斗与求偶展示，较大者常指示更好的健康与遗传质量；长角耗能巨大，脱落有助于节约能量越冬；驯鹿为唯一雌雄均长角的鹿种；中国水鹿无角。",
+      "rights_note": "第三方百科条目；不采用任何药效主张（原文未涉及）。"
+    },
+    {
+      "id": "hro_src_britannica_donkey",
+      "title": "Donkey | Definition, Characteristics, & Facts (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/animal/donkey",
+      "access": "read",
+      "supports": "驴（Equus asinus）为马科家畜、源于非洲野驴；自公元前 4000 年起即被用作驮畜；肩高平均约 101.6 厘米、体重约 250 公斤，品种差异极大（西西里驴仅约 61 厘米、美国猛犸驴约 142 厘米）；比马慢但步稳、能在崎岖地形负重；骡为公驴与母马所生杂交后代；在马难以存活或当地无力养马之处，驴是主要驮畜与运输来源；逸为野生的驴群在部分地区与荒漠大角羊竞争资源。",
+      "rights_note": "第三方百科条目；不采用任何药用内容（驴皮制胶一节为本目录所补的文献脉络，来源见条内说明）。"
+    },
+    {
+      "id": "hro_src_britannica_pangolin",
+      "title": "Pangolin | Description, Habitat, Diet, & Facts (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/animal/pangolin",
+      "access": "read",
+      "supports": "穿山甲为鳞甲目穿山甲科约 8 种有甲胎盘哺乳动物，分布热带亚洲与非洲；全体覆以由粘结毛发形成的褐色鳞片（面部与腹面除外）；受威胁时蜷成球、竖起鳞片，并从肛门腺分泌臭液；夜行、独居或成对；主食白蚁，亦食蚂蚁；因肉与身体部位（器官、皮、鳞）在传统医药中的需求而被大量猎捕，至 21 世纪初八个种全部濒危：2019 年 IUCN 将两个种列为易危、三个种濒危、三个种极危；2016 年 CITES 第 17 次缔约方大会投票通过对全部穿山甲及其部位的国际商业贸易禁令；一些政府销毁没收的鳞片以抑制销售。",
+      "rights_note": "第三方百科条目；本目录**只取**保护等级、贸易禁令与致危原因，**不写**任何获取、加工或使用方式。"
+    },
+    {
+      "id": "hro_src_baike_bear_bile",
+      "title": "熊胆（百度百科词条）",
+      "url": "https://baike.baidu.com/item/%E7%86%8A%E8%83%86",
+      "access": "read",
+      "supports": "熊胆为熊科动物黑熊或棕熊的胆囊；词条记「亚洲各国都有延续数千年的杀熊取胆的传统」，并称随现代医学发展其医药价值「被逐渐证明并非不可替代」；因熊胆交易，除熊猫外各种熊的数量均大幅减少，亚洲黑熊受影响最大；亚洲黑熊已列入《濒危野生动植物种国际贸易公约》（CITES）附录一；词条另记活熊取胆的做法「因过于残忍而遭到各个动物保护组织的反对」；并记熊去氧胆酸已可人工合成、成本低廉。",
+      "rights_note": "中文百科词条，含大量药用主治、鉴别与药理；本目录**只取**保护等级、资源下降与伦理争议，**不采用**其功效、鉴别与任何获取或使用内容。"
+    },
+    {
+      "id": "hro_src_wwf_cites",
+      "title": "What is CITES? (World Wildlife Fund)",
+      "url": "https://www.worldwildlife.org/resources/explainers/cites/",
+      "access": "read",
+      "supports": "CITES 为管制或禁止受威胁物种国际贸易的全球协定；1973 年 21 国在华盛顿签署，现有 185 个缔约方，是世上最大的野生动物保护协定；管制或禁止逾 38000 个物种的贸易；附录一含最濒危的动植物（如虎、大猩猩），其国际商业贸易（含部位与制品）被禁止，仅科学或执法等目的可例外；附录二含尚未濒危但若不管制贸易可能受威胁者；附录三由某国单方面提出以争取他国合作；缔约方每三年开会审查进展与调整名录。",
+      "rights_note": "非政府环保组织科普页，仅作制度事实核对与自行转述。"
+    },
+    {
+      "id": "hro_src_wwf_tiger",
+      "title": "Tigers (World Wildlife Fund)",
+      "url": "https://www.worldwildlife.org/species/tiger",
+      "access": "read",
+      "supports": "全球野外约 5700 只虎（据 Global Tiger Forum），为濒危物种；盗猎是最直接威胁，虎「自须至尾」每一部位都曾在非法野生动物市场出现，其骨与其他部位被用于现代保健补剂与民间偏方，皮张被当作身份象征；虎制品的贸易与活体幼崽交易是主要威胁之一；东亚与东南亚 200 余处场所圈养逾 8000 只虎，其中约四分之三在中国，商业性圈养被认为延续了对虎制品的需求并为非法贸易提供掩护；WWF 主张终止繁殖并逐步关闭这类「虎场」。",
+      "rights_note": "非政府环保组织物种页；本目录**只取**威胁描述、需求结构与圈养问题，**不写**任何获取或使用方式。"
+    },
+    {
+      "id": "hro_src_fail_wikipedia_cinnabar",
+      "title": "Cinnabar (Wikipedia) — 未获取",
+      "url": "https://en.wikipedia.org/wiki/Cinnabar",
+      "access": "unavailable",
+      "supports": "（无）请求超时（context deadline exceeded），未取得正文；辰砂相关条目改以 hro_src_britannica_cinnabar / hro_src_baike_cinnabar / hro_src_britannica_mercury 支撑。",
+      "rights_note": "如实记录失败，不得当作已读来源。"
+    },
+    {
+      "id": "hro_src_fail_britannica_cites",
+      "title": "CITES (Encyclopaedia Britannica) — 未获取",
+      "url": "https://www.britannica.com/topic/CITES",
+      "access": "unavailable",
+      "supports": "（无）返回 HTTP 404，该路径不存在；国际贸易管制条目改以 hro_src_wwf_cites / hro_src_britannica_pangolin / hro_src_baike_bear_bile 支撑。",
+      "rights_note": "如实记录失败，不得当作已读来源。"
+    },
+    {
+      "id": "hro_src_fail_wwf_rhino",
+      "title": "Rhino (World Wildlife Fund) — 未获取",
+      "url": "https://www.worldwildlife.org/species/rhino",
+      "access": "unavailable",
+      "supports": "（无）返回 HTTP 403（站点人机验证拦截），未取得正文；犀角一类只作制度旁注、不设独立条目，也不引用本页内容。",
+      "rights_note": "如实记录失败，不得当作已读来源。"
+    },
+    {
+      "id": "hro_src_fail_britannica_rhino",
+      "title": "Rhinoceros (Encyclopaedia Britannica) — 未获取",
+      "url": "https://www.britannica.com/animal/rhinoceros",
+      "access": "unavailable",
+      "supports": "（无）返回 HTTP 404，该路径不存在；本组因此**未设犀角条**，相关制度问题只在虎骨与穿山甲两条内以文字说明并标注缺口。",
+      "rights_note": "如实记录失败，不得当作已读来源。"
+    },
+    {
+      "id": "hro_src_fail_baike_xuejie",
+      "title": "血竭（百度百科词条）— 未获取",
+      "url": "https://baike.baidu.com/item/%E8%A1%80%E7%AB%AD",
+      "access": "unavailable",
+      "supports": "（无）返回 HTTP 403（百度安全验证），未取得正文；血竭条目改以 hro_src_britannica_dragons_blood 支撑，汉文本草一系的细节因此偏薄。",
+      "rights_note": "如实记录失败，不得当作已读来源。"
+    },
+    {
+      "id": "hro_src_fail_baike_kulianpi",
+      "title": "苦楝皮（百度百科词条）— 未获取",
+      "url": "https://baike.baidu.com/item/%E8%8B%A6%E6%A5%9D%E7%9A%AE",
+      "access": "unavailable",
+      "supports": "（无）返回 HTTP 403（百度安全验证），未取得正文；苦楝皮条目**无任何 read 来源**，其 source_ids 为空，全部内容标注为本项目据一般文献常识的归纳与缺口说明。",
+      "rights_note": "如实记录失败，不得当作已读来源。"
+    },
+    {
+      "id": "hro_src_fail_baike_longgu",
+      "title": "龙骨（百度百科词条）— 未获取",
+      "url": "https://baike.baidu.com/item/%E9%BE%99%E9%AA%A8/10172829",
+      "access": "unavailable",
+      "supports": "（无）返回 HTTP 404，未取得正文；龙骨条目改以 hro_src_britannica_oracle_bone 支撑，只覆盖甲骨占卜这一侧，药用与商品侧标为缺口。",
+      "rights_note": "如实记录失败，不得当作已读来源。"
+    },
+    {
+      "id": "hro_src_fail_britannica_asafoetida",
+      "title": "Asafoetida (Encyclopaedia Britannica) — 未获取",
+      "url": "https://www.britannica.com/topic/asafoetida",
+      "access": "unavailable",
+      "supports": "（无）返回 HTTP 404（topic 与 plant 两条路径均失败），未取得正文；阿魏条目改以 hro_src_baike_asafoetida 支撑。",
+      "rights_note": "如实记录失败，不得当作已读来源。"
+    },
+    {
+      "id": "hro_src_fail_britannica_silkworm_bombyx",
+      "title": "Melia azedarach / chinaberry (Encyclopaedia Britannica) — 未获取",
+      "url": "https://www.britannica.com/plant/Melia-azedarach",
+      "access": "unavailable",
+      "supports": "（无）返回 HTTP 404，未取得正文；苦楝（楝科楝属）的植物学细节因此缺失，相关条目只作缺口说明。",
+      "rights_note": "如实记录失败，不得当作已读来源。"
+    }
+  ],
+  "elements": [
+    {
+      "id": "herb_other_eucommia_bark",
+      "name": "杜仲",
+      "aliases": [
+        "思仲",
+        "胶木",
+        "玉丝皮",
+        "Eucommia ulmoides"
+      ],
+      "category": "life",
+      "knowledge_kind": "mixed",
+      "summary": "中国特有的孑遗树种，树皮折断会拉出银白色胶丝，是少数「一眼能认」的药材。它的价值不在药性，而在「单属单种、别处绝灭、剥皮后要等两三年才能再剥」这三件事同时成立。",
+      "tags": [
+        "kind:herb",
+        "tradition:eastern",
+        "part:bark",
+        "trait:relict_species",
+        "trait:counterfeit_prone",
+        "role:medicine_stock",
+        "role:conservation_symbol",
+        "trade:regional"
+      ],
+      "source_ids": [
+        "hro_src_baike_eucommia",
+        "hro_src_britannica_tcm"
+      ],
+      "details": {
+        "definition": "杜仲为杜仲科杜仲属落叶乔木（Eucommia ulmoides）的干燥树皮，该属现存仅此一种，是中国特有植物。树皮内含橡胶质，折断拉开有多数细丝，这一特征在药材性状上被当作最直观的判据：「折断时白丝多者为佳」。汉文文献把它列为本草上品一类，具体性味与主治属传统医学记述，见下节。",
+        "mechanism": "文献脉络以「补肝肾、强筋骨」为核心话语，历代本草多围绕腰膝、筋骨、胎产三组词展开，另有把盐制或酒制当作「引药入肾」的处理传统。这条话语史本身值得记录的是它的稳定性：从早期本草到近代药典，主治词群变化不大，说明它更多是文本传承而非反复验证的结果。近代又叠加了「降压」一类新说法，属于二十世纪以后才进入的用途，与古代脉络不是同一件事。",
+        "conditions": "产地：中国特有种，分布于陕西、甘肃、河南、湖北、四川、云南、贵州、湖南、安徽、江西、广西、浙江，今广泛栽种；喜温暖湿润与充足阳光，耐严寒（成株可耐 −30 ℃），对土壤要求不严，低山、谷地、疏林乃至瘠薄红土与岩壁均能生长。生长：幼期缓慢，速生期在 7—20 年，50 年后基本停止。采集：传统有半环剥与环剥两法，剥后需二至三年树皮才能重新长成——这直接决定了「一块林地能产多少皮、几年一轮」的经济节奏。",
+        "exceptions": "杜仲属曾有多达十四种，后在大陆与欧洲相继灭绝，现存者为孑遗植物，已列入《中国植物红皮书—稀有濒危植物》：这意味着「产地有限」不是贸易造成而是演化结果，任何设定里它都不该是随处可采的野草。伪品常见以其他含胶树皮充代（折断亦有丝但丝短而疏）、以幼树薄皮充老皮、以水浸增重。因环剥会伤树，过度采剥造成的死亡在史料与地方记载中是实际问题。",
+        "story_uses": "一、孑遗性作为世界设定：一种树只在此山此谷有，别处化石里才有——这天然是「秘境物产」的现实版本，比虚构灵药更硬。二、剥皮与轮伐：二至三年的恢复期把一个村庄的采药节奏钉死，护林、盗剥、封山与械斗都可由此生长。三、单一种的脆弱：遗传多样性低、病害一来无退路，可写「全境同时枯死」的灾变。四、近代用途的叠加：同一种树在古方、近代药理与地方民族药里被赋予不同说法，可写「谁有资格解释一味药」的争夺。",
+        "historical_scope": "时期与地域：分布与生长习性为中国植物志层面的事实，不限时代；本草脉络限汉文文献传统，且历代性味记载并不一致（有记味辛平、有记甘温、有记味苦）。改编边界：不得把「补肝肾」「强筋骨」「降压」写成可验证效果；不得给出剂量、配伍、炮制辅料比例与火候；不得把「盐制」「酒制」当作可照做的工艺；不得让杜仲成为万能补品或延寿之物。",
+        "evidence_and_uncertainty": "本条为文献与设定资料，不构成医疗建议，不可据此用药。来源支持：杜仲为杜仲科落叶乔木、高可达 20 米、树皮含橡胶且折断拉丝、翅果与花期果期、喜温暖湿润与耐 −30 ℃、速生期 7—20 年而 50 年后停止、为中国特有种并广泛栽种、杜仲属曾十四种而现存者为孑遗植物且列入红皮书、半环剥与环剥两法及二三年再生、药材断面银白丝等性状（hro_src_baike_eucommia）。不确定与缺口：历代性味与主治差异本组只作概括，未取得一手本草原文；「近代叠加降压说法」的源流未逐条核。设计归纳：盗剥与械斗、单一种病害灾变、解释权争夺为本项目推演。"
+      },
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "herb_other_phellodendron_bark",
+      "name": "黄柏（黄檗）",
+      "aliases": [
+        "檗木",
+        "檗皮",
+        "川黄柏",
+        "关黄柏",
+        "Phellodendron chinense"
+      ],
+      "category": "life",
+      "knowledge_kind": "mixed",
+      "summary": "芸香科黄檗属的树皮，剥开内皮鲜黄、味极苦。它在文献里是「苦寒清下焦」的代表，在产业上则是一种被反复替代与混用的商品：同名之下至少两个种、一个商品分支与若干伪品。",
+      "tags": [
+        "kind:herb",
+        "tradition:eastern",
+        "part:bark",
+        "trait:bitter",
+        "trait:counterfeit_prone",
+        "role:medicine_stock",
+        "trade:regional"
+      ],
+      "source_ids": [
+        "hro_src_baike_phellodendron"
+      ],
+      "details": {
+        "definition": "黄柏为芸香科黄檗属植物黄皮树（Phellodendron chinense）的干燥树皮，商品习称「川黄柏」；同属的黄檗（P. amurense）另称「关黄柏」，历史上曾与黄皮树同为基源植物，今多作分开处理。乔木高达 15 米，成年树栓层厚而纵裂、内皮黄色，小叶 7—15 片，核果蓝黑色。内含小檗碱等生物碱，是「鲜黄」「极苦」两个性状的物质基础。",
+        "mechanism": "文献脉络以「苦寒」为纲，话语集中在「清热燥湿、泻火」这条线上，并按部位分工：同一味药在不同配伍里被说成「清下焦」「退虚热」「泻相火」，另有盐制、酒制、炒炭等处理被赋予改变作用趋向的意义。这条「同一味药因处理不同而主治不同」的叙述方式，本身就是传统医学的一个结构性特征，值得作为制度与知识史材料记录：它让药铺有了等级、让炮制成为一门有师承的手艺。",
+        "conditions": "产地：分布于四川、贵州、湖北、云南、陕西、江西、浙江，主产四川、贵州；关黄柏主产北方。采收：四至七月剥取树皮、刮去粗皮、干燥——采期集中在春夏树液流动期，与形成层活动有关，这也是几乎所有「皮类」药材共有的时间窗。商品分级主要看皮厚、色黄、苦味强弱与是否带粗皮。产量与稀缺性：属栽培与野生并行的树种，因连年剥皮与生境退缩，部分产区已以栽培为主。",
+        "exceptions": "近缘混用是最主要的例外：黄皮树与黄檗曾长期共用「黄柏」一名，二者栓皮厚度、弹性与断面颜色有别，今按两个商品名分开。伪品与掺伪常见以其他黄色树皮（如小檗属、十大功劳一类）充代——它们同样含小檗碱、同样苦、同样黄，仅凭「黄、苦」无法分辨，必须借助形态与理化手段，本条不给具体判定步骤。另有以提取过成分的「药渣皮」重新干燥出售的情形。",
+        "story_uses": "一、同名异物：同一纸药方在两个县抓出两种树皮，是现成的医疗纠纷与官司，可写「药名统一而药材不统一」的制度困境。二、炮制的师承：盐、酒、炭几种处理被说成改变药性，于是「谁会处理」成为手艺壁垒与行会门槛。三、资源替代：当一种树皮不够用时，人们会找「同样苦、同样黄」的替代品——替代品一旦流行，鉴别与法律就得跟着改。四、苦味作为通行证：在缺乏化学检验的时代，「极苦」既是判据也是伪造目标。",
+        "historical_scope": "时期与地域：形态、分布与采收月份为中国植物志与药材商品层面的事实；性味归经与炮制话语限汉文文献传统，且「川黄柏／关黄柏」的分合是近现代商品规范化的结果，不能倒推为古代通例。改编边界：不得把「清热燥湿」写成可验证效果；不得给出剂量、方剂组成与炮制温度时长；不得把「盐制引药入肾」当作生理机制；不得让黄柏替代抗感染处置。",
+        "evidence_and_uncertainty": "本条为文献与设定资料，不构成医疗建议，不可据此用药。来源支持：黄柏为芸香科黄皮树干皮、川黄柏之名、乔木形态与栓层纵裂内皮黄色、小叶数与核果颜色、花期果期、分布于西南至华东并主产四川贵州、四至七月剥皮刮粗皮干燥、关黄柏曾同为基源且栓皮厚而有弹性内层鲜黄、主要含小檗碱等生物碱（hro_src_baike_phellodendron）。不确定与缺口：词条所称「抗病原微生物」等药理与主治本组一律不采用；历代名实与炮制话语的原始出处未逐条核。设计归纳：药名统一而药材不统一引发的纠纷、替代品推动鉴别制度更新，为本项目推演。"
+      },
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "herb_other_moutan_bark",
+      "name": "牡丹皮（丹皮）",
+      "aliases": [
+        "丹皮",
+        "牡丹根皮",
+        "丹根",
+        "Moutan Cortex"
+      ],
+      "category": "life",
+      "knowledge_kind": "mixed",
+      "summary": "观赏名花牡丹的根皮。它把「花供人看、根皮入药」这两条完全不同的价值链绑在同一株植物上，也把「种植四到六年才起收」的时间成本写进了药材生意。",
+      "tags": [
+        "kind:herb",
+        "tradition:eastern",
+        "part:root_bark",
+        "trait:aromatic",
+        "role:medicine_stock",
+        "role:ornamental_double_use",
+        "trade:regional"
+      ],
+      "source_ids": [
+        "hro_src_baike_moutan"
+      ],
+      "details": {
+        "definition": "牡丹皮为毛茛科芍药属植物牡丹（Paeonia suffruticosa）的干燥根皮。牡丹为落叶小灌木，高 1—2 米，根粗大，花大而色变异极大，花期四至五月，全国多栽培供观赏。药材按是否刮去外皮分「连丹皮」（原丹皮）与「刮丹皮」：前者呈筒状或半筒状、外表面灰褐或黄褐、有横长皮孔样突起与细根痕、栓皮脱落处粉红色、内表面有细纵纹并常见发亮结晶、断面淡粉红而粉性、气芳香；后者外表面有刮刀削痕、红棕或淡灰黄。",
+        "mechanism": "文献脉络以「苦辛微寒」为纲，话语分成两束：一束是「凉血」——把热往血分里说，用于所谓血热、斑疹一类；一束是「活血化瘀」——用于经闭、痛经、跌扑与痈肿。两束之间靠「血」这个共同词根连接，但在不同时代的文本里权重不同。另有把牡丹皮炒炭「止血」、以酒拌炒「行散」的处理传统，这些处理的意义在文献内部自洽，但不对应任何可测量的成分变化目标。",
+        "conditions": "产区：主产安徽、四川、湖南、湖北、陕西。生长与起收：种子播种需四至六年、分株繁殖三年方可收获；九月下旬至十月上旬地上部分枯萎时挖根，去泥与须根，趁鲜抽出木心后晒干为原丹皮。这条时间表意味着：一块地一旦种下牡丹，四五年内只有观赏与花期的收益，药材收入是滞后的、且与花市行情竞争同一块地。加工另分炭制、酒制、炒制等品规，是等级与价格的来源之一。",
+        "exceptions": "主要例外有三类。其一，观赏品种与药用品种并不同一：园艺上重瓣、奇色的品种未必是采皮的对象，药用更看根的大小与皮厚。其二，「抽心」是关键工序——不去木心则商品等级下降，而抽心要在鲜品时完成，因此产地加工能力直接决定售价。其三，伪品与掺伪常见以其他芍药属根皮、以提取过的残皮、以染色或硫熏改色充好；这些在性状上都能部分模仿「粉红、芳香」两个判据。",
+        "story_uses": "一、一株两价：花市与药市争夺同一块地，花价暴涨的年份药皮就断供，可写「赏花盛世」与「药材短缺」同时出现的悖论。二、四到六年的等待：药材生意因此需要长期资本与地权稳定，佃户、押租与借贷随之而来，适合做长线伏笔。三、抽心的手艺：一道只能在鲜品时做的工序，决定了产地与销地的权力分配——原料出产地如果没人会抽心，就只能卖低价毛货。四、硫熏改色：外观判据一旦成为定价标准，就必然出现专门对付它的手段。",
+        "historical_scope": "时期与地域：形态、产区、起收年限与性状为中国植物志与药材商品层面的事实；性味、归经、功效与炮制辅料比例属汉文文献与药典记述，本组不采用其效力主张。改编边界：不得把「凉血」「活血」写成可验证效果；不得给出剂量、方剂与炮制温度时长；不得把「牡丹皮炭止血」当作急救手段；不得让观赏品种与药用品种无条件互换。",
+        "evidence_and_uncertainty": "本条为文献与设定资料，不构成医疗建议，不可据此用药。来源支持：牡丹皮为毛茛科芍药属牡丹的干燥根皮、主产数省、种子播种四至六年与分株三年起收、九至十月挖根趁鲜抽木心晒干为原丹皮、刮皮去心为刮丹皮、连丹皮与刮丹皮的筒状与色泽性状、断面淡粉红粉性气芳香、牡丹为落叶小灌木及花期四至五月并全国栽培观赏（hro_src_baike_moutan）。不确定与缺口：词条所列性味归经、功效主治、药理与炮制辅料比例，本组**一律不采用**；历代论述的原始文本未核，只作概括。设计归纳：花市与药市争地、抽心手艺决定议价权、硫熏改色对付外观判据，均为本项目推演。"
+      },
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "herb_other_wolfberry_root_bark",
+      "name": "地骨皮（枸杞根皮）",
+      "aliases": [
+        "枸杞根皮",
+        "地骨",
+        "Lycium barbarum",
+        "Lycium chinense"
+      ],
+      "category": "life",
+      "knowledge_kind": "mixed",
+      "summary": "枸杞的根皮。同一株植物的果实被当作日常吃食、根皮被当作另一种药，两者在文献里主治几乎不重叠——这是「一物分用」最常见的样式，也是药材分类最容易出错的地方。",
+      "tags": [
+        "kind:herb",
+        "tradition:eastern",
+        "part:root_bark",
+        "role:medicine_stock",
+        "trade:regional"
+      ],
+      "source_ids": [
+        "hro_src_britannica_wolfberry"
+      ],
+      "details": {
+        "definition": "地骨皮指茄科枸杞属植物枸杞（Lycium barbarum 与 L. chinense）的干燥根皮。枸杞为亚洲落叶灌木，结鲜红色浆果，该属在中医中已有两千余年使用史（hro_src_britannica_wolfberry，该来源为摘要级）。中文药材名把「果实」与「根皮」明确分开：前者是常见的食补品，后者另立一名、另有产区与等级，两者不可互相替代——这一点在现实药事里是硬规则，但在小说与误抄方书里最常被混。",
+        "mechanism": "文献脉络以「甘淡寒」一类定性为起点，话语集中在「清虚热」「退骨蒸」这条线上：所谓骨蒸，指的是一种被描述为「热自骨内透出」的主观病程图像，与近代的体温或检验指标没有对应关系。另一条线是把地骨皮用于「肺热」「消渴」一类描述。需要注意的是，同一植物的果实在文献里走的是完全相反的「补」的路线，二者主治词群几乎不交叠，说明传统分类依据的是「部位＋性味」而非「物种」。",
+        "conditions": "产地：枸杞属广布于温带亚洲，中国北方与西北为主要栽培与野生区，宁夏、甘肃、青海、新疆、河北一带均产；根皮多取自栽培或野生老株的根。采集：多在春秋挖根、剥取根皮后干燥，属「挖根」类药材，与「采果」类在季节与作业方式上完全不同——同一片枸杞林可以同时有采果队与挖根队，两者对植株的影响相反（采果留树、挖根毁株）。产量与稀缺性：野生老株资源随垦殖下降，栽培品逐渐替代。",
+        "exceptions": "第一，同名混淆：地骨皮与枸杞子、枸杞叶在口语中常被统称「枸杞」，误配的风险由此而来。第二，近缘种混用：同属多种的根皮在商品上都可能被当作地骨皮，形态相近，须凭性状区分。第三，伪品有以其他灌木根皮（如五加科、马鞭草科某些根皮）充代者，或以茎皮混作根皮。第四，本条的来源是摘要级，**不能**用来支撑任何性状、产区或鉴别细节——这些细节在本文件中一律标为未核。",
+        "story_uses": "一、一物分用的误配：把果实当根皮、把根皮当果实，是最容易写成事故的药物混淆，且完全不需要虚构。二、采果与挖根的冲突：同一片林子里的两拨人，一拨要留着树、一拨要挖掉树，天然是村社内部的利益对立。三、骨蒸这种「说不清的症状」：可用来写「病人描述不清、医者各自解释」的诊断分歧。四、栽培替代野生：当野生老株被挖尽，药材性状随之变化，旧验方与新货之间的落差就是纠纷的起点。",
+        "historical_scope": "时期与地域：枸杞属为亚洲落叶灌木、浆果红色、在中医有两千余年使用史，属可核的植物学与文献存在事实；「地骨皮」的性味主治话语限汉文文献传统。改编边界：不得把「清虚热」「退骨蒸」写成可验证的疗效；不得给出剂量、配伍与煎服方法；不得把果实与根皮互换使用；不得在地骨皮与枸杞子之间做「哪个更好」的价值排序。",
+        "evidence_and_uncertainty": "本条为文献与设定资料，不构成医疗建议，不可据此用药。来源支持：枸杞（Lycium barbarum 与 L. chinense）为亚洲落叶灌木、结鲜红色浆果、在中医已有两千余年使用史（hro_src_britannica_wolfberry，**摘要级**，正文未展开）。不确定与缺口：本条**没有**可支撑形态、产区、采收、性状与鉴别细节的已读来源——相关描述属本项目据一般文献常识的归纳，未经核实；地骨皮与枸杞子的名实关系、近缘种混用的范围亦未核。设计归纳：采果与挖根的利益对立、误配事故的写法，为本项目推演。"
+      },
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "herb_other_mulberry_root_bark",
+      "name": "桑白皮（桑根皮）",
+      "aliases": [
+        "桑根白皮",
+        "桑皮",
+        "Morus alba"
+      ],
+      "category": "life",
+      "knowledge_kind": "mixed",
+      "summary": "桑树的根皮。桑在东亚是一整套产业链的核心——叶养蚕、果可食、木材制器、根皮入药；它因此成了「一种树被四条价值链同时索取」的典型。",
+      "tags": [
+        "kind:herb",
+        "tradition:eastern",
+        "part:root_bark",
+        "role:medicine_stock",
+        "role:sericulture_byproduct",
+        "trade:regional"
+      ],
+      "source_ids": [
+        "hro_src_britannica_mulberry"
+      ],
+      "details": {
+        "definition": "桑白皮指桑科桑属（Morus）植物桑的干燥根皮，药材名强调「白」以区别于同株的叶、枝、果与木材。桑属约十种小至中型乔木，落叶、叶有锯齿而互生，果实由整个花序发育而成、似黑莓、可食；白桑（M. alba）原产亚洲、其叶是养蚕的主饲料（hro_src_britannica_mulberry）。也就是说，同一种树在四个位置被使用：叶（饲料）、果（食物）、木材（器具与造纸原料）、根皮（药材）。",
+        "mechanism": "文献脉络把桑白皮归入「甘寒」一类，话语集中在「泻肺」「行水」这条线上，用于所谓肺热咳喘与水肿一类描述；同株的桑叶另走「疏散风热」一路、桑枝走「祛风湿」、桑椹走「补」——四者在文本里各有位置，靠的是部位而非物种。这套「按部位分性味」的分类法，让一棵树可以在同一部本草里出现四五次，条目之间互不统属，是传统药物学一个很重要的结构特征。",
+        "conditions": "产地：桑属原产温带亚洲与北美，白桑在东亚长期栽培并随养蚕业扩散——十五世纪以前意大利广泛栽培黑桑养蚕，其后被白桑取代（hro_src_britannica_mulberry）。这意味着桑白皮的可得性直接跟随蚕业版图：有蚕的地方就有桑，有桑的地方就有根皮。采集：挖取根部、剥取根皮后干燥，属毁株性采集，与采叶、采果冲突——养蚕人家不会为了根皮挖掉产叶的树，因此商品多来自老树更新、淘汰桑园与野生桑。产量与稀缺性：随蚕业兴衰而波动，蚕业萎缩区的桑白皮常转为野生来源。",
+        "exceptions": "第一，同属多种通用：桑属十种在商品上都可能被采皮，形态相近，凭性状区分。第二，部位混淆：桑白皮（根皮）与桑枝、桑叶、桑椹在名称上极易混称，误配后果不同。第三，伪品有以其他乔木根皮充代者，或以茎皮、以水浸增重充数。第四，本条来源只覆盖桑属的植物学与蚕业史，**不覆盖**桑白皮作为药材的性状、产区与鉴别细节——这些在本文件中属未核内容。",
+        "story_uses": "一、四条价值链争一株树：蚕忙时节不能挖根、灾年可能挖根救命，取舍本身就是剧情。二、蚕业版图的影子：桑随蚕走，蚕业一旦被战乱或禁令打断，桑林荒废、桑白皮反而多起来——一种药材的丰产可以是产业崩溃的征兆。三、老树更新：桑园淘汰的树被剥皮卖钱，是最常见的副业收入，也是「药从何来」的现实答案。四、部位误配：把桑枝当桑白皮、把桑叶当桑白皮，是不需要虚构的事故来源。",
+        "historical_scope": "时期与地域：桑属的分布、白桑的栽培扩散与蚕业史属可核事实，限亚洲起源与欧洲栽培史；“桑白皮”的性味与主治话语限汉文文献传统。改编边界：不得把「泻肺行水」写成可验证效果；不得给出剂量、配伍与煎服方法；不得让桑白皮替代呼吸或水肿的现实处置；不得把桑属十种视为同一种。",
+        "evidence_and_uncertainty": "本条为文献与设定资料，不构成医疗建议，不可据此用药。来源支持：桑属约十种小至中型乔木、属桑科、果实甜可食且由整个花序发育、落叶且叶有锯齿互生、白桑原产亚洲而其叶用作蚕饲料、黑桑到十五世纪前在意大利曾广泛栽培养蚕后为白桑取代（hro_src_britannica_mulberry）。不确定与缺口：**桑白皮作为药材的性状、产区、采收与鉴别，本组无可读来源**，相关叙述属归纳；汉文文献的部位分用体系只作概括。设计归纳：四条价值链争一株树、蚕业崩溃反致药材丰产，为本项目推演。"
+      },
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "herb_other_melia_root_bark",
+      "name": "苦楝皮（楝根皮）",
+      "aliases": [
+        "楝皮",
+        "苦楝根皮",
+        "Melia azedarach"
+      ],
+      "category": "life",
+      "knowledge_kind": "mixed",
+      "summary": "楝科楝属乔木的根皮与干皮，是本目录中唯一「有毒且有真实伤害事故记录」的植物类条目。它的价值不在药理，而在「有效与有毒是同一件事」——历史上它同时被当作驱虫物与毒物。",
+      "tags": [
+        "kind:herb",
+        "tradition:eastern",
+        "part:root_bark",
+        "trait:toxic",
+        "trait:pesticide_use",
+        "role:medicine_stock",
+        "role:household_hazard"
+      ],
+      "source_ids": [],
+      "details": {
+        "definition": "苦楝皮指楝科楝属植物楝（Melia azedarach，亦称苦楝、楝树）的根皮或干皮。楝属为东亚至东南亚常见的落叶乔木，生长快、耐瘠薄，常作行道树、庭院树与农田边树，花淡紫、果秋季变黄褐、冬季挂枝（果俗称「楝子」）。本条把根皮与干皮合记，因为二者在传统用法上同被使用，但皮部含苦楝素一类成分，既是「有效」的基础，也是毒性的基础——这不是两个性质，是同一个性质的用处与后果。",
+        "mechanism": "文献脉络把它归为「苦、寒、有毒」，功用话语集中在「杀虫」这一束：内用于所谓虫积腹痛，外用于疮疡、湿疹与头虫。同一「杀虫」二字在古代文本里同时指向体内寄生虫与体表害虫，并且扩展到农业与仓储害虫——这是它危险的地方：文本上的「虫」是一个词，现实中的靶标却是人体与作物两类完全不同的对象。历史上围绕它的用药事故不少与「内服驱虫」直接相关，而外用于体表、或作农用杀虫剂，风险类型完全不同。",
+        "conditions": "产地与生境：东亚至东南亚常见栽培与野生，低山、村旁、路侧、田埂均可生长，对环境要求低，因此在人口稠密区极易获得——可及性本身是风险因子。采集：春秋挖根或剥取干皮，去粗皮后干燥。产量与稀缺性：不稀缺，属「屋前屋后就有」一类的药材，因此很少被当成昂贵商品，也很难被有效管制。",
+        "exceptions": "第一，种与部位差异大：同属近缘种、不同树龄与不同季节采的皮，成分含量差异明显，靠「苦味强弱」无法定量。第二，与「川楝」等同属或近缘药材存在长期混用与名实交叉。第三，最容易被忽略的例外是对象错位：儿童体重低、耐受差，同一份「驱虫」用的皮在不同人身上的后果可能相差极大，这类事故在记录中反复出现。第四，本条**没有任何已读来源**，上述内容全部属本项目据一般文献常识的归纳，不能当作已被核实。",
+        "story_uses": "一、毒与药同一物：写「为了杀虫而用，结果伤了人」，不需要任何虚构成分，只是把可及性与剂量判断的现实难度写出来。二、屋前屋后就有：最危险的东西往往不是稀有禁药，而是村口就长着的树。三、孩子的剂量：同一份东西在大人体重下安然无事，在儿童身上出事的差异，适合写成「医生的两难」与「家属的愤怒」。四、农用与药用不分：当同一种皮既杀田里的虫又能杀人身体里的虫，「谁允许谁用」就成了乡约与官府的管辖边界。",
+        "historical_scope": "时期与地域：楝属的分布、生长习性、栽培与观赏用途局限东亚至东南亚及其引种区；「苦寒有毒、杀虫」一系属汉文文献传统。改编边界：**不得写任何驱虫用法、用量、内服或外用做法，不得写炮制减毒，也不得写中毒后的处理办法**——越出这条线即超出本目录的安全边界；不得把「杀虫」当作无害的同义词；不得让角色用它替代任何现实医疗处置。",
+        "evidence_and_uncertainty": "本条为文献与设定资料，不构成医疗建议，不可据此用药。**本条没有任何可用的已读来源**：拟定引用的中文百科词条（hro_src_fail_baike_kulianpi，HTTP 403）与英文百科楝属条目（hro_src_fail_britannica_silkworm_bombyx，HTTP 404）均抓取失败，故 source_ids 为空。因此形态、分布、采收、成分与事故描述**全部属本项目据一般文献常识的归纳，未经任何来源核实**，使用时须当作待核内容。可核的只有一条一般常识：楝属的果实与皮都被用作杀虫物，其毒性在文献与现代事故记录中都存在——但本组未取得可引的页面。设计归纳：可及性即风险、对象错位（儿童体重）导致后果差异、农用与药用管辖重叠，均为本项目推演。"
+      },
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "herb_other_frankincense",
+      "name": "乳香",
+      "aliases": [
+        "熏陆香",
+        "天泽香",
+        "Boswellia sacra",
+        "frankincense"
+      ],
+      "category": "item",
+      "knowledge_kind": "historical",
+      "summary": "乳香属树木割伤后渗出的芳香树脂，接触空气硬化成粒。它同时是神庙的烟、教堂的烟与药铺的货，把「一种树脂如何撑起一条跨沙漠的商路」写成了可复用的贸易骨架。",
+      "tags": [
+        "kind:herb",
+        "tradition:real_world",
+        "part:resin",
+        "trait:aromatic",
+        "trait:substitutable",
+        "role:ritual_material",
+        "role:trade_good",
+        "trade:long_distance"
+      ],
+      "source_ids": [
+        "hro_src_britannica_frankincense"
+      ],
+      "details": {
+        "definition": "乳香为含挥发油的芳香树脂，取自橄榄科乳香属（Boswellia）树木，主要指 B. frereaana、B. sacra、B. papyrifera 与 B. serrata，产于索马里、也门哈德拉毛、阿曼及印度与巴基斯坦的部分地区。采收方式是在树干上切口，树脂以乳状汁液渗出、遇空气硬化；多数采自栽培树，也有野生来源。商品按产地、颗粒大小与色泽分级，不同产地的香气差别被当作判据。",
+        "mechanism": "古代文献把它当两用之物：一是祭祀——古埃及用于宗教仪式，构成犹太圣所香的一部分；基督教传统中为东方三博士献于婴儿的三礼之一，常被解读为象征祭司职分。二是医——老普林尼记其优质品的特征并称其为毒芹中毒的解毒药，阿维森纳曾广泛推荐，中国与东方长期内服外用。需要强调的是：这些是历史记载，不是已被证实的效力；古人对「解毒」的判断标准与近代毒理学不是同一套。",
+        "conditions": "产地高度集中：索马里、也门、阿曼与印度巴基斯坦部分地区，属干旱岩石地带的窄带产区。产量与稀缺性：树需多年生长才能形成可采的树脂道，采割与转运成本高，故在古代地中海世界是奢侈品级商品。生态状况：数个乳香属种（含 B. papyrifera）在原产地受生境丧失、牲畜过牧、甲虫侵害与火情改变的威胁——这意味着「香火旺盛」与「树林退化」可以同时发生。替代：同科没药、松脂类与多种本地香木都可部分替代，替代品的出现往往是贸易垄断破裂的信号。",
+        "exceptions": "第一，同名多源：乳香属多个种都被当作乳香，产地不同则香气与等级不同，古代文献中的「优质乳香」标准依赖感官而无法统一。第二，与没药长期并列又常被混淆，两者同科不同属。第三，宗教用途与药用用途的管制不同：同一批货在神庙是供品、在药铺是药材、在海关是税目。第四，本条只有一份英文百科来源，**汉文本草把「乳香」记作「熏陆香」一系的脉络本组未取得来源**，相关说法只作背景。",
+        "story_uses": "一、香路：从产地窄带经沙漠到港口的商路，可写护送、抽税、劫掠与垄断特许，全程不需要虚构。二、三礼的政治读法：同一件礼物在宗教文本里被赋予「预示死亡」的解释，这种「物—解释」的绑定本身就是绝佳的剧情装置。三、生态代价：为供应祭祀与出口而过度放牧与采割，使产地退化，可写「圣地之香使圣树绝迹」。四、替代与掺假：树脂类商品最容易被掺入碎石、树皮与其他同科树脂，验货因此成为专业。",
+        "historical_scope": "时期与地域：产地、采割与硬化、宗教史限近东、东非与地中海世界；中国与东亚的使用属另一条平行脉络。改编边界：不得把「解毒」「疗愈」等历史记载写成可用结论；不得给出任何采集、加工、内服或外用的做法与配比；不得把树脂类香气写成具有确定生理作用的东西；不得让乳香取代任何现实医疗处置。",
+        "evidence_and_uncertainty": "本条为文献与设定资料，不构成医疗建议，不可据此用药。来源支持：乳香为含挥发油的芳香树脂、取自乳香属数种、产地为索马里与也门哈德拉毛与阿曼及印巴部分地区、树干切口后乳状汁液遇空气硬化、多采自栽培树、数个种受生境丧失与过牧与甲虫与火情改变威胁、古埃及用于宗教仪式并构成犹太圣所香的一部分、基督教传统中为三礼之一、老普林尼记优质品特征并称其为毒芹中毒的解毒药、阿维森纳曾广泛推荐、中国与东方长期内服外用（hro_src_britannica_frankincense）。不确定与缺口：上述「解毒药」「广泛推荐」只是历史记载的转述，本组不采用其效力主张；汉文「熏陆香」一系的源流与名实未核；分级标准与价格史未取得来源。设计归纳：香路护送与抽税、替代品与掺假的验货制度，为本项目推演。"
+      },
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "herb_other_myrrh",
+      "name": "没药",
+      "aliases": [
+        "末药",
+        "Commiphora myrrha",
+        "myrrh"
+      ],
+      "category": "item",
+      "knowledge_kind": "historical",
+      "summary": "没药属树木渗出后硬化的苦味树脂，颗粒被叫作「泪」。它在中东与地中海世界同时供香、供尸、供药，价值从中世纪的「稀有珍贵」跌到近代的「微不足道」——一条完整的价格坍塌曲线。",
+      "tags": [
+        "kind:herb",
+        "tradition:real_world",
+        "part:resin",
+        "trait:bitter",
+        "trait:aromatic",
+        "role:ritual_material",
+        "role:embalming_material",
+        "trade:long_distance"
+      ],
+      "source_ids": [
+        "hro_src_britannica_myrrh"
+      ],
+      "details": {
+        "definition": "没药（阿拉伯语 murr，「苦」）为橄榄科没药属（Commiphora）数种树木所产的苦味芳香胶树脂，黄至红棕色。主要两类：herabol 来自 C. myrrha（产埃塞俄比亚、阿拉伯、索马里），bisabol 来自 C. erythraea（阿拉伯种，外形相近）。树生于干旱岩石丘陵，高可达三米；树皮自然裂开或被切伤时，树脂自树皮树脂道流出，遇空气缓慢硬化为球状或不规则块，俗名「泪」。",
+        "mechanism": "古代用途三束并行：香（与乳香并列用于昂贵香与香水）、尸（防腐与处理亡者）、药（局部外敷，另有「苦味健胃」一类说法）。三束用途共享同一个物质属性——苦而芳香、能凝、能溶。近代商业价值大跌，转为牙粉、香水与制药保护剂的原料；二十世纪以后又以精油与芳疗的名义回潮。这条「高贵—衰落—以另一种名义回潮」的曲线，比任何单一用途都更有叙事价值。",
+        "conditions": "产地：埃塞俄比亚、阿拉伯半岛与索马里一线，属干旱岩石丘陵地带。采集：靠树皮自然开裂或被切割后的渗出，产量受季节与树龄影响，不能像农作物一样按需扩产。产量与稀缺性：古代地中海世界视为稀有珍贵，中世纪欧洲亦然；近代因替代品与合成香料而价格趋微。分级：按颗粒大小、色泽与含杂质多少分级，两个主要商品类型（herabol / bisabol）并行流通。",
+        "exceptions": "第一，两型并存而香气不同，古代文献的「真没药」标准难以统一。第二，极易掺假：树脂类块状商品可掺入碎石、树皮、其他同科树脂，且外观相似。第三，用途之间会互相冲突：用于处理亡者的树脂与用于入口的树脂在洁净观念上可能被分开，同一批货因此有「可用／不可用」两套判定。第四，本条只有一份英文百科来源，**汉文「没药」的传入与本草化过程本组未取得来源**。",
+        "story_uses": "一、泪：颗粒的形态名本身就是意象，可用于誓言、哀悼与交易仪式。二、三礼之二：与乳香成对出现，一个象征祭司职分、一个常被解读为预示死亡，适合写成「同一份礼物里的两种命运」。三、价格坍塌：从中世纪的稀有珍贵到近代的价值甚微，可写「一条商路的死亡」与靠它吃饭的城市的衰落。四、防腐与禁忌：处理亡者的物质进入日常，必然产生洁净与禁忌的边界，这是民俗恐怖与宗教史的天然接口。",
+        "historical_scope": "时期与地域：产地与采割限东北非与阿拉伯半岛；使用史限中东、地中海与欧洲，年代跨古代至近代。改编边界：不得把「收敛」「驱风」「防腐」等药性记载写成可用结论；不得给出任何采集、加工、内服或外用做法；不得把处理遗体的历史做法写成可照做的流程；不得让没药承担任何现实医疗功能。",
+        "evidence_and_uncertainty": "本条为文献与设定资料，不构成医疗建议，不可据此用药。来源支持：没药为没药属数种所产苦味芳香胶树脂、主要两类 herabol（C. myrrha，产埃塞俄比亚与阿拉伯与索马里）与 bisabol（C. erythraea）、生于干旱岩石丘陵且高可达三米、树皮裂开或被切伤后树脂流出并硬化为「泪」、古代为昂贵香与香水与化妆品成分并用于局部外敷与保存遗体、《新约》中为三礼之一且常被解读为预示死亡、中世纪欧洲视为稀有珍贵、近代商业价值甚微而用作牙粉与香水与保护剂（hro_src_britannica_myrrh）。不确定与缺口：原文所称「轻微收敛、驱风」等性质与用法，本组**不采用**；分级标准、价格史料与汉文传入过程未核。设计归纳：洁净与禁忌的边界、商路衰落的地方后果为本项目推演。"
+      },
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "herb_other_asafoetida",
+      "name": "阿魏",
+      "aliases": [
+        "熏渠",
+        "哈昔泥",
+        "Ferula sinkiangensis",
+        "Ferula fukanensis"
+      ],
+      "category": "item",
+      "knowledge_kind": "mixed",
+      "summary": "伞形科阿魏属植物根茎割伤后渗出的树脂，气味像浓烈的蒜。它是「臭到被禁止带上公共交通工具」一类的现实物产：气味既是它唯一的鉴别标准，也是它无法隐藏的原因。",
+      "tags": [
+        "kind:herb",
+        "tradition:eastern",
+        "part:resin",
+        "trait:pungent",
+        "trait:counterfeit_prone",
+        "role:medicine_stock",
+        "role:spice_substitute",
+        "trade:regional"
+      ],
+      "source_ids": [
+        "hro_src_baike_asafoetida"
+      ],
+      "details": {
+        "definition": "阿魏为伞形科阿魏属植物新疆阿魏（Ferula sinkiangensis）或阜康阿魏（F. fukanensis）的树脂。药材为不规则的块状与脂膏状：表面蜡黄至棕黄；块状者体轻、质地似蜡、断面稍有孔隙，新鲜切面颜色较浅、放置后渐深；脂膏状者黏稠、灰白色。最突出的性状是「强烈而持久的蒜样特异臭气」，味辛辣，嚼之灼烧感。生于戈壁滩及荒山，分布新疆。",
+        "mechanism": "文献脉络把它归为「苦、辛，温」，功用话语集中在「消积、化瘕、散痞、杀虫」这一束，另有把它与「蛊毒」「痞块」一类难名之症联系起来的记载。这条脉络值得注意的是：它处理的都是「摸得到但说不清」的腹部硬块与久积，属于传统医学中最难被证伪也最难被证实的一类对象。同一物质在另一条脉络里被当作调味与食品——阿魏在印度与中东的烹饪中有长期使用，用以替代洋葱蒜类气味，这说明「药」与「食」的边界在它身上极其模糊。",
+        "conditions": "产地与生境：新疆戈壁滩与荒山，属干旱、强蒸发的环境，植株为多年生草本，需数年生长才能形成可割的根茎。采集：春末夏初盛花期至初果期可采，以盛花期为佳；由茎上部往下分次斜割，收集渗出的乳状树脂后阴干。产量与稀缺性：单一产区、野生来源为主，产量随年份与降水波动；因气味极强，运输与贮存都必须密封，否则整批货会互相污染——这本身构成一种特殊的物流成本。",
+        "exceptions": "第一，气味即判据也是弱点：以蒜、洋葱或其他树脂加油调制的伪品可以模仿气味，凭嗅觉无法分辨，必须看断面与溶解行为。第二，两个基质种（新疆阿魏与阜康阿魏）并存，产地相近而形态有别。第三，脂膏状与块状的含水量差异极大，同重量下的实际含量不可比，「以水增重」是常见掺伪。第四，伊朗与阿富汗所产同属树脂在名称上也进入贸易，与本条所指的国产基质存在名实交叉。",
+        "story_uses": "一、气味无法隐藏：一种走私品如果自带强烈气味，藏货、过关与验货的博弈就有了具体形式。二、药与食的边界：同一物在厨房与药铺的地位不同，可写「禁药」与「香料」两种法律身份在同一条街上并存。三、难名之症：以「痞块」为对象的治疗，天然适合写误诊、骗术与希望。四、单一产区：一条戈壁上的采集季，牵动整条供应链，丰歉直接反映在价格上。",
+        "historical_scope": "时期与地域：基质、产地、采收季节与性状属中药材商品层面的事实，限中国新疆；「消积化瘕杀虫」一系属汉文本草传统；印度与中东的食用脉络不在本条已核范围内。改编边界：不得把「消积」「杀虫」写成可验证效果；不得给出剂量、配伍、丸散制作与任何服用方式；不得把「禁孕妇」一类记载转写成指导；不得让阿魏替代任何现实诊疗。",
+        "evidence_and_uncertainty": "本条为文献与设定资料，不构成医疗建议，不可据此用药。来源支持：阿魏为新疆阿魏或阜康阿魏的树脂、春末夏初盛花期至初果期采收且以盛花期为佳、由茎上部往下分次斜割收集乳状树脂后阴干、药材为不规则块状与脂膏状、表面蜡黄至棕黄、块状者体轻似蜡且断面有孔隙、新切面较浅而放置后渐深、脂膏状者黏稠灰白、具强烈持久蒜样特异臭气、味辛辣而嚼之灼烧感、生于戈壁滩及荒山并分布新疆（hro_src_baike_asafoetida）。不确定与缺口：词条所列性味、功效、主治、配伍与用量，本组**一律不采用**；英文百科的 asafoetida 条目抓取失败（hro_src_fail_britannica_asafoetida，HTTP 404），故印度与中东的食用脉络、国际商品分级与伊朗阿富汗同属树脂的名实关系均未核。设计归纳：气味导致的物流成本、块状与脂膏状的水分不可比、走私与验货博弈，为本项目推演。"
+      },
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "herb_other_dragons_blood",
+      "name": "血竭（龙血竭）",
+      "aliases": [
+        "麒麟竭",
+        "血竭花",
+        "Daemonorops draco",
+        "dragon's blood"
+      ],
+      "category": "item",
+      "knowledge_kind": "mixed",
+      "summary": "一种深红树脂，汉文叫「血竭」、西文叫「龙血」。同名之下世界上至少有五六个完全不同的植物来源，是「一物多名、一名多物」最典型的一例，也是走私与鉴别制度的天然舞台。",
+      "tags": [
+        "kind:herb",
+        "tradition:eastern",
+        "part:resin",
+        "trait:red_pigment",
+        "trait:multiple_sources",
+        "trait:counterfeit_prone",
+        "role:medicine_stock",
+        "role:pigment",
+        "trade:long_distance"
+      ],
+      "source_ids": [
+        "hro_src_britannica_dragons_blood"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "details": {
+        "definition": "本条指两类共用「血色树脂」形象的商品：汉文本草所称的血竭（主要指棕榈科黄藤属 Daemonorops 一类，尤以 D. draco 为正，另有龙舌兰科龙血树属等来源的说法），与西文所称的 dragon's blood（拉美与非洲多种植物所产的红色树脂）。两者在贸易史上曾互相顶替，在中文药材市场上又常被统称为「血竭」或「龙血竭」，因此本条不把它们当作同一个物种，而当作一个「因颜色与用途而被归为同类」的商品群。",
+        "mechanism": "文献脉络把血竭归为「甘咸平」一类，功用话语集中在「散瘀、止痛、止血、生肌」这一束，外用与内服两条路都有记载；西文脉络则强调其「收敛性」，十八世纪以前在欧洲被当作药物，后来主要用于清漆与照相制版。两条脉络共享同一个物质判断：红色、能溶、遇空气成膜——这三点使它在「血」与「漆」两种用途之间自由滑动，而这种滑动本身就是它最值得写的地方。",
+        "conditions": "产地：商品龙血竭多来自马来西亚与印度尼西亚的藤本棕榈；其他来源包括索科特拉岛的 Dracaena cinnabari、加那利群岛的 D. draco、墨西哥的 Croton draco 与秘鲁厄瓜多尔的 C. lechleri。采集：多数靠果实或树皮渗出后收集凝固的树脂，产量随树种与季节波动，无法工业化扩产。稀缺性：因产地分散且多种来源并存，「同一名称下的货」质量参差极大，价格主要靠外观与产地故事撑起，而非成分标准化。",
+        "exceptions": "第一，同名异物是根本性的：中文药材市场的「血竭」与英文 dragon's blood 的植物来源清单只有部分重叠，任何「血竭就是某某树之脂」的说法都过于简单。第二，伪品极多：可用松香、紫胶、动物血、染色淀粉与树脂混合物仿制，外观与断面都有一定相似度。第三，见光与受热会变色，这一物理不稳定性使「陈货」与「新货」的判定成为专业。第四，本条只有一份英文百科来源，**汉文本草的「麒麟竭」一系本组未取得来源**（拟定词条抓取失败，见 hro_src_fail_baike_xuejie）。",
+        "story_uses": "一、一物多名、一名多物：写一场官司——同一张药方在三个地方抓到三种不同的东西，三方各有依据。二、颜色作为通行证：红得正宗就会被买走，于是染色成为产业。三、产地故事溢价：索科特拉岛、加那利群岛这些地名本身就能讲价，可写「故事比成分值钱」。四、从药到漆：同一种树脂在两个大陆上的两种命运，可写「价值的路径依赖」。",
+        "historical_scope": "时期与地域：英文来源所记的采源与用途限东南亚、索科特拉、加那利与拉美；汉文本草脉络限中国与东亚。改编边界：**不得把「散瘀止痛生肌」写成可验证效果，也不得写任何外用或内服的配比与做法**；不得给出任何仿制、鉴别或提纯的工艺步骤；不得把不同来源的红色树脂当作可以无条件互换的同一物。",
+        "evidence_and_uncertainty": "本条为文献与设定资料，不构成医疗建议，不可据此用药。来源支持：龙血竭为红色树脂、得自黄藤属数种棕榈的果实、用于着色清漆与漆器、曾因收敛性在欧洲被当作药物、今用于小提琴清漆与照相制版、商品多来自马来西亚与印尼的 D. draco、其他来源含索科特拉岛的 Dracaena cinnabari 与加那利的 D. draco 与墨西哥 Croton draco 与秘鲁厄瓜多尔 C. lechleri（hro_src_britannica_dragons_blood）。不确定与缺口：汉文血竭（麒麟竭）一系的基质、产区与传入史本组未核（中文词条抓取失败，hro_src_fail_baike_xuejie）；两者何时被归为同一商品名亦未核；所有性味主治描述均属背景转述。设计归纳：染色产业、产地故事溢价、同一药方三种货的官司，为本项目推演。"
+      }
+    },
+    {
+      "id": "herb_other_pine_rosin",
+      "name": "松脂（松香、松节油）",
+      "aliases": [
+        "松脂",
+        "松香",
+        "松节油",
+        "colophony",
+        "rosin"
+      ],
+      "category": "item",
+      "knowledge_kind": "mixed",
+      "summary": "松树含油树脂及其蒸馏产物。它在本目录里是个异类：既是药材，也是封蜡、油墨、肥皂、助熔剂与防滑粉——一条把「树上流出的黏物」直接接到军工与舞台的产业链。",
+      "tags": [
+        "kind:herb",
+        "tradition:eastern",
+        "part:resin",
+        "trait:flammable",
+        "trait:industrial_input",
+        "role:medicine_stock",
+        "role:craft_material",
+        "trade:regional"
+      ],
+      "source_ids": [
+        "hro_src_britannica_rosin"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "details": {
+        "definition": "松脂是从松属树木采得的含油树脂；蒸馏后挥发部分为松节油（spirit of turpentine），残留即松香（rosin / colophony）——半透明、脆而易碎、遇热发黏、有微弱松木气味。另有木松香，由树桩溶剂萃取而得，颜色通常更深。汉文本草把「松脂」「松香」「松节」分列，各自的性味与主治不同，说明传统分类依旧按「部位＋处理」而非按物种。",
+        "mechanism": "文献脉络把松脂归为「苦甘温」一类，话语分散在「祛风燥湿」「生肌止痛」几条线上，另有把松节用于关节疼痛、把松花粉另列的做法。产业脉络则完全不同：松香及其衍生物用于肥皂、清漆、封蜡、印刷油墨、干燥剂、纸张施胶、黏合剂、焊接助熔剂、涂料亮油与桶用沥青，也用于弦乐器弓毛、舞者鞋底与舞台地板防滑。两条脉络之间没有因果关系，只有同一个原料。",
+        "conditions": "产地：欧洲主要来源为法国吉伦特与朗德省大量栽培的海岸松（Pinus pinaster），北欧取自欧洲赤松，美国取自长叶松与火炬松。采集：活树割脂或伐后树桩萃取，两者所产在颜色与用途上不同。产量与稀缺性：属大宗林产品，供应量与林业周期绑定，价格受替代化学品影响；在合成树脂出现前，它是许多行业不可替代的黏结与上光材料。",
+        "exceptions": "第一，松脂、松香、松节油、木松香是四个不同环节的产物，名称常被混用而性质差异明显。第二，产地差异直接反映在颜色与等级上，深色木松香只能用于低端用途。第三，树脂类易燃且易燃烟，储存与运输属高风险品类。第四，本条只有一份英文百科来源，**不覆盖任何汉文本草的性味与主治**，也不覆盖中国松脂产区与采割史。",
+        "story_uses": "一、一棵树的五种用途：写一个伐木村落如何在药铺、漆坊、印坊与兵工作坊之间分配同一批松脂。二、易燃品：树脂储存与运输的风险可以直接写成仓库大火与全城禁令。三、替代史：合成材料出现后，整条松脂产业链的衰落可写「手艺人的失业」。四、舞台与琴弓：防滑粉与弓毛松香这类小用途最容易被忽略，却在细节上撑起真实感。",
+        "historical_scope": "时期与地域：英文来源所记的产地与用途限欧洲与北美，年代为近代至现代工业。改编边界：不得把「祛风燥湿」「生肌止痛」写成可验证效果；不得给出任何采脂、蒸馏、配比与提纯的参数；不得把松节油当作可内服之物，也不得写任何溶剂滥用场景；不得把工业用途与药用用途互相替代。",
+        "evidence_and_uncertainty": "本条为文献与设定资料，不构成医疗建议，不可据此用药。来源支持：松香为半透明脆而易碎的树脂、遇热发黏而有微弱松木气味、脂松香为含油树脂蒸馏残渣而以松节油为挥发组分、木松香由树桩溶剂萃取且颜色更深、用于肥皂清漆封蜡油墨干燥剂纸张施胶黏合剂焊接助熔剂涂料亮油与桶用沥青、亦用于弦乐器弓毛与舞者鞋底与舞台地板防滑、欧洲主要来源为法国大量栽培的海岸松而北欧与美国取其他松种（hro_src_britannica_rosin）。不确定与缺口：汉文本草的松脂松香松节分列体系、中国采脂史与产区均未取得来源，相关叙述只作背景。设计归纳：伐木村落的分配、仓库大火与禁令、替代材料的失业后果，为本项目推演。"
+      }
+    },
+    {
+      "id": "herb_other_ganoderma",
+      "name": "灵芝",
+      "aliases": [
+        "芝草",
+        "瑞草",
+        "Ganoderma lucidum",
+        "reishi",
+        "lingzhi"
+      ],
+      "category": "life",
+      "knowledge_kind": "mixed",
+      "summary": "多孔菌目的木腐真菌，长在枯木或活树基部，菌盖可有漆样光泽。它在文献里是「瑞草」，在生态上是能杀死活树的病原——这两个身份从未真正调和过。",
+      "tags": [
+        "kind:herb",
+        "tradition:eastern",
+        "part:fruiting_body",
+        "trait:wood_decay",
+        "trait:auspice",
+        "role:medicine_stock",
+        "role:omen",
+        "role:plant_pathogen"
+      ],
+      "source_ids": [
+        "hro_src_britannica_ganoderma",
+        "hro_src_britannica_fungus"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "details": {
+        "definition": "灵芝指灵芝科灵芝属（Ganoderma，多孔菌目）真菌的子实体，该属三百余种，广布全球。子实体成架状或瘤状，菌盖可逾六十厘米，可为一年生或多年生，颜色自白、黄、褐、红至深紫，部分种有漆样光泽，常自树干基部或裸露根系长出。**必须明确：真菌不是植物**——真菌界独立于植物界与动物界，无叶绿素、以菌丝体在体外消化有机物后吸收（hro_src_britannica_fungus）。本条 tags 中的 kind:herb 仅为检索口径（按「可采集的静止生长物」成组），不是分类学断言。",
+        "mechanism": "两条脉络必须并记。信仰脉络：汉文文献把芝草当瑞应之物，「名山生芝」与「王者德至则芝草生」一类说法属辞瑞与道教服食话语，其中「千年芝」「芝王」属传说层，无可核依据。生态脉络：灵芝属以酶降解木质素与纤维素、使木材漂白，作为腐生菌分解枯木，也可作为寄生物侵害阔叶树、针叶树与棕榈的活木，部分种是经济上重要的植物病原，G. zonatum 曾造成亚洲油棕产业重大损失。两层不可互证：长得像祥瑞不等于有益，杀死活树也不等于不祥。",
+        "conditions": "生境：阔叶林、针叶林与棕榈的枯木与活木基部，以树种、湿度、散射光与坡向决定能否出芝；部分种寄主专一而多数寄主范围宽。采集：需先认树、再认芝、再生产保存（干燥与防虫，否则数日即废），三难并列。栽培：可人工栽培，但栽培品与野生品在形态与市场评价上不同；栽培也意味着「瑞草稀缺」的前提被打破。产量与稀缺性：野生大芝稀缺，小芝常见；作为商品的等级主要看菌盖大小、色泽与完整度。",
+        "exceptions": "第一，同属三百余种，外形相近，靠颜色与光泽无法区分到种。第二，与多种多孔菌、树舌类混淆，误认在采集现场极常见。第三，栽培品与野生品的市场定位不同，「野生」二字本身就是溢价理由，也因此成为造假理由。第四，本条所引英文来源只支撑分类、生境与病原性，**不支撑任何药用主张**；汉文「服食成仙」一类文献属于信仰记述，不得当作效力依据。",
+        "story_uses": "一、瑞应与征辟：把「某地生芝」当作政治声明，可写地方官献芝、朝廷封赏、造假者被揭发的完整链条。二、病原体作为祥瑞：最精彩的写法是把两个身份放在一起——献上的芝正来自一棵被它杀死的树。三、找、认、存三难：采集场景自带悬念，且不需要任何虚构。四、栽培冲击：一旦会种，「千年一遇」的神话就崩了，可写旧采芝人对抗栽培坊的利益冲突。",
+        "historical_scope": "时期与地域：分类、生境、腐生与寄生习性属可核生物学事实，不限地域；「瑞草」「名山生芝」属汉文辞瑞与道教记述，限中国与东亚文化圈，不得当作生态学结论。改编边界：**不得给出任何用法、剂量、栽培或加工细节**；不得把芝草写成万能药或延寿之物；不得把「千年芝」当作可稳定获得的物产；若世界设定中芝有超自然效力，必须显式声明这是设定层而非现实层。",
+        "evidence_and_uncertainty": "本条为文献与设定资料，不构成医疗建议，不可据此用药。来源支持：灵芝属为灵芝科（多孔菌目）三百余种木腐真菌、广布而呈架状或瘤状、作为腐生菌分解枯木或寄生活木、部分种为经济上重要的植物病原、菌盖可逾六十厘米且可一年生或多年生、颜色白黄褐红至深紫、部分有漆样光泽、以酶降解木质素与纤维素使木材漂白、侵染活树可致死且 G. zonatum 曾造成亚洲油棕业重大损失（hro_src_britannica_ganoderma）；真菌界独立于植物界、无叶绿素、以菌丝体在体外消化后吸收（hro_src_britannica_fungus）。不确定与缺口：原文仅以「用于亚洲传统医学」「研究者关注」带过，本组**不采用**其任何药用主张；「瑞草」「千年芝」的文献源流本组未取得一手材料，只作概括；野生与栽培品的形态差异未取得来源。设计归纳：献芝—封赏—造假的政治链、栽培冲击旧采芝人利益，为本项目推演。"
+      }
+    },
+    {
+      "id": "herb_other_fuling",
+      "name": "茯苓",
+      "aliases": [
+        "茯苓个",
+        "茯苓块",
+        "茯苓片",
+        "Poria cocos",
+        "Wolfiporia cocos"
+      ],
+      "category": "life",
+      "knowledge_kind": "mixed",
+      "summary": "一种真菌在地下松树根上形成的菌核，挖出来像块石头。它的整个商品体系建立在「发汗」这道反复堆置摊晾的工序上——一种药材的等级，竟由干燥过程反复几次决定。",
+      "tags": [
+        "kind:herb",
+        "tradition:eastern",
+        "part:sclerotium",
+        "trait:underground",
+        "role:medicine_stock",
+        "role:dietary_staple",
+        "trade:bulk"
+      ],
+      "source_ids": [
+        "hro_src_baike_fuling",
+        "hro_src_britannica_fungus"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "details": {
+        "definition": "茯苓为多孔菌科真菌茯苓（Poria cocos）的干燥菌核——注意是**菌核**（真菌为渡过不利条件而形成的菌丝硬块），不是根、也不是果实。**真菌不是植物**：真菌界独立于植物界，无叶绿素、以菌丝在体外消化有机物后吸收（hro_src_britannica_fungus），本条 tags 中的 kind:herb 仅为检索口径。药材分三种形态：整个的「茯苓个」，切制的「茯苓块」与「茯苓片」。",
+        "mechanism": "文献脉络以「甘淡平」为纲，功用话语集中在「利水渗湿、健脾、宁心」这一束：一端指向水肿、小便不利一类可观察的体征，一端指向「心神不安、惊悸失眠」一类主观感受。这条脉络的特别之处在于它的跨度——同一味药被同时用于两个完全不同层面的「病」，并在方书中与数十种其他药并现。另需记明：茯苓在某些方书中被称为「补少利多」，说明文献内部对它也并不一味拔高。",
+        "conditions": "产地：分布河北、河南、山东、安徽、浙江、福建、广东、广西、湖南、湖北、四川、贵州、云南、山西等地，主产安徽、云南、湖北。采集：多于七至九月采挖，除泥沙后堆置「发汗」、摊开晒至表面干燥、再「发汗」，如此反复数次至表面皱缩、内部水分大部散失后阴干，得「茯苓个」。产量与稀缺性：属大宗药材，产地广、产量大，价格主要差在个头、是否抱有松根与切制规格，而非稀缺性。生长基础：寄生于松树根部，因此「有松林处才可能有茯苓」，这一生态约束使它与林业周期绑定。",
+        "exceptions": "第一，基质同名问题：茯苓的学名在文献中曾有多种写法（如 Poria cocos 与 Wolfiporia cocos），中文商品名则始终统一为「茯苓」。第二，中间抱有松根的个体被视为性状特征之一，也常被当作「野生」的证据。第三，伪品与掺伪常见以淀粉、面粉压制或灌模，外观可以做到近似，必须靠断面与质地判断。第四，本条所引中文词条含大量功效、剂量与方剂，本组**一律不采用**；英文来源只用于说明真菌不是植物。",
+        "story_uses": "一、「发汗」的反复：一种药材的价格由「堆了几次、晾了几天」决定，这是极好的细节素材——工艺知识即定价权。二、有松才有苓：菌核与松林的绑定，使林业政策、伐木禁令与药材价格联动。三、长相像石头：掺假成本低、鉴别困难，可写「一车货里有几块是真的」。四、补少利多：文献内部的自评可作为角色台词，写「老医者对自家药的不信任」。",
+        "historical_scope": "时期与地域：基质、性状、加工阶段名称与产地属中药材商品层面的事实，限中国；「利水渗湿健脾宁心」一系属汉文文献传统。改编边界：不得把「利水」「宁心」写成可验证效果；不得给出剂量、配伍、煎服方法；不得把「发汗」工艺写成可照做的参数（时间、温度、次数）；不得让茯苓替代任何现实医疗处置。",
+        "evidence_and_uncertainty": "本条为文献与设定资料，不构成医疗建议，不可据此用药。来源支持：茯苓为多孔菌科真菌茯苓的干燥菌核、多于七至九月采挖、除泥沙后堆置发汗并反复数次至表面皱缩内部水分大部散失后阴干而为茯苓个、切制者为茯苓块与茯苓片、外皮薄而粗糙且棕褐至黑褐有皱缩纹理、体重质坚、断面颗粒性、外层淡棕内部白色、少数中间抱有松根、产地与主产省份（hro_src_baike_fuling）；真菌不是植物、无叶绿素而以菌丝在体外消化后吸收（hro_src_britannica_fungus）。不确定与缺口：中文词条所列性味归经、功效主治、配伍、剂量与炮制方法本组**一律不采用**；寄生于松树根部这一生态关系本组只取一般文献常识、未取得专门来源；「补少利多」一类文献自评的原始出处未核。设计归纳：工艺知识即定价权、掺假与鉴别的成本结构，为本项目推演。"
+      }
+    },
+    {
+      "id": "herb_other_zhuling",
+      "name": "猪苓",
+      "aliases": [
+        "猪苓多孔菌",
+        "豕苓",
+        "Polyporus umbellatus"
+      ],
+      "category": "life",
+      "knowledge_kind": "mixed",
+      "summary": "与茯苓常被并列的另一种地下菌核，名字里带「猪」是因为块状外表灰黑粗糙。它在保护名录上是「无危」——这个等级本身就是反直觉的剧情素材：最常用的药材未必是濒危的那种。",
+      "tags": [
+        "kind:herb",
+        "tradition:eastern",
+        "part:sclerotium",
+        "trait:underground",
+        "role:medicine_stock",
+        "trade:regional"
+      ],
+      "source_ids": [
+        "hro_src_baike_zhuling",
+        "hro_src_britannica_fungus"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "details": {
+        "definition": "猪苓为多孔菌科真菌猪苓（Polyporus umbellatus）的菌核，形态为不规则的块状、外表灰黑而粗糙，采挖自地下。它常与茯苓并提，因为二者同属「地下菌核类」药材、加工与贮藏需求相近，在方书中也常同现。**真菌不是植物**：真菌界独立于植物界（hro_src_britannica_fungus），本条 tags 中的 kind:herb 仅为检索口径。",
+        "mechanism": "文献脉络以「甘淡平」为纲，功用话语集中在「利水渗湿」这一束，与茯苓高度重叠，差异主要在「偏凉」与「渗泄之力较著」一类相对评价上。这类「两味药主治几乎相司而各有偏性」的叙述，是传统药物学最具辨识度的结构：它靠微妙的相对定位而不是靠机制区分。从叙事角度看，这正是最适合写「同行互轻」与「产地之争」的地方。",
+        "conditions": "生境与采集：地下菌核，需凭地面线索与经验寻找，采挖后除泥沙干燥。产量与稀缺性：常见、产量不小，但采集依赖劳力与经验，因此价格更多反映人工而非稀有。保护状况：收录于生态环境部与中国科学院发布的《中国生物多样性红色名录—大型真菌卷》，评估等级为 LC（无危）。这个等级应与「常用」分开读：常用不等于濒危，濒危也不等于没人用。",
+        "exceptions": "第一，本条唯一的已读来源是**导言级**，只支撑到「多孔菌科真菌」与保护等级两句，形态、生境、采收与鉴别完全未覆盖。第二，与茯苓的混淆是长期的：二者块状相似而断面不同，误配风险实存。第三，伪品有以其他菌核、以淀粉压制或以他种多孔菌充代者。第四，术语上「猪苓」既是真菌名也是药材名，二者指同一物种的不同形态。",
+        "story_uses": "一、「无危」的讽刺：一种被大量采集的药材在保护名录上安然无恙，而另一种少人知的近缘种却濒危——可写「保护名单与实际压力的错位」。二、与茯苓的对偶：两味几乎同功的药并列，可写医者的偏好、药铺的库存策略与病家的选择困难。三、地下寻块：采挖靠经验与线索，适合写「老采药人—学徒」的知识传递。四、灰黑粗糙的外表：名字里的「猪」暗示了它的商品形象，可写命名与贬褒如何影响价格。",
+        "historical_scope": "时期与地域：保护等级为中国国家级红色名录的评估结果，限当代；分类属可核生物学事实。「利水渗湿」一系属汉文文献传统。改编边界：不得把「利水渗湿」写成可验证效果；不得给出剂量、配伍与煎服方法；不得因为「无危」就写它可无限采挖而不受影响；不得把猪苓与茯苓当作可无条件互换的同一物。",
+        "evidence_and_uncertainty": "本条为文献与设定资料，不构成医疗建议，不可据此用药。来源支持：猪苓（Polyporus umbellatus）为多孔菌科真菌、收录于《中国生物多样性红色名录—大型真菌卷》且评估为 LC（hro_src_baike_zhuling，**导言级**）；真菌不是植物、无叶绿素（hro_src_britannica_fungus）。不确定与缺口：形态、生境、采收、加工、商品等级与伪品鉴别**均无已读来源**，上述叙述属本项目据一般文献常识的归纳；保护名录的具体版本与评估年份未核。设计归纳：保护名单与实际采集压力的错位、与茯苓的同行竞争，为本项目推演。"
+      }
+    },
+    {
+      "id": "herb_other_ophiocordyceps",
+      "name": "冬虫夏草",
+      "aliases": [
+        "虫草",
+        "Ophiocordyceps sinensis",
+        "Cordyceps sinensis"
+      ],
+      "category": "life",
+      "knowledge_kind": "mixed",
+      "summary": "一种寄生蝙蝠蛾幼虫的真菌，菌与虫尸被一并卖。它是世界上最贵的真菌之一，也是本目录里「价格—权属—暴力」三件事捆得最紧的一条：因采集准入发生过致死冲突。",
+      "tags": [
+        "kind:herb",
+        "tradition:eastern",
+        "part:fungus_insect_complex",
+        "trait:parasitic",
+        "trait:high_value",
+        "trait:overharvested",
+        "role:medicine_stock",
+        "role:cash_crop",
+        "role:conflict_resource"
+      ],
+      "source_ids": [
+        "hro_src_britannica_cordyceps",
+        "hro_src_britannica_fungus"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "details": {
+        "definition": "冬虫夏草为虫草属（Cordyceps）系统下、现归入蛇形虫草属的真菌 Ophiocordyceps sinensis 与其寄主——一种蝙蝠蛾（Thitarodes armoricanus）幼虫——共同构成的「菌—虫复合体」。二〇〇七年该种自 Cordyceps sinensis 改隶 Ophiocordyceps sinensis，但仍以旧名在市面流通。必须强调：**真菌不是植物，蝙蝠蛾也不是它的「花」或「根」**；所谓「冬虫」是菌在虫体内生长后的虫尸，「夏草」是自虫体伸出的孢子梗（hro_src_britannica_cordyceps，hro_src_britannica_fungus）。",
+        "mechanism": "生物学机制是清楚的：孢子多带黏性，附着合适寄主后萌发侵染菌丝、穿透体壁，在虫体内生长并自内而外消化，杀死寄主后自头部附近伸出孢子梗释放孢子。这是寄生，不是共生。文献与市场脉络则完全是另一套：汉文与藏文文献把它当滋补之物，并常与「壮阳」「增强体能」一类说法挂钩；这套说法在当代国际保健品市场上被放大，构成长达数十年的需求基础。两者之间没有因果关系：寄生机制成立，不等于滋补说法成立。",
+        "conditions": "产地：青藏高原与喜马拉雅地区（不丹、印度、尼泊尔及中国青藏一带）的高寒草地，海拔与草甸类型限定极严。采集：靠人力在春季短窗口内伏地寻找，无法机械化；采集权按村落、草场与年度配额分配。产量与稀缺性：优质品可达每公斤十一万美元量级，是世界上最贵的真菌；对产地农村而言是重要现金来源，但也因此使采集成为高度竞争的活动。保护状况：过度采集致显著下降，被 IUCN 列为易危，气候变化预计进一步影响其种群。",
+        "exceptions": "第一，名称与分类不同步：改隶后市面仍用旧名，学名与商品名长期错位。第二，替代品众多：同属其他种（如 C. militaris）可人工培养，市场上以「虫草」之名销售的产品未必含本条所指的种。第三，人工培养与野生采挖的经济意义完全不同：前者可扩产，后者不能，两者的价格差是「野生」二字撑起来的。第四，采挖对草甸的物理破坏（翻土、踩踏）与「可持续采集」的宣称之间长期存在张力。",
+        "story_uses": "一、**权属与暴力**：因草场与采集准入而发生的冲突「有些是暴力的、甚至致死的」——这是现成的、无需虚构的冲突源，可写村际械斗、巡山队、禁采令与罚款。二、现金作物与季节迁徙：一整个村落每年在固定几周内上山，整个地方经济围绕这几周运转。三、以假充真：用其他虫草种、用模压成型物、用插入铁丝增重，都是自然发生的造假产业。四、生态账：挖一根虫草要翻一小块草甸，乘上人数与年数就是不可逆的退化——可写「一代人的收入换一片草的死亡」。",
+        "historical_scope": "时期与地域：寄生生活史、分类变动、价格量级、权属冲突、IUCN 等级均属可核事实，限青藏高原与喜马拉雅地区及其国际市场；汉文与藏文的滋补脉络属文献与信仰记述。改编边界：**不得写任何用法、剂量、泡饮或配伍方式**；不得把它写成可验证的补益、壮阳或抗癌之物；不得把「世上最贵」当作价值判断；不得写采集或加工的具体操作。",
+        "evidence_and_uncertainty": "本条为文献与设定资料，不构成医疗建议，不可据此用药。来源支持：虫草属为三百余种真菌且多数内寄生、孢子带黏性而附着寄主后萌发菌丝穿透体壁并自内而外消化杀死寄主、随后自头部附近伸出孢子梗；西藏高原与喜马拉雅的该种二〇〇七年由 Cordyceps sinensis 改隶 Ophiocordyceps sinensis 但市面仍用旧名；菌与虫尸一并使用且常作热饮；该种为世界上最贵真菌、优质者可达每公斤十一万美元；为产地农村重要现金来源，因权属与采集准入发生过暴力甚至致死冲突；过度采集致显著下降并被 IUCN 列为易危，气候变化预计进一步影响（hro_src_britannica_cordyceps）；真菌不是植物（hro_src_britannica_fungus）。不确定与缺口：原文所称的抗炎、抗癌、壮阳与增强体能均属转述的市场与文献说法，本组**不采用**；采集季长度、配额制度的具体形态与价格年代序列未核。设计归纳：村际械斗与巡山队的写法、模压造假与插铁增重、草甸退化的代际账，为本项目推演。"
+      }
+    },
+    {
+      "id": "herb_other_seaweed",
+      "name": "海藻（马尾藻类）",
+      "aliases": [
+        "海藻",
+        "马尾藻",
+        "Sargassum"
+      ],
+      "category": "life",
+      "knowledge_kind": "mixed",
+      "summary": "汉文「海藻」指的不是一个物种，而是一整类漂在海里的褐藻。它是「同一名字下的物种清单」这类问题的教科书案例，也是碘与钾的早期来源。",
+      "tags": [
+        "kind:herb",
+        "tradition:eastern",
+        "part:thallus",
+        "trait:marine",
+        "trait:iodine_source",
+        "trait:multiple_sources",
+        "role:medicine_stock",
+        "role:industrial_input"
+      ],
+      "source_ids": [
+        "hro_src_britannica_kelp",
+        "hro_src_britannica_fungus"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "details": {
+        "definition": "汉文药材「海藻」传统上指马尾藻科马尾藻属（Sargassum）一类褐藻的干燥藻体，商品上又因产地与形态分多种；但汉语口语里的「海藻」泛指一切海生藻类，包括绿藻、红藻与褐藻，甚至包括不属于藻类的蓝细菌。本条因此把它当作一个「名字指向一类而非一种」的商品组：可核的是褐藻这一大类的生物学与工业史，不可核的是「海藻」作为一个药材名的确切外延。另需注意：藻类虽名「藻」，也不是植物分类学上的一个自然群，本条 tags 中的 kind:herb 仅为检索口径。",
+        "mechanism": "文献脉络把海藻归为「苦咸寒」一类，话语集中在「消瘿」「软坚」「利水」这一束。其中「瘿」指的颈部肿大一类体征，在中国沿海与内陆山区都是常见的可见病症；这是少数「药与可见体征之间存在直接对应词」的案例，也是为何按碘与甲状膑的关系去反推成了近代医学的事——两者不可混为一谈：古人用的是「咸味入血、消坚结」的语言，不是碘缺乏病的病因学。",
+        "conditions": "生境：冷至温带海岸的岩石基底、潮间带至浅海，褐藻在这一带形成大片。Laminaria 属分布于北大西洋与北太平洋沿岸、长 1—3 米；巨藻 Macrocystis 最大，一种可达 60 米以上，但仅在水温低于 18—20 ℃ 时繁殖；牛海带 Nereocystis 为一年生。采集：低潮时人工采割或风暴后采集漂浮藻体，无法陆地种植。产量与稀缺性：属可再生海产，但附存于海岸地形与水质；十九世纪初以前，这类大型褐藻的灰分是重要的钾与碘来源（hro_src_britannica_kelp）。",
+        "exceptions": "第一，名称外延不清：作为一个药材名，「海藻」在马尾藻属以外还包括何种、各代本草不一。第二，产地与水质影响极大：近岸排污与重金属会使藻体富集污染物，这是现代才被认识的风险类型。第三，与昆布、海带类长期混称：三者均为褐藻但属不同，商品上却常并提。第四，本条所引来源只覆盖海带目的生物与工业史，**不覆盖马尾藻属与汉文本草的「海藻」**。",
+        "story_uses": "一、名字太大：一个名字盖住几十个物种，可写「药方上写两个字，海边人却在争到底采哪一种」。二、沿海与内陆：同一味药在渔民眼中是随处可捞的藻，在山民眼中是难得的「海物」，价格差与代购链因此而生。三、灰分与工业：把海藻烧成灰取钾与碘，是一条「从食物到化学品」的产业链，可写沿海小作坊与新兴化学工业的碰撞。四、富集污染：海藻会吸收环境里的东西，可写「同一片海变了，药也变了」。",
+        "historical_scope": "时期与地域：海带目的生物与工业用途属可核事实，限北半球冷温带海域与近代以前的手工业；汉文「消瘿软坚」一系属文献传统。改编边界：不得把「消瘿」写成可验证的治病效果，**不得把它写成碘缺乏的防治手段**；不得给出剂量、配伍与煎服方法；不得把「海藻」当作单一物种；若世界设定中有特定的海藻资源，必须明说它属于哪一大类。",
+        "evidence_and_uncertainty": "本条为文献与设定资料，不构成医疗建议，不可据此用药。来源支持：海带目约三十属褐藻且在较冷海域成大型海岸藻；提供栖息地与食物；十九世纪初以前其灰分是重要的钾与碘来源；多种产褐藻胶并用于轮胎制造与食品悬浮与乳化；Laminaria 属分布于北大西洋与北太平洋、长 1—3 米而其生长带在固着器与叶片之间；巨藻可达 60 米以上且仅在水温低于 18—20 ℃ 时繁殖；牛海带为一年生且见于深水强潮处（hro_src_britannica_kelp）。不确定与缺口：**马尾藻属与汉文「海藻」的对应、性状与商品分级均无已读来源**；「消瘿」一系的文献源流只作概括；近岸污染富集的定量风险未取得来源。设计归纳：名字外延不清导致的产地之争、灰分工业与化学工业的碰撞，为本项目推演。"
+      }
+    },
+    {
+      "id": "herb_other_kelp",
+      "name": "昆布（海带类）",
+      "aliases": [
+        "昆布",
+        "海带",
+        "Laminaria",
+        "kelp"
+      ],
+      "category": "life",
+      "knowledge_kind": "mixed",
+      "summary": "冷海里成片生长的大型褐藻，长扁叶片、有肉眼可见的生长带。它既是食材与药材，也是十九世纪以前钾与碘的主要来源——一条「从海边割藻到化学工业」的完整链条。",
+      "tags": [
+        "kind:herb",
+        "tradition:eastern",
+        "part:thallus",
+        "trait:marine",
+        "trait:iodine_source",
+        "trait:fast_growing",
+        "role:medicine_stock",
+        "role:food_staple",
+        "role:industrial_input"
+      ],
+      "source_ids": [
+        "hro_src_britannica_kelp"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "details": {
+        "definition": "昆布在汉文药材中指海带科海带（Laminaria japonica）及同属数种的干燥藻体；广义上「昆布」与「海带」在民间常混称。生物上它属于海带目（Laminariales）褐藻——**藻类不是植物**，也不属于真菌；本条 tags 中的 kind:herb 仅为检索口径。形态特征是可核的：Laminaria 属有长而扁的叶片，长度 1—3 米，固着器与叶片之间存在分生组织，即生长只发生在这一小段，叶片每年更新而柄部为多年生（hro_src_britannica_kelp）。",
+        "mechanism": "文献脉络把昆布归为「咸寒」一类，功用话语与海藻高度重叠（「消瘿」「软坚」「利水」），差异在「滑利」与适用部位一类相对评价上。产业脉络则完全不同：十九世纪初以前，这类褐藻的灰分是重要的钾与碘来源；多种褐藻还产生褐藻胶（algin），用于制造轮胎、防止冰淇淋结晶、以及食品的悬浮与乳化。这意味着：在化学工业出现之前，海上割藻是化学原料供应链的起点。",
+        "conditions": "生境：北大西洋与北太平洋冷温带岩石海岸，潮下带成片，需要冷、洁、流动的水体；巨藻类对水温更敏感（仅在水温低于 18—20 ℃ 时繁殖）。生长：靠固着器与叶片之间的分生组织延长，生长速度快，属可再生的野生资源；但一旦固着器被毁（拖网、采砂、污染）整株即失去。采集：低潮时割取或风暴后拾取漂浮藻体；曝干后成捆运输。产量与稀缺性：产地集中而产量大，价格主要取决于运输距离与干燥成本，而非稀缺性。",
+        "exceptions": "第一，名字混乱：汉文「昆布」与「海带」既指不同物种，也指不同商品形态，历代本草不一。第二，与海藻、裙带菜、马尾藻等同为褐藻而长期混称。第三，近岸水质直接影响产品安全（富集重金属与污染物），这是古代无法识别、近代才被认识的风险。第四，本条所引来源为英文百科的 kelp 条目，**不覆盖汉文「昆布」的基质与商品史**；汉文脉络的细节在本条属未核内容。",
+        "story_uses": "一、割藻人：一个只在特定季节存在的工种，写潮汐、天气与契约，比虚构更具体。二、灰分与碘：把海藻烧成灰、再从中提取钾与碘，是一条可以写的完整工序链——而它正好在化学工业兴起后整体消失。三、冷水的限制：藻场一旦水温上升就没了，可写「一片海变暖而一个行业消失」。四、混称与误配：当「昆布」「海带」「海藻」三个名字在同一个市场上并不对应三个物种，纠纷就来了。",
+        "historical_scope": "时期与地域：Laminaria 属的形态与分布、生长带位置、十九世纪以前的钾碘用途、褐藻胶用途均属可核事实，限北半球冷温带海域与近代以前的手工业；汉文「昆布」的性味与主治属文献传统。改编边界：不得把「消瘿」「软坚」写成可验证效果；**不得把昆布写成碘缺乏的防治手段**；不得给出剂量、配伍与煎服方法；不得把栽培品与野生品当作同一物；不得把工业用途与食用用途混为一谈。",
+        "evidence_and_uncertainty": "本条为文献与设定资料，不构成医疗建议，不可据此用药。来源支持：海带目约三十属褐藻且在较冷海域成大型海岸藻；十九世纪初以前其灰分是重要的钾与碘来源；多种产褐藻胶并用于轮胎制造与食品防结晶与悬浮乳化；Laminaria 属有长扁叶片且主要分布于北大西洋与北太平洋沿岸、长 1—3 米、固着器与叶片之间有分生组织；巨藻仅在水温低于 18—20 ℃ 时繁殖（hro_src_britannica_kelp）。不确定与缺口：**汉文「昆布」的基质、性味主治与商品分级本组未取得来源**，相关叙述属归纳；现代污染物富集的风险未取得定量来源；干燥与贮存工艺无来源。设计归纳：割藻工的季节契约、藻场随水温消失的写法，为本项目推演。"
+      }
+    },
+    {
+      "id": "herb_other_cinnabar",
+      "name": "朱砂（辰砂、丹砂）",
+      "aliases": [
+        "辰砂",
+        "丹砂",
+        "赤丹",
+        "汞砂",
+        "cinnabar",
+        "HgS"
+      ],
+      "category": "item",
+      "knowledge_kind": "mixed",
+      "summary": "硫化汞矿石，红色而重。它是本目录里毒性教训最硬的一条：从新石器时代的彩陶涂料到炼丹与中成药，同一物质被用作颜料、随葬品与药物数千年，而它的毒性后果已有多起实际中毒记录。",
+      "tags": [
+        "kind:mineral",
+        "tradition:eastern",
+        "part:ore",
+        "trait:toxic",
+        "trait:heavy_metal",
+        "trait:red_pigment",
+        "role:medicine_stock",
+        "role:pigment",
+        "role:ritual_material",
+        "trade:regional"
+      ],
+      "source_ids": [
+        "hro_src_britannica_cinnabar",
+        "hro_src_baike_cinnabar",
+        "hro_src_britannica_mercury"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "details": {
+        "definition": "朱砂为硫化物类矿物辰砂族辰砂，主含硫化汞（HgS），含汞质量分数约 86.2%；三方晶系、摩氏硬度 2—2.5、比重约 8—8.2，鲜红至暗红、条痕朱红，具金刚至金属光泽。辰砂之名源于古辰州（今湖南沅陵一带）。它是提炼汞的主要矿石矿物，也是中国古代最重要的红色颜料（「丹青」之「丹」、「涂朱甲骨」、「朱笔御批」均指它）。本条把它同时当作**矿物、颜料、随葬品与药物**四种身份来记，四个身份共享同一个毒性后果。",
+        "mechanism": "毒性机制是可核的：汞有毒，可经吸入蒸气、摄入可溶化合物或经皮肤吸收而中毒（hro_src_britannica_mercury）；辰砂经焙烧并冷凝汞蒸气而提汞，这意味着从开采到冶炼的每一环都伴随蒸气暴露。汉文词条记载，含朱砂的中成药过量服用致汞中毒已有实例，中毒表现包括尿频尿急、尿汞升高、神情呆滞等，严重者可致更严重后果（hro_src_baike_cinnabar）。必须明确：**本条不写减毒、不写安全用量、不写解救方法**——把「有毒之物如何变得安全」写出来本身就是危险信息。历史可写的是教训本身：毒性已知而用途未停。",
+        "conditions": "产地：中国为湖南新晃、贵州铜仁、陕西、浙江昌化等；世界产地含西班牙阿尔马登（已开采两千年）、秘鲁万卡维利卡、意大利尤德里奥、美国加州海岸山脉（hro_src_britannica_cinnabar，hro_src_baike_cinnabar）。成因：典型的低温热液矿物，与近代火山活动相关，常与石英、雄黄、雌黄、方解石、辉锑矿、黄铁矿共生。开采与产量的代价：贵州万山曾为中国最大的汞工业基地，因长期开采带来的环境破坏而于 2002 年关闭（hro_src_baike_cinnabar）——这是一个完整的「资源—环境—关停—转型」案例。",
+        "exceptions": "第一，文物与药物同源：新石器时代甘肃秦安大地湾彩陶、河姆渡漆碗、商周棺底铺撒、二里头贮藏坑、殷墟研磨工具，都是同一矿物在礼制与工艺中的使用，不能当作药用证据。第二，伪品成体系：赭石（赤铁矿，含三氧化二铁）颜色相近而比重轻、硬度高；染色矿渣砂粒水洗去色；掺赭石、红土或铁粉者颗粒比重不匀——**这些类别本身就是一部造假史**，但本条不给任何理化判定步骤。第三，高纯度辰砂晶体极稀少，而工业需求靠的是矿量与品位，两者不是一回事。第四，含朱砂的制品在受热时风险形态会改变，这是古代文本无法识别的一层。",
+        "story_uses": "一、**悲剧的引擎**：一条完整的、不需虚构的因果链——毒性已知，但信仰、礼制与商业使使用继续。可写医者、炼丹者、窑工、矿工四种不同位置的角色，各自面临不同的暴露。二、矿禁与贡赋：辰砂既是颜料又是「仙药」，历代既可作贡品也可作禁物，可写专卖、走私与关停。三、矿区的代价：万山从「中国汞都」到「朱砂古镇」的转型，是现成的「资源枯竭城镇」叙事。四、四层身份的重叠：同一块矿石在墓葬里是礼器、在画上是颜料、在丹炉里是「仙药」、在案上是一桩官司的证物。",
+        "historical_scope": "时期与地域：矿物学、产地、冶炼与毒性属可核事实，不限时代；汉文用法史限中国。改编边界：**绝对不得写任何减毒、炮制去毒、水飞、安全用量、解毒或救治方法**；不得给任何制剂、配比与服用方式；不得让角色通过任何方法安全地使用它；若世界设定中朱砂有超自然效力，必须明写这是设定层，且与现实毒性分开。",
+        "evidence_and_uncertainty": "本条为文献与设定资料，不构成医疗建议，不可据此用药。来源支持：辰砂为硫化汞、是汞的主要矿石矿物、常与黄铁矿白铁矿辉锑矿共生、最重要矿床在西班牙阿尔马登且已开采两千年、其他产地在秘鲁与意大利与美国加州（hro_src_britannica_cinnabar）；含汞量约 86.2%、硬度与比重与晶系、产地含湖南新晃与贵州铜仁等、新石器与商周的彩陶与涂朱甲骨与棺底铺撒等用途、万山因环境破坏于 2002 年关闭、伪品分赭石与染色矿渣与掺铁粉等类、含朱砂中成药过量致汞中毒的实例与中毒表现（hro_src_baike_cinnabar）；汞有毒且可经吸入蒸气、摄入可溶化合物或经皮肤吸收中毒，辰砂经焙烧冷凝提汞（hro_src_britannica_mercury）。不确定与缺口：具体中毒病例的文献出处与年代未核；词条所列性味、功效、主治、剂量与理化检验步骤本组**一律不采用**；历史上使用规模与暴露强度的定量估计未取得。设计归纳：四层身份重叠的写法、矿区转型的叙事结构，为本项目推演。"
+      }
+    },
+    {
+      "id": "herb_other_realgar",
+      "name": "雄黄",
+      "aliases": [
+        "雄黄",
+        "黄金石",
+        "石黄",
+        "realgar",
+        "As4S4"
+      ],
+      "category": "item",
+      "knowledge_kind": "mixed",
+      "summary": "砷的重要矿石，红橙色，可与雌黄共生。它有个罕见而残酷的物理特性：长期见光会自行崩解成另一种矿物——所以它雕的摆件会自己碎。古代用它验毒、辟邪与入药，这三件事都付出了代价。",
+      "tags": [
+        "kind:mineral",
+        "tradition:eastern",
+        "part:ore",
+        "trait:toxic",
+        "trait:arsenic",
+        "trait:light_unstable",
+        "role:medicine_stock",
+        "role:talisman",
+        "trade:regional"
+      ],
+      "source_ids": [
+        "hro_src_britannica_realgar"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "details": {
+        "definition": "雄黄是砷的硫化物矿石（常见化学式记作 As4S4），红色或橙色，通常为矿脉中的次要组分，与雌黄共生；单斜晶系、成柱状晶体。它是砷的**重要**矿石而非唯一矿石（hro_src_britannica_realgar）。在汉文文献里它另有「黄金石」「石黄」等名，并与雌黄构成成对的「雄/雌」命名——这对命名本身就是传统药物学按“阴阳”分类的一个现成例子。",
+        "mechanism": "历史上有三条互不相干的用途。其一，辟邪与节令：端午饮雄黄酒、在孩子额上画「王」字一类习俗，把砷化物当作辟邪物。其二，医药：汉文文献把它归为辛温有毒一类，用于所谓解毒、杀虫与疟疾一类描述。其三，**验毒**：民间长期相信雄黄可以「验出有毒之物」——这是本目录里最容易写成灾难的一个误会：砷化物自身就是毒物，用毒物去「验毒」，结果可想。三条用途共同的是一个化学事实：砷有毒。本条不写如何减毒、不写安全用量、不写解救方法。",
+        "conditions": "产地与产状：通常为矿脉中的次要组分，与雌黄共生，很少构成独立可采的主矿体——这意味着它的可获得性取决于主矿（含砷矿脉、热液矿体）的开采，而不是它自己的品位（hro_src_britannica_realgar）。产量与产地集中度：因为它是伴生矿，产量从不独立可控；古代获料的路径与获取其他含砷矿物的路径重合。保存条件：见 exceptions 的光稳定性一节——它对光不稳定，这一物理性质直接限定了哪些形态的制品（尤其是雕刻件）能存在多久。",
+        "exceptions": "第一，**光不稳定性**：原文明确记载，雄黄长期见光会崩解为雌黄；中国人曾用雄黄雕刻，而这些雕件同样见光劣化（hro_src_britannica_realgar）。这条物理事实在文物、收藏与故事里都能直接用：一件“自己会坏的藏品”。第二，与雌黄共生且有天然转化关系，两者的区分在古籍里长期含混。第三，伪品有以其他黄色矿物、以染色石、以雄黄粉掺雄黄一并存在的混杂情形（本条未取得专门来源，属归纳）。第四，本条仅有一份英文百科来源，**汉文用法与习俗的史料本组未取得**。",
+        "story_uses": "一、用毒物验毒：可写成一场冤案的核心——验出来的“毒”其实是验毒物本身。二、会碎的宝贝：雕刻件逐日崩解，可写收藏者的绝望与“保养秘法”的骗局。三、节令与服从：全国性的节令习俗把一种毒物变成“家长给孩子画在额头上的东西”，这种制度化暴露是极强的背景素材。四、矿脉里的次要组分：它不是主产，而是“随主矿一起出来的东西”，产量因而从不独立可控。",
+        "historical_scope": "时期与地域：矿物学性质、产地类型与光不稳定性属可核事实；辟邪与节令习俗限中国汉文化圈，医药说法属汉文文献传统。改编边界：**绝对不得写任何减毒、炮制去毒、安全用量、解毒或救治方法**；不得给任何制剂、配比与服用方式；不得写雄黄真的能“验出”或“治”什么；不得把节令习俗写成可模仿的行为示范。",
+        "evidence_and_uncertainty": "本条为文献与设定资料，不构成医疗建议，不可据此用药。来源支持：雄黄为砷的重要矿石、红色或橙色、含砷与硫、通常为矿脉中的次要组分并与雌黄共生、长期见光会崩解为雌黄、中国人曾用雄黄雕刻而这些雕件同样劣变、单斜晶系成柱状晶体（hro_src_britannica_realgar）。不确定与缺口：**光致转化的具体条件、速率与产物比例本组未取得数据**；汉文文献的雄黄辟邪习俗与药用脉络无已读来源支撑，属概括；伪品类型属归纳；中毒案例未取得专门来源。设计归纳：验毒误会的写法、会碎的藏品、节令暴露的叙事价值，为本项目推演。"
+      }
+    },
+    {
+      "id": "herb_other_talc",
+      "name": "滑石",
+      "aliases": [
+        "滑石",
+        "皂石",
+        "块滑石",
+        "talc",
+        "Mg3Si4O10(OH)2"
+      ],
+      "category": "item",
+      "knowledge_kind": "mixed",
+      "summary": "摩氏硬度最低的矿物，摸起来像肥皂。它既是矿石、也是雕刻材料、也是工业填料——一种“软到可以定标准”的东西，硬度计上的 1 就是它。",
+      "tags": [
+        "kind:mineral",
+        "tradition:eastern",
+        "part:ore",
+        "trait:softest_mineral",
+        "trait:inert",
+        "role:medicine_stock",
+        "role:carving_material",
+        "role:industrial_filler",
+        "trade:bulk"
+      ],
+      "source_ids": [
+        "hro_src_britannica_talc"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "details": {
+        "definition": "滑石为常见的层状硅酸盐矿物，化学式 Mg3Si4O10(OH)2，以极度柔软为标志：摩氏硬度表上的最低级 1 就是它。有皂感或油腻感，因此滑石与其他造岩矿物的致密集合体被称为皂石（soapstone）；高纯度致密集合体称块滑石（steatite）。它的化学组成几乎恒定，不易接纳铁或铝进入结构（hro_src_britannica_talc）。",
+        "mechanism": "可核的机制是“软”本身带来的双面性：软到可以用指甲或骨器刻划，因而是极早的雕刻材料；软也意味着易碎、易磨耗、易成粉，所以它同时是磨料、填料与粉末。文献脉络把它归为甘淡寒一类，话语集中在“利水通淋”与“外用收湿”两个方向；但本条不采用任何具体用法。产业脉络则清楚：它被用作润滑剂、皮革整理、化妆与爽身粉、陶瓷涂料纸张屋面塑料橡胶的填料、杀虫剂载体、谷物抛光的温和磨料。",
+        "conditions": "产状与共生：变质矿物，成脉状、片状块体与某些岩石中产出，常与蛇纹石、透闪石、镁橄榄石以及几乎总与碳酸盐（方解石、白云石或菱镁矿）在低级变质相中共生；也可由透闪石或镁橄榄石蚀变而成（hro_src_britannica_talc）。可获得性：因为共生矿物多，同一矿体出来的纯度差异极大，高纯度致密料（块滑石）需要选别。加工性：硬度 1 意味着它可用最简单的工具加工（雕刻、研磨、成粉），但也意味着易磨损、易污染——成品养护条件差。",
+        "exceptions": "第一，历史器物与产地交叉：亚述滚印、埃及圣甲虫、中国雕像均属皂石类材料（hro_src_britannica_talc），一条雕刻史因此跨三个大陆。第二，**粉末形态的风险完全不同于块状**：作为粉末与日用品的长期使用存在固有的健康争议，本条不展开、不写任何使用建议，只标注这是一个真实存在的风险点。第三，与叶蜡石（pyrophyllite）在化学与光学上可相似，靠外观区分不可靠。第四，与蛇纹石、透闪石、镁橄榄石及碳酸盐共生，同一条矿体出来的东西纯度差异很大。",
+        "story_uses": "一、硬度的基准：一种矿物因为“最软”而成了一个普世标准的参照点，可写“他拿一块石头去鉴定另一块石头”。二、软石雕刻：用骨器就能刻的石头，意味着低门槛的手工业与广泛的地方风格，可写一个山区村落的石雕传统。三、肥皂感的误会：摸起来像皂，不等于能洗，这类“感官相似而功能不同”的误解很容易写成日用场面的笑点或灾祸。四、粉末与疾病：一个直到近代才被系统认识的暴露风险，适合写成“数十年前没人觉得有问题”的那类慢变量。",
+        "historical_scope": "时期与地域：矿物学、硬度、共生与工业用途属可核事实，不限时代；汉文“利水通淋”一系属文献传统，本条不用。改编边界：不得把滑石写成可内服之物，不得给任何用法与剂量；不得写任何粉尘作业防护或暴露处置方法（避免操作指导）；不得把它写成绝对惰性、无风险的材料。",
+        "evidence_and_uncertainty": "本条为文献与设定资料，不构成医疗建议，不可据此用药。来源支持：滑石为常见硅酸盐矿物、摩氏硬度最低（1）、有皂感或油腻感而致密集合体称皂石、高纯度致密集合体称块滑石、自古用于雕刻与饰物与器皿（亚述滚印、埃及圣甲虫、中国雕像）、耐多数试剂与中等热度、用于润滑剂与皮革整理与化妆与爽身粉与陶瓷涂料纸张屋面塑料橡胶填料与杀虫剂载体与谷物抛光、为变质矿物且常与蛇纹石透闪石镁橄榄石及碳酸盐共生、化学式与结构几乎恒定而不易接纳铁铝（hro_src_britannica_talc）。不确定与缺口：粉末暴露风险的定量数据未取得来源；汉文的性味与主治本组不采用；叶蜡石混用的实际频率未核。设计归纳：硬度基准的叙事用法、软石雕刻的低门槛手工业，为本项目推演。"
+      }
+    },
+    {
+      "id": "herb_other_oracle_bone",
+      "name": "龙骨（甲骨）",
+      "aliases": [
+        "龙骨",
+        "甲骨",
+        "龟甲",
+        "牛肩脆骨",
+        "oracle bone"
+      ],
+      "category": "item",
+      "knowledge_kind": "historical",
+      "summary": "商人占卜后刻上问题、烧灼看裂的龟甲与牛肩脆骨。它们后来被当作“龙骨”入药、被药铺收买、被学者从药渣里认出来——一部“知识从垃圾堆里被重新发现”的真实故事。",
+      "tags": [
+        "kind:animal_product",
+        "tradition:eastern",
+        "part:bone",
+        "trait:divination_object",
+        "trait:inscribed",
+        "role:ritual_material",
+        "role:medicine_stock",
+        "role:archival_source"
+      ],
+      "source_ids": [
+        "hro_src_britannica_oracle_bone"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "details": {
+        "definition": "本条把两个相互纠缠的东西放在一起记：一是**甲骨**——商代（约前 1600—前 1046）用于占卜的龟腹甲与牛肩脆骨，问题刻（或写）在骨上，灼烧后由裂纹形态解读答案；二是**龙骨**——汉文药材名，传统上指多种古代哺乳动物化石骨，商品上包括大量无字的碎骨。二者在十九世纪末至二十世纪初的相遇（带字甲骨被当作药材收购、又被学者辨认出文字）是近代学术史上一个重要事件。本条的已读来源只覆盖甲骨一侧。",
+        "mechanism": "可核的占卜机制：所问涉及祭祀、收成、天气与军事；骨被刻字后加热至开裂，裂纹的形态被当作答案（hro_src_britannica_oracle_bone）。这套体系在安阳殷墟一带发展到高度规范化的程度，并与祭祀体系绑在一起——占卜不是个人行为，是国家仪式的一部分。另可核的副作用是历法：甲骨刻辞显示至迟公元前 14 世纪已定回归年 365¼ 日、朔望月 29½ 日，说明占卜记录同时是天文观测记录。",
+        "conditions": "材料与获取：牛肩脆骨与龟腹甲是主要材料；牛骨来自日常家畜，龟甲季节性可得，这意味着占卜材料本身依赖农牧与渔猎的常规产出（hro_src_britannica_oracle_bone）。制备与保存：骨需清理、修整、成对钻凿，占卜后需归档保存——已出土的甲骨多为成批堆放，说明当时存在事实上的存档制度。材料的地域性：龟甲的来源地可能远于安阳，这会引出贡纳与远程交换的问题（本条未取得来源）。",
+        "exceptions": "第一，**已读来源只覆盖甲骨一侧**：龙骨的药材性状、产区、商品分级与“以龙骨充龙骨”的伪品问题，本组**无任何来源**，全部属缺口。第二，“龙骨”作为药名在历代本草中外延不一（古生物化石骨、多种动物骨、甚至其他钙质物都可能被当作龙骨）。第三，带字甲骨与无字碎骨在商品上同价时，文字会被当作“瑕疵”刮掉——这是史料毁灭的真实机制之一，也恰好是它被重新发现的原因。第四，裂纹解读存在不可复核性：答案不由任何人验证，只由裂纹“给出”。",
+        "story_uses": "一、从药渣到国宝：把“学者在药铺的抽屉里认出了最早的文字”这一真实叙事结构搬到架空世界，几乎不需修改。二、刮掉的字：为了卖相而磨去刻辞，是“无知造成的毁灭”最具体的形态，可写商人与学者的对立。三、占卜的国家化：把裂纹解读写成政治制度——谁有权解读、解读错了怎么办。四、历法藏在卜辞里：可写“为了算准节令而反覆占卜”，把天文与神权绑在一起。",
+        "historical_scope": "时期与地域：甲骨为商代遗物，限中国华北（以安阳一带为中心），年代约前 14 至前 11 世纪；已识别三千余字、约半数可释读，这意味着另一半至今不可读——任何引用“甲骨原文”的设定都应先标注这一不确定性。改编边界：**不得写任何龙骨的药用、剂量或制法**，也不得写任何具体的占卜操作步骤（灼烧位置、裂纹判读口诀），以避免提供可照做的仪式流程；不得把甲骨文当作可直接翻译的完整语言。",
+        "evidence_and_uncertainty": "本条为文献与设定资料，不构成医疗建议，不可据此用药。来源支持：甲骨为商代用于占卜的遗物、问题刻于骨或龟甲后加热至开裂并由裂纹解读答案、所问涉及祭祀与收成与天气与军事、这些刻辞是已知最早的汉文形式且已识别三千余字而约半数可释读、安阳商代晚期都城的甲骨为龟腹甲与牛肩脆骨且用于高度规范化的祭祀占卜体系、刻辞显示至迟公元前 14 世纪已定回归年 365¼ 日与朔望月 29½ 日（hro_src_britannica_oracle_bone）。不确定与缺口：**龙骨作为药材的全部内容（性状、产区、加工、伪品与商品史）本组无任何已读来源**（中文词条抓取失败，hro_src_fail_baike_longgu）；“带字甲骨被当作药材收购后又被认出”的具体时间、地点与人物本组未核，只作概括；剩余约半数未释读字的比例属原文概述。设计归纳：刮字以充卖相的毁灭机制、占卜解读权的制度化，为本项目推演。"
+      }
+    },
+    {
+      "id": "herb_other_pearl",
+      "name": "珍珠",
+      "aliases": [
+        "真珠",
+        "濂珠",
+        "珍珠母",
+        "pearl",
+        "nacre"
+      ],
+      "category": "item",
+      "knowledge_kind": "mixed",
+      "summary": "软体动物体内形成的结核，与壳内层同一材料。它的价值不取决于成分（都是文石），而取决于圆度、光泽与晕彩——一套完全主观却又高度标准化的定价体系，也是养殖技术出现后整套产业崩塌的直接原因。",
+      "tags": [
+        "kind:animal_product",
+        "tradition:eastern",
+        "part:concretion",
+        "trait:gemstone",
+        "trait:cultivable",
+        "trait:graded_by_sense",
+        "role:medicine_stock",
+        "role:luxury_good",
+        "trade:long_distance"
+      ],
+      "source_ids": [
+        "hro_src_britannica_pearl",
+        "hro_src_britannica_oyster"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "details": {
+        "definition": "珍珠为软体动物体内形成的结核，成分与壳内层珍珠母相同——主成分为文石（CaCO3）与少量贝壳硬蛋白（conchiolin）。形成机制可核：异物侵入外套膜后，壳分泌细胞附着其上，逐层堆积珍珠层。只有壳内衬珍珠母的软体动物（某些海水牡蛎与淡水蚌）所产才是真正的好珠；不规则者称巴洛克珠，附着于壳面者称泡珠（hro_src_britannica_pearl）。汉文药材把珍珠与「珍珠母」（贝壳内层）分列，二者同源而形态不同。",
+        "mechanism": "文献脉络把珍珠归为甘咸寒一类，话语集中在「安神定惊」「明目」「生肌」三条线上，另有外用吹喉、敷面一类用法。这条脉络值得注意的是它的分级逻辑：药用选珠也看「圆、光、无瑕」，也就是说**医用与装饰共用一套审美标准**，这在药材里很少见。产业脉络则完全不同：珍珠的价值全靠形状、光泽与「晕彩」（orient）三项感官判断，养殖珍珠普及后各地天然采珠业显著衰退。",
+        "conditions": "产地：最优质的「东方珠」产自波斯湾（阿曼至卡塔尔一带），水深 8—20 英寻；其他产地含印度与斯里兰卡之间的马纳尔湾、印尼西里伯斯外海、南太平洋诸岛；美洲的加利福尼亚湾、墨西哥湾与墨西哥太平洋岸；中国淡水采珠早于公元前 1000 年已知（hro_src_britannica_pearl）。采集：依靠潜水员从贝床取贝、剖贝寻珠，属典型的「高投入低命中率」活动；珍珠多取自五年以上的贝（hro_src_britannica_oyster）。产量与稀缺性：天然珠的全部产量与贝的数量绑定，而贝床一旦被刮尽，恢复需多年；养殖珠出现后天然珠市场几乎崩盘。",
+        "exceptions": "第一，**普通食用牡蛎所产珍珠无光泽、无价值**（hro_src_britannica_oyster）——「贝里有珠」不等于「有好珠」，这个区分是定价的基础。第二，淡水蚌也能产优质珠，并非只有海水贝。第三，养殖珠与天然珠在成分上相同，只能靠结构与生长痕迹区分，这是鉴定史上一个长期的难题。第四，珍珠层怕酸、怕干、怕磨，保存条件直接决定一件东西是「宝」还是「粉」。",
+        "story_uses": "一、潜水与贝床：可写珠户的债、季节、风浪与死亡，一条不必虚构的苦难链。二、圆度即政治：一颗正圆的大珠可以当作贡品、贿赂与国库，可写「审珠」这个职位。三、养殖的冲击：人工养殖一出现，天然采珠业「显著衰退」——这是一个现成的技术替代叙事，可写整个海湾城镇的失业。四、真假与结构：只靠肉眼与手感区分天然与养殖，可写鉴定师与骗子的对局。",
+        "historical_scope": "时期与地域：成因、成分、产地与采珠史属可核事实；「安神定惊明目生肌」一系属汉文文献传统。改编边界：不得把珍珠写成内服可治疗之物，不得给任何用法与剂量；不得写任何人工养殖或植入的操作方法；不得把「珍珠粉美容」一类民间说法写成有效；不得把天然珠与养殖珠当作可以无条件互换的同一物。",
+        "evidence_and_uncertainty": "本条为文献与设定资料，不构成医疗建议，不可据此用药。来源支持：珍珠为软体动物体内形成的结核且成分与壳内珍珠母相同、珍珠层主成分为文石与少量贝壳硬蛋白、异物侵入外套膜后壳分泌细胞逐层堆积、以色泽与光泽与晕彩为价值标准且形状越近正圆或水滴越贵、只有壳内衬珍珠母的软体动物所产才是真正好珠、不规则者称巴洛克珠而附着壳面者称泡珠、最优质东方珠产自波斯湾且水深 8—20 英寻、其他产地含马纳尔湾与西里伯斯外海与南太平洋诸岛与美洲三处、中国淡水采珠早于公元前 1000 年已知、养殖珠普及后各地采珠业显著衰退、珍珠母镶嵌自至少公元前 2500 年起用于装饰（hro_src_britannica_pearl）；普通食用牡蛎所产珍珠无光泽而无价值、优质天然珠见于波斯湾的 Meleagrina vulgaris、珍珠多取自五年以上的贝（hro_src_britannica_oyster）。不确定与缺口：**汉文「珍珠」与「珍珠母」的性味、主治与商品分级无已读来源**；天然与养殖的鉴别方法本组刻意不写；采珠业的劳动组织与债务关系未取得来源。设计归纳：珠户的债与死亡、审珠职位的写法、养殖冲击城镇，为本项目推演。"
+      }
+    },
+    {
+      "id": "herb_other_cicada_slough",
+      "name": "蝉蜕",
+      "aliases": [
+        "蝉退",
+        "蝉衣",
+        "蝉衣壳",
+        "cicada exuviae"
+      ],
+      "category": "item",
+      "knowledge_kind": "mixed",
+      "summary": "蝉羽化后留下的空壳。它是本目录里唯一一种「只要不捡就会烂在土里」的药材：来源是虫子的蜕壳副产物，采集不过是一场风雨与眼力的竞争，产量随年份剧烈波动。",
+      "tags": [
+        "kind:animal_product",
+        "tradition:eastern",
+        "part:exuvia",
+        "trait:moult_derived",
+        "trait:seasonal",
+        "role:medicine_stock",
+        "role:seasonal_good",
+        "trade:regional"
+      ],
+      "source_ids": [
+        "hro_src_britannica_cicada"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "details": {
+        "definition": "蝉蜕为蝉科昆虫羽化后遗弃的空壳（exuviae）。它的形成过程可核：成熟若虫多在此处附近的树木上完成末次蜕皮，背面裂开，有翅成虫自此缓慢钻出，留下中空的「蜕」（hro_src_britannica_cicada）。注意两点：其一，它是**蜕壳副产物**，不是杀蝉取得的；其二，它极轻、极易碎、极易被风雨打散，因此“采集”实际上是抢时间。",
+        "mechanism": "文献脉络把蝉蜕归为甘寒一类，功用话语集中在「疏散风热」「利咽」「退翳」「透疹」「止痂」这一束，处理的全是“表”与“上行”部位。另一条值得注意的是象征脉络：蝉在多种文化中出现于神话、文学与音乐，某些亚洲种的雄虫甚至被养在笼中听鸣（hro_src_britannica_cicada）——「蜕」这个意象因此自带“脱去旧体”的隐喻，使它成为汉代王侯墓葬中常见的玉蝉形器的原型背景。",
+        "conditions": "生境：蝉科三千余种，见于热带与温带、荒漠草原与森林（hro_src_britannica_cicada）。采集：需在羽化季节到树干、灌木与坡面逐个拾取，属体力密度极高的低值品；只能在天气合适、虫量大的年份才有商业产量。产量与稀缺性：典型的大小年；若是周期蝉（十三年与十七年一代），则采集完全不可预期——周期蝉只在特定年份大规模出土，其余年份几乎无货。",
+        "exceptions": "第一，**年份与地域的强限制**：周期蝉属（Magicicada）在地下生活十三或十七年后才成批出土，这意味着“同一产地每十七年才能采一次”，而其他年份只能依靠别种。第二，极易混淆：不同种的蜕形相似，只能凭形态与产地判。第三，极易掺伪：可用其他昆虫蜕、以泥土或胶黏合碎壳、以杂质增重。第四，本条所引来源只支撑蝉的生活史与「留下空壳」这一事实，**不覆盖汉文蝉蜕的性味、主治与商品分级**。",
+        "story_uses": "一、十七年一次的机会：把周期蝉写成“每隔十七年才有的一个夏天”，整个村落的收入都压在那几周——这是最接近真实的“天赐”经济。二、空壳与丧葬：玉蝉含于死者口中的礼俗，使“蜕”这个意象与死亡、重生直接挂钩。三、轻到无法称：极轻极碎的商品如何计价（按个还是按重量），是一个具体的经济细节。四、抢天气：雨后、天亮前、几个小时内，蜕壳集中出现也会集中消失——可写一场与时间赛跑的采集。",
+        "historical_scope": "时期与地域：蝉科分类、生活史、周期蝉的世代长度与“留下空壳”属可核事实，不限地域；汉文“疏散风热、退翳透疹”一系属文献传统，本条不用；玉蝉葬俗本条只作背景提及，未取得专门来源。改编边界：不得把蝉蜕写成可内服治病之物，不得给任何用法与剂量；不得写任何捕获、繁育或加工方法；不得把“蜕壳”与“蝉衣”以外的昆虫器官混为一谈。",
+        "evidence_and_uncertainty": "本条为文献与设定资料，不构成医疗建议，不可据此用药。来源支持：蝉科为 3000 余种发音昆虫且见于热带与温带及荒漠草原与森林、长期被用作民间药物与宗教及货币象征、出现于多种文化的神话文学与音乐、某些亚洲种的雄虫被养在笼中听鸣、生活史为卵若虫成虫且雌虫产卵于木质组织、成熟若虫在近处树木上完成末次蜕皮且背面裂开而有翅成虫缓慢钻出并留下中空的蜕、有翅成虫仅活数周、周期蝉为十三年与十七年一代且成批出土（hro_src_britannica_cicada）。不确定与缺口：**汉文蝉蜕的基质范围、性味、主治、商品分级与伪品类型均无已读来源**；不同种蜕壳的鉴别未取得来源；玉蝉葬俗未取得可供引用的来源。设计归纳：十七年一次的现金收入、按个还是按重计价的经济细节，为本项目推演。"
+      }
+    },
+    {
+      "id": "herb_other_silkworm_white_stiff",
+      "name": "僵蚕（白僵蚕）",
+      "aliases": [
+        "僵蚕",
+        "白僵蚕",
+        "Bombyx mori",
+        "Bombyx batryticatus"
+      ],
+      "category": "item",
+      "knowledge_kind": "mixed",
+      "summary": "被真菌感染后僵死的家蚕幼虫。它是本目录里最像「废品变商品」的一条：养蚕业最大的灾难（传染病）反过来成了一个独立的药材行业，而桑蚕本身已经完全驯化、野外不存在。",
+      "tags": [
+        "kind:animal_product",
+        "tradition:eastern",
+        "part:infected_larva",
+        "trait:fungal_infection",
+        "trait:fully_domesticated",
+        "role:medicine_stock",
+        "role:byproduct",
+        "trade:regional"
+      ],
+      "source_ids": [
+        "hro_src_britannica_silkworm",
+        "hro_src_britannica_fungus",
+        "hro_src_britannica_mulberry"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "details": {
+        "definition": "僵蚕指家蚕（Bombyx mori）幼虫被某种真菌（传统上以白僵菌为主）感染后僵硬的全体。要把三件事说清：一是家蚕已完全驯化，物种不再存在于野外（hro_src_britannica_silkworm）；二是致病的是**真菌**，不是细菌也不是病毒，而真菌不是植物（hro_src_britannica_fungus）；三是它的原料与桑叶供应同源——蚕吃桑叶（hro_src_britannica_mulberry）。",
+        "mechanism": "文献脉络把僵蚕归为咸辛平一类，功用话语集中在「息风止痉」「化痰散结」「祛风止痛」这一束，处理的对象多为抽搦、面肿、咽痛一类描述。这条脉络的形成有很具体的产业前提：僵病（白僵病）是养蚕业最常见的毁灭性疾病之一，一旦爆发整批蚕作废；把病死的蚕干燥后当药材卖，是一个现成的「灾损变现」机制。它并不神奇，它只是把损失折价。",
+        "conditions": "原料来源：家蚕完全驯化而只能靠人工繁育，需桑叶与蚕室（hro_src_britannica_silkworm）。产生条件：僵病在湿度高、通风差的蚕室最易爆发，因此“产量”与“养蚕环境的失败”直接相关——环境越好，僵蚕越少。产量与稀缺性：它不是稳定可控的农产品；商品等级看是否全体白粉包被、是否坚实、有无败味，这本质上是「病得多漂亮」的等级体系。",
+        "exceptions": "第一，病理与商品的悖论：养蚕人希望没有病，买药人希望有货，这是一个天然的利益对立。第二，伪品与替代：可用石灰或白粉拌制其他干虫、以淀粉裹制、以僵死但非真菌致死的虫体充代。第三，家蚕完全驯化意味着**它不可能从野外“采到”**，任何“上山采僵蚕”的设定都是错的。第四，本条所引来源只支撑家蚕的驯化、真菌的性质与桑叶关系，**汉文僵蚕的具体基质菌种、性味与商品分级未取得来源**。",
+        "story_uses": "一、灾损变现：一次僵病爆发，养蚕人哭、药商笑——一个真实的、无需虚构的利益错位。二、完全驯化的物种：家蚕不能回到野外，于是“蚕种”本身成为可以垄断、可以禁运的战略物资。三、白粉的等级：一种病得多漂亮就多值钱的分级体系，非常适合写荒诞而真实的行业细节。四、蚕室与湿度：疾病的爆发条件可以直接写成一场“通风不良造成的全村灾难”。",
+        "historical_scope": "时期与地域：家蚕的驯化状态、真菌的性质、桑叶饲料关系属可核事实；汉文“息风止痉化痰散结”一系属文献传统，本条不用。改编边界：不得把僵蚕写成可内服之物，不得给任何用法与剂量；不得写任何接种、培养或加工方法（这属于可操作的生物工艺信息）；不得把僵病写成可故意利用的生产手段；不得把僵蚕与蚕沙（粪便）、蚕蜕混淆。",
+        "evidence_and_uncertainty": "本条为文献与设定资料，不构成医疗建议，不可据此用药。来源支持：家蚕（Bombyx mori）的幼虫用于绿丝已有数千年、原产中国但已完全驯化而物种不再见于野外、成虫口器退化且仅活两三天、雌虫产卵约 300—500 粒、幼虫除桑叶外亦食桑科外的少数植物叶（hro_src_britannica_silkworm）；真菌界独立于植物界、无叶绿素而以菌丝在体外消化后吸收（hro_src_britannica_fungus）；桑叶是蚕的重要饲料、白桑原产亚洲且其叶用作蚕饲料（hro_src_britannica_mulberry）。不确定与缺口：**汉文僵蚕的具体致病菌种范围、性味、主治、商品分级与伪品类型均无已读来源**；僵病爆发的环境条件与损失率未取得定量来源；僵蚕与其他虫体干制品的区别未核。设计归纳：灾损变现的利益错位、蚕种垄断的写法，为本项目推演。"
+      }
+    },
+    {
+      "id": "herb_other_earthworm",
+      "name": "地龙（蚯蚓）",
+      "aliases": [
+        "地龙",
+        "土龙",
+        "曲蟮",
+        "earthworm",
+        "Lumbricus"
+      ],
+      "category": "life",
+      "knowledge_kind": "mixed",
+      "summary": "蚯蚓的干燥全体。它在生态上是土壤形成的主要动力之一（每日吞吐与自身体重相当的土），在药材里则是一种「捉了就死、不捉则活」的活体原料——这两件事把采捕与农业直接对立起来。",
+      "tags": [
+        "kind:animal_product",
+        "tradition:eastern",
+        "part:whole_body",
+        "trait:soil_engineer",
+        "trait:live_capture",
+        "role:medicine_stock",
+        "role:soil_fertility",
+        "trade:regional"
+      ],
+      "source_ids": [
+        "hro_src_britannica_earthworm"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "details": {
+        "definition": "地龙为寡毛纲蚯蚓类（传统上以正蚓属 Lumbricus 为主，如 L. terrestris）的干燥全体。可核的生物学事实：蚯蚓为雌雄同体、异体受精；体分环状体节（L. terrestris 可达 150 节）；第 32—37 节间为环带，产生包卵的茧；无肺而以湿润皮肤呼吸；不能视物听声但对光与振动敏感；钻穴可深达 2 米（hro_src_britannica_earthworm）。",
+        "mechanism": "文献脉络把地龙归为咸寒一类，功用话语集中在「清热定惊」「通络」「平喘」「利水」这一束。这条脉络里最值得注意的是它的形象反差：一种在泥里拟动、无眼无耳的生物，被用来处理「抽搦、拘挛、经络不通」这类身体运动失调的描述——「通」这个字在传统药性学里有着超乎物理意义的地位。生态脉络则完全不同：蚯蚓通过钻穴通气、促进排水、把有机质拖入洞穴而加速分解，是土壤肥力的建设者（hro_src_britannica_earthworm）。",
+        "conditions": "生境：全球水分与有机质足够的土壤，几乎无处不在；部分种长达一米以上（澳洲某种可达 3.3 米），L. terrestris 约 25 厘米。采集：需在雨后、夜间或灌水后引出，属体力密集且极难规模化的活动；常用的“引捉”手段对土壤与作物有附带影响。产量与稀缺性：个体小、干燥后更轻，因此“一斤干货”意味着极大的人工投入；这也是它长期停留在低价、地方性商品的原因之一。",
+        "exceptions": "第一，**生态价值与采集直接冲突**：蚯蚓数量下降就是土壤退化，而药材需求指向的正是减少它们的活动。第二，种间差异极大：不同属种的体型、生境与耐受度差别很大，商品上往往不分。第三，加工（剖开、去泥、干燥）容易掺沙增重，这是此类商品的通病。第四，本条所引来源只支撑生物学与生态功能，**不覆盖汉文地龙的性味、主治、商品分级与加工方法**。",
+        "story_uses": "一、**采药与耕地对立**：可写一个村子的两种人——要把蚯蚓捉去卖的人与要靠它们的地的人。二、雨夜引捉：一场雨后的夜间劳作，自带场景感。三、无眼无耳的东西：一种没有眼、没有耳、没有肺的生物，在文献里被用来处理“抽搦”，这个反差本身就是写作素材。四、达尔文与蚯蚓：对蚯蚓活动最细致的研究之一出自达尔文（hro_src_britannica_earthworm），可写“学者与农人看同一块地看出不同东西”。",
+        "historical_scope": "时期与地域：分类、体节、呼吸方式、生态功能与达尔文的研究属可核事实，不限地域；汉文「清热定惊通络」一系属文献传统。改编边界：不得把地龙写成可内服治病之物，不得给任何用法与剂量；不得写任何引捉、剖制或干燥的具体手法（属可操作的采捕知识，且与生态保护相冲）；不得把蚯蚓数量当作可无限消耗的资源。",
+        "evidence_and_uncertainty": "本条为文献与设定资料，不构成医疗建议，不可据此用药。来源支持：蚯蚓为寡毛纲 1800 余种陆生环节动物、见于全球水分与有机质足够的土壤、体分环状体节且 L. terrestris 可达 150 节、第 32—37 节间为环带而产生包卵的茧、雌雄同体而异体受精、每日吞吐与自身体重相当的食料与土壤、无肺而以湿润皮肤呼吸、不能视物听声但对光与振动敏感、钻穴可深达 2 米、达尔文曾对其活动作过最细致的研究之一、亦作钓饵（hro_src_britannica_earthworm）。不确定与缺口：**汉文地龙的基质种范围、性味、主治、加工与商品分级均无已读来源**；引捉方式及其对土壤的影响未取得来源；资源下降的定量证据未核。设计归纳：采药与耕地的对立、雨夜引捉的场景，为本项目推演。"
+      }
+    },
+    {
+      "id": "herb_other_gecko",
+      "name": "蛤蚧（大壁虎）",
+      "aliases": [
+        "蛤蚧",
+        "大壁虎",
+        "Gekko gecko",
+        "tokay gecko"
+      ],
+      "category": "item",
+      "knowledge_kind": "mixed",
+      "summary": "壁虎科中体型最大的一种，因体型、鸣声与雌雄成对而被当作药材。它把两个现代问题提前摆上了台面：一是野外捕捉与宠物贸易的双重压力，二是「成对销售」这类文化偏好如何直接决定捕多少。",
+      "tags": [
+        "kind:animal_product",
+        "tradition:eastern",
+        "part:whole_body",
+        "trait:nocturnal",
+        "trait:wild_caught",
+        "trait:pet_trade_overlap",
+        "role:medicine_stock",
+        "role:status_gift"
+      ],
+      "source_ids": [
+        "hro_src_britannica_gecko"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "details": {
+        "definition": "蛤蚧为大壁虎（Gekko gecko），壁虎亚目六个科、一千余种蜥蜴中体型最大者，长 25—35 厘米，产东南亚，灰底带红与白色斑点与横带，常被当宠物出售（hro_src_britannica_gecko）。壁虎类的共同特征：小型、多数夜行、皮肤柔软、体短壮、头大、四肢发达、趾端常有黏附垫；多数食虫；除南极外各大洲温暖地区均常见；尾部可自割并再生。药材用其干燥全体，传统上强调“成对”（一雌一雄）与体形完整。",
+        "mechanism": "文献脉络把蛤蚧归为咸平一类，功用话语集中在「补肺益肾」「纳气定喘」「助阳益精」这一束，属动物类药材里少数走「补」路线的。这条脉络的特别之处在于它的商品形式：「成对」的偏好不是生物学事实，而是定价与捕猎习惯——卖家必须凑成一对，意味着捕捉量按偶数上升，而不是按需求上升。这种“文化偏好放大捕获量”的机制在动物类药材中很典型。",
+        "conditions": "生境：热带与亚热带，喜暖湿、树栖或岩栖，常进入人类住所；多数食虫。采集：以野外捕捉为主，因体型大、鸣声响而易于定位；捕捉与运输存活率低，因此多以干燥品流通。产量与稀缺性：体型大、繁殖慢，使野外压力集中；同时它又是“宠物市场”与“药材市场”双重重叠的物种——同一个个体在两个市场上都有价值。",
+        "exceptions": "第一，名称与种的混淆：壁虎亚目有一千余种，「蛤蚧」在商品上可能混入其他大型壁虎。第二，性别与配对：成对销售的偏好无法从外形可靠判定，因此掺假必然存在（同性别、不同产地混拼）。第三，宠物贸易与药材贸易互相抬价，这一重叠是现代保护管理中最麻烦的情形之一。第四，本条所引来源只支撑分类、形态与分布，**不覆盖汉文蛤蚧的性味、主治、加工与等级**。",
+        "story_uses": "一、成对：一个完全由文化偏好制造的捕捉压力，可写“不凑成一对就卖不上价”的市场规则与为此产生的欺骗。二、两个市场争一只：药铺与玩家争同一批货，是当代野生动物管理最真实的困境之一。三、夜里的叫声：它因为“会叫”而被注意到，能力本身成了致命的标记。四、尾可断而重生：自割与再生是一个现成的意象，可写“失去的东西会重新长出来，但不是原来那一条”。",
+        "historical_scope": "时期与地域：分类、形态、分布与夜行食虫习性属可核事实，不限地域；汉文「补肺益肾纳气定喘」一系属文献传统。改编边界：**不得写任何捕捉、饲养、加工或使用方式**；不得把它写成可验证的补益之物；不得给任何用法与剂量；不得把“野外捕捉”写成可无限持续的采集活动。",
+        "evidence_and_uncertainty": "本条为文献与设定资料，不构成医疗建议，不可据此用药。来源支持：壁虎为有鳞目壁虎亚目六个科一千余种蜥蜴、多为小型而夜行且皮肤柔软体短壮头大四肢发达并常有黏附垫、多数全长 3—15 厘米、适应自荒漠至丛林且部分栖于人类住所、多数食虫、除南极外各大洲温暖地区均常见、多数卵生而卵白色硬壳、多数具发音能力、尾部可自割并再生、大壁虎为最大种且长 25—35 厘米并产东南亚且常被当宠物出售（hro_src_britannica_gecko）。不确定与缺口：**汉文蛤蚧的性味、主治、加工与商品分级均无已读来源**；野外捕捉量、繁殖速率与贸易规模的定量数据未取得；它与其他大型壁虎的混用范围未核。设计归纳：成对偏好放大捕获量的机制、宠物与药材市场重叠的困境，为本项目推演。"
+      }
+    },
+    {
+      "id": "herb_other_deer_antler",
+      "name": "鹿茸（鹿角）",
+      "aliases": [
+        "鹿茸",
+        "鹿角",
+        "鹿角胶",
+        "antler",
+        "velvet"
+      ],
+      "category": "item",
+      "knowledge_kind": "mixed",
+      "summary": "鹿科动物每年重新长出的骨质器官，生长期覆一层富血管与神经的皮肤（「茸」）。它是本目录里生物学事实与产业争议叠得最紧的一条：鹿角确实每年脱落重长，而「取茸」涉及的时机与方式也全在这条时间线上。",
+      "tags": [
+        "kind:animal_product",
+        "tradition:eastern",
+        "part:antler",
+        "trait:annual_regrowth",
+        "trait:velvet_skin",
+        "trait:wild_caught",
+        "trait:farmed",
+        "role:medicine_stock",
+        "role:status_gift"
+      ],
+      "source_ids": [
+        "hro_src_britannica_antler"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "details": {
+        "definition": "鹿茸指鹿科动物额骨上长出的成对实心骨质器官在生长期的状态；长成后称鹿角。关键生物学事实：鹿角与永久且覆角质的洞角不同，**每年脱落并重长**，脱落受激素变化（交配季后睪酮下降）影响；生长期覆一层称「茸」的皮肤，富血管与神经，长成后茸皮脱落（通常在交配季前）；驯鹿为唯一雌雄均长角的鹿种；中国水鹿无角（hro_src_britannica_antler）。",
+        "mechanism": "文献脉络把鹿茸归为甘咸温一类，功用话语集中在「补肾阳」「益精血」「强筋骨」这一束，在动物类药材中居于最高价位段。产业脉络的核心事实是**时间窗**：茸皮脱落前的窗口短，长成后价值大跌；同时长角耗能巨大（需要大量矿物质、蛋白质与能量），这解释了两件事——为何鹿要保持周期性脱落，以及为何“促进长角”的饲养技术会成为一个产业。",
+        "conditions": "生境与驯养：鹿科广布于欧亚与美洲；梅花鹿、马鹿等已长期驯养，形成囿养产业。采集：因茸皮期极短，采集窗口与鹿的生理节律绑定；这也使“何时取”成为行业核心知识。产量与稀缺性：一头鹿年产有限，囿养成本高，使价格居高不下；野生种群则因捕猎与栖息地丧失而普遍下降（本条仅就梅花鹿等常见药用种的野生状况作一般陈述，未取得专门保护等级来源）。",
+        "exceptions": "第一，茸与角的药理定位不同，但商品上常被混称。第二，种间差异大：只有部分鹿种的茸被当作药材，其他鹿种的角多用作其他用途。第三，驯鹿为唯一雌雄均长角的鹿种，这意味着“雌鹿无角”的常识在驯鹿上不成立——很多设定会在这里出错。第四，本条所引来源只支撑鹿角的解剖与生长周期，**不覆盖汉文鹿茸的性味、主治、加工与等级**。",
+        "story_uses": "一、**时间窗**：只有一个很短的窗口，过了就一文不值——这是天然的紧迫感，不需要任何虚构设定。二、驯养与野生：囿养可稳定供货但成本高，野生货价格高而风险大，两条供应链各有各的暴力。三、能量账：长角极耗能量，所以「让鹿不长角」与「让鹿快长角」都是真实的饲养问题，可写饲养者的取舍。四、唯一反例：驯鹿雌雄均长角这一事实，适合写成“你以为的常识在这里不成立”的场景。",
+        "historical_scope": "时期与地域：鹿角每年脱落重长、茸皮富血管与神经、脱落与激素变化相关、长角耗能巨大、驯鹿为唯一雌雄均长角者，均属可核事实；汉文「补肾阳益精血」一系属文献传统。改编边界：**不得写任何取茸、加工、炮制或使用方式**；不得把它写成可验证的补益之物，不得给任何用法与剂量；不得把“鹿角可再生”当作“取茸无害”的理由（可再生不等于无痛无害）；不得写具体的鹿只选择与处理流程。",
+        "evidence_and_uncertainty": "本条为文献与设定资料，不构成医疗建议，不可据此用药。来源支持：鹿角为鹿科动物额骨上生出的成对实心骨质结构、与永久且覆角质的洞角不同而每年脱落并重长、脱落受激素变化影响（交配季后睪酮下降）、生长期覆一层称茸的富血管与神经的皮肤且长成后茸皮脱落通常在交配季前、鹿角用于雄鹿角斗与求偶展示、长角耗能巨大而脱落有助于节约能量越冬、驯鹿为唯一雌雄均长角的鹿种、中国水鹿无角（hro_src_britannica_antler）。不确定与缺口：**汉文鹿茸的基质种、性味、主治、加工与商品分级均无已读来源**；各鹿种的野生种群与保护等级本组未取得可引来源（相关尝试均失败）；囿养产业的规模与争议未核。设计归纳：时间窗的紧迫感写法、囿养与野生两条供应链，为本项目推演。"
+      }
+    },
+    {
+      "id": "herb_other_donkey_hide_gelatin",
+      "name": "阿胶（驴皮胶）",
+      "aliases": [
+        "阿胶",
+        "驴皮胶",
+        "传致胶",
+        "Ejiao"
+      ],
+      "category": "item",
+      "knowledge_kind": "mixed",
+      "summary": "驴皮熟制后所得的胶块。它是本目录里「一种家畜如何被一种产品重新定义」的最清楚的例子：驴本是驮畜，一旦一张皮的价值超过一整头活驴，养驴的用途就跟着变了。",
+      "tags": [
+        "kind:animal_product",
+        "tradition:eastern",
+        "part:hide",
+        "trait:collagen_gel",
+        "trait:single_species_demand",
+        "trait:supply_chain_pressure",
+        "role:medicine_stock",
+        "role:status_gift",
+        "trade:long_distance"
+      ],
+      "source_ids": [
+        "hro_src_britannica_donkey"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "details": {
+        "definition": "阿胶在汉文药材中指驴皮经长时间熟制、浓缩后凝成的胶块，传统上以产地得名（阿），并与牛皮胶、鹿角胶等“皮角胶类”并列。原料是驴（Equus asinus）的皮；驴为马科家畜、源于非洲野驴、自公元前 4000 年起即被用作驮畜、肩高平均约 101.6 厘米、体重约 250 公斤、比马慢但步稳而能在崎岖地形负重（hro_src_britannica_donkey）。注意：**本条的已读来源只支撑驴这一物种的驯化与役用，不支撑阿胶的任何制作、成分或功效**。",
+        "mechanism": "文献脉络把阿胶归为甘平一类，功用话语集中在「补血」「止血」「滋阴润燥」这一束，并在后世成为最典型的「补品」之一。它从药材变成礼品的路径值得记录：一旦某种东西同时具备“可长期保存、可切成块、可标产地、可赠人”四个属性，它就必然从药铺走进人际关系的流通——阿胶的块状形态恰好满足这四点。产业脉络则是一条供需链：驴的繁殖慢、役用价值高，而皮的需求集中在少数产区，两者的空间错位必然产生长距离贸易与替代（马皮、骡皮、其他皮类冒充）。",
+        "conditions": "原料来源：驴在“马难以存活或当地无力养马之处”是主要驮畜与运输来源（hro_src_britannica_donkey）——这一句直接决定了驴皮供应的地理分布：它来自役用驴密集的地区，而非消费地。产量与稀缺性：驴的繁殖周期长、单胎为主，种群扩张慢，因此“皮的需求”很难靠扩产满足，价格压力会直接传到役用驴的存栏上。工艺：需大量水、燃料与长时间加热，属耗能型手工业，产地因此依赖水源与燃料而非驴的产地。",
+        "exceptions": "第一，**来源与产品的错位**：本条唯一可核的来源是驴的物种事实，而阿胶的工艺、成分、等级与商品史**全部未核**（本组未取得相关页面）。第二，同名异物：历史上“胶”类名目极多（牛皮胶、鹿角胶、鱼胶），名称与实际原料的关系需逐条核。第三，伪品与替代：以其他皮类（马、骡、猪、牛）熬制充代是最常见的替代方式。第四，现代还出现「皮张需求→存栏下降→役用能力受影响」的连带后果，这一链条在开发语境中反复出现（本条不提供具体数据）。",
+        "story_uses": "一、**一张皮胜过一头驴**：当皮的价钱超过整头活驴，屠驴就变成理性选择，而依赖驴耕作的农户则失去役力——一条完整的、不需虚构的经济传导链。二、块状的礼物：可保存、可切分、可标产地、可赠人——四个属性让它天然成为人情与贿赂的载体。三、长途与产地：原料在役驴区、工艺在水火充足处、消费在城市，三段分离造就一条长链。四、熬胶的燃料：大量燃料需求使它与林业、炭业直接竞争，可写“熬胶坊与山林禁令”。",
+        "historical_scope": "时期与地域：驴的驯化、役用、体型与分布属可核事实，不限地域但以非洲起源与欧亚役用为主；阿胶的性味、主治、工艺与商品史属汉文文献传统，本条未核。改编边界：**不得写任何熬制、浓缩、凝固、切块的工艺参数**；不得把阿胶写成可验证的补血之物，不得给任何用法与剂量；不得把“驴皮可再生”当作无代价的理由；不得写具体的取材与加工操作。",
+        "evidence_and_uncertainty": "本条为文献与设定资料，不构成医疗建议，不可据此用药。来源支持：驴（Equus asinus）为马科家畜且源于非洲野驴、自公元前 4000 年起即用作驮畜、肩高平均约 101.6 厘米而体重约 250 公斤且品种差异极大、比马慢但步稳而能在崎岖地形负重、在马难以存活或当地无力养马之处为主要驮畜与运输来源（hro_src_britannica_donkey）。不确定与缺口：**阿胶本身的基质、工艺、成分、等级与商品史本组无任何已读来源**，上述描述属本项目据一般文献常识的归纳；驴皮需求对存栏的影响未取得定量来源；“以其他皮充代”的实际比例未核。设计归纳：一张皮胜过一头驴的经济传导、块状礼品的四个属性，为本项目推演。"
+      }
+    },
+    {
+      "id": "herb_other_pangolin_scale",
+      "name": "穿山甲（甲片）——仅存为制度条目",
+      "aliases": [
+        "鲮鲤",
+        "石鲮鱼",
+        "穿山甲片",
+        "Manis",
+        "pangolin"
+      ],
+      "category": "item",
+      "knowledge_kind": "historical",
+      "summary": "世界上被盗猎得最厉害的哺乳动物之一。本条不写任何使用方式，只作为制度与伦理条目存在：八个种全部濒危，2016 年国际商业贸易已被全面禁止。",
+      "tags": [
+        "kind:animal_product",
+        "tradition:eastern",
+        "part:scale",
+        "trait:endangered",
+        "trait:trade_banned",
+        "trait:ethically_contested",
+        "role:conservation_case",
+        "role:legal_case"
+      ],
+      "source_ids": [
+        "hro_src_britannica_pangolin",
+        "hro_src_wwf_cites"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "details": {
+        "definition": "本条仅记录一个被严格保护的物种及其甲片作为历史商品的存在，**不构成任何使用、获取或加工指导**。穿山甲为鳞甲目穿山甲科约八种有甲胎盘哺乳动物，分布热带亚洲与非洲；全体覆以由粘结毛发形成的褐色鳞片（面部与腹面除外）；受威胁时蜷成球、竖起鳞片，并从肛门腺分泌臭液；夜行、独居或成对；主食白蚁，亦食蚂蚁（hro_src_britannica_pangolin）。",
+        "mechanism": "本条的“机制”就是需求如何转化为濒危，这条链每一步都可核：因肉与身体部位（器官、皮、鳞）在传统医药中的需求而被大量猎捕 → 至 21 世纪初八个种全部濒危 → 2019 年 IUCN 将两个种列为易危、三个种濒危、三个种极危 → 2016 年 CITES 第 17 次缔约方大会投票通过对全部穿山甲及其部位的国际商业贸易禁令（hro_src_britannica_pangolin）。CITES 附录一明确禁止其国际商业贸易（含部位与制品），仅科学或执法等目的可例外（hro_src_wwf_cites）。",
+        "conditions": "制度现状：全部八个种均在 CITES 名录内、国际商业贸易被禁止；一些政府公开销毁没收的鳞片以抑制销售（hro_src_britannica_pangolin）。执行难点：需求端分散、走私链条跨国、罚则差异大，且“库存”（历史积累的存货）与“新捕”在外观上难以区分——这是所有濒危物种贸易管理共同的困境，本条不展开具体情形。",
+        "exceptions": "第一，**本条不设“例外”供人利用**：任何以“药用、食用、工艺”为理由的获取都属法律禁止范围。第二，需要分清三个层次：物种的生态事实、历史上的使用记载、当代的法律地位——三者不可互相推论。第三，历史上存在打甲片当作“穿山甲”的伪品（其他动物皮、骨、角质物），这类历史商品问题与保护问题无关，但常被维权者混同。第四，**本条只取到一条物种页与一条 CITES 科普页，没有取得任何法律条文原文**。",
+        "story_uses": "一、**制度与血缘**：一个以“传统”为理由的需求，遇到一个以“公约”为基础的国际禁令，两套正当性直接相撞——这是本目录里最有张力的伦理题目之一，而它完全不需要虚构。二、销毁与象征：公开销毁没收品是一个高度仪式化的政治行为，可写其代价与效果。三、执法链：从林区护林员到海关到快递，每一个环节都有可写的具体角色。四、历史与当下：同一物种在不同世纪有完全不同的价值，可写“同一样东西，曾祖与孙辈的看法相反”。",
+        "historical_scope": "时期与地域：物种分布、缩球与腺体分泌的防御行为、IUCN 等级与 CITES 禁令年份属可核事实（限当代，全球范围）；作为历史商品的存在属文献记载。改编边界：**不得写任何获取、加工、炮制、配伍、服用或使用方式，一个也不写**；不得写“合法渠道”“可持续利用”“养殖替代”一类为使用背书的话；不得把它写成可治任何病症之物；若世界设定中有类似物种，必须明写其保护地位，且不得用以暗示现实用法。",
+        "evidence_and_uncertainty": "本条为文献与设定资料，不构成医疗建议，不可据此用药。来源支持：穿山甲为鳞甲目穿山甲科约八种有甲胎盘哺乳动物、分布热带亚洲与非洲、全体覆由粘结毛发形成的褐色鳞片而面部与腹面除外、受威胁时蜷成球并竖鳞且自肛门腺分泌臭液、夜行且独居或成对、主食白蚁亦食蚂蚁；因肉与身体部位在传统医药中的需求而被大量猎捕，至 21 世纪初八个种全部濒危，2019 年 IUCN 将两个种列为易危与三个种濒危与三个种极危，2016 年 CITES 第 17 次缔约方大会投票通过对全部穿山甲及其部位的国际商业贸易禁令，一些政府销毁没收的鳞片以抑制销售（hro_src_britannica_pangolin）；CITES 附录一含最濒危动植物且其国际商业贸易（含部位与制品）被禁止而仅科学或执法等目的可例外（hro_src_wwf_cites）。不确定与缺口：**具体法律条文、罚则与库存管理制度本组未取得原文**；走私规模与查获率的定量数据未核；历史使用记载的文献源流未取得。设计归纳：制度与血缘的正当性冲突写法、销毁仪式的政治读法，为本项目推演。"
+      }
+    },
+    {
+      "id": "herb_other_bear_bile",
+      "name": "熊胆——仅存为制度条目",
+      "aliases": [
+        "熊胆",
+        "熊胆汁",
+        "ursodeoxycholic acid",
+        "bear bile"
+      ],
+      "category": "item",
+      "knowledge_kind": "historical",
+      "summary": "亚洲传统医学史上最臭名昭著的动物制品之一。本条只记它作为伦理与保护问题的历史：取胆方式残忍、野外种群大幅下降、亚洲黑熊已入 CITES 附录一，而人工合成替代早已存在。",
+      "tags": [
+        "kind:animal_product",
+        "tradition:eastern",
+        "part:gallbladder",
+        "trait:endangered",
+        "trait:cruel_extraction",
+        "trait:substitutable",
+        "trait:ethically_contested",
+        "role:conservation_case",
+        "role:ethics_case"
+      ],
+      "source_ids": [
+        "hro_src_baike_bear_bile",
+        "hro_src_wwf_cites"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "details": {
+        "definition": "本条仅记一个被严格保护的动物制品作为历史与伦理问题的存在，**不写任何获取、保存、使用方式**。熊胆为熊科动物黑熊或棕熊的胆囊；词条记载「亚洲各国都有延续数千年的杀熊取胆的传统」（hro_src_baike_bear_bile）。关键事实是保护地位：亚洲黑熊已列入《濒危野生动植物种国际贸易公约》（CITES）附录一（hro_src_baike_bear_bile），而附录一含最濒危的动植物且其国际商业贸易（含部位与制品）被禁止，仅科学或执法等目的可例外（hro_src_wwf_cites）。",
+        "mechanism": "需求→猎捕→种群下降的链条可核：因熊胆交易，除熊猫外各种熊的数量均大幅减少，亚洲黑熊受影响最大；为区区一小枚胆囊而猎杀野外的熊，这一行为延续了数千年，直到近数十年才开始改变（hro_src_baike_bear_bile）。第二条链是技术替代：熊去氧胆酸已可人工合成、成本低廉，这直接削弱了“必须取自动物”的前提（hro_src_baike_bear_bile）。这两条链共同构成一个完整的制度悖论：效果可以被替代，而传统与价格仍然存在。",
+        "conditions": "制度条件：全部合法性的起点是 CITES 附录一——国际商业贸易被禁止，仅科学或执法等目的可例外（hro_src_wwf_cites）；对应国内法本组未取得原文。替代条件：熊去氧胆酸已可人工合成且成本低廉（hro_src_baike_bear_bile），这在技术上取消了「必须取自活体」的前提。执行条件：需要执法机构、边境查验与对养殖场（尤其是活体取胆场所）的监管能力，三者缺一，禁令就会退化为纸面。",
+        "exceptions": "第一，**活熊取胆**：词条明确记载把导管插入黑熊体内或实施所谓“活熊取胆”，并称该做法因过于残忍而遭到各个动物保护组织的反对（hro_src_baike_bear_bile）。本条**只记这一事实的存在与争议**，不写任何操作。第二，可替代性：词条称其医药价值“被逐渐证明并非不可替代”，并列举可人工合成（hro_src_baike_bear_bile），但这属医药主张，本组不采信为结论，只记“已出现合成替代”这一事实。第三，本条没有取得任何法律条文原文，只有 CITES 附录一与被禁贸易这一制度事实。",
+        "story_uses": "一、**残忍的商业化**：一种以活体为原料的商品，其供应链本身就是伦理现场，可写监管、举报、舆论与利益。二、合成替代的政治：当一个替代品已经存在、成本更低、效果相当，而旧产业仍然存在，这背后是传统、身份、价格与权力的组合——可写“为什么明知可以替代还在用”。三、附录一的分量：一个国际公约的附录名次如何直接改变一个行业的命运。四、巡护与禁猎：可写林区巡护员与偷猎者的长期对峙，而不需任何美化。",
+        "historical_scope": "时期与地域：熊胆作为历史商品的传统限亚洲（词条称延续数千年）；CITES 附录一与合成替代属当代制度与化学事实。改编边界：**绝对不得写任何取胆、引流、保存、炮制、配伍、服用或替代换算的做法**；不得写“人道取胆”“可持续利用”一类为使用背书的话；不得把它写成可治任何病症之物；不得描述取胆的具体部位与手法。",
+        "evidence_and_uncertainty": "本条为文献与设定资料，不构成医疗建议，不可据此用药。来源支持：熊胆为熊科动物黑熊或棕熊的胆囊、亚洲各国存在延续数千年的杀熊取胆传统、因熊胆交易各种熊的数量均大幅减少且亚洲黑熊受影响最大、亚洲黑熊已列入 CITES 附录一、活熊取胆的做法因过于残忍而遭到各动物保护组织反对、熊去氧胆酸已可人工合成且成本低廉（hro_src_baike_bear_bile）；CITES 附录一含最濒危动植物且其国际商业贸易（含部位与制品）被禁止、现有 185 个缔约方（hro_src_wwf_cites）。不确定与缺口：**具体法律条文与罚则未取得原文**；种群下降的定量数据与年表未核；词条所列功效、鉴别与药理本组**一律不采用**；“合成品已广泛取代”的市场比例未核。设计归纳：合成替代为何仍不能终结旧产业的制度解读，为本项目推演。"
+      }
+    },
+    {
+      "id": "herb_other_tiger_bone",
+      "name": "虎骨——仅存为制度条目（附犀角旁注）",
+      "aliases": [
+        "虎骨",
+        "虎膏",
+        "tiger bone",
+        "Panthera tigris"
+      ],
+      "category": "item",
+      "knowledge_kind": "historical",
+      "summary": "本条不写虎骨的任何用途，只写它的制度史：野外约五千七百只、每个部位都在非法市场出现、圈养虎场被视为需求的延续而非解方。并附犀角的同类缺口说明。",
+      "tags": [
+        "kind:animal_product",
+        "tradition:eastern",
+        "part:bone",
+        "trait:endangered",
+        "trait:trade_banned",
+        "trait:farmed_problem",
+        "trait:ethically_contested",
+        "role:conservation_case",
+        "role:legal_case"
+      ],
+      "source_ids": [
+        "hro_src_wwf_tiger",
+        "hro_src_wwf_cites"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "details": {
+        "definition": "本条仅记一个濒危物种及其制品作为制度问题的存在，**不写任何获取、鉴别、使用方式**。虎（Panthera tigris）为濒危物种，据 Global Tiger Forum 全球野外约五千七百只（hro_src_wwf_tiger）；虎被 CITES 列为附录一物种，其国际商业贸易（含部位与制品）被禁止，仅科学或执法等目的可例外（hro_src_wwf_cites）。注意：**本条没有取得任何中药文献层面的来源**，故不涉及任何药材学内容。",
+        "mechanism": "需求—盗猎—贸易的链条可核：盗猎是最直接的威胁；虎「自须至尾」每一部位都曾在非法野生动物市场出现，其骨与其他部位被用于现代保健补剂与民间偏方，皮张被当作身份象征；虎制品的贸易与活体幼崽交易是主要威胁之一（hro_src_wwf_tiger）。另有一个反直觉的制度发现：**圈养不是解方**——东亚与东南亚 200 余处场所圈养逾八千只虎，其中约四分之三在中国，商业性圈养被认为延续了对虎制品的需求、为非法贸易提供掩护并削弱执法效果，WWF 因此主张终止繁殖并逐步关闭这类「虎场」（hro_src_wwf_tiger）。",
+        "conditions": "制度条件：CITES 附录一名录加国际商业贸易禁止（hro_src_wwf_cites）；野生动物执法需要林区巡护、海关与网络平台三线配合（hro_src_wwf_tiger）。供给条件：野生种群规模约五千七百只，可繁殖个体有限（hro_src_wwf_tiger）。圈养条件：东亚与东南亚圈养逾八千只、其中约四分之三在中国——这一规模本身构成监管与需求的双重压力。需求条件：需要从消费端（保健补剂、民间偏方、身份象征）入手，而非只管供给端。",
+        "exceptions": "第一，**“养殖可减压野外”的假设在虎身上失败**：圈养规模越大，需求被合法化的风险越高。第二，数量与恢复的叙事：“整体数字开始回升”与“东南亚大部分地区仍在危机中并下降”同时成立（hro_src_wwf_tiger），任何单一方向的引用都是选择性的。第三，**犀角旁注（缺口）**：同一制度类型下本应包含犀角一条，但本组拟定引用的两个页面均抓取失败（WWF 物种页返回 403，英文百科条目返回 404），因此**未设犀角独立条目**，也不引用其内容；若后续需要，应重新取源。第四，本条未取得任何药材学或历史使用的一手记载。",
+        "story_uses": "一、**养得多反而保护不好**：一个完全反直觉、却是真实政策困境的题目，适合写官员、饲主、保护者三方的僵局。二、身份的符号：皮张作为身份象征，意味着需求不来自药铺而来自客厅，可写“禁得住药铺、禁不住炫耀”。三、一只虎的连锁：杀死带崽的母虎会使幼崽同时死亡并失去未来繁殖机会；杀死雄虎会引发领地争夺战（hro_src_wwf_tiger）——保护不是数字而是故事。四、两套数字：回升与下降同时存在，可写“同一份数据被两方各自引用”。",
+        "historical_scope": "时期与地域：物种状态、盗猎威胁、圈养规模与 CITES 附录一属可核事实（限当代，全球范围）。改编边界：**绝对不得写任何获取、鉴别、炮制、配伍、服用或使用虎骨的方式**；不得写“圈养品可合法流通”“养殖可减轻野外压力”一类为使用背书的话；不得把它写成可治任何病症之物；不得把保护议题简化成单一数字。",
+        "evidence_and_uncertainty": "本条为文献与设定资料，不构成医疗建议，不可据此用药。来源支持：全球野外约 5700 只虎且为濒危物种、盗猎是最直接威胁、虎自须至尾每一部位都曾在非法野生动物市场出现且骨与其他部位被用于现代保健补剂与民间偏方而皮张被当作身份象征、虎制品贸易与活体幼崽交易是主要威胁、东亚与东南亚 200 余处场所圈养逾 8000 只虎且约四分之三在中国、商业性圈养被认为延续需求并为非法贸易提供掩护并削弱执法效果、WWF 主张终止繁殖并逐步关闭虎场（hro_src_wwf_tiger）；CITES 附录一含最濒危动植物且其国际商业贸易被禁止（hro_src_wwf_cites）。不确定与缺口：**犀角与麝鹿/麝香的相关来源均未取得**（WWF 犀页面 403、英文百科犀条目 404），故本条只作旁注而不写它们的事实；具体法律条文与罚则未取得原文；历史药用脉络本组未取得来源，故完全未写。设计归纳：养得多反而保护不好的政策解读、“需求来自客厅而非药铺”的断言，为本项目推演。"
+      }
+    },
+    {
+      "id": "herb_other_musk",
+      "name": "麝香——仅存为制度条目",
+      "aliases": [
+        "麝香",
+        "当门子",
+        "麝香腺",
+        "musk"
+      ],
+      "category": "item",
+      "knowledge_kind": "historical",
+      "summary": "麝鹿腹部腺体的分泌物，历史上是最高价位的动物香料之一，也是本目录里证据最薄的一条：本组没有取得任何可引来源，因此只保留制度与缺口说明，不写任何具体事实推断。",
+      "tags": [
+        "kind:animal_product",
+        "tradition:eastern",
+        "part:gland_secretion",
+        "trait:high_value",
+        "trait:wild_caught",
+        "trait:substitutable",
+        "trait:ethically_contested",
+        "role:conservation_case",
+        "role:perfume_material"
+      ],
+      "source_ids": [],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "details": {
+        "definition": "麝香为麝鹿（麝属 Moschus 各种）雄体腹部麝香腺的分泌物，历史上同时用作香料与药材，是少数同时进入香水业与药业的动物原料。**必须明确告知：本条没有取得任何已读来源**——拟定引用的保护类页面与百科页面均抓取失败，因此本条的细节全部属于“待核实”状态，只保留制度性陈述与本项目自己的写作建议。",
+        "mechanism": "仅就常识层面陈述三条，且均标为待核：其一，原料来自活体动物的腺体，因此获取与动物福利直接相关；其二，麝香因香气强、留香久而成为高价值商品，价格反过来加重野外压力；其三，合成香料（如硝基麝香类）的出现为它提供了替代可能。三条都不提供任何操作细节。",
+        "conditions": "制度现状（待核）：麝属多个种一般被认为属于受国际公约管制的物种、国际贸易受到严格限制或禁止；具体附录名次、生效年份与各国国内法差异**本组未核**。产量与稀缺性（待核）：野生个体产量极低、取香需杀或捕活体，因此价格极高。本条不提供任何产量、价格或产地数据。",
+        "exceptions": "第一，**若需引用本条，必须先重新取源**：无来源的条目不应被当作事实使用。第二，它与已有三条（穿山甲、熊胆、虎骨）共享同一个制度结构，但证据强度最弱，不应被当作同类条目中的代表。第三，合成替代存在并不意味着历史产业已终结，这个差异在三条已有来源的条目里可以看到（见 hro_src_baike_bear_bile 关于合成胆酸已可人工合成的记载）。",
+        "story_uses": "一、**证据空白的无头案**：一条“大家都知道但拿不出文献”的题目，恰好适合写传闻、谣言与地方知识——但作者必须自己标清楚这是设定而非史实。二、香气与距离：一种留香极久的物质，在香道、礼制与外交中都有着“传递”的象征，可写“一个人走了，气味还在”。三、替代品与奢侈：合成品出现后旧材料的地位反而更贵，这是一个可以反复使用的经济规律。四、最弱的证据：作为写作者，可把本条的缺口当作一个诚实标注的范例——不假装每一条都有出处。",
+        "historical_scope": "时期与地域：**本条的时期、地域与制度细节均未核实**，上面所述均为待核内容。改编边界：**绝对不得写任何获取、取香、炮制、配伍、服用或使用方式**；不得给出任何价格、产量与产地数据；不得把“合成替代已存在”当作可继续使用野生原料的理由；不得把本草考据口径当作为使用背书。",
+        "evidence_and_uncertainty": "本条为文献与设定资料，不构成医疗建议，不可据此用药。**本条没有任何已读来源（source_ids 为空）**：拟定引用的保护类页面与百科页面均抓取失败（见 hro_src_fail_wwf_rhino 与 hro_src_fail_britannica_rhino：前者 403、后者 404，两者均为犀类页面，反映本组在大型兽类保护题材上取源的普遍困难）。因此定义、制度现状、产量与价格**全部未核**，不应作为事实引用。唯一可做的负责任的引用是已在其他条目中核实过的制度框架（CITES 附录一禁国际商业贸易，见 hro_src_wwf_cites），但**本组未核实麝属是否在附录一内**，故不据此下结论。设计归纳：香气与距离的象征写法、替代品反而抬升旧材料价值的规律，为本项目推演。"
+      }
+    }
+  ]
+}

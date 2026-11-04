@@ -12,6 +12,7 @@ from pathlib import Path
 
 from app import element_assembly as ea
 from app import encyclopedia as enc
+from tests.fixtures_world import world_service
 from app.service import Service
 from app.storage import Store
 
@@ -48,7 +49,7 @@ class AssemblyCase(unittest.TestCase):
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory()
         self.dir = Path(self.tmp.name)
-        self.svc = Service(Store(self.dir / 'state.sqlite3'), ROOT)
+        self.svc = world_service(Store(self.dir / 'state.sqlite3'), ROOT)
         self.svc.provider.configure({'offline': True})
         self.svc.elements.configure(self.library_path, allowed_roots=[self.shared.name])
         package = self.svc.runtime.package()

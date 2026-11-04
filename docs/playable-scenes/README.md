@@ -1,10 +1,10 @@
-# 三个可玩短篇
+# 可玩短篇与「铜杯镇的一天」
 
 每篇以 **15–20 分钟**为设计目标：约 12–18 次行动，穿插 6–10 轮对话、阅读和选择。没有进行人类玩家计时，快速点击按钮会明显更短；自动回归耗时不能当作游玩时长。
 
 ## 从哪里开始
 
-服务运行后刷新首页，在左侧旅程中选择以下标题。每篇都是独立的世界版本与存档，人物、钱包、后果互不串联。
+服务运行后刷新首页，在左侧旅程中选择以下标题。下表前三篇仍各自独立，人物、钱包、后果互不串联；新增整合 Demo 见后文，它在自己的单一世界和存档中连接三个地点，不会读取旧旅程。
 
 | 片段 | 目标与主要选择 | 建议试问 |
 |---|---|---|
@@ -38,13 +38,13 @@
 
 ## 源码与复现
 
-内容维护入口为 `tools/playable_scenes.py`，导出的三个 JSON 是可读故事与角色资料。修改内容后导出：
+内容维护入口为 `tools/playable_scenes.py`，导出的四个 JSON 是可读故事与角色资料。原三个导出内容保持不变，第四个是 `short_town_day.json`。修改内容后导出：
 
 ```powershell
 python -m tools.playable_scenes
 ```
 
-服务已启动时，安装故事并创建三段新的旅程：
+服务由用户启动后，安装四个包并创建四段新的旅程（会写当前服务的数据库与作者包文件，不是只读验证命令）：
 
 ```powershell
 python -m tools.playable_scenes --install http://127.0.0.1:8000
@@ -76,3 +76,85 @@ python -m tools.evaluate_short_scenes
 6. 阅读与思考后的真实耗时是否达到目标；如果只需几分钟，优先丰富冲突和人物交流，不靠强制等待凑时长。
 
 未包含：通用自由动作编译、多角色主动对抗、完整目击传播和司法程序、稳定的模型心理学模拟。短篇中的可选后果仍由作者定义；本轮验证的是“参数驱动的模型选择”能否嵌入现有规则闭环。
+
+## 新增整合 Demo：铜杯镇的一天
+
+导出包：[short_town_day.json](short_town_day.json)，源码 `town_day()`。一个存档、三个地点、四名具名 NPC：贝丝、粮商艾达、面包师诺尔、桥吏奥伦。船工和跑腿只作已声明的背景传递人，不是独立可交互角色。
+
+```text
+08:00 铜杯酒馆（贝丝）：18便士开局 → 付6便士旧食宿 → 接下干麦委托
+  │ 一小时
+  ▼
+雨后粮市（艾达、诺尔）：辨麦/对照样本 → 花12便士采购 → 交麦收16便士
+  │ 可分4便士利润给学徒，另捐4便士灯油；回酒馆一小时
+  ▼
+铜杯酒馆（贝丝）：出示分享收据换介绍信；胡闹者可付8便士赔礼
+  │ 一小时；胡闹传闻随跑腿送到桥口，只进入所闻/信念
+  ▼
+雾桥（奥伦）：付8便士 / 信用赊8便士 / 修桥或搬料抵票 / 出示介绍信
+  ├─ 正常登船：一笔生意，一张通行证
+  ├─ 介绍信登船：收据换来的介绍信
+  ├─ 胡闹后登船：胡闹也要付账
+  └─ 18:00未办妥通行或自愿留下：船走了，明天还在 → 仍可做工两小时挣8便士
+```
+
+所有六条有向邻接路线明确声明 `adventure.routes.hours=1`，真实 `Runtime.move` 每次推进一小时。它们是作者设计的镇内时长，不代表已绑定 civ-atlas 坐标或已测量的道路；本包未伪造原生地图记录，也不使用另一套地图引擎。
+
+### 跨场景后果
+
+| 起因 | 后续实际改变 | 机制 |
+|---|---|---|
+| 酒馆里当众拿衬裤套头再归还 | 贝丝信任0.5→0.3；跑腿转述使奥伦拒绝赊账，修桥交涉难度0.45→0.70 | `day_prank`、`rumor_arrived`；`information confirmed=false` 只写玩家所闻和奥伦信念，不写事实；不同 `requires` 门禁与检定动作 |
+| 在粮市把4便士真实利润分给学徒，并带署名收据回酒馆 | 贝丝信任0.5→0.7，出具介绍信；在桥口可免8便士桥费 | 资源扣款→`day_shared`→社交白名单反应写 `development.relationships` 与 `introduced`→`day_letter` |
+| 食宿付完后用全部12便士垫购干麦，交货后收入16便士 | 买麦后一度现金为0；分享利润并再捐4便士后剩8，恰够桥费；可选择介绍信省钱或付费花尽 | 同一 `local.resources.pence` 与 `local.ledger`，不是场景间重置的钱包 |
+| 胡闹后赔8便士洗衣和停工损失 | 到桥口只剩8便士；付费后余额0，赔礼不会抹掉传闻或恢复赊账资格 | `costs.pence=8` 与持久标记；赔付不是凭空司法罚款 |
+
+介绍信由唯一一项获准社交反应写出，模型不能选择未声明奖励。信用路线把欠款记为 `toll_debt=8` 便士及明日偿还信息，不把赊账当免票；本 Demo 不包含次日追债模拟。
+
+### 期限与失败替代
+
+Runtime 开局绝对游戏时间为8，压力阈值同样用绝对小时：`warning=0` 在开局即已生效，`escalation=15`，`trigger=18`。公开文本从开局就说明六点截止；通行登记设置 `secured` 后 `lift` 取消后续阶段。修桥/搬料先完成劳动，再用零耗时动作登记，避免耗时劳动尚未做完就提前解除期限。超时须用本幕结束动作确认收尾，然后进入 `continue_event=town_tomorrow` 做工，不会卡在已不可用的通行按钮上。
+
+- 辨麦检定失败：得到诺尔的对照线索，可花一小时对照样本，不再检定；也可一开始就选择稳妥路线。
+- 普通修桥检定失败：仍可付公开8便士、赊账，或搬两小时木料抵票。
+- 传闻下的较难修桥检定失败：不能赊账，但付8便士和搬木料的路线仍开放。劳动超时则走「明天还在」。
+
+`endings` 的四组 flag 条件两两互斥，无 `allow_overlap` 豁免。结局到达由真实 Runtime 路线验证，不把包校验误称为可达性证明。
+
+按 `adventure-actions-contract.md` §12 的实有字段配置了 `mechanics.adventure.fallback.hints`，每处两条，成功时只能得到作者信息池中的未确认信息。兜底不发钱、不置主线通行/品质标记，不能代替必要的交易与确认。自然语言未匹配时能否进入该分支，仍以当前 `scene_judgment` 意图入口接线为准；配置存在不等于任意自由输入都能完成主线。
+
+### 离线验收
+
+```powershell
+.\.venv\Scripts\python.exe -m tools.playable_scenes
+.\.venv\Scripts\python.exe -m unittest tests.test_town_day
+```
+
+专项测试显式提交作者包，SQLite 与作者文件根目录都放在临时目录；`provider.complete` 被替换为抛错，保证不调用模型。覆盖三条不同结局路线（正常、强制检定失败后的替代、胡闹）、真实传闻/关系/金钱后果、超时续玩、解除期限、欠款、回滚与私密预警不泄露。目标时长仍为15–20分钟，未做人工计时或浏览器试玩。
+
+旧 `tests.test_short_scenes` 会遍历 `scenes()`，现也覆盖第四包的两条作者路线。旧测试原先只隔离 SQLite，直接运行会经 `commit_package` 导出作者文件到工作区；要同时隔离文件写入，可使用不改测试源文件的 runner：
+
+```powershell
+.\.venv\Scripts\python.exe -c "import tempfile, unittest; from pathlib import Path; from unittest.mock import patch; import tests.test_short_scenes as m; t=tempfile.TemporaryDirectory(); p=patch.object(m, 'ROOT', Path(t.name)); p.start(); r=unittest.TextTestRunner().run(unittest.defaultTestLoader.loadTestsFromModule(m)); p.stop(); t.cleanup(); raise SystemExit(not r.wasSuccessful())"
+```
+
+本轮实测结果：`tests.test_town_day` 为9项、146.552秒、全部通过；上述隔离 runner 跑 `tests.test_short_scenes` 为9项、150.758秒、全部通过。最后仅修订修桥认可反应的措辞并重新导出后，包校验与四个导出相等性单项再次通过（0.284秒）。原三个 JSON 无内容差异；未运行 `--install`，未启动常驻服务，未做模型质量或人工游玩时长验收。
+
+### 判定 v2（d20）试点
+
+铜杯镇的一天已开启 `story.mechanics.checks.version = 2`（规格见 [../check-system-v2.md](../check-system-v2.md)），是全库第一个走 d20 五档的内容包；其余三篇与旧包仍逐字节走 `attribute_v1`。
+
+| 声明 | 内容 | 玩家可见性 |
+|---|---|---|
+| 因素（3 条） | 读过今天的委托 `+1`；酒馆信用受损 `−2`；拿着诺尔署名的收据 `+2` | label + 有利/不利；数字只在结算后的透明展示里 |
+| 加码（2 条） | 「再仔细看一遍」疲劳 0.1 / `+2`；「咬牙硬撑」疲劳 0.2 / 优势 | 带代价文字，确认前可选 |
+| 钟（3 个） | 干麦生意（进度 4 格，满格写 `day_deal_clean`）；桥吏的疑虑（危险 4 格）；奥伦私下的笔记（**仅 `guard` 可见**） | 前两个玩家可见，第三个完全不出现 |
+| 社交画像 | 桥吏奥伦：诉求 `public_price`/`labor`，底线 `theft`；贝丝：诉求 `honest_receipt`，底线 `theft`/`family` | 只有通用拒绝句或作者写的 `refusal_text`，画像本身不泄露 |
+| `default_costs` | `[{time: 1h}]`（列表，按声明顺序取第一条可执行） | 「成功但有代价」多花一小时，并入同一个游戏时钟 |
+| 重试 | `same_approach: refuse` | 同样的做法刚失败过就标 `blocked` 并给一句换办法的提示 |
+
+三个既有检定的接线：`day_inspect` 成功推进「干麦生意」，`day_bargain` / `day_hard_bargain` 失败与恶化推进「桥吏的疑虑」（1/2 格），`day_hard_bargain` 在传闻影响下是 `desperate`（没有 partial）且只允许「咬牙硬撑」这一个加码，`day_bargain` 的诉求来自奥伦公开的定价与劳动。
+
+设计上守住的两条：**钟的进度按行动推进，不推游戏时间**（与 `pressure` 共用同一个 `session['time']`，没有第二个时钟）；**代价不回写已确认的判定**（预览算好的那一份 plan 被冻结后用于结算，疲劳/信任/金钱的变化只影响后续）。
+
+对应的自动化：`tests/test_town_day.py`（9 项）验证三条结局路线与跨场景金钱/关系/传闻/回滚；`tests/test_checks_v2.py` 与 `tests/test_checks_v2_http.py` 覆盖规则与真实 HTTP 接线。两者都用临时根 + 临时 SQLite，`provider.complete` 被打桩，不启动服务。

@@ -17,6 +17,7 @@ import unittest
 from pathlib import Path
 
 from app import world_history_store as whs
+from tests.fixtures_world import world_service
 from app.service import Service
 from app.storage import Store
 
@@ -42,7 +43,7 @@ class Base(unittest.TestCase):
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory()
         self.addCleanup(self.tmp.cleanup)
-        self.svc = Service(Store(Path(self.tmp.name) / 'h.sqlite3'), ROOT)
+        self.svc = world_service(Store(Path(self.tmp.name) / 'h.sqlite3'), ROOT)
         self.svc.provider.configure({'offline': True})
         self.rt = self.svc.runtime
         self.block = civ_block()
@@ -135,12 +136,7 @@ class ImportDirectoryTests(unittest.TestCase):
         self.repo = Path(self.tmp.name)
         self.data = self.repo / 'data'
         self.data.mkdir(parents=True, exist_ok=True)
-        # The runtime loads its story package from <root>/StoryPackage; give the sandbox one.
-        shutil.copytree(ROOT / 'StoryPackage' / '玄陆', self.repo / 'StoryPackage' / '玄陆',
-                       ignore=shutil.ignore_patterns('.backup_*', '.pending_*'))
-        # The runtime also loads the matching character package from <root>/character_packages.
-        shutil.copytree(ROOT / 'character_packages', self.repo / 'character_packages',
-                       ignore=shutil.ignore_patterns('.backup_*', '.pending_*'))
+        # The shared world fixture is explicitly committed when the Service is created.
         if not REAL_EXPORT.exists():
             self.skipTest('真实 .civsnap 不在预期路径（**未验真**）')
         self.target = self.data / 'map_imports' / 'real.civsnap'
@@ -150,7 +146,7 @@ class ImportDirectoryTests(unittest.TestCase):
 
     def test_history_reads_from_beside_the_production_database(self):
         store = Store(self.data / 'textiledream.sqlite3')
-        service = Service(store, self.repo)
+        service = world_service(store, self.repo)
         service.provider.configure({'offline': True})
         svc = whs.WorldHistoryService(service.runtime)
         record = import_record(sha=self.sha, file=self.target.name)
@@ -160,7 +156,7 @@ class ImportDirectoryTests(unittest.TestCase):
     def test_no_fallback_to_the_repo_root(self):
         """The importer never writes ``<repo>/map_imports``; the reader must not look there."""
         store = Store(self.data / 'textiledream.sqlite3')
-        service = Service(store, self.repo)
+        service = world_service(store, self.repo)
         service.provider.configure({'offline': True})
         svc = whs.WorldHistoryService(service.runtime)
         moved = self.repo / 'map_imports' / 'real.civsnap'
@@ -180,20 +176,17 @@ class ImportRootRuleTests(unittest.TestCase):
         self.tmp = tempfile.TemporaryDirectory()
         self.addCleanup(self.tmp.cleanup)
         self.repo = Path(self.tmp.name)
-        shutil.copytree(ROOT / 'StoryPackage' / '玄陆', self.repo / 'StoryPackage' / '玄陆',
-                       ignore=shutil.ignore_patterns('.backup_*', '.pending_*'))
-        shutil.copytree(ROOT / 'character_packages', self.repo / 'character_packages',
-                       ignore=shutil.ignore_patterns('.backup_*', '.pending_*'))
+        # No production story files are required; world_service adopts a test world.
 
     def test_temp_store_reads_its_own_directory(self):
         store = Store(self.repo / 'sandbox' / 'x.sqlite3')
-        service = Service(store, self.repo)
+        service = world_service(store, self.repo)
         svc = whs.WorldHistoryService(service.runtime)
         self.assertEqual(svc._data_root(), (self.repo / 'sandbox').resolve())
 
     def test_production_store_reads_beside_its_own_database(self):
         store = Store(self.repo / 'data' / 'textiledream.sqlite3')
-        service = Service(store, self.repo)
+        service = world_service(store, self.repo)
         svc = whs.WorldHistoryService(service.runtime)
         self.assertEqual(svc._data_root(), (self.repo / 'data').resolve(),
                          '与 web._import_root() 一致，不是仓库根')

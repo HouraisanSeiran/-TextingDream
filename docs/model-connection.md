@@ -1,0 +1,22 @@
+# 模型接入
+
+接入表单包含请求地址、API Key、AI 接入协议，以及“请求模型”按钮与模型选择框。顶部“连接设置”和侧边栏“API 配置”使用同一份表单。
+
+| 协议 | 生成接口 | 模型列表 | 鉴权 |
+| --- | --- | --- | --- |
+| OpenAI 兼容（Chat Completions） | `/chat/completions` | `/models` | Bearer |
+| Anthropic（Messages） | `/messages` | `/models` | `x-api-key`、`anthropic-version` |
+
+请求地址填服务的 API 基础地址，例如 `https://api.deepseek.com`、`https://api.openai.com/v1`、`https://api.anthropic.com/v1` 或 `http://127.0.0.1:8082/v1`。也接受与所选协议对应的完整生成接口地址，保存时去掉末尾接口路径。代理服务需要保留其路径前缀。
+
+点击“请求模型”读取当前表单地址的可选模型，不保存配置、不发送对话。列表默认保留当前可用模型，否则选中首个候选；用户可以重新选择，点击“保存配置”后生效。顶部密钥状态左侧显示已保存的模型名。修改地址、协议或密钥会使待选列表失效，需要重新请求。保存时再次验证模型确实在服务列表中；查询失败或选择已失效时保留原配置。列表过滤嵌入、图像、音频等专用类型，但不能保证任意候选都支持对话，仍可使用“测试连接”验证。
+
+“测试连接”先保存当前连接与所选模型，再发起一次真实请求，可能产生供应商费用。保存成功、测试失败时保留已保存的新配置。保存本身只查询模型列表，不发送对话。
+
+相同地址和协议下，密钥留空保留；更换服务需要对应密钥，本地免密服务例外。“清除密钥”仅清空密钥，保留地址和协议。密钥只留在进程内存，不写入设置数据库。旧 API 设置、输出预算和任务并发配置继续用于内部调用，不再作为用户接入步骤。
+
+接口：`POST /api/settings/connection/models`，请求为 `{ "base_url": "...", "api_key": "...", "protocol": "openai" }`，返回 `models` 与 `selected_model`，不会回传密钥。`PUT /api/settings/connection` 接受同样字段以及可选的 `model`；不传模型时保留原有自动选择行为。协议也可为 `anthropic`。两个接口均要求本地访问令牌。旧 `/api/settings/api` 仍支持内部设置，部分更新不会覆盖未提交字段。两种协议使用既有 trace；Anthropic usage 归一化后保留输入、输出和缓存字段。
+
+验证：`python -m pytest tests/test_api_connection.py tests/test_prompt_cache.py -q`。浏览器检查：先以 `tools/serve_for_probe.py` 启动独立测试库，再运行 `node tools/api_connection_ui_probe.cjs`，默认地址 8984，可用 `API_UI_TEST_URL` 指定。浏览器探针拦截保存和测试请求，不应据此声称真实供应商连通。
+
+2026-10-31：协议行为经模拟 HTTP 响应测试；本轮没有使用真实 API Key 请求供应商。尝试访问 OpenAI 官方接口文档得到 HTTP 403，Anthropic 文档连接超时，因此未完成在线文档复核。Responses、Gemini 原生协议未提供选项。

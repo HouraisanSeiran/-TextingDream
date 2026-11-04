@@ -5,6 +5,7 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch
 import httpx
+from tests.fixtures_world import world_service
 from app.service import Service
 from app.storage import Store
 from app.contracts import Turn
@@ -15,7 +16,7 @@ ROOT=Path(__file__).resolve().parents[1]
 class EfficiencyTests(unittest.TestCase):
     def setUp(self):
         self.tmp=tempfile.TemporaryDirectory()
-        self.svc=Service(Store(Path(self.tmp.name)/'test.sqlite3'),ROOT)
+        self.svc=world_service(Store(Path(self.tmp.name)/'test.sqlite3'),ROOT)
         self.rt=self.svc.runtime
         self.svc.provider.configure({'base_url':'https://api.deepseek.com','model':'deepseek-v4-pro','offline':True,'max_tokens':8000})
         self.s=self.rt.new_session('连续旅程','protagonist')
@@ -59,7 +60,7 @@ class EfficiencyTests(unittest.TestCase):
         self.assertEqual(self.svc.store.get('corpus','general')['text'],'')
         custom='请保持诗意节奏。'
         self.svc.store.put('corpus','general',{'text':custom})
-        again=Service(self.svc.store,ROOT)
+        again=world_service(self.svc.store,ROOT)
         self.assertEqual(again.store.get('corpus','general')['text'],custom)
         self.assertIn(custom,surface_prefix(self.rt.package(),custom))
     def test_thinking_only_official_surface_and_toggle(self):

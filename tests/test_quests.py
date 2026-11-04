@@ -10,6 +10,7 @@ import unittest
 from pathlib import Path
 
 from app import quests
+from tests.fixtures_world import world_service
 from app.service import Service
 from app.storage import Store
 
@@ -24,6 +25,10 @@ def story_with_quests(extra_mechanics=None, base=None):
     fields, and a partial fixture would refuse for the wrong reason.
     """
     story = copy.deepcopy(base) if base is not None else {}
+    for place in ('square', 'mill'):
+        if not any(row['id'] == place for row in story.get('locations', [])):
+            story.setdefault('locations', []).append({
+                'id': place, 'name': place, 'description': '', 'neighbors': [], 'scenes': []})
     story['mechanics'] = dict(story.get('mechanics') or {})
     story['mechanics'].update({
             'local': {'resources': [
@@ -117,7 +122,7 @@ class Base(unittest.TestCase):
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory()
         self.addCleanup(self.tmp.cleanup)
-        self.svc = Service(Store(Path(self.tmp.name) / 'q.sqlite3'), ROOT)
+        self.svc = world_service(Store(Path(self.tmp.name) / 'q.sqlite3'), ROOT)
         self.svc.provider.configure({'offline': True})
         self.rt = self.svc.runtime
         self.story = story_with_quests(base=self.rt.package()['story'])

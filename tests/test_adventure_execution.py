@@ -18,6 +18,7 @@ from app.contracts import Turn
 from app.service import Service
 from app.storage import Store
 from app.runtime import trim_context
+from tests.fixtures_world import adopt_world
 
 STATE_LAYERS = ('facts', 'beliefs', 'heard')
 REPO = Path(__file__).resolve().parents[1]
@@ -176,6 +177,8 @@ class Base(unittest.TestCase):
         self.svc = Service(self.store, root)
         self.svc.provider.configure({'offline': True})
         self.rt = self.svc.runtime
+        adopt_world(self.rt, story, characters_doc())
+        self.folder = self.rt.files.directory
         self.root = root
         self.s = self.rt.new_session('接线', 'protagonist')
 
@@ -639,7 +642,9 @@ class WebEntryTests(Base):
         patcher = patch.object(web, 'ROOT', self.root)
         patcher.start()
         self.addCleanup(patcher.stop)
-        return TestClient(web.create_app(self.root / 'web.sqlite3'))
+        app = web.create_app(self.root / 'web.sqlite3')
+        adopt_world(app.state.service.runtime, story_doc(self.with_adventure), characters_doc())
+        return TestClient(app)
 
     def test_intent_and_confirm_endpoints_hand_out_a_usable_token(self):
         with self._client() as client:

@@ -218,3 +218,11 @@ d:\anaconda\python.exe tools\p1_ui_check.py     # 退出码 0 = 全过，非 0 =
 p1 的 UI 源码（`app/static/play-ui.js`、`index.html`、`map-tools.css`、`style.css`）已验收完毕，
 视为**本阶段定稿**：请不要在没有具体 bug 的情况下反复微调。它**不是流程硬锁**——
 发现真问题（含主审复现的）照常修代码，只需同步更新本契约里对应的句子。
+
+## 7. 结局回顾与未匹配意图
+
+- `GET /api/sessions/{id}/recap`：只读玩家回顾，不写库、不变更 `state_version`。返回 `ending:{title,summary}`、最多 30 条 `timeline`、最多 30 条 `remembered`、`holdings:{opening,now}` 与 `unseen_endings` 数量。无结局配置的旧包返回「进行中」与 0。结局区「回顾」按需加载。
+- 时间线从 `archives` 与活动事件的 `actions_done` 读取。现存归档没有逐动作精确时间，故 `time:null`、`time_range:{from,to}` 给事件区间；动态动作没有归档公开标签时不猜测标签。检定仅给属性与成功/失败，不回传随机种子、秘密条件或内部审计。
+- 谁记住了你只列 `heard` 中已披露的 NPC 反应，以及明确披露给玩家的 `npc_event`；不把 NPC 私密关系数值、信念或隐藏特质转换成玩家知识。钱包、奖励物品复用奖励模块公开投影；开局基线为首个事件的 `before`，即已应用起点与入场前初始化的状态。
+- `POST /api/sessions/{id}/intent` 在最终返回 `unjudged:true` 时追加作者诊断（不改变旅程状态）。存于现有 SQLite `documents` 的 `unmatched_intent`，全局保留最近 500 条；原文最多 200 字。记录含 `id,session_id,package_id,revision,location_id,event_id,text,created`。
+- `GET /api/inner/unmatched-intents?limit=100&package_id=...`：作者令牌保护、同源/本机检查；`limit` 为 1..500，按新到旧返回 `{items,total}`，可按包 ID 过滤。里层创作折叠列表每次打开刷新。日志可能包含玩家输入的敏感文字，只供本机作者读取。

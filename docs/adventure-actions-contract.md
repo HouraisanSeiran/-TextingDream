@@ -247,3 +247,126 @@
 8. 真实 `/intent` → `/confirm` → `/chat`：不改 web 也能拿到动态候选与凭据并执行成功。
 9. 旧包（无 `mechanics.adventure`）：`surface` 无 `adventure` 键、`move` 仍取 `local.travel_hours`、
    `/intent` 只返回静态候选。
+
+
+## 12. 未匹配意图的有界兜底（`mechanics.adventure.fallback`）
+
+静态动作和动态方案**都**匹配不上时，作者可以开启一条「通用尝试」候选，避免玩家的尝试石沉大海。
+规则决定发生了什么，模型只负责表达：兜底**只能**产出下列白名单效果。
+
+### 12.1 开关与旧包
+
+* 位置：`story.mechanics.adventure.fallback`（挂在 adventure 块下，复用其校验与可见性）。
+* 只有 `enabled: true` 才生效。没有 `mechanics.adventure`、没有 `fallback` 键、或 `enabled: false`
+  时，`/intent` 返回与之前逐字节一致（仍是 `matched: []` + `unjudged: true`）。
+* 保留前缀：`fallback:`。只在包**写了** `fallback` 块时（不论 enabled）才禁止作者静态动作占用
+  （`Runtime._reject_reserved_action_ids`）；没写这个块的旧包里叫 `fallback:xx` 的动作不受影响。
+
+```json
+"fallback": {
+  "enabled": true,
+  "duration_hours": 1,
+  "repeat_difficulty_step": 0.2,
+  "relationship_delta": 0.05,
+  "kinds": {
+    "observe":  {"attribute": "wisdom", "difficulty": 0.4},
+    "persuade": {"difficulty": 0.7, "label": "试着劝{target}松口"},
+    "force":    {"enabled": false}
+  },
+  "hints": [
+    {"id": "landing_1", "target": {"kind": "place", "id": "ferry_landing"},
+     "kinds": ["observe"], "text": "石缝里卡着半片湿透的麻袋布。"},
+    {"id": "broker_1", "target": {"kind": "npc", "id": "grain_broker"},
+     "kinds": ["ask"], "requires": {"all_flags": {"met_broker": true}},
+     "text": "他说昨夜有船没点灯。"}
+  ]
+}
+```
+
+字段（未知字段一律拒绝）：
+
+| 字段 | 默认 | 说明 |
+|---|---|---|
+| `duration_hours` | 1 | 0..24 整数；走既有 `effective_duration` 口径与 `pressure.advance` 单时钟 |
+| `kinds.<kind>` | 见下表 | 可覆盖 `attribute`（六项属性或中文别名）/`difficulty`（0..1）/`duration_hours`/`label`/`success_text`/`failure_text`/`enabled`；`{target}` 会填公开名 |
+| `repeat_difficulty_step` | 0.2 | 重复尝试的难度增量（封顶 1） |
+| `relationship_delta` | 0.05 | 关系微调幅度，**上限 0.05**（越界在打包时拒） |
+| `hints` | `[]` | 作者信息池：`id`、`target`（place/object/npc）、`kinds`、可选 `requires`、`text`（≤300 字） |
+
+### 12.2 归类（确定性关键词表，`adventure_actions.classify`）
+
+| kind | 关键词 | 默认属性 / 难度 |
+|---|---|---|
+| observe | 观察 查看 打量 端详 环顾 检查 翻找 看看 搜 瞧 | wisdom / 0.4 |
+| ask | 打听 请教 询问 问 | social / 0.4 |
+| persuade | 说服 讲价 砍价 恳请 央求 商量 劝 求 | social / 0.6 |
+| sneak | 偷偷 悄悄 潜入 溜 藏 躲 | agility / 0.55 |
+| force | 硬闯 强行 砸 撬 踹 撞 推 | strength / 0.55 |
+| rest | 休息 打盹 喘口气 歇 睡 | 不检定 |
+
+取未被否定的最早命中（同一分句里、关键词之前有「不/没/别/勿」就算否定；分句按标点切），同位置取较长的词，
+再按上表顺序决胜。**一个都没命中 → 仍是 `unjudged: true`**（另一代理按这个字段记 unjudged 日志，语义不变）。
+这是字面匹配，不是语义理解。
+
+### 12.3 目标
+
+只能落在**当前地点可见**的目标上（`adventure_actions.fallback_targets`）：在场人物（`_scene`：同地点、
+非 `visibility: author`、`reveal_flag` 已成立）→ 当前地点可感知的物品（`_perceivable`、未持有）→ 当前地点
+→ `play_map.visible_places` 里的可见邻接地点。意图原句**包含**某个公开名就选它（最长者胜），否则就是当前地点。
+隐藏目标不解析、不出现、不计数；直接拿 `fallback:observe:object:<隐藏id>` 去 `/chat` 会被拒
+（`fallback_from_id` 每次都按当前可见性重建）。
+
+注意：`web.py` 的 `/intent` 目前调用 `free_actions.suggest(s, story, node, text)` **没传 characters**，
+所以从 Web 入口进来时人物目标不可用（「向米商打听」会落到当前地点）。要启用人物目标，需要 `/intent` 与
+`/confirm/{id}` 传 `characters=p['characters']`（属 web.py，本次未改）。`/chat` 执行侧不受影响。
+
+### 12.4 候选、确认、执行
+
+* 候选：`{matched: [1 条], ambiguous: false, unjudged: false, fallback: true, note}`。字段白名单：
+  `action_id`（`fallback:<kind>:<target_kind>:<target_id>`）、`label`、`costs`（恒空）、`duration_hours`、
+  `check`、`ends_event`（恒 false）、`intent_aliases`、`kind: "fallback"`、`fallback_kind`、`target`
+  （kind/id/公开名）、`repeat`、`supported`、`confirm`、`match`，重复时另有 `repeat_notice`。
+  **信息正文、成功/失败文本、关系幅度都不出现**；`/confirm/{id}` 返回同一份白名单。
+* 纯函数：`suggest` 不写库，`state_version` 不变。
+* 执行：既有 `/chat` + `action_id` + `confirm`。**必须**带凭据（与动态方案一致），凭据就是
+  `free_actions.confirm_token`（CAS = `state_version`、动作 id、时长、检定；重复时难度变了，旧凭据自然失效）。
+  有事件时走 `Runtime.prepare_turn`（新分支 `_fallback_turn`），无事件时走 `Runtime.local_action` →
+  `_local_fallback`（候选副本，Service 一次保存）。全部校验在副作用之前。
+* 可重复：兜底尝试不进 `actions_done`，靠记录标记与重复规则约束。
+
+### 12.5 结算白名单（`Runtime._fallback_turn`）
+
+`drama.resolve_check`（attribute_v1，种子 `seed:节点或local:action_id:已尝试次数`）；然后只可能有：
+
+1. **记录标记** `fallback_tried:<kind>:<target_kind>:<target_id>` = true（成功/失败都写；rest 不写）。
+2. **information**（仅成功）：按声明顺序取作者 `hints` 里匹配（目标+类别+`requires`）且未给出过的下一条；
+   observe 对地点/物品时其次取 `clues` 里目标匹配、`action_kinds` 匹配、`requires` 成立的 information 效果文本
+   （clue 的其它 op 一律不取）。一律 `known_by: ['player']`、`confirmed: false` → 只进 `heard`，**不进 facts**。
+   玩家已听过的同文本不再发。池空 → 只给通用回执「没有得到新的、可以确认的信息。」
+3. **关系微调**（写既有 `development.<cid>.relationships.<hero>.trust`，±`relationship_delta` 且 ≤0.05，钳在 0..1）：
+   persuade 对人物成功 +δ / 失败 −δ；force / sneak **失败**时对此刻所有可见在场人物 −δ（被目击）；
+   其余类别与成功的 force/sneak 不改关系。
+4. 时间推进 `duration_hours`（单时钟），另有 `checks` 审计与 `fallback_log`（会话内记录，存于快照内）。
+
+结算前对效果批次再做一次白名单断言（只允许本次标记 + 这次选中的那条未确认信息）。**不发钱、不发物、
+不改 inventory、不写 fact、不扣费、不改 active 事件、不结束事件**。
+
+**重复规则**：记录标记已为真时 → 候选 `repeat: true`、难度 + `repeat_difficulty_step`（封顶 1）、
+**不再产生任何关系变化**；信息仍只从有限池里取下一条，池空就只有通用回执。回滚到事件起点时标记、
+`fallback_log`、`heard`、`development` 随快照一起恢复，同一尝试回到「首次」。
+
+### 12.6 叙事
+
+`resolved_action` 里只多一块 `fallback: {kind, target(公开名), result: success|failure|done, information(实际给出的文本或 null), boundary}`；
+`outcome` 是模板化正文（默认或作者 `kinds.<kind>.success_text/failure_text`，成功时后接给出的信息或通用回执）。
+离线模式直接用这段 `outcome`（既有 `offline_surface`）。`surface.txt` 未改（避免旧包 prompt 变化），边界说明
+放在 `fallback.boundary` 里。
+
+### 12.7 已知限制
+
+* 关键词是字面表，同义说法漏判时就是 `unjudged`；不会猜。
+* 一次最多 1 条兜底候选；与静态/动态候选不并存（只在两者都为空时出现）。
+* Web 入口暂不传 characters（见 12.3）。
+* 兜底尝试与 `scene_judgment` 包没有专门联动：开了 scene_judgment 的包 `/intent` 不走 `free_actions`。
+
+测试：`tests/test_fallback_intent.py`（离线、临时库、显式 `commit_package` 建世界）。

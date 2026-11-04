@@ -16,7 +16,7 @@ class ShortSceneTests(unittest.TestCase):
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory()
         self.addCleanup(self.tmp.cleanup)
-        self.service = Service(Store(Path(self.tmp.name) / 'test.sqlite3'), ROOT)
+        self.service = Service(Store(Path(self.tmp.name) / 'test.sqlite3'), Path(self.tmp.name))
         self.service.provider.configure({'offline': True})
         self.rt = self.service.runtime
 
