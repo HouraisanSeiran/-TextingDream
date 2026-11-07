@@ -1,0 +1,701 @@
+{
+  "schema": "game_fields_v1",
+  "group": "cuisine-french",
+  "entries": {
+    "cuisine_fr_grande_cuisine": {
+      "price": {
+        "min": 480,
+        "max": 2400,
+        "per": "一席",
+        "tier": "pound"
+      },
+      "terrains": [
+        "workshop"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "days",
+      "sold_by": [
+        "noble_kitchen"
+      ],
+      "note": "宫廷宴席体系，按一席计，需要整支厨房班子和大量名贵食材。"
+    },
+    "cuisine_fr_consomme": {
+      "price": {
+        "min": 4,
+        "max": 11,
+        "per": "一碗",
+        "tier": "groat"
+      },
+      "terrains": [
+        "workshop",
+        "pasture"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "days",
+      "sold_by": [
+        "inn_kitchen",
+        "noble_kitchen"
+      ],
+      "note": "长时间熬煮再澄清，费火工和蛋白，按碗计，比普通汤贵。"
+    },
+    "cuisine_fr_potage": {
+      "price": {
+        "min": 2,
+        "max": 5,
+        "per": "一碗",
+        "tier": "groat"
+      },
+      "terrains": [
+        "workshop",
+        "farmland"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "hours",
+      "sold_by": [
+        "tavern",
+        "inn_kitchen"
+      ],
+      "note": "蔬菜浓汤按碗计，原料便宜，是客栈的基础热食。"
+    },
+    "cuisine_fr_roux_white_sauce": {
+      "price": {
+        "min": 1,
+        "max": 3,
+        "per": "一勺",
+        "tier": "penny"
+      },
+      "terrains": [
+        "workshop",
+        "pasture"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "hours",
+      "sold_by": [
+        "inn_kitchen",
+        "noble_kitchen"
+      ],
+      "note": "面糊增稠的基础酱汁，作为菜的配酱按勺计，成本低。"
+    },
+    "cuisine_fr_hollandaise": {
+      "price": {
+        "min": 3,
+        "max": 8,
+        "per": "一份",
+        "tier": "groat"
+      },
+      "terrains": [
+        "workshop",
+        "pasture"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "hours",
+      "sold_by": [
+        "inn_kitchen",
+        "noble_kitchen"
+      ],
+      "note": "蛋黄黄油热乳化，费黄油，按份计，只在较讲究的厨房出现。"
+    },
+    "cuisine_fr_aspic": {
+      "price": {
+        "min": 12,
+        "max": 48,
+        "per": "一模",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "workshop",
+        "pasture"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "days",
+      "sold_by": [
+        "noble_kitchen",
+        "inn_kitchen"
+      ],
+      "note": "整模肉冻要熬骨汤并低温凝固，按模计，是冷盘宴席的装饰菜。"
+    },
+    "cuisine_fr_pate_terrine": {
+      "price": {
+        "min": 3,
+        "max": 8,
+        "per": "一块",
+        "tier": "groat"
+      },
+      "terrains": [
+        "workshop",
+        "pasture"
+      ],
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "keeps": "weeks",
+      "sold_by": [
+        "butcher",
+        "grocer"
+      ],
+      "note": "冷季屠宰后做的肉批，可存放数周，按块零卖"
+    },
+    "cuisine_fr_foie_gras": {
+      "price": {
+        "min": 120,
+        "max": 480,
+        "per": "一小罐",
+        "tier": "pound"
+      },
+      "terrains": [
+        "workshop",
+        "farmland"
+      ],
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "keeps": "weeks",
+      "sold_by": [
+        "noble_kitchen",
+        "grocer"
+      ],
+      "note": "育肥禽肝做的珍味，按小罐计，是顶级宴席食材。"
+    },
+    "cuisine_fr_truffle_cookery": {
+      "price": {
+        "min": 120,
+        "max": 360,
+        "per": "一份",
+        "tier": "pound"
+      },
+      "terrains": [
+        "workshop",
+        "temperate_forest"
+      ],
+      "seasons": [
+        "winter"
+      ],
+      "keeps": "days",
+      "sold_by": [
+        "noble_kitchen",
+        "inn_kitchen"
+      ],
+      "note": "冬季采挖的块菌入菜，量少价高，按份计。"
+    },
+    "cuisine_fr_seafood_platter": {
+      "price": {
+        "min": 12,
+        "max": 48,
+        "per": "一盘",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "workshop",
+        "coast"
+      ],
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "keeps": "hours",
+      "sold_by": [
+        "inn_kitchen",
+        "fishmonger"
+      ],
+      "note": "整只甲壳类与生贝拼盘，只在港口贵价馆子与贵族席上有"
+    },
+    "cuisine_fr_boeuf_bourguignon": {
+      "price": {
+        "min": 4,
+        "max": 11,
+        "per": "一份",
+        "tier": "groat"
+      },
+      "terrains": [
+        "workshop",
+        "pasture"
+      ],
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "keeps": "days",
+      "sold_by": [
+        "tavern",
+        "inn_kitchen"
+      ],
+      "note": "红酒焖牛肉，肉与酒用量大，按份计，比普通炖菜略贵。"
+    },
+    "cuisine_fr_choucroute": {
+      "price": {
+        "min": 4,
+        "max": 11,
+        "per": "一份",
+        "tier": "groat"
+      },
+      "terrains": [
+        "workshop",
+        "farmland"
+      ],
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "keeps": "days",
+      "sold_by": [
+        "tavern",
+        "inn_kitchen"
+      ],
+      "note": "发酵酸菜配猪肉香肠，冷季家常主菜，按份计。"
+    },
+    "cuisine_fr_quiche_lorraine": {
+      "price": {
+        "min": 2,
+        "max": 6,
+        "per": "一块",
+        "tier": "groat"
+      },
+      "terrains": [
+        "workshop",
+        "farmland"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "hours",
+      "sold_by": [
+        "baker",
+        "tavern"
+      ],
+      "note": "蛋奶糊填塔皮，按块零卖，原料普通。"
+    },
+    "cuisine_fr_bouillabaisse": {
+      "price": {
+        "min": 8,
+        "max": 30,
+        "per": "一份",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "workshop",
+        "coast"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "hours",
+      "sold_by": [
+        "inn_kitchen",
+        "tavern"
+      ],
+      "note": "多种鲜鱼同煮，需要当日渔获，按份计，价位在沿海客栈偏高。"
+    },
+    "cuisine_fr_ratatouille": {
+      "price": {
+        "min": 2,
+        "max": 6,
+        "per": "一份",
+        "tier": "groat"
+      },
+      "terrains": [
+        "workshop",
+        "orchard"
+      ],
+      "seasons": [
+        "summer"
+      ],
+      "keeps": "days",
+      "sold_by": [
+        "tavern",
+        "inn_kitchen"
+      ],
+      "note": "夏蔬分炒合炖，菜蔬便宜，按份计。"
+    },
+    "cuisine_fr_cassoulet": {
+      "price": {
+        "min": 4,
+        "max": 11,
+        "per": "一份",
+        "tier": "groat"
+      },
+      "terrains": [
+        "workshop",
+        "farmland"
+      ],
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "keeps": "days",
+      "sold_by": [
+        "tavern",
+        "inn_kitchen"
+      ],
+      "note": "白豆与禽肉香肠久烤，冷季主菜，按份计。"
+    },
+    "cuisine_fr_fondue_savoyarde": {
+      "price": {
+        "min": 12,
+        "max": 36,
+        "per": "一锅",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "workshop",
+        "mountain"
+      ],
+      "seasons": [
+        "winter"
+      ],
+      "keeps": "hours",
+      "sold_by": [
+        "inn_kitchen",
+        "tavern"
+      ],
+      "note": "整锅融奶酪加酒，几人共食，按锅计，山区冬季才常见。"
+    },
+    "cuisine_fr_normandy_cider_pork": {
+      "price": {
+        "min": 4,
+        "max": 11,
+        "per": "一份",
+        "tier": "groat"
+      },
+      "terrains": [
+        "workshop",
+        "orchard"
+      ],
+      "seasons": [
+        "autumn"
+      ],
+      "keeps": "days",
+      "sold_by": [
+        "tavern",
+        "inn_kitchen"
+      ],
+      "note": "以苹果酒焖肉并加乳脂，秋季苹果酒新出时做，按份计。"
+    },
+    "cuisine_fr_galette_bretonne": {
+      "price": {
+        "min": 2,
+        "max": 6,
+        "per": "一张",
+        "tier": "groat"
+      },
+      "terrains": [
+        "workshop",
+        "farmland"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "hours",
+      "sold_by": [
+        "street_vendor",
+        "tavern"
+      ],
+      "note": "荞麦薄饼加咸馅，按张零卖，荞麦便宜。"
+    },
+    "cuisine_fr_charcuterie_lyon": {
+      "price": {
+        "min": 6,
+        "max": 24,
+        "per": "一盘",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "workshop",
+        "pasture"
+      ],
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "keeps": "weeks",
+      "sold_by": [
+        "butcher",
+        "tavern"
+      ],
+      "note": "多种腌肉香肠冷盘，按盘计，随肉种和份量浮动。"
+    },
+    "cuisine_fr_baguette": {
+      "price": {
+        "min": 1,
+        "max": 3,
+        "per": "一根",
+        "tier": "penny"
+      },
+      "terrains": [
+        "workshop",
+        "farmland"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "hours",
+      "sold_by": [
+        "baker"
+      ],
+      "note": "手工长棍当日烤当日卖，按根计，是日常面包。"
+    },
+    "cuisine_fr_croissant": {
+      "price": {
+        "min": 1,
+        "max": 3,
+        "per": "一个",
+        "tier": "penny"
+      },
+      "terrains": [
+        "workshop",
+        "farmland"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "hours",
+      "sold_by": [
+        "baker"
+      ],
+      "note": "裹油层压面点，费黄油，按个计，比普通面包略贵。"
+    },
+    "cuisine_fr_brioche": {
+      "price": {
+        "min": 2,
+        "max": 6,
+        "per": "一个",
+        "tier": "groat"
+      },
+      "terrains": [
+        "workshop",
+        "farmland"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "days",
+      "sold_by": [
+        "baker"
+      ],
+      "note": "高蛋高油的酵母面包，按个计，比日常面包贵。"
+    },
+    "cuisine_fr_choux_eclair": {
+      "price": {
+        "min": 2,
+        "max": 6,
+        "per": "一个",
+        "tier": "groat"
+      },
+      "terrains": [
+        "workshop",
+        "pasture"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "hours",
+      "sold_by": [
+        "baker",
+        "street_vendor"
+      ],
+      "note": "泡芙皮夹奶油，按个计，不耐放。"
+    },
+    "cuisine_fr_puff_pastry": {
+      "price": {
+        "min": 3,
+        "max": 8,
+        "per": "一块",
+        "tier": "groat"
+      },
+      "terrains": [
+        "workshop",
+        "pasture"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "days",
+      "sold_by": [
+        "baker",
+        "noble_kitchen"
+      ],
+      "note": "反复折叠裹脂的酥皮，按块计，费油费工。"
+    },
+    "cuisine_fr_creme_caramel_brulee": {
+      "price": {
+        "min": 3,
+        "max": 8,
+        "per": "一份",
+        "tier": "groat"
+      },
+      "terrains": [
+        "workshop",
+        "pasture"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "days",
+      "sold_by": [
+        "tavern",
+        "inn_kitchen"
+      ],
+      "note": "蛋奶糊蒸烤加焦糖，按份计，比普通甜点略贵。"
+    },
+    "cuisine_fr_souffle": {
+      "price": {
+        "min": 4,
+        "max": 12,
+        "per": "一份",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "workshop",
+        "pasture"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "hours",
+      "sold_by": [
+        "noble_kitchen",
+        "inn_kitchen"
+      ],
+      "note": "蛋白霜撑起、出炉即塌，现点现做；原料只是蛋奶黄油，贵在手艺与时机"
+    },
+    "cuisine_fr_macaron": {
+      "price": {
+        "min": 2,
+        "max": 6,
+        "per": "一枚",
+        "tier": "groat"
+      },
+      "terrains": [
+        "workshop",
+        "orchard"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "days",
+      "sold_by": [
+        "baker",
+        "noble_kitchen"
+      ],
+      "note": "杏仁粉蛋白饼夹心，按枚计，杏仁贵，是精致甜点。"
+    },
+    "cuisine_fr_cheese_aging_institution": {
+      "price": {
+        "min": 12,
+        "max": 48,
+        "per": "一次品鉴",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "workshop",
+        "mountain",
+        "pasture"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "dairy"
+      ],
+      "note": "命名和熟成制度本身不售，估价为一次品鉴的价位，远高于普通奶酪。"
+    },
+    "cuisine_fr_pot_au_feu": {
+      "price": {
+        "min": 3,
+        "max": 8,
+        "per": "一份",
+        "tier": "groat"
+      },
+      "terrains": [
+        "workshop",
+        "pasture"
+      ],
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "keeps": "days",
+      "sold_by": [
+        "tavern",
+        "inn_kitchen"
+      ],
+      "note": "肉与根菜同煮，先汤后肉，家常大锅菜，按份计。"
+    },
+    "cuisine_fr_potee_auvergnate": {
+      "price": {
+        "min": 3,
+        "max": 8,
+        "per": "一份",
+        "tier": "groat"
+      },
+      "terrains": [
+        "workshop",
+        "mountain"
+      ],
+      "seasons": [
+        "winter"
+      ],
+      "keeps": "days",
+      "sold_by": [
+        "tavern",
+        "inn_kitchen"
+      ],
+      "note": "豆与腌肉的冬季大锅菜，原料耐储存，按份计。"
+    },
+    "cuisine_fr_restaurant_review": {
+      "price": {
+        "min": 12,
+        "max": 72,
+        "per": "一席",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "workshop"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "hours",
+      "sold_by": [
+        "inn_kitchen",
+        "noble_kitchen"
+      ],
+      "note": "餐馆制度与评论本身不售，估价为一席有菜单分座位的正式用餐。"
+    },
+    "cuisine_fr_steak_frites": {
+      "price": {
+        "min": 4,
+        "max": 11,
+        "per": "一份",
+        "tier": "groat"
+      },
+      "terrains": [
+        "workshop",
+        "pasture"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "hours",
+      "sold_by": [
+        "tavern",
+        "inn_kitchen"
+      ],
+      "note": "小餐馆标准主菜，牛排加炸薯，按份计。"
+    }
+  }
+}

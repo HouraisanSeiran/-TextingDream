@@ -1,0 +1,545 @@
+{
+  "schema": "catalog_overlay_v1",
+  "group": "shops",
+  "entries": {
+    "shop_tavern": {
+      "primary": "shop",
+      "evidence_grade": "mixed",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "",
+      "genres_add": [
+        "historical",
+        "dark_fantasy",
+        "folk_horror",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "shop_inn_kitchen": {
+      "primary": "shop",
+      "evidence_grade": "mixed",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "",
+      "genres_add": [
+        "historical",
+        "dark_fantasy",
+        "folk_horror",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "shop_market": {
+      "primary": "shop",
+      "evidence_grade": "mixed",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "",
+      "genres_add": [
+        "historical",
+        "dark_fantasy",
+        "folk_horror",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "shop_grocer": {
+      "primary": "shop",
+      "evidence_grade": "mixed",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "",
+      "genres_add": [
+        "historical",
+        "dark_fantasy",
+        "folk_horror",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "shop_greengrocer": {
+      "primary": "shop",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "",
+      "genres_add": [
+        "historical",
+        "dark_fantasy",
+        "folk_horror",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "shop_butcher": {
+      "primary": "shop",
+      "evidence_grade": "mixed",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "",
+      "genres_add": [
+        "historical",
+        "dark_fantasy",
+        "folk_horror",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "shop_fishmonger": {
+      "primary": "shop",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "",
+      "genres_add": [
+        "historical",
+        "dark_fantasy",
+        "folk_horror",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "shop_baker": {
+      "primary": "shop",
+      "evidence_grade": "mixed",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "",
+      "genres_add": [
+        "historical",
+        "dark_fantasy",
+        "folk_horror",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "shop_confectioner": {
+      "primary": "shop",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "",
+      "genres_add": [
+        "historical",
+        "dark_fantasy",
+        "folk_horror",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "shop_cookshop": {
+      "primary": "shop",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "",
+      "genres_add": [
+        "historical",
+        "dark_fantasy",
+        "folk_horror",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "shop_dairy": {
+      "primary": "shop",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "",
+      "genres_add": [
+        "historical",
+        "dark_fantasy",
+        "folk_horror",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "shop_miller": {
+      "primary": "shop",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "",
+      "genres_add": [
+        "historical",
+        "dark_fantasy",
+        "folk_horror",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "shop_brewer": {
+      "primary": "shop",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "",
+      "genres_add": [
+        "historical",
+        "dark_fantasy",
+        "folk_horror",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "shop_wine_merchant": {
+      "primary": "shop",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "",
+      "genres_add": [
+        "historical",
+        "dark_fantasy",
+        "folk_horror",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "shop_tea_house": {
+      "primary": "shop",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "",
+      "genres_add": [
+        "historical",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "shop_chandler": {
+      "primary": "shop",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "",
+      "genres_add": [
+        "historical",
+        "dark_fantasy",
+        "folk_horror",
+        "xianxia",
+        "steampunk"
+      ]
+    },
+    "shop_spice_merchant": {
+      "primary": "shop",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "",
+      "genres_add": [
+        "historical",
+        "dark_fantasy",
+        "folk_horror",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "shop_apothecary": {
+      "primary": "shop",
+      "evidence_grade": "mixed",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "",
+      "genres_add": [
+        "historical",
+        "dark_fantasy",
+        "folk_horror",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "shop_herbalist": {
+      "primary": "shop",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "",
+      "genres_add": [
+        "historical",
+        "dark_fantasy",
+        "folk_horror",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "shop_alchemist": {
+      "primary": "shop",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": "common",
+      "note": "配制并出售魔药、丹药的店铺，需魔法行当有行会执照、可买卖魔药；无魔法世界里退化为骗子或早期化学作坊",
+      "genres_add": [
+        "historical",
+        "dark_fantasy",
+        "xianxia",
+        "steampunk"
+      ]
+    },
+    "shop_blacksmith": {
+      "primary": "shop",
+      "evidence_grade": "mixed",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "",
+      "genres_add": [
+        "historical",
+        "dark_fantasy",
+        "folk_horror",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "shop_armorer": {
+      "primary": "shop",
+      "evidence_grade": "mixed",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "",
+      "genres_add": [
+        "historical",
+        "dark_fantasy",
+        "folk_horror",
+        "xianxia"
+      ]
+    },
+    "shop_weaponsmith": {
+      "primary": "shop",
+      "evidence_grade": "mixed",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "",
+      "genres_add": [
+        "historical",
+        "dark_fantasy",
+        "folk_horror",
+        "xianxia",
+        "steampunk"
+      ]
+    },
+    "shop_bowyer": {
+      "primary": "shop",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "",
+      "genres_add": [
+        "historical",
+        "dark_fantasy",
+        "folk_horror",
+        "xianxia"
+      ]
+    },
+    "shop_carpenter": {
+      "primary": "shop",
+      "evidence_grade": "mixed",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "",
+      "genres_add": [
+        "historical",
+        "dark_fantasy",
+        "folk_horror",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "shop_cooper": {
+      "primary": "shop",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "",
+      "genres_add": [
+        "historical",
+        "dark_fantasy",
+        "folk_horror",
+        "steampunk"
+      ]
+    },
+    "shop_tanner": {
+      "primary": "shop",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "",
+      "genres_add": [
+        "historical",
+        "dark_fantasy",
+        "folk_horror",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "shop_saddler": {
+      "primary": "shop",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "",
+      "genres_add": [
+        "historical",
+        "dark_fantasy",
+        "folk_horror",
+        "xianxia",
+        "steampunk"
+      ]
+    },
+    "shop_tailor": {
+      "primary": "shop",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "",
+      "genres_add": [
+        "historical",
+        "dark_fantasy",
+        "folk_horror",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "shop_draper": {
+      "primary": "shop",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "",
+      "genres_add": [
+        "historical",
+        "dark_fantasy",
+        "folk_horror",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "shop_cobbler": {
+      "primary": "shop",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "",
+      "genres_add": [
+        "historical",
+        "dark_fantasy",
+        "folk_horror",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "shop_potter": {
+      "primary": "shop",
+      "evidence_grade": "mixed",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "",
+      "genres_add": [
+        "historical",
+        "dark_fantasy",
+        "folk_horror",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "shop_jeweler": {
+      "primary": "shop",
+      "evidence_grade": "mixed",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "",
+      "genres_add": [
+        "historical",
+        "dark_fantasy",
+        "folk_horror",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "shop_moneychanger": {
+      "primary": "shop",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "",
+      "genres_add": [
+        "historical",
+        "dark_fantasy",
+        "folk_horror",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "shop_pawnshop": {
+      "primary": "shop",
+      "evidence_grade": "mixed",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "",
+      "genres_add": [
+        "historical",
+        "dark_fantasy",
+        "folk_horror",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "shop_bookseller": {
+      "primary": "shop",
+      "evidence_grade": "mixed",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "正文涵盖抄本时代与印刷之后两种形态，最早形态无需印刷，取低一档 null；印刷书铺单看可算 medieval",
+      "genres_add": [
+        "historical",
+        "dark_fantasy",
+        "folk_horror",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "shop_stable": {
+      "primary": "shop",
+      "evidence_grade": "mixed",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "",
+      "genres_add": [
+        "historical",
+        "dark_fantasy",
+        "folk_horror",
+        "xianxia",
+        "steampunk"
+      ]
+    }
+  }
+}

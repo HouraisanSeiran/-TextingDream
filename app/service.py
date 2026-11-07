@@ -93,6 +93,12 @@ class Service:
         # 采纳写包时走 runtime.commit_package（与 towns 同一路）。
         from .world_history_store import WorldHistoryService
         self.history = WorldHistoryService(self.runtime)
+        # 地理 + 百科 → 故事包（首轮单地区）。只存草稿；confirm 才写故事包。
+        from .world_package_pipeline import WorldPackagePipeline
+        self.world_package = WorldPackagePipeline(self)
+        # AI 草稿（作者侧）：只存草稿；确认才进库 / 成为新卡版本，从不改已锁定清单。
+        from .ai_drafts import AIDrafts
+        self.ai_drafts = AIDrafts(self)
         # 启动时恢复被中断的提交预留（包事务日志已由 Runtime 初始化先处理）。
         self.elements.recover_on_startup()
 

@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>织梦 · 雨天与风暴效果预览</title>
+<link rel="icon" href="data:,">
+<style>
+  html, body { margin: 0; height: 100%; background: #1d2128; overflow: hidden; font: 12px/1.4 system-ui, "Microsoft YaHei", sans-serif; color: #dde3ea; }
+  #stage { position: absolute; left: 0; top: 0; right: 0; bottom: 0; overflow: hidden; }
+  #town, #fx { position: absolute; left: 0; top: 0; }
+  #fx { pointer-events: none; }
+  #panel { position: absolute; right: 10px; top: 10px; width: 236px; padding: 10px 12px; background: rgba(18,22,30,0.82); border-radius: 8px; z-index: 5; }
+  #panel label { display: flex; align-items: center; justify-content: space-between; gap: 6px; margin: 5px 0; }
+  #panel input[type=range] { width: 120px; }
+  #panel output { width: 34px; text-align: right; font-variant-numeric: tabular-nums; }
+  #panel select { width: 120px; }
+  #panel .row { display: flex; gap: 6px; margin-top: 8px; }
+  #panel button { flex: 1; background: #2e3644; color: #e5ebf2; border: 1px solid #485366; border-radius: 4px; padding: 4px 0; cursor: pointer; }
+  #panel button:hover { background: #3a4456; }
+  #fps { position: absolute; left: 10px; top: 10px; z-index: 5; padding: 3px 8px; background: rgba(0,0,0,0.55); border-radius: 4px; font-variant-numeric: tabular-nums; }
+  h1 { font-size: 13px; margin: 0 0 6px; }
+</style>
+</head>
+<body>
+<div id="stage"><div id="town"></div><canvas id="fx"></canvas></div>
+<div id="fps">fps --</div>
+<div id="panel">
+  <h1>雨天与风暴</h1>
+  <label>种类 <select id="kind">
+    <option value="drizzle">drizzle 毛毛雨</option><option value="rain" selected>rain 雨</option>
+    <option value="storm">storm 雷暴</option><option value="sleet">sleet 雨夹雪</option><option value="hail">hail 冰雹</option><option value="clear">clear 晴（关闭）</option>
+  </select></label>
+  <label>冰雹 <select id="ptype"><option value="auto">随种类</option><option value="hail">夹冰雹（storm 可用）</option></select></label>
+  <label>强度 <input id="intensity" type="range" min="0" max="1" step="0.01" value="0.5"><output></output></label>
+  <label>风向° <input id="dir" type="range" min="0" max="359" step="1" value="110"><output></output></label>
+  <label>风速 <input id="speed" type="range" min="0" max="1" step="0.01" value="0.3"><output></output></label>
+  <label>阵风 <input id="gust" type="range" min="0" max="1" step="0.01" value="0.3"><output></output></label>
+  <label>雷电频率 <input id="lightning" type="range" min="0" max="1" step="0.01" value="0.5"><output></output></label>
+  <label>地面湿度 <input id="wetness" type="range" min="0" max="1" step="0.01" value="0.7"><output></output></label>
+  <label>水洼量 <input id="puddles" type="range" min="0" max="1" step="0.01" value="0.45"><output></output></label>
+  <label>积冰 <input id="hail_cover" type="range" min="0" max="1" step="0.01" value="0"><output></output></label>
+  <label>时刻 <input id="hour" type="range" min="0" max="24" step="0.25" value="13"><output></output></label>
+  <label><span>按种类 / 强度自动设湿度水洼</span><input id="auto" type="checkbox" checked></label>
+  <label>城镇 <select id="townSel" style="width:150px"></select></label>
+  <div class="row"><button id="pause">暂停</button><button id="step">单步</button><button id="strike">打闪电</button></div>
+  <div id="stats" style="margin-top:8px;color:#9aa6b4"></div>
+</div>
+<script src="../noise.js"></script>
+<script src="../../map-art/town/town-catalog.js"></script>
+<script src="../../map-art/town/layout-samples.js"></script>
+<script src="../../town-render.js"></script>
+<script src="rain.js"></script>
+<script src="preview.js"></script>
+</body>
+</html>

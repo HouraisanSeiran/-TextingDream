@@ -1,0 +1,510 @@
+{
+  "schema": "game_fields_v1",
+  "group": "cuisine",
+  "entries": {
+    "cuisine_sushi": {
+      "price": {
+        "min": 4,
+        "max": 11,
+        "per": "一份",
+        "tier": "groat"
+      },
+      "terrains": [
+        "workshop",
+        "coast"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "hours",
+      "sold_by": [
+        "street_vendor",
+        "tavern"
+      ],
+      "note": "醋饭配鲜鱼当日现做，按份零卖，价位在一餐热食之上。"
+    },
+    "cuisine_dumpling": {
+      "price": {
+        "min": 1,
+        "max": 3,
+        "per": "一屉",
+        "tier": "penny"
+      },
+      "terrains": [
+        "workshop",
+        "farmland"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "hours",
+      "sold_by": [
+        "street_vendor",
+        "tavern",
+        "inn_kitchen"
+      ],
+      "note": "小面点按屉零卖，是街头最便宜的一类现做食物。"
+    },
+    "cuisine_ramen": {
+      "price": {
+        "min": 3,
+        "max": 8,
+        "per": "一碗",
+        "tier": "groat"
+      },
+      "terrains": [
+        "workshop",
+        "farmland"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "hours",
+      "sold_by": [
+        "street_vendor",
+        "tavern"
+      ],
+      "note": "汤面一碗现煮，价位相当于一顿普通热食。"
+    },
+    "cuisine_kimchi": {
+      "price": {
+        "min": 2,
+        "max": 5,
+        "per": "一小罐",
+        "tier": "groat"
+      },
+      "terrains": [
+        "workshop",
+        "farmland"
+      ],
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "market",
+        "grocer"
+      ],
+      "note": "入冬前大批腌制，按小罐零卖，可存数月。"
+    },
+    "cuisine_tofu": {
+      "price": {
+        "min": 1,
+        "max": 2,
+        "per": "一块",
+        "tier": "penny"
+      },
+      "terrains": [
+        "workshop",
+        "farmland"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "days",
+      "sold_by": [
+        "market",
+        "street_vendor"
+      ],
+      "note": "大豆凝固制品按块零卖，是便宜的蛋白来源。"
+    },
+    "cuisine_biryani": {
+      "price": {
+        "min": 4,
+        "max": 11,
+        "per": "一份",
+        "tier": "groat"
+      },
+      "terrains": [
+        "workshop",
+        "farmland"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "hours",
+      "sold_by": [
+        "street_vendor",
+        "tavern",
+        "inn_kitchen"
+      ],
+      "note": "香料米饭配肉按份零卖，比普通热食略贵。"
+    },
+    "cuisine_hummus": {
+      "price": {
+        "min": 2,
+        "max": 5,
+        "per": "一碟",
+        "tier": "groat"
+      },
+      "terrains": [
+        "workshop",
+        "farmland"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "days",
+      "sold_by": [
+        "street_vendor",
+        "tavern"
+      ],
+      "note": "豆泥配饼按碟零卖，价位低于肉菜。"
+    },
+    "cuisine_falafel": {
+      "price": {
+        "min": 1,
+        "max": 3,
+        "per": "一份",
+        "tier": "penny"
+      },
+      "terrains": [
+        "workshop",
+        "farmland"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "hours",
+      "sold_by": [
+        "street_vendor"
+      ],
+      "note": "炸豆丸子按份零卖，是街头的便宜小吃。"
+    },
+    "cuisine_couscous": {
+      "price": {
+        "min": 3,
+        "max": 8,
+        "per": "一盘",
+        "tier": "groat"
+      },
+      "terrains": [
+        "workshop",
+        "steppe"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "hours",
+      "sold_by": [
+        "inn_kitchen",
+        "tavern"
+      ],
+      "note": "粗麦粉蒸制主食按盘零卖，配菜按份另计。"
+    },
+    "cuisine_injera": {
+      "price": {
+        "min": 2,
+        "max": 5,
+        "per": "一张",
+        "tier": "groat"
+      },
+      "terrains": [
+        "workshop",
+        "mountain"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "days",
+      "sold_by": [
+        "market",
+        "inn_kitchen"
+      ],
+      "note": "发酵薄饼按张零卖，费时但原料便宜。"
+    },
+    "cuisine_jollof_rice": {
+      "price": {
+        "min": 3,
+        "max": 8,
+        "per": "一份",
+        "tier": "groat"
+      },
+      "terrains": [
+        "workshop",
+        "savanna"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "hours",
+      "sold_by": [
+        "street_vendor",
+        "inn_kitchen"
+      ],
+      "note": "番茄焖饭按份零卖，价位相当于一顿普通热食。"
+    },
+    "cuisine_pizza": {
+      "price": {
+        "min": 3,
+        "max": 8,
+        "per": "一张",
+        "tier": "groat"
+      },
+      "terrains": [
+        "workshop",
+        "farmland"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "hours",
+      "sold_by": [
+        "street_vendor",
+        "baker"
+      ],
+      "note": "扁面饼按张零卖，原料简单，出炉即售。"
+    },
+    "cuisine_risotto": {
+      "price": {
+        "min": 4,
+        "max": 11,
+        "per": "一份",
+        "tier": "groat"
+      },
+      "terrains": [
+        "workshop",
+        "farmland"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "hours",
+      "sold_by": [
+        "inn_kitchen",
+        "tavern"
+      ],
+      "note": "分次加汤的米饭菜，费火工，按份零卖。"
+    },
+    "cuisine_paella": {
+      "price": {
+        "min": 6,
+        "max": 24,
+        "per": "一份",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "workshop",
+        "coast"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "hours",
+      "sold_by": [
+        "inn_kitchen",
+        "tavern"
+      ],
+      "note": "藏红花与海鲜入饭，按份零卖，价位高于普通热食。"
+    },
+    "cuisine_taco": {
+      "price": {
+        "min": 1,
+        "max": 3,
+        "per": "一个",
+        "tier": "penny"
+      },
+      "terrains": [
+        "workshop",
+        "farmland"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "hours",
+      "sold_by": [
+        "street_vendor"
+      ],
+      "note": "玉米饼包馅按个零卖，街头便宜小吃。"
+    },
+    "cuisine_tortilla": {
+      "price": {
+        "min": 1,
+        "max": 3,
+        "per": "一叠",
+        "tier": "penny"
+      },
+      "terrains": [
+        "workshop",
+        "farmland"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "hours",
+      "sold_by": [
+        "street_vendor",
+        "market"
+      ],
+      "note": "玉米薄饼按叠零卖，是当地主食，价格极低。"
+    },
+    "cuisine_ceviche": {
+      "price": {
+        "min": 4,
+        "max": 11,
+        "per": "一份",
+        "tier": "groat"
+      },
+      "terrains": [
+        "workshop",
+        "coast"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "hours",
+      "sold_by": [
+        "street_vendor",
+        "tavern"
+      ],
+      "note": "当日鲜鱼加柑橘汁现做，按份零卖，不耐放。"
+    },
+    "cuisine_pho": {
+      "price": {
+        "min": 3,
+        "max": 8,
+        "per": "一碗",
+        "tier": "groat"
+      },
+      "terrains": [
+        "workshop",
+        "river"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "hours",
+      "sold_by": [
+        "street_vendor",
+        "tavern"
+      ],
+      "note": "汤面加薄切牛肉，一碗现煮，价位相当于一顿普通热食。"
+    },
+    "cuisine_naan": {
+      "price": {
+        "min": 1,
+        "max": 3,
+        "per": "一张",
+        "tier": "penny"
+      },
+      "terrains": [
+        "workshop",
+        "farmland"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "hours",
+      "sold_by": [
+        "baker",
+        "street_vendor"
+      ],
+      "note": "贴炉烤的发酵饼，按张零卖，随烤随卖。"
+    },
+    "cuisine_curry": {
+      "price": {
+        "min": 3,
+        "max": 8,
+        "per": "一份",
+        "tier": "groat"
+      },
+      "terrains": [
+        "workshop",
+        "import"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "hours",
+      "sold_by": [
+        "tavern",
+        "inn_kitchen"
+      ],
+      "note": "香料酱汁菜按份零卖，香料多为进口，但用量小。"
+    },
+    "cuisine_samosa": {
+      "price": {
+        "min": 1,
+        "max": 3,
+        "per": "一个",
+        "tier": "penny"
+      },
+      "terrains": [
+        "workshop",
+        "farmland"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "hours",
+      "sold_by": [
+        "street_vendor"
+      ],
+      "note": "油炸填馅点心按个零卖，街头便宜小吃。"
+    },
+    "cuisine_tamale": {
+      "price": {
+        "min": 1,
+        "max": 3,
+        "per": "一个",
+        "tier": "penny"
+      },
+      "terrains": [
+        "workshop",
+        "farmland"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "hours",
+      "sold_by": [
+        "street_vendor",
+        "market"
+      ],
+      "note": "叶包蒸玉米面按个零卖，价低。"
+    },
+    "cuisine_peking_duck": {
+      "price": {
+        "min": 36,
+        "max": 96,
+        "per": "一只",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "workshop",
+        "farmland"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "hours",
+      "sold_by": [
+        "inn_kitchen",
+        "noble_kitchen"
+      ],
+      "note": "整鸭挂炉烤制并片切上桌，按只计，是宴席级菜。"
+    },
+    "cuisine_kebab": {
+      "price": {
+        "min": 2,
+        "max": 6,
+        "per": "一串",
+        "tier": "groat"
+      },
+      "terrains": [
+        "workshop",
+        "steppe"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "hours",
+      "sold_by": [
+        "street_vendor",
+        "tavern"
+      ],
+      "note": "明火烤肉串按串零卖，价位随肉量上浮。"
+    }
+  }
+}

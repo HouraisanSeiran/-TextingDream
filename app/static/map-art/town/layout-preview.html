@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>织梦 · 城镇布局</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#edf0e8;color:#25372d;font:14px system-ui,sans-serif}
+header{display:flex;align-items:center;gap:16px;flex-wrap:wrap;padding:12px 20px;background:#fff;border-bottom:1px solid #c8d1c9}
+h1{font-size:20px;margin:0 12px 0 0}label{display:flex;align-items:center;gap:6px}
+select{padding:6px;border:1px solid #9cab9f;border-radius:4px;background:#fff;color:inherit;font:inherit}
+main{max-width:1440px;margin:auto;padding:16px}#scene{width:100%}footer{display:flex;gap:20px;flex-wrap:wrap;padding:12px 0}
+#missing{color:#873c32}summary{cursor:pointer}details{padding:8px 0}ul{padding-left:22px}
+@media(max-width:600px){header{gap:10px;padding:12px}h1{width:100%}main{padding:8px}label{flex:0 0 calc(50% - 5px);white-space:nowrap}select{flex:1;min-width:0;max-width:140px}}
+</style>
+</head>
+<body>
+<header>
+<h1>织梦 · 城镇布局</h1>
+<label>聚落 <select id="sample"><option value="village">村落</option><option value="town">城镇</option><option value="city">城市</option><option value="port">港口</option><option value="fortress">要塞</option></select></label>
+<label>风格 <select id="style"><option value="west">西式</option><option value="east">东方</option></select></label>
+<label>种族 <select id="race"><option value="common">通用</option><option value="elf">精灵</option><option value="dwarf">矮人</option><option value="orc">兽人</option></select></label>
+<label>种子 <select id="seed"><option>1</option><option>7</option><option>42</option></select></label>
+</header>
+<main>
+<div id="scene"></div>
+<footer><span id="stats"></span><span id="missing"></span></footer>
+<details id="missing-details"><summary>未放置设施</summary><ul id="missing-list"></ul></details>
+</main>
+<script src="town-catalog.js"></script>
+<script src="layout-samples.js"></script>
+<script src="../../town-render.js"></script>
+<script>
+(function () {
+  'use strict';
+  const get = id => document.getElementById(id);
+  const query = new URLSearchParams(location.search);
+  ['sample', 'style', 'race', 'seed'].forEach(id => {
+    if (query.has(id)) get(id).value = query.get(id);
+    get(id).addEventListener('change', draw);
+  });
+  function draw() {
+    const east = get('style').value === 'east';
+    get('race').disabled = east;
+    const race = east ? 'common' : get('race').value;
+    const sample = window.TOWN_LAYOUT_SAMPLES.find(s => s.sample === get('sample').value &&
+      s.style === get('style').value && s.race === race && String(s.seed) === get('seed').value);
+    if (!sample) { get('stats').textContent = '样例不存在'; return; }
+    const plan = sample.layout;
+    window.currentTownLayout = plan;
+    TownRender.render(get('scene'), plan, TOWN_CATALOG);
+    get('stats').textContent = plan.grid.w + ' × ' + plan.grid.h + ' · 建筑 ' + plan.buildings.length +
+      ' · 城门 ' + plan.grid.gates.length;
+    get('missing').textContent = '未放置 ' + plan.missing.length;
+    get('missing-details').hidden = !plan.missing.length;
+    get('missing-list').replaceChildren(...plan.missing.map(m => {
+      const li = document.createElement('li');
+      li.textContent = (m.facility || m.id) + ' · ' + m.reason;
+      return li;
+    }));
+  }
+  draw();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+{
+  "schema": "catalog_overlay_v1",
+  "group": "races-supplement",
+  "entries": {
+    "race_deepseam_delvers": {
+      "primary": "race",
+      "evidence_grade": "mixed",
+      "note": "背景为煤矿聚落，但族群本身不受科技约束，取 null",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "race_cogwork_grafted": {
+      "primary": "race",
+      "evidence_grade": "mixed",
+      "note": "机械嫁接义肢的社会身份；义肢不必蒸汽档，取低一档 null",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "race_canal_boat_clans": {
+      "primary": "race",
+      "evidence_grade": "mixed",
+      "note": "运河驳船族群，不受科技约束，取 null",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "race_forge_kindred": {
+      "primary": "race",
+      "evidence_grade": "inferred",
+      "note": "非人知性体（§2.1）",
+      "tech_tier": null,
+      "magic_tier": "rare"
+    },
+    "race_animated_servitors": {
+      "primary": "artifact",
+      "evidence_grade": "inferred",
+      "note": "魔偶是劳役造物，正文未定其有心智；按 §2.1 不算知性体。世界设定若赋予心智再改判 race",
+      "tech_tier": null,
+      "magic_tier": "common"
+    },
+    "race_gaslight_fae": {
+      "primary": "race",
+      "evidence_grade": "inferred",
+      "note": "非人知性体（§2.1）",
+      "tech_tier": null,
+      "magic_tier": "rare"
+    }
+  }
+}

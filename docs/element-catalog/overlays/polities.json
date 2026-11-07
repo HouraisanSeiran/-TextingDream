@@ -1,0 +1,69 @@
+{
+  "schema": "catalog_overlay_v1",
+  "group": "polities",
+  "entries": {
+    "polity_feudal_kingdom": {
+      "primary": "institution",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": "medieval",
+      "magic_tier": null
+    },
+    "polity_parliamentary_monarchy": {
+      "primary": "institution",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": "steam",
+      "magic_tier": null
+    },
+    "polity_bureaucratic_empire": {
+      "primary": "institution",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": "classical",
+      "magic_tier": null
+    },
+    "polity_industrial_republic": {
+      "primary": "institution",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": "steam",
+      "magic_tier": null
+    },
+    "polity_city_state_league": {
+      "primary": "institution",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": "classical",
+      "magic_tier": null
+    },
+    "polity_theocratic_state": {
+      "primary": "institution",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": "classical",
+      "magic_tier": null
+    },
+    "polity_tribal_confederation": {
+      "primary": "institution",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": "classical",
+      "magic_tier": null
+    },
+    "polity_merchant_republic": {
+      "primary": "institution",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": "medieval",
+      "magic_tier": null
+    },
+    "polity_mage_council_state": {
+      "primary": "institution",
+      "evidence_grade": "inferred",
+      "note": "奇幻政体，无现实对应",
+      "tech_tier": "medieval",
+      "magic_tier": "common"
+    }
+  }
+}

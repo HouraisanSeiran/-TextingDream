@@ -1,0 +1,1946 @@
+[
+ {
+  "id": "west-orc-house-01-1",
+  "style": "west",
+  "race": "orc",
+  "category": "house",
+  "kind": "house_yurt",
+  "facility": null,
+  "variant": 1,
+  "type": 1,
+  "name": "圆顶兽皮帐",
+  "tags": [
+   "one_storey",
+   "hide",
+   "tent",
+   "dome"
+  ],
+  "roof": "none",
+  "note": "圆顶兽皮帐，RoofId 无对应，写 none",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 10,
+  "anchor": [
+   24,
+   58
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   58
+  ]
+ },
+ {
+  "id": "west-orc-house-01-2",
+  "style": "west",
+  "race": "orc",
+  "category": "house",
+  "kind": "house_yurt",
+  "facility": null,
+  "variant": 2,
+  "type": 1,
+  "name": "圆顶兽皮帐",
+  "tags": [
+   "one_storey",
+   "hide",
+   "tent",
+   "dome"
+  ],
+  "roof": "none",
+  "note": "圆顶兽皮帐，RoofId 无对应，写 none",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 18,
+  "anchor": [
+   24,
+   66
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   66
+  ]
+ },
+ {
+  "id": "west-orc-house-01-3",
+  "style": "west",
+  "race": "orc",
+  "category": "house",
+  "kind": "house_yurt",
+  "facility": null,
+  "variant": 3,
+  "type": 1,
+  "name": "圆顶兽皮帐",
+  "tags": [
+   "one_storey",
+   "hide",
+   "tent",
+   "dome"
+  ],
+  "roof": "none",
+  "note": "圆顶兽皮帐，RoofId 无对应，写 none",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 7,
+  "anchor": [
+   24,
+   55
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   55
+  ]
+ },
+ {
+  "id": "west-orc-house-02-1",
+  "style": "west",
+  "race": "orc",
+  "category": "house",
+  "kind": "house_longtent",
+  "facility": null,
+  "variant": 1,
+  "type": 2,
+  "name": "长条兽皮帐",
+  "tags": [
+   "one_storey",
+   "hide",
+   "tent"
+  ],
+  "roof": "gable_thatch",
+  "note": "兽皮 A 字长帐，最接近 gable，屋面是兽皮不是茅草",
+  "footprint": [
+   2,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   48,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   48
+  ]
+ },
+ {
+  "id": "west-orc-house-02-2",
+  "style": "west",
+  "race": "orc",
+  "category": "house",
+  "kind": "house_longtent",
+  "facility": null,
+  "variant": 2,
+  "type": 2,
+  "name": "长条兽皮帐",
+  "tags": [
+   "one_storey",
+   "hide",
+   "tent"
+  ],
+  "roof": "gable_thatch",
+  "note": "兽皮 A 字长帐，最接近 gable，屋面是兽皮不是茅草",
+  "footprint": [
+   2,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   48,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   48
+  ]
+ },
+ {
+  "id": "west-orc-house-02-3",
+  "style": "west",
+  "race": "orc",
+  "category": "house",
+  "kind": "house_longtent",
+  "facility": null,
+  "variant": 3,
+  "type": 2,
+  "name": "长条兽皮帐",
+  "tags": [
+   "one_storey",
+   "hide",
+   "tent"
+  ],
+  "roof": "gable_thatch",
+  "note": "兽皮 A 字长帐，最接近 gable，屋面是兽皮不是茅草",
+  "footprint": [
+   2,
+   1
+  ],
+  "height_px": 4,
+  "anchor": [
+   48,
+   52
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   52
+  ]
+ },
+ {
+  "id": "west-orc-house-03-1",
+  "style": "west",
+  "race": "orc",
+  "category": "house",
+  "kind": "house_roundstone",
+  "facility": null,
+  "variant": 1,
+  "type": 3,
+  "name": "粗石圆屋",
+  "tags": [
+   "one_storey",
+   "rubble",
+   "round"
+  ],
+  "roof": "gable_thatch",
+  "note": "圆锥茅草/兽皮顶，最接近 gable_thatch",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 28,
+  "anchor": [
+   24,
+   76
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   76
+  ]
+ },
+ {
+  "id": "west-orc-house-03-2",
+  "style": "west",
+  "race": "orc",
+  "category": "house",
+  "kind": "house_roundstone",
+  "facility": null,
+  "variant": 2,
+  "type": 3,
+  "name": "粗石圆屋",
+  "tags": [
+   "one_storey",
+   "rubble",
+   "round"
+  ],
+  "roof": "gable_thatch",
+  "note": "圆锥茅草/兽皮顶，最接近 gable_thatch",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 36,
+  "anchor": [
+   24,
+   84
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   84
+  ]
+ },
+ {
+  "id": "west-orc-house-03-3",
+  "style": "west",
+  "race": "orc",
+  "category": "house",
+  "kind": "house_roundstone",
+  "facility": null,
+  "variant": 3,
+  "type": 3,
+  "name": "粗石圆屋",
+  "tags": [
+   "one_storey",
+   "rubble",
+   "round"
+  ],
+  "roof": "gable_thatch",
+  "note": "圆锥茅草/兽皮顶，最接近 gable_thatch",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 8,
+  "anchor": [
+   24,
+   56
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   56
+  ]
+ },
+ {
+  "id": "west-orc-house-04-1",
+  "style": "west",
+  "race": "orc",
+  "category": "house",
+  "kind": "house_pit",
+  "facility": null,
+  "variant": 1,
+  "type": 4,
+  "name": "半地穴屋",
+  "tags": [
+   "one_storey",
+   "sunken",
+   "turf",
+   "hide"
+  ],
+  "roof": "none",
+  "note": "半地穴，土丘上盖兽皮锥顶或草皮顶，RoofId 无对应写 none",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "west-orc-house-04-2",
+  "style": "west",
+  "race": "orc",
+  "category": "house",
+  "kind": "house_pit",
+  "facility": null,
+  "variant": 2,
+  "type": 4,
+  "name": "半地穴屋",
+  "tags": [
+   "one_storey",
+   "sunken",
+   "turf",
+   "hide"
+  ],
+  "roof": "none",
+  "note": "半地穴，土丘上盖兽皮锥顶或草皮顶，RoofId 无对应写 none",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 8,
+  "anchor": [
+   24,
+   56
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   56
+  ]
+ },
+ {
+  "id": "west-orc-house-04-3",
+  "style": "west",
+  "race": "orc",
+  "category": "house",
+  "kind": "house_pit",
+  "facility": null,
+  "variant": 3,
+  "type": 4,
+  "name": "半地穴屋",
+  "tags": [
+   "one_storey",
+   "sunken",
+   "turf",
+   "hide"
+  ],
+  "roof": "none",
+  "note": "半地穴，土丘上盖兽皮锥顶或草皮顶，RoofId 无对应写 none",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 18,
+  "anchor": [
+   24,
+   66
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   66
+  ]
+ },
+ {
+  "id": "west-orc-house-05-1",
+  "style": "west",
+  "race": "orc",
+  "category": "house",
+  "kind": "house_longhouse",
+  "facility": null,
+  "variant": 1,
+  "type": 5,
+  "name": "原木长屋",
+  "tags": [
+   "one_storey",
+   "logs",
+   "thatch",
+   "hide"
+  ],
+  "roof": "gable_thatch",
+  "note": "茅草与兽皮混搭的长坡顶",
+  "footprint": [
+   2,
+   1
+  ],
+  "height_px": 6,
+  "anchor": [
+   48,
+   54
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   54
+  ]
+ },
+ {
+  "id": "west-orc-house-05-2",
+  "style": "west",
+  "race": "orc",
+  "category": "house",
+  "kind": "house_longhouse",
+  "facility": null,
+  "variant": 2,
+  "type": 5,
+  "name": "原木长屋",
+  "tags": [
+   "one_storey",
+   "logs",
+   "thatch",
+   "hide"
+  ],
+  "roof": "gable_thatch",
+  "note": "茅草与兽皮混搭的长坡顶",
+  "footprint": [
+   2,
+   1
+  ],
+  "height_px": 7,
+  "anchor": [
+   48,
+   55
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   55
+  ]
+ },
+ {
+  "id": "west-orc-house-05-3",
+  "style": "west",
+  "race": "orc",
+  "category": "house",
+  "kind": "house_longhouse",
+  "facility": null,
+  "variant": 3,
+  "type": 5,
+  "name": "原木长屋",
+  "tags": [
+   "one_storey",
+   "logs",
+   "thatch",
+   "hide"
+  ],
+  "roof": "gable_thatch",
+  "note": "茅草与兽皮混搭的长坡顶",
+  "footprint": [
+   2,
+   1
+  ],
+  "height_px": 2,
+  "anchor": [
+   48,
+   50
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   50
+  ]
+ },
+ {
+  "id": "west-orc-house-06-1",
+  "style": "west",
+  "race": "orc",
+  "category": "house",
+  "kind": "house_bonehut",
+  "facility": null,
+  "variant": 1,
+  "type": 6,
+  "name": "骨架棚屋",
+  "tags": [
+   "one_storey",
+   "bone",
+   "hide",
+   "tent"
+  ],
+  "roof": "none",
+  "note": "巨兽骨架拱棚，RoofId 无对应写 none",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 6,
+  "anchor": [
+   24,
+   54
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   54
+  ]
+ },
+ {
+  "id": "west-orc-house-06-2",
+  "style": "west",
+  "race": "orc",
+  "category": "house",
+  "kind": "house_bonehut",
+  "facility": null,
+  "variant": 2,
+  "type": 6,
+  "name": "骨架棚屋",
+  "tags": [
+   "one_storey",
+   "bone",
+   "hide",
+   "tent"
+  ],
+  "roof": "none",
+  "note": "巨兽骨架拱棚，RoofId 无对应写 none",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 14,
+  "anchor": [
+   24,
+   62
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   62
+  ]
+ },
+ {
+  "id": "west-orc-house-06-3",
+  "style": "west",
+  "race": "orc",
+  "category": "house",
+  "kind": "house_bonehut",
+  "facility": null,
+  "variant": 3,
+  "type": 6,
+  "name": "骨架棚屋",
+  "tags": [
+   "one_storey",
+   "bone",
+   "hide",
+   "tent"
+  ],
+  "roof": "none",
+  "note": "巨兽骨架拱棚，RoofId 无对应写 none",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 10,
+  "anchor": [
+   24,
+   58
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   58
+  ]
+ },
+ {
+  "id": "west-orc-house-07-1",
+  "style": "west",
+  "race": "orc",
+  "category": "house",
+  "kind": "house_stilt",
+  "facility": null,
+  "variant": 1,
+  "type": 7,
+  "name": "高脚瞭望屋",
+  "tags": [
+   "stilt",
+   "logs",
+   "thatch",
+   "lookout"
+  ],
+  "roof": "gable_thatch",
+  "note": "高脚屋，顶为茅草或兽皮四坡",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 37,
+  "anchor": [
+   24,
+   85
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   85
+  ]
+ },
+ {
+  "id": "west-orc-house-07-2",
+  "style": "west",
+  "race": "orc",
+  "category": "house",
+  "kind": "house_stilt",
+  "facility": null,
+  "variant": 2,
+  "type": 7,
+  "name": "高脚瞭望屋",
+  "tags": [
+   "stilt",
+   "logs",
+   "thatch",
+   "lookout"
+  ],
+  "roof": "gable_thatch",
+  "note": "高脚屋，顶为茅草或兽皮四坡",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 45,
+  "anchor": [
+   24,
+   93
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   93
+  ]
+ },
+ {
+  "id": "west-orc-house-07-3",
+  "style": "west",
+  "race": "orc",
+  "category": "house",
+  "kind": "house_stilt",
+  "facility": null,
+  "variant": 3,
+  "type": 7,
+  "name": "高脚瞭望屋",
+  "tags": [
+   "stilt",
+   "logs",
+   "thatch",
+   "lookout"
+  ],
+  "roof": "gable_thatch",
+  "note": "高脚屋，顶为茅草或兽皮四坡",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 20,
+  "anchor": [
+   24,
+   68
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   68
+  ]
+ },
+ {
+  "id": "west-orc-house-08-1",
+  "style": "west",
+  "race": "orc",
+  "category": "house",
+  "kind": "house_tentpen",
+  "facility": null,
+  "variant": 1,
+  "type": 8,
+  "name": "带畜栏的帐屋",
+  "tags": [
+   "one_storey",
+   "hide",
+   "tent",
+   "pen",
+   "livestock"
+  ],
+  "roof": "none",
+  "note": "圆顶兽皮帐 + 尖桩畜栏，RoofId 无对应写 none",
+  "footprint": [
+   2,
+   2
+  ],
+  "height_px": 6,
+  "anchor": [
+   48,
+   102
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   102
+  ]
+ },
+ {
+  "id": "west-orc-house-08-2",
+  "style": "west",
+  "race": "orc",
+  "category": "house",
+  "kind": "house_tentpen",
+  "facility": null,
+  "variant": 2,
+  "type": 8,
+  "name": "带畜栏的帐屋",
+  "tags": [
+   "one_storey",
+   "hide",
+   "tent",
+   "pen",
+   "livestock"
+  ],
+  "roof": "none",
+  "note": "圆顶兽皮帐 + 尖桩畜栏，RoofId 无对应写 none",
+  "footprint": [
+   2,
+   2
+  ],
+  "height_px": 6,
+  "anchor": [
+   48,
+   102
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   102
+  ]
+ },
+ {
+  "id": "west-orc-house-08-3",
+  "style": "west",
+  "race": "orc",
+  "category": "house",
+  "kind": "house_tentpen",
+  "facility": null,
+  "variant": 3,
+  "type": 8,
+  "name": "带畜栏的帐屋",
+  "tags": [
+   "one_storey",
+   "hide",
+   "tent",
+   "pen",
+   "livestock"
+  ],
+  "roof": "none",
+  "note": "圆顶兽皮帐 + 尖桩畜栏，RoofId 无对应写 none",
+  "footprint": [
+   2,
+   2
+  ],
+  "height_px": 4,
+  "anchor": [
+   48,
+   100
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   100
+  ]
+ },
+ {
+  "id": "west-orc-house-09-1",
+  "style": "west",
+  "race": "orc",
+  "category": "house",
+  "kind": "house_mixhut",
+  "facility": null,
+  "variant": 1,
+  "type": 9,
+  "name": "皮草混顶小屋",
+  "tags": [
+   "one_storey",
+   "rubble",
+   "thatch",
+   "hide"
+  ],
+  "roof": "gable_thatch",
+  "note": "山墙朝前，左坡茅草、右坡兽皮",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 6,
+  "anchor": [
+   24,
+   54
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   54
+  ]
+ },
+ {
+  "id": "west-orc-house-09-2",
+  "style": "west",
+  "race": "orc",
+  "category": "house",
+  "kind": "house_mixhut",
+  "facility": null,
+  "variant": 2,
+  "type": 9,
+  "name": "皮草混顶小屋",
+  "tags": [
+   "one_storey",
+   "rubble",
+   "thatch",
+   "hide"
+  ],
+  "roof": "gable_thatch",
+  "note": "山墙朝前，左坡茅草、右坡兽皮",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 13,
+  "anchor": [
+   24,
+   61
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   61
+  ]
+ },
+ {
+  "id": "west-orc-house-09-3",
+  "style": "west",
+  "race": "orc",
+  "category": "house",
+  "kind": "house_mixhut",
+  "facility": null,
+  "variant": 3,
+  "type": 9,
+  "name": "皮草混顶小屋",
+  "tags": [
+   "one_storey",
+   "rubble",
+   "thatch",
+   "hide"
+  ],
+  "roof": "gable_thatch",
+  "note": "山墙朝前，左坡茅草、右坡兽皮",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 6,
+  "anchor": [
+   24,
+   54
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   54
+  ]
+ },
+ {
+  "id": "west-orc-house-10-1",
+  "style": "west",
+  "race": "orc",
+  "category": "house",
+  "kind": "house_totemyard",
+  "facility": null,
+  "variant": 1,
+  "type": 10,
+  "name": "图腾院落帐",
+  "tags": [
+   "one_storey",
+   "hide",
+   "tent",
+   "totem",
+   "firepit"
+  ],
+  "roof": "monopitch",
+  "note": "单坡兽皮帐，前檐用两根撑杆支起",
+  "footprint": [
+   2,
+   1
+  ],
+  "height_px": 26,
+  "anchor": [
+   48,
+   74
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   74
+  ]
+ },
+ {
+  "id": "west-orc-house-10-2",
+  "style": "west",
+  "race": "orc",
+  "category": "house",
+  "kind": "house_totemyard",
+  "facility": null,
+  "variant": 2,
+  "type": 10,
+  "name": "图腾院落帐",
+  "tags": [
+   "one_storey",
+   "hide",
+   "tent",
+   "totem",
+   "firepit"
+  ],
+  "roof": "monopitch",
+  "note": "单坡兽皮帐，前檐用两根撑杆支起",
+  "footprint": [
+   2,
+   1
+  ],
+  "height_px": 26,
+  "anchor": [
+   48,
+   74
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   74
+  ]
+ },
+ {
+  "id": "west-orc-house-10-3",
+  "style": "west",
+  "race": "orc",
+  "category": "house",
+  "kind": "house_totemyard",
+  "facility": null,
+  "variant": 3,
+  "type": 10,
+  "name": "图腾院落帐",
+  "tags": [
+   "one_storey",
+   "hide",
+   "tent",
+   "totem",
+   "firepit"
+  ],
+  "roof": "monopitch",
+  "note": "单坡兽皮帐，前檐用两根撑杆支起",
+  "footprint": [
+   2,
+   1
+  ],
+  "height_px": 32,
+  "anchor": [
+   48,
+   80
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   80
+  ]
+ },
+ {
+  "id": "west-orc-forge-01",
+  "style": "west",
+  "race": "orc",
+  "category": "special",
+  "kind": "orc_forge_open",
+  "facility": "forge",
+  "variant": 1,
+  "name": "露天铁匠场",
+  "tags": [
+   "open_air",
+   "smithy",
+   "hide",
+   "rubble"
+  ],
+  "roof": "monopitch",
+  "note": "兽皮单坡遮篷 + 露天粗石炉台",
+  "footprint": [
+   2,
+   2
+  ],
+  "height_px": 24,
+  "anchor": [
+   48,
+   120
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   120
+  ]
+ },
+ {
+  "id": "west-orc-forge-02",
+  "style": "west",
+  "race": "orc",
+  "category": "special",
+  "kind": "orc_forge_shed",
+  "facility": "forge",
+  "variant": 2,
+  "name": "粗石炼炉棚",
+  "tags": [
+   "smithy",
+   "rubble",
+   "hide",
+   "furnace"
+  ],
+  "roof": "monopitch",
+  "note": "单坡兽皮顶棚 + 蜂巢形粗石炼炉",
+  "footprint": [
+   2,
+   1
+  ],
+  "height_px": 18,
+  "anchor": [
+   48,
+   66
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   66
+  ]
+ },
+ {
+  "id": "west-orc-market-01",
+  "style": "west",
+  "race": "orc",
+  "category": "special",
+  "kind": "orc_market",
+  "facility": "market_hall",
+  "variant": 1,
+  "name": "兽皮篷交易场",
+  "tags": [
+   "open_air",
+   "market",
+   "hide",
+   "totem"
+  ],
+  "roof": "none",
+  "note": "露天交易场，篷顶是兽皮遮阳篷",
+  "footprint": [
+   3,
+   2
+  ],
+  "height_px": 14,
+  "anchor": [
+   72,
+   110
+  ],
+  "viewBox": [
+   0,
+   0,
+   144,
+   110
+  ]
+ },
+ {
+  "id": "west-orc-stall-01",
+  "style": "west",
+  "race": "orc",
+  "category": "prop",
+  "kind": "orc_stall",
+  "facility": "market_hall",
+  "variant": 1,
+  "name": "毛皮摊",
+  "tags": [
+   "open_air",
+   "stall",
+   "hide"
+  ],
+  "roof": "none",
+  "note": "露天摊位，可散放在交易场或路边",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "west-orc-stall-02",
+  "style": "west",
+  "race": "orc",
+  "category": "prop",
+  "kind": "orc_stall",
+  "facility": "market_hall",
+  "variant": 2,
+  "name": "骨角陶器摊",
+  "tags": [
+   "open_air",
+   "stall",
+   "hide"
+  ],
+  "roof": "none",
+  "note": "露天摊位，可散放在交易场或路边",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "west-orc-town-hall-01",
+  "style": "west",
+  "race": "orc",
+  "category": "special",
+  "kind": "orc_chieftain_hall",
+  "facility": "town_hall",
+  "variant": 1,
+  "name": "酋长大帐",
+  "tags": [
+   "chieftain",
+   "hide",
+   "dome",
+   "totem",
+   "banner"
+  ],
+  "roof": "none",
+  "note": "圆顶大兽皮帐 + 原木门廊，RoofId 无对应写 none",
+  "footprint": [
+   3,
+   3
+  ],
+  "height_px": 12,
+  "anchor": [
+   72,
+   156
+  ],
+  "viewBox": [
+   0,
+   0,
+   144,
+   156
+  ]
+ },
+ {
+  "id": "west-orc-barracks-01",
+  "style": "west",
+  "race": "orc",
+  "category": "special",
+  "kind": "orc_barracks",
+  "facility": "barracks",
+  "variant": 1,
+  "name": "战士营帐",
+  "tags": [
+   "military",
+   "hide",
+   "training_yard",
+   "banner"
+  ],
+  "roof": "gable_thatch",
+  "note": "兽皮 A 字长帐 + 露天练武场，屋面是兽皮，最接近 gable",
+  "footprint": [
+   3,
+   2
+  ],
+  "height_px": 22,
+  "anchor": [
+   72,
+   118
+  ],
+  "viewBox": [
+   0,
+   0,
+   144,
+   118
+  ]
+ },
+ {
+  "id": "west-orc-watchtower-01",
+  "style": "west",
+  "race": "orc",
+  "category": "special",
+  "kind": "orc_watchtower",
+  "facility": "watchtower",
+  "variant": 1,
+  "name": "木架哨塔",
+  "tags": [
+   "military",
+   "logs",
+   "lookout",
+   "horn"
+  ],
+  "roof": "gable_thatch",
+  "note": "兽皮小坡顶，最接近 gable",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 98,
+  "anchor": [
+   24,
+   146
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   146
+  ]
+ },
+ {
+  "id": "west-orc-temple-01",
+  "style": "west",
+  "race": "orc",
+  "category": "special",
+  "kind": "orc_shaman_altar",
+  "facility": "temple",
+  "variant": 1,
+  "name": "萨满祭坛",
+  "tags": [
+   "open_air",
+   "shaman",
+   "totem",
+   "standing_stone",
+   "bone"
+  ],
+  "roof": "none",
+  "note": "露天祭坛，无屋顶",
+  "footprint": [
+   2,
+   2
+  ],
+  "height_px": 24,
+  "anchor": [
+   48,
+   120
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   120
+  ]
+ },
+ {
+  "id": "west-orc-stable-01",
+  "style": "west",
+  "race": "orc",
+  "category": "special",
+  "kind": "orc_wolf_pen",
+  "facility": "stable",
+  "variant": 1,
+  "name": "座狼圈",
+  "tags": [
+   "animal_pen",
+   "logs",
+   "hide",
+   "warg"
+  ],
+  "roof": "monopitch",
+  "note": "兽人骑座狼，对应 stable；狼棚是单坡兽皮顶",
+  "footprint": [
+   3,
+   2
+  ],
+  "height_px": 10,
+  "anchor": [
+   72,
+   106
+  ],
+  "viewBox": [
+   0,
+   0,
+   144,
+   106
+  ]
+ },
+ {
+  "id": "west-orc-wall-0000",
+  "style": "west",
+  "race": "orc",
+  "category": "wall",
+  "kind": "wall_palisade",
+  "facility": null,
+  "variant": 0,
+  "mask": 0,
+  "name": "尖木栅墙 0000",
+  "tags": [
+   "dual_grid",
+   "mask_0000",
+   "palisade"
+  ],
+  "roof": "none",
+  "note": "空瓦片（透明占位）",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "west-orc-wall-0001",
+  "style": "west",
+  "race": "orc",
+  "category": "wall",
+  "kind": "wall_palisade",
+  "facility": "city_wall",
+  "variant": 1,
+  "mask": 1,
+  "name": "尖木栅墙 0001",
+  "tags": [
+   "dual_grid",
+   "mask_0001",
+   "palisade"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心；每块只画 SW 角柱、底边与左边的桩",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "west-orc-wall-0010",
+  "style": "west",
+  "race": "orc",
+  "category": "wall",
+  "kind": "wall_palisade",
+  "facility": "city_wall",
+  "variant": 2,
+  "mask": 2,
+  "name": "尖木栅墙 0010",
+  "tags": [
+   "dual_grid",
+   "mask_0010",
+   "palisade"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心；每块只画 SW 角柱、底边与左边的桩",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 5,
+  "anchor": [
+   24,
+   53
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   53
+  ]
+ },
+ {
+  "id": "west-orc-wall-0011",
+  "style": "west",
+  "race": "orc",
+  "category": "wall",
+  "kind": "wall_palisade",
+  "facility": "city_wall",
+  "variant": 3,
+  "mask": 3,
+  "name": "尖木栅墙 0011",
+  "tags": [
+   "dual_grid",
+   "mask_0011",
+   "palisade"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心；每块只画 SW 角柱、底边与左边的桩",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 5,
+  "anchor": [
+   24,
+   53
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   53
+  ]
+ },
+ {
+  "id": "west-orc-wall-0100",
+  "style": "west",
+  "race": "orc",
+  "category": "wall",
+  "kind": "wall_palisade",
+  "facility": "city_wall",
+  "variant": 4,
+  "mask": 4,
+  "name": "尖木栅墙 0100",
+  "tags": [
+   "dual_grid",
+   "mask_0100",
+   "palisade"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心；每块只画 SW 角柱、底边与左边的桩",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "west-orc-wall-0101",
+  "style": "west",
+  "race": "orc",
+  "category": "wall",
+  "kind": "wall_palisade",
+  "facility": "city_wall",
+  "variant": 5,
+  "mask": 5,
+  "name": "尖木栅墙 0101",
+  "tags": [
+   "dual_grid",
+   "mask_0101",
+   "palisade"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心；每块只画 SW 角柱、底边与左边的桩",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "west-orc-wall-0110",
+  "style": "west",
+  "race": "orc",
+  "category": "wall",
+  "kind": "wall_palisade",
+  "facility": "city_wall",
+  "variant": 6,
+  "mask": 6,
+  "name": "尖木栅墙 0110",
+  "tags": [
+   "dual_grid",
+   "mask_0110",
+   "palisade"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心；每块只画 SW 角柱、底边与左边的桩",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 5,
+  "anchor": [
+   24,
+   53
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   53
+  ]
+ },
+ {
+  "id": "west-orc-wall-0111",
+  "style": "west",
+  "race": "orc",
+  "category": "wall",
+  "kind": "wall_palisade",
+  "facility": "city_wall",
+  "variant": 7,
+  "mask": 7,
+  "name": "尖木栅墙 0111",
+  "tags": [
+   "dual_grid",
+   "mask_0111",
+   "palisade"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心；每块只画 SW 角柱、底边与左边的桩",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 5,
+  "anchor": [
+   24,
+   53
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   53
+  ]
+ },
+ {
+  "id": "west-orc-wall-1000",
+  "style": "west",
+  "race": "orc",
+  "category": "wall",
+  "kind": "wall_palisade",
+  "facility": "city_wall",
+  "variant": 8,
+  "mask": 8,
+  "name": "尖木栅墙 1000",
+  "tags": [
+   "dual_grid",
+   "mask_1000",
+   "palisade"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心；每块只画 SW 角柱、底边与左边的桩",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "west-orc-wall-1001",
+  "style": "west",
+  "race": "orc",
+  "category": "wall",
+  "kind": "wall_palisade",
+  "facility": "city_wall",
+  "variant": 9,
+  "mask": 9,
+  "name": "尖木栅墙 1001",
+  "tags": [
+   "dual_grid",
+   "mask_1001",
+   "palisade"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心；每块只画 SW 角柱、底边与左边的桩",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "west-orc-wall-1010",
+  "style": "west",
+  "race": "orc",
+  "category": "wall",
+  "kind": "wall_palisade",
+  "facility": "city_wall",
+  "variant": 10,
+  "mask": 10,
+  "name": "尖木栅墙 1010",
+  "tags": [
+   "dual_grid",
+   "mask_1010",
+   "palisade"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心；每块只画 SW 角柱、底边与左边的桩",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 39,
+  "anchor": [
+   24,
+   87
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   87
+  ]
+ },
+ {
+  "id": "west-orc-wall-1011",
+  "style": "west",
+  "race": "orc",
+  "category": "wall",
+  "kind": "wall_palisade",
+  "facility": "city_wall",
+  "variant": 11,
+  "mask": 11,
+  "name": "尖木栅墙 1011",
+  "tags": [
+   "dual_grid",
+   "mask_1011",
+   "palisade"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心；每块只画 SW 角柱、底边与左边的桩",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 39,
+  "anchor": [
+   24,
+   87
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   87
+  ]
+ },
+ {
+  "id": "west-orc-wall-1100",
+  "style": "west",
+  "race": "orc",
+  "category": "wall",
+  "kind": "wall_palisade",
+  "facility": "city_wall",
+  "variant": 12,
+  "mask": 12,
+  "name": "尖木栅墙 1100",
+  "tags": [
+   "dual_grid",
+   "mask_1100",
+   "palisade"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心；每块只画 SW 角柱、底边与左边的桩",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "west-orc-wall-1101",
+  "style": "west",
+  "race": "orc",
+  "category": "wall",
+  "kind": "wall_palisade",
+  "facility": "city_wall",
+  "variant": 13,
+  "mask": 13,
+  "name": "尖木栅墙 1101",
+  "tags": [
+   "dual_grid",
+   "mask_1101",
+   "palisade"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心；每块只画 SW 角柱、底边与左边的桩",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "west-orc-wall-1110",
+  "style": "west",
+  "race": "orc",
+  "category": "wall",
+  "kind": "wall_palisade",
+  "facility": "city_wall",
+  "variant": 14,
+  "mask": 14,
+  "name": "尖木栅墙 1110",
+  "tags": [
+   "dual_grid",
+   "mask_1110",
+   "palisade"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心；每块只画 SW 角柱、底边与左边的桩",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 39,
+  "anchor": [
+   24,
+   87
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   87
+  ]
+ },
+ {
+  "id": "west-orc-wall-1111",
+  "style": "west",
+  "race": "orc",
+  "category": "wall",
+  "kind": "wall_palisade",
+  "facility": "city_wall",
+  "variant": 15,
+  "mask": 15,
+  "name": "尖木栅墙 1111",
+  "tags": [
+   "dual_grid",
+   "mask_1111",
+   "palisade"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心；每块只画 SW 角柱、底边与左边的桩",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 39,
+  "anchor": [
+   24,
+   87
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   87
+  ]
+ },
+ {
+  "id": "west-orc-gate-h",
+  "style": "west",
+  "race": "orc",
+  "category": "wall",
+  "kind": "gate_palisade",
+  "facility": "gate",
+  "variant": 1,
+  "name": "骨饰栅门（东西向）",
+  "tags": [
+   "dual_grid",
+   "replaces_0011",
+   "gate_h",
+   "bone"
+  ],
+  "roof": "none",
+  "note": "替换瓦片：放在 mask=0011 的位置代替 west-orc-wall-0011",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 18,
+  "anchor": [
+   24,
+   66
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   66
+  ]
+ },
+ {
+  "id": "west-orc-gate-v",
+  "style": "west",
+  "race": "orc",
+  "category": "wall",
+  "kind": "gate_palisade",
+  "facility": "gate",
+  "variant": 2,
+  "name": "骨饰栅门（南北向）",
+  "tags": [
+   "dual_grid",
+   "replaces_1010",
+   "gate_v",
+   "bone"
+  ],
+  "roof": "none",
+  "note": "替换瓦片：放在 mask=1010 的位置代替 west-orc-wall-1010",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 48,
+  "anchor": [
+   24,
+   96
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   96
+  ]
+ }
+]

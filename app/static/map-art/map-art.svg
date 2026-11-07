@@ -1,0 +1,832 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="0" height="0" style="position:absolute">
+<!-- 织梦 · 地图美术资产（中世纪魔幻手绘地图集风格）。本工程原创，供之后的 DEM/灰度图地图系统使用。
+     约定：墨线 #3b2a1e；羊皮纸浅 #e9d9b4；阴影 #b89a6a。
+     城镇 town-<种族>-<规模> viewBox 32×32，地面线 y=28（锚点 = 底边中点 16,28）。
+     资源 res-<kind> viewBox 24×24，圆徽居中（锚点 = 中心）。kind 与 app/town_schema.py ResourceCandidate.kind 一致。
+     树种 tree-<species> viewBox 16×20，树根 (8,19)。地标 mark-<id> viewBox 24×24。
+     id 清单与用法见 manifest.json。 -->
+<defs>
+
+<!-- ======================= 城镇 · 人类（砖红屋顶） ======================= -->
+<symbol id="town-human-hamlet" viewBox="0 0 32 32"><g stroke="#3b2a1e" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round">
+ <ellipse cx="16" cy="28" rx="10" ry="1.6" fill="#b89a6a" stroke="none" opacity=".7"/>
+ <rect x="10" y="18" width="12" height="10" fill="#e9d9b4"/>
+ <path d="M8 19 L16 11 L24 19 Z" fill="#a3472f"/>
+ <rect x="14.5" y="22" width="3" height="6" fill="#6b4a2e"/>
+ <rect x="19" y="13" width="2.4" height="4" fill="#e9d9b4"/>
+</g></symbol>
+<symbol id="town-human-town" viewBox="0 0 32 32"><g stroke="#3b2a1e" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round">
+ <ellipse cx="16" cy="28" rx="13" ry="1.8" fill="#b89a6a" stroke="none" opacity=".7"/>
+ <rect x="4" y="20" width="9" height="8" fill="#e9d9b4"/><path d="M2.5 21 L8.5 15 L14.5 21 Z" fill="#a3472f"/>
+ <rect x="19" y="20" width="9" height="8" fill="#e9d9b4"/><path d="M17.5 21 L23.5 15 L29.5 21 Z" fill="#a3472f"/>
+ <rect x="13" y="12" width="6" height="16" fill="#e9d9b4"/><path d="M12 13 L16 5 L20 13 Z" fill="#a3472f"/>
+ <path d="M14.8 28 V24 a1.2 1.2 0 0 1 2.4 0 V28" fill="#6b4a2e"/>
+</g></symbol>
+<symbol id="town-human-city" viewBox="0 0 32 32"><g stroke="#3b2a1e" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round">
+ <ellipse cx="16" cy="28.5" rx="14.5" ry="1.8" fill="#b89a6a" stroke="none" opacity=".7"/>
+ <path d="M9 18 L13 13 L17 18 Z M15 17 L20 11 L25 17 Z" fill="#a3472f"/>
+ <path d="M2 28 V19 H4 V17.5 H6 V19 H8 V17.5 H10 V19 H22 V17.5 H24 V19 H26 V17.5 H28 V19 H30 V28 Z" fill="#e9d9b4"/>
+ <rect x="2" y="12" width="5" height="16" fill="#e9d9b4"/><path d="M1.5 12.5 L4.5 7 L7.5 12.5 Z" fill="#a3472f"/>
+ <rect x="25" y="12" width="5" height="16" fill="#e9d9b4"/><path d="M24.5 12.5 L27.5 7 L30.5 12.5 Z" fill="#a3472f"/>
+ <path d="M13.5 28 V23.5 a2.5 2.5 0 0 1 5 0 V28 Z" fill="#6b4a2e"/>
+ <path d="M8 22 H24" fill="none" stroke="#b89a6a"/>
+</g></symbol>
+<symbol id="town-human-capital" viewBox="0 0 32 32"><g stroke="#3b2a1e" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round">
+ <ellipse cx="16" cy="28.5" rx="15" ry="1.8" fill="#b89a6a" stroke="none" opacity=".7"/>
+ <path d="M16 2 V7" fill="none"/><path d="M16 2 L22 3.6 L16 5.2 Z" fill="#a3472f"/>
+ <rect x="12" y="9" width="8" height="12" fill="#e9d9b4"/><path d="M11 9.5 L16 6.5 L21 9.5 Z" fill="#a3472f"/>
+ <path d="M1.5 28 V20 H3.5 V18.5 H5.5 V20 H26.5 V18.5 H28.5 V20 H30.5 V28 Z" fill="#e9d9b4"/>
+ <rect x="1.5" y="13" width="5" height="15" fill="#e9d9b4"/><path d="M1 13.5 L4 8.5 L7 13.5 Z" fill="#a3472f"/>
+ <rect x="25.5" y="13" width="5" height="15" fill="#e9d9b4"/><path d="M25 13.5 L28 8.5 L31 13.5 Z" fill="#a3472f"/>
+ <path d="M13 28 V23.5 a3 3 0 0 1 6 0 V28 Z" fill="#6b4a2e"/>
+ <path d="M13 12 h2 v3 h-2 Z M17 12 h2 v3 h-2 Z" fill="#3b2a1e" stroke="none"/>
+ <circle cx="16" cy="17.5" r="1.4" fill="#d9a520"/>
+</g></symbol>
+
+<!-- ======================= 城镇 · 精灵（苔绿、叶形尖塔） ======================= -->
+<symbol id="town-elf-hamlet" viewBox="0 0 32 32"><g stroke="#3b2a1e" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round">
+ <ellipse cx="16" cy="28" rx="10" ry="1.6" fill="#b89a6a" stroke="none" opacity=".7"/>
+ <path d="M16 28 V14" fill="none" stroke="#6b4a2e" stroke-width="2.2"/>
+ <circle cx="16" cy="11" r="7" fill="#4f7a4a"/>
+ <path d="M17 21 C21 19 23 22 22 25 C20 27 17 26 17 21 Z" fill="#e9d9b4"/>
+ <path d="M19.5 22.5 v2" fill="none"/>
+</g></symbol>
+<symbol id="town-elf-town" viewBox="0 0 32 32"><g stroke="#3b2a1e" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round">
+ <ellipse cx="16" cy="28" rx="13" ry="1.8" fill="#b89a6a" stroke="none" opacity=".7"/>
+ <path d="M6 28 V16" fill="none" stroke="#6b4a2e" stroke-width="2"/><circle cx="6" cy="13" r="5" fill="#4f7a4a"/>
+ <path d="M14 28 V15 C14 11 16 7 17 4 C18 7 20 11 20 15 V28 Z" fill="#e9d9b4"/>
+ <path d="M17 4 C15.5 7 15.5 10 17 12 C18.5 10 18.5 7 17 4 Z" fill="#4f7a4a"/>
+ <path d="M22 28 V20 C22 18 24 16 25 14 C26 16 28 18 28 20 V28 Z" fill="#e9d9b4"/>
+ <path d="M15.8 28 V24 a1.2 1.6 0 0 1 2.4 0 V28" fill="#4f7a4a"/>
+</g></symbol>
+<symbol id="town-elf-city" viewBox="0 0 32 32"><g stroke="#3b2a1e" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round">
+ <ellipse cx="16" cy="28.5" rx="14.5" ry="1.8" fill="#b89a6a" stroke="none" opacity=".7"/>
+ <path d="M3 28 V22 Q9.5 16 16 22 Q22.5 16 29 22 V28 Z" fill="#e9d9b4"/>
+ <path d="M5 28 V14 C5 11 6.5 8 7.5 6 C8.5 8 10 11 10 14 V28" fill="#e9d9b4"/>
+ <path d="M22 28 V14 C22 11 23.5 8 24.5 6 C25.5 8 27 11 27 14 V28" fill="#e9d9b4"/>
+ <path d="M13 28 V12 C13 8 15 4.5 16 2 C17 4.5 19 8 19 12 V28 Z" fill="#e9d9b4"/>
+ <path d="M16 2 C14.5 5 14.5 8 16 10 C17.5 8 17.5 5 16 2 Z M7.5 6 C6.6 8 6.6 10 7.5 11.5 C8.4 10 8.4 8 7.5 6 Z M24.5 6 C23.6 8 23.6 10 24.5 11.5 C25.4 10 25.4 8 24.5 6 Z" fill="#4f7a4a"/>
+ <path d="M14.5 28 V23.5 a1.5 2 0 0 1 3 0 V28" fill="#4f7a4a"/>
+</g></symbol>
+<symbol id="town-elf-capital" viewBox="0 0 32 32"><g stroke="#3b2a1e" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round">
+ <ellipse cx="16" cy="28.5" rx="15" ry="1.8" fill="#b89a6a" stroke="none" opacity=".7"/>
+ <circle cx="5" cy="15" r="4.5" fill="#4f7a4a"/><circle cx="27" cy="15" r="4.5" fill="#4f7a4a"/>
+ <path d="M2 28 V22 Q9 15 16 22 Q23 15 30 22 V28 Z" fill="#e9d9b4"/>
+ <path d="M12.5 28 V13 C12.5 8 15 4 16 1.5 C17 4 19.5 8 19.5 13 V28 Z" fill="#e9d9b4"/>
+ <path d="M16 1.5 C14.2 5 14.2 9 16 11.5 C17.8 9 17.8 5 16 1.5 Z" fill="#4f7a4a"/>
+ <path d="M20.5 4 a3 3 0 1 1 0 -0.1" fill="none" stroke="#d9a520" stroke-width="1.1"/>
+ <path d="M14.2 28 V22.5 a1.8 2.4 0 0 1 3.6 0 V28" fill="#4f7a4a"/>
+ <circle cx="16" cy="16" r="1.3" fill="#d9a520"/>
+</g></symbol>
+
+<!-- ======================= 城镇 · 矮人（石青、依山凿门） ======================= -->
+<symbol id="town-dwarf-hamlet" viewBox="0 0 32 32"><g stroke="#3b2a1e" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round">
+ <path d="M3 28 L12 13 L16 17 L21 10 L29 28 Z" fill="#b89a6a"/>
+ <path d="M12 13 L14 21 M21 10 L19.5 19" fill="none" stroke="#8a7350"/>
+ <path d="M13 28 V23.5 a3 3 0 0 1 6 0 V28 Z" fill="#5d6b78"/>
+ <path d="M14.5 28 V24.5 a1.5 1.5 0 0 1 3 0 V28" fill="#2b2622"/>
+</g></symbol>
+<symbol id="town-dwarf-town" viewBox="0 0 32 32"><g stroke="#3b2a1e" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round">
+ <path d="M1.5 28 L11 10 L15 15 L21 6 L30.5 28 Z" fill="#b89a6a"/>
+ <path d="M23 13 V7 h3 v8" fill="#5d6b78"/>
+ <path d="M24.5 5 q-2 -2 0 -3.5 q2 -1.5 0 -3" fill="none" stroke="#8a7350" stroke-width="1"/>
+ <path d="M10 28 V21 H22 V28 Z" fill="#5d6b78"/>
+ <path d="M10 21 L16 17 L22 21 Z" fill="#5d6b78"/>
+ <path d="M13.5 28 V24 a2.5 2.5 0 0 1 5 0 V28 Z" fill="#2b2622"/>
+ <path d="M11.5 23 h2 M18.5 23 h2" fill="none" stroke="#e9d9b4"/>
+</g></symbol>
+<symbol id="town-dwarf-city" viewBox="0 0 32 32"><g stroke="#3b2a1e" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round">
+ <path d="M1 28 L9 9 L14 14 L20 4 L31 28 Z" fill="#b89a6a"/>
+ <rect x="3" y="15" width="6" height="13" fill="#5d6b78"/><path d="M3 15 h1.5 v-1.5 h1.5 v1.5 h1.5 v-1.5 h1.5 v1.5" fill="none"/>
+ <rect x="23" y="15" width="6" height="13" fill="#5d6b78"/><path d="M23 15 h1.5 v-1.5 h1.5 v1.5 h1.5 v-1.5 h1.5 v1.5" fill="none"/>
+ <path d="M9 28 V20 L16 15 L23 20 V28 Z" fill="#5d6b78"/>
+ <path d="M12.5 28 V23 a3.5 3.5 0 0 1 7 0 V28 Z" fill="#2b2622"/>
+ <path d="M16 17.5 v2.5 M14.5 18.8 h3" fill="none" stroke="#d9a520" stroke-width="1"/>
+</g></symbol>
+<symbol id="town-dwarf-capital" viewBox="0 0 32 32"><g stroke="#3b2a1e" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round">
+ <path d="M0.5 28 L8 8 L13 12 L16 3 L19 12 L24 8 L31.5 28 Z" fill="#b89a6a"/>
+ <path d="M6 28 V18 L16 11 L26 18 V28 Z" fill="#5d6b78"/>
+ <path d="M8 18 V28 M24 18 V28" fill="none"/>
+ <path d="M11 28 V22 a5 5 0 0 1 10 0 V28 Z" fill="#2b2622"/>
+ <path d="M16 13.5 l2 2 l-2 2 l-2 -2 Z" fill="#d9a520"/>
+ <path d="M8 1.5 V8" fill="none"/><path d="M8 1.5 h5 l-1.5 1.7 l1.5 1.7 h-5" fill="#5d6b78"/>
+ <path d="M13 24 h-1 M20 24 h1" fill="none" stroke="#d9a520"/>
+</g></symbol>
+
+<!-- ======================= 城镇 · 兽人（木栅、兽皮帐、骨角） ======================= -->
+<symbol id="town-orc-hamlet" viewBox="0 0 32 32"><g stroke="#3b2a1e" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round">
+ <ellipse cx="16" cy="28" rx="10" ry="1.6" fill="#b89a6a" stroke="none" opacity=".7"/>
+ <path d="M7 28 L16 12 L25 28 Z" fill="#6b5a2a"/>
+ <path d="M16 12 L13 8 M16 12 L19 8" fill="none"/>
+ <path d="M14 28 L16 22 L18 28 Z" fill="#2b2622"/>
+ <path d="M11 22 L13 20 M21 22 L19 20" fill="none" stroke="#e9d9b4"/>
+</g></symbol>
+<symbol id="town-orc-town" viewBox="0 0 32 32"><g stroke="#3b2a1e" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round">
+ <path d="M8 22 L14 11 L20 22 Z" fill="#6b5a2a"/><path d="M14 11 L12 7.5 M14 11 L16 7.5" fill="none"/>
+ <path d="M18 22 L23 14 L28 22 Z" fill="#8a7350"/>
+ <path d="M2 28 V20 L3.5 17 L5 20 V28 M5 28 V19 L6.5 16 L8 19 V28 M24 28 V19 L25.5 16 L27 19 V28 M27 28 V20 L28.5 17 L30 20 V28" fill="#6b4a2e"/>
+ <path d="M8 28 V23 H24 V28 Z" fill="#6b4a2e"/>
+ <path d="M13.5 28 V24.5 H18.5 V28" fill="#2b2622"/>
+ <path d="M8 25.5 H24" fill="none" stroke="#8a7350" stroke-width="1"/>
+</g></symbol>
+<symbol id="town-orc-city" viewBox="0 0 32 32"><g stroke="#3b2a1e" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round">
+ <path d="M13 8 V20 H19 V8 Z" fill="#6b4a2e"/><path d="M12 8 L16 4 L20 8 Z" fill="#6b5a2a"/>
+ <path d="M16 4 V1 M16 1 L20 2.2 L16 3.4" fill="#8c2f22"/>
+ <path d="M1 28 V19 L2.5 15.5 L4 19 L5.5 15.5 L7 19 L8.5 15.5 L10 19 L11.5 15.5 L13 19 L14.5 15.5 L16 19 L17.5 15.5 L19 19 L20.5 15.5 L22 19 L23.5 15.5 L25 19 L26.5 15.5 L28 19 L29.5 15.5 L31 19 V28 Z" fill="#6b4a2e"/>
+ <path d="M12.5 28 V22.5 H19.5 V28 Z" fill="#2b2622"/>
+ <path d="M10 22 C8 20 8 18 9.5 17 M22 22 C24 20 24 18 22.5 17" fill="none" stroke="#e9d9b4" stroke-width="1.2"/>
+ <path d="M1 24 H31" fill="none" stroke="#8a7350" stroke-width="1"/>
+</g></symbol>
+<symbol id="town-orc-capital" viewBox="0 0 32 32"><g stroke="#3b2a1e" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round">
+ <path d="M11 6 V20 H21 V6 Z" fill="#6b4a2e"/>
+ <path d="M10 6 L16 1.5 L22 6 Z" fill="#6b5a2a"/>
+ <path d="M10 6 C6.5 4.5 6 1.5 7.5 0.8 M22 6 C25.5 4.5 26 1.5 24.5 0.8" fill="none" stroke="#e9d9b4" stroke-width="1.5"/>
+ <path d="M4 7 V20 M4 7 L9 8.5 L4 10" fill="#8c2f22"/>
+ <path d="M28 7 V20 M28 7 L23 8.5 L28 10" fill="#8c2f22"/>
+ <path d="M0.5 28 V19 L2.5 15 L4.5 19 L6.5 15 L8.5 19 L10.5 15 L12.5 19 L14.5 15 L16 18 L17.5 15 L19.5 19 L21.5 15 L23.5 19 L25.5 15 L27.5 19 L29.5 15 L31.5 19 V28 Z" fill="#6b4a2e"/>
+ <path d="M12 28 V22 L16 19.5 L20 22 V28 Z" fill="#2b2622"/>
+ <circle cx="16" cy="12" r="2" fill="#e9d9b4"/>
+</g></symbol>
+
+<!-- ======================= 城镇 · 半身人（山丘洞屋、圆门） ======================= -->
+<symbol id="town-halfling-hamlet" viewBox="0 0 32 32"><g stroke="#3b2a1e" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round">
+ <path d="M4 28 Q16 9 28 28 Z" fill="#7a8a3a"/>
+ <rect x="20" y="15" width="2.6" height="5" fill="#b89a6a"/>
+ <circle cx="16" cy="24.5" r="3.5" fill="#a3472f"/>
+ <path d="M12.5 28 H19.5" fill="none"/>
+ <circle cx="16" cy="24.5" r=".6" fill="#d9a520" stroke="none"/>
+</g></symbol>
+<symbol id="town-halfling-town" viewBox="0 0 32 32"><g stroke="#3b2a1e" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round">
+ <path d="M1 28 Q9 13 17 28 Z" fill="#7a8a3a"/>
+ <path d="M12 28 Q21 8 31 28 Z" fill="#8f9d4a"/>
+ <rect x="24" y="14" width="2.6" height="5" fill="#b89a6a"/>
+ <circle cx="9" cy="25" r="2.6" fill="#a3472f"/>
+ <circle cx="21" cy="24" r="3.2" fill="#2f5a7a"/>
+ <circle cx="26.5" cy="23" r="1.5" fill="#e9d9b4"/>
+ <path d="M2 28 h29" fill="none"/>
+</g></symbol>
+<symbol id="town-halfling-city" viewBox="0 0 32 32"><g stroke="#3b2a1e" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round">
+ <path d="M3 22 Q16 3 29 22 Z" fill="#8f9d4a"/>
+ <path d="M0.5 28 Q7 15 13.5 28 Z M18.5 28 Q25 15 31.5 28 Z" fill="#7a8a3a"/>
+ <circle cx="16" cy="18" r="2.8" fill="#a3472f"/>
+ <circle cx="7" cy="25" r="2.2" fill="#2f5a7a"/><circle cx="25" cy="25" r="2.2" fill="#2f5a7a"/>
+ <rect x="20" y="8" width="2.4" height="5" fill="#b89a6a"/>
+ <path d="M12 28 h1.5 v-3 M15 28 v-3 M18 28 v-3 M19.5 28 h-1.5 M12 26 h8" fill="none" stroke="#6b4a2e" stroke-width="1"/>
+</g></symbol>
+<symbol id="town-halfling-capital" viewBox="0 0 32 32"><g stroke="#3b2a1e" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round">
+ <path d="M2 24 Q16 0 30 24 Z" fill="#8f9d4a"/>
+ <path d="M0.5 28 Q6 18 11.5 28 Z M20.5 28 Q26 18 31.5 28 Z" fill="#7a8a3a"/>
+ <circle cx="16" cy="18.5" r="4" fill="#a3472f"/>
+ <path d="M12 18.5 h8 M16 14.5 v8" fill="none" stroke="#6b2f20" stroke-width="1"/>
+ <circle cx="9" cy="14" r="1.6" fill="#e9d9b4"/><circle cx="23" cy="14" r="1.6" fill="#e9d9b4"/>
+ <path d="M16 6 V0.8 M16 0.8 L20.5 2 L16 3.2" fill="#d9a520"/>
+ <path d="M11 28 H21 V24 H11 Z" fill="#b89a6a"/>
+</g></symbol>
+
+<!-- ======================= 资源徽记 · 24×24 ======================= -->
+<symbol id="res-iron" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#efe2c2" stroke="#3b2a1e" stroke-width="1.2"/><g stroke="#3b2a1e" stroke-width="1.1" stroke-linejoin="round" stroke-linecap="round">
+ <path d="M5.5 16.5 L8 11 L12.5 9.5 L16.5 11.5 L18 16 L15.5 18 L8 18 Z" fill="#6f6863"/>
+ <path d="M8.5 9.5 L10.5 6.5 L14 6.5 L15 9 L12.5 9.5 Z" fill="#857c75"/>
+ <path d="M9.5 14 l1.6 .6 M13.2 12.6 l1.2 1.4 M11.5 16.2 l1.6 -.2 M11.3 7.8 l1.2 .3" fill="none" stroke="#8a4b35" stroke-width="1.6"/>
+</g></symbol>
+<symbol id="res-coal" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#efe2c2" stroke="#3b2a1e" stroke-width="1.2"/><g stroke="#3b2a1e" stroke-width="1.1" stroke-linejoin="round">
+ <path d="M5.5 17 L7.5 12.5 L11 12 L12 17 Z" fill="#2b2622"/>
+ <path d="M11 17 L12.5 11 L16.5 10.5 L18.5 17 Z" fill="#3a332e"/>
+ <path d="M8.5 12.5 L10.5 7 L14.5 7.5 L14 11 L11 12 Z" fill="#2b2622"/>
+ <path d="M11 8.5 l2 .3 M14 12.5 l1.5 .2" fill="none" stroke="#8d847a" stroke-width=".8"/>
+</g></symbol>
+<symbol id="res-copper" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#efe2c2" stroke="#3b2a1e" stroke-width="1.2"/><g stroke="#3b2a1e" stroke-width="1.1" stroke-linejoin="round">
+ <path d="M5.5 15.5 L8.5 8.5 L14.5 6.5 L18.5 11 L16 17 L9 17.5 Z" fill="#b8693a"/>
+ <path d="M9.5 11 l2 -1 l1.5 2 l-2 1.2 Z M14 13.5 l1.8 -.6 l.4 1.8 Z" fill="#4f8f7a" stroke-width=".8"/>
+</g></symbol>
+<symbol id="res-tin" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#efe2c2" stroke="#3b2a1e" stroke-width="1.2"/><g stroke="#3b2a1e" stroke-width="1.1" stroke-linejoin="round">
+ <path d="M5 15 H19 L17 18 H7 Z" fill="#8d9192"/>
+ <path d="M6.5 15 L8 10 H16 L17.5 15 Z" fill="#a3a7a8"/>
+ <path d="M8.5 10 L9.5 7 H14.5 L15.5 10 Z" fill="#c4c8c8"/>
+ <path d="M10 12.5 h4" fill="none" stroke="#f4f4f0" stroke-width=".8"/>
+</g></symbol>
+<symbol id="res-gold" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#efe2c2" stroke="#3b2a1e" stroke-width="1.2"/><g stroke="#3b2a1e" stroke-width="1.1" stroke-linejoin="round" stroke-linecap="round">
+ <path d="M6 17 L8.5 11.5 L13 10.5 L16.5 13 L15.5 17 Z" fill="#d9a520"/>
+ <path d="M9.5 14 l2.5 -1.2" fill="none" stroke="#fbe7a0"/>
+ <path d="M16.5 5 v4 M14.5 7 h4 M8 6 v2 M7 7 h2" fill="none" stroke="#b47f12"/>
+</g></symbol>
+<symbol id="res-rare_metals" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#efe2c2" stroke="#3b2a1e" stroke-width="1.2"/><g stroke="#3b2a1e" stroke-width="1.1" stroke-linejoin="round">
+ <path d="M12 4.5 L16 8 V15 L12 19 L8 15 V8 Z" fill="#6aa6c9"/>
+ <path d="M12 4.5 V19 M8 8 L12 11 L16 8" fill="none" stroke="#2f5a7a" stroke-width=".9"/>
+ <path d="M10 9.5 l1 -2" fill="none" stroke="#e6f3fa" stroke-width="1"/>
+</g></symbol>
+<symbol id="res-stone" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#efe2c2" stroke="#3b2a1e" stroke-width="1.2"/><g stroke="#3b2a1e" stroke-width="1.1" stroke-linejoin="round">
+ <rect x="5" y="13" width="7" height="4.5" fill="#9c968a"/><rect x="12" y="13" width="7" height="4.5" fill="#8a8478"/>
+ <rect x="8.5" y="8.5" width="7" height="4.5" fill="#aea89c"/>
+</g></symbol>
+<symbol id="res-clay" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#efe2c2" stroke="#3b2a1e" stroke-width="1.2"/><g stroke="#3b2a1e" stroke-width="1.1" stroke-linejoin="round">
+ <path d="M9.5 6 H14.5 V8 C17.5 9 18 13 16.5 16 C15.5 18 8.5 18 7.5 16 C6 13 6.5 9 9.5 8 Z" fill="#b06b3f"/>
+ <path d="M8.5 12 H15.5" fill="none" stroke="#7a4426" stroke-width=".9"/>
+</g></symbol>
+<symbol id="res-salt" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#efe2c2" stroke="#3b2a1e" stroke-width="1.2"/><g stroke="#3b2a1e" stroke-width="1.1" stroke-linejoin="round">
+ <path d="M5 17.5 L12 6.5 L19 17.5 Z" fill="#f4f1e8"/>
+ <path d="M9 13 l1.5 -1 M13 11 l1.2 1.4 M11 15.5 l2 -.3" fill="none" stroke="#a8b4bc" stroke-width=".9"/>
+</g></symbol>
+<symbol id="res-timber" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#efe2c2" stroke="#3b2a1e" stroke-width="1.2"/><g stroke="#3b2a1e" stroke-width="1.1" stroke-linejoin="round">
+ <rect x="5.5" y="13.5" width="13" height="3.6" rx="1.8" fill="#8a5a33"/>
+ <rect x="7" y="9.5" width="11" height="3.6" rx="1.8" fill="#9a6a3e"/>
+ <circle cx="17.2" cy="11.3" r="1.6" fill="#d8b480"/><circle cx="16.7" cy="15.3" r="1.6" fill="#d8b480"/>
+</g></symbol>
+<symbol id="res-grain" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#efe2c2" stroke="#3b2a1e" stroke-width="1.2"/><g stroke="#3b2a1e" stroke-width="1" stroke-linejoin="round" stroke-linecap="round">
+ <path d="M12 19 V6 M9 19 C9 14 10 11 9 8 M15 19 C15 14 14 11 15 8" fill="none"/>
+ <path d="M12 6 c-1.4 1 -1.4 3 0 4 c1.4 -1 1.4 -3 0 -4 Z M12 10 c-1.4 1 -1.4 3 0 4 c1.4 -1 1.4 -3 0 -4 Z M9 8 c-1.3 1 -1.2 2.8 .2 3.6 c1.1 -1.1 .9 -2.8 -.2 -3.6 Z M15 8 c1.3 1 1.2 2.8 -.2 3.6 c-1.1 -1.1 -.9 -2.8 .2 -3.6 Z" fill="#d6a93c"/>
+</g></symbol>
+<symbol id="res-livestock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#efe2c2" stroke="#3b2a1e" stroke-width="1.2"/><g stroke="#3b2a1e" stroke-width="1.1" stroke-linejoin="round" stroke-linecap="round">
+ <path d="M8 9.5 C5 9 4.5 6.5 5.5 5.5 M16 9.5 C19 9 19.5 6.5 18.5 5.5" fill="none" stroke-width="1.4"/>
+ <path d="M7.5 9 H16.5 L15.5 15 C15 18 9 18 8.5 15 Z" fill="#8b6a4a"/>
+ <ellipse cx="12" cy="16" rx="3" ry="2" fill="#d8b89a"/>
+ <circle cx="10" cy="11.5" r=".7" fill="#3b2a1e" stroke="none"/><circle cx="14" cy="11.5" r=".7" fill="#3b2a1e" stroke="none"/>
+</g></symbol>
+<symbol id="res-fish" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#efe2c2" stroke="#3b2a1e" stroke-width="1.2"/><g stroke="#3b2a1e" stroke-width="1.1" stroke-linejoin="round">
+ <path d="M4.5 12 C7.5 7.5 13.5 7.5 16 12 C13.5 16.5 7.5 16.5 4.5 12 Z" fill="#5f8ea0"/>
+ <path d="M16 12 L19.5 8.5 V15.5 Z" fill="#5f8ea0"/>
+ <circle cx="7.5" cy="11.3" r=".8" fill="#3b2a1e" stroke="none"/>
+ <path d="M10 10 q1 2 0 4 M12.5 10 q1 2 0 4" fill="none" stroke="#2f5a7a" stroke-width=".8"/>
+</g></symbol>
+<symbol id="res-herb" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#efe2c2" stroke="#3b2a1e" stroke-width="1.2"/><g stroke="#3b2a1e" stroke-width="1.1" stroke-linejoin="round" stroke-linecap="round">
+ <path d="M12 19 V10" fill="none"/>
+ <path d="M12 10 C9 9 8 6 9.5 5 C11.5 5.5 12.5 7.5 12 10 Z M12 10 C15 9 16 6 14.5 5 C12.5 5.5 11.5 7.5 12 10 Z M12 14 C9 14 7 12 7.5 10.5 C9.5 10.5 11.5 11.5 12 14 Z M12 14 C15 14 17 12 16.5 10.5 C14.5 10.5 12.5 11.5 12 14 Z" fill="#5f8a4a"/>
+ <circle cx="12" cy="6.5" r="1" fill="#b45a8c" stroke="none"/>
+</g></symbol>
+<symbol id="res-wool" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#efe2c2" stroke="#3b2a1e" stroke-width="1.2"/><g stroke="#3b2a1e" stroke-width="1.1" stroke-linejoin="round" stroke-linecap="round">
+ <path d="M8 15 V18.5 M10.5 15.5 V18.5 M13.5 15.5 V18.5 M15.5 15 V18.5" fill="none" stroke-width="1.3"/>
+ <path d="M6.5 14.5 C4.5 14.3 4.5 11 6.3 10.6 C6 8.3 8.8 7.3 10.2 8.8 C11.2 7.2 14.2 7.3 14.8 9.2 C16.6 9.3 17.4 11.6 16.3 13 C16.6 15.3 14.4 16.2 12.8 15.6 C11.3 16.7 8.2 16.6 6.5 14.5 Z" fill="#f4efe2"/>
+ <path d="M8 11.5 q.8 -.8 1.6 0 M11.5 10.5 q.8 -.8 1.6 0 M9.5 13.8 q.8 -.8 1.6 0" fill="none" stroke="#c4b9a0" stroke-width=".8"/>
+ <path d="M16 10.5 C16.5 9 19 9 19.6 10.6 C20.2 12.3 19.4 14 18 14 C16.8 14 15.8 12.3 16 10.5 Z" fill="#3b2a1e"/>
+ <path d="M16.4 10.4 L15 9.6" fill="none" stroke-width="1.4"/>
+ <circle cx="18.6" cy="11.3" r=".5" fill="#f4efe2" stroke="none"/>
+</g></symbol>
+<symbol id="res-reed" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#efe2c2" stroke="#3b2a1e" stroke-width="1.2"/><g stroke="#3b2a1e" stroke-width="1.1" stroke-linejoin="round" stroke-linecap="round">
+ <path d="M8 19 V9 M12 19 V6.5 M16 19 V9.5 M5.5 17.5 Q8 15 9 12 M18.5 17.5 Q16 15 15 12.5" fill="none" stroke="#8f9a4a" stroke-width="1.3"/>
+ <rect x="7" y="7.5" width="2" height="4" rx="1" fill="#7a4a2a"/><rect x="11" y="5" width="2" height="4" rx="1" fill="#7a4a2a"/><rect x="15" y="8" width="2" height="4" rx="1" fill="#7a4a2a"/>
+ <path d="M5 19 H19" fill="none" stroke="#5f8ea0"/>
+</g></symbol>
+
+<!-- ---------- 资源 · 第二批（贸易品与奇物） ---------- -->
+<symbol id="res-silver" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#efe2c2" stroke="#3b2a1e" stroke-width="1.2"/><g stroke="#3b2a1e" stroke-width="1.1" stroke-linejoin="round" stroke-linecap="round">
+ <path d="M5 15.5 L7.5 10 H16.5 L19 15.5 Z" fill="#c9ccd0"/><path d="M7.5 10 L9 7.5 H15 L16.5 10 Z" fill="#e4e6e8"/>
+ <path d="M9 12.5 h5" fill="none" stroke="#ffffff" stroke-width=".9"/>
+ <path d="M17.5 5 v3 M16 6.5 h3" fill="none" stroke="#8d9196"/>
+</g></symbol>
+<symbol id="res-gems" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#efe2c2" stroke="#3b2a1e" stroke-width="1.2"/><g stroke="#3b2a1e" stroke-width="1.1" stroke-linejoin="round">
+ <path d="M7 9.5 L9 7 H15 L17 9.5 L12 17.5 Z" fill="#b8352b"/>
+ <path d="M7 9.5 H17 M9 7 L10.5 9.5 L12 17.5 L13.5 9.5 L15 7" fill="none" stroke="#6b1a14" stroke-width=".8"/>
+ <path d="M5 16.5 L6.5 14.5 L8 16.5 L6.5 18.5 Z" fill="#3f7fb0" stroke-width=".8"/>
+ <path d="M16.5 15.5 L18 14 L19.5 15.5 L18 17 Z" fill="#4f9a5a" stroke-width=".8"/>
+</g></symbol>
+<symbol id="res-marble" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#efe2c2" stroke="#3b2a1e" stroke-width="1.2"/><g stroke="#3b2a1e" stroke-width="1.1" stroke-linejoin="round">
+ <path d="M6 9 L12 6.5 L18 9 V16 L12 18.5 L6 16 Z" fill="#f2efe8"/>
+ <path d="M6 9 L12 11.5 L18 9 M12 11.5 V18.5" fill="none" stroke-width=".9"/>
+ <path d="M7.5 12 q1.5 1 1 3 M14 13 q1.8 -.5 2.5 1.5" fill="none" stroke="#9aa0a8" stroke-width=".7"/>
+</g></symbol>
+<symbol id="res-sulfur" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#efe2c2" stroke="#3b2a1e" stroke-width="1.2"/><g stroke="#3b2a1e" stroke-width="1.1" stroke-linejoin="round" stroke-linecap="round">
+ <path d="M5.5 17.5 L8 12 L11 13 L13 9.5 L17 11 L18.5 17.5 Z" fill="#e3cf3c"/>
+ <path d="M9 9 q-1 -2 .5 -3.5 M13.5 7.5 q1 -1.8 -.3 -3" fill="none" stroke="#a8a090" stroke-width=".9"/>
+</g></symbol>
+<symbol id="res-spices" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#efe2c2" stroke="#3b2a1e" stroke-width="1.2"/><g stroke="#3b2a1e" stroke-width="1.1" stroke-linejoin="round" stroke-linecap="round">
+ <path d="M7.5 10 H16.5 L15.5 17.5 H8.5 Z" fill="#9a6a3e"/>
+ <path d="M7 10 C8 7 16 7 17 10 Z" fill="#c4572a"/>
+ <circle cx="10" cy="8.6" r=".7" fill="#e3a82f" stroke="none"/><circle cx="13.5" cy="8.3" r=".7" fill="#6b2a1a" stroke="none"/>
+ <path d="M9 13 h6" fill="none" stroke="#6b4a2e" stroke-width=".8"/>
+</g></symbol>
+<symbol id="res-silk" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#efe2c2" stroke="#3b2a1e" stroke-width="1.2"/><g stroke="#3b2a1e" stroke-width="1.1" stroke-linejoin="round" stroke-linecap="round">
+ <ellipse cx="9" cy="12" rx="3" ry="5" fill="#d9a3b8"/>
+ <path d="M9 7 C14 7.5 18 9 18 12 C18 15 14 16.5 9 17" fill="#e8c0cf"/>
+ <path d="M9 9 q-1.5 3 0 6" fill="none" stroke="#a8607a" stroke-width=".7"/>
+</g></symbol>
+<symbol id="res-horses" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#efe2c2" stroke="#3b2a1e" stroke-width="1.2"/><g stroke="#3b2a1e" stroke-width="1.1" stroke-linejoin="round" stroke-linecap="round">
+ <path d="M8 18 V14 C7 12 7.5 9 10 7.5 L12.5 5.5 L13 7.5 C15.5 8 17 10 17 12.5 L15.5 13 L14.5 11.5 C13.5 13 12 14 12 18 Z" fill="#8a5a33"/>
+ <path d="M10 7.5 C9 9 9 10.5 9.5 12" fill="none" stroke="#3b2a1e" stroke-width="1.4"/>
+ <circle cx="14.2" cy="9.6" r=".6" fill="#3b2a1e" stroke="none"/>
+</g></symbol>
+<symbol id="res-ivory" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#efe2c2" stroke="#3b2a1e" stroke-width="1.2"/><g stroke="#3b2a1e" stroke-width="1.1" stroke-linejoin="round" stroke-linecap="round">
+ <path d="M6 17.5 C7 11 10.5 7 17.5 5.5 C13 8.5 10.5 12.5 9.5 18 Z" fill="#f4ecd6"/>
+ <path d="M9 15 q1 -.8 1.6 0 M10.5 12 q1 -.6 1.5 .2" fill="none" stroke="#c4b48a" stroke-width=".7"/>
+</g></symbol>
+<symbol id="res-amber" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#efe2c2" stroke="#3b2a1e" stroke-width="1.2"/><g stroke="#3b2a1e" stroke-width="1.1" stroke-linejoin="round">
+ <path d="M7.5 9 C8 6.5 14 5.5 16.5 8 C18.5 10.5 17 16 12.5 17.5 C8.5 18.5 6.5 13 7.5 9 Z" fill="#e0962a"/>
+ <path d="M10 9.5 q1 -1 2.2 -.6" fill="none" stroke="#f8d48a" stroke-width="1"/>
+ <path d="M11.5 12.5 l1 1 l1.2 -1 M12.5 13.5 v1.4" fill="none" stroke="#6b3a10" stroke-width=".7"/>
+</g></symbol>
+<symbol id="res-pearls" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#efe2c2" stroke="#3b2a1e" stroke-width="1.2"/><g stroke="#3b2a1e" stroke-width="1.1" stroke-linejoin="round">
+ <path d="M4.5 13 C6 9 9 8 12 9.5 C15 8 18 9 19.5 13 C16 16 8 16 4.5 13 Z" fill="#8a9aa4"/>
+ <path d="M6 12.5 C9 14 15 14 18 12.5" fill="none" stroke="#4f5f68" stroke-width=".8"/>
+ <circle cx="12" cy="11.6" r="2.2" fill="#fbf7f0"/>
+ <circle cx="11.3" cy="11" r=".6" fill="#ffffff" stroke="none"/>
+</g></symbol>
+<symbol id="res-wine" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#efe2c2" stroke="#3b2a1e" stroke-width="1.2"/><g stroke="#3b2a1e" stroke-width="1.1" stroke-linejoin="round" stroke-linecap="round">
+ <path d="M12 5.5 V8 M12 7 q2 -1.5 3.5 -.5" fill="none" stroke="#5f7a3a"/>
+ <circle cx="10" cy="9.5" r="1.7" fill="#6b2a4a"/><circle cx="13.5" cy="9.5" r="1.7" fill="#6b2a4a"/>
+ <circle cx="11.7" cy="12.3" r="1.7" fill="#7a3456"/><circle cx="8.6" cy="12.5" r="1.5" fill="#6b2a4a"/><circle cx="14.8" cy="12.5" r="1.5" fill="#6b2a4a"/>
+ <circle cx="10.2" cy="15.2" r="1.6" fill="#7a3456"/><circle cx="13.3" cy="15.2" r="1.6" fill="#6b2a4a"/><circle cx="11.8" cy="17.8" r="1.4" fill="#7a3456"/>
+</g></symbol>
+<symbol id="res-dye" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#efe2c2" stroke="#3b2a1e" stroke-width="1.2"/><g stroke="#3b2a1e" stroke-width="1.1" stroke-linejoin="round">
+ <path d="M6 10 H18 V16 C18 17.5 6 17.5 6 16 Z" fill="#8a7350"/>
+ <ellipse cx="12" cy="10" rx="6" ry="1.6" fill="#3a4f9a"/>
+ <path d="M14 6 C14 7.5 15.5 8.5 15.5 9.6" fill="none" stroke="#7a2a6a" stroke-width="1.4" stroke-linecap="round"/>
+</g></symbol>
+<symbol id="res-mana" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#efe2c2" stroke="#3b2a1e" stroke-width="1.2"/><g stroke="#3b2a1e" stroke-width="1.1" stroke-linejoin="round" stroke-linecap="round">
+ <path d="M12 4.5 L14 10 L19.5 12 L14 14 L12 19.5 L10 14 L4.5 12 L10 10 Z" fill="#9a7ad0"/>
+ <circle cx="12" cy="12" r="2" fill="#e6dcfa"/>
+ <path d="M6.5 6.5 l1 1 M17.5 6.5 l-1 1 M6.5 17.5 l1 -1 M17.5 17.5 l-1 -1" fill="none" stroke="#6a4aa5" stroke-width=".8"/>
+</g></symbol>
+<symbol id="res-dragonbone" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#efe2c2" stroke="#3b2a1e" stroke-width="1.2"/><g stroke="#3b2a1e" stroke-width="1.1" stroke-linejoin="round" stroke-linecap="round">
+ <path d="M6.5 16 C9 15 10 12 9.5 9 C9 7 11 5.5 12.5 6.5 C14 5.5 16.5 7 15.5 9 C15 12 16 15 18 16 Z" fill="#e9dfc8"/>
+ <path d="M10.5 12 h3.5 M10.8 14 h3" fill="none" stroke="#9a8a6a" stroke-width=".8"/>
+ <circle cx="11.3" cy="8.6" r=".7" fill="#3b2a1e" stroke="none"/><circle cx="13.7" cy="8.6" r=".7" fill="#3b2a1e" stroke="none"/>
+</g></symbol>
+
+<!-- ======================= 树种 · 16×20（树根 8,19） ======================= -->
+<symbol id="tree-pine" viewBox="0 0 16 20"><g stroke="#3b2a1e" stroke-width=".9" stroke-linejoin="round" stroke-linecap="round">
+ <ellipse cx="8" cy="19" rx="4" ry=".8" fill="#b89a6a" stroke="none" opacity=".7"/>
+ <path d="M8 19 V15" fill="none" stroke="#6b4a2e" stroke-width="1.4"/>
+ <path d="M8 2 L11 7 H9.5 L12.5 11.5 H10.5 L14 16 H2 L5.5 11.5 H3.5 L6.5 7 H5 Z" fill="#4f6b43"/>
+</g></symbol>
+<symbol id="tree-spruce" viewBox="0 0 16 20"><g stroke="#3b2a1e" stroke-width=".9" stroke-linejoin="round" stroke-linecap="round">
+ <ellipse cx="8" cy="19" rx="3" ry=".7" fill="#b89a6a" stroke="none" opacity=".7"/>
+ <path d="M8 19 V17" fill="none" stroke="#6b4a2e" stroke-width="1.3"/>
+ <path d="M8 1 L10.5 7 L9.5 7 L11.5 12 L10.5 12 L12 17 H4 L5.5 12 L4.5 12 L6.5 7 L5.5 7 Z" fill="#3e5a40"/>
+</g></symbol>
+<symbol id="tree-larch" viewBox="0 0 16 20"><g stroke="#3b2a1e" stroke-width=".9" stroke-linejoin="round" stroke-linecap="round">
+ <ellipse cx="8" cy="19" rx="3.5" ry=".7" fill="#b89a6a" stroke="none" opacity=".7"/>
+ <path d="M8 19 V3" fill="none" stroke="#6b4a2e" stroke-width="1.1"/>
+ <path d="M8 2 L12.5 16.5 H3.5 Z" fill="#8a8a45" opacity=".95"/>
+ <path d="M6 9 L8 7.5 L10 9 M5 13 L8 11 L11 13" fill="none" stroke="#6b4a2e" stroke-width=".8"/>
+</g></symbol>
+<symbol id="tree-oak" viewBox="0 0 16 20"><g stroke="#3b2a1e" stroke-width=".9" stroke-linejoin="round" stroke-linecap="round">
+ <ellipse cx="8" cy="19" rx="5" ry=".9" fill="#b89a6a" stroke="none" opacity=".7"/>
+ <path d="M7 19 L7.3 13 M9 19 L8.7 13" fill="#6b4a2e" stroke="#6b4a2e" stroke-width="1.6"/>
+ <path d="M3.5 13.5 C1 13 .8 9.5 2.8 8.6 C2.2 5.5 5 3.6 7 4.6 C8 2.4 12 2.6 12.6 5.4 C15 5.6 15.6 9 14 10.2 C15 12.6 12.8 14.6 10.6 13.6 C9.6 15 5.6 15 3.5 13.5 Z" fill="#6b8248"/>
+</g></symbol>
+<symbol id="tree-beech" viewBox="0 0 16 20"><g stroke="#3b2a1e" stroke-width=".9" stroke-linejoin="round" stroke-linecap="round">
+ <ellipse cx="8" cy="19" rx="4" ry=".8" fill="#b89a6a" stroke="none" opacity=".7"/>
+ <path d="M8 19 V13" fill="none" stroke="#7d6a58" stroke-width="1.5"/>
+ <path d="M8 2.5 C12.5 2.5 13.5 8 13 10.5 C12.5 13.5 10 14.5 8 14.5 C6 14.5 3.5 13.5 3 10.5 C2.5 8 3.5 2.5 8 2.5 Z" fill="#7f9150"/>
+ <path d="M6 7 Q8 8.5 10 7" fill="none" stroke="#5f7038" stroke-width=".7"/>
+</g></symbol>
+<symbol id="tree-birch" viewBox="0 0 16 20"><g stroke="#3b2a1e" stroke-width=".9" stroke-linejoin="round" stroke-linecap="round">
+ <ellipse cx="8" cy="19" rx="3" ry=".7" fill="#b89a6a" stroke="none" opacity=".7"/>
+ <rect x="7.2" y="10" width="1.6" height="9" fill="#ece6d6"/>
+ <path d="M7.2 13 h.9 M8 15.5 h.8 M7.2 17.5 h.7" fill="none" stroke="#2b2622" stroke-width=".8"/>
+ <ellipse cx="8" cy="7.5" rx="3.6" ry="5.8" fill="#9aa65a"/>
+</g></symbol>
+<symbol id="tree-maple" viewBox="0 0 16 20"><g stroke="#3b2a1e" stroke-width=".9" stroke-linejoin="round" stroke-linecap="round">
+ <ellipse cx="8" cy="19" rx="4.5" ry=".8" fill="#b89a6a" stroke="none" opacity=".7"/>
+ <path d="M8 19 V12.5" fill="none" stroke="#6b4a2e" stroke-width="1.5"/>
+ <path d="M8 2 L9.5 4.5 L12.5 3.5 L12 6.5 L14.5 8 L12.5 9.5 L13.5 12.5 L10 11.5 L8 13.5 L6 11.5 L2.5 12.5 L3.5 9.5 L1.5 8 L4 6.5 L3.5 3.5 L6.5 4.5 Z" fill="#a0583a"/>
+</g></symbol>
+<symbol id="tree-redwood" viewBox="0 0 16 20"><g stroke="#3b2a1e" stroke-width=".9" stroke-linejoin="round" stroke-linecap="round">
+ <ellipse cx="8" cy="19" rx="3" ry=".7" fill="#b89a6a" stroke="none" opacity=".7"/>
+ <path d="M7 19 L7.4 9 H8.6 L9 19 Z" fill="#8a4a30"/>
+ <path d="M8 .5 C10.5 3 10.8 8 10 12 H6 C5.2 8 5.5 3 8 .5 Z" fill="#3f5c3a"/>
+ <path d="M6.6 6 H9.4 M6.3 9 H9.7" fill="none" stroke="#2d4429" stroke-width=".7"/>
+</g></symbol>
+<symbol id="tree-teak" viewBox="0 0 16 20"><g stroke="#3b2a1e" stroke-width=".9" stroke-linejoin="round" stroke-linecap="round">
+ <ellipse cx="8" cy="19" rx="5" ry=".8" fill="#b89a6a" stroke="none" opacity=".7"/>
+ <path d="M8 19 V8 M8 11 L5 8.5 M8 10 L11 8" fill="none" stroke="#6b4a2e" stroke-width="1.3"/>
+ <path d="M1 8.5 C2 5 6 4 8 4.5 C10 4 14 5 15 8.5 C12 9.8 4 9.8 1 8.5 Z" fill="#7a8a40"/>
+</g></symbol>
+<symbol id="tree-bamboo" viewBox="0 0 16 20"><g stroke="#3b2a1e" stroke-width=".9" stroke-linejoin="round" stroke-linecap="round">
+ <ellipse cx="8" cy="19" rx="4.5" ry=".7" fill="#b89a6a" stroke="none" opacity=".7"/>
+ <path d="M5 19 Q4.6 10 5.5 2 M8.5 19 Q8.8 9 8 3 M11.5 19 Q11.8 11 12.5 5" fill="none" stroke="#8aa14a" stroke-width="1.5"/>
+ <path d="M4.3 13 h1.4 M7.9 11 h1.4 M11 14 h1.4 M4.6 7 h1.4" fill="none" stroke="#5f7a2e" stroke-width=".8"/>
+ <path d="M5.5 4 L2 3 L5.3 5.5 Z M8 5 L11.5 3.5 L8.2 7 Z M12.3 7 L15 6 L12.2 9 Z M5.2 9 L2.2 9.5 L5 10.8 Z" fill="#8aa14a"/>
+</g></symbol>
+<symbol id="tree-kapok" viewBox="0 0 16 20"><g stroke="#3b2a1e" stroke-width=".9" stroke-linejoin="round" stroke-linecap="round">
+ <ellipse cx="8" cy="19" rx="5.5" ry=".9" fill="#b89a6a" stroke="none" opacity=".7"/>
+ <path d="M3.5 19 C6 18 6.8 16 7.2 6 H8.8 C9.2 16 10 18 12.5 19 Z" fill="#7d6a58"/>
+ <path d="M.8 6.5 C1 2.5 5 1.8 8 2.3 C11 1.8 15 2.5 15.2 6.5 C12 8.2 4 8.2 .8 6.5 Z" fill="#3d6a3a"/>
+</g></symbol>
+<symbol id="tree-acacia" viewBox="0 0 16 20"><g stroke="#3b2a1e" stroke-width=".9" stroke-linejoin="round" stroke-linecap="round">
+ <ellipse cx="8" cy="19" rx="5" ry=".8" fill="#b89a6a" stroke="none" opacity=".7"/>
+ <path d="M8 19 V12 L5 8 M8 12 L11.5 7.5" fill="none" stroke="#6b4a2e" stroke-width="1.2"/>
+ <path d="M.5 8 C1.5 5.3 5 4.8 8 5 C11 4.8 14.5 5.3 15.5 8 Z" fill="#9a9a52"/>
+</g></symbol>
+<symbol id="tree-willow" viewBox="0 0 16 20"><g stroke="#3b2a1e" stroke-width=".9" stroke-linejoin="round" stroke-linecap="round">
+ <ellipse cx="8" cy="19" rx="4.5" ry=".8" fill="#b89a6a" stroke="none" opacity=".7"/>
+ <path d="M8 19 V8" fill="none" stroke="#6b4a2e" stroke-width="1.5"/>
+ <path d="M2 16 C1.5 9 3.5 3 8 3 C12.5 3 14.5 9 14 16 L12.5 12 L11.5 16.5 L10 12.5 L8 17 L6 12.5 L4.5 16.5 L3.5 12 Z" fill="#849a5a"/>
+</g></symbol>
+<symbol id="tree-mangrove" viewBox="0 0 16 20"><g stroke="#3b2a1e" stroke-width=".9" stroke-linejoin="round" stroke-linecap="round">
+ <path d="M1 19 H15" fill="none" stroke="#5f8ea0" stroke-width="1"/>
+ <path d="M8 11 V14 M8 14 Q4 14 3 19 M8 14 Q12 14 13 19 M8 14 Q7 16 6.5 19 M8 14 Q9 16 9.5 19" fill="none" stroke="#6b4a2e" stroke-width="1.1"/>
+ <path d="M2.5 9 C2 5 5 3 8 3.5 C11 3 14 5 13.5 9 C11 12 5 12 2.5 9 Z" fill="#557a4a"/>
+</g></symbol>
+
+<!-- ---------- 树种 · 第二批（代表性树木） ---------- -->
+<symbol id="tree-cypress" viewBox="0 0 16 20"><g stroke="#3b2a1e" stroke-width=".9" stroke-linejoin="round" stroke-linecap="round">
+ <ellipse cx="8" cy="19" rx="2.5" ry=".6" fill="#b89a6a" stroke="none" opacity=".7"/>
+ <path d="M8 19 V17.5" fill="none" stroke="#6b4a2e" stroke-width="1.2"/>
+ <path d="M8 1 C10.2 4 10.6 10 9.8 17.5 H6.2 C5.4 10 5.8 4 8 1 Z" fill="#344a32"/>
+ <path d="M7.2 6 Q8 7 8.8 6 M7 11 Q8 12 9 11" fill="none" stroke="#24361f" stroke-width=".6"/>
+</g></symbol>
+<symbol id="tree-cedar" viewBox="0 0 16 20"><g stroke="#3b2a1e" stroke-width=".9" stroke-linejoin="round" stroke-linecap="round">
+ <ellipse cx="8" cy="19" rx="5" ry=".8" fill="#b89a6a" stroke="none" opacity=".7"/>
+ <path d="M8 19 V4" fill="none" stroke="#6b4a2e" stroke-width="1.3"/>
+ <path d="M3.5 6 Q8 3.5 12.5 6 Q8 7.2 3.5 6 Z M1.5 10.5 Q8 7.5 14.5 10.5 Q8 12 1.5 10.5 Z M.8 15 Q8 11.8 15.2 15 Q8 16.6 .8 15 Z" fill="#46603f"/>
+</g></symbol>
+<symbol id="tree-fir" viewBox="0 0 16 20"><g stroke="#3b2a1e" stroke-width=".9" stroke-linejoin="round" stroke-linecap="round">
+ <ellipse cx="8" cy="19" rx="4" ry=".7" fill="#b89a6a" stroke="none" opacity=".7"/>
+ <path d="M8 19 V16.5" fill="none" stroke="#6b4a2e" stroke-width="1.3"/>
+ <path d="M8 1.5 L13.5 16.5 H2.5 Z" fill="#2f5038"/>
+ <path d="M8 5 L5.5 9 M8 5 L10.5 9 M8 9.5 L4.5 14 M8 9.5 L11.5 14" fill="none" stroke="#1f3a28" stroke-width=".7"/>
+</g></symbol>
+<symbol id="tree-chestnut" viewBox="0 0 16 20"><g stroke="#3b2a1e" stroke-width=".9" stroke-linejoin="round" stroke-linecap="round">
+ <ellipse cx="8" cy="19" rx="5" ry=".9" fill="#b89a6a" stroke="none" opacity=".7"/>
+ <path d="M8 19 V12" fill="none" stroke="#6b4a2e" stroke-width="1.7"/>
+ <path d="M8 2 C12 2 14.5 5.5 14 9 C13.6 12 11 13.5 8 13.5 C5 13.5 2.4 12 2 9 C1.5 5.5 4 2 8 2 Z" fill="#748a3f"/>
+ <circle cx="5.5" cy="7.5" r=".9" fill="#efe2c2" stroke-width=".5"/><circle cx="10" cy="5.5" r=".9" fill="#efe2c2" stroke-width=".5"/><circle cx="10.5" cy="10" r=".9" fill="#efe2c2" stroke-width=".5"/>
+</g></symbol>
+<symbol id="tree-ash" viewBox="0 0 16 20"><g stroke="#3b2a1e" stroke-width=".9" stroke-linejoin="round" stroke-linecap="round">
+ <ellipse cx="8" cy="19" rx="4.5" ry=".8" fill="#b89a6a" stroke="none" opacity=".7"/>
+ <path d="M8 19 V9 M8 12 L5 8.5 M8 11 L11 7.5" fill="none" stroke="#7d7568" stroke-width="1.3"/>
+ <path d="M2 9 C1.5 5.5 4 3 6.5 3.5 C7.5 1.8 10.5 2 11 3.8 C13.5 3.8 15 6.5 13.8 9 C12 10.5 4 10.5 2 9 Z" fill="#8a9a5a" opacity=".9"/>
+</g></symbol>
+<symbol id="tree-elm" viewBox="0 0 16 20"><g stroke="#3b2a1e" stroke-width=".9" stroke-linejoin="round" stroke-linecap="round">
+ <ellipse cx="8" cy="19" rx="4.5" ry=".8" fill="#b89a6a" stroke="none" opacity=".7"/>
+ <path d="M8 19 V11 L4.5 6 M8 11 L11.5 6 M8 11 V5" fill="none" stroke="#6b4a2e" stroke-width="1.2"/>
+ <path d="M1.5 6.5 C1.5 2.5 5 1 8 1.5 C11 1 14.5 2.5 14.5 6.5 C12.5 8 3.5 8 1.5 6.5 Z" fill="#6f8650"/>
+</g></symbol>
+<symbol id="tree-yew" viewBox="0 0 16 20"><g stroke="#3b2a1e" stroke-width=".9" stroke-linejoin="round" stroke-linecap="round">
+ <ellipse cx="8" cy="19" rx="5.5" ry=".9" fill="#b89a6a" stroke="none" opacity=".7"/>
+ <path d="M6.5 19 C7 16 6.8 14 6 13 M9.5 19 C9 16 9.2 14 10 13" fill="none" stroke="#7a3f2c" stroke-width="1.4"/>
+ <path d="M1.5 14 C.5 9 3 4 8 4 C13 4 15.5 9 14.5 14 C11 15.5 5 15.5 1.5 14 Z" fill="#2f4330"/>
+ <circle cx="5" cy="10" r=".7" fill="#b8352b" stroke="none"/><circle cx="10.5" cy="8" r=".7" fill="#b8352b" stroke="none"/><circle cx="11" cy="12" r=".7" fill="#b8352b" stroke="none"/>
+</g></symbol>
+<symbol id="tree-olive" viewBox="0 0 16 20"><g stroke="#3b2a1e" stroke-width=".9" stroke-linejoin="round" stroke-linecap="round">
+ <ellipse cx="8" cy="19" rx="4.5" ry=".8" fill="#b89a6a" stroke="none" opacity=".7"/>
+ <path d="M6.5 19 C5.5 16 9 15 8 12 C7.5 10.5 9 9.5 9.5 9" fill="none" stroke="#7d6a58" stroke-width="1.8"/>
+ <path d="M2 10 C1.5 6.5 4.5 4.5 7 5 C9 3.5 13 4.5 13.5 7 C15 8.5 13.5 11.5 11 11 C9 12.5 4 12.5 2 10 Z" fill="#9aa47a"/>
+ <path d="M4.5 8 l1.5 -.5 M9.5 7 l1.6 .3" fill="none" stroke="#6f7a52" stroke-width=".6"/>
+</g></symbol>
+<symbol id="tree-palm" viewBox="0 0 16 20"><g stroke="#3b2a1e" stroke-width=".9" stroke-linejoin="round" stroke-linecap="round">
+ <ellipse cx="9" cy="19" rx="4" ry=".7" fill="#b89a6a" stroke="none" opacity=".7"/>
+ <path d="M9 19 C9 13 8.5 9 7.5 5" fill="none" stroke="#8a6a3e" stroke-width="1.6"/>
+ <path d="M7.5 5 C5 3 2 4 1 6.5 C3.5 5.5 5.5 5.5 7.5 5 Z M7.5 5 C9.5 2.5 13 2.8 15 5 C12.5 4.5 10 4.5 7.5 5 Z M7.5 5 C6 2 6.5 .5 8.5 .5 C8.5 2 8 3.5 7.5 5 Z M7.5 5 C10 5.5 12 7.5 12.5 10 C10.5 8.5 9 7 7.5 5 Z M7.5 5 C5 6 3.5 8 3.5 10.5 C5 8.5 6 7 7.5 5 Z" fill="#6f8f45"/>
+ <circle cx="7.6" cy="6" r=".8" fill="#6b4a2e" stroke="none"/>
+</g></symbol>
+<symbol id="tree-baobab" viewBox="0 0 16 20"><g stroke="#3b2a1e" stroke-width=".9" stroke-linejoin="round" stroke-linecap="round">
+ <ellipse cx="8" cy="19" rx="5.5" ry=".9" fill="#b89a6a" stroke="none" opacity=".7"/>
+ <path d="M4.5 19 C4.5 14 5.2 10 5.8 7.5 H10.2 C10.8 10 11.5 14 11.5 19 Z" fill="#9c8468"/>
+ <path d="M5.8 7.5 L3.5 5 M7 7.5 L6 4.5 M9 7.5 L10 4.5 M10.2 7.5 L12.5 5" fill="none" stroke="#7d6a58" stroke-width="1"/>
+ <path d="M1.5 5.5 C2 3.5 5 3 8 3.3 C11 3 14 3.5 14.5 5.5 C12 6.3 4 6.3 1.5 5.5 Z" fill="#8a9a52"/>
+</g></symbol>
+<symbol id="tree-joshua" viewBox="0 0 16 20"><g stroke="#3b2a1e" stroke-width=".9" stroke-linejoin="round" stroke-linecap="round">
+ <ellipse cx="8" cy="19" rx="4" ry=".7" fill="#b89a6a" stroke="none" opacity=".7"/>
+ <path d="M8 19 V11 L4.5 8 V5 M8 11 L11.5 7.5 V4 M8 11 V7" fill="none" stroke="#8a7350" stroke-width="1.4"/>
+ <path d="M3 5 L4.5 2.5 L6 5 Z M10 4 L11.5 1.5 L13 4 Z M6.5 7 L8 4.5 L9.5 7 Z" fill="#7f8a4a"/>
+</g></symbol>
+<symbol id="tree-cactus" viewBox="0 0 16 20"><g stroke="#3b2a1e" stroke-width=".9" stroke-linejoin="round" stroke-linecap="round">
+ <ellipse cx="8" cy="19" rx="3.5" ry=".7" fill="#b89a6a" stroke="none" opacity=".7"/>
+ <path d="M6.5 19 V4.5 a1.5 1.5 0 0 1 3 0 V19 Z" fill="#6f8f4a"/>
+ <path d="M6.5 12 H4.5 a1 1 0 0 1 -1 -1 V7.5 a1 1 0 0 1 2 0 V10 H6.5 M9.5 10 H11.5 V6.5 a1 1 0 0 1 2 0 V10 a1 1 0 0 1 -1 1 H9.5" fill="#6f8f4a"/>
+ <path d="M8 6 V17" fill="none" stroke="#4f6b35" stroke-width=".6"/>
+</g></symbol>
+<symbol id="tree-dragonblood" viewBox="0 0 16 20"><g stroke="#3b2a1e" stroke-width=".9" stroke-linejoin="round" stroke-linecap="round">
+ <ellipse cx="8" cy="19" rx="4.5" ry=".8" fill="#b89a6a" stroke="none" opacity=".7"/>
+ <path d="M8 19 V11 M8 11 L4 7.5 M8 11 L12 7.5 M8 11 L6.5 7 M8 11 L9.5 7" fill="none" stroke="#7d6a58" stroke-width="1.2"/>
+ <path d="M1 8 C1.5 4.5 5 3.5 8 3.6 C11 3.5 14.5 4.5 15 8 C12.5 7 3.5 7 1 8 Z" fill="#4f6b3a"/>
+ <path d="M7.4 15 v1.5 M8.6 13 v1.2" fill="none" stroke="#9b2a24" stroke-width=".9"/>
+</g></symbol>
+<symbol id="tree-cherry" viewBox="0 0 16 20"><g stroke="#3b2a1e" stroke-width=".9" stroke-linejoin="round" stroke-linecap="round">
+ <ellipse cx="8" cy="19" rx="4.5" ry=".8" fill="#b89a6a" stroke="none" opacity=".7"/>
+ <path d="M8 19 C8 15 7 13 5.5 11 M8 15 C9 13 10 12 11 11" fill="none" stroke="#5e3a2c" stroke-width="1.3"/>
+ <path d="M2 10 C1 6.5 3.5 3.5 6.5 4 C8 2 12 2.5 12.5 5 C15 5.5 15.5 9.5 13 11 C10.5 12.5 4.5 12.5 2 10 Z" fill="#e3a7b4"/>
+ <circle cx="5" cy="8" r=".6" fill="#f6dce2" stroke="none"/><circle cx="9" cy="6" r=".6" fill="#f6dce2" stroke="none"/><circle cx="11" cy="9" r=".6" fill="#f6dce2" stroke="none"/>
+</g></symbol>
+
+<!-- ---------- 奇幻树种（世界设定可选） ---------- -->
+<symbol id="tree-silverleaf" viewBox="0 0 16 20"><g stroke="#3b2a1e" stroke-width=".9" stroke-linejoin="round" stroke-linecap="round">
+ <ellipse cx="8" cy="19" rx="4" ry=".8" fill="#b89a6a" stroke="none" opacity=".7"/>
+ <path d="M8 19 V10" fill="none" stroke="#d8d4c6" stroke-width="1.5"/>
+ <path d="M8 1.5 C12 3 13.5 7 12.5 10 C11.5 12.5 4.5 12.5 3.5 10 C2.5 7 4 3 8 1.5 Z" fill="#b8c4c0"/>
+ <path d="M6 6 l1 1 M10 5 l-1 1.2 M8.5 9 l.8 .8" fill="none" stroke="#f4f7f6" stroke-width=".8"/>
+</g></symbol>
+<symbol id="tree-gloomwood" viewBox="0 0 16 20"><g stroke="#3b2a1e" stroke-width=".9" stroke-linejoin="round" stroke-linecap="round">
+ <ellipse cx="8" cy="19" rx="5" ry=".8" fill="#6b5a4a" stroke="none" opacity=".7"/>
+ <path d="M8 19 C7 15 8.5 12 8 9 M8 12 C5.5 10 4 9.5 2.5 6.5 M8 10.5 C10.5 9 12 7.5 13.5 5 M8 9 C7.5 6 8 4 9 2" fill="none" stroke="#3a2f2a" stroke-width="1.3"/>
+ <path d="M2 6.5 l-1 -1 M2.5 6.5 l-.3 -1.6 M13.5 5 l1 -1.2 M13.5 5 l.2 -1.6 M9 2 l1 -1 M9 2 l-.6 -1.2" fill="none" stroke="#3a2f2a" stroke-width=".8"/>
+ <circle cx="5" cy="13" r=".55" fill="#9fd36a" stroke="none"/><circle cx="11" cy="11" r=".55" fill="#9fd36a" stroke="none"/>
+</g></symbol>
+<symbol id="tree-mushroom" viewBox="0 0 16 20"><g stroke="#3b2a1e" stroke-width=".9" stroke-linejoin="round" stroke-linecap="round">
+ <ellipse cx="8" cy="19" rx="4" ry=".7" fill="#b89a6a" stroke="none" opacity=".7"/>
+ <path d="M6.5 19 C6.8 15 6.8 11 7 8.5 H9 C9.2 11 9.2 15 9.5 19 Z" fill="#efe2c2"/>
+ <path d="M1 9 C1 4 4.5 2 8 2 C11.5 2 15 4 15 9 Z" fill="#8a4a7a"/>
+ <circle cx="5" cy="5.5" r="1" fill="#efe2c2" stroke="none"/><circle cx="10.5" cy="4.5" r=".8" fill="#efe2c2" stroke="none"/><circle cx="12" cy="7" r=".7" fill="#efe2c2" stroke="none"/>
+</g></symbol>
+<symbol id="tree-crystal" viewBox="0 0 16 20"><g stroke="#3b2a1e" stroke-width=".9" stroke-linejoin="round" stroke-linecap="round">
+ <ellipse cx="8" cy="19" rx="3.5" ry=".7" fill="#b89a6a" stroke="none" opacity=".7"/>
+ <path d="M8 19 V12" fill="none" stroke="#5d6b78" stroke-width="1.3"/>
+ <path d="M8 1 L11 6 L9.5 12 H6.5 L5 6 Z" fill="#8cc4d9"/>
+ <path d="M4 9 L2 5.5 L4.5 6 Z M12 9 L14 5.5 L11.5 6 Z" fill="#a9d6e6"/>
+ <path d="M8 1 V12 M5 6 H11" fill="none" stroke="#4f8aa5" stroke-width=".6"/>
+</g></symbol>
+
+<!-- ======================= 地标与交通 · 24×24 ======================= -->
+<symbol id="mark-port" viewBox="0 0 24 24"><g stroke="#3b2a1e" stroke-width="1.2" stroke-linejoin="round" stroke-linecap="round">
+ <path d="M2 18 q2.5 -1.5 5 0 t5 0 t5 0 t5 0" fill="none" stroke="#5f8ea0"/>
+ <path d="M3 14 H13 V16 H3 Z" fill="#8a5a33"/><path d="M5 16 V19 M11 16 V19" fill="none" stroke="#6b4a2e"/>
+ <circle cx="17" cy="5" r="1.6" fill="none"/>
+ <path d="M17 6.6 V15 M14 9 H20 M13.5 12.5 Q17 17 20.5 12.5" fill="none"/>
+</g></symbol>
+<symbol id="mark-fortress" viewBox="0 0 24 24"><g stroke="#3b2a1e" stroke-width="1.2" stroke-linejoin="round">
+ <path d="M3 21 V8 H5 V6 H7 V8 H9 V6 H11 V8 H13 V6 H15 V8 H17 V6 H19 V8 H21 V21 Z" fill="#e9d9b4"/>
+ <path d="M10 21 V16 a2 2 0 0 1 4 0 V21 Z" fill="#6b4a2e"/>
+ <path d="M6.5 11 V13.5 M17.5 11 V13.5" fill="none"/>
+ <path d="M3 21 H21" fill="none" stroke="#b89a6a"/>
+</g></symbol>
+<symbol id="mark-ruin" viewBox="0 0 24 24"><g stroke="#3b2a1e" stroke-width="1.2" stroke-linejoin="round" stroke-linecap="round">
+ <path d="M4 20 V8 H7 V11 L8 9.5 V20 Z" fill="#e9d9b4"/>
+ <path d="M11 20 V12 L12.5 13 L14 11.5 V20 Z" fill="#e9d9b4"/>
+ <path d="M16 20 V5 H20 V9 L19 10 L20 12 V20 Z" fill="#d8c79f"/>
+ <path d="M2 20 H22" fill="none"/>
+ <path d="M13 17 h3 M5 22 l2 -1" fill="none" stroke="#b89a6a"/>
+</g></symbol>
+<symbol id="mark-temple" viewBox="0 0 24 24"><g stroke="#3b2a1e" stroke-width="1.2" stroke-linejoin="round">
+ <path d="M3 9 L12 3 L21 9 Z" fill="#e9d9b4"/>
+ <rect x="3" y="9" width="18" height="2" fill="#d8c79f"/>
+ <path d="M5 11 V18 M9.5 11 V18 M14.5 11 V18 M19 11 V18" fill="none" stroke-width="1.6"/>
+ <rect x="2" y="18" width="20" height="3" fill="#d8c79f"/>
+ <circle cx="12" cy="7" r="1" fill="#d9a520"/>
+</g></symbol>
+<symbol id="mark-tower" viewBox="0 0 24 24"><g stroke="#3b2a1e" stroke-width="1.2" stroke-linejoin="round" stroke-linecap="round">
+ <path d="M9.5 21 L10.5 9 H13.5 L14.5 21 Z" fill="#e9d9b4"/>
+ <path d="M9 9.5 L12 2.5 L15 9.5 Z" fill="#3e4a7a"/>
+ <path d="M11.3 13 h1.4 v2 h-1.4 Z" fill="#6aa6c9"/>
+ <path d="M18 4 v3 M16.5 5.5 h3 M5.5 7 v2 M4.5 8 h2" fill="none" stroke="#6aa6c9"/>
+ <path d="M7 21 H17" fill="none"/>
+</g></symbol>
+<symbol id="mark-pass" viewBox="0 0 24 24"><g stroke="#3b2a1e" stroke-width="1.2" stroke-linejoin="round">
+ <path d="M1 21 L6 6 L10 14 V21 Z" fill="#b89a6a"/>
+ <path d="M23 21 L18 6 L14 14 V21 Z" fill="#b89a6a"/>
+ <path d="M9 21 V13 H15 V21 Z" fill="#e9d9b4"/>
+ <path d="M10.5 21 V17 a1.5 1.5 0 0 1 3 0 V21" fill="#6b4a2e"/>
+ <path d="M9 13 h1 v-1 h1 v1 h2 v-1 h1 v1 h1" fill="none"/>
+</g></symbol>
+<symbol id="mark-mine" viewBox="0 0 24 24"><g stroke="#3b2a1e" stroke-width="1.2" stroke-linejoin="round" stroke-linecap="round">
+ <path d="M2 20 L8 6 L16 6 L22 20 Z" fill="#b89a6a"/>
+ <path d="M8 20 V12 H16 V20 Z" fill="#2b2622"/>
+ <path d="M7 12 H17 M8 12 V20 M16 12 V20" fill="none" stroke="#8a5a33" stroke-width="1.6"/>
+ <path d="M3 21 H21" fill="none"/>
+ <path d="M10 19 H14 L13.3 17 H10.7 Z" fill="#6f6863"/>
+</g></symbol>
+<symbol id="mark-lighthouse" viewBox="0 0 24 24"><g stroke="#3b2a1e" stroke-width="1.2" stroke-linejoin="round" stroke-linecap="round">
+ <path d="M8.5 21 L10 9 H14 L15.5 21 Z" fill="#e9d9b4"/>
+ <path d="M9.4 14 H14.6 L15 17 H9 Z" fill="#a3472f"/>
+ <rect x="9.5" y="5.5" width="5" height="3.5" fill="#e3b23c"/>
+ <path d="M9 5.5 L12 3 L15 5.5 Z" fill="#a3472f"/>
+ <path d="M3 5 L8 7 M3 9.5 L8 8 M21 5 L16 7 M21 9.5 L16 8" fill="none" stroke="#e3b23c"/>
+</g></symbol>
+<symbol id="mark-bridge" viewBox="0 0 24 24"><g stroke="#3b2a1e" stroke-width="1.2" stroke-linejoin="round" stroke-linecap="round">
+ <path d="M1 19 q3 -1.5 6 0 t6 0 t6 0 t5 0" fill="none" stroke="#5f8ea0"/>
+ <path d="M1 11 H23 V14 H20 Q18 9.5 15.5 14 H8.5 Q6 9.5 4 14 H1 Z" fill="#d8c79f"/>
+ <path d="M1 9.5 H23" fill="none"/>
+ <path d="M4 9.5 V11 M8 9.5 V11 M12 9.5 V11 M16 9.5 V11 M20 9.5 V11" fill="none" stroke-width="1"/>
+</g></symbol>
+<symbol id="mark-ford" viewBox="0 0 24 24"><g stroke="#3b2a1e" stroke-width="1.2" stroke-linejoin="round" stroke-linecap="round">
+ <path d="M1 7 q3 -1.5 6 0 t6 0 t6 0 t5 0 M1 17 q3 -1.5 6 0 t6 0 t6 0 t5 0" fill="none" stroke="#5f8ea0"/>
+ <ellipse cx="6" cy="12" rx="2" ry="1.3" fill="#9c968a"/>
+ <ellipse cx="12" cy="12" rx="2" ry="1.3" fill="#9c968a"/>
+ <ellipse cx="18" cy="12" rx="2" ry="1.3" fill="#9c968a"/>
+</g></symbol>
+<symbol id="mark-waystation" viewBox="0 0 24 24"><g stroke="#3b2a1e" stroke-width="1.2" stroke-linejoin="round" stroke-linecap="round">
+ <rect x="4" y="12" width="10" height="8" fill="#e9d9b4"/>
+ <path d="M2.5 13 L9 7 L15.5 13 Z" fill="#8a5a33"/>
+ <path d="M8 20 V16.5 H10 V20" fill="#6b4a2e"/>
+ <path d="M18 20 V4" fill="none"/><path d="M18 4 L22 5.5 L18 7" fill="#a3472f"/>
+ <path d="M16 15 a2 2 0 1 1 4 0" fill="none" stroke="#6f6863" stroke-width="1.4"/>
+ <path d="M2 20 H22" fill="none"/>
+</g></symbol>
+<symbol id="mark-camp" viewBox="0 0 24 24"><g stroke="#3b2a1e" stroke-width="1.2" stroke-linejoin="round" stroke-linecap="round">
+ <path d="M1.5 20 L7.5 8 L13.5 20 Z" fill="#d8c79f"/><path d="M7.5 8 V20" fill="none"/>
+ <path d="M11 20 L16.5 10 L22 20 Z" fill="#b89a6a"/><path d="M16.5 10 L15 20" fill="none"/>
+ <path d="M7.5 8 V5 L10 6 L7.5 7" fill="#a3472f"/>
+ <path d="M1 20.5 H23" fill="none"/>
+</g></symbol>
+<symbol id="mark-cave" viewBox="0 0 24 24"><g stroke="#3b2a1e" stroke-width="1.2" stroke-linejoin="round">
+ <path d="M1 21 L6 9 L10 11 L14 4 L23 21 Z" fill="#b89a6a"/>
+ <path d="M7 21 C7 14 9.5 12 12.5 12 C15.5 12 17.5 15 17.5 21 Z" fill="#2b2622"/>
+ <path d="M14 4 L13 9 M6 9 L7 13" fill="none" stroke="#8a7350"/>
+</g></symbol>
+<symbol id="mark-shrine" viewBox="0 0 24 24"><g stroke="#3b2a1e" stroke-width="1.2" stroke-linejoin="round">
+ <ellipse cx="12" cy="17" rx="9.5" ry="3.5" fill="#9fb488" opacity=".6"/>
+ <rect x="2.5" y="11" width="2.6" height="6" rx="1" fill="#9c968a"/>
+ <rect x="7" y="9" width="2.6" height="6.5" rx="1" fill="#aea89c"/>
+ <rect x="14.4" y="9" width="2.6" height="6.5" rx="1" fill="#aea89c"/>
+ <rect x="18.9" y="11" width="2.6" height="6" rx="1" fill="#9c968a"/>
+ <rect x="10.7" y="15.5" width="2.6" height="5.5" rx="1" fill="#8a8478"/>
+ <path d="M12 6 v4 M10 8 h4" fill="none" stroke="#6aa6c9"/>
+</g></symbol>
+
+<!-- ---------- 地标 · 第二批 ---------- -->
+<symbol id="mark-windmill" viewBox="0 0 24 24"><g stroke="#3b2a1e" stroke-width="1.2" stroke-linejoin="round" stroke-linecap="round">
+ <path d="M9 21 L10 11 H14 L15 21 Z" fill="#e9d9b4"/><path d="M9.5 11 L12 8 L14.5 11 Z" fill="#8a5a33"/>
+ <path d="M12 9.5 L5 4 M12 9.5 L19 4 M12 9.5 L5 15 M12 9.5 L19 15" fill="none" stroke="#6b4a2e" stroke-width="1.6"/>
+ <path d="M11 21 V18 a1 1 0 0 1 2 0 V21" fill="#6b4a2e"/><path d="M5 21 H19" fill="none"/>
+</g></symbol>
+<symbol id="mark-farm" viewBox="0 0 24 24"><g stroke="#3b2a1e" stroke-width="1.2" stroke-linejoin="round" stroke-linecap="round">
+ <path d="M2 21 L6 15 H22 L18 21 Z" fill="#d6a93c"/>
+ <path d="M5 19 H20 M7.5 17 H21" fill="none" stroke="#a37a22" stroke-width=".9"/>
+ <rect x="4" y="9" width="7" height="6" fill="#e9d9b4"/><path d="M3 10 L7.5 6 L12 10 Z" fill="#a3472f"/>
+</g></symbol>
+<symbol id="mark-monastery" viewBox="0 0 24 24"><g stroke="#3b2a1e" stroke-width="1.2" stroke-linejoin="round" stroke-linecap="round">
+ <rect x="4" y="12" width="16" height="9" fill="#e9d9b4"/><path d="M3 13 L12 8 L21 13 Z" fill="#8a5a33"/>
+ <rect x="10" y="4" width="4" height="8" fill="#e9d9b4"/><path d="M9.5 4.5 L12 1.5 L14.5 4.5 Z" fill="#8a5a33"/>
+ <path d="M11 21 V17 a1 1 0 0 1 2 0 V21 M6.5 15 v2 M17.5 15 v2" fill="none"/>
+</g></symbol>
+<symbol id="mark-graveyard" viewBox="0 0 24 24"><g stroke="#3b2a1e" stroke-width="1.2" stroke-linejoin="round" stroke-linecap="round">
+ <path d="M4 21 V14 a2.5 2.5 0 0 1 5 0 V21 Z M15 21 V14 a2.5 2.5 0 0 1 5 0 V21 Z" fill="#aea89c"/>
+ <path d="M12 21 V7 M9 10 H15" fill="none" stroke-width="1.8"/>
+ <path d="M2 21 H22" fill="none"/>
+</g></symbol>
+<symbol id="mark-battlefield" viewBox="0 0 24 24"><g stroke="#3b2a1e" stroke-width="1.2" stroke-linejoin="round" stroke-linecap="round">
+ <path d="M1 22 C4 17.5 20 17.5 23 22 Z" fill="#b89a6a"/>
+ <path d="M15 19.5 V2.5" fill="none" stroke="#6b4a2e" stroke-width="1.4"/>
+ <path d="M15 2.5 L14 4.8 H16 Z" fill="#9c968a"/>
+ <path d="M15 5.5 H21.5 L20 7 L21.5 8.4 L19 8.9 L20.2 10.6 L17.5 10.2 L16.8 11.5 L15 11.2 Z" fill="#7a1f22"/>
+ <path d="M9.5 19 L5.8 9.6" fill="none" stroke="#9c968a" stroke-width="1.6"/>
+ <path d="M3.8 10.6 L7.9 8.9 M5.6 9.3 L4.6 6.8" fill="none" stroke-width="1.4"/>
+ <circle cx="4.4" cy="6.3" r=".7" fill="#3b2a1e"/>
+ <path d="M11.5 19.5 L13 15.5 M12.3 15.2 L13.6 16" fill="none" stroke-width="1"/>
+</g></symbol>
+<symbol id="mark-portal" viewBox="0 0 24 24"><g stroke="#3b2a1e" stroke-width="1.2" stroke-linejoin="round">
+ <path d="M5 21 V10 a7 7 0 0 1 14 0 V21 Z" fill="#aea89c"/>
+ <path d="M8 21 V10.5 a4 4 0 0 1 8 0 V21 Z" fill="#6a4aa5"/>
+ <path d="M12 9 q-2 3 0 5 q2 2 0 5" fill="none" stroke="#e6dcfa" stroke-width="1"/>
+ <path d="M3 21 H21" fill="none"/>
+</g></symbol>
+<symbol id="mark-dragon-lair" viewBox="0 0 24 24"><g stroke="#3b2a1e" stroke-width="1.2" stroke-linejoin="round" stroke-linecap="round">
+ <path d="M1 21 L7 8 L11 11 L15 5 L23 21 Z" fill="#8a7350"/>
+ <path d="M8 21 C8 16 10 14 12.5 14 C15 14 17 16 17 21 Z" fill="#2b2622"/>
+ <circle cx="11" cy="17" r=".9" fill="#e3a82f" stroke="none"/><circle cx="14" cy="17" r=".9" fill="#e3a82f" stroke="none"/>
+ <path d="M15 5 q2 -2 4 -1 M15 5 q1 -2.5 0 -4" fill="none" stroke="#a8a090" stroke-width=".9"/>
+</g></symbol>
+<symbol id="mark-oasis" viewBox="0 0 24 24"><g stroke="#3b2a1e" stroke-width="1.2" stroke-linejoin="round" stroke-linecap="round">
+ <ellipse cx="12" cy="18.5" rx="9" ry="2.6" fill="#ecd29a"/>
+ <ellipse cx="12" cy="18.5" rx="5" ry="1.5" fill="#5f8ea0"/>
+ <path d="M8 18 C8 13 9 10 10.5 8 M15.5 18 C15.5 14 15 12 14 10" fill="none" stroke="#8a6a3e" stroke-width="1.3"/>
+ <path d="M10.5 8 C8 6 5.5 7 4.5 9 C6.5 8 8.5 8 10.5 8 Z M10.5 8 C12 5.5 15 5.5 16.5 7.5 C14 7 12 7.5 10.5 8 Z M14 10 C16 8.5 18.5 9 19.5 11 C17.5 10.5 15.5 10.5 14 10 Z" fill="#6f8f45"/>
+</g></symbol>
+<symbol id="mark-volcano" viewBox="0 0 24 24"><g stroke="#3b2a1e" stroke-width="1.2" stroke-linejoin="round" stroke-linecap="round">
+ <path d="M1 21 L9 8 H15 L23 21 Z" fill="#6f6863"/>
+ <path d="M9 8 L11 11 L12.5 9 L13.5 12 L15 8 Z" fill="#c4572a"/>
+ <path d="M11 6 q-1.5 -2 .5 -3.5 M13.5 5.5 q1.5 -2 0 -4" fill="none" stroke="#9c968a"/>
+</g></symbol>
+<symbol id="mark-whirlpool" viewBox="0 0 24 24"><g fill="none" stroke="#2f5a7a" stroke-width="1.3" stroke-linecap="round">
+ <path d="M12 12 m-1 0 a1 1 0 1 1 2 0 a2.5 2.5 0 1 1 -5 0 a4 4 0 1 1 8 0 a5.5 5.5 0 1 1 -11 0 a7 7 0 1 1 14 0"/>
+</g></symbol>
+<symbol id="mark-giant-tree" viewBox="0 0 24 24"><g stroke="#3b2a1e" stroke-width="1.2" stroke-linejoin="round" stroke-linecap="round">
+ <path d="M8 22 C9.5 20 10 17 10.5 12 H13.5 C14 17 14.5 20 16 22 Z" fill="#6b4a2e"/>
+ <path d="M2 11 C1 5 6 1.5 12 2 C18 1.5 23 5 22 11 C18 14 6 14 2 11 Z" fill="#4f7a4a"/>
+ <circle cx="7" cy="7" r=".9" fill="#d9e8a0" stroke="none"/><circle cx="16" cy="5.5" r=".9" fill="#d9e8a0" stroke="none"/><circle cx="12" cy="9.5" r=".9" fill="#d9e8a0" stroke="none"/>
+</g></symbol>
+<symbol id="mark-treasure" viewBox="0 0 24 24"><g stroke="#3b2a1e" stroke-width="1.2" stroke-linejoin="round" stroke-linecap="round">
+ <path d="M4 20 V12 H20 V20 Z" fill="#8a5a33"/>
+ <path d="M4 12 C4 8 20 8 20 12 Z" fill="#9a6a3e"/>
+ <path d="M4 15 H20 M10.5 13.5 h3 v3 h-3 Z" fill="#d9a520"/>
+</g></symbol>
+
+<!-- ======================= 制图装饰（罗盘、比例尺、海怪、帆船、卷轴） ======================= -->
+<symbol id="deco-compass" viewBox="0 0 64 64"><g stroke="#3b2a1e" stroke-width="1" stroke-linejoin="round">
+ <circle cx="32" cy="32" r="29" fill="#f3e6c4"/><circle cx="32" cy="32" r="24" fill="none" stroke="#c9a14a"/>
+ <path d="M32 32 L44 20 M32 32 L44 44 M32 32 L20 44 M32 32 L20 20" fill="none" stroke="#b89a6a" stroke-width=".8"/>
+ <path d="M32 4 L36 28 L32 32 L28 28 Z" fill="#7a1f22"/><path d="M32 60 L36 36 L32 32 L28 36 Z" fill="#e9d9b4"/>
+ <path d="M60 32 L36 36 L32 32 L36 28 Z" fill="#e9d9b4"/><path d="M4 32 L28 28 L32 32 L28 36 Z" fill="#e9d9b4"/>
+ <path d="M32 4 L32 32 L28 28 Z" fill="#5c1518"/>
+ <circle cx="32" cy="32" r="2.5" fill="#c9a14a"/>
+</g></symbol>
+<symbol id="deco-scale" viewBox="0 0 120 16"><g stroke="#3b2a1e" stroke-width="1">
+ <rect x="2" y="5" width="23" height="5" fill="#2e1d12"/><rect x="25" y="5" width="23" height="5" fill="#f3e6c4"/>
+ <rect x="48" y="5" width="23" height="5" fill="#2e1d12"/><rect x="71" y="5" width="23" height="5" fill="#f3e6c4"/>
+ <rect x="94" y="5" width="23" height="5" fill="#2e1d12"/>
+ <path d="M2 3 V12 M117 3 V12" fill="none"/>
+</g></symbol>
+<symbol id="deco-seaserpent" viewBox="0 0 64 32"><g stroke="#3b2a1e" stroke-width="1.2" stroke-linejoin="round" stroke-linecap="round">
+ <path d="M2 24 q4 -3 8 0 t8 0" fill="none" stroke="#2f5a7a"/>
+ <path d="M10 22 C12 12 18 12 20 22 M22 22 C24 10 32 10 34 22 M36 22 C38 14 44 14 46 22" fill="#4f7a6a"/>
+ <path d="M46 22 C48 12 54 6 60 9 C61 11 58 13 55 12 C53 14 52 18 52 22 Z" fill="#4f7a6a"/>
+ <circle cx="57" cy="9.5" r=".9" fill="#e3a82f" stroke="none"/>
+ <path d="M14 16 l1 -2 M27 14 l1 -2 M40 17 l1 -2" fill="none" stroke="#2f4a3a"/>
+ <path d="M30 26 q4 -3 8 0 t8 0 t8 0" fill="none" stroke="#2f5a7a"/>
+</g></symbol>
+<symbol id="deco-ship-east" viewBox="0 0 48 40"><g stroke="#3b2a1e" stroke-width="1.2" stroke-linejoin="round" stroke-linecap="round">
+ <path d="M18 25 V4 M31 25 V8" fill="none"/>
+ <path d="M18 5 C23.5 5.5 26.5 7.5 27 10 V23 H18 Z" fill="#b8553a"/>
+ <path d="M18 9 H26.8 M18 13 H27 M18 17 H27 M18 21 H27" fill="none" stroke="#6b2a1a" stroke-width=".8"/>
+ <path d="M31 9 C35 9.5 37 11 37.5 13 V23 H31 Z" fill="#b8553a"/>
+ <path d="M31 12.5 H37.3 M31 16 H37.5 M31 19.5 H37.5" fill="none" stroke="#6b2a1a" stroke-width=".8"/>
+ <path d="M18 4 L13 5 L18 6.2" fill="#d9a520"/>
+ <path d="M2 20 C4 26 9 30 22 30 C34 30 41 28 46 18 L44 17 C40 22 32 24.5 22 24.5 C13 24.5 7 22.5 2 20 Z" fill="#8a5a33"/>
+ <path d="M38 23 V16.5 H46 V18" fill="#9a6a3e"/>
+ <path d="M5 24.5 C12 27 30 27.5 42 22.5" fill="none" stroke="#d9a520" stroke-width="1"/>
+ <circle cx="7.5" cy="24.5" r="1.8" fill="#f3e6c4"/><circle cx="7.8" cy="24.5" r=".8" fill="#3b2a1e" stroke="none"/>
+ <path d="M2 35 q4 -2.5 8 0 t8 0 t8 0 t8 0 t8 0" fill="none" stroke="#2f5a7a"/>
+</g></symbol>
+<symbol id="deco-ship-west" viewBox="0 0 48 40"><g stroke="#3b2a1e" stroke-width="1.2" stroke-linejoin="round" stroke-linecap="round">
+ <path d="M12 25 V9 M24 25 V3 M36 21 V8" fill="none"/>
+ <path d="M19 5 H29 C30 8 30 10.5 29 13.5 H19 C18 10.5 18 8 19 5 Z" fill="#f3e6c4"/>
+ <path d="M24 6.5 V12 M21.5 9.2 H26.5" fill="none" stroke="#7a1f22" stroke-width="1.4"/>
+ <path d="M18.5 15 H29.5 C30.5 18 30.5 20 29.5 23 H18.5 C17.5 20 17.5 18 18.5 15 Z" fill="#f3e6c4"/>
+ <path d="M8.5 11 H15.5 C16.3 14 16.3 16 15.5 19 H8.5 C7.7 16 7.7 14 8.5 11 Z" fill="#f3e6c4"/>
+ <path d="M36 8 L42 19.5 H36 Z" fill="#f3e6c4"/>
+ <path d="M24 3 L29 4 L24 5" fill="#7a1f22"/>
+ <path d="M2 22.5 H9 V25 H38 V20 H45.5 L42.5 29 C30 32.5 16 32.5 6 29 Z" fill="#8a5a33"/>
+ <path d="M2 22.5 V19 H9 V22.5 M38 20 V15.5 H45.5 V20" fill="#9a6a3e"/>
+ <path d="M6 27 H42.5" fill="none" stroke="#d9a520" stroke-width="1"/>
+ <path d="M14 27 v.1 M20 27 v.1 M26 27 v.1 M32 27 v.1" fill="none" stroke="#3b2a1e" stroke-width="2.2"/>
+ <path d="M2 35 q4 -2.5 8 0 t8 0 t8 0 t8 0 t8 0" fill="none" stroke="#2f5a7a"/>
+</g></symbol>
+<symbol id="deco-cartouche" viewBox="0 0 200 60"><g stroke="#3b2a1e" stroke-width="1.2" stroke-linejoin="round">
+ <path d="M18 8 H182 C190 8 192 16 186 20 C192 24 192 36 186 40 C192 44 190 52 182 52 H18 C10 52 8 44 14 40 C8 36 8 24 14 20 C8 16 10 8 18 8 Z" fill="#f3e6c4"/>
+ <path d="M24 14 H176 V46 H24 Z" fill="none" stroke="#c9a14a"/>
+ <path d="M14 20 C4 18 2 10 8 6 M186 20 C196 18 198 10 192 6 M14 40 C4 42 2 50 8 54 M186 40 C196 42 198 50 192 54" fill="none" stroke="#7a1f22" stroke-width="1.5"/>
+</g></symbol>
+
+<!-- ======================= 元素数据库分类徽记 · 24×24（单色墨线，用 currentColor 跟随主题） ======================= -->
+<symbol id="cat-food" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+ <path d="M4 13 H20 C20 17.5 16.5 20 12 20 C7.5 20 4 17.5 4 13 Z"/><path d="M9 10 q-1 -2.5 1 -4 M13 10 q-1 -2.5 1 -4"/><path d="M3 13 H21"/></g></symbol>
+<symbol id="cat-produce" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+ <path d="M12 7 C7 6 4.5 10 5.5 14 C6.5 18.5 10 20.5 12 19 C14 20.5 17.5 18.5 18.5 14 C19.5 10 17 6 12 7 Z"/><path d="M12 7 C12 5 13 3.5 15 3"/></g></symbol>
+<symbol id="cat-herb" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+ <path d="M12 21 V8"/><path d="M12 13 C8 13 5.5 10 6 6.5 C9.5 6.5 12 9 12 13 Z M12 10 C15.5 10 18 7.5 17.5 4 C14 4 12 6.5 12 10 Z"/></g></symbol>
+<symbol id="cat-alchemy" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+ <path d="M9.5 3 H14.5 M10.5 3 V9 L5 18.5 C4.3 19.8 5.2 21 6.6 21 H17.4 C18.8 21 19.7 19.8 19 18.5 L13.5 9 V3"/><path d="M7.5 15 H16.5"/><circle cx="11" cy="17.5" r=".6" fill="currentColor"/><circle cx="14" cy="18.5" r=".6" fill="currentColor"/></g></symbol>
+<symbol id="cat-biology" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+ <path d="M4.5 19.5 C4.5 16.6 6.8 14.8 9 14.8 C11.2 14.8 13.5 16.6 13.5 19.5 C13.5 21 11.6 21.3 9 21.3 C6.4 21.3 4.5 21 4.5 19.5 Z"/>
+ <ellipse cx="4.2" cy="12.6" rx="1.4" ry="1.9"/><ellipse cx="7.3" cy="10.6" rx="1.4" ry="1.9"/><ellipse cx="10.7" cy="10.6" rx="1.4" ry="1.9"/><ellipse cx="13.8" cy="12.6" rx="1.4" ry="1.9"/>
+ <path d="M18 21 V8"/><path d="M18 12.5 C15.6 12.5 14.4 10.6 14.6 8.4 C16.8 8.4 18 10.2 18 12.5 Z M18 9.5 C20.4 9.5 21.6 7.6 21.4 5.2 C19.2 5.2 18 7 18 9.5 Z"/></g></symbol>
+<symbol id="cat-eastern" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+ <path d="M8 6.6 C6.6 4.9 3.7 5 2.5 6.6 C2 7.4 2.6 8.4 3.8 8.6 L5.4 8.8 C6.6 9 7.6 8.4 8 7.5"/>
+ <path d="M2.7 7.6 L5 7.8"/><circle cx="5.2" cy="6.5" r=".5" fill="currentColor"/>
+ <path d="M7 5.6 L8.4 2.6 M7.9 3.8 L9.6 3.4 M5.8 5.2 L6.1 2.6"/>
+ <path d="M2.6 8.3 C1.4 10 2 12 3.6 12.6"/>
+ <path d="M8 7.4 C12 7.6 13 11.4 10.4 13.4 C7.8 15.4 8.4 19.6 12.2 19.6 C15.8 19.6 16.4 15.4 19.4 15.6 C21 15.7 21.8 17 21.4 18.4" stroke-width="2.2"/>
+ <path d="M11 8.4 L12 7.2 M12.6 11.2 L13.9 10.9 M8.9 16.4 L7.6 16.8 M15.7 16.5 L16 15.2 M19.7 15.5 L20.3 14.3"/>
+ <path d="M21.4 18.4 L22.6 17 M21.4 18.4 L22.8 19.4"/>
+ <path d="M10.4 13.6 L11.7 15 L12.9 14.6 M11.7 15 L12.1 16.2"/>
+ <circle cx="18.6" cy="6" r="1.9"/><path d="M18.6 2.8 V3.3 M21.5 6 H21 M15.7 6 H16.2 M20.7 3.9 L20.3 4.3"/></g></symbol>
+<symbol id="cat-western" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+ <path d="M2 21.4 C5 18.4 19 18.4 22 21.4 Z"/><circle cx="7.6" cy="19.8" r=".9"/><circle cx="11.4" cy="19.1" r=".9"/><circle cx="15.4" cy="19.5" r=".9"/><path d="M18.4 18.6 L19.6 17.2 L20.8 18.6"/>
+ <path d="M2.6 16.4 C2.4 15 3.6 14 5 14.4 L7 15.2 C9 13.2 11.8 12.6 14.6 13.6 C17 14.4 19.2 14.2 21.2 12.6 C21.4 14.6 19.6 16.4 17 16.8 C13 17.4 8.4 17.6 5.6 17.2 C4.2 17 2.8 17.4 2.6 16.4 Z"/>
+ <circle cx="4.4" cy="15.3" r=".45" fill="currentColor"/>
+ <path d="M9.4 13.8 L8.4 9.4 L10.6 11 L11.4 8.2 L13 11.2 L13.4 13.4"/>
+ <path d="M16.2 1.8 V4.6 M14 5 H18.4 M15.5 5 V11.6 L16.2 14 L16.9 11.6 V5"/></g></symbol>
+<symbol id="cat-steam" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+ <rect x="2.5" y="12" width="10" height="7" rx="2"/><path d="M4.5 12 V7.5 H7 V12"/><path d="M5.8 5.5 C4.6 4.4 5.4 2.6 6.8 2.8 C7.6 1.6 9.6 2 9.6 3.4"/>
+ <circle cx="17.5" cy="14.5" r="4.5"/><circle cx="17.5" cy="14.5" r="1"/><path d="M17.5 10 V19 M13 14.5 H22"/>
+ <path d="M12.5 15.5 L16.6 14.8"/><path d="M2 21.2 H22"/></g></symbol>
+<symbol id="cat-horror" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+ <path d="M8.2 9.2 C8.2 5.8 15.8 5.8 15.8 9.2 C15.8 12.8 14 15 12 15 C10 15 8.2 12.8 8.2 9.2 Z"/>
+ <path d="M8.3 8.6 C9.2 6.6 10.6 7 12 8.4 C13.4 7 14.8 6.6 15.7 8.6"/>
+ <path d="M10 10.2 L11 10.6 M14 10.2 L13 10.6"/><path d="M10.6 12.6 H13.4 M11.2 12.6 L11.6 13.7 L12 12.6 L12.4 13.7 L12.8 12.6"/>
+ <path d="M8.6 12.8 L4.4 7.8 L5.8 16 M15.4 12.8 L19.6 7.8 L18.2 16"/><path d="M5.8 16 C7 19.4 9.2 21 12 21 C14.8 21 17 19.4 18.2 16"/></g></symbol>
+<symbol id="cat-race" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+ <path d="M7 10 C7 6 9.5 4 12 4 C14.5 4 17 6 17 10 C17 14 14.5 17 12 17 C9.5 17 7 14 7 10 Z"/><path d="M7 9 L3 6.5 L6.5 11 M17 9 L21 6.5 L17.5 11"/><path d="M6 21 C7 18.5 9 17 12 17 C15 17 17 18.5 18 21"/></g></symbol>
+<symbol id="cat-character" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+ <circle cx="12" cy="8" r="3.5"/><path d="M5 20.5 C5.5 15.5 8.5 13.5 12 13.5 C15.5 13.5 18.5 15.5 19 20.5"/><path d="M16.5 4.5 l1.5 -1.5 M18.5 7 h2"/></g></symbol>
+<symbol id="cat-material" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+ <path d="M4 15 L8 9 H16 L20 15 Z"/><path d="M8 9 L9.5 5.5 H14.5 L16 9"/><path d="M4 15 V18 H20 V15"/></g></symbol>
+<symbol id="cat-tool" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+ <path d="M14.5 4.5 C16.5 3 19.5 3.5 20.5 5.5 L17.5 8.5 L15.5 6.5 Z"/><path d="M15.5 6.5 L4.5 17.5 C3.8 18.2 3.8 19.5 4.5 20 C5.1 20.6 6.2 20.6 6.9 19.9 L17.5 8.5"/></g></symbol>
+<symbol id="cat-society" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+ <path d="M3 10 L12 4 L21 10 Z"/><path d="M5 10 V18 M9.5 10 V18 M14.5 10 V18 M19 10 V18"/><path d="M3 18 H21 V20.5 H3 Z"/></g></symbol>
+<symbol id="cat-culture" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+ <path d="M12 6.5 C9.5 4.5 6 4.5 3.5 5.5 V19 C6 18 9.5 18 12 20 C14.5 18 18 18 20.5 19 V5.5 C18 4.5 14.5 4.5 12 6.5 Z"/><path d="M12 6.5 V20"/></g></symbol>
+<symbol id="cat-name" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+ <path d="M7 4 H17 C18.5 4 19 5 19 6 V18 C19 19.5 18 20 17 20 H7 C5.5 20 5 19 5 18 V6 C5 5 5.5 4 7 4 Z"/><path d="M8.5 9 H15.5 M8.5 12.5 H13.5"/><circle cx="15" cy="16" r="1.6"/></g></symbol>
+<symbol id="cat-physical" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+ <circle cx="12" cy="12" r="2"/><ellipse cx="12" cy="12" rx="9" ry="3.5"/><ellipse cx="12" cy="12" rx="9" ry="3.5" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="9" ry="3.5" transform="rotate(-60 12 12)"/></g></symbol>
+<symbol id="cat-formula" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+ <path d="M4 5 H20 V19 H4 Z"/><path d="M7 9 L10 9 L8.5 12 L10.5 15 H7 M13 10 H17 M13 14 H17 M15 12 V16"/></g></symbol>
+<symbol id="cat-trait" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+ <path d="M12 3.5 L14.4 8.6 L20 9.3 L15.9 13.1 L17 18.7 L12 16 L7 18.7 L8.1 13.1 L4 9.3 L9.6 8.6 Z"/></g></symbol>
+<symbol id="cat-generic" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+ <path d="M12 3 L20 7.5 V16.5 L12 21 L4 16.5 V7.5 Z"/><path d="M4 7.5 L12 12 L20 7.5 M12 12 V21"/></g></symbol>
+
+<!-- ======================= 地形符号（山脉/丘陵/沼泽） ======================= -->
+<symbol id="terrain-mountain" viewBox="0 0 24 18"><g stroke="#3b2a1e" stroke-width="1" stroke-linejoin="round" stroke-linecap="round">
+ <path d="M1 17 L9 3 L13 9 L15.5 6 L23 17 Z" fill="#e9d9b4"/>
+ <path d="M9 3 L10.5 10 L8 17 M15.5 6 L16 11" fill="none" stroke="#3b2a1e" stroke-width=".8"/>
+ <path d="M9 3 L10.5 10 L8 17 H1 Z" fill="#b89a6a" stroke="none" opacity=".75"/>
+</g></symbol>
+<symbol id="terrain-snowpeak" viewBox="0 0 24 18"><g stroke="#3b2a1e" stroke-width="1" stroke-linejoin="round" stroke-linecap="round">
+ <path d="M1 17 L10 2 L23 17 Z" fill="#c9b893"/>
+ <path d="M10 2 L13.6 8 L12 7 L10.5 9 L9 7 L7 8.5 Z" fill="#fbf7ee"/>
+ <path d="M10 2 L11 10 L8.5 17 H1 Z" fill="#a08660" stroke="none" opacity=".7"/>
+</g></symbol>
+<symbol id="terrain-hill" viewBox="0 0 24 12"><g stroke="#3b2a1e" stroke-width="1" stroke-linecap="round">
+ <path d="M1 11 Q7 2 13 11 M9 11 Q15.5 4 23 11" fill="#d8c79f"/>
+ <path d="M4 9 q2 -2 4 -1" fill="none" stroke="#8a7350" stroke-width=".7"/>
+</g></symbol>
+<symbol id="terrain-marsh" viewBox="0 0 24 12"><g stroke="#3b2a1e" stroke-width=".9" stroke-linecap="round">
+ <path d="M2 10 H9 M13 10 H22 M5 7 H12 M15 7 H19" fill="none" stroke="#5f8ea0"/>
+ <path d="M7 10 V5 M8.5 10 V6 M17 10 V4.5 M18.5 10 V6" fill="none" stroke="#6b7a3a"/>
+</g></symbol>
+
+</defs>
+</svg>

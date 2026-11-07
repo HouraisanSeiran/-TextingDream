@@ -1,0 +1,345 @@
+{
+  "schema": "game_fields_v1",
+  "group": "cuisine-british",
+  "entries": {
+    "cuisine_uk_stargazy_pie": {
+      "price": {
+        "min": 6,
+        "max": 20,
+        "per": "一只",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "workshop",
+        "coast"
+      ],
+      "seasons": [
+        "winter"
+      ],
+      "keeps": "days",
+      "sold_by": [
+        "tavern",
+        "inn_kitchen"
+      ],
+      "note": "整鱼入派的节庆菜，鱼多，按只计，冬至前后才做。"
+    },
+    "cuisine_uk_jellied_eels": {
+      "price": {
+        "min": 2,
+        "max": 5,
+        "per": "一碗",
+        "tier": "groat"
+      },
+      "terrains": [
+        "workshop",
+        "river"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "days",
+      "sold_by": [
+        "street_vendor",
+        "tavern"
+      ],
+      "note": "河鳗煮后自成冻，街头小店按碗零卖，价低。"
+    },
+    "cuisine_uk_black_pudding": {
+      "price": {
+        "min": 1,
+        "max": 3,
+        "per": "一段",
+        "tier": "penny"
+      },
+      "terrains": [
+        "workshop",
+        "pasture"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "days",
+      "sold_by": [
+        "butcher",
+        "tavern"
+      ],
+      "note": "猪血燕麦灌肠，按段零卖，屠宰副产品，价低。"
+    },
+    "cuisine_uk_haggis": {
+      "price": {
+        "min": 6,
+        "max": 18,
+        "per": "一个",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "workshop",
+        "mountain"
+      ],
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "keeps": "days",
+      "sold_by": [
+        "butcher",
+        "tavern"
+      ],
+      "note": "羊杂燕麦装羊胃煮，整个出售，按个计。"
+    },
+    "cuisine_uk_toad_in_the_hole": {
+      "price": {
+        "min": 3,
+        "max": 8,
+        "per": "一份",
+        "tier": "groat"
+      },
+      "terrains": [
+        "workshop",
+        "pasture"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "hours",
+      "sold_by": [
+        "tavern",
+        "inn_kitchen"
+      ],
+      "note": "香肠卧面糊烤制，酒馆家常菜，按份计。"
+    },
+    "cuisine_uk_steak_kidney_pie": {
+      "price": {
+        "min": 3,
+        "max": 8,
+        "per": "一只",
+        "tier": "groat"
+      },
+      "terrains": [
+        "workshop",
+        "pasture"
+      ],
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "keeps": "days",
+      "sold_by": [
+        "tavern",
+        "baker"
+      ],
+      "note": "牛肉腰子入派，按只零卖，冷季常见。"
+    },
+    "cuisine_uk_scotch_egg": {
+      "price": {
+        "min": 1,
+        "max": 3,
+        "per": "一个",
+        "tier": "penny"
+      },
+      "terrains": [
+        "workshop",
+        "farmland"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "days",
+      "sold_by": [
+        "tavern",
+        "street_vendor"
+      ],
+      "note": "肉裹蛋再裹屑炸，酒馆柜台小食，按个计。"
+    },
+    "cuisine_uk_yorkshire_pudding": {
+      "price": {
+        "min": 1,
+        "max": 3,
+        "per": "一块",
+        "tier": "penny"
+      },
+      "terrains": [
+        "workshop",
+        "farmland"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "hours",
+      "sold_by": [
+        "tavern",
+        "inn_kitchen"
+      ],
+      "note": "烤肉滴油盘里烤的面糊，配主菜，按块计。"
+    },
+    "cuisine_uk_marmite": {
+      "price": {
+        "min": 3,
+        "max": 8,
+        "per": "一小罐",
+        "tier": "groat"
+      },
+      "terrains": [
+        "workshop",
+        "farmland"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "grocer",
+        "market"
+      ],
+      "note": "酵母提取物咸膏，按小罐零卖，加工品，可存放多年。"
+    },
+    "cuisine_uk_scone_cream_tea": {
+      "price": {
+        "min": 4,
+        "max": 11,
+        "per": "一份",
+        "tier": "groat"
+      },
+      "terrains": [
+        "workshop",
+        "pasture"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "hours",
+      "sold_by": [
+        "tavern",
+        "baker"
+      ],
+      "note": "司康配凝脂奶油和果酱，按份计，奶油贵。"
+    },
+    "cuisine_uk_kippers": {
+      "price": {
+        "min": 2,
+        "max": 6,
+        "per": "一对",
+        "tier": "groat"
+      },
+      "terrains": [
+        "coast",
+        "workshop"
+      ],
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "keeps": "weeks",
+      "sold_by": [
+        "fishmonger",
+        "tavern"
+      ],
+      "note": "鲱鱼剖开熏制，冷季上市，按对零卖，可存数周。"
+    },
+    "cuisine_uk_canned_meat": {
+      "price": {
+        "min": 8,
+        "max": 24,
+        "per": "一罐",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "workshop",
+        "pasture"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "grocer",
+        "market"
+      ],
+      "note": "罐装肉可长期保存，按罐零卖，视作较新式的工业食品。"
+    },
+    "cuisine_uk_moulded_gelatin": {
+      "price": {
+        "min": 12,
+        "max": 60,
+        "per": "一模",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "workshop",
+        "pasture"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "days",
+      "sold_by": [
+        "noble_kitchen",
+        "inn_kitchen"
+      ],
+      "note": "整模凝胶冷盘要熬胶、做模和冷藏，按模计，是讲究宴席的装饰菜。"
+    },
+    "cuisine_uk_cullen_skink": {
+      "price": {
+        "min": 3,
+        "max": 8,
+        "per": "一碗",
+        "tier": "groat"
+      },
+      "terrains": [
+        "workshop",
+        "coast"
+      ],
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "keeps": "hours",
+      "sold_by": [
+        "tavern",
+        "inn_kitchen"
+      ],
+      "note": "熏黑线鳕土豆浓汤，沿海冷季热食，按碗计。"
+    },
+    "cuisine_uk_welsh_rarebit": {
+      "price": {
+        "min": 2,
+        "max": 6,
+        "per": "一份",
+        "tier": "groat"
+      },
+      "terrains": [
+        "workshop",
+        "pasture"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "hours",
+      "sold_by": [
+        "tavern",
+        "inn_kitchen"
+      ],
+      "note": "奶酪酱烤吐司，简单热食，按份计。"
+    },
+    "cuisine_uk_pub_counter_snack": {
+      "price": {
+        "min": 1,
+        "max": 3,
+        "per": "一小碟",
+        "tier": "penny"
+      },
+      "terrains": [
+        "workshop",
+        "farmland"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "weeks",
+      "sold_by": [
+        "tavern"
+      ],
+      "note": "腌洋葱薯片等零嘴，酒馆柜台按碟卖，与麦酒配售。"
+    }
+  }
+}

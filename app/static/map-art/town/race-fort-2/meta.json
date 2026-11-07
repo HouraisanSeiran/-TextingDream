@@ -1,0 +1,900 @@
+[
+ {
+  "id": "west-elf-thornbastion-n",
+  "style": "west",
+  "race": "elf",
+  "category": "fort",
+  "kind": "thorn_bastion",
+  "facility": "watchtower",
+  "variant": 1,
+  "footprint": [
+   2,
+   2
+  ],
+  "height_px": 48,
+  "anchor": [
+   48,
+   144
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   144
+  ],
+  "tags": [
+   "bastion",
+   "point_n",
+   "replaces_wall_cells",
+   "thorns",
+   "attach_w_e"
+  ],
+  "roof": "none",
+  "note": "荆棘棱垒（2×2）：尖角朝 n；编藤墙带与藤墙同高同厚，两端切在格边中点，接同族 wallspoke-w / e；垒身外缘一圈外挑银尖弯刺，顶上荆棘丛 + 银桩叶顶小望台。放置时替掉 attach 墙格的辐条与节点。facility 无棱堡专项，取 watchtower",
+  "attach_cells": [
+   [
+    0,
+    1
+   ],
+   [
+    1,
+    1
+   ]
+  ],
+  "joins_spokes": [
+   "w",
+   "e"
+  ]
+ },
+ {
+  "id": "west-elf-thornbastion-ne",
+  "style": "west",
+  "race": "elf",
+  "category": "fort",
+  "kind": "thorn_bastion",
+  "facility": "watchtower",
+  "variant": 1,
+  "footprint": [
+   2,
+   2
+  ],
+  "height_px": 62,
+  "anchor": [
+   48,
+   158
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   158
+  ],
+  "tags": [
+   "bastion",
+   "point_ne",
+   "replaces_wall_cells",
+   "thorns",
+   "attach_nw_se"
+  ],
+  "roof": "none",
+  "note": "荆棘棱垒（2×2）：尖角朝 ne；编藤墙带与藤墙同高同厚，两端切在格角，接同族 wallspoke-nw / se；垒身外缘一圈外挑银尖弯刺，顶上荆棘丛 + 银桩叶顶小望台。放置时替掉 attach 墙格的辐条与节点。facility 无棱堡专项，取 watchtower",
+  "attach_cells": [
+   [
+    0,
+    0
+   ],
+   [
+    1,
+    1
+   ]
+  ],
+  "joins_spokes": [
+   "nw",
+   "se"
+  ]
+ },
+ {
+  "id": "west-elf-thornbastion-e",
+  "style": "west",
+  "race": "elf",
+  "category": "fort",
+  "kind": "thorn_bastion",
+  "facility": "watchtower",
+  "variant": 1,
+  "footprint": [
+   2,
+   2
+  ],
+  "height_px": 42,
+  "anchor": [
+   48,
+   138
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   138
+  ],
+  "tags": [
+   "bastion",
+   "point_e",
+   "replaces_wall_cells",
+   "thorns",
+   "attach_n_s"
+  ],
+  "roof": "none",
+  "note": "荆棘棱垒（2×2）：尖角朝 e；编藤墙带与藤墙同高同厚，两端切在格边中点，接同族 wallspoke-n / s；垒身外缘一圈外挑银尖弯刺，顶上荆棘丛 + 银桩叶顶小望台。放置时替掉 attach 墙格的辐条与节点。facility 无棱堡专项，取 watchtower",
+  "attach_cells": [
+   [
+    0,
+    0
+   ],
+   [
+    0,
+    1
+   ]
+  ],
+  "joins_spokes": [
+   "n",
+   "s"
+  ]
+ },
+ {
+  "id": "west-elf-thornbastion-se",
+  "style": "west",
+  "race": "elf",
+  "category": "fort",
+  "kind": "thorn_bastion",
+  "facility": "watchtower",
+  "variant": 1,
+  "footprint": [
+   2,
+   2
+  ],
+  "height_px": 45,
+  "anchor": [
+   48,
+   141
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   141
+  ],
+  "tags": [
+   "bastion",
+   "point_se",
+   "replaces_wall_cells",
+   "thorns",
+   "attach_ne_sw"
+  ],
+  "roof": "none",
+  "note": "荆棘棱垒（2×2）：尖角朝 se；编藤墙带与藤墙同高同厚，两端切在格角，接同族 wallspoke-ne / sw；垒身外缘一圈外挑银尖弯刺，顶上荆棘丛 + 银桩叶顶小望台。放置时替掉 attach 墙格的辐条与节点。facility 无棱堡专项，取 watchtower",
+  "attach_cells": [
+   [
+    0,
+    1
+   ],
+   [
+    1,
+    0
+   ]
+  ],
+  "joins_spokes": [
+   "ne",
+   "sw"
+  ]
+ },
+ {
+  "id": "west-elf-thornbastion-s",
+  "style": "west",
+  "race": "elf",
+  "category": "fort",
+  "kind": "thorn_bastion",
+  "facility": "watchtower",
+  "variant": 1,
+  "footprint": [
+   2,
+   2
+  ],
+  "height_px": 38,
+  "anchor": [
+   48,
+   134
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   134
+  ],
+  "tags": [
+   "bastion",
+   "point_s",
+   "replaces_wall_cells",
+   "thorns",
+   "attach_w_e"
+  ],
+  "roof": "none",
+  "note": "荆棘棱垒（2×2）：尖角朝 s；编藤墙带与藤墙同高同厚，两端切在格边中点，接同族 wallspoke-w / e；垒身外缘一圈外挑银尖弯刺，顶上荆棘丛 + 银桩叶顶小望台。放置时替掉 attach 墙格的辐条与节点。facility 无棱堡专项，取 watchtower",
+  "attach_cells": [
+   [
+    0,
+    0
+   ],
+   [
+    1,
+    0
+   ]
+  ],
+  "joins_spokes": [
+   "w",
+   "e"
+  ]
+ },
+ {
+  "id": "west-elf-thornbastion-sw",
+  "style": "west",
+  "race": "elf",
+  "category": "fort",
+  "kind": "thorn_bastion",
+  "facility": "watchtower",
+  "variant": 1,
+  "footprint": [
+   2,
+   2
+  ],
+  "height_px": 45,
+  "anchor": [
+   48,
+   141
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   141
+  ],
+  "tags": [
+   "bastion",
+   "point_sw",
+   "replaces_wall_cells",
+   "thorns",
+   "attach_nw_se"
+  ],
+  "roof": "none",
+  "note": "荆棘棱垒（2×2）：尖角朝 sw；编藤墙带与藤墙同高同厚，两端切在格角，接同族 wallspoke-nw / se；垒身外缘一圈外挑银尖弯刺，顶上荆棘丛 + 银桩叶顶小望台。放置时替掉 attach 墙格的辐条与节点。facility 无棱堡专项，取 watchtower",
+  "attach_cells": [
+   [
+    0,
+    0
+   ],
+   [
+    1,
+    1
+   ]
+  ],
+  "joins_spokes": [
+   "nw",
+   "se"
+  ]
+ },
+ {
+  "id": "west-elf-thornbastion-w",
+  "style": "west",
+  "race": "elf",
+  "category": "fort",
+  "kind": "thorn_bastion",
+  "facility": "watchtower",
+  "variant": 1,
+  "footprint": [
+   2,
+   2
+  ],
+  "height_px": 42,
+  "anchor": [
+   48,
+   138
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   138
+  ],
+  "tags": [
+   "bastion",
+   "point_w",
+   "replaces_wall_cells",
+   "thorns",
+   "attach_n_s"
+  ],
+  "roof": "none",
+  "note": "荆棘棱垒（2×2）：尖角朝 w；编藤墙带与藤墙同高同厚，两端切在格边中点，接同族 wallspoke-n / s；垒身外缘一圈外挑银尖弯刺，顶上荆棘丛 + 银桩叶顶小望台。放置时替掉 attach 墙格的辐条与节点。facility 无棱堡专项，取 watchtower",
+  "attach_cells": [
+   [
+    1,
+    0
+   ],
+   [
+    1,
+    1
+   ]
+  ],
+  "joins_spokes": [
+   "n",
+   "s"
+  ]
+ },
+ {
+  "id": "west-elf-thornbastion-nw",
+  "style": "west",
+  "race": "elf",
+  "category": "fort",
+  "kind": "thorn_bastion",
+  "facility": "watchtower",
+  "variant": 1,
+  "footprint": [
+   2,
+   2
+  ],
+  "height_px": 62,
+  "anchor": [
+   48,
+   158
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   158
+  ],
+  "tags": [
+   "bastion",
+   "point_nw",
+   "replaces_wall_cells",
+   "thorns",
+   "attach_ne_sw"
+  ],
+  "roof": "none",
+  "note": "荆棘棱垒（2×2）：尖角朝 nw；编藤墙带与藤墙同高同厚，两端切在格角，接同族 wallspoke-ne / sw；垒身外缘一圈外挑银尖弯刺，顶上荆棘丛 + 银桩叶顶小望台。放置时替掉 attach 墙格的辐条与节点。facility 无棱堡专项，取 watchtower",
+  "attach_cells": [
+   [
+    0,
+    1
+   ],
+   [
+    1,
+    0
+   ]
+  ],
+  "joins_spokes": [
+   "ne",
+   "sw"
+  ]
+ },
+ {
+  "id": "west-elf-fortress-01",
+  "style": "west",
+  "race": "elf",
+  "category": "landmark",
+  "kind": "canopy_fortress",
+  "facility": "barracks",
+  "variant": 1,
+  "footprint": [
+   6,
+   6
+  ],
+  "height_px": 180,
+  "anchor": [
+   144,
+   468
+  ],
+  "viewBox": [
+   0,
+   0,
+   288,
+   468
+  ],
+  "tags": [
+   "landmark",
+   "fortress",
+   "tree",
+   "ring_decks",
+   "vine_bridge"
+  ],
+  "roof": "none",
+  "note": "树冠要塞（6×6）：荆棘藤墙八角台基 + 中央古树三层环台 + 左右卫树树屋 + 四道藤桥 + 活枝拱前门。facility 取最接近的 barracks（驻军要塞）",
+  "culture": "elf"
+ },
+ {
+  "id": "west-dwarf-bastion-n",
+  "style": "west",
+  "race": "dwarf",
+  "category": "fort",
+  "kind": "stone_bastion",
+  "facility": "watchtower",
+  "variant": 1,
+  "footprint": [
+   3,
+   3
+  ],
+  "height_px": 66,
+  "anchor": [
+   72,
+   210
+  ],
+  "viewBox": [
+   0,
+   0,
+   144,
+   210
+  ],
+  "tags": [
+   "bastion",
+   "point_n",
+   "replaces_wall_cells",
+   "gunport",
+   "rune",
+   "attach_w_e"
+  ],
+  "roof": "none",
+  "note": "石棱堡（3×3）：尖角朝 n；巨石墙带与城墙同高同厚，两端切在格边中点，接同族 wallspoke-w / e；五边形堡身高出墙 10，侧翼与棱面开铜铆炮门、棱面符文带、尖角铜顶哨亭与红旗、堡内铜座矮人炮。放置时替掉 attach 墙格的辐条与节点。facility 无棱堡专项，取 watchtower",
+  "attach_cells": [
+   [
+    0,
+    2
+   ],
+   [
+    1,
+    2
+   ],
+   [
+    2,
+    2
+   ]
+  ],
+  "joins_spokes": [
+   "w",
+   "e"
+  ]
+ },
+ {
+  "id": "west-dwarf-bastion-ne",
+  "style": "west",
+  "race": "dwarf",
+  "category": "fort",
+  "kind": "stone_bastion",
+  "facility": "watchtower",
+  "variant": 1,
+  "footprint": [
+   3,
+   3
+  ],
+  "height_px": 80,
+  "anchor": [
+   72,
+   224
+  ],
+  "viewBox": [
+   0,
+   0,
+   144,
+   224
+  ],
+  "tags": [
+   "bastion",
+   "point_ne",
+   "replaces_wall_cells",
+   "gunport",
+   "rune",
+   "attach_nw_se"
+  ],
+  "roof": "none",
+  "note": "石棱堡（3×3）：尖角朝 ne；巨石墙带与城墙同高同厚，两端切在格角，接同族 wallspoke-nw / se；五边形堡身高出墙 10，侧翼与棱面开铜铆炮门、棱面符文带、尖角铜顶哨亭与红旗、堡内铜座矮人炮。放置时替掉 attach 墙格的辐条与节点。facility 无棱堡专项，取 watchtower",
+  "attach_cells": [
+   [
+    0,
+    0
+   ],
+   [
+    1,
+    1
+   ],
+   [
+    2,
+    2
+   ]
+  ],
+  "joins_spokes": [
+   "nw",
+   "se"
+  ]
+ },
+ {
+  "id": "west-dwarf-bastion-e",
+  "style": "west",
+  "race": "dwarf",
+  "category": "fort",
+  "kind": "stone_bastion",
+  "facility": "watchtower",
+  "variant": 1,
+  "footprint": [
+   3,
+   3
+  ],
+  "height_px": 50,
+  "anchor": [
+   72,
+   194
+  ],
+  "viewBox": [
+   0,
+   0,
+   144,
+   194
+  ],
+  "tags": [
+   "bastion",
+   "point_e",
+   "replaces_wall_cells",
+   "gunport",
+   "rune",
+   "attach_n_s"
+  ],
+  "roof": "none",
+  "note": "石棱堡（3×3）：尖角朝 e；巨石墙带与城墙同高同厚，两端切在格边中点，接同族 wallspoke-n / s；五边形堡身高出墙 10，侧翼与棱面开铜铆炮门、棱面符文带、尖角铜顶哨亭与红旗、堡内铜座矮人炮。放置时替掉 attach 墙格的辐条与节点。facility 无棱堡专项，取 watchtower",
+  "attach_cells": [
+   [
+    0,
+    0
+   ],
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2
+   ]
+  ],
+  "joins_spokes": [
+   "n",
+   "s"
+  ]
+ },
+ {
+  "id": "west-dwarf-bastion-se",
+  "style": "west",
+  "race": "dwarf",
+  "category": "fort",
+  "kind": "stone_bastion",
+  "facility": "watchtower",
+  "variant": 1,
+  "footprint": [
+   3,
+   3
+  ],
+  "height_px": 60,
+  "anchor": [
+   72,
+   204
+  ],
+  "viewBox": [
+   0,
+   0,
+   144,
+   204
+  ],
+  "tags": [
+   "bastion",
+   "point_se",
+   "replaces_wall_cells",
+   "gunport",
+   "rune",
+   "attach_ne_sw"
+  ],
+  "roof": "none",
+  "note": "石棱堡（3×3）：尖角朝 se；巨石墙带与城墙同高同厚，两端切在格角，接同族 wallspoke-ne / sw；五边形堡身高出墙 10，侧翼与棱面开铜铆炮门、棱面符文带、尖角铜顶哨亭与红旗、堡内铜座矮人炮。放置时替掉 attach 墙格的辐条与节点。facility 无棱堡专项，取 watchtower",
+  "attach_cells": [
+   [
+    0,
+    2
+   ],
+   [
+    1,
+    1
+   ],
+   [
+    2,
+    0
+   ]
+  ],
+  "joins_spokes": [
+   "ne",
+   "sw"
+  ]
+ },
+ {
+  "id": "west-dwarf-bastion-s",
+  "style": "west",
+  "race": "dwarf",
+  "category": "fort",
+  "kind": "stone_bastion",
+  "facility": "watchtower",
+  "variant": 1,
+  "footprint": [
+   3,
+   3
+  ],
+  "height_px": 50,
+  "anchor": [
+   72,
+   194
+  ],
+  "viewBox": [
+   0,
+   0,
+   144,
+   194
+  ],
+  "tags": [
+   "bastion",
+   "point_s",
+   "replaces_wall_cells",
+   "gunport",
+   "rune",
+   "attach_w_e"
+  ],
+  "roof": "none",
+  "note": "石棱堡（3×3）：尖角朝 s；巨石墙带与城墙同高同厚，两端切在格边中点，接同族 wallspoke-w / e；五边形堡身高出墙 10，侧翼与棱面开铜铆炮门、棱面符文带、尖角铜顶哨亭与红旗、堡内铜座矮人炮。放置时替掉 attach 墙格的辐条与节点。facility 无棱堡专项，取 watchtower",
+  "attach_cells": [
+   [
+    0,
+    0
+   ],
+   [
+    1,
+    0
+   ],
+   [
+    2,
+    0
+   ]
+  ],
+  "joins_spokes": [
+   "w",
+   "e"
+  ]
+ },
+ {
+  "id": "west-dwarf-bastion-sw",
+  "style": "west",
+  "race": "dwarf",
+  "category": "fort",
+  "kind": "stone_bastion",
+  "facility": "watchtower",
+  "variant": 1,
+  "footprint": [
+   3,
+   3
+  ],
+  "height_px": 60,
+  "anchor": [
+   72,
+   204
+  ],
+  "viewBox": [
+   0,
+   0,
+   144,
+   204
+  ],
+  "tags": [
+   "bastion",
+   "point_sw",
+   "replaces_wall_cells",
+   "gunport",
+   "rune",
+   "attach_nw_se"
+  ],
+  "roof": "none",
+  "note": "石棱堡（3×3）：尖角朝 sw；巨石墙带与城墙同高同厚，两端切在格角，接同族 wallspoke-nw / se；五边形堡身高出墙 10，侧翼与棱面开铜铆炮门、棱面符文带、尖角铜顶哨亭与红旗、堡内铜座矮人炮。放置时替掉 attach 墙格的辐条与节点。facility 无棱堡专项，取 watchtower",
+  "attach_cells": [
+   [
+    0,
+    0
+   ],
+   [
+    1,
+    1
+   ],
+   [
+    2,
+    2
+   ]
+  ],
+  "joins_spokes": [
+   "nw",
+   "se"
+  ]
+ },
+ {
+  "id": "west-dwarf-bastion-w",
+  "style": "west",
+  "race": "dwarf",
+  "category": "fort",
+  "kind": "stone_bastion",
+  "facility": "watchtower",
+  "variant": 1,
+  "footprint": [
+   3,
+   3
+  ],
+  "height_px": 50,
+  "anchor": [
+   72,
+   194
+  ],
+  "viewBox": [
+   0,
+   0,
+   144,
+   194
+  ],
+  "tags": [
+   "bastion",
+   "point_w",
+   "replaces_wall_cells",
+   "gunport",
+   "rune",
+   "attach_n_s"
+  ],
+  "roof": "none",
+  "note": "石棱堡（3×3）：尖角朝 w；巨石墙带与城墙同高同厚，两端切在格边中点，接同族 wallspoke-n / s；五边形堡身高出墙 10，侧翼与棱面开铜铆炮门、棱面符文带、尖角铜顶哨亭与红旗、堡内铜座矮人炮。放置时替掉 attach 墙格的辐条与节点。facility 无棱堡专项，取 watchtower",
+  "attach_cells": [
+   [
+    2,
+    0
+   ],
+   [
+    2,
+    1
+   ],
+   [
+    2,
+    2
+   ]
+  ],
+  "joins_spokes": [
+   "n",
+   "s"
+  ]
+ },
+ {
+  "id": "west-dwarf-bastion-nw",
+  "style": "west",
+  "race": "dwarf",
+  "category": "fort",
+  "kind": "stone_bastion",
+  "facility": "watchtower",
+  "variant": 1,
+  "footprint": [
+   3,
+   3
+  ],
+  "height_px": 80,
+  "anchor": [
+   72,
+   224
+  ],
+  "viewBox": [
+   0,
+   0,
+   144,
+   224
+  ],
+  "tags": [
+   "bastion",
+   "point_nw",
+   "replaces_wall_cells",
+   "gunport",
+   "rune",
+   "attach_ne_sw"
+  ],
+  "roof": "none",
+  "note": "石棱堡（3×3）：尖角朝 nw；巨石墙带与城墙同高同厚，两端切在格角，接同族 wallspoke-ne / sw；五边形堡身高出墙 10，侧翼与棱面开铜铆炮门、棱面符文带、尖角铜顶哨亭与红旗、堡内铜座矮人炮。放置时替掉 attach 墙格的辐条与节点。facility 无棱堡专项，取 watchtower",
+  "attach_cells": [
+   [
+    0,
+    2
+   ],
+   [
+    1,
+    1
+   ],
+   [
+    2,
+    0
+   ]
+  ],
+  "joins_spokes": [
+   "ne",
+   "sw"
+  ]
+ },
+ {
+  "id": "west-dwarf-fortress-01",
+  "style": "west",
+  "race": "dwarf",
+  "category": "landmark",
+  "kind": "terraced_mountain_city",
+  "facility": "lord_hall",
+  "variant": 1,
+  "footprint": [
+   6,
+   6
+  ],
+  "height_px": 200,
+  "anchor": [
+   144,
+   488
+  ],
+  "viewBox": [
+   0,
+   0,
+   288,
+   488
+  ],
+  "tags": [
+   "landmark",
+   "fortress",
+   "mountain",
+   "terraced",
+   "great_gate",
+   "copper_chimney",
+   "rune"
+  ],
+  "roof": "gable_tile",
+  "note": "阶梯山城（6×6）：后方山体 + 三层凿山石台逐层后退升高 + 中轴台阶 + 底层符文巨门与守门石像柱 + 铜烟囱 + 顶层铜坡顶议事厅。roof 为铜坡顶，取最近的 gable_tile；facility 取 lord_hall（领主议事厅）",
+  "culture": "dwarf"
+ },
+ {
+  "id": "west-orc-fortress-01",
+  "style": "west",
+  "race": "orc",
+  "category": "landmark",
+  "kind": "stake_warcamp",
+  "facility": "barracks",
+  "variant": 1,
+  "footprint": [
+   6,
+   6
+  ],
+  "height_px": 70,
+  "anchor": [
+   144,
+   358
+  ],
+  "viewBox": [
+   0,
+   0,
+   288,
+   358
+  ],
+  "tags": [
+   "landmark",
+   "fortress",
+   "rammed_earth",
+   "palisade",
+   "war_tent",
+   "totem",
+   "skull"
+  ],
+  "roof": "monopitch",
+  "note": "尖桩大寨（6×6）：两层夯土台地 + 外圈尖桩寨墙 + 前沿双桩塔战帐门楼（吊头骨）+ 上台酋长大帐与侧帐 + 图腾柱、头骨堆、火塘、战旗。roof 为兽皮帐顶，取最近的 monopitch；facility 取 barracks（战帮驻地）",
+  "culture": "orc"
+ }
+]

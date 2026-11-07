@@ -1,0 +1,450 @@
+{
+  "schema": "catalog_overlay_v1",
+  "group": "cuisine-european",
+  "entries": {
+    "cuisine_eu_dried_pasta": {
+      "primary": "noodle",
+      "evidence_grade": "mixed",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "",
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_eu_lasagne": {
+      "primary": "dish",
+      "evidence_grade": "sourced",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "",
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_eu_gnocchi": {
+      "primary": "dish",
+      "evidence_grade": "mixed",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "美洲物产，旧大陆世界需作者决定是否引入。",
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_eu_polenta": {
+      "primary": "dish",
+      "evidence_grade": "mixed",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "美洲物产，旧大陆世界需作者决定是否引入。",
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_eu_italian_salumi": {
+      "primary": "preserved_food",
+      "evidence_grade": "sourced",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "",
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_eu_focaccia": {
+      "primary": "bread",
+      "evidence_grade": "mixed",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "",
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_eu_panettone": {
+      "primary": "pastry",
+      "evidence_grade": "mixed",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "",
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_eu_tiramisu": {
+      "primary": "pastry",
+      "evidence_grade": "sourced",
+      "tech_tier": "steam",
+      "magic_tier": null,
+      "note": "正文称 20 世纪中后期才出现，需进口咖啡、可可与冷藏；真实年代已超出 early_modern 的 1939 上限，但档位只到近现代，拿不准取低一档 steam，来源称只能用于近现代或蒸汽朋克设定",
+      "genres_add": [
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_eu_gazpacho": {
+      "primary": "dish",
+      "evidence_grade": "mixed",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "",
+      "genres_add": [
+        "historical",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_eu_bacalhau": {
+      "primary": "preserved_food",
+      "evidence_grade": "mixed",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "",
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_eu_pastel_de_nata": {
+      "primary": "pastry",
+      "evidence_grade": "mixed",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "",
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_eu_tapas": {
+      "primary": "institution",
+      "evidence_grade": "mixed",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "",
+      "genres_add": [
+        "historical",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_eu_jamon_iberico": {
+      "primary": "preserved_food",
+      "evidence_grade": "mixed",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "",
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_eu_wurst": {
+      "primary": "preserved_food",
+      "evidence_grade": "mixed",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "",
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_eu_pretzel": {
+      "primary": "bread",
+      "evidence_grade": "mixed",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "",
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_eu_wiener_schnitzel": {
+      "primary": "dish",
+      "evidence_grade": "mixed",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "",
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_eu_sauerkraut": {
+      "primary": "preserved_food",
+      "evidence_grade": "mixed",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "",
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_eu_waffle": {
+      "primary": "pastry",
+      "evidence_grade": "mixed",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "",
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_eu_stroopwafel": {
+      "primary": "pastry",
+      "evidence_grade": "mixed",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "",
+      "genres_add": [
+        "historical",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_eu_gouda": {
+      "primary": "preserved_food",
+      "evidence_grade": "mixed",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "",
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_eu_smorgasbord": {
+      "primary": "institution",
+      "evidence_grade": "mixed",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "",
+      "genres_add": [
+        "historical",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_eu_surstromming": {
+      "primary": "preserved_food",
+      "evidence_grade": "mixed",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "传统用木桶盐渍发酵，罐装只是后期形态，取低一档",
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_eu_borscht": {
+      "primary": "soup",
+      "evidence_grade": "mixed",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "",
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_eu_goulash": {
+      "primary": "dish",
+      "evidence_grade": "mixed",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "",
+      "genres_add": [
+        "historical",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_eu_pierogi": {
+      "primary": "dish",
+      "evidence_grade": "mixed",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "",
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_eu_moussaka": {
+      "primary": "dish",
+      "evidence_grade": "mixed",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "",
+      "genres_add": [
+        "historical",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_eu_feta": {
+      "primary": "dairy",
+      "evidence_grade": "mixed",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "",
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_eu_baklava": {
+      "primary": "pastry",
+      "evidence_grade": "mixed",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "",
+      "genres_add": [
+        "historical",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_eu_kvass": {
+      "primary": "beverage",
+      "evidence_grade": "mixed",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "",
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_eu_mediterranean_diet": {
+      "primary": "institution",
+      "evidence_grade": "sourced",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "",
+      "genres_add": [
+        "historical",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_eu_geographical_indication": {
+      "primary": "institution",
+      "evidence_grade": "sourced",
+      "tech_tier": "early_modern",
+      "magic_tier": null,
+      "note": "欧盟 PDO/PGI/TSG 法律登记制度，属近现代行政体系",
+      "genres_add": [
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_eu_belgian_beer_culture": {
+      "primary": "institution",
+      "evidence_grade": "mixed",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "",
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "steampunk",
+        "modern"
+      ]
+    }
+  }
+}

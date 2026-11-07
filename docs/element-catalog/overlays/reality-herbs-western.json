@@ -1,0 +1,573 @@
+{
+  "schema": "catalog_overlay_v1",
+  "group": "reality-herbs-western",
+  "entries": {
+    "herb_west_sage": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_west_rosemary": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_west_thyme": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "sourced",
+      "note": "3/4 来源可读",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_west_oregano": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_west_basil": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "sourced",
+      "note": "带 role:culinary_herb，但本组以草药为主，仍归 medicinal_herb；可改 culinary_herb",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_west_chamomile": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_west_mint": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "sourced",
+      "note": "3/4 来源可读",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_west_dill": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_west_parsley": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_west_bay_laurel": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "sourced",
+      "note": "带 role:culinary_herb，同上",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_west_juniper": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_west_lavender": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_west_st_johns_wort": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_west_echinacea": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "sourced",
+      "note": "美洲物产，旧大陆世界需作者决定是否引入。",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_west_valerian": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "sourced",
+      "note": "2/3 来源可读",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_west_marsh_mallow": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_west_mullein": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_west_comfrey": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_west_nettle": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_west_elder": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_west_yarrow": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_west_pot_marigold": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_west_feverfew": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_west_tansy": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_west_burdock": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_west_chicory": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_west_licorice": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_west_ginseng": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_west_foxglove": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_west_monkshood": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_west_belladonna": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_west_poison_hemlock": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_west_wormwood": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_west_borage": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "sourced",
+      "note": "带 role:culinary_herb，同上",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_west_hyssop": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_west_horehound": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_west_lemon_balm": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_west_angelica": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "steampunk",
+        "modern"
+      ]
+    }
+  }
+}

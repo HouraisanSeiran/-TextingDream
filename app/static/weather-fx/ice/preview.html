@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" href="data:,">
+<title>织梦 · 天气美术：冰冻天气（冻雨 / 霰 / 霜 / 雾凇）</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#1d2228;color:#dde3ea;font:13px system-ui,sans-serif}
+header{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;padding:10px 14px;background:#262d35;border-bottom:1px solid #39424d}
+h1{font-size:16px;margin:0 8px 0 0}label{display:flex;align-items:center;gap:6px;white-space:nowrap}
+input[type=range]{width:100px}select,button{font:inherit;padding:3px 8px;border-radius:4px;border:1px solid #56606c;background:#313945;color:inherit}
+output{display:inline-block;min-width:34px;text-align:right;font-variant-numeric:tabular-nums;color:#9fb3c8}
+#stage{position:relative;width:1400px;height:900px;margin:12px auto;overflow:hidden;background:#9fae8c}
+#townView,#fx{position:absolute;left:0;top:0;width:1400px;height:900px}
+#townView svg{display:block;width:1400px!important;height:900px!important}
+#fps{position:absolute;right:8px;top:6px;padding:2px 8px;border-radius:3px;background:rgba(0,0,0,.55);color:#c8f0c0;font:12px/1.5 ui-monospace,monospace;pointer-events:none}
+</style>
+</head>
+<body>
+<header>
+<h1>冰冻天气</h1>
+<label>城镇 <select id="townSel"></select></label>
+<label>天气 <select id="kind">
+  <option value="freezing_rain" selected>freezing_rain 冻雨</option><option value="graupel">graupel 霰</option>
+  <option value="frost">frost 霜</option><option value="rime">rime 雾凇</option><option value="clear">clear 晴（只看累积量）</option></select></label>
+<label>强度 <input id="intensity" type="range" min="0" max="1" step="0.01" value="0.5"><output></output></label>
+<label>气温 <input id="temp" type="range" min="-20" max="10" step="0.5" value="-2"><output></output></label>
+<label>时刻 <input id="hour" type="range" min="0" max="24" step="0.1" value="9"><output></output></label>
+<label>冰壳 glaze <input id="glaze" type="range" min="0" max="1" step="0.01" value="0.5"><output></output></label>
+<label>霜 frost <input id="frost" type="range" min="0" max="1" step="0.01" value="0"><output></output></label>
+<label>雾凇 rime <input id="rime" type="range" min="0" max="1" step="0.01" value="0"><output></output></label>
+<label title="非规范字段 ground.graupel，霰积层">霰积 <input id="graupel" type="range" min="0" max="1" step="0.01" value="0"><output></output></label>
+<label>雾量 <input id="fog" type="range" min="0" max="1" step="0.01" value="0"><output></output></label>
+<label>风向 <input id="dir" type="range" min="0" max="359" step="1" value="120"><output></output></label>
+<label>风速 <input id="speed" type="range" min="0" max="1" step="0.01" value="0.2"><output></output></label>
+<label title="改天气或强度时自动设累积量 / 气温 / 雾"><input id="link" type="checkbox" checked>联动</label>
+<label title="同时叠 WeatherFX_daylight 做时刻调色"><input id="dl" type="checkbox" checked>时刻调色</label>
+<button id="pause">暂停</button><button id="step">单步</button>
+</header>
+<div id="stage">
+  <div id="townView" aria-label="城镇底图"></div>
+  <canvas id="fx"></canvas>
+  <div id="fps">-- fps</div>
+</div>
+<script src="../../map-art/town/town-catalog.js"></script>
+<script src="../../map-art/town/layout-samples.js"></script>
+<script src="../../town-render.js"></script>
+<script src="../noise.js"></script>
+<script src="../daylight/daylight.js"></script>
+<script src="ice.js"></script>
+<script src="preview.js"></script>
+</body>
+</html>

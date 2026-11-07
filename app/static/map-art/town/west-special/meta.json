@@ -1,0 +1,886 @@
+[
+  {
+    "id": "west-common-forge-01",
+    "style": "west",
+    "race": "common",
+    "category": "special",
+    "kind": "forge",
+    "facility": "forge",
+    "variant": 1,
+    "footprint": [
+      3,
+      2
+    ],
+    "height_px": 76,
+    "anchor": [
+      72,
+      172
+    ],
+    "viewBox": [
+      0,
+      0,
+      144,
+      172
+    ],
+    "tags": [
+      "workshop",
+      "open_shed",
+      "smoke",
+      "important"
+    ],
+    "roof": "gable_tile",
+    "name_zh": "铁匠铺·作坊棚",
+    "note": "左侧石砌住屋，右侧开敞作坊棚：炉膛与烟囱、风箱、铁砧、淬火水桶、檐下马蹄铁招牌；棚顶为单坡木瓦（monopitch）"
+  },
+  {
+    "id": "west-common-forge-02",
+    "style": "west",
+    "race": "common",
+    "category": "special",
+    "kind": "forge",
+    "facility": "forge",
+    "variant": 2,
+    "footprint": [
+      2,
+      2
+    ],
+    "height_px": 70,
+    "anchor": [
+      48,
+      166
+    ],
+    "viewBox": [
+      0,
+      0,
+      96,
+      166
+    ],
+    "tags": [
+      "workshop",
+      "smoke",
+      "important"
+    ],
+    "roof": "gable_tile",
+    "name_zh": "铁匠铺·山墙作坊",
+    "note": "山墙朝前的石作坊，敞开的大拱门里看得见炉火；右侧外挂石烟囱，门前铁砧与磨刀砂轮，山尖钉马蹄铁"
+  },
+  {
+    "id": "west-common-town-hall-01",
+    "style": "west",
+    "race": "common",
+    "category": "special",
+    "kind": "town_hall",
+    "facility": "town_hall",
+    "variant": 1,
+    "footprint": [
+      3,
+      2
+    ],
+    "height_px": 120,
+    "anchor": [
+      72,
+      216
+    ],
+    "viewBox": [
+      0,
+      0,
+      144,
+      216
+    ],
+    "tags": [
+      "bell_tower",
+      "clock",
+      "arcade",
+      "important"
+    ],
+    "roof": "gable_tile",
+    "name_zh": "市政厅·钟楼",
+    "note": "底层石砌拱廊（可作集会/避雨），二层木筋议事厅，红瓦坡顶；正中凸出方形钟楼：钟面、钟口、青石板攒尖顶与城旗"
+  },
+  {
+    "id": "west-common-town-hall-02",
+    "style": "west",
+    "race": "common",
+    "category": "special",
+    "kind": "town_hall",
+    "facility": "town_hall",
+    "variant": 2,
+    "footprint": [
+      3,
+      2
+    ],
+    "height_px": 100,
+    "anchor": [
+      72,
+      196
+    ],
+    "viewBox": [
+      0,
+      0,
+      144,
+      196
+    ],
+    "tags": [
+      "stepped_gable",
+      "bell_turret",
+      "balcony",
+      "important"
+    ],
+    "roof": "steep_slate",
+    "name_zh": "议事厅·阶梯山墙",
+    "note": "石砌行会议事厅：山墙朝前的阶梯山墙，正中宣告阳台与城旗；左侧圆形楼梯塔（锥顶挂钟），右翼两层木筋附楼"
+  },
+  {
+    "id": "west-common-lord-hall-01",
+    "style": "west",
+    "race": "common",
+    "category": "special",
+    "kind": "lord_hall",
+    "facility": "lord_hall",
+    "variant": 1,
+    "footprint": [
+      4,
+      3
+    ],
+    "height_px": 100,
+    "anchor": [
+      96,
+      244
+    ],
+    "viewBox": [
+      0,
+      0,
+      192,
+      244
+    ],
+    "tags": [
+      "manor",
+      "courtyard",
+      "crenellated",
+      "heraldry"
+    ],
+    "roof": "hip_tile",
+    "name_zh": "领主府",
+    "note": "设防庄园：前院低矮围墙与带吊闸的门楼，石板前院；主楼两层（底层石砌、上层木筋），青石板四坡顶；两角方塔带垛口，悬挂家族纹章旗"
+  },
+  {
+    "id": "west-common-temple-01",
+    "style": "west",
+    "race": "common",
+    "category": "special",
+    "kind": "temple",
+    "facility": "temple",
+    "variant": 1,
+    "footprint": [
+      3,
+      3
+    ],
+    "height_px": 144,
+    "anchor": [
+      72,
+      288
+    ],
+    "viewBox": [
+      0,
+      0,
+      144,
+      288
+    ],
+    "tags": [
+      "spire",
+      "rose_window",
+      "buttress",
+      "gothic",
+      "important"
+    ],
+    "roof": "steep_slate",
+    "name_zh": "大教堂·尖塔",
+    "note": "哥特式教堂：山墙朝前的正立面，玫瑰窗与层层退进的尖拱大门；两侧低矮侧廊，屋面上跨着飞扶壁；交叉部方塔上青石板高尖塔与十字"
+  },
+  {
+    "id": "west-common-temple-02",
+    "style": "west",
+    "race": "common",
+    "category": "special",
+    "kind": "temple",
+    "facility": "temple",
+    "variant": 2,
+    "footprint": [
+      3,
+      2
+    ],
+    "height_px": 128,
+    "anchor": [
+      72,
+      224
+    ],
+    "viewBox": [
+      0,
+      0,
+      144,
+      224
+    ],
+    "tags": [
+      "bell_tower",
+      "romanesque",
+      "round_arch",
+      "important"
+    ],
+    "roof": "gable_tile",
+    "name_zh": "教区教堂·钟塔",
+    "note": "罗曼式教区教堂：长边朝前的中厅，壁柱分间、半圆拱窗与檐下伦巴第小拱带；左端方形钟塔，双拱钟口里挂钟，青石板四角攒尖顶与十字"
+  },
+  {
+    "id": "west-common-temple-03",
+    "style": "west",
+    "race": "common",
+    "category": "special",
+    "kind": "temple",
+    "facility": "temple",
+    "variant": 3,
+    "footprint": [
+      2,
+      2
+    ],
+    "height_px": 84,
+    "anchor": [
+      48,
+      180
+    ],
+    "viewBox": [
+      0,
+      0,
+      96,
+      180
+    ],
+    "tags": [
+      "chapel",
+      "bellcote",
+      "small"
+    ],
+    "roof": "steep_slate",
+    "name_zh": "小礼拜堂",
+    "note": "小礼拜堂：山墙朝前的单间石堂，山尖上一座小钟架，尖拱门与小玫瑰窗；门旁石十字与灌木"
+  },
+  {
+    "id": "west-common-stall-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "stall",
+    "facility": "market_hall",
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 34,
+    "anchor": [
+      24,
+      82
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      82
+    ],
+    "tags": [
+      "open_air",
+      "stall",
+      "vegetables",
+      "scatter"
+    ],
+    "roof": "none",
+    "name_zh": "菜摊·红白篷",
+    "note": "露天菜市场单个摊位（可散放）：红白条纹帆布篷、木摊台上卷心菜与胡萝卜，台前一筐洋葱"
+  },
+  {
+    "id": "west-common-stall-02",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "stall",
+    "facility": "market_hall",
+    "variant": 2,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 34,
+    "anchor": [
+      24,
+      82
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      82
+    ],
+    "tags": [
+      "open_air",
+      "stall",
+      "fruit",
+      "scatter"
+    ],
+    "roof": "none",
+    "name_zh": "果摊·青白篷",
+    "note": "青白条纹篷果摊：摊台上苹果与梨，右侧叠放两只装果木箱"
+  },
+  {
+    "id": "west-common-stall-03",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "stall",
+    "facility": "market_hall",
+    "variant": 3,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 34,
+    "anchor": [
+      24,
+      82
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      82
+    ],
+    "tags": [
+      "open_air",
+      "stall",
+      "grain",
+      "bread",
+      "scatter"
+    ],
+    "roof": "none",
+    "name_zh": "粮面摊·帆布帐",
+    "note": "本色帆布两坡小帐：摊台上面包与圆面饼，台前几只粮食麻袋、一只敞口粮袋"
+  },
+  {
+    "id": "west-common-market-hall-01",
+    "style": "west",
+    "race": "common",
+    "category": "special",
+    "kind": "market_hall",
+    "facility": "market_hall",
+    "variant": 1,
+    "footprint": [
+      3,
+      2
+    ],
+    "height_px": 70,
+    "anchor": [
+      72,
+      166
+    ],
+    "viewBox": [
+      0,
+      0,
+      144,
+      166
+    ],
+    "tags": [
+      "arcade",
+      "covered_market",
+      "important"
+    ],
+    "roof": "hip_tile",
+    "name_zh": "市集厅·拱廊",
+    "note": "中世纪有顶市场：底层开敞的石拱廊，廊下看得见菜筐、麻袋与秤；上层木筋储货/行会厅，红瓦四坡顶，正中挂铜秤招牌"
+  },
+  {
+    "id": "west-common-market-hall-02",
+    "style": "west",
+    "race": "common",
+    "category": "special",
+    "kind": "market_hall",
+    "facility": "market_hall",
+    "variant": 2,
+    "footprint": [
+      3,
+      2
+    ],
+    "height_px": 58,
+    "anchor": [
+      72,
+      154
+    ],
+    "viewBox": [
+      0,
+      0,
+      144,
+      154
+    ],
+    "tags": [
+      "open_hall",
+      "covered_market",
+      "timber_posts",
+      "important"
+    ],
+    "roof": "hip_tile",
+    "name_zh": "市集厅·木柱敞厅",
+    "note": "乡镇常见的木构市集敞厅：石础上一排粗木柱撑起大红瓦四坡顶，四面开敞，厅下摆着长摊台、菜筐与木箱；屋顶正中小气窗"
+  },
+  {
+    "id": "west-common-inn-01",
+    "style": "west",
+    "race": "common",
+    "category": "special",
+    "kind": "inn",
+    "facility": "inn",
+    "variant": 1,
+    "footprint": [
+      3,
+      2
+    ],
+    "height_px": 92,
+    "anchor": [
+      72,
+      188
+    ],
+    "viewBox": [
+      0,
+      0,
+      144,
+      188
+    ],
+    "tags": [
+      "tavern",
+      "lodging",
+      "jettied",
+      "hitching_post",
+      "important"
+    ],
+    "roof": "gable_tile",
+    "name_zh": "客栈·酒桶招牌",
+    "note": "三层客栈：底层石砌酒堂，上两层木筋逐层外挑，红瓦坡顶两座老虎窗；门旁铁臂挂一只横躺酒桶作招牌，门前拴马桩与饮马槽，墙边堆酒桶"
+  },
+  {
+    "id": "west-common-inn-02",
+    "style": "west",
+    "race": "common",
+    "category": "special",
+    "kind": "inn",
+    "facility": "inn",
+    "variant": 2,
+    "footprint": [
+      3,
+      2
+    ],
+    "height_px": 84,
+    "anchor": [
+      72,
+      180
+    ],
+    "viewBox": [
+      0,
+      0,
+      144,
+      180
+    ],
+    "tags": [
+      "tavern",
+      "coaching_inn",
+      "carriage_arch",
+      "signpost",
+      "important"
+    ],
+    "roof": "gable_thatch",
+    "name_zh": "酒馆·茅草驿道店",
+    "note": "驿道旁茅草顶酒馆：两层（下石上木筋），右翼山墙朝前、开马车拱门通后院；门前立柱挂啤酒杯招牌，门边长凳、酒桶当桌，挂一盏提灯"
+  },
+  {
+    "id": "west-common-caravanserai-01",
+    "style": "west",
+    "race": "common",
+    "category": "special",
+    "kind": "caravanserai",
+    "facility": "caravanserai",
+    "variant": 1,
+    "footprint": [
+      4,
+      3
+    ],
+    "height_px": 62,
+    "anchor": [
+      96,
+      206
+    ],
+    "viewBox": [
+      0,
+      0,
+      192,
+      206
+    ],
+    "tags": [
+      "courtyard",
+      "enclosed",
+      "gatehouse",
+      "wagons"
+    ],
+    "roof": "gable_tile",
+    "name_zh": "商队驿站·围院",
+    "note": "围合院落：后排两层木筋客房，两侧单坡顶货廊向院内落水，前排石砌矮屋正中门楼（大券门可过马车）；院里篷布马车、货箱麻袋、饮马槽"
+  },
+  {
+    "id": "west-common-granary-01",
+    "style": "west",
+    "race": "common",
+    "category": "special",
+    "kind": "granary",
+    "facility": "granary",
+    "variant": 1,
+    "footprint": [
+      2,
+      2
+    ],
+    "height_px": 58,
+    "anchor": [
+      48,
+      154
+    ],
+    "viewBox": [
+      0,
+      0,
+      96,
+      154
+    ],
+    "tags": [
+      "raised",
+      "staddle_stones",
+      "storage"
+    ],
+    "roof": "gable_thatch",
+    "name_zh": "粮仓·垫石木仓",
+    "note": "英式架高粮仓：九块蘑菇石垫起木板仓身防鼠防潮，厚茅草坡顶，仓门前搭木梯；门口麻袋与一辆独轮车"
+  },
+  {
+    "id": "west-common-granary-02",
+    "style": "west",
+    "race": "common",
+    "category": "special",
+    "kind": "granary",
+    "facility": "granary",
+    "variant": 2,
+    "footprint": [
+      3,
+      2
+    ],
+    "height_px": 60,
+    "anchor": [
+      72,
+      156
+    ],
+    "viewBox": [
+      0,
+      0,
+      144,
+      156
+    ],
+    "tags": [
+      "tithe_barn",
+      "storage",
+      "large"
+    ],
+    "roof": "gable_tile",
+    "name_zh": "粮仓·什一税谷仓",
+    "note": "石砌长谷仓：正中凸出的山墙门廊开双扇大车门，墙上一排窄通风缝与扶墙，红瓦长坡顶；门前草垛和麻袋"
+  },
+  {
+    "id": "west-common-stable-01",
+    "style": "west",
+    "race": "common",
+    "category": "special",
+    "kind": "stable",
+    "facility": "stable",
+    "variant": 1,
+    "footprint": [
+      3,
+      2
+    ],
+    "height_px": 56,
+    "anchor": [
+      72,
+      152
+    ],
+    "viewBox": [
+      0,
+      0,
+      144,
+      152
+    ],
+    "tags": [
+      "horses",
+      "hayloft",
+      "dutch_doors"
+    ],
+    "roof": "gable_thatch",
+    "name_zh": "马厩",
+    "note": "木筋长厩：一排上下分开的半截门，马头从门里探出；正中山墙草料阁门挑出吊货梁与绳钩；门前饮水槽、草垛、马鞍架"
+  },
+  {
+    "id": "west-common-well-01",
+    "style": "west",
+    "race": "common",
+    "category": "special",
+    "kind": "well",
+    "facility": "well",
+    "variant": 1,
+    "footprint": [
+      2,
+      2
+    ],
+    "height_px": 46,
+    "anchor": [
+      48,
+      142
+    ],
+    "viewBox": [
+      0,
+      0,
+      96,
+      142
+    ],
+    "tags": [
+      "water",
+      "windlass",
+      "plaza"
+    ],
+    "roof": "gable_tile",
+    "name_zh": "水井·辘轳亭",
+    "note": "公共水井：圆形石砌井栏，两根立柱撑起木瓦小坡顶，横担辘轳带摇把，绳上挂水桶；井台铺石板，旁边放一只满水的木桶。屋面为木瓦（shingle），roof 写最近的 gable_tile"
+  },
+  {
+    "id": "west-common-cistern-01",
+    "style": "west",
+    "race": "common",
+    "category": "special",
+    "kind": "cistern",
+    "facility": "cistern",
+    "variant": 1,
+    "footprint": [
+      3,
+      2
+    ],
+    "height_px": 30,
+    "anchor": [
+      72,
+      126
+    ],
+    "viewBox": [
+      0,
+      0,
+      144,
+      126
+    ],
+    "tags": [
+      "water",
+      "reservoir",
+      "public_fountain"
+    ],
+    "roof": "none",
+    "name_zh": "蓄水池·狮口水槽",
+    "note": "露天公共蓄水池：方整石砌池壁、压顶石沿与扶墙，池面可见水波；正面两只狮头出水口向小石盆放水，正中一台铁手压泵与石刻铭牌"
+  },
+  {
+    "id": "west-common-watermill-01",
+    "style": "west",
+    "race": "common",
+    "category": "special",
+    "kind": "watermill",
+    "facility": "mill",
+    "variant": 1,
+    "footprint": [
+      3,
+      2
+    ],
+    "height_px": 70,
+    "anchor": [
+      72,
+      166
+    ],
+    "viewBox": [
+      0,
+      0,
+      144,
+      166
+    ],
+    "tags": [
+      "watermill",
+      "water_wheel",
+      "millrace",
+      "waterside"
+    ],
+    "roof": "gable_tile",
+    "name_zh": "水磨坊",
+    "note": "石砌磨坊：右侧山墙外挂大木水车，木槽引水（导水槽）从后方落到轮顶，轮下是溪水；门口粮食麻袋与一块备用磨盘。水车属于 mill"
+  },
+  {
+    "id": "west-common-windmill-02",
+    "style": "west",
+    "race": "common",
+    "category": "special",
+    "kind": "windmill",
+    "facility": "mill",
+    "variant": 2,
+    "footprint": [
+      2,
+      2
+    ],
+    "height_px": 144,
+    "anchor": [
+      48,
+      240
+    ],
+    "viewBox": [
+      0,
+      0,
+      96,
+      240
+    ],
+    "tags": [
+      "windmill",
+      "sails",
+      "tower_mill"
+    ],
+    "roof": "none",
+    "name_zh": "风车磨坊",
+    "note": "塔式风车：石砌圆塔、木瓦帽顶朝前，四片格栅木帆翼（两片蒙帆布）呈 X 形；塔脚一圈木平台与栏杆，门口麻袋。风车属于 mill；帽顶是圆锥，roof 写 none"
+  },
+  {
+    "id": "west-common-academy-01",
+    "style": "west",
+    "race": "common",
+    "category": "special",
+    "kind": "academy",
+    "facility": "academy",
+    "variant": 1,
+    "footprint": [
+      3,
+      2
+    ],
+    "height_px": 96,
+    "anchor": [
+      72,
+      192
+    ],
+    "viewBox": [
+      0,
+      0,
+      144,
+      192
+    ],
+    "tags": [
+      "college",
+      "library",
+      "observatory",
+      "gothic"
+    ],
+    "roof": "steep_slate",
+    "name_zh": "学院·观星塔",
+    "note": "两层石砌学堂：一排高尖拱窗，正中带垛口的门楼刻打开的书；右侧屋顶上一座圆形观星小塔，穹顶开缝伸出铜望远镜；两侧蓝色学院旗幅"
+  },
+  {
+    "id": "west-common-infirmary-01",
+    "style": "west",
+    "race": "common",
+    "category": "special",
+    "kind": "infirmary",
+    "facility": "infirmary",
+    "variant": 1,
+    "footprint": [
+      3,
+      2
+    ],
+    "height_px": 70,
+    "anchor": [
+      72,
+      166
+    ],
+    "viewBox": [
+      0,
+      0,
+      144,
+      166
+    ],
+    "tags": [
+      "healer",
+      "herb_garden",
+      "apothecary"
+    ],
+    "roof": "gable_tile",
+    "name_zh": "医馆·药圃",
+    "note": "两层木筋病坊：门上蛇杖石牌，铁臂挑出药臼招牌，檐下倒挂一排晾干的草药束；门前两块木框药圃，中间石板小径；门边长凳"
+  },
+  {
+    "id": "west-common-barracks-01",
+    "style": "west",
+    "race": "common",
+    "category": "special",
+    "kind": "barracks",
+    "facility": "barracks",
+    "variant": 1,
+    "footprint": [
+      4,
+      2
+    ],
+    "height_px": 70,
+    "anchor": [
+      96,
+      166
+    ],
+    "viewBox": [
+      0,
+      0,
+      192,
+      166
+    ],
+    "tags": [
+      "garrison",
+      "crenellated",
+      "drill_yard",
+      "armory"
+    ],
+    "roof": "gable_tile",
+    "name_zh": "兵营·操练场",
+    "note": "长条石砌营房：檐口一圈垛口胸墙后是红瓦坡顶，窄长射击窗、包铁双扇门，门上挂盾徽；门前土操练场：长矛武器架、稻草靶人、军旗"
+  },
+  {
+    "id": "west-common-watchtower-01",
+    "style": "west",
+    "race": "common",
+    "category": "special",
+    "kind": "watchtower",
+    "facility": "watchtower",
+    "variant": 1,
+    "footprint": [
+      2,
+      2
+    ],
+    "height_px": 144,
+    "anchor": [
+      48,
+      240
+    ],
+    "viewBox": [
+      0,
+      0,
+      96,
+      240
+    ],
+    "tags": [
+      "lookout",
+      "beacon",
+      "defense"
+    ],
+    "roof": "monopitch",
+    "name_zh": "瞭望塔·烽火",
+    "note": "方形石塔，越往上越窄；顶层挑出木制望台（托梁 + 栏杆），上方四坡木瓦小顶与号角旗；台角一只烽火铁盆。底层包铁小门、墙上一列箭窗，塔脚堆柴。roof 最近 monopitch，实为四坡小顶"
+  }
+]

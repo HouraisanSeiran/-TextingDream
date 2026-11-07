@@ -1,0 +1,687 @@
+{
+  "schema": "game_fields_v1",
+  "group": "reality-herbs-other",
+  "entries": {
+    "herb_other_eucommia_bark": {
+      "price": {
+        "min": 6,
+        "max": 18,
+        "per": "一两",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "mountain",
+        "temperate_forest"
+      ],
+      "seasons": [
+        "spring",
+        "summer"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "apothecary",
+        "herbalist"
+      ],
+      "note": "单属单种的特产树皮，剥后数年才能再剥，取中档估价"
+    },
+    "herb_other_phellodendron_bark": {
+      "price": {
+        "min": 4,
+        "max": 11,
+        "per": "一两",
+        "tier": "groat"
+      },
+      "terrains": [
+        "mountain",
+        "temperate_forest"
+      ],
+      "seasons": [
+        "spring",
+        "summer"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "apothecary",
+        "herbalist"
+      ],
+      "note": "树皮类，常被混用代用，取中低档估价"
+    },
+    "herb_other_moutan_bark": {
+      "price": {
+        "min": 5,
+        "max": 14,
+        "per": "一两",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "farmland",
+        "mountain"
+      ],
+      "seasons": [
+        "autumn"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "apothecary",
+        "herbalist"
+      ],
+      "note": "牡丹种植数年才起收，取中档估价"
+    },
+    "herb_other_wolfberry_root_bark": {
+      "price": {
+        "min": 2,
+        "max": 6,
+        "per": "一两",
+        "tier": "groat"
+      },
+      "terrains": [
+        "farmland",
+        "river"
+      ],
+      "seasons": [
+        "spring",
+        "autumn"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "apothecary",
+        "herbalist"
+      ],
+      "note": "枸杞副产根皮，价低"
+    },
+    "herb_other_mulberry_root_bark": {
+      "price": {
+        "min": 2,
+        "max": 6,
+        "per": "一两",
+        "tier": "groat"
+      },
+      "terrains": [
+        "farmland"
+      ],
+      "seasons": [
+        "winter",
+        "spring"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "apothecary",
+        "herbalist"
+      ],
+      "note": "桑园副产根皮，价低"
+    },
+    "herb_other_melia_root_bark": {
+      "price": {
+        "min": 2,
+        "max": 6,
+        "per": "一两",
+        "tier": "groat"
+      },
+      "terrains": [
+        "temperate_forest",
+        "farmland"
+      ],
+      "seasons": [
+        "spring",
+        "autumn"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "apothecary"
+      ],
+      "note": "有毒，仅药铺凭方配售；按低档估价",
+      "restriction": "toxic"
+    },
+    "herb_other_frankincense": {
+      "price": {
+        "min": 24,
+        "max": 72,
+        "per": "一两",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "hot_desert",
+        "savanna",
+        "import"
+      ],
+      "seasons": [
+        "spring"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "spice_merchant",
+        "apothecary"
+      ],
+      "note": "跨沙漠商路的树脂，取较高档估价"
+    },
+    "herb_other_myrrh": {
+      "price": {
+        "min": 24,
+        "max": 72,
+        "per": "一两",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "hot_desert",
+        "savanna",
+        "import"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "spice_merchant",
+        "apothecary"
+      ],
+      "note": "与乳香同路的树脂，同价档"
+    },
+    "herb_other_asafoetida": {
+      "price": {
+        "min": 12,
+        "max": 36,
+        "per": "一两",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "temperate_desert",
+        "steppe",
+        "import"
+      ],
+      "seasons": [
+        "spring",
+        "summer"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "spice_merchant",
+        "apothecary"
+      ],
+      "note": "气味刺鼻的进口树脂，取中高档估价"
+    },
+    "herb_other_dragons_blood": {
+      "price": {
+        "min": 36,
+        "max": 120,
+        "per": "一两",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "rainforest",
+        "tropical_dry_forest",
+        "import"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "spice_merchant",
+        "apothecary"
+      ],
+      "note": "深红树脂，远途进口且常有掺假，取高档估价"
+    },
+    "herb_other_pine_rosin": {
+      "price": {
+        "min": 1,
+        "max": 3,
+        "per": "一块",
+        "tier": "penny"
+      },
+      "terrains": [
+        "temperate_forest",
+        "taiga"
+      ],
+      "seasons": [
+        "summer"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "market",
+        "apothecary"
+      ],
+      "note": "松林里随处可取，兼作封蜡与工业原料，价最低"
+    },
+    "herb_other_ganoderma": {
+      "price": {
+        "min": 24,
+        "max": 96,
+        "per": "一两",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "temperate_forest",
+        "mountain"
+      ],
+      "seasons": [
+        "summer",
+        "autumn"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "apothecary",
+        "herbalist"
+      ],
+      "note": "稀见的木腐真菌，有瑞草之名，取较高档估价"
+    },
+    "herb_other_fuling": {
+      "price": {
+        "min": 8,
+        "max": 24,
+        "per": "一两",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "temperate_forest",
+        "farmland"
+      ],
+      "seasons": [
+        "autumn"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "apothecary"
+      ],
+      "note": "松根菌核，等级由发汗工序决定，取中高档估价"
+    },
+    "herb_other_zhuling": {
+      "price": {
+        "min": 8,
+        "max": 24,
+        "per": "一两",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "mountain",
+        "temperate_forest"
+      ],
+      "seasons": [
+        "autumn"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "apothecary"
+      ],
+      "note": "地下菌核，与茯苓同价档"
+    },
+    "herb_other_ophiocordyceps": {
+      "price": {
+        "min": 480,
+        "max": 2400,
+        "per": "一两",
+        "tier": "pound"
+      },
+      "terrains": [
+        "mountain",
+        "tundra"
+      ],
+      "seasons": [
+        "spring",
+        "summer"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "apothecary"
+      ],
+      "note": "野生资源现实中受保护；世界选项可设为禁售或只售栽培品",
+      "restriction": "protected_wild"
+    },
+    "herb_other_seaweed": {
+      "price": {
+        "min": 2,
+        "max": 6,
+        "per": "一把",
+        "tier": "groat"
+      },
+      "terrains": [
+        "coast",
+        "ocean"
+      ],
+      "seasons": [
+        "summer"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "apothecary",
+        "fishmonger"
+      ],
+      "note": "海边晾晒的褐藻，价低"
+    },
+    "herb_other_kelp": {
+      "price": {
+        "min": 2,
+        "max": 6,
+        "per": "一把",
+        "tier": "groat"
+      },
+      "terrains": [
+        "ocean",
+        "coast"
+      ],
+      "seasons": [
+        "summer"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "apothecary",
+        "fishmonger"
+      ],
+      "note": "冷海大型褐藻，价低"
+    },
+    "herb_other_cinnabar": {
+      "price": {
+        "min": 36,
+        "max": 120,
+        "per": "一两",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "mine"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "apothecary"
+      ],
+      "note": "剧毒，仅药铺凭方配售；按矿石成色估价",
+      "restriction": "toxic"
+    },
+    "herb_other_realgar": {
+      "price": {
+        "min": 24,
+        "max": 72,
+        "per": "一两",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "mine"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "apothecary"
+      ],
+      "note": "剧毒，仅药铺凭方配售；按矿石成色估价",
+      "restriction": "toxic"
+    },
+    "herb_other_talc": {
+      "price": {
+        "min": 1,
+        "max": 3,
+        "per": "一块",
+        "tier": "penny"
+      },
+      "terrains": [
+        "mine"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "apothecary",
+        "market"
+      ],
+      "note": "矿坑常见软矿石，兼作雕刻与填料，价最低"
+    },
+    "herb_other_oracle_bone": {
+      "price": {
+        "min": 6,
+        "max": 18,
+        "per": "一块",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "mine",
+        "farmland"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "apothecary"
+      ],
+      "note": "可能是文物；世界选项可设为禁售",
+      "restriction": "cultural_relic"
+    },
+    "herb_other_pearl": {
+      "price": {
+        "min": 48,
+        "max": 480,
+        "per": "一颗",
+        "tier": "pound"
+      },
+      "terrains": [
+        "ocean",
+        "coast",
+        "lake"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "apothecary",
+        "spice_merchant"
+      ],
+      "note": "按圆度光泽分档，好珠可到镑档"
+    },
+    "herb_other_cicada_slough": {
+      "price": {
+        "min": 3,
+        "max": 9,
+        "per": "一两",
+        "tier": "groat"
+      },
+      "terrains": [
+        "temperate_forest",
+        "farmland"
+      ],
+      "seasons": [
+        "summer"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "apothecary",
+        "herbalist"
+      ],
+      "note": "羽化蜕壳靠拣拾，量随年份起伏，取中低档估价"
+    },
+    "herb_other_silkworm_white_stiff": {
+      "price": {
+        "min": 4,
+        "max": 11,
+        "per": "一两",
+        "tier": "groat"
+      },
+      "terrains": [
+        "farmland",
+        "workshop"
+      ],
+      "seasons": [
+        "spring",
+        "autumn"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "apothecary"
+      ],
+      "note": "养蚕业副产，按中低档估价"
+    },
+    "herb_other_earthworm": {
+      "price": {
+        "min": 2,
+        "max": 6,
+        "per": "一两",
+        "tier": "groat"
+      },
+      "terrains": [
+        "farmland",
+        "wetland"
+      ],
+      "seasons": [
+        "summer",
+        "autumn"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "apothecary",
+        "herbalist"
+      ],
+      "note": "田间可得的干燥全体，价低"
+    },
+    "herb_other_gecko": {
+      "price": {
+        "min": 24,
+        "max": 72,
+        "per": "一对",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "tropical_dry_forest",
+        "rainforest",
+        "mountain"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "apothecary"
+      ],
+      "note": "野生资源现实中受保护；世界选项可设为禁售或只售栽培品",
+      "restriction": "protected_wild"
+    },
+    "herb_other_deer_antler": {
+      "price": {
+        "min": 60,
+        "max": 480,
+        "per": "一两",
+        "tier": "pound"
+      },
+      "terrains": [
+        "pasture",
+        "temperate_forest"
+      ],
+      "seasons": [
+        "spring",
+        "summer"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "apothecary"
+      ],
+      "note": "每年新长的骨质器官，贵重药材，取镑档"
+    },
+    "herb_other_donkey_hide_gelatin": {
+      "price": {
+        "min": 60,
+        "max": 360,
+        "per": "一块",
+        "tier": "pound"
+      },
+      "terrains": [
+        "workshop",
+        "pasture"
+      ],
+      "seasons": [
+        "winter"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "apothecary"
+      ],
+      "note": "一张皮的价值超过一头活驴，贵重药材，取镑档"
+    },
+    "herb_other_pangolin_scale": {
+      "price": {
+        "min": 24,
+        "max": 96,
+        "per": "一两",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "rainforest",
+        "tropical_dry_forest",
+        "savanna"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "apothecary"
+      ],
+      "note": "现实中为濒危物种制品、禁止交易；中世纪基线可买，世界选项可设为禁售",
+      "restriction": "endangered_animal"
+    },
+    "herb_other_bear_bile": {
+      "price": {
+        "min": 120,
+        "max": 480,
+        "per": "一两",
+        "tier": "pound"
+      },
+      "terrains": [
+        "temperate_forest",
+        "mountain"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "apothecary"
+      ],
+      "note": "现实中为濒危物种制品、禁止交易；中世纪基线可买，世界选项可设为禁售",
+      "restriction": "endangered_animal"
+    },
+    "herb_other_tiger_bone": {
+      "price": {
+        "min": 240,
+        "max": 960,
+        "per": "一两",
+        "tier": "pound"
+      },
+      "terrains": [
+        "taiga",
+        "temperate_forest"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "apothecary"
+      ],
+      "note": "现实中为濒危物种制品、禁止交易；中世纪基线可买，世界选项可设为禁售",
+      "restriction": "endangered_animal"
+    },
+    "herb_other_musk": {
+      "price": {
+        "min": 240,
+        "max": 720,
+        "per": "一钱",
+        "tier": "pound"
+      },
+      "terrains": [
+        "mountain",
+        "taiga"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "apothecary"
+      ],
+      "note": "现实中为濒危物种制品、禁止交易；中世纪基线可买，世界选项可设为禁售",
+      "restriction": "endangered_animal"
+    }
+  }
+}

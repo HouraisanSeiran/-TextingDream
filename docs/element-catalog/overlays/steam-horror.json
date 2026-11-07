@@ -1,0 +1,356 @@
+{
+  "schema": "catalog_overlay_v1",
+  "group": "steam-horror",
+  "entries": {
+    "steam_reciprocating_engine": {
+      "primary": "technology",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": "steam",
+      "magic_tier": null
+    },
+    "steam_high_pressure_boiler": {
+      "primary": "technology",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": "steam",
+      "magic_tier": null
+    },
+    "steam_condenser_efficiency": {
+      "primary": "technology",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": "steam",
+      "magic_tier": null
+    },
+    "steam_coal_fuel_chain": {
+      "primary": "economy_trade",
+      "evidence_grade": "mixed",
+      "note": "煤为 fuel，条目讲的是供给链",
+      "tech_tier": "steam",
+      "magic_tier": null
+    },
+    "steam_mine_drainage": {
+      "primary": "technology",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": "steam",
+      "magic_tier": null
+    },
+    "steam_precision_boring": {
+      "primary": "craft_process",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": "steam",
+      "magic_tier": null
+    },
+    "steam_interchangeable_parts": {
+      "primary": "technology",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": "steam",
+      "magic_tier": null
+    },
+    "steam_factory_discipline": {
+      "primary": "institution",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": "steam",
+      "magic_tier": null
+    },
+    "steam_industrial_city": {
+      "primary": "place",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": "steam",
+      "magic_tier": null
+    },
+    "steam_trunk_railway": {
+      "primary": "place",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": "steam",
+      "magic_tier": null
+    },
+    "steam_station_yard": {
+      "primary": "place",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": "steam",
+      "magic_tier": null
+    },
+    "steam_paddle_steamer": {
+      "primary": "vehicle_vessel",
+      "evidence_grade": "mixed",
+      "note": "条目分类为 place",
+      "tech_tier": "steam",
+      "magic_tier": null
+    },
+    "steam_rigid_airship": {
+      "primary": "vehicle_vessel",
+      "evidence_grade": "mixed",
+      "note": "硬式飞艇史实在 1900 年后，但世界档表把早期飞艇归 steam，取低一档；作者确认改为 early_modern",
+      "tech_tier": "early_modern",
+      "magic_tier": null
+    },
+    "steam_lifting_gas_risk": {
+      "primary": "technology",
+      "evidence_grade": "mixed",
+      "note": "词表缺“风险/物性”项",
+      "tech_tier": "steam",
+      "magic_tier": null
+    },
+    "steam_patent_monopoly": {
+      "primary": "institution",
+      "evidence_grade": "mixed",
+      "note": "专利制度早于工业时代，无技术门槛，取 null",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "steam_joint_stock_capital": {
+      "primary": "economy_trade",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": "steam",
+      "magic_tier": null
+    },
+    "steam_labour_union": {
+      "primary": "organization",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": "steam",
+      "magic_tier": null
+    },
+    "steam_mutual_aid_society": {
+      "primary": "organization",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": "steam",
+      "magic_tier": null
+    },
+    "steam_imperial_resource_flow": {
+      "primary": "economy_trade",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": "steam",
+      "magic_tier": null
+    },
+    "steam_gauge_standard": {
+      "primary": "institution",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": "steam",
+      "magic_tier": null
+    },
+    "steam_standard_time": {
+      "primary": "institution",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": "steam",
+      "magic_tier": null
+    },
+    "steam_safety_regulation": {
+      "primary": "institution",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": "steam",
+      "magic_tier": null
+    },
+    "steam_lone_inventor_prototype": {
+      "primary": "profession",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": "steam",
+      "magic_tier": null
+    },
+    "steam_workshop_apprentice": {
+      "primary": "institution",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "steam_gaslight_telegraph_city": {
+      "primary": "technology",
+      "evidence_grade": "mixed",
+      "note": "基础设施，条目分类为 place",
+      "tech_tier": "steam",
+      "magic_tier": null
+    },
+    "steam_coaling_station_port": {
+      "primary": "place",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": "steam",
+      "magic_tier": null
+    },
+    "steam_smoke_pollution": {
+      "primary": "conflict_event",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": "steam",
+      "magic_tier": null
+    },
+    "steam_deskilling_craft": {
+      "primary": "conflict_event",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": "steam",
+      "magic_tier": null
+    },
+    "steam_telegraph_evidence": {
+      "primary": "institution",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": "steam",
+      "magic_tier": null
+    },
+    "horror_restless_dead": {
+      "primary": "undead_demon",
+      "evidence_grade": "mixed",
+      "note": "作为信仰记述不要求超自然生效，仅当故事设定确认才升 rare，取 null",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "horror_vengeful_grudge": {
+      "primary": "undead_demon",
+      "evidence_grade": "mixed",
+      "note": "作为信仰记述不要求超自然生效，仅当故事设定确认才升 rare，取 null",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "horror_possession_state": {
+      "primary": "conflict_event",
+      "evidence_grade": "mixed",
+      "note": "作为信仰记述不要求超自然生效，仅当故事设定确认才升 rare，取 null",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "horror_medium_go_between": {
+      "primary": "profession",
+      "evidence_grade": "mixed",
+      "note": "条目分类为 organization，实质是职业角色",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "horror_seance_sitting": {
+      "primary": "belief_ritual",
+      "evidence_grade": "mixed",
+      "note": "现代唯灵论降神会 1848 年起，依赖印刷与城市通信，取 steam；魔法档不要求真实通灵，null",
+      "tech_tier": "steam",
+      "magic_tier": null
+    },
+    "horror_haunted_dwelling": {
+      "primary": "place",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "horror_grave_disturbance": {
+      "primary": "place",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "horror_second_burial": {
+      "primary": "belief_ritual",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "horror_omitted_rites": {
+      "primary": "belief_ritual",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "horror_taboo_breach": {
+      "primary": "institution",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "horror_amulet_ward": {
+      "primary": "belief_ritual",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "horror_exorcist_office": {
+      "primary": "profession",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "horror_boundary_place": {
+      "primary": "place",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "horror_local_shrine": {
+      "primary": "belief_ritual",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "horror_ancestral_hall": {
+      "primary": "place",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "horror_lineage_elders": {
+      "primary": "organization",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "horror_village_calendar_rite": {
+      "primary": "belief_ritual",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "horror_rumour_chain": {
+      "primary": "literature_form",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "horror_inquest_evidence": {
+      "primary": "institution",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "horror_case_dossier": {
+      "primary": "institution",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "horror_mass_fatality_industry": {
+      "primary": "conflict_event",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": "steam",
+      "magic_tier": null
+    }
+  }
+}

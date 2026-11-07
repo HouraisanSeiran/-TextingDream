@@ -1,0 +1,456 @@
+{
+  "schema_version": 1,
+  "status": "candidate",
+  "group": "professions-bard",
+  "genres": [
+    "western_fantasy",
+    "historical",
+    "real_world",
+    "folk_horror"
+  ],
+  "compiled_note": "吟游诗人系谱（元素库·职业侧）。写法与 docs/element-catalog/professions.json 相同：每条带 profession 对象（shop_key / wage / class / settlement_min / guild），wage 是游戏行情（整数铜币），不是史实；锚点为半日短工 6—12 铜币、麦酒一杯 2 铜币、10 铜币 = 1 银币、100 铜币 = 1 金币（见 docs/units.md）。本分区只写**不带魔法、有史实依据**的西方吟游诗人传统，magic_tier 一律为 null；法术版吟游诗人是 professions-fantasy.json 里的 pfan_fantasy_bard（magic_tier=rare），由别的 AI 维护，本条不重复立条，只在其 related_ids 里引用。来源只引用本次实际读过正文的百度百科条目；读不到正文的登记为 search_only 且零引用。用到的体裁与经典诗见 docs/element-catalog/poetry-forms.json 与 poetry-classics.json。全部条目 review_status=needs_review、detail_status=needs_detail。",
+  "sources": [
+    {
+      "id": "bard_src_01",
+      "title": "游吟诗人 — 百度百科",
+      "url": "https://baike.baidu.com/item/游吟诗人",
+      "access": "read",
+      "supports": "法国南部最早的一位游吟诗人是阿基坦公爵威廉九世（1071—1127）；南部游唱诗人的歌曲尚存 246 首、诗词 2600 首，北部曲调约 1400 首、诗词约 4000 首；南方与北方的游唱歌曲保存于手抄本歌集（Chansonniers）内，记谱多用格里高利圣歌的记谱法，节奏随诗词而定，多数旋律已失传；题材中心是爱情与宫廷之恋，形式分康索、晨歌、田园歌、辩论歌、讽刺歌、悲歌、记功歌等。",
+      "rights_note": "百科词条；仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "bard_src_02",
+      "title": "吟游诗人 — 百度百科",
+      "url": "https://baike.baidu.com/item/吟游诗人",
+      "access": "read",
+      "supports": "吟游诗人（bard）原指在凯尔特人中写作颂词和讽刺作品的人；中世纪这一群体伴随英雄史诗、骑士抒情诗、骑士传奇、讽刺寓言等繁荣；威尔士的 bard 一词一直是诗人的同义词，10 世纪的吟游诗人曾分为不同等级；职业吟游诗人后来衰落，威尔士传统保存下来并在全国诗人与音乐家赛会上庆祝；吟游诗人的技能含演讲（诙谐且押韵）、演奏竖琴等乐器、杂耍、操纵牵线木偶；工作职责包括守夜人、军号手、线人、公关；等级分宫廷诗人与流浪吟游诗人，前者服务于君主、有稳定收入，后者占街头巷尾的低端市场；热门曲目有《罗兰之歌》。",
+      "rights_note": "百科词条；仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "bard_src_03",
+      "title": "skald — 百度百科",
+      "url": "https://baike.baidu.com/item/skald",
+      "access": "read",
+      "supports": "skald（亦作 scald）源自古诺斯语 skáld，意为诗人；词源有「斥责」与「喷涌」两说；约自 800 年起吟唱诗在挪威随布拉吉·博达松出现，此后许多挪威宫廷的吟唱诗人来自冰岛；至 1200 年已知的吟唱诗人名字超过 300 个；早期吟唱诗人被认为具有神圣灵感；在欧洲大陆这一职业在公元 2 千纪初消亡，在冰岛延续到 13 世纪；最著名的古冰岛吟唱诗人是斯诺里·斯图鲁松，用《散文埃达》作吟唱诗人教科书。",
+      "rights_note": "百科词条；仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "bard_src_04",
+      "title": "弄臣 — 百度百科",
+      "url": "https://baike.baidu.com/item/弄臣",
+      "access": "read",
+      "supports": "已读到正文，但该词条主体是威尔第歌剧《弄臣》的剧情、唱段与演出记录，与本条要写的中世纪宫廷弄臣、杂耍艺人的社会处境不是同一范围，本条不据它立论，故零引用。",
+      "rights_note": "该页已读到，但内容与就业史不匹配，未引用。"
+    },
+    {
+      "id": "bard_src_05",
+      "title": "Troubadour / Minnesang / Skald — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/art/troubadour",
+      "access": "search_only",
+      "supports": "",
+      "rights_note": "本次无头浏览器访问未取到正文（站点拒绝）；仅作检索入口登记，零引用。"
+    },
+    {
+      "id": "bard_src_06",
+      "title": "Jongleur / Minstrel — Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Minstrel",
+      "access": "search_only",
+      "supports": "",
+      "rights_note": "本次访问被重置，未取到正文；仅作检索入口登记，零引用。"
+    }
+  ],
+  "elements": [
+    {
+      "id": "profession_bard_troubadour",
+      "name": "行吟诗人（普罗旺斯 troubadour、北方 trouvère）",
+      "aliases": [
+        "游吟诗人",
+        "troubadour",
+        "trouvère",
+        "特鲁巴杜尔",
+        "宫廷情歌作者"
+      ],
+      "category": "life",
+      "primary": "profession",
+      "evidence_grade": "mixed",
+      "tech_tier": "medieval",
+      "magic_tier": null,
+      "genres": [
+        "historical",
+        "real_world",
+        "western_fantasy"
+      ],
+      "tags": [
+        "kind:profession",
+        "tradition:western",
+        "class:professional",
+        "settlement:town"
+      ],
+      "profession": {
+        "shop_key": null,
+        "wage": {
+          "min": 3,
+          "max": 24,
+          "per": "日"
+        },
+        "class": "professional",
+        "settlement_min": "town",
+        "guild": false
+      },
+      "summary": "12—13 世纪法国南部（奥克语区）与北部的诗歌作者兼歌手，写宫廷之恋的情歌并自己配曲。他们多是贵族、骑士或受贵族供养的人，收入靠赞助人的赏赐与封地，不是靠卖票。",
+      "variants": [
+        "南部：troubadour（奥克语）；北部：trouvère（奥伊语），曲调与方言不同",
+        "东方对应：宋代歌妓与文人词客（但后两者不自己表演，不属同一工种）"
+      ],
+      "details": {
+        "definition": "行吟诗人是 12—13 世纪法国南部与北部的诗歌作者兼歌手。他们写情歌（canso）并自己作曲，题材中心是宫廷之恋；主要作者里既有贵族（如阿基坦公爵威廉九世，1071—1127），也有受供养的职业诗人。",
+        "mechanism": "一首歌从写到唱都是自己的事：先按固定的曲调填词，再自己弹唱。作品靠手抄歌集（Chansonniers）流传，记谱沿用教会圣歌的记谱法、节奏跟着词走，所以大多数旋律已经失传、只剩唱词。收入不是按场计费，而是赞助人的赏赐：一件衣物、一匹马、一处住所，或一笔年金。",
+        "conditions": "最小聚落为城（要有领主宫廷或大贵族的宅邸）。没有行会，靠宫廷关系与人情网络。技术门槛很高：要会写符合定式韵式的诗、会作曲、会弹唱，还要懂得向高位夫人效忠的那一套礼仪。升级路径几乎只有一条：被某位领主收为庭臣或得到教会职。",
+        "exceptions": "典型纠纷：诗里对某位夫人的称颂被认为越礼；两派诗人以辩论歌互讽；赞助人失势后歌者无处可去。例外：也有下层出身的人靠才具进入宫廷；十字军期间南方的宫廷赞助网络崩坏，许多歌者流落他乡。",
+        "story_uses": "故事用途：①一首情歌的化名（senhal）指向谁，成了全宫廷的赌局。②歌者在宴会上用一首讽刺歌（sirventese）得罪了将来的继承者。③一份失传的曲调被人从别处抄了回来，却与唱词不合。④领主用赞助换歌词，要求把对手写成懦夫。⑤歌者兼做信使，把不能写下的消息编进歌里。",
+        "historical_scope": "本条对应现实历史的 12—13 世纪，对应 tech:medieval。架空世界可借用“赞助人—情歌—化名”这套关系，不必沿用奥克语与具体韵式。钱额是游戏行情（铜币），不是史实。",
+        "evidence_and_uncertainty": "有来源支持的部分：南部最早一位是阿基坦公爵威廉九世；南北两区的存世曲与诗词数量；手抄歌集的记谱方式与旋律多数失传；题材以宫廷之恋为中心、形式分康索、晨歌、田园歌、辩论歌、讽刺歌、悲歌等（据 bard_src_01）。社会地位、收入形式、剧情用法为本项目推演；工资为游戏售价，不是史实。本条写的是无魔法的现实职业，法术版另见 pfan_fantasy_bard。"
+      },
+      "source_ids": [
+        "bard_src_01"
+      ],
+      "related_ids": [
+        "pfan_fantasy_bard",
+        "culture_lit_courtly",
+        "poetry_form_canso",
+        "culture_poetry_lyric"
+      ],
+      "related_catalog_ids": [
+        "shop_wine_merchant"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "profession_bard_jongleur",
+      "name": "流浪艺人与杂耍乐手（jongleur / minstrel）",
+      "aliases": [
+        "容格勒",
+        "jongleur",
+        "minstrel",
+        "gleeman",
+        "游方艺人",
+        "卖艺人"
+      ],
+      "category": "life",
+      "primary": "profession",
+      "evidence_grade": "mixed",
+      "tech_tier": "medieval",
+      "magic_tier": null,
+      "genres": [
+        "historical",
+        "real_world",
+        "western_fantasy",
+        "folk_horror"
+      ],
+      "tags": [
+        "kind:profession",
+        "tradition:western",
+        "class:outcast",
+        "settlement:hamlet"
+      ],
+      "profession": {
+        "shop_key": null,
+        "wage": {
+          "min": 1,
+          "max": 8,
+          "per": "日"
+        },
+        "class": "outcast",
+        "settlement_min": "hamlet",
+        "guild": false
+      },
+      "summary": "没有自己作品的表演者：唱别人作的歌、耍杂技、驯兽、演木偶，靠市集、酒馆、婚礼与领主宴会的赏钱过活。社会地位低，与乞丐、娼妓同列贱业，但在消息流通上很关键。",
+      "variants": [
+        "东方对应：说书人、卖艺人、走江湖的杂技班",
+        "与行吟诗人的差别：jongleur 是表演者，不必会写诗；troubadour 是作者"
+      ],
+      "details": {
+        "definition": "流浪艺人是中世纪欧洲的职业表演者。他们不（必须）自己写作品，而是唱别人作的歌、表演杂技与驯兽、演牵线木偶，靠观众赏钱与雇主的一顿饭过活。",
+        "mechanism": "一天从市集或教堂门口开始，看哪里人多就往哪里去；酒馆、婚礼、收割节、领主宴会都是场子。收入极不稳定：好的日子能得几枚铜币与一顿饭，坏的天气一天没有进项，甚至被修院山门拒之门外。技能要求又宽又杂：会演讲且押韵、会几种乐器、会杂耍与驯兽，还得会看人脸色。",
+        "conditions": "最小聚落为村（有集市即可）。没有行会；有些领主发放表演许可，没有许可就只能在街头。几乎无晋升路径：极少人被宫廷收为乐师，或得到固定的守夜人、军号手职。",
+        "exceptions": "典型纠纷：歌词得罪某位贵人；与酒馆老板分账不匀；被指为盗或为奸细；在教堂门口卖艺被驱赶（当时有修士以“歌伶的把戏不足以娱上帝”为由拒绝施舍）。例外：有人兼做守夜人、军号手、线人，收入反而稳定；也有女艺人以唱歌为业。",
+        "story_uses": "故事用途：①一个外乡艺人在三个城镇唱同一首歌，歌词里露出了只有内部人知道的细节。②领主用一首歌试控民心，结果歌反过来讥讽了他。③艺人的琴箱里露出不属于艺人的东西。④村里丢孩子，先被怀疑的是路过的杂耍班。⑤艺人兼做传信人，把口信编进副歌里。",
+        "historical_scope": "本条对应现实历史的中世纪到文艺复兴早期，对应 tech:medieval。钱额是游戏行情（铜币），不是史实；不要造出可操作的危险技艺细节。",
+        "evidence_and_uncertainty": "有来源支持的部分：吟游诗人（bard／gleeman／minstrel）伴随英雄史诗、骑士抒情诗、骑士传奇、讽刺寓言等繁荣；技能含演讲（诙谐且押韵）、演奏竖琴等乐器、杂耍、驯兽与牵线木偶；工作职责包括守夜人、军号手、线人、公关；等级分宫廷诗人（有稳定收入）与流浪吟游诗人（占低端市场）；有修士拒绝施舍歌伶的说法（据 bard_src_02）。工资、具体纠纷与剧情为本项目推演。"
+      },
+      "source_ids": [
+        "bard_src_02"
+      ],
+      "related_ids": [
+        "pfan_fantasy_bard",
+        "culture_poetry_song",
+        "poetry_form_ballad_stanza",
+        "culture_lit_folklore"
+      ],
+      "related_catalog_ids": [
+        "shop_tavern"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "profession_bard_skald",
+      "name": "北欧宫廷诗人（skald）",
+      "aliases": [
+        "skald",
+        "scald",
+        "吟唱诗人",
+        "古诺斯宫廷诗人"
+      ],
+      "category": "life",
+      "primary": "profession",
+      "evidence_grade": "mixed",
+      "tech_tier": "medieval",
+      "magic_tier": null,
+      "genres": [
+        "historical",
+        "real_world",
+        "western_fantasy"
+      ],
+      "tags": [
+        "kind:profession",
+        "tradition:western",
+        "class:professional",
+        "settlement:town"
+      ],
+      "profession": {
+        "shop_key": null,
+        "wage": {
+          "min": 8,
+          "max": 40,
+          "per": "日"
+        },
+        "class": "professional",
+        "settlement_min": "town",
+        "guild": false
+      },
+      "summary": "北欧与冰岛的宫廷诗人，为王侯写颂诗与讽刺诗，约自 800 年起出现在挪威宫廷，许多宫廷诗人来自冰岛；至 1200 年已知名字超过 300 个。",
+      "variants": [
+        "古英语一侧：scop（宫廷吟诵者）与 gleeman",
+        "东方对应：史官兼乐官（职能相近，但不是同一传统）"
+      ],
+      "details": {
+        "definition": "skald 是古诺斯语里“诗人”的意思，指北欧与冰岛的宫廷诗人。他们为王侯写作颂诗与讽刺诗，约自 800 年起伴随布拉吉·博达松出现在挪威宫廷，此后许多宫廷诗人来自冰岛。",
+        "mechanism": "服务对象是具体的人：国王、伯爵、首领。一首颂诗要在厅堂里当众背出来，所以格律、代称（kenning）与家谱知识都得熟。诗艺靠口传与师徒，后来被写成教科书；《散文埃达》就是这样的教科书。",
+        "conditions": "最小聚落为城（要有首领的厅堂）。没有行会，靠宫廷恩宠。门槛很高：格律复杂、代称系统要对得上，还要能背大量谱系与旧事。晋升靠一两首得体的颂诗；失宠时很快无以为生。",
+        "exceptions": "典型纠纷：颂诗漏了一位有力的亲戚，惹怒对方；讽刺诗（níð）过了界，成了可诉的侮辱；同一件事在不同宫廷得到相反的颂词。例外：早期诗人被认为具有神圣灵感，地位比一般匠人高；基督教传入后，这一职业面临消亡，大陆在公元 2 千纪初消亡、冰岛延续到 13 世纪。",
+        "story_uses": "故事用途：①一首颂诗把某个人的家谱抬高了一段，成了对方继承权的依据。②宫廷诗人被要求写一首讽刺诗，他婉拒，结果另有他人写了。③《散文埃达》里一条规则被人改了。④诗人的记忆是他唯一的财产，有人想把它拿走。⑤两个宫廷就同一场战役各要一首诗。",
+        "historical_scope": "本条对应现实历史的 9—13 世纪北欧，对应 tech:medieval（维京时代的航海与兵器在中世纪档内）。钱额是游戏行情（铜币），不是史实。",
+        "evidence_and_uncertainty": "有来源支持的部分：skáld 意为诗人；词源有“斥责”与“喷涌”两说；约自 800 年起随布拉吉·博达松出现，许多宫廷诗人来自冰岛；至 1200 年已知名字超过 300 个；早期诗人被认为具有神圣灵感；在大陆于公元 2 千纪初消亡、冰岛延续到 13 世纪；《散文埃达》被用作教科书（据 bard_src_03）。厅堂表演、kenning、níð 侮辱诗等细节属通行说法，本次未核到专门来源。"
+      },
+      "source_ids": [
+        "bard_src_03"
+      ],
+      "related_ids": [
+        "pfan_fantasy_bard",
+        "poetry_form_alliterative_verse",
+        "culture_lit_courtly",
+        "culture_poetry_epic"
+      ],
+      "related_catalog_ids": [],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "profession_bard_celtic",
+      "name": "凯尔特诗人阶层（bard / filí）",
+      "aliases": [
+        "bard",
+        "filí",
+        "filid",
+        "威尔士诗人",
+        "爱尔兰吟游诗人"
+      ],
+      "category": "life",
+      "primary": "profession",
+      "evidence_grade": "mixed",
+      "tech_tier": "medieval",
+      "magic_tier": null,
+      "genres": [
+        "historical",
+        "real_world",
+        "western_fantasy"
+      ],
+      "tags": [
+        "kind:profession",
+        "tradition:western",
+        "class:professional",
+        "settlement:town"
+      ],
+      "profession": {
+        "shop_key": null,
+        "wage": {
+          "min": 2,
+          "max": 16,
+          "per": "日"
+        },
+        "class": "professional",
+        "settlement_min": "town",
+        "guild": false
+      },
+      "summary": "凯尔特社会里的诗人阶层：写颂词与讽刺作品，吟诗赞美部族首领、歌颂英雄事迹、庆祝法律颁行；在古凯尔特社会里享有特权，威尔士的 bard 一词至今仍是诗人的同义词。",
+      "variants": [
+        "爱尔兰：filí（专职诗人，与 bard 有等级之别）",
+        "威尔士：bard（诗人与音乐家的通称，10 世纪已分不同等级）",
+        "东方对应：乐官、史官（职能相近，传承不同）"
+      ],
+      "details": {
+        "definition": "bard 在凯尔特语境下原指写作颂词和讽刺作品的人。他们在古凯尔特社会里享有特权，吟诗赞美部族首领、歌颂英雄事迹、庆祝法律颁行；威尔士的 bard 一词一直是诗人的同义词。",
+        "mechanism": "工作重心不是娱乐而是“定名”：一首颂词把首领抬上去，一首讽刺诗把人压下去。要学的东西包括诗律、谱系、法律条文与神话。传统以师徒口传为主，后来也有诗社与赛会。",
+        "conditions": "最小聚落为城（要有首领或王室）。没有行会，但有等级与诗社。10 世纪的威尔士吟游诗人已分为不同等级；技艺以年计，学徒期很长。中世纪以后水准下降，到 15—16 世纪诗人年会的竞赛又很激烈。",
+        "exceptions": "典型纠纷：一首讽刺诗造成实际伤害（在爱尔兰，讽刺诗被认为能损伤对方的地位甚至健康），因此成了可向首领抗议的事。例外：高卢的吟游诗人在罗马帝国统治下已销声匿迹，但苏格兰盖尔语地区的吟游诗人一直存在到 18 世纪。",
+        "story_uses": "故事用途：①一首颂词里的谱系改动被当成法律证据。②诗人拒绝为一位首领写诗，全族因此尴尬。③年会赛上有人用旧的格律压制新人。④一首讽刺诗让某一家族衰败，多年后的人来找诗人算账。⑤诗人是本地唯一记得旧事的人，因此也是唯一能背出边界的人。",
+        "historical_scope": "本条对应现实历史的古代到中世纪凯尔特地区，主档取 tech:medieval（威尔士的 10 世纪分等、15—16 世纪年会都在中世纪到文艺复兴之间）。钱额是游戏行情（铜币），不是史实。",
+        "evidence_and_uncertainty": "有来源支持的部分：bard 原指在凯尔特人中写作颂词和讽刺作品的人；在古凯尔特社会里享有特权，吟诗赞美部族首领、歌颂英雄事迹、庆祝法律颁行；高卢的这一阶层在罗马帝国统治下已销声匿迹，苏格兰盖尔语地区一直存在到 18 世纪；威尔士的 bard 一直是诗人的同义词，10 世纪已分不同等级，中世纪以后水准下降，至今这一赛会仍要求以头韵与行内韵的严格格律要求（据 bard_src_02）。filí 与 bard 的等级之别属通行说法，本次未核到专门来源。"
+      },
+      "source_ids": [
+        "bard_src_02"
+      ],
+      "related_ids": [
+        "pfan_fantasy_bard",
+        "culture_lit_courtly",
+        "culture_poetry_epic"
+      ],
+      "related_catalog_ids": [],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "profession_bard_minnesanger",
+      "name": "德意志恋歌诗人（Minnesänger）",
+      "aliases": [
+        "Minnesänger",
+        "德语诗人歌手",
+        "恋歌诗人",
+        "宫廷情歌诗人"
+      ],
+      "category": "life",
+      "primary": "profession",
+      "evidence_grade": "inferred",
+      "tech_tier": "medieval",
+      "magic_tier": null,
+      "genres": [
+        "historical",
+        "real_world",
+        "western_fantasy"
+      ],
+      "tags": [
+        "kind:profession",
+        "tradition:western",
+        "class:professional",
+        "settlement:town"
+      ],
+      "profession": {
+        "shop_key": null,
+        "wage": {
+          "min": 3,
+          "max": 20,
+          "per": "日"
+        },
+        "class": "professional",
+        "settlement_min": "town",
+        "guild": false
+      },
+      "summary": "12—14 世纪德意志地区的宫廷诗人兼歌手，写“高歌”（hoher Sang）一类对高位夫人的爱恋，多数靠宫廷赞助生活，后来也出现自由职业的诗人歌手。",
+      "variants": [
+        "早期多为骑士与贵族（如骑士诗人），后期有市民出身、四处奔走求赏的职业诗人",
+        "东方对应：宋元词人兼歌者（但后两者不自己演奏）"
+      ],
+      "details": {
+        "definition": "Minnesänger 是 12—14 世纪德意志地区的宫廷诗人兼歌手，写高度形式化的恋歌，与南法的 troubadour 同属一个欧洲潮流，但用德语、有自己的曲调传统。",
+        "mechanism": "写词、作曲、演唱三合一；题材多为对高位夫人的单恋与效忠。曲调（Ton）是诗人自己的财产，也可以被别人借用。后来歌曲被汇编成大型手抄歌本（如《玛内塞歌本》），并配上诗人的画像。",
+        "conditions": "最小聚落为城（要有宫廷或大贵族）。没有行会，靠宫廷赞助；后期出现以演出为生的流动诗人。门槛：诗的格律与曲调都是固定的，要背很多首并会即兴套用。",
+        "exceptions": "典型纠纷：曲调被无资格的人盗用；歌词对某位夫人的措词被认为是越礼；赞助人失势后无处可去。例外：也有市民出身的诗人靠赛诗会（Sängerkrieg 一类的传统）取胜。",
+        "story_uses": "故事用途：①一首恋歌的曲调被人盗用，变成了全城俚语。②歌本上的诗人画像被改，改的人想从谱系上抹掉一个人。③一位诗人被要求在两份互相矛盾的赞助之间选边。④一段歌词里的化名指向一位已婚贵妇。",
+        "historical_scope": "本条对应现实历史的 12—14 世纪德意志地区，对应 tech:medieval。钱额是游戏行情（铜币），不是史实。",
+        "evidence_and_uncertainty": "本条没有读到专门讲 Minnesang 的来源（bard_src_05 的 Britannica 页未取到、bard_src_06 的 Wikipedia 页被重置）；“德语宫廷恋歌、曲调（Ton）归诗人所有、后期出现市民出身的职业诗人”这些说法属通行知识，未逐条核到可引用的正文，故本条 source_ids 为空、evidence_grade=inferred。写的时候刻意没有与南法的 canso 混为一谈：两者同潮流但不是同一传统。"
+      },
+      "source_ids": [],
+      "related_ids": [
+        "pfan_fantasy_bard",
+        "culture_lit_courtly",
+        "profession_bard_troubadour",
+        "culture_poetry_lyric"
+      ],
+      "related_catalog_ids": [],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "profession_bard_generic_fantasy",
+      "name": "西幻通用吟游诗人（综合模板）",
+      "aliases": [
+        "吟游诗人",
+        "bard",
+        "游方诗人",
+        "西幻吟游诗人"
+      ],
+      "category": "life",
+      "primary": "profession",
+      "evidence_grade": "inferred",
+      "tech_tier": "medieval",
+      "magic_tier": null,
+      "genres": [
+        "western_fantasy",
+        "historical",
+        "real_world",
+        "folk_horror"
+      ],
+      "tags": [
+        "kind:profession",
+        "tradition:western",
+        "class:outcast",
+        "settlement:hamlet"
+      ],
+      "profession": {
+        "shop_key": null,
+        "wage": {
+          "min": 4,
+          "max": 30,
+          "per": "日"
+        },
+        "class": "outcast",
+        "settlement_min": "hamlet",
+        "guild": false
+      },
+      "summary": "西幻世界里的通用吟游诗人模板：把上面五种现实传统拆成可调的旋钮（有没有赞助人、能不能写诗、能不能施法），给作者一条拿来就能用的职业。本条不包含任何魔法能力。",
+      "variants": [
+        "无赞助、无作品的版本 → 近于 profession_bard_jongleur",
+        "有宫廷赞助、会自己作曲的版本 → 近于 profession_bard_troubadour",
+        "王厅里背长篇颂诗的版本 → 近于 profession_bard_skald",
+        "有诗社与等级、会颂会讽的版本 → 近于 profession_bard_celtic"
+      ],
+      "details": {
+        "definition": "西幻通用吟游诗人是把现实里的行吟诗人、流浪艺人、宫廷诗人、凯尔特诗人与恋歌诗人拆成旋钮后的综合模板。核心始终不变：靠声音与记忆吃饭的流动知识人。",
+        "mechanism": "一天的流程：找场子（酒馆、市集、领主宅邸）、唱、收赏、打听消息、赶下一处。三个可调旋钮：一、有没有固定赞助人（有则收入稳、但得听赞助人的）；二、自己写不写作品（写则地位高、收入更像赏赐；不写则靠场次与赏钱）；三、会不会读写字（会则能记谱、能当书记；不会则全靠记忆）。乐器按现实传统选：竖琴、抱琴（lute）、维奥尔（vielle）、风笛、鼓。",
+        "conditions": "最小聚落为村（有酒馆即可）。没有行会；有些领主发放表演许可，无许可只能在街头或市集。入门靠师徒或家传；想往上走，只有两条路：被宫廷收为乐师，或手里有别人学不会的长篇。",
+        "exceptions": "典型纠纷：歌词得罪贵人；被当成奸细；与酒馆老板分账；两个艺人争同一个场子。例外：兼做守夜人、军号手、书记、线人的，收入与安全都好得多。不要把所有吟游诗人都写成施法者：法术版另有 pfan_fantasy_bard（magic_tier=rare）。",
+        "story_uses": "故事用途：①他唱的那首歌在四个城镇同时出现，歌词里藏着同一个名字。②他靠一首歌把一个暴乱压下去。③贵族用钱买他不唱某首。④他从各处听来的消息被打听成了钱。⑤他把一段只在口头传的旧事写下来，成了唯一证据。⑥他唱错了词，惹来杀身之祸。",
+        "historical_scope": "本条是设计推演的综合模板，主档取 tech:medieval（有印刷机与报刊之后，消息渠道会变，对应可下调其重要度）。钱额是游戏行情（铜币），不是史实；magic_tier 为 null，即不需要任何魔法档。",
+        "evidence_and_uncertainty": "本条为设计推演，无直接来源；五个旋钮都取自上条的现实传统，史实依据见那五条的 evidence_and_uncertainty。工资与施法比例是游戏设定。与 pfan_fantasy_bard（法术版，magic_tier=rare）互补：本条不包魔法。"
+      },
+      "source_ids": [],
+      "related_ids": [
+        "pfan_fantasy_bard",
+        "profession_bard_troubadour",
+        "profession_bard_jongleur",
+        "profession_bard_skald",
+        "profession_bard_celtic",
+        "poetry_form_ballad_stanza",
+        "culture_poetry_song"
+      ],
+      "related_catalog_ids": [
+        "shop_tavern",
+        "shop_inn_kitchen"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    }
+  ]
+}

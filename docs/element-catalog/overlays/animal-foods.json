@@ -1,0 +1,455 @@
+{
+  "schema": "catalog_overlay_v1",
+  "group": "animal-foods",
+  "entries": {
+    "animal_food_cattle": {
+      "primary": "livestock",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "animal_food_water_buffalo": {
+      "primary": "livestock",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "animal_food_sheep": {
+      "primary": "livestock",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "animal_food_goat": {
+      "primary": "livestock",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "animal_food_pig": {
+      "primary": "livestock",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "animal_food_chicken": {
+      "primary": "poultry",
+      "evidence_grade": "sourced",
+      "note": "活体家禽，归 poultry 而非 livestock",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "animal_food_duck": {
+      "primary": "poultry",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "animal_food_goose": {
+      "primary": "poultry",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "animal_food_turkey": {
+      "primary": "poultry",
+      "evidence_grade": "sourced",
+      "note": "美洲物产，旧大陆世界需作者决定是否引入。",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "animal_food_cod": {
+      "primary": "seafood",
+      "evidence_grade": "mixed",
+      "note": "鱼类贸易史部分未被已读来源逐条支撑，证据 mixed",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "animal_food_herring": {
+      "primary": "seafood",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "animal_food_salmon": {
+      "primary": "seafood",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "animal_food_oyster": {
+      "primary": "seafood",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "animal_food_clam": {
+      "primary": "seafood",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "animal_food_shrimp_prawn": {
+      "primary": "seafood",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "animal_food_milk": {
+      "primary": "dairy",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "animal_food_egg": {
+      "primary": "egg",
+      "evidence_grade": "sourced",
+      "note": "禽蛋",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "animal_food_beef": {
+      "primary": "meat",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "animal_food_pork": {
+      "primary": "meat",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "animal_food_mutton_lamb": {
+      "primary": "meat",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "animal_food_cheese": {
+      "primary": "dairy",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "animal_food_butter": {
+      "primary": "dairy",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "animal_food_yogurt": {
+      "primary": "dairy",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "animal_food_ham_bacon": {
+      "primary": "preserved_food",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "animal_food_sausage": {
+      "primary": "preserved_food",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "animal_food_rendered_fat": {
+      "primary": "fat_oil",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "animal_food_dried_salted_fish": {
+      "primary": "preserved_food",
+      "evidence_grade": "mixed",
+      "note": "干腌保存品，归 preserved_food，备选 seafood；贸易史部分未被来源支撑，证据 mixed",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "animal_food_condensed_dried_milk": {
+      "primary": "dairy",
+      "evidence_grade": "sourced",
+      "note": "加工保存乳品，归 dairy，备选 preserved_food",
+      "tech_tier": "steam",
+      "magic_tier": null,
+      "genres_add": [
+        "steampunk",
+        "modern"
+      ]
+    }
+  }
+}

@@ -1,0 +1,2077 @@
+[
+ {
+  "id": "west-common-keep-01",
+  "style": "west",
+  "race": "common",
+  "category": "castle",
+  "kind": "keep_square",
+  "facility": "lord_hall",
+  "variant": 1,
+  "footprint": [
+   3,
+   3
+  ],
+  "height_px": 144,
+  "anchor": [
+   72,
+   288
+  ],
+  "viewBox": [
+   0,
+   0,
+   144,
+   288
+  ],
+  "tags": [
+   "keep",
+   "donjon",
+   "square",
+   "crenellated",
+   "flag"
+  ],
+  "roof": "none",
+  "note": "方形诺曼式主楼：平顶带垛口，四角小塔；无对应 RoofId，填 none（平屋顶石台）"
+ },
+ {
+  "id": "west-common-keep-02",
+  "style": "west",
+  "race": "common",
+  "category": "castle",
+  "kind": "keep_round",
+  "facility": "lord_hall",
+  "variant": 2,
+  "footprint": [
+   3,
+   3
+  ],
+  "height_px": 144,
+  "anchor": [
+   72,
+   288
+  ],
+  "viewBox": [
+   0,
+   0,
+   144,
+   288
+  ],
+  "tags": [
+   "keep",
+   "donjon",
+   "round",
+   "crenellated",
+   "machicolation",
+   "flag"
+  ],
+  "roof": "steep_slate",
+  "note": "圆形塔式主楼：塔顶平台带垛口与突堞，屋顶楼梯小塔为青石板锥顶"
+ },
+ {
+  "id": "west-common-greathall-01",
+  "style": "west",
+  "race": "common",
+  "category": "castle",
+  "kind": "great_hall",
+  "facility": "lord_hall",
+  "variant": 1,
+  "footprint": [
+   4,
+   2
+  ],
+  "height_px": 64,
+  "anchor": [
+   96,
+   160
+  ],
+  "viewBox": [
+   0,
+   0,
+   192,
+   160
+  ],
+  "tags": [
+   "great_hall",
+   "stone",
+   "lancet_windows",
+   "buttress",
+   "louver",
+   "chimney"
+  ],
+  "roof": "steep_slate",
+  "note": "城堡大厅：长条石砌厅堂，成对尖拱高窗，陡坡青石板顶，屋脊排烟亭"
+ },
+ {
+  "id": "west-common-chapel-01",
+  "style": "west",
+  "race": "common",
+  "category": "castle",
+  "kind": "chapel",
+  "facility": "temple",
+  "variant": 1,
+  "footprint": [
+   2,
+   3
+  ],
+  "height_px": 84,
+  "anchor": [
+   48,
+   228
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   228
+  ],
+  "tags": [
+   "chapel",
+   "stone",
+   "rose_window",
+   "bell_cote",
+   "lancet_windows",
+   "cross"
+  ],
+  "roof": "steep_slate",
+  "note": "城堡礼拜堂：山墙朝前，玫瑰窗、尖拱门、山尖钟架；青石板陡坡顶"
+ },
+ {
+  "id": "west-common-castlebarracks-01",
+  "style": "west",
+  "race": "common",
+  "category": "castle",
+  "kind": "barracks",
+  "facility": "barracks",
+  "variant": 1,
+  "footprint": [
+   3,
+   2
+  ],
+  "height_px": 80,
+  "anchor": [
+   72,
+   176
+  ],
+  "viewBox": [
+   0,
+   0,
+   144,
+   176
+  ],
+  "tags": [
+   "barracks",
+   "stone_ground_floor",
+   "half_timber",
+   "weapon_rack",
+   "shields",
+   "chimney"
+  ],
+  "roof": "gable_tile",
+  "note": "城堡兵营：石砌底层 + 半木结构二层，门旁兵器架与挂盾，红瓦双坡顶"
+ },
+ {
+  "id": "west-common-castlekitchen-01",
+  "style": "west",
+  "race": "common",
+  "category": "castle",
+  "kind": "kitchen",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   2,
+   2
+  ],
+  "height_px": 84,
+  "anchor": [
+   48,
+   180
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   180
+  ],
+  "tags": [
+   "kitchen",
+   "stone",
+   "twin_chimney",
+   "woodpile",
+   "serving_hatch"
+  ],
+  "roof": "gable_tile",
+  "note": "城堡厨房：FacilityKind 无对应项，facility 填 null；两座大烟囱、送菜窗台、木柴垛"
+ },
+ {
+  "id": "west-common-castlegranary-01",
+  "style": "west",
+  "race": "common",
+  "category": "castle",
+  "kind": "granary_raised",
+  "facility": "granary",
+  "variant": 1,
+  "footprint": [
+   2,
+   2
+  ],
+  "height_px": 72,
+  "anchor": [
+   48,
+   168
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   168
+  ],
+  "tags": [
+   "granary",
+   "raised",
+   "staddle_stones",
+   "thatch",
+   "ladder",
+   "sacks"
+  ],
+  "roof": "gable_thatch",
+  "note": "城堡粮仓：蘑菇石墩架空的木板仓，木梯上高门，茅草陡顶"
+ },
+ {
+  "id": "west-common-castlestable-01",
+  "style": "west",
+  "race": "common",
+  "category": "castle",
+  "kind": "stable_leanto",
+  "facility": "stable",
+  "variant": 1,
+  "footprint": [
+   3,
+   1
+  ],
+  "height_px": 64,
+  "anchor": [
+   72,
+   112
+  ],
+  "viewBox": [
+   0,
+   0,
+   144,
+   112
+  ],
+  "tags": [
+   "stable",
+   "lean_to",
+   "wall_side",
+   "horses",
+   "hay",
+   "trough"
+  ],
+  "roof": "monopitch",
+  "note": "城堡马厩：贴幕墙内侧的单坡披屋（后沿贴墙），三间厩位、两匹马探头、草料架、门前水槽"
+ },
+ {
+  "id": "west-common-castleforge-01",
+  "style": "west",
+  "race": "common",
+  "category": "castle",
+  "kind": "forge_leanto",
+  "facility": "forge",
+  "variant": 1,
+  "footprint": [
+   2,
+   1
+  ],
+  "height_px": 72,
+  "anchor": [
+   48,
+   120
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   120
+  ],
+  "tags": [
+   "forge",
+   "lean_to",
+   "wall_side",
+   "anvil",
+   "hearth",
+   "bellows",
+   "chimney"
+  ],
+  "roof": "monopitch",
+  "note": "城堡铁匠棚：贴幕墙内侧的敞口单坡披屋，炉火、风箱、铁砧、淬火桶、穿顶石烟囱"
+ },
+ {
+  "id": "west-common-castlewell-01",
+  "style": "west",
+  "race": "common",
+  "category": "castle",
+  "kind": "well_windlass",
+  "facility": "well",
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 44,
+  "anchor": [
+   24,
+   92
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   92
+  ],
+  "tags": [
+   "well",
+   "windlass",
+   "bucket",
+   "stone_curb"
+  ],
+  "roof": "gable_tile",
+  "note": "内院水井：圆石井栏、辘轳摇把、吊桶、小坡顶"
+ },
+ {
+  "id": "west-common-tower-round-01",
+  "style": "west",
+  "race": "common",
+  "category": "castle",
+  "kind": "tower_round",
+  "facility": "watchtower",
+  "variant": 1,
+  "footprint": [
+   3,
+   3
+  ],
+  "height_px": 104,
+  "anchor": [
+   72,
+   248
+  ],
+  "viewBox": [
+   0,
+   0,
+   144,
+   248
+  ],
+  "tags": [
+   "tower",
+   "round",
+   "wall_overlay",
+   "corner",
+   "crenellated",
+   "conical_roof",
+   "flag"
+  ],
+  "roof": "steep_slate",
+  "note": "幕墙拐角 / 端点叠加件：塔心对准占地中格（即墙格中心）；锥顶青石板"
+ },
+ {
+  "id": "west-common-tower-square-01",
+  "style": "west",
+  "race": "common",
+  "category": "castle",
+  "kind": "tower_square",
+  "facility": "watchtower",
+  "variant": 1,
+  "footprint": [
+   3,
+   3
+  ],
+  "height_px": 100,
+  "anchor": [
+   72,
+   244
+  ],
+  "viewBox": [
+   0,
+   0,
+   144,
+   244
+  ],
+  "tags": [
+   "tower",
+   "square",
+   "wall_overlay",
+   "corner",
+   "crenellated",
+   "flag"
+  ],
+  "roof": "none",
+  "note": "幕墙拐角 / 端点叠加件：方台中心对准占地中格；平顶垛口，无对应 RoofId 填 none"
+ },
+ {
+  "id": "west-common-gatehouse-h",
+  "style": "west",
+  "race": "common",
+  "category": "castle",
+  "kind": "gatehouse",
+  "facility": "gate",
+  "variant": 1,
+  "footprint": [
+   3,
+   2
+  ],
+  "height_px": 124,
+  "anchor": [
+   72,
+   220
+  ],
+  "viewBox": [
+   0,
+   0,
+   144,
+   220
+  ],
+  "tags": [
+   "gatehouse",
+   "gate-h",
+   "wall_overlay",
+   "portcullis",
+   "machicolation",
+   "twin_towers",
+   "flag"
+  ],
+  "roof": "none",
+  "note": "东西向幕墙的城门楼：占地 3×2，第 1 行压在墙格上（中列为门洞格），第 2 行是墙外护坡；吊闸半升；链孔与 drawbridge-ns 对齐"
+ },
+ {
+  "id": "west-common-gatehouse-v",
+  "style": "west",
+  "race": "common",
+  "category": "castle",
+  "kind": "gatehouse",
+  "facility": "gate",
+  "variant": 2,
+  "footprint": [
+   2,
+   3
+  ],
+  "height_px": 130,
+  "anchor": [
+   48,
+   274
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   274
+  ],
+  "tags": [
+   "gatehouse",
+   "gate-v",
+   "wall_overlay",
+   "portcullis",
+   "twin_towers",
+   "flag"
+  ],
+  "roof": "none",
+  "note": "南北向幕墙的城门楼（门朝东）：占地 2×3，第 1 列压在墙格上（中行为门洞格），第 2 列是墙外护坡；东立面按规范只露一窄条；链在东沿 h=60 处与 drawbridge-ew 接上"
+ },
+ {
+  "id": "west-common-drawbridge-ns-down",
+  "style": "west",
+  "race": "common",
+  "category": "castle",
+  "kind": "drawbridge",
+  "facility": "bridge",
+  "variant": 1,
+  "footprint": [
+   1,
+   2
+  ],
+  "height_px": 100,
+  "anchor": [
+   24,
+   196
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   196
+  ],
+  "tags": [
+   "drawbridge",
+   "ns",
+   "lowered",
+   "moat_overlay"
+  ],
+  "roof": "none",
+  "note": "南北向吊桥：放在 2 格宽护城河上，北端对准 gatehouse-h 的门洞；放下状态，两条链拉向门楼链孔"
+ },
+ {
+  "id": "west-common-drawbridge-ns-up",
+  "style": "west",
+  "race": "common",
+  "category": "castle",
+  "kind": "drawbridge",
+  "facility": "bridge",
+  "variant": 2,
+  "footprint": [
+   1,
+   2
+  ],
+  "height_px": 100,
+  "anchor": [
+   24,
+   196
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   196
+  ],
+  "tags": [
+   "drawbridge",
+   "ns",
+   "raised",
+   "moat_overlay"
+  ],
+  "roof": "none",
+  "note": "南北向吊桥：放在 2 格宽护城河上，北端对准 gatehouse-h 的门洞；收起状态，桥板竖起挡住门洞，下面露出水面"
+ },
+ {
+  "id": "west-common-drawbridge-ew-down",
+  "style": "west",
+  "race": "common",
+  "category": "castle",
+  "kind": "drawbridge",
+  "facility": "bridge",
+  "variant": 3,
+  "footprint": [
+   2,
+   1
+  ],
+  "height_px": 56,
+  "anchor": [
+   48,
+   104
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   104
+  ],
+  "tags": [
+   "drawbridge",
+   "ew",
+   "lowered",
+   "moat_overlay"
+  ],
+  "roof": "none",
+  "note": "东西向吊桥：放在 2 格宽护城河上，西端对准 gatehouse-v 的门洞；放下状态"
+ },
+ {
+  "id": "west-common-drawbridge-ew-up",
+  "style": "west",
+  "race": "common",
+  "category": "castle",
+  "kind": "drawbridge",
+  "facility": "bridge",
+  "variant": 4,
+  "footprint": [
+   2,
+   1
+  ],
+  "height_px": 56,
+  "anchor": [
+   48,
+   104
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   104
+  ],
+  "tags": [
+   "drawbridge",
+   "ew",
+   "raised",
+   "moat_overlay"
+  ],
+  "roof": "none",
+  "note": "东西向吊桥：放在 2 格宽护城河上，西端对准 gatehouse-v 的门洞；收起状态（桥板侧对镜头，只见窄条与顶端）"
+ },
+ {
+  "id": "west-common-castlewall-0000",
+  "style": "west",
+  "race": "common",
+  "category": "wall",
+  "kind": "castle_wall",
+  "facility": "city_wall",
+  "variant": 0,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 72,
+  "anchor": [
+   24,
+   120
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   120
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_0000"
+  ],
+  "roof": "none",
+  "note": "空瓦片（透明占位）"
+ },
+ {
+  "id": "west-common-castlewall-0001",
+  "style": "west",
+  "race": "common",
+  "category": "wall",
+  "kind": "castle_wall",
+  "facility": "city_wall",
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 72,
+  "anchor": [
+   24,
+   120
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   120
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_0001"
+  ],
+  "roof": "none",
+  "note": "幕墙双网格瓦片：走道高 60 px、垛高 10 px，厚一整格"
+ },
+ {
+  "id": "west-common-castlewall-0010",
+  "style": "west",
+  "race": "common",
+  "category": "wall",
+  "kind": "castle_wall",
+  "facility": "city_wall",
+  "variant": 2,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 72,
+  "anchor": [
+   24,
+   120
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   120
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_0010"
+  ],
+  "roof": "none",
+  "note": "幕墙双网格瓦片：走道高 60 px、垛高 10 px，厚一整格"
+ },
+ {
+  "id": "west-common-castlewall-0011",
+  "style": "west",
+  "race": "common",
+  "category": "wall",
+  "kind": "castle_wall",
+  "facility": "city_wall",
+  "variant": 3,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 72,
+  "anchor": [
+   24,
+   120
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   120
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_0011"
+  ],
+  "roof": "none",
+  "note": "幕墙双网格瓦片：走道高 60 px、垛高 10 px，厚一整格"
+ },
+ {
+  "id": "west-common-castlewall-0100",
+  "style": "west",
+  "race": "common",
+  "category": "wall",
+  "kind": "castle_wall",
+  "facility": "city_wall",
+  "variant": 4,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 72,
+  "anchor": [
+   24,
+   120
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   120
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_0100"
+  ],
+  "roof": "none",
+  "note": "幕墙双网格瓦片：走道高 60 px、垛高 10 px，厚一整格"
+ },
+ {
+  "id": "west-common-castlewall-0101",
+  "style": "west",
+  "race": "common",
+  "category": "wall",
+  "kind": "castle_wall",
+  "facility": "city_wall",
+  "variant": 5,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 72,
+  "anchor": [
+   24,
+   120
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   120
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_0101"
+  ],
+  "roof": "none",
+  "note": "幕墙双网格瓦片：走道高 60 px、垛高 10 px，厚一整格"
+ },
+ {
+  "id": "west-common-castlewall-0110",
+  "style": "west",
+  "race": "common",
+  "category": "wall",
+  "kind": "castle_wall",
+  "facility": "city_wall",
+  "variant": 6,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 72,
+  "anchor": [
+   24,
+   120
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   120
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_0110"
+  ],
+  "roof": "none",
+  "note": "幕墙双网格瓦片：走道高 60 px、垛高 10 px，厚一整格"
+ },
+ {
+  "id": "west-common-castlewall-0111",
+  "style": "west",
+  "race": "common",
+  "category": "wall",
+  "kind": "castle_wall",
+  "facility": "city_wall",
+  "variant": 7,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 72,
+  "anchor": [
+   24,
+   120
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   120
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_0111"
+  ],
+  "roof": "none",
+  "note": "幕墙双网格瓦片：走道高 60 px、垛高 10 px，厚一整格"
+ },
+ {
+  "id": "west-common-castlewall-1000",
+  "style": "west",
+  "race": "common",
+  "category": "wall",
+  "kind": "castle_wall",
+  "facility": "city_wall",
+  "variant": 8,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 72,
+  "anchor": [
+   24,
+   120
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   120
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_1000"
+  ],
+  "roof": "none",
+  "note": "幕墙双网格瓦片：走道高 60 px、垛高 10 px，厚一整格"
+ },
+ {
+  "id": "west-common-castlewall-1001",
+  "style": "west",
+  "race": "common",
+  "category": "wall",
+  "kind": "castle_wall",
+  "facility": "city_wall",
+  "variant": 9,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 72,
+  "anchor": [
+   24,
+   120
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   120
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_1001"
+  ],
+  "roof": "none",
+  "note": "幕墙双网格瓦片：走道高 60 px、垛高 10 px，厚一整格"
+ },
+ {
+  "id": "west-common-castlewall-1010",
+  "style": "west",
+  "race": "common",
+  "category": "wall",
+  "kind": "castle_wall",
+  "facility": "city_wall",
+  "variant": 10,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 72,
+  "anchor": [
+   24,
+   120
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   120
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_1010"
+  ],
+  "roof": "none",
+  "note": "幕墙双网格瓦片：走道高 60 px、垛高 10 px，厚一整格"
+ },
+ {
+  "id": "west-common-castlewall-1011",
+  "style": "west",
+  "race": "common",
+  "category": "wall",
+  "kind": "castle_wall",
+  "facility": "city_wall",
+  "variant": 11,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 72,
+  "anchor": [
+   24,
+   120
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   120
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_1011"
+  ],
+  "roof": "none",
+  "note": "幕墙双网格瓦片：走道高 60 px、垛高 10 px，厚一整格"
+ },
+ {
+  "id": "west-common-castlewall-1100",
+  "style": "west",
+  "race": "common",
+  "category": "wall",
+  "kind": "castle_wall",
+  "facility": "city_wall",
+  "variant": 12,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 72,
+  "anchor": [
+   24,
+   120
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   120
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_1100"
+  ],
+  "roof": "none",
+  "note": "幕墙双网格瓦片：走道高 60 px、垛高 10 px，厚一整格"
+ },
+ {
+  "id": "west-common-castlewall-1101",
+  "style": "west",
+  "race": "common",
+  "category": "wall",
+  "kind": "castle_wall",
+  "facility": "city_wall",
+  "variant": 13,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 72,
+  "anchor": [
+   24,
+   120
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   120
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_1101"
+  ],
+  "roof": "none",
+  "note": "幕墙双网格瓦片：走道高 60 px、垛高 10 px，厚一整格"
+ },
+ {
+  "id": "west-common-castlewall-1110",
+  "style": "west",
+  "race": "common",
+  "category": "wall",
+  "kind": "castle_wall",
+  "facility": "city_wall",
+  "variant": 14,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 72,
+  "anchor": [
+   24,
+   120
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   120
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_1110"
+  ],
+  "roof": "none",
+  "note": "幕墙双网格瓦片：走道高 60 px、垛高 10 px，厚一整格"
+ },
+ {
+  "id": "west-common-castlewall-1111",
+  "style": "west",
+  "race": "common",
+  "category": "wall",
+  "kind": "castle_wall",
+  "facility": "city_wall",
+  "variant": 15,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 72,
+  "anchor": [
+   24,
+   120
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   120
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_1111"
+  ],
+  "roof": "none",
+  "note": "幕墙双网格瓦片：走道高 60 px、垛高 10 px，厚一整格"
+ },
+ {
+  "id": "west-common-moat-0000",
+  "style": "west",
+  "race": "common",
+  "category": "castle",
+  "kind": "moat",
+  "facility": null,
+  "variant": 0,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_0000",
+   "water"
+  ],
+  "roof": "none",
+  "note": "空瓦片（透明占位）"
+ },
+ {
+  "id": "west-common-moat-0001",
+  "style": "west",
+  "race": "common",
+  "category": "castle",
+  "kind": "moat",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_0001",
+   "water"
+  ],
+  "roof": "none",
+  "note": "护城河双网格瓦片：水面低于地面，北岸露石砌驳岸立面，岸顶压顶条石"
+ },
+ {
+  "id": "west-common-moat-0010",
+  "style": "west",
+  "race": "common",
+  "category": "castle",
+  "kind": "moat",
+  "facility": null,
+  "variant": 2,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_0010",
+   "water"
+  ],
+  "roof": "none",
+  "note": "护城河双网格瓦片：水面低于地面，北岸露石砌驳岸立面，岸顶压顶条石"
+ },
+ {
+  "id": "west-common-moat-0011",
+  "style": "west",
+  "race": "common",
+  "category": "castle",
+  "kind": "moat",
+  "facility": null,
+  "variant": 3,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_0011",
+   "water"
+  ],
+  "roof": "none",
+  "note": "护城河双网格瓦片：水面低于地面，北岸露石砌驳岸立面，岸顶压顶条石"
+ },
+ {
+  "id": "west-common-moat-0100",
+  "style": "west",
+  "race": "common",
+  "category": "castle",
+  "kind": "moat",
+  "facility": null,
+  "variant": 4,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_0100",
+   "water"
+  ],
+  "roof": "none",
+  "note": "护城河双网格瓦片：水面低于地面，北岸露石砌驳岸立面，岸顶压顶条石"
+ },
+ {
+  "id": "west-common-moat-0101",
+  "style": "west",
+  "race": "common",
+  "category": "castle",
+  "kind": "moat",
+  "facility": null,
+  "variant": 5,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_0101",
+   "water"
+  ],
+  "roof": "none",
+  "note": "护城河双网格瓦片：水面低于地面，北岸露石砌驳岸立面，岸顶压顶条石"
+ },
+ {
+  "id": "west-common-moat-0110",
+  "style": "west",
+  "race": "common",
+  "category": "castle",
+  "kind": "moat",
+  "facility": null,
+  "variant": 6,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_0110",
+   "water"
+  ],
+  "roof": "none",
+  "note": "护城河双网格瓦片：水面低于地面，北岸露石砌驳岸立面，岸顶压顶条石"
+ },
+ {
+  "id": "west-common-moat-0111",
+  "style": "west",
+  "race": "common",
+  "category": "castle",
+  "kind": "moat",
+  "facility": null,
+  "variant": 7,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_0111",
+   "water"
+  ],
+  "roof": "none",
+  "note": "护城河双网格瓦片：水面低于地面，北岸露石砌驳岸立面，岸顶压顶条石"
+ },
+ {
+  "id": "west-common-moat-1000",
+  "style": "west",
+  "race": "common",
+  "category": "castle",
+  "kind": "moat",
+  "facility": null,
+  "variant": 8,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_1000",
+   "water"
+  ],
+  "roof": "none",
+  "note": "护城河双网格瓦片：水面低于地面，北岸露石砌驳岸立面，岸顶压顶条石"
+ },
+ {
+  "id": "west-common-moat-1001",
+  "style": "west",
+  "race": "common",
+  "category": "castle",
+  "kind": "moat",
+  "facility": null,
+  "variant": 9,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_1001",
+   "water"
+  ],
+  "roof": "none",
+  "note": "护城河双网格瓦片：水面低于地面，北岸露石砌驳岸立面，岸顶压顶条石"
+ },
+ {
+  "id": "west-common-moat-1010",
+  "style": "west",
+  "race": "common",
+  "category": "castle",
+  "kind": "moat",
+  "facility": null,
+  "variant": 10,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_1010",
+   "water"
+  ],
+  "roof": "none",
+  "note": "护城河双网格瓦片：水面低于地面，北岸露石砌驳岸立面，岸顶压顶条石"
+ },
+ {
+  "id": "west-common-moat-1011",
+  "style": "west",
+  "race": "common",
+  "category": "castle",
+  "kind": "moat",
+  "facility": null,
+  "variant": 11,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_1011",
+   "water"
+  ],
+  "roof": "none",
+  "note": "护城河双网格瓦片：水面低于地面，北岸露石砌驳岸立面，岸顶压顶条石"
+ },
+ {
+  "id": "west-common-moat-1100",
+  "style": "west",
+  "race": "common",
+  "category": "castle",
+  "kind": "moat",
+  "facility": null,
+  "variant": 12,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_1100",
+   "water"
+  ],
+  "roof": "none",
+  "note": "护城河双网格瓦片：水面低于地面，北岸露石砌驳岸立面，岸顶压顶条石"
+ },
+ {
+  "id": "west-common-moat-1101",
+  "style": "west",
+  "race": "common",
+  "category": "castle",
+  "kind": "moat",
+  "facility": null,
+  "variant": 13,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_1101",
+   "water"
+  ],
+  "roof": "none",
+  "note": "护城河双网格瓦片：水面低于地面，北岸露石砌驳岸立面，岸顶压顶条石"
+ },
+ {
+  "id": "west-common-moat-1110",
+  "style": "west",
+  "race": "common",
+  "category": "castle",
+  "kind": "moat",
+  "facility": null,
+  "variant": 14,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_1110",
+   "water"
+  ],
+  "roof": "none",
+  "note": "护城河双网格瓦片：水面低于地面，北岸露石砌驳岸立面，岸顶压顶条石"
+ },
+ {
+  "id": "west-common-moat-1111",
+  "style": "west",
+  "race": "common",
+  "category": "castle",
+  "kind": "moat",
+  "facility": null,
+  "variant": 15,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_1111",
+   "water"
+  ],
+  "roof": "none",
+  "note": "护城河双网格瓦片：水面低于地面，北岸露石砌驳岸立面，岸顶压顶条石"
+ },
+ {
+  "id": "west-common-yard-0000",
+  "style": "west",
+  "race": "common",
+  "category": "road",
+  "kind": "yard_flagstone",
+  "facility": null,
+  "variant": 0,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_0000",
+   "courtyard"
+  ],
+  "roof": "none",
+  "note": "空瓦片（透明占位）"
+ },
+ {
+  "id": "west-common-yard-0001",
+  "style": "west",
+  "race": "common",
+  "category": "road",
+  "kind": "yard_flagstone",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_0001",
+   "courtyard"
+  ],
+  "roof": "none",
+  "note": "内院石板地双网格瓦片，边缘一道路缘石"
+ },
+ {
+  "id": "west-common-yard-0010",
+  "style": "west",
+  "race": "common",
+  "category": "road",
+  "kind": "yard_flagstone",
+  "facility": null,
+  "variant": 2,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_0010",
+   "courtyard"
+  ],
+  "roof": "none",
+  "note": "内院石板地双网格瓦片，边缘一道路缘石"
+ },
+ {
+  "id": "west-common-yard-0011",
+  "style": "west",
+  "race": "common",
+  "category": "road",
+  "kind": "yard_flagstone",
+  "facility": null,
+  "variant": 3,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_0011",
+   "courtyard"
+  ],
+  "roof": "none",
+  "note": "内院石板地双网格瓦片，边缘一道路缘石"
+ },
+ {
+  "id": "west-common-yard-0100",
+  "style": "west",
+  "race": "common",
+  "category": "road",
+  "kind": "yard_flagstone",
+  "facility": null,
+  "variant": 4,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_0100",
+   "courtyard"
+  ],
+  "roof": "none",
+  "note": "内院石板地双网格瓦片，边缘一道路缘石"
+ },
+ {
+  "id": "west-common-yard-0101",
+  "style": "west",
+  "race": "common",
+  "category": "road",
+  "kind": "yard_flagstone",
+  "facility": null,
+  "variant": 5,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_0101",
+   "courtyard"
+  ],
+  "roof": "none",
+  "note": "内院石板地双网格瓦片，边缘一道路缘石"
+ },
+ {
+  "id": "west-common-yard-0110",
+  "style": "west",
+  "race": "common",
+  "category": "road",
+  "kind": "yard_flagstone",
+  "facility": null,
+  "variant": 6,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_0110",
+   "courtyard"
+  ],
+  "roof": "none",
+  "note": "内院石板地双网格瓦片，边缘一道路缘石"
+ },
+ {
+  "id": "west-common-yard-0111",
+  "style": "west",
+  "race": "common",
+  "category": "road",
+  "kind": "yard_flagstone",
+  "facility": null,
+  "variant": 7,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_0111",
+   "courtyard"
+  ],
+  "roof": "none",
+  "note": "内院石板地双网格瓦片，边缘一道路缘石"
+ },
+ {
+  "id": "west-common-yard-1000",
+  "style": "west",
+  "race": "common",
+  "category": "road",
+  "kind": "yard_flagstone",
+  "facility": null,
+  "variant": 8,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_1000",
+   "courtyard"
+  ],
+  "roof": "none",
+  "note": "内院石板地双网格瓦片，边缘一道路缘石"
+ },
+ {
+  "id": "west-common-yard-1001",
+  "style": "west",
+  "race": "common",
+  "category": "road",
+  "kind": "yard_flagstone",
+  "facility": null,
+  "variant": 9,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_1001",
+   "courtyard"
+  ],
+  "roof": "none",
+  "note": "内院石板地双网格瓦片，边缘一道路缘石"
+ },
+ {
+  "id": "west-common-yard-1010",
+  "style": "west",
+  "race": "common",
+  "category": "road",
+  "kind": "yard_flagstone",
+  "facility": null,
+  "variant": 10,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_1010",
+   "courtyard"
+  ],
+  "roof": "none",
+  "note": "内院石板地双网格瓦片，边缘一道路缘石"
+ },
+ {
+  "id": "west-common-yard-1011",
+  "style": "west",
+  "race": "common",
+  "category": "road",
+  "kind": "yard_flagstone",
+  "facility": null,
+  "variant": 11,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_1011",
+   "courtyard"
+  ],
+  "roof": "none",
+  "note": "内院石板地双网格瓦片，边缘一道路缘石"
+ },
+ {
+  "id": "west-common-yard-1100",
+  "style": "west",
+  "race": "common",
+  "category": "road",
+  "kind": "yard_flagstone",
+  "facility": null,
+  "variant": 12,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_1100",
+   "courtyard"
+  ],
+  "roof": "none",
+  "note": "内院石板地双网格瓦片，边缘一道路缘石"
+ },
+ {
+  "id": "west-common-yard-1101",
+  "style": "west",
+  "race": "common",
+  "category": "road",
+  "kind": "yard_flagstone",
+  "facility": null,
+  "variant": 13,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_1101",
+   "courtyard"
+  ],
+  "roof": "none",
+  "note": "内院石板地双网格瓦片，边缘一道路缘石"
+ },
+ {
+  "id": "west-common-yard-1110",
+  "style": "west",
+  "race": "common",
+  "category": "road",
+  "kind": "yard_flagstone",
+  "facility": null,
+  "variant": 14,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_1110",
+   "courtyard"
+  ],
+  "roof": "none",
+  "note": "内院石板地双网格瓦片，边缘一道路缘石"
+ },
+ {
+  "id": "west-common-yard-1111",
+  "style": "west",
+  "race": "common",
+  "category": "road",
+  "kind": "yard_flagstone",
+  "facility": null,
+  "variant": 15,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_1111",
+   "courtyard"
+  ],
+  "roof": "none",
+  "note": "内院石板地双网格瓦片，边缘一道路缘石"
+ }
+]

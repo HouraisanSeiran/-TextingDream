@@ -1,0 +1,466 @@
+{
+  "schema": "catalog_overlay_v1",
+  "group": "cuisine-chinese",
+  "entries": {
+    "cuisine_cn_sea_cucumber_scallion": {
+      "primary": "dish",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_cn_dezhou_chicken": {
+      "primary": "dish",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_cn_jiuzhuan_intestine": {
+      "primary": "dish",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_cn_mapo_tofu": {
+      "primary": "dish",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_cn_kung_pao_chicken": {
+      "primary": "dish",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_cn_twice_cooked_pork": {
+      "primary": "dish",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_cn_char_siu": {
+      "primary": "dish",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_cn_roast_goose": {
+      "primary": "dish",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_cn_har_gow": {
+      "primary": "pastry",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_cn_siu_mai": {
+      "primary": "pastry",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_cn_char_siu_bao": {
+      "primary": "pastry",
+      "evidence_grade": "mixed",
+      "note": "发酵面皮点心，归 pastry（与 baozi 归 snack 的分法按茶楼点心 vs 日常主食）",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_cn_egg_tart": {
+      "primary": "pastry",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_cn_lions_head": {
+      "primary": "dish",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_cn_nanjing_salted_duck": {
+      "primary": "dish",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_cn_dongpo_pork": {
+      "primary": "dish",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_cn_west_lake_fish": {
+      "primary": "dish",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_cn_buddha_jumps_wall": {
+      "primary": "soup",
+      "evidence_grade": "mixed",
+      "note": "宴席汤，归 soup",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_cn_oyster_omelette": {
+      "primary": "snack",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_cn_chopped_chili_fish_head": {
+      "primary": "dish",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_cn_mao_red_braised_pork": {
+      "primary": "dish",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_cn_stinky_mandarin_fish": {
+      "primary": "dish",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_cn_mao_tofu": {
+      "primary": "dish",
+      "evidence_grade": "inferred",
+      "note": "正文自述来源仅徽菜页一句描述，无专页，降为 inferred",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_cn_baozi": {
+      "primary": "snack",
+      "evidence_grade": "mixed",
+      "note": "包子兼作主食，归 snack",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_cn_shaobing": {
+      "primary": "snack",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_cn_knife_cut_noodles": {
+      "primary": "noodle",
+      "evidence_grade": "mixed",
+      "note": "源标 kind:dish，按正文实为面条，归 noodle",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_cn_roujiamo": {
+      "primary": "snack",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_cn_jianbing_guozi": {
+      "primary": "snack",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_cn_youtiao": {
+      "primary": "snack",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_cn_tanghulu": {
+      "primary": "snack",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_cn_zongzi": {
+      "primary": "snack",
+      "evidence_grade": "mixed",
+      "note": "节令糯米食，归 snack，也可归 dish",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_cn_mooncake": {
+      "primary": "pastry",
+      "evidence_grade": "mixed",
+      "note": "节令糕点，归 pastry",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_cn_nian_gao": {
+      "primary": "snack",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_cn_tangyuan": {
+      "primary": "snack",
+      "evidence_grade": "mixed",
+      "note": "甜汤圆，归 snack，也可归 soup",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    }
+  }
+}

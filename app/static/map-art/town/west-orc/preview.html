@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>织梦 · 城镇兽人族素材预览</title>
+<style>
+  body { margin: 0; background: #c9c79a; font: 13px/1.4 "Microsoft YaHei", sans-serif; color: #4a3826; }
+  h2 { margin: 18px 16px 6px; font-size: 16px; }
+  .grid { display: flex; flex-wrap: wrap; gap: 10px; padding: 0 16px; align-items: flex-end; }
+  .card { background: rgba(239,223,178,0.35); border: 1px solid rgba(74,56,38,0.25); padding: 6px; text-align: center; }
+  .card svg { display: block; margin: 0 auto; }
+  .lab { font-size: 11px; margin-top: 2px; white-space: nowrap; }
+  .lab b { font-weight: 600; }
+  .scene { padding: 0 16px 24px; }
+  .note { margin: 0 16px; font-size: 12px; opacity: 0.8; }
+</style>
+</head>
+<body>
+<div id="sprite-host" style="position:absolute;width:0;height:0;overflow:hidden"></div>
+<h2>民居图册（锚点 = 红点，占地 = 虚线框）</h2>
+<div id="houses" class="grid"></div>
+<h2>特殊建筑与摊位</h2>
+<div id="specials" class="grid"></div>
+<h2>尖木栅墙双网格瓦片（16 张）与城门</h2>
+<div id="tiles" class="grid"></div>
+<h2>兽人营地示意（按锚点 y 排序绘制）</h2>
+<p class="note">栅墙方框带南北两座栅门（gate-h）与东侧栅门（gate-v），内有帐屋、市场、铁匠铺与酋长大帐。</p>
+<div id="demo" class="scene"></div>
+<script src="core.js"></script>
+<script src="parts.js"></script>
+<script src="forms.js"></script>
+<script src="houses-a.js"></script>
+<script src="houses-b.js" onerror="void 0"></script>
+<script src="special-a.js" onerror="void 0"></script>
+<script src="special-b.js" onerror="void 0"></script>
+<script src="tiles.js" onerror="void 0"></script>
+<script src="west-orc.js"></script>
+<script src="preview-demo.js" onerror="void 0"></script>
+<script>
+(function () {
+  'use strict';
+  var WO = window.TownArt_westOrc, NS = 'http://www.w3.org/2000/svg', SC = 1.5;
+  var all = WO.symbols();
+  window.__WO_SYMBOLS = all;
+  document.getElementById('sprite-host').innerHTML = WO.spriteSVG(all);
+  function useSVG(sym, sc, frame) {
+    var vb = sym.viewBox, W = vb[2], H = vb[3], m = 8;
+    var s = '<svg xmlns="' + NS + '" width="' + (W + 2 * m) * sc + '" height="' + (H + 2 * m) * sc + '" viewBox="' + (-m) + ' ' + (-m) + ' ' + (W + 2 * m) + ' ' + (H + 2 * m) + '">';
+    if (frame) {
+      var fp = sym.meta.footprint, D = fp[1] * 48;
+      s += '<rect x="0" y="' + (H - D) + '" width="' + W + '" height="' + D + '" fill="#b9b78a" fill-opacity="0.45" stroke="#4a3826" stroke-opacity="0.35" stroke-dasharray="3 2"/>';
+    }
+    s += '<use href="#' + sym.id + '" x="0" y="0" width="' + W + '" height="' + H + '"/>';
+    if (frame) s += '<circle cx="' + sym.meta.anchor[0] + '" cy="' + sym.meta.anchor[1] + '" r="1.8" fill="#c0392b"/>';
+    return s + '</svg>';
+  }
+  window.__WO_useSVG = useSVG;
+  function fill(el, filt, sc) {
+    var html = '';
+    all.filter(filt).forEach(function (s) {
+      var m = s.meta;
+      html += '<div class="card">' + useSVG(s, sc, true) + '<div class="lab"><b>' + m.name + '</b> ' + m.footprint.join('×') +
+        (m.facility ? ' · ' + m.facility : '') + '</div><div class="lab">' + m.id + '</div></div>';
+    });
+    document.getElementById(el).innerHTML = html;
+  }
+  fill('houses', function (s) { return s.meta.category === 'house'; }, SC);
+  fill('specials', function (s) { return s.meta.category === 'special' || s.meta.category === 'prop'; }, SC);
+  fill('tiles', function (s) { return s.meta.category === 'wall'; }, SC);
+  if (window.TownArtWO_demo) window.TownArtWO_demo.render(WO, document.getElementById('demo'));
+})();
+</script>
+</body>
+</html>

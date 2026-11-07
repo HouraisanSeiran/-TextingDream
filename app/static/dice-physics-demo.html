@@ -22,6 +22,7 @@
         <label><input type="radio" name="kind" value="12"> d12</label>
         <label><input type="radio" name="kind" value="20" checked> d20</label>
       </div>
+      <label>材质 <select id="lab-material" aria-label="骰子材质"><option value="ivory">象牙</option><option value="metal">金属</option><option value="wood">木质</option><option value="crystal">水晶</option></select></label>
       <button type="button" id="lab-throw" title="采样新的姿态与运动参数后投掷">投一次</button>
       <label><input type="checkbox" id="lab-fixed" title="同一骰型及Seed重复相同初始参数"> 固定复现</label>
       <label>Seed <input type="number" id="lab-seed" value="1729" required min="0" max="4294967295" step="1" aria-label="固定投掷种子" title="默认投掷后显示本次Seed；勾选固定复现可再次使用" style="width:8em"></label>

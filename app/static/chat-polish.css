@@ -1,0 +1,155 @@
+/* 故事手记细节打磨。只用 --cv-* 变量，三套主题共用；布局仍以 atelier.css 为准。
+ * 单独成文件，避免与并行修改 atelier.css 的任务冲突。 */
+
+/* ---- 信息栏：子项不被压缩（修复缩略图标题被下一张卡片盖住） ---- */
+#play-left .info-panel > * { flex-shrink:0; }
+
+/* ---- 缩略图：没有地图时也像一张图 ---- */
+#play-left .mini-map-frame { background:
+  radial-gradient(circle at 30% 35%, color-mix(in srgb,var(--cv-accent) 10%,transparent) 0 18%, transparent 19%),
+  radial-gradient(circle at 70% 65%, color-mix(in srgb,var(--cv-accent) 8%,transparent) 0 14%, transparent 15%),
+  radial-gradient(color-mix(in srgb,var(--cv-ink) 14%,transparent) .7px, transparent .7px) 0 0/14px 14px,
+  color-mix(in srgb,var(--cv-accent) 7%,var(--cv-card)); }
+#play-left #mini-map-empty { display:flex; flex-direction:column; align-items:center; gap:4px; }
+#play-left #mini-map-empty::before { content:'✥'; font-size:22px; line-height:1; color:color-mix(in srgb,var(--cv-accent) 55%,var(--cv-muted)); }
+#play-left .mini-map-caption { border-top:1px solid var(--cv-line-soft); }
+#play-left .mini-map:hover .mini-map-caption span:last-child { color:var(--cv-accent); }
+
+/* ---- 左栏：存档条目 ---- */
+#play-left .journey-list button { position:relative; padding-left:28px; }
+#play-left .journey-list button::before { content:''; position:absolute; left:11px; top:50%; width:6px; height:6px; margin-top:-3px; border-radius:50%; border:1.5px solid var(--cv-muted); transition:background-color .15s,border-color .15s; }
+#play-left .journey-list button:hover::before { border-color:var(--cv-accent); }
+#play-left .journey-list button.selected::before { border-color:var(--cv-highlight); background:var(--cv-highlight); }
+#play-left .journey-new { display:flex; align-items:center; gap:8px; box-shadow:0 2px 8px color-mix(in srgb,var(--cv-accent) 25%,transparent); transition:transform .12s,filter .15s; }
+#play-left .journey-new:active { transform:translateY(1px); }
+#play-left .rail-label { display:flex; align-items:center; gap:8px; }
+#play-left .rail-label::after { content:''; flex:1; height:1px; background:var(--cv-line-soft); }
+
+/* ---- 表头 ---- */
+#play-left .chat-head { box-shadow:0 1px 0 var(--cv-line-soft); }
+#play-left #play-place:not(:empty) { padding:2px 8px; border-radius:999px; background:var(--cv-accent-soft); color:var(--cv-soft); }
+
+/* ---- 场景标题：小眉标 + 装饰线 ---- */
+#play-left .scene-head { position:relative; padding-top:4px; border-bottom:0; }
+#play-left .scene-head::before { content:'当前场景'; display:block; margin-bottom:6px; color:var(--cv-highlight); font-size:11px; font-weight:600; letter-spacing:.18em; }
+#play-left .scene-head::after { content:'✦'; display:flex; align-items:center; gap:12px; margin-top:16px; color:var(--cv-highlight); font-size:11px;
+  background:linear-gradient(var(--cv-line),var(--cv-line)) left center/calc(50% - 14px) 1px no-repeat,
+             linear-gradient(var(--cv-line),var(--cv-line)) right center/calc(50% - 14px) 1px no-repeat;
+  justify-content:center; }
+#play-left .scene-head h2 { font-size:26px; letter-spacing:.04em; }
+#play-left #event-goal::before { content:'目标 · '; color:var(--cv-soft); font-weight:600; }
+
+/* ---- 正文：玩家输入像批注，叙述有首字下沉 ---- */
+#play-left .turn { animation:cv-turn-in .35s ease both; }
+#play-left .turn .input { position:relative; padding-left:26px; border-left:3px solid var(--cv-highlight); border-radius:0 var(--cv-radius-sm) var(--cv-radius-sm) 0; }
+#play-left .turn .input::before { content:'你'; position:absolute; left:8px; top:6px; color:var(--cv-highlight); font-weight:700; font-size:12px; }
+#play-left .turn:first-child .prose::first-letter { float:left; margin:6px 8px 0 0; font-size:2.6em; line-height:.9; color:var(--cv-accent); font-family:var(--cv-title-font); }
+#play-left #story-text:empty::before { content:'故事还没有开始。从下面挑一件事做，或直接在输入框里说话。'; display:block; margin:8px 0 0; padding:14px 16px; border:1px dashed var(--cv-line); border-radius:var(--cv-radius); color:var(--cv-muted); font-size:13px; text-align:center; }
+@keyframes cv-turn-in { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:none; } }
+@media (prefers-reduced-motion:reduce) { #play-left .turn { animation:none; } }
+
+/* ---- 就地动作：卡片感 ---- */
+#play-left .actions button { position:relative; min-width:150px; padding:10px 14px 10px 30px; box-shadow:0 1px 2px color-mix(in srgb,var(--cv-ink) 8%,transparent); transition:transform .12s,border-color .15s,background-color .15s,box-shadow .15s; }
+#play-left .actions button::before { content:'›'; position:absolute; left:12px; top:9px; color:var(--cv-highlight); font-size:16px; font-weight:700; line-height:1.2; }
+#play-left .actions button:hover { transform:translateY(-1px); box-shadow:0 4px 12px color-mix(in srgb,var(--cv-ink) 12%,transparent); }
+#play-left .actions button:disabled { transform:none; box-shadow:none; }
+
+/* ---- 发送中：输入栏有动静 ---- */
+#play-left.is-sending .send-btn { position:relative; color:transparent; }
+#play-left.is-sending .send-btn::after { content:''; position:absolute; left:50%; top:50%; width:14px; height:14px; margin:-7px 0 0 -7px; border:2px solid currentColor; border-color:#fff #fff transparent transparent; border-radius:50%; animation:cv-spin .8s linear infinite; }
+@keyframes cv-spin { to { transform:rotate(360deg); } }
+
+/* ---- 信息卡：左侧色条区分层级 ---- */
+#play-left .info-scene > div:first-child { border-left:3px solid var(--cv-highlight); }
+#play-left .info-card > summary { display:flex; align-items:center; gap:8px; }
+#play-left .info-card > summary::after { margin-left:auto; float:none; }
+#play-left .info-card:hover { border-color:color-mix(in srgb,var(--cv-accent) 40%,var(--cv-line)); }
+#play-left .ls-bar { height:6px; border-radius:3px; }
+
+/* ---- 空态卡片 ---- */
+#play-left .journey-empty { padding:36px 28px; border:1px solid var(--cv-line); border-radius:calc(var(--cv-radius) + 4px); background:var(--cv-card); box-shadow:var(--cv-shadow); }
+#play-left .journey-empty::before { content:'✧'; display:block; margin-bottom:10px; color:var(--cv-highlight); font-size:28px; line-height:1; }
+
+/* ---- 滚动条 ---- */
+#play-left #surface,#play-left .journey-rail,#play-left .info-panel { scrollbar-color:color-mix(in srgb,var(--cv-ink) 22%,transparent) transparent; }
+
+
+/* ==== 信息栏：无地图时的「关联地图」说明行（按钮放在 #mini-map 外，避免嵌套 button） ==== */
+#play-left .mini-map-note { display:flex; align-items:center; justify-content:space-between; gap:8px; margin:-4px 0 0; padding:7px 10px; border:1px dashed var(--cv-accent); border-radius:var(--cv-radius-sm); background:var(--cv-accent-soft); color:var(--cv-soft); font-size:12px; }
+#play-left .mini-map-note[hidden] { display:none; }
+#play-left .mini-map-note > span { min-width:0; }
+#play-left .mini-map-note button { flex:none; padding:5px 12px; border:1px solid var(--cv-accent); border-radius:var(--cv-radius-sm); background:var(--cv-accent); color:var(--cv-card); font-size:12px; font-weight:600; cursor:pointer; }
+#play-left .mini-map-note button:hover { filter:brightness(1.1); }
+#play-left .mini-map-note button:focus-visible { outline:2px solid var(--cv-highlight); outline-offset:2px; }
+
+/* ==== 信息栏：阅读设置卡片（字号 / 行距），选择存 localStorage: textiledream-reading ==== */
+#play-left .info-card .read-group { display:flex; align-items:center; gap:6px; margin:6px 0; }
+#play-left .info-card .read-name { flex:none; width:2.6em; color:var(--cv-soft); }
+#play-left .info-card .read-group button,#play-left .info-card .read-reset { flex:1; padding:5px 6px; border:1px solid var(--cv-line); border-radius:var(--cv-radius-sm); background:var(--cv-bg); color:var(--cv-ink); font-size:12px; cursor:pointer; }
+#play-left .info-card .read-group button:hover,#play-left .info-card .read-reset:hover { border-color:var(--cv-accent); }
+#play-left .info-card .read-group button.selected { border-color:var(--cv-accent); background:var(--cv-accent); color:var(--cv-card); font-weight:600; }
+#play-left .info-card .read-reset { flex:none; width:100%; margin-top:2px; color:var(--cv-soft); }
+/* 正文行距走变量；atelier.css 里写死 1.9，这里同权重且更晚加载，故覆盖 */
+#play-left #story-text { line-height:var(--read-leading,1.9); }
+
+/* ==== 左侧工作区侧栏：「游玩」「作者工具」分组 ==== */
+#workspace-sidebar .workspace-group { display:flex; flex-direction:column; flex:none; }
+#workspace-sidebar .workspace-group-toggle { display:flex; align-items:center; width:calc(100% - 20px); text-align:left; padding:0; border:0; background:transparent; cursor:pointer; }
+#workspace-sidebar .workspace-group-toggle:hover { filter:brightness(.8); }
+#workspace-sidebar .workspace-group-toggle:focus-visible { outline:2px solid var(--cv-highlight,currentColor); outline-offset:2px; }
+#workspace-sidebar .workspace-group-chevron { margin-left:auto; font-size:13px; transition:transform .2s; }
+#workspace-sidebar .workspace-group.is-collapsed .workspace-group-chevron { transform:rotate(-90deg); }
+#workspace-sidebar .workspace-group-body { display:flex; flex-direction:column; flex:none; }
+/* 折叠用 class 而不是 hidden 属性：atelier.css 的 [hidden]{display:none !important} 会让窄屏下无法再展开 */
+#workspace-sidebar .workspace-group.is-collapsed .workspace-group-body { display:none; }
+@media (max-width:620px) {
+  /* 窄屏侧栏是图标条：组标题已被隐藏，内容必须保持可见，不受折叠状态影响 */
+  #workspace-sidebar .workspace-group-toggle { display:none; }
+  #workspace-sidebar .workspace-group.is-collapsed .workspace-group-body { display:flex; }
+}
+
+/* ==== 旅程存档管理：行容器、「⋯」按钮、小菜单、重命名对话框（app.js 的存档管理段） ==== */
+#play-left .journey-list .journey-row { position:relative; display:flex; align-items:stretch; }
+#play-left .journey-list .journey-row > button.journey-item { flex:1; min-width:0; padding-right:34px; }
+#play-left .journey-list .journey-row > button.journey-more { position:absolute; right:4px; top:50%; width:26px; height:26px; margin-top:-13px; padding:0; border:0; border-radius:var(--cv-radius-sm); background:transparent; color:var(--cv-soft); font-size:16px; line-height:1; text-align:center; overflow:visible; opacity:0; cursor:pointer; transition:opacity .12s,background-color .12s; }
+#play-left .journey-list .journey-row > button.journey-more::before { content:none; }
+#play-left .journey-list .journey-row:hover > button.journey-more,
+#play-left .journey-list .journey-row:focus-within > button.journey-more,
+#play-left .journey-list .journey-row > button.journey-more[aria-expanded="true"] { opacity:1; }
+#play-left .journey-list .journey-row > button.journey-more:hover,
+#play-left .journey-list .journey-row > button.journey-more[aria-expanded="true"] { background:var(--cv-accent-soft); color:var(--cv-ink); }
+#play-left .journey-list .journey-row > button.journey-more:focus-visible { outline:2px solid var(--cv-highlight); outline-offset:1px; }
+@media (hover:none) { #play-left .journey-list .journey-row > button.journey-more { opacity:1; } }
+#play-left .journey-menu { position:fixed; z-index:200; min-width:112px; padding:4px; border:1px solid var(--cv-line); border-radius:var(--cv-radius-sm); background:var(--cv-card); box-shadow:var(--cv-shadow); display:flex; flex-direction:column; }
+#play-left .journey-menu button { display:block; width:100%; padding:7px 12px; border:0; border-radius:4px; background:transparent; color:var(--cv-ink); font-size:13px; text-align:left; cursor:pointer; }
+#play-left .journey-menu button:hover,#play-left .journey-menu button:focus-visible { background:var(--cv-accent-soft); outline:none; }
+#play-left .journey-menu button.danger { color:#b3402d; }
+#rename-dialog { width:min(380px,calc(100vw - 32px)); padding:0; border-radius:12px; overflow:hidden; }
+#rename-dialog form { display:flex; flex-direction:column; gap:12px; padding:20px 22px 16px; }
+#rename-dialog h2 { margin:0; font:500 19px 'Songti SC','STSong','SimSun',serif; }
+#rename-dialog label { display:flex; flex-direction:column; gap:6px; margin:0; font-size:13px; font-weight:600; }
+#rename-dialog label input { margin:0; font-weight:400; }
+#rename-dialog .muted { min-height:1em; margin:-4px 0 0; font-size:12px; color:#b3402d; }
+#rename-dialog .toolbar { justify-content:flex-end; gap:8px; margin:0; }
+#rename-dialog .toolbar button { min-width:76px; }
+
+/* ==== 没有打开旅程时也显示「阅读」卡片（atelier.css 在无旅程时只留缩略图） ==== */
+#play-left:not(.has-journey) .info-panel > #info-reading { display:block; }
+
+
+/* ==== 信息栏交易卡（集市与商人）：只用 --cv-* 变量，三套主题共用 ==== */
+#play-left .trade-card .trade-body { display:flex; flex-direction:column; gap:6px; font-size:13px; color:var(--cv-ink); }
+#play-left .trade-card .trade-body p { margin:0; }
+#play-left .trade-card .trade-head { color:var(--cv-soft); font-size:12px; }
+#play-left .trade-card .trade-outcome { padding:6px 8px; border-left:3px solid var(--cv-highlight); background:var(--cv-accent-soft); border-radius:0 var(--cv-radius-sm) var(--cv-radius-sm) 0; }
+#play-left .trade-card .trade-merchant { display:flex; flex-direction:column; gap:4px; padding-top:6px; border-top:1px solid var(--cv-line-soft); }
+#play-left .trade-card .trade-merchant h4 { margin:0; font-size:13px; color:var(--cv-accent); }
+#play-left .trade-card .trade-row { display:flex; flex-wrap:wrap; align-items:center; gap:4px 8px; padding:4px 6px; border:1px solid var(--cv-line-soft); border-radius:var(--cv-radius-sm); background:var(--cv-card); }
+#play-left .trade-card .trade-text { flex:1 1 120px; }
+#play-left .trade-card .trade-note { flex-basis:100%; color:var(--cv-muted); font-size:11px; }
+#play-left .trade-card .trade-btns { display:inline-flex; gap:4px; flex-wrap:wrap; }
+#play-left .trade-card .trade-btns button { padding:2px 8px; font-size:12px; border:1px solid var(--cv-line); border-radius:var(--cv-radius-sm); background:var(--cv-card); color:var(--cv-ink); cursor:pointer; }
+#play-left .trade-card .trade-btns button:hover:not(:disabled) { border-color:var(--cv-accent); color:var(--cv-accent); }
+#play-left .trade-card .trade-btns button:disabled { opacity:.5; cursor:not-allowed; }
+#play-left .trade-card .trade-ok { border-color:var(--cv-highlight); }
+#play-left .trade-card .trade-confirm { display:flex; flex-direction:column; gap:4px; padding:8px; border:1px dashed var(--cv-highlight); border-radius:var(--cv-radius-sm); }

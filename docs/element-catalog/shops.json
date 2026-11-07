@@ -1,0 +1,2987 @@
+{
+  "schema_version": 1,
+  "status": "candidate",
+  "group": "shops",
+  "genres": [
+    "real_world",
+    "western_fantasy",
+    "eastern_fantasy"
+  ],
+  "compiled_note": "店铺分区候选资料（元素库·经济与制度侧）。每个 key 对应 tools/game_fields.py 的 SOLD_BY（none、farmer、noble_kitchen、street_vendor 除外），共 37 条，元素的 game.sold_by 可直接连到这里。取舍：店铺是经营场所与行当，不是商品，故不带 game 对象；写经营方式、行会与执照、学徒制、典型顾客、常见纠纷与可用剧情，不写现实历史物价。东西方差异（茶馆与咖啡馆、钱庄与兑换商、铁匠铺与兵器坊等）写在正文与 variants，不拆 key。来源以 Britannica 对行会、学徒制、铁匠、甲胄、酒馆、客栈、药师、当铺等条目的概述为主，另有部分条目仅为本项目推演（evidence_grade=inferred）。全部条目 review_status=needs_review、detail_status=needs_detail。",
+  "sources": [
+    {
+      "id": "shops_src_01",
+      "title": "Apprenticeship — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/apprenticeship",
+      "access": "read",
+      "supports": "学徒制是在师傅指导下学艺的结构化训练，常有法律协议约定期限与条件；巴比伦《汉谟拉比法典》（前 18 世纪）已要求工匠传授技艺；13 世纪西欧行会以学徒制为常规，约七年，期满在师傅监督下入会；现代学徒制一般两至五年，在岗训练与技术课程结合。",
+      "rights_note": "Britannica 条目；仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "shops_src_02",
+      "title": "Craft guild — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/craft-guild",
+      "access": "read",
+      "supports": "工匠行会是特定行业匠人的组织，盛于 11—16 世纪的欧洲：互助保护，垄断本地行业交易权，定质量标准，稳定价格，影响市政；内部分师傅、帮工、学徒，师傅管训练与生产；行会在 14 世纪达到鼎盛，用以限制行业劳动力供给并控制生产。",
+      "rights_note": "Britannica 条目；仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "shops_src_03",
+      "title": "Guild — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/guild-trade-association",
+      "access": "read",
+      "supports": "行会是商人或匠人为互助与维护职业利益而成立的团体，分商人行会与工匠行会；行会建立本地贸易垄断、维持质量与价格稳定、影响城镇政府；工匠行会含织工、石匠、铁匠、面包师、屠户、皮革匠等；行会法庭与官员调查劳作低劣与不正当竞争并罚款；行会常有守护圣徒、礼拜堂、慈善与行会厅；13 世纪商人行会控制城镇议会，异地商人要缴费才能参与本地贸易，有的被禁止。",
+      "rights_note": "Britannica 条目；仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "shops_src_04",
+      "title": "Blacksmith — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/technology/blacksmith",
+      "access": "read",
+      "supports": "铁匠用热锻与冷锻在砧上把铁做成器物，必备炉、砧、钳、锤与凿；产品从钉、农具、工匠工具、日用铁器到兵器甲胄、车轮箍、炉具、船用铁链和建筑铁件；最常见的活是钉马掌；多数城镇与村庄都有铁匠铺；19 世纪起因工厂制造与铸造而衰落。",
+      "rights_note": "Britannica 条目；仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "shops_src_05",
+      "title": "Farrier — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/farrier",
+      "access": "read",
+      "supports": "farrier 是专门钉马掌的铁匠，词源为拉丁语 ferrum（铁）；工作包括清理、修整蹄子与制作安装蹄铁；历史上 farrier 也兼作马的一般兽医；随马在运输与农业中退场而减少。",
+      "rights_note": "Britannica 条目；仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "shops_src_06",
+      "title": "Armour — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/technology/armour-protective-clothing",
+      "access": "read",
+      "supports": "甲胄是抵御投射物与兵器冲击的防护衣，史上用皮、织物（有的絮或毡）、锁环（锁子甲）与硬板制成；甲的发展与进攻兵器形成持续对抗；罗马帝国时期锁子甲通行，中世纪盛行钢板甲并发展为整套关节板甲；防护力要与机动性和制造成本取舍。",
+      "rights_note": "Britannica 条目；仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "shops_src_07",
+      "title": "Tavern — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/tavern",
+      "access": "read",
+      "supports": "酒馆是售酒供店内饮用的营业场所，随贸易、旅行与工业扩展；又称 pub、saloon、bar、taproom、public house，也兼作饭馆与客栈；16 世纪英格兰酒馆供葡萄酒与麦酒，1565 年后加烟草，各阶层都在此用餐聚会；古巴比伦、希腊、罗马都有类似场所；殖民地时期酒馆是政治社交中心，受政府严格管制；顾客从商人官员到窃贼与异见者都有。",
+      "rights_note": "Britannica 条目；仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "shops_src_08",
+      "title": "Inn — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/inn",
+      "access": "read",
+      "supports": "客栈是向旅行者提供公共住宿、有时也供饭食与娱乐的建筑；古代凡有贸易旅行处即有，波斯公路、商队驿站与城内 khan 是例；罗马客栈围院落布置，设马厩与食宿；早期中世纪旅人多住修道院，晚期因商业复兴、十字军与朝圣兴盛，修道院、行会与私人经营者都建客栈；16 世纪末英国约 6000 家；欧洲客栈围院落、数层高、带廊。",
+      "rights_note": "Britannica 条目；仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "shops_src_09",
+      "title": "Apothecary — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/apothecary",
+      "access": "read",
+      "supports": "药师是配制并出售药物的人，也指售药处，词源拉丁语 apotheca（库房）；中世纪药师既配药也开方，19 世纪初分化出专事配药一支；詹姆斯一世批准药师与杂货商分离，只有该会会员才能开药铺和卖药剂；1841 年成立大不列颠药学会。",
+      "rights_note": "Britannica 条目；仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "shops_src_10",
+      "title": "Pawnbroking — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/pawnbroking",
+      "access": "read",
+      "supports": "pawnbroking 是接受家用品或个人物品作担保放贷的行业，是最古老的行当之一，中国 2000—3000 年前已有；西方可追溯到中世纪私人当铺、公共当铺与 mons pietatis（慈善基金）；高利贷禁令使私人放贷人多为受法令或宗教豁免者；1198 年 Freising 设市立银行收押品；方济各会 1462 年在意大利设 montes pietatis 给穷人免息押借，后被迫收息并拍卖逾期押品；18 世纪许多国家回到公共当铺；20 世纪因社会政策与银行信贷普及而衰落。",
+      "rights_note": "Britannica 条目；仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "shops_src_11",
+      "title": "Goldsmith — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/technology/goldsmith",
+      "access": "read",
+      "supports": "金匠是制造或经营金制品的匠人；金易锤薄、可拉丝，化学性质稳定；技法有浮雕锤揲、雕刻、掐丝、粒化与铸造。本次读到的是导语摘要段。",
+      "rights_note": "Britannica 条目；仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "shops_src_12",
+      "title": "Bookselling — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/bookselling",
+      "access": "read",
+      "supports": "bookselling 是卖书的行业，书的形式随时代演化；20 世纪初出现专门教育书与更积极的销售手段，含大广告与邮购；电子书在 1990 年代末兴起。本次只读到摘要段，抄本时代书铺细节未取得。",
+      "rights_note": "Britannica 条目；仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "shops_src_13",
+      "title": "Pottery — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/technology/pottery",
+      "access": "read",
+      "supports": "陶是以黏土制成并经加热硬化的器物，是最古老、最普遍的装饰艺术之一，多为容器与盘碗；黏土可塑，受热硬化。页面有付费墙，仅读到导语。",
+      "rights_note": "Britannica 条目；仅事实核对与自行转述，不复制原文段落。"
+    }
+  ],
+  "elements": [
+    {
+      "id": "shop_tavern",
+      "name": "酒馆",
+      "aliases": [
+        "酒肆",
+        "小酒馆",
+        "pub",
+        "taproom",
+        "public house",
+        "alehouse"
+      ],
+      "category": "economy",
+      "primary": "shop",
+      "evidence_grade": "mixed",
+      "genres": [
+        "real_world",
+        "western_fantasy",
+        "eastern_fantasy"
+      ],
+      "shop": {
+        "key": "tavern",
+        "sells": [
+          "beverage",
+          "alcohol",
+          "dish"
+        ],
+        "services": [
+          "卖酒水",
+          "供应简单饭食",
+          "代传口信",
+          "大店可留宿"
+        ],
+        "settlement_min": "hamlet",
+        "staff": [
+          "店主",
+          "酒保",
+          "侍女",
+          "打杂小厮"
+        ]
+      },
+      "tags": [
+        "kind:shop",
+        "tradition:western",
+        "shop:tavern",
+        "sells:beverage",
+        "sells:alcohol",
+        "sells:dish",
+        "settlement:hamlet",
+        "trade:innkeeper",
+        "role:social_hub",
+        "occasion:festival"
+      ],
+      "summary": "酒馆是出售酒水、供顾客在店内饮用的营业场所，常兼供饭食，大一些的也留宿。英语里的 tavern、pub、taproom、public house 各有侧重，在本库合为一个 key。它是旅人、行商与本地人共用的社交与消息场所，不是单纯的卖酒窗口。",
+      "variants": [
+        "东方对应：酒肆、酒家、酒楼（规模和菜单更偏饭庄）；茶楼另见 tea_house"
+      ],
+      "details": {
+        "definition": "酒馆是出售酒水、供顾客在店内饮用的营业场所，常兼供饭食，大一些的也留宿。英语里的 tavern、pub、taproom、public house 各有侧重，在本库合为一个 key。它是旅人、行商与本地人共用的社交与消息场所，不是单纯的卖酒窗口。",
+        "mechanism": "经营靠两条线：自酿或向酿酒坊进货，按杯、壶、桶零售；再靠饭食、赌戏、说书之类留客。账多数是赊账，靠老主顾的信用与店主的记性维持。许可通常来自领主、市镇或官府，酒的度量与成色会被查验，短斤少两或私卖要罚。",
+        "conditions": "最小聚落为村（hamlet）：只要有过路人或做工的人聚得起来，一间兼营的小酒馆就养得活。行会与执照：酿酒与卖酒多半分属两个行当，酒馆要向当地权力方领许可，不一定入行会；学徒制不典型，多是家族经营或雇工升任。典型顾客：旅人、行商、官差、工匠、雇工，以及在这里谈买卖找活计的人。",
+        "exceptions": "常见纠纷：赊账不还、酒后斗殴、掺水、私带违禁物、赌戏出千、庇护逃犯。例外：宗教或法令禁酒的社会里，同类场所改卖茶、饮品或只供饭。与 inn_kitchen 的分界：酒馆以卖酒为主，客栈厨房以旅客饭食为主。东方对应：酒肆、酒家、酒楼。",
+        "story_uses": "①情报交换点：谁在找人、哪条路不太平，都在这里流通。②官差借酒馆查人，店主被迫选边。③酒后口角引出命案，线索散在座客的证词里。④老主顾之间的赊账网是小镇的非正式信用。⑤战后成为伤兵与失业者的聚点。",
+        "historical_scope": "本条以西式中世纪至近世早期的城镇、乡村店铺为基线，来源多取自 Britannica 对欧洲行会、客栈与行业的概述；东方对应（酒肆、酒家、酒楼（规模和菜单更偏饭庄）；茶楼另见 tea_house）在正文与 variants 中说明，不拆 key。改编边界：架空世界可借用“村可养得起这家店、行业有师徒与同业约束、店主与顾客靠信用往来”这几点，但不应顺带断言该世界必有行会垄断、特定执照或某种货币；本条不含现实历史物价，也不自动生成库存或价格。",
+        "evidence_and_uncertainty": "有来源支持的部分：酒馆是卖酒供店内饮用的营业场所，随贸易与旅行扩展，也兼营饭食与留宿；16 世纪英格兰酒馆卖葡萄酒与麦酒，是各阶层聚会处；殖民地时期受政府严格管制（据 shops_src_07）。客栈由修道院、行会与私人经营者在中世纪后期建造（据 shops_src_08）。 review_status 维持 needs_review；本条不含现实历史物价，亦不构成库存或价格数据。"
+      },
+      "source_ids": [
+        "shops_src_07",
+        "shops_src_08"
+      ],
+      "related_ids": [],
+      "related_catalog_ids": [
+        "flavors_beer",
+        "flavors_wine",
+        "flavors_mead",
+        "flavors_distilled_spirit",
+        "animal_food_cheese"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "shop_inn_kitchen",
+      "name": "客栈厨房",
+      "aliases": [
+        "客栈饭堂",
+        "旅店厨房",
+        "驿馆厨房",
+        "inn kitchen"
+      ],
+      "category": "economy",
+      "primary": "shop",
+      "evidence_grade": "mixed",
+      "genres": [
+        "real_world",
+        "western_fantasy",
+        "eastern_fantasy"
+      ],
+      "shop": {
+        "key": "inn_kitchen",
+        "sells": [
+          "dish",
+          "soup",
+          "bread"
+        ],
+        "services": [
+          "旅客热饭",
+          "包饭",
+          "备干粮",
+          "客房送餐"
+        ],
+        "settlement_min": "hamlet",
+        "staff": [
+          "店主",
+          "厨子",
+          "伙计",
+          "马夫"
+        ]
+      },
+      "tags": [
+        "kind:shop",
+        "tradition:western",
+        "shop:inn_kitchen",
+        "sells:dish",
+        "sells:soup",
+        "sells:bread",
+        "settlement:hamlet",
+        "trade:innkeeper",
+        "role:traveler_support",
+        "trade:cook"
+      ],
+      "summary": "客栈厨房指为住宿旅客和过路人供应热饭的厨房，附属于客栈，不单独对外揽客。它的菜单由当天能买到的东西决定，重在快、热、管饱。",
+      "variants": [
+        "东方对应：客栈、驿馆、旅舍的灶房"
+      ],
+      "details": {
+        "definition": "客栈厨房指为住宿旅客和过路人供应热饭的厨房，附属于客栈，不单独对外揽客。它的菜单由当天能买到的东西决定，重在快、热、管饱。",
+        "mechanism": "多数按固定菜式煮大锅，客人到了就盛，晚到者吃剩的或加价。长途路线上的客栈还卖干粮、包饭、给牲口备草料。采买靠本地农户、屠户与磨坊，客栈本身常有菜园与腌肉缸。",
+        "conditions": "最小聚落为村（hamlet）：路边只要有稳定的过路人就有客栈。行会与执照：客栈要向官府或领主领住宿许可，有的还要登记旅客；厨房通常不独立入会。学徒制：多是家人加雇工，厨子靠师傅带。典型顾客：行商、信使、朝圣者、押运人与赶路的官吏。",
+        "exceptions": "常见纠纷：饭菜质量、缺斤短两、与旅客争座次、客人逃账、马夫与厨房抢火。例外：沙漠商路的驿站和朝圣路上的修院，往往是免费或奉献制供饭。东方对应：客栈、驿馆、旅舍，官驿供饭另走官府配给。",
+        "story_uses": "①风雪夜整座客栈被困，厨房存粮决定谁能撑到天亮。②厨子是逃犯，或知道某位住客的真实身份。③官差来查旅客册，掌柜选择保还是出卖。④一道没人点的菜，是暗号。⑤朝圣季里，客栈靠厨房一年赚够钱。",
+        "historical_scope": "本条以西式中世纪至近世早期的城镇、乡村店铺为基线，来源多取自 Britannica 对欧洲行会、客栈与行业的概述；东方对应（客栈、驿馆、旅舍的灶房）在正文与 variants 中说明，不拆 key。改编边界：架空世界可借用“村可养得起这家店、行业有师徒与同业约束、店主与顾客靠信用往来”这几点，但不应顺带断言该世界必有行会垄断、特定执照或某种货币；本条不含现实历史物价，也不自动生成库存或价格。",
+        "evidence_and_uncertainty": "有来源支持的部分：客栈是向旅行者提供公共住宿、有时也提供饭食与娱乐的建筑；沿路客栈随贸易、朝圣与十字军运动发展，中世纪后期由修道院、行会与私人经营者建造；欧洲客栈围院落而建，院周有住宿与饮食处（据 shops_src_08）。酒馆兼营饭食与留宿（据 shops_src_07）。 review_status 维持 needs_review；本条不含现实历史物价，亦不构成库存或价格数据。"
+      },
+      "source_ids": [
+        "shops_src_08",
+        "shops_src_07"
+      ],
+      "related_ids": [],
+      "related_catalog_ids": [
+        "tools_pottery_cooking_pot",
+        "animal_food_pork",
+        "staples_wheat",
+        "flavors_beer",
+        "materials_salt"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "shop_market",
+      "name": "集市",
+      "aliases": [
+        "集市",
+        "市集",
+        "赶集",
+        "market"
+      ],
+      "category": "institution",
+      "primary": "shop",
+      "evidence_grade": "mixed",
+      "genres": [
+        "real_world",
+        "western_fantasy",
+        "eastern_fantasy"
+      ],
+      "shop": {
+        "key": "market",
+        "sells": [
+          "grain",
+          "vegetable",
+          "fruit",
+          "livestock",
+          "fiber_textile"
+        ],
+        "services": [
+          "定期开市",
+          "度量衡校验",
+          "摊位出租",
+          "牲畜交易"
+        ],
+        "settlement_min": "town",
+        "staff": [
+          "市令或市监",
+          "摊贩",
+          "收税人",
+          "度量检查员"
+        ]
+      },
+      "tags": [
+        "kind:shop",
+        "tradition:western",
+        "shop:market",
+        "sells:grain",
+        "sells:vegetable",
+        "sells:fruit",
+        "sells:livestock",
+        "sells:fiber_textile",
+        "settlement:town",
+        "trade:merchant",
+        "role:public_trade",
+        "occasion:market_day"
+      ],
+      "summary": "集市是在固定日期和地点聚集买卖的公共交易场所，不是单个店铺，而是许多摊贩共用的场地。本库把它放进店铺分区，是因为元素的 game.sold_by 要能指到“在集上卖”。",
+      "variants": [
+        "东方对应：集、墟、市、庙会（见 eastern_pilgrimage_festival）"
+      ],
+      "details": {
+        "definition": "集市是在固定日期和地点聚集买卖的公共交易场所，不是单个店铺，而是许多摊贩共用的场地。本库把它放进店铺分区，是因为元素的 game.sold_by 要能指到“在集上卖”。",
+        "mechanism": "由领主、市镇或官府授权开市，摊贩缴摊位费或市税；度量衡由市官校验，异地商人往往要多缴费或被限制。日用品、粮食、牲畜、布匹按区块摆放，谁占哪块地有惯例。大集还附带牲畜交易和契约见证。",
+        "conditions": "最小聚落为镇（town）：村里有时也有每周小集，但需要特许才算正式集市。行会与执照：商人行会控制本地商品的流通，外来商人缴费或被禁止；摊位通常对本地行会成员优先。典型顾客：农户、工匠、主妇、路过的行商与买办。",
+        "exceptions": "常见纠纷：摊位争夺、度量不准、外地商人被排挤、假货、小偷、税收争议。例外：游牧或边境社会的集市没有固定场地，靠会盟日或朝贡贸易；战乱时集市停开，物价靠黑市。东方对应：集、墟、赶集，与庙会合办。",
+        "story_uses": "①集日的人群是行刺、接头与扒窃的天然掩护。②异地商人被本地行会联手排挤。③度量检查员收黑钱，被一位老妇人当众拆穿。④集市停开三日，镇上储粮开始紧张。⑤牲畜交易里一桩被卖了两次的契约。",
+        "historical_scope": "本条以西式中世纪至近世早期的城镇、乡村店铺为基线，来源多取自 Britannica 对欧洲行会、客栈与行业的概述；东方对应（集、墟、市、庙会（见 eastern_pilgrimage_festival））在正文与 variants 中说明，不拆 key。改编边界：架空世界可借用“镇可养得起这家店、行业有师徒与同业约束、店主与顾客靠信用往来”这几点，但不应顺带断言该世界必有行会垄断、特定执照或某种货币；本条不含现实历史物价，也不自动生成库存或价格。",
+        "evidence_and_uncertainty": "有来源支持的部分：行会在城镇里建立当地贸易垄断、维持商品质量与价格稳定，控制食物、布匹等基本商品的分销；异地商人要缴费才能参与本地贸易，有的被完全禁止（据 shops_src_03）。 review_status 维持 needs_review；本条不含现实历史物价，亦不构成库存或价格数据。"
+      },
+      "source_ids": [
+        "shops_src_03"
+      ],
+      "related_ids": [],
+      "related_catalog_ids": [
+        "society_market_duty",
+        "tools_balance_scale",
+        "tools_cart",
+        "society_merchant_guild",
+        "staples_wheat"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "shop_grocer",
+      "name": "杂货铺",
+      "aliases": [
+        "杂货店",
+        "粮油铺",
+        "南货店",
+        "grocer"
+      ],
+      "category": "economy",
+      "primary": "shop",
+      "evidence_grade": "mixed",
+      "genres": [
+        "real_world",
+        "western_fantasy",
+        "eastern_fantasy"
+      ],
+      "shop": {
+        "key": "grocer",
+        "sells": [
+          "grain",
+          "spice",
+          "condiment",
+          "preserved_food",
+          "sweetener"
+        ],
+        "services": [
+          "零售米面油盐",
+          "称重分装",
+          "代购远货",
+          "赊账"
+        ],
+        "settlement_min": "town",
+        "staff": [
+          "掌柜",
+          "伙计",
+          "学徒"
+        ]
+      },
+      "tags": [
+        "kind:shop",
+        "tradition:western",
+        "shop:grocer",
+        "sells:grain",
+        "sells:spice",
+        "sells:condiment",
+        "sells:preserved_food",
+        "sells:sweetener",
+        "settlement:town",
+        "trade:grocer",
+        "role:daily_goods",
+        "trade:retail"
+      ],
+      "summary": "杂货铺卖日用食品和杂物：粮、油、盐、糖、香料、腌制品与小件用品，按量称取零售。它和蔬果店、肉铺的区别是以耐存的干货和调味品为主。",
+      "variants": [
+        "东方对应：杂货铺、粮油店、南货店、酱园"
+      ],
+      "details": {
+        "definition": "杂货铺卖日用食品和杂物：粮、油、盐、糖、香料、腌制品与小件用品，按量称取零售。它和蔬果店、肉铺的区别是以耐存的干货和调味品为主。",
+        "mechanism": "从批发商和行商进货，大宗入库、称重分装零售。远货（香料、糖、茶）加价明显，是主要利润；本地粮油靠量小周转快。老店常与固定主顾记账，月底或收成后结清。",
+        "conditions": "最小聚落为镇（town）：有稳定购买力才养得起。行会与执照：商人行会控制食物与基本商品的分销；英格兰史上药剂师曾从杂货商行会里分出。学徒制：多年学徒后可开店。典型顾客：主妇、厨子、小旅店主、乡下来镇上备货的农户。",
+        "exceptions": "常见纠纷：称重作弊、掺假（盐里加沙、香料里加杂物）、赊账呆账、与药铺争夺香料药材的经营权。例外：小村由行商和货郎代替；大城里粮油、香料、茶糖各自分店。东方对应：杂货铺、酱园、南货店。",
+        "story_uses": "①掺假的香料引出一场中毒。②掌柜靠账本知道全镇谁家缺钱。③行商不再来，杂货铺断货，镇里谣言四起。④盐税关卡与走私盐。⑤学徒偷看账册，发现掌柜在替某人洗钱。",
+        "historical_scope": "本条以西式中世纪至近世早期的城镇、乡村店铺为基线，来源多取自 Britannica 对欧洲行会、客栈与行业的概述；东方对应（杂货铺、粮油店、南货店、酱园）在正文与 variants 中说明，不拆 key。改编边界：架空世界可借用“镇可养得起这家店、行业有师徒与同业约束、店主与顾客靠信用往来”这几点，但不应顺带断言该世界必有行会垄断、特定执照或某种货币；本条不含现实历史物价，也不自动生成库存或价格。",
+        "evidence_and_uncertainty": "有来源支持的部分：行会控制食物和基本商品的分销与垄断（据 shops_src_03）；药剂师在英格兰曾与杂货商同属一个行会，詹姆斯一世批准二者分离，只有会员才能开药铺和卖药剂（据 shops_src_09）。 review_status 维持 needs_review；本条不含现实历史物价，亦不构成库存或价格数据。"
+      },
+      "source_ids": [
+        "shops_src_03",
+        "shops_src_09"
+      ],
+      "related_ids": [],
+      "related_catalog_ids": [
+        "materials_salt",
+        "flavors_black_pepper",
+        "flavors_cane_sugar",
+        "flavors_vinegar",
+        "tools_balance_scale"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "shop_greengrocer",
+      "name": "蔬果店",
+      "aliases": [
+        "菜铺",
+        "果蔬店",
+        "水果摊",
+        "greengrocer"
+      ],
+      "category": "economy",
+      "primary": "shop",
+      "evidence_grade": "inferred",
+      "genres": [
+        "real_world",
+        "western_fantasy",
+        "eastern_fantasy"
+      ],
+      "shop": {
+        "key": "greengrocer",
+        "sells": [
+          "vegetable",
+          "fruit",
+          "root_tuber",
+          "mushroom",
+          "nut_seed"
+        ],
+        "services": [
+          "零售鲜蔬",
+          "时令水果",
+          "代客分拣",
+          "预订整筐"
+        ],
+        "settlement_min": "town",
+        "staff": [
+          "店主",
+          "帮工"
+        ]
+      },
+      "tags": [
+        "kind:shop",
+        "tradition:western",
+        "shop:greengrocer",
+        "sells:vegetable",
+        "sells:fruit",
+        "sells:root_tuber",
+        "sells:mushroom",
+        "sells:nut_seed",
+        "settlement:town",
+        "trade:greengrocer",
+        "role:fresh_food",
+        "occasion:seasonal"
+      ],
+      "summary": "蔬果店卖新鲜蔬菜、水果、块根、坚果和蘑菇，货随季节更换，难存放。它是城镇里连接菜园、果园和餐桌的小零售点。",
+      "variants": [
+        "东方对应：菜行、菜摊、果行、菜市场"
+      ],
+      "details": {
+        "definition": "蔬果店卖新鲜蔬菜、水果、块根、坚果和蘑菇，货随季节更换，难存放。它是城镇里连接菜园、果园和餐桌的小零售点。",
+        "mechanism": "清晨从郊区菜农、果农或集市趸货，当天卖完；卖不掉的转给腌制作坊或低价清货。季节决定货色，反季靠窖藏或外地运来的耐存品种。与农户常有长期供货约定，价格受天气影响。",
+        "conditions": "最小聚落为镇（town）：村里人自己种，不需要专门的蔬果店。行会与执照：多数地方受集市规则约束，需占摊位或铺面；独立行会不典型。学徒制：以家族帮工为主。典型顾客：城里不种地的居民、厨子、饭馆采购。",
+        "exceptions": "常见纠纷：新鲜度、以次充好、称重、与摊贩抢地盘、菜农压价。例外：产地附近的集上，农户自己摆摊，没有中间的蔬果店。东方对应：菜行、菜摊、水果行。",
+        "story_uses": "①一筐来路不明的蘑菇引出中毒案。②歉收年，菜价波动让蔬果店成为流言源。③店主靠供货关系得知菜农的家事。④城里的早市，一批货先被谁买走，暗示着谁在囤积。",
+        "historical_scope": "本条以西式中世纪至近世早期的城镇、乡村店铺为基线，来源多取自 Britannica 对欧洲行会、客栈与行业的概述；东方对应（菜行、菜摊、果行、菜市场）在正文与 variants 中说明，不拆 key。改编边界：架空世界可借用“镇可养得起这家店、行业有师徒与同业约束、店主与顾客靠信用往来”这几点，但不应顺带断言该世界必有行会垄断、特定执照或某种货币；本条不含现实历史物价，也不自动生成库存或价格。",
+        "evidence_and_uncertainty": "本条没有已读来源直接支撑，店铺形态、货色与季节性均为本项目推演。 review_status 维持 needs_review；本条不含现实历史物价，亦不构成库存或价格数据。"
+      },
+      "source_ids": [],
+      "related_ids": [],
+      "related_catalog_ids": [
+        "produce_cabbage",
+        "produce_carrot",
+        "produce_apple",
+        "produce_onion",
+        "tools_basket"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "shop_butcher",
+      "name": "肉铺",
+      "aliases": [
+        "屠户",
+        "肉店",
+        "屠宰铺",
+        "butcher"
+      ],
+      "category": "economy",
+      "primary": "shop",
+      "evidence_grade": "mixed",
+      "genres": [
+        "real_world",
+        "western_fantasy",
+        "eastern_fantasy"
+      ],
+      "shop": {
+        "key": "butcher",
+        "sells": [
+          "meat",
+          "poultry",
+          "preserved_food",
+          "hide_leather"
+        ],
+        "services": [
+          "屠宰",
+          "零售鲜肉",
+          "灌肠熏腌",
+          "收购牲畜"
+        ],
+        "settlement_min": "town",
+        "staff": [
+          "屠夫",
+          "学徒",
+          "杂工"
+        ]
+      },
+      "tags": [
+        "kind:shop",
+        "tradition:western",
+        "shop:butcher",
+        "sells:meat",
+        "sells:poultry",
+        "sells:preserved_food",
+        "sells:hide_leather",
+        "settlement:town",
+        "trade:butcher",
+        "role:meat_supply",
+        "trade:guild_trade"
+      ],
+      "summary": "肉铺是屠宰牲畜并零售肉类的店铺，常附带做香肠、熏腌肉和熬脂肪。副产品（皮、骨、脂）卖给制革、制烛、制肥皂等行当。",
+      "variants": [
+        "东方对应：肉铺、屠户、肉案"
+      ],
+      "details": {
+        "definition": "肉铺是屠宰牲畜并零售肉类的店铺，常附带做香肠、熏腌肉和熬脂肪。副产品（皮、骨、脂）卖给制革、制烛、制肥皂等行当。",
+        "mechanism": "向农户或牲畜集收购活畜，后院屠宰，前铺零售。鲜肉当天卖，剩下的转熏、腌、灌肠。内脏与血做成下水类食品，皮卖给硝皮匠，脂肪卖给蜡烛匠和皂坊。",
+        "conditions": "最小聚落为镇（town）：村里宰杀多自家完成。行会与执照：屠宰行常有行会，规定屠宰地点和肉品质量，防污染河道；学徒多年后才能开铺。典型顾客：主妇、厨子、客栈、制香肠的工坊。",
+        "exceptions": "常见纠纷：肉质不新鲜、短秤、屠宰污水排放、与邻居的气味与噪声争执、病畜入市。例外：游牧和狩猎社会没有专业肉铺；有宗教饮食规则的社群，屠宰由特定神职或教众负责。东方对应：肉铺、屠户。",
+        "story_uses": "①后院屠宰场是藏尸的方便地方。②病畜入市引发疫情。③屠夫行会对独立屠户的挤压。④学徒偷拿下水卖给穷人。",
+        "historical_scope": "本条以西式中世纪至近世早期的城镇、乡村店铺为基线，来源多取自 Britannica 对欧洲行会、客栈与行业的概述；东方对应（肉铺、屠户、肉案）在正文与 variants 中说明，不拆 key。改编边界：架空世界可借用“镇可养得起这家店、行业有师徒与同业约束、店主与顾客靠信用往来”这几点，但不应顺带断言该世界必有行会垄断、特定执照或某种货币；本条不含现实历史物价，也不自动生成库存或价格。",
+        "evidence_and_uncertainty": "有来源支持的部分：屠户是中世纪行会的典型行当之一，行会控制行业标准、学徒准入与质量（据 shops_src_03、shops_src_02）。 review_status 维持 needs_review；本条不含现实历史物价，亦不构成库存或价格数据。"
+      },
+      "source_ids": [
+        "shops_src_03",
+        "shops_src_02"
+      ],
+      "related_ids": [],
+      "related_catalog_ids": [
+        "animal_food_beef",
+        "animal_food_pork",
+        "animal_food_mutton_lamb",
+        "animal_food_sausage",
+        "animal_food_ham_bacon",
+        "animal_food_rendered_fat"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "shop_fishmonger",
+      "name": "鱼铺",
+      "aliases": [
+        "鱼贩",
+        "鲜鱼店",
+        "咸鱼铺",
+        "fishmonger"
+      ],
+      "category": "economy",
+      "primary": "shop",
+      "evidence_grade": "inferred",
+      "genres": [
+        "real_world",
+        "western_fantasy",
+        "eastern_fantasy"
+      ],
+      "shop": {
+        "key": "fishmonger",
+        "sells": [
+          "seafood",
+          "preserved_food"
+        ],
+        "services": [
+          "零售鲜鱼",
+          "盐腌熏晒",
+          "代剖代洗",
+          "收购渔获"
+        ],
+        "settlement_min": "town",
+        "staff": [
+          "鱼贩",
+          "帮工"
+        ]
+      },
+      "tags": [
+        "kind:shop",
+        "tradition:western",
+        "shop:fishmonger",
+        "sells:seafood",
+        "sells:preserved_food",
+        "settlement:town",
+        "trade:fishmonger",
+        "role:fresh_food",
+        "occasion:fast_day"
+      ],
+      "summary": "鱼铺卖鲜鱼、贝类和腌熏晒干的鱼。它的货期短，靠近渔港、河岸和水路，内陆多卖咸干鱼。",
+      "variants": [
+        "东方对应：鱼行、鱼摊、咸鱼铺"
+      ],
+      "details": {
+        "definition": "鱼铺卖鲜鱼、贝类和腌熏晒干的鱼。它的货期短，靠近渔港、河岸和水路，内陆多卖咸干鱼。",
+        "mechanism": "清晨从渔船或鱼贩手里进货，当天售完；卖不掉的立即盐腌或熏制。斋日和宗教节期需求暴涨，价格波动大。内陆靠咸鱼和干鱼，从港口经行商转运。",
+        "conditions": "最小聚落为镇（town）：沿海或沿河小村由渔户直接卖。行会与执照：渔获批发与零售常有行会规定，防止囤积；鱼市的位置和时间有规定。典型顾客：主妇、厨子、斋日需求的修院与客栈。",
+        "exceptions": "常见纠纷：新鲜度、腐臭、囤积、斋日抬价、渔民与鱼贩之间的批发价争执。例外：沿海渔村没有专业鱼铺，渔户自卖；远离水的地方，鱼铺以腌鱼干鱼为主。东方对应：鱼行、鱼摊、咸鱼铺。",
+        "story_uses": "①鱼腐烂的臭味遮住一件别的事。②斋日临近，鱼铺囤货抬价，激起民怨。③渔船迟迟未归，鱼铺存货告罄。④鱼腹里发现的一件东西。",
+        "historical_scope": "本条以西式中世纪至近世早期的城镇、乡村店铺为基线，来源多取自 Britannica 对欧洲行会、客栈与行业的概述；东方对应（鱼行、鱼摊、咸鱼铺）在正文与 variants 中说明，不拆 key。改编边界：架空世界可借用“镇可养得起这家店、行业有师徒与同业约束、店主与顾客靠信用往来”这几点，但不应顺带断言该世界必有行会垄断、特定执照或某种货币；本条不含现实历史物价，也不自动生成库存或价格。",
+        "evidence_and_uncertainty": "有来源支持的部分：行会控制食物与基本商品的分销与垄断，并维持价格稳定（据 shops_src_03）。鱼的品种、斋日与保存方式为本项目推演。 review_status 维持 needs_review；本条不含现实历史物价，亦不构成库存或价格数据。"
+      },
+      "source_ids": [
+        "shops_src_03"
+      ],
+      "related_ids": [],
+      "related_catalog_ids": [
+        "animal_food_herring",
+        "animal_food_cod",
+        "animal_food_salmon",
+        "animal_food_dried_salted_fish",
+        "animal_food_oyster",
+        "materials_salt"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "shop_baker",
+      "name": "面包房",
+      "aliases": [
+        "烘焙坊",
+        "面包铺",
+        "烤炉房",
+        "baker"
+      ],
+      "category": "economy",
+      "primary": "shop",
+      "evidence_grade": "mixed",
+      "genres": [
+        "real_world",
+        "western_fantasy",
+        "eastern_fantasy"
+      ],
+      "shop": {
+        "key": "baker",
+        "sells": [
+          "bread",
+          "pastry",
+          "snack"
+        ],
+        "services": [
+          "每日烤面包",
+          "代客烘烤",
+          "节庆糕点",
+          "出租烤炉"
+        ],
+        "settlement_min": "hamlet",
+        "staff": [
+          "面包师",
+          "学徒",
+          "揉面工",
+          "送货小工"
+        ]
+      },
+      "tags": [
+        "kind:shop",
+        "tradition:western",
+        "shop:baker",
+        "sells:bread",
+        "sells:pastry",
+        "sells:snack",
+        "settlement:hamlet",
+        "trade:baker",
+        "role:daily_bread",
+        "occasion:festival"
+      ],
+      "summary": "面包房是烘烤并出售面包和简单糕点的店铺，也可能替家户代烤。它是城镇日常主食的最后一环，与磨坊、粮商相连。",
+      "variants": [
+        "东方对应：烧饼铺、馒头铺、蒸饼铺、点心铺"
+      ],
+      "details": {
+        "definition": "面包房是烘烤并出售面包和简单糕点的店铺，也可能替家户代烤。它是城镇日常主食的最后一环，与磨坊、粮商相连。",
+        "mechanism": "向磨坊或粮商进面粉，夜里和面发酵，清晨出炉。面包的大小、重量和价格常由官府规定，不能随意涨价。许多村子有领主的公共烤炉，农户付费使用。节庆前后点心销量大增。",
+        "conditions": "最小聚落为村（hamlet）：村里常有领主的公炉或一位烤面包的人。行会与执照：面包师是典型的行会行当，常受重量与价格监管，违规要罚；学徒多年后晋升帮工与师傅。典型顾客：几乎所有家户，尤其是没有自家炉灶的城市居民。",
+        "exceptions": "常见纠纷：面包缺斤短两、掺杂料、价格被官府压制导致亏损、与磨坊主的品质争执、烤炉走火。例外：游牧或山区不靠面包，主食是肉乳或饼；稻米区面包房换成蒸饼与米糕铺。东方对应：烧饼铺、馒头铺。",
+        "story_uses": "①缺斤短两的面包师被示众，行会为他求情。②深夜炉火通明的烤炉房，成为地下接头点。③大火从面包房烧起，蔓延整条街。④歉收年，面包房前排起长队。",
+        "historical_scope": "本条以西式中世纪至近世早期的城镇、乡村店铺为基线，来源多取自 Britannica 对欧洲行会、客栈与行业的概述；东方对应（烧饼铺、馒头铺、蒸饼铺、点心铺）在正文与 variants 中说明，不拆 key。改编边界：架空世界可借用“村可养得起这家店、行业有师徒与同业约束、店主与顾客靠信用往来”这几点，但不应顺带断言该世界必有行会垄断、特定执照或某种货币；本条不含现实历史物价，也不自动生成库存或价格。",
+        "evidence_and_uncertainty": "有来源支持的部分：面包师是中世纪行会的典型行当（据 shops_src_03），行会设定质量标准、控制入行并处罚违规（据 shops_src_02）。 review_status 维持 needs_review；本条不含现实历史物价，亦不构成库存或价格数据。"
+      },
+      "source_ids": [
+        "shops_src_03",
+        "shops_src_02"
+      ],
+      "related_ids": [],
+      "related_catalog_ids": [
+        "staples_wheat",
+        "staples_rye",
+        "staples_oats",
+        "materials_salt",
+        "animal_food_butter",
+        "animal_food_egg"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "shop_confectioner",
+      "name": "糖果点心铺",
+      "aliases": [
+        "糖果店",
+        "蜜饯铺",
+        "甜点铺",
+        "confectioner"
+      ],
+      "category": "economy",
+      "primary": "shop",
+      "evidence_grade": "inferred",
+      "genres": [
+        "real_world",
+        "western_fantasy",
+        "eastern_fantasy"
+      ],
+      "shop": {
+        "key": "confectioner",
+        "sells": [
+          "sweetener",
+          "pastry",
+          "snack"
+        ],
+        "services": [
+          "糖果蜜饯",
+          "节庆礼盒",
+          "定制喜糕",
+          "药糖"
+        ],
+        "settlement_min": "town",
+        "staff": [
+          "糖匠",
+          "学徒",
+          "包装工"
+        ]
+      },
+      "tags": [
+        "kind:shop",
+        "tradition:western",
+        "shop:confectioner",
+        "sells:sweetener",
+        "sells:pastry",
+        "sells:snack",
+        "settlement:town",
+        "trade:confectioner",
+        "role:luxury_food",
+        "occasion:gift"
+      ],
+      "summary": "糖果点心铺做并卖糖果、蜜饯、糖衣坚果和精致糕点，主要是节庆、礼物和奢侈小食。甜味原料贵，决定了它是城镇里的高端食品店。",
+      "variants": [
+        "东方对应：糕点铺、蜜饯铺、糖坊"
+      ],
+      "details": {
+        "definition": "糖果点心铺做并卖糖果、蜜饯、糖衣坚果和精致糕点，主要是节庆、礼物和奢侈小食。甜味原料贵，决定了它是城镇里的高端食品店。",
+        "mechanism": "依靠进口或本地的糖、蜂蜜与可可，加工成糖球、蜜饯和糖塑。节日、婚礼和教堂活动是旺季。许多糖果最初当药糖卖，药铺与糖坊之间有交叉。",
+        "conditions": "最小聚落为镇（town）：需要稳定的富裕顾客。行会与执照：常与面包师或药剂师的行会有边界争议。学徒制：糖艺靠师传，技艺有保密性。典型顾客：贵族家厨、新郎新娘家、教堂、探亲的访客。",
+        "exceptions": "常见纠纷：糖价波动、掺假（用廉价甜味料冒充）、与面包师的行当界限、糖塑订单违约。例外：蜜糖产地的甜食摊遍地都是；糖稀缺的世界里，糖果是药或贡品。东方对应：糕点铺、蜜饯铺、糖坊。",
+        "story_uses": "①婚宴糖塑被人动了手脚。②糖坊师傅有秘方，徒弟偷走自立门户。③糖作为药引的另一面：毒糖。④海外商路断了，糖价飞涨。",
+        "historical_scope": "本条以西式中世纪至近世早期的城镇、乡村店铺为基线，来源多取自 Britannica 对欧洲行会、客栈与行业的概述；东方对应（糕点铺、蜜饯铺、糖坊）在正文与 variants 中说明，不拆 key。改编边界：架空世界可借用“镇可养得起这家店、行业有师徒与同业约束、店主与顾客靠信用往来”这几点，但不应顺带断言该世界必有行会垄断、特定执照或某种货币；本条不含现实历史物价，也不自动生成库存或价格。",
+        "evidence_and_uncertainty": "本条没有已读来源直接支撑，糖点工艺、行当边界与礼品用途为本项目推演。 review_status 维持 needs_review；本条不含现实历史物价，亦不构成库存或价格数据。"
+      },
+      "source_ids": [],
+      "related_ids": [],
+      "related_catalog_ids": [
+        "flavors_cane_sugar",
+        "flavors_honey",
+        "flavors_cocoa",
+        "flavors_beet_sugar",
+        "produce_almond"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "shop_cookshop",
+      "name": "熟食铺",
+      "aliases": [
+        "熟食店",
+        "烤肉铺",
+        "小吃铺",
+        "cookshop"
+      ],
+      "category": "economy",
+      "primary": "shop",
+      "evidence_grade": "inferred",
+      "genres": [
+        "real_world",
+        "western_fantasy",
+        "eastern_fantasy"
+      ],
+      "shop": {
+        "key": "cookshop",
+        "sells": [
+          "dish",
+          "snack",
+          "soup",
+          "noodle"
+        ],
+        "services": [
+          "现成热食",
+          "外卖",
+          "烤炙煮卤",
+          "代客烹调"
+        ],
+        "settlement_min": "town",
+        "staff": [
+          "厨子",
+          "帮厨",
+          "跑堂"
+        ]
+      },
+      "tags": [
+        "kind:shop",
+        "tradition:western",
+        "shop:cookshop",
+        "sells:dish",
+        "sells:snack",
+        "sells:soup",
+        "sells:noodle",
+        "settlement:town",
+        "trade:cook",
+        "role:street_food",
+        "trade:retail"
+      ],
+      "summary": "熟食铺出售现成的热食和卤味，顾客买了带走或就地吃。它面向没有炊事条件的人：单身工匠、租住的人和路过的人。",
+      "variants": [
+        "东方对应：熟食铺、卤味铺、小吃店、食肆"
+      ],
+      "details": {
+        "definition": "熟食铺出售现成的热食和卤味，顾客买了带走或就地吃。它面向没有炊事条件的人：单身工匠、租住的人和路过的人。",
+        "mechanism": "靠炉灶和大锅出售烤肉、炖菜、馅饼、面食等，一天分几个时段出炉。肉和原料取自肉铺与菜贩，出炉量按当天人流估算。许多城里居民的灶台很小，所以靠熟食铺。",
+        "conditions": "最小聚落为镇（town）：需要足够的无灶人口。行会与执照：厨师和熟食常有行会，规定店面火灾防护和食品卫生；独立执照因地而异。典型顾客：工匠、雇工、学徒、路人、没有灶台的城里人。",
+        "exceptions": "常见纠纷：食物不洁、肉来历可疑、与饭馆行当的界线、火灾、占道经营。例外：贵族厨房和修院自备厨房；游牧社会无此类店。东方对应：熟食铺、卤味店、小吃店。",
+        "story_uses": "①肉来历不明，被查出是病畜或更糟。②深夜排队的熟食铺是下班人群的聚点。③厨子的拿手菜吸引贵族注意，被拉走。④火灾的起点。",
+        "historical_scope": "本条以西式中世纪至近世早期的城镇、乡村店铺为基线，来源多取自 Britannica 对欧洲行会、客栈与行业的概述；东方对应（熟食铺、卤味铺、小吃店、食肆）在正文与 variants 中说明，不拆 key。改编边界：架空世界可借用“镇可养得起这家店、行业有师徒与同业约束、店主与顾客靠信用往来”这几点，但不应顺带断言该世界必有行会垄断、特定执照或某种货币；本条不含现实历史物价，也不自动生成库存或价格。",
+        "evidence_and_uncertainty": "有来源支持的部分：古罗马的 caupona 提供烹调好的食物，古希腊 lesche 供应饭食（据 shops_src_07）。具体经营与卫生管理为本项目推演。 review_status 维持 needs_review；本条不含现实历史物价，亦不构成库存或价格数据。"
+      },
+      "source_ids": [
+        "shops_src_07"
+      ],
+      "related_ids": [],
+      "related_catalog_ids": [
+        "tools_pottery_cooking_pot",
+        "tools_kitchen_knife",
+        "animal_food_pork",
+        "animal_food_sausage",
+        "flavors_vinegar"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "shop_dairy",
+      "name": "乳品铺",
+      "aliases": [
+        "奶坊",
+        "乳酪铺",
+        "牛奶铺",
+        "dairy"
+      ],
+      "category": "economy",
+      "primary": "shop",
+      "evidence_grade": "inferred",
+      "genres": [
+        "real_world",
+        "western_fantasy",
+        "eastern_fantasy"
+      ],
+      "shop": {
+        "key": "dairy",
+        "sells": [
+          "dairy",
+          "egg"
+        ],
+        "services": [
+          "鲜乳",
+          "黄油奶酪",
+          "禽蛋",
+          "送奶上门"
+        ],
+        "settlement_min": "hamlet",
+        "staff": [
+          "挤奶工",
+          "乳品师",
+          "送奶工"
+        ]
+      },
+      "tags": [
+        "kind:shop",
+        "tradition:western",
+        "shop:dairy",
+        "sells:dairy",
+        "sells:egg",
+        "settlement:hamlet",
+        "trade:dairyman",
+        "role:fresh_food",
+        "trade:farm_shop"
+      ],
+      "summary": "乳品铺卖鲜乳、黄油、奶酪和禽蛋，多靠近牧场，城里则靠送奶人。鲜乳不耐存，所以成品黄油、奶酪是重点。",
+      "variants": [
+        "东方对应：乳品铺（奶牛养殖区）、酪坊、奶酥铺"
+      ],
+      "details": {
+        "definition": "乳品铺卖鲜乳、黄油、奶酪和禽蛋，多靠近牧场，城里则靠送奶人。鲜乳不耐存，所以成品黄油、奶酪是重点。",
+        "mechanism": "清晨挤奶后立即分装，一部分留作鲜乳，其余做成黄油和奶酪长期存放。城里的乳品铺从郊区牧场进货，或自养少量奶牛。蛋类由农户送来，按日零售。",
+        "conditions": "最小聚落为村（hamlet）：牧区村庄就有。行会与执照：多数地方不设专门行会，但受卫生与度量管理；乳品师靠家传或学徒。典型顾客：附近家户、城里主妇、客栈与修院。",
+        "exceptions": "常见纠纷：掺水、变质、送奶不准时、牲畜疫病导致断供。例外：不食乳的社群没有这类店；游牧社会的乳品直接在家产自用。东方对应：乳品铺较少，奶酪酥乳为边疆与草原特产。",
+        "story_uses": "①牛疫让乳品铺断货，全镇受影响。②奶坊女孩知道谁家夜里有人进出。③黄油里藏东西。④乳品铺主人与牧场争地。",
+        "historical_scope": "本条以西式中世纪至近世早期的城镇、乡村店铺为基线，来源多取自 Britannica 对欧洲行会、客栈与行业的概述；东方对应（乳品铺（奶牛养殖区）、酪坊、奶酥铺）在正文与 variants 中说明，不拆 key。改编边界：架空世界可借用“村可养得起这家店、行业有师徒与同业约束、店主与顾客靠信用往来”这几点，但不应顺带断言该世界必有行会垄断、特定执照或某种货币；本条不含现实历史物价，也不自动生成库存或价格。",
+        "evidence_and_uncertainty": "本条没有已读来源直接支撑，乳品铺的经营方式为本项目推演。 review_status 维持 needs_review；本条不含现实历史物价，亦不构成库存或价格数据。"
+      },
+      "source_ids": [],
+      "related_ids": [],
+      "related_catalog_ids": [
+        "animal_food_milk",
+        "animal_food_butter",
+        "animal_food_cheese",
+        "animal_food_egg",
+        "animal_food_yogurt"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "shop_miller",
+      "name": "磨坊",
+      "aliases": [
+        "磨坊主",
+        "水磨坊",
+        "风车磨坊",
+        "miller"
+      ],
+      "category": "economy",
+      "primary": "shop",
+      "evidence_grade": "inferred",
+      "genres": [
+        "real_world",
+        "western_fantasy",
+        "eastern_fantasy"
+      ],
+      "shop": {
+        "key": "miller",
+        "sells": [
+          "grain"
+        ],
+        "services": [
+          "代客磨粉",
+          "粮食收购",
+          "面粉出售",
+          "磨石维护"
+        ],
+        "settlement_min": "hamlet",
+        "staff": [
+          "磨坊主",
+          "磨工",
+          "学徒"
+        ]
+      },
+      "tags": [
+        "kind:shop",
+        "tradition:western",
+        "shop:miller",
+        "sells:grain",
+        "settlement:hamlet",
+        "trade:miller",
+        "role:grain_processing",
+        "trade:monopoly"
+      ],
+      "summary": "磨坊用水力、风力或畜力磨谷成粉，并向农户收磨费。它是乡村与城镇的要害设施，掌握谷物加工。",
+      "variants": [
+        "东方对应：磨坊、碾坊、水碓"
+      ],
+      "details": {
+        "definition": "磨坊用水力、风力或畜力磨谷成粉，并向农户收磨费。它是乡村与城镇的要害设施，掌握谷物加工。",
+        "mechanism": "农户把谷子带来，磨坊主按比例收取磨费，常以实物（一部分面粉）支付，这是磨坊主的收入，也是矛盾源。磨坊主还自行买粮卖粉。水磨受河道和水权影响，风磨受地势影响。",
+        "conditions": "最小聚落为村（hamlet）：有水利或风条件的村即可有磨坊。行会与执照：许多地方领主垄断磨坊，强制农户使用并收磨费；磨坊主往往是领主代理，不一定入行会。学徒制：家传或学徒。典型顾客：附近农户、面包师、粮商。",
+        "exceptions": "常见纠纷：磨费抽成、短斤少两、领主强制使用、水权争夺、磨石更换。例外：自家有手磨的农户不用磨坊；游牧社会的磨具是随身的。东方对应：磨坊、碾坊、水碓。",
+        "story_uses": "①磨坊主被怀疑偷面粉，村里怨声四起。②深夜的风车转动是信号。③水权争议引发村际械斗。④磨坊起火，粮价暴涨。",
+        "historical_scope": "本条以西式中世纪至近世早期的城镇、乡村店铺为基线，来源多取自 Britannica 对欧洲行会、客栈与行业的概述；东方对应（磨坊、碾坊、水碓）在正文与 variants 中说明，不拆 key。改编边界：架空世界可借用“村可养得起这家店、行业有师徒与同业约束、店主与顾客靠信用往来”这几点，但不应顺带断言该世界必有行会垄断、特定执照或某种货币；本条不含现实历史物价，也不自动生成库存或价格。",
+        "evidence_and_uncertainty": "本条没有已读来源直接支撑，磨费、领主垄断与水权争议均为本项目推演，写入时请按所选世界调整。 review_status 维持 needs_review；本条不含现实历史物价，亦不构成库存或价格数据。"
+      },
+      "source_ids": [],
+      "related_ids": [],
+      "related_catalog_ids": [
+        "tools_watermill",
+        "tools_windmill",
+        "tools_rotary_quern",
+        "tools_saddle_quern",
+        "staples_wheat"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "shop_brewer",
+      "name": "酿酒坊",
+      "aliases": [
+        "酿酒师",
+        "啤酒坊",
+        "酒坊",
+        "brewer"
+      ],
+      "category": "economy",
+      "primary": "shop",
+      "evidence_grade": "inferred",
+      "genres": [
+        "real_world",
+        "western_fantasy",
+        "eastern_fantasy"
+      ],
+      "shop": {
+        "key": "brewer",
+        "sells": [
+          "alcohol",
+          "beverage"
+        ],
+        "services": [
+          "酿造出售",
+          "批发给酒馆",
+          "预订桶装",
+          "代客酿造"
+        ],
+        "settlement_min": "hamlet",
+        "staff": [
+          "酿酒师",
+          "桶工",
+          "学徒",
+          "搬运工"
+        ]
+      },
+      "tags": [
+        "kind:shop",
+        "tradition:western",
+        "shop:brewer",
+        "sells:alcohol",
+        "sells:beverage",
+        "settlement:hamlet",
+        "trade:brewer",
+        "role:production",
+        "trade:guild_trade"
+      ],
+      "summary": "酿酒坊用谷物、蜂蜜或果实酿制啤酒、蜜酒、果酒或蒸馏酒，并批发或零售。它是酒馆的供货方。",
+      "variants": [
+        "东方对应：酒坊、烧坊、酿酒作坊、醪糟铺"
+      ],
+      "details": {
+        "definition": "酿酒坊用谷物、蜂蜜或果实酿制啤酒、蜜酒、果酒或蒸馏酒，并批发或零售。它是酒馆的供货方。",
+        "mechanism": "向农户采购麦、蜜或果，在坊里发酵、陈放，按桶出货。酒馆多数向酿酒坊订货，也有自酿的。酿酒季节与收成相关，品质依赖水、麦和酵母。",
+        "conditions": "最小聚落为村（hamlet）：村里农家自酿很普遍，专业酿酒坊以镇为主。行会与执照：酿酒行有行会，规定品质、度量和销售区；税收常按酿造量计。学徒制：多年学徒。典型顾客：酒馆、客栈、修院与家户。",
+        "exceptions": "常见纠纷：酒质、掺水、税务、与酒馆的价格争执、酵母污染。例外：禁酒社会没有酿酒坊；修院酿酒不对外或对外有限。东方对应：酒坊、烧坊。",
+        "story_uses": "①一批变质的酒毒倒全镇。②酿酒坊主人靠供酒掌握各酒馆的命脉。③修院秘方酒被偷。④税务官查账。",
+        "historical_scope": "本条以西式中世纪至近世早期的城镇、乡村店铺为基线，来源多取自 Britannica 对欧洲行会、客栈与行业的概述；东方对应（酒坊、烧坊、酿酒作坊、醪糟铺）在正文与 variants 中说明，不拆 key。改编边界：架空世界可借用“村可养得起这家店、行业有师徒与同业约束、店主与顾客靠信用往来”这几点，但不应顺带断言该世界必有行会垄断、特定执照或某种货币；本条不含现实历史物价，也不自动生成库存或价格。",
+        "evidence_and_uncertainty": "有来源支持的部分：行会设定产品质量标准并维持价格稳定（据 shops_src_03）。具体酿造与税收为本项目推演。 review_status 维持 needs_review；本条不含现实历史物价，亦不构成库存或价格数据。"
+      },
+      "source_ids": [
+        "shops_src_03"
+      ],
+      "related_ids": [],
+      "related_catalog_ids": [
+        "flavors_beer",
+        "staples_barley",
+        "flavors_mead",
+        "flavors_distilled_spirit",
+        "flavors_wine"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "shop_wine_merchant",
+      "name": "酒商",
+      "aliases": [
+        "葡萄酒商",
+        "酒行",
+        "酒窖主",
+        "wine merchant"
+      ],
+      "category": "economy",
+      "primary": "shop",
+      "evidence_grade": "inferred",
+      "genres": [
+        "real_world",
+        "western_fantasy",
+        "eastern_fantasy"
+      ],
+      "shop": {
+        "key": "wine_merchant",
+        "sells": [
+          "alcohol"
+        ],
+        "services": [
+          "批发零售",
+          "窖藏陈放",
+          "进口异地酒",
+          "鉴酒"
+        ],
+        "settlement_min": "town",
+        "staff": [
+          "酒商",
+          "窖工",
+          "账房",
+          "搬运工"
+        ]
+      },
+      "tags": [
+        "kind:shop",
+        "tradition:western",
+        "shop:wine_merchant",
+        "sells:alcohol",
+        "settlement:town",
+        "trade:vintner",
+        "role:long_distance_trade",
+        "trade:importer"
+      ],
+      "summary": "酒商从产区批量购进酒，经窖藏后卖给酒馆、贵族家和修院。它与酿酒坊的区别在于不自己酿，靠远程贸易和库存吃利润。",
+      "variants": [
+        "东方对应：酒行、酒庄代理、酒栈"
+      ],
+      "details": {
+        "definition": "酒商从产区批量购进酒，经窖藏后卖给酒馆、贵族家和修院。它与酿酒坊的区别在于不自己酿，靠远程贸易和库存吃利润。",
+        "mechanism": "从产区订货，用船或车运来，按桶或坛入窖，陈放后批发。酒的产地、年份和运输损耗决定价格。酒商常兼放贷或做中介，与港口、关税、行会关系复杂。",
+        "conditions": "最小聚落为镇（town）：城镇才有足够的消费与流通。行会与执照：酒商常属商人行会，需要进口许可，缴关税；酒行有鉴酒规矩。典型顾客：酒馆、贵族、修院、大户。",
+        "exceptions": "常见纠纷：假酒、掺水、关税、运输损耗、与本地酿酒坊的保护性争执。例外：产酒地的酒商就是酿酒户；禁酒社会没有此业。东方对应：酒行、酒栈。",
+        "story_uses": "①一批运来的酒里夹带私货。②假酒冒充名酒。③酒窖里藏着的东西。④产区歉收，酒商囤货哄抬。",
+        "historical_scope": "本条以西式中世纪至近世早期的城镇、乡村店铺为基线，来源多取自 Britannica 对欧洲行会、客栈与行业的概述；东方对应（酒行、酒庄代理、酒栈）在正文与 variants 中说明，不拆 key。改编边界：架空世界可借用“镇可养得起这家店、行业有师徒与同业约束、店主与顾客靠信用往来”这几点，但不应顺带断言该世界必有行会垄断、特定执照或某种货币；本条不含现实历史物价，也不自动生成库存或价格。",
+        "evidence_and_uncertainty": "有来源支持的部分：商人行会的成员包括本地与长途、批发与零售商人，并掌握当地贸易（据 shops_src_03）；16 世纪英格兰酒馆卖葡萄酒与麦酒（据 shops_src_07）。酒商的窖藏与进口细节为本项目推演。 review_status 维持 needs_review；本条不含现实历史物价，亦不构成库存或价格数据。"
+      },
+      "source_ids": [
+        "shops_src_03",
+        "shops_src_07"
+      ],
+      "related_ids": [],
+      "related_catalog_ids": [
+        "flavors_wine",
+        "produce_grape",
+        "flavors_distilled_spirit",
+        "flavors_vinegar",
+        "society_market_duty"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "shop_tea_house",
+      "name": "茶馆",
+      "aliases": [
+        "茶楼",
+        "茶肆",
+        "茶室",
+        "tea house",
+        "teahouse",
+        "咖啡馆（西式对应）"
+      ],
+      "category": "economy",
+      "primary": "shop",
+      "evidence_grade": "inferred",
+      "genres": [
+        "real_world",
+        "western_fantasy",
+        "eastern_fantasy"
+      ],
+      "shop": {
+        "key": "tea_house",
+        "sells": [
+          "beverage",
+          "snack",
+          "pastry"
+        ],
+        "services": [
+          "沏茶",
+          "茶点",
+          "说书曲艺",
+          "谈生意",
+          "包间"
+        ],
+        "settlement_min": "town",
+        "staff": [
+          "掌柜",
+          "茶博士",
+          "跑堂",
+          "说书人"
+        ]
+      },
+      "tags": [
+        "kind:shop",
+        "tradition:western",
+        "shop:tea_house",
+        "sells:beverage",
+        "sells:snack",
+        "sells:pastry",
+        "settlement:town",
+        "trade:teahouse",
+        "role:social_hub",
+        "role:news_exchange"
+      ],
+      "summary": "茶馆出售茶水与点心，供顾客坐下谈天、听书、谈买卖。本库把东方茶馆与西方咖啡馆合为一个 key：同属不以酒为主的饮品社交场所。",
+      "variants": [
+        "东方对应：茶馆就是东方本体；西式对应是咖啡馆（coffeehouse）、茶室"
+      ],
+      "details": {
+        "definition": "茶馆出售茶水与点心，供顾客坐下谈天、听书、谈买卖。本库把东方茶馆与西方咖啡馆合为一个 key：同属不以酒为主的饮品社交场所。",
+        "mechanism": "靠茶叶、热水和座位赚钱，一壶茶可坐半天。店里请说书人或艺人吸引客人，茶客在此交换消息、谈买卖、调解纠纷。咖啡馆则以咖啡为主，常成为报纸与辩论的场所。",
+        "conditions": "最小聚落为镇（town）：需要足够的人流和闲暇。行会与执照：多数地方不设行会，但受治安管理，防止聚众议政；有的朝代对茶馆集会限制严。典型顾客：商贩、文人、闲人、调解纠纷的乡绅。",
+        "exceptions": "常见纠纷：治安、聚众、占座、说书内容触犯禁令。例外：游牧社会的茶是招待，无店铺；西式咖啡馆与东方茶馆的客层与话题不同。东方对应：茶馆本身；西式对应：咖啡馆、茶室。tradition 标注为 eastern，是因为茶馆是东方特有形态。",
+        "story_uses": "①茶馆是舆论中心，一个说书人讲的故事触怒官府。②调解纠纷的“吃讲茶”。③探子坐在角落里。④茶馆被封，附近商贩顿失去处。",
+        "historical_scope": "本条以西式中世纪至近世早期的城镇、乡村店铺为基线，来源多取自 Britannica 对欧洲行会、客栈与行业的概述；东方对应（茶馆就是东方本体；西式对应是咖啡馆（coffeehouse）、茶室）在正文与 variants 中说明，不拆 key。改编边界：架空世界可借用“镇可养得起这家店、行业有师徒与同业约束、店主与顾客靠信用往来”这几点，但不应顺带断言该世界必有行会垄断、特定执照或某种货币；本条不含现实历史物价，也不自动生成库存或价格。",
+        "evidence_and_uncertainty": "有来源支持的部分：酒馆等场所发展成各阶层的社交中心、非正式俱乐部（据 shops_src_07，作为类比）。茶馆本身与咖啡馆在本次未取得已读来源（见 shops_src_un_01），其余为本项目推演。 review_status 维持 needs_review；本条不含现实历史物价，亦不构成库存或价格数据。"
+      },
+      "source_ids": [
+        "shops_src_07"
+      ],
+      "related_ids": [],
+      "related_catalog_ids": [
+        "flavors_tea",
+        "flavors_coffee",
+        "flavors_cane_sugar",
+        "flavors_honey"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "shop_chandler",
+      "name": "蜡烛杂货铺",
+      "aliases": [
+        "烛铺",
+        "蜡烛匠",
+        "油烛店",
+        "chandler"
+      ],
+      "category": "economy",
+      "primary": "shop",
+      "evidence_grade": "inferred",
+      "genres": [
+        "real_world",
+        "western_fantasy",
+        "eastern_fantasy"
+      ],
+      "shop": {
+        "key": "chandler",
+        "sells": [
+          "fuel",
+          "oil_crop",
+          "tool"
+        ],
+        "services": [
+          "蜡烛",
+          "灯油",
+          "肥皂",
+          "绳索",
+          "船用补给"
+        ],
+        "settlement_min": "town",
+        "staff": [
+          "烛匠",
+          "学徒",
+          "店员"
+        ]
+      },
+      "tags": [
+        "kind:shop",
+        "tradition:western",
+        "shop:chandler",
+        "sells:fuel",
+        "sells:oil_crop",
+        "sells:tool",
+        "settlement:town",
+        "trade:chandler",
+        "role:lighting",
+        "trade:supplier"
+      ],
+      "summary": "蜡烛杂货铺做并卖蜡烛、灯油，兼营肥皂、绳索和船用杂货。照明与清洁是日常必需，这家店占了其中两样。",
+      "variants": [
+        "东方对应：蜡烛铺、油坊、灯烛铺、香烛店"
+      ],
+      "details": {
+        "definition": "蜡烛杂货铺做并卖蜡烛、灯油，兼营肥皂、绳索和船用杂货。照明与清洁是日常必需，这家店占了其中两样。",
+        "mechanism": "用动物脂肪或蜂蜡熬制蜡烛，从肉铺收油脂，从蜂农买蜡。港口的蜡烛铺兼做船舶补给。教堂和大户是大客户，家户则买便宜的脂烛。",
+        "conditions": "最小聚落为镇（town）。行会与执照：制皂和制烛常属独立行会，或与油脂行业有交叉；教堂用蜡常有专门供货人。学徒制：多年。典型顾客：家户、教堂、航运、大户。",
+        "exceptions": "常见纠纷：烛质、烟熏、掺杂、脂肪臭味引起邻居不满、火灾。例外：富裕地区用蜂蜡，贫穷地区用脂烛；东方也用油灯与香烛。东方对应：蜡烛铺、灯油铺、香烛店。",
+        "story_uses": "①脂肪熬制的恶臭让邻居上告。②教堂大宗订单的竞争。③火灾。④港口补给中夹带的货。",
+        "historical_scope": "本条以西式中世纪至近世早期的城镇、乡村店铺为基线，来源多取自 Britannica 对欧洲行会、客栈与行业的概述；东方对应（蜡烛铺、油坊、灯烛铺、香烛店）在正文与 variants 中说明，不拆 key。改编边界：架空世界可借用“镇可养得起这家店、行业有师徒与同业约束、店主与顾客靠信用往来”这几点，但不应顺带断言该世界必有行会垄断、特定执照或某种货币；本条不含现实历史物价，也不自动生成库存或价格。",
+        "evidence_and_uncertainty": "有来源支持的部分：制皂匠、皮革匠等是中世纪行会里的行当之一（据 shops_src_03）。烛与灯油的经营方式为本项目推演。 review_status 维持 needs_review；本条不含现实历史物价，亦不构成库存或价格数据。"
+      },
+      "source_ids": [
+        "shops_src_03"
+      ],
+      "related_ids": [],
+      "related_catalog_ids": [
+        "craft_supp_candle",
+        "craft_supp_wax",
+        "craft_supp_soap",
+        "tools_rope",
+        "animal_food_rendered_fat"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "shop_spice_merchant",
+      "name": "香料商",
+      "aliases": [
+        "香料铺",
+        "香药商",
+        "香料行",
+        "spice merchant"
+      ],
+      "category": "economy",
+      "primary": "shop",
+      "evidence_grade": "inferred",
+      "genres": [
+        "real_world",
+        "western_fantasy",
+        "eastern_fantasy"
+      ],
+      "shop": {
+        "key": "spice_merchant",
+        "sells": [
+          "spice",
+          "culinary_herb",
+          "condiment",
+          "sweetener",
+          "medicinal_herb"
+        ],
+        "services": [
+          "香料批发",
+          "零售分装",
+          "鉴别真伪",
+          "药用香料"
+        ],
+        "settlement_min": "city",
+        "staff": [
+          "香料商",
+          "账房",
+          "称重员",
+          "押运护卫"
+        ]
+      },
+      "tags": [
+        "kind:shop",
+        "tradition:western",
+        "shop:spice_merchant",
+        "sells:spice",
+        "sells:culinary_herb",
+        "sells:condiment",
+        "sells:sweetener",
+        "sells:medicinal_herb",
+        "settlement:city",
+        "trade:spice_merchant",
+        "role:long_distance_trade",
+        "trade:importer"
+      ],
+      "summary": "香料商进口并分销香料、药用香草、糖和调味品，是远程贸易链里的重要一环。货小而贵，要防假防盗。",
+      "variants": [
+        "东方对应：香料行、香药铺、药材行"
+      ],
+      "details": {
+        "definition": "香料商进口并分销香料、药用香草、糖和调味品，是远程贸易链里的重要一环。货小而贵，要防假防盗。",
+        "mechanism": "从港口或商队处批量进货，称量分装，卖给杂货铺、药铺、厨房和贵族。真伪鉴别是核心本事，掺假（用廉价料冒充）极常见。商队、航线与关税决定供货稳定。",
+        "conditions": "最小聚落为城（city）：需要港口或商路节点。行会与执照：商人行会控制长途与批发贸易，进口许可与关税常见；香料商与药剂师、杂货商的行当有重叠。典型顾客：杂货铺、药铺、贵族家厨、修院。",
+        "exceptions": "常见纠纷：掺假、走私、关税、商队被劫、与药铺和杂货铺争行当界限。例外：香料产地的小贩直接卖；中世纪欧洲与东方产地的价格关系、供货路线不同，本库不写物价。东方对应：香料行、香药铺、药材行。",
+        "story_uses": "①真伪之争：一撮藏红花引出一场官司。②商队失踪，香料商濒临破产。③香料里夹带的违禁品。④繁荣港口的香料行是各方情报来源。",
+        "historical_scope": "本条以西式中世纪至近世早期的城镇、乡村店铺为基线，来源多取自 Britannica 对欧洲行会、客栈与行业的概述；东方对应（香料行、香药铺、药材行）在正文与 variants 中说明，不拆 key。改编边界：架空世界可借用“城可养得起这家店、行业有师徒与同业约束、店主与顾客靠信用往来”这几点，但不应顺带断言该世界必有行会垄断、特定执照或某种货币；本条不含现实历史物价，也不自动生成库存或价格。",
+        "evidence_and_uncertainty": "有来源支持的部分：商人行会包括长途与本地、批发与零售商人，控制当地贸易（据 shops_src_03）。香料来源、鉴别与走私为本项目推演。 review_status 维持 needs_review；本条不含现实历史物价，亦不构成库存或价格数据。"
+      },
+      "source_ids": [
+        "shops_src_03"
+      ],
+      "related_ids": [],
+      "related_catalog_ids": [
+        "flavors_black_pepper",
+        "flavors_cinnamon",
+        "flavors_clove",
+        "flavors_nutmeg_mace",
+        "flavors_saffron",
+        "flavors_ginger",
+        "reality_human_caravan_trade_route"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "shop_apothecary",
+      "name": "药铺",
+      "aliases": [
+        "药剂师",
+        "药房",
+        "药店",
+        "apothecary",
+        "pharmacy"
+      ],
+      "category": "economy",
+      "primary": "shop",
+      "evidence_grade": "mixed",
+      "genres": [
+        "real_world",
+        "western_fantasy",
+        "eastern_fantasy"
+      ],
+      "shop": {
+        "key": "apothecary",
+        "sells": [
+          "medicinal_herb",
+          "medicinal_mineral",
+          "medicinal_animal",
+          "formula",
+          "spice"
+        ],
+        "services": [
+          "按方配药",
+          "成药出售",
+          "香料药材",
+          "简单诊断",
+          "外伤敷料"
+        ],
+        "settlement_min": "town",
+        "staff": [
+          "药剂师",
+          "学徒",
+          "配药工",
+          "采药人"
+        ]
+      },
+      "tags": [
+        "kind:shop",
+        "tradition:western",
+        "shop:apothecary",
+        "sells:medicinal_herb",
+        "sells:medicinal_mineral",
+        "sells:medicinal_animal",
+        "sells:formula",
+        "sells:spice",
+        "settlement:town",
+        "trade:apothecary",
+        "role:healthcare",
+        "role:licensed_trade"
+      ],
+      "summary": "药铺是备制并出售药物的店铺，历史上的 apothecary 既配药也给建议，既是医疗入口又是香料草药店。词源 apotheca 意为库房，指存放药物的地方。",
+      "variants": [
+        "东方对应：药铺、药房、药堂、医馆附设药房"
+      ],
+      "details": {
+        "definition": "药铺是备制并出售药物的店铺，历史上的 apothecary 既配药也给建议，既是医疗入口又是香料草药店。词源 apotheca 意为库房，指存放药物的地方。",
+        "mechanism": "从采药人、香料商与矿物商进药材，按方研磨、混合、制成丸散膏。顾客持医生的处方，或直接请药师建议。毒药与烈性药物由药师控制，凭方出售。药铺同时卖香料、蜡烛和糖。",
+        "conditions": "最小聚落为镇（town）：村里的草药师（herbalist）负责日常，药铺需要稳定的药材来源与持方顾客。行会与执照：英格兰史上药剂师从杂货商行会分出，詹姆斯一世规定只有会员才能开药铺和卖药剂；后来成立药学会管理教育。学徒制：数年学徒后才能自立。典型顾客：病人、医生、家庭主妇、贵族。",
+        "exceptions": "常见纠纷：配药错误、毒药管制、假药、与医生的行当界限、与杂货商争药材与香料。例外：中世纪药师兼治病，19 世纪初才分成治病与配药两路；东方药铺常附在医馆，医药一体。东方对应：药铺、药房、药堂。",
+        "story_uses": "①配药错误致死，药师被告。②毒药被人买走后成为谋杀工具，药师是关键证人。③瘟疫来临，药铺被围。④药师暗中配制违禁药。",
+        "historical_scope": "本条以西式中世纪至近世早期的城镇、乡村店铺为基线，来源多取自 Britannica 对欧洲行会、客栈与行业的概述；东方对应（药铺、药房、药堂、医馆附设药房）在正文与 variants 中说明，不拆 key。改编边界：架空世界可借用“镇可养得起这家店、行业有师徒与同业约束、店主与顾客靠信用往来”这几点，但不应顺带断言该世界必有行会垄断、特定执照或某种货币；本条不含现实历史物价，也不自动生成库存或价格。",
+        "evidence_and_uncertainty": "有来源支持的部分：apothecary 是备制并出售药物的人或店，词源 apotheca 意为库房；中世纪药师既配药也开方，19 世纪初分化；詹姆斯一世批准药师与杂货商分离，只有会员才能开药铺和卖药剂，1841 年成立大不列颠药学会（据 shops_src_09）。行会的学徒与垄断功能见 shops_src_03。 review_status 维持 needs_review；本条不含现实历史物价，亦不构成库存或价格数据。"
+      },
+      "source_ids": [
+        "shops_src_09",
+        "shops_src_03"
+      ],
+      "related_ids": [],
+      "related_catalog_ids": [
+        "herb_west_valerian",
+        "herb_west_mint",
+        "herb_west_licorice",
+        "herb_west_poison_hemlock",
+        "herb_other_cinnabar",
+        "society_craft_guild",
+        "society_healthcare_access"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "shop_herbalist",
+      "name": "草药铺",
+      "aliases": [
+        "草药师",
+        "采药人",
+        "药草摊",
+        "herbalist",
+        "药草婆"
+      ],
+      "category": "economy",
+      "primary": "shop",
+      "evidence_grade": "inferred",
+      "genres": [
+        "real_world",
+        "western_fantasy",
+        "eastern_fantasy"
+      ],
+      "shop": {
+        "key": "herbalist",
+        "sells": [
+          "medicinal_herb",
+          "plant",
+          "culinary_herb"
+        ],
+        "services": [
+          "采药售药",
+          "草药茶",
+          "民间疗法",
+          "接生与护理"
+        ],
+        "settlement_min": "hamlet",
+        "staff": [
+          "草药师",
+          "助手"
+        ]
+      },
+      "tags": [
+        "kind:shop",
+        "tradition:western",
+        "shop:herbalist",
+        "sells:medicinal_herb",
+        "sells:plant",
+        "sells:culinary_herb",
+        "settlement:hamlet",
+        "trade:herbalist",
+        "role:folk_healer",
+        "trade:forager"
+      ],
+      "summary": "草药铺是采集、晾晒和出售草药的小店，往往由民间草药师经营，服务于没有药铺的地方。它比药铺更靠近乡土，也更依赖个人经验。",
+      "variants": [
+        "东方对应：草药铺、郎中摊、采药人、药农"
+      ],
+      "details": {
+        "definition": "草药铺是采集、晾晒和出售草药的小店，往往由民间草药师经营，服务于没有药铺的地方。它比药铺更靠近乡土，也更依赖个人经验。",
+        "mechanism": "草药师自己采药或向采药人收购，晾干后卖整药或配成茶、膏。常兼做接生、疗伤和简单诊断。口耳相传的方子是核心资产。",
+        "conditions": "最小聚落为村（hamlet）：村里最常见的医药入口。行会与执照：通常没有正式执照，在有药剂师垄断的地方可能被禁止或限制；有的地方会受教会或官府监视。典型顾客：村民、孕妇、牲畜主人。",
+        "exceptions": "常见纠纷：被指为巫术、与药铺和医生冲突、误用毒草、药效争议。例外：东方民间有“药农”“郎中”，常有师承；西方有“聪明女人”。东方对应：草药铺、郎中摊、药农。",
+        "story_uses": "①被指控巫术的草药师。②采药人在山中发现的东西。③药铺垄断与民间草药的冲突。④一位草药师手中的毒草，决定一场继承。",
+        "historical_scope": "本条以西式中世纪至近世早期的城镇、乡村店铺为基线，来源多取自 Britannica 对欧洲行会、客栈与行业的概述；东方对应（草药铺、郎中摊、采药人、药农）在正文与 variants 中说明，不拆 key。改编边界：架空世界可借用“村可养得起这家店、行业有师徒与同业约束、店主与顾客靠信用往来”这几点，但不应顺带断言该世界必有行会垄断、特定执照或某种货币；本条不含现实历史物价，也不自动生成库存或价格。",
+        "evidence_and_uncertainty": "有来源支持的部分：药剂师的前身包括配药与开方（据 shops_src_09），作为对比。民间草药师的经营方式为本项目推演。 review_status 维持 needs_review；本条不含现实历史物价，亦不构成库存或价格数据。"
+      },
+      "source_ids": [
+        "shops_src_09"
+      ],
+      "related_ids": [],
+      "related_catalog_ids": [
+        "herb_west_yarrow",
+        "herb_west_pot_marigold",
+        "herb_west_valerian",
+        "herb_west_mint",
+        "herb_aerial_bohe"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "shop_alchemist",
+      "name": "炼金工坊",
+      "aliases": [
+        "炼金术士铺",
+        "炼丹房",
+        "丹房",
+        "alchemist shop"
+      ],
+      "category": "economy",
+      "primary": "shop",
+      "evidence_grade": "inferred",
+      "genres": [
+        "western_fantasy",
+        "eastern_fantasy"
+      ],
+      "shop": {
+        "key": "alchemist",
+        "sells": [
+          "potion",
+          "elixir_pill",
+          "medicinal_mineral",
+          "glass_ceramic"
+        ],
+        "services": [
+          "配制魔药",
+          "出售丹药",
+          "提纯矿物",
+          "鉴定材料"
+        ],
+        "settlement_min": "city",
+        "staff": [
+          "炼金术士",
+          "学徒",
+          "火工",
+          "采购人"
+        ]
+      },
+      "tags": [
+        "kind:shop",
+        "tradition:eastern",
+        "tradition:western",
+        "shop:alchemist",
+        "sells:potion",
+        "sells:elixir_pill",
+        "sells:medicinal_mineral",
+        "sells:glass_ceramic",
+        "settlement:city",
+        "trade:alchemist",
+        "role:arcane_supply"
+      ],
+      "summary": "炼金工坊是奇幻世界里配制并出售魔药、丹药，兼做材料提纯与鉴定的店铺。它是本项目为奇幻题材设的店铺类型，现实里最接近的是药铺与金银匠的熔炼间。",
+      "variants": [
+        "东方对应：丹房、炼丹炉、丹铺（见 eastern_alchemy、eastern_pill_elixir）"
+      ],
+      "details": {
+        "definition": "炼金工坊是奇幻世界里配制并出售魔药、丹药，兼做材料提纯与鉴定的店铺。它是本项目为奇幻题材设的店铺类型，现实里最接近的是药铺与金银匠的熔炼间。",
+        "mechanism": "靠炉火、器皿与稀有材料运转：向采药人、矿工和猎人收购原料，提纯、配制，再按成品或定制出售。配方是核心资产，通常口传或写在不外借的手册里。魔药或丹药的效力与风险由所在世界的魔法规则决定，店铺只是流通口。",
+        "conditions": "最小聚落为城（city）：材料与顾客都要有足够规模，村镇多由药铺或草药铺代行。行会与执照：奇幻世界常设魔法管制与执照（见 western_magic_regulation），法师学院或宗门可能垄断高阶配方；无证开业是常见犯罪。学徒制严格，师徒绑定很久。典型顾客：冒险者、术士、宗门弟子、贵族、医师。",
+        "exceptions": "常见纠纷：药效不符、以次充好、材料来源不明（盗墓、偷猎）、配方被盗、爆炉事故。例外：没有魔法的世界里，此店退化为江湖骗子或早期化学作坊。东方对应：丹房、炼丹炉与丹药铺，与宗门供奉制度相连，不拆 key。",
+        "story_uses": "①炉子爆炸，邻里与官府追责。②店里卖的一款丹药，用了不该用的材料。③学徒偷出配方另立门户，师门追杀。④冒险者拿回一份来路不明的稀有材料，要估价。⑤管制法令下，无证炼金师在地下暗市出货。",
+        "historical_scope": "本条以西式中世纪至近世早期的城镇、乡村店铺为基线，来源多取自 Britannica 对欧洲行会、客栈与行业的概述；东方对应（丹房、炼丹炉、丹铺（见 eastern_alchemy、eastern_pill_elixir））在正文与 variants 中说明，不拆 key。改编边界：架空世界可借用“城可养得起这家店、行业有师徒与同业约束、店主与顾客靠信用往来”这几点，但不应顺带断言该世界必有行会垄断、特定执照或某种货币；本条不含现实历史物价，也不自动生成库存或价格。",
+        "evidence_and_uncertainty": "本条没有读过的来源，整体为本项目设计推演（grade=inferred）。相关设定见库内 western_alchemy、eastern_alchemy、western_magic_regulation 等条目，它们的来源不在此重复。 review_status 维持 needs_review；本条不含现实历史物价，亦不构成库存或价格数据。"
+      },
+      "source_ids": [],
+      "related_ids": [],
+      "related_catalog_ids": [
+        "western_alchemy",
+        "eastern_alchemy",
+        "western_potion_elixir",
+        "eastern_pill_elixir",
+        "western_arcane_material",
+        "eastern_alc_furnace_fire"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "shop_blacksmith",
+      "name": "铁匠铺",
+      "aliases": [
+        "铁匠",
+        "锻铁坊",
+        "打铁铺",
+        "smithy",
+        "forge",
+        "farrier"
+      ],
+      "category": "economy",
+      "primary": "shop",
+      "evidence_grade": "mixed",
+      "genres": [
+        "real_world",
+        "western_fantasy",
+        "eastern_fantasy"
+      ],
+      "shop": {
+        "key": "blacksmith",
+        "sells": [
+          "tool",
+          "metal",
+          "weapon"
+        ],
+        "services": [
+          "修补农具",
+          "钉马掌",
+          "打制铁器",
+          "修车箍与铁件",
+          "打制钉子与合页"
+        ],
+        "settlement_min": "hamlet",
+        "staff": [
+          "铁匠",
+          "学徒",
+          "拉风箱的帮工"
+        ]
+      },
+      "tags": [
+        "kind:shop",
+        "tradition:western",
+        "shop:blacksmith",
+        "sells:tool",
+        "sells:metal",
+        "sells:weapon",
+        "settlement:hamlet",
+        "trade:smith",
+        "role:repair",
+        "role:daily_goods"
+      ],
+      "summary": "铁匠铺是在炉上把铁烧红、在砧上锤打成器的作坊兼店铺。铁匠既做日常铁器，也钉马掌；专钉马掌的叫 farrier，本库并入此 key。多数城镇和村庄都有一间。",
+      "variants": [
+        "东方对应：铁匠铺、打铁铺、铁炉；东方也有专门的兵器坊（见 weaponsmith）"
+      ],
+      "details": {
+        "definition": "铁匠铺是在炉上把铁烧红、在砧上锤打成器的作坊兼店铺。铁匠既做日常铁器，也钉马掌；专钉马掌的叫 farrier，本库并入此 key。多数城镇和村庄都有一间。",
+        "mechanism": "核心设备是炉（锻炉）、砧、钳、锤和凿。熟铁烧到能锻，趁热锤成型，淬火后冷加工。铁匠做钉、螺栓、镰刀、犁铧、斧、锤、烛台、车轮箍、炉具、铁链和建筑铁件，兵器与甲胄也出自铁匠之手。最常见的活是钉马掌：清理蹄底、锻打适合的蹄铁、淬水后钉上。铁料靠向铁商或冶炼户进货，燃料靠木炭或煤。",
+        "conditions": "最小聚落为村（hamlet）：只要有牲口和农具就养得起一间。行会与执照：城镇里金属匠人通常入行会，行会限制竞争、定质量标准、管学徒；乡间铁匠多是家传。学徒制：常见数年，期满当帮工，攒够钱与手艺后升师傅。典型顾客：农户、车夫、马主、旅人、工匠与军队。",
+        "exceptions": "常见纠纷：欠账、修补不牢、与行会争地盘、铁料掺杂、火灾与噪音扰邻、与兵器匠分工争议。例外：城市大了以后，钉马掌、锻兵器、做建筑铁件会分行；工业化后铁匠退化为修理工。东方对应：铁匠铺、打铁铺，行当与师徒制相近，东方另有官营冶铁与兵器作坊。",
+        "story_uses": "①旅人的马在村口掉了蹄铁，铁匠认出了马上的印记。②铁匠被迫给官军加工兵器，不愿也不敢拒绝。③学徒偷用师傅的钢料，被行会查到。④一件铁器的锻痕暴露了凶器来源。⑤大火夜，铁匠铺是整村唯一有水的地方。",
+        "historical_scope": "本条以西式中世纪至近世早期的城镇、乡村店铺为基线，来源多取自 Britannica 对欧洲行会、客栈与行业的概述；东方对应（铁匠铺、打铁铺、铁炉；东方也有专门的兵器坊（见 weaponsmith））在正文与 variants 中说明，不拆 key。改编边界：架空世界可借用“村可养得起这家店、行业有师徒与同业约束、店主与顾客靠信用往来”这几点，但不应顺带断言该世界必有行会垄断、特定执照或某种货币；本条不含现实历史物价，也不自动生成库存或价格。",
+        "evidence_and_uncertainty": "有来源支持的部分：铁匠用热锻与冷锻在砧上把铁做成器物，需要炉、砧、钳、锤、凿；做的东西从钉、农具、工匠工具到兵器、甲胄、车轮箍、炉具、船用铁链和建筑铁件；最常见的活是钉马掌；多数城镇和村庄都有铁匠铺；19 世纪起因工厂与铸造而衰落（据 shops_src_04）。farrier 是专钉马掌的铁匠，词源为拉丁语 ferrum（据 shops_src_05）。金属匠人入行会、行会管质量与学徒（据 shops_src_03、shops_src_02）。属推演的部分：具体分工与纠纷类型。 review_status 维持 needs_review；本条不含现实历史物价，亦不构成库存或价格数据。"
+      },
+      "source_ids": [
+        "shops_src_04",
+        "shops_src_05",
+        "shops_src_03",
+        "shops_src_02"
+      ],
+      "related_ids": [],
+      "related_catalog_ids": [
+        "materials_iron_metal",
+        "materials_wrought_iron",
+        "materials_steel",
+        "materials_charcoal",
+        "tools_forge_anvil",
+        "tools_hammer",
+        "craft_supp_bellows"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "shop_armorer",
+      "name": "盔甲铺",
+      "aliases": [
+        "甲胄匠",
+        "铠匠",
+        "甲铺",
+        "armourer",
+        "armorer",
+        "helmet maker"
+      ],
+      "category": "economy",
+      "primary": "shop",
+      "evidence_grade": "mixed",
+      "genres": [
+        "real_world",
+        "western_fantasy",
+        "eastern_fantasy"
+      ],
+      "shop": {
+        "key": "armorer",
+        "sells": [
+          "armor",
+          "metal",
+          "hide_leather"
+        ],
+        "services": [
+          "定制甲胄",
+          "修补甲片",
+          "调整尺寸",
+          "维护与上油",
+          "绘制纹章"
+        ],
+        "settlement_min": "town",
+        "staff": [
+          "甲胄匠",
+          "学徒",
+          "皮匠帮工",
+          "抛光工"
+        ]
+      },
+      "tags": [
+        "kind:shop",
+        "tradition:western",
+        "shop:armorer",
+        "sells:armor",
+        "sells:metal",
+        "sells:hide_leather",
+        "settlement:town",
+        "trade:armorer",
+        "role:military_supply",
+        "trade:guild_trade"
+      ],
+      "summary": "盔甲铺是定制、销售和修补身体防护装备的作坊。史上的防护用品材料很杂：皮、毡布、锁子甲、板甲都有。铺子的规模取决于买得起的人有多少。",
+      "variants": [
+        "东方对应：甲铺、铠甲坊；官营军器监下的甲作坊"
+      ],
+      "details": {
+        "definition": "盔甲铺是定制、销售和修补身体防护装备的作坊。史上的防护用品材料很杂：皮、毡布、锁子甲、板甲都有。铺子的规模取决于买得起的人有多少。",
+        "mechanism": "做法随甲种而分：皮甲与絮甲靠皮匠、缝纫；锁子甲由小铁环相扣而成，工序繁琐；板甲要在砧上把钢板锻成曲面再组装。甲胄必须按穿者体形量身，顾客往往要多次试穿。铺子按订单做，储备有限，成品常附纹章或行会标记。",
+        "conditions": "最小聚落为镇（town）：做一套甲要大量人工，只有常驻军队、骑士或雇佣兵所在的聚落才养得起。行会与执照：金属匠人行会常管质量与学徒，铺子要受查验；君主可能限制甲胄买卖以控制武装。学徒制：多年，工序细分。典型顾客：骑士、军官、雇佣兵、城市民兵、卫队。",
+        "exceptions": "常见纠纷：尺寸不合、材质以次充好、工期拖延、欠款、纹章冒用、战后积压。例外：缺铁的地区靠皮甲、藤甲、竹甲；游牧社会的甲由家庭自制；奇幻世界里附魔甲另走 western_enchanted_armament。东方对应：甲铺，官营军器监下的甲作坊更常见。",
+        "story_uses": "①战前一周全城抢订甲胄，铺子被迫选先后。②一套甲上的凹痕，是死者生前一战的证据。③甲胄匠被威胁偷做仿冒的纹章。④贵族债务缠身，把甲抵给店铺。⑤学徒私下用劣钢，被行会抓住。",
+        "historical_scope": "本条以西式中世纪至近世早期的城镇、乡村店铺为基线，来源多取自 Britannica 对欧洲行会、客栈与行业的概述；东方对应（甲铺、铠甲坊；官营军器监下的甲作坊）在正文与 variants 中说明，不拆 key。改编边界：架空世界可借用“镇可养得起这家店、行业有师徒与同业约束、店主与顾客靠信用往来”这几点，但不应顺带断言该世界必有行会垄断、特定执照或某种货币；本条不含现实历史物价，也不自动生成库存或价格。",
+        "evidence_and_uncertainty": "有来源支持的部分：甲胄是为抵御投射物和兵器冲击的防护衣，史上用皮、织物、锁环（锁子甲）、硬板制成；甲的发展与进攻兵器的演变形成持续对抗；有毡、絮、皮甲，罗马帝国时期锁子甲通行，中世纪晚期钢板甲盛行（据 shops_src_06）。行会管质量与学徒（据 shops_src_03、shops_src_02）。属推演的部分：铺子的经营、顾客与纠纷。 review_status 维持 needs_review；本条不含现实历史物价，亦不构成库存或价格数据。"
+      },
+      "source_ids": [
+        "shops_src_06",
+        "shops_src_03",
+        "shops_src_02"
+      ],
+      "related_ids": [],
+      "related_catalog_ids": [
+        "materials_steel",
+        "materials_wrought_iron",
+        "craft_supp_leather",
+        "craft_supp_felt",
+        "western_enchanted_armament",
+        "tools_hammer"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "shop_weaponsmith",
+      "name": "兵器铺",
+      "aliases": [
+        "兵器匠",
+        "刀剑匠",
+        "军器坊",
+        "weaponsmith",
+        "swordsmith",
+        "bladesmith"
+      ],
+      "category": "economy",
+      "primary": "shop",
+      "evidence_grade": "mixed",
+      "genres": [
+        "real_world",
+        "western_fantasy",
+        "eastern_fantasy"
+      ],
+      "shop": {
+        "key": "weaponsmith",
+        "sells": [
+          "weapon",
+          "metal",
+          "tool"
+        ],
+        "services": [
+          "打制刀剑与长柄兵器",
+          "开刃与磨砺",
+          "配柄与护手",
+          "修理兵器"
+        ],
+        "settlement_min": "town",
+        "staff": [
+          "兵器匠",
+          "学徒",
+          "磨刃工",
+          "配柄木工"
+        ]
+      },
+      "tags": [
+        "kind:shop",
+        "tradition:western",
+        "shop:weaponsmith",
+        "sells:weapon",
+        "sells:metal",
+        "sells:tool",
+        "settlement:town",
+        "trade:weaponsmith",
+        "role:military_supply",
+        "trade:guild_trade"
+      ],
+      "summary": "兵器铺是打制、销售和修理刀剑、矛、斧一类兵器的店铺。它与铁匠铺同源：铁匠本就做剑、盾与甲；兵器铺是城市大了以后分出来的专门行当。",
+      "variants": [
+        "东方对应：兵器铺、刀剑铺；官营军器监与兵工厂"
+      ],
+      "details": {
+        "definition": "兵器铺是打制、销售和修理刀剑、矛、斧一类兵器的店铺。它与铁匠铺同源：铁匠本就做剑、盾与甲；兵器铺是城市大了以后分出来的专门行当。",
+        "mechanism": "与铁匠铺共用锻炉与砧，但更看重钢料、淬火与开刃。刃部与脊部用不同的处理，柄、护手、鞘由木工和皮匠配合。成品卖给客人，也承接军队的批量订单；个别名匠的作品要预约，价格靠名声。",
+        "conditions": "最小聚落为镇（town）：军队、卫队、猎户和旅行者多的地方才有专门兵器铺；小村由铁匠兼做。行会与执照：金属匠人行会管质量与学徒；兵器买卖常受君主、领主或城市限制，持有与携带有地区规定。典型顾客：士兵、佣兵、猎人、旅人、决斗者与官员。",
+        "exceptions": "常见纠纷：兵器断裂、承诺名匠铭文而造假、卖给不该卖的对象、禁武令下私售、定制拖期。例外：禁武或官营体制下，民间只能买到农具刀；奇幻世界里魔法兵器走 western_enchanted_armament。东方对应：兵器铺、刀剑铺，官营兵工比民营更强。",
+        "story_uses": "①一把剑上的铭文，指向已被灭门的家族。②兵器匠接了一份不能拒绝的订单，来者蒙面。③禁武令下，铺子靠修农具遮掩真业务。④名匠之死，留下一把没开刃的剑。",
+        "historical_scope": "本条以西式中世纪至近世早期的城镇、乡村店铺为基线，来源多取自 Britannica 对欧洲行会、客栈与行业的概述；东方对应（兵器铺、刀剑铺；官营军器监与兵工厂）在正文与 variants 中说明，不拆 key。改编边界：架空世界可借用“镇可养得起这家店、行业有师徒与同业约束、店主与顾客靠信用往来”这几点，但不应顺带断言该世界必有行会垄断、特定执照或某种货币；本条不含现实历史物价，也不自动生成库存或价格。",
+        "evidence_and_uncertainty": "有来源支持的部分：铁匠的产品包括剑、盾和甲，是兵器的最初制作者（据 shops_src_04）；金属匠人入行会，行会管质量（据 shops_src_03）。属推演的部分：兵器铺作为分出的专门行当、对兵器买卖的限制与纠纷类型。 review_status 维持 needs_review；本条不含现实历史物价，亦不构成库存或价格数据。"
+      },
+      "source_ids": [
+        "shops_src_04",
+        "shops_src_03"
+      ],
+      "related_ids": [],
+      "related_catalog_ids": [
+        "materials_steel",
+        "materials_wrought_iron",
+        "materials_charcoal",
+        "tools_forge_anvil",
+        "western_enchanted_armament",
+        "eastern_flying_sword"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "shop_bowyer",
+      "name": "弓匠铺",
+      "aliases": [
+        "弓匠",
+        "造弓铺",
+        "箭匠",
+        "bowyer",
+        "fletcher"
+      ],
+      "category": "economy",
+      "primary": "shop",
+      "evidence_grade": "inferred",
+      "genres": [
+        "real_world",
+        "western_fantasy",
+        "eastern_fantasy"
+      ],
+      "shop": {
+        "key": "bowyer",
+        "sells": [
+          "weapon",
+          "timber"
+        ],
+        "services": [
+          "造弓",
+          "做箭与箭羽",
+          "换弦",
+          "修弓"
+        ],
+        "settlement_min": "town",
+        "staff": [
+          "弓匠",
+          "箭匠",
+          "学徒"
+        ]
+      },
+      "tags": [
+        "kind:shop",
+        "tradition:western",
+        "shop:bowyer",
+        "sells:weapon",
+        "sells:timber",
+        "settlement:town",
+        "trade:bowyer",
+        "role:military_supply",
+        "role:hunting_supply"
+      ],
+      "summary": "弓匠铺是制作和销售弓、弦、箭的店铺。造弓与做箭在西方史上常是两行（bowyer 与 fletcher），本库合为一间，因为多数地方的小铺是同一个人做。",
+      "variants": [
+        "东方对应：弓箭铺、弓坊、箭作；官营军器监的弓箭作"
+      ],
+      "details": {
+        "definition": "弓匠铺是制作和销售弓、弦、箭的店铺。造弓与做箭在西方史上常是两行（bowyer 与 fletcher），本库合为一间，因为多数地方的小铺是同一个人做。",
+        "mechanism": "好木料晾干要年，弓臂按拉力削形，弦用麻或筋搓成，箭杆配箭羽和箭头。复合弓要用角、筋与木叠合，工期更长。成品按拉力、长度配给顾客，需要试射。",
+        "conditions": "最小聚落为镇（town）：猎户和军队密集的地方才养得起。行会与执照：弓箭是军器，常受官府约束；有的地区要求平民备弓练射，铺子因此是常设店。学徒制：多年，材料认知是核心。典型顾客：猎人、民兵、弓手、骑射贵族。",
+        "exceptions": "常见纠纷：弓断、箭杆不直、拉力名不副实、木料被盗伐、禁猎令下的私卖。例外：游牧社会弓匠是部落内部的重要角色，不开铺；枪炮普及后迅速衰落。东方对应：弓箭铺，复合角弓传统强，不拆 key。",
+        "story_uses": "①一支箭的羽毛，暴露了弓手出自哪个村。②弓匠在战前被征去造一千支箭，工期压不下来。③森林被封，木料断供。④最好的弓只卖给通过试射的人。",
+        "historical_scope": "本条以西式中世纪至近世早期的城镇、乡村店铺为基线，来源多取自 Britannica 对欧洲行会、客栈与行业的概述；东方对应（弓箭铺、弓坊、箭作；官营军器监的弓箭作）在正文与 variants 中说明，不拆 key。改编边界：架空世界可借用“镇可养得起这家店、行业有师徒与同业约束、店主与顾客靠信用往来”这几点，但不应顺带断言该世界必有行会垄断、特定执照或某种货币；本条不含现实历史物价，也不自动生成库存或价格。",
+        "evidence_and_uncertainty": "本条没有读过的来源，整体为本项目推演（grade=inferred）。 review_status 维持 needs_review；本条不含现实历史物价，亦不构成库存或价格数据。"
+      },
+      "source_ids": [],
+      "related_ids": [],
+      "related_catalog_ids": [
+        "materials_wood",
+        "craft_supp_bone_horn_antler",
+        "craft_supp_bast_fibre",
+        "tools_saw",
+        "craft_supp_file"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "shop_carpenter",
+      "name": "木匠铺",
+      "aliases": [
+        "木匠",
+        "细木工",
+        "木作",
+        "carpenter",
+        "joiner"
+      ],
+      "category": "economy",
+      "primary": "shop",
+      "evidence_grade": "mixed",
+      "genres": [
+        "real_world",
+        "western_fantasy",
+        "eastern_fantasy"
+      ],
+      "shop": {
+        "key": "carpenter",
+        "sells": [
+          "timber",
+          "building_material",
+          "tool"
+        ],
+        "services": [
+          "做家具",
+          "修房梁与门窗",
+          "做农具木件",
+          "打棺材",
+          "修车"
+        ],
+        "settlement_min": "hamlet",
+        "staff": [
+          "木匠",
+          "学徒",
+          "锯木工"
+        ]
+      },
+      "tags": [
+        "kind:shop",
+        "tradition:western",
+        "shop:carpenter",
+        "sells:timber",
+        "sells:building_material",
+        "sells:tool",
+        "settlement:hamlet",
+        "trade:carpenter",
+        "role:repair",
+        "role:daily_goods"
+      ],
+      "summary": "木匠铺是用木料做家具、门窗、屋架、车辆木件和日常用具的作坊兼店铺。粗活（屋架）和细活（家具）有时分行，本库合为一个 key。",
+      "variants": [
+        "东方对应：木匠铺、木作、细木作；营造匠人（营造大作另见建筑行业）"
+      ],
+      "details": {
+        "definition": "木匠铺是用木料做家具、门窗、屋架、车辆木件和日常用具的作坊兼店铺。粗活（屋架）和细活（家具）有时分行，本库合为一个 key。",
+        "mechanism": "木料选好后晾干，锯、刨、凿、钻、榫接，一般不靠钉。大活（屋架、船、车）要出场地，小活在坊里做。接活靠熟人和口碑，木料多从当地林地或木材商进。",
+        "conditions": "最小聚落为村（hamlet）：任何有人住的地方都要有人修屋顶和做门。行会与执照：城镇里木匠常有行会，管质量、学徒与竞争；乡间多是家传手艺。学徒制：常见数年。典型顾客：农户、屋主、车夫、教堂与行会、棺材订户。",
+        "exceptions": "常见纠纷：木料受潮变形、工期、欠账、与石匠/泥瓦匠分工争议、行会限制外来木匠、伐木权。例外：缺木地区（沙漠、草原）木匠地位更高；工业化后家具走工厂。东方对应：木匠、木作，榫卯传统强，营造行业是更大的组织。",
+        "story_uses": "①一口棺材的尺寸不对，暴露了死者的真身。②木匠发现房梁里藏着东西。③大火后全城重建，木料被行会垄断。④学徒做出一件让师傅都认不出手法的作品。",
+        "historical_scope": "本条以西式中世纪至近世早期的城镇、乡村店铺为基线，来源多取自 Britannica 对欧洲行会、客栈与行业的概述；东方对应（木匠铺、木作、细木作；营造匠人（营造大作另见建筑行业））在正文与 variants 中说明，不拆 key。改编边界：架空世界可借用“村可养得起这家店、行业有师徒与同业约束、店主与顾客靠信用往来”这几点，但不应顺带断言该世界必有行会垄断、特定执照或某种货币；本条不含现实历史物价，也不自动生成库存或价格。",
+        "evidence_and_uncertainty": "有来源支持的部分：木匠与石匠同属行会覆盖的工匠行业（据 shops_src_03：行会涵盖毛纺、建筑等行业的工匠），师傅—帮工—学徒的分层与学徒制（据 shops_src_01、shops_src_02）。属推演的部分：具体经营与纠纷。 review_status 维持 needs_review；本条不含现实历史物价，亦不构成库存或价格数据。"
+      },
+      "source_ids": [
+        "shops_src_03",
+        "shops_src_02"
+      ],
+      "related_ids": [],
+      "related_catalog_ids": [
+        "materials_wood",
+        "tools_saw",
+        "tools_adze",
+        "tools_chisel",
+        "tools_auger",
+        "tools_hand_drill",
+        "craft_supp_ax"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "shop_cooper",
+      "name": "箍桶铺",
+      "aliases": [
+        "箍桶匠",
+        "桶匠",
+        "酒桶作坊",
+        "cooper",
+        "cooperage"
+      ],
+      "category": "economy",
+      "primary": "shop",
+      "evidence_grade": "inferred",
+      "genres": [
+        "real_world",
+        "western_fantasy",
+        "eastern_fantasy"
+      ],
+      "shop": {
+        "key": "cooper",
+        "sells": [
+          "timber",
+          "tool"
+        ],
+        "services": [
+          "做酒桶与水桶",
+          "箍桶",
+          "修桶",
+          "做盆与木盆"
+        ],
+        "settlement_min": "town",
+        "staff": [
+          "桶匠",
+          "学徒",
+          "箍圈工"
+        ]
+      },
+      "tags": [
+        "kind:shop",
+        "tradition:western",
+        "shop:cooper",
+        "sells:timber",
+        "sells:tool",
+        "settlement:town",
+        "trade:cooper",
+        "role:container_supply",
+        "role:brewery_support"
+      ],
+      "summary": "箍桶铺是用木条加铁箍或竹箍做桶、盆、缸一类容器的作坊。酒、鱼、盐、油、粮都要靠桶装运，桶是商业的基本容器。",
+      "variants": [
+        "东方对应：桶匠、木桶铺、盆桶作；酒坊自带的桶作"
+      ],
+      "details": {
+        "definition": "箍桶铺是用木条加铁箍或竹箍做桶、盆、缸一类容器的作坊。酒、鱼、盐、油、粮都要靠桶装运，桶是商业的基本容器。",
+        "mechanism": "木条削出弧度，立起围成桶身，再用箍圈束紧，防漏靠木材吸水膨胀和加工精度。装酒的桶要选木料、要烤内壁。成品可以卖给酿酒坊、鱼市、盐商与家户，也承接修桶。",
+        "conditions": "最小聚落为镇（town）：要有批量用桶的酿酒、渔业或贸易场地。行会与执照：城镇里桶匠常有行会，管学徒与标准容积；官府会校验桶的容量以防偷税。学徒制：多年，手艺在于不靠胶封水。典型顾客：酿酒坊、酒商、鱼贩、盐商、船主、家户。",
+        "exceptions": "常见纠纷：漏酒、桶容不足、税官查验、木料不干变形、与酿酒坊的垄断关系。例外：缺木材地区用陶罐、皮囊、竹筒或金属罐替代。东方对应：木桶铺、盆桶作；东方更常用陶缸与竹木器。",
+        "story_uses": "①桶底夹层里藏了东西，一路运到港口。②桶匠被酒商压价，转而偷偷接私酒订单。③税官量桶，发现容量被人动过手脚。④一场大宴后，酒桶全部被换成空的。",
+        "historical_scope": "本条以西式中世纪至近世早期的城镇、乡村店铺为基线，来源多取自 Britannica 对欧洲行会、客栈与行业的概述；东方对应（桶匠、木桶铺、盆桶作；酒坊自带的桶作）在正文与 variants 中说明，不拆 key。改编边界：架空世界可借用“镇可养得起这家店、行业有师徒与同业约束、店主与顾客靠信用往来”这几点，但不应顺带断言该世界必有行会垄断、特定执照或某种货币；本条不含现实历史物价，也不自动生成库存或价格。",
+        "evidence_and_uncertainty": "本条没有读过的来源，整体为本项目推演（grade=inferred）。 review_status 维持 needs_review；本条不含现实历史物价，亦不构成库存或价格数据。"
+      },
+      "source_ids": [],
+      "related_ids": [],
+      "related_catalog_ids": [
+        "materials_wood",
+        "flavors_beer",
+        "flavors_wine",
+        "materials_salt",
+        "tools_storage_jar",
+        "animal_food_dried_salted_fish"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "shop_tanner",
+      "name": "制革坊",
+      "aliases": [
+        "鞣皮匠",
+        "皮匠坊",
+        "硝皮坊",
+        "tanner",
+        "tannery"
+      ],
+      "category": "economy",
+      "primary": "shop",
+      "evidence_grade": "inferred",
+      "genres": [
+        "real_world",
+        "western_fantasy",
+        "eastern_fantasy"
+      ],
+      "shop": {
+        "key": "tanner",
+        "sells": [
+          "hide_leather"
+        ],
+        "services": [
+          "鞣制兽皮",
+          "出售皮革",
+          "收购生皮",
+          "染皮"
+        ],
+        "settlement_min": "town",
+        "staff": [
+          "鞣皮匠",
+          "学徒",
+          "泡皮工",
+          "刮皮工"
+        ]
+      },
+      "tags": [
+        "kind:shop",
+        "tradition:western",
+        "shop:tanner",
+        "sells:hide_leather",
+        "settlement:town",
+        "trade:tanner",
+        "role:raw_material_processing",
+        "role:nuisance_trade"
+      ],
+      "summary": "制革坊是把生皮鞣制成可用皮革的作坊。工序用水多、气味重，常设在城边河旁。它是皮革业的上游：鞍具匠、鞋匠、甲匠都向它进货。",
+      "variants": [
+        "东方对应：制革坊、熟皮坊、皮匠作；硝皮"
+      ],
+      "details": {
+        "definition": "制革坊是把生皮鞣制成可用皮革的作坊。工序用水多、气味重，常设在城边河旁。它是皮革业的上游：鞍具匠、鞋匠、甲匠都向它进货。",
+        "mechanism": "生皮从屠户或牧人处收来，泡、刮、脱毛，再用植物鞣料或其他方法鞣制，晾干后出售。加工周期长，占地大，污水臭味重。成品卖给皮匠与制鞋、制鞍、制甲的作坊。",
+        "conditions": "最小聚落为镇（town）：要有稳定的生皮来源与下游买家，也要有水源与排污条件。行会与执照：皮革匠人属于行会覆盖的行业，行会管质量与学徒；城镇常规定制革坊必须设在下游或城外。学徒制：多年。典型顾客：鞋匠、鞍具匠、甲匠、书籍装订匠与商人。",
+        "exceptions": "常见纠纷：臭味与污水扰民、生皮收购价、质量不均、与屠户垄断关系、瘟疫时被指责为污染源。例外：游牧社会皮革由家庭自制，没有专门作坊；化学鞣革出现后规模扩大。东方对应：制革坊、熟皮坊；部分文化因宗教原因把这一行当视为不洁，从业者身份低（见 society_servile_outcaste）。",
+        "story_uses": "①河水变色，全城追查源头，制革坊是第一嫌疑。②制革匠因不洁职业被社区排斥，却知道每家的秘密。③一批皮子里夹着不该有的东西。④瘟疫年，制革坊被迫迁出城外。",
+        "historical_scope": "本条以西式中世纪至近世早期的城镇、乡村店铺为基线，来源多取自 Britannica 对欧洲行会、客栈与行业的概述；东方对应（制革坊、熟皮坊、皮匠作；硝皮）在正文与 variants 中说明，不拆 key。改编边界：架空世界可借用“镇可养得起这家店、行业有师徒与同业约束、店主与顾客靠信用往来”这几点，但不应顺带断言该世界必有行会垄断、特定执照或某种货币；本条不含现实历史物价，也不自动生成库存或价格。",
+        "evidence_and_uncertainty": "有来源支持的部分：皮革匠人是行会覆盖的行业之一（据 shops_src_03）。属推演的部分：工序、选址与社会地位。 review_status 维持 needs_review；本条不含现实历史物价，亦不构成库存或价格数据。"
+      },
+      "source_ids": [
+        "shops_src_03"
+      ],
+      "related_ids": [],
+      "related_catalog_ids": [
+        "craft_supp_leather",
+        "craft_supp_bone_horn_antler",
+        "animal_food_cattle",
+        "animal_food_sheep",
+        "animal_food_goat",
+        "craft_supp_wool_fleece"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "shop_saddler",
+      "name": "鞍具铺",
+      "aliases": [
+        "鞍匠",
+        "马具匠",
+        "皮具铺",
+        "saddler",
+        "harness maker"
+      ],
+      "category": "economy",
+      "primary": "shop",
+      "evidence_grade": "inferred",
+      "genres": [
+        "real_world",
+        "western_fantasy",
+        "eastern_fantasy"
+      ],
+      "shop": {
+        "key": "saddler",
+        "sells": [
+          "hide_leather",
+          "tool"
+        ],
+        "services": [
+          "做鞍与马具",
+          "修缰绳与肚带",
+          "做皮囊与皮带",
+          "调整尺寸"
+        ],
+        "settlement_min": "town",
+        "staff": [
+          "鞍匠",
+          "学徒",
+          "缝工"
+        ]
+      },
+      "tags": [
+        "kind:shop",
+        "tradition:western",
+        "shop:saddler",
+        "sells:hide_leather",
+        "sells:tool",
+        "settlement:town",
+        "trade:saddler",
+        "role:horse_support",
+        "role:travel_supply"
+      ],
+      "summary": "鞍具铺是制作和修补马鞍、缰绳、肚带、套具和皮带的作坊。凡是有马和车的地方都要有它，它与铁匠铺（蹄铁）、驿站（stable）配套。",
+      "variants": [
+        "东方对应：鞍具铺、马具铺、皮货作"
+      ],
+      "details": {
+        "definition": "鞍具铺是制作和修补马鞍、缰绳、肚带、套具和皮带的作坊。凡是有马和车的地方都要有它，它与铁匠铺（蹄铁）、驿站（stable）配套。",
+        "mechanism": "皮子裁好、缝合，鞍架用木与铁，加衬垫以免磨伤。要按马的体形与骑手的身形调整，所以常要试鞍。除了鞍具，还做皮囊、皮带、行囊与武具皮件。原料向制革坊进货。",
+        "conditions": "最小聚落为镇（town）：有马车和驿站的地方才养得起；小村由皮匠或铁匠兼做。行会与执照：皮革匠人属于行会覆盖的行业，行会管质量与学徒；军队订单要求规格。学徒制：多年。典型顾客：骑手、车夫、军队、驿站、商队。",
+        "exceptions": "常见纠纷：鞍不合马、磨伤马、缝线断、欠账、与军队订单规格争议。例外：游牧社会鞍具由家庭自制；机动车普及后行业衰落。东方对应：鞍具铺、马具铺；草原民族的鞍具传统强，不拆 key。",
+        "story_uses": "①马鞍里缝着一封信。②驿站被劫，鞍具铺发现所有鞍具都动过手脚。③战前军队订单压到铺子，质量与期限冲突。④鞍具上的标记，暴露骑手的出身。",
+        "historical_scope": "本条以西式中世纪至近世早期的城镇、乡村店铺为基线，来源多取自 Britannica 对欧洲行会、客栈与行业的概述；东方对应（鞍具铺、马具铺、皮货作）在正文与 variants 中说明，不拆 key。改编边界：架空世界可借用“镇可养得起这家店、行业有师徒与同业约束、店主与顾客靠信用往来”这几点，但不应顺带断言该世界必有行会垄断、特定执照或某种货币；本条不含现实历史物价，也不自动生成库存或价格。",
+        "evidence_and_uncertainty": "有来源支持的部分：皮革匠人是行会覆盖的行业之一（据 shops_src_03）。属推演的部分：鞍具铺的经营与配套关系。 review_status 维持 needs_review；本条不含现实历史物价，亦不构成库存或价格数据。"
+      },
+      "source_ids": [
+        "shops_src_03"
+      ],
+      "related_ids": [],
+      "related_catalog_ids": [
+        "craft_supp_leather",
+        "craft_supp_awl",
+        "craft_supp_needle",
+        "craft_supp_wax",
+        "tools_cart",
+        "craft_supp_felt"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "shop_tailor",
+      "name": "裁缝铺",
+      "aliases": [
+        "裁缝",
+        "成衣铺",
+        "衣铺",
+        "tailor",
+        "seamstress"
+      ],
+      "category": "economy",
+      "primary": "shop",
+      "evidence_grade": "inferred",
+      "genres": [
+        "real_world",
+        "western_fantasy",
+        "eastern_fantasy"
+      ],
+      "shop": {
+        "key": "tailor",
+        "sells": [
+          "fiber_textile"
+        ],
+        "services": [
+          "量体裁衣",
+          "改衣",
+          "补衣",
+          "做礼服与婚服",
+          "做丧服"
+        ],
+        "settlement_min": "town",
+        "staff": [
+          "裁缝",
+          "学徒",
+          "缝工",
+          "熨烫工"
+        ]
+      },
+      "tags": [
+        "kind:shop",
+        "tradition:western",
+        "shop:tailor",
+        "sells:fiber_textile",
+        "settlement:town",
+        "trade:tailor",
+        "role:clothing",
+        "occasion:wedding"
+      ],
+      "summary": "裁缝铺是量体裁衣、做衣和改衣的店铺。布料常由顾客自带或向布商买，裁缝只收工钱。礼服、婚服、丧服是主要业务。",
+      "variants": [
+        "东方对应：裁缝铺、成衣铺、绣坊；东方另有绣庄和绸缎庄（见 draper）"
+      ],
+      "details": {
+        "definition": "裁缝铺是量体裁衣、做衣和改衣的店铺。布料常由顾客自带或向布商买，裁缝只收工钱。礼服、婚服、丧服是主要业务。",
+        "mechanism": "顾客带布或选布，裁缝量体、裁、缝、试穿、修改。接活靠熟客和口碑；旺季是婚季和节庆前。布料的价值常高于工钱，所以边角料的归属是习惯规则。大铺有裁剪师、缝工和学徒分工。",
+        "conditions": "最小聚落为镇（town）：村里多由家庭妇女自缝，有钱的人才请裁缝。行会与执照：城镇里缝纫行当常有行会，限制外来者与成衣竞争；奢侈品禁令（禁止平民穿某些衣料）会直接影响业务。学徒制：数年。典型顾客：市民、贵族、新娘、丧家。",
+        "exceptions": "常见纠纷：尺寸不合、布料被克扣、工期、改款、欠账、衣着等级违规。例外：成衣业兴起后，量身定做变成奢侈服务；东方绣庄的绣工另成体系。东方对应：裁缝铺、成衣铺；官服和礼服另有官营织造。",
+        "story_uses": "①裁缝靠一件衣服，认出了死者身份。②贵族订礼服，要求在领口缝入暗袋。③丧服赶工，连夜缝了一夜。④学徒偷学师傅的剪裁秘技，另立门户。",
+        "historical_scope": "本条以西式中世纪至近世早期的城镇、乡村店铺为基线，来源多取自 Britannica 对欧洲行会、客栈与行业的概述；东方对应（裁缝铺、成衣铺、绣坊；东方另有绣庄和绸缎庄（见 draper））在正文与 variants 中说明，不拆 key。改编边界：架空世界可借用“镇可养得起这家店、行业有师徒与同业约束、店主与顾客靠信用往来”这几点，但不应顺带断言该世界必有行会垄断、特定执照或某种货币；本条不含现实历史物价，也不自动生成库存或价格。",
+        "evidence_and_uncertainty": "有来源支持的部分：师傅—帮工—学徒的学徒制（据 shops_src_02）。属推演的部分：裁缝铺的经营、顾客与纠纷；缝纫行会的情况在本次读过的页面中未单独见到。 review_status 维持 needs_review；本条不含现实历史物价，亦不构成库存或价格数据。"
+      },
+      "source_ids": [
+        "shops_src_02"
+      ],
+      "related_ids": [],
+      "related_catalog_ids": [
+        "craft_supp_needle",
+        "craft_supp_scissors",
+        "craft_supp_woollen_cloth",
+        "craft_supp_linen_cloth",
+        "craft_supp_silk_cloth",
+        "craft_supp_cotton_cloth"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "shop_draper",
+      "name": "布庄",
+      "aliases": [
+        "布商",
+        "绸缎庄",
+        "呢绒店",
+        "draper",
+        "mercer",
+        "cloth merchant"
+      ],
+      "category": "economy",
+      "primary": "shop",
+      "evidence_grade": "inferred",
+      "genres": [
+        "real_world",
+        "western_fantasy",
+        "eastern_fantasy"
+      ],
+      "shop": {
+        "key": "draper",
+        "sells": [
+          "fiber_textile"
+        ],
+        "services": [
+          "整匹卖布",
+          "零剪布料",
+          "代购远货",
+          "赊账与订货"
+        ],
+        "settlement_min": "town",
+        "staff": [
+          "布商",
+          "伙计",
+          "学徒",
+          "验布人"
+        ]
+      },
+      "tags": [
+        "kind:shop",
+        "tradition:western",
+        "shop:draper",
+        "sells:fiber_textile",
+        "settlement:town",
+        "trade:draper",
+        "role:textile_trade",
+        "trade:merchant_guild"
+      ],
+      "summary": "布庄是卖整匹和零剪布料的商店，货品从粗麻布到丝绸都有。它与裁缝铺是上下游：布庄卖布，裁缝做衣。",
+      "variants": [
+        "东方对应：布庄、绸缎庄、布行、呢绒店"
+      ],
+      "details": {
+        "definition": "布庄是卖整匹和零剪布料的商店，货品从粗麻布到丝绸都有。它与裁缝铺是上下游：布庄卖布，裁缝做衣。",
+        "mechanism": "向织坊、染坊或远程商人进货，整匹存放，按尺度剪卖。布的质地、幅宽和染色是品质标志，好的布庄会向行会登记印记。远货靠商队与商人行会（见 society_merchant_guild）。",
+        "conditions": "最小聚落为镇（town）：要有稳定的买家与进货渠道，大城里可分出羊毛、丝绸、棉布各自的专门布庄。行会与执照：毛纺织业是行会最发达的行业之一，布商常是商人行会成员，质量与长度标准由行会校验。典型顾客：裁缝、市民、教堂、贵族家庭与行商。",
+        "exceptions": "常见纠纷：布质以次充好、尺度克扣、染色褪色、关税与行会限制、赊账与破产。例外：自给自足的乡村由家庭织布，不买布庄货；国家专卖丝绸的朝代，民营布庄受限。东方对应：布庄、绸缎庄、布行，丝绸是东方特色，不拆 key。",
+        "story_uses": "①一批受潮的布，被当作新货卖出。②布庄账本里的一笔暗账，牵出走私丝绸的网络。③行会稽查，发现尺度不够。④大客户破产，布庄跟着陷入困境。",
+        "historical_scope": "本条以西式中世纪至近世早期的城镇、乡村店铺为基线，来源多取自 Britannica 对欧洲行会、客栈与行业的概述；东方对应（布庄、绸缎庄、布行、呢绒店）在正文与 variants 中说明，不拆 key。改编边界：架空世界可借用“镇可养得起这家店、行业有师徒与同业约束、店主与顾客靠信用往来”这几点，但不应顺带断言该世界必有行会垄断、特定执照或某种货币；本条不含现实历史物价，也不自动生成库存或价格。",
+        "evidence_and_uncertainty": "有来源支持的部分：毛纺织与印染等行业有行会，商人行会控制本地商品流通、定质量与价格（据 shops_src_01、shops_src_03）。属推演的部分：布庄的具体经营与纠纷。 review_status 维持 needs_review；本条不含现实历史物价，亦不构成库存或价格数据。"
+      },
+      "source_ids": [
+        "shops_src_03",
+        "shops_src_01"
+      ],
+      "related_ids": [],
+      "related_catalog_ids": [
+        "craft_supp_woollen_cloth",
+        "craft_supp_linen_cloth",
+        "craft_supp_cotton_cloth",
+        "craft_supp_silk_cloth",
+        "craft_supp_wool_fleece",
+        "tools_loom",
+        "society_merchant_guild"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "shop_cobbler",
+      "name": "鞋铺",
+      "aliases": [
+        "鞋匠",
+        "补鞋匠",
+        "制鞋铺",
+        "cobbler",
+        "shoemaker"
+      ],
+      "category": "economy",
+      "primary": "shop",
+      "evidence_grade": "inferred",
+      "genres": [
+        "real_world",
+        "western_fantasy",
+        "eastern_fantasy"
+      ],
+      "shop": {
+        "key": "cobbler",
+        "sells": [
+          "hide_leather"
+        ],
+        "services": [
+          "做鞋",
+          "补鞋",
+          "换底",
+          "做靴"
+        ],
+        "settlement_min": "hamlet",
+        "staff": [
+          "鞋匠",
+          "学徒"
+        ]
+      },
+      "tags": [
+        "kind:shop",
+        "tradition:western",
+        "shop:cobbler",
+        "sells:hide_leather",
+        "settlement:hamlet",
+        "trade:cobbler",
+        "role:repair",
+        "role:daily_goods"
+      ],
+      "summary": "鞋铺是做鞋、补鞋的小店。西方有 shoemaker（做新鞋）和 cobbler（补鞋）之分，本库合为一个 key。一个村子里至少有一位补鞋的。",
+      "variants": [
+        "东方对应：鞋铺、鞋匠摊、补鞋摊；布鞋与草鞋作坊另有传统"
+      ],
+      "details": {
+        "definition": "鞋铺是做鞋、补鞋的小店。西方有 shoemaker（做新鞋）和 cobbler（补鞋）之分，本库合为一个 key。一个村子里至少有一位补鞋的。",
+        "mechanism": "鞋匠量脚、裁皮、用锥与针缝合，鞋底多用厚皮钉合。顾客常自带破鞋来修，修补占大头。料子向制革坊买，鞋楦与工具是自备资产。",
+        "conditions": "最小聚落为村（hamlet）：补鞋是所有村庄的基本需求，大一些的镇才有专门做新鞋的。行会与执照：皮革匠人是行会覆盖的行业，城镇里鞋匠常有行会，限制外来者与成衣竞争。学徒制：数年。典型顾客：农户、市民、士兵、旅人。",
+        "exceptions": "常见纠纷：尺寸不合、皮料以次充好、欠账、与成衣竞争、行会限制摆摊。例外：热带或贫困地区多赤脚或穿草鞋、布鞋；军队用鞋由官营作坊统一提供。东方对应：鞋铺、补鞋摊，布鞋和草鞋是东方特色。",
+        "story_uses": "①鞋底夹层里缝着信件。②鞋匠通过客人的鞋，知道他最近走过哪条路。③战时大批军鞋订单，鞋匠和军需官的暗账。④学徒偷换了贵客的鞋料，被当场抓住。",
+        "historical_scope": "本条以西式中世纪至近世早期的城镇、乡村店铺为基线，来源多取自 Britannica 对欧洲行会、客栈与行业的概述；东方对应（鞋铺、鞋匠摊、补鞋摊；布鞋与草鞋作坊另有传统）在正文与 variants 中说明，不拆 key。改编边界：架空世界可借用“村可养得起这家店、行业有师徒与同业约束、店主与顾客靠信用往来”这几点，但不应顺带断言该世界必有行会垄断、特定执照或某种货币；本条不含现实历史物价，也不自动生成库存或价格。",
+        "evidence_and_uncertainty": "有来源支持的部分：皮革匠人是行会覆盖的行业之一（据 shops_src_03）。属推演的部分：鞋铺的经营与纠纷。 review_status 维持 needs_review；本条不含现实历史物价，亦不构成库存或价格数据。"
+      },
+      "source_ids": [
+        "shops_src_03"
+      ],
+      "related_ids": [],
+      "related_catalog_ids": [
+        "craft_supp_leather",
+        "craft_supp_awl",
+        "craft_supp_needle",
+        "craft_supp_wax",
+        "craft_supp_felt"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "shop_potter",
+      "name": "陶窑",
+      "aliases": [
+        "陶匠",
+        "陶器铺",
+        "窑坊",
+        "potter",
+        "pottery",
+        "kiln"
+      ],
+      "category": "economy",
+      "primary": "shop",
+      "evidence_grade": "mixed",
+      "genres": [
+        "real_world",
+        "western_fantasy",
+        "eastern_fantasy"
+      ],
+      "shop": {
+        "key": "potter",
+        "sells": [
+          "glass_ceramic"
+        ],
+        "services": [
+          "烧制日用陶器",
+          "烧水缸与瓦罐",
+          "订做器皿",
+          "修补陶件"
+        ],
+        "settlement_min": "hamlet",
+        "staff": [
+          "陶匠",
+          "学徒",
+          "烧窑工",
+          "取土工"
+        ]
+      },
+      "tags": [
+        "kind:shop",
+        "tradition:western",
+        "shop:potter",
+        "sells:glass_ceramic",
+        "settlement:hamlet",
+        "trade:potter",
+        "role:container_supply",
+        "trade:kiln"
+      ],
+      "summary": "陶窑是把黏土做成器皿并烧硬的作坊兼店铺。陶器多是日用品：盛液体的罐、盛食物的盘碗、炊具与储罐。",
+      "variants": [
+        "东方对应：陶窑、窑坊、瓷窑；景德镇一类名窑已是产业"
+      ],
+      "details": {
+        "definition": "陶窑是把黏土做成器皿并烧硬的作坊兼店铺。陶器多是日用品：盛液体的罐、盛食物的盘碗、炊具与储罐。",
+        "mechanism": "取土、淘洗、成形（手捏、盘筑或上陶轮），晾干后入窑烧制。黏土有可塑性，成形后受热变硬，是陶业的基本原理。烧窑耗燃料、占场地，所以窑常设在村边或有燃料的地方。产品卖给周围村庄，或走集市。",
+        "conditions": "最小聚落为村（hamlet）：有黏土与燃料的地方就可以开窑；产量大的名窑会成为产业聚落。行会与执照：城镇里陶匠常入工匠行会，名窑可能由官府监管或垄断，窑址与取土权有地方规则。学徒制：数年，烧窑火候靠经验。典型顾客：农户、主妇、酒坊、盐商、行商。",
+        "exceptions": "常见纠纷：烧裂、色差、取土权、燃料来源、运输中破损、质量争议。例外：金属器皿普及后，陶器退到日常和仪式用品；瓷器是东方特色的高端产业，另有官窑制度。东方对应：陶窑、瓷窑，窑业有官窑和民窑之分。",
+        "story_uses": "①窑里烧出了一件不该出现的东西。②取土权纠纷引发邻村械斗。③一批陶罐在运输中被人调包。④官窑要求工匠不得外传技法，一个陶匠逃走。",
+        "historical_scope": "本条以西式中世纪至近世早期的城镇、乡村店铺为基线，来源多取自 Britannica 对欧洲行会、客栈与行业的概述；东方对应（陶窑、窑坊、瓷窑；景德镇一类名窑已是产业）在正文与 variants 中说明，不拆 key。改编边界：架空世界可借用“村可养得起这家店、行业有师徒与同业约束、店主与顾客靠信用往来”这几点，但不应顺带断言该世界必有行会垄断、特定执照或某种货币；本条不含现实历史物价，也不自动生成库存或价格。",
+        "evidence_and_uncertainty": "有来源支持的部分：陶是以黏土制成、受热硬化的物件，是最古老、最普遍的装饰艺术之一，常见的是容器与盘碗；黏土的特点是可塑，受热后变硬（据 shops_src_13，页面付费墙截断，仅读到导语）。工匠行会的一般功能（据 shops_src_03）。属推演的部分：具体烧窑、选址与纠纷。 review_status 维持 needs_review；本条不含现实历史物价，亦不构成库存或价格数据。"
+      },
+      "source_ids": [
+        "shops_src_13",
+        "shops_src_03"
+      ],
+      "related_ids": [],
+      "related_catalog_ids": [
+        "materials_clay",
+        "materials_ceramic",
+        "tools_pottery_wheel",
+        "tools_storage_jar",
+        "tools_pottery_cooking_pot",
+        "materials_charcoal"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "shop_jeweler",
+      "name": "金银匠铺",
+      "aliases": [
+        "首饰匠",
+        "金银铺",
+        "珠宝商",
+        "jeweler",
+        "goldsmith",
+        "silversmith"
+      ],
+      "category": "economy",
+      "primary": "shop",
+      "evidence_grade": "mixed",
+      "genres": [
+        "real_world",
+        "western_fantasy",
+        "eastern_fantasy"
+      ],
+      "shop": {
+        "key": "jeweler",
+        "sells": [
+          "metal",
+          "stone_earth"
+        ],
+        "services": [
+          "打制首饰",
+          "镶嵌宝石",
+          "熔铸金银",
+          "估价与验成色",
+          "修理与改款"
+        ],
+        "settlement_min": "city",
+        "staff": [
+          "金银匠",
+          "学徒",
+          "镶嵌工",
+          "鉴定师"
+        ]
+      },
+      "tags": [
+        "kind:shop",
+        "tradition:western",
+        "shop:jeweler",
+        "sells:metal",
+        "sells:stone_earth",
+        "settlement:city",
+        "trade:jeweler",
+        "role:luxury_craft",
+        "role:valuables_storage"
+      ],
+      "summary": "金银匠铺是用金银和宝石做首饰、器皿并出售的店铺。西方的 goldsmith 既制造也经营金银制品，历史上常兼做存放贵重物和早期放贷，本库并入这一 key。",
+      "variants": [
+        "东方对应：金银铺、银楼、首饰楼、珠宝店"
+      ],
+      "details": {
+        "definition": "金银匠铺是用金银和宝石做首饰、器皿并出售的店铺。西方的 goldsmith 既制造也经营金银制品，历史上常兼做存放贵重物和早期放贷，本库并入这一 key。",
+        "mechanism": "金是极易加工的金属，可以锤成薄片、拉成细丝。手法包括浮雕锤揲、雕刻、掐丝（filigree）、粒化（granulation）和铸造。店里还做估价、验成色与回收旧金银。贵重物常存放在店里，因此金银匠很早就带有“半个银行”的性质。",
+        "conditions": "最小聚落为城（city）：材料贵、顾客少，只有较大的聚落才有稳定需求。行会与执照：金银匠几乎总是入行会，成色与印记由行会或官府校验，防止掺假；铸币权往往也与金银匠有关（见 society_coinage_mint）。学徒制：多年，期满后需提交样品才能升师傅。典型顾客：贵族、富商、新婚夫妇、教会。",
+        "exceptions": "常见纠纷：成色不足、偷换宝石、重量不符、回收旧金的来路（赃物）、抵押与质押争议。例外：不是所有社会都由金银匠兼管存放；东方首饰业的银楼常与钱庄分行。东方对应：银楼、金银铺；首饰与账房、钱庄的关系各有不同。",
+        "story_uses": "①一枚戒指上的刻字，让死者身份曝光。②金银匠发现顾客熔掉的金子，是教堂圣器。③成色鉴定被收买，一桩婚事因此破裂。④学徒的提交样品里被人做了手脚，升师傅失败。",
+        "historical_scope": "本条以西式中世纪至近世早期的城镇、乡村店铺为基线，来源多取自 Britannica 对欧洲行会、客栈与行业的概述；东方对应（金银铺、银楼、首饰楼、珠宝店）在正文与 variants 中说明，不拆 key。改编边界：架空世界可借用“城可养得起这家店、行业有师徒与同业约束、店主与顾客靠信用往来”这几点，但不应顺带断言该世界必有行会垄断、特定执照或某种货币；本条不含现实历史物价，也不自动生成库存或价格。",
+        "evidence_and_uncertainty": "有来源支持的部分：goldsmith 是制造或经营金制品的匠人；金易锤薄、拉丝，化学性质稳定；技法有浮雕锤揲、雕刻、掐丝、粒化与铸造（据 shops_src_11，读到的是摘要段）。工匠行会的一般功能（据 shops_src_03）。属推演的部分：兼营存放与估价、行会印记制度的细节。 review_status 维持 needs_review；本条不含现实历史物价，亦不构成库存或价格数据。"
+      },
+      "source_ids": [
+        "shops_src_11",
+        "shops_src_03"
+      ],
+      "related_ids": [],
+      "related_catalog_ids": [
+        "herb_other_pearl",
+        "craft_supp_ivory",
+        "society_coinage_mint",
+        "tools_balance_scale",
+        "tools_hammer",
+        "materials_bronze"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "shop_moneychanger",
+      "name": "兑换铺",
+      "aliases": [
+        "兑换商",
+        "钱庄",
+        "钱铺",
+        "银钱兑换",
+        "money changer",
+        "moneychanger"
+      ],
+      "category": "economy",
+      "primary": "shop",
+      "evidence_grade": "inferred",
+      "genres": [
+        "real_world",
+        "western_fantasy",
+        "eastern_fantasy"
+      ],
+      "shop": {
+        "key": "moneychanger",
+        "sells": [
+          "economy_trade"
+        ],
+        "services": [
+          "兑换外币",
+          "验成色与称银",
+          "汇票与汇兑",
+          "存放与小额放贷"
+        ],
+        "settlement_min": "city",
+        "staff": [
+          "兑换商",
+          "账房",
+          "伙计",
+          "护卫"
+        ]
+      },
+      "tags": [
+        "kind:shop",
+        "tradition:western",
+        "shop:moneychanger",
+        "sells:economy_trade",
+        "settlement:city",
+        "trade:moneychanger",
+        "role:finance",
+        "role:currency_exchange"
+      ],
+      "summary": "兑换铺是把一种货币换成另一种、验成色、办汇兑与小额存放的店铺。西方的兑换商以换钱为本，东方的钱庄与票号更以存放和汇兑为主；本库合为一个 key，差异在正文说明。",
+      "variants": [
+        "东方对应：钱庄、钱铺、票号；东方更强调汇兑和存放（见 society_deposit_house）"
+      ],
+      "details": {
+        "definition": "兑换铺是把一种货币换成另一种、验成色、办汇兑与小额存放的店铺。西方的兑换商以换钱为本，东方的钱庄与票号更以存放和汇兑为主；本库合为一个 key，差异在正文说明。",
+        "mechanism": "桌上放天平、试金石和各地货币的成色表。顾客拿来外地钱币或金银，兑换商称重、验成色、按行情兑换并抽取差价。远程贸易靠汇票与汇兑，店主凭信誉在两地账房之间结算。有的兼营存款与放贷，由此向银行演变。",
+        "conditions": "最小聚落为城（city）：需要远程贸易和多种货币并存。行会与执照：铸币权、成色与兑换常受官府管制，兑换商需领特许或入行会；教会反对放贷收利的社会里，放贷常由特定群体经营（见 shops_src_10 关于高利贷禁令的背景）。学徒制：账房学徒。典型顾客：行商、旅行者、朝圣者、船主、官员。",
+        "exceptions": "常见纠纷：成色造假、汇率垄断、挤兑、放贷纠纷、洗钱与走私、行情骤变。例外：只用同一种货币的封闭社会，不需要此店；纸币普及后兑换与汇兑转入银行。东方对应：钱庄、钱铺、票号，更偏向存放和汇兑。",
+        "story_uses": "①一箱掺了铅的银锭，让兑换商陷入困境。②汇票被伪造，整条商路的信用动摇。③兑换商是情报贩子，知道谁在哪里取了多少钱。④朝圣季人潮涌入，兑换铺被迫雇护卫。",
+        "historical_scope": "本条以西式中世纪至近世早期的城镇、乡村店铺为基线，来源多取自 Britannica 对欧洲行会、客栈与行业的概述；东方对应（钱庄、钱铺、票号；东方更强调汇兑和存放（见 society_deposit_house））在正文与 variants 中说明，不拆 key。改编边界：架空世界可借用“城可养得起这家店、行业有师徒与同业约束、店主与顾客靠信用往来”这几点，但不应顺带断言该世界必有行会垄断、特定执照或某种货币；本条不含现实历史物价，也不自动生成库存或价格。",
+        "evidence_and_uncertainty": "有来源支持的部分：对 pawnbroking 的背景材料（高利贷禁令、公共机构与教会慈善基金）可作为信贷店铺受法令约束的参照（据 shops_src_10）。兑换铺本身没有读到直接来源，故本条整体为推演（grade=inferred）。 review_status 维持 needs_review；本条不含现实历史物价，亦不构成库存或价格数据。"
+      },
+      "source_ids": [
+        "shops_src_10"
+      ],
+      "related_ids": [],
+      "related_catalog_ids": [
+        "society_coinage_mint",
+        "society_bill_of_exchange",
+        "society_deposit_house",
+        "tools_balance_scale",
+        "reality_human_money_as_convention",
+        "society_consumer_credit"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "shop_pawnshop",
+      "name": "当铺",
+      "aliases": [
+        "典当行",
+        "押当",
+        "当铺",
+        "pawnshop",
+        "pawnbroker",
+        "质库"
+      ],
+      "category": "economy",
+      "primary": "shop",
+      "evidence_grade": "mixed",
+      "genres": [
+        "real_world",
+        "western_fantasy",
+        "eastern_fantasy"
+      ],
+      "shop": {
+        "key": "pawnshop",
+        "sells": [
+          "economy_trade"
+        ],
+        "services": [
+          "典当抵押借款",
+          "赎回",
+          "处理死当",
+          "估价"
+        ],
+        "settlement_min": "town",
+        "staff": [
+          "掌柜",
+          "朝奉或估价师",
+          "伙计",
+          "护卫"
+        ]
+      },
+      "tags": [
+        "kind:shop",
+        "tradition:western",
+        "shop:pawnshop",
+        "sells:economy_trade",
+        "settlement:town",
+        "trade:pawnbroker",
+        "role:credit",
+        "role:secondhand_trade"
+      ],
+      "summary": "当铺是接受实物抵押、发放短期借款的店铺。顾客拿物品换钱，限期内连本带利赎回，逾期则物品没收转卖。它是穷人和急需用钱者的主要信贷来源。",
+      "variants": [
+        "东方对应：当铺、典当行、质库"
+      ],
+      "details": {
+        "definition": "当铺是接受实物抵押、发放短期借款的店铺。顾客拿物品换钱，限期内连本带利赎回，逾期则物品没收转卖。它是穷人和急需用钱者的主要信贷来源。",
+        "mechanism": "估价师对抵押物估价，通常按其价值的一部分放款，开具当票。当票是赎回凭证，逾期未赎的成为“死当”，由店铺出售。店主承担保管与估价失误的风险。有的社会设有公共当铺或教会慈善性质的当铺（mons pietatis），利率低或免息，但常要靠拍卖死当维持资金。",
+        "conditions": "最小聚落为镇（town）：要有足够多愿意典当的人与能处理死当的二手市场。行会与执照：当铺受法令严格管制——利率、保管期限、死当拍卖都有规定；历史上高利贷禁令限制了放贷人，私人当铺多为法律豁免的群体；各国在私营与公营之间摇摆。学徒制：跟着估价师。典型顾客：穷人、小商贩、赌徒、急用钱的学生与士兵。",
+        "exceptions": "常见纠纷：估价过低、利率过高、死当拍卖作弊、赃物典当、当票丢失。例外：有些社会没有当铺，靠亲族或庙宇互助；银行信贷普及后当铺衰落。东方对应：当铺、典当行，中国自古已有，规模与制度成熟。",
+        "story_uses": "①当铺里出现一件失踪者的遗物。②赃物经当铺被洗白，官差上门。③穷人典当祖传的唯一遗物，逾期未赎。④掌柜把死当私下留给自己，被学徒告发。",
+        "historical_scope": "本条以西式中世纪至近世早期的城镇、乡村店铺为基线，来源多取自 Britannica 对欧洲行会、客栈与行业的概述；东方对应（当铺、典当行、质库）在正文与 variants 中说明，不拆 key。改编边界：架空世界可借用“镇可养得起这家店、行业有师徒与同业约束、店主与顾客靠信用往来”这几点，但不应顺带断言该世界必有行会垄断、特定执照或某种货币；本条不含现实历史物价，也不自动生成库存或价格。",
+        "evidence_and_uncertainty": "有来源支持的部分：pawnbroking 是接受家用品或个人物品作担保放贷的行业，是最古老的行当之一，中国 2000–3000 年前已有；西方可追溯到中世纪私人当铺、公共当铺与 mons pietatis 三种机构；高利贷禁令使私人放贷人多为受法令或宗教豁免的人群；方济各会 1462 年在意大利设 montes pietatis，为穷人提供免息抵押贷款，后因资金耗竭被迫收息并拍卖逾期抵押品；18 世纪许多国家回到公共当铺，20 世纪因社会政策与银行信贷普及而衰落（据 shops_src_10）。属推演的部分：具体经营细节与纠纷类型。 review_status 维持 needs_review；本条不含现实历史物价，亦不构成库存或价格数据。"
+      },
+      "source_ids": [
+        "shops_src_10"
+      ],
+      "related_ids": [],
+      "related_catalog_ids": [
+        "society_consumer_credit",
+        "society_deposit_house",
+        "society_coinage_mint",
+        "tools_balance_scale",
+        "society_charitable_relief",
+        "reality_human_money_as_convention"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "shop_bookseller",
+      "name": "书铺",
+      "aliases": [
+        "书商",
+        "书肆",
+        "书坊",
+        "bookseller",
+        "stationer"
+      ],
+      "category": "economy",
+      "primary": "shop",
+      "evidence_grade": "mixed",
+      "genres": [
+        "real_world",
+        "western_fantasy",
+        "eastern_fantasy"
+      ],
+      "shop": {
+        "key": "bookseller",
+        "sells": [
+          "literature_form"
+        ],
+        "services": [
+          "卖书与抄本",
+          "代抄文书",
+          "订书与装帧",
+          "卖纸笔墨"
+        ],
+        "settlement_min": "town",
+        "staff": [
+          "书商",
+          "抄书人",
+          "学徒",
+          "装订匠"
+        ]
+      },
+      "tags": [
+        "kind:shop",
+        "tradition:western",
+        "shop:bookseller",
+        "sells:literature_form",
+        "settlement:town",
+        "trade:bookseller",
+        "role:knowledge_supply",
+        "role:scribal_service"
+      ],
+      "summary": "书铺是卖书、代抄文书、卖纸笔墨的店铺。印刷术普及之前，书是抄本，价格极贵，书铺多靠大学与修道院周边生存；印刷之后，书铺才成为面向大众的店铺。",
+      "variants": [
+        "东方对应：书肆、书坊、书铺；刻书坊（见 reality_human_printing_reproduction）"
+      ],
+      "details": {
+        "definition": "书铺是卖书、代抄文书、卖纸笔墨的店铺。印刷术普及之前，书是抄本，价格极贵，书铺多靠大学与修道院周边生存；印刷之后，书铺才成为面向大众的店铺。",
+        "mechanism": "抄本时代：书商向抄书人订书，或接受大学的抄本出租。书的质量由抄写、装帧与插图决定，成书按页计。印刷时代：书商向印刷坊订书，兼营文具与代写。大店常兼营出版。内容需通过教会或官府审查。",
+        "conditions": "最小聚落为镇（town）：识字阶层与学校、大学、法庭所在的地方才养得起书铺。行会与执照：书业常有行会或特许，控制抄写、出版与销售；许多社会有出版许可和禁书目录。学徒制：数年，要识字、懂拉丁文或本地书写。典型顾客：学生、教士、律师、贵族、官员。",
+        "exceptions": "常见纠纷：盗版与抄袭、审查与禁书、书价、字迹错误、代抄文书造假。例外：识字率极低的社会里，书铺只卖宗教典籍；印刷与数字化后形态变化。东方对应：书肆、书坊，刻书与私塾配套，也常兼作文人聚集处。",
+        "story_uses": "①一本禁书在书铺后室流通，被官差突袭。②代抄的契约被改动，引发遗产官司。③书商认出了一本古抄本，知道它的真实来历。④学生因书价太高，铤而走险偷书。",
+        "historical_scope": "本条以西式中世纪至近世早期的城镇、乡村店铺为基线，来源多取自 Britannica 对欧洲行会、客栈与行业的概述；东方对应（书肆、书坊、书铺；刻书坊（见 reality_human_printing_reproduction））在正文与 variants 中说明，不拆 key。改编边界：架空世界可借用“镇可养得起这家店、行业有师徒与同业约束、店主与顾客靠信用往来”这几点，但不应顺带断言该世界必有行会垄断、特定执照或某种货币；本条不含现实历史物价，也不自动生成库存或价格。",
+        "evidence_and_uncertainty": "有来源支持的部分：bookselling 是卖书的行业，书的形式随时代演化；20 世纪初出现专门教育书与更积极的销售（据 shops_src_12，读到的是摘要段）。属推演的部分：抄本时代书铺的运作、审查与行会细节。 review_status 维持 needs_review；本条不含现实历史物价，亦不构成库存或价格数据。"
+      },
+      "source_ids": [
+        "shops_src_12"
+      ],
+      "related_ids": [],
+      "related_catalog_ids": [
+        "craft_supp_paper",
+        "craft_supp_parchment",
+        "craft_supp_ink",
+        "reality_human_printing_reproduction",
+        "western_monastery_scriptorium",
+        "society_medieval_university"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "shop_stable",
+      "name": "驿马厩",
+      "aliases": [
+        "马厩",
+        "马房",
+        "车马店",
+        "驿站",
+        "stable",
+        "livery stable",
+        "posting inn"
+      ],
+      "category": "economy",
+      "primary": "shop",
+      "evidence_grade": "mixed",
+      "genres": [
+        "real_world",
+        "western_fantasy",
+        "eastern_fantasy"
+      ],
+      "shop": {
+        "key": "stable",
+        "sells": [
+          "livestock",
+          "vehicle_vessel"
+        ],
+        "services": [
+          "寄养牲口",
+          "租马与租车",
+          "换马",
+          "卖饲料草料",
+          "钉马掌（合作铁匠）"
+        ],
+        "settlement_min": "hamlet",
+        "staff": [
+          "马夫",
+          "厩长",
+          "帮工",
+          "车夫"
+        ]
+      },
+      "tags": [
+        "kind:shop",
+        "tradition:western",
+        "shop:stable",
+        "sells:livestock",
+        "sells:vehicle_vessel",
+        "settlement:hamlet",
+        "trade:ostler",
+        "role:travel_support",
+        "role:transport"
+      ],
+      "summary": "驿马厩是寄养、租借、更换马匹和车辆的店铺，常附属于客栈或驿站。它为旅人提供牲口的食宿，也出租代步工具。",
+      "variants": [
+        "东方对应：驿站、车马店、马厩；官营驿传（见 society_postal_relay）"
+      ],
+      "details": {
+        "definition": "驿马厩是寄养、租借、更换马匹和车辆的店铺，常附属于客栈或驿站。它为旅人提供牲口的食宿，也出租代步工具。",
+        "mechanism": "马夫照料牲口：喂料、饮水、洗刷、检查蹄铁。顾客按日付寄养费，租马需押金，换马则按里程。大店有车辆出租，也和铁匠、鞍具铺合作。官营驿站按规定为公务旅行免费换马。",
+        "conditions": "最小聚落为村（hamlet）：路边只要有稳定的过路客，就会有马厩。行会与执照：客栈须取得住宿许可，马厩作为附属，同样受登记和查验；官驿由官府设置。学徒制：马夫跟着厩长学。典型顾客：旅人、行商、信使、朝圣者、官员。",
+        "exceptions": "常见纠纷：牲口被盗或被调包、饲料克扣、租马受伤、押金争议、病马传染。例外：游牧社会每家自有牲口，不需要马厩；机动车普及后转为汽车旅馆与停车场。东方对应：驿站、车马店，官营驿传更强（见 society_postal_relay）。",
+        "story_uses": "①一匹名马被调包，马夫是唯一目击者。②官差征用所有马匹，旅客被困。③信使在马厩里死去，留下一封没送的信。④暴雨夜，马厩成为全客栈的避难所。",
+        "historical_scope": "本条以西式中世纪至近世早期的城镇、乡村店铺为基线，来源多取自 Britannica 对欧洲行会、客栈与行业的概述；东方对应（驿站、车马店、马厩；官营驿传（见 society_postal_relay））在正文与 variants 中说明，不拆 key。改编边界：架空世界可借用“村可养得起这家店、行业有师徒与同业约束、店主与顾客靠信用往来”这几点，但不应顺带断言该世界必有行会垄断、特定执照或某种货币；本条不含现实历史物价，也不自动生成库存或价格。",
+        "evidence_and_uncertainty": "有来源支持的部分：罗马时期的客栈围院而建，马厩与住宿、饮食场所同置于院落周围（据 shops_src_08）；铁匠最常见的活是钉马掌，farrier 专做这项工作（据 shops_src_05）。属推演的部分：租马、换马与官驿的具体运作。 review_status 维持 needs_review；本条不含现实历史物价，亦不构成库存或价格数据。"
+      },
+      "source_ids": [
+        "shops_src_08",
+        "shops_src_05"
+      ],
+      "related_ids": [],
+      "related_catalog_ids": [
+        "tools_cart",
+        "tools_wheel_axle",
+        "society_postal_relay",
+        "reality_human_caravan_trade_route",
+        "western_pilgrimage_order"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    }
+  ]
+}

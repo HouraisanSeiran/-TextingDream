@@ -1,0 +1,1631 @@
+[
+ {
+  "id": "west-elf-house-01-1",
+  "style": "west",
+  "race": "elf",
+  "category": "house",
+  "kind": "house_elf_treehouse",
+  "facility": null,
+  "variant": 1,
+  "name": "巨树树屋（叶尖山墙屋）",
+  "tags": [
+   "treehouse",
+   "raised",
+   "ring_platform",
+   "rope_ladder"
+  ],
+  "roof": "gable_tile",
+  "note": "树干上一圈环形木台，台上小屋，绳梯落地；叶形屋顶无对应 RoofId，取最近的 gable_tile",
+  "type": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 106,
+  "anchor": [
+   24,
+   154
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   154
+  ]
+ },
+ {
+  "id": "west-elf-house-01-2",
+  "style": "west",
+  "race": "elf",
+  "category": "house",
+  "kind": "house_elf_treehouse",
+  "facility": null,
+  "variant": 2,
+  "name": "巨树树屋（花瓣圆舱）",
+  "tags": [
+   "treehouse",
+   "raised",
+   "ring_platform",
+   "rope_ladder"
+  ],
+  "roof": "gable_tile",
+  "note": "树干上一圈环形木台，台上小屋，绳梯落地；叶形屋顶无对应 RoofId，取最近的 gable_tile",
+  "type": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 106,
+  "anchor": [
+   24,
+   154
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   154
+  ]
+ },
+ {
+  "id": "west-elf-house-01-3",
+  "style": "west",
+  "race": "elf",
+  "category": "house",
+  "kind": "house_elf_treehouse",
+  "facility": null,
+  "variant": 3,
+  "name": "巨树树屋（双层台）",
+  "tags": [
+   "treehouse",
+   "raised",
+   "ring_platform",
+   "rope_ladder"
+  ],
+  "roof": "gable_tile",
+  "note": "树干上一圈环形木台，台上小屋，绳梯落地；叶形屋顶无对应 RoofId，取最近的 gable_tile",
+  "type": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 130,
+  "anchor": [
+   24,
+   178
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   178
+  ]
+ },
+ {
+  "id": "west-elf-house-02-1",
+  "style": "west",
+  "race": "elf",
+  "category": "house",
+  "kind": "house_elf_root",
+  "facility": null,
+  "variant": 1,
+  "name": "树根洞屋（活树根洞）",
+  "tags": [
+   "burrow",
+   "tree_root",
+   "ground_level"
+  ],
+  "roof": "gable_tile",
+  "note": "门开在巨树根间；变体 2 是截断树桩上盖苔瓣圆顶；叶形/穹顶无对应 RoofId，取 gable_tile",
+  "type": 2,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 72,
+  "anchor": [
+   24,
+   120
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   120
+  ]
+ },
+ {
+  "id": "west-elf-house-02-2",
+  "style": "west",
+  "race": "elf",
+  "category": "house",
+  "kind": "house_elf_root",
+  "facility": null,
+  "variant": 2,
+  "name": "树根洞屋（树桩苔顶）",
+  "tags": [
+   "burrow",
+   "tree_root",
+   "ground_level"
+  ],
+  "roof": "gable_tile",
+  "note": "门开在巨树根间；变体 2 是截断树桩上盖苔瓣圆顶；叶形/穹顶无对应 RoofId，取 gable_tile",
+  "type": 2,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 35,
+  "anchor": [
+   24,
+   83
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   83
+  ]
+ },
+ {
+  "id": "west-elf-house-02-3",
+  "style": "west",
+  "race": "elf",
+  "category": "house",
+  "kind": "house_elf_root",
+  "facility": null,
+  "variant": 3,
+  "name": "树根洞屋（根拱长洞）",
+  "tags": [
+   "burrow",
+   "tree_root",
+   "ground_level"
+  ],
+  "roof": "gable_tile",
+  "note": "门开在巨树根间；变体 2 是截断树桩上盖苔瓣圆顶；叶形/穹顶无对应 RoofId，取 gable_tile",
+  "type": 2,
+  "footprint": [
+   2,
+   1
+  ],
+  "height_px": 88,
+  "anchor": [
+   48,
+   136
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   136
+  ]
+ },
+ {
+  "id": "west-elf-house-03-1",
+  "style": "west",
+  "race": "elf",
+  "category": "house",
+  "kind": "house_elf_ring",
+  "facility": null,
+  "variant": 1,
+  "name": "环形平台屋（高脚环台）",
+  "tags": [
+   "ring_platform",
+   "raised",
+   "tree_trunk"
+  ],
+  "roof": "gable_tile",
+  "note": "绕巨树主干的一圈椭圆木台，台上有屋；变体 3 是贴地矮台",
+  "type": 3,
+  "footprint": [
+   2,
+   2
+  ],
+  "height_px": 56,
+  "anchor": [
+   48,
+   152
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   152
+  ]
+ },
+ {
+  "id": "west-elf-house-03-2",
+  "style": "west",
+  "race": "elf",
+  "category": "house",
+  "kind": "house_elf_ring",
+  "facility": null,
+  "variant": 2,
+  "name": "环形平台屋（挑梁高台）",
+  "tags": [
+   "ring_platform",
+   "raised",
+   "tree_trunk"
+  ],
+  "roof": "gable_tile",
+  "note": "绕巨树主干的一圈椭圆木台，台上有屋；变体 3 是贴地矮台",
+  "type": 3,
+  "footprint": [
+   2,
+   2
+  ],
+  "height_px": 62,
+  "anchor": [
+   48,
+   158
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   158
+  ]
+ },
+ {
+  "id": "west-elf-house-03-3",
+  "style": "west",
+  "race": "elf",
+  "category": "house",
+  "kind": "house_elf_ring",
+  "facility": null,
+  "variant": 3,
+  "name": "环形平台屋（地面环台）",
+  "tags": [
+   "ring_platform",
+   "raised",
+   "tree_trunk"
+  ],
+  "roof": "gable_tile",
+  "note": "绕巨树主干的一圈椭圆木台，台上有屋；变体 3 是贴地矮台",
+  "type": 3,
+  "footprint": [
+   2,
+   1
+  ],
+  "height_px": 82,
+  "anchor": [
+   48,
+   130
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   130
+  ]
+ },
+ {
+  "id": "west-elf-house-04-1",
+  "style": "west",
+  "race": "elf",
+  "category": "house",
+  "kind": "house_elf_vinearch",
+  "facility": null,
+  "variant": 1,
+  "name": "藤拱小屋（门前藤拱）",
+  "tags": [
+   "vine_arch",
+   "ground_level"
+  ],
+  "roof": "gable_tile",
+  "note": "活藤拱成尖弧门廊，挂银白小花",
+  "type": 4,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 5,
+  "anchor": [
+   24,
+   53
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   53
+  ]
+ },
+ {
+  "id": "west-elf-house-04-2",
+  "style": "west",
+  "race": "elf",
+  "category": "house",
+  "kind": "house_elf_vinearch",
+  "facility": null,
+  "variant": 2,
+  "name": "藤拱小屋（藤拱罩屋）",
+  "tags": [
+   "vine_arch",
+   "ground_level"
+  ],
+  "roof": "gable_tile",
+  "note": "活藤拱成尖弧门廊，挂银白小花",
+  "type": 4,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 7,
+  "anchor": [
+   24,
+   55
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   55
+  ]
+ },
+ {
+  "id": "west-elf-house-04-3",
+  "style": "west",
+  "race": "elf",
+  "category": "house",
+  "kind": "house_elf_vinearch",
+  "facility": null,
+  "variant": 3,
+  "name": "藤拱小屋（藤拱连廊）",
+  "tags": [
+   "vine_arch",
+   "ground_level"
+  ],
+  "roof": "gable_tile",
+  "note": "活藤拱成尖弧门廊，挂银白小花",
+  "type": 4,
+  "footprint": [
+   2,
+   1
+  ],
+  "height_px": 9,
+  "anchor": [
+   48,
+   57
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   57
+  ]
+ },
+ {
+  "id": "west-elf-house-05-1",
+  "style": "west",
+  "race": "elf",
+  "category": "house",
+  "kind": "house_elf_leafround",
+  "facility": null,
+  "variant": 1,
+  "name": "叶顶圆屋（单层叶冠）",
+  "tags": [
+   "round",
+   "leaf_crown"
+  ],
+  "roof": "gable_thatch",
+  "note": "圆屋身顶上一圈放射长尖叶；无对应 RoofId，取最近的 gable_thatch（植物覆面）",
+  "type": 5,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 21,
+  "anchor": [
+   24,
+   69
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   69
+  ]
+ },
+ {
+  "id": "west-elf-house-05-2",
+  "style": "west",
+  "race": "elf",
+  "category": "house",
+  "kind": "house_elf_leafround",
+  "facility": null,
+  "variant": 2,
+  "name": "叶顶圆屋（两层叶冠）",
+  "tags": [
+   "round",
+   "leaf_crown"
+  ],
+  "roof": "gable_thatch",
+  "note": "圆屋身顶上一圈放射长尖叶；无对应 RoofId，取最近的 gable_thatch（植物覆面）",
+  "type": 5,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 33,
+  "anchor": [
+   24,
+   81
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   81
+  ]
+ },
+ {
+  "id": "west-elf-house-05-3",
+  "style": "west",
+  "race": "elf",
+  "category": "house",
+  "kind": "house_elf_leafround",
+  "facility": null,
+  "variant": 3,
+  "name": "叶顶圆屋（双圆屋连廊）",
+  "tags": [
+   "round",
+   "leaf_crown"
+  ],
+  "roof": "gable_thatch",
+  "note": "圆屋身顶上一圈放射长尖叶；无对应 RoofId，取最近的 gable_thatch（植物覆面）",
+  "type": 5,
+  "footprint": [
+   2,
+   1
+  ],
+  "height_px": 18,
+  "anchor": [
+   48,
+   66
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   66
+  ]
+ },
+ {
+  "id": "west-elf-house-06-1",
+  "style": "west",
+  "race": "elf",
+  "category": "house",
+  "kind": "house_elf_bridged",
+  "facility": null,
+  "variant": 1,
+  "name": "双层吊桥连屋（屋台吊桥）",
+  "tags": [
+   "two_storey",
+   "rope_bridge",
+   "raised"
+  ],
+  "roof": "gable_tile",
+  "note": "两处建筑的上层之间挂吊桥；叶形屋顶取最近的 gable_tile",
+  "type": 6,
+  "footprint": [
+   2,
+   1
+  ],
+  "height_px": 22,
+  "anchor": [
+   48,
+   70
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   70
+  ]
+ },
+ {
+  "id": "west-elf-house-06-2",
+  "style": "west",
+  "race": "elf",
+  "category": "house",
+  "kind": "house_elf_bridged",
+  "facility": null,
+  "variant": 2,
+  "name": "双层吊桥连屋（双树台吊桥）",
+  "tags": [
+   "two_storey",
+   "rope_bridge",
+   "raised"
+  ],
+  "roof": "gable_tile",
+  "note": "两处建筑的上层之间挂吊桥；叶形屋顶取最近的 gable_tile",
+  "type": 6,
+  "footprint": [
+   2,
+   1
+  ],
+  "height_px": 75,
+  "anchor": [
+   48,
+   123
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   123
+  ]
+ },
+ {
+  "id": "west-elf-house-06-3",
+  "style": "west",
+  "race": "elf",
+  "category": "house",
+  "kind": "house_elf_bridged",
+  "facility": null,
+  "variant": 3,
+  "name": "双层吊桥连屋（前后错台）",
+  "tags": [
+   "two_storey",
+   "rope_bridge",
+   "raised"
+  ],
+  "roof": "gable_tile",
+  "note": "两处建筑的上层之间挂吊桥；叶形屋顶取最近的 gable_tile",
+  "type": 6,
+  "footprint": [
+   2,
+   2
+  ],
+  "height_px": 42,
+  "anchor": [
+   48,
+   138
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   138
+  ]
+ },
+ {
+  "id": "west-elf-house-07-1",
+  "style": "west",
+  "race": "elf",
+  "category": "house",
+  "kind": "house_elf_garden",
+  "facility": null,
+  "variant": 1,
+  "name": "花园亭屋（半敞亭屋）",
+  "tags": [
+   "garden",
+   "pavilion",
+   "pond"
+  ],
+  "roof": "gable_tile",
+  "note": "花瓣穹顶圆亭 + 花畦、水池；穹顶无对应 RoofId，取最近的 gable_tile",
+  "type": 7,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 18,
+  "anchor": [
+   24,
+   66
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   66
+  ]
+ },
+ {
+  "id": "west-elf-house-07-2",
+  "style": "west",
+  "race": "elf",
+  "category": "house",
+  "kind": "house_elf_garden",
+  "facility": null,
+  "variant": 2,
+  "name": "花园亭屋（小屋带亭）",
+  "tags": [
+   "garden",
+   "pavilion",
+   "pond"
+  ],
+  "roof": "gable_tile",
+  "note": "花瓣穹顶圆亭 + 花畦、水池；穹顶无对应 RoofId，取最近的 gable_tile",
+  "type": 7,
+  "footprint": [
+   2,
+   1
+  ],
+  "height_px": 11,
+  "anchor": [
+   48,
+   59
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   59
+  ]
+ },
+ {
+  "id": "west-elf-house-07-3",
+  "style": "west",
+  "race": "elf",
+  "category": "house",
+  "kind": "house_elf_garden",
+  "facility": null,
+  "variant": 3,
+  "name": "花园亭屋（庭院长屋）",
+  "tags": [
+   "garden",
+   "pavilion",
+   "pond"
+  ],
+  "roof": "gable_tile",
+  "note": "花瓣穹顶圆亭 + 花畦、水池；穹顶无对应 RoofId，取最近的 gable_tile",
+  "type": 7,
+  "footprint": [
+   2,
+   2
+  ],
+  "height_px": 2,
+  "anchor": [
+   48,
+   98
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   98
+  ]
+ },
+ {
+  "id": "west-elf-house-08-1",
+  "style": "west",
+  "race": "elf",
+  "category": "house",
+  "kind": "house_elf_tower",
+  "facility": null,
+  "variant": 1,
+  "name": "细塔屋（单塔）",
+  "tags": [
+   "tower",
+   "spire",
+   "tall"
+  ],
+  "roof": "steep_slate",
+  "note": "细高圆塔、内凹尖叶顶；尖顶取最近的 steep_slate",
+  "type": 8,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 89,
+  "anchor": [
+   24,
+   137
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   137
+  ]
+ },
+ {
+  "id": "west-elf-house-08-2",
+  "style": "west",
+  "race": "elf",
+  "category": "house",
+  "kind": "house_elf_tower",
+  "facility": null,
+  "variant": 2,
+  "name": "细塔屋（塔靠小屋）",
+  "tags": [
+   "tower",
+   "spire",
+   "tall"
+  ],
+  "roof": "steep_slate",
+  "note": "细高圆塔、内凹尖叶顶；尖顶取最近的 steep_slate",
+  "type": 8,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 77,
+  "anchor": [
+   24,
+   125
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   125
+  ]
+ },
+ {
+  "id": "west-elf-house-08-3",
+  "style": "west",
+  "race": "elf",
+  "category": "house",
+  "kind": "house_elf_tower",
+  "facility": null,
+  "variant": 3,
+  "name": "细塔屋（双塔吊桥）",
+  "tags": [
+   "tower",
+   "spire",
+   "tall"
+  ],
+  "roof": "steep_slate",
+  "note": "细高圆塔、内凹尖叶顶；尖顶取最近的 steep_slate",
+  "type": 8,
+  "footprint": [
+   2,
+   1
+  ],
+  "height_px": 96,
+  "anchor": [
+   48,
+   144
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   144
+  ]
+ },
+ {
+  "id": "west-elf-forge-01",
+  "style": "west",
+  "race": "elf",
+  "category": "special",
+  "kind": "forge_elf_moon",
+  "facility": "forge",
+  "variant": 1,
+  "name": "铁匠铺（月光熔炉）",
+  "tags": [
+   "workshop",
+   "moonstone_furnace",
+   "silver_anvil",
+   "chimney"
+  ],
+  "roof": "gable_tile",
+  "note": "前院月光石穹顶熔炉 + 树桩银砧 + 淬火槽，后排叶舟顶作坊与月光石烟塔；叶顶取最近的 gable_tile",
+  "footprint": [
+   2,
+   2
+  ],
+  "height_px": 42,
+  "anchor": [
+   48,
+   138
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   138
+  ]
+ },
+ {
+  "id": "west-elf-market-01",
+  "style": "west",
+  "race": "elf",
+  "category": "special",
+  "kind": "market_elf_trellis",
+  "facility": "market_hall",
+  "variant": 1,
+  "name": "藤棚市场",
+  "tags": [
+   "trellis",
+   "open_air",
+   "stalls",
+   "fountain"
+  ],
+  "roof": "none",
+  "note": "银白木藤棚架（顶部只有梁与藤，可透见下面摊位），五个货摊 + 中央月光石泉；无屋面",
+  "footprint": [
+   3,
+   2
+  ],
+  "height_px": 26,
+  "anchor": [
+   72,
+   122
+  ],
+  "viewBox": [
+   0,
+   0,
+   144,
+   122
+  ]
+ },
+ {
+  "id": "west-elf-stall-01",
+  "style": "west",
+  "race": "elf",
+  "category": "prop",
+  "kind": "market_stall_elf",
+  "facility": "market_hall",
+  "variant": 1,
+  "name": "叶篷摊位",
+  "tags": [
+   "open_air",
+   "stall"
+  ],
+  "roof": "gable_thatch",
+  "note": "露天单摊位（按规范 facility=market_hall + open_air）；苔叶篷取最近的 gable_thatch",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 6,
+  "anchor": [
+   24,
+   54
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   54
+  ]
+ },
+ {
+  "id": "west-elf-townhall-01",
+  "style": "west",
+  "race": "elf",
+  "category": "special",
+  "kind": "town_hall_elf_tree",
+  "facility": "town_hall",
+  "variant": 1,
+  "name": "议事古树殿",
+  "tags": [
+   "council",
+   "great_tree",
+   "ring_platform",
+   "colonnade",
+   "banner"
+  ],
+  "roof": "gable_tile",
+  "note": "古树主干绕着建尖拱柱廊长殿，正中叶尖山墙门廊，树上议事环台挂叶幡，两侧月光石细塔；叶顶取最近的 gable_tile",
+  "footprint": [
+   3,
+   3
+  ],
+  "height_px": 120,
+  "anchor": [
+   72,
+   264
+  ],
+  "viewBox": [
+   0,
+   0,
+   144,
+   264
+  ]
+ },
+ {
+  "id": "west-elf-temple-01",
+  "style": "west",
+  "race": "elf",
+  "category": "special",
+  "kind": "temple_elf_moon",
+  "facility": "temple",
+  "variant": 1,
+  "name": "月神祠",
+  "tags": [
+   "shrine",
+   "moon",
+   "colonnade",
+   "spire",
+   "pool"
+  ],
+  "roof": "steep_slate",
+  "note": "两级月光石圆台，环形银白柱廊绕着月光石圣坛，内凹花瓣尖顶顶上月牙；尖顶取最近的 steep_slate",
+  "footprint": [
+   2,
+   2
+  ],
+  "height_px": 51,
+  "anchor": [
+   48,
+   147
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   147
+  ]
+ },
+ {
+  "id": "west-elf-inn-01",
+  "style": "west",
+  "race": "elf",
+  "category": "special",
+  "kind": "inn_elf_tree",
+  "facility": "inn",
+  "variant": 1,
+  "name": "树荫客栈",
+  "tags": [
+   "two_storey",
+   "sign",
+   "stable_shed",
+   "ring_platform"
+  ],
+  "roof": "gable_tile",
+  "note": "两层客栈挂叶形酒杯招牌，侧翼马厩披屋，后面老树上的环形露台；叶形顶取最近的 gable_tile",
+  "footprint": [
+   2,
+   2
+  ],
+  "height_px": 48,
+  "anchor": [
+   48,
+   144
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   144
+  ]
+ },
+ {
+  "id": "west-elf-wall-0000",
+  "style": "west",
+  "race": "elf",
+  "category": "wall",
+  "kind": "wall_thorn",
+  "facility": "city_wall",
+  "variant": 0,
+  "mask": 0,
+  "name": "荆棘藤墙 0000",
+  "tags": [
+   "dual_grid",
+   "mask_0000",
+   "living_thorn",
+   "silverwood_stakes"
+  ],
+  "roof": "none",
+  "note": "空瓦片（透明占位）",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "west-elf-wall-0001",
+  "style": "west",
+  "race": "elf",
+  "category": "wall",
+  "kind": "wall_thorn",
+  "facility": "city_wall",
+  "variant": 1,
+  "mask": 1,
+  "name": "荆棘藤墙 0001",
+  "tags": [
+   "dual_grid",
+   "mask_0001",
+   "living_thorn",
+   "silverwood_stakes"
+  ],
+  "roof": "none",
+  "note": "活体荆棘藤编墙，墙厚 24 px、高 34 px；墙顶叶丛，银白木尖桩（周期 24）代替垛口",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 41,
+  "anchor": [
+   24,
+   89
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   89
+  ]
+ },
+ {
+  "id": "west-elf-wall-0010",
+  "style": "west",
+  "race": "elf",
+  "category": "wall",
+  "kind": "wall_thorn",
+  "facility": "city_wall",
+  "variant": 2,
+  "mask": 2,
+  "name": "荆棘藤墙 0010",
+  "tags": [
+   "dual_grid",
+   "mask_0010",
+   "living_thorn",
+   "silverwood_stakes"
+  ],
+  "roof": "none",
+  "note": "活体荆棘藤编墙，墙厚 24 px、高 34 px；墙顶叶丛，银白木尖桩（周期 24）代替垛口",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 41,
+  "anchor": [
+   24,
+   89
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   89
+  ]
+ },
+ {
+  "id": "west-elf-wall-0011",
+  "style": "west",
+  "race": "elf",
+  "category": "wall",
+  "kind": "wall_thorn",
+  "facility": "city_wall",
+  "variant": 3,
+  "mask": 3,
+  "name": "荆棘藤墙 0011",
+  "tags": [
+   "dual_grid",
+   "mask_0011",
+   "living_thorn",
+   "silverwood_stakes"
+  ],
+  "roof": "none",
+  "note": "活体荆棘藤编墙，墙厚 24 px、高 34 px；墙顶叶丛，银白木尖桩（周期 24）代替垛口",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 41,
+  "anchor": [
+   24,
+   89
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   89
+  ]
+ },
+ {
+  "id": "west-elf-wall-0100",
+  "style": "west",
+  "race": "elf",
+  "category": "wall",
+  "kind": "wall_thorn",
+  "facility": "city_wall",
+  "variant": 4,
+  "mask": 4,
+  "name": "荆棘藤墙 0100",
+  "tags": [
+   "dual_grid",
+   "mask_0100",
+   "living_thorn",
+   "silverwood_stakes"
+  ],
+  "roof": "none",
+  "note": "活体荆棘藤编墙，墙厚 24 px、高 34 px；墙顶叶丛，银白木尖桩（周期 24）代替垛口",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 41,
+  "anchor": [
+   24,
+   89
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   89
+  ]
+ },
+ {
+  "id": "west-elf-wall-0101",
+  "style": "west",
+  "race": "elf",
+  "category": "wall",
+  "kind": "wall_thorn",
+  "facility": "city_wall",
+  "variant": 5,
+  "mask": 5,
+  "name": "荆棘藤墙 0101",
+  "tags": [
+   "dual_grid",
+   "mask_0101",
+   "living_thorn",
+   "silverwood_stakes"
+  ],
+  "roof": "none",
+  "note": "活体荆棘藤编墙，墙厚 24 px、高 34 px；墙顶叶丛，银白木尖桩（周期 24）代替垛口",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 41,
+  "anchor": [
+   24,
+   89
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   89
+  ]
+ },
+ {
+  "id": "west-elf-wall-0110",
+  "style": "west",
+  "race": "elf",
+  "category": "wall",
+  "kind": "wall_thorn",
+  "facility": "city_wall",
+  "variant": 6,
+  "mask": 6,
+  "name": "荆棘藤墙 0110",
+  "tags": [
+   "dual_grid",
+   "mask_0110",
+   "living_thorn",
+   "silverwood_stakes"
+  ],
+  "roof": "none",
+  "note": "活体荆棘藤编墙，墙厚 24 px、高 34 px；墙顶叶丛，银白木尖桩（周期 24）代替垛口",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 41,
+  "anchor": [
+   24,
+   89
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   89
+  ]
+ },
+ {
+  "id": "west-elf-wall-0111",
+  "style": "west",
+  "race": "elf",
+  "category": "wall",
+  "kind": "wall_thorn",
+  "facility": "city_wall",
+  "variant": 7,
+  "mask": 7,
+  "name": "荆棘藤墙 0111",
+  "tags": [
+   "dual_grid",
+   "mask_0111",
+   "living_thorn",
+   "silverwood_stakes"
+  ],
+  "roof": "none",
+  "note": "活体荆棘藤编墙，墙厚 24 px、高 34 px；墙顶叶丛，银白木尖桩（周期 24）代替垛口",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 41,
+  "anchor": [
+   24,
+   89
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   89
+  ]
+ },
+ {
+  "id": "west-elf-wall-1000",
+  "style": "west",
+  "race": "elf",
+  "category": "wall",
+  "kind": "wall_thorn",
+  "facility": "city_wall",
+  "variant": 8,
+  "mask": 8,
+  "name": "荆棘藤墙 1000",
+  "tags": [
+   "dual_grid",
+   "mask_1000",
+   "living_thorn",
+   "silverwood_stakes"
+  ],
+  "roof": "none",
+  "note": "活体荆棘藤编墙，墙厚 24 px、高 34 px；墙顶叶丛，银白木尖桩（周期 24）代替垛口",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 41,
+  "anchor": [
+   24,
+   89
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   89
+  ]
+ },
+ {
+  "id": "west-elf-wall-1001",
+  "style": "west",
+  "race": "elf",
+  "category": "wall",
+  "kind": "wall_thorn",
+  "facility": "city_wall",
+  "variant": 9,
+  "mask": 9,
+  "name": "荆棘藤墙 1001",
+  "tags": [
+   "dual_grid",
+   "mask_1001",
+   "living_thorn",
+   "silverwood_stakes"
+  ],
+  "roof": "none",
+  "note": "活体荆棘藤编墙，墙厚 24 px、高 34 px；墙顶叶丛，银白木尖桩（周期 24）代替垛口",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 41,
+  "anchor": [
+   24,
+   89
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   89
+  ]
+ },
+ {
+  "id": "west-elf-wall-1010",
+  "style": "west",
+  "race": "elf",
+  "category": "wall",
+  "kind": "wall_thorn",
+  "facility": "city_wall",
+  "variant": 10,
+  "mask": 10,
+  "name": "荆棘藤墙 1010",
+  "tags": [
+   "dual_grid",
+   "mask_1010",
+   "living_thorn",
+   "silverwood_stakes"
+  ],
+  "roof": "none",
+  "note": "活体荆棘藤编墙，墙厚 24 px、高 34 px；墙顶叶丛，银白木尖桩（周期 24）代替垛口",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 41,
+  "anchor": [
+   24,
+   89
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   89
+  ]
+ },
+ {
+  "id": "west-elf-wall-1011",
+  "style": "west",
+  "race": "elf",
+  "category": "wall",
+  "kind": "wall_thorn",
+  "facility": "city_wall",
+  "variant": 11,
+  "mask": 11,
+  "name": "荆棘藤墙 1011",
+  "tags": [
+   "dual_grid",
+   "mask_1011",
+   "living_thorn",
+   "silverwood_stakes"
+  ],
+  "roof": "none",
+  "note": "活体荆棘藤编墙，墙厚 24 px、高 34 px；墙顶叶丛，银白木尖桩（周期 24）代替垛口",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 41,
+  "anchor": [
+   24,
+   89
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   89
+  ]
+ },
+ {
+  "id": "west-elf-wall-1100",
+  "style": "west",
+  "race": "elf",
+  "category": "wall",
+  "kind": "wall_thorn",
+  "facility": "city_wall",
+  "variant": 12,
+  "mask": 12,
+  "name": "荆棘藤墙 1100",
+  "tags": [
+   "dual_grid",
+   "mask_1100",
+   "living_thorn",
+   "silverwood_stakes"
+  ],
+  "roof": "none",
+  "note": "活体荆棘藤编墙，墙厚 24 px、高 34 px；墙顶叶丛，银白木尖桩（周期 24）代替垛口",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 41,
+  "anchor": [
+   24,
+   89
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   89
+  ]
+ },
+ {
+  "id": "west-elf-wall-1101",
+  "style": "west",
+  "race": "elf",
+  "category": "wall",
+  "kind": "wall_thorn",
+  "facility": "city_wall",
+  "variant": 13,
+  "mask": 13,
+  "name": "荆棘藤墙 1101",
+  "tags": [
+   "dual_grid",
+   "mask_1101",
+   "living_thorn",
+   "silverwood_stakes"
+  ],
+  "roof": "none",
+  "note": "活体荆棘藤编墙，墙厚 24 px、高 34 px；墙顶叶丛，银白木尖桩（周期 24）代替垛口",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 41,
+  "anchor": [
+   24,
+   89
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   89
+  ]
+ },
+ {
+  "id": "west-elf-wall-1110",
+  "style": "west",
+  "race": "elf",
+  "category": "wall",
+  "kind": "wall_thorn",
+  "facility": "city_wall",
+  "variant": 14,
+  "mask": 14,
+  "name": "荆棘藤墙 1110",
+  "tags": [
+   "dual_grid",
+   "mask_1110",
+   "living_thorn",
+   "silverwood_stakes"
+  ],
+  "roof": "none",
+  "note": "活体荆棘藤编墙，墙厚 24 px、高 34 px；墙顶叶丛，银白木尖桩（周期 24）代替垛口",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 41,
+  "anchor": [
+   24,
+   89
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   89
+  ]
+ },
+ {
+  "id": "west-elf-wall-1111",
+  "style": "west",
+  "race": "elf",
+  "category": "wall",
+  "kind": "wall_thorn",
+  "facility": "city_wall",
+  "variant": 15,
+  "mask": 15,
+  "name": "荆棘藤墙 1111",
+  "tags": [
+   "dual_grid",
+   "mask_1111",
+   "living_thorn",
+   "silverwood_stakes"
+  ],
+  "roof": "none",
+  "note": "活体荆棘藤编墙，墙厚 24 px、高 34 px；墙顶叶丛，银白木尖桩（周期 24）代替垛口",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 41,
+  "anchor": [
+   24,
+   89
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   89
+  ]
+ },
+ {
+  "id": "west-elf-wall-gate-h",
+  "style": "west",
+  "race": "elf",
+  "category": "wall",
+  "kind": "wall_gate_h",
+  "facility": "gate",
+  "variant": 1,
+  "name": "藤拱城门（东西向墙段）",
+  "tags": [
+   "overlay",
+   "logical_cell",
+   "vine_arch",
+   "gatehouse"
+  ],
+  "roof": "gable_tile",
+  "note": "放在东西向直墙的逻辑格上；门洞朝南北，尖弧藤拱 + 半垂藤帘，两侧银白木门柱挂月光石灯，叶舟顶门楼。叠加件对齐逻辑格（不是渲染格），锚点 = 逻辑格前沿中点；叶形顶无对应 RoofId，取最近的 gable_tile",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 36,
+  "anchor": [
+   24,
+   84
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   84
+  ]
+ },
+ {
+  "id": "west-elf-wall-gate-v",
+  "style": "west",
+  "race": "elf",
+  "category": "wall",
+  "kind": "wall_gate_v",
+  "facility": "gate",
+  "variant": 2,
+  "name": "藤拱城门（南北向墙段）",
+  "tags": [
+   "overlay",
+   "logical_cell",
+   "gatehouse"
+  ],
+  "roof": "gable_tile",
+  "note": "放在南北向直墙的逻辑格上；门洞朝东西，正视只露两侧敞开的藤编门扇，叶尖山墙门楼。叠加件对齐逻辑格（不是渲染格），锚点 = 逻辑格前沿中点；叶形顶无对应 RoofId，取最近的 gable_tile",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 55,
+  "anchor": [
+   24,
+   103
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   103
+  ]
+ },
+ {
+  "id": "west-elf-wall-tower",
+  "style": "west",
+  "race": "elf",
+  "category": "wall",
+  "kind": "wall_tower_tree",
+  "facility": "watchtower",
+  "variant": 3,
+  "name": "树冠哨台",
+  "tags": [
+   "overlay",
+   "logical_cell",
+   "treetop",
+   "ring_platform"
+  ],
+  "roof": "gable_tile",
+  "note": "放在墙的拐角或端点；细树干撑环台，台上叶舟小顶。叠加件对齐逻辑格（不是渲染格），锚点 = 逻辑格前沿中点；叶形顶无对应 RoofId，取最近的 gable_tile",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 80,
+  "anchor": [
+   24,
+   128
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   128
+  ]
+ }
+]

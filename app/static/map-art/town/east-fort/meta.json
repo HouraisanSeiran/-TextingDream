@@ -1,0 +1,3362 @@
+[
+ {
+  "id": "east-common-wallspoke-n",
+  "style": "east",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_spoke",
+  "facility": "city_wall",
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 29,
+  "anchor": [
+   24,
+   77
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   77
+  ],
+  "tags": [
+   "spoke_wall",
+   "crenellated",
+   "brick_faced",
+   "dir_n",
+   "orthogonal"
+  ],
+  "roof": "none",
+  "note": "夯土包砖城墙半段，从八角墩的弦画到格边中点；墙厚 36、墙高 26，与 east-base 城墙一致",
+  "name_zh": "城墙辐条",
+  "dir": "n",
+  "sort_offset": 0.1
+ },
+ {
+  "id": "east-common-wallspoke-ne",
+  "style": "east",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_spoke",
+  "facility": "city_wall",
+  "variant": 2,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 41,
+  "anchor": [
+   24,
+   89
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   89
+  ],
+  "tags": [
+   "spoke_wall",
+   "crenellated",
+   "brick_faced",
+   "dir_ne",
+   "diagonal"
+  ],
+  "roof": "none",
+  "note": "夯土包砖城墙半段，从八角墩的弦画到格角（满厚 45° 带子，格角两侧各伸出本格约 12.7 px）；墙厚 36、墙高 26，与 east-base 城墙一致",
+  "name_zh": "城墙辐条",
+  "dir": "ne",
+  "sort_offset": 0.1
+ },
+ {
+  "id": "east-common-wallspoke-e",
+  "style": "east",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_spoke",
+  "facility": "city_wall",
+  "variant": 3,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 23,
+  "anchor": [
+   24,
+   71
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   71
+  ],
+  "tags": [
+   "spoke_wall",
+   "crenellated",
+   "brick_faced",
+   "dir_e",
+   "orthogonal"
+  ],
+  "roof": "none",
+  "note": "夯土包砖城墙半段，从八角墩的弦画到格边中点；墙厚 36、墙高 26，与 east-base 城墙一致",
+  "name_zh": "城墙辐条",
+  "dir": "e",
+  "sort_offset": 0.3
+ },
+ {
+  "id": "east-common-wallspoke-se",
+  "style": "east",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_spoke",
+  "facility": "city_wall",
+  "variant": 4,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 12,
+  "anchor": [
+   24,
+   60
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   60
+  ],
+  "tags": [
+   "spoke_wall",
+   "crenellated",
+   "brick_faced",
+   "dir_se",
+   "diagonal"
+  ],
+  "roof": "none",
+  "note": "夯土包砖城墙半段，从八角墩的弦画到格角（满厚 45° 带子，格角两侧各伸出本格约 12.7 px）；墙厚 36、墙高 26，与 east-base 城墙一致",
+  "name_zh": "城墙辐条",
+  "dir": "se",
+  "sort_offset": 0.4
+ },
+ {
+  "id": "east-common-wallspoke-s",
+  "style": "east",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_spoke",
+  "facility": "city_wall",
+  "variant": 5,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "spoke_wall",
+   "crenellated",
+   "brick_faced",
+   "dir_s",
+   "orthogonal"
+  ],
+  "roof": "none",
+  "note": "夯土包砖城墙半段，从八角墩的弦画到格边中点；墙厚 36、墙高 26，与 east-base 城墙一致",
+  "name_zh": "城墙辐条",
+  "dir": "s",
+  "sort_offset": 0.4
+ },
+ {
+  "id": "east-common-wallspoke-sw",
+  "style": "east",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_spoke",
+  "facility": "city_wall",
+  "variant": 6,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 12,
+  "anchor": [
+   24,
+   60
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   60
+  ],
+  "tags": [
+   "spoke_wall",
+   "crenellated",
+   "brick_faced",
+   "dir_sw",
+   "diagonal"
+  ],
+  "roof": "none",
+  "note": "夯土包砖城墙半段，从八角墩的弦画到格角（满厚 45° 带子，格角两侧各伸出本格约 12.7 px）；墙厚 36、墙高 26，与 east-base 城墙一致",
+  "name_zh": "城墙辐条",
+  "dir": "sw",
+  "sort_offset": 0.4
+ },
+ {
+  "id": "east-common-wallspoke-w",
+  "style": "east",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_spoke",
+  "facility": "city_wall",
+  "variant": 7,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 23,
+  "anchor": [
+   24,
+   71
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   71
+  ],
+  "tags": [
+   "spoke_wall",
+   "crenellated",
+   "brick_faced",
+   "dir_w",
+   "orthogonal"
+  ],
+  "roof": "none",
+  "note": "夯土包砖城墙半段，从八角墩的弦画到格边中点；墙厚 36、墙高 26，与 east-base 城墙一致",
+  "name_zh": "城墙辐条",
+  "dir": "w",
+  "sort_offset": 0.3
+ },
+ {
+  "id": "east-common-wallspoke-nw",
+  "style": "east",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_spoke",
+  "facility": "city_wall",
+  "variant": 8,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 41,
+  "anchor": [
+   24,
+   89
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   89
+  ],
+  "tags": [
+   "spoke_wall",
+   "crenellated",
+   "brick_faced",
+   "dir_nw",
+   "diagonal"
+  ],
+  "roof": "none",
+  "note": "夯土包砖城墙半段，从八角墩的弦画到格角（满厚 45° 带子，格角两侧各伸出本格约 12.7 px）；墙厚 36、墙高 26，与 east-base 城墙一致",
+  "name_zh": "城墙辐条",
+  "dir": "nw",
+  "sort_offset": 0.1
+ },
+ {
+  "id": "east-common-wallnode",
+  "style": "east",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_node",
+  "facility": "city_wall",
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 20,
+  "anchor": [
+   24,
+   68
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   68
+  ],
+  "tags": [
+   "spoke_wall",
+   "crenellated",
+   "brick_faced",
+   "node",
+   "octagon",
+   "open_0"
+  ],
+  "roof": "none",
+  "note": "八角墙墩（八条边与正交、斜向墙身两侧齐平）。露出的边 = 无。选法：边 i 露出 ⇔ 方向 i-1、i、i+1 都没有辐条（方向顺序 n ne e se s sw w nw）；用 nodeId(本格辐条方向数组) 取 id",
+  "name_zh": "墙墩",
+  "open_edges": [],
+  "open_mask": 0,
+  "sort_offset": 0.2
+ },
+ {
+  "id": "east-common-wallnode-02",
+  "style": "east",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_node",
+  "facility": "city_wall",
+  "variant": 2,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 23,
+  "anchor": [
+   24,
+   71
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   71
+  ],
+  "tags": [
+   "spoke_wall",
+   "crenellated",
+   "brick_faced",
+   "node",
+   "octagon",
+   "open_1"
+  ],
+  "roof": "none",
+  "note": "八角墙墩（八条边与正交、斜向墙身两侧齐平）。露出的边 = n。选法：边 i 露出 ⇔ 方向 i-1、i、i+1 都没有辐条（方向顺序 n ne e se s sw w nw）；用 nodeId(本格辐条方向数组) 取 id",
+  "name_zh": "墙墩",
+  "open_edges": [
+   "n"
+  ],
+  "open_mask": 1,
+  "sort_offset": 0.2
+ },
+ {
+  "id": "east-common-wallnode-03",
+  "style": "east",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_node",
+  "facility": "city_wall",
+  "variant": 3,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 23,
+  "anchor": [
+   24,
+   71
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   71
+  ],
+  "tags": [
+   "spoke_wall",
+   "crenellated",
+   "brick_faced",
+   "node",
+   "octagon",
+   "open_2"
+  ],
+  "roof": "none",
+  "note": "八角墙墩（八条边与正交、斜向墙身两侧齐平）。露出的边 = ne。选法：边 i 露出 ⇔ 方向 i-1、i、i+1 都没有辐条（方向顺序 n ne e se s sw w nw）；用 nodeId(本格辐条方向数组) 取 id",
+  "name_zh": "墙墩",
+  "open_edges": [
+   "ne"
+  ],
+  "open_mask": 2,
+  "sort_offset": 0.2
+ },
+ {
+  "id": "east-common-wallnode-04",
+  "style": "east",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_node",
+  "facility": "city_wall",
+  "variant": 4,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 23,
+  "anchor": [
+   24,
+   71
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   71
+  ],
+  "tags": [
+   "spoke_wall",
+   "crenellated",
+   "brick_faced",
+   "node",
+   "octagon",
+   "open_3"
+  ],
+  "roof": "none",
+  "note": "八角墙墩（八条边与正交、斜向墙身两侧齐平）。露出的边 = n ne。选法：边 i 露出 ⇔ 方向 i-1、i、i+1 都没有辐条（方向顺序 n ne e se s sw w nw）；用 nodeId(本格辐条方向数组) 取 id",
+  "name_zh": "墙墩",
+  "open_edges": [
+   "n",
+   "ne"
+  ],
+  "open_mask": 3,
+  "sort_offset": 0.2
+ },
+ {
+  "id": "east-common-wallnode-05",
+  "style": "east",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_node",
+  "facility": "city_wall",
+  "variant": 5,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 20,
+  "anchor": [
+   24,
+   68
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   68
+  ],
+  "tags": [
+   "spoke_wall",
+   "crenellated",
+   "brick_faced",
+   "node",
+   "octagon",
+   "open_4"
+  ],
+  "roof": "none",
+  "note": "八角墙墩（八条边与正交、斜向墙身两侧齐平）。露出的边 = e。选法：边 i 露出 ⇔ 方向 i-1、i、i+1 都没有辐条（方向顺序 n ne e se s sw w nw）；用 nodeId(本格辐条方向数组) 取 id",
+  "name_zh": "墙墩",
+  "open_edges": [
+   "e"
+  ],
+  "open_mask": 4,
+  "sort_offset": 0.2
+ },
+ {
+  "id": "east-common-wallnode-06",
+  "style": "east",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_node",
+  "facility": "city_wall",
+  "variant": 6,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 23,
+  "anchor": [
+   24,
+   71
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   71
+  ],
+  "tags": [
+   "spoke_wall",
+   "crenellated",
+   "brick_faced",
+   "node",
+   "octagon",
+   "open_6"
+  ],
+  "roof": "none",
+  "note": "八角墙墩（八条边与正交、斜向墙身两侧齐平）。露出的边 = ne e。选法：边 i 露出 ⇔ 方向 i-1、i、i+1 都没有辐条（方向顺序 n ne e se s sw w nw）；用 nodeId(本格辐条方向数组) 取 id",
+  "name_zh": "墙墩",
+  "open_edges": [
+   "ne",
+   "e"
+  ],
+  "open_mask": 6,
+  "sort_offset": 0.2
+ },
+ {
+  "id": "east-common-wallnode-07",
+  "style": "east",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_node",
+  "facility": "city_wall",
+  "variant": 7,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 23,
+  "anchor": [
+   24,
+   71
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   71
+  ],
+  "tags": [
+   "spoke_wall",
+   "crenellated",
+   "brick_faced",
+   "node",
+   "octagon",
+   "open_7"
+  ],
+  "roof": "none",
+  "note": "八角墙墩（八条边与正交、斜向墙身两侧齐平）。露出的边 = n ne e。选法：边 i 露出 ⇔ 方向 i-1、i、i+1 都没有辐条（方向顺序 n ne e se s sw w nw）；用 nodeId(本格辐条方向数组) 取 id",
+  "name_zh": "墙墩",
+  "open_edges": [
+   "n",
+   "ne",
+   "e"
+  ],
+  "open_mask": 7,
+  "sort_offset": 0.2
+ },
+ {
+  "id": "east-common-wallnode-08",
+  "style": "east",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_node",
+  "facility": "city_wall",
+  "variant": 8,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 20,
+  "anchor": [
+   24,
+   68
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   68
+  ],
+  "tags": [
+   "spoke_wall",
+   "crenellated",
+   "brick_faced",
+   "node",
+   "octagon",
+   "open_8"
+  ],
+  "roof": "none",
+  "note": "八角墙墩（八条边与正交、斜向墙身两侧齐平）。露出的边 = se。选法：边 i 露出 ⇔ 方向 i-1、i、i+1 都没有辐条（方向顺序 n ne e se s sw w nw）；用 nodeId(本格辐条方向数组) 取 id",
+  "name_zh": "墙墩",
+  "open_edges": [
+   "se"
+  ],
+  "open_mask": 8,
+  "sort_offset": 0.2
+ },
+ {
+  "id": "east-common-wallnode-09",
+  "style": "east",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_node",
+  "facility": "city_wall",
+  "variant": 9,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 20,
+  "anchor": [
+   24,
+   68
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   68
+  ],
+  "tags": [
+   "spoke_wall",
+   "crenellated",
+   "brick_faced",
+   "node",
+   "octagon",
+   "open_12"
+  ],
+  "roof": "none",
+  "note": "八角墙墩（八条边与正交、斜向墙身两侧齐平）。露出的边 = e se。选法：边 i 露出 ⇔ 方向 i-1、i、i+1 都没有辐条（方向顺序 n ne e se s sw w nw）；用 nodeId(本格辐条方向数组) 取 id",
+  "name_zh": "墙墩",
+  "open_edges": [
+   "e",
+   "se"
+  ],
+  "open_mask": 12,
+  "sort_offset": 0.2
+ },
+ {
+  "id": "east-common-wallnode-10",
+  "style": "east",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_node",
+  "facility": "city_wall",
+  "variant": 10,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 23,
+  "anchor": [
+   24,
+   71
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   71
+  ],
+  "tags": [
+   "spoke_wall",
+   "crenellated",
+   "brick_faced",
+   "node",
+   "octagon",
+   "open_14"
+  ],
+  "roof": "none",
+  "note": "八角墙墩（八条边与正交、斜向墙身两侧齐平）。露出的边 = ne e se。选法：边 i 露出 ⇔ 方向 i-1、i、i+1 都没有辐条（方向顺序 n ne e se s sw w nw）；用 nodeId(本格辐条方向数组) 取 id",
+  "name_zh": "墙墩",
+  "open_edges": [
+   "ne",
+   "e",
+   "se"
+  ],
+  "open_mask": 14,
+  "sort_offset": 0.2
+ },
+ {
+  "id": "east-common-wallnode-11",
+  "style": "east",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_node",
+  "facility": "city_wall",
+  "variant": 11,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 23,
+  "anchor": [
+   24,
+   71
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   71
+  ],
+  "tags": [
+   "spoke_wall",
+   "crenellated",
+   "brick_faced",
+   "node",
+   "octagon",
+   "open_15"
+  ],
+  "roof": "none",
+  "note": "八角墙墩（八条边与正交、斜向墙身两侧齐平）。露出的边 = n ne e se。选法：边 i 露出 ⇔ 方向 i-1、i、i+1 都没有辐条（方向顺序 n ne e se s sw w nw）；用 nodeId(本格辐条方向数组) 取 id",
+  "name_zh": "墙墩",
+  "open_edges": [
+   "n",
+   "ne",
+   "e",
+   "se"
+  ],
+  "open_mask": 15,
+  "sort_offset": 0.2
+ },
+ {
+  "id": "east-common-wallnode-12",
+  "style": "east",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_node",
+  "facility": "city_wall",
+  "variant": 12,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 20,
+  "anchor": [
+   24,
+   68
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   68
+  ],
+  "tags": [
+   "spoke_wall",
+   "crenellated",
+   "brick_faced",
+   "node",
+   "octagon",
+   "open_16"
+  ],
+  "roof": "none",
+  "note": "八角墙墩（八条边与正交、斜向墙身两侧齐平）。露出的边 = s。选法：边 i 露出 ⇔ 方向 i-1、i、i+1 都没有辐条（方向顺序 n ne e se s sw w nw）；用 nodeId(本格辐条方向数组) 取 id",
+  "name_zh": "墙墩",
+  "open_edges": [
+   "s"
+  ],
+  "open_mask": 16,
+  "sort_offset": 0.2
+ },
+ {
+  "id": "east-common-wallnode-13",
+  "style": "east",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_node",
+  "facility": "city_wall",
+  "variant": 13,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 23,
+  "anchor": [
+   24,
+   71
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   71
+  ],
+  "tags": [
+   "spoke_wall",
+   "crenellated",
+   "brick_faced",
+   "node",
+   "octagon",
+   "open_17"
+  ],
+  "roof": "none",
+  "note": "八角墙墩（八条边与正交、斜向墙身两侧齐平）。露出的边 = n s。选法：边 i 露出 ⇔ 方向 i-1、i、i+1 都没有辐条（方向顺序 n ne e se s sw w nw）；用 nodeId(本格辐条方向数组) 取 id",
+  "name_zh": "墙墩",
+  "open_edges": [
+   "n",
+   "s"
+  ],
+  "open_mask": 17,
+  "sort_offset": 0.2
+ },
+ {
+  "id": "east-common-wallnode-14",
+  "style": "east",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_node",
+  "facility": "city_wall",
+  "variant": 14,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 20,
+  "anchor": [
+   24,
+   68
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   68
+  ],
+  "tags": [
+   "spoke_wall",
+   "crenellated",
+   "brick_faced",
+   "node",
+   "octagon",
+   "open_24"
+  ],
+  "roof": "none",
+  "note": "八角墙墩（八条边与正交、斜向墙身两侧齐平）。露出的边 = se s。选法：边 i 露出 ⇔ 方向 i-1、i、i+1 都没有辐条（方向顺序 n ne e se s sw w nw）；用 nodeId(本格辐条方向数组) 取 id",
+  "name_zh": "墙墩",
+  "open_edges": [
+   "se",
+   "s"
+  ],
+  "open_mask": 24,
+  "sort_offset": 0.2
+ },
+ {
+  "id": "east-common-wallnode-15",
+  "style": "east",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_node",
+  "facility": "city_wall",
+  "variant": 15,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 20,
+  "anchor": [
+   24,
+   68
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   68
+  ],
+  "tags": [
+   "spoke_wall",
+   "crenellated",
+   "brick_faced",
+   "node",
+   "octagon",
+   "open_28"
+  ],
+  "roof": "none",
+  "note": "八角墙墩（八条边与正交、斜向墙身两侧齐平）。露出的边 = e se s。选法：边 i 露出 ⇔ 方向 i-1、i、i+1 都没有辐条（方向顺序 n ne e se s sw w nw）；用 nodeId(本格辐条方向数组) 取 id",
+  "name_zh": "墙墩",
+  "open_edges": [
+   "e",
+   "se",
+   "s"
+  ],
+  "open_mask": 28,
+  "sort_offset": 0.2
+ },
+ {
+  "id": "east-common-wallnode-16",
+  "style": "east",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_node",
+  "facility": "city_wall",
+  "variant": 16,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 23,
+  "anchor": [
+   24,
+   71
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   71
+  ],
+  "tags": [
+   "spoke_wall",
+   "crenellated",
+   "brick_faced",
+   "node",
+   "octagon",
+   "open_30"
+  ],
+  "roof": "none",
+  "note": "八角墙墩（八条边与正交、斜向墙身两侧齐平）。露出的边 = ne e se s。选法：边 i 露出 ⇔ 方向 i-1、i、i+1 都没有辐条（方向顺序 n ne e se s sw w nw）；用 nodeId(本格辐条方向数组) 取 id",
+  "name_zh": "墙墩",
+  "open_edges": [
+   "ne",
+   "e",
+   "se",
+   "s"
+  ],
+  "open_mask": 30,
+  "sort_offset": 0.2
+ },
+ {
+  "id": "east-common-wallnode-17",
+  "style": "east",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_node",
+  "facility": "city_wall",
+  "variant": 17,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 23,
+  "anchor": [
+   24,
+   71
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   71
+  ],
+  "tags": [
+   "spoke_wall",
+   "crenellated",
+   "brick_faced",
+   "node",
+   "octagon",
+   "open_31"
+  ],
+  "roof": "none",
+  "note": "八角墙墩（八条边与正交、斜向墙身两侧齐平）。露出的边 = n ne e se s。选法：边 i 露出 ⇔ 方向 i-1、i、i+1 都没有辐条（方向顺序 n ne e se s sw w nw）；用 nodeId(本格辐条方向数组) 取 id",
+  "name_zh": "墙墩",
+  "open_edges": [
+   "n",
+   "ne",
+   "e",
+   "se",
+   "s"
+  ],
+  "open_mask": 31,
+  "sort_offset": 0.2
+ },
+ {
+  "id": "east-common-wallnode-18",
+  "style": "east",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_node",
+  "facility": "city_wall",
+  "variant": 18,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 20,
+  "anchor": [
+   24,
+   68
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   68
+  ],
+  "tags": [
+   "spoke_wall",
+   "crenellated",
+   "brick_faced",
+   "node",
+   "octagon",
+   "open_32"
+  ],
+  "roof": "none",
+  "note": "八角墙墩（八条边与正交、斜向墙身两侧齐平）。露出的边 = sw。选法：边 i 露出 ⇔ 方向 i-1、i、i+1 都没有辐条（方向顺序 n ne e se s sw w nw）；用 nodeId(本格辐条方向数组) 取 id",
+  "name_zh": "墙墩",
+  "open_edges": [
+   "sw"
+  ],
+  "open_mask": 32,
+  "sort_offset": 0.2
+ },
+ {
+  "id": "east-common-wallnode-19",
+  "style": "east",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_node",
+  "facility": "city_wall",
+  "variant": 19,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 23,
+  "anchor": [
+   24,
+   71
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   71
+  ],
+  "tags": [
+   "spoke_wall",
+   "crenellated",
+   "brick_faced",
+   "node",
+   "octagon",
+   "open_34"
+  ],
+  "roof": "none",
+  "note": "八角墙墩（八条边与正交、斜向墙身两侧齐平）。露出的边 = ne sw。选法：边 i 露出 ⇔ 方向 i-1、i、i+1 都没有辐条（方向顺序 n ne e se s sw w nw）；用 nodeId(本格辐条方向数组) 取 id",
+  "name_zh": "墙墩",
+  "open_edges": [
+   "ne",
+   "sw"
+  ],
+  "open_mask": 34,
+  "sort_offset": 0.2
+ },
+ {
+  "id": "east-common-wallnode-20",
+  "style": "east",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_node",
+  "facility": "city_wall",
+  "variant": 20,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 20,
+  "anchor": [
+   24,
+   68
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   68
+  ],
+  "tags": [
+   "spoke_wall",
+   "crenellated",
+   "brick_faced",
+   "node",
+   "octagon",
+   "open_48"
+  ],
+  "roof": "none",
+  "note": "八角墙墩（八条边与正交、斜向墙身两侧齐平）。露出的边 = s sw。选法：边 i 露出 ⇔ 方向 i-1、i、i+1 都没有辐条（方向顺序 n ne e se s sw w nw）；用 nodeId(本格辐条方向数组) 取 id",
+  "name_zh": "墙墩",
+  "open_edges": [
+   "s",
+   "sw"
+  ],
+  "open_mask": 48,
+  "sort_offset": 0.2
+ },
+ {
+  "id": "east-common-wallnode-21",
+  "style": "east",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_node",
+  "facility": "city_wall",
+  "variant": 21,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 20,
+  "anchor": [
+   24,
+   68
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   68
+  ],
+  "tags": [
+   "spoke_wall",
+   "crenellated",
+   "brick_faced",
+   "node",
+   "octagon",
+   "open_56"
+  ],
+  "roof": "none",
+  "note": "八角墙墩（八条边与正交、斜向墙身两侧齐平）。露出的边 = se s sw。选法：边 i 露出 ⇔ 方向 i-1、i、i+1 都没有辐条（方向顺序 n ne e se s sw w nw）；用 nodeId(本格辐条方向数组) 取 id",
+  "name_zh": "墙墩",
+  "open_edges": [
+   "se",
+   "s",
+   "sw"
+  ],
+  "open_mask": 56,
+  "sort_offset": 0.2
+ },
+ {
+  "id": "east-common-wallnode-22",
+  "style": "east",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_node",
+  "facility": "city_wall",
+  "variant": 22,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 20,
+  "anchor": [
+   24,
+   68
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   68
+  ],
+  "tags": [
+   "spoke_wall",
+   "crenellated",
+   "brick_faced",
+   "node",
+   "octagon",
+   "open_60"
+  ],
+  "roof": "none",
+  "note": "八角墙墩（八条边与正交、斜向墙身两侧齐平）。露出的边 = e se s sw。选法：边 i 露出 ⇔ 方向 i-1、i、i+1 都没有辐条（方向顺序 n ne e se s sw w nw）；用 nodeId(本格辐条方向数组) 取 id",
+  "name_zh": "墙墩",
+  "open_edges": [
+   "e",
+   "se",
+   "s",
+   "sw"
+  ],
+  "open_mask": 60,
+  "sort_offset": 0.2
+ },
+ {
+  "id": "east-common-wallnode-23",
+  "style": "east",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_node",
+  "facility": "city_wall",
+  "variant": 23,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 23,
+  "anchor": [
+   24,
+   71
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   71
+  ],
+  "tags": [
+   "spoke_wall",
+   "crenellated",
+   "brick_faced",
+   "node",
+   "octagon",
+   "open_62"
+  ],
+  "roof": "none",
+  "note": "八角墙墩（八条边与正交、斜向墙身两侧齐平）。露出的边 = ne e se s sw。选法：边 i 露出 ⇔ 方向 i-1、i、i+1 都没有辐条（方向顺序 n ne e se s sw w nw）；用 nodeId(本格辐条方向数组) 取 id",
+  "name_zh": "墙墩",
+  "open_edges": [
+   "ne",
+   "e",
+   "se",
+   "s",
+   "sw"
+  ],
+  "open_mask": 62,
+  "sort_offset": 0.2
+ },
+ {
+  "id": "east-common-wallnode-24",
+  "style": "east",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_node",
+  "facility": "city_wall",
+  "variant": 24,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 20,
+  "anchor": [
+   24,
+   68
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   68
+  ],
+  "tags": [
+   "spoke_wall",
+   "crenellated",
+   "brick_faced",
+   "node",
+   "octagon",
+   "open_64"
+  ],
+  "roof": "none",
+  "note": "八角墙墩（八条边与正交、斜向墙身两侧齐平）。露出的边 = w。选法：边 i 露出 ⇔ 方向 i-1、i、i+1 都没有辐条（方向顺序 n ne e se s sw w nw）；用 nodeId(本格辐条方向数组) 取 id",
+  "name_zh": "墙墩",
+  "open_edges": [
+   "w"
+  ],
+  "open_mask": 64,
+  "sort_offset": 0.2
+ },
+ {
+  "id": "east-common-wallnode-25",
+  "style": "east",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_node",
+  "facility": "city_wall",
+  "variant": 25,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 20,
+  "anchor": [
+   24,
+   68
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   68
+  ],
+  "tags": [
+   "spoke_wall",
+   "crenellated",
+   "brick_faced",
+   "node",
+   "octagon",
+   "open_68"
+  ],
+  "roof": "none",
+  "note": "八角墙墩（八条边与正交、斜向墙身两侧齐平）。露出的边 = e w。选法：边 i 露出 ⇔ 方向 i-1、i、i+1 都没有辐条（方向顺序 n ne e se s sw w nw）；用 nodeId(本格辐条方向数组) 取 id",
+  "name_zh": "墙墩",
+  "open_edges": [
+   "e",
+   "w"
+  ],
+  "open_mask": 68,
+  "sort_offset": 0.2
+ },
+ {
+  "id": "east-common-wallnode-26",
+  "style": "east",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_node",
+  "facility": "city_wall",
+  "variant": 26,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 20,
+  "anchor": [
+   24,
+   68
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   68
+  ],
+  "tags": [
+   "spoke_wall",
+   "crenellated",
+   "brick_faced",
+   "node",
+   "octagon",
+   "open_96"
+  ],
+  "roof": "none",
+  "note": "八角墙墩（八条边与正交、斜向墙身两侧齐平）。露出的边 = sw w。选法：边 i 露出 ⇔ 方向 i-1、i、i+1 都没有辐条（方向顺序 n ne e se s sw w nw）；用 nodeId(本格辐条方向数组) 取 id",
+  "name_zh": "墙墩",
+  "open_edges": [
+   "sw",
+   "w"
+  ],
+  "open_mask": 96,
+  "sort_offset": 0.2
+ },
+ {
+  "id": "east-common-wallnode-27",
+  "style": "east",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_node",
+  "facility": "city_wall",
+  "variant": 27,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 20,
+  "anchor": [
+   24,
+   68
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   68
+  ],
+  "tags": [
+   "spoke_wall",
+   "crenellated",
+   "brick_faced",
+   "node",
+   "octagon",
+   "open_112"
+  ],
+  "roof": "none",
+  "note": "八角墙墩（八条边与正交、斜向墙身两侧齐平）。露出的边 = s sw w。选法：边 i 露出 ⇔ 方向 i-1、i、i+1 都没有辐条（方向顺序 n ne e se s sw w nw）；用 nodeId(本格辐条方向数组) 取 id",
+  "name_zh": "墙墩",
+  "open_edges": [
+   "s",
+   "sw",
+   "w"
+  ],
+  "open_mask": 112,
+  "sort_offset": 0.2
+ },
+ {
+  "id": "east-common-wallnode-28",
+  "style": "east",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_node",
+  "facility": "city_wall",
+  "variant": 28,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 20,
+  "anchor": [
+   24,
+   68
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   68
+  ],
+  "tags": [
+   "spoke_wall",
+   "crenellated",
+   "brick_faced",
+   "node",
+   "octagon",
+   "open_120"
+  ],
+  "roof": "none",
+  "note": "八角墙墩（八条边与正交、斜向墙身两侧齐平）。露出的边 = se s sw w。选法：边 i 露出 ⇔ 方向 i-1、i、i+1 都没有辐条（方向顺序 n ne e se s sw w nw）；用 nodeId(本格辐条方向数组) 取 id",
+  "name_zh": "墙墩",
+  "open_edges": [
+   "se",
+   "s",
+   "sw",
+   "w"
+  ],
+  "open_mask": 120,
+  "sort_offset": 0.2
+ },
+ {
+  "id": "east-common-wallnode-29",
+  "style": "east",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_node",
+  "facility": "city_wall",
+  "variant": 29,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 20,
+  "anchor": [
+   24,
+   68
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   68
+  ],
+  "tags": [
+   "spoke_wall",
+   "crenellated",
+   "brick_faced",
+   "node",
+   "octagon",
+   "open_124"
+  ],
+  "roof": "none",
+  "note": "八角墙墩（八条边与正交、斜向墙身两侧齐平）。露出的边 = e se s sw w。选法：边 i 露出 ⇔ 方向 i-1、i、i+1 都没有辐条（方向顺序 n ne e se s sw w nw）；用 nodeId(本格辐条方向数组) 取 id",
+  "name_zh": "墙墩",
+  "open_edges": [
+   "e",
+   "se",
+   "s",
+   "sw",
+   "w"
+  ],
+  "open_mask": 124,
+  "sort_offset": 0.2
+ },
+ {
+  "id": "east-common-wallnode-30",
+  "style": "east",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_node",
+  "facility": "city_wall",
+  "variant": 30,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 23,
+  "anchor": [
+   24,
+   71
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   71
+  ],
+  "tags": [
+   "spoke_wall",
+   "crenellated",
+   "brick_faced",
+   "node",
+   "octagon",
+   "open_128"
+  ],
+  "roof": "none",
+  "note": "八角墙墩（八条边与正交、斜向墙身两侧齐平）。露出的边 = nw。选法：边 i 露出 ⇔ 方向 i-1、i、i+1 都没有辐条（方向顺序 n ne e se s sw w nw）；用 nodeId(本格辐条方向数组) 取 id",
+  "name_zh": "墙墩",
+  "open_edges": [
+   "nw"
+  ],
+  "open_mask": 128,
+  "sort_offset": 0.2
+ },
+ {
+  "id": "east-common-wallnode-31",
+  "style": "east",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_node",
+  "facility": "city_wall",
+  "variant": 31,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 23,
+  "anchor": [
+   24,
+   71
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   71
+  ],
+  "tags": [
+   "spoke_wall",
+   "crenellated",
+   "brick_faced",
+   "node",
+   "octagon",
+   "open_129"
+  ],
+  "roof": "none",
+  "note": "八角墙墩（八条边与正交、斜向墙身两侧齐平）。露出的边 = n nw。选法：边 i 露出 ⇔ 方向 i-1、i、i+1 都没有辐条（方向顺序 n ne e se s sw w nw）；用 nodeId(本格辐条方向数组) 取 id",
+  "name_zh": "墙墩",
+  "open_edges": [
+   "n",
+   "nw"
+  ],
+  "open_mask": 129,
+  "sort_offset": 0.2
+ },
+ {
+  "id": "east-common-wallnode-32",
+  "style": "east",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_node",
+  "facility": "city_wall",
+  "variant": 32,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 23,
+  "anchor": [
+   24,
+   71
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   71
+  ],
+  "tags": [
+   "spoke_wall",
+   "crenellated",
+   "brick_faced",
+   "node",
+   "octagon",
+   "open_131"
+  ],
+  "roof": "none",
+  "note": "八角墙墩（八条边与正交、斜向墙身两侧齐平）。露出的边 = n ne nw。选法：边 i 露出 ⇔ 方向 i-1、i、i+1 都没有辐条（方向顺序 n ne e se s sw w nw）；用 nodeId(本格辐条方向数组) 取 id",
+  "name_zh": "墙墩",
+  "open_edges": [
+   "n",
+   "ne",
+   "nw"
+  ],
+  "open_mask": 131,
+  "sort_offset": 0.2
+ },
+ {
+  "id": "east-common-wallnode-33",
+  "style": "east",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_node",
+  "facility": "city_wall",
+  "variant": 33,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 23,
+  "anchor": [
+   24,
+   71
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   71
+  ],
+  "tags": [
+   "spoke_wall",
+   "crenellated",
+   "brick_faced",
+   "node",
+   "octagon",
+   "open_135"
+  ],
+  "roof": "none",
+  "note": "八角墙墩（八条边与正交、斜向墙身两侧齐平）。露出的边 = n ne e nw。选法：边 i 露出 ⇔ 方向 i-1、i、i+1 都没有辐条（方向顺序 n ne e se s sw w nw）；用 nodeId(本格辐条方向数组) 取 id",
+  "name_zh": "墙墩",
+  "open_edges": [
+   "n",
+   "ne",
+   "e",
+   "nw"
+  ],
+  "open_mask": 135,
+  "sort_offset": 0.2
+ },
+ {
+  "id": "east-common-wallnode-34",
+  "style": "east",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_node",
+  "facility": "city_wall",
+  "variant": 34,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 23,
+  "anchor": [
+   24,
+   71
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   71
+  ],
+  "tags": [
+   "spoke_wall",
+   "crenellated",
+   "brick_faced",
+   "node",
+   "octagon",
+   "open_136"
+  ],
+  "roof": "none",
+  "note": "八角墙墩（八条边与正交、斜向墙身两侧齐平）。露出的边 = se nw。选法：边 i 露出 ⇔ 方向 i-1、i、i+1 都没有辐条（方向顺序 n ne e se s sw w nw）；用 nodeId(本格辐条方向数组) 取 id",
+  "name_zh": "墙墩",
+  "open_edges": [
+   "se",
+   "nw"
+  ],
+  "open_mask": 136,
+  "sort_offset": 0.2
+ },
+ {
+  "id": "east-common-wallnode-35",
+  "style": "east",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_node",
+  "facility": "city_wall",
+  "variant": 35,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 23,
+  "anchor": [
+   24,
+   71
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   71
+  ],
+  "tags": [
+   "spoke_wall",
+   "crenellated",
+   "brick_faced",
+   "node",
+   "octagon",
+   "open_143"
+  ],
+  "roof": "none",
+  "note": "八角墙墩（八条边与正交、斜向墙身两侧齐平）。露出的边 = n ne e se nw。选法：边 i 露出 ⇔ 方向 i-1、i、i+1 都没有辐条（方向顺序 n ne e se s sw w nw）；用 nodeId(本格辐条方向数组) 取 id",
+  "name_zh": "墙墩",
+  "open_edges": [
+   "n",
+   "ne",
+   "e",
+   "se",
+   "nw"
+  ],
+  "open_mask": 143,
+  "sort_offset": 0.2
+ },
+ {
+  "id": "east-common-wallnode-36",
+  "style": "east",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_node",
+  "facility": "city_wall",
+  "variant": 36,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 23,
+  "anchor": [
+   24,
+   71
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   71
+  ],
+  "tags": [
+   "spoke_wall",
+   "crenellated",
+   "brick_faced",
+   "node",
+   "octagon",
+   "open_192"
+  ],
+  "roof": "none",
+  "note": "八角墙墩（八条边与正交、斜向墙身两侧齐平）。露出的边 = w nw。选法：边 i 露出 ⇔ 方向 i-1、i、i+1 都没有辐条（方向顺序 n ne e se s sw w nw）；用 nodeId(本格辐条方向数组) 取 id",
+  "name_zh": "墙墩",
+  "open_edges": [
+   "w",
+   "nw"
+  ],
+  "open_mask": 192,
+  "sort_offset": 0.2
+ },
+ {
+  "id": "east-common-wallnode-37",
+  "style": "east",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_node",
+  "facility": "city_wall",
+  "variant": 37,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 23,
+  "anchor": [
+   24,
+   71
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   71
+  ],
+  "tags": [
+   "spoke_wall",
+   "crenellated",
+   "brick_faced",
+   "node",
+   "octagon",
+   "open_193"
+  ],
+  "roof": "none",
+  "note": "八角墙墩（八条边与正交、斜向墙身两侧齐平）。露出的边 = n w nw。选法：边 i 露出 ⇔ 方向 i-1、i、i+1 都没有辐条（方向顺序 n ne e se s sw w nw）；用 nodeId(本格辐条方向数组) 取 id",
+  "name_zh": "墙墩",
+  "open_edges": [
+   "n",
+   "w",
+   "nw"
+  ],
+  "open_mask": 193,
+  "sort_offset": 0.2
+ },
+ {
+  "id": "east-common-wallnode-38",
+  "style": "east",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_node",
+  "facility": "city_wall",
+  "variant": 38,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 23,
+  "anchor": [
+   24,
+   71
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   71
+  ],
+  "tags": [
+   "spoke_wall",
+   "crenellated",
+   "brick_faced",
+   "node",
+   "octagon",
+   "open_195"
+  ],
+  "roof": "none",
+  "note": "八角墙墩（八条边与正交、斜向墙身两侧齐平）。露出的边 = n ne w nw。选法：边 i 露出 ⇔ 方向 i-1、i、i+1 都没有辐条（方向顺序 n ne e se s sw w nw）；用 nodeId(本格辐条方向数组) 取 id",
+  "name_zh": "墙墩",
+  "open_edges": [
+   "n",
+   "ne",
+   "w",
+   "nw"
+  ],
+  "open_mask": 195,
+  "sort_offset": 0.2
+ },
+ {
+  "id": "east-common-wallnode-39",
+  "style": "east",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_node",
+  "facility": "city_wall",
+  "variant": 39,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 23,
+  "anchor": [
+   24,
+   71
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   71
+  ],
+  "tags": [
+   "spoke_wall",
+   "crenellated",
+   "brick_faced",
+   "node",
+   "octagon",
+   "open_199"
+  ],
+  "roof": "none",
+  "note": "八角墙墩（八条边与正交、斜向墙身两侧齐平）。露出的边 = n ne e w nw。选法：边 i 露出 ⇔ 方向 i-1、i、i+1 都没有辐条（方向顺序 n ne e se s sw w nw）；用 nodeId(本格辐条方向数组) 取 id",
+  "name_zh": "墙墩",
+  "open_edges": [
+   "n",
+   "ne",
+   "e",
+   "w",
+   "nw"
+  ],
+  "open_mask": 199,
+  "sort_offset": 0.2
+ },
+ {
+  "id": "east-common-wallnode-40",
+  "style": "east",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_node",
+  "facility": "city_wall",
+  "variant": 40,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 23,
+  "anchor": [
+   24,
+   71
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   71
+  ],
+  "tags": [
+   "spoke_wall",
+   "crenellated",
+   "brick_faced",
+   "node",
+   "octagon",
+   "open_224"
+  ],
+  "roof": "none",
+  "note": "八角墙墩（八条边与正交、斜向墙身两侧齐平）。露出的边 = sw w nw。选法：边 i 露出 ⇔ 方向 i-1、i、i+1 都没有辐条（方向顺序 n ne e se s sw w nw）；用 nodeId(本格辐条方向数组) 取 id",
+  "name_zh": "墙墩",
+  "open_edges": [
+   "sw",
+   "w",
+   "nw"
+  ],
+  "open_mask": 224,
+  "sort_offset": 0.2
+ },
+ {
+  "id": "east-common-wallnode-41",
+  "style": "east",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_node",
+  "facility": "city_wall",
+  "variant": 41,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 23,
+  "anchor": [
+   24,
+   71
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   71
+  ],
+  "tags": [
+   "spoke_wall",
+   "crenellated",
+   "brick_faced",
+   "node",
+   "octagon",
+   "open_225"
+  ],
+  "roof": "none",
+  "note": "八角墙墩（八条边与正交、斜向墙身两侧齐平）。露出的边 = n sw w nw。选法：边 i 露出 ⇔ 方向 i-1、i、i+1 都没有辐条（方向顺序 n ne e se s sw w nw）；用 nodeId(本格辐条方向数组) 取 id",
+  "name_zh": "墙墩",
+  "open_edges": [
+   "n",
+   "sw",
+   "w",
+   "nw"
+  ],
+  "open_mask": 225,
+  "sort_offset": 0.2
+ },
+ {
+  "id": "east-common-wallnode-42",
+  "style": "east",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_node",
+  "facility": "city_wall",
+  "variant": 42,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 23,
+  "anchor": [
+   24,
+   71
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   71
+  ],
+  "tags": [
+   "spoke_wall",
+   "crenellated",
+   "brick_faced",
+   "node",
+   "octagon",
+   "open_227"
+  ],
+  "roof": "none",
+  "note": "八角墙墩（八条边与正交、斜向墙身两侧齐平）。露出的边 = n ne sw w nw。选法：边 i 露出 ⇔ 方向 i-1、i、i+1 都没有辐条（方向顺序 n ne e se s sw w nw）；用 nodeId(本格辐条方向数组) 取 id",
+  "name_zh": "墙墩",
+  "open_edges": [
+   "n",
+   "ne",
+   "sw",
+   "w",
+   "nw"
+  ],
+  "open_mask": 227,
+  "sort_offset": 0.2
+ },
+ {
+  "id": "east-common-wallnode-43",
+  "style": "east",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_node",
+  "facility": "city_wall",
+  "variant": 43,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 23,
+  "anchor": [
+   24,
+   71
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   71
+  ],
+  "tags": [
+   "spoke_wall",
+   "crenellated",
+   "brick_faced",
+   "node",
+   "octagon",
+   "open_240"
+  ],
+  "roof": "none",
+  "note": "八角墙墩（八条边与正交、斜向墙身两侧齐平）。露出的边 = s sw w nw。选法：边 i 露出 ⇔ 方向 i-1、i、i+1 都没有辐条（方向顺序 n ne e se s sw w nw）；用 nodeId(本格辐条方向数组) 取 id",
+  "name_zh": "墙墩",
+  "open_edges": [
+   "s",
+   "sw",
+   "w",
+   "nw"
+  ],
+  "open_mask": 240,
+  "sort_offset": 0.2
+ },
+ {
+  "id": "east-common-wallnode-44",
+  "style": "east",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_node",
+  "facility": "city_wall",
+  "variant": 44,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 23,
+  "anchor": [
+   24,
+   71
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   71
+  ],
+  "tags": [
+   "spoke_wall",
+   "crenellated",
+   "brick_faced",
+   "node",
+   "octagon",
+   "open_241"
+  ],
+  "roof": "none",
+  "note": "八角墙墩（八条边与正交、斜向墙身两侧齐平）。露出的边 = n s sw w nw。选法：边 i 露出 ⇔ 方向 i-1、i、i+1 都没有辐条（方向顺序 n ne e se s sw w nw）；用 nodeId(本格辐条方向数组) 取 id",
+  "name_zh": "墙墩",
+  "open_edges": [
+   "n",
+   "s",
+   "sw",
+   "w",
+   "nw"
+  ],
+  "open_mask": 241,
+  "sort_offset": 0.2
+ },
+ {
+  "id": "east-common-wallnode-45",
+  "style": "east",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_node",
+  "facility": "city_wall",
+  "variant": 45,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 23,
+  "anchor": [
+   24,
+   71
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   71
+  ],
+  "tags": [
+   "spoke_wall",
+   "crenellated",
+   "brick_faced",
+   "node",
+   "octagon",
+   "open_248"
+  ],
+  "roof": "none",
+  "note": "八角墙墩（八条边与正交、斜向墙身两侧齐平）。露出的边 = se s sw w nw。选法：边 i 露出 ⇔ 方向 i-1、i、i+1 都没有辐条（方向顺序 n ne e se s sw w nw）；用 nodeId(本格辐条方向数组) 取 id",
+  "name_zh": "墙墩",
+  "open_edges": [
+   "se",
+   "s",
+   "sw",
+   "w",
+   "nw"
+  ],
+  "open_mask": 248,
+  "sort_offset": 0.2
+ },
+ {
+  "id": "east-common-mamian-n",
+  "style": "east",
+  "race": "common",
+  "category": "fort",
+  "kind": "mamian",
+  "facility": "watchtower",
+  "variant": 1,
+  "footprint": [
+   1,
+   2
+  ],
+  "height_px": 23,
+  "anchor": [
+   24,
+   119
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   119
+  ],
+  "tags": [
+   "mamian",
+   "dir_n",
+   "crenellated",
+   "brick_faced"
+  ],
+  "roof": "none",
+  "note": "马面（墙外凸出的砖砌墩台），朝北凸出；放在墙格北侧相邻的一格，贴墙一侧不画垛口，伸出约 6 px 与墙身贴合",
+  "name_zh": "马面",
+  "dir": "n"
+ },
+ {
+  "id": "east-common-mamian-s",
+  "style": "east",
+  "race": "common",
+  "category": "fort",
+  "kind": "mamian",
+  "facility": "watchtower",
+  "variant": 2,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 37,
+  "anchor": [
+   24,
+   85
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   85
+  ],
+  "tags": [
+   "mamian",
+   "dir_s",
+   "crenellated",
+   "brick_faced"
+  ],
+  "roof": "none",
+  "note": "马面（墙外凸出的砖砌墩台），朝南凸出；放在墙格南侧相邻的一格，贴墙一侧不画垛口，伸出约 6 px 与墙身贴合",
+  "name_zh": "马面",
+  "dir": "s"
+ },
+ {
+  "id": "east-common-mamian-e",
+  "style": "east",
+  "race": "common",
+  "category": "fort",
+  "kind": "mamian",
+  "facility": "watchtower",
+  "variant": 3,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 23,
+  "anchor": [
+   24,
+   71
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   71
+  ],
+  "tags": [
+   "mamian",
+   "dir_e",
+   "crenellated",
+   "brick_faced"
+  ],
+  "roof": "none",
+  "note": "马面（墙外凸出的砖砌墩台），朝东凸出；放在墙格东侧相邻的一格，贴墙一侧不画垛口，伸出约 6 px 与墙身贴合",
+  "name_zh": "马面",
+  "dir": "e"
+ },
+ {
+  "id": "east-common-mamian-w",
+  "style": "east",
+  "race": "common",
+  "category": "fort",
+  "kind": "mamian",
+  "facility": "watchtower",
+  "variant": 4,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 23,
+  "anchor": [
+   24,
+   71
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   71
+  ],
+  "tags": [
+   "mamian",
+   "dir_w",
+   "crenellated",
+   "brick_faced"
+  ],
+  "roof": "none",
+  "note": "马面（墙外凸出的砖砌墩台），朝西凸出；放在墙格西侧相邻的一格，贴墙一侧不画垛口，伸出约 6 px 与墙身贴合",
+  "name_zh": "马面",
+  "dir": "w"
+ },
+ {
+  "id": "east-common-dilou-01",
+  "style": "east",
+  "race": "common",
+  "category": "fort",
+  "kind": "dilou",
+  "facility": "watchtower",
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 49,
+  "anchor": [
+   24,
+   97
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   97
+  ],
+  "tags": [
+   "dilou",
+   "on_node",
+   "arrow_windows",
+   "crenellated"
+  ],
+  "roof": "hip_tile",
+  "note": "空心敌楼：砖砌楼身两层箭窗、顶上垛口与攒尖小楼橹；放在墙节点上（墙墩照常画，本件排序偏移 0.45）。roof 为攒尖顶，取最近的 hip_tile",
+  "name_zh": "敌楼",
+  "sort_offset": 0.45
+ },
+ {
+  "id": "east-common-jianlou-01",
+  "style": "east",
+  "race": "common",
+  "category": "fort",
+  "kind": "jianlou",
+  "facility": "watchtower",
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 54,
+  "anchor": [
+   24,
+   102
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   102
+  ],
+  "tags": [
+   "jianlou",
+   "on_node",
+   "arrow_windows",
+   "double_eave"
+  ],
+  "roof": "hip_tile",
+  "note": "箭楼：砖砌重檐，下层腰檐、上层歇山，正面两层各密排 2 行 × 4 列箭窗；放在墙节点上。roof 歇山取最近的 hip_tile",
+  "name_zh": "箭楼",
+  "sort_offset": 0.45
+ },
+ {
+  "id": "east-common-cornertower-01",
+  "style": "east",
+  "race": "common",
+  "category": "fort",
+  "kind": "corner_tower",
+  "facility": "watchtower",
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 48,
+  "anchor": [
+   24,
+   96
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   96
+  ],
+  "tags": [
+   "corner_tower",
+   "cross_ridge",
+   "on_node",
+   "teal_glazed"
+  ],
+  "roof": "hip_tile",
+  "note": "十字脊角楼：砖台 + 一层木构楼 + 平座栏杆 + 青绿琉璃十字脊歇山顶；放在墙节点或拐角。roof 歇山取最近的 hip_tile",
+  "name_zh": "十字脊角楼",
+  "sort_offset": 0.45
+ },
+ {
+  "id": "east-common-wengcheng-square-n",
+  "style": "east",
+  "race": "common",
+  "category": "fort",
+  "kind": "wengcheng_square",
+  "facility": "gate",
+  "variant": 1,
+  "footprint": [
+   3,
+   2
+  ],
+  "height_px": 28,
+  "anchor": [
+   72,
+   124
+  ],
+  "viewBox": [
+   0,
+   0,
+   144,
+   124
+  ],
+  "tags": [
+   "wengcheng",
+   "square",
+   "dir_n",
+   "crenellated",
+   "brick_faced",
+   "gate_pavilion"
+  ],
+  "roof": "hip_tile",
+  "name_zh": "方瓮城",
+  "dir": "n",
+  "note": "方形瓮城，向北凸出，开口贴在东西向主墙的城门外；占地左前角对齐城门格北侧。翼墙伸进主墙 6 px 贴合。外门在看不见的北墙面上，靠墙顶门楼示意；墙顶门楼歇山顶，roof 按最近值写 hip_tile"
+ },
+ {
+  "id": "east-common-wengcheng-moon-n",
+  "style": "east",
+  "race": "common",
+  "category": "fort",
+  "kind": "wengcheng_moon",
+  "facility": "gate",
+  "variant": 1,
+  "footprint": [
+   3,
+   2
+  ],
+  "height_px": 28,
+  "anchor": [
+   72,
+   124
+  ],
+  "viewBox": [
+   0,
+   0,
+   144,
+   124
+  ],
+  "tags": [
+   "wengcheng",
+   "moon_city",
+   "semicircle",
+   "dir_n",
+   "crenellated",
+   "brick_faced"
+  ],
+  "roof": "hip_tile",
+  "name_zh": "月城",
+  "dir": "n",
+  "note": "月城（半圆瓮城），向北凸出，半椭圆环墙厚约 36；朝南的弧段画砖立面，外沿垛口、内沿女墙。门在看不见的一侧，靠门楼示意"
+ },
+ {
+  "id": "east-common-wengcheng-square-s",
+  "style": "east",
+  "race": "common",
+  "category": "fort",
+  "kind": "wengcheng_square",
+  "facility": "gate",
+  "variant": 2,
+  "footprint": [
+   3,
+   2
+  ],
+  "height_px": 37,
+  "anchor": [
+   72,
+   133
+  ],
+  "viewBox": [
+   0,
+   0,
+   144,
+   133
+  ],
+  "tags": [
+   "wengcheng",
+   "square",
+   "dir_s",
+   "crenellated",
+   "brick_faced",
+   "gate_pavilion"
+  ],
+  "roof": "hip_tile",
+  "name_zh": "方瓮城",
+  "dir": "s",
+  "note": "方形瓮城，向南凸出，开口贴在东西向主墙的城门外；占地左前角对齐城门格南侧。翼墙伸进主墙 6 px 贴合。外门在南墙正中（拱门 + 门匾）；墙顶门楼歇山顶，roof 按最近值写 hip_tile"
+ },
+ {
+  "id": "east-common-wengcheng-moon-s",
+  "style": "east",
+  "race": "common",
+  "category": "fort",
+  "kind": "wengcheng_moon",
+  "facility": "gate",
+  "variant": 2,
+  "footprint": [
+   3,
+   2
+  ],
+  "height_px": 35,
+  "anchor": [
+   72,
+   131
+  ],
+  "viewBox": [
+   0,
+   0,
+   144,
+   131
+  ],
+  "tags": [
+   "wengcheng",
+   "moon_city",
+   "semicircle",
+   "dir_s",
+   "crenellated",
+   "brick_faced"
+  ],
+  "roof": "hip_tile",
+  "name_zh": "月城",
+  "dir": "s",
+  "note": "月城（半圆瓮城），向南凸出，半椭圆环墙厚约 36；朝南的弧段画砖立面，外沿垛口、内沿女墙。南端开门"
+ },
+ {
+  "id": "east-common-wengcheng-square-e",
+  "style": "east",
+  "race": "common",
+  "category": "fort",
+  "kind": "wengcheng_square",
+  "facility": "gate",
+  "variant": 3,
+  "footprint": [
+   2,
+   3
+  ],
+  "height_px": 25,
+  "anchor": [
+   48,
+   169
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   169
+  ],
+  "tags": [
+   "wengcheng",
+   "square",
+   "dir_e",
+   "crenellated",
+   "brick_faced",
+   "gate_pavilion"
+  ],
+  "roof": "hip_tile",
+  "name_zh": "方瓮城",
+  "dir": "e",
+  "note": "方形瓮城，向东凸出，开口贴在南北向主墙的城门外；占地左前角对齐城门格东侧。翼墙伸进主墙 6 px 贴合。外门在看不见的东墙面上，靠墙顶门楼示意；墙顶门楼歇山顶，roof 按最近值写 hip_tile"
+ },
+ {
+  "id": "east-common-wengcheng-moon-e",
+  "style": "east",
+  "race": "common",
+  "category": "fort",
+  "kind": "wengcheng_moon",
+  "facility": "gate",
+  "variant": 3,
+  "footprint": [
+   2,
+   3
+  ],
+  "height_px": 25,
+  "anchor": [
+   48,
+   169
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   169
+  ],
+  "tags": [
+   "wengcheng",
+   "moon_city",
+   "semicircle",
+   "dir_e",
+   "crenellated",
+   "brick_faced"
+  ],
+  "roof": "hip_tile",
+  "name_zh": "月城",
+  "dir": "e",
+  "note": "月城（半圆瓮城），向东凸出，半椭圆环墙厚约 36；朝南的弧段画砖立面，外沿垛口、内沿女墙。门在看不见的一侧，靠门楼示意"
+ },
+ {
+  "id": "east-common-wengcheng-square-w",
+  "style": "east",
+  "race": "common",
+  "category": "fort",
+  "kind": "wengcheng_square",
+  "facility": "gate",
+  "variant": 4,
+  "footprint": [
+   2,
+   3
+  ],
+  "height_px": 25,
+  "anchor": [
+   48,
+   169
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   169
+  ],
+  "tags": [
+   "wengcheng",
+   "square",
+   "dir_w",
+   "crenellated",
+   "brick_faced",
+   "gate_pavilion"
+  ],
+  "roof": "hip_tile",
+  "name_zh": "方瓮城",
+  "dir": "w",
+  "note": "方形瓮城，向西凸出，开口贴在南北向主墙的城门外；占地左前角对齐城门格西侧。翼墙伸进主墙 6 px 贴合。外门在看不见的西墙面上，靠墙顶门楼示意；墙顶门楼歇山顶，roof 按最近值写 hip_tile"
+ },
+ {
+  "id": "east-common-wengcheng-moon-w",
+  "style": "east",
+  "race": "common",
+  "category": "fort",
+  "kind": "wengcheng_moon",
+  "facility": "gate",
+  "variant": 4,
+  "footprint": [
+   2,
+   3
+  ],
+  "height_px": 25,
+  "anchor": [
+   48,
+   169
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   169
+  ],
+  "tags": [
+   "wengcheng",
+   "moon_city",
+   "semicircle",
+   "dir_w",
+   "crenellated",
+   "brick_faced"
+  ],
+  "roof": "hip_tile",
+  "name_zh": "月城",
+  "dir": "w",
+  "note": "月城（半圆瓮城），向西凸出，半椭圆环墙厚约 36；朝南的弧段画砖立面，外沿垛口、内沿女墙。门在看不见的一侧，靠门楼示意"
+ },
+ {
+  "id": "east-common-moatbank-n",
+  "style": "east",
+  "race": "common",
+  "category": "water",
+  "kind": "moat_bank_spoke",
+  "facility": null,
+  "variant": 0,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 3,
+  "anchor": [
+   24,
+   51
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   51
+  ],
+  "tags": [
+   "moat",
+   "spoke_water",
+   "pass_0",
+   "dir_n"
+  ],
+  "roof": "none",
+  "draw_pass": 0,
+  "note": "护城河岸辐条（青石岸 + 岸壁暗色），第一遍画；facility 无对应填 null",
+  "name_zh": "护城河岸",
+  "dir": "n"
+ },
+ {
+  "id": "east-common-moatbank-ne",
+  "style": "east",
+  "race": "common",
+  "category": "water",
+  "kind": "moat_bank_spoke",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 16,
+  "anchor": [
+   24,
+   64
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   64
+  ],
+  "tags": [
+   "moat",
+   "spoke_water",
+   "pass_0",
+   "dir_ne"
+  ],
+  "roof": "none",
+  "draw_pass": 0,
+  "note": "护城河岸辐条（青石岸 + 岸壁暗色），第一遍画；facility 无对应填 null",
+  "name_zh": "护城河岸",
+  "dir": "ne"
+ },
+ {
+  "id": "east-common-moatbank-e",
+  "style": "east",
+  "race": "common",
+  "category": "water",
+  "kind": "moat_bank_spoke",
+  "facility": null,
+  "variant": 2,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "moat",
+   "spoke_water",
+   "pass_0",
+   "dir_e"
+  ],
+  "roof": "none",
+  "draw_pass": 0,
+  "note": "护城河岸辐条（青石岸 + 岸壁暗色），第一遍画；facility 无对应填 null",
+  "name_zh": "护城河岸",
+  "dir": "e"
+ },
+ {
+  "id": "east-common-moatbank-se",
+  "style": "east",
+  "race": "common",
+  "category": "water",
+  "kind": "moat_bank_spoke",
+  "facility": null,
+  "variant": 3,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "moat",
+   "spoke_water",
+   "pass_0",
+   "dir_se"
+  ],
+  "roof": "none",
+  "draw_pass": 0,
+  "note": "护城河岸辐条（青石岸 + 岸壁暗色），第一遍画；facility 无对应填 null",
+  "name_zh": "护城河岸",
+  "dir": "se"
+ },
+ {
+  "id": "east-common-moatbank-s",
+  "style": "east",
+  "race": "common",
+  "category": "water",
+  "kind": "moat_bank_spoke",
+  "facility": null,
+  "variant": 4,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "moat",
+   "spoke_water",
+   "pass_0",
+   "dir_s"
+  ],
+  "roof": "none",
+  "draw_pass": 0,
+  "note": "护城河岸辐条（青石岸 + 岸壁暗色），第一遍画；facility 无对应填 null",
+  "name_zh": "护城河岸",
+  "dir": "s"
+ },
+ {
+  "id": "east-common-moatbank-sw",
+  "style": "east",
+  "race": "common",
+  "category": "water",
+  "kind": "moat_bank_spoke",
+  "facility": null,
+  "variant": 5,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "moat",
+   "spoke_water",
+   "pass_0",
+   "dir_sw"
+  ],
+  "roof": "none",
+  "draw_pass": 0,
+  "note": "护城河岸辐条（青石岸 + 岸壁暗色），第一遍画；facility 无对应填 null",
+  "name_zh": "护城河岸",
+  "dir": "sw"
+ },
+ {
+  "id": "east-common-moatbank-w",
+  "style": "east",
+  "race": "common",
+  "category": "water",
+  "kind": "moat_bank_spoke",
+  "facility": null,
+  "variant": 6,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "moat",
+   "spoke_water",
+   "pass_0",
+   "dir_w"
+  ],
+  "roof": "none",
+  "draw_pass": 0,
+  "note": "护城河岸辐条（青石岸 + 岸壁暗色），第一遍画；facility 无对应填 null",
+  "name_zh": "护城河岸",
+  "dir": "w"
+ },
+ {
+  "id": "east-common-moatbank-nw",
+  "style": "east",
+  "race": "common",
+  "category": "water",
+  "kind": "moat_bank_spoke",
+  "facility": null,
+  "variant": 7,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 16,
+  "anchor": [
+   24,
+   64
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   64
+  ],
+  "tags": [
+   "moat",
+   "spoke_water",
+   "pass_0",
+   "dir_nw"
+  ],
+  "roof": "none",
+  "draw_pass": 0,
+  "note": "护城河岸辐条（青石岸 + 岸壁暗色），第一遍画；facility 无对应填 null",
+  "name_zh": "护城河岸",
+  "dir": "nw"
+ },
+ {
+  "id": "east-common-moatbank-node",
+  "style": "east",
+  "race": "common",
+  "category": "water",
+  "kind": "moat_bank_node",
+  "facility": null,
+  "variant": 10,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "moat",
+   "spoke_water",
+   "pass_0",
+   "node"
+  ],
+  "roof": "none",
+  "draw_pass": 0,
+  "note": "护城河岸节点（八角），第一遍画，每个河格一张",
+  "name_zh": "护城河岸"
+ },
+ {
+  "id": "east-common-moatspoke-n",
+  "style": "east",
+  "race": "common",
+  "category": "water",
+  "kind": "moat_spoke",
+  "facility": null,
+  "variant": 20,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 5,
+  "anchor": [
+   24,
+   53
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   53
+  ],
+  "tags": [
+   "moat",
+   "spoke_water",
+   "pass_1",
+   "dir_n"
+  ],
+  "roof": "none",
+  "draw_pass": 1,
+  "note": "护城河水面辐条，第二遍画（全部岸层之后）；水色同 east-ground",
+  "name_zh": "护城河",
+  "dir": "n"
+ },
+ {
+  "id": "east-common-moatspoke-ne",
+  "style": "east",
+  "race": "common",
+  "category": "water",
+  "kind": "moat_spoke",
+  "facility": null,
+  "variant": 21,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 11,
+  "anchor": [
+   24,
+   59
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   59
+  ],
+  "tags": [
+   "moat",
+   "spoke_water",
+   "pass_1",
+   "dir_ne"
+  ],
+  "roof": "none",
+  "draw_pass": 1,
+  "note": "护城河水面辐条，第二遍画（全部岸层之后）；水色同 east-ground",
+  "name_zh": "护城河",
+  "dir": "ne"
+ },
+ {
+  "id": "east-common-moatspoke-e",
+  "style": "east",
+  "race": "common",
+  "category": "water",
+  "kind": "moat_spoke",
+  "facility": null,
+  "variant": 22,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "moat",
+   "spoke_water",
+   "pass_1",
+   "dir_e"
+  ],
+  "roof": "none",
+  "draw_pass": 1,
+  "note": "护城河水面辐条，第二遍画（全部岸层之后）；水色同 east-ground",
+  "name_zh": "护城河",
+  "dir": "e"
+ },
+ {
+  "id": "east-common-moatspoke-se",
+  "style": "east",
+  "race": "common",
+  "category": "water",
+  "kind": "moat_spoke",
+  "facility": null,
+  "variant": 23,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "moat",
+   "spoke_water",
+   "pass_1",
+   "dir_se"
+  ],
+  "roof": "none",
+  "draw_pass": 1,
+  "note": "护城河水面辐条，第二遍画（全部岸层之后）；水色同 east-ground",
+  "name_zh": "护城河",
+  "dir": "se"
+ },
+ {
+  "id": "east-common-moatspoke-s",
+  "style": "east",
+  "race": "common",
+  "category": "water",
+  "kind": "moat_spoke",
+  "facility": null,
+  "variant": 24,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "moat",
+   "spoke_water",
+   "pass_1",
+   "dir_s"
+  ],
+  "roof": "none",
+  "draw_pass": 1,
+  "note": "护城河水面辐条，第二遍画（全部岸层之后）；水色同 east-ground",
+  "name_zh": "护城河",
+  "dir": "s"
+ },
+ {
+  "id": "east-common-moatspoke-sw",
+  "style": "east",
+  "race": "common",
+  "category": "water",
+  "kind": "moat_spoke",
+  "facility": null,
+  "variant": 25,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "moat",
+   "spoke_water",
+   "pass_1",
+   "dir_sw"
+  ],
+  "roof": "none",
+  "draw_pass": 1,
+  "note": "护城河水面辐条，第二遍画（全部岸层之后）；水色同 east-ground",
+  "name_zh": "护城河",
+  "dir": "sw"
+ },
+ {
+  "id": "east-common-moatspoke-w",
+  "style": "east",
+  "race": "common",
+  "category": "water",
+  "kind": "moat_spoke",
+  "facility": null,
+  "variant": 26,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "moat",
+   "spoke_water",
+   "pass_1",
+   "dir_w"
+  ],
+  "roof": "none",
+  "draw_pass": 1,
+  "note": "护城河水面辐条，第二遍画（全部岸层之后）；水色同 east-ground",
+  "name_zh": "护城河",
+  "dir": "w"
+ },
+ {
+  "id": "east-common-moatspoke-nw",
+  "style": "east",
+  "race": "common",
+  "category": "water",
+  "kind": "moat_spoke",
+  "facility": null,
+  "variant": 27,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 11,
+  "anchor": [
+   24,
+   59
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   59
+  ],
+  "tags": [
+   "moat",
+   "spoke_water",
+   "pass_1",
+   "dir_nw"
+  ],
+  "roof": "none",
+  "draw_pass": 1,
+  "note": "护城河水面辐条，第二遍画（全部岸层之后）；水色同 east-ground",
+  "name_zh": "护城河",
+  "dir": "nw"
+ },
+ {
+  "id": "east-common-moatnode",
+  "style": "east",
+  "race": "common",
+  "category": "water",
+  "kind": "moat_node",
+  "facility": null,
+  "variant": 30,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "moat",
+   "spoke_water",
+   "pass_1",
+   "node"
+  ],
+  "roof": "none",
+  "draw_pass": 1,
+  "note": "护城河水面节点（八角），第二遍画，每个河格一张",
+  "name_zh": "护城河"
+ },
+ {
+  "id": "east-common-passfort-01",
+  "style": "east",
+  "race": "common",
+  "category": "landmark",
+  "kind": "pass_fort",
+  "facility": "gate",
+  "variant": 1,
+  "footprint": [
+   6,
+   4
+  ],
+  "height_px": 176,
+  "anchor": [
+   144,
+   368
+  ],
+  "viewBox": [
+   0,
+   0,
+   288,
+   368
+  ],
+  "culture": "chinese_frontier",
+  "tags": [
+   "landmark",
+   "pass",
+   "mountains",
+   "double_eave",
+   "gate_tower",
+   "crenellated"
+  ],
+  "roof": "hip_tile",
+  "name_zh": "关城",
+  "note": "两山夹一座城关：谷中关墙 + 城台拱门 + 重檐歇山关楼；山体占满左右两侧，路从城台门洞穿过（南北向通行）。歇山顶 roof 按最近值写 hip_tile"
+ }
+]

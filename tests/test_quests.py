@@ -5,6 +5,7 @@
 不碰用户 ``data/``。fixture 是自造的，但走的是真实执行器。
 """
 import copy
+import json
 import tempfile
 import unittest
 from pathlib import Path
@@ -152,16 +153,17 @@ class ConfigTests(Base):
 
     def test_currency_reward_needs_a_declared_payer(self):
         story = story_with_quests(base=self.story)
-        story['mechanics']['quests']['quests'][0]['rewards'][0]['payer'] = 'nobody'
+        story['mechanics']['rewards']['rewards'][0]['payer'] = 'nobody'
         with self.assertRaises(quests.QuestError) as caught:
             quests.validate(story)
-        self.assertIn('未声明的账户', str(caught.exception))
+        self.assertIn('没有已声明的付款账户', str(caught.exception))
 
     def test_currency_reward_cannot_exceed_the_account(self):
         story = story_with_quests(base=self.story)
-        story['mechanics']['quests']['quests'][0]['rewards'][0]['amount'] = 99999
-        with self.assertRaises(quests.QuestError):
+        story['mechanics']['rewards']['rewards'][0]['amount_max'] = 99999
+        with self.assertRaises(quests.QuestError) as caught:
             quests.validate(story)
+        self.assertIn('上限超过账户', str(caught.exception))
 
     def test_item_reward_must_be_a_declared_template(self):
         story = story_with_quests(base=self.story)
@@ -286,13 +288,30 @@ class CompletionTests(Base):
         session = self.ready()
         first = quests.apply_completion(session, self.story, 'escort',
                                         effects_fn=self.effects_fn)
+        self.assertEqual(session['quests']['entries']['escort']['state'], 'completed')
+        self.assertEqual(session['quests']['entries']['escort']['paid'], 'quest:escort')
         wallet = session['rewards']['wallet']['coin']
+        self.assertEqual(wallet, 30)
+        self.assertEqual(session['local']['resources']['plank'], 6)
+        self.assertTrue(session['flags']['mill_refurbished'])
+        after_first = copy.deepcopy(session)
         second = quests.apply_completion(session, self.story, 'escort',
                                          effects_fn=self.effects_fn)
         self.assertTrue(first['changed'])
         self.assertFalse(second['changed'])
         self.assertEqual(session['rewards']['wallet']['coin'], wallet, '不重复发奖')
         self.assertEqual(len(session['rewards']['items']), 0)
+        self.assertEqual(session, after_first, '重复完成不得重放资源、flag 或付款后果')
+
+    def test_repeating_completion_does_not_reapply_a_flag(self):
+        session = self.ready()
+        quests.apply_completion(session, self.story, 'escort', effects_fn=self.effects_fn)
+        session['flags']['mill_refurbished'] = False
+        before = copy.deepcopy(session)
+        result = quests.apply_completion(session, self.story, 'escort',
+                                         effects_fn=self.effects_fn)
+        self.assertFalse(result['changed'])
+        self.assertEqual(session, before, '后续改动的 flag 不得被重复完成覆盖')
 
     def test_unaffordable_cost_writes_nothing_at_all(self):
         session = self.ready()
@@ -415,6 +434,18 @@ class AudienceTests(Base):
         row = view['quests'][0]
         self.assertIn('隐藏', row['secret_objective'])
         self.assertEqual(row['rewards'][0]['payer'], 'miller')
+        self.assertEqual(row['rewards'][0]['currency'], 'coin')
+        self.assertEqual(row['rewards'][0]['amount'], 30)
+        self.assertEqual(row['rewards'][0]['amount_min'], 30)
+        self.assertEqual(row['rewards'][0]['amount_max'], 30)
+
+    def test_author_view_keeps_the_declared_amount_range(self):
+        story = copy.deepcopy(self.story)
+        story['mechanics']['rewards']['rewards'][0]['amount_max'] = 50
+        reward = quests.authority_view(self.session(), story, 'escort')['quests'][0]['rewards'][0]
+        self.assertEqual(reward['payer'], 'miller')
+        self.assertEqual((reward['amount_min'], reward['amount_max']), (30, 50))
+        self.assertNotIn('amount', reward, '区间报酬不得伪装成固定金额')
 
 
 class ActionTests(Base):
@@ -459,6 +490,163 @@ class SnapshotTests(Base):
         row = quests.state(session, quests.rules(self.story))['entries']['escort']
         self.assertEqual(row['state'], 'accepted')
         self.assertNotIn('firewood_delivered', session['flags'])
+
+
+class GateTests(Base):
+    """``enabled_on`` / ``reveal_on``: open and reveal quests from signals or flags."""
+
+    def gated(self, **gates):
+        story = copy.deepcopy(self.story)
+        story['mechanics']['quests']['quests'][0].update(gates)
+        return story
+
+    def ids(self, session, story, audience='player'):
+        return [row['quest_id'] for row in quests.available(session, story, audience)]
+
+    def test_disabled_quest_is_not_acceptable_and_not_shown(self):
+        story = self.gated(enabled_on={'signal': 'gate_open'})
+        session = self.session()
+        self.assertNotIn('escort', self.ids(session, story))
+        self.assertEqual([o for o in quests.actions(session, story)
+                          if o['quest_id'] == 'escort'], [])
+        with self.assertRaises(quests.QuestError) as caught:
+            quests.accept(session, story, 'escort')
+        self.assertIn('尚未开启', str(caught.exception))
+        self.assertNotIn('escort', session.get('quests', {}).get('entries', {}))
+
+    def test_signal_opens_the_quest(self):
+        story = self.gated(enabled_on={'signal': 'gate_open'})
+        session = self.session(signals=['gate_open'])
+        self.assertIn('escort', self.ids(session, story))
+        self.assertEqual(quests.accept(session, story, 'escort')['state'], 'accepted')
+
+    def test_flag_opens_the_quest(self):
+        story = self.gated(enabled_on={'flag': 'door_unlocked'})
+        session = self.session()
+        self.assertNotIn('escort', self.ids(session, story))
+        session['flags']['door_unlocked'] = True
+        self.assertIn('escort', self.ids(session, story))
+        quests.accept(session, story, 'escort')
+
+    def test_hidden_quest_leaks_nothing_to_the_player(self):
+        story = self.gated(reveal_on={'signal': 'rumour'})
+        session = self.session()
+        # a hidden quest may still exist in the background (e.g. triggered by the author)
+        quests.accept(session, story, 'escort')
+        quests.start(session, story, 'escort')
+        blob = json.dumps({'view': quests.public_view(session, story),
+                           'actions': quests.actions(session, story),
+                           'snippet': quests.context_snippet(session, story)},
+                          ensure_ascii=False)
+        for secret in ('escort', '送柴去磨坊', '把一捆柴火送到磨坊', '把柴火送到',
+                       '磨坊主在清点货物', 'escort_pay', 'miller', 'firewood_delivered'):
+            self.assertNotIn(secret, blob, '隐藏任务不得泄露 %r' % secret)
+        self.assertNotIn('escort', self.ids(session, story))
+
+    def test_revealed_quest_becomes_visible(self):
+        story = self.gated(reveal_on={'signal': 'rumour'})
+        session = self.session()
+        self.assertNotIn('escort', self.ids(session, story))
+        session['signals'] = ['rumour']
+        rows = quests.public_view(session, story)['quests']
+        row = [r for r in rows if r['quest_id'] == 'escort'][0]
+        self.assertEqual(row['title'], '送柴去磨坊')
+        self.assertEqual(row['summary'], '把一捆柴火送到磨坊。')
+
+    def test_reveal_on_flag(self):
+        story = self.gated(reveal_on={'flag': 'heard_rumour'})
+        session = self.session()
+        self.assertNotIn('escort', self.ids(session, story))
+        session['flags']['heard_rumour'] = True
+        self.assertIn('escort', self.ids(session, story))
+
+    def test_reveal_flag_is_the_legacy_spelling_of_reveal_on_flag(self):
+        story = self.gated(reveal_flag='heard_rumour')
+        session = self.session()
+        self.assertNotIn('escort', self.ids(session, story))
+        session['flags']['heard_rumour'] = True
+        self.assertIn('escort', self.ids(session, story))
+
+    def test_reveal_flag_and_reveal_on_together_are_refused(self):
+        story = self.gated(reveal_flag='heard_rumour', reveal_on={'signal': 'rumour'})
+        with self.assertRaises(ValueError) as caught:
+            quests.validate(story)
+        self.assertIn('reveal_flag', str(caught.exception))
+
+    def test_authority_view_shows_everything_with_status(self):
+        story = self.gated(enabled_on={'signal': 'gate_open'},
+                           reveal_on={'signal': 'rumour'})
+        session = self.session()
+        row = quests.authority_view(session, story, 'escort')['quests'][0]
+        self.assertIn('隐藏', row['secret_objective'])
+        self.assertEqual(row['title'], '送柴去磨坊')
+        self.assertIs(row['enabled'], False)
+        self.assertIs(row['revealed'], False)
+        self.assertEqual(row['enabled_on'], {'signal': 'gate_open'})
+        self.assertEqual(row['reveal_on'], {'signal': 'rumour'})
+        session['signals'] = ['gate_open', 'rumour']
+        row = quests.authority_view(session, story, 'escort')['quests'][0]
+        self.assertIs(row['enabled'], True)
+        self.assertIs(row['revealed'], True)
+        self.assertEqual(quests.authority_view(session, story)['quests'][0]['quest_id'],
+                         'escort')
+
+    def test_old_package_is_unchanged(self):
+        session = self.session()
+        self.assertEqual(quests.notices(session, session, self.story), [])
+        row = quests.authority_view(session, self.story, 'escort')['quests'][0]
+        for key in ('enabled', 'revealed', 'enabled_on', 'reveal_on'):
+            self.assertNotIn(key, row)
+        self.assertIn('escort', self.ids(session, self.story))
+        dumped = quests.rules(self.story).quests[0].model_dump()
+        self.assertIsNone(dumped['enabled_on'])
+        self.assertIsNone(dumped['reveal_on'])
+
+    def test_session_without_signals_key_does_not_raise(self):
+        story = self.gated(enabled_on={'signal': 'gate_open'})
+        session = self.session()
+        self.assertNotIn('signals', session)
+        self.assertNotIn('escort', self.ids(session, story))
+        self.assertEqual(quests.notices(session, session, story), [])
+        quests.authority_view(session, story)
+        session['signals'] = None
+        self.assertNotIn('escort', self.ids(session, story))
+
+    def test_notices_report_newly_opened_and_revealed(self):
+        story = self.gated(enabled_on={'signal': 'gate_open'})
+        story['mechanics']['quests']['quests'][2].update(
+            location='', reveal_on={'signal': 'rumour'})
+        before = self.session()
+        after = copy.deepcopy(before)
+        after['signals'] = ['gate_open', 'rumour']
+        found = {n['quest_id']: n for n in quests.notices(before, after, story)}
+        self.assertEqual(set(found), {'escort', 'repair'})
+        self.assertEqual(found['escort']['kind'], 'opened')
+        self.assertEqual(found['repair']['kind'], 'revealed')
+        self.assertEqual(set(found['escort']),
+                         {'quest_id', 'title', 'summary', 'kind'})
+        self.assertEqual(found['escort']['summary'], '把一捆柴火送到磨坊。')
+        self.assertEqual(quests.notices(after, after, story), [])
+        self.assertNotIn('隐藏', json.dumps(found, ensure_ascii=False))
+
+    def test_notices_skip_quests_that_stay_hidden(self):
+        story = self.gated(enabled_on={'signal': 'gate_open'})
+        before = self.session()
+        after = copy.deepcopy(before)
+        after['signals'] = ['unrelated']
+        self.assertEqual(quests.notices(before, after, story), [])
+
+    def test_gate_validation(self):
+        for bad in ({'signal': 'has space'}, {'signal': 'x' * 81}, {'signal': ''},
+                    {'flag': 'bad flag!'}, {'flag': 'f' * 61}, {},
+                    {'signal': 'a', 'flag': 'b'}, {'signal': 'a', 'extra': 1}):
+            for field in ('enabled_on', 'reveal_on'):
+                with self.assertRaises(ValueError, msg='%s=%r' % (field, bad)):
+                    quests.validate(self.gated(**{field: bad}))
+        quests.validate(self.gated(enabled_on={'signal': 'a.b:c-d_1'}))
+        quests.validate(self.gated(reveal_on={'flag': 'seen_it'}))
+        with self.assertRaises(ValueError):
+            quests.validate(self.gated(unknown_gate={'signal': 'a'}))
 
 
 if __name__ == '__main__':

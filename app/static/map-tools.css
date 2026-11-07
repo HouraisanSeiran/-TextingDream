@@ -41,12 +41,8 @@
 .map-field select, .map-field input, .map-coord input { background: #fff; color: #37352f; border: 1px solid #e9e9e7; border-radius: 6px; }
 .map-advanced summary { color: #37352f; }
 #topbar { min-height: 52px; }
-#play-left { background: #fff; }
 #play-right, #play-map-wrap { background: #f7f6f3; }
 #play-map-bar, .map-note-line { background: #f7f6f3; color: #787774; border-color: #e9e9e7; }
-#play-left .item-row, .other-list { background: #fff; border-color: #e9e9e7; border-radius: 6px; }
-#panel-other .other-row { border-bottom-color: #e9e9e7; }
-#panel-other .other-row:hover { background: #efedea; }
 .sp-tool-group { border: 1px solid #e9e9e7; border-radius: 6px; background: #f7f6f3; }
 .sp-tool-group > .map-btn, .sp-tool-group > button { border-radius: 6px; }
 .sp-tool-group > .map-btn.on { background: #e3e1db; color: #37352f; box-shadow: none; }

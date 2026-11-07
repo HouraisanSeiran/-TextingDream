@@ -26,6 +26,10 @@ class ConcurrentUpdateError(ValueError):
     """Raised when a stale session tries to overwrite a newer save."""
 
 
+class SessionNotFound(ValueError):
+    """The requested save does not exist (HTTP 404, not a generic 400)."""
+
+
 class Store:
     def __init__(self, path):
         self.path = Path(path)
@@ -160,12 +164,44 @@ class Store:
             db.execute('BEGIN')
             row = db.execute('SELECT body FROM documents WHERE kind=? AND id=?', ('session', id)).fetchone()
             if not row:
-                raise ValueError('存档不存在')
+                raise SessionNotFound('存档不存在')
             state = json.loads(row[0])
             state.setdefault('state_version', 0)
             for table in ('facts', 'beliefs', 'heard'):
                 state[table] = [json.loads(r[0]) for r in db.execute(f'SELECT body FROM {table} WHERE session=? ORDER BY rowid', (id,))]
         return state
+
+    def rename_session(self, id, title):
+        """Change only the title. state_version is left alone on purpose: bumping it
+        would make a page that already holds the old version (move/turn confirm tokens)
+        fail its next write. A turn already in flight can still write the old title back."""
+        with self.transact() as db:
+            row = db.execute('SELECT body FROM documents WHERE kind=? AND id=?', ('session', id)).fetchone()
+            if row is None:
+                raise SessionNotFound('存档不存在')
+            state = json.loads(row[0])
+            state['title'] = title
+            db.execute('UPDATE documents SET body=? WHERE kind=? AND id=?', (dumps(state), 'session', id))
+        return {'id': id, 'title': title}
+
+    def delete_session(self, id):
+        """Remove one save and every row keyed to it, in one transaction.
+
+        Keyed by the session id: documents(session, session_notes_pending), the
+        facts/beliefs/heard layers, recall_vectors, and development_draft documents
+        whose body carries session_id. Story packages and files on disk are untouched.
+        """
+        with self.transact() as db:
+            if db.execute('SELECT 1 FROM documents WHERE kind=? AND id=?', ('session', id)).fetchone() is None:
+                raise SessionNotFound('存档不存在')
+            db.execute('DELETE FROM documents WHERE kind IN (?,?) AND id=?', ('session', 'session_notes_pending', id))
+            for table in ('facts', 'beliefs', 'heard'):
+                db.execute(f'DELETE FROM {table} WHERE session=?', (id,))
+            if db.execute("SELECT 1 FROM sqlite_master WHERE type='table' AND name='recall_vectors'").fetchone():
+                db.execute('DELETE FROM recall_vectors WHERE session=?', (id,))
+            for row in db.execute('SELECT id, body FROM documents WHERE kind=?', ('development_draft',)).fetchall():
+                if json.loads(row[1]).get('session_id') == id:
+                    db.execute('DELETE FROM documents WHERE kind=? AND id=?', ('development_draft', row[0]))
 
     def record_unmatched_intent(self, record, limit=500):
         """Append an author-only diagnostic without changing any session version."""

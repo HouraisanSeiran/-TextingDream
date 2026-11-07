@@ -1,0 +1,29 @@
+{
+  "schema": "dream-world-config-v1",
+  "world_name": "example-existing-skeleton",
+  "world_seed": 20261020,
+  "world": {
+    "width_km": 1600,
+    "height_km": 1280,
+    "origin_km": [-800, -640],
+    "type": "multi-continent",
+    "ocean_fraction": 0.6,
+    "mountain_cover": "medium"
+  },
+  "world_layer": {"spacing_m": 960, "coast_buffer_km": 80},
+  "skeleton": {
+    "source": "existing",
+    "path": "D:/codexwork/山川形意Terragenesis/.scratch/plate-formation-coast-20261101/shaped-run-v4/product.npz",
+    "identity": "b4c8bbdba29111b8c3ba3270e2f0d3a4fed3544655249fa07c506654b8ae6af9"
+  },
+  "local_sites": [
+    {"id": "harbour-town", "type": "town", "center_x_m": 2500, "center_z_m": 465, "size_m": 12000,
+     "reason": "海港城：需要 30 m 海岸线、港湾与近岸地形"},
+    {"id": "mountain-pass", "type": "special_terrain", "center_x_m": -105135, "center_z_m": -64815, "size_m": 15000,
+     "reason": "山口：需要 30 m 山脊、鞍部与隘道"},
+    {"id": "lowland-story", "type": "story", "center_x_m": -495, "center_z_m": -495, "size_m": 8000,
+     "reason": "故事地点：内陆低地，对照世界层与 30 m 的一致性"}
+  ],
+  "map_style": "simple",
+  "notes": "示例配置。种子 20261020 对应当前冻结骨架；新建骨架时默认种子为 20260903。"
+}

@@ -1,0 +1,1851 @@
+{
+  "schema_version": 1,
+  "group": "poetry-classics",
+  "status": "candidate",
+  "genres": [
+    "eastern_fantasy",
+    "western_fantasy",
+    "historical",
+    "real_world",
+    "xianxia"
+  ],
+  "note": "经典诗歌候选（元素库·文学侧）。只收作者逝世超过 100 年的公有领域作品；原文只用原文（中文古诗词原文、英、日、拉丁文原文），不抄任何现代译本；外文诗另给本项目自写的中文大意（不是逐句翻译）。长诗只收开头或著名一节，并在说明里写明是节选（poem.excerpt=true）。每条在通用字段外带顶层结构化字段 poem（title / author / era / form_ref / language / excerpt / text / gist_zh / themes），app/poetry.py 直接读它作为体裁范例。form_ref 指向 poetry-forms 里的体裁 id；无适当体裁可归时留空并在说明里讲明原因。全部条目 review_status=needs_review、detail_status=needs_detail。",
+  "sources": [
+    {
+      "id": "pc_src_01",
+      "title": "静夜思（唐代李白诗作） — 百度百科",
+      "url": "https://baike.baidu.com/item/静夜思",
+      "access": "read",
+      "supports": "诗条列出明代版本与宋代版本两种文字：明代版本作「床前明月光……举头望明月，低头思故乡」，宋代版本作「床前看月光……抬头望山月，低头思故乡」；两版四句二十字。",
+      "rights_note": "公有领域原文（作者逝世超过 100 年）；本项目只录原文与自写中文大意，不采用任何现代译本。"
+    },
+    {
+      "id": "pc_src_02",
+      "title": "春晓（唐代孟浩然诗作） — 百度百科",
+      "url": "https://baike.baidu.com/item/春晓",
+      "access": "read",
+      "supports": "诗条给出四句原文「春眠不觉晓，处处闻啼鸟。夜来风雨声，花落知多少」，并注第三句一作「欲知昨夜风」、第四句一作「花落无多少」；作者孟浩然，唐代。",
+      "rights_note": "公有领域原文（作者逝世超过 100 年）；本项目只录原文与自写中文大意，不采用任何现代译本。"
+    },
+    {
+      "id": "pc_src_03",
+      "title": "登鹳雀楼（唐代王之涣诗作） — 百度百科",
+      "url": "https://baike.baidu.com/item/登鹳雀楼",
+      "access": "read",
+      "supports": "诗条给出四句原文「白日依山尽，黄河入海流。欲穷千里目，更上一层楼」，并说明它是王之涣仅存的六首绝句之一。",
+      "rights_note": "公有领域原文（作者逝世超过 100 年）；本项目只录原文与自写中文大意，不采用任何现代译本。"
+    },
+    {
+      "id": "pc_src_04",
+      "title": "早发白帝城 — 百度百科",
+      "url": "https://baike.baidu.com/item/早发白帝城",
+      "access": "read",
+      "supports": "诗条给出四句原文「朝辞白帝彩云间，千里江陵一日还。两岸猿声啼不住，轻舟已过万重山」，并注「啼不住」一作「啼不尽」、「轻舟已过」一作「须臾过却」。",
+      "rights_note": "公有领域原文（作者逝世超过 100 年）；本项目只录原文与自写中文大意，不采用任何现代译本。"
+    },
+    {
+      "id": "pc_src_05",
+      "title": "春望（唐代杜甫诗作） — 百度百科",
+      "url": "https://baike.baidu.com/item/春望",
+      "access": "read",
+      "supports": "诗条给出五言八句原文，并注「国」指长安、烽火指安史之乱；全诗八句四十字。",
+      "rights_note": "公有领域原文（作者逝世超过 100 年）；本项目只录原文与自写中文大意，不采用任何现代译本。"
+    },
+    {
+      "id": "pc_src_06",
+      "title": "登高（唐代杜甫诗作） — 百度百科",
+      "url": "https://baike.baidu.com/item/登高",
+      "access": "read",
+      "supports": "诗条给出七言八句原文；题下注登高为重阳节习俗。",
+      "rights_note": "公有领域原文（作者逝世超过 100 年）；本项目只录原文与自写中文大意，不采用任何现代译本。"
+    },
+    {
+      "id": "pc_src_07",
+      "title": "无题·相见时难别亦难 — 百度百科",
+      "url": "https://baike.baidu.com/item/无题·相见时难别亦难",
+      "access": "read",
+      "supports": "诗条给出七言八句原文，并注「无题」为不愿标出主题时常用的标题。",
+      "rights_note": "公有领域原文（作者逝世超过 100 年）；本项目只录原文与自写中文大意，不采用任何现代译本。"
+    },
+    {
+      "id": "pc_src_08",
+      "title": "锦瑟 — 百度百科",
+      "url": "https://baike.baidu.com/item/锦瑟",
+      "access": "read",
+      "supports": "诗条给出七言八句原文，并注锦瑟本应为二十五弦，「五十弦」是托古之词。",
+      "rights_note": "公有领域原文（作者逝世超过 100 年）；本项目只录原文与自写中文大意，不采用任何现代译本。"
+    },
+    {
+      "id": "pc_src_09",
+      "title": "水调歌头·明月几时有 — 百度百科",
+      "url": "https://baike.baidu.com/item/水调歌头·明月几时有",
+      "access": "read",
+      "supports": "词条给出全文与小序（丙辰中秋，欢饮达旦，大醉，作此篇，兼怀子由），并注丙辰为熙宁九年（1076）、时在密州；又注水调歌头双调九十五字、平韵。",
+      "rights_note": "公有领域原文（作者逝世超过 100 年）；本项目只录原文与自写中文大意，不采用任何现代译本。"
+    },
+    {
+      "id": "pc_src_10",
+      "title": "念奴娇·赤壁怀古 — 百度百科",
+      "url": "https://baike.baidu.com/item/念奴娇·赤壁怀古",
+      "access": "read",
+      "supports": "词条给出五个版本文字（差异在「乱石穿空／乱石崩云」「人生如梦／人间如梦」「一尊／一樽」等）；并注念奴娇又名百字令、酹江月。",
+      "rights_note": "公有领域原文（作者逝世超过 100 年）；本项目只录原文与自写中文大意，不采用任何现代译本。"
+    },
+    {
+      "id": "pc_src_11",
+      "title": "声声慢·寻寻觅觅 — 百度百科",
+      "url": "https://baike.baidu.com/item/声声慢·寻寻觅觅",
+      "access": "read",
+      "supports": "词条给出三个版本；并注声声慢历来作者多用平韵格，而李清照此首所用仄韵格最为世所传诵，双调九十七字、前后片各五仄韵。",
+      "rights_note": "公有领域原文（作者逝世超过 100 年）；本项目只录原文与自写中文大意，不采用任何现代译本。"
+    },
+    {
+      "id": "pc_src_12",
+      "title": "如梦令·昨夜雨疏风骤 — 百度百科",
+      "url": "https://baike.baidu.com/item/如梦令·昨夜雨疏风骤",
+      "access": "read",
+      "supports": "词条给出原文，并注如梦令为单调三十三字、五仄韵、一叠韵，又名忆仙姿、宴桃源。",
+      "rights_note": "公有领域原文（作者逝世超过 100 年）；本项目只录原文与自写中文大意，不采用任何现代译本。"
+    },
+    {
+      "id": "pc_src_13",
+      "title": "雨霖铃·寒蝉凄切 — 百度百科",
+      "url": "https://baike.baidu.com/item/雨霖铃·寒蝉凄切",
+      "access": "read",
+      "supports": "词条给出全文，并注「留恋处」一作「方留恋处」；雨霖铃调见《乐章集》。",
+      "rights_note": "公有领域原文（作者逝世超过 100 年）；本项目只录原文与自写中文大意，不采用任何现代译本。"
+    },
+    {
+      "id": "pc_src_14",
+      "title": "天净沙·秋思 — 百度百科",
+      "url": "https://baike.baidu.com/item/天净沙·秋思",
+      "access": "read",
+      "supports": "词条给出全曲「枯藤老树昏鸦，小桥流水人家，古道西风瘦马。夕阳西下，断肠人在天涯」，并注越调为宫调名、天净沙为曲牌名、全曲共五句二十八字。",
+      "rights_note": "公有领域原文（作者逝世超过 100 年）；本项目只录原文与自写中文大意，不采用任何现代译本。"
+    },
+    {
+      "id": "pc_src_15",
+      "title": "上邪 — 百度百科",
+      "url": "https://baike.baidu.com/item/上邪",
+      "access": "read",
+      "supports": "词条给出原文与注译，并注「上」指天、「邪」为感叹语气词。",
+      "rights_note": "公有领域原文（作者逝世超过 100 年）；本项目只录原文与自写中文大意，不采用任何现代译本。"
+    },
+    {
+      "id": "pc_src_16",
+      "title": "离骚 — 百度百科",
+      "url": "https://baike.baidu.com/item/离骚",
+      "access": "read",
+      "supports": "词条给出全文；开头自「帝高阳之苗裔兮，朕皇考曰伯庸」起，逐句带注释序号。",
+      "rights_note": "公有领域原文（作者逝世超过 100 年）；本项目只录原文与自写中文大意，不采用任何现代译本。"
+    },
+    {
+      "id": "pc_src_17",
+      "title": "关雎 — 百度百科",
+      "url": "https://baike.baidu.com/item/关雎",
+      "access": "read",
+      "supports": "词条给出全文（周南·关雎，五章）、逐句注释，并引元人许谦「以荇起兴，取其柔洁」。",
+      "rights_note": "公有领域原文（作者逝世超过 100 年）；本项目只录原文与自写中文大意，不采用任何现代译本。"
+    },
+    {
+      "id": "pc_src_18",
+      "title": "在原业平 — 百度百科",
+      "url": "https://baike.baidu.com/item/在原业平",
+      "access": "read",
+      "supports": "词条「代表作品」一节列出业平的和歌原文，并标出它们收入《古今和歌集》《小仓百人一首》的情况；人物一节注明他是六歌仙与三十六歌仙之一，《古今和歌集》收其和歌 30 首。注：该页的和歌原文经简体转换，个别字作「闻」「见」「负」而非日文通行字形。",
+      "rights_note": "公有领域原文（作者逝世超过 100 年）；本项目只录原文与自写中文大意，不采用任何现代译本。"
+    },
+    {
+      "id": "pc_src_19",
+      "title": "小林一茶 — 百度百科",
+      "url": "https://baike.baidu.com/item/小林一茶",
+      "access": "read",
+      "supports": "词条「名句」一节列出三句俳句原文：痩せ蛙　负けるな　一茶ここにあり；やれ打つな　ハエが手をする　足をする；雀の子　ここのけここのけ　お马が通る。并说明一茶俳谐的特点是反抗强者、同情弱者。",
+      "rights_note": "公有领域原文（作者逝世超过 100 年）；本项目只录原文与自写中文大意，不采用任何现代译本。"
+    },
+    {
+      "id": "pc_src_20",
+      "title": "The Sonnets — Shakespeare (MIT)",
+      "url": "https://shakespeare.mit.edu/Poetry/sonnets.html",
+      "access": "read",
+      "supports": "MIT 的莎士比亚十四行诗全集页，逐首给出英文原文与罗马数字序号（首行索引）。",
+      "rights_note": "公有领域英文原文；本项目只录原文与自写中文大意。"
+    },
+    {
+      "id": "pc_src_21",
+      "title": "Sonnet XVIII — Shakespeare (MIT)",
+      "url": "https://shakespeare.mit.edu/Poetry/sonnet.XVIII.html",
+      "access": "read",
+      "supports": "给出第 18 首十四行诗全文十四行英文原文。",
+      "rights_note": "公有领域英文原文；本项目只录原文与自写中文大意。"
+    },
+    {
+      "id": "pc_src_22",
+      "title": "The Tyger — William Blake（Academy of American Poets）",
+      "url": "https://poets.org/poem/tyger",
+      "access": "read",
+      "supports": "给出《老虎》全诗六节二十四行英文原文，并标明 The poem is in the public domain；作者生卒 1757—1827。",
+      "rights_note": "公有领域英文原文；本项目只录原文与自写中文大意。"
+    },
+    {
+      "id": "pc_src_23",
+      "title": "Ozymandias — Percy Bysshe Shelley（Academy of American Poets）",
+      "url": "https://poets.org/poem/ozymandias",
+      "access": "read",
+      "supports": "给出《奥兹曼迪亚斯》十四行英文原文，标为 public domain；并注明雪莱与霍勒斯·史密斯写过同题竞赛的两首十四行诗。",
+      "rights_note": "公有领域英文原文；本项目只录原文与自写中文大意。"
+    },
+    {
+      "id": "pc_src_24",
+      "title": "I Hear America Singing — Walt Whitman（Academy of American Poets）",
+      "url": "https://poets.org/poem/i-hear-america-singing",
+      "access": "read",
+      "supports": "给出全诗英文原文，标为 public domain；并注明这个版本出现在 1867 年版《草叶集》，初版作为 1860 年版《草叶集》「民主之声」第 20 首。",
+      "rights_note": "公有领域英文原文；本项目只录原文与自写中文大意。"
+    },
+    {
+      "id": "pc_src_25",
+      "title": "Macbeth, Act 5, Scene 5 — Shakespeare (MIT)",
+      "url": "https://shakespeare.mit.edu/macbeth/macbeth.5.5.html",
+      "access": "read",
+      "supports": "给出《麦克白》第五幕第五场全文，含麦克白听到王后死讯后的独白（从 She should have died hereafter 到 Signifying nothing）。",
+      "rights_note": "公有领域英文原文；本项目只录原文与自写中文大意。"
+    },
+    {
+      "id": "pc_src_26",
+      "title": "Vergil: Aeneid I — The Latin Library",
+      "url": "https://www.thelatinlibrary.com/vergil/aen1.shtml",
+      "access": "read",
+      "supports": "给出《埃涅阿斯纪》第一卷拉丁文原文，开头为「Arma virumque canō, Trōiae quī prīmus ab ōrīs」；文本带长音符号与行末行号。",
+      "rights_note": "公有领域拉丁文原文；本项目只录原文与自写中文大意。"
+    },
+    {
+      "id": "pc_src_27",
+      "title": "莎士比亚十四行诗 — 百度百科",
+      "url": "https://baike.baidu.com/item/莎士比亚十四行诗",
+      "access": "read",
+      "supports": "词条给出 Sonnet 12 英文原文（When I do count the clock that tells the time...）；后半另有现代中文译者译文，本项目不取。",
+      "rights_note": "该页英文原文为公有领域；页上的现代中文译文属他人著作权，本项目未采用。"
+    },
+    {
+      "id": "pc_src_28",
+      "title": "威廉·布莱克 — 百度百科",
+      "url": "https://baike.baidu.com/item/威廉·布莱克",
+      "access": "read",
+      "supports": "词条「英文原诗」一节给出《天真的预言》（Auguries of Innocence）开头五行英文原文；后面另有现代中文译者译文，本项目不取。",
+      "rights_note": "该页英文原文为公有领域；页上的现代中文译文属他人著作权，本项目未采用。"
+    },
+    {
+      "id": "pc_src_29",
+      "title": "英雄双韵体 — 百度百科",
+      "url": "https://baike.baidu.com/item/英雄双韵体",
+      "access": "read",
+      "supports": "「例子」一节给出德纳姆（John Denham）《Cooper's Hill》四行英文例句，即英雄双韵体两对偶句的示范。",
+      "rights_note": "该页英文例句为公有领域；本项目只录原文与自写中文大意。"
+    },
+    {
+      "id": "pc_src_30",
+      "title": "神曲 — 百度百科",
+      "url": "https://baike.baidu.com/item/神曲",
+      "access": "read",
+      "supports": "词条给出《神曲》的结构与情节概要（地狱九层、炼狱九层、天堂九层、维吉尔与贝雅特丽齐引路），但未给出意大利文原文。",
+      "rights_note": "仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "pc_src_31",
+      "title": "Encyclopaedia Britannica（诗歌 / 史诗相关条目）",
+      "url": "https://www.britannica.com/art/poetry",
+      "access": "search_only",
+      "supports": "",
+      "rights_note": "本次无头浏览器未取到正文；仅作检索入口登记，零引用，不当依据。"
+    },
+    {
+      "id": "pc_src_32",
+      "title": "Wikipedia（作者与诗作条目）",
+      "url": "https://en.wikipedia.org/",
+      "access": "search_only",
+      "supports": "",
+      "rights_note": "本次无头浏览器未取到正文；仅作检索入口登记，零引用，不当依据。"
+    }
+  ],
+  "elements": [
+    {
+      "id": "poetry_classic_jingyesi",
+      "name": "静夜思",
+      "aliases": [
+        "静夜思（明版本）"
+      ],
+      "category": "culture",
+      "primary": "literature_form",
+      "evidence_grade": "sourced",
+      "tech_tier": "medieval",
+      "magic_tier": null,
+      "genres": [
+        "historical",
+        "real_world",
+        "eastern_fantasy",
+        "xianxia"
+      ],
+      "tags": [
+        "kind:poem",
+        "tradition:eastern"
+      ],
+      "summary": "李白五言绝句，二十字写月夜思乡，是五绝最普及的一首。",
+      "poem": {
+        "title": "静夜思",
+        "author": "李白",
+        "era": "唐",
+        "form_ref": "poetry_form_wujue",
+        "language": "classical_chinese",
+        "excerpt": false,
+        "text": "床前明月光，\n疑是地上霜。\n举头望明月，\n低头思故乡。",
+        "gist_zh": "写旅人夜中醒来，看到地上的月色像霜；抬头看月，低头想起故乡。二十字里一个动作接一个动作，情绪全不说破。",
+        "themes": [
+          "思乡",
+          "月",
+          "羁旅"
+        ]
+      },
+      "details": {
+        "definition": "李白《静夜思》，明版本四句二十字。诗中「床」字至今有多种解释（井栏、窗的通假、坐卧之具、胡床），词条把五种说法都列了出来。",
+        "mechanism": "全诗靠两个动作推进：举头看月、低头想家。中间没有任何比喻的铺陈，字面极浅，所以最容易在民间流传。",
+        "conditions": "适合入门的识字数材、蒙学、旅店题壁与即席吟诵；在游戏里可以当作几乎人人会背的诗。",
+        "exceptions": "诗有两种传本：明版本「床前明月光……举头望明月」，宋版本「床前看月光……抬头望山月」。两者字不同而意思近，抄本与刻本会各不相同。",
+        "story_uses": "①旅店里题的一首《静夜思》，改了一个字，成了给同伙的暗号。②不识字的人也会背这首诗，因此它能当口令用。③两个抄本不一致，谁改的字成了争执。",
+        "historical_scope": "李白（701—762），唐代，对应 tech:medieval。",
+        "evidence_and_uncertainty": "原文与两种版本的差异核对自 pc_src_01（静夜思词条），本次读到的是明代版本。宋版本只取了词条列出的文字，未另找宋本影印核对；「床」的解释未有定论，词条本身存多说。"
+      },
+      "source_ids": [
+        "pc_src_01"
+      ],
+      "related_ids": [
+        "poetry_form_wujue",
+        "culture_poetry_lyric"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "poetry_classic_chunxiao",
+      "name": "春晓",
+      "aliases": [],
+      "category": "culture",
+      "primary": "literature_form",
+      "evidence_grade": "sourced",
+      "tech_tier": "medieval",
+      "magic_tier": null,
+      "genres": [
+        "historical",
+        "real_world",
+        "eastern_fantasy"
+      ],
+      "tags": [
+        "kind:poem",
+        "tradition:eastern"
+      ],
+      "summary": "孟浩然五言绝句，写春睡醒来的一瞬，是五绝里最平易的一首。",
+      "poem": {
+        "title": "春晓",
+        "author": "孟浩然",
+        "era": "唐",
+        "form_ref": "poetry_form_wujue",
+        "language": "classical_chinese",
+        "excerpt": false,
+        "text": "春眠不觉晓，\n处处闻啼鸟。\n夜来风雨声，\n花落知多少。",
+        "gist_zh": "春天睡得沉，天亮了都不知道，到处是鸟叫才醒。想起夜里有过风雨，便担心有多少花被打落了。",
+        "themes": [
+          "春",
+          "惜春",
+          "闲适"
+        ]
+      },
+      "details": {
+        "definition": "孟浩然《春晓》，五言四句。诗条注第三句一作「欲知昨夜风」、第四句一作「花落无多少」。",
+        "mechanism": "前两句是醒来的所见所闻，后两句转入夜里的回忆与猜测，二十字里完成一次由实到虚的转折，结句用问句收，未尽。",
+        "conditions": "适合春日的宴集、田家与书院；世界里要有四时感知与花木栽培。",
+        "exceptions": "宋元刻本与明刻本的个别字句不同（见词条的两处「一作」），引用时要说清用的是哪一个传本。",
+        "story_uses": "①一首人人会念的春晓被题在别人家门上，主人视为挑衅。②早春风雨后花落多少，成了两家争地界的由头。",
+        "historical_scope": "孟浩然（689—740），唐代，对应 tech:medieval。",
+        "evidence_and_uncertainty": "原文核对自 pc_src_02（春晓词条，含两处异文）。异文的具体来源版本（哪一宋本／明本）本次未逐本核对。"
+      },
+      "source_ids": [
+        "pc_src_02"
+      ],
+      "related_ids": [
+        "poetry_form_wujue",
+        "culture_poetry_lyric"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "poetry_classic_dengguanquelou",
+      "name": "登鹳雀楼",
+      "aliases": [],
+      "category": "culture",
+      "primary": "literature_form",
+      "evidence_grade": "sourced",
+      "tech_tier": "medieval",
+      "magic_tier": null,
+      "genres": [
+        "historical",
+        "real_world",
+        "eastern_fantasy",
+        "xianxia"
+      ],
+      "tags": [
+        "kind:poem",
+        "tradition:eastern"
+      ],
+      "summary": "王之涣五言绝句，前两句写景、后两句说理，是五绝里少见的四句全对仗之作。",
+      "poem": {
+        "title": "登鹳雀楼",
+        "author": "王之涣",
+        "era": "唐",
+        "form_ref": "poetry_form_wujue",
+        "language": "classical_chinese",
+        "excerpt": false,
+        "text": "白日依山尽，\n黄河入海流。\n欲穷千里目，\n更上一层楼。",
+        "gist_zh": "太阳挨着山落下去，黄河向海流去；想看得更远，就再上一层楼。",
+        "themes": [
+          "登高",
+          "壮志",
+          "山河"
+        ]
+      },
+      "details": {
+        "definition": "王之涣《登鹳雀楼》，五言四句。鹳雀楼故址在山西永济古蒲州城外的黄河岸边，因常有鹳雀栖息而得名。",
+        "mechanism": "四句全用对仗：首联对景物，尾联对因果。前两句把视野推到天边与海，后两句再把这个视野往上推一层，是五绝里少见的两联皆对。",
+        "conditions": "适合登临、送行、勉励的场合；世界里要有楼阁建筑与能题诗的壁面。",
+        "exceptions": "作者身世系年有争议：词条说诗作于王之涣三十五岁，又说据墓志铭其生年为垂拱四年（688），则作年可能更晚。引用作者年龄时不要写死。",
+        "story_uses": "①楼上一首题诗被人改了后两句，改成劝人不下楼的消极说辞。②守楼的人靠背这首诗认出了假冒的官差。③登楼题壁的诗被抄成传单散发。",
+        "historical_scope": "王之涣（688—742），唐代，对应 tech:medieval。",
+        "evidence_and_uncertainty": "原文与鹳雀楼故址、作者身世的两说核对自 pc_src_03（登鹳雀楼词条）。作者的出生年与作年词条本身有两种说法，本次未另找墓志铭核对。"
+      },
+      "source_ids": [
+        "pc_src_03"
+      ],
+      "related_ids": [
+        "poetry_form_wujue",
+        "culture_poetry_lyric"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "poetry_classic_zaofabaidicheng",
+      "name": "早发白帝城",
+      "aliases": [
+        "下江陵"
+      ],
+      "category": "culture",
+      "primary": "literature_form",
+      "evidence_grade": "sourced",
+      "tech_tier": "medieval",
+      "magic_tier": null,
+      "genres": [
+        "historical",
+        "real_world",
+        "eastern_fantasy"
+      ],
+      "tags": [
+        "kind:poem",
+        "tradition:eastern"
+      ],
+      "summary": "李白七言绝句，写三峡顺流而下的轻快，是七绝中节奏最快的一首。",
+      "poem": {
+        "title": "早发白帝城",
+        "author": "李白",
+        "era": "唐",
+        "form_ref": "poetry_form_qijue",
+        "language": "classical_chinese",
+        "excerpt": false,
+        "text": "朝辞白帝彩云间，\n千里江陵一日还。\n两岸猿声啼不住，\n轻舟已过万重山。",
+        "gist_zh": "清早从高在云间的白帝城出发，千里外的江陵一天就到；两岸猿声还没停，轻舟已经过了一重又一重山。",
+        "themes": [
+          "羁旅",
+          "江河",
+          "快意"
+        ]
+      },
+      "details": {
+        "definition": "李白《早发白帝城》，七言四句。词条注「千里江陵」实指白帝城到江陵约一千二百里、含七百里三峡；「啼不住」一作「啼不尽」、「轻舟已过」一作「须臾过却」。",
+        "mechanism": "四句全在写速度：彩云间是起点之高，一日还是时间之短，猿声不住是耳边的连续，已过万重山是视觉的追赶。第三句用声音拖住，第四句用行程甩开。",
+        "conditions": "适合水路旅行、赦还、报捷的场合；世界里要有长江三峡那样的峡江与水程。",
+        "exceptions": "异文有三处（啼不住／啼不尽、轻舟已过／须臾过却等），引用时要挑定一个本子。诗与李白流放遇赦的背景相关，但词条未直接写死创作年，本条的系年从略。",
+        "story_uses": "①舟子用这首诗的行数计里程。②一首题在船篷上的诗被人认出是刚从上游下来的人写的。③峡中猿声与诗里说的不合，说明写法是想象。",
+        "historical_scope": "李白（701—762），唐代，对应 tech:medieval。",
+        "evidence_and_uncertainty": "原文与三处异文、峡程数据核对自 pc_src_04（早发白帝城词条，含《水经注》引文）。创作背景与系年未逐条核对，故未写定。"
+      },
+      "source_ids": [
+        "pc_src_04"
+      ],
+      "related_ids": [
+        "poetry_form_qijue",
+        "culture_poetry_lyric"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "poetry_classic_chunwang",
+      "name": "春望",
+      "aliases": [],
+      "category": "culture",
+      "primary": "literature_form",
+      "evidence_grade": "sourced",
+      "tech_tier": "medieval",
+      "magic_tier": null,
+      "genres": [
+        "historical",
+        "real_world",
+        "eastern_fantasy"
+      ],
+      "tags": [
+        "kind:poem",
+        "tradition:eastern"
+      ],
+      "summary": "杜甫五言律诗，写长安陷落后的春景与家书之贵，是五律中最沉痛的一首。",
+      "poem": {
+        "title": "春望",
+        "author": "杜甫",
+        "era": "唐",
+        "form_ref": "poetry_form_wulv",
+        "language": "classical_chinese",
+        "excerpt": false,
+        "text": "国破山河在，城春草木深。\n感时花溅泪，恨别鸟惊心。\n烽火连三月，家书抵万金。\n白头搔更短，浑欲不胜簪。",
+        "gist_zh": "国都沦陷了，山河还在；春天到了城里，草木长得深。感伤时局，见花也落泪；怅恨离别，听鸟也心惊。战火连着三个月，一封家书抵得上万金。白发越抓越短，简直插不住簪子。",
+        "themes": [
+          "战乱",
+          "思家",
+          "忧国"
+        ]
+      },
+      "details": {
+        "definition": "杜甫《春望》，五言八句。词条注「国」指长安、「烽火」指安史之乱的战火、「三月」指正、二、三月，「不胜簪」是因为古代男子蓄发、成年后要用簪横插束发。",
+        "mechanism": "五律的分工在这里很清楚：首联写城与草木（景），颔联写花鸟（情），颈联写战火与家书（事），尾联写白发（身）。四联层层收到自己身上。",
+        "conditions": "适合战乱、围城、流亡的场面；世界里要有城郭、烽火与家书这类通信手段。",
+        "exceptions": "「烽火连三月」的「三月」有解作三个月、也有解作正月到三月，词条取后者。颔联的主语是谁（人感时还是花溅泪）历来有争论，引用时说清用法。",
+        "story_uses": "①围城里的人用一首《春望》记日子，每过一月添一句。②家书被截，只剩诗里提到的那几个字。③城墙上的题诗被人铲掉，铲的人怕它传出去。",
+        "historical_scope": "杜甫（712—770），唐代，对应 tech:medieval。",
+        "evidence_and_uncertainty": "原文与注释（国指长安、烽火指安史之乱、三月所指、不胜簪的缘由）核对自 pc_src_05（春望词条）。颔联主语的争论属通行讨论，本次未核到专门来源。"
+      },
+      "source_ids": [
+        "pc_src_05"
+      ],
+      "related_ids": [
+        "poetry_form_wulv",
+        "culture_poetry_lyric"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "poetry_classic_denggao",
+      "name": "登高",
+      "aliases": [],
+      "category": "culture",
+      "primary": "literature_form",
+      "evidence_grade": "sourced",
+      "tech_tier": "medieval",
+      "magic_tier": null,
+      "genres": [
+        "historical",
+        "real_world",
+        "eastern_fantasy"
+      ],
+      "tags": [
+        "kind:poem",
+        "tradition:eastern"
+      ],
+      "summary": "杜甫七言律诗，八句全对，被推为七律第一。",
+      "poem": {
+        "title": "登高",
+        "author": "杜甫",
+        "era": "唐",
+        "form_ref": "poetry_form_qilv",
+        "language": "classical_chinese",
+        "excerpt": false,
+        "text": "风急天高猿啸哀，渚清沙白鸟飞回。\n无边落木萧萧下，不尽长江滚滚来。\n万里悲秋常作客，百年多病独登台。\n艰难苦恨繁霜鬓，潦倒新停浊酒杯。",
+        "gist_zh": "风急天高，猿声悲凉；水渚清、沙岸白，鸟盘旋着落。无边无际的落叶萧萧而下，望不到头的长江滚滚而来。离家万里、常年作客，又逢悲秋；一生多病，独自登台。世事艰难、憾恨深重，鬓边白霜越来越密；穷困潦倒，刚把浊酒杯放下。",
+        "themes": [
+          "登高",
+          "悲秋",
+          "身世"
+        ]
+      },
+      "details": {
+        "definition": "杜甫《登高》，七言八句。词条注：登高是重阳节习俗。",
+        "mechanism": "全诗八句皆对，是七律里的极端例子。前两联写景，从风、天、猿、渚、沙、鸟写到落木与长江；后两联写身世，从作客、多病写到鬓霜与停杯。四联由大景收到自身。",
+        "conditions": "适合重阳、登临、羁旅与晚年境况的场面；世界里要有重阳登高的习俗与高处可登的台阁。",
+        "exceptions": "把「八句全对」当作评定标准时要注意：严格的八句全对是后人的评价，不是律诗的硬规定；律诗硬规定只要求颔联、颈联对仗。",
+        "story_uses": "①重阳日登高题诗，一首《登高》被人当作绝笔。②停杯这一动作被读成某种暗示。③同一首刻在两处，其中一处把「百年」刻成「万里」。",
+        "historical_scope": "杜甫（712—770），唐代，对应 tech:medieval。",
+        "evidence_and_uncertainty": "原文与注（登高为重阳节习俗）核对自 pc_src_06（登高词条）。「八句全对、被推为七律第一」是后世评价，不是词条原文，本次未核到专门来源，当作审稿提示而不是史实。"
+      },
+      "source_ids": [
+        "pc_src_06"
+      ],
+      "related_ids": [
+        "poetry_form_qilv",
+        "culture_poetry_lyric"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "poetry_classic_wuti",
+      "name": "无题·相见时难别亦难",
+      "aliases": [],
+      "category": "culture",
+      "primary": "literature_form",
+      "evidence_grade": "sourced",
+      "tech_tier": "medieval",
+      "magic_tier": null,
+      "genres": [
+        "historical",
+        "real_world",
+        "eastern_fantasy"
+      ],
+      "tags": [
+        "kind:poem",
+        "tradition:eastern"
+      ],
+      "summary": "李商隐七言律诗，写别后的思念，以「春蚕」「蜡炬」两喻传诵最广。",
+      "poem": {
+        "title": "无题·相见时难别亦难",
+        "author": "李商隐",
+        "era": "唐",
+        "form_ref": "poetry_form_qilv",
+        "language": "classical_chinese",
+        "excerpt": false,
+        "text": "相见时难别亦难，东风无力百花残。\n春蚕到死丝方尽，蜡炬成灰泪始干。\n晓镜但愁云鬓改，夜吟应觉月光寒。\n蓬山此去无多路，青鸟殷勤为探看。",
+        "gist_zh": "相见本已难得，分别时更难；春风无力，百花已经残了。春蚕到死才吐尽丝，蜡烛烧成灰才流干泪。早上照镜子，只愁鬓发变了颜色；夜里吟诗，该觉得月色寒凉。蓬山离这里不算远，青鸟啊，替我殷勤地去看一看。",
+        "themes": [
+          "离别",
+          "思念",
+          "无题"
+        ]
+      },
+      "details": {
+        "definition": "李商隐《无题》，七言八句。词条注：唐代以来，诗人不愿标出主题的题目时常用「无题」作标题；「丝」与「思」谐音，以丝喻思；蓬山指海上仙山蓬莱，此指想念对象的住处。",
+        "mechanism": "颈联用两个物象的尽头说自己的尽头：丝尽与泪干都是终点。尾联一笔宕开，托青鸟去探路，把无望写成似乎还有一线。",
+        "conditions": "适合离别、赠答、密信式的表达；世界里要有「无题」这种故意不点明对象、让读者去猜的写作习惯。",
+        "exceptions": "「无题」到底是爱情还是寄托（求仕、写友）历来各有说法，词条只给字面解释，未定主旨；把「蓬山」「青鸟」当作具体地点与使者时要注意这是仙话意象。",
+        "story_uses": "①一首无题诗被抄送三人，三人各自以为写的是自己。②「青鸟」指某条固定航路。③官府禁「无题」体，说它影射时政。",
+        "historical_scope": "李商隐（约 813—858），唐代，对应 tech:medieval。",
+        "evidence_and_uncertainty": "原文与注释（无题之为题的由来、丝思谐音、蜡泪、蓬山所指）核对自 pc_src_07（无题词条）。本诗的主旨（爱情说与寄托说）词条未定，本次未另找专门论述。"
+      },
+      "source_ids": [
+        "pc_src_07"
+      ],
+      "related_ids": [
+        "poetry_form_qilv",
+        "culture_poetry_lyric"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "poetry_classic_jinse",
+      "name": "锦瑟",
+      "aliases": [],
+      "category": "culture",
+      "primary": "literature_form",
+      "evidence_grade": "sourced",
+      "tech_tier": "medieval",
+      "magic_tier": null,
+      "genres": [
+        "historical",
+        "real_world",
+        "eastern_fantasy"
+      ],
+      "tags": [
+        "kind:poem",
+        "tradition:eastern"
+      ],
+      "summary": "李商隐七言律诗，中间两联四典并列，是唐诗中解法最多的一首。",
+      "poem": {
+        "title": "锦瑟",
+        "author": "李商隐",
+        "era": "唐",
+        "form_ref": "poetry_form_qilv",
+        "language": "classical_chinese",
+        "excerpt": false,
+        "text": "锦瑟无端五十弦，一弦一柱思华年。\n庄生晓梦迷蝴蝶，望帝春心托杜鹃。\n沧海月明珠有泪，蓝田日暖玉生烟。\n此情可待成追忆，只是当时已惘然。",
+        "gist_zh": "锦瑟为什么无端有五十根弦？一根弦一个柱，都叫人想起好年岁。庄周梦里不知自己是谁，望帝把心托给了杜鹃；沧海月明时鲛人的珠子是泪，蓝田日暖时玉上浮着烟。这些情事本可等到日后追忆，只是在当时就已经茫然了。",
+        "themes": [
+          "追忆",
+          "惘然",
+          "用典"
+        ]
+      },
+      "details": {
+        "definition": "李商隐《锦瑟》，七言八句。词条注：瑟通常二十五弦，此处「五十弦」是托古之词，作者原意当也说本应是二十五弦；中二联分用庄周梦蝶、望帝化鹃、鲛人泣珠三典（「蓝田日暖」引自司空图论诗语，词条另有注）。",
+        "mechanism": "八句里含四个典故，全部并列而不作解释，所以读者只能靠意象之间的关系去猜。尾联把「当时」摆出来，使追忆变成一个没有起点的问题。",
+        "conditions": "适合追忆、题物与雅集；世界里要有瑟这类弦乐器与一批共享的典故知识。",
+        "exceptions": "此诗主旨有悼亡、自伤身世、编集自序等多种说法，词条未定；把「五十弦」当实数会读错。",
+        "story_uses": "①一首《锦瑟》刻在瑟的漆背上，谁刻的不明。②四句各用一个典故，能读通的人就是同门。③琴师调弦时把二十五弦说成五十弦，被同行挑出。",
+        "historical_scope": "李商隐（约 813—858），唐代，对应 tech:medieval。",
+        "evidence_and_uncertainty": "原文与注（瑟通常二十五弦、五十弦为托古、庄周梦蝶与望帝化鹃的出处）核对自 pc_src_08（锦瑟词条）。「蓝田日暖」一典的具体来源与全诗主旨本次未核到定论。"
+      },
+      "source_ids": [
+        "pc_src_08"
+      ],
+      "related_ids": [
+        "poetry_form_qilv",
+        "culture_poetry_lyric"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "poetry_classic_shuidiaogetou",
+      "name": "水调歌头·明月几时有",
+      "aliases": [],
+      "category": "culture",
+      "primary": "literature_form",
+      "evidence_grade": "sourced",
+      "tech_tier": "medieval",
+      "magic_tier": null,
+      "genres": [
+        "historical",
+        "real_world",
+        "eastern_fantasy",
+        "xianxia"
+      ],
+      "tags": [
+        "kind:poem",
+        "tradition:eastern"
+      ],
+      "summary": "苏轼中秋词，双调九十五字，写把酒问月与对亲人的祝愿。",
+      "poem": {
+        "title": "水调歌头·明月几时有",
+        "author": "苏轼",
+        "era": "北宋",
+        "form_ref": "poetry_form_ci",
+        "language": "classical_chinese",
+        "excerpt": false,
+        "text": "明月几时有？把酒问青天。不知天上宫阙，今夕是何年。我欲乘风归去，又恐琼楼玉宇，高处不胜寒。起舞弄清影，何似在人间。\n转朱阁，低绮户，照无眠。不应有恨，何事长向别时圆？人有悲欢离合，月有阴晴圆缺，此事古难全。但愿人长久，千里共婵娟。",
+        "gist_zh": "明月从什么时候起就有？端起酒杯问天。不知天上的宫阙今夜是哪一年。想乘风回去，又怕琼楼玉宇太高处太冷；不如在人间对着影子起舞。月光转过朱红的楼阁，低低照进雕花的窗，照着睡不着的人。月亮不该有恨，为什么总在人离别时团圆？人有悲欢离合，月有阴晴圆缺，自古难全。只愿人长久，隔着千里共看这一轮月。",
+        "themes": [
+          "中秋",
+          "怀人",
+          "问月"
+        ]
+      },
+      "details": {
+        "definition": "苏轼《水调歌头》，双调九十五字，平韵。小序：丙辰中秋，欢饮达旦，大醉，作此篇，兼怀子由。词条注丙辰为熙宁九年（1076），时苏轼在密州任太守；子由是苏辙的字。",
+        "mechanism": "上片问天：从「明月几时有」问到「今夕是何年」，再以「起舞弄清影」把人拉回人间。下片转月照无眠，由月的不圆满承认人事的难全，结在自己的祝愿上。",
+        "conditions": "适合中秋宴饮、寄远与家宴；世界里要有中秋赏月、酒与远途书信。",
+        "exceptions": "小序里的丙辰系年要按宋神宗的年号换算；词牌作九十五字是通行体，别体字数略有出入。「婵娟」在此指月亮，不是人名。",
+        "story_uses": "①中秋夜一首词被寄往千里外，收信人已死。②抄本的小序少了「兼怀子由」四字，词被读成纯粹写月。③酒席上谁先唱出这首词，就成了席上的主。",
+        "historical_scope": "苏轼（1037—1101），北宋，对应 tech:medieval。",
+        "evidence_and_uncertainty": "原文、小序与注（丙辰为熙宁九年、密州太守、子由为苏辙、词牌九十五字平韵）核对自 pc_src_09（水调歌头词条）。年份换算为通行历表，本次未另核；词谱逐字平仄未核。"
+      },
+      "source_ids": [
+        "pc_src_09"
+      ],
+      "related_ids": [
+        "poetry_form_ci",
+        "culture_poetry_lyric"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "poetry_classic_niannujiao",
+      "name": "念奴娇·赤壁怀古",
+      "aliases": [],
+      "category": "culture",
+      "primary": "literature_form",
+      "evidence_grade": "sourced",
+      "tech_tier": "medieval",
+      "magic_tier": null,
+      "genres": [
+        "historical",
+        "real_world",
+        "eastern_fantasy"
+      ],
+      "tags": [
+        "kind:poem",
+        "tradition:eastern"
+      ],
+      "summary": "苏轼怀古词，双调一百字，用赤壁旧事写自己的失意。",
+      "poem": {
+        "title": "念奴娇·赤壁怀古",
+        "author": "苏轼",
+        "era": "北宋",
+        "form_ref": "poetry_form_ci",
+        "language": "classical_chinese",
+        "excerpt": false,
+        "text": "大江东去，浪淘尽，千古风流人物。故垒西边，人道是：三国周郎赤壁。乱石穿空，惊涛拍岸，卷起千堆雪。江山如画，一时多少豪杰。\n遥想公瑾当年，小乔初嫁了，雄姿英发。羽扇纶巾，谈笑间、樯橹灰飞烟灭。故国神游，多情应笑我，早生华发。人生如梦，一尊还酹江月。",
+        "gist_zh": "大江向东流去，浪把千古的风流人物都淘尽了。旧营垒西边，人说那就是三国周瑜的赤壁。乱石穿空，惊涛拍岸，卷起千堆雪。江山像画一样，那时候有多少豪杰。遥想当年的周瑜，小乔刚嫁给他，英姿奋发；手摇羽扇、头戴纶巾，谈笑之间敌人的战船就灰飞烟灭。神游旧地，多情的人该笑我，早早生了白发。人生像一场梦，还是把一杯酒洒给江上的月。",
+        "themes": [
+          "怀古",
+          "长江",
+          "身世"
+        ]
+      },
+      "details": {
+        "definition": "苏轼《念奴娇·赤壁怀古》，双调一百字。词条给出五个版本，差异在「乱石穿空／乱石崩云」「惊涛拍岸／惊涛裂岸」「人生如梦／人间如梦」「一尊／一樽」等；并注念奴娇又名百字令、酹江月。",
+        "mechanism": "上片由江水写到故垒、写到乱石惊涛，最后收到「江山如画、一时多少豪杰」；下片用周瑜的年轻与功业反照自己早生的白发，收在「人生如梦」。",
+        "conditions": "适合怀古、临江、幕府清谈；世界里要有可考的旧战场与能读三国故事的听众。",
+        "exceptions": "传本差异多达五处，写作或引用时要指定版本；「人道是」暗示连地点也是听来的，不是考据结论。",
+        "story_uses": "①赤壁究竟在哪里，地方官拿一首词作依据。②五个抄本互不相同，其中一个多出一句改写。③石刻上的词被人凿去一句，凿的位置露出了把柄。",
+        "historical_scope": "苏轼（1037—1101），北宋，对应 tech:medieval。",
+        "evidence_and_uncertainty": "原文取 pc_src_10（念奴娇词条）所列的版本一，其余四个版本的差异也记在同一词条里；「百字令」等别名同样核对自该词条。赤壁地望的真伪未核，词条本身只说「人道是」。"
+      },
+      "source_ids": [
+        "pc_src_10"
+      ],
+      "related_ids": [
+        "poetry_form_ci",
+        "culture_poetry_epic"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "poetry_classic_shengshengman",
+      "name": "声声慢·寻寻觅觅",
+      "aliases": [],
+      "category": "culture",
+      "primary": "literature_form",
+      "evidence_grade": "sourced",
+      "tech_tier": "medieval",
+      "magic_tier": null,
+      "genres": [
+        "historical",
+        "real_world",
+        "eastern_fantasy"
+      ],
+      "tags": [
+        "kind:poem",
+        "tradition:eastern"
+      ],
+      "summary": "李清照仄韵《声声慢》，开篇十四个叠字，双调九十七字。",
+      "poem": {
+        "title": "声声慢·寻寻觅觅",
+        "author": "李清照",
+        "era": "宋",
+        "form_ref": "poetry_form_ci",
+        "language": "classical_chinese",
+        "excerpt": false,
+        "text": "寻寻觅觅，冷冷清清，凄凄惨惨戚戚。乍暖还寒时候，最难将息。三杯两盏淡酒，怎敌他、晚来风急？雁过也，正伤心，却是旧时相识。\n满地黄花堆积。憔悴损，如今有谁堪摘？守着窗儿，独自怎生得黑？梧桐更兼细雨，到黄昏、点点滴滴。这次第，怎一个愁字了得！",
+        "gist_zh": "找来找去，四周冷冷清清，心里凄凄惨惨戚戚。天气刚暖又转寒，最难调养。三杯两盏薄酒，哪里挡得住傍晚的急风？大雁飞过，正伤心，原来还是从前认得的那群。满地黄花堆积，憔悴成这样，现在还摘得下什么？守着窗子，一个人怎么熬到天黑？梧桐上又下细雨，到黄昏一点一滴。这般情形，一个「愁」字怎么说得完。",
+        "themes": [
+          "愁",
+          "秋",
+          "孤独"
+        ]
+      },
+      "details": {
+        "definition": "李清照《声声慢》，双调九十七字、前后片各五仄韵。词条注：历来作者多用平韵格，而李清照此首所用仄韵格最为世所传诵。",
+        "mechanism": "开篇用十四个叠字分三层压下来，全是声音和感觉而不是陈述；以下全用日常器物与物候（淡酒、急风、过雁、黄花、窗、梧桐、细雨）逐层加码，最后用一个反问收住。",
+        "conditions": "适合秋日、独居、丧乱之后的场面；世界里要有雁、黄花、梧桐这类能唤起季节感的物象。",
+        "exceptions": "词条给出三个版本，「晚来风急／晓来风急」「守着窗儿／守著窗儿独自」等字句有出入；「怎生得黑」的断句各本也不同。",
+        "story_uses": "①抄本上「晓来」与「晚来」一字之差，决定了这场风是清晨还是傍晚。②一首词被用作丧礼上的挽唱。③有人仿作叠字开篇，被人一眼看穿。",
+        "historical_scope": "李清照（1084—约 1155），两宋之交，对应 tech:medieval。",
+        "evidence_and_uncertainty": "原文取 pc_src_11（声声慢词条）所列的版本一；另两个版本的差异与「双调九十七字、前后片各五仄韵」的规格同出该词条。异文的分歧本次未另找善本核对。"
+      },
+      "source_ids": [
+        "pc_src_11"
+      ],
+      "related_ids": [
+        "poetry_form_ci",
+        "culture_poetry_lyric"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "poetry_classic_rumengling",
+      "name": "如梦令·昨夜雨疏风骤",
+      "aliases": [],
+      "category": "culture",
+      "primary": "literature_form",
+      "evidence_grade": "sourced",
+      "tech_tier": "medieval",
+      "magic_tier": null,
+      "genres": [
+        "historical",
+        "real_world",
+        "eastern_fantasy"
+      ],
+      "tags": [
+        "kind:poem",
+        "tradition:eastern"
+      ],
+      "summary": "李清照小令，三十三字，一问一答之后以「绿肥红瘦」收，是宋词中最短的精品之一。",
+      "poem": {
+        "title": "如梦令·昨夜雨疏风骤",
+        "author": "李清照",
+        "era": "宋",
+        "form_ref": "poetry_form_ci",
+        "language": "classical_chinese",
+        "excerpt": false,
+        "text": "昨夜雨疏风骤，浓睡不消残酒。试问卷帘人，却道海棠依旧。知否，知否？应是绿肥红瘦。",
+        "gist_zh": "昨夜雨点稀疏、风却急；睡了一夜，酒意还没消。问那个卷帘的人，她只说海棠还是老样子。知道吗，知道吗？该是绿叶更肥、红花更瘦了。",
+        "themes": [
+          "惜春",
+          "问答",
+          "海棠"
+        ]
+      },
+      "details": {
+        "definition": "李清照《如梦令·暮春》，单调三十三字、五仄韵、一叠韵。词条注如梦令又名忆仙姿、宴桃源，五代时后唐庄宗李存勗创作，「绿肥红瘦」指绿叶繁茂、红花凋零。",
+        "mechanism": "全词是一次问答：问的人知道花已被打落，答的人随口说「依旧」，于是连问两声「知否」，最后自己给出答案。三十三字里完成了提问、误答与纠正。",
+        "conditions": "适合春日、闺阁、侍女与主人的日常对话；世界里要有海棠这类庭院花木与卷帘的居室。",
+        "exceptions": "词条另有一说「卷帘人」指侍女，本次未核到定论；「绿肥红瘦」是名句，引用时不要改成别的花草。",
+        "story_uses": "①卷帘的侍女说谎，主人却从一句「绿肥红瘦」听出她知道得更多。②一首三十三字的词被当作园中花事的记录，事后用来核对时令。",
+        "historical_scope": "李清照（1084—约 1155），两宋之交，对应 tech:medieval。",
+        "evidence_and_uncertainty": "原文与注（如梦令三十三字、五仄韵、一叠韵，又名忆仙姿与宴桃源，绿肥红瘦的含义）核对自 pc_src_12（如梦令词条）。「卷帘人」的身份词条列出两说，未定。"
+      },
+      "source_ids": [
+        "pc_src_12"
+      ],
+      "related_ids": [
+        "poetry_form_ci",
+        "culture_poetry_lyric"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "poetry_classic_yulinling",
+      "name": "雨霖铃·寒蝉凄切",
+      "aliases": [],
+      "category": "culture",
+      "primary": "literature_form",
+      "evidence_grade": "sourced",
+      "tech_tier": "medieval",
+      "magic_tier": null,
+      "genres": [
+        "historical",
+        "real_world",
+        "eastern_fantasy"
+      ],
+      "tags": [
+        "kind:poem",
+        "tradition:eastern"
+      ],
+      "summary": "柳永慢词，写都门送别，「杨柳岸、晓风残月」为宋词名句。",
+      "poem": {
+        "title": "雨霖铃·寒蝉凄切",
+        "author": "柳永",
+        "era": "北宋",
+        "form_ref": "poetry_form_ci",
+        "language": "classical_chinese",
+        "excerpt": false,
+        "text": "寒蝉凄切，对长亭晚，骤雨初歇。都门帐饮无绪，留恋处、兰舟催发。执手相看泪眼，竟无语凝噎。念去去，千里烟波，暮霭沉沉楚天阔。\n多情自古伤离别，更那堪，冷落清秋节！今宵酒醒何处？杨柳岸，晓风残月。此去经年，应是良辰好景虚设。便纵有千种风情，更与何人说？",
+        "gist_zh": "寒蝉叫得凄凉，傍晚对着长亭，一场急雨刚停。在都门外设帐饯行，一点心绪也没有；正舍不得，船家已在催开船。握着手互相看着流泪，竟一句话说不出，只有哽咽。想到这一去，千里烟波，暮色沉沉的楚天那么辽阔。多情的人自古为离别伤心，何况又在这冷落的清秋时节。今夜酒醒时人在哪里？大概是在杨柳岸边，对着晓风与残月。这一去一年又一年，再好的时辰与景致也是白设。就算有千种风情，又能对谁说。",
+        "themes": [
+          "送别",
+          "秋",
+          "羁旅"
+        ]
+      },
+      "details": {
+        "definition": "柳永《雨霖铃》，双调慢词。词条注：雨霖铃调见《乐章集》，相传唐玄宗入蜀时在雨中听到铃声而想起杨贵妃，故作此曲，曲调本身带有哀伤成分；「留恋处」一作「方留恋处」。",
+        "mechanism": "上片全在送别的现场：寒蝉、长亭、骤雨、帐饮、催发、执手、凝噎，一个动作接一个动作，最后把视线推到「千里烟波」。下片转入设想：先承认「多情自古伤离别」，再自问「今宵酒醒何处」，用虚设的将来把当下拉长。",
+        "conditions": "适合水路送别、都门外的长亭与饯行宴；世界里要有长亭、兰舟与帐饮这类送行设施与习俗。",
+        "exceptions": "「留恋处」有异文；「楚天」是泛指南方的天，不是确切地名。柳永的长调在当时被认为俚俗，雅俗评价与艺术价值不是一回事。",
+        "story_uses": "①长亭饯行时唱这首词，唱到「兰舟催发」时船真的开了。②「杨柳岸、晓风残月」被当作相见的约定地点，两人却记错了岸。③一首送别词被人拿去当了绝交的证据。",
+        "historical_scope": "柳永（约 984—约 1053），北宋，对应 tech:medieval。",
+        "evidence_and_uncertainty": "原文与注（雨霖铃调见《乐章集》、曲调哀伤的缘由、留恋处的异文）核对自 pc_src_13（雨霖铃词条）。相传唐玄宗制曲的故事是词条转述的传说，不作史实；柳永生卒年各书略有出入。"
+      },
+      "source_ids": [
+        "pc_src_13"
+      ],
+      "related_ids": [
+        "poetry_form_ci",
+        "culture_poetry_song"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "poetry_classic_tianjingsha",
+      "name": "天净沙·秋思",
+      "aliases": [],
+      "category": "culture",
+      "primary": "literature_form",
+      "evidence_grade": "sourced",
+      "tech_tier": "medieval",
+      "magic_tier": null,
+      "genres": [
+        "historical",
+        "real_world",
+        "eastern_fantasy"
+      ],
+      "tags": [
+        "kind:poem",
+        "tradition:eastern"
+      ],
+      "summary": "马致远散曲小令，五句二十八字，前三句全用名词并置。",
+      "poem": {
+        "title": "天净沙·秋思",
+        "author": "马致远",
+        "era": "元",
+        "form_ref": "poetry_form_yuanqu_xiaoling",
+        "language": "classical_chinese",
+        "excerpt": false,
+        "text": "枯藤老树昏鸦，\n小桥流水人家，\n古道西风瘦马。\n夕阳西下，\n断肠人在天涯。",
+        "gist_zh": "枯藤、老树、黄昏的乌鸦；小桥、流水、人家；古道、西风、瘦马。夕阳西下，伤心的人还在天边。",
+        "themes": [
+          "羁旅",
+          "秋",
+          "思乡"
+        ]
+      },
+      "details": {
+        "definition": "马致远《天净沙·秋思》，越调，曲牌天净沙又名塞上秋，全曲共五句二十八字。",
+        "mechanism": "前三句各由三个名词并置而成，中间不放动词，靠排列造成画面；第四句只写时间（夕阳西下），第五句才把「断肠人」放进来。前三句的景物因此全都变成这个人的眼界。",
+        "conditions": "适合驿道、羁旅、旅店的场面；世界里要有古道、瘦马、鸦与桥这类能一眼认出的旅途物象。",
+        "exceptions": "「越调」是宫调名，不能当成地名或曲牌名；把它称作「词」也不准确，它是散曲小令。",
+        "story_uses": "①旅人在墙上题了这首曲子，后人据此推断他走过的路线。②三句名词并置的写法被人仿作，用来描写另一段行程。③曲中的「人家」被读成某一户具体的人家，引起一场误会。",
+        "historical_scope": "马致远（约 1250—1321 后），元代，对应 tech:medieval。",
+        "evidence_and_uncertainty": "原文与注（越调为宫调名、天净沙为曲牌名又名塞上秋、全曲五句二十八字）核对自 pc_src_14（天净沙·秋思词条）。马致远的生卒年各书不一，本条只写大致年代。"
+      },
+      "source_ids": [
+        "pc_src_14"
+      ],
+      "related_ids": [
+        "poetry_form_yuanqu_xiaoling",
+        "culture_poetry_song"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "poetry_classic_shangxie",
+      "name": "上邪",
+      "aliases": [],
+      "category": "culture",
+      "primary": "literature_form",
+      "evidence_grade": "sourced",
+      "tech_tier": "classical",
+      "magic_tier": null,
+      "genres": [
+        "historical",
+        "real_world",
+        "eastern_fantasy"
+      ],
+      "tags": [
+        "kind:poem",
+        "tradition:eastern"
+      ],
+      "summary": "汉乐府情歌，用五种不可能发生的事作誓，是乐府里最激烈的一首。",
+      "poem": {
+        "title": "上邪",
+        "author": "无名氏（汉乐府）",
+        "era": "汉",
+        "form_ref": "poetry_form_yuefu",
+        "language": "classical_chinese",
+        "excerpt": false,
+        "text": "上邪！我欲与君相知，长命无绝衰。山无陵，江水为竭，冬雷震震，夏雨雪，天地合，乃敢与君绝！",
+        "gist_zh": "天啊！我要和你相好，让这份情永远不断不衰。除非山没有峰、江水干涸、冬天打雷、夏天下雪、天与地合到一起，我才敢和你断绝。",
+        "themes": [
+          "誓言",
+          "爱情",
+          "乐府"
+        ]
+      },
+      "details": {
+        "definition": "《上邪》，汉乐府歌辞，作者无名氏。词条注：「上」指天，「邪」是感叹语气词；「命」与「令」通，是「使」的意思；「雨雪」的「雨」名词活用作动词，读去声，是降雪。",
+        "mechanism": "开头直呼天，接着连举五件不可能的事作条件，把「与君绝」推到一个永远不会到的日子。句式从三言到七言不等，是乐府杂言的典型。",
+        "conditions": "适合盟誓、婚约与祭祀；世界里要有以呼天为誓的习俗，以及能唱杂言歌辞的场合。",
+        "exceptions": "「长命无绝衰」的「命」有多种读法（使、令），引用时要说清；把它当成整齐的五言诗会读错节奏。",
+        "story_uses": "①一对男女在祠前唱这首乐府盟誓，证人是整个村子。②誓词被官府当成叛逆的盟约抄走。③五种不可能的事里有一件真的发生了。",
+        "historical_scope": "汉代乐府歌辞，约前 2—公元 2 世纪，对应 tech:classical。",
+        "evidence_and_uncertainty": "原文与逐句注释（上指天、邪为语气词、命通令、雨雪为降雪）核对自 pc_src_15（上邪词条）。乐府曲调已失传，演唱方式不存，本次未核。"
+      },
+      "source_ids": [
+        "pc_src_15"
+      ],
+      "related_ids": [
+        "poetry_form_yuefu",
+        "culture_poetry_song"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "poetry_classic_lisao",
+      "name": "离骚（节选）",
+      "aliases": [
+        "离骚"
+      ],
+      "category": "culture",
+      "primary": "literature_form",
+      "evidence_grade": "sourced",
+      "tech_tier": "classical",
+      "magic_tier": null,
+      "genres": [
+        "historical",
+        "real_world",
+        "eastern_fantasy",
+        "xianxia"
+      ],
+      "tags": [
+        "kind:poem",
+        "tradition:eastern"
+      ],
+      "summary": "屈原长篇抒情诗《离骚》的开头，自述家世与名字的由来。此处只收开头十二句。",
+      "poem": {
+        "title": "离骚（节选）",
+        "author": "屈原",
+        "era": "战国·楚",
+        "form_ref": "poetry_form_chuci",
+        "language": "classical_chinese",
+        "excerpt": true,
+        "text": "帝高阳之苗裔兮，朕皇考曰伯庸。\n摄提贞于孟陬兮，惟庚寅吾以降。\n皇览揆余初度兮，肇锡余以嘉名。\n名余曰正则兮，字余曰灵均。\n纷吾既有此内美兮，又重之以修能。\n扈江离与辟芷兮，纫秋兰以为佩。",
+        "gist_zh": "我是古帝高阳氏的后裔，先父名叫伯庸。岁星正在孟陬之月，庚寅那天我降生。先父估量我初生的时节，赐给我美好的名字：给我取名叫正则，取字叫灵均。我既有这样内在的美质，又加上修来的才能；披着江离与幽僻的白芷，把秋兰编起来佩在身上。",
+        "themes": [
+          "身世",
+          "自述",
+          "香草"
+        ]
+      },
+      "details": {
+        "definition": "屈原《离骚》开头。本条只收开头六个对句（十二句），全篇远长于此处，故 poem.excerpt 为 true。",
+        "mechanism": "开篇先报家世与生年月日，再报父亲给的名字，然后转到自身的品德与佩饰。香草在这里既是实物也是德行的标记，这个写法贯穿了全篇。",
+        "conditions": "适合祭祀、自述身世、失意臣子的场合；世界里要有楚地的神话谱系、香草名物与长篇吟诵的场合。",
+        "exceptions": "《离骚》全篇很长，任何节选都要标明是节选；「兮」字的位置各本有在句中与句尾之别。作者屈原其人与其作品的真伪在学界长期有讨论。",
+        "story_uses": "①一卷残简上只剩开头的家世，据此可推定墓主的族属。②香草佩饰的名称是某个家族的暗号。③有人引《离骚》自比，被对方用同一句回敬。",
+        "historical_scope": "屈原（约前 340—前 278），战国楚，对应 tech:classical。",
+        "evidence_and_uncertainty": "原文核对自 pc_src_16（离骚词条，全篇带逐句序号），本条只取开头六个对句，属节选。「兮」字位置与屈原作品的真伪问题本次未核到定论；全篇的其他部分未逐句核对。"
+      },
+      "source_ids": [
+        "pc_src_16"
+      ],
+      "related_ids": [
+        "poetry_form_chuci",
+        "culture_poetry_lyric"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "poetry_classic_guanju",
+      "name": "关雎",
+      "aliases": [],
+      "category": "culture",
+      "primary": "literature_form",
+      "evidence_grade": "sourced",
+      "tech_tier": "classical",
+      "magic_tier": null,
+      "genres": [
+        "historical",
+        "real_world",
+        "eastern_fantasy"
+      ],
+      "tags": [
+        "kind:poem",
+        "tradition:eastern"
+      ],
+      "summary": "《诗经·周南》首篇，四言五章，以雎鸠起兴，写君子求淑女。",
+      "poem": {
+        "title": "关雎",
+        "author": "无名氏（《诗经·周南》）",
+        "era": "先秦",
+        "form_ref": "poetry_form_shijing_siyan",
+        "language": "classical_chinese",
+        "excerpt": false,
+        "text": "关关雎鸠，在河之洲。窈窕淑女，君子好逑。\n参差荇菜，左右流之。窈窕淑女，寤寐求之。\n求之不得，寤寐思服。悠哉悠哉，辗转反侧。\n参差荇菜，左右采之。窈窕淑女，琴瑟友之。\n参差荇菜，左右芼之。窈窕淑女，钟鼓乐之。",
+        "gist_zh": "雎鸠在河中的洲上互相应和地叫。美好贤良的姑娘，是君子的好配偶。长短不齐的荇菜，左边右边地捞；那姑娘，睡着醒着都想求她。求不到，睡着醒着都想，想得绵长，翻来覆去睡不着。长短不齐的荇菜，左边右边地采；那姑娘，弹琴鼓瑟去亲近她。长短不齐的荇菜，左边右边地挑；那姑娘，敲钟击鼓让她欢喜。",
+        "themes": [
+          "爱情",
+          "婚姻",
+          "兴体"
+        ]
+      },
+      "details": {
+        "definition": "《诗经·周南·关雎》，四言五章。词条注：「关关」是雌雄二鸟互相应和的叫声，雎鸠是一种水鸟；「好逑」的「逑」是「仇」的假借字，意为匹配；「流」「采」「芼」是荇菜的三种采法。",
+        "mechanism": "五章里荇菜的三个动词（流、采、芼）配合求、友、乐三个阶段，写的是同一件事的推进而不是五件事。开篇以雎鸠起兴，是全诗最有名的手法示范。",
+        "conditions": "适合婚礼、宴飨与乡饮酒礼；世界里要有采集荇菜的水域、琴瑟钟鼓这样的乐器与成婚礼。",
+        "exceptions": "《诗经》各篇分章与用韵并不统一；把「君子」「淑女」直接对应为后世的身份用语会失真。诗的主旨有赞美后妃之德与民间情歌两说。",
+        "story_uses": "①婚礼上唱《关雎》，唱到「钟鼓乐之」时鼓乐真的响起来。②采荇的人按「流、采、芼」的顺序报出时令。③谁有权在庙堂上唱这一篇，成了身份的争执。",
+        "historical_scope": "《诗经》约前 11—前 6 世纪，对应 tech:classical。",
+        "evidence_and_uncertainty": "原文、逐句注释（关关、雎鸠、好逑的假借、流采芼）与「以荇起兴」的注语核对自 pc_src_17（关雎词条）。诗旨的两说与分章用韵的不统一属通行讨论，本次未核到专门来源。"
+      },
+      "source_ids": [
+        "pc_src_17"
+      ],
+      "related_ids": [
+        "poetry_form_shijing_siyan",
+        "culture_poetry_song"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "poetry_classic_ariwara_chihayaburu",
+      "name": "ちはやぶる神代もきかず（在原業平）",
+      "aliases": [
+        "千早振る"
+      ],
+      "category": "culture",
+      "primary": "literature_form",
+      "evidence_grade": "sourced",
+      "tech_tier": "medieval",
+      "magic_tier": null,
+      "genres": [
+        "historical",
+        "real_world",
+        "eastern_fantasy"
+      ],
+      "tags": [
+        "kind:poem",
+        "tradition:eastern"
+      ],
+      "summary": "在原业平的和歌，「千早振る」为枕词，写龙田川被红叶染红的水面。收于《古今和歌集》与《小仓百人一首》。",
+      "poem": {
+        "title": "ちはやぶる神代もきかず竜田川からくれなゐに水くゝるとは",
+        "author": "在原業平",
+        "era": "平安前期",
+        "form_ref": "poetry_form_waka_tanka",
+        "language": "japanese",
+        "excerpt": false,
+        "text": "ちはやぶる\n神代もきかず\n竜田川\nからくれなゐに\n水くゝるとは",
+        "gist_zh": "连神代都没听说过这样的事：龙田川竟把流水都拧成了深红色——那是枫叶落满了河面。开头「ちはやぶる」是起修饰作用的枕词，冠在「神」上。",
+        "themes": [
+          "红叶",
+          "河川",
+          "神代"
+        ]
+      },
+      "details": {
+        "definition": "在原业平的和歌，五句三十一音。词条将其列入「代表作品」，并注明它同时收入《古今和歌集》与《小仓百人一首》。",
+        "mechanism": "全首的想法是一个反语：不谈眼前有枫叶，而说神代以来从没听过水会变成这种深红色。上句（五七五）先立「神代」与河名，下句（七七）才把颜色和动作抬出来。",
+        "conditions": "适合秋日、河畔、歌会与百人一首的场合；世界里要有和歌传统、枕词的知识与红叶的物候感。",
+        "exceptions": "注：本次读到的词条文本是简体转换版，个别字作「闻」「见」「负」而非日文通行字形，本条的「竜田川」「水くゝる」按词条原文录；「からくれなゐ」是历史假名遣，现代写法作「からくれない」。",
+        "story_uses": "①一首和歌里的河名指向某个领地的边界。②歌牌上缺了这一首，剩下的牌不能成局。③有人把「神代」改成「当代」，被指为大不敬。",
+        "historical_scope": "在原业平（825—880），平安前期，对应 tech:medieval。",
+        "evidence_and_uncertainty": "原文核对自 pc_src_18（在原业平词条「代表作品」一节），该节同时标出它收入《古今和歌集》与《小仓百人一首》。注：词条是简体转换版，本条的日文写法按词条录，未另找《古今和歌集》影印本核对；「千早振る」为枕词这一说法属通行知识，本次未核到专门来源。"
+      },
+      "source_ids": [
+        "pc_src_18"
+      ],
+      "related_ids": [
+        "poetry_form_waka_tanka",
+        "culture_poetry_lyric"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "poetry_classic_issa_frog",
+      "name": "痩せ蛙（小林一茶）",
+      "aliases": [
+        "瘦蛙"
+      ],
+      "category": "culture",
+      "primary": "literature_form",
+      "evidence_grade": "sourced",
+      "tech_tier": "early_modern",
+      "magic_tier": null,
+      "genres": [
+        "historical",
+        "real_world",
+        "eastern_fantasy",
+        "folk_horror"
+      ],
+      "tags": [
+        "kind:poem",
+        "tradition:eastern"
+      ],
+      "summary": "小林一茶的名句，对着一只瘦蛙给它鼓气，是俳句里少见的第一人称插话。",
+      "poem": {
+        "title": "痩せ蛙　負けるな　一茶ここにあり",
+        "author": "小林一茶",
+        "era": "江户后期",
+        "form_ref": "poetry_form_haiku",
+        "language": "japanese",
+        "excerpt": false,
+        "text": "痩せ蛙\n負けるな\n一茶ここにあり",
+        "gist_zh": "瘦青蛙啊，别输——一茶在这里呢。诗人把自己押进了这句叫陣里，与一只蛙同盟。",
+        "themes": [
+          "蛙",
+          "斗气",
+          "自嘲"
+        ]
+      },
+      "details": {
+        "definition": "小林一茶的名句之一，三句十七音。词条「名句」一节的原文作「痩せ蛙　负けるな　一茶ここにあり」。",
+        "mechanism": "三句里前两句是对蛙说话，第三句把自己搬进场景。俳句一般不出现说话人，一茶偏偏报名，所以它的力量全在「一茶ここにあり」这一句上。",
+        "conditions": "适合田园、市集、儿童与流浪者的场面；世界里要有蛙鸣的池沼与能即席开口的吟诵人。",
+        "exceptions": "注：词条文本是简体转换版，本条的「負けるな」按日文通行写法录，词条作「负けるな」。一茶俳谐不合芭蕉派的闲寂，以诙谐与人情为主，不宜归为「禅寂」一类。",
+        "story_uses": "①一句俳句把诗人自己押在了赌局上。②孩子学这句俳句时把「一茶」换成自己的名字。③一首俳句的署名让人意识到作者当时就在场。",
+        "historical_scope": "小林一茶（1763—1827），江户后期，对应 tech:early_modern。",
+        "evidence_and_uncertainty": "原文核对自 pc_src_19（小林一茶词条「名句」一节，共三句，本条取第一句）。词条是简体转换版，个别汉字经简化，本条只把「负」还原为「負」并在此声明；音节数（五七五=十七音）本次未逐字数过。"
+      },
+      "source_ids": [
+        "pc_src_19"
+      ],
+      "related_ids": [
+        "poetry_form_haiku",
+        "culture_poetry_haiku"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "poetry_classic_issa_fly",
+      "name": "やれ打つな（小林一茶）",
+      "aliases": [
+        "蠅"
+      ],
+      "category": "culture",
+      "primary": "literature_form",
+      "evidence_grade": "sourced",
+      "tech_tier": "early_modern",
+      "magic_tier": null,
+      "genres": [
+        "historical",
+        "real_world",
+        "eastern_fantasy",
+        "folk_horror"
+      ],
+      "tags": [
+        "kind:poem",
+        "tradition:eastern"
+      ],
+      "summary": "小林一茶的名句，看苍蝇搓手搓脚而不忍打，是俳句里最典型的「对弱小同情」之作。",
+      "poem": {
+        "title": "やれ打つな　ハエが手をする　足をする",
+        "author": "小林一茶",
+        "era": "江户后期",
+        "form_ref": "poetry_form_haiku",
+        "language": "japanese",
+        "excerpt": false,
+        "text": "やれ打つな\nハエが手をする\n足をする",
+        "gist_zh": "哎，别打它——苍蝇在搓手，又在搓脚呢。诗人把苍蝇搓手搓脚的动作看成求饶，自己就不忍打了。",
+        "themes": [
+          "苍蝇",
+          "不忍",
+          "弱小"
+        ]
+      },
+      "details": {
+        "definition": "小林一茶的名句之一，三句十七音，词条「名句」一节作「やれ打つな　ハエが手をする　足をする」。",
+        "mechanism": "两句重复的句式（「手をする／足をする」）把一个细小的动作拖长，而拖长之后读者才感到不忍。全句没有判断句，只有一声劝阻和一个动作。",
+        "conditions": "适合农家、盛夏、蝇虫多的场面；世界里要有对弱小生灵的态度差异（怜悯、厌弃、漠然）。",
+        "exceptions": "俳句一般不解释，所以这一句的力量靠读者自己去看那个动作；把「手をする」解为「求饶」是后人的读法，不是原句的明说。",
+        "story_uses": "①一句俳句让一个以杀伐著称的人物放下了手。②有人把「ハエ」换成别的虫，这句就失去了重心。③在蝇虫带病的荒年里，这句被当作不识时务的闲话。",
+        "historical_scope": "小林一茶（1763—1827），江户后期，对应 tech:early_modern。",
+        "evidence_and_uncertainty": "原文核对自 pc_src_19（小林一茶词条「名句」一节，共三句，本条取第二句）。音节数与季语归属本次未逐字核对；一茶俳谐「反抗强者、同情弱者」的评语同出该词条。"
+      },
+      "source_ids": [
+        "pc_src_19"
+      ],
+      "related_ids": [
+        "poetry_form_haiku",
+        "culture_poetry_haiku"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "poetry_classic_sonnet18",
+      "name": "Sonnet 18 (Shall I compare thee to a summer's day?)",
+      "aliases": [
+        "十四行诗第十八首"
+      ],
+      "category": "culture",
+      "primary": "literature_form",
+      "evidence_grade": "sourced",
+      "tech_tier": "renaissance",
+      "magic_tier": null,
+      "genres": [
+        "historical",
+        "real_world",
+        "western_fantasy"
+      ],
+      "tags": [
+        "kind:poem",
+        "tradition:western"
+      ],
+      "summary": "莎士比亚十四行诗第十八首，用夏天作比，最后把被篡者的生命托给这首诗。",
+      "poem": {
+        "title": "Sonnet 18",
+        "author": "William Shakespeare",
+        "era": "16 世纪末",
+        "form_ref": "poetry_form_shakespearean_sonnet",
+        "language": "english",
+        "excerpt": false,
+        "text": "Shall I compare thee to a summer's day?\nThou art more lovely and more temperate:\nRough winds do shake the darling buds of May,\nAnd summer's lease hath all too short a date:\nSometime too hot the eye of heaven shines,\nAnd often is his gold complexion dimm'd;\nAnd every fair from fair sometime declines,\nBy chance or nature's changing course untrimm'd;\nBut thy eternal summer shall not fade\nNor lose possession of that fair thou owest;\nNor shall Death brag thou wander'st in his shade,\nWhen in eternal lines to time thou growest:\nSo long as men can breathe or eyes can see,\nSo long lives this and this gives life to thee.",
+        "gist_zh": "我该把你比作夏天吗？你比夏天更可爱也更温和。五月的花苞被粗风摇落，夏天的租期又太短；有时天眼晒得太毒，它那金色的面容也常常变暗；凡美的东西总要从美里凋落，或被偶然、或被自然的代谢弄残。但你的夏天不会褪色，你拥有的那份美也不会被夺走，死亡不能夸口说你走进了它的阴影——当你在这些不朽的诗行里随时间长成。只要人还能呼吸、眼还能看见，这首诗就活着，而它让你活着。",
+        "themes": [
+          "时间",
+          "不朽",
+          "赞美"
+        ]
+      },
+      "details": {
+        "definition": "莎士比亚十四行诗第十八首，十四行，三个四行节加一个对句；英文原文核对自 MIT 的莎士比亚全集页。",
+        "mechanism": "前八行先把夏天逐一贬低（风、日、阴、凋落），第十二行把被赞者抬到「永恒的诗行」里，最后两行把诗的寿命与人的呼吸捆在一起。这是典型的莎士比亚体：对句点题。",
+        "conditions": "适合题跋、赠答、墓志与文人之间的吹捧与自夸；世界里要有能押韵的读写传统与把诗当作纪念碑的观念。",
+        "exceptions": "原本的拼写与现代排印本有出入（如 dimm'd、owest、wander'st）；把这首诗读成爱情诗还是 patrons 之间的恭维，历来有争论。",
+        "story_uses": "①一首十四行诗被人背下来当遗产凭证。②对句里那两个字被改了，赞美变成了诅咒。③诗人自称能让对方不死，被当真的人找上门。",
+        "historical_scope": "莎士比亚（1564—1616），16 世纪末，对应 tech:renaissance。",
+        "evidence_and_uncertainty": "英文原文核对自 pc_src_21（MIT 的 Sonnet XVIII 页）；十四行诗的体式与韵式见 poetry-forms 里的 poetry_form_shakespearean_sonnet（依据 pf_src_09）。本诗的创作年代与献给对象未有定论，本条只写「16 世纪末」。"
+      },
+      "source_ids": [
+        "pc_src_21",
+        "pc_src_20"
+      ],
+      "related_ids": [
+        "poetry_form_shakespearean_sonnet",
+        "culture_lit_courtly"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "poetry_classic_sonnet12",
+      "name": "Sonnet 12 (When I do count the clock that tells the time)",
+      "aliases": [
+        "十四行诗第十二首"
+      ],
+      "category": "culture",
+      "primary": "literature_form",
+      "evidence_grade": "sourced",
+      "tech_tier": "renaissance",
+      "magic_tier": null,
+      "genres": [
+        "historical",
+        "real_world",
+        "western_fantasy"
+      ],
+      "tags": [
+        "kind:poem",
+        "tradition:western"
+      ],
+      "summary": "莎士比亚十四行诗第十二首，把时钟、枯树、夏绿一一数过，最后只剩下生育可以抗拒时间。",
+      "poem": {
+        "title": "Sonnet 12",
+        "author": "William Shakespeare",
+        "era": "16 世纪末",
+        "form_ref": "poetry_form_shakespearean_sonnet",
+        "language": "english",
+        "excerpt": false,
+        "text": "When I do count the clock that tells the time,\nAnd see the brave day sunk in hideous night;\nWhen I behold the violet past prime,\nAnd sable curls all silver'd o'er with white:\nWhen lofty trees I see barren of leaves,\nWhich erst from heat did canopy the herd,\nAnd summer's green, all girded up in sheaves,\nBorn on the bier with white and bristly beard;\nThen of thy beauty do I question make,\nThat thou among the wastes of time must go,\nSince sweets and beauties do themselves forsake,\nAnd die as fast as they see others grow;\nAnd nothing 'gainst Time's scythe can make defence\nSave breed, to brave him when he takes thee hence.",
+        "gist_zh": "当我数着报时的钟、看白昼沉进可怕的夜；当我看见紫罗兰过了盛期、乌黑的发卷全被白色盖过；当我看见高树落尽了叶——它们原先还为畜群遮荫；夏天的绿被捆成束，带着白色硬芒躺在尸架上；于是我对你的美起了疑：你也要走进时间的荒漠，因为甜与美都舍弃自己，看着别人长起来就同样快地死去。什么都挡不住时间的镰刀，除了生育——它能在时间把你带走时向它叫阵。",
+        "themes": [
+          "时间",
+          "衰老",
+          "生育"
+        ]
+      },
+      "details": {
+        "definition": "莎士比亚十四行诗第十二首，十四行。英文原文核对自「莎士比亚十四行诗」词条（该词条页同时附了现代中文译者译文，本项目未采用）。",
+        "mechanism": "四个「When」从句逐层数下去（钟、日、紫罗兰、发、树、夏绿），第九行才说「于是我对你的美起了疑」，最后两行给出唯一对策：生育。全诗的论证结构比第 18 首更硬。",
+        "conditions": "适合时间、衰老、族继这类主题；世界里要有钟、镜、田与牧场这些能让时间变得可见的物件。",
+        "exceptions": "本诗写的是生育能抵抗时间，不是爱情或艺术能抵抗时间；与第 18 首的「诗让你不死」是两套不同的论证，引用时不要混。",
+        "story_uses": "①一座钟被人拆开，只为让诗里的「数着钟」失效。②抄本把「breed」写成别的词，全诗的结论就没了。③一首劝人生育的诗被当成诅咒。",
+        "historical_scope": "莎士比亚（1564—1616），16 世纪末，对应 tech:renaissance。",
+        "evidence_and_uncertainty": "英文原文核对自 pc_src_27（莎士比亚十四行诗词条）。该页附有的现代中文译文属他人著作权，本项目未采用、也未参照其遣词；本条的中文大意是自写的。"
+      },
+      "source_ids": [
+        "pc_src_27",
+        "pc_src_20"
+      ],
+      "related_ids": [
+        "poetry_form_shakespearean_sonnet",
+        "culture_lit_courtly"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "poetry_classic_macbeth_tomorrow",
+      "name": "麦克白的「明天」独白（麦克白 5.5）",
+      "aliases": [
+        "明天，明天，再一个明天"
+      ],
+      "category": "culture",
+      "primary": "literature_form",
+      "evidence_grade": "sourced",
+      "tech_tier": "renaissance",
+      "magic_tier": null,
+      "genres": [
+        "historical",
+        "real_world",
+        "western_fantasy",
+        "dark_fantasy"
+      ],
+      "tags": [
+        "kind:poem",
+        "tradition:western"
+      ],
+      "summary": "《麦克白》第五幕第五场，麦克白听到王后死讯后的独白，素体诗的典型段子。",
+      "poem": {
+        "title": "Macbeth, Act 5, Scene 5（独白）",
+        "author": "William Shakespeare",
+        "era": "约 1606",
+        "form_ref": "poetry_form_blank_verse",
+        "language": "english",
+        "excerpt": true,
+        "text": "She should have died hereafter;\nThere would have been a time for such a word.\nTo-morrow, and to-morrow, and to-morrow,\nCreeps in this petty pace from day to day\nTo the last syllable of recorded time,\nAnd all our yesterdays have lighted fools\nThe way to dusty death. Out, out, brief candle!\nLife's but a walking shadow, a poor player\nThat struts and frets his hour upon the stage\nAnd then is heard no more: it is a tale\nTold by an idiot, full of sound and fury,\nSignifying nothing.",
+        "gist_zh": "她本来以后总会死的；总该有工夫说这句话。明天、明天、又一个明天，一天一天踏着碎步，挪到有记载的时间的最后一个音节；我们所有的昨天都给蠢人照路，引他们走向死亡的尘埃。灭了吧，灭了吧，短蜡烛！人生不过是一个走动的影子、一个可怜的演员，在台上趾高气扬、慷慨激昂地演完他的一个钟头，然后就没人再提起；它是一个白痴讲的故事，充满声音与狂怒，却毫无意义。",
+        "themes": [
+          "死亡",
+          "虚无",
+          "时间"
+        ]
+      },
+      "details": {
+        "definition": "《麦克白》第五幕第五场中麦克白听到王后死讯后的独白，共十二行；本条只收这一段，属节选。",
+        "mechanism": "全段是素体诗：不押韵、抑扬格五音步，中间大量跨行（如「To-morrow, and to-morrow, and to-morrow,／Creeps in...」），把时间的拖长写在行里。三个连续的比喻（影子、演员、白痴的故事）逐层把人生拉空。",
+        "conditions": "适合戏剧舞台上的独白、临终、失势与虚无的场面；世界里要有剧场、蜡烛与表演。",
+        "exceptions": "这是剧中的一段台词，不是独立成篇的诗；台词本若按散文排版，五音步与跨行的节奏会被读乱。",
+        "story_uses": "①同一个演员在这段独白里多停一拍，观众就知道他在想别的事。②剧本上被删了一行，删的位置露出了改本的人。③有人把「白痴的故事」当作真的传闻去追。",
+        "historical_scope": "莎士比亚（1564—1616），约 1606，对应 tech:renaissance。",
+        "evidence_and_uncertainty": "英文原文核对自 pc_src_25（MIT 的 Macbeth 5.5 全页）。创作年代「约 1606」是通行系年，本次未核到专门来源；素体诗的体式见 poetry-forms 里的 poetry_form_blank_verse（依据 pf_src_11）。"
+      },
+      "source_ids": [
+        "pc_src_25"
+      ],
+      "related_ids": [
+        "poetry_form_blank_verse",
+        "culture_poetry_narrative"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "poetry_classic_tyger",
+      "name": "The Tyger（老虎）",
+      "aliases": [
+        "老虎"
+      ],
+      "category": "culture",
+      "primary": "literature_form",
+      "evidence_grade": "sourced",
+      "tech_tier": "steam",
+      "magic_tier": null,
+      "genres": [
+        "historical",
+        "real_world",
+        "western_fantasy",
+        "folk_horror"
+      ],
+      "tags": [
+        "kind:poem",
+        "tradition:western"
+      ],
+      "summary": "布莱克《老虎》，六节二十四行，反复追问同一个问题：是谁造了这种可怕的对称。",
+      "poem": {
+        "title": "The Tyger",
+        "author": "William Blake",
+        "era": "1794",
+        "form_ref": "poetry_form_english_quatrain",
+        "language": "english",
+        "excerpt": false,
+        "text": "Tyger! Tyger! burning bright\nIn the forests of the night,\nWhat immortal hand or eye\nCould frame thy fearful symmetry?\n\nIn what distant deeps or skies\nBurnt the fire of thine eyes?\nOn what wings dare he aspire?\nWhat the hand, dare sieze the fire?\n\nAnd what shoulder, & what art,\nCould twist the sinews of thy heart?\nAnd when thy heart began to beat,\nWhat dread hand? & what dread feet?\n\nWhat the hammer? what the chain?\nIn what furnace was thy brain?\nWhat the anvil? what dread grasp\nDare its deadly terrors clasp?\n\nWhen the stars threw down their spears,\nAnd water'd heaven with their tears,\nDid he smile his work to see?\nDid he who made the Lamb make thee?\n\nTyger! Tyger! burning bright\nIn the forests of the night,\nWhat immortal hand or eye\nDare frame thy fearful symmetry?",
+        "gist_zh": "老虎！老虎！在夜的森林里燃得那么亮，是哪个不朽的手或眼能造出你这副可怕的对称？在多么遥远的深渊或天空里烧着你的眼睛之火？他靠着什么样的翅膀才敢上去？是什么手敢去抓那团火？又是什么样的肩与技艺能把你的心的筋腱扭成？而你的心开始跳动时，是多么可怕的手、多么可怕的脚？什么样的锤？什么样的链？你的脑子是在什么炉里炼的？什么样的砧、多么可怕的手才能握住那致命的恐怖？当星星掷下它们的矛、用泪水洗了天，他看见自己的作品会笑吗？造了羔羊的那位，也造了你吗？最后一节回到开头，但把 could 换成了 dare。",
+        "themes": [
+          "创造",
+          "恐怖",
+          "对称"
+        ]
+      },
+      "details": {
+        "definition": "布莱克《老虎》，六节二十四行，每节四行；原文核对自 Academy of American Poets 的公有领域版本。",
+        "mechanism": "全诗由一连串质问组成，每一节问造物的某个环节（手、眼、翅、肩、锤、链、炉、砧），没有一句回答。最后一节把首节重写一遍，只把「Could」改成「Dare」，语气由疑问变成责问。",
+        "conditions": "适合工地、炉火、造物与质问神意的场面；世界里要有铁匠、锻炉与羔羊这类能形成对照的物象。",
+        "exceptions": "原文拼作「sieze」（现代拼作 seize），保留原样；把这首诗读成纯粹的赞美或纯粹的质问都只见一半。收入《天真与经验之歌》的版本与手稿本在标点上有出入。",
+        "story_uses": "①一首诗末节只改一个词，抄本就成了异端。②铁匠读到「什么锤、什么链」，把它当成同行的手艺自述。③「造了羔羊的那位也造了你吗」被人当作异教言论举报。",
+        "historical_scope": "布莱克（1757—1827），1794，对应 tech:steam。",
+        "evidence_and_uncertainty": "英文原文核对自 pc_src_22（poets.org 的 The Tyger 页，该页标明 public domain，并给出作者生卒 1757—1827）。创作年代 1794 取自通行说法，本次未核到专门来源；四行一节的韵式见 poetry-forms 里的 poetry_form_english_quatrain。"
+      },
+      "source_ids": [
+        "pc_src_22"
+      ],
+      "related_ids": [
+        "poetry_form_english_quatrain",
+        "culture_poetry_lyric"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "poetry_classic_ozymandias",
+      "name": "Ozymandias（奥兹曼迪亚斯）",
+      "aliases": [
+        "奥兹曼迪亚斯",
+        "雪莱十四行诗"
+      ],
+      "category": "culture",
+      "primary": "literature_form",
+      "evidence_grade": "sourced",
+      "tech_tier": "steam",
+      "magic_tier": null,
+      "genres": [
+        "historical",
+        "real_world",
+        "western_fantasy"
+      ],
+      "tags": [
+        "kind:poem",
+        "tradition:western"
+      ],
+      "summary": "雪莱的十四行诗，借沙漠里的残骸说权势的虚无；十四行而韵式不规则。",
+      "poem": {
+        "title": "Ozymandias",
+        "author": "Percy Bysshe Shelley",
+        "era": "1818",
+        "form_ref": "",
+        "language": "english",
+        "excerpt": false,
+        "text": "I met a traveller from an antique land\nWho said: “Two vast and trunkless legs of stone\nStand in the desert . . . Near them, on the sand,\nHalf sunk, a shattered visage lies, whose frown,\nAnd wrinkled lip, and sneer of cold command,\nTell that its sculptor well those passions read\nWhich yet survive, stamped on these lifeless things,\nThe hand that mocked them, and the heart that fed:\nAnd on the pedestal these words appear:\n‘My name is Ozymandias, king of kings:\nLook on my works, ye Mighty, and despair!’\nNothing beside remains. Round the decay\nOf that colossal wreck, boundless and bare\nThe lone and level sands stretch far away.”",
+        "gist_zh": "我遇到一个从古老地方来的旅人。他说：沙漠里立着两条巨大的、没有躯干的石腿，旁边沙上半埋着一张碎脸，那蹙眉、蹙起的唇与冷命令的嘲笑说明匠人把它主人的心思读得很准，那些心思至今还刻在这无生命的东西上；刻它的手与供养它的心也都留在那里。石座上还留着这些话：「我叫奥兹曼迪亚斯，王中之王；你们强者，看我的功业，然后绝望吧！」此外什么也没剩。这庞大残骸的四周，衰败之外，只有荒凉平坦的沙一直伸到很远。",
+        "themes": [
+          "权势",
+          "废墟",
+          "虚无"
+        ]
+      },
+      "details": {
+        "definition": "雪莱的十四行诗《奥兹曼迪亚斯》，十四行、每行五音步，但韵式是 ABABACDCEDEFEF，不属于严格的彼特拉克体也不属于莎士比亚体。故 poem.form_ref 留空。原文核对自 poets.org 公有领域版本。",
+        "mechanism": "全诗是一个转述：诗人遇旅人，旅人转述石座上的话，石座上的话又是一个暴君的宣言。三层引语逐层剥夺，到「此外什么也没剩」时只剩沙，所以它既讽刺权势、也讽刺「证词」本身。",
+        "conditions": "适合废墟、遗迹、远征与刻铭的场面；世界里要有沙漠、巨型石像与能读铭文的人。",
+        "exceptions": "把它归为彼特拉克体或莎士比亚体都会写错韵式；它是「不规则十四行」。石座上的话是押韵的对句，不是古埃及铭文的写法。",
+        "story_uses": "①旅人带回的一段铭文与另一队人的记录不一致。②石像的脸被认出是本地君主的模样。③一句「看我的功业」被人当作藏宝的提示。",
+        "historical_scope": "雪莱（1792—1822），1818，对应 tech:steam。",
+        "evidence_and_uncertainty": "英文原文核对自 pc_src_23（poets.org 的 Ozymandias 页，标明 public domain 并注雪莱与霍勒斯·史密斯写过同题竞赛诗）。本条的韵式分析是逐行自行标出的，未另引韵式专门的来源；创作年代 1818 为通行说法。"
+      },
+      "source_ids": [
+        "pc_src_23"
+      ],
+      "related_ids": [
+        "culture_poetry_lyric"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "poetry_classic_aeneid_1",
+      "name": "《埃涅阿斯纪》卷一开头（拉丁文）",
+      "aliases": [
+        "Aeneid I.1-7",
+        "Arma virumque cano"
+      ],
+      "category": "culture",
+      "primary": "literature_form",
+      "evidence_grade": "sourced",
+      "tech_tier": "classical",
+      "magic_tier": null,
+      "genres": [
+        "historical",
+        "real_world",
+        "western_fantasy"
+      ],
+      "tags": [
+        "kind:poem",
+        "tradition:western"
+      ],
+      "summary": "维吉尔《埃涅阿斯纪》开篇七行的拉丁文，古典六步格史诗的标准开篇。",
+      "poem": {
+        "title": "Aeneidos Liber Primus, 1-7",
+        "author": "Publius Vergilius Maro",
+        "era": "前 1 世纪",
+        "form_ref": "poetry_form_hexameter_epic",
+        "language": "latin_greek",
+        "excerpt": true,
+        "text": "Arma virumque cano, Troiae qui primus ab oris\nItaliam, fato profugus, Laviniaque venit\nlitora, multum ille et terris iactatus et alto\nvi superum saevae memorem Iunonis ob iram;\nmulta quoque et bello passus, dum conderet urbem,\ninferretque deos Latio, genus unde Latinum,\nAlbanique patres, atque altae moenia Romae.",
+        "gist_zh": "我唱战争与那个人：他因命运成了流亡者，从特洛伊的海岸最先来到意大利与拉维尼乌姆的海岸；他因上天之力、因残酷的尤诺不忘的怒火，在陆上与海上被抛掷很多；又在战事里受了很多苦，直到他建起城、把神带进拉丁姆——拉丁人的族裔、阿尔巴的先父们、以及高耸的罗马的城墙都从那里来。本条只收卷一开头七行，全诗远长于此。",
+        "themes": [
+          "史诗",
+          "流亡",
+          "建城"
+        ]
+      },
+      "details": {
+        "definition": "维吉尔《埃涅阿斯纪》卷一开头七行拉丁文，属节选。原文核对自 The Latin Library 的 Aeneidos Liber Primus 页；该页带长音符号与行末行号。",
+        "mechanism": "开篇七行就把全诗写完：战争、人、流亡、神怒、苦难、建城、罗马的起源。前四行说一个人的苦难，第五行起说他的使命，最后一行把镜头拉到罗马城墙。",
+        "conditions": "适合史诗吟诵、宫廷颂词、学校课本与译者工作的场面；世界里要有能读拉丁文或仿作的识字阶层。",
+        "exceptions": "这是节选，不能当全诗的长度；拉丁文的音步与重音在转写时必须另作说明。不同校本的长音符号与标点略有出入。",
+        "story_uses": "①抄本的第一行缺了一个词，年代由此可判。②译者把「arma virumque」译成「兵器与人」还是「战争与人」，成了两派。③有人用前四行作为流亡者的墓志。",
+        "historical_scope": "维吉尔（前 70—前 19），前 1 世纪，对应 tech:classical。",
+        "evidence_and_uncertainty": "拉丁文原文核对自 pc_src_26（The Latin Library 的 Aeneid I 页，带长音符号与行号），本条只取前七行、属节选。该页只有原文、不含格律说明；六步格的具体规则见 poetry-forms 里的 poetry_form_hexameter_epic（本条自行标为 inferred）。"
+      },
+      "source_ids": [
+        "pc_src_26"
+      ],
+      "related_ids": [
+        "poetry_form_hexameter_epic",
+        "culture_poetry_epic"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "poetry_classic_coopers_hill",
+      "name": "Cooper's Hill（英雄双韵体例句）",
+      "aliases": [
+        "库珀山"
+      ],
+      "category": "culture",
+      "primary": "literature_form",
+      "evidence_grade": "sourced",
+      "tech_tier": "renaissance",
+      "magic_tier": null,
+      "genres": [
+        "historical",
+        "real_world",
+        "western_fantasy"
+      ],
+      "tags": [
+        "kind:poem",
+        "tradition:western"
+      ],
+      "summary": "德纳姆《Cooper's Hill》里的四行，常被当作英语英雄双韵体的标准例句。",
+      "poem": {
+        "title": "Cooper's Hill (excerpt)",
+        "author": "John Denham",
+        "era": "17 世纪",
+        "form_ref": "poetry_form_heroic_couplet",
+        "language": "english",
+        "excerpt": true,
+        "text": "O could I flow like thee, and make thy stream\nMy great example, as it is my theme!\nThough deep yet clear, though gentle yet not dull;\nStrong without rage, without o'erflowing full.",
+        "gist_zh": "唉，要是我能像你这样流，把你的河当作我的榜样——它正是我写的题目！它深而清，缓而不滞；有力而不狂怒，满而不溢。这四行是两个对偶句，被当作英雄双韵体的示范。",
+        "themes": [
+          "河流",
+          "师法",
+          "节制"
+        ]
+      },
+      "details": {
+        "definition": "德纳姆《Cooper's Hill》的四行英文，被「英雄双韵体」词条的「例子」一节当作该体裁的示范，属节选。",
+        "mechanism": "两个对偶句各说一层：第一联把河当作榜样，第二联用四个并列的形容（深、清、缓、有力）把榜样的品质列完。四行全在以河流自况诗的写法。",
+        "conditions": "适合论诗、师法前人、写景兼论艺的场面；世界里要有可游的山水与以诗论艺的传统。",
+        "exceptions": "这四行是节选；库珀山是英国白金汉郡的一处山丘，不是虚构地名。把两个对偶句当作全诗的结构会读错。它做英雄双韵体的例句合适，但不足以为长篇的示范。",
+        "story_uses": "①四行诗被人刻在河边的石上，作者名字被抹了。②一条河的水文与诗里的四德不合，引出一场争论。③有人把「不以怒为强」当作处世守则抄给下属。",
+        "historical_scope": "德纳姆（1615—1669），17 世纪，对应 tech:renaissance。",
+        "evidence_and_uncertainty": "英文原文与它对英雄双韵体的示范地位核对自 pc_src_29（英雄双韵体词条的「例子」一节）。该页未给出全诗与出处版本，本条只录词条所引的四行、属节选。"
+      },
+      "source_ids": [
+        "pc_src_29"
+      ],
+      "related_ids": [
+        "poetry_form_heroic_couplet",
+        "culture_poetry_lyric"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "poetry_classic_whitman_singing",
+      "name": "I Hear America Singing（我听见美洲在歌唱）",
+      "aliases": [
+        "我听见美洲在歌唱"
+      ],
+      "category": "culture",
+      "primary": "literature_form",
+      "evidence_grade": "sourced",
+      "tech_tier": "steam",
+      "magic_tier": null,
+      "genres": [
+        "historical",
+        "real_world",
+        "steam"
+      ],
+      "tags": [
+        "kind:poem",
+        "tradition:western"
+      ],
+      "summary": "惠特曼自由诗的代表作，把各行当的劳动一一列举成歌。",
+      "poem": {
+        "title": "I Hear America Singing",
+        "author": "Walt Whitman",
+        "era": "1867",
+        "form_ref": "poetry_form_free_verse",
+        "language": "english",
+        "excerpt": false,
+        "text": "I hear America singing, the varied carols I hear,\nThose of mechanics, each one singing his as it should be blithe and strong,\nThe carpenter singing his as he measures his plank or beam,\nThe mason singing his as he makes ready for work, or leaves off work,\nThe boatman singing what belongs to him in his boat, the deckhand singing on the steamboat deck,\nThe shoemaker singing as he sits on his bench, the hatter singing as he stands,\nThe wood-cutter's song, the ploughboy's on his way in the morning, or at noon intermission or at sundown,\nThe delicious singing of the mother, or of the young wife at work, or of the girl sewing or washing,\nEach singing what belongs to him or her and to none else,\nThe day what belongs to the day -- at night the party of young fellows, robust, friendly,\nSinging with open mouths their strong melodious songs.",
+        "gist_zh": "我听见美洲在歌唱，听见各种各样的小调：机工各自唱着自己的，那歌该是快活的、有力的；木匠量木板或梁时唱着自己的；石匠上工或收工时唱着自己的；船家唱他那条船的事，甲板手在汽船甲板上唱；鞋匠坐在凳上唱，帽匠站着唱；伐木人有他的歌，犁田的少年早上赶路时、正午歇时、日落时也有他的歌；母亲、做工的少妇、缝衣洗衣的姑娘也唱得好听。各人唱自己的，不属于别人。白天唱白天的事；夜里，一群年壮、和气的少年张着嘴唱他们那有力而好听的歌。",
+        "themes": [
+          "劳动",
+          "歌唱",
+          "美国"
+        ]
+      },
+      "details": {
+        "definition": "惠特曼《我听见美洲在歌唱》，十一行自由诗。原文核对自 poets.org 公有领域版本（该页注：此版见于 1867 年版《草叶集》，初版为 1860 年版「民主之声」第 20 首）。",
+        "mechanism": "全诗是一串列举：机工、木匠、石匠、船家、鞋匠、帽匠、伐木人、犁田的少年、母亲与少女。每行自言自语、不押韵，靠平行的句式推进，最后两行把白天归给白天、把歌归给一场夜里的合唱。",
+        "conditions": "适合工厂、码头、拓荒与选举集会的场面；世界里要有蒸汽与铁路那一代的技术与报刊、集会这类传播场合。",
+        "exceptions": "诗里的「美洲」是 19 世纪中期的美国，不是抽象的大陆；这个版本与 1860 年版的字句不同。把它当作纯粹的赞美诗会忽略它只写到劳动者、没写诗人自己。",
+        "story_uses": "①一队工人照这首诗的次序排队开工，次序暗含他们的分工。②有人把「不属于别人」一句当作私有财产的宣言。③一份报纸把最后两行删了，诗的合唱就没收尾。",
+        "historical_scope": "惠特曼（1819—1892），1867 版，对应 tech:steam。",
+        "evidence_and_uncertainty": "英文原文与两个版本的差异核对自 pc_src_24（poets.org 的 I Hear America Singing 页）；自由诗的体式见 poetry-forms 里的 poetry_form_free_verse（依据 pf_src_13）。"
+      },
+      "source_ids": [
+        "pc_src_24"
+      ],
+      "related_ids": [
+        "poetry_form_free_verse",
+        "culture_poetry_song"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "poetry_classic_blake_auguries",
+      "name": "Auguries of Innocence（天真的预言·开头）",
+      "aliases": [
+        "天真的预言"
+      ],
+      "category": "culture",
+      "primary": "literature_form",
+      "evidence_grade": "sourced",
+      "tech_tier": "steam",
+      "magic_tier": null,
+      "genres": [
+        "historical",
+        "real_world",
+        "western_fantasy"
+      ],
+      "tags": [
+        "kind:poem",
+        "tradition:western"
+      ],
+      "summary": "布莱克《天真的预言》开头五行，以「一粒沙里看一个世界」传诵最广。",
+      "poem": {
+        "title": "Auguries of Innocence (opening)",
+        "author": "William Blake",
+        "era": "约 1803",
+        "form_ref": "poetry_form_english_quatrain",
+        "language": "english",
+        "excerpt": true,
+        "text": "To see a World in a Grain of Sand\nAnd a Heaven in a Wild Flower,\nHold Infinity in the palm of your hand\nAnd Eternity in an hour.",
+        "gist_zh": "在一粒沙里看见一个世界，在一朵野花里看见一个天堂，把无限握在手掌里，把永恒收在一个钟头里。本条只收开头五行（词条所引为四行半，第五行是下一节的首句），属节选。",
+        "themes": [
+          "无限",
+          "微观",
+          "永恒"
+        ]
+      },
+      "details": {
+        "definition": "布莱克《天真的预言》开头，原文核对自「威廉·布莱克」词条「英文原诗」一节（该页同时附了现代中文译者译文，本项目未采用）。该页列出开头五行，其中第五行（A Robin Red breast in a Cage）已是下一节的首句，本条只取前四行。",
+        "mechanism": "四行两对偶句，句句是悖论性的命令：在最小的东西里看到最大的东西。它在英语里被引用得最多，也最容易被当成口号。",
+        "conditions": "适合神秘主义、匠人与孩子的场面；世界里要有「一沙一世界」这类以微观见宏观的思考习惯。",
+        "exceptions": "这一节是长诗的开头，不能当全诗；原文标点与拼写各本略有出入（如 Wild Flower 的大小写）。把它当作泛神论或纯粹的标语都失之单向。",
+        "story_uses": "①四行诗被刻在一枚戒指的内面。②有人拿「一粒沙」当真的去找东西，找出了不该找的东西。③一首长诗的开头被单独抄传，后半段讽世的句子就此没人看到。",
+        "historical_scope": "布莱克（1757—1827），约 1803，对应 tech:steam。",
+        "evidence_and_uncertainty": "英文原文核对自 pc_src_28（威廉·布莱克词条「英文原诗」一节）；该页给出的开头行数与通行本基本一致，但创作年代「约 1803」为通行说法，词条未明确给出，本次未另核。"
+      },
+      "source_ids": [
+        "pc_src_28"
+      ],
+      "related_ids": [
+        "poetry_form_english_quatrain",
+        "culture_poetry_lyric"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    }
+  ]
+}

@@ -24,7 +24,7 @@
 
 | 是 | 不是 |
 |---|---|
-| 独立的本地 SQLite 素材库，路径由 `--db` 显式指定 | 不是旅程数据库 `data/textiledream.sqlite3`，两者零关联 |
+| 独立的本地 SQLite 素材库，路径由 `--db` 显式指定 | 不是旅程数据库 `saves/textiledream.sqlite3`，两者零关联 |
 | 候选资料 + 来源 + 多标签 + 审查状态的存放处 | 不是故事正典：库里有 ≠ 世界里有，更 ≠ 人物知道 |
 | 只读查询工具（search / get / versions / tags / stats / export） | 不参与 app 启动、不自动填库、不进故事 prompt、不碰旧存档 |
 | 显式 CLI 导入 | 不提供运行时从全局库取元素的入口；开局绑定仍是后续独立设计 |

@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>织梦 · 城镇工业与基础设施素材预览（special-infra）</title>
+<style>
+  body { margin: 0; padding: 16px 20px 40px; background: #f4ecd8; color: #4a3826; font: 13px/1.5 "Microsoft YaHei", sans-serif; }
+  h1 { font-size: 18px; margin: 0 0 4px; }
+  h2 { font-size: 15px; margin: 18px 0 8px; border-bottom: 1px solid #c9a46a; padding-bottom: 3px; }
+  .hint { color: #7a6448; margin: 0 0 10px; }
+  .cols { display: flex; gap: 20px; align-items: flex-start; }
+  .col { flex: 1; min-width: 0; }
+  .grid { display: flex; flex-wrap: wrap; gap: 12px; }
+  .card { background: #fffaf0; border: 1px solid #d8c7a0; border-radius: 4px; padding: 6px; }
+  .card.east { background: #fdf6e6; border-color: #e3c58c; }
+  .card svg { display: block; }
+  .cap { font-size: 12px; margin-top: 4px; }
+  .cap b { font-family: Consolas, monospace; font-weight: normal; color: #2f2418; }
+  .cap span { color: #8a6a44; margin-right: 8px; }
+  .scene { background: #fffaf0; border: 1px solid #d8c7a0; border-radius: 4px; padding: 8px; display: inline-block; margin-right: 16px; vertical-align: top; }
+  .scene .cap { max-width: 620px; }
+</style>
+</head>
+<body>
+<h1>城镇工业与基础设施（东西两套，3/4 斜俯视，CELL = 48）</h1>
+<p class="hint">素材尚未接入游戏。每张卡片：浅色方格是占地（每格 48 px），红点是锚点（占地前沿中点）。页面直接用 &lt;script&gt; 现场生成 sprite，与 build.js 产物一致。</p>
+<div id="spriteHost"></div>
+
+<h2>图册</h2>
+<div class="cols">
+  <div class="col"><h3>西式（木刻线描 + 羊皮纸淡彩）</h3><div class="grid" id="gWest"></div></div>
+  <div class="col"><h3>东方（国潮平涂 + 金线勾边）</h3><div class="grid" id="gEast"></div></div>
+</div>
+
+<h2>小场景（按锚点 y 由小到大绘制，检查比例与深度排序）</h2>
+<div id="scenes"></div>
+
+<script src="infra-core.js"></script>
+<script src="west-infra.js"></script>
+<script src="east-infra.js"></script>
+<script src="special-infra.js"></script>
+<script>
+(function () {
+  'use strict';
+  var A = window.TownArt_specialInfra, CELL = A.CELL, NS = 'http://www.w3.org/2000/svg';
+  var host = document.getElementById('spriteHost');
+  host.innerHTML = A.sprite();
+  // display:none 的 sprite 里 clipPath 在部分浏览器不生效，预览里改成 0 尺寸隐藏
+  host.firstElementChild.setAttribute('style', 'position:absolute;width:0;height:0;overflow:hidden');
+  var metas = A.metaAll(), byId = {};
+  metas.forEach(function (m) { byId[m.id] = m; });
+
+  function gridLines(x0, y0, w, d, col) {
+    var s = '';
+    for (var i = 0; i <= w; i++) s += '<line x1="' + (x0 + i * CELL) + '" y1="' + y0 + '" x2="' + (x0 + i * CELL) + '" y2="' + (y0 + d * CELL) + '"/>';
+    for (var j = 0; j <= d; j++) s += '<line x1="' + x0 + '" y1="' + (y0 + j * CELL) + '" x2="' + (x0 + w * CELL) + '" y2="' + (y0 + j * CELL) + '"/>';
+    return '<g stroke="' + col + '" stroke-width="1" stroke-opacity="0.45" fill="none">' + s + '</g>';
+  }
+  function useAt(m, ax, ay) { // 锚点对齐到 (ax, ay)
+    return '<use href="#' + m.id + '" x="' + (ax - m.anchor[0]) + '" y="' + (ay - m.anchor[1]) + '" width="' + m.viewBox[2] + '" height="' + m.viewBox[3] + '"/>';
+  }
+
+  // ---------- 图册 ----------
+  metas.forEach(function (m) {
+    var padX = 10, padTop = 8, padBot = 12, W = m.viewBox[2] + padX * 2, H = m.viewBox[3] + padTop + padBot;
+    var gx = padX, gy = padTop + m.height_px, ground = m.style === 'west' ? '#c9c79a' : '#d9c58f';
+    var svg = '<svg xmlns="' + NS + '" width="' + W + '" height="' + H + '" viewBox="0 0 ' + W + ' ' + H + '">' +
+      '<rect x="0" y="0" width="' + W + '" height="' + H + '" fill="' + ground + '"/>' +
+      gridLines(gx, gy, m.footprint[0], m.footprint[1], m.style === 'west' ? '#8a6a44' : '#8c3d22') +
+      useAt(m, gx + m.anchor[0], gy + m.footprint[1] * CELL) +
+      '<circle cx="' + (gx + m.anchor[0]) + '" cy="' + (gy + m.footprint[1] * CELL) + '" r="2.6" fill="#d0242a"/></svg>';
+    var card = document.createElement('div');
+    card.className = 'card ' + m.style;
+    card.innerHTML = svg + '<div class="cap"><b>' + m.id + '</b><br><span>占地 ' + m.footprint.join('×') + '</span><span>facility: ' + m.facility +
+      '</span><span>上伸 ' + m.height_px + 'px</span></div>';
+    card.title = m.note || '';
+    document.getElementById(m.style === 'west' ? 'gWest' : 'gEast').appendChild(card);
+  });
+
+  // ---------- 小场景 ----------
+  // items: [id, 格 x, 格 y]（占地左上角所在格）；water: 水面格区域 [gx, gy, gw, gh]；缺的 id 跳过并列在说明里
+  var SCENES = [
+    { title: '西式工坊区', style: 'west', cols: 10, rows: 7,
+      water: [[0, 6, 10, 1]],
+      items: [['west-common-warehouse-01', 0, 1], ['west-common-smelter-01', 3, 1], ['west-common-kiln-01', 6, 1],
+              ['west-common-tannery-01', 0, 3], ['west-common-kiln-02', 3, 4], ['west-common-warehouse-02', 6, 3],
+              ['west-common-dock-01', 7, 5]] },
+    // 东西向河道在第 5 行，南北向支渠在第 5 列；石拱桥（东西向桥面）跨支渠，廊桥（南北向桥面）跨河道
+    { title: '东方河埠', style: 'east', cols: 10, rows: 8,
+      water: [[0, 5, 10, 1], [5, 0, 1, 5]],
+      items: [['east-common-warehouse-01', 0, 1], ['east-common-tannery-01', 6, 0], ['east-common-bridge-01', 4, 2],
+              ['east-common-dock-01', 0, 4], ['east-common-bridge-02', 7, 4], ['east-common-kiln-01', 0, 6],
+              ['east-common-cemetery-01', 7, 2]] }
+  ];
+  SCENES.forEach(function (sc) {
+    var top = 150, pad = 12, W = sc.cols * CELL + pad * 2, H = sc.rows * CELL + top + pad;
+    var ground = sc.style === 'west' ? '#c9c79a' : '#d9c58f', waterC = sc.style === 'west' ? '#a9b8ad' : '#6cc1b3';
+    var s = '<rect width="' + W + '" height="' + H + '" fill="' + ground + '"/>';
+    (sc.water || []).forEach(function (w) {
+      s += '<rect x="' + (pad + w[0] * CELL) + '" y="' + (top + w[1] * CELL) + '" width="' + (w[2] * CELL) + '" height="' + (w[3] * CELL) + '" fill="' + waterC + '"/>';
+    });
+    s += gridLines(pad, top, sc.cols, sc.rows, sc.style === 'west' ? '#8a6a44' : '#8c3d22');
+    var missing = [], placed = [];
+    sc.items.forEach(function (it) {
+      var m = byId[it[0]];
+      if (!m) { missing.push(it[0]); return; }
+      placed.push({ m: m, ax: pad + (it[1] + m.footprint[0] / 2) * CELL, ay: top + (it[2] + m.footprint[1]) * CELL });
+    });
+    placed.sort(function (a, b) { return a.ay - b.ay || a.ax - b.ax; });
+    placed.forEach(function (p) { s += useAt(p.m, p.ax, p.ay); });
+    var box = document.createElement('div');
+    box.className = 'scene';
+    box.innerHTML = '<svg xmlns="' + NS + '" width="' + W + '" height="' + H + '" viewBox="0 0 ' + W + ' ' + H + '">' + s + '</svg>' +
+      '<div class="cap"><b>' + sc.title + '</b>：' + placed.map(function (p) { return p.m.id; }).join('、') +
+      (missing.length ? '<br><span>尚未绘制：' + missing.join('、') + '</span>' : '') + '</div>';
+    document.getElementById('scenes').appendChild(box);
+  });
+})();
+</script>
+</body>
+</html>

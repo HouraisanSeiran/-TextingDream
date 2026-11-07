@@ -101,6 +101,7 @@ async function selectTown(id){
   $(n).disabled=n==='town-export'?!published:(!d.stages.length);
  $('town-advance').disabled=!d.stages.some(s=>s.stale);
  $('town-notice').textContent=published?`已发布 ${d.published.join('、')}；继续修改会形成新版本，旧版本与旧旅程不受影响。`:'尚未发布。';
+ window.dispatchEvent(new CustomEvent('td-town-selected',{detail:{id:d.id,ready:!!preview}}));
 }
 
 function drawStage(){
@@ -119,6 +120,7 @@ async function refreshTownVersions(){
  for(const v of townVersions.slice().reverse()){
   const d=el('details');d.append(el('summary',`${v.name} · ${v.id}`),
    el('p',`内容哈希 ${v.content_hash.slice(0,12)}｜seed ${v.seed}｜基础故事包 ${v.base_story_revision.slice(0,8)}｜绑定 ${v.bindings.length}`,'muted'));
+  d.append(button('查看此版本的城镇地图',()=>window.TownPlanUI.showVersion(v.id)));
   const sel=el('select');sel.setAttribute('aria-label','绑定到地点');
   sel.append(new Option('不绑定地点（仅作库里记录）',''));
   try{const current=await api('/inner/package');

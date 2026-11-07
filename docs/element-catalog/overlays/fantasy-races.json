@@ -1,0 +1,160 @@
+{
+  "schema": "catalog_overlay_v1",
+  "group": "fantasy-races",
+  "entries": {
+    "fantasy_race_giant_scale": {
+      "primary": "race",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "rare"
+    },
+    "fantasy_race_troll_daylight": {
+      "primary": "race",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "rare"
+    },
+    "fantasy_race_ogre_predatory": {
+      "primary": "race",
+      "evidence_grade": "mixed",
+      "note": "本条是按行为划分的叙述类别而非物种，存在仍属超自然，取 rare",
+      "tech_tier": null,
+      "magic_tier": "rare"
+    },
+    "fantasy_race_centaur_herder": {
+      "primary": "race",
+      "evidence_grade": "mixed",
+      "note": "若有成规模游牧群体或可升 common，拿不准取低一档",
+      "tech_tier": null,
+      "magic_tier": "rare"
+    },
+    "fantasy_race_satyr_revel": {
+      "primary": "race",
+      "evidence_grade": "mixed",
+      "note": "可入城邦节庆，但仍取 rare，拿不准取低一档",
+      "tech_tier": null,
+      "magic_tier": "rare"
+    },
+    "fantasy_race_nymph_locality": {
+      "primary": "race",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "rare"
+    },
+    "fantasy_race_merfolk_bargain": {
+      "primary": "race",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "rare"
+    },
+    "fantasy_race_siren_hazard": {
+      "primary": "race",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "rare"
+    },
+    "fantasy_race_cyclops_smith": {
+      "primary": "race",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "rare"
+    },
+    "fantasy_race_orc_ethnonym": {
+      "primary": "race",
+      "evidence_grade": "sourced",
+      "note": "语文学条目、无族群设定，按神话母题记述取 rare 而非 null",
+      "tech_tier": null,
+      "magic_tier": "rare"
+    },
+    "fantasy_race_long_rain_sovereign": {
+      "primary": "race",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "rare"
+    },
+    "fantasy_race_naga_subterranean": {
+      "primary": "race",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "rare"
+    },
+    "fantasy_race_yaksha_hoard": {
+      "primary": "race",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "rare"
+    },
+    "fantasy_race_rakshasa_ritual": {
+      "primary": "race",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "rare"
+    },
+    "fantasy_race_asura_rival": {
+      "primary": "race",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "rare"
+    },
+    "fantasy_race_asura_buddhist": {
+      "primary": "race",
+      "evidence_grade": "mixed",
+      "note": "来源为百度百科转述；果报类别而非血统族群，按神话母题记述取 rare",
+      "tech_tier": null,
+      "magic_tier": "rare"
+    },
+    "fantasy_race_oni_convertible": {
+      "primary": "race",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "rare"
+    },
+    "fantasy_race_tengu_martial": {
+      "primary": "race",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "rare"
+    },
+    "fantasy_race_kappa_contract": {
+      "primary": "race",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "rare"
+    },
+    "fantasy_race_kitsune_shrine": {
+      "primary": "race",
+      "evidence_grade": "mixed",
+      "note": "有社祠信众但不当全族通例，取 rare",
+      "tech_tier": null,
+      "magic_tier": "rare"
+    },
+    "fantasy_race_huli_symbolic": {
+      "primary": "race",
+      "evidence_grade": "mixed",
+      "note": "来源为百度百科转述，且与 kitsune_shrine、eastern_bio_fox_spirit 题材相邻；符号层记录、非生物条目，按神话母题记述取 rare",
+      "tech_tier": null,
+      "magic_tier": "rare"
+    },
+    "fantasy_race_jiaoren_weaver": {
+      "primary": "race",
+      "evidence_grade": "mixed",
+      "note": "来源为百度百科转述；水下族群与人交易鲛绡、成规模交涉，取 common；若仅作志怪记述可降为 rare",
+      "tech_tier": null,
+      "magic_tier": "common"
+    }
+  }
+}

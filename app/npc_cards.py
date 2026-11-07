@@ -60,6 +60,22 @@ def validate(story, characters):
                 raise ValueError('行动目击者必须属于当前事件参与者')
 
 
+def save_card(runtime, revision, character_id, card, note='更新 NPC 角色卡：'):
+    """作者保存角色卡的唯一写路径：基于指定故事包版本提交一个新版本。
+
+    已开始的旅程绑定自己的旧版本，不会因此换卡。
+    """
+    package = runtime.package()
+    if package['id'] != revision:
+        raise ValueError('故事包已更新，请重新读取角色卡后再保存')
+    characters = deepcopy(package['characters'])
+    actor = next((c for c in characters['characters'] if c['id'] == character_id), None)
+    if actor is None or actor['role'] == '主角':
+        raise ValueError('请选择有效的 NPC')
+    actor['npc_card'] = NPCCard.model_validate(card).model_dump()
+    return runtime.commit_package(package['story'], characters, note + actor['name'])
+
+
 def project(actor, session, audience):
     """Public text goes to the narrator; private text only to the owner/author."""
     raw = actor.get('npc_card')

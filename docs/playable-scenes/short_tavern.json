@@ -30,7 +30,7 @@
       {
         "id": "quay",
         "name": "旧码头",
-        "description": "船工正收绳，船票12便士，也可先替他搬一批绳箱挣6便士。",
+        "description": "船工正收绳，船票12便士，也可先替他搬一批绳箱挣6便士。码头边支着面包摊和鱼铺，价钱写在木牌上。",
         "neighbors": [
           "hall"
         ],
@@ -80,6 +80,28 @@
             "intent_aliases": []
           },
           {
+            "id": "read_menu",
+            "label": "看看酒馆菜单",
+            "success_text": "我看了柜台上的菜单。",
+            "effects": [
+              {
+                "op": "information",
+                "text": "铜杯酒馆菜单：麦酒2便士；蜂蜜酒4便士；奶酪吐司3便士；炖肉蔬菜锅4便士；牛肉腰子派5便士。",
+                "known_by": [
+                  "player"
+                ],
+                "confirmed": true
+              }
+            ],
+            "requires": {},
+            "ends_event": false,
+            "duration_hours": 0,
+            "intent_aliases": [
+              "菜单",
+              "看菜单"
+            ]
+          },
+          {
             "id": "buy_ale",
             "label": "买一杯麦酒（2便士）",
             "success_text": "我付了2便士，喝下一杯麦酒。",
@@ -95,6 +117,77 @@
             ],
             "costs": {
               "pence": 2
+            }
+          },
+          {
+            "id": "buy_mead",
+            "label": "买一份蜂蜜酒（4便士）",
+            "success_text": "我付了4便士，要了蜂蜜酒。",
+            "effects": [],
+            "requires": {
+              "tavern_banned": false
+            },
+            "ends_event": false,
+            "duration_hours": 0,
+            "intent_aliases": [
+              "喝蜂蜜酒"
+            ],
+            "costs": {
+              "pence": 4
+            }
+          },
+          {
+            "id": "buy_rarebit",
+            "label": "买一份奶酪吐司（3便士）",
+            "success_text": "我付了3便士，要了奶酪吐司。",
+            "effects": [],
+            "requires": {
+              "tavern_banned": false
+            },
+            "ends_event": false,
+            "duration_hours": 0,
+            "intent_aliases": [
+              "买奶酪吐司",
+              "吃奶酪"
+            ],
+            "costs": {
+              "pence": 3
+            }
+          },
+          {
+            "id": "buy_stew",
+            "label": "买一份炖肉蔬菜锅（4便士）",
+            "success_text": "我付了4便士，要了炖肉蔬菜锅。",
+            "effects": [],
+            "requires": {
+              "tavern_banned": false
+            },
+            "ends_event": false,
+            "duration_hours": 0,
+            "intent_aliases": [
+              "买炖菜",
+              "吃炖菜"
+            ],
+            "costs": {
+              "pence": 4
+            }
+          },
+          {
+            "id": "buy_pie",
+            "label": "买一份牛肉腰子派（5便士）",
+            "success_text": "我付了5便士，要了牛肉腰子派。",
+            "effects": [],
+            "requires": {
+              "tavern_banned": false
+            },
+            "ends_event": false,
+            "duration_hours": 0,
+            "intent_aliases": [
+              "买派",
+              "吃派"
+            ],
+            "costs": {
+              "pence": 5
             }
           },
           {
@@ -414,7 +507,9 @@
         "location_id": "quay",
         "participants": [
           "player",
-          "ferryman"
+          "ferryman",
+          "baker",
+          "fishmonger"
         ],
         "player_enters": true,
         "player_goal": "傍晚的渡船",
@@ -423,6 +518,92 @@
         "exit_flag": "finished_departure",
         "max_turns": 40,
         "actions": [
+          {
+            "id": "ask_stalls",
+            "label": "看看面包摊和鱼铺的价牌",
+            "success_text": "我看了木牌，没有买。",
+            "effects": [
+              {
+                "op": "information",
+                "text": "码头摊位价目：鱼铺·烟熏鲱鱼 3便士；面包摊·面包 2便士；面包摊·布里欧修 3便士；鱼铺·鲱鱼 2便士。",
+                "known_by": [
+                  "player"
+                ],
+                "confirmed": true
+              }
+            ],
+            "requires": {},
+            "ends_event": false,
+            "duration_hours": 0,
+            "intent_aliases": [
+              "问摊位价",
+              "看价牌"
+            ]
+          },
+          {
+            "id": "buy_kippers",
+            "label": "买一对烟熏鲱鱼（3便士）",
+            "success_text": "我付了3便士，买了一对烟熏鲱鱼。",
+            "effects": [],
+            "requires": {},
+            "ends_event": false,
+            "duration_hours": 0,
+            "intent_aliases": [
+              "买熏鱼",
+              "买烟熏鲱鱼"
+            ],
+            "costs": {
+              "pence": 3
+            }
+          },
+          {
+            "id": "buy_bread",
+            "label": "买一份面包（2便士）",
+            "success_text": "我付了2便士，要了一根面包。",
+            "effects": [],
+            "requires": {},
+            "ends_event": false,
+            "duration_hours": 0,
+            "intent_aliases": [
+              "买面包",
+              "吃面包"
+            ],
+            "costs": {
+              "pence": 2
+            }
+          },
+          {
+            "id": "buy_brioche",
+            "label": "买一个布里欧修（3便士）",
+            "success_text": "我付了3便士，买了一个布里欧修。",
+            "effects": [],
+            "requires": {},
+            "ends_event": false,
+            "duration_hours": 0,
+            "intent_aliases": [
+              "买布里欧修",
+              "买甜面包"
+            ],
+            "costs": {
+              "pence": 3
+            }
+          },
+          {
+            "id": "buy_herring",
+            "label": "买一串鲱鱼（2便士）",
+            "success_text": "我付了2便士，买了一串鲱鱼。",
+            "effects": [],
+            "requires": {},
+            "ends_event": false,
+            "duration_hours": 0,
+            "intent_aliases": [
+              "买鲱鱼",
+              "买鱼"
+            ],
+            "costs": {
+              "pence": 2
+            }
+          },
           {
             "id": "dock_work",
             "label": "搬一批绳箱，挣6便士",
@@ -445,6 +626,28 @@
                 ]
               }
             }
+          },
+          {
+            "id": "ask_apothecary",
+            "label": "问问码头药铺的药价",
+            "success_text": "我走到药铺货架前问了价，没有买。",
+            "effects": [
+              {
+                "op": "information",
+                "text": "码头药铺货架（只询价，不在此购买）：艾叶 1便士/把；薄荷 1便士/把；洋甘菊 2便士/包；聚合草 1便士/把；甘草 2便士/两。",
+                "known_by": [
+                  "player"
+                ],
+                "confirmed": true
+              }
+            ],
+            "requires": {},
+            "ends_event": false,
+            "duration_hours": 0,
+            "intent_aliases": [
+              "问药价",
+              "药铺"
+            ]
           },
           {
             "id": "sail",
@@ -791,6 +994,14 @@
               "ferryman": {
                 "trust": 0.5,
                 "note": "初次相识"
+              },
+              "baker": {
+                "trust": 0.5,
+                "note": "初次相识"
+              },
+              "fishmonger": {
+                "trust": 0.5,
+                "note": "初次相识"
               }
             },
             "known": [
@@ -863,6 +1074,164 @@
           "social": 55,
           "resilience": 55
         }
+      },
+      {
+        "id": "baker",
+        "name": "面包师葛蕾",
+        "public_name": "面包师葛蕾",
+        "role": "次要角色",
+        "location_id": "quay",
+        "personality": {
+          "勤勉": 0.8,
+          "直率": 0.6
+        },
+        "state": {},
+        "attributes": {
+          "talent": 55,
+          "strength": 55,
+          "agility": 55,
+          "wisdom": 55,
+          "social": 55,
+          "resilience": 55
+        },
+        "npc_card": {
+          "version": 1,
+          "identity": {
+            "text": "码头面包摊的摊主，天不亮就起来烤面包，在码头边做了很多年生意。",
+            "visibility": "public"
+          },
+          "experiences": {
+            "text": "早年在内陆的面包坊当学徒，后来带着炉子来码头，靠赶船人的早饭和干粮过活。",
+            "visibility": "private"
+          },
+          "values": {
+            "text": "面包要实在，价钱写在牌上，不为熟客偷偷涨价。",
+            "visibility": "public"
+          },
+          "goal": {
+            "text": "把当天的面包卖完，不剩隔夜货。",
+            "visibility": "public"
+          },
+          "pressure": {
+            "text": "码头上摊位多，傍晚后没卖完的只能折价；她不愿承认这让她心疼。",
+            "visibility": "private"
+          },
+          "boundaries": {
+            "text": "不赊账；不会把摊位的面粉和炉子借给陌生人；被人拿面包开玩笑时只会冷下脸。",
+            "visibility": "public"
+          },
+          "bargaining": {
+            "text": "标价不议，但会多给半个面包头；对赶船的人手脚很快。",
+            "visibility": "public"
+          },
+          "social_context": {
+            "text": "与鱼贩互相照应摊位，对酒馆的贝丝熟，偶尔送去剩下的面包。",
+            "visibility": "public"
+          },
+          "emotion": {
+            "text": "平稳，忙起来有点急躁。",
+            "visibility": "public"
+          },
+          "failure_response": {
+            "text": "被人欺骗时不吵闹，只记住那张脸，下次不再卖给对方。",
+            "visibility": "private"
+          },
+          "knowledge": [
+            {
+              "text": "傍晚的渡船不等人，船工托马一般在天色发暗前收绳。",
+              "kind": "observation",
+              "source": "每天在码头摆摊",
+              "confidence": 0.8,
+              "visibility": "public"
+            },
+            {
+              "text": "有人说酒馆最近丢过东西，她只是听说，没有亲眼见过。",
+              "kind": "rumor",
+              "source": "听别的摊主闲聊",
+              "confidence": 0.3,
+              "visibility": "private"
+            }
+          ]
+        }
+      },
+      {
+        "id": "fishmonger",
+        "name": "鱼贩鲁克",
+        "public_name": "鱼贩鲁克",
+        "role": "次要角色",
+        "location_id": "quay",
+        "personality": {
+          "耐心": 0.7,
+          "爱说笑": 0.6
+        },
+        "state": {},
+        "attributes": {
+          "talent": 55,
+          "strength": 55,
+          "agility": 55,
+          "wisdom": 55,
+          "social": 55,
+          "resilience": 55
+        },
+        "npc_card": {
+          "version": 1,
+          "identity": {
+            "text": "码头鱼铺的鱼贩，手上总是湿的，跟靠岸的渔船按早晚拿货。",
+            "visibility": "public"
+          },
+          "experiences": {
+            "text": "出过几年海，后来腿受了伤，改在岸上卖鱼。",
+            "visibility": "private"
+          },
+          "values": {
+            "text": "鱼要新鲜，不够新鲜的就如实说，宁可便宜卖。",
+            "visibility": "public"
+          },
+          "goal": {
+            "text": "趁着傍晚前把熏好的鱼和新鱼卖掉。",
+            "visibility": "public"
+          },
+          "pressure": {
+            "text": "渔船回得晚的话，货就不够；他怕摊位空着被别人占去。",
+            "visibility": "private"
+          },
+          "boundaries": {
+            "text": "不卖变味的鱼；不让陌生人碰挂着的熏鱼；不爱被人催着称重。",
+            "visibility": "public"
+          },
+          "bargaining": {
+            "text": "标价是死的，但整串买会给得慷慨一些；爱和客人聊天气和潮水。",
+            "visibility": "public"
+          },
+          "social_context": {
+            "text": "与面包师葛蕾互相看摊，认识船工托马，酒馆的菜里有他卖的鱼。",
+            "visibility": "public"
+          },
+          "emotion": {
+            "text": "随和，闲时爱哼船歌。",
+            "visibility": "public"
+          },
+          "failure_response": {
+            "text": "被人嫌弃鱼时会笑着让对方闻一闻，被侮辱手艺就不再搭话。",
+            "visibility": "private"
+          },
+          "knowledge": [
+            {
+              "text": "潮水涨得晚时渡船会推迟出发，但今天看上去按时。",
+              "kind": "interpretation",
+              "source": "看海面和船桩",
+              "confidence": 0.5,
+              "visibility": "public"
+            },
+            {
+              "text": "他觉得药铺的人对海货不太在行。",
+              "kind": "interpretation",
+              "source": "以前闲聊",
+              "confidence": 0.3,
+              "visibility": "private"
+            }
+          ]
+        }
       }
     ]
   },
@@ -886,6 +1255,8 @@
       "help_barrels",
       "leave_for_quay",
       "@quay",
+      "ask_stalls",
+      "buy_bread",
       "dock_work",
       "sail"
     ],
@@ -902,6 +1273,7 @@
       "deliver_invoice",
       "leave_for_quay",
       "@quay",
+      "buy_kippers",
       "stay"
     ],
     "pacing": "约12–18次行动，穿插6–10轮追问、阅读与权衡；快速点击会更短。"

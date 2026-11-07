@@ -1,0 +1,27 @@
+/* world generation page (app/static/worldgen.js) */
+.worldgen-form { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: .75rem 1.25rem; align-items: end; }
+.worldgen-form label { display: flex; flex-direction: column; gap: .3rem; }
+.worldgen-form output { font-variant-numeric: tabular-nums; opacity: .8; }
+.worldgen-form .worldgen-check { flex-direction: row; align-items: center; gap: .4rem; grid-column: 1 / -1; }
+.worldgen-form .worldgen-check.disabled { opacity: .5; }
+.worldgen-gpu-note, .worldgen-estimate { grid-column: 1 / -1; margin: 0; }
+.worldgen-estimate table { border-collapse: collapse; width: 100%; font-size: .9em; }
+.worldgen-estimate th, .worldgen-estimate td { text-align: left; padding: .2rem .6rem; border-bottom: 1px solid rgba(127, 127, 127, .25); }
+.worldgen .ok { color: #3a8a4a; }
+.worldgen .warn { color: #b9652a; }
+.worldgen-form button[type=submit] { grid-column: 1 / -1; justify-self: start; }
+.worldgen-job { margin-top: 1rem; }
+.worldgen-status { padding: .1rem .5rem; border-radius: .6rem; background: rgba(127, 127, 127, .18); }
+.worldgen-status.succeeded { background: rgba(58, 138, 74, .25); }
+.worldgen-status.failed, .worldgen-status.interrupted { background: rgba(185, 60, 42, .25); }
+.worldgen-stages li.running { font-weight: 600; }
+.worldgen-stages li.skipped, .worldgen-stages li.pending { opacity: .6; }
+.worldgen-log { max-height: 16rem; overflow: auto; font-size: .8em; white-space: pre-wrap; }
+.worldgen-previews { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1rem; }
+.worldgen-previews img { width: 100%; height: auto; border-radius: .3rem; }
+.worldgen-previews figure { margin: 0; }
+.worldgen-kv { display: grid; grid-template-columns: max-content 1fr; gap: .25rem 1rem; font-size: .92em; }
+.worldgen-kv dt { opacity: .7; }
+.worldgen-kv dd { margin: 0; word-break: break-all; }
+.worldgen-history { display: flex; flex-direction: column; align-items: flex-start; gap: .3rem; }
+.worldgen-history-item { font-size: .88em; }

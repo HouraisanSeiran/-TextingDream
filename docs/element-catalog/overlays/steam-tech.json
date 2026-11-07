@@ -1,0 +1,90 @@
+{
+  "schema": "catalog_overlay_v1",
+  "group": "steam-tech",
+  "entries": {
+    "tech_steam_locomotive": {
+      "primary": "technology",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": "steam",
+      "magic_tier": null
+    },
+    "tech_electric_telegraph": {
+      "primary": "technology",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": "steam",
+      "magic_tier": null
+    },
+    "tech_coal_gas_lighting": {
+      "primary": "technology",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": "steam",
+      "magic_tier": null
+    },
+    "tech_ironclad_warship": {
+      "primary": "vehicle_vessel",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": "steam",
+      "magic_tier": null
+    },
+    "tech_breech_loading_rifle": {
+      "primary": "weapon",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": "steam",
+      "magic_tier": null
+    },
+    "tech_bessemer_steel": {
+      "primary": "technology",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": "steam",
+      "magic_tier": null
+    },
+    "tech_internal_combustion_engine": {
+      "primary": "technology",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": "early_modern",
+      "magic_tier": null
+    },
+    "tech_electric_power_grid": {
+      "primary": "technology",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": "early_modern",
+      "magic_tier": null
+    },
+    "tech_wireless_radio": {
+      "primary": "technology",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": "early_modern",
+      "magic_tier": null
+    },
+    "tech_early_airplane": {
+      "primary": "vehicle_vessel",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": "early_modern",
+      "magic_tier": null
+    },
+    "tech_machine_gun": {
+      "primary": "weapon",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": "early_modern",
+      "magic_tier": null
+    },
+    "tech_armoured_vehicle": {
+      "primary": "vehicle_vessel",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": "early_modern",
+      "magic_tier": null
+    }
+  }
+}

@@ -5,6 +5,8 @@ window.addEventListener('DOMContentLoaded',()=>{
  card.append(el('summary','属性、物品与当地环境'));
  const body=el('div');card.append(body);$('info-local').after(card);
  const names={talent:'天赋',strength:'力量',agility:'敏捷',wisdom:'智慧',social:'社交',resilience:'韧性'};
+ // 重量以整数克存储（docs/units.md）：不足 1000 克显示「克」，否则换算成「千克」，最多一位小数。
+ function fmtWeight(g){if(typeof g!=='number'||!isFinite(g))return '—';if(g<1000)return g+' 克';const kg=Math.round(g/100)/10;return (Number.isInteger(kg)?kg:kg.toFixed(1))+' 千克'}
  // Public holdings only: labels and balances the engine already disclosed. Everything is
  // written with textContent (el()), never innerHTML, so author-supplied names cannot
  // inject markup. Unidentified items show only what the engine disclosed about them.
@@ -18,7 +20,7 @@ window.addEventListener('DOMContentLoaded',()=>{
     // Public figures are a visible estimate, not a settled value: label them so nobody
     // reads "伤害/价值" as the item's complete adjudicated numbers.
     const bits=[item.label,hidden?'未鉴定':'',hidden?'':item.material,hidden?'':item.quality,
-                `重 ${item.weight}`,hidden?'':`已知耐久 ${item.durability}`,
+                `重 ${fmtWeight(item.weight)}`,hidden?'':`已知耐久 ${item.durability}`,
                 hidden?'':`已知伤害 ${item.damage}`,hidden?'':`估值 ${item.value}`];
     row.append(el('p',bits.filter(Boolean).join(' · ')));
     if(!hidden&&item.figures==='visible_estimate')row.append(el('small','以上为可见估值，不含未披露的效果；不是最终裁定值'));

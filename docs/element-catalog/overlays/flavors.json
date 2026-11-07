@@ -1,0 +1,505 @@
+{
+  "schema": "catalog_overlay_v1",
+  "group": "flavors",
+  "entries": {
+    "flavors_black_pepper": {
+      "primary": "spice",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "flavors_cinnamon": {
+      "primary": "spice",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "flavors_cassia": {
+      "primary": "spice",
+      "evidence_grade": "sourced",
+      "note": "药食两用，本组按香料归 spice",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "flavors_ginger": {
+      "primary": "spice",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "flavors_clove": {
+      "primary": "spice",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "flavors_nutmeg_mace": {
+      "primary": "spice",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "flavors_cardamom": {
+      "primary": "spice",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "flavors_cumin": {
+      "primary": "spice",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "flavors_coriander_seed": {
+      "primary": "spice",
+      "evidence_grade": "sourced",
+      "note": "同株的叶是香草，本条是籽，归 spice",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "flavors_chili_pepper": {
+      "primary": "spice",
+      "evidence_grade": "sourced",
+      "note": "美洲物产，旧大陆世界需作者决定是否引入。",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "flavors_sichuan_pepper": {
+      "primary": "spice",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "flavors_star_anise": {
+      "primary": "spice",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "flavors_fennel_seed": {
+      "primary": "spice",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "flavors_saffron": {
+      "primary": "spice",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "flavors_turmeric": {
+      "primary": "spice",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "flavors_mustard": {
+      "primary": "condiment",
+      "evidence_grade": "sourced",
+      "note": "芥籽与芥酱兼有，玩家先叫的是调味品；备选 spice",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "flavors_vanilla": {
+      "primary": "spice",
+      "evidence_grade": "sourced",
+      "note": "美洲物产，旧大陆世界需作者决定是否引入。",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "flavors_spice_blend": {
+      "primary": "spice",
+      "evidence_grade": "mixed",
+      "note": "配方集合条目，按香料归 spice，备选 condiment",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "flavors_vinegar": {
+      "primary": "condiment",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "flavors_soy_sauce": {
+      "primary": "condiment",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "flavors_fish_sauce": {
+      "primary": "condiment",
+      "evidence_grade": "mixed",
+      "note": "来源条目短，不支撑工艺参数，证据降为 mixed",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "flavors_miso": {
+      "primary": "condiment",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "flavors_tea": {
+      "primary": "beverage",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "flavors_coffee": {
+      "primary": "beverage",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "flavors_cocoa": {
+      "primary": "beverage",
+      "evidence_grade": "sourced",
+      "note": "可可与巧克力兼有，按饮品归 beverage，备选 sweetener/snack。美洲物产，旧大陆世界需作者决定是否引入。",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "flavors_beer": {
+      "primary": "alcohol",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "flavors_wine": {
+      "primary": "alcohol",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "flavors_distilled_spirit": {
+      "primary": "alcohol",
+      "evidence_grade": "sourced",
+      "note": "条目提到中国前 800 年已有米酒蒸馏记录，但蒸馏酒在欧亚大范围扩散在中世纪（8 世纪后），按 medieval 判，早期孤例不计",
+      "tech_tier": "medieval",
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "flavors_mead": {
+      "primary": "alcohol",
+      "evidence_grade": "mixed",
+      "note": "直接来源很薄，证据降为 mixed",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "flavors_honey": {
+      "primary": "sweetener",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "flavors_cane_sugar": {
+      "primary": "sweetener",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "flavors_beet_sugar": {
+      "primary": "sweetener",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": "steam",
+      "magic_tier": null,
+      "genres_add": [
+        "steampunk",
+        "modern"
+      ]
+    },
+    "flavors_maple_syrup": {
+      "primary": "sweetener",
+      "evidence_grade": "sourced",
+      "note": "原住民欧洲人到来前已熬制，19 世纪后期的机械集液不是门槛；取低一档 null。美洲物产，旧大陆世界需作者决定是否引入。",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "steampunk",
+        "modern"
+      ]
+    }
+  }
+}

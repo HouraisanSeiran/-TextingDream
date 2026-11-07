@@ -1,0 +1,30 @@
+{
+  "schema": "price_audit_accepted_v1",
+  "note": "价格审计已人工复核、确认合理的偏离。tools/price_audit 只把不在这里的异常算作待处理。",
+  "entries": {
+    "herb_root_ginseng": "稀有慢生的名贵药材，远高于普通药材是设定本意",
+    "herb_west_ginseng": "同上；西洋参远途输入",
+    "herb_root_coptis": "野生受保护、栽培品也贵",
+    "herb_root_gastrodia": "野生受保护、栽培品也贵",
+    "herb_root_cistanche": "野生受保护、产地偏远",
+    "herb_root_fritillaria": "野生受保护、产量低",
+    "herb_other_frankincense": "跨沙漠商路输入的树脂",
+    "herb_other_myrrh": "跨沙漠商路输入的树脂",
+    "herb_other_dragons_blood": "远途输入的树脂",
+    "herb_other_ganoderma": "野生稀少、被当作珍品",
+    "herb_other_ophiocordyceps": "游戏内最贵的药材之一，设定本意",
+    "herb_other_deer_antler": "每年新长的名贵动物药",
+    "herb_other_bear_bile": "限售的濒危动物制品，价高是设定本意",
+    "herb_other_tiger_bone": "限售的濒危动物制品，价高是设定本意",
+    "herb_other_cicada_slough": "常见廉价动物药；同组中位被熊胆虎骨拉高",
+    "herb_other_silkworm_white_stiff": "常见廉价动物药；同组中位被熊胆虎骨拉高",
+    "herb_other_earthworm": "常见廉价动物药；同组中位被熊胆虎骨拉高",
+    "formula_angongniuhuangwan": "含牛黄、麝香与金箔衣的名贵成药",
+    "formula_suhexiangwan": "多味远途香药合成的名贵成药",
+    "staples_rice": "西方基线里水稻本地少产，按远途输入估价",
+    "cuisine_eu_gnocchi": "平民主食，一盘几便士合理；同组中位被法式贵菜拉高",
+    "cuisine_eu_pierogi": "平民主食，一盘几便士合理；同组中位被法式贵菜拉高",
+    "cuisine_eu_polenta": "最便宜的谷粉粥，一碗不足一便士到一便士",
+    "cuisine_eu_panettone": "整只的圣诞节庆大蛋糕，同组是单个蛋挞酥点，按只计价贵几倍合理"
+  }
+}

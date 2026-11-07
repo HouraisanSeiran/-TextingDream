@@ -1,0 +1,352 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" style="position:absolute">
+<!-- 织梦 · 物品属性图示：货币（价格档）/ 产地 / 季节。本工程原创，沿用 map-art-medieval.svg 的墨线描边 + 淡彩。
+     约定：墨 #3b2a1e；羊皮纸 #f2e6c8；砖红 #a3472f；茅草 #b88a45；石 #cdbf9c；石板 #5d6b78；朱红 #7a1f22。
+     产地底色取 external/civ-atlas/src/gen/biomes.ts 的 paint 水彩色，与地图同色系。
+     全部 viewBox 24×24，按 24/16 px 小样仍可辨认；id 前缀 gi- 避免与地图 sprite 的 res-/town- 冲突。
+     词表与 tools/game_fields.py 一一对应，映射见 game-icons.json。 -->
+<defs>
+<clipPath id="gi-tile-clip"><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="2.6"/></clipPath>
+
+<!-- ======================= 货币（价格档 price:<tier>） ======================= -->
+<symbol id="gi-price-farthing" viewBox="0 0 24 24">
+<circle cx="12" cy="12" r="6.6" fill="#c0804a" stroke="#3b2a1e" stroke-width="1.1"/>
+<path d="M12 12 V7.6 A4.4 4.4 0 0 1 16.4 12 Z" fill="#e6b688"/>
+<circle cx="12" cy="12" r="5.2" fill="none" stroke="#7a4421" stroke-width=".55" stroke-dasharray=".5 .75"/>
+<path d="M12 7.2 V16.8 M7.2 12 H16.8" stroke="#7a4421" stroke-width=".9" stroke-linecap="round"/>
+<path d="M7.6 9.4 A5.4 5.4 0 0 1 9.6 7.2" fill="none" stroke="#f1cfa8" stroke-width=".7" stroke-linecap="round"/>
+</symbol>
+<symbol id="gi-price-penny" viewBox="0 0 24 24">
+<circle cx="12" cy="12" r="8" fill="#c48650" stroke="#3b2a1e" stroke-width="1.2"/>
+<circle cx="12" cy="12" r="6.6" fill="none" stroke="#7a4421" stroke-width=".55" stroke-dasharray=".55 .8"/>
+<path d="M11.2 5.6 V18.4 M12.8 5.6 V18.4 M5.6 11.2 H18.4 M5.6 12.8 H18.4" stroke="#7a4421" stroke-width=".6"/>
+<g fill="#7a4421"><circle cx="8.7" cy="8.7" r=".8"/><circle cx="15.3" cy="8.7" r=".8"/><circle cx="8.7" cy="15.3" r=".8"/><circle cx="15.3" cy="15.3" r=".8"/></g>
+<path d="M6.6 9.2 A6.2 6.2 0 0 1 9.4 6.4" fill="none" stroke="#f1cfa8" stroke-width=".8" stroke-linecap="round"/>
+</symbol>
+<symbol id="gi-price-groat" viewBox="0 0 24 24">
+<circle cx="12" cy="12" r="8.4" fill="#d3d6d0" stroke="#3b2a1e" stroke-width="1.2"/>
+<circle cx="12" cy="12" r="7" fill="none" stroke="#6e747a" stroke-width=".5"/>
+<circle cx="12" cy="12" r="5.6" fill="none" stroke="#6e747a" stroke-width=".55" stroke-dasharray=".55 .8"/>
+<path d="M9 9 V15 M11 9 L13 15 L15 9" fill="none" stroke="#454a4f" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M6.2 9.4 A6.4 6.4 0 0 1 9.2 6.2" fill="none" stroke="#f7f7f2" stroke-width=".8" stroke-linecap="round"/>
+</symbol>
+<symbol id="gi-price-shilling" viewBox="0 0 24 24">
+<circle cx="14.2" cy="14" r="7.2" fill="#a9ada8" stroke="#3b2a1e" stroke-width="1"/>
+<path d="M17.6 19.6 A7.2 7.2 0 0 0 21 14.6" fill="none" stroke="#6e747a" stroke-width=".6"/>
+<circle cx="10.6" cy="10.4" r="7.4" fill="#dcdfd8" stroke="#3b2a1e" stroke-width="1.2"/>
+<circle cx="10.6" cy="10.4" r="6" fill="none" stroke="#6e747a" stroke-width=".55" stroke-dasharray=".55 .8"/>
+<path d="M7.2 7.8 L10.2 13 M10.2 7.8 L7.2 13 M11.9 7.8 V13 M13.6 7.8 V13" fill="none" stroke="#454a4f" stroke-width="1.15" stroke-linecap="round"/>
+<path d="M5 8 A5.8 5.8 0 0 1 7.8 5" fill="none" stroke="#f7f7f2" stroke-width=".8" stroke-linecap="round"/>
+</symbol>
+<symbol id="gi-price-pound" viewBox="0 0 24 24">
+<circle cx="12" cy="12" r="8.6" fill="#e2b64a" stroke="#3b2a1e" stroke-width="1.2"/>
+<circle cx="12" cy="12" r="7.1" fill="none" stroke="#8f6a1e" stroke-width=".6"/>
+<path d="M7.8 14.4 L7.2 9.6 L9.7 11.6 L12 8.2 L14.3 11.6 L16.8 9.6 L16.2 14.4 Z" fill="#f6d983" stroke="#6b4c14" stroke-width=".9" stroke-linejoin="round"/>
+<rect x="7.8" y="14.3" width="8.4" height="1.7" rx=".3" fill="#c99a2e" stroke="#6b4c14" stroke-width=".7"/>
+<g fill="#a3472f" stroke="#6b4c14" stroke-width=".35"><circle cx="7.2" cy="9.5" r=".75"/><circle cx="12" cy="8" r=".8"/><circle cx="16.8" cy="9.5" r=".75"/></g>
+<path d="M6 9.6 A6.6 6.6 0 0 1 9.4 5.8" fill="none" stroke="#fbeab2" stroke-width=".8" stroke-linecap="round"/>
+</symbol>
+<symbol id="gi-price-not_for_sale" viewBox="0 0 24 24">
+<path d="M12 4.4 C14 4.2 15.2 5.6 16.9 5.9 C18.7 7.2 18.3 9 19.3 10.8 C19.7 13 18.5 13.9 18.3 15.9 C16.9 17.7 15.4 17.3 13.8 18.9 C11.8 19.8 10.6 18.3 8.8 18.5 C7 17.5 6.9 15.8 5.3 14.4 C4.5 12.4 5.7 11.2 5.3 9.2 C6.1 7.2 7.7 7.1 8.9 5.7 C10 4.7 11 4.6 12 4.4 Z" fill="#8a2a24" stroke="#3b2a1e" stroke-width="1"/>
+<circle cx="12" cy="11.8" r="4.7" fill="none" stroke="#c35a49" stroke-width=".7"/>
+<circle cx="12" cy="11.8" r="3.3" fill="none" stroke="#f2e6c8" stroke-width="1.1"/>
+<path d="M9.7 14.1 L14.3 9.5" stroke="#f2e6c8" stroke-width="1.1" stroke-linecap="round"/>
+<path d="M7.4 8.4 C8 7.4 8.8 6.8 9.8 6.4" fill="none" stroke="#c35a49" stroke-width=".7" stroke-linecap="round"/>
+</symbol>
+<symbol id="gi-price-priceless" viewBox="0 0 24 24">
+<path d="M12 2.8 V4.8 M5 5.8 L6.5 7.1 M19 5.8 L17.5 7.1 M3.8 11 H5.7 M20.2 11 H18.3 M6 17.6 L7.3 16.6 M18 17.6 L16.7 16.6" stroke="#c99a2e" stroke-width="1" stroke-linecap="round"/>
+<path d="M7.2 10 L9.3 6.8 H14.7 L16.8 10 L12 18 Z" fill="#a8d0cf" stroke="#3b2a1e" stroke-width="1" stroke-linejoin="round"/>
+<path d="M7.2 10 H16.8 M9.3 6.8 L10.8 10 L12 18 L13.2 10 L14.7 6.8 M10.8 10 L12 6.8 L13.2 10" fill="none" stroke="#3b2a1e" stroke-width=".5" stroke-linejoin="round"/>
+<path d="M9.8 7.6 L9 9.4" stroke="#f4fbf8" stroke-width=".7" stroke-linecap="round"/>
+</symbol>
+
+<!-- ======================= 产地（terrain:<值>） 方框淡彩小景 ======================= -->
+<!-- 群落：底色 = civ-atlas paint 色 -->
+<symbol id="gi-terrain-ocean" viewBox="0 0 24 24"><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="2.6" fill="#a9c1c0"/><g clip-path="url(#gi-tile-clip)">
+<path d="M3.6 8.6 q1.7 -2 3.4 0 q1.7 -2 3.4 0 q1.7 -2 3.4 0 q1.7 -2 3.4 0 q1.7 -2 3.4 0 M2 13.2 q1.7 -2 3.4 0 q1.7 -2 3.4 0 q1.7 -2 3.4 0 q1.7 -2 3.4 0 q1.7 -2 3.4 0 q1.7 -2 3.4 0 M3.6 17.8 q1.7 -2 3.4 0 q1.7 -2 3.4 0 q1.7 -2 3.4 0 q1.7 -2 3.4 0 q1.7 -2 3.4 0" fill="none" stroke="#3f6b7a" stroke-width=".95" stroke-linecap="round"/>
+<path d="M6.4 7.4 h.8 M13.2 12 h.8 M9.8 16.6 h.8 M16.6 16.6 h.8" stroke="#f4f6f0" stroke-width=".7" stroke-linecap="round"/>
+</g><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="2.6" fill="none" stroke="#3b2a1e" stroke-width="1.2"/></symbol>
+
+<symbol id="gi-terrain-lake" viewBox="0 0 24 24"><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="2.6" fill="#b3bd8b"/><g clip-path="url(#gi-tile-clip)">
+<path d="M3 8.6 C6 7.4 8 8.4 10 7.8 C13 6.8 16 8.2 21 7.4" fill="none" stroke="#5f7247" stroke-width=".7"/>
+<ellipse cx="12.6" cy="13" rx="6.8" ry="4.4" fill="#9fbcc0" stroke="#3b2a1e" stroke-width=".9"/>
+<path d="M9.4 12.2 H12.2 M13.2 14.2 H16.2 M10.6 15.6 H12" stroke="#3f6b7a" stroke-width=".7" stroke-linecap="round"/>
+<path d="M5 18.6 V15 M6.2 18.6 V14 M7.4 18.6 V15.4" stroke="#5f7247" stroke-width=".8" stroke-linecap="round"/>
+<rect x="5.75" y="12.6" width=".9" height="1.8" rx=".45" fill="#7a4e2c"/>
+</g><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="2.6" fill="none" stroke="#3b2a1e" stroke-width="1.2"/></symbol>
+
+<symbol id="gi-terrain-tundra" viewBox="0 0 24 24"><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="2.6" fill="#cfc9ad"/><g clip-path="url(#gi-tile-clip)">
+<!-- 苔原：夏季的苔藓与矮灌丛为主，残雪只在远处山脊 -->
+<path d="M2.6 10.4 L6.6 7.8 L9.6 9.2 L13.6 6.8 L17.4 8.6 L21.4 7.6 V11.6 H2.6 Z" fill="#b9b79a" stroke="#3b2a1e" stroke-width=".7" stroke-linejoin="round"/>
+<path d="M12.4 7.6 L13.6 6.8 L15 7.5 L14 7.9 L13.2 7.5 Z" fill="#fbf8ef"/>
+<path d="M2.6 11.4 C6 10.6 9 12 12 11.2 C15 10.4 18 11.6 21.4 10.8 V21.4 H2.6 Z" fill="#a8b07a" stroke="#3b2a1e" stroke-width=".7" stroke-linejoin="round"/>
+<g fill="#7f9152" stroke="#3b2a1e" stroke-width=".4"><ellipse cx="6.4" cy="14" rx="2.6" ry=".9"/><ellipse cx="12.2" cy="13.2" rx="1.9" ry=".7"/><ellipse cx="8.6" cy="18.6" rx="3" ry="1"/><ellipse cx="18.4" cy="19.4" rx="2.2" ry=".8"/></g>
+<ellipse cx="15.6" cy="16.2" rx="2.6" ry=".9" fill="#9fbcc0" stroke="#3b2a1e" stroke-width=".5"/>
+<path d="M14.4 16.2 H16.4" stroke="#3f6b7a" stroke-width=".45" stroke-linecap="round"/>
+<g fill="#6c7d45" stroke="#3b2a1e" stroke-width=".4"><path d="M3.8 17 a1.3 1.1 0 0 1 2.6 0 Z"/><path d="M10.8 16.2 a1.2 1 0 0 1 2.4 0 Z"/><path d="M17.8 13.6 a1.1 .9 0 0 1 2.2 0 Z"/></g>
+<g fill="#a3472f"><circle cx="5" cy="16.4" r=".4"/><circle cx="12.2" cy="15.6" r=".4"/><circle cx="18.9" cy="13.1" r=".35"/></g>
+<path d="M14.2 12.6 V10.9 M15.4 12.8 V11.2 M20 17.2 V15.6" stroke="#5f7247" stroke-width=".4" stroke-linecap="round"/>
+<g fill="#fbf8ef" stroke="#3b2a1e" stroke-width=".25"><circle cx="14.2" cy="10.7" r=".5"/><circle cx="15.4" cy="11" r=".5"/><circle cx="20" cy="15.4" r=".5"/></g>
+</g><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="2.6" fill="none" stroke="#3b2a1e" stroke-width="1.2"/></symbol>
+
+<symbol id="gi-terrain-taiga" viewBox="0 0 24 24"><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="2.6" fill="#9fae8a"/><g clip-path="url(#gi-tile-clip)">
+<g stroke="#3b2a1e" stroke-width=".8" stroke-linejoin="round">
+<path d="M15.8 7.6 L17.9 11.2 H16.9 L18.9 14.6 H17.7 L19.6 17.8 H12 L13.9 14.6 H12.7 L14.7 11.2 H13.7 Z" fill="#6c8458"/>
+<path d="M9.4 4.6 L12.2 9.2 H10.9 L13.4 13.4 H11.8 L14.1 17.8 H4.7 L7 13.4 H5.4 L7.9 9.2 H6.6 Z" fill="#4f6b4a"/>
+</g>
+<path d="M9.4 17.8 V19.4 M15.8 17.8 V19.4" stroke="#6b4426" stroke-width="1"/>
+<path d="M2.6 19.4 H21.4" stroke="#3b2a1e" stroke-width=".7"/>
+<path d="M7.8 16 L9.2 14.8 M10.2 12 L11.2 11 M16.4 15.8 L17.4 14.9" stroke="#fbf8ef" stroke-width=".6" stroke-linecap="round" stroke-opacity=".8"/>
+</g><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="2.6" fill="none" stroke="#3b2a1e" stroke-width="1.2"/></symbol>
+
+<symbol id="gi-terrain-cold_desert" viewBox="0 0 24 24"><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="2.6" fill="#d9cfae"/><g clip-path="url(#gi-tile-clip)">
+<path d="M2.6 15.6 L6.4 10.6 L9 11.8 L12.6 8.2 L16.8 12.4 L21.4 11.4 V15.6 Z" fill="#cdbf9c" stroke="#3b2a1e" stroke-width=".8" stroke-linejoin="round"/>
+<path d="M11.2 9.6 L12.6 8.2 L14.3 9.9 L13.3 9.5 L12.5 10.2 Z" fill="#fbf8ef" stroke="#3b2a1e" stroke-width=".4"/>
+<path d="M13.4 10.2 L15.4 15.4 M9.6 12.4 L10.6 15.4" stroke="#3b2a1e" stroke-width=".4" stroke-opacity=".7"/>
+<path d="M4.8 6.4 H9.2 M13.6 5.8 H18.4" stroke="#3b2a1e" stroke-width=".55" stroke-linecap="round" stroke-opacity=".6"/>
+<g fill="#a49c84" stroke="#3b2a1e" stroke-width=".5"><ellipse cx="6.6" cy="18.2" rx="1.3" ry=".8"/><ellipse cx="11.6" cy="17.4" rx=".9" ry=".6"/><ellipse cx="16.4" cy="18.6" rx="1.5" ry=".9"/></g>
+</g><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="2.6" fill="none" stroke="#3b2a1e" stroke-width="1.2"/></symbol>
+
+<symbol id="gi-terrain-temperate_desert" viewBox="0 0 24 24"><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="2.6" fill="#e6d3a4"/><g clip-path="url(#gi-tile-clip)">
+<path d="M2.6 15 C6.6 11.8 9.8 12.2 13 14.6 C15.6 12.6 18.4 12.4 21.4 13.6 V22 H2.6 Z" fill="#d9bd8c" stroke="#3b2a1e" stroke-width=".8"/>
+<path d="M7.6 18.4 C10.8 16.8 14 16.8 17.6 18.6" fill="none" stroke="#3b2a1e" stroke-width=".6"/>
+<path d="M5.2 12.6 C5 10.6 7 10 7.7 11 C8.5 10.1 10.2 11 9.6 12.7 Z" fill="#9a9a6a" stroke="#3b2a1e" stroke-width=".7"/>
+<path d="M7.4 12.7 V13.4" stroke="#6b4426" stroke-width=".7"/>
+<path d="M16 9.4 C15.8 8 17.4 7.6 17.9 8.4 C18.5 7.8 19.6 8.5 19.2 9.6 Z" fill="#9a9a6a" stroke="#3b2a1e" stroke-width=".6"/>
+</g><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="2.6" fill="none" stroke="#3b2a1e" stroke-width="1.2"/></symbol>
+
+<symbol id="gi-terrain-steppe" viewBox="0 0 24 24"><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="2.6" fill="#d8d09a"/><g clip-path="url(#gi-tile-clip)">
+<path d="M2.6 12.6 C6.6 10.8 9.6 10.8 13 12.6 Z" fill="#c9bf86" stroke="#3b2a1e" stroke-width=".6"/>
+<path d="M2.6 12.6 H21.4" stroke="#3b2a1e" stroke-width=".6"/>
+<path d="M5 7 C8 6 10 8 13 7 M11.6 9.2 C13.6 8.6 15.6 9.8 18.6 9" fill="none" stroke="#3b2a1e" stroke-width=".5" stroke-linecap="round" stroke-opacity=".6"/>
+<path d="M6 18 l-1.4 -3 M6 18 v-3.6 M6 18 l1.4 -3 M11.6 19 l-1.4 -3 M11.6 19 v-3.6 M11.6 19 l1.4 -3 M17 17.6 l-1.4 -3 M17 17.6 v-3.6 M17 17.6 l1.4 -3 M9 15 l-.9 -1.8 M9 15 v-2.2 M9 15 l.9 -1.8 M14.8 14.6 l-.9 -1.8 M14.8 14.6 v-2.2 M14.8 14.6 l.9 -1.8" fill="none" stroke="#6f7a3e" stroke-width=".8" stroke-linecap="round"/>
+</g><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="2.6" fill="none" stroke="#3b2a1e" stroke-width="1.2"/></symbol>
+
+<symbol id="gi-terrain-temperate_forest" viewBox="0 0 24 24"><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="2.6" fill="#b3bd8b"/><g clip-path="url(#gi-tile-clip)">
+<path d="M2.6 17.8 C8 17 14 17 21.4 17.8" fill="none" stroke="#3b2a1e" stroke-width=".7"/>
+<path d="M15.8 17.6 V13.6 M8.6 17.6 V12.6" stroke="#6b4426" stroke-width="1.2"/>
+<circle cx="15.8" cy="11.2" r="3.3" fill="#86a05a" stroke="#3b2a1e" stroke-width=".8"/>
+<path d="M5 11.6 C4.2 9 6 6.6 8.4 7 C9.4 5.2 12.6 5.6 12.8 8.2 C14.4 9.4 13.4 12.6 11 12.6 H6.6 C5.8 12.6 5.2 12.2 5 11.6 Z" fill="#6f8a4c" stroke="#3b2a1e" stroke-width=".8"/>
+<path d="M7 9.4 l.9 -.6 M9.8 8.2 l.9 -.6 M10 11 l.9 -.6 M15 10 l.8 -.6 M16.4 12.2 l.8 -.6" stroke="#3b2a1e" stroke-width=".45" stroke-linecap="round"/>
+</g><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="2.6" fill="none" stroke="#3b2a1e" stroke-width="1.2"/></symbol>
+
+<symbol id="gi-terrain-temperate_rainforest" viewBox="0 0 24 24"><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="2.6" fill="#9fb488"/><g clip-path="url(#gi-tile-clip)">
+<g stroke="#3b2a1e" stroke-width=".8" stroke-linejoin="round">
+<path d="M15.6 5.2 L17.8 9.8 H16.8 L18.6 13.8 H17.4 L19 18.4 H12.2 L13.8 13.8 H12.6 L14.4 9.8 H13.4 Z" fill="#4f6f48"/>
+<path d="M7.6 3.6 L10 8.8 H8.9 L10.8 13.2 H9.5 L11.2 18.4 H4 L5.7 13.2 H4.4 L6.3 8.8 H5.2 Z" fill="#3e5a3e"/>
+</g>
+<path d="M2.6 18.4 H21.4 V21.4 H2.6 Z" fill="#6f8f56"/>
+<path d="M2.6 18.4 H21.4" stroke="#3b2a1e" stroke-width=".7"/>
+<path d="M11.4 19.6 C11.6 17.6 12.4 16.4 13.6 15.8 M12 18.2 l-1 -.6 M12.4 17.2 l-.9 -.8 M12.2 18 l1 -.2 M12.8 16.8 l.9 -.1" fill="none" stroke="#2f4a30" stroke-width=".7" stroke-linecap="round"/>
+<path d="M11.6 5 l-.6 1.4 M13.2 8.4 l-.6 1.4 M19.8 4.4 l-.6 1.4 M3.8 15.6 l-.6 1.4" stroke="#3f6b7a" stroke-width=".7" stroke-linecap="round"/>
+</g><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="2.6" fill="none" stroke="#3b2a1e" stroke-width="1.2"/></symbol>
+
+<symbol id="gi-terrain-hot_desert" viewBox="0 0 24 24"><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="2.6" fill="#ecd5a0"/><g clip-path="url(#gi-tile-clip)">
+<path d="M16.2 3.6 V4.4 M19.6 5 L19 5.6 M20.8 8 H20 M12.8 5 L13.4 5.6 M11.6 8 H12.4" stroke="#b8742a" stroke-width=".8" stroke-linecap="round"/>
+<circle cx="16.2" cy="8" r="2.4" fill="#e0a63a" stroke="#3b2a1e" stroke-width=".8"/>
+<path d="M2.6 14 C6 10.8 9.4 11 12.4 13.4 C15.4 11.4 18.4 11.4 21.4 13 V22 H2.6 Z" fill="#e2bf80" stroke="#3b2a1e" stroke-width=".8"/>
+<path d="M2.6 18 C6.4 15.4 10.4 15.6 14 18 C16.6 16.4 19 16.4 21.4 17.4 V22 H2.6 Z" fill="#d9a95c" stroke="#3b2a1e" stroke-width=".8"/>
+<path d="M8.4 13.4 C9.6 13 10.6 13.4 11.4 14 M16.6 19.6 C17.6 19.2 18.6 19.4 19.4 19.8" fill="none" stroke="#3b2a1e" stroke-width=".45" stroke-linecap="round"/>
+</g><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="2.6" fill="none" stroke="#3b2a1e" stroke-width="1.2"/></symbol>
+
+<symbol id="gi-terrain-savanna" viewBox="0 0 24 24"><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="2.6" fill="#dccd92"/><g clip-path="url(#gi-tile-clip)">
+<path d="M2.6 18 C8 17.2 15 17.2 21.4 18" fill="none" stroke="#3b2a1e" stroke-width=".7"/>
+<path d="M12 17.6 C12 15 11.6 13 10.2 11.4 M12 15.2 C12.6 13.4 14 12.4 15 11.4" fill="none" stroke="#6b4426" stroke-width="1.1" stroke-linecap="round"/>
+<path d="M5.4 11.2 C5.4 9.2 9 8.4 12 8.6 C15 8.4 18.6 9.2 18.6 11.2 C16 11.9 8 11.9 5.4 11.2 Z" fill="#7d8a44" stroke="#3b2a1e" stroke-width=".8"/>
+<path d="M8 10 l1 -.4 M12.6 9.6 l1 -.3 M15.6 10.2 l1 -.4" stroke="#3b2a1e" stroke-width=".45" stroke-linecap="round"/>
+<path d="M5.4 19.4 l-1 -2 M5.4 19.4 v-2.4 M5.4 19.4 l1 -2 M18.4 19.4 l-1 -2 M18.4 19.4 v-2.4 M18.4 19.4 l1 -2" fill="none" stroke="#8a7a3a" stroke-width=".75" stroke-linecap="round"/>
+</g><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="2.6" fill="none" stroke="#3b2a1e" stroke-width="1.2"/></symbol>
+
+<symbol id="gi-terrain-tropical_dry_forest" viewBox="0 0 24 24"><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="2.6" fill="#bcc38a"/><g clip-path="url(#gi-tile-clip)">
+<path d="M2.6 18 C8 17.2 15 17.2 21.4 18" fill="none" stroke="#3b2a1e" stroke-width=".7"/>
+<path d="M8.4 17.6 V11.4" stroke="#6b4426" stroke-width="1.1"/>
+<g fill="#8f9a4c" stroke="#3b2a1e" stroke-width=".7"><circle cx="6.6" cy="9.6" r="2"/><circle cx="10" cy="8.4" r="2.2"/><circle cx="8.6" cy="11.4" r="1.7"/></g>
+<path d="M15.8 17.6 V12.6 M15.8 14.6 L13.6 11.8 M15.8 13.4 L18 10.6 M14.4 12.8 L13.8 10.4 M17.2 11.6 L18.8 11.8" fill="none" stroke="#6b4426" stroke-width=".9" stroke-linecap="round"/>
+<g fill="#c27a32" stroke="#3b2a1e" stroke-width=".3"><circle cx="13.8" cy="10.2" r=".7"/><circle cx="18.2" cy="10.2" r=".7"/><circle cx="18.9" cy="12.1" r=".6"/><circle cx="11.8" cy="19.2" r=".5"/><circle cx="17.6" cy="19.4" r=".5"/><circle cx="5.4" cy="19.2" r=".5"/></g>
+</g><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="2.6" fill="none" stroke="#3b2a1e" stroke-width="1.2"/></symbol>
+
+<symbol id="gi-terrain-rainforest" viewBox="0 0 24 24"><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="2.6" fill="#9db482"/><g clip-path="url(#gi-tile-clip)">
+<!-- 热带雨林：一棵伞冠露生大树（板根）+ 左侧中层圆冠树 + 右侧棕榈 + 前景芭蕉大叶与垂藤；按单棵树画，不画成横条冠层 -->
+<path d="M2.6 13.2 C3.2 11.8 4.4 11.6 5 12 M16.6 12.4 C17.4 11.4 18.6 11.4 19.2 12" fill="none" stroke="#b5c795" stroke-width="1.6" stroke-linecap="round"/>
+<path d="M19.8 21.4 C19.6 17.8 19.8 14.8 20.4 12.8" fill="none" stroke="#6b4426" stroke-width=".85" stroke-linecap="round"/>
+<path d="M20.4 12.8 C19.2 11.8 17.8 11.9 17 12.9 M20.4 12.8 C19.8 11.4 20.2 10.2 21.4 9.8 M20.4 12.8 C21 12.2 21.6 12.2 22 12.6 M20.4 12.8 C19.4 13.2 18.6 14.2 18.4 15.2" fill="none" stroke="#3f6b35" stroke-width="1" stroke-linecap="round"/>
+<path d="M6.6 13.4 V20.6" stroke="#6b4426" stroke-width=".9" stroke-linecap="round"/>
+<path d="M3.4 12.2 C2.8 10.6 4 9.2 5.4 9.4 C5.8 8 7.8 7.6 8.8 8.8 C10.2 8.6 11 10.2 10.4 11.4 C10.6 12.8 9.2 13.6 8 13 C7.2 13.8 5.6 13.8 5 13 C4.2 13.4 3.4 13 3.4 12.2 Z" fill="#6a9454" stroke="#3b2a1e" stroke-width=".65" stroke-linejoin="round"/>
+<path d="M14.4 8.2 V19.2" stroke="#6b4426" stroke-width="1.15" stroke-linecap="round"/>
+<path d="M14.4 17.6 C13.8 19.2 12.8 20.2 11.6 20.8 M14.4 17.6 C15 19.2 16 20.2 17.2 20.8" fill="none" stroke="#6b4426" stroke-width=".8" stroke-linecap="round"/>
+<path d="M9.6 7.2 C9.6 5.2 11.6 4.2 13 4.6 C13.8 3.6 15.6 3.4 16.6 4.4 C18 4 19.6 5 19.4 6.8 C19.4 7.6 18.6 8.2 17.6 8 C17 8.8 15.6 8.8 14.8 8.2 C14 8.8 12.6 8.8 12 8 C11 8.4 9.6 8.2 9.6 7.2 Z" fill="#4f7d44" stroke="#3b2a1e" stroke-width=".7" stroke-linejoin="round"/>
+<path d="M11.4 5.6 C12 5 12.8 4.9 13.4 5.2 M15.2 4.4 C15.8 4 16.6 4.1 17 4.6 M4.4 10.2 C4.9 9.7 5.6 9.6 6.1 9.9" fill="none" stroke="#a9c58a" stroke-width=".55" stroke-linecap="round"/>
+<path d="M11.2 8.3 C10.9 10.8 11.8 12.4 11.3 15" fill="none" stroke="#3f6b35" stroke-width=".55" stroke-linecap="round"/>
+<ellipse cx="11.6" cy="11.6" rx=".7" ry=".4" fill="#4f7d44" transform="rotate(-30 11.6 11.6)"/>
+<path d="M2.6 20.4 H21.4 V21.4 H2.6 Z" fill="#4b6647"/>
+<path d="M2.6 21.4 C3.2 18.4 5.4 16.6 8.8 16.8 C8.2 19.2 6 21 2.6 21.4 Z" fill="#2f5a30" stroke="#3b2a1e" stroke-width=".6" stroke-linejoin="round"/>
+<path d="M2.6 21.4 C4.6 19.4 6.6 17.8 8.8 16.8" fill="none" stroke="#a9c58a" stroke-width=".4"/>
+<path d="M21.4 21.4 C20.6 19.2 18.6 18.2 16.2 18.6 C17 20.4 18.8 21.4 21.4 21.4 Z" fill="#3f6b35" stroke="#3b2a1e" stroke-width=".6" stroke-linejoin="round"/>
+<circle cx="8.2" cy="10.4" r=".6" fill="#a3472f" stroke="#3b2a1e" stroke-width=".3"/>
+<circle cx="20.1" cy="13.6" r=".5" fill="#d9a53a" stroke="#3b2a1e" stroke-width=".3"/>
+</g><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="2.6" fill="none" stroke="#3b2a1e" stroke-width="1.2"/></symbol>
+
+<symbol id="gi-terrain-wetland" viewBox="0 0 24 24"><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="2.6" fill="#b2bd98"/><g clip-path="url(#gi-tile-clip)">
+<ellipse cx="9" cy="15.6" rx="4.6" ry="1.7" fill="#9fbcc0" stroke="#3b2a1e" stroke-width=".6"/>
+<ellipse cx="16.6" cy="18.4" rx="3.4" ry="1.3" fill="#9fbcc0" stroke="#3b2a1e" stroke-width=".6"/>
+<path d="M7.4 15.4 H9.6 M15.6 18.4 H17.2" stroke="#3f6b7a" stroke-width=".55" stroke-linecap="round"/>
+<path d="M14.8 15.4 V9.8 M16.2 15.2 V8.4 M17.6 15.6 V10.4 M13.8 15.6 C13.6 12.8 12.8 11.2 11.6 10.2 M18.6 15.6 C18.8 13 19.4 11.6 20.4 10.8" fill="none" stroke="#5f7247" stroke-width=".8" stroke-linecap="round"/>
+<g fill="#7a4e2c"><rect x="14.35" y="8.6" width=".9" height="2" rx=".45"/><rect x="15.75" y="7.2" width=".9" height="2" rx=".45"/><rect x="17.15" y="9.2" width=".9" height="2" rx=".45"/></g>
+<path d="M4.6 13.6 V10.6 M5.8 13.6 V9.8 M7 13.8 V11.2" stroke="#5f7247" stroke-width=".75" stroke-linecap="round"/>
+</g><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="2.6" fill="none" stroke="#3b2a1e" stroke-width="1.2"/></symbol>
+
+<!-- 地形 -->
+<symbol id="gi-terrain-mountain" viewBox="0 0 24 24"><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="2.6" fill="#e8e0c6"/><g clip-path="url(#gi-tile-clip)">
+<path d="M2.6 19 L9 6.8 L13.2 13.4 L16 9.6 L21.4 19 Z" fill="#b7ab8a" stroke="#3b2a1e" stroke-width=".9" stroke-linejoin="round"/>
+<path d="M7.3 10 L9 6.8 L10.8 9.7 L9.9 9.3 L9 10.3 L8.2 9.4 Z M14.9 11.3 L16 9.6 L17.3 11.6 L16.5 11.2 L15.8 11.9 Z" fill="#fbf8ef" stroke="#3b2a1e" stroke-width=".4" stroke-linejoin="round"/>
+<path d="M10.2 9.8 L12.6 17.2 M11.2 11.2 L13.2 16.8 M16.8 11.6 L18.4 17 M17.6 12.8 L18.8 16.4" stroke="#3b2a1e" stroke-width=".45" stroke-opacity=".7"/>
+<path d="M2.6 19 H21.4 V21.4 H2.6 Z" fill="#a49c84"/>
+<path d="M2.6 19 H21.4" stroke="#3b2a1e" stroke-width=".7"/>
+</g><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="2.6" fill="none" stroke="#3b2a1e" stroke-width="1.2"/></symbol>
+
+<!-- 高原：背景一列雪峰 + 前景平顶台地与陡坎，顶面稀疏高寒草甸；与山地（单独尖峰）区分 -->
+<symbol id="gi-terrain-plateau" viewBox="0 0 24 24"><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="2.6" fill="#e8e0c6"/><g clip-path="url(#gi-tile-clip)">
+<path d="M2.6 2.6 H21.4 V10.8 H2.6 Z" fill="#e3e6dc"/>
+<path d="M2.6 10.8 H21.4 V18.6 H2.6 Z" fill="#d8d0aa"/>
+<path d="M2.6 10.8 L4.6 7.4 L6.4 9 L9 4.6 L11.4 8.2 L13.4 6.2 L16.4 3.6 L19 7.4 L20.4 6.4 L21.4 7.4 V10.8 Z" fill="#bfc0b4" stroke="#3b2a1e" stroke-width=".6" stroke-linejoin="round"/>
+<g fill="#fbf8ef" stroke="#3b2a1e" stroke-width=".3" stroke-linejoin="round"><path d="M7.9 6.5 L9 4.6 L10.2 6.4 L9.6 6.1 L9 6.8 L8.5 6.2 Z"/><path d="M15 4.8 L16.4 3.6 L17.8 5.6 L17 5.2 L16.4 5.9 L15.8 5.2 Z"/><path d="M4 8.4 L4.6 7.4 L5.3 8 L4.7 8.3 Z"/><path d="M19.9 6.8 L20.4 6.4 L21 7 L20.4 7.1 Z"/></g>
+<path d="M9.6 7 L10.6 9.6 M17.2 5.8 L18.2 8.6 M12.2 7.6 L12.8 9.8" stroke="#3b2a1e" stroke-width=".35" stroke-opacity=".5" stroke-linecap="round"/>
+<path d="M5.4 10.8 H18.6 L21.4 18.6 H2.6 Z" fill="#b7ab8a" stroke="#3b2a1e" stroke-width=".8" stroke-linejoin="round"/>
+<path d="M5.4 10.8 H18.6 L18.9 11.8 H5.1 Z" fill="#c9c69a"/>
+<path d="M5.4 10.8 H18.6" stroke="#3b2a1e" stroke-width=".9"/>
+<path d="M6.4 12.4 L4.8 17.8 M9 12.4 L8.2 16.6 M14.6 12.4 L15.6 16.8 M17.4 12.4 L19 17.8" stroke="#3b2a1e" stroke-width=".45" stroke-opacity=".7" stroke-linecap="round"/>
+<path d="M10.6 13.4 C11.4 14.6 12.6 14.6 13.4 13.4" fill="none" stroke="#3b2a1e" stroke-width=".4" stroke-opacity=".5"/>
+<g stroke="#6c7d45" stroke-width=".55" stroke-linecap="round"><path d="M6.8 10.7 V9.7 M7.4 10.7 V9.9 M10.6 10.7 V9.6 M11.2 10.7 V9.9 M17.6 10.7 V9.8"/></g>
+<path d="M2.6 18.6 H21.4 V21.4 H2.6 Z" fill="#a8b07a"/>
+<path d="M2.6 18.6 H21.4" stroke="#3b2a1e" stroke-width=".7"/>
+</g><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="2.6" fill="none" stroke="#3b2a1e" stroke-width="1.2"/></symbol>
+
+<symbol id="gi-terrain-coast" viewBox="0 0 24 24"><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="2.6" fill="#ecd9a8"/><g clip-path="url(#gi-tile-clip)">
+<path d="M2.6 2.6 H7.4 C6.2 7 8.2 12 6.6 21.4 H2.6 Z" fill="#b3bd8b" stroke="#3b2a1e" stroke-width=".6"/>
+<path d="M12.4 2.6 C11.2 6 13.8 8.6 12.8 11.6 C11.8 14.6 14.6 17 13.6 21.4 H21.4 V2.6 Z" fill="#a9c1c0" stroke="#3b2a1e" stroke-width=".9"/>
+<path d="M13.8 4.6 C13 7 15 8.6 14.4 11.4 C13.6 14.4 16 16.6 15.4 19.6" fill="none" stroke="#f4f6f0" stroke-width=".7" stroke-dasharray="1.2 1"/>
+<path d="M16.4 6.4 q1.2 -1.2 2.4 0 M17 12 q1.2 -1.2 2.4 0 M16.8 17.4 q1.2 -1.2 2.4 0" fill="none" stroke="#3f6b7a" stroke-width=".75" stroke-linecap="round"/>
+<path d="M4.4 9 l-.8 -1.8 M4.4 9 v-2.2 M4.4 9 l.8 -1.8 M4.6 16.4 l-.8 -1.8 M4.6 16.4 v-2.2 M4.6 16.4 l.8 -1.8" fill="none" stroke="#5f7247" stroke-width=".7" stroke-linecap="round"/>
+<ellipse cx="9.4" cy="15.2" rx="1.1" ry=".7" fill="#cdbf9c" stroke="#3b2a1e" stroke-width=".5"/>
+<path d="M9 9.4 a.9 .9 0 0 1 1.8 0 Z" fill="#f2c4b0" stroke="#3b2a1e" stroke-width=".4"/>
+</g><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="2.6" fill="none" stroke="#3b2a1e" stroke-width="1.2"/></symbol>
+
+<symbol id="gi-terrain-river" viewBox="0 0 24 24"><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="2.6" fill="#b3bd8b"/><g clip-path="url(#gi-tile-clip)">
+<path d="M8 1.6 C6 7 14 8.6 12.4 12.6 C11 16 7.4 17 9.4 22.4 H13.6 C11.8 17.6 15.6 16.4 16.4 12.6 C17.6 7.6 10 6.6 12.2 1.6 Z" fill="#9fbcc0" stroke="#3b2a1e" stroke-width=".8"/>
+<path d="M9.6 5.4 l1.4 .5 M13.4 11.6 l1.3 .5 M10.4 18.2 l1.4 .2" stroke="#3f6b7a" stroke-width=".65" stroke-linecap="round"/>
+<path d="M5.2 13 l-.8 -1.8 M5.2 13 v-2.2 M5.2 13 l.8 -1.8 M18.6 19 l-.8 -1.8 M18.6 19 v-2.2 M18.6 19 l.8 -1.8 M18 7 l-.8 -1.8 M18 7 v-2.2 M18 7 l.8 -1.8" fill="none" stroke="#5f7247" stroke-width=".7" stroke-linecap="round"/>
+</g><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="2.6" fill="none" stroke="#3b2a1e" stroke-width="1.2"/></symbol>
+
+<!-- 生产用地 -->
+<symbol id="gi-terrain-farmland" viewBox="0 0 24 24"><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="2.6" fill="#efe6c9"/><g clip-path="url(#gi-tile-clip)">
+<path d="M2.6 11 C6 9.8 9 10.2 12 9.6 C15 10.2 18 9.4 21.4 10.4 V11.2 H2.6 Z" fill="#8a9a5a" stroke="#3b2a1e" stroke-width=".6"/>
+<path d="M2.6 11.2 H21.4 V21.4 H2.6 Z" fill="#c9a96a"/>
+<path d="M2.6 11.2 H21.4" stroke="#3b2a1e" stroke-width=".7"/>
+<path d="M3 21.4 L9 11.2 M7.8 21.4 L10.8 11.2 M12 21.4 V11.2 M16.2 21.4 L13.2 11.2 M21 21.4 L15 11.2" stroke="#7a5a34" stroke-width=".7"/>
+<path d="M16.6 9.8 V4.8 M18.2 9.6 L18.6 5.2" stroke="#8f6a1e" stroke-width=".6"/>
+<g fill="#d9a441" stroke="#3b2a1e" stroke-width=".35"><ellipse cx="16.6" cy="4.6" rx=".5" ry=".9"/><ellipse cx="16" cy="5.9" rx=".5" ry=".85" transform="rotate(-25 16 5.9)"/><ellipse cx="17.2" cy="5.9" rx=".5" ry=".85" transform="rotate(25 17.2 5.9)"/><ellipse cx="18.6" cy="5" rx=".5" ry=".9"/><ellipse cx="18.1" cy="6.3" rx=".45" ry=".8" transform="rotate(-25 18.1 6.3)"/><ellipse cx="19.2" cy="6.3" rx=".45" ry=".8" transform="rotate(25 19.2 6.3)"/></g>
+</g><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="2.6" fill="none" stroke="#3b2a1e" stroke-width="1.2"/></symbol>
+
+<symbol id="gi-terrain-orchard" viewBox="0 0 24 24"><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="2.6" fill="#b3bd8b"/><g clip-path="url(#gi-tile-clip)">
+<path d="M2.6 18.6 H21.4" stroke="#3b2a1e" stroke-width=".7"/>
+<path d="M8.8 18.6 V13.4" stroke="#6b4426" stroke-width="1.2"/>
+<circle cx="8.8" cy="10" r="4.4" fill="#6f8a4c" stroke="#3b2a1e" stroke-width=".8"/>
+<g fill="#a3472f" stroke="#3b2a1e" stroke-width=".35"><circle cx="7.2" cy="8.8" r=".8"/><circle cx="10.2" cy="8.2" r=".8"/><circle cx="9" cy="11.4" r=".8"/><circle cx="11.2" cy="10.8" r=".8"/><circle cx="6.6" cy="11.4" r=".8"/></g>
+<path d="M14 14.6 H20.4 M14 17.6 H20.4" stroke="#7a5a34" stroke-width="1"/>
+<path d="M15 14.4 c0 -1 .8 -1.4 1.2 -1.6 M15 14.4 c0 -1 -.8 -1.4 -1.1 -1.5 M18.2 14.4 c0 -1 .8 -1.4 1.2 -1.6 M18.2 14.4 c0 -1 -.8 -1.4 -1.1 -1.5 M15 17.4 c0 -1 .8 -1.4 1.2 -1.6 M15 17.4 c0 -1 -.8 -1.4 -1.1 -1.5 M18.2 17.4 c0 -1 .8 -1.4 1.2 -1.6 M18.2 17.4 c0 -1 -.8 -1.4 -1.1 -1.5" fill="none" stroke="#3f5a2c" stroke-width=".7" stroke-linecap="round"/>
+</g><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="2.6" fill="none" stroke="#3b2a1e" stroke-width="1.2"/></symbol>
+
+<symbol id="gi-terrain-pasture" viewBox="0 0 24 24"><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="2.6" fill="#c4c98e"/><g clip-path="url(#gi-tile-clip)">
+<path d="M4 8 V13.8 M9 8 V13.8 M14 8 V13.8 M19 8 V13.8" stroke="#7a4e2c" stroke-width="1" stroke-linecap="round"/>
+<path d="M2.6 9.4 H21.4 M2.6 11.8 H21.4" stroke="#7a4e2c" stroke-width=".8"/>
+<path d="M8.8 17.4 C8 16.4 8.8 15 10 15.2 C10.4 14 12.4 13.8 13 15 C14.2 14.6 15.4 15.6 14.8 16.8 C15.2 18 14 19 12.8 18.6 C12 19.4 10.4 19.4 9.8 18.6 C8.8 18.8 8.2 18 8.8 17.4 Z" fill="#fbf8ef" stroke="#3b2a1e" stroke-width=".8"/>
+<ellipse cx="15.7" cy="15.6" rx="1.25" ry=".95" fill="#3b2a1e"/>
+<path d="M10.4 18.9 V20.4 M13 18.9 V20.4" stroke="#3b2a1e" stroke-width=".85" stroke-linecap="round"/>
+<path d="M4.6 19 l-.7 -1.4 M4.6 19 v-1.7 M4.6 19 l.7 -1.4 M18.8 19.6 l-.7 -1.4 M18.8 19.6 v-1.7 M18.8 19.6 l.7 -1.4" fill="none" stroke="#5f7247" stroke-width=".7" stroke-linecap="round"/>
+</g><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="2.6" fill="none" stroke="#3b2a1e" stroke-width="1.2"/></symbol>
+
+<symbol id="gi-terrain-mine" viewBox="0 0 24 24"><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="2.6" fill="#ddd2b4"/><g clip-path="url(#gi-tile-clip)">
+<path d="M2.6 18 C5 10.4 9 7.4 13 8 C17 8.4 19.6 11 21.4 14 V22 H2.6 Z" fill="#b7ab8a" stroke="#3b2a1e" stroke-width=".9"/>
+<path d="M8.6 18.8 V13.6 C8.6 12.4 9.8 11.8 11.2 11.8 H12.4 C13.8 11.8 15 12.4 15 13.6 V18.8 Z" fill="#2c2622"/>
+<path d="M8.3 18.8 V12.2 M15.3 18.8 V12.2 M7.4 12 H16.2" stroke="#7a4e2c" stroke-width="1.3" stroke-linecap="round"/>
+<path d="M9.4 21.6 L10.6 18.8 M14.2 21.6 L13 18.8 M9.8 20.6 H13.8 M10.3 19.6 H13.3" stroke="#3b2a1e" stroke-width=".6"/>
+<path d="M19.6 4 L16.6 9.4" stroke="#7a4e2c" stroke-width="1" stroke-linecap="round"/>
+<path d="M16.4 4.2 C18 4.2 19.8 5 20.6 6.6" fill="none" stroke="#5d6b78" stroke-width="1.3" stroke-linecap="round"/>
+<path d="M5.4 14.2 l1 -.6 M17.6 15 l1 .5" stroke="#3b2a1e" stroke-width=".45" stroke-linecap="round"/>
+</g><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="2.6" fill="none" stroke="#3b2a1e" stroke-width="1.2"/></symbol>
+
+<symbol id="gi-terrain-workshop" viewBox="0 0 24 24"><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="2.6" fill="#e8dcbc"/><g clip-path="url(#gi-tile-clip)">
+<path d="M10 7.4 C9.2 6.4 10.8 5.8 10 4.6 M13.8 7.4 C13 6.4 14.6 5.8 13.8 4.6" fill="none" stroke="#3b2a1e" stroke-width=".6" stroke-linecap="round" stroke-opacity=".7"/>
+<path d="M8.6 13.6 L7.8 16.2 M15.4 13.6 L16.2 16.2" stroke="#3b2a1e" stroke-width=".9" stroke-linecap="round"/>
+<path d="M7.4 9.6 H16.6 C16.6 12.4 14.8 14 12 14 C9.2 14 7.4 12.4 7.4 9.6 Z" fill="#3e3c37" stroke="#3b2a1e" stroke-width=".8"/>
+<rect x="6.8" y="8.7" width="10.4" height="1.3" rx=".6" fill="#5d6b78" stroke="#3b2a1e" stroke-width=".6"/>
+<path d="M9 11 C9.4 12.2 10.2 12.8 11 13" fill="none" stroke="#8d969c" stroke-width=".55" stroke-linecap="round"/>
+<path d="M9.8 16.2 C9.2 15.4 9.8 14.6 10.4 14.4 C10.4 15 10.9 15.1 11.2 14.6 C11.6 15.1 12.2 14.6 12.1 14 C13.2 14.5 14 15.4 13.6 16.2 Z" fill="#d9822b" stroke="#3b2a1e" stroke-width=".6"/>
+<path d="M4.4 19.6 H19.6 V16.2 H4.4 Z" fill="#cdbf9c" stroke="#3b2a1e" stroke-width=".8"/>
+<path d="M4.4 17.9 H19.6 M8.2 16.2 V17.9 M12 17.9 V19.6 M15.8 16.2 V17.9" stroke="#3b2a1e" stroke-width=".45"/>
+</g><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="2.6" fill="none" stroke="#3b2a1e" stroke-width="1.2"/></symbol>
+
+<symbol id="gi-terrain-import" viewBox="0 0 24 24"><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="2.6" fill="#a9c1c0"/><g clip-path="url(#gi-tile-clip)">
+<path d="M12 13.6 V3.8" stroke="#3b2a1e" stroke-width="1"/>
+<path d="M12 3.8 L14.8 4.4 L12 5" fill="#a3472f"/>
+<path d="M8 5.6 H16 C16.6 8 16.6 10.2 16 12.4 H8 C7.4 10.2 7.4 8 8 5.6 Z" fill="#f2e6c8" stroke="#3b2a1e" stroke-width=".8"/>
+<path d="M7.7 8.2 H16.3 M7.7 10.2 H16.3" stroke="#a3472f" stroke-width=".9"/>
+<path d="M4.8 13.6 H19.2 C18.6 16.4 16.6 17.6 12 17.6 C7.4 17.6 5.4 16.4 4.8 13.6 Z" fill="#a86b3c" stroke="#3b2a1e" stroke-width=".9"/>
+<path d="M5.6 15.2 H18.4" stroke="#3b2a1e" stroke-width=".45"/>
+<rect x="14.2" y="12" width="2.4" height="1.6" fill="#b88a45" stroke="#3b2a1e" stroke-width=".5"/>
+<path d="M2 19.6 q1.5 -1.4 3 0 q1.5 -1.4 3 0 q1.5 -1.4 3 0 q1.5 -1.4 3 0 q1.5 -1.4 3 0 q1.5 -1.4 3 0 q1.5 -1.4 3 0" fill="none" stroke="#3f6b7a" stroke-width=".85" stroke-linecap="round"/>
+</g><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="2.6" fill="none" stroke="#3b2a1e" stroke-width="1.2"/></symbol>
+
+<!-- ======================= 季节（season:<值>） 圆章 ======================= -->
+<symbol id="gi-season-spring" viewBox="0 0 24 24">
+<circle cx="12" cy="12" r="9.6" fill="#e3e8c6" stroke="#3b2a1e" stroke-width="1.2"/>
+<circle cx="12" cy="12" r="8.3" fill="none" stroke="#3b2a1e" stroke-width=".4" stroke-opacity=".45"/>
+<path d="M12 13.4 C12 15.4 11.4 17.2 10.6 18.6" fill="none" stroke="#5f7247" stroke-width="1" stroke-linecap="round"/>
+<path d="M11.8 16 C13.4 14.6 15.4 14.8 16.2 15.6 C15 16.8 13.2 17 11.8 16 Z M11.2 17.4 C9.8 16.4 8 16.6 7.4 17.4 C8.6 18.4 10.2 18.4 11.2 17.4 Z" fill="#8a9a5a" stroke="#3b2a1e" stroke-width=".6"/>
+<g fill="#f0c4c0" stroke="#3b2a1e" stroke-width=".7"><circle cx="12" cy="7.9" r="2"/><circle cx="14.2" cy="9.5" r="2"/><circle cx="13.4" cy="12.1" r="2"/><circle cx="10.6" cy="12.1" r="2"/><circle cx="9.8" cy="9.5" r="2"/></g>
+<circle cx="12" cy="10.3" r="1.2" fill="#e0a63a" stroke="#3b2a1e" stroke-width=".6"/>
+</symbol>
+<symbol id="gi-season-summer" viewBox="0 0 24 24">
+<circle cx="12" cy="12" r="9.6" fill="#f3e2ae" stroke="#3b2a1e" stroke-width="1.2"/>
+<circle cx="12" cy="12" r="8.3" fill="none" stroke="#3b2a1e" stroke-width=".4" stroke-opacity=".45"/>
+<path d="M17 12 H19 M15.5 15.5 L16.9 16.9 M12 17 V19 M8.5 15.5 L7.1 16.9 M7 12 H5 M8.5 8.5 L7.1 7.1 M12 7 V5 M15.5 8.5 L16.9 7.1" stroke="#b8742a" stroke-width="1.3" stroke-linecap="round"/>
+<circle cx="12" cy="12" r="3.6" fill="#e0a63a" stroke="#3b2a1e" stroke-width=".9"/>
+<path d="M10 10.6 A2.4 2.4 0 0 1 11.6 9.6" fill="none" stroke="#f7d88a" stroke-width=".8" stroke-linecap="round"/>
+</symbol>
+<symbol id="gi-season-autumn" viewBox="0 0 24 24">
+<circle cx="12" cy="12" r="9.6" fill="#ecd6ae" stroke="#3b2a1e" stroke-width="1.2"/>
+<circle cx="12" cy="12" r="8.3" fill="none" stroke="#3b2a1e" stroke-width=".4" stroke-opacity=".45"/>
+<path d="M6.6 17 C6 12.4 9 7.6 15.6 6.4 C16.6 6.2 17.4 6.3 17.4 6.3 C17.2 12.4 13.6 16.6 6.6 17 Z" fill="#b8642f" stroke="#3b2a1e" stroke-width=".9"/>
+<path d="M5.8 17.8 L6.6 17 C9.6 13.8 13 10 17.2 6.6" fill="none" stroke="#3b2a1e" stroke-width=".6" stroke-linecap="round"/>
+<path d="M9.6 13.8 L9.3 11.6 M9.6 13.8 L11.9 14.2 M12.3 10.9 L12.2 8.8 M12.3 10.9 L14.6 11.2" stroke="#3b2a1e" stroke-width=".45" stroke-linecap="round"/>
+<ellipse cx="16.2" cy="16.4" rx="1.3" ry="1.6" fill="#c99a54" stroke="#3b2a1e" stroke-width=".6"/>
+<path d="M14.8 15.6 C14.8 14.4 17.6 14.4 17.6 15.6 Z" fill="#7a5a34" stroke="#3b2a1e" stroke-width=".6"/>
+<path d="M16.2 14.5 V13.7" stroke="#3b2a1e" stroke-width=".6" stroke-linecap="round"/>
+</symbol>
+<symbol id="gi-season-winter" viewBox="0 0 24 24">
+<circle cx="12" cy="12" r="9.6" fill="#e3e9e8" stroke="#3b2a1e" stroke-width="1.2"/>
+<circle cx="12" cy="12" r="8.3" fill="none" stroke="#3b2a1e" stroke-width=".4" stroke-opacity=".45"/>
+<g fill="none" stroke="#3f6b7a" stroke-width="1.05" stroke-linecap="round" stroke-linejoin="round">
+<path d="M12 12 V5.6 M10.5 7.3 L12 8.8 L13.5 7.3 M11.1 9.9 L12 10.7 L12.9 9.9"/>
+<path d="M12 12 V5.6 M10.5 7.3 L12 8.8 L13.5 7.3 M11.1 9.9 L12 10.7 L12.9 9.9" transform="rotate(60 12 12)"/>
+<path d="M12 12 V5.6 M10.5 7.3 L12 8.8 L13.5 7.3 M11.1 9.9 L12 10.7 L12.9 9.9" transform="rotate(120 12 12)"/>
+<path d="M12 12 V5.6 M10.5 7.3 L12 8.8 L13.5 7.3 M11.1 9.9 L12 10.7 L12.9 9.9" transform="rotate(180 12 12)"/>
+<path d="M12 12 V5.6 M10.5 7.3 L12 8.8 L13.5 7.3 M11.1 9.9 L12 10.7 L12.9 9.9" transform="rotate(240 12 12)"/>
+<path d="M12 12 V5.6 M10.5 7.3 L12 8.8 L13.5 7.3 M11.1 9.9 L12 10.7 L12.9 9.9" transform="rotate(300 12 12)"/>
+</g>
+<circle cx="12" cy="12" r="1.1" fill="#fbf8ef" stroke="#3f6b7a" stroke-width=".7"/>
+</symbol>
+<symbol id="gi-season-all_year" viewBox="0 0 24 24">
+<circle cx="12" cy="12" r="9.6" fill="#f2e6c8" stroke="#3b2a1e" stroke-width="1.2"/>
+<circle cx="12" cy="12" r="8.3" fill="none" stroke="#3b2a1e" stroke-width=".4" stroke-opacity=".45"/>
+<g stroke="#3b2a1e" stroke-width=".7" stroke-linejoin="round">
+<path d="M12 12 L12 5 A7 7 0 0 1 19 12 Z" fill="#c9d4a0"/>
+<path d="M12 12 L19 12 A7 7 0 0 1 12 19 Z" fill="#ecc76a"/>
+<path d="M12 12 L12 19 A7 7 0 0 1 5 12 Z" fill="#c98a4e"/>
+<path d="M12 12 L5 12 A7 7 0 0 1 12 5 Z" fill="#c7d3d4"/>
+</g>
+<g fill="#3b2a1e" fill-opacity=".55"><circle cx="15" cy="9" r=".7"/><circle cx="15" cy="15" r=".7"/><circle cx="9" cy="15" r=".7"/><circle cx="9" cy="9" r=".7"/></g>
+<circle cx="12" cy="12" r="7" fill="none" stroke="#3b2a1e" stroke-width=".9"/>
+<circle cx="12" cy="12" r="1.6" fill="#f2e6c8" stroke="#3b2a1e" stroke-width=".8"/>
+</symbol>
+</defs>
+</svg>

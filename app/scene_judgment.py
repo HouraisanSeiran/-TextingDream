@@ -1,6 +1,6 @@
 """Opt-in short-scene adjudication: model choices, existing checks, bounded effects."""
 from pydantic import BaseModel, ConfigDict, Field
-from . import free_actions, npc_cards
+from . import checks, free_actions, npc_cards
 
 #: 判定 v2 的档位中文名（给模型的是档位事实，不是可改的数值）。
 CHECKS_TIER_LABELS = {'critical': '大成功', 'success': '成功', 'partial': '成功但有代价',
@@ -38,6 +38,7 @@ conversation_partners 只有 heard_input 非空的人听见了这次说话，可
 npc_card 是该人物可公开的目标、压力、底线与经历。综合当地环境、阶层、阵营和私人利益回应。
 knowledge 内的传闻与解释只是此人的说法；confidence 不是事实认证。memories 是该人物的经历，不是所有人的共同知识。
 失败时按已有结果表现拒绝、疑点或后续商谈，不凭空授予线索、通行或奖励。不添加内在声音。
+check 若带 tier/tier_label/authored_text，检定已结算：按此档位描写已发生的结果，不能改结果、不能发奖励、不能立新事实；authored_text 非空以它为准，为空则由你按档位描写。大成功要让玩家清楚感到局面变好，大失败要写出实际的不利变化，成功与失败按正常力度，好坏方向靠措辞与人物反应体现，不新增钱物、关系数值或世界事实。
 描述与选择一致，给玩家留下回应机会，不代选下一步。不输出思考过程。/no_think'''
 
 
@@ -118,7 +119,8 @@ def context(runtime, session, request, result, action):
         observers.append({'id': cid, 'name': actor.get('public_name', actor['name']),
                           'personality': actor.get('personality', {}), 'values': rule['values'],
                           'trust': session.get('development', {}).get(cid, {}).get('relationships', {}).get(session['hero'], {}).get('trust', .5),
-                          'observed': result['outcome'],
+                          'observed': (result['settled'].get('authored_text') or result['settled']['tier_label'])
+                          if result.get('settled') else result['outcome'],
                           'choices': {key: rule['choices'][key]['line'] for key in usable}})
     actors = {c['id']: c for c in package['characters']['characters']}
     for row in partners + observers:
@@ -128,10 +130,14 @@ def context(runtime, session, request, result, action):
     # Only the player's visible notebook enters narration; no hidden flags or author facts.
     data = {'scene': place['name'], 'description': place['description'], 'law': cfg['law'],
             'input': request.message, 'channel': request.channel, 'action_id': request.action_id,
-            'resolved': result.get('outcome') if action else '尚未执行行动；不能声称拿取、消费或移动。',
+            'resolved': ((result.get('settled') or {}).get('authored_text')
+                         if result.get('settled') else result.get('outcome'))
+            if action else '尚未执行行动；不能声称拿取、消费或移动。',
             'observers': observers, 'conversation_partners': partners,
             'money': session['local']['resources'].get('pence'),
-            'known': [r['text'] for r in session['heard'][-5:]],
+            # 引擎的通用兜底句只给玩家看（听说），不进模型：否则它会被当成作者文本复述。
+            'known': [r['text'] for r in session['heard'][-5:]
+                      if r['text'] != checks.GENERIC_FALLBACK],
             'history': (session.get('active') or {}).get('turns', [])[-3:]}
     if request.action_id and action and action.get('check') \
             and not (result.get('check_public') or {}).get('refused'):
@@ -143,6 +149,13 @@ def context(runtime, session, request, result, action):
                              'tier_label': (session.get('last_check') or {}).get('tier_label')
                              or CHECKS_TIER_LABELS.get(audit.get('tier'), ''),
                              'boundary': '档位是引擎已裁定的事实，不能反转或升级。'}
+            settled = result.get('settled')
+            if settled:
+                # 先结算后叙述：已结算的档位、行动标签、作者文本（可为空）与叙述规则。
+                data['check'].update(tier=settled['tier'], tier_label=settled['tier_label'],
+                                     action_label=settled['action_label'],
+                                     authored_text=settled['authored_text'],
+                                     narration_rule=settled['rule'])
         else:
             data['check'] = {k: audit[k] for k in
                              ('attribute', 'probability', 'success', 'margin')}

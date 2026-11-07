@@ -134,7 +134,7 @@ class ImportDirectoryTests(unittest.TestCase):
         self.tmp = tempfile.TemporaryDirectory()
         self.addCleanup(self.tmp.cleanup)
         self.repo = Path(self.tmp.name)
-        self.data = self.repo / 'data'
+        self.data = self.repo / 'saves'
         self.data.mkdir(parents=True, exist_ok=True)
         # The shared world fixture is explicitly committed when the Service is created.
         if not REAL_EXPORT.exists():
@@ -185,10 +185,10 @@ class ImportRootRuleTests(unittest.TestCase):
         self.assertEqual(svc._data_root(), (self.repo / 'sandbox').resolve())
 
     def test_production_store_reads_beside_its_own_database(self):
-        store = Store(self.repo / 'data' / 'textiledream.sqlite3')
+        store = Store(self.repo / 'saves' / 'textiledream.sqlite3')
         service = world_service(store, self.repo)
         svc = whs.WorldHistoryService(service.runtime)
-        self.assertEqual(svc._data_root(), (self.repo / 'data').resolve(),
+        self.assertEqual(svc._data_root(), (self.repo / 'saves').resolve(),
                          '与 web._import_root() 一致，不是仓库根')
 
 

@@ -1,0 +1,1380 @@
+[
+ {
+  "id": "west-elf-wallspoke-n",
+  "style": "west",
+  "race": "elf",
+  "category": "wall",
+  "kind": "wall_spoke",
+  "facility": "city_wall",
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 36,
+  "anchor": [
+   24,
+   84
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   84
+  ],
+  "tags": [
+   "spoke",
+   "dir_n",
+   "order_0.1"
+  ],
+  "roof": "none",
+  "note": "辐条半段墙：格中心 → 格边中点；同格排序键 = 前沿 y + 0.1",
+  "sort_offset": 0.1
+ },
+ {
+  "id": "west-elf-wallspoke-ne",
+  "style": "west",
+  "race": "elf",
+  "category": "wall",
+  "kind": "wall_spoke",
+  "facility": "city_wall",
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 45,
+  "anchor": [
+   24,
+   93
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   93
+  ],
+  "tags": [
+   "spoke",
+   "dir_ne",
+   "order_0.1"
+  ],
+  "roof": "none",
+  "note": "辐条半段墙：格中心 → 格角；同格排序键 = 前沿 y + 0.1",
+  "sort_offset": 0.1
+ },
+ {
+  "id": "west-elf-wallspoke-e",
+  "style": "west",
+  "race": "elf",
+  "category": "wall",
+  "kind": "wall_spoke",
+  "facility": "city_wall",
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 30,
+  "anchor": [
+   24,
+   78
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   78
+  ],
+  "tags": [
+   "spoke",
+   "dir_e",
+   "order_0.3"
+  ],
+  "roof": "none",
+  "note": "辐条半段墙：格中心 → 格边中点；同格排序键 = 前沿 y + 0.3",
+  "sort_offset": 0.3
+ },
+ {
+  "id": "west-elf-wallspoke-se",
+  "style": "west",
+  "race": "elf",
+  "category": "wall",
+  "kind": "wall_spoke",
+  "facility": "city_wall",
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 30,
+  "anchor": [
+   24,
+   78
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   78
+  ],
+  "tags": [
+   "spoke",
+   "dir_se",
+   "order_0.4"
+  ],
+  "roof": "none",
+  "note": "辐条半段墙：格中心 → 格角；同格排序键 = 前沿 y + 0.4",
+  "sort_offset": 0.4
+ },
+ {
+  "id": "west-elf-wallspoke-s",
+  "style": "west",
+  "race": "elf",
+  "category": "wall",
+  "kind": "wall_spoke",
+  "facility": "city_wall",
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 30,
+  "anchor": [
+   24,
+   78
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   78
+  ],
+  "tags": [
+   "spoke",
+   "dir_s",
+   "order_0.4"
+  ],
+  "roof": "none",
+  "note": "辐条半段墙：格中心 → 格边中点；同格排序键 = 前沿 y + 0.4",
+  "sort_offset": 0.4
+ },
+ {
+  "id": "west-elf-wallspoke-sw",
+  "style": "west",
+  "race": "elf",
+  "category": "wall",
+  "kind": "wall_spoke",
+  "facility": "city_wall",
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 30,
+  "anchor": [
+   24,
+   78
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   78
+  ],
+  "tags": [
+   "spoke",
+   "dir_sw",
+   "order_0.4"
+  ],
+  "roof": "none",
+  "note": "辐条半段墙：格中心 → 格角；同格排序键 = 前沿 y + 0.4",
+  "sort_offset": 0.4
+ },
+ {
+  "id": "west-elf-wallspoke-w",
+  "style": "west",
+  "race": "elf",
+  "category": "wall",
+  "kind": "wall_spoke",
+  "facility": "city_wall",
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 30,
+  "anchor": [
+   24,
+   78
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   78
+  ],
+  "tags": [
+   "spoke",
+   "dir_w",
+   "order_0.3"
+  ],
+  "roof": "none",
+  "note": "辐条半段墙：格中心 → 格边中点；同格排序键 = 前沿 y + 0.3",
+  "sort_offset": 0.3
+ },
+ {
+  "id": "west-elf-wallspoke-nw",
+  "style": "west",
+  "race": "elf",
+  "category": "wall",
+  "kind": "wall_spoke",
+  "facility": "city_wall",
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 45,
+  "anchor": [
+   24,
+   93
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   93
+  ],
+  "tags": [
+   "spoke",
+   "dir_nw",
+   "order_0.1"
+  ],
+  "roof": "none",
+  "note": "辐条半段墙：格中心 → 格角；同格排序键 = 前沿 y + 0.1",
+  "sort_offset": 0.1
+ },
+ {
+  "id": "west-elf-wallnode-01",
+  "style": "west",
+  "race": "elf",
+  "category": "wall",
+  "kind": "wall_node",
+  "facility": "city_wall",
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 32,
+  "anchor": [
+   24,
+   80
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   80
+  ],
+  "tags": [
+   "node",
+   "order_0.2"
+  ],
+  "roof": "none",
+  "note": "荆棘根墩：四角银桩、顶上银刺丛、前沿根须",
+  "sort_offset": 0.2
+ },
+ {
+  "id": "west-elf-wallnode-02",
+  "style": "west",
+  "race": "elf",
+  "category": "wall",
+  "kind": "wall_node",
+  "facility": "city_wall",
+  "variant": 2,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 45,
+  "anchor": [
+   24,
+   93
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   93
+  ],
+  "tags": [
+   "node",
+   "order_0.2"
+  ],
+  "roof": "none",
+  "note": "苔石座墩：石基 + 编藤墩身 + 月光灯柱",
+  "sort_offset": 0.2
+ },
+ {
+  "id": "west-elf-walltower-01",
+  "style": "west",
+  "race": "elf",
+  "category": "wall",
+  "kind": "wall_tower_canopy",
+  "facility": "watchtower",
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 103,
+  "anchor": [
+   24,
+   151
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   151
+  ],
+  "tags": [
+   "node_tower",
+   "replaces_wallnode",
+   "order_0.2"
+  ],
+  "roof": "none",
+  "note": "树冠哨塔：放在墙节点上替代 wallnode；荆棘墩 + 活树干 + 环台 + 叶冠",
+  "sort_offset": 0.2
+ },
+ {
+  "id": "west-elf-vineoutpost-01",
+  "style": "west",
+  "race": "elf",
+  "category": "fort",
+  "kind": "vine_outpost",
+  "facility": "watchtower",
+  "variant": 1,
+  "footprint": [
+   2,
+   2
+  ],
+  "height_px": 102,
+  "anchor": [
+   48,
+   198
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   198
+  ],
+  "tags": [
+   "outpost",
+   "living_tree",
+   "ladder"
+  ],
+  "roof": "none",
+  "note": "藤木哨台：三株活树干托起环形高台，藤栏、藤梯、叶冠顶；roof 无对应，叶冠写 none"
+ },
+ {
+  "id": "west-dwarf-wallspoke-n",
+  "style": "west",
+  "race": "dwarf",
+  "category": "wall",
+  "kind": "wall_spoke",
+  "facility": "city_wall",
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 50,
+  "anchor": [
+   24,
+   98
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   98
+  ],
+  "tags": [
+   "spoke",
+   "dir_n",
+   "order_0.1"
+  ],
+  "roof": "none",
+  "note": "辐条半段墙：格中心 → 格边中点；同格排序键 = 前沿 y + 0.1",
+  "sort_offset": 0.1
+ },
+ {
+  "id": "west-dwarf-wallspoke-ne",
+  "style": "west",
+  "race": "dwarf",
+  "category": "wall",
+  "kind": "wall_spoke",
+  "facility": "city_wall",
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 60,
+  "anchor": [
+   24,
+   108
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   108
+  ],
+  "tags": [
+   "spoke",
+   "dir_ne",
+   "order_0.1"
+  ],
+  "roof": "none",
+  "note": "辐条半段墙：格中心 → 格角；同格排序键 = 前沿 y + 0.1",
+  "sort_offset": 0.1
+ },
+ {
+  "id": "west-dwarf-wallspoke-e",
+  "style": "west",
+  "race": "dwarf",
+  "category": "wall",
+  "kind": "wall_spoke",
+  "facility": "city_wall",
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 48,
+  "anchor": [
+   24,
+   96
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   96
+  ],
+  "tags": [
+   "spoke",
+   "dir_e",
+   "order_0.3"
+  ],
+  "roof": "none",
+  "note": "辐条半段墙：格中心 → 格边中点；同格排序键 = 前沿 y + 0.3",
+  "sort_offset": 0.3
+ },
+ {
+  "id": "west-dwarf-wallspoke-se",
+  "style": "west",
+  "race": "dwarf",
+  "category": "wall",
+  "kind": "wall_spoke",
+  "facility": "city_wall",
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 48,
+  "anchor": [
+   24,
+   96
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   96
+  ],
+  "tags": [
+   "spoke",
+   "dir_se",
+   "order_0.4"
+  ],
+  "roof": "none",
+  "note": "辐条半段墙：格中心 → 格角；同格排序键 = 前沿 y + 0.4",
+  "sort_offset": 0.4
+ },
+ {
+  "id": "west-dwarf-wallspoke-s",
+  "style": "west",
+  "race": "dwarf",
+  "category": "wall",
+  "kind": "wall_spoke",
+  "facility": "city_wall",
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 48,
+  "anchor": [
+   24,
+   96
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   96
+  ],
+  "tags": [
+   "spoke",
+   "dir_s",
+   "order_0.4"
+  ],
+  "roof": "none",
+  "note": "辐条半段墙：格中心 → 格边中点；同格排序键 = 前沿 y + 0.4",
+  "sort_offset": 0.4
+ },
+ {
+  "id": "west-dwarf-wallspoke-sw",
+  "style": "west",
+  "race": "dwarf",
+  "category": "wall",
+  "kind": "wall_spoke",
+  "facility": "city_wall",
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 48,
+  "anchor": [
+   24,
+   96
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   96
+  ],
+  "tags": [
+   "spoke",
+   "dir_sw",
+   "order_0.4"
+  ],
+  "roof": "none",
+  "note": "辐条半段墙：格中心 → 格角；同格排序键 = 前沿 y + 0.4",
+  "sort_offset": 0.4
+ },
+ {
+  "id": "west-dwarf-wallspoke-w",
+  "style": "west",
+  "race": "dwarf",
+  "category": "wall",
+  "kind": "wall_spoke",
+  "facility": "city_wall",
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 48,
+  "anchor": [
+   24,
+   96
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   96
+  ],
+  "tags": [
+   "spoke",
+   "dir_w",
+   "order_0.3"
+  ],
+  "roof": "none",
+  "note": "辐条半段墙：格中心 → 格边中点；同格排序键 = 前沿 y + 0.3",
+  "sort_offset": 0.3
+ },
+ {
+  "id": "west-dwarf-wallspoke-nw",
+  "style": "west",
+  "race": "dwarf",
+  "category": "wall",
+  "kind": "wall_spoke",
+  "facility": "city_wall",
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 60,
+  "anchor": [
+   24,
+   108
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   108
+  ],
+  "tags": [
+   "spoke",
+   "dir_nw",
+   "order_0.1"
+  ],
+  "roof": "none",
+  "note": "辐条半段墙：格中心 → 格角；同格排序键 = 前沿 y + 0.1",
+  "sort_offset": 0.1
+ },
+ {
+  "id": "west-dwarf-wallnode-01",
+  "style": "west",
+  "race": "dwarf",
+  "category": "wall",
+  "kind": "wall_node",
+  "facility": "city_wall",
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 49,
+  "anchor": [
+   24,
+   97
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   97
+  ],
+  "tags": [
+   "node",
+   "order_0.2"
+  ],
+  "roof": "none",
+  "note": "方墩：四角厚垛 + 两道箭缝",
+  "sort_offset": 0.2
+ },
+ {
+  "id": "west-dwarf-wallnode-02",
+  "style": "west",
+  "race": "dwarf",
+  "category": "wall",
+  "kind": "wall_node",
+  "facility": "city_wall",
+  "variant": 2,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 52,
+  "anchor": [
+   24,
+   100
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   100
+  ],
+  "tags": [
+   "node",
+   "order_0.2"
+  ],
+  "roof": "none",
+  "note": "符文墩：铜帽界石 + 青绿符文 + 箭缝",
+  "sort_offset": 0.2
+ },
+ {
+  "id": "west-dwarf-walltower-01",
+  "style": "west",
+  "race": "dwarf",
+  "category": "wall",
+  "kind": "wall_tower_keep",
+  "facility": "watchtower",
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 80,
+  "anchor": [
+   24,
+   128
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   128
+  ],
+  "tags": [
+   "node_tower",
+   "replaces_wallnode",
+   "order_0.2"
+  ],
+  "roof": "none",
+  "note": "矮堡塔：八角厚塔，铜箍带、符文、箭缝、一圈厚垛，放在墙节点上替代 wallnode",
+  "sort_offset": 0.2
+ },
+ {
+  "id": "west-dwarf-mountainfort-01",
+  "style": "west",
+  "race": "dwarf",
+  "category": "fort",
+  "kind": "mountain_keep",
+  "facility": "barracks",
+  "variant": 1,
+  "footprint": [
+   3,
+   3
+  ],
+  "height_px": 50,
+  "anchor": [
+   72,
+   194
+  ],
+  "viewBox": [
+   0,
+   0,
+   144,
+   194
+  ],
+  "tags": [
+   "embedded_rock",
+   "copper_gate",
+   "runes",
+   "gunports"
+  ],
+  "roof": "none",
+  "note": "嵌山石堡：半嵌入岩坡，前凸门楼开铜门，门楣符文，炮眼；按驻军堡填 barracks"
+ },
+ {
+  "id": "west-orc-wallspoke-n",
+  "style": "west",
+  "race": "orc",
+  "category": "wall",
+  "kind": "wall_spoke",
+  "facility": "city_wall",
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 41,
+  "anchor": [
+   24,
+   89
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   89
+  ],
+  "tags": [
+   "spoke",
+   "dir_n",
+   "order_0.1"
+  ],
+  "roof": "none",
+  "note": "辐条半段墙：格中心 → 格边中点；同格排序键 = 前沿 y + 0.1",
+  "sort_offset": 0.1
+ },
+ {
+  "id": "west-orc-wallspoke-ne",
+  "style": "west",
+  "race": "orc",
+  "category": "wall",
+  "kind": "wall_spoke",
+  "facility": "city_wall",
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 41,
+  "anchor": [
+   24,
+   89
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   89
+  ],
+  "tags": [
+   "spoke",
+   "dir_ne",
+   "order_0.1"
+  ],
+  "roof": "none",
+  "note": "辐条半段墙：格中心 → 格角；同格排序键 = 前沿 y + 0.1",
+  "sort_offset": 0.1
+ },
+ {
+  "id": "west-orc-wallspoke-e",
+  "style": "west",
+  "race": "orc",
+  "category": "wall",
+  "kind": "wall_spoke",
+  "facility": "city_wall",
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 21,
+  "anchor": [
+   24,
+   69
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   69
+  ],
+  "tags": [
+   "spoke",
+   "dir_e",
+   "order_0.3"
+  ],
+  "roof": "none",
+  "note": "辐条半段墙：格中心 → 格边中点；同格排序键 = 前沿 y + 0.3",
+  "sort_offset": 0.3
+ },
+ {
+  "id": "west-orc-wallspoke-se",
+  "style": "west",
+  "race": "orc",
+  "category": "wall",
+  "kind": "wall_spoke",
+  "facility": "city_wall",
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 17,
+  "anchor": [
+   24,
+   65
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   65
+  ],
+  "tags": [
+   "spoke",
+   "dir_se",
+   "order_0.4"
+  ],
+  "roof": "none",
+  "note": "辐条半段墙：格中心 → 格角；同格排序键 = 前沿 y + 0.4",
+  "sort_offset": 0.4
+ },
+ {
+  "id": "west-orc-wallspoke-s",
+  "style": "west",
+  "race": "orc",
+  "category": "wall",
+  "kind": "wall_spoke",
+  "facility": "city_wall",
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 17,
+  "anchor": [
+   24,
+   65
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   65
+  ],
+  "tags": [
+   "spoke",
+   "dir_s",
+   "order_0.4"
+  ],
+  "roof": "none",
+  "note": "辐条半段墙：格中心 → 格边中点；同格排序键 = 前沿 y + 0.4",
+  "sort_offset": 0.4
+ },
+ {
+  "id": "west-orc-wallspoke-sw",
+  "style": "west",
+  "race": "orc",
+  "category": "wall",
+  "kind": "wall_spoke",
+  "facility": "city_wall",
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 17,
+  "anchor": [
+   24,
+   65
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   65
+  ],
+  "tags": [
+   "spoke",
+   "dir_sw",
+   "order_0.4"
+  ],
+  "roof": "none",
+  "note": "辐条半段墙：格中心 → 格角；同格排序键 = 前沿 y + 0.4",
+  "sort_offset": 0.4
+ },
+ {
+  "id": "west-orc-wallspoke-w",
+  "style": "west",
+  "race": "orc",
+  "category": "wall",
+  "kind": "wall_spoke",
+  "facility": "city_wall",
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 21,
+  "anchor": [
+   24,
+   69
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   69
+  ],
+  "tags": [
+   "spoke",
+   "dir_w",
+   "order_0.3"
+  ],
+  "roof": "none",
+  "note": "辐条半段墙：格中心 → 格边中点；同格排序键 = 前沿 y + 0.3",
+  "sort_offset": 0.3
+ },
+ {
+  "id": "west-orc-wallspoke-nw",
+  "style": "west",
+  "race": "orc",
+  "category": "wall",
+  "kind": "wall_spoke",
+  "facility": "city_wall",
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 41,
+  "anchor": [
+   24,
+   89
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   89
+  ],
+  "tags": [
+   "spoke",
+   "dir_nw",
+   "order_0.1"
+  ],
+  "roof": "none",
+  "note": "辐条半段墙：格中心 → 格角；同格排序键 = 前沿 y + 0.1",
+  "sort_offset": 0.1
+ },
+ {
+  "id": "west-orc-wallnode-01",
+  "style": "west",
+  "race": "orc",
+  "category": "wall",
+  "kind": "wall_node",
+  "facility": "city_wall",
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 30,
+  "anchor": [
+   24,
+   78
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   78
+  ],
+  "tags": [
+   "node",
+   "order_0.2"
+  ],
+  "roof": "none",
+  "note": "角柱：粗原木 + 绳扎 + 一对短角（同 west-orc 瓦片 SW 角柱）",
+  "sort_offset": 0.2
+ },
+ {
+  "id": "west-orc-wallnode-02",
+  "style": "west",
+  "race": "orc",
+  "category": "wall",
+  "kind": "wall_node",
+  "facility": "city_wall",
+  "variant": 2,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 39,
+  "anchor": [
+   24,
+   87
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   87
+  ],
+  "tags": [
+   "node",
+   "order_0.2"
+  ],
+  "roof": "none",
+  "note": "骨柱：角柱顶插长角兽头骨，脚下散碎骨",
+  "sort_offset": 0.2
+ },
+ {
+  "id": "west-orc-walltower-01",
+  "style": "west",
+  "race": "orc",
+  "category": "wall",
+  "kind": "wall_tower_totem",
+  "facility": "watchtower",
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 84,
+  "anchor": [
+   24,
+   132
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   132
+  ],
+  "tags": [
+   "node_tower",
+   "replaces_wallnode",
+   "totem",
+   "order_0.2"
+  ],
+  "roof": "monopitch",
+  "note": "图腾瞭望塔：放在墙节点上替代 wallnode；四撑原木 + 刻面兽首图腾柱 + 尖桩围栏瞭望台 + 兽皮斜顶 + 长角头骨",
+  "sort_offset": 0.2
+ },
+ {
+  "id": "west-orc-earthwork-n",
+  "style": "west",
+  "race": "orc",
+  "category": "fort",
+  "kind": "earthwork",
+  "facility": "barracks",
+  "variant": 1,
+  "footprint": [
+   2,
+   2
+  ],
+  "height_px": 33,
+  "anchor": [
+   48,
+   129
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   129
+  ],
+  "tags": [
+   "earthwork",
+   "point_n",
+   "stakes",
+   "skull",
+   "banner"
+  ],
+  "roof": "none",
+  "note": "尖桩土垒：尖角朝 n，夯土两层坡 + 外斜尖桩 + 头骨 + 战旗；底边朝城内接幕墙辐条。facility 无土垒专项，取 barracks"
+ },
+ {
+  "id": "west-orc-earthwork-ne",
+  "style": "west",
+  "race": "orc",
+  "category": "fort",
+  "kind": "earthwork",
+  "facility": "barracks",
+  "variant": 1,
+  "footprint": [
+   2,
+   2
+  ],
+  "height_px": 25,
+  "anchor": [
+   48,
+   121
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   121
+  ],
+  "tags": [
+   "earthwork",
+   "point_ne",
+   "stakes",
+   "skull",
+   "banner"
+  ],
+  "roof": "none",
+  "note": "尖桩土垒：尖角朝 ne，夯土两层坡 + 外斜尖桩 + 头骨 + 战旗；底边朝城内接幕墙辐条。facility 无土垒专项，取 barracks"
+ },
+ {
+  "id": "west-orc-earthwork-e",
+  "style": "west",
+  "race": "orc",
+  "category": "fort",
+  "kind": "earthwork",
+  "facility": "barracks",
+  "variant": 1,
+  "footprint": [
+   2,
+   2
+  ],
+  "height_px": 30,
+  "anchor": [
+   48,
+   126
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   126
+  ],
+  "tags": [
+   "earthwork",
+   "point_e",
+   "stakes",
+   "skull",
+   "banner"
+  ],
+  "roof": "none",
+  "note": "尖桩土垒：尖角朝 e，夯土两层坡 + 外斜尖桩 + 头骨 + 战旗；底边朝城内接幕墙辐条。facility 无土垒专项，取 barracks"
+ },
+ {
+  "id": "west-orc-earthwork-se",
+  "style": "west",
+  "race": "orc",
+  "category": "fort",
+  "kind": "earthwork",
+  "facility": "barracks",
+  "variant": 1,
+  "footprint": [
+   2,
+   2
+  ],
+  "height_px": 28,
+  "anchor": [
+   48,
+   124
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   124
+  ],
+  "tags": [
+   "earthwork",
+   "point_se",
+   "stakes",
+   "skull",
+   "banner"
+  ],
+  "roof": "none",
+  "note": "尖桩土垒：尖角朝 se，夯土两层坡 + 外斜尖桩 + 头骨 + 战旗；底边朝城内接幕墙辐条。facility 无土垒专项，取 barracks"
+ },
+ {
+  "id": "west-orc-earthwork-s",
+  "style": "west",
+  "race": "orc",
+  "category": "fort",
+  "kind": "earthwork",
+  "facility": "barracks",
+  "variant": 1,
+  "footprint": [
+   2,
+   2
+  ],
+  "height_px": 16,
+  "anchor": [
+   48,
+   112
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   112
+  ],
+  "tags": [
+   "earthwork",
+   "point_s",
+   "stakes",
+   "skull",
+   "banner"
+  ],
+  "roof": "none",
+  "note": "尖桩土垒：尖角朝 s，夯土两层坡 + 外斜尖桩 + 头骨 + 战旗；底边朝城内接幕墙辐条。facility 无土垒专项，取 barracks"
+ },
+ {
+  "id": "west-orc-earthwork-sw",
+  "style": "west",
+  "race": "orc",
+  "category": "fort",
+  "kind": "earthwork",
+  "facility": "barracks",
+  "variant": 1,
+  "footprint": [
+   2,
+   2
+  ],
+  "height_px": 29,
+  "anchor": [
+   48,
+   125
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   125
+  ],
+  "tags": [
+   "earthwork",
+   "point_sw",
+   "stakes",
+   "skull",
+   "banner"
+  ],
+  "roof": "none",
+  "note": "尖桩土垒：尖角朝 sw，夯土两层坡 + 外斜尖桩 + 头骨 + 战旗；底边朝城内接幕墙辐条。facility 无土垒专项，取 barracks"
+ },
+ {
+  "id": "west-orc-earthwork-w",
+  "style": "west",
+  "race": "orc",
+  "category": "fort",
+  "kind": "earthwork",
+  "facility": "barracks",
+  "variant": 1,
+  "footprint": [
+   2,
+   2
+  ],
+  "height_px": 28,
+  "anchor": [
+   48,
+   124
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   124
+  ],
+  "tags": [
+   "earthwork",
+   "point_w",
+   "stakes",
+   "skull",
+   "banner"
+  ],
+  "roof": "none",
+  "note": "尖桩土垒：尖角朝 w，夯土两层坡 + 外斜尖桩 + 头骨 + 战旗；底边朝城内接幕墙辐条。facility 无土垒专项，取 barracks"
+ },
+ {
+  "id": "west-orc-earthwork-nw",
+  "style": "west",
+  "race": "orc",
+  "category": "fort",
+  "kind": "earthwork",
+  "facility": "barracks",
+  "variant": 1,
+  "footprint": [
+   2,
+   2
+  ],
+  "height_px": 24,
+  "anchor": [
+   48,
+   120
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   120
+  ],
+  "tags": [
+   "earthwork",
+   "point_nw",
+   "stakes",
+   "skull",
+   "banner"
+  ],
+  "roof": "none",
+  "note": "尖桩土垒：尖角朝 nw，夯土两层坡 + 外斜尖桩 + 头骨 + 战旗；底边朝城内接幕墙辐条。facility 无土垒专项，取 barracks"
+ }
+]

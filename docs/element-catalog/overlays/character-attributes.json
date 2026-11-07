@@ -1,0 +1,48 @@
+{
+  "schema": "catalog_overlay_v1",
+  "group": "character-attributes",
+  "entries": {
+    "talent": {
+      "primary": "character_attribute",
+      "evidence_grade": "inferred",
+      "note": "属性本身不要求魔法，无魔世界不凭属性生成魔法，取 null",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "strength": {
+      "primary": "character_attribute",
+      "evidence_grade": "inferred",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "agility": {
+      "primary": "character_attribute",
+      "evidence_grade": "inferred",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "wisdom": {
+      "primary": "character_attribute",
+      "evidence_grade": "inferred",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "social": {
+      "primary": "character_attribute",
+      "evidence_grade": "inferred",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "resilience": {
+      "primary": "character_attribute",
+      "evidence_grade": "inferred",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    }
+  }
+}

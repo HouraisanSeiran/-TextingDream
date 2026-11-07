@@ -1,0 +1,223 @@
+{
+  "schema": "catalog_overlay_v1",
+  "group": "reality-human",
+  "entries": {
+    "reality_human_calendar_lunisolar_types": {
+      "primary": "institution",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "reality_human_intercalation_calendar_reform": {
+      "primary": "institution",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "reality_human_era_year_counting": {
+      "primary": "institution",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "reality_human_weights_measures_local": {
+      "primary": "institution",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "reality_human_metrology_standardization": {
+      "primary": "institution",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "reality_human_money_as_convention": {
+      "primary": "economy_trade",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "reality_human_migration_voluntary_forced": {
+      "primary": "institution",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "reality_human_kinship_descent_terminology": {
+      "primary": "institution",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "reality_human_marriage_alliance_dowry": {
+      "primary": "institution",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "reality_human_inheritance_partition": {
+      "primary": "institution",
+      "evidence_grade": "mixed",
+      "note": "条目分类为 economy",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "reality_human_document_archive_record": {
+      "primary": "institution",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "reality_human_evidence_ordeal_confession": {
+      "primary": "institution",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "reality_human_literacy_scribal_training": {
+      "primary": "institution",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "reality_human_interpreter_contact_language": {
+      "primary": "institution",
+      "evidence_grade": "mixed",
+      "note": "词表缺语言/通译项，也可 profession",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "reality_human_scripture_translation_canon": {
+      "primary": "literature_form",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "reality_human_printing_reproduction": {
+      "primary": "technology",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": "medieval",
+      "magic_tier": null
+    },
+    "reality_human_ancestral_rites_household": {
+      "primary": "belief_ritual",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "reality_human_daoist_ritual_ordination": {
+      "primary": "organization",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "reality_human_buddhist_sangha_lay": {
+      "primary": "organization",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "reality_human_christian_parish_sacrament": {
+      "primary": "organization",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "reality_human_islamic_practice_community": {
+      "primary": "organization",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "reality_human_religious_law_secular_forum": {
+      "primary": "institution",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "reality_human_waqf_endowment": {
+      "primary": "economy_trade",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "reality_human_pilgrimage_route": {
+      "primary": "place",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "reality_human_festival_annual_cycle": {
+      "primary": "belief_ritual",
+      "evidence_grade": "mixed",
+      "note": "条目分类为 organization",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "reality_human_caravan_trade_route": {
+      "primary": "economy_trade",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "reality_human_irrigation_water_rights": {
+      "primary": "economy_trade",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "reality_human_slavery_debt_bondage": {
+      "primary": "institution",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "reality_human_resource_endowment_polity": {
+      "primary": "institution",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "reality_human_science_institution_exchange": {
+      "primary": "organization",
+      "evidence_grade": "mixed",
+      "note": "正文要求印刷与通信；学会制度晚至近代，取低一档 medieval；作者确认改为 renaissance",
+      "tech_tier": "renaissance",
+      "magic_tier": null
+    },
+    "reality_human_technical_diffusion": {
+      "primary": "technology",
+      "evidence_grade": "mixed",
+      "note": "条目分类为 power",
+      "tech_tier": null,
+      "magic_tier": null
+    }
+  }
+}

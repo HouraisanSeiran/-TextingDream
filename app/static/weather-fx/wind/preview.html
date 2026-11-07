@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>织梦 · 天气美术：台风 / 龙卷风</title>
+<link rel="icon" href="data:,">
+<style>
+*{box-sizing:border-box}body{margin:0;background:#1d2228;color:#dde3ea;font:13px system-ui,"Microsoft YaHei",sans-serif}
+header{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;padding:8px 14px;background:#262d35;border-bottom:1px solid #39424d}
+h1{font-size:15px;margin:0 6px 0 0}label{display:flex;align-items:center;gap:6px;white-space:nowrap}
+input[type=range]{width:100px}select,button{font:inherit;padding:3px 8px;border-radius:4px;border:1px solid #56606c;background:#313945;color:inherit}
+output{display:inline-block;min-width:34px;text-align:right;font-variant-numeric:tabular-nums;color:#9fb3c8}
+#stage{position:relative;width:1400px;height:900px;margin:10px auto;overflow:hidden;background:#bfcba9}
+#townView,#fx{position:absolute;left:0;top:0;width:1400px;height:900px}
+#townView svg{display:block;width:1400px!important;height:900px!important}
+#fps{position:absolute;right:8px;top:6px;padding:2px 8px;border-radius:3px;background:rgba(0,0,0,.55);color:#c8f0c0;font:12px/1.5 ui-monospace,monospace;pointer-events:none;white-space:pre}
+</style>
+</head>
+<body>
+<header>
+<h1>强风天气</h1>
+<label>城镇 <select id="townSel"></select></label>
+<label>天气 <select id="kind">
+  <option value="typhoon" selected>typhoon 台风</option><option value="tornado">tornado 龙卷风</option><option value="clear">clear 晴（关闭）</option></select></label>
+<label>强度 <input id="intensity" type="range" min="0" max="1" step="0.01" value="0.5"><output></output></label>
+<label>台风等级 <input id="cat" type="range" min="1" max="5" step="1" value="3"><output></output></label>
+<label>位置 <select id="phase"><option value="outer">outer 外围雨带</option><option value="eyewall">eyewall 眼墙</option><option value="eye">eye 风眼</option></select></label>
+<label title="0 = 跟随强度">龙卷 vortex <input id="vortex" type="range" min="0" max="1" step="0.01" value="0"><output></output></label>
+<label>风向 <input id="dir" type="range" min="0" max="359" step="1" value="75"><output></output></label>
+<label>风速 <input id="speed" type="range" min="0" max="1" step="0.01" value="0.8"><output></output></label>
+<label>阵风 <input id="gust" type="range" min="0" max="1" step="0.01" value="0.5"><output></output></label>
+<label>时刻 <input id="hour" type="range" min="0" max="24" step="0.1" value="13"><output></output></label>
+<label><input id="rainOn" type="checkbox" checked>叠雨</label>
+<label><input id="dayOn" type="checkbox" checked>叠昼夜</label>
+<button id="pause">暂停</button><button id="step">单步</button>
+</header>
+<div id="stage">
+  <div id="townView" aria-label="城镇底图"></div>
+  <canvas id="fx"></canvas>
+  <div id="fps">-- fps</div>
+</div>
+<script src="../../map-art/town/town-catalog.js"></script>
+<script src="../../map-art/town/layout-samples.js"></script>
+<script src="../../town-render.js"></script>
+<script src="../noise.js"></script>
+<script src="../rain/rain.js"></script>
+<script src="../daylight/daylight.js"></script>
+<script src="wind.js"></script>
+<script src="preview-town.js"></script>
+<script src="preview-main.js"></script>
+</body>
+</html>

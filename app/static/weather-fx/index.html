@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>织梦 · 天气系统总预览</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="index.css">
+</head>
+<body>
+<header>
+  <div class="row">
+    <h1>天气总预览</h1>
+    <label>城镇 <select id="town"></select></label>
+    <span class="seg" id="modeSeg"><button data-mode="manual" class="on">手动</button><button data-mode="gen">生成器</button></span>
+    <button id="play">▶ 播放</button>
+    <label>速度 <select id="speedMul"><option value="1">1×</option><option value="60" selected>60×（1 秒 = 1 分钟）</option><option value="600">600×</option><option value="3600">3600×（1 秒 = 1 小时）</option></select></label>
+    <label>时刻 <input id="hour" type="range" min="0" max="23.99" step="0.01" value="12.5"><output id="hourOut"></output></label>
+    <label>日期 <input id="day" type="number" min="1" max="365" value="120"><output id="dayOut"></output></label>
+    <button id="strike" title="雨模块 triggerLightning（只在雨类天气下可见）">⚡ 打闪电</button>
+  </div>
+  <div class="row presets" id="presets"></div>
+  <div class="row">
+    <b>环境</b>
+    <label>气候 <select id="climate"></select></label>
+    <label>季节 <select id="season"><option value="">按日期</option><option value="spring">春</option><option value="summer">夏</option><option value="autumn">秋</option><option value="winter">冬</option></select></label>
+    <label>纬度 <input id="lat" type="number" min="-90" max="90" step="1" value="40"></label>
+    <label>种子 <input id="seed" type="number" step="1" value="12345"></label>
+    <span class="genOnly"><label><input id="fantasy" type="checkbox">允许奇幻天气</label>
+    <button id="random">🎲 随机天气</button></span>
+    <span id="err"></span>
+  </div>
+  <div class="row manualOnly" id="manualRow">
+    <b>手动</b>
+    <label>天气 <select id="kind"></select></label>
+    <label class="stormOnly"><input id="hailMix" type="checkbox">夹冰雹</label>
+    <label>强度 <input id="intensity" type="range" min="0" max="1" step="0.01" value="0.5"><output></output></label>
+    <label>风向 <input id="dir" type="range" min="0" max="359" step="1" value="110"><output></output></label>
+    <label>风速 <input id="wspeed" type="range" min="0" max="1" step="0.01" value="0.3"><output></output></label>
+    <label>阵风 <input id="gust" type="range" min="0" max="1" step="0.01" value="0.3"><output></output></label>
+    <label>云量 <input id="cloud" type="range" min="0" max="1" step="0.01" value="0.2"><output></output></label>
+    <label>雾量 <input id="fogv" type="range" min="0" max="1" step="0.01" value="0"><output></output></label>
+    <label title="state.aurora.strength：kind 为 aurora 时总是生效；clear / cloudy 时大于 0 才叠加；其余天气不叠加。只在夜里可见">叠加极光 <input id="auS" type="range" min="0" max="1" step="0.01" value="0"><output></output></label>
+    <label title="state.aurora.hue：0 绿 → 0.5 青紫 → 1 品红">极光色相 <input id="auH" type="range" min="0" max="1" step="0.01" value="0.3"><output></output></label>
+  </div>
+  <div class="row manualOnly" id="groundRow">
+    <b>地面累积</b>
+    <label title="勾选后随游戏时间按当前天气累积 / 消退"><input id="gAuto" type="checkbox">自动</label>
+    <label>湿度 <input id="g_wetness" type="range" min="0" max="1" step="0.01" value="0"><output></output></label>
+    <label>水洼 <input id="g_puddles" type="range" min="0" max="1" step="0.01" value="0"><output></output></label>
+    <label>积雪 <input id="g_snow_cover" type="range" min="0" max="1" step="0.01" value="0"><output></output></label>
+    <label>积冰 <input id="g_hail_cover" type="range" min="0" max="1" step="0.01" value="0"><output></output></label>
+    <label>积灰 <input id="g_ash_cover" type="range" min="0" max="1" step="0.01" value="0"><output></output></label>
+    <label>晶屑 <input id="g_mana_residue" type="range" min="0" max="1" step="0.01" value="0"><output></output></label>
+    <label title="第 8 节：冻雨冰壳">冰壳 <input id="g_glaze" type="range" min="0" max="1" step="0.01" value="0"><output></output></label>
+    <label title="第 8 节：霜">霜 <input id="g_frost" type="range" min="0" max="1" step="0.01" value="0"><output></output></label>
+    <label title="第 8 节：雾凇">雾凇 <input id="g_rime" type="range" min="0" max="1" step="0.01" value="0"><output></output></label>
+    <label title="第 8 节：浮尘积灰">积尘 <input id="g_dust_cover" type="range" min="0" max="1" step="0.01" value="0"><output></output></label>
+    <label title="霰的地面累积量">积霰 <input id="g_graupel" type="range" min="0" max="1" step="0.01" value="0"><output></output></label>
+  </div>
+  <div class="row manualOnly" id="row8">
+    <b>第 8 节</b>
+    <label title="state.rainbow，可叠在任何 kind 上；太阳雨时至少取 0.6×强度">彩虹 <input id="rainbow" type="range" min="0" max="1" step="0.01" value="0"><output></output></label>
+    <label title="state.heat，可叠在任何 kind 上；热浪时至少取强度">热气 <input id="heat" type="range" min="0" max="1" step="0.01" value="0"><output></output></label>
+    <label title="state.cyclone.category（仅 typhoon）">台风等级 <select id="cyCat"><option>1</option><option>2</option><option selected>3</option><option>4</option><option>5</option></select></label>
+    <label title="state.cyclone.phase（仅 typhoon）">台风位置 <select id="cyPhase"><option value="outer">外围雨带</option><option value="eyewall" selected>眼墙</option><option value="eye">风眼</option></select></label>
+    <label title="只在本页把 WeatherFX_aurora 的地面染色（柔光 + 自上而下渐变 + 屋顶加亮）乘这个系数；帘幕和光弧不变">极光地面染色 <input id="aurGround" type="range" min="0" max="1" step="0.05" value="0.45"><output></output></label>
+  </div>
+  <div class="row" id="modRow"><b>模块</b></div>
+  <div class="row" id="summary"></div>
+  <div class="row genOnly" id="forecast"></div>
+</header>
+<div id="stage">
+  <canvas id="fx"></canvas>
+  <div id="fps">-- fps</div>
+  <div id="loading">城镇加载中…</div>
+</div>
+<details id="jsonBox"><summary>当前天气状态 JSON</summary><pre id="json"></pre></details>
+<div id="host" aria-hidden="true"></div>
+<script src="../map-art/town/town-catalog.js"></script>
+<script src="../map-art/town/layout-samples.js"></script>
+<script src="../town-render.js"></script>
+<script src="noise.js"></script>
+<script src="weather-gen.js"></script>
+<script src="rain/rain.js"></script>
+<script src="snow/snow.js"></script>
+<script src="snow/fog.js"></script>
+<script src="snow/sand.js"></script>
+<script src="daylight/daylight.js"></script>
+<script src="fantasy/fantasy.js"></script>
+<script src="fantasy/fantasy-mana.js"></script>
+<script src="fantasy/fantasy-mist.js"></script>
+<script src="fantasy/fantasy-miasma.js"></script>
+<script src="fantasy/fantasy-ash.js"></script>
+<script src="index.js"></script>
+</body>
+</html>

@@ -1,0 +1,1870 @@
+[
+ {
+  "id": "west-dwarf-house-01-1",
+  "style": "west",
+  "race": "dwarf",
+  "category": "house",
+  "kind": "house_embedded",
+  "facility": null,
+  "variant": 1,
+  "type": 1,
+  "name": "嵌山石屋·1",
+  "tags": [
+   "one_storey",
+   "embedded",
+   "stone"
+  ],
+  "roof": "none",
+  "note": "后半截埋进岩坡，屋顶即山体，roof 记 none",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "west-dwarf-house-01-2",
+  "style": "west",
+  "race": "dwarf",
+  "category": "house",
+  "kind": "house_embedded",
+  "facility": null,
+  "variant": 2,
+  "type": 1,
+  "name": "嵌山石屋·2",
+  "tags": [
+   "one_storey",
+   "embedded",
+   "stone"
+  ],
+  "roof": "none",
+  "note": "后半截埋进岩坡，屋顶即山体，roof 记 none",
+  "footprint": [
+   2,
+   1
+  ],
+  "height_px": 28,
+  "anchor": [
+   48,
+   76
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   76
+  ]
+ },
+ {
+  "id": "west-dwarf-house-01-3",
+  "style": "west",
+  "race": "dwarf",
+  "category": "house",
+  "kind": "house_embedded",
+  "facility": null,
+  "variant": 3,
+  "type": 1,
+  "name": "嵌山石屋·3",
+  "tags": [
+   "one_storey",
+   "embedded",
+   "stone"
+  ],
+  "roof": "none",
+  "note": "后半截埋进岩坡，屋顶即山体，roof 记 none",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "west-dwarf-house-02-1",
+  "style": "west",
+  "race": "dwarf",
+  "category": "house",
+  "kind": "house_dome",
+  "facility": null,
+  "variant": 1,
+  "type": 2,
+  "name": "拱顶石穹屋·1",
+  "tags": [
+   "one_storey",
+   "dome",
+   "stone"
+  ],
+  "roof": "none",
+  "note": "石砌扁穹顶，RoofId 无对应，记 none",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 3,
+  "anchor": [
+   24,
+   51
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   51
+  ]
+ },
+ {
+  "id": "west-dwarf-house-02-2",
+  "style": "west",
+  "race": "dwarf",
+  "category": "house",
+  "kind": "house_dome",
+  "facility": null,
+  "variant": 2,
+  "type": 2,
+  "name": "拱顶石穹屋·2",
+  "tags": [
+   "one_storey",
+   "dome",
+   "stone"
+  ],
+  "roof": "none",
+  "note": "石砌扁穹顶，RoofId 无对应，记 none",
+  "footprint": [
+   2,
+   1
+  ],
+  "height_px": 10,
+  "anchor": [
+   48,
+   58
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   58
+  ]
+ },
+ {
+  "id": "west-dwarf-house-02-3",
+  "style": "west",
+  "race": "dwarf",
+  "category": "house",
+  "kind": "house_dome",
+  "facility": null,
+  "variant": 3,
+  "type": 2,
+  "name": "拱顶石穹屋·3",
+  "tags": [
+   "one_storey",
+   "dome",
+   "stone"
+  ],
+  "roof": "none",
+  "note": "石砌扁穹顶，RoofId 无对应，记 none",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 12,
+  "anchor": [
+   24,
+   60
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   60
+  ]
+ },
+ {
+  "id": "west-dwarf-house-03-1",
+  "style": "west",
+  "race": "dwarf",
+  "category": "house",
+  "kind": "house_terrace",
+  "facility": null,
+  "variant": 1,
+  "type": 3,
+  "name": "阶梯石屋·1",
+  "tags": [
+   "two_storey",
+   "terrace",
+   "flat_roof"
+  ],
+  "roof": "flat_mud",
+  "note": "石板平顶退台，最近 RoofId 为 flat_mud",
+  "footprint": [
+   2,
+   1
+  ],
+  "height_px": 37,
+  "anchor": [
+   48,
+   85
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   85
+  ]
+ },
+ {
+  "id": "west-dwarf-house-03-2",
+  "style": "west",
+  "race": "dwarf",
+  "category": "house",
+  "kind": "house_terrace",
+  "facility": null,
+  "variant": 2,
+  "type": 3,
+  "name": "阶梯石屋·2",
+  "tags": [
+   "two_storey",
+   "terrace",
+   "flat_roof"
+  ],
+  "roof": "flat_mud",
+  "note": "石板平顶退台，最近 RoofId 为 flat_mud",
+  "footprint": [
+   2,
+   1
+  ],
+  "height_px": 37,
+  "anchor": [
+   48,
+   85
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   85
+  ]
+ },
+ {
+  "id": "west-dwarf-house-03-3",
+  "style": "west",
+  "race": "dwarf",
+  "category": "house",
+  "kind": "house_terrace",
+  "facility": null,
+  "variant": 3,
+  "type": 3,
+  "name": "阶梯石屋·3",
+  "tags": [
+   "two_storey",
+   "terrace",
+   "flat_roof"
+  ],
+  "roof": "flat_mud",
+  "note": "石板平顶退台，最近 RoofId 为 flat_mud",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 25,
+  "anchor": [
+   24,
+   73
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   73
+  ]
+ },
+ {
+  "id": "west-dwarf-house-04-1",
+  "style": "west",
+  "race": "dwarf",
+  "category": "house",
+  "kind": "house_tower",
+  "facility": null,
+  "variant": 1,
+  "type": 4,
+  "name": "圆石塔屋·1",
+  "tags": [
+   "two_storey",
+   "round_tower",
+   "stone"
+  ],
+  "roof": "steep_slate",
+  "note": "圆鼓身石塔；v2 为垛口平顶",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 43,
+  "anchor": [
+   24,
+   91
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   91
+  ]
+ },
+ {
+  "id": "west-dwarf-house-04-2",
+  "style": "west",
+  "race": "dwarf",
+  "category": "house",
+  "kind": "house_tower",
+  "facility": null,
+  "variant": 2,
+  "type": 4,
+  "name": "圆石塔屋·2",
+  "tags": [
+   "two_storey",
+   "round_tower",
+   "stone"
+  ],
+  "roof": "steep_slate",
+  "note": "圆鼓身石塔；v2 为垛口平顶",
+  "footprint": [
+   2,
+   1
+  ],
+  "height_px": 42,
+  "anchor": [
+   48,
+   90
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   90
+  ]
+ },
+ {
+  "id": "west-dwarf-house-04-3",
+  "style": "west",
+  "race": "dwarf",
+  "category": "house",
+  "kind": "house_tower",
+  "facility": null,
+  "variant": 3,
+  "type": 4,
+  "name": "圆石塔屋·3",
+  "tags": [
+   "two_storey",
+   "round_tower",
+   "stone"
+  ],
+  "roof": "steep_slate",
+  "note": "圆鼓身石塔；v2 为垛口平顶",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 17,
+  "anchor": [
+   24,
+   65
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   65
+  ]
+ },
+ {
+  "id": "west-dwarf-house-05-1",
+  "style": "west",
+  "race": "dwarf",
+  "category": "house",
+  "kind": "house_longhouse",
+  "facility": null,
+  "variant": 1,
+  "type": 5,
+  "name": "矿工长屋·1",
+  "tags": [
+   "one_storey",
+   "longhouse",
+   "mine_track"
+  ],
+  "roof": "gable_tile",
+  "note": "低坡石板顶，最近 RoofId 为 gable_tile（石板代瓦）",
+  "footprint": [
+   2,
+   1
+  ],
+  "height_px": 17,
+  "anchor": [
+   48,
+   65
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   65
+  ]
+ },
+ {
+  "id": "west-dwarf-house-05-2",
+  "style": "west",
+  "race": "dwarf",
+  "category": "house",
+  "kind": "house_longhouse",
+  "facility": null,
+  "variant": 2,
+  "type": 5,
+  "name": "矿工长屋·2",
+  "tags": [
+   "one_storey",
+   "longhouse",
+   "mine_track"
+  ],
+  "roof": "gable_tile",
+  "note": "低坡石板顶，最近 RoofId 为 gable_tile（石板代瓦）",
+  "footprint": [
+   2,
+   2
+  ],
+  "height_px": 3,
+  "anchor": [
+   48,
+   99
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   99
+  ]
+ },
+ {
+  "id": "west-dwarf-house-05-3",
+  "style": "west",
+  "race": "dwarf",
+  "category": "house",
+  "kind": "house_longhouse",
+  "facility": null,
+  "variant": 3,
+  "type": 5,
+  "name": "矿工长屋·3",
+  "tags": [
+   "one_storey",
+   "longhouse",
+   "mine_track"
+  ],
+  "roof": "gable_tile",
+  "note": "低坡石板顶，最近 RoofId 为 gable_tile（石板代瓦）",
+  "footprint": [
+   2,
+   1
+  ],
+  "height_px": 17,
+  "anchor": [
+   48,
+   65
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   65
+  ]
+ },
+ {
+  "id": "west-dwarf-house-06-1",
+  "style": "west",
+  "race": "dwarf",
+  "category": "house",
+  "kind": "house_workshop",
+  "facility": null,
+  "variant": 1,
+  "type": 6,
+  "name": "铜烟囱作坊宅·1",
+  "tags": [
+   "two_storey",
+   "workshop",
+   "copper_flue",
+   "shop"
+  ],
+  "roof": "flat_mud",
+  "note": "石板平顶 + 铜烟道，最近 RoofId 为 flat_mud",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 37,
+  "anchor": [
+   24,
+   85
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   85
+  ]
+ },
+ {
+  "id": "west-dwarf-house-06-2",
+  "style": "west",
+  "race": "dwarf",
+  "category": "house",
+  "kind": "house_workshop",
+  "facility": null,
+  "variant": 2,
+  "type": 6,
+  "name": "铜烟囱作坊宅·2",
+  "tags": [
+   "two_storey",
+   "workshop",
+   "copper_flue",
+   "shop"
+  ],
+  "roof": "flat_mud",
+  "note": "石板平顶 + 铜烟道，最近 RoofId 为 flat_mud",
+  "footprint": [
+   2,
+   1
+  ],
+  "height_px": 43,
+  "anchor": [
+   48,
+   91
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   91
+  ]
+ },
+ {
+  "id": "west-dwarf-house-06-3",
+  "style": "west",
+  "race": "dwarf",
+  "category": "house",
+  "kind": "house_workshop",
+  "facility": null,
+  "variant": 3,
+  "type": 6,
+  "name": "铜烟囱作坊宅·3",
+  "tags": [
+   "two_storey",
+   "workshop",
+   "copper_flue",
+   "shop"
+  ],
+  "roof": "flat_mud",
+  "note": "石板平顶 + 铜烟道，最近 RoofId 为 flat_mud",
+  "footprint": [
+   2,
+   2
+  ],
+  "height_px": 21,
+  "anchor": [
+   48,
+   117
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   117
+  ]
+ },
+ {
+  "id": "west-dwarf-house-07-1",
+  "style": "west",
+  "race": "dwarf",
+  "category": "house",
+  "kind": "house_rockcut",
+  "facility": null,
+  "variant": 1,
+  "type": 7,
+  "name": "石门洞宅·1",
+  "tags": [
+   "one_storey",
+   "rock_cut",
+   "embedded"
+  ],
+  "roof": "none",
+  "note": "凿进岩壁的穴居，屋顶即山体，roof 记 none",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 7,
+  "anchor": [
+   24,
+   55
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   55
+  ]
+ },
+ {
+  "id": "west-dwarf-house-07-2",
+  "style": "west",
+  "race": "dwarf",
+  "category": "house",
+  "kind": "house_rockcut",
+  "facility": null,
+  "variant": 2,
+  "type": 7,
+  "name": "石门洞宅·2",
+  "tags": [
+   "one_storey",
+   "rock_cut",
+   "embedded"
+  ],
+  "roof": "none",
+  "note": "凿进岩壁的穴居，屋顶即山体，roof 记 none",
+  "footprint": [
+   2,
+   1
+  ],
+  "height_px": 27,
+  "anchor": [
+   48,
+   75
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   75
+  ]
+ },
+ {
+  "id": "west-dwarf-house-07-3",
+  "style": "west",
+  "race": "dwarf",
+  "category": "house",
+  "kind": "house_rockcut",
+  "facility": null,
+  "variant": 3,
+  "type": 7,
+  "name": "石门洞宅·3",
+  "tags": [
+   "one_storey",
+   "rock_cut",
+   "embedded"
+  ],
+  "roof": "none",
+  "note": "凿进岩壁的穴居，屋顶即山体，roof 记 none",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 22,
+  "anchor": [
+   24,
+   70
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   70
+  ]
+ },
+ {
+  "id": "west-dwarf-house-08-1",
+  "style": "west",
+  "race": "dwarf",
+  "category": "house",
+  "kind": "house_fortified",
+  "facility": null,
+  "variant": 1,
+  "type": 8,
+  "name": "双层厚墙宅·1",
+  "tags": [
+   "two_storey",
+   "thick_wall",
+   "buttress"
+  ],
+  "roof": "gable_tile",
+  "note": "低坡石板顶，最近 RoofId 为 gable_tile（石板代瓦）",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 42,
+  "anchor": [
+   24,
+   90
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   90
+  ]
+ },
+ {
+  "id": "west-dwarf-house-08-2",
+  "style": "west",
+  "race": "dwarf",
+  "category": "house",
+  "kind": "house_fortified",
+  "facility": null,
+  "variant": 2,
+  "type": 8,
+  "name": "双层厚墙宅·2",
+  "tags": [
+   "two_storey",
+   "thick_wall",
+   "buttress"
+  ],
+  "roof": "gable_tile",
+  "note": "低坡石板顶，最近 RoofId 为 gable_tile（石板代瓦）",
+  "footprint": [
+   2,
+   1
+  ],
+  "height_px": 47,
+  "anchor": [
+   48,
+   95
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   95
+  ]
+ },
+ {
+  "id": "west-dwarf-house-08-3",
+  "style": "west",
+  "race": "dwarf",
+  "category": "house",
+  "kind": "house_fortified",
+  "facility": null,
+  "variant": 3,
+  "type": 8,
+  "name": "双层厚墙宅·3",
+  "tags": [
+   "two_storey",
+   "thick_wall",
+   "buttress"
+  ],
+  "roof": "gable_tile",
+  "note": "低坡石板顶，最近 RoofId 为 gable_tile（石板代瓦）",
+  "footprint": [
+   2,
+   2
+  ],
+  "height_px": 38,
+  "anchor": [
+   48,
+   134
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   134
+  ]
+ },
+ {
+  "id": "west-dwarf-house-09-1",
+  "style": "west",
+  "race": "dwarf",
+  "category": "house",
+  "kind": "house_gearworks",
+  "facility": null,
+  "variant": 1,
+  "type": 9,
+  "name": "齿轮磨坊宅·1",
+  "tags": [
+   "one_storey",
+   "gears",
+   "workshop"
+  ],
+  "roof": "flat_mud",
+  "note": "石板平顶 + 外露齿轮传动，最近 RoofId 为 flat_mud",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 2,
+  "anchor": [
+   24,
+   50
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   50
+  ]
+ },
+ {
+  "id": "west-dwarf-house-09-2",
+  "style": "west",
+  "race": "dwarf",
+  "category": "house",
+  "kind": "house_gearworks",
+  "facility": null,
+  "variant": 2,
+  "type": 9,
+  "name": "齿轮磨坊宅·2",
+  "tags": [
+   "one_storey",
+   "gears",
+   "workshop"
+  ],
+  "roof": "flat_mud",
+  "note": "石板平顶 + 外露齿轮传动，最近 RoofId 为 flat_mud",
+  "footprint": [
+   2,
+   1
+  ],
+  "height_px": 4,
+  "anchor": [
+   48,
+   52
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   52
+  ]
+ },
+ {
+  "id": "west-dwarf-house-09-3",
+  "style": "west",
+  "race": "dwarf",
+  "category": "house",
+  "kind": "house_gearworks",
+  "facility": null,
+  "variant": 3,
+  "type": 9,
+  "name": "齿轮磨坊宅·3",
+  "tags": [
+   "one_storey",
+   "gears",
+   "workshop"
+  ],
+  "roof": "flat_mud",
+  "note": "石板平顶 + 外露齿轮传动，最近 RoofId 为 flat_mud",
+  "footprint": [
+   2,
+   1
+  ],
+  "height_px": 4,
+  "anchor": [
+   48,
+   52
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   52
+  ]
+ },
+ {
+  "id": "west-dwarf-forge-01",
+  "style": "west",
+  "race": "dwarf",
+  "category": "special",
+  "kind": "forge_mountain",
+  "facility": "forge",
+  "variant": 1,
+  "name": "矮人铁匠铺（嵌山熔炉坊）",
+  "tags": [
+   "furnace",
+   "anvil",
+   "trip_hammer",
+   "water_wheel",
+   "embedded",
+   "smoke"
+  ],
+  "roof": "flat_mud",
+  "note": "炉房石板平顶（最近 RoofId flat_mud）；水轮经凸轮驱动锻锤",
+  "footprint": [
+   3,
+   2
+  ],
+  "height_px": 40,
+  "anchor": [
+   72,
+   136
+  ],
+  "viewBox": [
+   0,
+   0,
+   144,
+   136
+  ]
+ },
+ {
+  "id": "west-dwarf-forge-02",
+  "style": "west",
+  "race": "dwarf",
+  "category": "special",
+  "kind": "forge_furnace_tower",
+  "facility": "forge",
+  "variant": 2,
+  "name": "矮人铁匠铺（圆鼓高炉）",
+  "tags": [
+   "furnace",
+   "anvil",
+   "trip_hammer",
+   "water_wheel",
+   "round_tower",
+   "smoke"
+  ],
+  "roof": "none",
+  "note": "炉身为圆鼓石塔，顶为收分石烟囱，RoofId 无对应记 none；棚为石板低坡",
+  "footprint": [
+   2,
+   2
+  ],
+  "height_px": 57,
+  "anchor": [
+   48,
+   153
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   153
+  ]
+ },
+ {
+  "id": "west-dwarf-market-01",
+  "style": "west",
+  "race": "dwarf",
+  "category": "special",
+  "kind": "market_arcade",
+  "facility": "market_hall",
+  "variant": 1,
+  "name": "矮人石拱市场厅",
+  "tags": [
+   "arcade",
+   "covered_market",
+   "bell"
+  ],
+  "roof": "gable_tile",
+  "note": "石板低坡顶，最近 RoofId 为 gable_tile（石板代瓦）",
+  "footprint": [
+   3,
+   2
+  ],
+  "height_px": 7,
+  "anchor": [
+   72,
+   103
+  ],
+  "viewBox": [
+   0,
+   0,
+   144,
+   103
+  ]
+ },
+ {
+  "id": "west-dwarf-stall-01",
+  "style": "west",
+  "race": "dwarf",
+  "category": "prop",
+  "kind": "market_stall",
+  "facility": "market_hall",
+  "variant": 1,
+  "name": "矮人露天货摊·1",
+  "tags": [
+   "open_air",
+   "stall"
+  ],
+  "roof": "monopitch",
+  "note": "露天菜市场摊位：布篷单坡，最近 RoofId 为 monopitch",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "west-dwarf-stall-02",
+  "style": "west",
+  "race": "dwarf",
+  "category": "prop",
+  "kind": "market_stall",
+  "facility": "market_hall",
+  "variant": 2,
+  "name": "矮人露天货摊·2",
+  "tags": [
+   "open_air",
+   "stall"
+  ],
+  "roof": "monopitch",
+  "note": "露天菜市场摊位：布篷单坡，最近 RoofId 为 monopitch",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "west-dwarf-town-hall-01",
+  "style": "west",
+  "race": "dwarf",
+  "category": "special",
+  "kind": "clan_hall",
+  "facility": "town_hall",
+  "variant": 1,
+  "name": "矮人氏族议事厅",
+  "tags": [
+   "clan_hall",
+   "great_gate",
+   "rune_pillars",
+   "embedded",
+   "steps"
+  ],
+  "roof": "gable_tile",
+  "note": "后半截嵌入岩坡；前为石板低坡顶 + 三角楣，最近 RoofId 为 gable_tile",
+  "footprint": [
+   4,
+   3
+  ],
+  "height_px": 11,
+  "anchor": [
+   96,
+   155
+  ],
+  "viewBox": [
+   0,
+   0,
+   192,
+   155
+  ]
+ },
+ {
+  "id": "west-dwarf-mine-head-01",
+  "style": "west",
+  "race": "dwarf",
+  "category": "special",
+  "kind": "mine_portal",
+  "facility": "mine_head",
+  "variant": 1,
+  "name": "矮人矿井口",
+  "tags": [
+   "mine",
+   "headframe",
+   "mine_track",
+   "embedded",
+   "ore"
+  ],
+  "roof": "none",
+  "note": "岩坡凿门 + 井架绞轮，无屋顶记 none",
+  "footprint": [
+   3,
+   2
+  ],
+  "height_px": 4,
+  "anchor": [
+   72,
+   100
+  ],
+  "viewBox": [
+   0,
+   0,
+   144,
+   100
+  ]
+ },
+ {
+  "id": "west-dwarf-inn-01",
+  "style": "west",
+  "race": "dwarf",
+  "category": "special",
+  "kind": "beer_hall",
+  "facility": "inn",
+  "variant": 1,
+  "name": "矮人啤酒厅",
+  "tags": [
+   "tavern",
+   "casks",
+   "sign",
+   "smoke"
+  ],
+  "roof": "gable_tile",
+  "note": "石板低坡顶，最近 RoofId 为 gable_tile（石板代瓦）",
+  "footprint": [
+   3,
+   2
+  ],
+  "height_px": 14,
+  "anchor": [
+   72,
+   110
+  ],
+  "viewBox": [
+   0,
+   0,
+   144,
+   110
+  ]
+ },
+ {
+  "id": "west-dwarf-temple-01",
+  "style": "west",
+  "race": "dwarf",
+  "category": "special",
+  "kind": "ancestor_shrine",
+  "facility": "temple",
+  "variant": 1,
+  "name": "矮人祖先祠",
+  "tags": [
+   "shrine",
+   "ancestor_statues",
+   "rune_pillars",
+   "eternal_flame",
+   "embedded"
+  ],
+  "roof": "gable_tile",
+  "note": "石板山花顶，最近 RoofId 为 gable_tile；后半截埋进岩坡",
+  "footprint": [
+   3,
+   2
+  ],
+  "height_px": 12,
+  "anchor": [
+   72,
+   108
+  ],
+  "viewBox": [
+   0,
+   0,
+   144,
+   108
+  ]
+ },
+ {
+  "id": "west-dwarf-warehouse-01",
+  "style": "west",
+  "race": "dwarf",
+  "category": "special",
+  "kind": "stone_storehouse",
+  "facility": "warehouse",
+  "variant": 1,
+  "name": "矮人石库房",
+  "tags": [
+   "storage",
+   "crane",
+   "crates",
+   "ingots"
+  ],
+  "roof": "flat_mud",
+  "note": "石板平顶 + 吊臂，最近 RoofId flat_mud",
+  "footprint": [
+   2,
+   2
+  ],
+  "height_px": 0,
+  "anchor": [
+   48,
+   96
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   96
+  ]
+ },
+ {
+  "id": "west-dwarf-wall-0000",
+  "style": "west",
+  "race": "dwarf",
+  "category": "wall",
+  "kind": "wall_dwarf_megalith",
+  "facility": "city_wall",
+  "variant": 0,
+  "mask": 0,
+  "name": "巨石城墙 0000",
+  "tags": [
+   "dual_grid",
+   "mask_0000",
+   "crenellated",
+   "megalith"
+  ],
+  "roof": "none",
+  "note": "空瓦片（透明占位）",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "west-dwarf-wall-0001",
+  "style": "west",
+  "race": "dwarf",
+  "category": "wall",
+  "kind": "wall_dwarf_megalith",
+  "facility": "city_wall",
+  "variant": 1,
+  "mask": 1,
+  "name": "巨石城墙 0001",
+  "tags": [
+   "dual_grid",
+   "mask_0001",
+   "crenellated",
+   "megalith"
+  ],
+  "roof": "none",
+  "note": "墙厚 24 px、高 44 px；巨石层高 11、块长 24，按瓦片坐标对齐",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 52,
+  "anchor": [
+   24,
+   100
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   100
+  ]
+ },
+ {
+  "id": "west-dwarf-wall-0010",
+  "style": "west",
+  "race": "dwarf",
+  "category": "wall",
+  "kind": "wall_dwarf_megalith",
+  "facility": "city_wall",
+  "variant": 2,
+  "mask": 2,
+  "name": "巨石城墙 0010",
+  "tags": [
+   "dual_grid",
+   "mask_0010",
+   "crenellated",
+   "megalith"
+  ],
+  "roof": "none",
+  "note": "墙厚 24 px、高 44 px；巨石层高 11、块长 24，按瓦片坐标对齐",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 52,
+  "anchor": [
+   24,
+   100
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   100
+  ]
+ },
+ {
+  "id": "west-dwarf-wall-0011",
+  "style": "west",
+  "race": "dwarf",
+  "category": "wall",
+  "kind": "wall_dwarf_megalith",
+  "facility": "city_wall",
+  "variant": 3,
+  "mask": 3,
+  "name": "巨石城墙 0011",
+  "tags": [
+   "dual_grid",
+   "mask_0011",
+   "crenellated",
+   "megalith"
+  ],
+  "roof": "none",
+  "note": "墙厚 24 px、高 44 px；巨石层高 11、块长 24，按瓦片坐标对齐",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 52,
+  "anchor": [
+   24,
+   100
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   100
+  ]
+ },
+ {
+  "id": "west-dwarf-wall-0100",
+  "style": "west",
+  "race": "dwarf",
+  "category": "wall",
+  "kind": "wall_dwarf_megalith",
+  "facility": "city_wall",
+  "variant": 4,
+  "mask": 4,
+  "name": "巨石城墙 0100",
+  "tags": [
+   "dual_grid",
+   "mask_0100",
+   "crenellated",
+   "megalith"
+  ],
+  "roof": "none",
+  "note": "墙厚 24 px、高 44 px；巨石层高 11、块长 24，按瓦片坐标对齐",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 52,
+  "anchor": [
+   24,
+   100
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   100
+  ]
+ },
+ {
+  "id": "west-dwarf-wall-0101",
+  "style": "west",
+  "race": "dwarf",
+  "category": "wall",
+  "kind": "wall_dwarf_megalith",
+  "facility": "city_wall",
+  "variant": 5,
+  "mask": 5,
+  "name": "巨石城墙 0101",
+  "tags": [
+   "dual_grid",
+   "mask_0101",
+   "crenellated",
+   "megalith"
+  ],
+  "roof": "none",
+  "note": "墙厚 24 px、高 44 px；巨石层高 11、块长 24，按瓦片坐标对齐",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 52,
+  "anchor": [
+   24,
+   100
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   100
+  ]
+ },
+ {
+  "id": "west-dwarf-wall-0110",
+  "style": "west",
+  "race": "dwarf",
+  "category": "wall",
+  "kind": "wall_dwarf_megalith",
+  "facility": "city_wall",
+  "variant": 6,
+  "mask": 6,
+  "name": "巨石城墙 0110",
+  "tags": [
+   "dual_grid",
+   "mask_0110",
+   "crenellated",
+   "megalith"
+  ],
+  "roof": "none",
+  "note": "墙厚 24 px、高 44 px；巨石层高 11、块长 24，按瓦片坐标对齐",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 52,
+  "anchor": [
+   24,
+   100
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   100
+  ]
+ },
+ {
+  "id": "west-dwarf-wall-0111",
+  "style": "west",
+  "race": "dwarf",
+  "category": "wall",
+  "kind": "wall_dwarf_megalith",
+  "facility": "city_wall",
+  "variant": 7,
+  "mask": 7,
+  "name": "巨石城墙 0111",
+  "tags": [
+   "dual_grid",
+   "mask_0111",
+   "crenellated",
+   "megalith"
+  ],
+  "roof": "none",
+  "note": "墙厚 24 px、高 44 px；巨石层高 11、块长 24，按瓦片坐标对齐",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 52,
+  "anchor": [
+   24,
+   100
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   100
+  ]
+ },
+ {
+  "id": "west-dwarf-wall-1000",
+  "style": "west",
+  "race": "dwarf",
+  "category": "wall",
+  "kind": "wall_dwarf_megalith",
+  "facility": "city_wall",
+  "variant": 8,
+  "mask": 8,
+  "name": "巨石城墙 1000",
+  "tags": [
+   "dual_grid",
+   "mask_1000",
+   "crenellated",
+   "megalith"
+  ],
+  "roof": "none",
+  "note": "墙厚 24 px、高 44 px；巨石层高 11、块长 24，按瓦片坐标对齐",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 52,
+  "anchor": [
+   24,
+   100
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   100
+  ]
+ },
+ {
+  "id": "west-dwarf-wall-1001",
+  "style": "west",
+  "race": "dwarf",
+  "category": "wall",
+  "kind": "wall_dwarf_megalith",
+  "facility": "city_wall",
+  "variant": 9,
+  "mask": 9,
+  "name": "巨石城墙 1001",
+  "tags": [
+   "dual_grid",
+   "mask_1001",
+   "crenellated",
+   "megalith"
+  ],
+  "roof": "none",
+  "note": "墙厚 24 px、高 44 px；巨石层高 11、块长 24，按瓦片坐标对齐",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 52,
+  "anchor": [
+   24,
+   100
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   100
+  ]
+ },
+ {
+  "id": "west-dwarf-wall-1010",
+  "style": "west",
+  "race": "dwarf",
+  "category": "wall",
+  "kind": "wall_dwarf_megalith",
+  "facility": "city_wall",
+  "variant": 10,
+  "mask": 10,
+  "name": "巨石城墙 1010",
+  "tags": [
+   "dual_grid",
+   "mask_1010",
+   "crenellated",
+   "megalith"
+  ],
+  "roof": "none",
+  "note": "墙厚 24 px、高 44 px；巨石层高 11、块长 24，按瓦片坐标对齐",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 52,
+  "anchor": [
+   24,
+   100
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   100
+  ]
+ },
+ {
+  "id": "west-dwarf-wall-1011",
+  "style": "west",
+  "race": "dwarf",
+  "category": "wall",
+  "kind": "wall_dwarf_megalith",
+  "facility": "city_wall",
+  "variant": 11,
+  "mask": 11,
+  "name": "巨石城墙 1011",
+  "tags": [
+   "dual_grid",
+   "mask_1011",
+   "crenellated",
+   "megalith"
+  ],
+  "roof": "none",
+  "note": "墙厚 24 px、高 44 px；巨石层高 11、块长 24，按瓦片坐标对齐",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 52,
+  "anchor": [
+   24,
+   100
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   100
+  ]
+ },
+ {
+  "id": "west-dwarf-wall-1100",
+  "style": "west",
+  "race": "dwarf",
+  "category": "wall",
+  "kind": "wall_dwarf_megalith",
+  "facility": "city_wall",
+  "variant": 12,
+  "mask": 12,
+  "name": "巨石城墙 1100",
+  "tags": [
+   "dual_grid",
+   "mask_1100",
+   "crenellated",
+   "megalith"
+  ],
+  "roof": "none",
+  "note": "墙厚 24 px、高 44 px；巨石层高 11、块长 24，按瓦片坐标对齐",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 52,
+  "anchor": [
+   24,
+   100
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   100
+  ]
+ },
+ {
+  "id": "west-dwarf-wall-1101",
+  "style": "west",
+  "race": "dwarf",
+  "category": "wall",
+  "kind": "wall_dwarf_megalith",
+  "facility": "city_wall",
+  "variant": 13,
+  "mask": 13,
+  "name": "巨石城墙 1101",
+  "tags": [
+   "dual_grid",
+   "mask_1101",
+   "crenellated",
+   "megalith"
+  ],
+  "roof": "none",
+  "note": "墙厚 24 px、高 44 px；巨石层高 11、块长 24，按瓦片坐标对齐",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 52,
+  "anchor": [
+   24,
+   100
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   100
+  ]
+ },
+ {
+  "id": "west-dwarf-wall-1110",
+  "style": "west",
+  "race": "dwarf",
+  "category": "wall",
+  "kind": "wall_dwarf_megalith",
+  "facility": "city_wall",
+  "variant": 14,
+  "mask": 14,
+  "name": "巨石城墙 1110",
+  "tags": [
+   "dual_grid",
+   "mask_1110",
+   "crenellated",
+   "megalith"
+  ],
+  "roof": "none",
+  "note": "墙厚 24 px、高 44 px；巨石层高 11、块长 24，按瓦片坐标对齐",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 52,
+  "anchor": [
+   24,
+   100
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   100
+  ]
+ },
+ {
+  "id": "west-dwarf-wall-1111",
+  "style": "west",
+  "race": "dwarf",
+  "category": "wall",
+  "kind": "wall_dwarf_megalith",
+  "facility": "city_wall",
+  "variant": 15,
+  "mask": 15,
+  "name": "巨石城墙 1111",
+  "tags": [
+   "dual_grid",
+   "mask_1111",
+   "crenellated",
+   "megalith"
+  ],
+  "roof": "none",
+  "note": "墙厚 24 px、高 44 px；巨石层高 11、块长 24，按瓦片坐标对齐",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 52,
+  "anchor": [
+   24,
+   100
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   100
+  ]
+ },
+ {
+  "id": "west-dwarf-wall-gate-h",
+  "style": "west",
+  "race": "dwarf",
+  "category": "wall",
+  "kind": "wall_gate_h",
+  "facility": "gate",
+  "variant": 1,
+  "name": "巨石城门（东西向墙段）",
+  "tags": [
+   "overlay",
+   "logical_cell",
+   "copper_door",
+   "gatehouse"
+  ],
+  "roof": "flat_mud",
+  "note": "放在东西向直墙的逻辑格上；梯形巨石门洞 + 铜门板，门楼平顶厚垛口。叠加件对齐逻辑格（不是渲染格），锚点 = 逻辑格前沿中点；石板平顶最近 RoofId flat_mud",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 48,
+  "anchor": [
+   24,
+   96
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   96
+  ]
+ },
+ {
+  "id": "west-dwarf-wall-gate-v",
+  "style": "west",
+  "race": "dwarf",
+  "category": "wall",
+  "kind": "wall_gate_v",
+  "facility": "gate",
+  "variant": 2,
+  "name": "巨石城门（南北向墙段）",
+  "tags": [
+   "overlay",
+   "logical_cell",
+   "gatehouse"
+  ],
+  "roof": "flat_mud",
+  "note": "放在南北向直墙的逻辑格上；门洞朝东西，正视只露敞开的铜门扇窄边。叠加件对齐逻辑格（不是渲染格），锚点 = 逻辑格前沿中点；石板平顶最近 RoofId flat_mud",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 56,
+  "anchor": [
+   24,
+   104
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   104
+  ]
+ },
+ {
+  "id": "west-dwarf-wall-tower",
+  "style": "west",
+  "race": "dwarf",
+  "category": "wall",
+  "kind": "wall_tower_keep",
+  "facility": "watchtower",
+  "variant": 3,
+  "name": "矮堡塔",
+  "tags": [
+   "overlay",
+   "logical_cell",
+   "square_tower",
+   "crenellated"
+  ],
+  "roof": "flat_mud",
+  "note": "放在墙的拐角或端点；方整巨石塔，平顶垛口。叠加件对齐逻辑格（不是渲染格），锚点 = 逻辑格前沿中点；石板平顶最近 RoofId flat_mud",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 60,
+  "anchor": [
+   24,
+   108
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   108
+  ]
+ }
+]

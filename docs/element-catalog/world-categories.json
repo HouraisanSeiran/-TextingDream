@@ -1,0 +1,23 @@
+{
+  "note": "世界设定的「大类」。选中一个大类 = 把元素库里命中 tags_any 任一标签的元素纳入这个世界（越过科技 / 魔法档位的除外）。技术类元素（带 tech:* 档位标签、且不是国家 / 种族模板）不属于任何大类，只按科技档位单独纳入。增删大类只改本文件，id 一旦被故事包使用就不要再改。规范见 docs/world-setting.md。",
+  "categories": [
+    {"id": "western_fantasy", "label": "西幻", "tags_any": ["genre:western_fantasy"],
+     "description": "欧洲中世纪传说底色：骑士与王国、精灵矮人、教会与异端、法师与魔物。"},
+    {"id": "dark_fantasy", "label": "黑暗奇幻", "tags_any": ["genre:dark_fantasy"],
+     "description": "代价沉重的魔法、腐化与诅咒、瘟疫和战乱，英雄未必善终。"},
+    {"id": "eastern_fantasy", "label": "东方玄幻", "tags_any": ["genre:eastern_fantasy"],
+     "description": "东亚神话与志怪：妖怪精魅、山神水神、符箓方术、门派与王朝。"},
+    {"id": "xianxia", "label": "仙侠", "tags_any": ["genre:xianxia"],
+     "description": "修炼求道：灵气、丹药法宝、宗门境界、飞升与天劫。"},
+    {"id": "steampunk", "label": "蒸汽朋克", "tags_any": ["genre:steampunk"],
+     "description": "煤与钢的时代想象：工厂城市、飞艇、机械义体、阶级与工会。具体机器由科技档位决定。"},
+    {"id": "historical", "label": "历史", "tags_any": ["genre:historical"],
+     "description": "贴近真实历史的社会制度、经济与日常，不含超自然。"},
+    {"id": "real_world", "label": "现实生活", "tags_any": ["genre:real_world"],
+     "description": "现实中的作物、食物、草药、材料与工具，是各种世界的生活底子。"},
+    {"id": "modern", "label": "近现代", "tags_any": ["genre:modern"],
+     "description": "1880—1939 年的城市、报刊、铁路公司与大众社会，止于二战前。"},
+    {"id": "folk_horror", "label": "民俗恐怖", "tags_any": ["genre:folk_horror"],
+     "description": "乡野禁忌、献祭与古老习俗，恐惧来自共同体本身。"}
+  ]
+}

@@ -91,7 +91,8 @@ def expand(package):
 
 
 if __name__ == '__main__':
-    store = Store(ROOT / 'data/textiledream.sqlite3')
+    from app.paths import SAVE_DB
+    store = Store(SAVE_DB)
     runtime = Runtime(store, ROOT)
     original = runtime.package()
     if original['story'].get('authoring_status', {}).get('revision_label') == '世界观扩充与主要场景 v0.2':

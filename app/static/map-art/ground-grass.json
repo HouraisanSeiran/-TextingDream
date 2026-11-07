@@ -1,0 +1,1420 @@
+{
+ "version": 1,
+ "sprite": "/static/map-art/map-art-ground-grass.svg",
+ "note": "林下草类点缀符号清单（树林里与林缘的草、蕨、灌丛、花草、枯草、芦苇、苔藓、蘑菇）。只描述用哪个符号、建议在哪类林地出现、出现多少；不是生态模型。由 tools/gen_ground_grass_art.py 生成。",
+ "viewBox": [
+  14,
+  10
+ ],
+ "anchor": [
+  7.0,
+  9.0
+ ],
+ "anchor_note": "地面线中点 (7,9) 对准落点；extent 为 [x0,y0,x1,y1] 实际笔迹范围（viewBox 单位，含墨线）。",
+ "water_note": "requires_water_adjacent=true 的符号自带水纹、无投影，只能放在紧挨水面的格子（河湖岸线），不要撒在林内。",
+ "scale": "与 map-art-trees-a/-b.svg（viewBox 32×40，锚点 16,38）同一 px/单位：树显示高 H px 时草符号框为 0.35H × 0.25H。想让草更显眼可整体放大到 1.3–1.5 倍，但不宜超过树的 1/3 高。",
+ "weights_note": "scene_weights[scene] = BY_SCENE[scene][kind] × weight / 同场景同种 weight 之和；同一场景内全部符号的 scene_weights 之和为 1，可直接当抽样概率。weight 为种内变种相对权重。",
+ "scenes": {
+  "conifer": "针叶林林下：苔藓、蕨、矮灌为主",
+  "broadleaf": "阔叶林/湿润林下：蕨、草丛、灌丛，少量花草",
+  "forest_edge": "林缘与草原过渡：高草、花草、枯草",
+  "riparian": "河湖岸边林地：芦苇/水草（带水纹的变种只放水边）",
+  "dry": "干燥、暖带林缘：枯黄草丛为主",
+  "wet": "沼泽化、多雨林下：蕨、苔藓、水草，少量蘑菇"
+ },
+ "by_scene": {
+  "conifer": {
+   "moss": 0.28,
+   "fern": 0.2,
+   "tuft": 0.26,
+   "shrub": 0.2,
+   "mushroom": 0.06
+  },
+  "broadleaf": {
+   "fern": 0.3,
+   "tuft": 0.25,
+   "shrub": 0.22,
+   "flower": 0.12,
+   "mushroom": 0.06,
+   "moss": 0.05
+  },
+  "forest_edge": {
+   "tuft": 0.3,
+   "tall": 0.25,
+   "shrub": 0.15,
+   "flower": 0.15,
+   "dry": 0.15
+  },
+  "riparian": {
+   "reed": 0.5,
+   "tall": 0.25,
+   "tuft": 0.15,
+   "fern": 0.1
+  },
+  "dry": {
+   "dry": 0.6,
+   "tuft": 0.15,
+   "shrub": 0.15,
+   "tall": 0.1
+  },
+  "wet": {
+   "fern": 0.35,
+   "moss": 0.3,
+   "reed": 0.2,
+   "tuft": 0.11,
+   "mushroom": 0.04
+  }
+ },
+ "kinds": {
+  "tuft": {
+   "name": "普通草丛",
+   "variants": [
+    "grass-tuft-1",
+    "grass-tuft-2",
+    "grass-tuft-3",
+    "grass-tuft-4"
+   ]
+  },
+  "tall": {
+   "name": "高草/芒草",
+   "variants": [
+    "grass-tall-1",
+    "grass-tall-2",
+    "grass-tall-3",
+    "grass-tall-4"
+   ]
+  },
+  "fern": {
+   "name": "蕨类",
+   "variants": [
+    "grass-fern-1",
+    "grass-fern-2",
+    "grass-fern-3",
+    "grass-fern-4"
+   ]
+  },
+  "shrub": {
+   "name": "低矮灌丛",
+   "variants": [
+    "grass-shrub-1",
+    "grass-shrub-2",
+    "grass-shrub-3",
+    "grass-shrub-4"
+   ]
+  },
+  "flower": {
+   "name": "带小花的草丛",
+   "variants": [
+    "grass-flower-1",
+    "grass-flower-2",
+    "grass-flower-3",
+    "grass-flower-4"
+   ]
+  },
+  "dry": {
+   "name": "枯黄草丛",
+   "variants": [
+    "grass-dry-1",
+    "grass-dry-2",
+    "grass-dry-3",
+    "grass-dry-4"
+   ]
+  },
+  "reed": {
+   "name": "芦苇/水草",
+   "variants": [
+    "grass-reed-1",
+    "grass-reed-2",
+    "grass-reed-3",
+    "grass-reed-4"
+   ]
+  },
+  "moss": {
+   "name": "苔藓地被",
+   "variants": [
+    "grass-moss-1",
+    "grass-moss-2",
+    "grass-moss-3"
+   ]
+  },
+  "mushroom": {
+   "name": "林下蘑菇",
+   "variants": [
+    "grass-mushroom-1",
+    "grass-mushroom-2",
+    "grass-mushroom-3",
+    "grass-mushroom-4",
+    "grass-mushroom-5",
+    "grass-mushroom-6",
+    "grass-mushroom-7",
+    "grass-mushroom-8"
+   ]
+  }
+ },
+ "symbols": [
+  {
+   "id": "grass-tuft-1",
+   "kind": "tuft",
+   "variant": 1,
+   "viewBox": [
+    14,
+    10
+   ],
+   "anchor": [
+    7.0,
+    9.0
+   ],
+   "extent": [
+    3.6,
+    3.9,
+    10.5,
+    9.5
+   ],
+   "height_units": 5.1,
+   "scenes": [
+    "conifer",
+    "broadleaf",
+    "forest_edge",
+    "riparian",
+    "dry",
+    "wet"
+   ],
+   "weight": 1.0,
+   "requires_water_adjacent": false,
+   "scene_weights": {
+    "conifer": 0.0722,
+    "broadleaf": 0.0694,
+    "forest_edge": 0.0833,
+    "riparian": 0.0417,
+    "dry": 0.0417,
+    "wet": 0.0306
+   }
+  },
+  {
+   "id": "grass-tuft-2",
+   "kind": "tuft",
+   "variant": 2,
+   "viewBox": [
+    14,
+    10
+   ],
+   "anchor": [
+    7.0,
+    9.0
+   ],
+   "extent": [
+    2.4,
+    5.6,
+    12.2,
+    9.6
+   ],
+   "height_units": 3.4,
+   "scenes": [
+    "conifer",
+    "broadleaf",
+    "forest_edge",
+    "riparian",
+    "dry",
+    "wet"
+   ],
+   "weight": 1.0,
+   "requires_water_adjacent": false,
+   "scene_weights": {
+    "conifer": 0.0722,
+    "broadleaf": 0.0694,
+    "forest_edge": 0.0833,
+    "riparian": 0.0417,
+    "dry": 0.0417,
+    "wet": 0.0306
+   }
+  },
+  {
+   "id": "grass-tuft-3",
+   "kind": "tuft",
+   "variant": 3,
+   "viewBox": [
+    14,
+    10
+   ],
+   "anchor": [
+    7.0,
+    9.0
+   ],
+   "extent": [
+    5.4,
+    3.6,
+    10.8,
+    9.5
+   ],
+   "height_units": 5.4,
+   "scenes": [
+    "conifer",
+    "broadleaf",
+    "forest_edge",
+    "riparian",
+    "dry",
+    "wet"
+   ],
+   "weight": 0.8,
+   "requires_water_adjacent": false,
+   "scene_weights": {
+    "conifer": 0.0578,
+    "broadleaf": 0.0556,
+    "forest_edge": 0.0667,
+    "riparian": 0.0333,
+    "dry": 0.0333,
+    "wet": 0.0244
+   }
+  },
+  {
+   "id": "grass-tuft-4",
+   "kind": "tuft",
+   "variant": 4,
+   "viewBox": [
+    14,
+    10
+   ],
+   "anchor": [
+    7.0,
+    9.0
+   ],
+   "extent": [
+    3.6,
+    5.3,
+    9.1,
+    9.6
+   ],
+   "height_units": 3.7,
+   "scenes": [
+    "conifer",
+    "broadleaf",
+    "forest_edge",
+    "riparian",
+    "dry",
+    "wet"
+   ],
+   "weight": 0.8,
+   "requires_water_adjacent": false,
+   "scene_weights": {
+    "conifer": 0.0578,
+    "broadleaf": 0.0556,
+    "forest_edge": 0.0667,
+    "riparian": 0.0333,
+    "dry": 0.0333,
+    "wet": 0.0244
+   }
+  },
+  {
+   "id": "grass-tall-1",
+   "kind": "tall",
+   "variant": 1,
+   "viewBox": [
+    14,
+    10
+   ],
+   "anchor": [
+    7.0,
+    9.0
+   ],
+   "extent": [
+    3.7,
+    0.3,
+    10.5,
+    9.5
+   ],
+   "height_units": 8.7,
+   "scenes": [
+    "forest_edge",
+    "riparian",
+    "dry"
+   ],
+   "weight": 1.0,
+   "requires_water_adjacent": false,
+   "scene_weights": {
+    "forest_edge": 0.0714,
+    "riparian": 0.0714,
+    "dry": 0.0286
+   }
+  },
+  {
+   "id": "grass-tall-2",
+   "kind": "tall",
+   "variant": 2,
+   "viewBox": [
+    14,
+    10
+   ],
+   "anchor": [
+    7.0,
+    9.0
+   ],
+   "extent": [
+    4.3,
+    1.5,
+    10.2,
+    9.5
+   ],
+   "height_units": 7.5,
+   "scenes": [
+    "forest_edge",
+    "riparian",
+    "dry"
+   ],
+   "weight": 0.7,
+   "requires_water_adjacent": false,
+   "scene_weights": {
+    "forest_edge": 0.05,
+    "riparian": 0.05,
+    "dry": 0.02
+   }
+  },
+  {
+   "id": "grass-tall-3",
+   "kind": "tall",
+   "variant": 3,
+   "viewBox": [
+    14,
+    10
+   ],
+   "anchor": [
+    7.0,
+    9.0
+   ],
+   "extent": [
+    2.1,
+    2.8,
+    13.3,
+    9.5
+   ],
+   "height_units": 6.2,
+   "scenes": [
+    "forest_edge",
+    "riparian",
+    "dry"
+   ],
+   "weight": 1.0,
+   "requires_water_adjacent": false,
+   "scene_weights": {
+    "forest_edge": 0.0714,
+    "riparian": 0.0714,
+    "dry": 0.0286
+   }
+  },
+  {
+   "id": "grass-tall-4",
+   "kind": "tall",
+   "variant": 4,
+   "viewBox": [
+    14,
+    10
+   ],
+   "anchor": [
+    7.0,
+    9.0
+   ],
+   "extent": [
+    4.0,
+    0.0,
+    9.7,
+    9.5
+   ],
+   "height_units": 9.0,
+   "scenes": [
+    "forest_edge",
+    "riparian",
+    "dry"
+   ],
+   "weight": 0.8,
+   "requires_water_adjacent": false,
+   "scene_weights": {
+    "forest_edge": 0.0571,
+    "riparian": 0.0571,
+    "dry": 0.0229
+   }
+  },
+  {
+   "id": "grass-fern-1",
+   "kind": "fern",
+   "variant": 1,
+   "viewBox": [
+    14,
+    10
+   ],
+   "anchor": [
+    7.0,
+    9.0
+   ],
+   "extent": [
+    2.1,
+    1.7,
+    12.1,
+    9.5
+   ],
+   "height_units": 7.3,
+   "scenes": [
+    "conifer",
+    "broadleaf",
+    "riparian",
+    "wet"
+   ],
+   "weight": 1.0,
+   "requires_water_adjacent": false,
+   "scene_weights": {
+    "conifer": 0.0588,
+    "broadleaf": 0.0882,
+    "riparian": 0.0294,
+    "wet": 0.1029
+   }
+  },
+  {
+   "id": "grass-fern-2",
+   "kind": "fern",
+   "variant": 2,
+   "viewBox": [
+    14,
+    10
+   ],
+   "anchor": [
+    7.0,
+    9.0
+   ],
+   "extent": [
+    3.5,
+    1.2,
+    10.4,
+    9.4
+   ],
+   "height_units": 7.8,
+   "scenes": [
+    "conifer",
+    "broadleaf",
+    "riparian",
+    "wet"
+   ],
+   "weight": 0.8,
+   "requires_water_adjacent": false,
+   "scene_weights": {
+    "conifer": 0.0471,
+    "broadleaf": 0.0706,
+    "riparian": 0.0235,
+    "wet": 0.0824
+   }
+  },
+  {
+   "id": "grass-fern-3",
+   "kind": "fern",
+   "variant": 3,
+   "viewBox": [
+    14,
+    10
+   ],
+   "anchor": [
+    7.0,
+    9.0
+   ],
+   "extent": [
+    0.9,
+    4.7,
+    12.8,
+    9.6
+   ],
+   "height_units": 4.3,
+   "scenes": [
+    "conifer",
+    "broadleaf",
+    "riparian",
+    "wet"
+   ],
+   "weight": 1.0,
+   "requires_water_adjacent": false,
+   "scene_weights": {
+    "conifer": 0.0588,
+    "broadleaf": 0.0882,
+    "riparian": 0.0294,
+    "wet": 0.1029
+   }
+  },
+  {
+   "id": "grass-fern-4",
+   "kind": "fern",
+   "variant": 4,
+   "viewBox": [
+    14,
+    10
+   ],
+   "anchor": [
+    7.0,
+    9.0
+   ],
+   "extent": [
+    2.9,
+    3.2,
+    11.4,
+    9.5
+   ],
+   "height_units": 5.8,
+   "scenes": [
+    "conifer",
+    "broadleaf",
+    "riparian",
+    "wet"
+   ],
+   "weight": 0.6,
+   "requires_water_adjacent": false,
+   "scene_weights": {
+    "conifer": 0.0353,
+    "broadleaf": 0.0529,
+    "riparian": 0.0176,
+    "wet": 0.0618
+   }
+  },
+  {
+   "id": "grass-shrub-1",
+   "kind": "shrub",
+   "variant": 1,
+   "viewBox": [
+    14,
+    10
+   ],
+   "anchor": [
+    7.0,
+    9.0
+   ],
+   "extent": [
+    2.7,
+    3.1,
+    11.7,
+    9.4
+   ],
+   "height_units": 5.9,
+   "scenes": [
+    "conifer",
+    "broadleaf",
+    "forest_edge",
+    "dry"
+   ],
+   "weight": 1.0,
+   "requires_water_adjacent": false,
+   "scene_weights": {
+    "conifer": 0.0645,
+    "broadleaf": 0.071,
+    "forest_edge": 0.0484,
+    "dry": 0.0484
+   }
+  },
+  {
+   "id": "grass-shrub-2",
+   "kind": "shrub",
+   "variant": 2,
+   "viewBox": [
+    14,
+    10
+   ],
+   "anchor": [
+    7.0,
+    9.0
+   ],
+   "extent": [
+    1.1,
+    4.2,
+    13.1,
+    9.4
+   ],
+   "height_units": 4.8,
+   "scenes": [
+    "conifer",
+    "broadleaf",
+    "forest_edge",
+    "dry"
+   ],
+   "weight": 0.8,
+   "requires_water_adjacent": false,
+   "scene_weights": {
+    "conifer": 0.0516,
+    "broadleaf": 0.0568,
+    "forest_edge": 0.0387,
+    "dry": 0.0387
+   }
+  },
+  {
+   "id": "grass-shrub-3",
+   "kind": "shrub",
+   "variant": 3,
+   "viewBox": [
+    14,
+    10
+   ],
+   "anchor": [
+    7.0,
+    9.0
+   ],
+   "extent": [
+    2.9,
+    3.4,
+    11.2,
+    9.4
+   ],
+   "height_units": 5.6,
+   "scenes": [
+    "conifer",
+    "broadleaf",
+    "forest_edge",
+    "dry"
+   ],
+   "weight": 0.5,
+   "requires_water_adjacent": false,
+   "scene_weights": {
+    "conifer": 0.0323,
+    "broadleaf": 0.0355,
+    "forest_edge": 0.0242,
+    "dry": 0.0242
+   }
+  },
+  {
+   "id": "grass-shrub-4",
+   "kind": "shrub",
+   "variant": 4,
+   "viewBox": [
+    14,
+    10
+   ],
+   "anchor": [
+    7.0,
+    9.0
+   ],
+   "extent": [
+    3.8,
+    2.6,
+    10.2,
+    9.4
+   ],
+   "height_units": 6.4,
+   "scenes": [
+    "conifer",
+    "broadleaf",
+    "forest_edge",
+    "dry"
+   ],
+   "weight": 0.8,
+   "requires_water_adjacent": false,
+   "scene_weights": {
+    "conifer": 0.0516,
+    "broadleaf": 0.0568,
+    "forest_edge": 0.0387,
+    "dry": 0.0387
+   }
+  },
+  {
+   "id": "grass-flower-1",
+   "kind": "flower",
+   "variant": 1,
+   "viewBox": [
+    14,
+    10
+   ],
+   "anchor": [
+    7.0,
+    9.0
+   ],
+   "extent": [
+    3.7,
+    4.0,
+    10.4,
+    9.5
+   ],
+   "height_units": 5.0,
+   "scenes": [
+    "broadleaf",
+    "forest_edge"
+   ],
+   "weight": 1.0,
+   "requires_water_adjacent": false,
+   "scene_weights": {
+    "broadleaf": 0.0364,
+    "forest_edge": 0.0455
+   }
+  },
+  {
+   "id": "grass-flower-2",
+   "kind": "flower",
+   "variant": 2,
+   "viewBox": [
+    14,
+    10
+   ],
+   "anchor": [
+    7.0,
+    9.0
+   ],
+   "extent": [
+    2.4,
+    3.5,
+    10.5,
+    9.6
+   ],
+   "height_units": 5.5,
+   "scenes": [
+    "broadleaf",
+    "forest_edge"
+   ],
+   "weight": 1.0,
+   "requires_water_adjacent": false,
+   "scene_weights": {
+    "broadleaf": 0.0364,
+    "forest_edge": 0.0455
+   }
+  },
+  {
+   "id": "grass-flower-3",
+   "kind": "flower",
+   "variant": 3,
+   "viewBox": [
+    14,
+    10
+   ],
+   "anchor": [
+    7.0,
+    9.0
+   ],
+   "extent": [
+    3.5,
+    3.3,
+    10.7,
+    9.5
+   ],
+   "height_units": 5.7,
+   "scenes": [
+    "broadleaf",
+    "forest_edge"
+   ],
+   "weight": 0.7,
+   "requires_water_adjacent": false,
+   "scene_weights": {
+    "broadleaf": 0.0255,
+    "forest_edge": 0.0318
+   }
+  },
+  {
+   "id": "grass-flower-4",
+   "kind": "flower",
+   "variant": 4,
+   "viewBox": [
+    14,
+    10
+   ],
+   "anchor": [
+    7.0,
+    9.0
+   ],
+   "extent": [
+    4.1,
+    3.3,
+    10.9,
+    9.6
+   ],
+   "height_units": 5.7,
+   "scenes": [
+    "broadleaf",
+    "forest_edge"
+   ],
+   "weight": 0.6,
+   "requires_water_adjacent": false,
+   "scene_weights": {
+    "broadleaf": 0.0218,
+    "forest_edge": 0.0273
+   }
+  },
+  {
+   "id": "grass-dry-1",
+   "kind": "dry",
+   "variant": 1,
+   "viewBox": [
+    14,
+    10
+   ],
+   "anchor": [
+    7.0,
+    9.0
+   ],
+   "extent": [
+    3.4,
+    5.0,
+    12.2,
+    9.6
+   ],
+   "height_units": 4.0,
+   "scenes": [
+    "forest_edge",
+    "dry"
+   ],
+   "weight": 1.0,
+   "requires_water_adjacent": false,
+   "scene_weights": {
+    "forest_edge": 0.0417,
+    "dry": 0.1667
+   }
+  },
+  {
+   "id": "grass-dry-2",
+   "kind": "dry",
+   "variant": 2,
+   "viewBox": [
+    14,
+    10
+   ],
+   "anchor": [
+    7.0,
+    9.0
+   ],
+   "extent": [
+    4.7,
+    4.3,
+    10.4,
+    9.5
+   ],
+   "height_units": 4.7,
+   "scenes": [
+    "forest_edge",
+    "dry"
+   ],
+   "weight": 0.8,
+   "requires_water_adjacent": false,
+   "scene_weights": {
+    "forest_edge": 0.0333,
+    "dry": 0.1333
+   }
+  },
+  {
+   "id": "grass-dry-3",
+   "kind": "dry",
+   "variant": 3,
+   "viewBox": [
+    14,
+    10
+   ],
+   "anchor": [
+    7.0,
+    9.0
+   ],
+   "extent": [
+    2.6,
+    5.5,
+    11.5,
+    9.6
+   ],
+   "height_units": 3.5,
+   "scenes": [
+    "forest_edge",
+    "dry"
+   ],
+   "weight": 0.8,
+   "requires_water_adjacent": false,
+   "scene_weights": {
+    "forest_edge": 0.0333,
+    "dry": 0.1333
+   }
+  },
+  {
+   "id": "grass-dry-4",
+   "kind": "dry",
+   "variant": 4,
+   "viewBox": [
+    14,
+    10
+   ],
+   "anchor": [
+    7.0,
+    9.0
+   ],
+   "extent": [
+    3.0,
+    4.9,
+    11.2,
+    9.5
+   ],
+   "height_units": 4.1,
+   "scenes": [
+    "forest_edge",
+    "dry"
+   ],
+   "weight": 1.0,
+   "requires_water_adjacent": false,
+   "scene_weights": {
+    "forest_edge": 0.0417,
+    "dry": 0.1667
+   }
+  },
+  {
+   "id": "grass-reed-1",
+   "kind": "reed",
+   "variant": 1,
+   "viewBox": [
+    14,
+    10
+   ],
+   "anchor": [
+    7.0,
+    9.0
+   ],
+   "extent": [
+    0.4,
+    0.3,
+    13.6,
+    10
+   ],
+   "height_units": 8.7,
+   "scenes": [
+    "riparian",
+    "wet"
+   ],
+   "weight": 1.0,
+   "requires_water_adjacent": true,
+   "scene_weights": {
+    "riparian": 0.1429,
+    "wet": 0.0571
+   }
+  },
+  {
+   "id": "grass-reed-2",
+   "kind": "reed",
+   "variant": 2,
+   "viewBox": [
+    14,
+    10
+   ],
+   "anchor": [
+    7.0,
+    9.0
+   ],
+   "extent": [
+    3.2,
+    0.0,
+    11.2,
+    9.5
+   ],
+   "height_units": 9.0,
+   "scenes": [
+    "riparian",
+    "wet"
+   ],
+   "weight": 1.0,
+   "requires_water_adjacent": false,
+   "scene_weights": {
+    "riparian": 0.1429,
+    "wet": 0.0571
+   }
+  },
+  {
+   "id": "grass-reed-3",
+   "kind": "reed",
+   "variant": 3,
+   "viewBox": [
+    14,
+    10
+   ],
+   "anchor": [
+    7.0,
+    9.0
+   ],
+   "extent": [
+    0.4,
+    0.8,
+    13.6,
+    10
+   ],
+   "height_units": 8.2,
+   "scenes": [
+    "riparian",
+    "wet"
+   ],
+   "weight": 0.8,
+   "requires_water_adjacent": true,
+   "scene_weights": {
+    "riparian": 0.1143,
+    "wet": 0.0457
+   }
+  },
+  {
+   "id": "grass-reed-4",
+   "kind": "reed",
+   "variant": 4,
+   "viewBox": [
+    14,
+    10
+   ],
+   "anchor": [
+    7.0,
+    9.0
+   ],
+   "extent": [
+    0.4,
+    3.3,
+    13.6,
+    10
+   ],
+   "height_units": 5.7,
+   "scenes": [
+    "riparian",
+    "wet"
+   ],
+   "weight": 0.7,
+   "requires_water_adjacent": true,
+   "scene_weights": {
+    "riparian": 0.1,
+    "wet": 0.04
+   }
+  },
+  {
+   "id": "grass-moss-1",
+   "kind": "moss",
+   "variant": 1,
+   "viewBox": [
+    14,
+    10
+   ],
+   "anchor": [
+    7.0,
+    9.0
+   ],
+   "extent": [
+    1.1,
+    7.1,
+    12.5,
+    9.6
+   ],
+   "height_units": 1.9,
+   "scenes": [
+    "conifer",
+    "broadleaf",
+    "wet"
+   ],
+   "weight": 1.0,
+   "requires_water_adjacent": false,
+   "scene_weights": {
+    "conifer": 0.1037,
+    "broadleaf": 0.0185,
+    "wet": 0.1111
+   }
+  },
+  {
+   "id": "grass-moss-2",
+   "kind": "moss",
+   "variant": 2,
+   "viewBox": [
+    14,
+    10
+   ],
+   "anchor": [
+    7.0,
+    9.0
+   ],
+   "extent": [
+    2.2,
+    6.5,
+    11.8,
+    9.7
+   ],
+   "height_units": 2.5,
+   "scenes": [
+    "conifer",
+    "broadleaf",
+    "wet"
+   ],
+   "weight": 1.0,
+   "requires_water_adjacent": false,
+   "scene_weights": {
+    "conifer": 0.1037,
+    "broadleaf": 0.0185,
+    "wet": 0.1111
+   }
+  },
+  {
+   "id": "grass-moss-3",
+   "kind": "moss",
+   "variant": 3,
+   "viewBox": [
+    14,
+    10
+   ],
+   "anchor": [
+    7.0,
+    9.0
+   ],
+   "extent": [
+    2.3,
+    5.6,
+    12.0,
+    9.6
+   ],
+   "height_units": 3.4,
+   "scenes": [
+    "conifer",
+    "broadleaf",
+    "wet"
+   ],
+   "weight": 0.7,
+   "requires_water_adjacent": false,
+   "scene_weights": {
+    "conifer": 0.0726,
+    "broadleaf": 0.013,
+    "wet": 0.0778
+   }
+  },
+  {
+   "id": "grass-mushroom-1",
+   "kind": "mushroom",
+   "variant": 1,
+   "viewBox": [
+    14,
+    10
+   ],
+   "anchor": [
+    7.0,
+    9.0
+   ],
+   "extent": [
+    4.0,
+    4.8,
+    10.8,
+    9.5
+   ],
+   "height_units": 4.2,
+   "scenes": [
+    "conifer",
+    "broadleaf",
+    "wet"
+   ],
+   "weight": 1.0,
+   "requires_water_adjacent": false,
+   "scene_weights": {
+    "conifer": 0.0125,
+    "broadleaf": 0.0125,
+    "wet": 0.0083
+   }
+  },
+  {
+   "id": "grass-mushroom-2",
+   "kind": "mushroom",
+   "variant": 2,
+   "viewBox": [
+    14,
+    10
+   ],
+   "anchor": [
+    7.0,
+    9.0
+   ],
+   "extent": [
+    4.5,
+    4.2,
+    10.4,
+    9.5
+   ],
+   "height_units": 4.8,
+   "scenes": [
+    "conifer",
+    "broadleaf",
+    "wet"
+   ],
+   "weight": 0.35,
+   "requires_water_adjacent": false,
+   "scene_weights": {
+    "conifer": 0.0044,
+    "broadleaf": 0.0044,
+    "wet": 0.0029
+   }
+  },
+  {
+   "id": "grass-mushroom-3",
+   "kind": "mushroom",
+   "variant": 3,
+   "viewBox": [
+    14,
+    10
+   ],
+   "anchor": [
+    7.0,
+    9.0
+   ],
+   "extent": [
+    3.7,
+    5.4,
+    10.0,
+    9.6
+   ],
+   "height_units": 3.6,
+   "scenes": [
+    "conifer",
+    "broadleaf",
+    "wet"
+   ],
+   "weight": 0.8,
+   "requires_water_adjacent": false,
+   "scene_weights": {
+    "conifer": 0.01,
+    "broadleaf": 0.01,
+    "wet": 0.0067
+   }
+  },
+  {
+   "id": "grass-mushroom-4",
+   "kind": "mushroom",
+   "variant": 4,
+   "viewBox": [
+    14,
+    10
+   ],
+   "anchor": [
+    7.0,
+    9.0
+   ],
+   "extent": [
+    4.2,
+    3.0,
+    10.0,
+    9.5
+   ],
+   "height_units": 6.0,
+   "scenes": [
+    "conifer",
+    "broadleaf",
+    "wet"
+   ],
+   "weight": 0.8,
+   "requires_water_adjacent": false,
+   "scene_weights": {
+    "conifer": 0.01,
+    "broadleaf": 0.01,
+    "wet": 0.0067
+   }
+  },
+  {
+   "id": "grass-mushroom-5",
+   "kind": "mushroom",
+   "variant": 5,
+   "viewBox": [
+    14,
+    10
+   ],
+   "anchor": [
+    7.0,
+    9.0
+   ],
+   "extent": [
+    3.0,
+    3.8,
+    10.4,
+    9.5
+   ],
+   "height_units": 5.2,
+   "scenes": [
+    "conifer",
+    "broadleaf",
+    "wet"
+   ],
+   "weight": 0.6,
+   "requires_water_adjacent": false,
+   "scene_weights": {
+    "conifer": 0.0075,
+    "broadleaf": 0.0075,
+    "wet": 0.005
+   }
+  },
+  {
+   "id": "grass-mushroom-6",
+   "kind": "mushroom",
+   "variant": 6,
+   "viewBox": [
+    14,
+    10
+   ],
+   "anchor": [
+    7.0,
+    9.0
+   ],
+   "extent": [
+    3.8,
+    4.7,
+    12.0,
+    9.5
+   ],
+   "height_units": 4.3,
+   "scenes": [
+    "conifer",
+    "broadleaf",
+    "wet"
+   ],
+   "weight": 0.35,
+   "requires_water_adjacent": false,
+   "scene_weights": {
+    "conifer": 0.0044,
+    "broadleaf": 0.0044,
+    "wet": 0.0029
+   }
+  },
+  {
+   "id": "grass-mushroom-7",
+   "kind": "mushroom",
+   "variant": 7,
+   "viewBox": [
+    14,
+    10
+   ],
+   "anchor": [
+    7.0,
+    9.0
+   ],
+   "extent": [
+    3.4,
+    5.9,
+    11.4,
+    9.5
+   ],
+   "height_units": 3.1,
+   "scenes": [
+    "conifer",
+    "broadleaf",
+    "wet"
+   ],
+   "weight": 0.6,
+   "requires_water_adjacent": false,
+   "scene_weights": {
+    "conifer": 0.0075,
+    "broadleaf": 0.0075,
+    "wet": 0.005
+   }
+  },
+  {
+   "id": "grass-mushroom-8",
+   "kind": "mushroom",
+   "variant": 8,
+   "viewBox": [
+    14,
+    10
+   ],
+   "anchor": [
+    7.0,
+    9.0
+   ],
+   "extent": [
+    1.4,
+    4.8,
+    12.4,
+    9.5
+   ],
+   "height_units": 4.2,
+   "scenes": [
+    "conifer",
+    "broadleaf",
+    "wet"
+   ],
+   "weight": 0.3,
+   "requires_water_adjacent": false,
+   "scene_weights": {
+    "conifer": 0.0037,
+    "broadleaf": 0.0037,
+    "wet": 0.0025
+   }
+  }
+ ]
+}

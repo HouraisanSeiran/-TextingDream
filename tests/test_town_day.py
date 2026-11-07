@@ -98,6 +98,50 @@ class TownDayTests(unittest.TestCase):
             self.assertEqual(exported, data)
         self.assertTrue((self.root / 'StoryPackage').exists())
 
+    def grain_clock(self, s):
+        from app import checks
+        return checks.clock_state(s, self.rt.package(s['revision'])['story'])['grain_deal']
+
+    def stage_notices(self, steps, inspect_success):
+        """按步骤走，收集每步响应里的 clock_notices 文本（stage 类）。"""
+        s = self.start()
+        seen = []
+        for step in steps:
+            if step.startswith('@'):
+                s = self.move(s, step[1:])
+                continue
+            optional = step.startswith('?')
+            step = step.lstrip('?')
+            if optional and step not in self.available(s):
+                continue
+            package = self.rt.package(s['revision'])
+            described = free_actions.describe(s, package['story'], self.rt.node(s), step,
+                                             characters=package['characters'])
+            request = Turn(message=described['label'], action_id=step,
+                           confirm=described['confirm'])
+            tier = 'success' if (step != 'day_inspect' or inspect_success) else 'failure'
+            with patch('app.checks.margin_tier', return_value=tier):
+                surface = asyncio.run(self.service.turn(s['id'], request))
+            seen += [n['text'] for n in surface.get('clock_notices', [])
+                     if n['kind'] == 'stage']
+            s = self.reload(s)
+        return s, seen
+
+    def test_grain_clock_reaches_full_on_failed_inspect_and_success_routes(self):
+        steps = ['day_terms', 'day_breakfast', 'day_to_market', '@town_market',
+                 'day_inspect', '?day_compare', 'day_buy', 'day_deliver']
+        verified = '干麦的成色验明了，接下来是买下并送到烤炉。'
+        settled = '这笔干麦生意账目清楚地了结了。'
+        for inspect_success in (False, True):
+            with self.subTest(inspect_success=inspect_success):
+                s, seen = self.stage_notices(steps, inspect_success)
+                row = self.grain_clock(s)
+                self.assertEqual(row['filled'], 4)
+                self.assertEqual(row['stages_done'], ['verified', 'settled'])
+                self.assertTrue(s['flags'].get('day_deal_clean'))
+                self.assertEqual(seen.count(verified), 1)
+                self.assertEqual(seen.count(settled), 1)
+
     def test_normal_failed_alternative_and_chaos_reach_distinct_endings(self):
         routes = [('route', True, 'day_normal', 8),
                   ('alternative', False, 'day_friend', 8),

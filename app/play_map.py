@@ -27,7 +27,7 @@ import hashlib
 import math
 import re
 
-from . import civ_atlas_snapshot, map_import
+from . import civ_atlas_snapshot, fog_art, map_import
 
 #: Sphere radius, used only to turn the gameplay reveal radius (km) into degrees.
 EARTH_RADIUS_KM = 6371.0088
@@ -40,8 +40,9 @@ MAX_REVEAL_KM = 2000.0
 #: "been there" — including at the minimum configured radius.
 KNOWN_FRACTION = 0.5
 
-#: Pixels outside every reveal circle. Terrain never reaches these bytes.
-FOG_RGB = (17, 20, 24)
+#: The single colour of every fogged basemap pixel (geometry-free). The painted look is
+#: drawn by the browser over it (``static/map-fog.js``); see :mod:`app.fog_art`.
+FOG_RGB = fog_art.FOG_RGB
 
 MAX_BASEMAP_WIDTH = 640
 MIN_BASEMAP_WIDTH = 256
@@ -342,11 +343,14 @@ def _source_summary(record, story):
 # -------------------------------------------------------------- the projection
 def projection(session, story, *, status, context, session_id):
     """The one JSON document the player map page reads."""
+    from . import map_clues            # local: map_clues imports this module
     places = visible_places(session, story)
+    clues = map_clues.projection(session, story)
     link = context.get('link') or parse_link(story)
     radius = (link or {}).get('reveal_radius_km', DEFAULT_REVEAL_KM)
     circles = reveal_circles(places, link)
-    box = bbox_for_circles(circles) if status == STATUS_OK else None
+    box = (bbox_for_circles(circles + map_clues.frame_circles(clues))
+           if status == STATUS_OK else None)
     bbox, clipped = box if box else (None, False)
     player = next((row for row in places if row['state'] == 'current'), None)
     payload = {
@@ -363,11 +367,17 @@ def projection(session, story, *, status, context, session_id):
         'player': ({'location_id': player['id'], 'name': player['name'],
                     'lon': player['lon'], 'lat': player['lat']} if player else None),
         'places': places,
+        # 大致位置线索：只给偏移后的圆，真实坐标与被保留地点的 id 不在这里。
+        'clues': clues,
         'fog': {
             'basis': 'gameplay_travel_reach',
             'reveal_radius_km': radius,
             'known_radius_km': known_radius_km(link),
             'masked_by': 'server',
+            # 粗糙圆的形状（圆心、半径、各方位的收缩比例）：前端按它画装饰雾，
+            # 透明区不超过服务端揭示区。圆心就是上面 places 里已给出的坐标，不多泄露。
+            'reveal': fog_art.reveal_shapes(circles) if status == STATUS_OK else [],
+            'cloud_deg': fog_art.cloud_deg(circles, EARTH_RADIUS_KM),
             'note': ('可见范围是按玩法设定定的可达距离，不是真实视线，也不含地形遮蔽；'
                      '范围外的格子由服务器画成雾色，客户端拿不到那里的地形。'),
         },
@@ -539,16 +549,39 @@ def clear_cache():
     _CACHE.clear()
 
 
-def basemap_png(context, places, link):
+def fog_reference(places, link, clues=None):
+    """``(box, width, height, fog_pixels)`` for the crop :func:`basemap_png` would draw.
+
+    ``fog_pixels`` is what every fogged pixel must equal. It is computed from geometry
+    only, so tests can check that no terrain value reaches a fogged byte.
+    """
+    from . import map_clues
+    circles = reveal_circles(places, link)
+    boxed = bbox_for_circles(circles + map_clues.frame_circles(clues or []))
+    if not boxed:
+        return None
+    box, _clipped = boxed
+    width, height = _crop_dimensions(box)
+    fog, ratio = fog_art.reference(box, width, height, circles, EARTH_RADIUS_KM)
+    return box, width, height, fog, ratio
+
+
+def basemap_png(context, places, link, clues=None):
     """Return the fog-masked crop PNG, or ``None`` when there is nothing to draw.
 
     Colours come from :func:`civ_atlas_snapshot.preview_rgb` (the same code the author
     canvas uses), so what the player sees is the import's real values, coarsened. Every
     pixel outside a reveal circle is then overwritten with :data:`FOG_RGB` **before**
-    encoding, so hidden terrain is never in the bytes the player receives.
+    encoding, so hidden terrain is never in the bytes the player receives. ``clues`` only
+    widen the crop frame (so the overlay can draw their circles); they reveal nothing.
+
+    Fogged pixels are one flat colour (:data:`FOG_RGB`, :mod:`app.fog_art`) and the
+    visible edge is a rough circle that only ever shrinks the reach; the painted clouds
+    are drawn by the browser on top, at screen resolution.
     """
+    from . import map_clues            # local: map_clues imports this module
     circles = reveal_circles(places, link)
-    boxed = bbox_for_circles(circles)
+    boxed = bbox_for_circles(circles + map_clues.frame_circles(clues or []))
     if not boxed:
         return None
     box, _clipped = boxed
@@ -566,12 +599,19 @@ def basemap_png(context, places, link):
         return None
     mask = bytearray(width * height)
     _mark_revealed(mask, circles, box, width, height)
-    out = bytearray(civ_atlas_snapshot.preview_rgb(grid, 'elevation'))
-    fog = bytes(FOG_RGB)
-    for index in range(width * height):
-        if not mask[index]:
-            base = index * 3
-            out[base:base + 3] = fog
-    png = map_import.encode_rgb_preview(bytes(out), width, height)
+    terrain = civ_atlas_snapshot.preview_rgb(grid, 'elevation')
+    # 雾层只由经纬度、裁切框和揭示圆决定；圈外像素整体替换成绘制的雾，不含地形。
+    # 粗糙边缘只会向内收（fog_art.EDGE_MIN），所以仍不超过 _mark_revealed 的白名单。
+    painted = fog_art.reference(box, width, height, circles, EARTH_RADIUS_KM)
+    out, _ratio = fog_art.compose(terrain, box, width, height, circles, EARTH_RADIUS_KM,
+                                  fog=painted)
+    # Belt and braces: anything outside the exact great-circle whitelist is fog, whatever
+    # the painted edge did. (EDGE_MIN <= 1 already implies it; this keeps it explicit.)
+    fog = painted[0].reshape(-1, 3)
+    pixels = fog_art.np.frombuffer(out, dtype=fog_art.np.uint8).reshape(-1, 3).copy()
+    outside = fog_art.np.frombuffer(bytes(mask), dtype=fog_art.np.uint8) == 0
+    pixels[outside] = fog[outside]
+    out = pixels.tobytes()
+    png = map_import.encode_rgb_preview(out, width, height)
     _cache_put(key, png)
     return png

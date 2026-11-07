@@ -1,0 +1,796 @@
+[
+  {
+    "id": "west-common-smelter-01",
+    "style": "west",
+    "race": "common",
+    "category": "special",
+    "kind": "smelter_blast",
+    "facility": "smelter",
+    "variant": 1,
+    "footprint": [
+      3,
+      2
+    ],
+    "height_px": 100,
+    "anchor": [
+      72,
+      196
+    ],
+    "viewBox": [
+      0,
+      0,
+      144,
+      196
+    ],
+    "tags": [
+      "blast_furnace",
+      "water_bellows",
+      "slag_heap",
+      "smoke"
+    ],
+    "roof": "gable_thatch",
+    "note": "石砌高炉（上窄下宽、顶部装料口冒火）、左侧木构装料坡道、右侧水轮带动皮风箱的鼓风棚、前方出铁口与砂床、左前矿渣堆。水槽沿前沿东西向，紧邻水渠摆放更自然。"
+  },
+  {
+    "id": "west-common-dock-01",
+    "style": "west",
+    "race": "common",
+    "category": "special",
+    "kind": "dock_pier",
+    "facility": "dock",
+    "variant": 1,
+    "footprint": [
+      3,
+      2
+    ],
+    "height_px": 74,
+    "anchor": [
+      72,
+      170
+    ],
+    "viewBox": [
+      0,
+      0,
+      144,
+      170
+    ],
+    "tags": [
+      "waterside_south",
+      "pier",
+      "crane",
+      "bollard",
+      "boat"
+    ],
+    "roof": "none",
+    "note": "临水边朝南：占地后部约 0.6 格是石砌岸壁与货场，其余是水面，木栈桥向南伸进水里。放置时让地块前沿（南）贴河道或海岸，后沿接陆地道路。"
+  },
+  {
+    "id": "west-common-kiln-01",
+    "style": "west",
+    "race": "common",
+    "category": "special",
+    "kind": "kiln_beehive",
+    "facility": "kiln",
+    "variant": 1,
+    "footprint": [
+      2,
+      2
+    ],
+    "height_px": 62,
+    "anchor": [
+      48,
+      158
+    ],
+    "viewBox": [
+      0,
+      0,
+      96,
+      158
+    ],
+    "tags": [
+      "beehive_kiln",
+      "brick",
+      "woodpile",
+      "smoke"
+    ],
+    "roof": "none",
+    "note": "砖砌圆顶窑（蜂窝窑），前方拱形火门吐火，顶上一截短烟道；右侧柴堆，左前码着刚出窑的砖垛。窑本身没有屋顶，roof 记 none。"
+  },
+  {
+    "id": "west-common-kiln-02",
+    "style": "west",
+    "race": "common",
+    "category": "special",
+    "kind": "kiln_bottle",
+    "facility": "kiln",
+    "variant": 2,
+    "footprint": [
+      2,
+      2
+    ],
+    "height_px": 112,
+    "anchor": [
+      48,
+      208
+    ],
+    "viewBox": [
+      0,
+      0,
+      96,
+      208
+    ],
+    "tags": [
+      "bottle_kiln",
+      "pottery",
+      "smoke",
+      "drying_shed"
+    ],
+    "roof": "monopitch",
+    "note": "瓶形陶窑：红砖砌的瓶身（下鼓上收、顶口冒烟），底部火门；左侧一间单坡坯棚，棚前晾着陶罐坯。roof 记的是坯棚的单坡顶。"
+  },
+  {
+    "id": "west-common-tannery-01",
+    "style": "west",
+    "race": "common",
+    "category": "special",
+    "kind": "tannery_yard",
+    "facility": "tannery",
+    "variant": 1,
+    "footprint": [
+      3,
+      2
+    ],
+    "height_px": 56,
+    "anchor": [
+      72,
+      152
+    ],
+    "viewBox": [
+      0,
+      0,
+      144,
+      152
+    ],
+    "tags": [
+      "tanning_pits",
+      "hide_rack",
+      "workshop",
+      "smelly"
+    ],
+    "roof": "gable_thatch",
+    "note": "左后木筋灰泥工棚（茅草顶），前方一排六口砌在地里的鞣池（树皮液深浅不同），右侧木架上撑着几张生皮，旁边码着树皮捆与木桶。"
+  },
+  {
+    "id": "west-common-mine_head-01",
+    "style": "west",
+    "race": "common",
+    "category": "special",
+    "kind": "mine_headframe",
+    "facility": "mine_head",
+    "variant": 1,
+    "footprint": [
+      2,
+      2
+    ],
+    "height_px": 72,
+    "anchor": [
+      48,
+      168
+    ],
+    "viewBox": [
+      0,
+      0,
+      96,
+      168
+    ],
+    "tags": [
+      "headframe",
+      "sheave_wheel",
+      "winch",
+      "mine_cart",
+      "rails",
+      "spoil_heap"
+    ],
+    "roof": "none",
+    "note": "方形木框井口上立四柱收分的木井架，顶部天轮；钢缆一头吊着罐笼，另一头斜拉到右侧绞车滚筒。井口前一段矿车轨通向前沿，轨上停一辆装满矿石的矿车，左前是废石堆。"
+  },
+  {
+    "id": "west-common-boiler_house-01",
+    "style": "west",
+    "race": "common",
+    "category": "special",
+    "kind": "boiler_steam",
+    "facility": "boiler_house",
+    "variant": 1,
+    "footprint": [
+      3,
+      2
+    ],
+    "height_px": 136,
+    "anchor": [
+      72,
+      232
+    ],
+    "viewBox": [
+      0,
+      0,
+      144,
+      232
+    ],
+    "tags": [
+      "steam_boiler",
+      "brick_chimney",
+      "riveted_iron",
+      "pipes",
+      "coal",
+      "steam_fantasy"
+    ],
+    "roof": "steep_slate",
+    "note": "红砖机房（青石板瓦两坡顶，窗里透出炉光）、右后一座方形砖烟囱带铁箍；左边砖砌炉座上横卧一具铆钉铁锅炉，顶上黄铜汽包与安全阀冒白汽，蒸汽管弯进机房；前方炉门透火、煤堆。"
+  },
+  {
+    "id": "west-common-ward_tower-01",
+    "style": "west",
+    "race": "common",
+    "category": "special",
+    "kind": "ward_mage_tower",
+    "facility": "ward_tower",
+    "variant": 1,
+    "footprint": [
+      2,
+      2
+    ],
+    "height_px": 100,
+    "anchor": [
+      48,
+      196
+    ],
+    "viewBox": [
+      0,
+      0,
+      96,
+      196
+    ],
+    "tags": [
+      "mage_tower",
+      "rune_crystal",
+      "glow",
+      "ward",
+      "round_tower"
+    ],
+    "roof": "steep_slate",
+    "note": "毛石圆塔（三段收分、箭窗透光、拱门）、塔顶青石板尖锥被换成一圈石爪托着的悬浮符文水晶，水晶外绕两道淡金结界环；塔脚四块刻符立石围成一圈。发光只用浅金平涂与淡色圈，不用渐变或模糊。"
+  },
+  {
+    "id": "west-common-warehouse-01",
+    "style": "west",
+    "race": "common",
+    "category": "special",
+    "kind": "warehouse_gable_hoist",
+    "facility": "warehouse",
+    "variant": 1,
+    "footprint": [
+      3,
+      2
+    ],
+    "height_px": 86,
+    "anchor": [
+      72,
+      182
+    ],
+    "viewBox": [
+      0,
+      0,
+      144,
+      182
+    ],
+    "tags": [
+      "gable_front",
+      "hoist_beam",
+      "loft_door",
+      "double_door",
+      "timber_frame"
+    ],
+    "roof": "gable_tile",
+    "note": "山墙朝前（南）的三层木筋灰泥大仓：底层双开大木门（斜撑门板），二、三层正中各一扇阁楼货门，山尖挑出吊货梁挂滑轮与吊绳；门前码着木箱、麻袋。"
+  },
+  {
+    "id": "west-common-warehouse-02",
+    "style": "west",
+    "race": "common",
+    "category": "special",
+    "kind": "warehouse_stone_dock",
+    "facility": "warehouse",
+    "variant": 2,
+    "footprint": [
+      3,
+      2
+    ],
+    "height_px": 66,
+    "anchor": [
+      72,
+      162
+    ],
+    "viewBox": [
+      0,
+      0,
+      144,
+      162
+    ],
+    "tags": [
+      "stone_wall",
+      "hoist_dormer",
+      "loading_platform",
+      "double_door",
+      "sacks"
+    ],
+    "roof": "steep_slate",
+    "note": "毛石砌的长条仓库，青石板陡坡顶，屋面正中开一个吊货老虎窗（挑出吊臂与滑轮）；两扇拱形大木门，门前一段木装卸台高出地面，台上麻袋、木箱，一架手推车。"
+  },
+  {
+    "id": "west-common-cemetery-01",
+    "style": "west",
+    "race": "common",
+    "category": "special",
+    "kind": "cemetery_churchyard",
+    "facility": "cemetery",
+    "variant": 1,
+    "footprint": [
+      3,
+      2
+    ],
+    "height_px": 54,
+    "anchor": [
+      72,
+      150
+    ],
+    "viewBox": [
+      0,
+      0,
+      144,
+      150
+    ],
+    "tags": [
+      "iron_fence",
+      "cross_graves",
+      "mortuary_chapel",
+      "yew",
+      "gate"
+    ],
+    "roof": "steep_slate",
+    "note": "铁栅围起的墓园：右后一间毛石小停尸房（山墙朝前、青石板陡顶、山尖立十字），园中三排十字碑与圆头碑、几处新坟土堆，左后一棵紫杉，前沿正中铁门。roof 记停尸房的屋顶。"
+  },
+  {
+    "id": "west-common-bridge-01",
+    "style": "west",
+    "race": "common",
+    "category": "special",
+    "kind": "bridge_stone_arch",
+    "facility": "bridge",
+    "variant": 1,
+    "footprint": [
+      3,
+      1
+    ],
+    "height_px": 40,
+    "anchor": [
+      72,
+      88
+    ],
+    "viewBox": [
+      0,
+      0,
+      144,
+      88
+    ],
+    "tags": [
+      "stone_arch",
+      "deck_ew",
+      "river_ns",
+      "span_1"
+    ],
+    "roof": "none",
+    "note": "单孔毛石拱桥。桥面东西走向、跨南北流向的河：放在河道瓦片上时，中间一格是水、东西两端搭在两岸。正面（南）看到拱券与券石；拱洞里画了一点水色。"
+  },
+  {
+    "id": "west-common-bridge-02",
+    "style": "west",
+    "race": "common",
+    "category": "special",
+    "kind": "bridge_timber_trestle",
+    "facility": "bridge",
+    "variant": 2,
+    "footprint": [
+      1,
+      3
+    ],
+    "height_px": 18,
+    "anchor": [
+      24,
+      162
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      162
+    ],
+    "tags": [
+      "timber",
+      "trestle",
+      "deck_ns",
+      "river_ew",
+      "railing"
+    ],
+    "roof": "none",
+    "note": "木栈桥。桥面南北走向、跨东西流向的河：放在河道瓦片上时，中间一格是水、南北两端落在两岸。斜俯视下只看得到桥面与左侧一窄条桥身，桥墩木桩露在中间一格的水里。"
+  },
+  {
+    "id": "east-common-smelter-01",
+    "style": "east",
+    "race": "common",
+    "category": "special",
+    "kind": "smelter_earthen",
+    "facility": "smelter",
+    "variant": 1,
+    "footprint": [
+      3,
+      2
+    ],
+    "height_px": 100,
+    "anchor": [
+      72,
+      196
+    ],
+    "viewBox": [
+      0,
+      0,
+      144,
+      196
+    ],
+    "tags": [
+      "earthen_furnace",
+      "bellows_shed",
+      "charcoal",
+      "smoke"
+    ],
+    "roof": "gable_tile",
+    "note": "夯土高炉（上收下放、竹篾箍、炉口吐火）、右侧灰瓦风箱棚里一具推拉木风箱用陶管通进炉腹、前方出铁口接砂模铁锭、左前炭堆与矿石筐。"
+  },
+  {
+    "id": "east-common-dock-01",
+    "style": "east",
+    "race": "common",
+    "category": "special",
+    "kind": "dock_steps",
+    "facility": "dock",
+    "variant": 1,
+    "footprint": [
+      3,
+      2
+    ],
+    "height_px": 30,
+    "anchor": [
+      72,
+      126
+    ],
+    "viewBox": [
+      0,
+      0,
+      144,
+      126
+    ],
+    "tags": [
+      "waterside_south",
+      "stone_steps",
+      "wupeng_boat",
+      "bollard"
+    ],
+    "roof": "none",
+    "note": "临水边朝南：后部约 0.7 格是青石驳岸与埠头平台，中间一段石阶一级级下到水面，两旁系船石桩，前部是水面泊两条乌篷船。放置时地块前沿（南）贴河道，后沿接街巷。"
+  },
+  {
+    "id": "east-common-kiln-01",
+    "style": "east",
+    "race": "common",
+    "category": "special",
+    "kind": "kiln_dragon",
+    "facility": "kiln",
+    "variant": 1,
+    "footprint": [
+      3,
+      2
+    ],
+    "height_px": 56,
+    "anchor": [
+      72,
+      152
+    ],
+    "viewBox": [
+      0,
+      0,
+      144,
+      152
+    ],
+    "tags": [
+      "dragon_kiln",
+      "slope",
+      "firing_holes",
+      "woodpile",
+      "smoke",
+      "slope_rises_east"
+    ],
+    "roof": "none",
+    "note": "龙窑：依坡砌的长条拱顶窑，窑头在西（左）低处、窑尾在东（右）高处，中段最高最宽。窑头砖砌火膛朝南开火口，窑身分节（目），节上一排投柴孔，前侧两道窑门，窑尾一截矮烟囱。放置时让地块东侧接山坡或高地更自然。"
+  },
+  {
+    "id": "east-common-tannery-01",
+    "style": "east",
+    "race": "common",
+    "category": "special",
+    "kind": "dyehouse_cloth",
+    "facility": "tannery",
+    "variant": 1,
+    "footprint": [
+      3,
+      2
+    ],
+    "height_px": 108,
+    "anchor": [
+      72,
+      204
+    ],
+    "viewBox": [
+      0,
+      0,
+      144,
+      204
+    ],
+    "tags": [
+      "dye_house",
+      "cloth_rack",
+      "dye_vats",
+      "workshop",
+      "indigo"
+    ],
+    "roof": "gable_tile",
+    "note": "染坊（FacilityKind 没有染坊，按同类“浸泡加工作坊”归入 tannery）：右侧三根高杆搭起两层晾布架，挂着靛蓝、蓝印花、青绿、朱红、赭黄的长布；左后灰瓦作坊；前方一排染缸，缸面是不同染液。"
+  },
+  {
+    "id": "east-common-mine_head-01",
+    "style": "east",
+    "race": "common",
+    "category": "special",
+    "kind": "mine_adit",
+    "facility": "mine_head",
+    "variant": 1,
+    "footprint": [
+      2,
+      2
+    ],
+    "height_px": 88,
+    "anchor": [
+      48,
+      184
+    ],
+    "viewBox": [
+      0,
+      0,
+      96,
+      184
+    ],
+    "tags": [
+      "adit",
+      "cliff",
+      "timber_props",
+      "ore_baskets",
+      "lantern",
+      "spoil_heap",
+      "cliff_north"
+    ],
+    "roof": "none",
+    "note": "平硐式矿洞：后半格起是青绿山水式的山壁（青绿峰顶、赭石山脚、金线皴纹），正中洞口用木柱 + 横梁 + 人字撑支护，梁下挂红灯笼；洞口铺木板道出来，旁边几只装矿石的竹矿篓和一根扁担，右前废石堆，左侧小木牌。山壁朝南，放置时地块北侧接山地更自然。"
+  },
+  {
+    "id": "east-common-boiler_house-01",
+    "style": "east",
+    "race": "common",
+    "category": "special",
+    "kind": "boiler_bronze",
+    "facility": "boiler_house",
+    "variant": 1,
+    "footprint": [
+      3,
+      2
+    ],
+    "height_px": 104,
+    "anchor": [
+      72,
+      200
+    ],
+    "viewBox": [
+      0,
+      0,
+      144,
+      200
+    ],
+    "tags": [
+      "bronze_cauldron",
+      "copper_chimney",
+      "steam",
+      "talisman",
+      "eave_roof",
+      "steam_fantasy"
+    ],
+    "roof": "gable_tile",
+    "note": "东方化的锅炉房：左前一只三足铜鼎当锅炉（鼎腹回纹带、双耳、盖上铜钮，鼎腹贴一道符纸，足间柴火），鼎盖引一根铜管进右侧灰瓦机房；左后一座分节铜烟囱，顶上仰莲形帽冒云头状白汽。奇幻成分只有符纸和鼎腹一圈青玉纹。"
+  },
+  {
+    "id": "east-common-ward_tower-01",
+    "style": "east",
+    "race": "common",
+    "category": "special",
+    "kind": "ward_pagoda",
+    "facility": "ward_tower",
+    "variant": 1,
+    "footprint": [
+      2,
+      2
+    ],
+    "height_px": 112,
+    "anchor": [
+      48,
+      208
+    ],
+    "viewBox": [
+      0,
+      0,
+      96,
+      208
+    ],
+    "tags": [
+      "pagoda",
+      "talisman",
+      "seal_array",
+      "glow",
+      "ward",
+      "stone_base"
+    ],
+    "roof": "hip_tile",
+    "note": "镇妖塔：须弥座石台基上立三层收分的塔身（朱柱米墙、每层青绿檐翘角、檐角挂铃），底层拱门贴交叉封条符纸；塔刹换成一枚悬空的金色八卦符阵（两圈金环 + 八道卦线 + 中心太极），四周飘四张黄符。roof 记 hip_tile（攒尖/庑殿类最近项）。"
+  },
+  {
+    "id": "east-common-warehouse-01",
+    "style": "east",
+    "race": "common",
+    "category": "special",
+    "kind": "depot_two_storey",
+    "facility": "warehouse",
+    "variant": 1,
+    "footprint": [
+      3,
+      2
+    ],
+    "height_px": 76,
+    "anchor": [
+      72,
+      172
+    ],
+    "viewBox": [
+      0,
+      0,
+      144,
+      172
+    ],
+    "tags": [
+      "two_storey",
+      "banner",
+      "hoist",
+      "shutters",
+      "eave_roof"
+    ],
+    "roof": "gable_tile",
+    "note": "两层货栈：底层敞开的排门板（一半卸下露出码放的货包），二层出挑的木栏走廊与支摘窗，二层正中开吊货口、檐下挑木挂滑轮；灰瓦坡顶，左檐挑杆挂朱红长幌、右檐挂青幌；门前石板阶前堆着麻包、坛子。"
+  },
+  {
+    "id": "east-common-cemetery-01",
+    "style": "east",
+    "race": "common",
+    "category": "special",
+    "kind": "graveyard_charity",
+    "facility": "cemetery",
+    "variant": 1,
+    "footprint": [
+      3,
+      2
+    ],
+    "height_px": 56,
+    "anchor": [
+      72,
+      152
+    ],
+    "viewBox": [
+      0,
+      0,
+      144,
+      152
+    ],
+    "tags": [
+      "earth_mounds",
+      "stele",
+      "pine",
+      "cypress",
+      "incense_burner",
+      "low_wall"
+    ],
+    "roof": "none",
+    "note": "义冢：三面灰瓦压顶的矮石墙围出一片坟地，正中一通螭首大碑（台座上刻竖行朱字）、碑前三足香炉冒香烟；碑两侧与前方五座带石圈的土坟，各立一方小碑；左后古松、右后侧柏。前沿敞开不设门，散落几枚纸钱。"
+  },
+  {
+    "id": "east-common-bridge-01",
+    "style": "east",
+    "race": "common",
+    "category": "special",
+    "kind": "bridge_hump_arch",
+    "facility": "bridge",
+    "variant": 1,
+    "footprint": [
+      3,
+      1
+    ],
+    "height_px": 46,
+    "anchor": [
+      72,
+      94
+    ],
+    "viewBox": [
+      0,
+      0,
+      144,
+      94
+    ],
+    "tags": [
+      "stone_arch",
+      "hump",
+      "steps",
+      "deck_ew",
+      "river_ns",
+      "span_1"
+    ],
+    "roof": "none",
+    "note": "驼峰式单孔石拱桥。桥面东西走向、跨南北流向的河：放在河道瓦片上时，中间一格是水、东西两格搭在两岸。正面（南）看到近半圆的拱券、券脸石与倒影线，桥面是一级级石阶，两侧石栏带望柱，桥头抱鼓石。"
+  },
+  {
+    "id": "east-common-bridge-02",
+    "style": "east",
+    "race": "common",
+    "category": "special",
+    "kind": "bridge_covered",
+    "facility": "bridge",
+    "variant": 2,
+    "footprint": [
+      1,
+      3
+    ],
+    "height_px": 66,
+    "anchor": [
+      24,
+      210
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      210
+    ],
+    "tags": [
+      "covered_bridge",
+      "gallery",
+      "pavilion",
+      "deck_ns",
+      "river_ew"
+    ],
+    "roof": "gable_tile",
+    "note": "廊桥。桥面南北走向、跨东西流向的河：放在河道瓦片上时，中间一格是水、南北两格落在两岸。斜俯视下看到一条南北向的长廊灰瓦顶，中段横架一座青绿歇山小亭（宝葫芦顶），南端廊口朱柱、匾额与下岸石阶；廊身投影落在右侧水面上。"
+  }
+]

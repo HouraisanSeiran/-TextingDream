@@ -20,10 +20,14 @@
 from __future__ import annotations
 
 import json
+import errno
+import os
 import re
 import uuid
+import time
+from contextlib import contextmanager
 
-from . import civ_atlas_history, civ_atlas_snapshot, native_worlds, world_history_store, civ_exploration
+from . import civ_atlas_history, civ_atlas_snapshot, native_worlds, world_history_store, civ_exploration, package_transaction
 
 KIND = 'native_start'
 ID_PREFIX = 'ns_'
@@ -46,6 +50,21 @@ def _text(value, label, limit, required=True):
         raise ValueError('%s 不能为空' % label)
     if len(text) > limit:
         raise ValueError('%s 不能超过 %d 字' % (label, limit))
+    return text
+
+
+def _readable(text, label):
+    """拒绝已经被降成问号的文本。
+
+    PowerShell 5.1 的 ``Invoke-RestMethod -Body <字符串>`` 在 ``Content-Type`` 不带
+    charset 时按 ISO-8859-1 编码，中文在到达服务器之前就变成了 ASCII ``?``；服务器收到的
+    是合法 JSON，原文已不可恢复。与其把问号标题存进库，不如在入口拒绝。
+    """
+    visible = [ch for ch in text if not ch.isspace()]
+    lost = sum(1 for ch in visible if ch in '?？\ufffd')
+    if lost >= 3 and lost * 2 >= len(visible):
+        raise ValueError('%s 看起来是乱码（问号占多数）；请求体必须是 UTF-8，'
+                         'PowerShell 请用 UTF-8 字节并声明 charset=utf-8' % label)
     return text
 
 
@@ -197,11 +216,13 @@ def build_body(store, request):
         raise ValueError('开局请求必须是对象')
     extra = set(request) - {'import_id', 'source_sha256', 'world_id', 'branch', 'base_year',
                             'city_id', 'title', 'premise', 'motive', 'local_problem',
-                            'start_cell', 'history_snapshot_id', 'exploration'}
+                            'start_cell', 'history_snapshot_id', 'exploration', 'random_events'}
     if extra:
         raise ValueError('开局请求有未知字段：%s' % '、'.join(sorted(extra)))
     if type(request.get('exploration', False)) is not bool:
         raise ValueError('exploration 必须是布尔值')
+    if type(request.get('random_events', True)) is not bool:
+        raise ValueError('random_events 必须是布尔值')
     record = _record(store, request.get('import_id'))
     digest = _hex64(request.get('source_sha256'), '来源哈希')
     if digest != record.get('sha256'):
@@ -250,8 +271,8 @@ def build_body(store, request):
         'city_id': city['city_id'],
         'city_name': city.get('name'),
         'start_cell': start_cell if start_cell is not None else city.get('cell'),
-        'title': _text(request.get('title'), '标题', MAX_TITLE),
-        'premise': _text(request.get('premise'), '前提', MAX_PREMISE),
+        'title': _readable(_text(request.get('title'), '标题', MAX_TITLE), '标题'),
+        'premise': _readable(_text(request.get('premise'), '前提', MAX_PREMISE), '前提'),
         'motive': _text(request.get('motive'), '动机', MAX_TEXT, required=False),
         'local_problem': _text(request.get('local_problem'), '地方问题', MAX_TEXT,
                                required=False),
@@ -260,6 +281,8 @@ def build_body(store, request):
         'identity_locked': True,
         'travel': 'civ_routes_and_town_streets' if request.get('exploration') else TRAVEL_UNAVAILABLE,
         'exploration': request.get('exploration', False),
+        # 新开局默认开启随机事件；只在 exploration 开局里生效。旧草稿没有这个键，按关处理。
+        'random_events': request.get('random_events', True),
     }
     return doc, record
 
@@ -360,7 +383,15 @@ def _story_and_characters(store, doc, *, service=None):
             'entries': [_adopted_entry(snapshot)],
         }
     if doc.get('exploration'):
-        return civ_exploration.compile_region(story, characters, civ, world, doc, rows)
+        story, characters = civ_exploration.compile_region(story, characters, civ, world, doc, rows)
+        if doc.get('random_events') is True:
+            from . import event_library
+            towns = story['mechanics']['exploration']['towns']
+            origin = start_id
+            # 种子取草稿 id：同一草稿重放结果相同，不同草稿组合不同（旅程种子要到建会话时才有）。
+            event_library.attach(story, origin, civ_exploration.town_polities(civ, towns, doc['base_year']),
+                                 only=event_library.pick_event_ids(doc['id']))
+        return story, characters
     return story, characters
 
 
@@ -375,7 +406,73 @@ def _adopted_entry(snapshot):
                          if key not in ('id', 'digest', 'created')}}
 
 
+@contextmanager
+def _draft_lock(store, draft_id):
+    """Cross-process lock; the OS releases it on process exit, even after a crash."""
+    get(store, draft_id)  # validate before using the id in a filename
+    path = store.path.resolve().parent / (store.path.name + '.' + draft_id + '.lock')
+    with path.open('a+b') as handle:
+        if handle.seek(0, 2) == 0:
+            handle.write(b'0')
+            handle.flush()
+        if os.name == 'nt':
+            import msvcrt
+            while True:
+                try:
+                    handle.seek(0)
+                    msvcrt.locking(handle.fileno(), msvcrt.LK_NBLCK, 1)
+                    break
+                except OSError as error:
+                    if error.errno not in (errno.EACCES, errno.EAGAIN, errno.EDEADLK):
+                        raise
+                    time.sleep(0.05)
+        else:
+            import fcntl
+            fcntl.flock(handle, fcntl.LOCK_EX)
+        try:
+            yield
+        finally:
+            if os.name == 'nt':
+                handle.seek(0)
+                msvcrt.locking(handle.fileno(), msvcrt.LK_UNLCK, 1)
+            else:
+                fcntl.flock(handle, fcntl.LOCK_UN)
+
+
 def confirm(runtime, store, draft_id, *, expected_revision):
+    if isinstance(expected_revision, bool) or not isinstance(expected_revision, int):
+        raise ValueError('Invalid revision')
+    with _draft_lock(store, draft_id):
+        # An old claim while holding the OS lock belongs to a terminated attempt.
+        # Search for its committed package before clearing it or doing any work.
+        doc = get(store, draft_id)
+        if doc.get('claim') and package_transaction.journal_path(runtime.library).exists():
+            raise ValueError('\u6545\u4e8b\u5305\u4e8b\u52a1\u5c1a\u672a\u6062\u590d\uff0c\u8bf7\u91cd\u542f\u670d\u52a1\u540e\u91cd\u8bd5')
+        recovered = _existing_package(runtime, store, doc)
+        if recovered is not None:
+            revision, package = recovered
+            _mark_confirmed(store, doc, revision, force=True)
+            return {'revision': revision, 'created': False,
+                    'world': _world_view(runtime, package, store)}
+        _release_claim(store, draft_id)
+        try:
+            return _confirm_locked(runtime, store, draft_id, expected_revision=expected_revision)
+        except BaseException:
+            _release_claim(store, draft_id)
+            raise
+
+
+def _release_claim(store, draft_id):
+    with store.transact() as db:
+        row = db.execute('SELECT body FROM documents WHERE kind=? AND id=?', (KIND, draft_id)).fetchone()
+        if row:
+            latest = json.loads(row[0])
+            if latest.pop('claim', None):
+                db.execute('UPDATE documents SET body=? WHERE kind=? AND id=?',
+                           (json.dumps(latest, ensure_ascii=False, separators=(',', ':')), KIND, draft_id))
+
+
+def _confirm_locked(runtime, store, draft_id, *, expected_revision):
     """作者显式确认 → 用既有事务建首包。
 
     双并发与重试都必须只产生**一个**包，所以顺序是：
@@ -442,9 +539,9 @@ def _claim(store, doc, expected_revision):
         latest = json.loads(row[0])
         if int(latest.get('revision') or 0) != expected_revision:
             return False
-        if latest.get('confirmed_revision'):
+        if latest.get('confirmed_revision') or latest.get('claim'):
             return False
-        latest['claim'] = True
+        latest['claim'] = uuid.uuid4().hex
         db.execute('INSERT OR REPLACE INTO documents VALUES(?,?,?)',
                    (KIND, doc['id'], json.dumps(latest, ensure_ascii=False,
                                                 separators=(',', ':'))))
@@ -456,6 +553,8 @@ def _mark_confirmed(store, doc, revision, *, force=False):
         row = db.execute('SELECT body FROM documents WHERE kind=? AND id=?',
                          (KIND, doc['id'])).fetchone()
         latest = json.loads(row[0]) if row else dict(doc)
+        if latest.get('confirmed_revision') == revision:
+            return
         latest.pop('claim', None)
         latest['status'] = 'confirmed'
         latest['confirmed_revision'] = revision

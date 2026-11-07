@@ -1,0 +1,735 @@
+{
+  "schema_version": 1,
+  "group": "steam-tech",
+  "status": "candidate",
+  "note": "蒸汽与近现代技术候选组（tech:steam 与 tech:early_modern 各 6 条）。每条只打一个 tech:*，标的是该技术最早能出现的档位，依据 docs/world-setting.md；科技止于 1939 年之前，不含核能、喷气机、雷达普及、电子计算机等。与 steam-horror.json 分工：该文件已有往复式蒸汽机、高压锅炉、干线铁路、硬式飞艇、煤气灯与电报城市、电报取证等社会与制度条目，本组只补机车本体、电报技术本体、煤气照明本体、铁甲舰、后膛枪、转炉炼钢，以及内燃机、电网、无线电、早期飞机、机枪、装甲车。条目中的影响描述为设计归纳；历史年份已部分对照百度百科补入，见各条 historical_scope 与 evidence_and_uncertainty，数值（效率、产量、射速等）仍不作断言。全部条目 review_status=needs_review、detail_status=needs_detail，百度百科来源已于 2026-11-04 用无头浏览器读取（access=read，个别仅读到摘要级内容，见各来源 supports）；Wikipedia 与 Britannica 来源仍为 search_only，仅确认主题，未取得正文。",
+  "sources": [
+    {
+      "id": "ws_tech_src_setting",
+      "title": "世界设定：类型配比、科技 / 魔法档位与国家 / 种族 / 势力（本项目设计文档）",
+      "url": "docs/world-setting.md",
+      "access": "read",
+      "supports": "tech:*、magic:*、kind:polity、polity:*、genre:* 标签的档位定义与使用方式（科技止于 1939 年之前）",
+      "rights_note": "本项目原创设计文档，随仓库分发；非第三方资料。条目内容为据此做的设计归纳，不是史料结论。"
+    },
+    {
+      "id": "ws_tech_src_locomotive",
+      "title": "Locomotive (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Locomotive",
+      "access": "search_only",
+      "supports": "仅确认该条目主题与链接存在（本轮 HEAD 探测返回 403 人机校验，未取得正文），不支撑任何具体论断；关于「蒸汽机车的发展」的表述为一般常识层面的转述与本项目设计归纳，待审阅时对照原文核实。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_tech_src_telegraph",
+      "title": "Electrical telegraph (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Electrical_telegraph",
+      "access": "search_only",
+      "supports": "仅确认该条目主题与链接存在（本轮 HEAD 探测返回 403 人机校验，未取得正文），不支撑任何具体论断；关于「电报的发明与线路网络」的表述为一般常识层面的转述与本项目设计归纳，待审阅时对照原文核实。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_tech_src_gaslight",
+      "title": "Gas lighting (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Gas_lighting",
+      "access": "search_only",
+      "supports": "仅确认该条目主题与链接存在（本轮 HEAD 探测返回 403 人机校验，未取得正文），不支撑任何具体论断；关于「煤气照明与煤气厂」的表述为一般常识层面的转述与本项目设计归纳，待审阅时对照原文核实。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_tech_src_ironclad",
+      "title": "Ironclad warship (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Ironclad_warship",
+      "access": "search_only",
+      "supports": "仅确认该条目主题与链接存在（本轮 HEAD 探测返回 403 人机校验，未取得正文），不支撑任何具体论断；关于「铁甲舰的出现」的表述为一般常识层面的转述与本项目设计归纳，待审阅时对照原文核实。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_tech_src_breech",
+      "title": "Breech-loading weapon (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Breech-loading_weapon",
+      "access": "search_only",
+      "supports": "仅确认该条目主题与链接存在（本轮 HEAD 探测返回 403 人机校验，未取得正文），不支撑任何具体论断；关于「后膛装填武器」的表述为一般常识层面的转述与本项目设计归纳，待审阅时对照原文核实。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_tech_src_bessemer",
+      "title": "Bessemer process (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Bessemer_process",
+      "access": "search_only",
+      "supports": "仅确认该条目主题与链接存在（本轮 HEAD 探测返回 403 人机校验，未取得正文），不支撑任何具体论断；关于「贝塞麦转炉炼钢」的表述为一般常识层面的转述与本项目设计归纳，待审阅时对照原文核实。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_tech_src_ice",
+      "title": "Internal combustion engine (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Internal_combustion_engine",
+      "access": "search_only",
+      "supports": "仅确认该条目主题与链接存在（本轮 HEAD 探测返回 403 人机校验，未取得正文），不支撑任何具体论断；关于「内燃机的原理与发展」的表述为一般常识层面的转述与本项目设计归纳，待审阅时对照原文核实。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_tech_src_grid",
+      "title": "Electrical grid (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Electrical_grid",
+      "access": "search_only",
+      "supports": "仅确认该条目主题与链接存在（本轮 HEAD 探测返回 403 人机校验，未取得正文），不支撑任何具体论断；关于「电力电网」的表述为一般常识层面的转述与本项目设计归纳，待审阅时对照原文核实。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_tech_src_radio",
+      "title": "Radio (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Radio",
+      "access": "search_only",
+      "supports": "仅确认该条目主题与链接存在（本轮 HEAD 探测返回 403 人机校验，未取得正文），不支撑任何具体论断；关于「无线电的发明与应用」的表述为一般常识层面的转述与本项目设计归纳，待审阅时对照原文核实。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_tech_src_airplane",
+      "title": "Airplane (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Airplane",
+      "access": "search_only",
+      "supports": "仅确认该条目主题与链接存在（本轮 HEAD 探测返回 403 人机校验，未取得正文），不支撑任何具体论断；关于「早期固定翼飞机」的表述为一般常识层面的转述与本项目设计归纳，待审阅时对照原文核实。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_tech_src_mg",
+      "title": "Machine gun (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Machine_gun",
+      "access": "search_only",
+      "supports": "仅确认该条目主题与链接存在（本轮 HEAD 探测返回 403 人机校验，未取得正文），不支撑任何具体论断；关于「机枪的发展」的表述为一般常识层面的转述与本项目设计归纳，待审阅时对照原文核实。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_tech_src_tank",
+      "title": "Tank (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Tank",
+      "access": "search_only",
+      "supports": "仅确认该条目主题与链接存在（本轮 HEAD 探测返回 403 人机校验，未取得正文），不支撑任何具体论断；关于「坦克与早期装甲车」的表述为一般常识层面的转述与本项目设计归纳，待审阅时对照原文核实。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_tech_src_bk_locomotive",
+      "title": "百度百科：蒸汽机车（Baidu Baike）",
+      "url": "https://baike.baidu.com/item/%E8%92%B8%E6%B1%BD%E6%9C%BA%E8%BD%A6",
+      "access": "read",
+      "supports": "2026-11-04 用无头 Edge 读取：已读正文：1825 年『旅行者号』、1829 年『火箭号』赢得机车比赛、1830 年『行星号』；1938 年 Mallard 号时速 203 公里；二战结束时蒸汽机车仍最常见。该页对首台蒸汽机车的年份和发明者表述前后不一致（摘要作 1814 年斯蒂芬森，正文另一处作 1814 年特里维西克），因此不据此给出首台机车的年份。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_tech_src_bk_telegraph",
+      "title": "百度百科：电报（Baidu Baike）",
+      "url": "https://baike.baidu.com/item/%E7%94%B5%E6%8A%A5/110262",
+      "access": "read",
+      "supports": "2026-11-04 用无头 Edge 读取：已读正文：电报在 19 世纪 30 年代发展；惠斯通与库克 1837 年获英国专利，1839 年在大西方铁路铺成 13 英里的指针式线路；莫尔斯 1837 年获美国专利并创制莫尔斯电码；1850 年首条海底电缆穿过英吉利海峡，1857 年大西洋电缆几天后失灵、1866 年成功，太平洋电缆 1902 年铺成；1851 年路透社成立。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_tech_src_bk_wasideng",
+      "title": "百度百科：瓦斯灯（Baidu Baike）",
+      "url": "https://baike.baidu.com/item/%E7%93%A6%E6%96%AF%E7%81%AF/7081745",
+      "access": "read",
+      "supports": "2026-11-04 用无头 Edge 读取：已读正文：英国工程师威廉·默多克 1792 年在康沃尔郡雷德鲁斯加热煤炭产气，用于自家和办公室照明；1808 年向皇家学会提交论文并获朗福德奖章；19 世纪初推广到家庭、办公室、工厂和路灯。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_tech_src_bk_coalgas",
+      "title": "百度百科：煤气（Baidu Baike）",
+      "url": "https://baike.baidu.com/item/%E7%85%A4%E6%B0%94",
+      "access": "read",
+      "supports": "2026-11-04 用无头 Edge 读取：已读正文：煤气是以煤为原料加工制得的含可燃组分的气体。仅支撑『煤加工得可燃气体』的定义。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_tech_src_bk_ironclad",
+      "title": "百度百科：铁甲舰（Baidu Baike）",
+      "url": "https://baike.baidu.com/item/%E9%93%81%E7%94%B2%E8%88%B0",
+      "access": "read",
+      "supports": "2026-11-04 用无头 Edge 读取：已读正文：1859 年法国『光荣』号，木质船体外覆锻铁装甲，英国自 1856 年起筹划；1862 年汉普顿锚地发生首次铁甲舰对决；汉普顿锚地与利萨海战后，木质战舰不敌铁甲舰的观点被接受；早期仍靠风帆补足蒸汽动力，1873 年英国『蹂躏』号首次完全依靠蒸汽；页面把金属装甲、蒸汽动力与发射爆破弹视为铁甲舰的核心特征。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_tech_src_bk_breech",
+      "title": "百度百科：后膛枪（Baidu Baike）",
+      "url": "https://baike.baidu.com/item/%E5%90%8E%E8%86%9B%E6%9E%AA",
+      "access": "read",
+      "supports": "2026-11-04 用无头 Edge 读取：已读正文：更早有 1776 年的弗格森燧发后膛枪，1819 年的霍尔 M1819 因造价等原因未普及；德莱赛 1836 年完成针发枪设计，1841 年普鲁士列装 M1841，射速为前装燧发枪的 4—5 倍；1864 年普丹战争、1866 年普奥战争验证了其价值，士兵可匍匐装弹；1864 年英国改装斯奈德步枪。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_tech_src_bk_converter",
+      "title": "百度百科：转炉炼钢（Baidu Baike）",
+      "url": "https://baike.baidu.com/item/%E8%BD%AC%E7%82%89%E7%82%BC%E9%92%A2/1524557",
+      "access": "read",
+      "supports": "2026-11-04 用无头 Edge 读取：已读正文：1856 年英国贝斯麦发明底吹酸性转炉，是近代炼钢的开端，使大量廉价钢成为可能，但不能去除硫磷；1879 年托马斯碱性转炉可处理高磷生铁；1864 年法国马丁平炉，20 世纪 50 年代世界钢产量约 85% 来自平炉；1952 年奥地利出现纯氧顶吹，页面主体讲氧气转炉，超出本条 1939 年的范围。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_tech_src_bk_ice",
+      "title": "百度百科：内燃机（Baidu Baike）",
+      "url": "https://baike.baidu.com/item/%E5%86%85%E7%87%83%E6%9C%BA/1288512",
+      "access": "read",
+      "supports": "2026-11-04 用无头 Edge 读取：已读正文：1860 年勒努瓦煤气机；1862 年罗沙提出四冲程理论；1876 年奥托制成四冲程煤气机；1883 年戴姆勒汽油机；1885—1886 年汽油机用于汽车；1892 年狄塞尔提出方案，1897 年柴油机研制成功；1903 年用于商船，1913 年用于机车，约 1920 年用于汽车与农机。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_tech_src_bk_grid",
+      "title": "百度百科：电网（Baidu Baike）",
+      "url": "https://baike.baidu.com/item/%E7%94%B5%E7%BD%91/1250763",
+      "access": "read",
+      "supports": "2026-11-04 用无头 Edge 读取：已读正文：电力网是由变电所和输配电线路组成的整体，含变电、输电、配电三个单元，任务是输送和分配电能并改变电压。页面讲的是现代电网，没有 19 世纪的史料，只支撑本条 definition 对电网的基本定义。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_tech_src_bk_radio",
+      "title": "百度百科：无线电波（Baidu Baike）",
+      "url": "https://baike.baidu.com/item/%E6%97%A0%E7%BA%BF%E7%94%B5%E6%B3%A2/942435?fromtitle=%E6%97%A0%E7%BA%BF%E7%94%B5&fromid=3979",
+      "access": "read",
+      "supports": "2026-11-04 用无头 Edge 读取：已读正文：麦克斯韦 1861—1865 年提出电磁理论，赫兹 1886—1888 年实验验证；马可尼获英国专利（12039 号），特斯拉 1897 年获美国专利，页面称该专利 1904 年被专利局撤销、1943 年美国最高法院重新认定；1898 年马可尼建立首家无线电工厂，1909 年获诺贝尔奖；1906 年范信达首次无线电广播，1922 年英国切尔姆斯福德开办首个定期广播节目；早期无线电主要用于航海的摩尔斯电码电报。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_tech_src_bk_airplane",
+      "title": "百度百科：飞机（Baidu Baike）",
+      "url": "https://baike.baidu.com/item/%E9%A3%9E%E6%9C%BA/70237",
+      "access": "read",
+      "supports": "2026-11-04 用无头 Edge 读取：已读正文：1903 年 12 月 17 日莱特兄弟完成首次有动力的持续飞行；页面还提到 1949 年喷气客机，超出本条 1939 年范围，不采用。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_tech_src_bk_mg",
+      "title": "百度百科：机关枪（Baidu Baike）",
+      "url": "https://baike.baidu.com/item/%E6%9C%BA%E5%85%B3%E6%9E%AA/996443?fromtitle=%E6%9C%BA%E6%9E%AA&fromid=425106",
+      "access": "read",
+      "supports": "2026-11-04 用无头 Edge 读取：已读正文：1862 年加特林多管手摇机枪；1884 年马克沁，首挺利用火药燃气能量完成射击循环；1902 年麦德森轻机枪；一战中大口径重机枪使用广泛，并出现坦克、航空、舰艇机枪，早期多水冷；二战前德国 MG34 被称为世界第一挺通用机枪；口径在 20 毫米以上的称机炮。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_tech_src_bk_tank",
+      "title": "百度百科：坦克（Baidu Baike）",
+      "url": "https://baike.baidu.com/item/%E5%9D%A6%E5%85%8B/55501",
+      "access": "read",
+      "supports": "2026-11-04 用无头 Edge 读取：已读正文：1915 年英国政府据斯文顿建议试制样车，1916 年研制成功Ⅰ型坦克；一战期间英、法、德共造近万辆，有英国Ⅳ/Ⅴ型、法国圣沙蒙与雷诺 FT-17、德国 A7V；两次大战之间轻型坦克盛行。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    }
+  ],
+  "elements": [
+    {
+      "id": "tech_steam_locomotive",
+      "name": "蒸汽机车与轨道牵引",
+      "aliases": [
+        "steam locomotive",
+        "火车头",
+        "蒸汽火车"
+      ],
+      "tags": [
+        "tech:steam",
+        "role:transport",
+        "trait:heavy_capital",
+        "genre:steampunk",
+        "genre:historical"
+      ],
+      "genres": [
+        "steampunk",
+        "historical"
+      ],
+      "category": "power",
+      "summary": "把高压蒸汽机装上车架、直接在铁轨上牵引货车与客车的机车技术：它让陆路运输第一次有了稳定的大宗运力。本条只讲机车本身，线路制度与时刻表见 steam_trunk_railway。",
+      "details": {
+        "definition": "蒸汽机车是自带锅炉与汽缸、用煤或木柴烧水产生蒸汽、通过活塞与连杆驱动车轮的牵引车辆。它与固定式蒸汽机的差别在于必须把锅炉压力、重量和轮轨黏着一起解决。",
+        "mechanism": "改变了什么：运输上，煤、矿石、粮食和人员可以沿铁路成批移动，运费与时间大幅压缩；战争上，兵员和补给能沿铁路集中；社会上，沿线形成车站城镇，各地时间被迫统一（见 steam_standard_time）。运输效率提升的幅度因路线和负载而异，本条不给固定数字。",
+        "conditions": "前置技术与资源：高压锅炉与可靠的汽缸加工（见 steam_high_pressure_boiler、steam_precision_boring）、铸铁或锻铁的轨道、煤与水的沿线补给、能协调线路建设的资本（见 steam_joint_stock_capital）。最低档位 tech:steam。",
+        "exceptions": "常见风险：锅炉爆炸、脱轨与撞车、烟尘与火星引发火灾、轨距不一导致的换装损耗；经济上，铁路投资过热会引发泡沫与破产。不要把机车写成无需补水补煤的永动车。",
+        "story_uses": "剧情钩子：线路勘定与土地征收的争议、筑路工人群体、第一次开通的仪式与事故、铁路公司的垄断、机车司炉与司机的行会、铁路使偏远村庄被时间表重新定义。",
+        "historical_scope": "原型出现在 19 世纪初的英国，随后迅速扩展到欧洲与北美。百度百科《蒸汽机车》记载 1825 年『旅行者号』、1829 年『火箭号』赢得机车比赛、1830 年『行星号』，1938 年 Mallard 号时速达 203 公里，二战结束时蒸汽机车仍最常见；该页对首台机车的年份与发明者前后表述不一，本条不据此给出首台机车的年份。本条不规定具体年份，世界可自行调整出现时间；与 steam_trunk_railway 互补，不重复线路制度部分。",
+        "evidence_and_uncertainty": "百度百科《蒸汽机车》已读正文，核对了 1825、1829、1830 年的几台著名机车和 1938 年 Mallard 号的时速记录，与『原型出现在 19 世纪初英国』相符。该页对首台蒸汽机车的年份和发明者前后表述不一致，本条不采用。锅炉爆炸、轨距不一、泡沫与破产等风险以及运输效率提升的数量级未据百科核对，属设计归纳。 该条原有的网络来源（Wikipedia 或 Britannica）仍为 search_only，仅确认主题，未取得正文。"
+      },
+      "source_ids": [
+        "ws_tech_src_setting",
+        "ws_tech_src_locomotive",
+        "ws_tech_src_bk_locomotive"
+      ],
+      "related_ids": [
+        "steam_trunk_railway",
+        "steam_station_yard",
+        "steam_high_pressure_boiler"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "tech_electric_telegraph",
+      "name": "电报与电缆通信",
+      "aliases": [
+        "electric telegraph",
+        "有线电报",
+        "海底电缆"
+      ],
+      "tags": [
+        "tech:steam",
+        "role:communication",
+        "trait:infrastructure",
+        "genre:steampunk",
+        "genre:historical"
+      ],
+      "genres": [
+        "steampunk",
+        "historical"
+      ],
+      "category": "power",
+      "summary": "沿线路传递电脉冲、以编码文字发送消息的通信技术：信息传播速度第一次脱离了人和马的速度。本条专讲技术本体，电报在城市与取证中的用法见 steam_gaslight_telegraph_city 与 steam_telegraph_evidence。",
+      "details": {
+        "definition": "电报是通过金属线路传输电信号并以约定编码（如摩尔斯码）表示字符的通信方式。线路沿铁路、公路架设，也可铺设为绝缘的海底电缆。",
+        "mechanism": "改变了什么：运输与军事上，列车调度、战场命令和港口信息可以即时传递；经济上，价格与行情在城市间同步，投机和套利出现；社会上，新闻业靠电报获取快讯，政府对远方的控制变强。",
+        "conditions": "前置技术与资源：电池或发电源、铜线与绝缘材料（海底电缆需要橡胶类绝缘物与专用船只）、可靠的编码与培训过的报务员、沿线的杆路和维护队伍。最低档位 tech:steam。越档提示：电话与无线电不属于这一条。",
+        "exceptions": "常见风险：线路被切断或破坏、信号衰减与误码、电报员泄密、官方对电报内容的审查与垄断；海底电缆铺设与维修成本高昂，战时易被切断。",
+        "story_uses": "剧情钩子：一份被延误或篡改的电文、截获电报的间谍、金融行情的抢先交易、电报员发现重大秘密、战争中先切断敌方电缆、报务员行会与审查机关的冲突。",
+        "historical_scope": "实用电报出现在 19 世纪 30—40 年代，随后快速铺开，越洋电缆在 19 世纪后半叶陆续铺设成功。百度百科《电报》记载：惠斯通与库克 1837 年获英国专利，1839 年在大西方铁路铺成 13 英里的指针式线路；莫尔斯 1837 年获美国专利并创制莫尔斯电码；1850 年首条海底电缆穿过英吉利海峡，1857 年大西洋电缆几天后失灵、1866 年铺设成功，1902 年太平洋电缆铺成；1851 年路透社成立。具体年份可由世界调整。",
+        "evidence_and_uncertainty": "百度百科《电报》已读正文，核对了 19 世纪 30 年代的发展、惠斯通与库克的指针式线路、莫尔斯的专利与电码、1850 年的海底电缆及大西洋电缆首次失败和 1866 年成功。原稿 historical_scope 中『30—40 年代』『后半叶越洋电缆』与之相符，未发现事实错误，并补入了具体年份。线路衰减、审查、报务员行业状况等未据百科核对，属设计归纳。 该条原有的网络来源（Wikipedia 或 Britannica）仍为 search_only，仅确认主题，未取得正文。"
+      },
+      "source_ids": [
+        "ws_tech_src_setting",
+        "ws_tech_src_telegraph",
+        "ws_tech_src_bk_telegraph"
+      ],
+      "related_ids": [
+        "steam_gaslight_telegraph_city",
+        "steam_telegraph_evidence",
+        "tech_wireless_radio"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "tech_coal_gas_lighting",
+      "name": "煤气照明与煤气管网",
+      "aliases": [
+        "coal gas lighting",
+        "煤气灯",
+        "煤气厂"
+      ],
+      "tags": [
+        "tech:steam",
+        "role:lighting",
+        "trait:infrastructure",
+        "genre:steampunk",
+        "genre:historical"
+      ],
+      "genres": [
+        "steampunk",
+        "historical"
+      ],
+      "category": "power",
+      "summary": "把煤干馏成可燃气体、由管网送到街灯与室内灯具的照明技术：夜晚的城市因此延长了工作与活动时间。本条讲气体的生产与输送，城市面貌见 steam_gaslight_telegraph_city。",
+      "details": {
+        "definition": "煤气照明是在煤气厂中加热煤炭、收集并净化产生的可燃气体，再通过地下管道供给灯具燃烧发光的系统。它既是一种能源产品，也是最早的城市公用事业之一。",
+        "mechanism": "改变了什么：街道可以夜间照明，降低夜间犯罪和事故；工厂和商铺可以延长工时（也延长了工人的劳动时间）；公共空间如剧院和咖啡馆在夜间更活跃；副产品焦炭和煤焦油又催生化工产业。",
+        "conditions": "前置技术与资源：大量煤炭、耐热的蒸馏炉与气柜、铸铁管和密封接头、城市管网的铺设权与资本。最低档位 tech:steam。",
+        "exceptions": "常见风险：煤气泄漏引发爆炸或中毒、管网不均导致火焰忽明忽暗、煤气厂周围的污染与恶臭、煤焦油废水污染河流。后期电灯会取代煤气灯，但在 early_modern 档仍有大量并存。",
+        "story_uses": "剧情钩子：点灯人的行当、煤气厂的爆炸或污染纠纷、城市因煤气价格上涨发生骚乱、旧街区因没有管网而陷入黑暗、特定区域的煤气灯被动手脚来制造阴影。",
+        "historical_scope": "百度百科《瓦斯灯》记载：威廉·默多克 1792 年在康沃尔郡雷德鲁斯加热煤炭产气，用于自家和办公室照明，1808 年向皇家学会提交论文并获朗福德奖章，19 世纪初推广到家庭、办公室、工厂和路灯。煤气照明在 19 世纪初起步，随后在欧洲与北美城市推广。具体年代和城市顺序由世界设定。",
+        "evidence_and_uncertainty": "百度百科《瓦斯灯》《煤气》已读正文，核对了默多克 1792 年的试验、1808 年的论文与奖章、19 世纪初的推广，以及煤气的定义，与原稿『19 世纪初起步』相符。百度百科另有『煤气灯』词条，但其义项是实验室用的本生灯，与本条无关，未使用。煤气厂的污染、泄漏爆炸、焦炭与煤焦油副产品、城市管网等未据百科核对，属设计归纳。 该条原有的网络来源（Wikipedia 或 Britannica）仍为 search_only，仅确认主题，未取得正文。"
+      },
+      "source_ids": [
+        "ws_tech_src_setting",
+        "ws_tech_src_gaslight",
+        "ws_tech_src_bk_wasideng",
+        "ws_tech_src_bk_coalgas"
+      ],
+      "related_ids": [
+        "steam_gaslight_telegraph_city",
+        "steam_smoke_pollution",
+        "steam_coal_fuel_chain"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "tech_ironclad_warship",
+      "name": "铁甲舰",
+      "aliases": [
+        "ironclad",
+        "装甲战舰",
+        "蒸汽铁甲舰"
+      ],
+      "tags": [
+        "tech:steam",
+        "role:naval_power",
+        "trait:armoured",
+        "genre:steampunk",
+        "genre:historical"
+      ],
+      "genres": [
+        "steampunk",
+        "historical"
+      ],
+      "category": "item",
+      "summary": "以蒸汽机为动力、以铁板或钢板覆盖舷侧与炮位的战舰：木制帆战舰在它面前迅速失去主力地位。",
+      "details": {
+        "definition": "铁甲舰是外层包裹铁甲、以蒸汽机提供动力（早期多为风帆与蒸汽混合，页面称 1873 年英国『蹂躏』号才首次完全依靠蒸汽）并搭载大口径火炮的战舰。它的出现使得木质战舰无法有效对抗，也使得舰炮、装甲和航速成为互相竞赛的三个变量。",
+        "mechanism": "改变了什么：战争上，海军实力取决于造船厂、钢铁和煤炭供给；外交上，拥有铁甲舰舰队的国家能通过炮舰外交威慑他国港口；经济上，造船业和军工集团获得稳定订单，政府建造预算大幅增加。",
+        "conditions": "前置技术与资源：蒸汽机和螺旋桨或明轮、锻铁或钢板轧制能力（见 tech_bessemer_steel）、大型船坞、煤站网络（见 steam_coaling_station_port）和训练过的轮机兵。最低档位 tech:steam。",
+        "exceptions": "常见风险：装甲加厚后航速和适航性下降；火炮和装甲的技术竞赛使舰船迅速过时；锅炉爆炸、煤耗过大、触雷与撞击。海战结果仍受战术与天气影响，不能把铁甲舰写成无敌。",
+        "story_uses": "剧情钩子：造船厂的间谍战、一艘新舰引发的军备竞赛、炮舰外交迫使港口开放、煤站被封锁后舰队瘫痪、舰长在新旧战术之间的选择、军工丑闻。",
+        "historical_scope": "铁甲舰在 19 世纪 50—60 年代开始出现，随后各国争相建造。百度百科《铁甲舰》记载：英国自 1856 年起筹划，1859 年法国『光荣』号（木质船体外覆锻铁装甲）问世，1862 年在汉普顿锚地发生首次铁甲舰对决，汉普顿锚地与利萨海战之后，木质战舰不敌铁甲舰的观点被接受。本条不规定具体国别和战例。",
+        "evidence_and_uncertainty": "百度百科《铁甲舰》已读正文，核对了 1856 年起的筹划、1859 年『光荣』号、1862 年汉普顿锚地对决、利萨海战，以及早期风帆与蒸汽混合、1873 年才首次纯蒸汽动力。据此做了两处修订：summary 的『一夜过时』改为『迅速失去主力地位』（页面描述的是汉普顿锚地和利萨海战后观点逐步被接受）；definition 的『以蒸汽为主要动力』补充了早期为风帆蒸汽混合。炮舰外交、军备竞赛、煤站网络等为设计归纳，未据百科核对。 该条原有的网络来源（Wikipedia 或 Britannica）仍为 search_only，仅确认主题，未取得正文。"
+      },
+      "source_ids": [
+        "ws_tech_src_setting",
+        "ws_tech_src_ironclad",
+        "ws_tech_src_bk_ironclad"
+      ],
+      "related_ids": [
+        "steam_paddle_steamer",
+        "steam_coaling_station_port",
+        "tech_bessemer_steel"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "tech_breech_loading_rifle",
+      "name": "后膛步枪",
+      "aliases": [
+        "breech-loading rifle",
+        "后装枪",
+        "击针枪"
+      ],
+      "tags": [
+        "tech:steam",
+        "role:infantry_arm",
+        "trait:mass_produced",
+        "genre:steampunk",
+        "genre:historical"
+      ],
+      "genres": [
+        "steampunk",
+        "historical"
+      ],
+      "category": "item",
+      "summary": "从枪管后部装填定装弹药的步枪：装填更快、可以卧姿射击，使步兵火力与队形发生变化。",
+      "details": {
+        "definition": "后膛步枪是弹药从枪管尾部装填、通过枪机闭锁的步枪，通常使用纸壳或金属定装弹。相对前装枪，它装填更快，也更适合隐蔽射击。",
+        "mechanism": "改变了什么：战争上，步兵不必再站立密集队形装填，战术转向散兵线与掩体；工业上，需要标准化的弹药和零件，促进互换零件生产（见 steam_interchangeable_parts）；社会上，武器更容易扩散到民间和殖民地冲突中。",
+        "conditions": "前置技术与资源：精密加工的枪机与闭锁、定装弹药的批量生产、火药或无烟火药供应、标准化量具。最低档位 tech:steam。",
+        "exceptions": "常见风险：闭锁不严导致漏气和炸膛、弹药潮湿失效、射速提高带来弹药消耗激增、后勤负担加重。早期型号可靠性差，各国装备时间差异很大。",
+        "story_uses": "剧情钩子：军火商向各国兜售新式步枪、殖民地起义使用缴获枪械、枪械标准化导致旧式民兵被淘汰、因弹药短缺而溃败的战役、枪械走私。",
+        "historical_scope": "后膛枪在 19 世纪前半叶逐步实用，之后成为主流。百度百科《后膛枪》记载：更早有 1776 年的弗格森燧发后膛枪，1819 年的霍尔 M1819 因造价等原因未能普及；德莱赛 1836 年完成针发枪设计，1841 年普鲁士列装 M1841，射速为前装燧发枪的 4—5 倍；1864 年普丹战争与 1866 年普奥战争验证了其价值，士兵可以匍匐装弹；1864 年英国改装斯奈德步枪。不涉及具体型号，且本条不覆盖机枪（见 tech_machine_gun）。",
+        "evidence_and_uncertainty": "百度百科《后膛枪》已读正文，核对了早期后膛枪、德莱赛针发枪、普鲁士 1841 年列装、射速优势，以及 1864、1866 年两场战争的验证作用，与原稿『19 世纪前半叶逐步实用、能卧姿装填』相符，无硬错误。标准化弹药、互换零件、殖民地扩散等社会影响未据百科核对，属设计归纳。 该条原有的网络来源（Wikipedia 或 Britannica）仍为 search_only，仅确认主题，未取得正文。"
+      },
+      "source_ids": [
+        "ws_tech_src_setting",
+        "ws_tech_src_breech",
+        "ws_tech_src_bk_breech"
+      ],
+      "related_ids": [
+        "steam_interchangeable_parts",
+        "tech_machine_gun",
+        "steam_precision_boring"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "tech_bessemer_steel",
+      "name": "转炉炼钢与廉价钢材",
+      "aliases": [
+        "Bessemer process",
+        "贝塞麦炼钢法",
+        "转炉钢"
+      ],
+      "tags": [
+        "tech:steam",
+        "role:material",
+        "trait:industrial_base",
+        "genre:steampunk",
+        "genre:historical"
+      ],
+      "genres": [
+        "steampunk",
+        "historical"
+      ],
+      "category": "economy",
+      "summary": "向熔融生铁中吹入空气以去除杂质、大批量产出钢的方法：钢从昂贵的手工制品变为可以铺轨、造船、建桥的大宗材料。已有条目 materials_steel 讲材料本身，本条讲产业方法。",
+      "details": {
+        "definition": "转炉炼钢是将空气吹入熔融生铁，使碳和杂质氧化而得到钢的工业方法。它使钢的产量大增、价格大降，让钢材成为通用工程材料。",
+        "mechanism": "改变了什么：铁路改用钢轨，耐用度上升；船体与装甲、桥梁、建筑钢结构都因钢材便宜而普及；钢铁企业成为国家工业实力的代表，煤炭和铁矿成为战略资源；也让工匠手工炼钢的传统迅速萎缩。",
+        "conditions": "前置技术与资源：高炉产出的生铁、耐火衬里的转炉、鼓风设备、铁矿石的成分（含磷高的矿需要另外的工艺处理）、焦炭和大量资本。最低档位 tech:steam。",
+        "exceptions": "常见风险：矿石含磷或含硫会导致钢脆，质量不稳；转炉操作危险，烟尘和高温造成伤亡；钢铁价格波动与产能过剩会引发破产；对炉工、技师形成严重的去技化（见 steam_deskilling_craft）。",
+        "story_uses": "剧情钩子：钢厂所在城镇的兴衰、争夺铁矿与煤矿的战争、质量事故（断轨、塌桥）的追责、钢铁大亨和工人之间的冲突、被取代的传统铁匠行会。",
+        "historical_scope": "百度百科《转炉炼钢》记载：1856 年英国贝斯麦发明底吹酸性转炉，是近代炼钢的开端，使大量廉价钢成为可能，但不能去除硫磷；1879 年托马斯碱性转炉可处理高磷生铁；1864 年法国马丁平炉出现，到 20 世纪 50 年代世界钢产量约 85% 来自平炉。该页面主体是 1952 年之后的氧气转炉，超出 1939 年范围，不在本条之内。转炉炼钢在 19 世纪中叶出现，推广过程中需要解决磷、硫问题。具体时间可调整，并与 materials_steel 保持一致。",
+        "evidence_and_uncertainty": "百度百科《转炉炼钢》已读正文，核对了 1856 年贝斯麦转炉、不能去除硫磷、1879 年托马斯碱性转炉、1864 年马丁平炉，与原稿『19 世纪中叶出现、需解决磷硫问题』相符，无错误，并补入具体年份。页面主体是氧气转炉，超出 1939 年范围，不采用。钢轨、桥梁、船体的普及，以及工匠去技化等社会影响未据百科核对，属设计归纳。 该条原有的网络来源（Wikipedia 或 Britannica）仍为 search_only，仅确认主题，未取得正文。"
+      },
+      "source_ids": [
+        "ws_tech_src_setting",
+        "ws_tech_src_bessemer",
+        "ws_tech_src_bk_converter"
+      ],
+      "related_ids": [
+        "materials_steel",
+        "steam_coal_fuel_chain",
+        "steam_deskilling_craft"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "tech_internal_combustion_engine",
+      "name": "内燃机",
+      "aliases": [
+        "internal combustion engine",
+        "汽油机",
+        "柴油机"
+      ],
+      "tags": [
+        "tech:early_modern",
+        "role:prime_mover",
+        "trait:liquid_fuel",
+        "genre:modern",
+        "genre:historical"
+      ],
+      "genres": [
+        "modern",
+        "historical"
+      ],
+      "category": "power",
+      "summary": "燃料直接在气缸内燃烧并推动活塞的发动机：功率重量比远高于蒸汽机，使汽车、卡车、拖拉机和飞机成为可能。",
+      "details": {
+        "definition": "内燃机是将燃料与空气混合，在气缸内点燃或压燃（最早的实用内燃机以照明煤气为燃料，汽油机、柴油机其后出现，后来以汽油、柴油等液体燃料为主），通过活塞和曲轴输出动力的发动机。它不需要锅炉和大量水，启动快、体积小。",
+        "mechanism": "改变了什么：运输上，汽车和卡车使公路成为主力，农业上拖拉机取代部分畜力，军事上出现摩托化部队和装甲车辆，社会上产生石油业与加油站网络；也使个人出行和郊区居住成为可能。",
+        "conditions": "前置技术与资源：石油炼制与燃料供应、精密铸造和加工的缸体、点火系统或高压喷油系统、润滑油和轮胎等配套产业。最低档位 tech:early_modern。",
+        "exceptions": "常见风险：燃料短缺与进口依赖；发动机故障和火灾；噪声与尾气污染；早期可靠性差。蒸汽机并不会立刻消失，铁路和大型船舶仍长期使用蒸汽。",
+        "story_uses": "剧情钩子：石油产区的争夺、汽车使马车夫与铁匠失业、第一批机动车在乡村引起的恐慌、拖拉机化后佃农被迫离开土地、油价波动引发的外交冲突。",
+        "historical_scope": "百度百科《内燃机》记载：1860 年勒努瓦煤气机，1862 年罗沙提出四冲程理论，1876 年奥托制成四冲程煤气机，1883 年戴姆勒汽油机，1885—1886 年汽油机用于汽车，1892 年狄塞尔提出方案并于 1897 年研制成功柴油机，1903 年用于商船、1913 年用于机车，约 1920 年用于汽车与农机。实用化内燃机出现在 19 世纪后期，20 世纪初普及。本条不涉及喷气发动机和火箭，它们超出了 1939 年之前的范围。",
+        "evidence_and_uncertainty": "百度百科《内燃机》已读正文，核对了 1860 年煤气机、1876 年四冲程、1883 年汽油机、1897 年柴油机以及后续应用时间，与原稿『19 世纪后期实用、20 世纪初普及』相符。据此修订 definition：最早的实用内燃机烧的是照明煤气，汽油机和柴油机其后出现。提示：1860、1876 年的煤气机按年代属 steam 档，而本条标签为 tech:early_modern（汽油机、柴油机主体属此档）；标签是否调整由人工决定，本次未改。石油业、拖拉机化等社会影响未据百科核对。 该条原有的网络来源（Wikipedia 或 Britannica）仍为 search_only，仅确认主题，未取得正文。"
+      },
+      "source_ids": [
+        "ws_tech_src_setting",
+        "ws_tech_src_ice",
+        "ws_tech_src_bk_ice"
+      ],
+      "related_ids": [
+        "tech_early_airplane",
+        "tech_armoured_vehicle",
+        "steam_reciprocating_engine"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "tech_electric_power_grid",
+      "name": "电力电网",
+      "aliases": [
+        "electric power grid",
+        "发电站与输电网",
+        "电气化"
+      ],
+      "tags": [
+        "tech:early_modern",
+        "role:energy",
+        "trait:infrastructure",
+        "genre:modern",
+        "genre:historical"
+      ],
+      "genres": [
+        "modern",
+        "historical"
+      ],
+      "category": "power",
+      "summary": "由发电站、变压器和输电线连成的供电网络：电力使工厂、城市照明和家用电器脱离各自配备动力源的限制。",
+      "details": {
+        "definition": "电力电网是把发电站产生的电通过输电线、变压器和配电线路送达用户的系统。早期是局部直流小网，之后发展为交流高压的区域乃至国家网络。",
+        "mechanism": "改变了什么：工厂改用电动机分散驱动，生产布局不再围绕传动轴；城市有了电灯、电车和地铁；家庭拥有电灯、熨斗和收音机；同时电力公司成为垄断性的大型企业，政府开始监管价格和安全。",
+        "conditions": "前置技术与资源：发电机与蒸汽轮机或水轮机、铜线和绝缘材料、变压器和开关设备、大量煤炭或水电资源，以及资本和特许权。最低档位 tech:early_modern。",
+        "exceptions": "常见风险：触电与火灾、停电造成城市瘫痪、直流交流标准之争、电网对单一发电站的依赖；农村往往长期无电可用。不应出现核电、电子计算机等更晚的技术。",
+        "story_uses": "剧情钩子：电气化使旧行业（煤气灯、点灯人、传动轴工匠）没落；电力公司与市政府的特许权斗争；停电夜里的犯罪；水坝建设迁走村庄；电网事故的责任调查。",
+        "historical_scope": "电网在 19 世纪 80 年代起步，20 世纪前期在发达地区基本形成。具体顺序由世界决定。百度百科《电网》给出的是现代定义（变电所与输配电线路组成的整体，含变电、输电、配电三个单元），没有 19 世纪的史料，因此『80 年代起步』『早期直流小网』等历史陈述未据百科核对。",
+        "evidence_and_uncertainty": "百度百科《电网》已读正文，只核对了电网的基本定义（变电所与输配电线路组成的整体，任务是输送分配电能并改变电压），与本条 definition 一致。页面是现代电网介绍，没有 19 世纪的史料，因此『19 世纪 80 年代起步』『早期局部直流小网』『直流交流标准之争』等历史陈述未能核对，仍属未经核实的常识转述。 该条原有的网络来源（Wikipedia 或 Britannica）仍为 search_only，仅确认主题，未取得正文。"
+      },
+      "source_ids": [
+        "ws_tech_src_setting",
+        "ws_tech_src_grid",
+        "ws_tech_src_bk_grid"
+      ],
+      "related_ids": [
+        "tech_coal_gas_lighting",
+        "tech_wireless_radio",
+        "steam_smoke_pollution"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "tech_wireless_radio",
+      "name": "无线电",
+      "aliases": [
+        "wireless telegraphy",
+        "无线电报",
+        "广播"
+      ],
+      "tags": [
+        "tech:early_modern",
+        "role:communication",
+        "trait:broadcast",
+        "genre:modern",
+        "genre:historical"
+      ],
+      "genres": [
+        "modern",
+        "historical"
+      ],
+      "category": "power",
+      "summary": "用电磁波传递信号的通信方式，最初是无线电报，其后发展为语音广播：船只、军队和普通家庭第一次能在没有线路的地方收到消息。",
+      "details": {
+        "definition": "无线电是通过发射与接收电磁波传递信息的技术。早期用于船舶与岸基的电报通信，之后扩展到语音广播和军队通信。",
+        "mechanism": "改变了什么：海上遇险可发出求救信号，航运安全大幅提高；军队可以在移动中协调；广播成为新的大众媒体，政府与企业都可借此向全国发布消息或宣传；也使得电报线路不再是通信的唯一命脉。",
+        "conditions": "前置技术与资源：电池或发电源、电磁振荡电路、真空管（后期）、天线和接收设备，以及频率管理与执照制度。最低档位 tech:early_modern。越档提示：雷达、电视普及和电子计算机不属于这一条。",
+        "exceptions": "常见风险：窃听与干扰、信号被敌方截获、天气影响接收、广播被用于政治宣传和谣言。无线电设备和执照也成为国家控制的对象。",
+        "story_uses": "剧情钩子：海难中最后一条求救电文、间谍利用短波发送密电、广播节目引发的恐慌或狂热、政府查缉非法电台、被无线电取代的电报员群体。",
+        "historical_scope": "无线电在 19 世纪末至 20 世纪初出现，广播在 20 年代后迅速普及。百度百科《无线电波》记载：麦克斯韦 1861—1865 年提出电磁理论，赫兹 1886—1888 年实验验证；马可尼获英国专利，特斯拉 1897 年获美国专利（页面称 1904 年被专利局撤销、1943 年最高法院重新认定）；1898 年马可尼建立首家无线电工厂，1909 年获诺贝尔奖；1906 年范信达首次无线电广播，1922 年英国切尔姆斯福德开办首个定期广播节目；早期无线电主要是航海上的摩尔斯电码电报。具体年份由世界调整。",
+        "evidence_and_uncertainty": "百度百科《无线电波》已读正文，核对了麦克斯韦、赫兹、马可尼、特斯拉的时间线，1906 年首次无线电广播与 1922 年定期广播节目，以及早期用于航海电报，与原稿『末期至 20 世纪初出现、20 年代后广播普及』相符，无错误，并补入具体年份。特斯拉专利的归属在页面中有争议性表述，本条不采信其结论。求救、窃听、执照制度等为设计归纳，未据百科核对。 该条原有的网络来源（Wikipedia 或 Britannica）仍为 search_only，仅确认主题，未取得正文。"
+      },
+      "source_ids": [
+        "ws_tech_src_setting",
+        "ws_tech_src_radio",
+        "ws_tech_src_bk_radio"
+      ],
+      "related_ids": [
+        "tech_electric_telegraph",
+        "tech_electric_power_grid",
+        "tech_early_airplane"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "tech_early_airplane",
+      "name": "早期飞机",
+      "aliases": [
+        "early airplane",
+        "固定翼飞机",
+        "双翼机"
+      ],
+      "tags": [
+        "tech:early_modern",
+        "role:aviation",
+        "trait:fragile",
+        "genre:modern",
+        "genre:historical"
+      ],
+      "genres": [
+        "modern",
+        "historical"
+      ],
+      "category": "item",
+      "summary": "以内燃机驱动螺旋桨、靠固定机翼产生升力的载人飞行器：飞行从气球和飞艇的轻于空气转向重于空气，起初脆弱昂贵，但速度和机动性远胜。",
+      "details": {
+        "definition": "早期飞机是用木材、帆布与金属线制成的双翼或单翼飞机，由小型内燃机驱动，靠固定机翼产生升力并以舵面控制方向。",
+        "mechanism": "改变了什么：军事上，飞机最初用于侦察，随后出现战斗机与轰炸机，战场进入第三维；邮政和长途旅行获得新手段；探险和竞速让飞行员成为公众偶像。",
+        "conditions": "前置技术与资源：轻而可靠的内燃机、轻质木材和织物、螺旋桨与气动设计知识、专用燃料和机场，以及会操纵的飞行员。最低档位 tech:early_modern。越档提示：喷气发动机和雷达不属于这一时期。",
+        "exceptions": "常见风险：发动机故障、结构失效、恶劣天气和事故率高；载重与航程有限；飞行员训练成本高。民用航空长期是小众行业。",
+        "story_uses": "剧情钩子：试飞员的第一次坠机、军方征召民间飞行员、邮政飞行的航线竞争、飞机与飞艇行业的竞争、空袭对城市居民的冲击。",
+        "historical_scope": "百度百科《飞机》记载 1903 年 12 月 17 日莱特兄弟完成首次有动力的持续飞行。实用飞机出现在 20 世纪初，一战期间大规模军用，两战之间进入民航。只取 1939 年之前的形态。",
+        "evidence_and_uncertainty": "百度百科《飞机》已读正文，核对了 1903 年 12 月 17 日莱特兄弟首次有动力持续飞行，与原稿『20 世纪初』相符，无错误。页面所述 1949 年喷气客机超出 1939 年范围，不采用。军用侦察、轰炸机、民航邮政、试飞员等为设计归纳，未据百科核对。 该条原有的网络来源（Wikipedia 或 Britannica）仍为 search_only，仅确认主题，未取得正文。"
+      },
+      "source_ids": [
+        "ws_tech_src_setting",
+        "ws_tech_src_airplane",
+        "ws_tech_src_bk_airplane"
+      ],
+      "related_ids": [
+        "tech_internal_combustion_engine",
+        "steam_rigid_airship",
+        "tech_wireless_radio"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "tech_machine_gun",
+      "name": "机枪",
+      "aliases": [
+        "machine gun",
+        "重机枪",
+        "连发枪"
+      ],
+      "tags": [
+        "tech:early_modern",
+        "role:infantry_arm",
+        "trait:high_rate_of_fire",
+        "genre:modern",
+        "genre:historical"
+      ],
+      "genres": [
+        "modern",
+        "historical"
+      ],
+      "category": "item",
+      "summary": "能持续自动连发的枪械，用弹链或弹鼓供弹，单挺机枪能持续压制成排步兵的冲击：它让冲锋和密集队形成为大规模屠杀的场所。",
+      "details": {
+        "definition": "机枪是利用火药气体或后坐力自动完成退壳、装填的连发枪（更早的加特林机枪是多管手摇装置，靠人力摇柄，并不自动），用弹链或弹匣连续供弹，靠水冷或气冷散热。",
+        "mechanism": "改变了什么：战争上，防守方的火力远超进攻方，阵地战与堑壕战成为常态；军队需要大量弹药和后勤；战术转向炮兵支援和装甲突击。殖民地战争中，少量装备机枪的军队可以击败人数远多的对手。",
+        "conditions": "前置技术与资源：定装金属弹药、无烟火药（后期）、精密加工的枪机和散热系统，以及稳定的弹药供应。最低档位 tech:early_modern。",
+        "exceptions": "常见风险：枪管过热、卡壳与弹链故障、弹药消耗巨大、枪组需要多人操作；在运动战中笨重。机枪不是万能，它也需要地形和协同。",
+        "story_uses": "剧情钩子：军方对新武器价值的争论、军火商向各国推销、殖民地战争中的屠杀、堑壕里的机枪手、战后对机枪伦理和管制的争论。",
+        "historical_scope": "实用机枪出现于 19 世纪后半，一战期间大量使用。百度百科《机关枪》记载：1862 年加特林多管手摇机枪；1884 年马克沁，首挺利用火药燃气能量完成射击循环；1902 年麦德森轻机枪；一战中大口径重机枪广泛使用，早期多水冷；二战前德国 MG34 被称为世界第一挺通用机枪，因此通用机枪的雏形在 1939 年前已出现。本条不涉及更晚期的突击步枪。",
+        "evidence_and_uncertainty": "百度百科《机关枪》已读正文，核对了加特林（手摇）、马克沁（自动）、麦德森轻机枪、一战重机枪与水冷、MG34 通用机枪等时间线。据此做了三处修订：summary 中『一挺机枪火力顶得上整排步兵』改为较保守的『持续压制成排步兵的冲击』；definition 注明加特林是手摇、非自动；historical_scope 原稿称本条不涉及通用机枪，但 MG34 通用机枪在二战前已出现，故改为只排除突击步枪。提示：马克沁 1884 年按年代属 steam 档，而本条标签为 tech:early_modern（一战重机枪与轻机枪主体属此档）；标签是否调整由人工决定，本次未改。 该条原有的网络来源（Wikipedia 或 Britannica）仍为 search_only，仅确认主题，未取得正文。"
+      },
+      "source_ids": [
+        "ws_tech_src_setting",
+        "ws_tech_src_mg",
+        "ws_tech_src_bk_mg"
+      ],
+      "related_ids": [
+        "tech_breech_loading_rifle",
+        "tech_armoured_vehicle",
+        "tech_bessemer_steel"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "tech_armoured_vehicle",
+      "name": "早期装甲车与坦克",
+      "aliases": [
+        "armoured car",
+        "early tank",
+        "履带装甲车"
+      ],
+      "tags": [
+        "tech:early_modern",
+        "role:armoured_force",
+        "trait:tracked",
+        "genre:modern",
+        "genre:historical"
+      ],
+      "genres": [
+        "modern",
+        "historical"
+      ],
+      "category": "item",
+      "summary": "在内燃机车辆上加装装甲和火器的作战车辆：设计目的是在机枪火力面前保护步兵并突破堑壕。",
+      "details": {
+        "definition": "早期装甲车与坦克是用内燃机驱动、车体覆盖钢甲、装有机枪或小口径火炮的车辆，履带式车辆可以跨越壕沟和弹坑。",
+        "mechanism": "改变了什么：战争上，装甲突击与步兵、炮兵、空军的协同成为新的战术体系；工业上，汽车工厂和钢厂被动员为军工；社会上，战争中的机械化使得装备成本远高于人员训练成本。",
+        "conditions": "前置技术与资源：可靠的内燃机、钢板轧制与焊接或铆接、履带和悬挂系统、燃料与维修体系（见 tech_internal_combustion_engine、tech_bessemer_steel）。最低档位 tech:early_modern。越档提示：1939 年之后的坦克技术不在范围内。",
+        "exceptions": "常见风险：早期坦克速度慢、发动机易过热、乘员闷热且视野狭小、易陷入泥地或被炮兵击毁；后勤和维修负担重。",
+        "story_uses": "剧情钩子：第一次战场亮相造成的恐惧与失败、军方内部对坦克价值的争论、发明家被官僚冷落、战后装甲车被用来镇压罢工或暴乱、缴获敌方坦克的试验。",
+        "historical_scope": "一战中期起出现（百度百科《坦克》记载：1915 年英国政府据斯文顿建议试制样车，1916 年研制成功Ⅰ型坦克；一战期间英、法、德共造近万辆，有英国Ⅳ/Ⅴ型、法国圣沙蒙与雷诺 FT-17、德国 A7V；两次大战之间轻型坦克盛行），之后各国发展装甲部队。只取 1939 年之前的形态。",
+        "evidence_and_uncertainty": "百度百科《坦克》已读正文，核对了 1915 年试制、1916 年Ⅰ型坦克研制成功、一战中英法德的主要型号和产量、两次大战之间轻型坦克盛行。据此把原稿 historical_scope 的『一战后期开始使用』改为『一战中期起出现』。装甲车辆的社会影响（镇压罢工、装备成本高于人员训练成本等）为设计归纳，未据百科核对。 该条原有的网络来源（Wikipedia 或 Britannica）仍为 search_only，仅确认主题，未取得正文。"
+      },
+      "source_ids": [
+        "ws_tech_src_setting",
+        "ws_tech_src_tank",
+        "ws_tech_src_bk_tank"
+      ],
+      "related_ids": [
+        "tech_internal_combustion_engine",
+        "tech_machine_gun",
+        "tech_bessemer_steel"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    }
+  ]
+}

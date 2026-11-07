@@ -7,7 +7,8 @@ user's. The map payloads are fixtures built in this file.
 
 What is checked here, and why it cannot be checked from the JSON alone:
 
-* the hidden area of the basemap is decoded from the PNG and compared to the fog colour;
+* the hidden area of the basemap is decoded from the PNG and compared to the painted fog
+  (:func:`app.play_map.fog_reference`, which is computed from geometry only);
 * moving a secret place does not change one byte of the player's image;
 * the two journeys never see each other's places or crop.
 """
@@ -22,6 +23,7 @@ from pathlib import Path
 from fastapi.testclient import TestClient
 
 from app import map_import, play_map
+from tests.fixtures_world import world_service
 from app.service import Service
 from app.storage import Store
 from app.web import create_app
@@ -89,6 +91,16 @@ def pixel(image, bbox, lon, lat):
     return body[base:base + 3]
 
 
+def fog_at(places, link, clues, lon, lat):
+    """The painted-fog colour the server must emit at (lon, lat) — computed from geometry
+    only (frame + reveal circles), never from terrain. Fogged pixels must equal it."""
+    box, width, height, fog, _ratio = play_map.fog_reference(places, link, clues)
+    lon_min, lon_max, lat_min, lat_max = box
+    x = min(width - 1, max(0, int((lon - lon_min) / (lon_max - lon_min) * width)))
+    y = min(height - 1, max(0, int((lat_max - lat) / (lat_max - lat_min) * height)))
+    return bytes(fog[y, x])
+
+
 class MapFixture(unittest.TestCase):
     """One temporary service per class; a real 16-bit heightmap import as the map."""
 
@@ -96,7 +108,7 @@ class MapFixture(unittest.TestCase):
     def setUpClass(cls):
         cls.tmp = tempfile.TemporaryDirectory()
         cls.root = Path(cls.tmp.name)
-        cls.svc = Service(Store(cls.root / 'map.sqlite3'), ROOT)
+        cls.svc = world_service(Store(cls.root / 'map.sqlite3'), ROOT)
         cls.svc.provider.configure({'offline': True})
         cls.import_root = cls.root
         cls.record = map_import.create_import(cls.svc.store, cls.import_root,
@@ -150,7 +162,12 @@ class MapFixture(unittest.TestCase):
         payload, status, context, story = self.projection(session)
         places = play_map.visible_places(session, story)
         png = play_map.basemap_png(context, places, context.get('link'))
+        self._last_fog = (places, context.get('link'))
         return png, payload
+
+    def fog(self, lon, lat):
+        places, link = self._last_fog
+        return fog_at(places, link, None, lon, lat)
 
 
 # --------------------------------------------------------------------- linkage
@@ -274,14 +291,16 @@ class FogWhitelistTests(MapFixture):
         image = decode_png(png)
         bbox = payload['basemap']['bbox']
         lon_min, lon_max, lat_min, lat_max = bbox
-        # The four corners of the crop are outside every reveal circle: pure fog there.
+        # The four corners of the crop are outside every reveal circle: painted fog there,
+        # equal to what geometry alone predicts (no terrain value reaches these bytes).
         for lon, lat in ((lon_min, lat_max), (lon_max, lat_max),
                          (lon_min, lat_min), (lon_max, lat_min)):
-            self.assertEqual(pixel(image, bbox, lon, lat), FOG,
+            self.assertEqual(pixel(image, bbox, lon, lat), self.fog(lon, lat),
                              '裁切框角落在可见范围外，必须是雾色而不是地形')
         # The current place itself is revealed terrain, not fog.
         player = payload['player']
-        self.assertNotEqual(pixel(image, bbox, player['lon'], player['lat']), FOG)
+        self.assertNotEqual(pixel(image, bbox, player['lon'], player['lat']),
+                            self.fog(player['lon'], player['lat']))
 
     def test_secret_place_position_does_not_change_the_player_image(self):
         first = self.journey('秘密A', mutate=self.hidden_story(secret_lon=10.0))
@@ -334,7 +353,8 @@ class CoordinateTests(MapFixture):
         self.assertLess(fx, (lon_max + 180) / 360)
         self.assertGreater(fy, (90 - lat_max) / 180)
         self.assertLess(fy, (90 - lat_min) / 180)
-        self.assertNotEqual(pixel(image, bbox, player['lon'], player['lat']), FOG)
+        self.assertNotEqual(pixel(image, bbox, player['lon'], player['lat']),
+                            self.fog(player['lon'], player['lat']))
 
     def test_longitude_is_normalised_so_the_date_line_is_one_place(self):
         story = {'locations': [{'id': 'a', 'coordinates': [180.0, 10.0]},
@@ -500,7 +520,8 @@ class SessionIsolationTests(MapFixture):
         app = create_app(self.root / 'guard.sqlite3')
         with TestClient(app) as client:
             # Player-facing GETs stay open; the author import routes stay token-guarded.
-            self.assertEqual(client.get('/api/sessions/nope/play-map').status_code, 400)
+            # 不存在的存档：404（不是通用的 400），且不是 403——玩家路由不要求 token。
+            self.assertEqual(client.get('/api/sessions/nope/play-map').status_code, 404)
             self.assertEqual(client.get('/api/inner/map-imports').status_code, 403)
             self.assertEqual(client.get('/api/inner/map-imports/%s/preview.png'
                                         % self.record['id']).status_code, 403)

@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" href="data:,">
+<title>织梦 · 天气美术：奇幻天气（魔力风暴 / 灵雾 / 瘴气 / 灰烬雨）</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#1d2228;color:#dde3ea;font:13px system-ui,sans-serif}
+header{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;padding:10px 14px;background:#262d35;border-bottom:1px solid #39424d}
+h1{font-size:16px;margin:0 8px 0 0}label{display:flex;align-items:center;gap:6px;white-space:nowrap}
+input[type=range]{width:100px}select,button{font:inherit;padding:3px 8px;border-radius:4px;border:1px solid #56606c;background:#313945;color:inherit}
+output{display:inline-block;min-width:34px;text-align:right;font-variant-numeric:tabular-nums;color:#9fb3c8}
+#stage{position:relative;width:1400px;height:900px;margin:12px auto;overflow:hidden;background:#3a4436}
+#town{position:absolute;left:0;top:0;width:1400px;height:900px}
+#town svg{width:1400px!important;height:900px!important}
+#fx{position:absolute;left:0;top:0;width:1400px;height:900px}
+#fps{position:absolute;right:8px;top:6px;padding:2px 8px;border-radius:3px;background:rgba(0,0,0,.55);color:#c8f0c0;font:12px/1.5 ui-monospace,monospace;pointer-events:none}
+</style>
+</head>
+<body>
+<header>
+<h1>奇幻天气</h1>
+<label>天气 <select id="kind">
+  <option value="mana_storm" selected>mana_storm 魔力风暴</option><option value="spirit_mist">spirit_mist 灵雾</option>
+  <option value="miasma">miasma 瘴气</option><option value="ashfall">ashfall 灰烬雨</option></select></label>
+<label>城镇 <select id="sample"></select></label>
+<label title="切天气时自动选城镇样例（灵雾配东方，其余配西式）"><input id="autoSample" type="checkbox" checked>自动配城镇</label>
+<label>强度 <input id="intensity" type="range" min="0" max="1" step="0.01" value="0.5"><output></output></label>
+<label>魔力强度 <input id="strength" type="range" min="0" max="1" step="0.01" value="0.65"><output></output></label>
+<label>色相 hue <input id="hue" type="range" min="0" max="1" step="0.01" value="0"><output></output></label>
+<label>脉动 pulse <input id="pulse" type="range" min="0" max="1" step="0.01" value="0.4"><output></output></label>
+<label>时刻 <input id="hour" type="range" min="0" max="24" step="0.1" value="13"><output></output></label>
+<label>风向 <input id="dir" type="range" min="0" max="359" step="1" value="100"><output></output></label>
+<label>风速 <input id="speed" type="range" min="0" max="1" step="0.01" value="0.25"><output></output></label>
+<label>阵风 <input id="gust" type="range" min="0" max="1" step="0.01" value="0.2"><output></output></label>
+<label title="mana_storm→ground.mana_residue，ashfall→ground.ash_cover">地面累积 <input id="cover" type="range" min="0" max="1" step="0.01" value="0.5"><output></output></label>
+<label title="改天气或强度时自动设魔力强度与地面累积"><input id="link" type="checkbox" checked>联动</label>
+<button id="pause">暂停</button><button id="step">单步</button>
+</header>
+<div id="stage">
+  <div id="town" aria-label="城镇底图"></div>
+  <canvas id="fx"></canvas>
+  <div id="fps">-- fps</div>
+</div>
+<script src="../../map-art/town/town-catalog.js"></script>
+<script src="../../map-art/town/layout-samples.js"></script>
+<script src="../../town-render.js"></script>
+<script src="../noise.js"></script>
+<script src="fantasy.js"></script>
+<script src="fantasy-mana.js"></script>
+<script src="fantasy-mist.js"></script>
+<script src="fantasy-miasma.js"></script>
+<script src="fantasy-ash.js"></script>
+<script src="preview.js"></script>
+</body>
+</html>

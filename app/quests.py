@@ -27,7 +27,8 @@
    某个资源阈值、某个已到访地点。证据不足时 ``complete`` 直接拒收并说明缺什么，
    不把“玩家说完成了”当成完成。
 3. **知情是分级制的。**被救的人知道，不等于全天下知道。``public_summary`` /
-   ``known_by`` / ``location`` / ``reveal_flag`` 四个字段共同决定谁能看到什么；
+   ``known_by`` / ``location`` / ``reveal_flag``（或 ``reveal_on``）/ ``enabled_on``
+   共同决定谁能看到什么；
    未公开的任务数量、隐藏目标、失败原因都不会钻进玩家投影。
 
 作者声明位置：``story.mechanics.quests``（纯新增键；没有它就全部 no-op）。
@@ -51,6 +52,9 @@ OPEN_STATES = frozenset({'proposed', 'accepted', 'active'})
 TERMINAL_STATES = frozenset({'completed', 'failed', 'cancelled'})
 
 ID = r'^[A-Za-z0-9_-]{1,60}$'
+#: ``enabled_on`` / ``reveal_on`` 条件里的信号与 flag 的格式。
+SIGNAL_ID = r'^[A-Za-z0-9_.:-]{1,80}$'
+FLAG_ID = r'^[A-Za-z0-9_.:-]{1,60}$'
 MAX_QUESTS = 60
 MAX_EVIDENCE = 8
 MAX_EFFECTS = 12
@@ -58,7 +62,7 @@ MAX_OBJECTIVES = 6
 MAX_TEXT = 400
 
 #: 本模块可能发出的 effect op（全部是 ``Runtime.effects`` 已经支持的）。
-EFFECT_OPS = ('flag', 'resource', 'information', 'reward', 'take')
+EFFECT_OPS = ('flag', 'resource', 'information', 'reward', 'take', 'place_clue')
 
 
 class QuestError(ValueError):
@@ -102,13 +106,33 @@ class RewardEntry(Strict):
 
 class Effect(Strict):
     """A declared consequence, in ``Runtime.effects`` vocabulary."""
-    op: Literal['flag', 'resource', 'information']
+    op: Literal['flag', 'resource', 'information', 'place_clue']
     id: str = Field(default='', max_length=60)
     value: bool = False
     delta: int = _int(-1000000, 1000000)
     text: str = Field(default='', max_length=MAX_TEXT)
     confirmed: bool = False
     known_by: list[str] = Field(default_factory=list, max_length=8)
+    #: ``place_clue`` 专用：线索指向的地点、模糊半径与玩家看到的称呼。
+    place: str = Field(default='', max_length=60)
+    precision_km: float = Field(default=150.0, ge=10.0, le=2000.0)
+    label: str = Field(default='', max_length=40)
+
+
+class Gate(Strict):
+    """One condition over state the engine already keeps: a signal or a flag, never both.
+
+    ``signal`` is read from ``session['signals']`` (written only by the ``signal`` effect op,
+    never by this module); ``flag`` from ``session['flags']``.
+    """
+    signal: str | None = Field(default=None, pattern=SIGNAL_ID)
+    flag: str | None = Field(default=None, pattern=FLAG_ID)
+
+    @model_validator(mode='after')
+    def _exactly_one(self):
+        if (self.signal is None) == (self.flag is None):
+            raise ValueError('条件必须且只能写 signal 或 flag 其中一个')
+        return self
 
 
 class Quest(Strict):
@@ -123,6 +147,11 @@ class Quest(Strict):
     secret_objective: str = Field(default='', max_length=MAX_TEXT)
     known_by: list[str] = Field(default_factory=list, max_length=8)
     reveal_flag: str = Field(default='', max_length=60)
+    #: 开启条件：未满足前任务不可接，也不出现在任何玩家投影与动作里。缺省 = 一直开启。
+    enabled_on: Gate | None = None
+    #: 揭示条件：未满足前任务可以在后台存在/被触发，但玩家投影里没有它的任何内容。
+    #: ``reveal_flag`` 是它的旧写法（等价于 ``reveal_on.flag``），二者不能同时写。
+    reveal_on: Gate | None = None
     objectives: list[str] = Field(default_factory=list, max_length=MAX_OBJECTIVES)
     evidence: list[Evidence] = Field(default_factory=list, max_length=MAX_EVIDENCE)
     costs: list[Cost] = Field(default_factory=list, max_length=MAX_EFFECTS)
@@ -141,6 +170,9 @@ class Quest(Strict):
         if self.deadline and self.duration:
             raise ValueError('任务 %s 同时写了 deadline 与 duration；两者只能选一个'
                              % self.id)
+        if self.reveal_flag and self.reveal_on is not None:
+            raise ValueError('任务 %s 同时写了 reveal_flag 与 reveal_on；reveal_flag 是 '
+                             'reveal_on.flag 的旧写法，只能选一个' % self.id)
         return self
 
 
@@ -194,7 +226,6 @@ def validate(story):
         if not quest.evidence and not quest.objectives:
             raise QuestError('%s 既没有 evidence 也没有 objectives：无法判定完成' % where)
         # 报酬必须有来源
-        paid = False
         for entry in quest.rewards:
             if entry.kind in ('currency', 'item'):
                 reward = reward_entries.get(entry.id)
@@ -220,7 +251,6 @@ def validate(story):
                         if template not in templates:
                             raise QuestError('%s 的报酬 %r 引用了未声明的模板 %r'
                                              % (where, entry.id, template))
-                paid = True
             elif entry.kind in ('relationship', 'clue'):
                 if not entry.text.strip():
                     raise QuestError('%s 的 %s 收益必须写清楚是什么'
@@ -240,6 +270,12 @@ def validate(story):
                 if effect.id not in resource_ids:
                     raise QuestError('%s 的资源后果 %r 不是已声明的本地资源'
                                      % (where, effect.id))
+            if effect.op == 'place_clue':
+                from . import map_clues   # 局部导入：map_clues 依赖 play_map，避免循环
+                try:
+                    map_clues.validate_effect(effect.model_dump(), story)
+                except ValueError as error:
+                    raise QuestError('%s 的地点线索无效：%s' % (where, error)) from error
             if effect.op == 'information':
                 if not effect.text.strip():
                     raise QuestError('%s 的知情后果没有文本' % where)
@@ -405,7 +441,6 @@ def propose(session, story, quest_id, note=''):
     cfg = ensure(session, story)
     if cfg is None:
         raise QuestError('这个故事包没有配置任务')
-    quest = _quest(cfg, quest_id)
     row = _entry(session, quest_id)
     if row['state'] in TERMINAL_STATES:
         raise QuestError('任务 %s 已经结束（%s），不会再出现' % (quest_id, row['state']))
@@ -421,6 +456,8 @@ def accept(session, story, quest_id):
     if cfg is None:
         raise QuestError('这个故事包没有配置任务')
     quest = _quest(cfg, quest_id)
+    if not is_enabled(quest, session):
+        raise QuestError('任务 %s 尚未开启，不能接受' % quest_id)
     row = _entry(session, quest_id)
     if row['state'] != 'proposed':
         raise QuestError('任务 %s 现在是 %s，只能从 proposed 接受'
@@ -546,13 +583,14 @@ def apply_completion(session, story, quest_id, effects_fn=None, source=None):
         raise QuestError('任务还不能完成：' + '；'.join(gaps))
     effects, claims = _plan_effects(quest, row)
     work = copy.deepcopy(session)
-    work_row = work['quests']['entries'][quest_id]
     if effects:
         if effects_fn is None:
             raise QuestError('完成这个任务需要执行 effects，但没有给执行回调')
         audits = effects_fn(work, effects, source or ('quest:' + quest.id), claims)
     else:
         audits = []
+    # Runtime.effects may replace the copied session's nested objects atomically.
+    work_row = work['quests']['entries'][quest_id]
     work_row['state'] = 'completed'
     work_row['paid'] = source or ('quest:' + quest.id)
     session.clear()
@@ -579,6 +617,10 @@ def _plan_effects(quest, row):
             effects.append({'op': 'information', 'text': effect.text,
                             'confirmed': effect.confirmed,
                             'known_by': list(effect.known_by)})
+        elif effect.op == 'place_clue':
+            effects.append({'op': 'place_clue', 'place': effect.place,
+                            'precision_km': effect.precision_km,
+                            'label': effect.label, 'text': effect.text})
     for entry in quest.rewards:
         # A payable reward must name an author-declared ``rewards.rewards[]`` entry: that
         # is the only thing ``rewards.apply`` will pay, and it is where the currency,
@@ -591,15 +633,78 @@ def _plan_effects(quest, row):
     return effects, claims
 
 # ------------------------------------------------------------------ projections
+def _signals(session):
+    """``session['signals']`` as a set. Read-only; a missing/odd value is an empty list."""
+    value = (session or {}).get('signals')
+    if not isinstance(value, (list, tuple, set, frozenset)):
+        return set()
+    return {item for item in value if isinstance(item, str)}
+
+
+def _gate_met(gate, session):
+    if gate.signal is not None:
+        return gate.signal in _signals(session)
+    return bool(((session or {}).get('flags') or {}).get(gate.flag))
+
+
+def is_enabled(quest, session):
+    """``enabled_on`` holds (or is not declared). A disabled quest cannot be accepted."""
+    return quest.enabled_on is None or _gate_met(quest.enabled_on, session)
+
+
+def is_revealed(quest, session):
+    """``reveal_on`` holds, or the legacy ``reveal_flag`` is set (or neither is declared)."""
+    if quest.reveal_on is not None:
+        return _gate_met(quest.reveal_on, session)
+    if quest.reveal_flag:
+        return bool(((session or {}).get('flags') or {}).get(quest.reveal_flag))
+    return True
+
+
 def _visible(quest, session, audience):
     """Is this quest's *existence* visible to ``audience`` right now?"""
     if not quest.public_summary:
         return False                      # author kept it entirely off-stage
-    if quest.reveal_flag and not (session.get('flags') or {}).get(quest.reveal_flag):
+    if not is_enabled(quest, session):
+        return False
+    if not is_revealed(quest, session):
         return False
     if quest.known_by and audience not in quest.known_by:
         return False
     return True
+
+
+def notices(before_session, after_session, story, audience='player'):
+    """Quests that became visible between two sessions, as player-safe notices.
+
+    Pure: reads both sessions, writes neither. A notice is a quest that is visible (and
+    offered at the player's place, not finished) after but was not before. ``kind`` is
+    ``opened`` when ``enabled_on`` flipped in this step, otherwise ``revealed``. Only the
+    id, public title and public summary are included - never secrets, rewards or gates.
+    """
+    cfg = rules(story)
+    if cfg is None:
+        return []
+    rows = state(after_session, cfg)['entries']
+    out = []
+    for quest in cfg.quests:
+        if quest.enabled_on is None and quest.reveal_on is None and not quest.reveal_flag:
+            continue
+        if _visible(quest, before_session or {}, audience):
+            continue
+        if not _visible(quest, after_session, audience):
+            continue
+        row = rows.get(quest.id)
+        if row and row['state'] in TERMINAL_STATES:
+            continue
+        if not _near(quest, after_session):
+            continue
+        opened = not is_enabled(quest, before_session or {})
+        out.append({'quest_id': quest.id, 'title': quest.title,
+                    'summary': quest.public_summary,
+                    'kind': 'opened' if opened else 'revealed'})
+    out.sort(key=lambda item: item['quest_id'])
+    return out
 
 
 def _near(quest, session):
@@ -674,18 +779,42 @@ def authority_view(session, story, quest_id=None):
         return None
     rows = state(session, cfg)['entries']
     picked = [q for q in cfg.quests if quest_id is None or q.id == quest_id]
+    reward_cfg = rewards_rules.rules(story)
+    reward_entries = {r.id: r for r in (reward_cfg.rewards if reward_cfg else [])}
     out = []
     for quest in picked:
         row = rows.get(quest.id) or {'state': 'proposed', 'since': None, 'due': None,
                                      'paid': None, 'note': '', 'evidence': {}}
-        out.append({'quest_id': quest.id, 'title': quest.title, 'giver': quest.giver,
+        reward_views = []
+        for entry in quest.rewards:
+            detail = entry.model_dump()
+            declared = reward_entries.get(entry.id)
+            if entry.kind == 'currency' and declared is not None:
+                detail.update(currency=declared.currency, payer=declared.payer,
+                              amount_min=declared.amount_min, amount_max=declared.amount_max)
+                detail.pop('amount')
+                if declared.amount_min == declared.amount_max:
+                    detail['amount'] = declared.amount_min
+            elif entry.kind == 'item' and declared is not None:
+                detail.update(templates=list(declared.templates), identified=declared.identified)
+            reward_views.append(detail)
+        gates = {}
+        if quest.enabled_on is not None or quest.reveal_on is not None or quest.reveal_flag:
+            gates = {'enabled': is_enabled(quest, session),
+                     'revealed': is_revealed(quest, session),
+                     'enabled_on': (quest.enabled_on.model_dump(exclude_none=True)
+                                    if quest.enabled_on else None),
+                     'reveal_on': (quest.reveal_on.model_dump(exclude_none=True)
+                                   if quest.reveal_on else
+                                   ({'flag': quest.reveal_flag} if quest.reveal_flag else None))}
+        out.append({**gates, 'quest_id': quest.id, 'title': quest.title, 'giver': quest.giver,
                     'location': quest.location or None, 'state': row['state'],
                     'due': row['due'], 'paid': row['paid'], 'note': row['note'],
                     'secret_objective': quest.secret_objective,
                     'objectives': list(quest.objectives),
                     'evidence': [e.model_dump() for e in quest.evidence],
                     'costs': [c.model_dump() for c in quest.costs],
-                    'rewards': [r.model_dump() for r in quest.rewards],
+                    'rewards': reward_views,
                     'effects': [e.model_dump() for e in quest.effects],
                     'on_failure': quest.on_failure or None,
                     'missing_now': (missing_evidence(session, quest, story)

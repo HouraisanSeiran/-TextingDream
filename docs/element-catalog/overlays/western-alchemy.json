@@ -1,0 +1,146 @@
+{
+  "schema": "catalog_overlay_v1",
+  "group": "western-alchemy",
+  "entries": {
+    "western_alc_clotting_draught": {
+      "primary": "potion",
+      "evidence_grade": "mixed",
+      "note": "草木药酒止血可由草药学解释，取 null",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "western_alc_healing_unction": {
+      "primary": "potion",
+      "evidence_grade": "mixed",
+      "note": "仅“宣称”合拢创口，膏药类可由自然手段解释，取 null",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "western_alc_universal_antidote": {
+      "primary": "potion",
+      "evidence_grade": "mixed",
+      "note": "宣称型万应解毒剂，来源只支撑「解毒路径互斥」这一层；正文明说“万能”只是宣称，取 null",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "western_alc_soporific_draught": {
+      "primary": "potion",
+      "evidence_grade": "mixed",
+      "note": "镇静药物可由药理解释，取 null",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "western_alc_oblivion_draught": {
+      "primary": "potion",
+      "evidence_grade": "inferred",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "common"
+    },
+    "western_alc_shapeshift_draught": {
+      "primary": "potion",
+      "evidence_grade": "inferred",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "common"
+    },
+    "western_alc_flying_unguent": {
+      "primary": "potion",
+      "evidence_grade": "mixed",
+      "note": "记载只有被指控者供称涂膏可飞，正文给出“只是以为自己在飞”的读法，取 null",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "western_alc_invisibility_oil": {
+      "primary": "potion",
+      "evidence_grade": "inferred",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "common"
+    },
+    "western_alc_love_philtre": {
+      "primary": "potion",
+      "evidence_grade": "mixed",
+      "note": "正文称要么无效要么人身侵夺，真实效力不明，取 null",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "western_alc_berserk_draught": {
+      "primary": "potion",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "common"
+    },
+    "western_alc_ember_ward_unguent": {
+      "primary": "potion",
+      "evidence_grade": "inferred",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "common"
+    },
+    "western_alc_water_breathing_draught": {
+      "primary": "potion",
+      "evidence_grade": "inferred",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "common"
+    },
+    "western_alc_winter_draught": {
+      "primary": "potion",
+      "evidence_grade": "inferred",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "common"
+    },
+    "western_alc_petrifaction_release": {
+      "primary": "potion",
+      "evidence_grade": "inferred",
+      "note": "以稀有的石化现象为前提，取低一档 rare",
+      "tech_tier": null,
+      "magic_tier": "rare"
+    },
+    "western_alc_truth_draught": {
+      "primary": "potion",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "common"
+    },
+    "western_alc_growth_shrink_powder": {
+      "primary": "potion",
+      "evidence_grade": "inferred",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "common"
+    },
+    "western_alc_magic_ward_elixir": {
+      "primary": "potion",
+      "evidence_grade": "inferred",
+      "note": "以已有公开魔法秩序为前提，取 common",
+      "tech_tier": null,
+      "magic_tier": "common"
+    },
+    "western_alc_revivifying_elixir": {
+      "primary": "potion",
+      "evidence_grade": "inferred",
+      "note": "限定传说层，取 rare",
+      "tech_tier": null,
+      "magic_tier": "rare"
+    },
+    "western_alc_longevity_elixir": {
+      "primary": "potion",
+      "evidence_grade": "mixed",
+      "note": "限定传说层，取 rare",
+      "tech_tier": null,
+      "magic_tier": "rare"
+    },
+    "western_alc_strength_draught": {
+      "primary": "potion",
+      "evidence_grade": "inferred",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "common"
+    }
+  }
+}

@@ -13,6 +13,7 @@ import unittest
 from pathlib import Path
 
 from app import encyclopedia as enc
+from tools import catalog_overlay, game_fields
 from tools import encyclopedia_build as build
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -23,6 +24,25 @@ NAMESPACE = 'cuisine'
 
 def _document():
     return json.loads(CUISINE_FILE.read_text(encoding='utf-8-sig'))
+
+
+def _overlaid_document():
+    """构库实际导入的文档：与 `encyclopedia_build.build` 同口径，在内存里叠加两层旁挂。"""
+    text = CUISINE_FILE.read_bytes().decode('utf-8')
+    return catalog_overlay.overlay(game_fields.overlay(enc.loads_json(text)))
+
+
+def _derived_tags(element):
+    """引擎（app/encyclopedia._prepare_element）按字段派生的标签，逐字段对应。"""
+    tags = set()
+    for field, prefix in (('primary', 'primary:'), ('evidence_grade', 'evidence:'),
+                          ('tech_tier', 'tech:'), ('magic_tier', 'magic:'),
+                          ('category', 'category:')):
+        if element.get(field) is not None:
+            tags.add(prefix + str(element[field]))
+    for genre in element.get('genres') or []:
+        tags.add('genre:' + str(genre))
+    return tags
 
 
 class CuisineManifestCase(unittest.TestCase):
@@ -105,12 +125,22 @@ class CuisineLibraryCase(unittest.TestCase):
 
     # --------------------------------------------------------------- 标签/检索
     def test_tags_come_from_the_source_document(self):
+        # 构库会在内存里叠加旁挂（game_fields / catalog_overlay），所以“源文档”指叠加后的文档。
+        # 叠加后文档里的 tags 必须原样进库；引擎再按字段派生 primary:/evidence:/tech:/magic:/
+        # category:/genre: 标签，这些派生标签必须恰好等于字段推出的集合，不能凭空多出。
+        overlaid = _overlaid_document()['elements']
         expected = set()
-        for element in self.document['elements']:
+        derived = set()
+        for element in overlaid:
             expected.update(element.get('tags') or [])
+            derived.update(_derived_tags(element))
+        prefixes = ('primary:', 'evidence:', 'tech:', 'magic:', 'category:', 'genre:')
         actual = {row['tag'] for row in enc.list_tags(self.db, namespace=NAMESPACE)['tags']}
         self.assertTrue(expected, 'cuisine.json 里的条目应当带标签')
-        self.assertEqual(actual, expected)
+        self.assertEqual({tag for tag in actual if not tag.startswith(prefixes)},
+                         {tag for tag in expected if not tag.startswith(prefixes)})
+        self.assertEqual({tag for tag in actual if tag.startswith(prefixes)},
+                         {tag for tag in expected | derived if tag.startswith(prefixes)})
 
     def test_search_by_name_and_alias(self):
         sample = self.document['elements'][0]
@@ -146,7 +176,8 @@ class CuisineLibraryCase(unittest.TestCase):
         sample = self.document['elements'][0]['id']
         before = [row['version'] for row in
                   enc.versions(self.db, sample, namespace=NAMESPACE)['versions']]
-        again = enc.import_file(self.db, CUISINE_FILE)
+        # 库里存的是叠加后的文档，所以“同一份”指同一份叠加后文档。
+        again = enc.import_document(self.db, _overlaid_document())
         self.assertTrue(again.as_dict()['idempotent'], '同一份源文件重跑必须零写入')
         self.assertEqual(again.as_dict()['element_versions_written'], 0)
         after = [row['version'] for row in

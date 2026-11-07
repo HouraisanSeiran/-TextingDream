@@ -1,0 +1,11 @@
+.town-plan .toolbar {align-items:end;flex-wrap:wrap}
+.town-plan .toolbar label {min-width:120px;flex:1}
+.town-plan .toolbar input {max-width:240px}
+.town-plan-viewport {overflow:auto;max-height:75vh;border:1px solid var(--line,#746650);border-radius:8px}
+#town-plan-scene {min-width:100%}
+#town-plan-site-scene {max-width:720px;margin:auto}
+.town-plan-facilities {max-height:320px;overflow:auto}
+.town-plan-facilities p {display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.town-plan-facilities button {min-width:160px}
+.town-plan-facilities span {overflow-wrap:anywhere}
+.town-plan li {overflow-wrap:anywhere}

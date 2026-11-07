@@ -1,0 +1,3904 @@
+[
+ {
+  "id": "west-common-house-01-1",
+  "style": "west",
+  "race": "common",
+  "category": "house",
+  "kind": "house_cottage",
+  "facility": null,
+  "variant": 1,
+  "type": 1,
+  "name": "茅草小屋",
+  "tags": [
+   "one_storey",
+   "plaster",
+   "thatch",
+   "chimney"
+  ],
+  "roof": "gable_thatch",
+  "note": "茅草顶两端收山，近似半四坡",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 43,
+  "anchor": [
+   24,
+   91
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   91
+  ]
+ },
+ {
+  "id": "west-common-house-01-2",
+  "style": "west",
+  "race": "common",
+  "category": "house",
+  "kind": "house_cottage",
+  "facility": null,
+  "variant": 2,
+  "type": 1,
+  "name": "茅草小屋",
+  "tags": [
+   "one_storey",
+   "plaster",
+   "thatch",
+   "chimney"
+  ],
+  "roof": "gable_thatch",
+  "note": "茅草顶两端收山，近似半四坡",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 43,
+  "anchor": [
+   24,
+   91
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   91
+  ]
+ },
+ {
+  "id": "west-common-house-01-3",
+  "style": "west",
+  "race": "common",
+  "category": "house",
+  "kind": "house_cottage",
+  "facility": null,
+  "variant": 3,
+  "type": 1,
+  "name": "茅草小屋",
+  "tags": [
+   "one_storey",
+   "plaster",
+   "thatch",
+   "chimney"
+  ],
+  "roof": "gable_thatch",
+  "note": "茅草顶两端收山，近似半四坡",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 43,
+  "anchor": [
+   24,
+   91
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   91
+  ]
+ },
+ {
+  "id": "west-common-house-02-1",
+  "style": "west",
+  "race": "common",
+  "category": "house",
+  "kind": "house_timber",
+  "facility": null,
+  "variant": 1,
+  "type": 2,
+  "name": "木筋两层屋",
+  "tags": [
+   "two_storey",
+   "timber_frame",
+   "jetty",
+   "chimney"
+  ],
+  "roof": "gable_tile",
+  "note": "",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 58,
+  "anchor": [
+   24,
+   106
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   106
+  ]
+ },
+ {
+  "id": "west-common-house-02-2",
+  "style": "west",
+  "race": "common",
+  "category": "house",
+  "kind": "house_timber",
+  "facility": null,
+  "variant": 2,
+  "type": 2,
+  "name": "木筋两层屋",
+  "tags": [
+   "two_storey",
+   "timber_frame",
+   "jetty",
+   "chimney"
+  ],
+  "roof": "gable_tile",
+  "note": "",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 38,
+  "anchor": [
+   24,
+   86
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   86
+  ]
+ },
+ {
+  "id": "west-common-house-02-3",
+  "style": "west",
+  "race": "common",
+  "category": "house",
+  "kind": "house_timber",
+  "facility": null,
+  "variant": 3,
+  "type": 2,
+  "name": "木筋两层屋",
+  "tags": [
+   "two_storey",
+   "timber_frame",
+   "jetty",
+   "chimney"
+  ],
+  "roof": "gable_tile",
+  "note": "",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 54,
+  "anchor": [
+   24,
+   102
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   102
+  ]
+ },
+ {
+  "id": "west-common-house-03-1",
+  "style": "west",
+  "race": "common",
+  "category": "house",
+  "kind": "house_stone",
+  "facility": null,
+  "variant": 1,
+  "type": 3,
+  "name": "毛石农舍",
+  "tags": [
+   "one_storey",
+   "attic",
+   "rubble",
+   "dormer",
+   "chimney",
+   "woodpile"
+  ],
+  "roof": "steep_slate",
+  "note": "",
+  "footprint": [
+   2,
+   1
+  ],
+  "height_px": 47,
+  "anchor": [
+   48,
+   95
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   95
+  ]
+ },
+ {
+  "id": "west-common-house-03-2",
+  "style": "west",
+  "race": "common",
+  "category": "house",
+  "kind": "house_stone",
+  "facility": null,
+  "variant": 2,
+  "type": 3,
+  "name": "毛石农舍",
+  "tags": [
+   "one_storey",
+   "attic",
+   "rubble",
+   "dormer",
+   "chimney",
+   "woodpile"
+  ],
+  "roof": "steep_slate",
+  "note": "",
+  "footprint": [
+   2,
+   1
+  ],
+  "height_px": 47,
+  "anchor": [
+   48,
+   95
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   95
+  ]
+ },
+ {
+  "id": "west-common-house-03-3",
+  "style": "west",
+  "race": "common",
+  "category": "house",
+  "kind": "house_stone",
+  "facility": null,
+  "variant": 3,
+  "type": 3,
+  "name": "毛石农舍",
+  "tags": [
+   "one_storey",
+   "attic",
+   "rubble",
+   "dormer",
+   "chimney",
+   "woodpile"
+  ],
+  "roof": "steep_slate",
+  "note": "",
+  "footprint": [
+   2,
+   1
+  ],
+  "height_px": 47,
+  "anchor": [
+   48,
+   95
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   95
+  ]
+ },
+ {
+  "id": "west-common-house-04-1",
+  "style": "west",
+  "race": "common",
+  "category": "house",
+  "kind": "house_longhouse",
+  "facility": null,
+  "variant": 1,
+  "type": 4,
+  "name": "长屋",
+  "tags": [
+   "one_storey",
+   "plank",
+   "thatch",
+   "byre",
+   "hip"
+  ],
+  "roof": "gable_thatch",
+  "note": "四坡茅草顶，RoofId 取最近的 gable_thatch",
+  "footprint": [
+   2,
+   1
+  ],
+  "height_px": 34,
+  "anchor": [
+   48,
+   82
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   82
+  ]
+ },
+ {
+  "id": "west-common-house-04-2",
+  "style": "west",
+  "race": "common",
+  "category": "house",
+  "kind": "house_longhouse",
+  "facility": null,
+  "variant": 2,
+  "type": 4,
+  "name": "长屋",
+  "tags": [
+   "one_storey",
+   "plank",
+   "thatch",
+   "byre",
+   "hip"
+  ],
+  "roof": "gable_thatch",
+  "note": "四坡茅草顶，RoofId 取最近的 gable_thatch",
+  "footprint": [
+   2,
+   1
+  ],
+  "height_px": 34,
+  "anchor": [
+   48,
+   82
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   82
+  ]
+ },
+ {
+  "id": "west-common-house-04-3",
+  "style": "west",
+  "race": "common",
+  "category": "house",
+  "kind": "house_longhouse",
+  "facility": null,
+  "variant": 3,
+  "type": 4,
+  "name": "长屋",
+  "tags": [
+   "one_storey",
+   "plank",
+   "thatch",
+   "byre",
+   "hip"
+  ],
+  "roof": "gable_thatch",
+  "note": "四坡茅草顶，RoofId 取最近的 gable_thatch",
+  "footprint": [
+   2,
+   1
+  ],
+  "height_px": 34,
+  "anchor": [
+   48,
+   82
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   82
+  ]
+ },
+ {
+  "id": "west-common-house-05-1",
+  "style": "west",
+  "race": "common",
+  "category": "house",
+  "kind": "house_townhouse",
+  "facility": null,
+  "variant": 1,
+  "type": 5,
+  "name": "窄高街屋",
+  "tags": [
+   "three_storey",
+   "gable_front",
+   "jetty",
+   "timber_frame",
+   "shop",
+   "sign"
+  ],
+  "roof": "gable_tile",
+  "note": "山墙朝街的商住街屋",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 74,
+  "anchor": [
+   24,
+   122
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   122
+  ]
+ },
+ {
+  "id": "west-common-house-05-2",
+  "style": "west",
+  "race": "common",
+  "category": "house",
+  "kind": "house_townhouse",
+  "facility": null,
+  "variant": 2,
+  "type": 5,
+  "name": "窄高街屋",
+  "tags": [
+   "three_storey",
+   "gable_front",
+   "jetty",
+   "timber_frame",
+   "shop",
+   "sign"
+  ],
+  "roof": "gable_tile",
+  "note": "山墙朝街的商住街屋",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 74,
+  "anchor": [
+   24,
+   122
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   122
+  ]
+ },
+ {
+  "id": "west-common-house-05-3",
+  "style": "west",
+  "race": "common",
+  "category": "house",
+  "kind": "house_townhouse",
+  "facility": null,
+  "variant": 3,
+  "type": 5,
+  "name": "窄高街屋",
+  "tags": [
+   "three_storey",
+   "gable_front",
+   "jetty",
+   "timber_frame",
+   "shop",
+   "sign"
+  ],
+  "roof": "gable_tile",
+  "note": "山墙朝街的商住街屋",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 59,
+  "anchor": [
+   24,
+   107
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   107
+  ]
+ },
+ {
+  "id": "west-common-house-06-1",
+  "style": "west",
+  "race": "common",
+  "category": "house",
+  "kind": "house_shop",
+  "facility": null,
+  "variant": 1,
+  "type": 6,
+  "name": "方石商住楼",
+  "tags": [
+   "two_storey",
+   "ashlar",
+   "shop",
+   "sign",
+   "awning",
+   "hip",
+   "chimney"
+  ],
+  "roof": "hip_tile",
+  "note": "",
+  "footprint": [
+   2,
+   1
+  ],
+  "height_px": 64,
+  "anchor": [
+   48,
+   112
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   112
+  ]
+ },
+ {
+  "id": "west-common-house-06-2",
+  "style": "west",
+  "race": "common",
+  "category": "house",
+  "kind": "house_shop",
+  "facility": null,
+  "variant": 2,
+  "type": 6,
+  "name": "方石商住楼",
+  "tags": [
+   "two_storey",
+   "ashlar",
+   "shop",
+   "sign",
+   "awning",
+   "hip",
+   "chimney"
+  ],
+  "roof": "hip_tile",
+  "note": "",
+  "footprint": [
+   2,
+   1
+  ],
+  "height_px": 62,
+  "anchor": [
+   48,
+   110
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   110
+  ]
+ },
+ {
+  "id": "west-common-house-06-3",
+  "style": "west",
+  "race": "common",
+  "category": "house",
+  "kind": "house_shop",
+  "facility": null,
+  "variant": 3,
+  "type": 6,
+  "name": "方石商住楼",
+  "tags": [
+   "two_storey",
+   "ashlar",
+   "shop",
+   "sign",
+   "awning",
+   "hip",
+   "chimney"
+  ],
+  "roof": "hip_tile",
+  "note": "",
+  "footprint": [
+   2,
+   1
+  ],
+  "height_px": 64,
+  "anchor": [
+   48,
+   112
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   112
+  ]
+ },
+ {
+  "id": "west-common-house-07-1",
+  "style": "west",
+  "race": "common",
+  "category": "house",
+  "kind": "house_stair",
+  "facility": null,
+  "variant": 1,
+  "type": 7,
+  "name": "外楼梯石屋",
+  "tags": [
+   "two_storey",
+   "rubble",
+   "plank",
+   "outside_stair",
+   "gable_front"
+  ],
+  "roof": "steep_slate",
+  "note": "下石上木，外楼梯",
+  "footprint": [
+   1,
+   2
+  ],
+  "height_px": 28,
+  "anchor": [
+   24,
+   124
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   124
+  ]
+ },
+ {
+  "id": "west-common-house-07-2",
+  "style": "west",
+  "race": "common",
+  "category": "house",
+  "kind": "house_stair",
+  "facility": null,
+  "variant": 2,
+  "type": 7,
+  "name": "外楼梯石屋",
+  "tags": [
+   "two_storey",
+   "rubble",
+   "plank",
+   "outside_stair",
+   "gable_front"
+  ],
+  "roof": "steep_slate",
+  "note": "下石上木，外楼梯",
+  "footprint": [
+   1,
+   2
+  ],
+  "height_px": 28,
+  "anchor": [
+   24,
+   124
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   124
+  ]
+ },
+ {
+  "id": "west-common-house-07-3",
+  "style": "west",
+  "race": "common",
+  "category": "house",
+  "kind": "house_stair",
+  "facility": null,
+  "variant": 3,
+  "type": 7,
+  "name": "外楼梯石屋",
+  "tags": [
+   "two_storey",
+   "rubble",
+   "plank",
+   "outside_stair",
+   "gable_front"
+  ],
+  "roof": "steep_slate",
+  "note": "下石上木，外楼梯",
+  "footprint": [
+   1,
+   2
+  ],
+  "height_px": 41,
+  "anchor": [
+   24,
+   137
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   137
+  ]
+ },
+ {
+  "id": "west-common-house-08-1",
+  "style": "west",
+  "race": "common",
+  "category": "house",
+  "kind": "house_tower",
+  "facility": null,
+  "variant": 1,
+  "type": 8,
+  "name": "塔式小楼",
+  "tags": [
+   "three_storey",
+   "round_tower",
+   "rubble",
+   "lean_to",
+   "cone_roof"
+  ],
+  "roof": "steep_slate",
+  "note": "锥顶，RoofId 取最近的 steep_slate",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 49,
+  "anchor": [
+   24,
+   97
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   97
+  ]
+ },
+ {
+  "id": "west-common-house-08-2",
+  "style": "west",
+  "race": "common",
+  "category": "house",
+  "kind": "house_tower",
+  "facility": null,
+  "variant": 2,
+  "type": 8,
+  "name": "塔式小楼",
+  "tags": [
+   "three_storey",
+   "round_tower",
+   "rubble",
+   "lean_to",
+   "cone_roof"
+  ],
+  "roof": "steep_slate",
+  "note": "锥顶，RoofId 取最近的 steep_slate",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 49,
+  "anchor": [
+   24,
+   97
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   97
+  ]
+ },
+ {
+  "id": "west-common-house-08-3",
+  "style": "west",
+  "race": "common",
+  "category": "house",
+  "kind": "house_tower",
+  "facility": null,
+  "variant": 3,
+  "type": 8,
+  "name": "塔式小楼",
+  "tags": [
+   "three_storey",
+   "round_tower",
+   "rubble",
+   "lean_to",
+   "cone_roof"
+  ],
+  "roof": "steep_slate",
+  "note": "锥顶，RoofId 取最近的 steep_slate",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 29,
+  "anchor": [
+   24,
+   77
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   77
+  ]
+ },
+ {
+  "id": "west-common-house-09-1",
+  "style": "west",
+  "race": "common",
+  "category": "house",
+  "kind": "house_farmyard",
+  "facility": null,
+  "variant": 1,
+  "type": 9,
+  "name": "院落农家",
+  "tags": [
+   "one_storey",
+   "timber_frame",
+   "yard",
+   "yard_wall",
+   "garden",
+   "shingle"
+  ],
+  "roof": "gable_tile",
+  "note": "木瓦屋面，RoofId 取最近的 gable_tile",
+  "footprint": [
+   2,
+   2
+  ],
+  "height_px": 35,
+  "anchor": [
+   48,
+   131
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   131
+  ]
+ },
+ {
+  "id": "west-common-house-09-2",
+  "style": "west",
+  "race": "common",
+  "category": "house",
+  "kind": "house_farmyard",
+  "facility": null,
+  "variant": 2,
+  "type": 9,
+  "name": "院落农家",
+  "tags": [
+   "one_storey",
+   "timber_frame",
+   "yard",
+   "yard_wall",
+   "garden",
+   "shingle"
+  ],
+  "roof": "gable_tile",
+  "note": "木瓦屋面，RoofId 取最近的 gable_tile",
+  "footprint": [
+   2,
+   2
+  ],
+  "height_px": 35,
+  "anchor": [
+   48,
+   131
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   131
+  ]
+ },
+ {
+  "id": "west-common-house-09-3",
+  "style": "west",
+  "race": "common",
+  "category": "house",
+  "kind": "house_farmyard",
+  "facility": null,
+  "variant": 3,
+  "type": 9,
+  "name": "院落农家",
+  "tags": [
+   "one_storey",
+   "timber_frame",
+   "yard",
+   "yard_wall",
+   "garden",
+   "shingle"
+  ],
+  "roof": "gable_tile",
+  "note": "木瓦屋面，RoofId 取最近的 gable_tile",
+  "footprint": [
+   2,
+   2
+  ],
+  "height_px": 35,
+  "anchor": [
+   48,
+   131
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   131
+  ]
+ },
+ {
+  "id": "west-common-house-10-1",
+  "style": "west",
+  "race": "common",
+  "category": "house",
+  "kind": "house_manor",
+  "facility": null,
+  "variant": 1,
+  "type": 10,
+  "name": "半石半木大宅",
+  "tags": [
+   "two_storey",
+   "ashlar",
+   "timber_frame",
+   "jetty",
+   "half_hip",
+   "dormer",
+   "chimney"
+  ],
+  "roof": "hip_tile",
+  "note": "半歇山（端部截角），RoofId 取 hip_tile",
+  "footprint": [
+   2,
+   2
+  ],
+  "height_px": 36,
+  "anchor": [
+   48,
+   132
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   132
+  ]
+ },
+ {
+  "id": "west-common-house-10-2",
+  "style": "west",
+  "race": "common",
+  "category": "house",
+  "kind": "house_manor",
+  "facility": null,
+  "variant": 2,
+  "type": 10,
+  "name": "半石半木大宅",
+  "tags": [
+   "two_storey",
+   "ashlar",
+   "timber_frame",
+   "jetty",
+   "half_hip",
+   "dormer",
+   "chimney"
+  ],
+  "roof": "hip_tile",
+  "note": "半歇山（端部截角），RoofId 取 hip_tile",
+  "footprint": [
+   2,
+   2
+  ],
+  "height_px": 36,
+  "anchor": [
+   48,
+   132
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   132
+  ]
+ },
+ {
+  "id": "west-common-house-10-3",
+  "style": "west",
+  "race": "common",
+  "category": "house",
+  "kind": "house_manor",
+  "facility": null,
+  "variant": 3,
+  "type": 10,
+  "name": "半石半木大宅",
+  "tags": [
+   "two_storey",
+   "ashlar",
+   "timber_frame",
+   "jetty",
+   "half_hip",
+   "dormer",
+   "chimney"
+  ],
+  "roof": "hip_tile",
+  "note": "半歇山（端部截角），RoofId 取 hip_tile",
+  "footprint": [
+   2,
+   2
+  ],
+  "height_px": 36,
+  "anchor": [
+   48,
+   132
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   132
+  ]
+ },
+ {
+  "id": "west-common-house-11-1",
+  "style": "west",
+  "race": "common",
+  "category": "house",
+  "kind": "house_shack",
+  "facility": null,
+  "variant": 1,
+  "type": 11,
+  "name": "单坡木板屋",
+  "tags": [
+   "one_storey",
+   "plank",
+   "monopitch",
+   "stovepipe",
+   "rain_barrel"
+  ],
+  "roof": "monopitch",
+  "note": "",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 53,
+  "anchor": [
+   24,
+   101
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   101
+  ]
+ },
+ {
+  "id": "west-common-house-11-2",
+  "style": "west",
+  "race": "common",
+  "category": "house",
+  "kind": "house_shack",
+  "facility": null,
+  "variant": 2,
+  "type": 11,
+  "name": "单坡木板屋",
+  "tags": [
+   "one_storey",
+   "plank",
+   "monopitch",
+   "stovepipe",
+   "rain_barrel"
+  ],
+  "roof": "monopitch",
+  "note": "",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 53,
+  "anchor": [
+   24,
+   101
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   101
+  ]
+ },
+ {
+  "id": "west-common-house-11-3",
+  "style": "west",
+  "race": "common",
+  "category": "house",
+  "kind": "house_shack",
+  "facility": null,
+  "variant": 3,
+  "type": 11,
+  "name": "单坡木板屋",
+  "tags": [
+   "one_storey",
+   "plank",
+   "monopitch",
+   "stovepipe",
+   "rain_barrel"
+  ],
+  "roof": "monopitch",
+  "note": "",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 53,
+  "anchor": [
+   24,
+   101
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   101
+  ]
+ },
+ {
+  "id": "west-common-house-12-1",
+  "style": "west",
+  "race": "common",
+  "category": "house",
+  "kind": "house_row",
+  "facility": null,
+  "variant": 1,
+  "type": 12,
+  "name": "双山墙联排",
+  "tags": [
+   "two_storey",
+   "gable_front",
+   "row_house",
+   "timber_frame",
+   "plaster",
+   "jetty"
+  ],
+  "roof": "gable_tile",
+  "note": "两户分别为红瓦与青石板",
+  "footprint": [
+   2,
+   1
+  ],
+  "height_px": 56,
+  "anchor": [
+   48,
+   104
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   104
+  ]
+ },
+ {
+  "id": "west-common-house-12-2",
+  "style": "west",
+  "race": "common",
+  "category": "house",
+  "kind": "house_row",
+  "facility": null,
+  "variant": 2,
+  "type": 12,
+  "name": "双山墙联排",
+  "tags": [
+   "two_storey",
+   "gable_front",
+   "row_house",
+   "timber_frame",
+   "plaster",
+   "jetty"
+  ],
+  "roof": "gable_tile",
+  "note": "两户分别为红瓦与青石板",
+  "footprint": [
+   2,
+   1
+  ],
+  "height_px": 56,
+  "anchor": [
+   48,
+   104
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   104
+  ]
+ },
+ {
+  "id": "west-common-house-12-3",
+  "style": "west",
+  "race": "common",
+  "category": "house",
+  "kind": "house_row",
+  "facility": null,
+  "variant": 3,
+  "type": 12,
+  "name": "双山墙联排",
+  "tags": [
+   "two_storey",
+   "gable_front",
+   "row_house",
+   "timber_frame",
+   "plaster",
+   "jetty"
+  ],
+  "roof": "gable_tile",
+  "note": "两户分别为红瓦与青石板",
+  "footprint": [
+   2,
+   1
+  ],
+  "height_px": 70,
+  "anchor": [
+   48,
+   118
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   118
+  ]
+ },
+ {
+  "id": "west-common-house-13-1",
+  "style": "west",
+  "race": "common",
+  "category": "house",
+  "kind": "house_stepgable",
+  "facility": null,
+  "variant": 1,
+  "type": 13,
+  "name": "跌级山墙石楼",
+  "tags": [
+   "three_storey",
+   "ashlar",
+   "crow_step_gable",
+   "gable_front"
+  ],
+  "roof": "steep_slate",
+  "note": "阶梯山墙",
+  "footprint": [
+   1,
+   2
+  ],
+  "height_px": 47,
+  "anchor": [
+   24,
+   143
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   143
+  ]
+ },
+ {
+  "id": "west-common-house-13-2",
+  "style": "west",
+  "race": "common",
+  "category": "house",
+  "kind": "house_stepgable",
+  "facility": null,
+  "variant": 2,
+  "type": 13,
+  "name": "跌级山墙石楼",
+  "tags": [
+   "three_storey",
+   "ashlar",
+   "crow_step_gable",
+   "gable_front"
+  ],
+  "roof": "steep_slate",
+  "note": "阶梯山墙",
+  "footprint": [
+   1,
+   2
+  ],
+  "height_px": 47,
+  "anchor": [
+   24,
+   143
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   143
+  ]
+ },
+ {
+  "id": "west-common-house-13-3",
+  "style": "west",
+  "race": "common",
+  "category": "house",
+  "kind": "house_stepgable",
+  "facility": null,
+  "variant": 3,
+  "type": 13,
+  "name": "跌级山墙石楼",
+  "tags": [
+   "three_storey",
+   "ashlar",
+   "crow_step_gable",
+   "gable_front"
+  ],
+  "roof": "steep_slate",
+  "note": "阶梯山墙",
+  "footprint": [
+   1,
+   2
+  ],
+  "height_px": 31,
+  "anchor": [
+   24,
+   127
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   127
+  ]
+ },
+ {
+  "id": "west-common-house-14-1",
+  "style": "west",
+  "race": "common",
+  "category": "house",
+  "kind": "house_barn",
+  "facility": null,
+  "variant": 1,
+  "type": 14,
+  "name": "谷仓农屋",
+  "tags": [
+   "one_storey",
+   "loft",
+   "gable_front",
+   "timber_frame",
+   "thatch",
+   "hay_door",
+   "haystack"
+  ],
+  "roof": "gable_thatch",
+  "note": "山墙朝街，草料阁楼",
+  "footprint": [
+   2,
+   1
+  ],
+  "height_px": 48,
+  "anchor": [
+   48,
+   96
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   96
+  ]
+ },
+ {
+  "id": "west-common-house-14-2",
+  "style": "west",
+  "race": "common",
+  "category": "house",
+  "kind": "house_barn",
+  "facility": null,
+  "variant": 2,
+  "type": 14,
+  "name": "谷仓农屋",
+  "tags": [
+   "one_storey",
+   "loft",
+   "gable_front",
+   "timber_frame",
+   "thatch",
+   "hay_door",
+   "haystack"
+  ],
+  "roof": "gable_thatch",
+  "note": "山墙朝街，草料阁楼",
+  "footprint": [
+   2,
+   1
+  ],
+  "height_px": 48,
+  "anchor": [
+   48,
+   96
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   96
+  ]
+ },
+ {
+  "id": "west-common-house-14-3",
+  "style": "west",
+  "race": "common",
+  "category": "house",
+  "kind": "house_barn",
+  "facility": null,
+  "variant": 3,
+  "type": 14,
+  "name": "谷仓农屋",
+  "tags": [
+   "one_storey",
+   "loft",
+   "gable_front",
+   "timber_frame",
+   "thatch",
+   "hay_door",
+   "haystack"
+  ],
+  "roof": "gable_thatch",
+  "note": "山墙朝街，草料阁楼",
+  "footprint": [
+   2,
+   1
+  ],
+  "height_px": 48,
+  "anchor": [
+   48,
+   96
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   96
+  ]
+ },
+ {
+  "id": "west-common-house-15-1",
+  "style": "west",
+  "race": "common",
+  "category": "house",
+  "kind": "house_towerhouse",
+  "facility": null,
+  "variant": 1,
+  "type": 15,
+  "name": "方石塔宅",
+  "tags": [
+   "three_storey",
+   "square_tower",
+   "ashlar",
+   "quoins",
+   "pyramid_roof"
+  ],
+  "roof": "hip_tile",
+  "note": "金字塔四坡青石板顶，RoofId 取 hip_tile（材质为青石板）",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 57,
+  "anchor": [
+   24,
+   105
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   105
+  ]
+ },
+ {
+  "id": "west-common-house-15-2",
+  "style": "west",
+  "race": "common",
+  "category": "house",
+  "kind": "house_towerhouse",
+  "facility": null,
+  "variant": 2,
+  "type": 15,
+  "name": "方石塔宅",
+  "tags": [
+   "three_storey",
+   "square_tower",
+   "ashlar",
+   "quoins",
+   "pyramid_roof"
+  ],
+  "roof": "hip_tile",
+  "note": "金字塔四坡青石板顶，RoofId 取 hip_tile（材质为青石板）",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 57,
+  "anchor": [
+   24,
+   105
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   105
+  ]
+ },
+ {
+  "id": "west-common-house-15-3",
+  "style": "west",
+  "race": "common",
+  "category": "house",
+  "kind": "house_towerhouse",
+  "facility": null,
+  "variant": 3,
+  "type": 15,
+  "name": "方石塔宅",
+  "tags": [
+   "three_storey",
+   "square_tower",
+   "ashlar",
+   "quoins",
+   "pyramid_roof"
+  ],
+  "roof": "hip_tile",
+  "note": "金字塔四坡青石板顶，RoofId 取 hip_tile（材质为青石板）",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 49,
+  "anchor": [
+   24,
+   97
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   97
+  ]
+ },
+ {
+  "id": "west-common-house-16-1",
+  "style": "west",
+  "race": "common",
+  "category": "house",
+  "kind": "house_lplan",
+  "facility": null,
+  "variant": 1,
+  "type": 16,
+  "name": "L 形侧翼宅",
+  "tags": [
+   "two_storey",
+   "l_plan",
+   "plaster",
+   "timber_frame",
+   "wing",
+   "yard",
+   "well"
+  ],
+  "roof": "gable_tile",
+  "note": "主屋侧坡 + 侧翼正山墙",
+  "footprint": [
+   2,
+   2
+  ],
+  "height_px": 51,
+  "anchor": [
+   48,
+   147
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   147
+  ]
+ },
+ {
+  "id": "west-common-house-16-2",
+  "style": "west",
+  "race": "common",
+  "category": "house",
+  "kind": "house_lplan",
+  "facility": null,
+  "variant": 2,
+  "type": 16,
+  "name": "L 形侧翼宅",
+  "tags": [
+   "two_storey",
+   "l_plan",
+   "plaster",
+   "timber_frame",
+   "wing",
+   "yard",
+   "well"
+  ],
+  "roof": "gable_tile",
+  "note": "主屋侧坡 + 侧翼正山墙",
+  "footprint": [
+   2,
+   2
+  ],
+  "height_px": 51,
+  "anchor": [
+   48,
+   147
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   147
+  ]
+ },
+ {
+  "id": "west-common-house-16-3",
+  "style": "west",
+  "race": "common",
+  "category": "house",
+  "kind": "house_lplan",
+  "facility": null,
+  "variant": 3,
+  "type": 16,
+  "name": "L 形侧翼宅",
+  "tags": [
+   "two_storey",
+   "l_plan",
+   "plaster",
+   "timber_frame",
+   "wing",
+   "yard",
+   "well"
+  ],
+  "roof": "gable_tile",
+  "note": "主屋侧坡 + 侧翼正山墙",
+  "footprint": [
+   2,
+   2
+  ],
+  "height_px": 51,
+  "anchor": [
+   48,
+   147
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   147
+  ]
+ },
+ {
+  "id": "west-common-road-dirt-0000",
+  "style": "west",
+  "race": "common",
+  "category": "road",
+  "kind": "road_dirt",
+  "facility": null,
+  "variant": 0,
+  "mask": 0,
+  "name": "土路 0000",
+  "tags": [
+   "dual_grid",
+   "mask_0000"
+  ],
+  "roof": "none",
+  "note": "空瓦片（透明占位）",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "west-common-road-dirt-0001",
+  "style": "west",
+  "race": "common",
+  "category": "road",
+  "kind": "road_dirt",
+  "facility": null,
+  "variant": 1,
+  "mask": 1,
+  "name": "土路 0001",
+  "tags": [
+   "dual_grid",
+   "mask_0001"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "west-common-road-dirt-0010",
+  "style": "west",
+  "race": "common",
+  "category": "road",
+  "kind": "road_dirt",
+  "facility": null,
+  "variant": 2,
+  "mask": 2,
+  "name": "土路 0010",
+  "tags": [
+   "dual_grid",
+   "mask_0010"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "west-common-road-dirt-0011",
+  "style": "west",
+  "race": "common",
+  "category": "road",
+  "kind": "road_dirt",
+  "facility": null,
+  "variant": 3,
+  "mask": 3,
+  "name": "土路 0011",
+  "tags": [
+   "dual_grid",
+   "mask_0011"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "west-common-road-dirt-0100",
+  "style": "west",
+  "race": "common",
+  "category": "road",
+  "kind": "road_dirt",
+  "facility": null,
+  "variant": 4,
+  "mask": 4,
+  "name": "土路 0100",
+  "tags": [
+   "dual_grid",
+   "mask_0100"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "west-common-road-dirt-0101",
+  "style": "west",
+  "race": "common",
+  "category": "road",
+  "kind": "road_dirt",
+  "facility": null,
+  "variant": 5,
+  "mask": 5,
+  "name": "土路 0101",
+  "tags": [
+   "dual_grid",
+   "mask_0101"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "west-common-road-dirt-0110",
+  "style": "west",
+  "race": "common",
+  "category": "road",
+  "kind": "road_dirt",
+  "facility": null,
+  "variant": 6,
+  "mask": 6,
+  "name": "土路 0110",
+  "tags": [
+   "dual_grid",
+   "mask_0110"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "west-common-road-dirt-0111",
+  "style": "west",
+  "race": "common",
+  "category": "road",
+  "kind": "road_dirt",
+  "facility": null,
+  "variant": 7,
+  "mask": 7,
+  "name": "土路 0111",
+  "tags": [
+   "dual_grid",
+   "mask_0111"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "west-common-road-dirt-1000",
+  "style": "west",
+  "race": "common",
+  "category": "road",
+  "kind": "road_dirt",
+  "facility": null,
+  "variant": 8,
+  "mask": 8,
+  "name": "土路 1000",
+  "tags": [
+   "dual_grid",
+   "mask_1000"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "west-common-road-dirt-1001",
+  "style": "west",
+  "race": "common",
+  "category": "road",
+  "kind": "road_dirt",
+  "facility": null,
+  "variant": 9,
+  "mask": 9,
+  "name": "土路 1001",
+  "tags": [
+   "dual_grid",
+   "mask_1001"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "west-common-road-dirt-1010",
+  "style": "west",
+  "race": "common",
+  "category": "road",
+  "kind": "road_dirt",
+  "facility": null,
+  "variant": 10,
+  "mask": 10,
+  "name": "土路 1010",
+  "tags": [
+   "dual_grid",
+   "mask_1010"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "west-common-road-dirt-1011",
+  "style": "west",
+  "race": "common",
+  "category": "road",
+  "kind": "road_dirt",
+  "facility": null,
+  "variant": 11,
+  "mask": 11,
+  "name": "土路 1011",
+  "tags": [
+   "dual_grid",
+   "mask_1011"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "west-common-road-dirt-1100",
+  "style": "west",
+  "race": "common",
+  "category": "road",
+  "kind": "road_dirt",
+  "facility": null,
+  "variant": 12,
+  "mask": 12,
+  "name": "土路 1100",
+  "tags": [
+   "dual_grid",
+   "mask_1100"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "west-common-road-dirt-1101",
+  "style": "west",
+  "race": "common",
+  "category": "road",
+  "kind": "road_dirt",
+  "facility": null,
+  "variant": 13,
+  "mask": 13,
+  "name": "土路 1101",
+  "tags": [
+   "dual_grid",
+   "mask_1101"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "west-common-road-dirt-1110",
+  "style": "west",
+  "race": "common",
+  "category": "road",
+  "kind": "road_dirt",
+  "facility": null,
+  "variant": 14,
+  "mask": 14,
+  "name": "土路 1110",
+  "tags": [
+   "dual_grid",
+   "mask_1110"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "west-common-road-dirt-1111",
+  "style": "west",
+  "race": "common",
+  "category": "road",
+  "kind": "road_dirt",
+  "facility": null,
+  "variant": 15,
+  "mask": 15,
+  "name": "土路 1111",
+  "tags": [
+   "dual_grid",
+   "mask_1111"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "west-common-road-stone-0000",
+  "style": "west",
+  "race": "common",
+  "category": "road",
+  "kind": "road_stone",
+  "facility": null,
+  "variant": 0,
+  "mask": 0,
+  "name": "石板路 0000",
+  "tags": [
+   "dual_grid",
+   "mask_0000"
+  ],
+  "roof": "none",
+  "note": "空瓦片（透明占位）",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "west-common-road-stone-0001",
+  "style": "west",
+  "race": "common",
+  "category": "road",
+  "kind": "road_stone",
+  "facility": null,
+  "variant": 1,
+  "mask": 1,
+  "name": "石板路 0001",
+  "tags": [
+   "dual_grid",
+   "mask_0001"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "west-common-road-stone-0010",
+  "style": "west",
+  "race": "common",
+  "category": "road",
+  "kind": "road_stone",
+  "facility": null,
+  "variant": 2,
+  "mask": 2,
+  "name": "石板路 0010",
+  "tags": [
+   "dual_grid",
+   "mask_0010"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "west-common-road-stone-0011",
+  "style": "west",
+  "race": "common",
+  "category": "road",
+  "kind": "road_stone",
+  "facility": null,
+  "variant": 3,
+  "mask": 3,
+  "name": "石板路 0011",
+  "tags": [
+   "dual_grid",
+   "mask_0011"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "west-common-road-stone-0100",
+  "style": "west",
+  "race": "common",
+  "category": "road",
+  "kind": "road_stone",
+  "facility": null,
+  "variant": 4,
+  "mask": 4,
+  "name": "石板路 0100",
+  "tags": [
+   "dual_grid",
+   "mask_0100"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "west-common-road-stone-0101",
+  "style": "west",
+  "race": "common",
+  "category": "road",
+  "kind": "road_stone",
+  "facility": null,
+  "variant": 5,
+  "mask": 5,
+  "name": "石板路 0101",
+  "tags": [
+   "dual_grid",
+   "mask_0101"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "west-common-road-stone-0110",
+  "style": "west",
+  "race": "common",
+  "category": "road",
+  "kind": "road_stone",
+  "facility": null,
+  "variant": 6,
+  "mask": 6,
+  "name": "石板路 0110",
+  "tags": [
+   "dual_grid",
+   "mask_0110"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "west-common-road-stone-0111",
+  "style": "west",
+  "race": "common",
+  "category": "road",
+  "kind": "road_stone",
+  "facility": null,
+  "variant": 7,
+  "mask": 7,
+  "name": "石板路 0111",
+  "tags": [
+   "dual_grid",
+   "mask_0111"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "west-common-road-stone-1000",
+  "style": "west",
+  "race": "common",
+  "category": "road",
+  "kind": "road_stone",
+  "facility": null,
+  "variant": 8,
+  "mask": 8,
+  "name": "石板路 1000",
+  "tags": [
+   "dual_grid",
+   "mask_1000"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "west-common-road-stone-1001",
+  "style": "west",
+  "race": "common",
+  "category": "road",
+  "kind": "road_stone",
+  "facility": null,
+  "variant": 9,
+  "mask": 9,
+  "name": "石板路 1001",
+  "tags": [
+   "dual_grid",
+   "mask_1001"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "west-common-road-stone-1010",
+  "style": "west",
+  "race": "common",
+  "category": "road",
+  "kind": "road_stone",
+  "facility": null,
+  "variant": 10,
+  "mask": 10,
+  "name": "石板路 1010",
+  "tags": [
+   "dual_grid",
+   "mask_1010"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "west-common-road-stone-1011",
+  "style": "west",
+  "race": "common",
+  "category": "road",
+  "kind": "road_stone",
+  "facility": null,
+  "variant": 11,
+  "mask": 11,
+  "name": "石板路 1011",
+  "tags": [
+   "dual_grid",
+   "mask_1011"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "west-common-road-stone-1100",
+  "style": "west",
+  "race": "common",
+  "category": "road",
+  "kind": "road_stone",
+  "facility": null,
+  "variant": 12,
+  "mask": 12,
+  "name": "石板路 1100",
+  "tags": [
+   "dual_grid",
+   "mask_1100"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "west-common-road-stone-1101",
+  "style": "west",
+  "race": "common",
+  "category": "road",
+  "kind": "road_stone",
+  "facility": null,
+  "variant": 13,
+  "mask": 13,
+  "name": "石板路 1101",
+  "tags": [
+   "dual_grid",
+   "mask_1101"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "west-common-road-stone-1110",
+  "style": "west",
+  "race": "common",
+  "category": "road",
+  "kind": "road_stone",
+  "facility": null,
+  "variant": 14,
+  "mask": 14,
+  "name": "石板路 1110",
+  "tags": [
+   "dual_grid",
+   "mask_1110"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "west-common-road-stone-1111",
+  "style": "west",
+  "race": "common",
+  "category": "road",
+  "kind": "road_stone",
+  "facility": null,
+  "variant": 15,
+  "mask": 15,
+  "name": "石板路 1111",
+  "tags": [
+   "dual_grid",
+   "mask_1111"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "west-common-road-highway-0000",
+  "style": "west",
+  "race": "common",
+  "category": "road",
+  "kind": "road_highway",
+  "facility": null,
+  "variant": 0,
+  "mask": 0,
+  "name": "官道 0000",
+  "tags": [
+   "dual_grid",
+   "mask_0000"
+  ],
+  "roof": "none",
+  "note": "空瓦片（透明占位）",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "west-common-road-highway-0001",
+  "style": "west",
+  "race": "common",
+  "category": "road",
+  "kind": "road_highway",
+  "facility": null,
+  "variant": 1,
+  "mask": 1,
+  "name": "官道 0001",
+  "tags": [
+   "dual_grid",
+   "mask_0001"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "west-common-road-highway-0010",
+  "style": "west",
+  "race": "common",
+  "category": "road",
+  "kind": "road_highway",
+  "facility": null,
+  "variant": 2,
+  "mask": 2,
+  "name": "官道 0010",
+  "tags": [
+   "dual_grid",
+   "mask_0010"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "west-common-road-highway-0011",
+  "style": "west",
+  "race": "common",
+  "category": "road",
+  "kind": "road_highway",
+  "facility": null,
+  "variant": 3,
+  "mask": 3,
+  "name": "官道 0011",
+  "tags": [
+   "dual_grid",
+   "mask_0011"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "west-common-road-highway-0100",
+  "style": "west",
+  "race": "common",
+  "category": "road",
+  "kind": "road_highway",
+  "facility": null,
+  "variant": 4,
+  "mask": 4,
+  "name": "官道 0100",
+  "tags": [
+   "dual_grid",
+   "mask_0100"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "west-common-road-highway-0101",
+  "style": "west",
+  "race": "common",
+  "category": "road",
+  "kind": "road_highway",
+  "facility": null,
+  "variant": 5,
+  "mask": 5,
+  "name": "官道 0101",
+  "tags": [
+   "dual_grid",
+   "mask_0101"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "west-common-road-highway-0110",
+  "style": "west",
+  "race": "common",
+  "category": "road",
+  "kind": "road_highway",
+  "facility": null,
+  "variant": 6,
+  "mask": 6,
+  "name": "官道 0110",
+  "tags": [
+   "dual_grid",
+   "mask_0110"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "west-common-road-highway-0111",
+  "style": "west",
+  "race": "common",
+  "category": "road",
+  "kind": "road_highway",
+  "facility": null,
+  "variant": 7,
+  "mask": 7,
+  "name": "官道 0111",
+  "tags": [
+   "dual_grid",
+   "mask_0111"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "west-common-road-highway-1000",
+  "style": "west",
+  "race": "common",
+  "category": "road",
+  "kind": "road_highway",
+  "facility": null,
+  "variant": 8,
+  "mask": 8,
+  "name": "官道 1000",
+  "tags": [
+   "dual_grid",
+   "mask_1000"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "west-common-road-highway-1001",
+  "style": "west",
+  "race": "common",
+  "category": "road",
+  "kind": "road_highway",
+  "facility": null,
+  "variant": 9,
+  "mask": 9,
+  "name": "官道 1001",
+  "tags": [
+   "dual_grid",
+   "mask_1001"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "west-common-road-highway-1010",
+  "style": "west",
+  "race": "common",
+  "category": "road",
+  "kind": "road_highway",
+  "facility": null,
+  "variant": 10,
+  "mask": 10,
+  "name": "官道 1010",
+  "tags": [
+   "dual_grid",
+   "mask_1010"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "west-common-road-highway-1011",
+  "style": "west",
+  "race": "common",
+  "category": "road",
+  "kind": "road_highway",
+  "facility": null,
+  "variant": 11,
+  "mask": 11,
+  "name": "官道 1011",
+  "tags": [
+   "dual_grid",
+   "mask_1011"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "west-common-road-highway-1100",
+  "style": "west",
+  "race": "common",
+  "category": "road",
+  "kind": "road_highway",
+  "facility": null,
+  "variant": 12,
+  "mask": 12,
+  "name": "官道 1100",
+  "tags": [
+   "dual_grid",
+   "mask_1100"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "west-common-road-highway-1101",
+  "style": "west",
+  "race": "common",
+  "category": "road",
+  "kind": "road_highway",
+  "facility": null,
+  "variant": 13,
+  "mask": 13,
+  "name": "官道 1101",
+  "tags": [
+   "dual_grid",
+   "mask_1101"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "west-common-road-highway-1110",
+  "style": "west",
+  "race": "common",
+  "category": "road",
+  "kind": "road_highway",
+  "facility": null,
+  "variant": 14,
+  "mask": 14,
+  "name": "官道 1110",
+  "tags": [
+   "dual_grid",
+   "mask_1110"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "west-common-road-highway-1111",
+  "style": "west",
+  "race": "common",
+  "category": "road",
+  "kind": "road_highway",
+  "facility": null,
+  "variant": 15,
+  "mask": 15,
+  "name": "官道 1111",
+  "tags": [
+   "dual_grid",
+   "mask_1111"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "west-common-wall-0000",
+  "style": "west",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_stone",
+  "facility": "city_wall",
+  "variant": 0,
+  "mask": 0,
+  "name": "城墙 0000",
+  "tags": [
+   "dual_grid",
+   "mask_0000",
+   "crenellated"
+  ],
+  "roof": "none",
+  "note": "空瓦片（透明占位）",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "west-common-wall-0001",
+  "style": "west",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_stone",
+  "facility": "city_wall",
+  "variant": 1,
+  "mask": 1,
+  "name": "城墙 0001",
+  "tags": [
+   "dual_grid",
+   "mask_0001",
+   "crenellated"
+  ],
+  "roof": "none",
+  "note": "墙厚 24 px、高 40 px，墙顶垛口",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 47,
+  "anchor": [
+   24,
+   95
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   95
+  ]
+ },
+ {
+  "id": "west-common-wall-0010",
+  "style": "west",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_stone",
+  "facility": "city_wall",
+  "variant": 2,
+  "mask": 2,
+  "name": "城墙 0010",
+  "tags": [
+   "dual_grid",
+   "mask_0010",
+   "crenellated"
+  ],
+  "roof": "none",
+  "note": "墙厚 24 px、高 40 px，墙顶垛口",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 47,
+  "anchor": [
+   24,
+   95
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   95
+  ]
+ },
+ {
+  "id": "west-common-wall-0011",
+  "style": "west",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_stone",
+  "facility": "city_wall",
+  "variant": 3,
+  "mask": 3,
+  "name": "城墙 0011",
+  "tags": [
+   "dual_grid",
+   "mask_0011",
+   "crenellated"
+  ],
+  "roof": "none",
+  "note": "墙厚 24 px、高 40 px，墙顶垛口",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 47,
+  "anchor": [
+   24,
+   95
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   95
+  ]
+ },
+ {
+  "id": "west-common-wall-0100",
+  "style": "west",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_stone",
+  "facility": "city_wall",
+  "variant": 4,
+  "mask": 4,
+  "name": "城墙 0100",
+  "tags": [
+   "dual_grid",
+   "mask_0100",
+   "crenellated"
+  ],
+  "roof": "none",
+  "note": "墙厚 24 px、高 40 px，墙顶垛口",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 47,
+  "anchor": [
+   24,
+   95
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   95
+  ]
+ },
+ {
+  "id": "west-common-wall-0101",
+  "style": "west",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_stone",
+  "facility": "city_wall",
+  "variant": 5,
+  "mask": 5,
+  "name": "城墙 0101",
+  "tags": [
+   "dual_grid",
+   "mask_0101",
+   "crenellated"
+  ],
+  "roof": "none",
+  "note": "墙厚 24 px、高 40 px，墙顶垛口",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 47,
+  "anchor": [
+   24,
+   95
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   95
+  ]
+ },
+ {
+  "id": "west-common-wall-0110",
+  "style": "west",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_stone",
+  "facility": "city_wall",
+  "variant": 6,
+  "mask": 6,
+  "name": "城墙 0110",
+  "tags": [
+   "dual_grid",
+   "mask_0110",
+   "crenellated"
+  ],
+  "roof": "none",
+  "note": "墙厚 24 px、高 40 px，墙顶垛口",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 47,
+  "anchor": [
+   24,
+   95
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   95
+  ]
+ },
+ {
+  "id": "west-common-wall-0111",
+  "style": "west",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_stone",
+  "facility": "city_wall",
+  "variant": 7,
+  "mask": 7,
+  "name": "城墙 0111",
+  "tags": [
+   "dual_grid",
+   "mask_0111",
+   "crenellated"
+  ],
+  "roof": "none",
+  "note": "墙厚 24 px、高 40 px，墙顶垛口",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 47,
+  "anchor": [
+   24,
+   95
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   95
+  ]
+ },
+ {
+  "id": "west-common-wall-1000",
+  "style": "west",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_stone",
+  "facility": "city_wall",
+  "variant": 8,
+  "mask": 8,
+  "name": "城墙 1000",
+  "tags": [
+   "dual_grid",
+   "mask_1000",
+   "crenellated"
+  ],
+  "roof": "none",
+  "note": "墙厚 24 px、高 40 px，墙顶垛口",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 47,
+  "anchor": [
+   24,
+   95
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   95
+  ]
+ },
+ {
+  "id": "west-common-wall-1001",
+  "style": "west",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_stone",
+  "facility": "city_wall",
+  "variant": 9,
+  "mask": 9,
+  "name": "城墙 1001",
+  "tags": [
+   "dual_grid",
+   "mask_1001",
+   "crenellated"
+  ],
+  "roof": "none",
+  "note": "墙厚 24 px、高 40 px，墙顶垛口",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 47,
+  "anchor": [
+   24,
+   95
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   95
+  ]
+ },
+ {
+  "id": "west-common-wall-1010",
+  "style": "west",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_stone",
+  "facility": "city_wall",
+  "variant": 10,
+  "mask": 10,
+  "name": "城墙 1010",
+  "tags": [
+   "dual_grid",
+   "mask_1010",
+   "crenellated"
+  ],
+  "roof": "none",
+  "note": "墙厚 24 px、高 40 px，墙顶垛口",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 47,
+  "anchor": [
+   24,
+   95
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   95
+  ]
+ },
+ {
+  "id": "west-common-wall-1011",
+  "style": "west",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_stone",
+  "facility": "city_wall",
+  "variant": 11,
+  "mask": 11,
+  "name": "城墙 1011",
+  "tags": [
+   "dual_grid",
+   "mask_1011",
+   "crenellated"
+  ],
+  "roof": "none",
+  "note": "墙厚 24 px、高 40 px，墙顶垛口",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 47,
+  "anchor": [
+   24,
+   95
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   95
+  ]
+ },
+ {
+  "id": "west-common-wall-1100",
+  "style": "west",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_stone",
+  "facility": "city_wall",
+  "variant": 12,
+  "mask": 12,
+  "name": "城墙 1100",
+  "tags": [
+   "dual_grid",
+   "mask_1100",
+   "crenellated"
+  ],
+  "roof": "none",
+  "note": "墙厚 24 px、高 40 px，墙顶垛口",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 47,
+  "anchor": [
+   24,
+   95
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   95
+  ]
+ },
+ {
+  "id": "west-common-wall-1101",
+  "style": "west",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_stone",
+  "facility": "city_wall",
+  "variant": 13,
+  "mask": 13,
+  "name": "城墙 1101",
+  "tags": [
+   "dual_grid",
+   "mask_1101",
+   "crenellated"
+  ],
+  "roof": "none",
+  "note": "墙厚 24 px、高 40 px，墙顶垛口",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 47,
+  "anchor": [
+   24,
+   95
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   95
+  ]
+ },
+ {
+  "id": "west-common-wall-1110",
+  "style": "west",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_stone",
+  "facility": "city_wall",
+  "variant": 14,
+  "mask": 14,
+  "name": "城墙 1110",
+  "tags": [
+   "dual_grid",
+   "mask_1110",
+   "crenellated"
+  ],
+  "roof": "none",
+  "note": "墙厚 24 px、高 40 px，墙顶垛口",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 47,
+  "anchor": [
+   24,
+   95
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   95
+  ]
+ },
+ {
+  "id": "west-common-wall-1111",
+  "style": "west",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_stone",
+  "facility": "city_wall",
+  "variant": 15,
+  "mask": 15,
+  "name": "城墙 1111",
+  "tags": [
+   "dual_grid",
+   "mask_1111",
+   "crenellated"
+  ],
+  "roof": "none",
+  "note": "墙厚 24 px、高 40 px，墙顶垛口",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 47,
+  "anchor": [
+   24,
+   95
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   95
+  ]
+ },
+ {
+  "id": "west-common-wall-gate-h",
+  "style": "west",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_gate_h",
+  "facility": "gate",
+  "variant": 1,
+  "name": "城门（东西向墙段）",
+  "tags": [
+   "overlay",
+   "logical_cell",
+   "portcullis",
+   "gatehouse"
+  ],
+  "roof": "gable_tile",
+  "note": "放在东西向直墙的逻辑格上；门洞朝南北，带吊闸、突堞与四坡红瓦门楼。叠加件对齐逻辑格（不是渲染格），锚点 = 逻辑格前沿中点",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 54,
+  "anchor": [
+   24,
+   102
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   102
+  ]
+ },
+ {
+  "id": "west-common-wall-gate-v",
+  "style": "west",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_gate_v",
+  "facility": "gate",
+  "variant": 2,
+  "name": "城门（南北向墙段）",
+  "tags": [
+   "overlay",
+   "logical_cell",
+   "gatehouse"
+  ],
+  "roof": "gable_tile",
+  "note": "放在南北向直墙的逻辑格上；门洞朝东西，正视只露两侧敞开的门扇。叠加件对齐逻辑格（不是渲染格），锚点 = 逻辑格前沿中点",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 73,
+  "anchor": [
+   24,
+   121
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   121
+  ]
+ },
+ {
+  "id": "west-common-wall-tower-round",
+  "style": "west",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_tower_round",
+  "facility": "watchtower",
+  "variant": 3,
+  "name": "圆塔楼",
+  "tags": [
+   "overlay",
+   "logical_cell",
+   "round_tower",
+   "cone_roof"
+  ],
+  "roof": "steep_slate",
+  "note": "放在墙的拐角或端点；锥形青石板顶。叠加件对齐逻辑格（不是渲染格），锚点 = 逻辑格前沿中点",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 68,
+  "anchor": [
+   24,
+   116
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   116
+  ]
+ },
+ {
+  "id": "west-common-wall-tower-square",
+  "style": "west",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_tower_square",
+  "facility": "watchtower",
+  "variant": 4,
+  "name": "方塔楼",
+  "tags": [
+   "overlay",
+   "logical_cell",
+   "square_tower",
+   "crenellated"
+  ],
+  "roof": "none",
+  "note": "放在墙的拐角或端点；平顶垛口。叠加件对齐逻辑格（不是渲染格），锚点 = 逻辑格前沿中点",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 60,
+  "anchor": [
+   24,
+   108
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   108
+  ]
+ }
+]

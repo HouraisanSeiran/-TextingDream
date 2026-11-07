@@ -1,0 +1,764 @@
+{
+  "schema": "game_fields_v1",
+  "group": "reality-herbs-aerial",
+  "entries": {
+    "herb_aerial_mahuang": {
+      "price": {
+        "min": 3,
+        "max": 10,
+        "per": "一两",
+        "tier": "groat"
+      },
+      "terrains": [
+        "temperate_desert",
+        "steppe"
+      ],
+      "seasons": [
+        "autumn"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "apothecary"
+      ],
+      "note": "现实中为管制或成瘾物；世界选项可设为禁售",
+      "restriction": "controlled_substance"
+    },
+    "herb_aerial_guizhi": {
+      "price": {
+        "min": 3,
+        "max": 8,
+        "per": "一两",
+        "tier": "groat"
+      },
+      "terrains": [
+        "rainforest",
+        "tropical_dry_forest"
+      ],
+      "seasons": [
+        "spring",
+        "summer"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "apothecary",
+        "spice_merchant"
+      ],
+      "note": "与肉桂同树异部位，按香料类低档估价"
+    },
+    "herb_aerial_houpo": {
+      "price": {
+        "min": 6,
+        "max": 18,
+        "per": "一两",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "mountain",
+        "temperate_forest"
+      ],
+      "seasons": [
+        "spring",
+        "summer"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "apothecary"
+      ],
+      "note": "树皮需多年才能再剥，资源压力大，取中档估价"
+    },
+    "herb_aerial_sangye": {
+      "price": {
+        "min": 1,
+        "max": 3,
+        "per": "一把",
+        "tier": "penny"
+      },
+      "terrains": [
+        "farmland"
+      ],
+      "seasons": [
+        "autumn"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "apothecary",
+        "farmer"
+      ],
+      "note": "养蚕人家的副产，最便宜的一类叶药"
+    },
+    "herb_aerial_bohe": {
+      "price": {
+        "min": 1,
+        "max": 3,
+        "per": "一把",
+        "tier": "penny"
+      },
+      "terrains": [
+        "farmland",
+        "wetland"
+      ],
+      "seasons": [
+        "summer",
+        "autumn"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "apothecary",
+        "herbalist",
+        "market"
+      ],
+      "note": "常见香草，按几便士估价"
+    },
+    "herb_aerial_zisu": {
+      "price": {
+        "min": 1,
+        "max": 3,
+        "per": "一把",
+        "tier": "penny"
+      },
+      "terrains": [
+        "farmland"
+      ],
+      "seasons": [
+        "summer",
+        "autumn"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "apothecary",
+        "herbalist",
+        "market"
+      ],
+      "note": "常见叶类药材，按几便士估价"
+    },
+    "herb_aerial_jingjie": {
+      "price": {
+        "min": 2,
+        "max": 5,
+        "per": "一把",
+        "tier": "groat"
+      },
+      "terrains": [
+        "farmland"
+      ],
+      "seasons": [
+        "summer",
+        "autumn"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "apothecary",
+        "herbalist",
+        "market"
+      ],
+      "note": "常见地上部药材，按低档估价"
+    },
+    "herb_aerial_xiangru": {
+      "price": {
+        "min": 2,
+        "max": 5,
+        "per": "一把",
+        "tier": "groat"
+      },
+      "terrains": [
+        "farmland",
+        "temperate_forest"
+      ],
+      "seasons": [
+        "summer"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "apothecary",
+        "herbalist"
+      ],
+      "note": "夏季香草类药材，按低档估价"
+    },
+    "herb_aerial_aiye": {
+      "price": {
+        "min": 1,
+        "max": 3,
+        "per": "一把",
+        "tier": "penny"
+      },
+      "terrains": [
+        "farmland",
+        "river"
+      ],
+      "seasons": [
+        "summer"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "apothecary",
+        "herbalist",
+        "market"
+      ],
+      "note": "端午前后采收，遍地可采，价最低"
+    },
+    "herb_aerial_heye": {
+      "price": {
+        "min": 1,
+        "max": 3,
+        "per": "一把",
+        "tier": "penny"
+      },
+      "terrains": [
+        "lake",
+        "wetland"
+      ],
+      "seasons": [
+        "summer"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "apothecary",
+        "market"
+      ],
+      "note": "池塘随处可得，按几便士估价"
+    },
+    "herb_aerial_danzhuye": {
+      "price": {
+        "min": 2,
+        "max": 5,
+        "per": "一把",
+        "tier": "groat"
+      },
+      "terrains": [
+        "temperate_forest",
+        "mountain"
+      ],
+      "seasons": [
+        "summer"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "apothecary",
+        "herbalist"
+      ],
+      "note": "竹林山野常见叶，按低档估价"
+    },
+    "herb_aerial_jinyinhua": {
+      "price": {
+        "min": 4,
+        "max": 11,
+        "per": "一两",
+        "tier": "groat"
+      },
+      "terrains": [
+        "farmland",
+        "mountain"
+      ],
+      "seasons": [
+        "summer"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "apothecary",
+        "herbalist"
+      ],
+      "note": "花蕾需趁初开采收，费工，取中低档估价"
+    },
+    "herb_aerial_juhua": {
+      "price": {
+        "min": 3,
+        "max": 9,
+        "per": "一两",
+        "tier": "groat"
+      },
+      "terrains": [
+        "farmland"
+      ],
+      "seasons": [
+        "autumn"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "apothecary",
+        "herbalist",
+        "market"
+      ],
+      "note": "栽培花类，按常见药材估价"
+    },
+    "herb_aerial_huaihua": {
+      "price": {
+        "min": 3,
+        "max": 8,
+        "per": "一两",
+        "tier": "groat"
+      },
+      "terrains": [
+        "farmland",
+        "river"
+      ],
+      "seasons": [
+        "summer"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "apothecary",
+        "herbalist"
+      ],
+      "note": "槐树花蕾，按常见药材估价"
+    },
+    "herb_aerial_huahong": {
+      "price": {
+        "min": 6,
+        "max": 18,
+        "per": "一两",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "farmland",
+        "steppe"
+      ],
+      "seasons": [
+        "summer"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "apothecary"
+      ],
+      "note": "花丝采收费工，取中档估价"
+    },
+    "herb_aerial_puhuang": {
+      "price": {
+        "min": 5,
+        "max": 14,
+        "per": "一两",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "wetland",
+        "lake"
+      ],
+      "seasons": [
+        "summer"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "apothecary"
+      ],
+      "note": "水边香蒲花粉，采收量小，取中档估价"
+    },
+    "herb_aerial_lianqiao": {
+      "price": {
+        "min": 3,
+        "max": 8,
+        "per": "一两",
+        "tier": "groat"
+      },
+      "terrains": [
+        "mountain",
+        "temperate_forest"
+      ],
+      "seasons": [
+        "autumn"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "apothecary",
+        "herbalist"
+      ],
+      "note": "山野灌木果实，按常见药材估价"
+    },
+    "herb_aerial_chenpi": {
+      "price": {
+        "min": 6,
+        "max": 18,
+        "per": "一两",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "orchard",
+        "workshop"
+      ],
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "apothecary",
+        "spice_merchant"
+      ],
+      "note": "橘皮越陈越贵，取中档估价"
+    },
+    "herb_aerial_qingpi": {
+      "price": {
+        "min": 3,
+        "max": 9,
+        "per": "一两",
+        "tier": "groat"
+      },
+      "terrains": [
+        "orchard"
+      ],
+      "seasons": [
+        "summer"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "apothecary",
+        "herbalist"
+      ],
+      "note": "未熟橘类果皮，按常见药材估价"
+    },
+    "herb_aerial_zhishi": {
+      "price": {
+        "min": 3,
+        "max": 9,
+        "per": "一两",
+        "tier": "groat"
+      },
+      "terrains": [
+        "orchard"
+      ],
+      "seasons": [
+        "summer"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "apothecary",
+        "herbalist"
+      ],
+      "note": "未熟柑橘幼果，按常见药材估价"
+    },
+    "herb_aerial_kuxingren": {
+      "price": {
+        "min": 4,
+        "max": 10,
+        "per": "一两",
+        "tier": "groat"
+      },
+      "terrains": [
+        "orchard",
+        "mountain"
+      ],
+      "seasons": [
+        "summer"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "apothecary",
+        "herbalist"
+      ],
+      "note": "杏仁类果仁，按中低档估价；有毒，只宜药铺凭方配售",
+      "restriction": "toxic"
+    },
+    "herb_aerial_taoren": {
+      "price": {
+        "min": 3,
+        "max": 9,
+        "per": "一两",
+        "tier": "groat"
+      },
+      "terrains": [
+        "orchard"
+      ],
+      "seasons": [
+        "summer"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "apothecary",
+        "market"
+      ],
+      "note": "桃核取仁，按常见药材估价"
+    },
+    "herb_aerial_baiguo": {
+      "price": {
+        "min": 3,
+        "max": 8,
+        "per": "一两",
+        "tier": "groat"
+      },
+      "terrains": [
+        "orchard"
+      ],
+      "seasons": [
+        "autumn"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "apothecary",
+        "market"
+      ],
+      "note": "银杏果仁，秋季上市，按常见药材估价"
+    },
+    "herb_aerial_jiumingzi": {
+      "price": {
+        "min": 2,
+        "max": 6,
+        "per": "一两",
+        "tier": "groat"
+      },
+      "terrains": [
+        "farmland"
+      ],
+      "seasons": [
+        "autumn"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "apothecary",
+        "herbalist"
+      ],
+      "note": "栽培种子，量大价低"
+    },
+    "herb_aerial_gouqizi": {
+      "price": {
+        "min": 6,
+        "max": 18,
+        "per": "一两",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "farmland",
+        "temperate_desert"
+      ],
+      "seasons": [
+        "summer",
+        "autumn"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "apothecary",
+        "market",
+        "spice_merchant"
+      ],
+      "note": "果实可日常入食，需求大，取中档估价"
+    },
+    "herb_aerial_wuweizi": {
+      "price": {
+        "min": 6,
+        "max": 18,
+        "per": "一两",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "temperate_forest",
+        "mountain"
+      ],
+      "seasons": [
+        "autumn"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "apothecary",
+        "herbalist"
+      ],
+      "note": "山林浆果干制，取中档估价"
+    },
+    "herb_aerial_shanzha": {
+      "price": {
+        "min": 2,
+        "max": 5,
+        "per": "一两",
+        "tier": "groat"
+      },
+      "terrains": [
+        "orchard",
+        "mountain"
+      ],
+      "seasons": [
+        "autumn"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "apothecary",
+        "market"
+      ],
+      "note": "果园常见干果，价低量大"
+    },
+    "herb_aerial_sharen": {
+      "price": {
+        "min": 12,
+        "max": 36,
+        "per": "一两",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "rainforest",
+        "tropical_dry_forest"
+      ],
+      "seasons": [
+        "summer",
+        "autumn"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "apothecary",
+        "spice_merchant"
+      ],
+      "note": "南方进口香料型药材，取较高档估价"
+    },
+    "herb_aerial_zhizi": {
+      "price": {
+        "min": 3,
+        "max": 8,
+        "per": "一两",
+        "tier": "groat"
+      },
+      "terrains": [
+        "mountain",
+        "farmland"
+      ],
+      "seasons": [
+        "autumn"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "apothecary",
+        "market"
+      ],
+      "note": "药材兼染料，需求双线，按常见药材估价"
+    },
+    "herb_aerial_gualou": {
+      "price": {
+        "min": 3,
+        "max": 9,
+        "per": "一两",
+        "tier": "groat"
+      },
+      "terrains": [
+        "farmland"
+      ],
+      "seasons": [
+        "autumn"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "apothecary",
+        "herbalist"
+      ],
+      "note": "果实、果皮、种子分开定价，取中低档估价"
+    },
+    "herb_aerial_binglang": {
+      "price": {
+        "min": 2,
+        "max": 6,
+        "per": "一两",
+        "tier": "groat"
+      },
+      "terrains": [
+        "rainforest",
+        "tropical_dry_forest"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "market",
+        "apothecary"
+      ],
+      "note": "现实中为管制或成瘾物；世界选项可设为禁售",
+      "restriction": "controlled_substance"
+    },
+    "herb_aerial_dafupi": {
+      "price": {
+        "min": 2,
+        "max": 5,
+        "per": "一两",
+        "tier": "groat"
+      },
+      "terrains": [
+        "rainforest",
+        "tropical_dry_forest"
+      ],
+      "seasons": [
+        "winter",
+        "spring"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "apothecary"
+      ],
+      "note": "槟榔果皮纤维，价低于槟榔"
+    },
+    "herb_aerial_niubangzi": {
+      "price": {
+        "min": 3,
+        "max": 8,
+        "per": "一两",
+        "tier": "groat"
+      },
+      "terrains": [
+        "farmland",
+        "temperate_forest"
+      ],
+      "seasons": [
+        "autumn"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "apothecary",
+        "herbalist"
+      ],
+      "note": "东北量大、浙江质优，取中低档估价"
+    },
+    "herb_aerial_manjingzi": {
+      "price": {
+        "min": 3,
+        "max": 9,
+        "per": "一两",
+        "tier": "groat"
+      },
+      "terrains": [
+        "coast"
+      ],
+      "seasons": [
+        "autumn"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "apothecary",
+        "herbalist"
+      ],
+      "note": "海边耐盐灌木果实，按常见药材估价"
+    },
+    "herb_aerial_yingsuke": {
+      "price": {
+        "min": 4,
+        "max": 11,
+        "per": "一两",
+        "tier": "groat"
+      },
+      "terrains": [
+        "farmland",
+        "temperate_desert"
+      ],
+      "seasons": [
+        "summer"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "apothecary"
+      ],
+      "note": "现实中为管制或成瘾物；世界选项可设为禁售",
+      "restriction": "controlled_substance"
+    },
+    "herb_aerial_madouling": {
+      "price": {
+        "min": 2,
+        "max": 6,
+        "per": "一两",
+        "tier": "groat"
+      },
+      "terrains": [
+        "temperate_forest",
+        "mountain"
+      ],
+      "seasons": [
+        "autumn"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "apothecary"
+      ],
+      "note": "现代法律禁止或管制交易，仅作历史与伦理条目；有毒，只宜药铺凭方配售",
+      "restriction": "toxic"
+    }
+  }
+}

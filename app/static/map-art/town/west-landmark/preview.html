@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>西式文化地标预览（west-landmark）</title>
+<style>
+  body { margin: 0; padding: 18px; background: #c9c79a; font: 13px/1.4 "Microsoft YaHei", sans-serif; color: #4a3826; }
+  h1 { font-size: 18px; margin: 0 0 4px; }
+  h2 { font-size: 15px; margin: 22px 0 8px; }
+  .grid { display: flex; flex-wrap: wrap; gap: 14px; align-items: flex-end; }
+  .cell { border: 1px dashed rgba(74,56,38,.35); padding: 6px 6px 4px; text-align: center; cursor: zoom-in; }
+  .cell svg { display: block; margin: 0 auto; }
+  .cell .id { font: 11px Consolas, monospace; opacity: .8; }
+  .cell .zh { font-size: 12px; font-weight: bold; }
+  #scene svg { display: block; border: 1px solid rgba(74,56,38,.4); }
+  #zoom { position: fixed; inset: 0; background: rgba(40,30,20,.55); display: none; align-items: center; justify-content: center; overflow: auto; }
+  #zoom.on { display: flex; }
+  #zoom > div { background: #c9c79a; padding: 10px; border: 1px solid #4a3826; }
+</style>
+</head>
+<body>
+<h1>西式（人族）文化地标（3/4 斜俯视，48 px 网格，category=landmark，尚未接入游戏）</h1>
+<div>虚线框 = viewBox；底部浅色方框 = 占地格；红点 = 锚点（前沿中点）。图册 0.6 倍缩略，点击放大到 1.5 倍。</div>
+<h2>图册</h2>
+<div class="grid" id="grid"></div>
+<h2>引水渠拼接测试（东西一行：西端 + 3 段 + 东端；南北一列：北端 + 3 段 + 南端；2 倍）</h2>
+<div id="joins"></div>
+<h2>示意场景：城镇一角（地标 + west-base 民居 + west-special 建筑，按锚点 y 排序绘制，1 倍）</h2>
+<div id="scene"></div>
+<div id="zoom"><div id="zoombox"></div></div>
+<div id="sprites"></div>
+
+<script src="core.js"></script>
+<script src="sacred.js" onerror="void 0"></script>
+<script src="castles.js" onerror="void 0"></script>
+<script src="roman.js" onerror="void 0"></script>
+<script src="extra.js" onerror="void 0"></script>
+<script src="west-landmark.js"></script>
+<!-- 只读引用其他目录的素材 -->
+<script src="../west-base/common.js"></script>
+<script src="../west-base/houses-a.js"></script>
+<script src="../west-base/houses-b.js"></script>
+<script src="../west-base/houses-c.js"></script>
+<script src="../west-base/tiles.js"></script>
+<script src="../west-base/west-base.js"></script>
+<script src="../west-special/prims.js"></script>
+<script src="../west-special/civic.js"></script>
+<script src="../west-special/trade.js"></script>
+<script src="../west-special/service.js"></script>
+<script src="../west-special/west-special.js"></script>
+<script src="preview-scene.js"></script>
+</body>
+</html>

@@ -5,8 +5,11 @@ import json
 import re
 import uuid
 import shutil
+import threading
+from collections import OrderedDict
 from datetime import datetime, timezone
 from .contracts import Element
+from .paths import save_db
 from .models import StoryAssembly
 from .knowledge import PackageFiles, retrieve, notebook, validate_points, atomic_text, fsync_directory
 from .file_locks import file_lock
@@ -16,6 +19,9 @@ from .context_stage import stage_history
 from .summary import event_summary, has_excerpt, strip_excerpt, with_stage
 from .drama import resolve_check, outcome_cues, validate_cues, public_voice, cast_projection
 from . import local_rules
+from . import world_setting
+from . import economy
+from . import trade as trade_rules
 from . import rewards as rewards_rules
 from . import pressure as pressure_rules
 from . import traits as traits_rules
@@ -23,6 +29,8 @@ from . import start_profiles as start_rules
 from . import endings as endings_rules
 from . import free_actions
 from . import checks
+from . import quests
+from . import events as events_pool
 from . import scene_judgment
 from . import npc_cards
 from . import civ_exploration
@@ -33,6 +41,7 @@ from . import attributes
 from . import element_assembly
 from . import towns_store
 from . import play_map
+from . import map_clues
 from . import world_history_store
 from .geography import Environment, Calendar, local_environment, is_daylight
 
@@ -156,15 +165,20 @@ def trim_context(result, budget):
 
 
 class Runtime:
+    PACKAGE_CACHE_LIMIT = 32
+
     def __init__(self, store, root):
         self.store, self.root = store, root
+        # revision -> 故事包 JSON 文本。必须在 _recover_package_transaction 之前建好（它会调 package()）。
+        self._package_cache = OrderedDict()
+        self._package_cache_lock = threading.Lock()
         self.recall = Recall(store)
         self.attribute_vectors = attributes.KeywordVectors(store)
         # 不再自动导入任何预制世界：
         # 旧实现会在生产根里硬找 ``StoryPackage/玄陆``、``world_packages/玄陆_世界包.json``
         # 与 ``character_packages/xuanlu_初始角色包.json`` 并直接在启动时提交成包 —— 用户
         # 删掉旧故事后那里再也不会有人希望它回来。现在启动只做准备，有没有世界由数据说话。
-        production = store.path.resolve() == (root / 'data/textiledream.sqlite3').resolve()
+        production = store.path.resolve() == save_db(root).resolve()
         self.library = root / 'StoryPackage' if production else store.path.parent / 'StoryPackage'
         self.character_directory = root / 'character_packages' if production else store.path.parent / 'character_packages'
         self.library.mkdir(parents=True, exist_ok=True)
@@ -309,13 +323,30 @@ class Runtime:
             raise
 
     def package(self, revision=None):
-        pointer = self.store.get('pointer', 'package')
-        revision = revision or (pointer or {}).get('id')
+        if not revision:
+            # pointer 会变（提交/启用），不能缓存；只读这一行小记录。
+            pointer = self.store.get('pointer', 'package')
+            revision = (pointer or {}).get('id')
         if not revision:
             raise ValueError('还没有可用的世界：请先创建或采纳一个世界，再开始旅程')
+        # 已提交的 revision 不可变（每次提交都是新 uid，库里没有任何路径改写或删除 'package' 记录），
+        # 所以按 revision 缓存是安全的。缓存里放序列化文本，每次返回新解析出的对象：
+        # 调用方随意修改返回值也污染不了缓存，且 json.loads 比 deepcopy 快。
+        with self._package_cache_lock:
+            text = self._package_cache.get(revision)
+            if text is not None:
+                self._package_cache.move_to_end(revision)
+        if text is not None:
+            return json.loads(text)
         package = self.store.get('package', revision)
         if not package:
             raise ValueError('故事包版本不存在')
+        text = json.dumps(package, ensure_ascii=False, separators=(',', ':'))
+        with self._package_cache_lock:
+            self._package_cache[revision] = text
+            self._package_cache.move_to_end(revision)
+            while len(self._package_cache) > self.PACKAGE_CACHE_LIMIT:
+                self._package_cache.popitem(last=False)
         return package
 
     def has_world(self):
@@ -356,6 +387,8 @@ class Runtime:
             if place.get('environment'):Environment.model_validate(place['environment'])
         validate_atlas(story)
         local_rules.validate(story,characters)
+        world_setting.validate(story)
+        economy.validate(story, characters)
         rewards_rules.validate(story)
         # Towns carried by this revision are re-validated here, so an imported package
         # cannot smuggle an inconsistent town into a journey (absent key = no-op).
@@ -388,6 +421,8 @@ class Runtime:
         validate_points(story.get('knowledge', []))
         # 判定 v2：只有包显式声明 mechanics.checks 才校验（旧包与 v1 公式一字不变）。
         checks.validate_all(story, characters)
+        # 事件池：只有声明 mechanics.events 才校验；没有这个块就是 no-op。
+        events_pool.validate(story, characters)
         # Keep extension declarations in raw JSON; validate both base schema and references.
         StoryAssembly.model_validate({'story': story, 'characters': characters})
         if story['character_package_id'] != characters['id']:
@@ -436,11 +471,14 @@ class Runtime:
                         # 判定 v2 的钟推进：只有声明了 mechanics.checks 的包里合法，
                         # 旧包（没有这个键）照旧拒绝。
                         allowed_ops = ('flag', 'take', 'fact', 'rumor', 'status',
-                                       'resource', 'information', 'health')
+                                       'resource', 'information', 'health',
+                                       'place_clue')
                         if checks.enabled(story):
-                            allowed_ops += ('clock',)
+                            allowed_ops += ('clock', 'signal')
                         if effect.get('op') not in allowed_ops:
                             raise ValueError('未支持的状态操作')
+                        if effect['op'] == 'place_clue':
+                            map_clues.validate_effect(effect, story)
                         if effect['op'] == 'take' and effect['id'] not in items:
                             raise ValueError('物品不存在')
                         if effect['op']=='health' and (type(effect.get('delta')) is not int or not -10000<=effect['delta']<=10000):
@@ -570,6 +608,8 @@ class Runtime:
                 approved = {**approved_draft, 'status': 'approved', 'revision': revision}
                 records.append(('draft', approved['id'], approved))
             self.store.put_many(records)
+            with self._package_cache_lock:
+                self._package_cache.pop(revision, None)
         except Exception as error:
             # Hand back everything the commit changed, including the in-memory draft
             # flag, so a failed save never leaves an approved candidate behind.
@@ -916,6 +956,16 @@ class Runtime:
         projected = element_assembly.context_elements(p['story'], audience, viewpoint)
         if projected is not None:
             result['current_elements'] = projected
+        # World setting (genres / tech & magic tiers / polities, races, factions): short and
+        # public by design; absent setting = old prompt unchanged.
+        setting_block = world_setting.prompt_block(p['story'])
+        if setting_block is not None:
+            result['world_setting'] = setting_block
+        # Trading rules for dialogue (feudal / market traits, price anchors, bargaining
+        # bounds). Absent setting and absent economy config = old prompt unchanged.
+        economy_block = economy.prompt_block(p['story'], s)
+        if economy_block is not None:
+            result['economy'] = economy_block
         # Traits and known warnings share the SAME character budget as everything else:
         # they are handed the remaining room, then trimmed by the normal path below.
         # Both return None when the package declares nothing, so old prompts are unchanged.
@@ -972,6 +1022,11 @@ class Runtime:
         """
         public = copy.deepcopy(result)
         public.pop('reward_audit', None)
+        settled = public.get('settled')
+        if settled:
+            # 检定已结算：模型拿到的 outcome 只能是作者写了的结果文本（没写就是空串）；
+            # 离线短句只给离线正文，不冒充作者文本。
+            public['outcome'] = settled.get('authored_text') or ''
         return public
 
     def effects(self, s, effects, source, reward_claims=None):
@@ -992,6 +1047,9 @@ class Runtime:
             raise ValueError('奖励效果需要先配置 mechanics.rewards')
         work = copy.deepcopy(s) if claims else s
         self._apply_effects(work, effects, source, p)
+        if checks.enabled(p['story']):
+            # flag 触发的钟开启/揭示在这里落账（信号触发的已在 emit_signal 里处理）。
+            checks.refresh_gates(work, p['story'], effects=self.effects, source=source)
         audits = []
         if claims:
             # Flags set by this very action are visible to ability prerequisites.
@@ -1032,12 +1090,24 @@ class Runtime:
                 for audience in effect['known_by']:
                     if audience=='player':s['heard'].append({**record,'id':uid()})
                     else:s['beliefs'].append({**record,'id':uid(),'character':audience,'kind':'information'})
+            elif op == 'place_clue':
+                # 只存偏移后的圆心；真实坐标留在故事包里，玩家投影读不到。
+                clue = map_clues.grant(s, p['story'], effect, source, uid(), s['time'])
+                if clue['text']:
+                    s['heard'].append({'id': uid(), 'text': clue['text'], 'time': s['time'],
+                                       'source': source, 'distortion': 1, 'intensity': .5,
+                                       'clue': clue['id']})
             elif op == 'clock':
                 # 判定 v2 的进度/危险钟。状态写在 ``session['clocks']``（随快照回滚），
                 # 满格时 ``on_full`` 恰好执行一次；旧包没有 mechanics.checks，上面已经
                 # 在包校验里拒绝了这个 op。
                 checks.advance_clock(s, p['story'], effect['id'], int(effect['delta']),
                                      effects=self.effects, source=source)
+            elif op == 'signal':
+                # 判定 v2 的信号：有序去重列表 session['signals']，钟与任务订阅它；
+                # 同名信号只处理一次，所以阶段效果互相发信号不会递归。
+                checks.emit_signal(s, p['story'], effect['id'], effects=self.effects,
+                                   source=source)
             elif op == 'status':
                 status = s['characters'][s['hero']]['status']
                 status[effect['id']] = max(0, min(1, status.get(effect['id'], 0) + effect['delta']))
@@ -1063,8 +1133,39 @@ class Runtime:
             else:
                 raise ValueError('非法状态变更')
 
+    # ---- 钟/任务的“本步新出现”通知：纯内存槽，按旅程 id 记账，不进存档。
+    def _notice_begin(self, s, story):
+        """步骤开始：清掉旧槽，并（仅当包启用判定或任务时）存一份 before 副本。"""
+        slots = self.__dict__.setdefault('_notice_slot', {})
+        befores = self.__dict__.setdefault('_notice_before', {})
+        slots.pop(s['id'], None)
+        befores.pop(s['id'], None)
+        if checks.enabled(story) or quests.rules(story) is not None or events_pool.enabled(story):
+            befores[s['id']] = copy.deepcopy(s)
+
+    def _notice_end(self, s, story):
+        """步骤保存之后：用 before/after 算通知，放进槽等 surface 取走一次。"""
+        befores = self.__dict__.setdefault('_notice_before', {})
+        slots = self.__dict__.setdefault('_notice_slot', {})
+        before = befores.pop(s['id'], None)
+        if before is None:
+            return
+        slot = {}
+        rows = checks.clock_notices(before, s, story) if checks.enabled(story) else []
+        if rows:
+            slot['clock_notices'] = rows
+        rows = quests.notices(before, s, story)
+        if rows:
+            slot['quest_notices'] = rows
+        rows = events_pool.notices(before, s, story)
+        if rows:
+            slot['event_notices'] = rows
+        if slot:
+            slots[s['id']] = slot
+
     def prepare_turn(self, s, request):
         package=self.package(s['revision'])
+        self._notice_begin(s, package['story'])
         cfg=local_rules.ensure(s,package['story'])
         if not s['active']:
             self.enter(s)
@@ -1205,6 +1306,7 @@ class Runtime:
         if result['ends']:
             self.close_event(s, resolved_exit=True)
         self.save_session_with_notes(s)
+        self._notice_end(s, self.package(s['revision'])['story'])
 
     def close_event(self, s, resolved_exit=False):
         if scene_judgment.enabled(self.package(s['revision'])['story']) and not resolved_exit:
@@ -1265,7 +1367,7 @@ class Runtime:
         story, characters = package['story'], package['characters']
         plan_row = checks.plan(s, story, characters, node, action, request.push)
         if plan_row['refused']:
-            refused = checks.execution_refusal(story, plan_row['refused'])
+            refused = checks.stamp(s, checks.execution_refusal(story, plan_row['refused']))
             s['last_check'] = refused
             return {'refused': True, 'witnesses': set(), 'extra_hours': 0,
                     'result': {'ends': False, 'outcome': plan_row['refused'],
@@ -1330,8 +1432,8 @@ class Runtime:
             clock_changes.append({'id': change['id'], 'label': row['label'],
                                   'segments': row['segments'], 'kind': row['kind'],
                                   'from': was, 'to': after, 'changed': after != was})
-        public = checks.public_result(s, story, resolved, node, action, notice_info,
-                                      clock_changes)
+        public = checks.stamp(s, checks.public_result(s, story, resolved, node, action,
+                                                      notice_info, clock_changes))
         # 本轮那一条（只保留本轮）：surface 的 ``last_check`` 就是它。
         s['last_check'] = public
         s['checks'].append({
@@ -1351,6 +1453,9 @@ class Runtime:
         result = {'ends': action.get('ends_event', False), 'outcome': outcome,
                   'narrative': outcome_cues(action, resolved['success'], True),
                   'check_public': public}
+        brief = checks.narration_brief(story, action, resolved['tier'], consequences)
+        if brief:
+            result['settled'] = brief
         if public_rewards:
             result['rewards'] = public_rewards
         if audits:
@@ -1440,6 +1545,8 @@ class Runtime:
             raise ValueError('当前有进行中的事件，请用既有动作管线')
         package = self.package(s['revision'])
         story, characters = package['story'], package['characters']
+        if trade_rules.parse(action_id) is not None:
+            return self._local_trade(s, package, action_id, confirm)
         if adventure_actions.config(story) is None:
             raise ValueError('故事包没有声明通用行动')
         plans, refused = adventure_actions.scan(s, story, characters)
@@ -1485,6 +1592,24 @@ class Runtime:
         public = rewards_rules.public_result(rewards_rules.rules(story), audits, work)
         if public:
             result['rewards'] = public
+        return result, work
+
+    def _local_trade(self, s, package, action_id, confirm):
+        """交易动作（买 / 卖 / 以物易物 / 讨价还价）：与 ``local_action`` 同一套语义。
+
+        只在候选副本上结算、不写库；凭据与 CAS 同 ``free_actions.confirm_token``。
+        钱、货物、商人账户都在 ``trade.settle`` 里一次改完，失败不留半截。
+        """
+        story, characters = package['story'], package['characters']
+        if not trade_rules.declared(story):
+            raise ValueError('故事包没有声明商人')
+        if s['mode'] == 'observer':
+            raise ValueError('旁观阶段不能直接操作人物和物品')
+        if not confirm:
+            raise ValueError('这个行动需要先确认（价钱与货物以确认摘要为准）')
+        free_actions.verify(s, story, None, action_id, confirm, characters=characters)
+        work = copy.deepcopy(s)
+        result = trade_rules.settle(work, story, characters, action_id)
         return result, work
 
     #: 兜底结算允许落地的 op（白名单）。关系微调不走 op，单独写 development。
@@ -1544,7 +1669,7 @@ class Runtime:
                         'at': s['time'], 'success': success, 'repeat': plan['repeat'],
                         'hint': info['id'] if given_v2 else None, 'relationship': [],
                         'tier': resolved['tier']})
-            public = checks.public_result(s, story, resolved)
+            public = checks.stamp(s, checks.public_result(s, story, resolved))
             s['last_check'] = public
             s['checks'].append({
                 'rules_version': resolved['rules_version'], 'attribute': resolved['attribute'],
@@ -1557,9 +1682,11 @@ class Runtime:
                 'push': None, 'fallback': True})
             outcome = consequences['text'] or action['success_text' if success
                                                      else 'failure_text']
+            brief = checks.narration_brief(story, action, resolved['tier'], consequences)
             return {'ends': False, 'outcome': outcome,
                     'narrative': outcome_cues(action, success, True),
                     'check_public': public,
+                    **({'settled': brief} if brief else {}),
                     'extra_hours': consequences['extra_hours'],
                     'witnesses': None,
                     'fallback': {'kind': plan['fallback_kind'],
@@ -1726,6 +1853,7 @@ class Runtime:
         costs = dict((plan or {}).get('travel', {}).get('costs') or {})
         # 整次移动在**候选副本**上完成：先扣费、再改位置/推进时钟/进入事件，任何一步失败
         # 都不回写调用方的 session（不会出现“钱扣了但压力阶段失败”的半提交）。
+        self._notice_begin(s, story)
         work = copy.deepcopy(s)
         if costs:
             local_rules.charge(work, story, {'costs': costs}, 'move:' + str(destination))
@@ -1741,6 +1869,7 @@ class Runtime:
         # 一次保存；CAS 仍是已有的 state_version。持久化失败时调用方拿到异常，
         # 且 state_version 未递增，不会伪装成已执行。
         self.store.save_session(s)
+        self._notice_end(s, story)
 
     def adventure_surface(self, s, package, node):
         """玩家可见的运行时方案段；包没声明 ``mechanics.adventure`` 时返回 ``None``。
@@ -1840,6 +1969,10 @@ class Runtime:
             # The legacy `inventory` string list stays exactly as it was; the structured
             # holding view is added only when the author configured rewards.
             surface['rewards'] = rewards_rules.public_state(s, p['story'], 'player')
+        # 交易卡数据：只在故事包声明了商人时才出现，旧包的 payload 一个字节不变。
+        trade_card = trade_rules.surface(s, p['story'], p['characters'])
+        if trade_card is not None:
+            surface['trade'] = trade_card
         if scene_judgment.enabled(p['story']):
             surface['short_scene'] = {'description': current.get('description', ''),
                                       'travel_hours': local_rules.rules(p['story']).travel_hours}
@@ -1874,6 +2007,13 @@ class Runtime:
             surface['clocks'] = checks.public_clocks(s, p['story'], 'player')
             if s.get('last_check') is not None:
                 surface['last_check'] = s['last_check']
+        # 任务列表的玩家投影：只有包声明了 mechanics.quests 才加键（旧包 surface 不变）。
+        if quests.rules(p['story']) is not None:
+            surface['quests'] = quests.public_view(s, p['story'], 'player')
+        # 本步新出现的钟阶段/揭示与任务通知：只在 chat/move 之后的那一次响应里出现。
+        slot = self.__dict__.setdefault('_notice_slot', {}).pop(s['id'], None)
+        if slot:
+            surface.update(slot)
         return surface
 
     def approve(self, draft):

@@ -1,0 +1,1058 @@
+{
+  "schema_version": 1,
+  "group": "polities_extra",
+  "status": "candidate",
+  "note": "国家与政体模板候选组（补充），与 polities.json 互补，不改动它。每条是可改写的政体模板，不是具体国家；标签 polity:*、genre:*、tech:*（最早能出现的档位）与可选的 magic:*（只给奇幻政体）的含义见 docs/world-setting.md，新增的 polity:* 值列在同名 .md。元素直接带 primary、evidence_grade、tech_tier、magic_tier。科技止于 1939 年之前。全部条目 review_status=needs_review、detail_status=needs_detail，仅表示结构齐备。2026-11-05 起，百度百科来源用无头浏览器读取页面正文（access=read，个别词条只读到摘要级内容，见各来源 supports），并据此核对了相应条目的历史部分；中文维基《神圣罗马帝国》与百度《圣约翰骑士团》读取失败，登记为 unavailable，无任何条目引用。奇幻政体（龙主、宗门、亡灵）没有史料来源，evidence_grade=inferred；其余机制、财政、冲突多为本项目归纳，已在各条 evidence_and_uncertainty 区分。独立文件，不改动其他分组。",
+  "sources": [
+    {
+      "id": "ws_polx_src_setting",
+      "title": "世界设定：类型配比、科技 / 魔法档位与国家 / 种族 / 势力（本项目设计文档）",
+      "url": "docs/world-setting.md",
+      "access": "read",
+      "supports": "tech:*、magic:*、kind:polity、polity:*、genre:* 标签的档位定义与使用方式（科技止于 1939 年之前）；各条的机制与冲突为据此做的设计归纳",
+      "rights_note": "本项目原创设计文档，随仓库分发；非第三方资料。条目内容为据此做的设计归纳，不是史料结论。"
+    },
+    {
+      "id": "ws_polx_src_bk_elector",
+      "title": "选帝侯（百度百科）",
+      "url": "https://baike.baidu.com/item/%E9%80%89%E5%B8%9D%E4%BE%AF",
+      "access": "read",
+      "supports": "1356 年金玺诏书、七位选帝侯（三位教会选侯与四位世俗选侯）、先称德意志国王后称皇帝、美因茨选侯的召集作用、1806 年帝国解散",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_polx_src_bk_absolutism",
+      "title": "君主专制政体（百度百科）",
+      "url": "https://baike.baidu.com/item/%E7%BB%9D%E5%AF%B9%E5%90%9B%E4%B8%BB%E5%88%B6",
+      "access": "read",
+      "supports": "中央集权、君主多为世袭少数由选举产生、路易十四为欧洲典型、中国是否属绝对君主制的争论、内朝与外朝的权力关系",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_polx_src_bk_enlightened",
+      "title": "开明专制（百度百科）",
+      "url": "https://baike.baidu.com/item/%E5%BC%80%E6%98%8E%E4%B8%93%E5%88%B6",
+      "access": "read",
+      "supports": "欧洲绝对君主制的变体、受启蒙思想影响自上而下改革、腓特烈大帝、约瑟夫二世、叶卡捷琳娜二世、1781 年废除农奴制诏书",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_polx_src_bk_tribute",
+      "title": "朝贡体系（百度百科）",
+      "url": "https://baike.baidu.com/item/%E6%9C%9D%E8%B4%A1%E4%BD%93%E7%B3%BB",
+      "access": "read",
+      "supports": "畿服与内外服雏形、册封、羁縻三种情形、朝贡关系的网状特征；只读到词条正文已加载的部分",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_polx_src_bk_turkic",
+      "title": "突厥汗国（百度百科）",
+      "url": "https://baike.baidu.com/item/%E7%AA%81%E5%8E%A5%E6%B1%97%E5%9B%BD",
+      "access": "read",
+      "supports": "552 至 745 年的时间线、土门建牙于都斤山、583 年分东西、630 与 657 年亡于唐、复国与 734 年可汗被毒杀、745 年为回纥所灭",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_polx_src_bk_bakufu",
+      "title": "幕府（百度百科）",
+      "url": "https://baike.baidu.com/item/%E5%B9%95%E5%BA%9C",
+      "access": "read",
+      "supports": "镰仓幕府的将军、御家人、政所侍所问注所、守护地头、北条氏执权、1221 年承久之乱、1232 年《贞永式目》、1333 年灭亡与室町幕府；建立时间各说不一",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_polx_src_bk_federal",
+      "title": "联邦制（百度百科）",
+      "url": "https://baike.baidu.com/item/%E8%81%94%E9%82%A6%E5%88%B6",
+      "access": "read",
+      "supports": "联邦宪法分权、双重政府、两院制、联邦法院、与邦联的比较、代表国家与渊源",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_polx_src_bk_confed",
+      "title": "邦联制国家（百度百科）",
+      "url": "https://baike.baidu.com/item/%E9%82%A6%E8%81%94%E5%88%B6",
+      "access": "read",
+      "supports": "成员保留主权、邦联机构为协商性、决议须成员认可、可自由退出、无统一中央政权宪法与国籍、历史与当代例子",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_polx_src_bk_company",
+      "title": "不列颠东印度公司（百度百科）",
+      "url": "https://baike.baidu.com/item/%E4%B8%9C%E5%8D%B0%E5%BA%A6%E5%85%AC%E5%8F%B8",
+      "access": "read",
+      "supports": "1600 年特许状与贸易垄断、1608 年苏拉特商馆、1670 年军队铸币宣战缔约权、1757 年普拉西、1765 年收税权、1773 年法案、1857 年后王室接管与 1874 年解散",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_polx_src_bk_teutonic",
+      "title": "德意志骑士团（百度百科）",
+      "url": "https://baike.baidu.com/item/%E5%BE%B7%E6%84%8F%E5%BF%97%E9%AA%91%E5%A3%AB%E5%9B%A2",
+      "access": "read",
+      "supports": "1198 年成立于阿卡、1224 年建立骑士团国、1512 年选出大团长阿尔布雷希特、1525 年世俗化为普鲁士公国、1809 年解散、1834 年重建、1929 年成为纯宗教修士会；词条与同名多义词页同址",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_polx_src_bk_caliph",
+      "title": "哈里发（百度百科）",
+      "url": "https://baike.baidu.com/item/%E5%93%88%E9%87%8C%E5%8F%91",
+      "access": "read",
+      "supports": "632 年首任、政教首脑称号的形成、四大哈里发后世袭、倭马亚 14 任与阿拔斯 38 任、10 世纪后世俗权力被布韦希人与塞尔柱人取代、1258 年巴格达陷落与马穆鲁克扶植；只读到摘要级正文",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_polx_src_bk_commune",
+      "title": "巴黎公社（百度百科）",
+      "url": "https://baike.baidu.com/item/%E5%B7%B4%E9%BB%8E%E5%85%AC%E7%A4%BE",
+      "access": "read",
+      "supports": "1871 年 3 月 18 日起义、国民自卫军中央委员会、3 月 26 日选举与 3 月 28 日成立、普选与撤换制、取消高薪、以国民自卫军代替常备军、外省响应被粉碎、5 月 28 日结束",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_polx_src_bk_junta",
+      "title": "军政府（百度百科）",
+      "url": "https://baike.baidu.com/item/%E5%86%9B%E6%94%BF%E5%BA%9C",
+      "access": "read",
+      "supports": "军队掌握政治权力、多经政变、军事法律或永久紧急状态、成员多为军人、标榜无党派；词条后半部分的具体案例未采用",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_polx_src_bk_fanzhen",
+      "title": "藩镇割据（百度百科）",
+      "url": "https://baike.baidu.com/item/%E8%97%A9%E9%95%87%E5%89%B2%E6%8D%AE",
+      "access": "read",
+      "supports": "节度使的军政财权、安史之乱、河北三镇、多数方镇服从朝廷、约 46 个方镇、黄巢起义后的军阀混战、对笼统用语的质疑",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_polx_src_wp_hre",
+      "title": "神圣罗马帝国（中文维基百科）",
+      "url": "https://zh.wikipedia.org/wiki/%E7%A5%9E%E5%9C%A3%E7%BD%97%E9%A9%AC%E5%B8%9D%E5%9B%BD",
+      "access": "unavailable",
+      "supports": "本轮读取时连接超时（dial tcp 连接 31.13.88.26:443 失败），未取得正文，不支撑任何论断，条目均未引用",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_polx_src_bk_hospitaller",
+      "title": "圣约翰骑士团（百度百科）",
+      "url": "https://baike.baidu.com/item/%E5%9C%A3%E7%BA%A6%E7%BF%B0%E9%AA%91%E5%A3%AB%E5%9B%A2",
+      "access": "unavailable",
+      "supports": "无头浏览器只取得安全验证页，未取得正文，不支撑任何论断，条目均未引用",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    }
+  ],
+  "elements": [
+    {
+      "id": "polity_elective_monarchy",
+      "name": "选侯制与选举君主国",
+      "aliases": [
+        "elective monarchy",
+        "选帝侯制",
+        "选举君主制"
+      ],
+      "tags": [
+        "kind:polity",
+        "polity:elective_monarchy",
+        "tech:medieval",
+        "trait:elective_succession",
+        "role:electoral_college",
+        "genre:western_fantasy",
+        "genre:historical"
+      ],
+      "genres": [
+        "western_fantasy",
+        "historical"
+      ],
+      "category": "institution",
+      "primary": "institution",
+      "evidence_grade": "mixed",
+      "tech_tier": "medieval",
+      "magic_tier": null,
+      "summary": "君主由少数有资格的诸侯或高级神职组成的选举团推出，王位不自动传给长子，每次更替都是一轮谈判的王国或帝国模板。",
+      "details": {
+        "definition": "君主由一个固定的选举团选出，而不是自动世袭。选举团成员通常本身就是大诸侯或高级神职，当选者再通过加冕或教会认可取得名分。本条是政体模板，不是具体国家。",
+        "mechanism": "权力来源：选举团的投票加上加冕仪式；当选者另需自家领地与亲族作为实力底座。更替：君主死后进入空位期，选举团讨价还价，当选者常须签署承诺书，确认选举团的特权。财政：王室收入主要来自自家领地，没有稳定的全国税，所以靠联姻和领地积累。军事：由诸侯各自征召，君主只能直接指挥自家军队。法律：以确认选举团权利的成文宪章为基础，君主不能单方面修改。地方治理：诸侯在领地内近乎独立。对外关系：各诸侯各自与邻国结盟，外国势力可以在选举时拉票或贿选。典型冲突：双王并立、贿选、同一家族连续当选后试图变成世袭、选举团内部为席位资格争执。",
+        "conditions": "最低档位 medieval。需要几个强度相近、互相牵制的大诸侯，一个被各方承认的加冕权威（教会或祭司团），以及没有任何家族强到可以压倒其余。若有一家压倒其余，选举会退化成形式，实质变为世袭王国。",
+        "exceptions": "选举团可以只是象征，实际由大会议或军队拥立；也可由全体贵族大会选举，范围更宽。教会选侯使神职利益与世俗利益混在一起。本条与封建王国可叠加：封建结构描述土地与效忠，本条描述王位如何产生。",
+        "story_uses": "空位期的拉票、一张选票的价码、被迫签署的承诺书、两位当选者各自加冕、教会选侯倒向哪一边、想让儿子顺理成章当选的老皇帝。",
+        "historical_scope": "参考神圣罗马帝国的选帝侯制。百度百科《选帝侯》：1356 年「金玺诏书」确认七位选帝侯（三位教会选侯、四位世俗选侯）；七选侯选出的人先称德意志国王，经教皇加冕后才用皇帝头衔；美因茨选侯是召集人兼帝国首相；该词条评价此制削弱皇权、加深政治分裂，同时使帝国延续八百多年；1806 年帝国被拿破仑勒令解散。其他选举君主国（例如贵族大会选王的类型）各有差异，本条不逐一覆盖。",
+        "evidence_and_uncertainty": "百度百科《选帝侯》已读正文，核对了金玺诏书、七位选帝侯的构成、先称国王后称皇帝、美因茨选侯的召集作用与 1806 年终结。承诺书、贿选、财政与军事部分为设计归纳。该词条的评价性文字（削弱皇权、延续帝国）只作转述，学界另有看法。"
+      },
+      "source_ids": [
+        "ws_polx_src_setting",
+        "ws_polx_src_bk_elector"
+      ],
+      "related_ids": [
+        "polity_feudal_kingdom",
+        "western_church_hierarchy",
+        "polity_absolute_monarchy"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "polity_absolute_monarchy",
+      "name": "绝对君主制",
+      "aliases": [
+        "absolute monarchy",
+        "君主专制政体",
+        "专制王权"
+      ],
+      "tags": [
+        "kind:polity",
+        "polity:absolute_monarchy",
+        "tech:medieval",
+        "trait:centralised",
+        "role:standing_army",
+        "genre:western_fantasy",
+        "genre:historical",
+        "genre:steampunk"
+      ],
+      "genres": [
+        "western_fantasy",
+        "historical",
+        "steampunk"
+      ],
+      "category": "institution",
+      "primary": "institution",
+      "evidence_grade": "mixed",
+      "tech_tier": "medieval",
+      "magic_tier": null,
+      "summary": "君主把征税、立法、军队和官员任免集中到王室手里，压缩贵族与等级会议权力的王国模板。",
+      "details": {
+        "definition": "君主在法律上不受议会或贵族团体约束，实际靠常备军、王室任命的官员和固定税收执政的政体模板。与封建王国相比，权力不再沿封授链层层下放，而是由宫廷向下直接派出。本条是模板，不是具体国家。",
+        "mechanism": "权力来源：血统，加上君权神授一类的教义；大臣由君主亲自任命。更替：依靠稳定的长子或男系继承规则，规则一出问题（幼主、绝嗣）就引发摄政争夺。财政：包税人、官职买卖、对特权阶层的免税交易。军事：常备军由王室出资，军官多由宫廷贵族出任。法律：君主敕令与王室法院压过地方习惯法与领主法庭。地方治理：派出监察官或总督，压缩领主与等级会议。对外关系：靠联姻、常备军和外交使团争夺均势。典型冲突：贵族抗税、官职买卖引发财政危机、宠臣与大臣斗争、继承规则出错。",
+        "conditions": "最低档位按 catalog_overlay 词表取 medieval；本条典型形态更接近 world-setting 里的 renaissance 档（火器与常备军让王室压过领主），但叠加词表没有该档，故取更低一档。需要可靠的税收、识字官员和足以压制领主的军队。",
+        "exceptions": "百度百科《君主专制政体》认为中国自秦至清并不等同于西欧意义上的绝对君主制，唐代诏令须经中书、门下封驳；这一判断本身有争论。君主受习惯法、教会与等级会议约束的情形极多，不要写成一言九鼎。大国君主也靠官僚而不是亲自处理一切事务。",
+        "story_uses": "宠臣倒台、官职拍卖、贵族抗税、王室法官压倒领主法庭、君主病重时的摄政争夺、被排挤的大贵族联合叛乱。",
+        "historical_scope": "参考近代早期西欧。百度百科《君主专制政体》称欧洲君主专制的顶峰在中世纪之后，最典型的是法国路易十四；词条还说独裁君主大多世袭，少数由选举产生（例：神圣罗马帝国皇帝），君主有时兼任宗教首领。本条不规定国名与宗教。",
+        "evidence_and_uncertainty": "百度百科《君主专制政体》已读概述、欧洲与中国部分，核对了中央集权、世袭为主、路易十四为典型以及中国是否属绝对君主制的争论。包税、官职买卖、监察官等机构细节为设计归纳。该词条行文不够严谨，本条只采用其与西欧对照的总体判断。"
+      },
+      "source_ids": [
+        "ws_polx_src_setting",
+        "ws_polx_src_bk_absolutism"
+      ],
+      "related_ids": [
+        "polity_feudal_kingdom",
+        "polity_enlightened_despotism",
+        "polity_parliamentary_monarchy"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "polity_enlightened_despotism",
+      "name": "开明专制",
+      "aliases": [
+        "enlightened despotism",
+        "enlightened absolutism",
+        "自上而下改革的君主制"
+      ],
+      "tags": [
+        "kind:polity",
+        "polity:enlightened_despotism",
+        "tech:steam",
+        "trait:top_down_reform",
+        "role:reforming_monarch",
+        "genre:historical",
+        "genre:steampunk",
+        "genre:western_fantasy"
+      ],
+      "genres": [
+        "historical",
+        "steampunk",
+        "western_fantasy"
+      ],
+      "category": "institution",
+      "primary": "institution",
+      "evidence_grade": "mixed",
+      "tech_tier": "steam",
+      "magic_tier": null,
+      "summary": "专制君主以理性与公共福利为名，自上而下推行教育、法典、教会与农奴制改革，但不放弃最终决定权的君主国模板。",
+      "details": {
+        "definition": "君主保留全部决策权，同时采纳学者和改革派大臣的方案，用法典、学校、宗教宽容和行政整顿来强国。与一般的绝对君主制相比，区别在于有一套公开的改革纲领和君主的自我定位（如自称国家的第一公仆）。本条是模板。",
+        "mechanism": "权力来源：与绝对君主制相同，另加改革者的个人声望。更替：改革方向由君主个人决定，继任者可能全盘撤回。财政：改革的目的之一是扩大税基，清查土地，削减教会与贵族的免税。军事：整顿后的常备军与军官学校。法律：编纂统一法典，限制酷刑，取消部分特权。地方治理：用官僚逐步取代领主和教会的司法与教育。对外关系：改革服务于争霸，不是为了和平。典型冲突：改革依赖一个人；贵族与教会抵制；改革唤起的期待超过君主愿意给的限度。",
+        "conditions": "最低档位 steam（百度百科把它放在 18 世纪下半叶）。需要有识字阶层、可以引用的启蒙思想，以及一位想要强国的君主。",
+        "exceptions": "有的君主只是借改革口号包装旧专制。该词条指出英国、波兰、法国是例外：英国反专制革命已经完成，波兰缺少改革力量，法国改革要求强到足以发动革命。",
+        "story_uses": "宫廷学者起草法典、废除农奴制的诏书与庄园主抵制、改革派大臣在新君上位后被清洗、教会地产被收归国有、改革者发现君主不愿放权。",
+        "historical_scope": "参考腓特烈大帝治下的普鲁士、约瑟夫二世治下的奥地利和俄国。百度百科《开明专制》：这类改革包括改革教会、兴办教育、编纂法典，1781 年奥皇颁布废除农奴制的诏书；1789 年法国大革命后，这个时代连同其改革基本消失。",
+        "evidence_and_uncertainty": "百度百科《开明专制》已读，但词条很短，只支撑普鲁士、奥地利、俄国、改革内容、例外国家与终结原因。财政、军事、地方治理部分为设计归纳。"
+      },
+      "source_ids": [
+        "ws_polx_src_setting",
+        "ws_polx_src_bk_enlightened"
+      ],
+      "related_ids": [
+        "polity_absolute_monarchy",
+        "polity_parliamentary_monarchy",
+        "polity_bureaucratic_empire"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "polity_tributary_suzerainty",
+      "name": "宗藩与朝贡体系",
+      "aliases": [
+        "tributary system",
+        "suzerain and vassal order",
+        "册封朝贡体系",
+        "宗主与藩属"
+      ],
+      "tags": [
+        "kind:polity",
+        "polity:tributary_system",
+        "tech:classical",
+        "trait:ritual_hierarchy",
+        "role:suzerain_court",
+        "genre:eastern_fantasy",
+        "genre:historical"
+      ],
+      "genres": [
+        "eastern_fantasy",
+        "historical"
+      ],
+      "category": "institution",
+      "primary": "institution",
+      "evidence_grade": "mixed",
+      "tech_tier": "classical",
+      "magic_tier": null,
+      "summary": "宗主国以册封、赐物和礼仪等级换取周边政权的名义臣服与贡物，藩属保留内政的多国秩序模板。",
+      "details": {
+        "definition": "一个中心大国通过册封藩属君长、规定朝贡周期与礼仪，把周边政权纳入名义上的上下关系；藩属通常保有自己的统治者、军队和法律。它描述的是国与国之间的秩序，不是单个国家的内部结构。与封建王国的区别：藩属是另一国的君主，不是宗主的封臣。",
+        "mechanism": "权力来源：宗主的文化与军事声望，加上册封带来的合法性。更替：藩属君主继位须请宗主册封，宗主可借此承认或不承认某位继承人。财政：贡物与回赐，回赐往往不低于贡物，所以对宗主是政治支出，对藩属是贸易机会。军事：宗主可出兵护藩或惩罚，藩属名义上卫护宗主，实际常不出兵。法律：宗主不管藩属内政，只管礼仪、国书和使团规则。地方治理：藩属自治；宗主在边境设接待与互市口岸。对外关系：宗主借此宣示天下秩序，藩属可同时向几个宗主纳贡。典型冲突：藩属继位争议、贡期与贡物争执、藩属拒贡时宗主是否出兵、使团夹带走私。",
+        "conditions": "最低档位 classical。需要一个明显强于周边的中心国、被邻国认可的礼仪体系，以及能支撑长途使团往来的道路或航路。",
+        "exceptions": "实力对比会变，弱宗主与强藩属并存时礼仪沦为空壳；藩属本身也可以是别国的宗主，形成多层。百度百科《朝贡体系》提到周代虽设想了完整的服制，但后期诸侯纷争使之基本停留在纸面，说明礼制与实际控制可以脱节。",
+        "story_uses": "使团觐见礼仪之争、册封诏书的措辞、藩属王位争夺时宗主选边、贡品被掉包、边境互市纠纷、旧宗主衰落后藩属另寻靠山。",
+        "historical_scope": "参考中国历代的册封与朝贡。百度百科《朝贡体系》：雏形是畿服制度，商代有内服与外服之分，周代细化为五服、六服、九服并规定贡期与贡品；秦统一后建立严格的中央集权帝国，开始把先秦体系推广到周边已知世界。其他地区的宗主与附庸关系各有差异，本条不规定国名。",
+        "evidence_and_uncertainty": "百度百科《朝贡体系》已读开头部分，核对了畿服制度、商周内外服、周礼的贡期规定与秦以后的推广。汉唐以后各朝的具体做法（回赐比例、互市、册封诏书格式）未读到，属设计归纳。"
+      },
+      "source_ids": [
+        "ws_polx_src_setting",
+        "ws_polx_src_bk_tribute"
+      ],
+      "related_ids": [
+        "polity_bureaucratic_empire",
+        "polity_feudal_kingdom",
+        "polity_steppe_khaganate"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "polity_steppe_khaganate",
+      "name": "游牧汗国",
+      "aliases": [
+        "steppe khaganate",
+        "草原汗国",
+        "可汗国",
+        "khanate"
+      ],
+      "tags": [
+        "kind:polity",
+        "polity:khanate",
+        "tech:classical",
+        "trait:mobile_pastoral",
+        "role:khagan_court",
+        "genre:eastern_fantasy",
+        "genre:western_fantasy",
+        "genre:historical"
+      ],
+      "genres": [
+        "eastern_fantasy",
+        "western_fantasy",
+        "historical"
+      ],
+      "category": "institution",
+      "primary": "institution",
+      "evidence_grade": "mixed",
+      "tech_tier": "classical",
+      "magic_tier": null,
+      "summary": "以可汗与汗庭为中心、靠骑兵征服并向农耕与绿洲定居社群收取贡赋的游牧政权模板；与松散的部族联盟不同，它有常设汗庭、世袭汗家和征服后的附庸层。",
+      "details": {
+        "definition": "出身核心部族的汗家称汗，设有固定的牙帐或汗庭，把被征服的游牧部族和定居聚落变成附庸，靠分封子弟、授予部族首领官号来治理。与部族联盟（polity_tribal_confederation）的区别：联盟的首领多是战时共推、事毕即散，本条有稳定的汗家、汗庭和征服层级。本条是模板。",
+        "mechanism": "权力来源：汗家血统、军事胜利和部族首领会议的认可。更替：汗死后由兄弟或子侄继位，各支竞争，失败者带部众另立或投靠外国。财政：贡赋、掠夺、控制商路收过路费，向定居附庸收实物。军事：全民皆兵的骑兵，按部族编成大队，汗庭有精锐亲军。法律：汗的诏令加各部习惯法，各部保留自己的习俗。地方治理：核心部族直属汗庭；附庸部族与绿洲城镇派驻监督官或代理，内政保留自治。对外关系：向定居大国索取岁币、联姻，或借其内乱介入；也会被对方分化离间。典型冲突：继承内乱、附庸反叛、东西分裂、强邻离间。",
+        "conditions": "最低档位 classical。需要广阔草场、马匹和骑射传统，以及一个富有但军力不足以持续压制它的定居邻居。",
+        "exceptions": "汗国可能长期分为东西两部；汗庭也可能逐渐定居化，变成半农耕王朝；汗家血统一断，汗国就会退回部族联盟。",
+        "story_uses": "汗位继承战、被征服绿洲的税使、联姻使团、分裂后一方向定居大国称臣、权臣毒杀可汗。",
+        "historical_scope": "参考突厥汗国。百度百科《突厥汗国》：552 年前后阿史那土门击败柔然，自称伊利可汗，建牙于都斤山一带；583 年因隋的分化离间分裂为东、西突厥，分别于 630 年和 657 年亡于唐；682 年后复国，734 年毗伽可汗被权臣毒杀，随后内乱，745 年为回纥所灭。词条把它称为游牧部落联盟国家，政体为君主制。其他草原政权的具体制度各有差异。",
+        "evidence_and_uncertainty": "百度百科《突厥汗国》已读，核对了崛起、牙帐、东西分裂、复国、权臣毒杀和灭亡的时间线。万人队编制、附庸层的监督官、过路费与岁币等治理细节只读到词条开头的概述，未逐条核对，属设计归纳。"
+      },
+      "source_ids": [
+        "ws_polx_src_setting",
+        "ws_polx_src_bk_turkic"
+      ],
+      "related_ids": [
+        "polity_tribal_confederation",
+        "polity_tributary_suzerainty",
+        "fantasy_race_centaur_herder"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "polity_military_shogunate",
+      "name": "幕府式军政",
+      "aliases": [
+        "shogunate",
+        "武家政权",
+        "军政双轨"
+      ],
+      "tags": [
+        "kind:polity",
+        "polity:shogunate",
+        "tech:medieval",
+        "trait:dual_authority",
+        "role:shogun",
+        "genre:eastern_fantasy",
+        "genre:historical"
+      ],
+      "genres": [
+        "eastern_fantasy",
+        "historical"
+      ],
+      "category": "institution",
+      "primary": "institution",
+      "evidence_grade": "mixed",
+      "tech_tier": "medieval",
+      "magic_tier": null,
+      "summary": "名义君主保留礼仪与册封权，军权、土地授予权和治安权由武士首领及其幕府掌握的军政双轨模板。",
+      "details": {
+        "definition": "朝廷存在，但军事、封赏与警察权掌握在受朝廷任命的最高将领手里，由其家臣与武士集团治理。国家有两个权力中心：名义上的君主与实际执政的军府。本条是模板，不是具体国家。",
+        "mechanism": "权力来源：朝廷授予的将军名位，加上与武士家臣的主从关系。更替：将军职位由本家世袭，或被辅政的外戚家族控制，实权可以再下移一层。财政：将军直辖领地的收入、对家臣的封赏与摊派。军事：家臣武士就是常备战力。法律：武家有自己的成文法，主要约束武士，朝廷法仍适用于公家贵族。地方治理：将军任命地方军事长官管一国治安，另派人管庄园的征税与土地。对外关系：抵御外敌的战争没有新土地可赏，家臣的不满由此而来。典型冲突：将军与朝廷的名分之争、辅政家族篡权、家臣对战后无赏的不满、两个朝廷并立。",
+        "conditions": "最低档位 medieval。需要有武士阶层、土地授予制度，以及名义君主在祭祀与文化上仍有号召力。",
+        "exceptions": "将军家可能被执政家族架空；名义君主偶尔能举兵讨伐幕府；幕府设在朝廷所在地时，对朝廷控制更紧。本条与封建王国不同：封建王国的顶点是一个君主，这里顶点是两个。",
+        "story_uses": "朝廷密诏讨幕、执政家族吞权、家臣因战后无赏转投他人、由亲王出任傀儡将军、南北两朝并立。",
+        "historical_scope": "参考日本镰仓与室町幕府。百度百科《幕府》：镰仓幕府（通常取 1192 年）以将军为首、御家人为骨干，设政所、侍所、问注所，任命守护与地头；源赖朝死后北条氏出任执权；1221 年承久之乱后幕府权力超过朝廷；1232 年颁布《贞永式目》；1333 年灭亡，之后足利尊氏建室町幕府并出现南北朝。词条还说幕府一词在当时是否被使用有争议。江户幕府等后续形态未核对。",
+        "evidence_and_uncertainty": "百度百科《幕府》已读正文，核对了镰仓幕府的机构、守护地头、执权、承久之乱、贞永式目与室町幕府的起点。财政摊派与战后无赏的说法部分来自词条对元军战后的叙述，其余为设计归纳。"
+      },
+      "source_ids": [
+        "ws_polx_src_setting",
+        "ws_polx_src_bk_bakufu"
+      ],
+      "related_ids": [
+        "polity_feudal_kingdom",
+        "society_knightly_estate",
+        "polity_warlord_fragmentation"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "polity_oligarchic_republic",
+      "name": "贵族寡头共和国",
+      "aliases": [
+        "patrician republic",
+        "oligarchic republic",
+        "世家共和国"
+      ],
+      "tags": [
+        "kind:polity",
+        "polity:oligarchy",
+        "tech:medieval",
+        "trait:closed_council",
+        "role:patrician_council",
+        "genre:western_fantasy",
+        "genre:historical"
+      ],
+      "genres": [
+        "western_fantasy",
+        "historical"
+      ],
+      "category": "institution",
+      "primary": "institution",
+      "evidence_grade": "inferred",
+      "tech_tier": "medieval",
+      "magic_tier": null,
+      "summary": "公职由有限数量的世家轮流把持，靠封闭议事会和终身官职治理的共和国模板；重点在家族垄断，不在海上贸易。",
+      "details": {
+        "definition": "国家形式上是共和国（有议事会、选举或抽签的官职，没有世袭君主），实际执政资格被一份家族名册垄断。与商业共和国（polity_merchant_republic）的区别：后者以商船队与贸易为权力基础，本条的权力基础是土地、官职和谱系，经济可以是农业、矿业或手工业。本条是模板。",
+        "mechanism": "权力来源：家族名册，名册上的家族才有被选资格。更替：官职任期有限但人选在名册内循环，新家族入册须经现有家族投票，常设一位终身或长任期的首席官。财政：税收由议事会掌握，公共债务与官职捐输常被家族成员的私人产业占用。军事：公民兵或雇佣军，指挥官由名册内成员担任，但受议事会监督，以防军人夺权。法律：成文章程加议事会立法，设专门法庭惩处试图称王者。地方治理：属地由议事会派出任期短的行政官。对外关系：靠联盟和雇佣兵，不轻易扩张。典型冲突：新兴家族要求入册、世家之间的世仇、平民起义、首席官想变成终身并世袭。",
+        "conditions": "最低档位 medieval。需要几个势均力敌的家族，没有一家能夺得世袭王权，且有制度防止军人当政。",
+        "exceptions": "名册可能越收越窄；平民会议可保留象征权；外敌压力大时会授权一人短期独裁。",
+        "story_uses": "新家族入册之争、首席官选举里的抽签与贿赂、世仇、被排除家族的阴谋、官职买卖。",
+        "historical_scope": "这是由多个真实共和国共有的结构归纳出的设计模板，没有对应某一国。商业共和国已由 polities.json 覆盖，本条只补充非贸易型的家族寡头。",
+        "evidence_and_uncertainty": "未读到专门词条，全部为设计归纳，不引用任何历史事实；使用者需自行对照具体史例。"
+      },
+      "source_ids": [
+        "ws_polx_src_setting"
+      ],
+      "related_ids": [
+        "polity_merchant_republic",
+        "polity_city_state_league",
+        "polity_mage_council_state"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "polity_federation",
+      "name": "联邦国家",
+      "aliases": [
+        "federation",
+        "federal state",
+        "联邦制国家"
+      ],
+      "tags": [
+        "kind:polity",
+        "polity:federation",
+        "tech:steam",
+        "trait:divided_sovereignty",
+        "role:federal_constitution",
+        "genre:steampunk",
+        "genre:modern",
+        "genre:historical"
+      ],
+      "genres": [
+        "steampunk",
+        "modern",
+        "historical"
+      ],
+      "category": "institution",
+      "primary": "institution",
+      "evidence_grade": "mixed",
+      "tech_tier": "steam",
+      "magic_tier": null,
+      "summary": "若干成员邦（州、省）组成一个统一国家，联邦宪法划分联邦与成员邦的权限，由独立法院裁决冲突的模板。",
+      "details": {
+        "definition": "国家有联邦与成员邦两套政府。联邦宪法规定权限划分，修改程序严格；联邦政府代表国家主权，成员邦在自己辖区内立法、行政、司法。与邦联（polity_confederation）的区别：联邦是一个主权国家，邦联是几个主权国家的联合。本条是模板。",
+        "mechanism": "权力来源：联邦宪法与成员邦人民的授权。更替：联邦与各邦各自选举议会与行政长官；联邦议会常分两院，一院按人口、一院由成员邦的代表组成。财政：联邦与成员邦各有税源；联邦掌管国防、外交和统一大市场，地方事务由各邦管。军事：以联邦军为主，成员邦可保留民兵。法律：联邦宪法与法律高于成员邦的宪法；权限冲突由联邦最高法院或宪法法院裁决。地方治理：成员邦内部自治，并有自己的宪法。对外关系：联邦是国际交往的主体，有的联邦允许成员邦有有限的对外联系。典型冲突：权限边界之争、税收分配、少数邦要求退出、大邦与小邦的席位之争。",
+        "conditions": "最低档位 steam。统一宪法、全国性的大市场和可靠的通信（铁路、电报）是本条的现实条件，后者为设计推断；古代的城邦同盟没有联邦宪法，不算本条。",
+        "exceptions": "联邦可以有直辖区；成员邦规模悬殊；名义联邦也可能实际高度集中。成员邦若有强烈的独立身份，联邦会常年处在退出危机里。",
+        "story_uses": "联邦法院裁决地方法律、大邦与小邦争夺上院席位、某邦拒绝执行联邦征兵令、联邦税与邦税之争、跨邦铁路的路权纠纷。",
+        "historical_scope": "参考百度百科《联邦制》：联邦宪法划分全国政府与成员权力，成员单位有自治权；联邦议会一般两院制；典型代表是美国、加拿大、澳大利亚、瑞士；词条称其渊源可追溯到古希腊城邦同盟，并说美国、瑞士、德国曾是邦联后来改组为联邦。词条列出的当代联邦国家名单不进入本模板。",
+        "evidence_and_uncertainty": "百度百科《联邦制》已读，核对了两套政府、宪法分权、两院制、联邦法院、与邦联的比较与代表国家。铁路与通信条件、征兵与路权钩子为设计归纳。词条含当代政治表述，本条只取制度结构。"
+      },
+      "source_ids": [
+        "ws_polx_src_setting",
+        "ws_polx_src_bk_federal",
+        "ws_polx_src_bk_confed"
+      ],
+      "related_ids": [
+        "polity_confederation",
+        "polity_industrial_republic",
+        "polity_parliamentary_monarchy"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "polity_confederation",
+      "name": "邦联",
+      "aliases": [
+        "confederation",
+        "主权邦国联盟",
+        "邦联制国家"
+      ],
+      "tags": [
+        "kind:polity",
+        "polity:confederation",
+        "tech:medieval",
+        "trait:sovereign_members",
+        "role:member_assembly",
+        "genre:western_fantasy",
+        "genre:historical",
+        "genre:steampunk"
+      ],
+      "genres": [
+        "western_fantasy",
+        "historical",
+        "steampunk"
+      ],
+      "category": "institution",
+      "primary": "institution",
+      "evidence_grade": "mixed",
+      "tech_tier": "medieval",
+      "magic_tier": null,
+      "summary": "若干保持主权的国家为共同目的结成松散联合，联合机构只能协商，决议须经成员批准才生效的模板。",
+      "details": {
+        "definition": "成员国对内对外保有全部主权，把有限的权力委托给邦联机构。邦联没有统一的中央政权、宪法与国籍，成员可自由退出。与城邦与城市同盟（polity_city_state_league）的区别：后者侧重城市与商业联合，本条的成员可以是王国、公国或州，强调决议须经成员批准。本条是模板。",
+        "mechanism": "权力来源：成员国之间的条约与各自的主权。更替：邦联首脑多由成员轮值或由大会推选。财政：经费靠成员摊派，拖欠是常态。军事：联合军由各成员出兵，指挥权难统一。法律：邦联决议没有直接法律效力，须成员通过自己的立法才对其公民生效。地方治理：成员内政完全独立。对外关系：成员各自保留外交，邦联只在约定事项上代表，成员可自由退出。典型冲突：摊派拖欠、退出与分离、共同防御时的指挥权、大邦要求更多话语权，结局多是解体，或改组为联邦。",
+        "conditions": "最低档位 medieval，机制没有近代技术门槛，只需要几个互相承认的主权政权和一个共同的外部威胁或共同利益。",
+        "exceptions": "邦联机构可能逐渐获得征税权而变成联邦；成员间悬殊过大时，大邦会把邦联变成自己的外交工具。",
+        "story_uses": "大会表决被一个成员否决、摊派拖欠引发的信任危机、成员单方面退出、联合军指挥官人选之争、邦联改组为联邦时的宪法会议。",
+        "historical_scope": "参考百度百科《邦联制》（页面标题为邦联制国家）：两个以上主权国家为共同利益组成联盟；成员享有全部主权，邦联机构是协商性的，决议须成员认可，成员可自由退出，没有统一中央政权、宪法与国籍；词条举了塞内冈比亚邦联、1861—1865 年美利坚联盟国和 2024 年萨赫勒国家邦联为例。百度百科《联邦制》中的邦联与联邦对照表也被用于区分两者。",
+        "evidence_and_uncertainty": "百度百科《邦联制》与《联邦制》已读，核对了定义、成员主权、决议效力、退出权与举例。摊派拖欠、联合军指挥等细节为设计归纳。词条举的当代例子不进入本模板。"
+      },
+      "source_ids": [
+        "ws_polx_src_setting",
+        "ws_polx_src_bk_confed",
+        "ws_polx_src_bk_federal"
+      ],
+      "related_ids": [
+        "polity_federation",
+        "polity_city_state_league",
+        "polity_tribal_confederation"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "polity_chartered_company_colony",
+      "name": "特许公司领地",
+      "aliases": [
+        "chartered company rule",
+        "chartered colony",
+        "公司殖民地",
+        "特许贸易公司统治"
+      ],
+      "tags": [
+        "kind:polity",
+        "polity:chartered_colony",
+        "tech:medieval",
+        "trait:monopoly_charter",
+        "role:company_board",
+        "genre:historical",
+        "genre:steampunk",
+        "genre:western_fantasy"
+      ],
+      "genres": [
+        "historical",
+        "steampunk",
+        "western_fantasy"
+      ],
+      "category": "institution",
+      "primary": "institution",
+      "evidence_grade": "mixed",
+      "tech_tier": "medieval",
+      "magic_tier": null,
+      "summary": "远方的君主或议会把贸易垄断、驻军和司法权写进特许状，交给股份公司，公司在海外据点逐步变成收税、征兵、审判的政府的模板。",
+      "details": {
+        "definition": "统治者向一家商业公司授予特许状，公司凭此在特定海域或地区垄断贸易，并随时间取得驻军、铸币、司法乃至宣战缔约的权力，成为当地事实上的政府。公司董事会在本国，据点由公司派出的总督和商务员管理。本条是政体模板，不是具体国家，也不替代工业共和国或议会君主国这类本土政体。",
+        "mechanism": "权力来源：本国君主或议会的特许状，加上公司自身的资本与武装。更替：董事由股东选出，据点长官由董事会任命，当地人没有政治发言权。财政：垄断贸易的利润，在取得收税权之后改为向当地农业征税，贸易盈余再用来分红和养兵。军事：公司自建商馆守备和雇佣兵，后来有常备部队和舰船。法律：公司法院依特许状与本国法审判，当地习惯法被部分保留。地方治理：沿海商馆是核心，向内陆扩张时靠与当地王公订约、扶植傀儡和直接兼并。对外关系：公司可与当地政权缔约交战，同时受本国政府监管，也常被本国政府用作扩张工具。典型冲突：董事会与前线官员的利益之争、股东分红与饥荒救济的冲突、本国议会对公司的调查、当地势力联合反抗、其他国家的竞争公司。",
+        "conditions": "最低档位按 catalog_overlay 词表取 medieval。典型形态要求远洋船队、火炮和股份融资，接近 world-setting 里的 renaissance 档；叠加词表没有该档，所以取更低一档，与绝对君主制同理。需要一个愿意授予垄断的本国政权，以及一个政治上分裂、可被逐步控制的远方地区。",
+        "exceptions": "特许公司也可以只经营商路，不取得领土；只有取得收税权与军队之后才变成政体。公司在本国被收归国有后，据点变为一般殖民地，不再属于本条。奇幻世界里公司可以由商会、法师行会或港口同盟取代股份公司。",
+        "story_uses": "总督与董事会的通信迟滞、饥荒年仍照额征税、公司法院审判当地王公、被迫缔约的小邦、股东大会对前线战争的质询、走私商与公司垄断的冲突。",
+        "historical_scope": "参考不列颠东印度公司。百度百科《东印度公司》：1600 年 12 月 31 日伊丽莎白一世授予皇家特许状，给予东印度贸易垄断权；1608 年在苏拉特建立第一个商业事务所；1670 年查理二世授予组建军队、铸币、宣战缔约等权力；1757 年普拉西战役后控制孟加拉，1765 年取得孟加拉等地的收税权；1773 年英国政府通过法案干预公司；1857 年印度起义后英国王室接管其统治权，公司于 1874 年解散。词条称公司从商业企业变成印度的实际统治者。本条不涉及对该公司的评价。",
+        "evidence_and_uncertainty": "百度百科《东印度公司》已读，核对了特许状与垄断、苏拉特商馆、1670 年权力、普拉西、收税权、1773 年法案和终结时间。董事会与总督的关系、财政构成、司法细节和各类冲突为设计归纳。词条中关于饥荒与鸦片的内容没有逐项采用。"
+      },
+      "source_ids": [
+        "ws_polx_src_setting",
+        "ws_polx_src_bk_company"
+      ],
+      "related_ids": [
+        "steam_joint_stock_capital",
+        "society_limited_company",
+        "polity_merchant_republic",
+        "western_trade_league"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "polity_knightly_order_state",
+      "name": "教团骑士国",
+      "aliases": [
+        "military order state",
+        "knightly order state",
+        "骑士团国",
+        "修道骑士团领地"
+      ],
+      "tags": [
+        "kind:polity",
+        "polity:knightly_order_state",
+        "tech:medieval",
+        "trait:celibate_ruling_corps",
+        "role:grand_master",
+        "genre:western_fantasy",
+        "genre:historical",
+        "genre:dark_fantasy"
+      ],
+      "genres": [
+        "western_fantasy",
+        "historical",
+        "dark_fantasy"
+      ],
+      "category": "institution",
+      "primary": "institution",
+      "evidence_grade": "mixed",
+      "tech_tier": "medieval",
+      "magic_tier": null,
+      "summary": "由宗教军事团体直接统治一块征服来的土地，团长是国家元首，骑士兄弟是统治层，教会与世俗君主是其上级与邻居的模板。",
+      "details": {
+        "definition": "一个有誓愿的军事修会在征服或受封的土地上建立国家，统治层是发愿的骑士兄弟，元首是由兄弟选出的大团长。国家服务于修会的使命，同时受教廷与神圣君主双重名义上的管辖。与神权国（polity_theocratic_state）的区别：神权国由祭司集团治理民众，本条的统治层是军事团体，核心职能是征服、驻防和殖民。本条是模板。",
+        "mechanism": "权力来源：教会授予的使命、君主的封授或特许，加上征服的实绩。更替：兄弟会议选举大团长，高级官员由团长与会议共同任命；统治层不能世袭，因为成员发过独身誓。财政：领地农业收入、征服地上的庄园与殖民村、贸易与关税；也向本国或教会募捐。军事：骑士兄弟为精锐，另雇佣兵和征召本地附属人员。法律：修会规章（会规）高于普通世俗法，对被征服居民另立法令。地方治理：设城堡区，由骑士担任长官，下辖堡垒与殖民村。对外关系：对异教邻居持续作战，对基督教邻国则争夺边界与商路，受到教廷与皇帝等上级的牵制。典型冲突：骑士兄弟与教廷的权力之争、团长选举中的派系、被征服居民的反叛、世俗邻国的联合、使命完成后国家为何存在的合法性问题。",
+        "conditions": "最低档位 medieval。需要一种统一的宗教世界观、一个发愿的军事修会组织、一片可征服的外围土地，以及上级权威的特许。使命一旦完成或失效，国家会走向世俗化。",
+        "exceptions": "团长可能是世俗君主的近亲，修会实质上变成其家族工具。修会也可能被邻国打败而丢掉领土，退回到只保留组织的状态。奇幻世界里誓愿可以由魔法契约（western_curse_oath）强化。",
+        "story_uses": "新到任的骑士长官、被征服村庄的赋役、团长选举的拉票、与教廷使者的争执、因战败而削减的领地、骑士兄弟违反会规的审判、改信世俗君主的最后一任团长。",
+        "historical_scope": "参考德意志骑士团。百度百科《德意志骑士团》：1198 年成立于阿卡，其后至 1291 年以阿卡为总部；1224 年在征服普鲁士地区后建立骑士团国；1512 年勃兰登堡霍亨索伦家族的阿尔布雷希特被选为大团长；1525 年他宣布改信路德宗，把骑士团国世俗化为普鲁士公国，自任公爵，但骑士团作为组织继续存在；1809 年被拿破仑解散，1834 年重建，1929 年成为纯宗教修士会。本条只取制度，不评价宗教立场。",
+        "evidence_and_uncertainty": "百度百科《德意志骑士团》已读，核对了成立、建国、选团长、世俗化、解散与重建的时间。财政构成、城堡区、会规与国家法令的关系、殖民村等细节为设计归纳。另一个修会（圣约翰骑士团）的百度页面未取得，没有引用。"
+      },
+      "source_ids": [
+        "ws_polx_src_setting",
+        "ws_polx_src_bk_teutonic"
+      ],
+      "related_ids": [
+        "western_knighthood_chivalry",
+        "western_monastic_order",
+        "western_pilgrimage_order",
+        "polity_theocratic_state"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "polity_caliphal_state",
+      "name": "哈里发式政教结构",
+      "aliases": [
+        "caliphate",
+        "caliphal state",
+        "哈里发国家",
+        "苏丹与哈里发并立"
+      ],
+      "tags": [
+        "kind:polity",
+        "polity:caliphate",
+        "tech:medieval",
+        "trait:religious_successor",
+        "role:caliph",
+        "genre:historical",
+        "genre:eastern_fantasy",
+        "genre:western_fantasy"
+      ],
+      "genres": [
+        "historical",
+        "eastern_fantasy",
+        "western_fantasy"
+      ],
+      "category": "institution",
+      "primary": "institution",
+      "evidence_grade": "mixed",
+      "tech_tier": "medieval",
+      "magic_tier": null,
+      "summary": "国家元首同时是信仰共同体的继承人和领袖，早期集宗教与行政大权，后期实权常转到军事保护者手里、元首仅保留名义地位的政教结构模板。",
+      "details": {
+        "definition": "元首以信仰共同体领袖的继任者身份主持国家，兼管宗教事务与行政、司法、军事。本条只描述这种结构的运行，不对任何宗教作出评价。与神权国（polity_theocratic_state）的区别：神权国的统治权来自祭司集团，本条的统治权来自对一位创始领袖的继承，并因此有一条可追溯的继位线。本条是模板。",
+        "mechanism": "权力来源：对创始领袖职位的继承，加上共同体的承认或血统。更替：早期由共同体推举，后期转为世袭，在家族内部由前任指定或亲族争夺。财政：土地与人头税、宗教捐赠、征服地的贡赋；公库与元首私产有时不分。军事：早期是共同体的战士，后期依赖募兵和雇佣的外族军人，军事首领的权势随之增大。法律：宗教法学者与法官执掌司法，元首任命法官并仲裁重大案件。地方治理：派总督治理各省，总督逐渐世袭化，成为半独立的王朝。对外关系：向邻国宣称共同体的领导权，与竞争的元首对立，或册封军事首领。典型冲突：继位争夺、总督自立、军事保护者架空元首、宗教学者与宫廷的矛盾、外敌攻陷首都。",
+        "conditions": "最低档位 medieval。需要一个有创始领袖、法学传统和成文教义的共同体，以及能把广阔地域连在一起的道路、驿站和税收。",
+        "exceptions": "元首也可能同时有强势的军事权力，成为一般君主；同一时期可以有多位互不承认的元首。元首只剩名义时，世俗权力由军事保护者以别的称号掌握，元首成为其合法性的来源。奇幻世界里可以换成虚构的信仰与继承线。",
+        "story_uses": "名义元首被军事保护者控制、总督自立并向元首索要册封、法官与宫廷的冲突、继位之争、首都陷落后在他处被重新扶植的元首。",
+        "historical_scope": "参考哈里发制度。百度百科《哈里发》：632 年阿布·伯克尔接替创始领袖，称哈里发；约在第二任哈里发时，哈里发成为国家政教首脑的称号；四大哈里发之后改为世袭；倭马亚王朝有 14 任，阿拔斯王朝有 38 任；10 世纪中叶后布韦希人和塞尔柱突厥人相继成为阿拔斯王朝的真正统治者，哈里发失去世俗权力，只保有宗教领袖的地位；1258 年蒙古军队攻陷巴格达，1260 年埃及马穆鲁克王朝扶植幸存的阿拔斯人为新哈里发。本条只取制度结构。",
+        "evidence_and_uncertainty": "百度百科《哈里发》已读，核对了继任、演变为政教首脑、改为世袭、两个王朝的任数、军事保护者架空、1258 年陷落与马穆鲁克的扶植。财政、司法、总督世袭化的写法为设计归纳。词条中的宗教表述一律不采用，本条不评判任何信仰。"
+      },
+      "source_ids": [
+        "ws_polx_src_setting",
+        "ws_polx_src_bk_caliph"
+      ],
+      "related_ids": [
+        "polity_theocratic_state",
+        "polity_bureaucratic_empire",
+        "polity_warlord_fragmentation"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "polity_revolutionary_commune",
+      "name": "革命公社",
+      "aliases": [
+        "revolutionary commune",
+        "commune",
+        "城市自治革命政权",
+        "公社制"
+      ],
+      "tags": [
+        "kind:polity",
+        "polity:commune",
+        "tech:steam",
+        "trait:recall_of_officials",
+        "role:armed_citizenry",
+        "genre:historical",
+        "genre:steampunk"
+      ],
+      "genres": [
+        "historical",
+        "steampunk"
+      ],
+      "category": "institution",
+      "primary": "institution",
+      "evidence_grade": "mixed",
+      "tech_tier": "steam",
+      "magic_tier": null,
+      "summary": "大城市的武装市民在旧政府撤离后自行选出议会，实行官员可撤换、低薪、民兵代替常备军的短命革命政权的模板。",
+      "details": {
+        "definition": "旧政权从一座大城市撤离或崩溃后，武装的市民组织选举议会，宣布城市自治并进行激进的制度改革。其特点是官员由选举产生且可撤换，薪酬被压低，军队由民兵组成。与工业共和国（polity_industrial_republic）的区别：后者是稳定的全国性共和国，本条是局限于一城或数城、存续很短的革命政体。本条是模板，不评价任何意识形态。",
+        "mechanism": "权力来源：武装市民团体的起义和随后的选举。更替：议会成员和官员可被选民撤换，重大决定由议会和各区委员会通过。财政：接管旧政府在城内的税源和银行，面临外部封锁而难以持久；开支主要是民兵薪饷和救济。军事：市民民兵，各区自行组织，缺乏统一指挥和军官。法律：以议会法令为主，改革教会、官僚机构、劳资与教育制度。地方治理：城市按区自治，由各区委员会推选代表。对外关系：被旧政府及外国势力孤立，期待其他城市响应而往往落空。典型冲突：民兵与职业军队的差距、议会内部的派系之争、物资短缺、其他城市的起义被镇压、外国势力的调停与封锁。",
+        "conditions": "最低档位 steam。需要工业化城市中有组织的工人和民兵、报刊和电报使消息迅速传开，以及旧政府暂时失去对该城的控制。",
+        "exceptions": "不是所有革命政权都是公社；有些由政党或军队主导，应归入军政府或革命共和国。公社可以存续数月以上也可以几周即败。奇幻世界里可以由行会和魔法学徒组成民兵。",
+        "story_uses": "街垒与民兵编队、被任命后被撤换的官员、物资短缺时的配给争吵、议会里各派系的演说、邮差带出的求援信、邻近城市的起义没有成功。",
+        "historical_scope": "参考巴黎公社。百度百科《巴黎公社》：1871 年 3 月 18 日巴黎起义，国民自卫军中央委员会组织 3 月 26 日选举，3 月 28 日公社正式成立，至 5 月 28 日结束；政府首脑撤往凡尔赛；公社废除旧官僚机构，对公职人员实行普选制和撤换制，取消高薪制，以国民自卫军代替常备军；外省的响应（纳博讷、利摩日、马赛）很快被粉碎。词条注明评价者的意识形态分歧很大，本条只取制度，不取评价。",
+        "evidence_and_uncertainty": "百度百科《巴黎公社》已读，核对了起义与成立日期、国民自卫军中央委员会、选举、官员制度、民兵、政府撤往凡尔赛和外省响应失败。财政与区委员会的细节、各类钩子为设计归纳。词条中的意识形态评价文字不采用。"
+      },
+      "source_ids": [
+        "ws_polx_src_setting",
+        "ws_polx_src_bk_commune"
+      ],
+      "related_ids": [
+        "polity_industrial_republic",
+        "steam_labour_union",
+        "society_labor_union",
+        "polity_city_state_league"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "polity_military_junta",
+      "name": "军政府",
+      "aliases": [
+        "military junta",
+        "junta",
+        "军事执政团",
+        "军事专政"
+      ],
+      "tags": [
+        "kind:polity",
+        "polity:junta",
+        "tech:steam",
+        "trait:martial_law",
+        "role:officer_corps",
+        "genre:historical",
+        "genre:steampunk",
+        "genre:modern"
+      ],
+      "genres": [
+        "historical",
+        "steampunk",
+        "modern"
+      ],
+      "category": "institution",
+      "primary": "institution",
+      "evidence_grade": "mixed",
+      "tech_tier": "steam",
+      "magic_tier": null,
+      "summary": "军官团通过政变夺取最高权力，实行戒严或长期紧急状态，自称超越党派并指责文官腐败，由军官组成执政团的政体模板。",
+      "details": {
+        "definition": "国家的政治权力由军队掌握，多数通过政变夺取。执政团由军官组成，吸纳少量文官，但军事统帅仍握有最高权力。本条是政体模板，不对任何具体国家作评价。与幕府式军政（polity_military_shogunate）的区别：幕府是长期的制度化军政双轨，有名义上的君主，本条通常是一次政变之后的临时或长期执政团，没有成文的世袭继承。",
+        "mechanism": "权力来源：军队的忠诚，通常通过政变夺取。更替：执政团内部的排序和再次政变；有时承诺交还政权但迟迟不办。财政：国库与军费合一，依赖出口税、专卖收入或外国贷款，文官部门被压缩。军事：军队是国家的基础，同时兼作警察和监察。法律：宣布军事法律或紧急状态，限制集会与报刊，设军事法庭。地方治理：军官出任省长或地区司令，文官退居次要。对外关系：多宣称保护国家秩序，向外国要求承认和贷款，可能因军事冒险转移国内矛盾。典型冲突：执政团内部争夺、反对派的地下活动、物价与财政危机、下级军官的二次政变、外国压力。",
+        "conditions": "最低档位按设计推断取 steam：需要专业化的军官团、电报和铁路使夺取首都和控制通信成为可能。古代的近卫军政变也有相似之处，但组织形式不同，归入暴力夺权的一般情形而不单列。",
+        "exceptions": "军政府常保留文官内阁和议会作为外衣，这时它与立宪政体难以区分。有些军人集团以名义君主的名义执政。执政团的立场从保守到激进都有，本条不预设意识形态。",
+        "story_uses": "凌晨的广播和电报、戒严令与宵禁、被撤职的文官、执政团内部的清洗、军事法庭的审判、逃亡的反对派、一位犹豫的师长。",
+        "historical_scope": "参考百度百科《军政府》的概述：政治权力由军队所拥有，绝大多数通过政变建立；最主要的特点是实施军事法律或宣布永久性紧急状态；成员多来自军队，有些吸纳文官，但军事统帅仍握有最高权力；常标榜无党派并指责文职政治家腐败；统治通常是专制独裁。词条还列有若干具体案例，本模板不引用。",
+        "evidence_and_uncertainty": "百度百科《军政府》已读概述，核对了上述定义性断言。财政、地方治理、对外关系与钩子为设计归纳。词条的案例与评价部分不采用，政体档位的最低值为推断。"
+      },
+      "source_ids": [
+        "ws_polx_src_setting",
+        "ws_polx_src_bk_junta"
+      ],
+      "related_ids": [
+        "polity_military_shogunate",
+        "polity_warlord_fragmentation",
+        "society_military_household",
+        "polity_industrial_republic"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "polity_warlord_fragmentation",
+      "name": "军阀割据",
+      "aliases": [
+        "warlordism",
+        "warlord fragmentation",
+        "藩镇割据",
+        "诸镇并立"
+      ],
+      "tags": [
+        "kind:polity",
+        "polity:warlordism",
+        "tech:classical",
+        "trait:local_army_control",
+        "role:military_governor",
+        "genre:historical",
+        "genre:eastern_fantasy",
+        "genre:western_fantasy"
+      ],
+      "genres": [
+        "historical",
+        "eastern_fantasy",
+        "western_fantasy"
+      ],
+      "category": "institution",
+      "primary": "institution",
+      "evidence_grade": "mixed",
+      "tech_tier": "classical",
+      "magic_tier": null,
+      "summary": "中央朝廷为应对叛乱或边患把军权、财权、监察权交给地方将领，将领逐步世袭自立，名义上仍尊奉朝廷的多镇并立模板。",
+      "details": {
+        "definition": "中央政权把一个地区的军事、财政和监察权力集中给地方长官，这些长官控制自己的军队，部分人不再听从朝廷、不再上缴赋税、自行指定继任者，而名义上仍承认朝廷。与封建王国（polity_feudal_kingdom）的区别：后者的土地和效忠是由君主封授的链条，本条的权力源于朝廷为应急而下放的官职，后来失去控制。与军政府（polity_military_junta）的区别：本条是多个并立的地方实体，而不是一个全国性的执政团。本条是模板。",
+        "mechanism": "权力来源：朝廷授予的官职（兼军事、财政、监察），加上对本镇军队的实际控制。更替：强镇由军队拥立继任者，朝廷事后追认；弱镇由朝廷任命，但常被军队驱逐。财政：本镇税收留作军费，不上缴或只上缴象征性的数额，也靠盐铁专卖和过路税。军事：以牙兵或募兵为核心，兵士与主帅形成私人依附，时常哗变。法律：本镇将领自署官吏并自行判决。地方治理：节度使兼理民政，下设军府与州县。对外关系：互相结盟、联姻、攻伐，向朝廷称臣以保持名分，也与外族勾结。典型冲突：朝廷削藩引发叛乱、军队拥立与驱逐主帅、强镇吞并弱镇、外族借机介入。",
+        "conditions": "最低档位 classical：只需要一个中央政权、地方军队和授予官职的体制，与技术关系不大；晚期军阀的现代化部队属于别的形态，不在本条。需要朝廷无力直接控制各地军队。",
+        "exceptions": "大多数地方军事长官并不割据，仍服从朝廷、缴纳赋税、接受任命；割据只出现在特定地区。割据者常自称忠臣。强镇之间也可能维持稳定的均势，持续一百多年。",
+        "story_uses": "朝廷使者宣读任命而被军队拒绝、被兵士拥立的年轻少帅、削藩诏书引发的叛乱、边镇与外族的暗中交易、强镇吞并邻镇、一座城里换了三位主人。",
+        "historical_scope": "参考唐代藩镇割据。百度百科《藩镇割据》：唐玄宗时扩充边防军镇、设节度使，赋予军事统领、财政支配及监察管内州县的权力；安禄山以身兼范阳、平卢、河东三镇节度使发动安史之乱；乱后军镇制度扩展到内地，节度使常兼观察处置使；陕西、四川、江淮以南的方镇多数服从朝廷，河北三镇则不受朝命、不输贡赋；约 763 年至黄巢起义前的一百多年里藩镇形势较稳定，数目约 46 个；黄巢起义后进入五代十国的军阀混战。词条还提醒，把整个中晚唐都称为藩镇割据过于笼统。",
+        "evidence_and_uncertainty": "百度百科《藩镇割据》已读，核对了上述节度使职权、安史之乱、河北三镇、多数方镇服从朝廷、稳定期与终局。牙兵、拥立与驱逐主帅、财政用途的写法为设计归纳。取得档位 classical 是推断，因为该制度只依赖官职与军队。"
+      },
+      "source_ids": [
+        "ws_polx_src_setting",
+        "ws_polx_src_bk_fanzhen"
+      ],
+      "related_ids": [
+        "polity_bureaucratic_empire",
+        "polity_military_shogunate",
+        "polity_military_junta",
+        "society_military_household"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "polity_dragon_dominion",
+      "name": "龙主统治",
+      "aliases": [
+        "dragon dominion",
+        "dragon-lord realm",
+        "非人领主国",
+        "巨龙领地"
+      ],
+      "tags": [
+        "kind:polity",
+        "polity:dragon_dominion",
+        "tech:classical",
+        "magic:rare",
+        "trait:non_human_sovereign",
+        "role:dragon_lord",
+        "genre:western_fantasy",
+        "genre:dark_fantasy",
+        "genre:eastern_fantasy"
+      ],
+      "genres": [
+        "western_fantasy",
+        "dark_fantasy",
+        "eastern_fantasy"
+      ],
+      "category": "institution",
+      "primary": "institution",
+      "evidence_grade": "inferred",
+      "tech_tier": "classical",
+      "magic_tier": "rare",
+      "summary": "一头或数头巨龙（或其他强大的非人领主）作为终身元首，居民以贡品、劳役或契约换取保护的奇幻政体模板。",
+      "details": {
+        "definition": "统治权属于一个强大的非人生物，通常是龙，居民把它视为领主、守护者或灾厄。生物的实力是统治的基础，居民社会负责纳贡、耕作与交涉，并设有专门的使者和代理人。本条是奇幻政体模板，与世俗政体平行，不对应具体史料。",
+        "mechanism": "权力来源：个体的压倒性武力和寿命，加上与居民的约定。更替：领主自然死亡或被击败时更替；幼龙、子嗣或竞争者争夺领地，居民需要重新谈判。财政：居民按约定贡献粮食、金属、劳力或人质，领主以保护、水源或天气作为回报。军事：领主本身是战力，居民另设少量防卫队处理小事。法律：领主的好恶和先例构成法律，由代理人（译者、使者、书记）转达；居民内部事务由头人处理。地方治理：领主不会管细事，设代理人或氏族长负责纳贡与调解。对外关系：邻国视其为威胁或资源，勇士、法师与商队都会来试探；领主可以与他国订立契约。典型冲突：代理人利用信息差谋私、人质与反抗者的问题、勇者挑战、领主情绪变化、年老领主的继承危机。",
+        "conditions": "最低魔法档位 rare：世界上要存在能统治一方的非人生物。科技档位 classical 即可，因为统治的基础不依赖技术。居民需要有某种保护需求或无力反抗。",
+        "exceptions": "领主可以是水域的雨主（参见 fantasy_race_long_rain_sovereign），主要控制气候而不是土地；也可以是多头联合的议会，或沉睡中仅以传说维系的领地。领主若被击败，居民常陷入权力真空。",
+        "story_uses": "贡品交付日、代理人的账目、人质的归来、勇者挑战的赌局、领主向居民提出新的要求、领主的继承者提前出现。",
+        "historical_scope": "无直接史料对应。概念借用世界上常见的龙、蛟龙与雨主传说，只作奇幻题材的结构借用；现有元素库中有龙（western_dragon）与龙与水域雨权（fantasy_race_long_rain_sovereign）两条相关元素，本条只关注统治结构。",
+        "evidence_and_uncertainty": "全部为本项目设计推演，没有来源核对，evidence_grade 为 inferred。魔法档位取 rare 是设计判断；若世界中龙族很常见，可提高到 common。"
+      },
+      "source_ids": [
+        "ws_polx_src_setting"
+      ],
+      "related_ids": [
+        "western_dragon",
+        "fantasy_race_long_rain_sovereign",
+        "polity_tribal_confederation",
+        "polity_tributary_suzerainty"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "polity_sect_realm",
+      "name": "宗门治国",
+      "aliases": [
+        "sect realm",
+        "cultivation sect state",
+        "宗门国",
+        "修仙宗门领地"
+      ],
+      "tags": [
+        "kind:polity",
+        "polity:sect_realm",
+        "tech:classical",
+        "magic:common",
+        "trait:sect_sovereignty",
+        "role:sect_master",
+        "genre:eastern_fantasy",
+        "genre:xianxia"
+      ],
+      "genres": [
+        "eastern_fantasy",
+        "xianxia"
+      ],
+      "category": "institution",
+      "primary": "institution",
+      "evidence_grade": "inferred",
+      "tech_tier": "classical",
+      "magic_tier": "common",
+      "summary": "修炼宗门直接取得一片土地的统治权，以掌门、长老会和执法堂行使政府职能，辖内凡人缴税、服役的奇幻政体模板。",
+      "details": {
+        "definition": "一个修炼宗门从修行团体转变为领土国家：掌门是元首，长老会是决策层，宗门设有收税、治安、司法和教育机构，辖区内的凡人聚落成为纳税的子民。与东方组的宗门条目（eastern_sect、eastern_sect_rules）的区别：那些条目描述宗门这个组织内部的结构与规则，本条描述宗门作为主权政府如何治理世俗人口。本条是模板。",
+        "mechanism": "权力来源：高阶修士的实力、宗门传承与对灵脉或洞天的控制。更替：掌门由前任传位、长老会推举或比武决定，夹杂派系之争。财政：辖区内凡人的赋税与劳役、灵材与丹药的出售、对附庸小宗门的贡赋，贡献点制度可以兼作财政工具（参见 eastern_contribution_points）。军事：弟子、外门杂役与凡人兵共同构成，战力集中在高阶修士。法律：宗门规矩加执法堂，对凡人另设简化法令。地方治理：山门核心区、外围附庸宗门、凡人县镇三层，凡人事务交给世俗代理人。对外关系：与其他宗门结盟或对抗，与世俗王朝有册封、供奉与互不干涉的约定（参见 eastern_court_patronage）。典型冲突：宗门之间的资源战、凡人与修士的身份差、掌门继承之争、内门外门之争、世俗王朝的反制。",
+        "conditions": "最低魔法档位 common：修炼者必须较多，足以形成数个层级的宗门。需要一条灵脉或别的稀缺资源作为统治的物质基础。",
+        "exceptions": "宗门可以只名义上治国，实际由世俗王朝代管；也可能多个宗门共治一国，形成联盟或联合议会。统治者更换后宗门名号仍在而权力已转移。",
+        "story_uses": "凡人县令与宗门执事的交涉、灵脉争夺、长老会上的派系、外门弟子的税收任务、掌门闭关期间的代理人之争、世俗王朝派来的册封使。",
+        "historical_scope": "无直接史料对应。概念来自仙侠与玄幻题材的宗门叙事，只借用其结构；与世俗政体的对照可参考神权国与官僚制帝国。",
+        "evidence_and_uncertainty": "全部为本项目设计推演，没有来源核对，evidence_grade 为 inferred。魔法档位取 common 是设计判断。本条与 eastern 组的关系只在文字上做了区分，未检查具体字段是否重复。"
+      },
+      "source_ids": [
+        "ws_polx_src_setting"
+      ],
+      "related_ids": [
+        "eastern_sect",
+        "eastern_sect_rules",
+        "eastern_contribution_points",
+        "eastern_court_patronage",
+        "eastern_sect_war",
+        "polity_theocratic_state"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "polity_undead_realm",
+      "name": "亡灵君主国与诅咒领地",
+      "aliases": [
+        "undead realm",
+        "cursed domain",
+        "亡者之国",
+        "不死领主领地"
+      ],
+      "tags": [
+        "kind:polity",
+        "polity:undead_realm",
+        "tech:medieval",
+        "magic:common",
+        "trait:undead_sovereign",
+        "role:undead_lord",
+        "genre:dark_fantasy",
+        "genre:western_fantasy",
+        "genre:folk_horror"
+      ],
+      "genres": [
+        "dark_fantasy",
+        "western_fantasy",
+        "folk_horror"
+      ],
+      "category": "institution",
+      "primary": "institution",
+      "evidence_grade": "inferred",
+      "tech_tier": "medieval",
+      "magic_tier": "common",
+      "summary": "一位不死领主或一道诅咒支配整片领地，活人与亡者按约定共居，统治靠契约、恐惧与亡者劳役维持的黑暗奇幻政体模板。",
+      "details": {
+        "definition": "统治者是不死生物（巫妖、吸血贵族、亡灵王）或由某种诅咒绑定的领主，领地内居民包括活人、亡者与被诅咒者。活人通过契约、献祭或被迫的服从获得安全，亡者提供劳役与军力。本条是黑暗奇幻政体模板，不对应史料。",
+        "mechanism": "权力来源：不死领主的法力和与亡者、诅咒之间的绑定，也可能是对某位旧领主的忠誓延续（参见 western_curse_oath）。更替：领主几乎不会自然更替；被击败、诅咒解除或封印失效时领地崩溃，或由副手接任。财政：活人缴纳的税、献祭、墓葬产业，亡者劳役开矿与耕作，减少活人的需求。军事：亡者军团加少量活人精锐，补给成本低但缺乏变通。法律：领主的契约与誓言是最高法律，违约会招致诅咒。地方治理：设活人代理人或亡灵总管，活人聚落按照契约划界。对外关系：邻国对其恐惧并设置封锁，教会与猎魔人（western_monster_hunter）会组织征伐，也有商队与秘密盟友。典型冲突：契约被打破、活人逃亡、亡者失控、教会圣战、副手篡位、领主的执念触发的灾变。",
+        "conditions": "最低魔法档位 common：世界上需要有较多可用的死灵或诅咒技艺，不死者才能支撑一个持续的政体。科技档位 medieval 是推断，因为设想的活人社会是农耕与城堡结构。",
+        "exceptions": "领地可以是诅咒的结果，没有明确的统治者；也可以由家族而不是个体的吸血贵族统治（参见 western_vampire）。亡者可以是平和的居民而不是军队。诅咒领地的居民常不知自己受诅。",
+        "story_uses": "订立契约的使者、夜里才开放的集市、亡者的纳税日、教会派出的猎魔人潜入、违约的村庄、领主的旧日誓言、副手的篡位。",
+        "historical_scope": "无直接史料对应。概念来自欧洲民间传说与现代黑暗奇幻对亡灵、吸血鬼与诅咒领地的描写，只借用结构；元素库内相关的单条有死灵术（western_necromancy）、不安息亡者（western_restless_dead）和诅咒与誓约（western_curse_oath）。",
+        "evidence_and_uncertainty": "全部为本项目设计推演，没有来源核对，evidence_grade 为 inferred。魔法档位取 common 是设计判断；若设定中死灵术极罕见，应把本条改成孤立的个案，不作政体使用。"
+      },
+      "source_ids": [
+        "ws_polx_src_setting"
+      ],
+      "related_ids": [
+        "western_necromancy",
+        "western_restless_dead",
+        "western_vampire",
+        "western_curse_oath",
+        "horror_lineage_elders",
+        "polity_feudal_kingdom"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    }
+  ]
+}

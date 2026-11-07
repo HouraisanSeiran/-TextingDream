@@ -1,0 +1,454 @@
+{
+  "schema_version": 1,
+  "group": "races-supplement",
+  "status": "candidate",
+  "note": "蒸汽／工业世界补充种族候选组。tags 中的 kind:race 是检索用聚类标签，表示「与族群、类人群体或可交涉的非人群体相关」，不是生物物种定义；族群特征均为设计推演，不决定性格、道德、智力或职业，社会后果（债务、歧视、制度）才是本组的关注点。与 fantasy-races.json 分工：不重复立条，只补「能与蒸汽／工业世界结合」的矿井、机械共生、运河、炉火、魔偶、城市妖精变体。tech:* 与 magic:* 标签依据 docs/world-setting.md，标的是该族群最早合理出现的档位与世界至少需要的魔法档位。全部条目 review_status=needs_review、detail_status=needs_detail，仅表示结构齐备；部分内容已对照百度百科核对（见各条 evidence_and_uncertainty），其余仍未经事实核验。百度百科来源已于 2026-11-04 用无头浏览器读取（access=read；个别词条只读到摘要级内容或义项不符，见各来源 supports）；其余含 web 链接的来源仍为 search_only，仅确认主题，未取得正文。",
+  "sources": [
+    {
+      "id": "ws_race_src_setting",
+      "title": "世界设定：类型配比、科技 / 魔法档位与国家 / 种族 / 势力（本项目设计文档）",
+      "url": "docs/world-setting.md",
+      "access": "read",
+      "supports": "tech:*、magic:*、kind:polity、polity:*、genre:* 标签的档位定义与使用方式（科技止于 1939 年之前）",
+      "rights_note": "本项目原创设计文档，随仓库分发；非第三方资料。条目内容为据此做的设计归纳，不是史料结论。"
+    },
+    {
+      "id": "ws_race_src_brit_coal_mining",
+      "title": "Coal mining (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/technology/coal-mining",
+      "access": "search_only",
+      "supports": "仅确认该条目主题与链接存在（本轮 HEAD 探测返回 403 人机校验，未取得正文），不支撑任何具体论断；关于「煤矿开采的井下作业环境」的表述为一般常识层面的转述与本项目设计归纳，待审阅时对照原文核实。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_race_src_brit_dwarf",
+      "title": "dwarf (folklore) (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/topic/dwarf-mythology",
+      "access": "search_only",
+      "supports": "仅确认该条目主题与链接存在（本轮 HEAD 探测返回 403 人机校验，未取得正文），不支撑任何具体论断；关于「矮人在民间传说中与矿山、锻造的关联」的表述为一般常识层面的转述与本项目设计归纳，待审阅时对照原文核实。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_race_src_wp_pneumoconiosis",
+      "title": "Coalworkers' pneumoconiosis (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Coalworkers%27_pneumoconiosis",
+      "access": "search_only",
+      "supports": "仅确认该条目主题与链接存在（本轮 HEAD 探测返回 403 人机校验，未取得正文），不支撑任何具体论断；关于「煤工尘肺等井下职业病」的表述为一般常识层面的转述与本项目设计归纳，待审阅时对照原文核实。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_race_src_wp_prosthesis",
+      "title": "Prosthesis (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Prosthesis",
+      "access": "search_only",
+      "supports": "仅确认该条目主题与链接存在（本轮 HEAD 探测返回 403 人机校验，未取得正文），不支撑任何具体论断；关于「义肢的发展与使用」的表述为一般常识层面的转述与本项目设计归纳，待审阅时对照原文核实。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_race_src_wp_narrowboat",
+      "title": "Narrowboat (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Narrowboat",
+      "access": "search_only",
+      "supports": "仅确认该条目主题与链接存在（本轮 HEAD 探测返回 403 人机校验，未取得正文），不支撑任何具体论断；关于「英国运河窄船与船民生活」的表述为一般常识层面的转述与本项目设计归纳，待审阅时对照原文核实。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_race_src_wp_salamander",
+      "title": "Salamander (legendary creature) (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Salamander_(legendary_creature)",
+      "access": "search_only",
+      "supports": "仅确认该条目主题与链接存在（本轮 HEAD 探测返回 403 人机校验，未取得正文），不支撑任何具体论断；关于「火蜥蜴传说与火、炉的关联」的表述为一般常识层面的转述与本项目设计归纳，待审阅时对照原文核实。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_race_src_wp_foundry",
+      "title": "Foundry (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Foundry",
+      "access": "search_only",
+      "supports": "仅确认该条目主题与链接存在（本轮 HEAD 探测返回 403 人机校验，未取得正文），不支撑任何具体论断；关于「铸造厂的高温作业环境」的表述为一般常识层面的转述与本项目设计归纳，待审阅时对照原文核实。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_race_src_wp_golem",
+      "title": "Golem (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Golem",
+      "access": "search_only",
+      "supports": "仅确认该条目主题与链接存在（本轮 HEAD 探测返回 403 人机校验，未取得正文），不支撑任何具体论断；关于「魔像（傀儡）传说及其被指令驱动的特征」的表述为一般常识层面的转述与本项目设计归纳，待审阅时对照原文核实。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_race_src_wp_fairy",
+      "title": "Fairy (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Fairy",
+      "access": "search_only",
+      "supports": "仅确认该条目主题与链接存在（本轮 HEAD 探测返回 403 人机校验，未取得正文），不支撑任何具体论断；关于「妖精的民间传说与对铁的忌讳」的表述为一般常识层面的转述与本项目设计归纳，待审阅时对照原文核实。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_race_src_bk_dwarf",
+      "title": "百度百科：矮人（Baidu Baike）",
+      "url": "https://baike.baidu.com/item/%E7%9F%AE%E4%BA%BA",
+      "access": "read",
+      "supports": "2026-11-04 用无头 Edge 读取：已读正文，但该词条落在《魔戒》《霍比特人》等奇幻作品里的矮人义项，不是民间传说义项：写其以开采矿石、制作珠宝的技艺闻名。只支撑『奇幻作品中的矮人形象与采矿相关』，不支撑民间传说关联，也不支撑本条的族群设定。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_race_src_bk_coal_mine",
+      "title": "百度百科：煤矿（Baidu Baike）",
+      "url": "https://baike.baidu.com/item/%E7%85%A4%E7%9F%BF/3079106",
+      "access": "read",
+      "supports": "2026-11-04 用无头 Edge 读取：已读正文：井工煤矿；煤炭是 18 世纪工业革命的主要能源；页面称英国 18 世纪末发明地下采煤技术、采煤机约出现于 1880 年代；顶板、瓦斯、煤尘爆炸等是常见矿井灾害。支撑本条『深井煤矿与塌方、瓦斯爆炸风险』的背景。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_race_src_bk_pneumoconiosis",
+      "title": "百度百科：肺尘埃沉着病（Baidu Baike）",
+      "url": "https://baike.baidu.com/item/%E8%82%BA%E5%B0%98%E5%9F%83%E6%B2%89%E7%9D%80%E7%97%85/23613408?fromtitle=%E5%B0%98%E8%82%BA%E7%97%85&fromid=8016257",
+      "access": "read",
+      "supports": "2026-11-04 用无头 Edge 读取：已读正文：尘肺病包括煤工尘肺，与粉尘浓度和接触时间相关。支撑本条『长期吸入煤尘致病』。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_race_src_bk_prosthesis",
+      "title": "百度百科：假肢（Baidu Baike）",
+      "url": "https://baike.baidu.com/item/%E5%81%87%E8%82%A2/10516353?fromtitle=%E4%B9%89%E8%82%A2&fromid=10516362",
+      "access": "read",
+      "supports": "2026-11-04 用无头 Edge 读取：已读正文：假肢又称义肢；适用对象包括因疾病、交通事故、工伤、运动创伤致残者；材料有铝、木、皮革、塑料与金属件。支撑本条『因工伤等原因使用义肢』与『木腿、金属件』的朴素形态；不支撑蒸汽或发条供能的复杂义肢。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_race_src_bk_canal",
+      "title": "百度百科：运河（Baidu Baike）",
+      "url": "https://baike.baidu.com/item/%E8%BF%90%E6%B2%B3/1815753",
+      "access": "read",
+      "supports": "2026-11-04 用无头 Edge 读取：已读正文：运河是人工开凿的通航河道；设闸运河用船闸克服落差；页面介绍古代运河，并提到基尔、苏伊士（1869）、巴拿马等大型运河。支撑本条『运河与船闸（开闸）的存在』；不支撑英国窄船船民的生活。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_race_src_bk_fire_salamander",
+      "title": "百度百科：火蝾螈（Baidu Baike）",
+      "url": "https://baike.baidu.com/item/%E7%81%AB%E8%9D%BE%E8%9E%88/10183769?fromtitle=%E7%81%AB%E8%9C%A5%E8%9C%B4&fromid=74481",
+      "access": "read",
+      "supports": "2026-11-04 用无头 Edge 读取：已读正文：介绍的是真实两栖动物火蝾螈（黑底黄斑，分布于南欧、中欧），页面不含火中生物的传说。只支撑『火蜥蜴这一名称对应一种真实动物』，不支撑本条的火与炉传说关联。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_race_src_bk_golem",
+      "title": "百度百科：戈仑（Baidu Baike）",
+      "url": "https://baike.baidu.com/item/%E6%88%88%E4%BB%91/1533642",
+      "access": "read",
+      "supports": "2026-11-04 用无头 Edge 读取：已读正文：戈仑（魔像）是希伯来传说中用粘土、石头或青铜制成、注入魔力后可行动、但无思考能力的假人；传说布拉格拉比勒夫在 16 世纪用伏尔塔瓦河黏土与希伯来语咒语造出魔像；页面称该传说可能实际起源于 19 世纪上半叶的德语文学，1915 年有梅林克的小说《泥人》。支撑本条『魔法驱动的人形劳工』的原型与传统魔像无思考能力这一点；不支撑『有意识魔偶』。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_race_src_bk_yaojing",
+      "title": "百度百科：妖精（Baidu Baike）",
+      "url": "https://baike.baidu.com/item/%E5%A6%96%E7%B2%BE/680701",
+      "access": "read",
+      "supports": "2026-11-04 用无头 Edge 读取：已读正文，但词条落在中国神话中『修炼后的物类』义项，不是欧洲的 fairy，因此不用于支撑本条的任何陈述。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_race_src_bk_elf",
+      "title": "百度百科：精灵（Baidu Baike）",
+      "url": "https://baike.baidu.com/item/%E7%B2%BE%E7%81%B5/2779097",
+      "access": "read",
+      "supports": "2026-11-04 用无头 Edge 读取：已读正文：日耳曼神话中的 Elf（北欧），形象为金发碧眼、尖耳，居于森林深处。是 fairy 的近缘母题，但不等同于 fairy；不支撑本条对铁与煤烟的忌讳。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    }
+  ],
+  "elements": [
+    {
+      "id": "race_deepseam_delvers",
+      "name": "深井矿居族",
+      "aliases": [
+        "deepseam delvers",
+        "井下世居者",
+        "煤层人"
+      ],
+      "tags": [
+        "kind:race",
+        "trait:low_light_adapted",
+        "trait:dust_tolerant",
+        "habitat:mine",
+        "habitat:underground",
+        "role:miner",
+        "role:pit_foreman",
+        "genre:steampunk",
+        "genre:western_fantasy"
+      ],
+      "genres": [
+        "steampunk",
+        "western_fantasy"
+      ],
+      "category": "life",
+      "summary": "世代居住并劳作于深井煤矿与矿区村落的族群变体：习惯低光与狭窄巷道，却长期承受尘肺与塌方风险。本条把「适应矿井」写成社会与职业后果，而不是天赋。",
+      "details": {
+        "definition": "指世代在深井矿区生活的类人族群，可设定为人类的一支地方族群，也可设为体型偏矮、视觉更适应昏暗的独立族群。边界：与已有条目「矮人」分列，本条不预设锻造天赋或古老王国，只讨论矿区世居者在工业采矿体系里的位置。",
+        "mechanism": "设计推演：长期在低光环境中劳作，使其对灯火强弱、风声与顶板声响极为敏感，形成一套口耳相传的井下经验（辨气、听顶板、认巷道）。身体方面可以设定为矮壮、耐受低氧与粉尘，但长期吸入煤尘仍会致病，所以「适应」只是降低了风险，不是消除。社会上，矿主把他们当作最划算的劳动力，工头、债务与「公司镇」制度把整个家族绑在矿区。",
+        "conditions": "前置条件：蒸汽动力排水与提升机让深井成为可能（见 steam_mine_drainage）；矿区有成片的公司住宅与商店；需要先定他们是人类变体还是独立族群，以及与地面居民通婚、迁出的难易。最低档位 tech:steam，此前的浅层采矿也可有类似人群，但规模和制度不同。",
+        "exceptions": "并非所有矿区居民都属于该族群，也有外来矿工；族群成员也可以离开矿区成为技师、工会领袖或商人。不要把「适应矿井」写成他们天生只配干矿工，那是一种社会制度而非生物命运。",
+        "story_uses": "剧情钩子：塌方、瓦斯爆炸后的搜救与责任归属；矿主的实物工资（公司商店）与债务；罢工与工会化；矿工因职业病失去劳动力后的家庭；井下遗留的旧巷道与不明声响；他们熟悉的老巷成为逃亡者或走私者的通道。",
+        "historical_scope": "本条是设计归纳，参考 19 世纪煤矿区的社会结构（公司镇、实物工资、童工与家庭劳动），但并非任何一国矿区的真实复刻。生物适应部分纯属设定推演，没有史实对应。",
+        "evidence_and_uncertainty": "百度百科《煤矿》《肺尘埃沉着病》已读正文，《矮人》已读但落在奇幻作品义项。核对了：井工煤矿；煤炭是工业革命的主要能源；顶板、瓦斯、煤尘爆炸等灾害；尘肺（含煤工尘肺）与粉尘浓度、接触时间相关。本条这几处陈述相符，未发现事实错误。公司镇、实物工资（公司商店）、童工与家庭劳动等社会制度未被这些页面核对；『适应矿井』的体质描述是设定推演，无史实对应，不能当作依据。 该条原有的网络来源（Wikipedia 或 Britannica）仍为 search_only，仅确认主题，未取得正文。"
+      },
+      "source_ids": [
+        "ws_race_src_setting",
+        "ws_race_src_brit_coal_mining",
+        "ws_race_src_brit_dwarf",
+        "ws_race_src_wp_pneumoconiosis",
+        "ws_race_src_bk_dwarf",
+        "ws_race_src_bk_coal_mine",
+        "ws_race_src_bk_pneumoconiosis"
+      ],
+      "related_ids": [
+        "western_dwarf",
+        "steam_mine_drainage",
+        "steam_smoke_pollution"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "race_cogwork_grafted",
+      "name": "机体嫁接者",
+      "aliases": [
+        "grafted folk",
+        "义体匠人",
+        "齿轮之身"
+      ],
+      "tags": [
+        "kind:race",
+        "trait:prosthetic_graft",
+        "trait:maintenance_dependent",
+        "habitat:industrial_city",
+        "role:machine_tender",
+        "role:veteran",
+        "genre:steampunk"
+      ],
+      "genres": [
+        "steampunk"
+      ],
+      "category": "life",
+      "summary": "以机械义肢和嫁接装置与身体长期共生的人群：因工伤、战伤或家传手艺而成为一种社会身份。本条关心的是维护、债务与歧视，而不是「变强」。",
+      "details": {
+        "definition": "指在身体上长期安装机械义肢、关节或辅助器官，并围绕维护与升级形成共同体的人群。可设定为人类的一种后天身份（由工伤、战伤或传统形成），而不是先天族群。边界：不涉及魔法，机械部件全部服从蒸汽、弹簧、液压与杠杆这类当时可行的原理。",
+        "mechanism": "机制：义肢用蒸汽小锅炉、压缩气囊或发条供能，需要定期上油、补水与更换磨损件，所以使用者的生活被维护周期牢牢约束。精度越高越依赖匠人与零件标准（见 steam_interchangeable_parts）。社会上，他们会形成互助会与修理行会，共享零件、图纸和技师，并与保险、抚恤制度打交道。",
+        "conditions": "前置条件：精密机床和互换零件、足够的金属加工网络、工伤频发的行业（矿井、纺织、铁路、战争）。最低档位 tech:steam。越档提示：电动义肢、精细神经接口属于更高档位甚至超出止于 1939 年的设定，不应出现。",
+        "exceptions": "多数使用者的义肢只是木腿或简易钩手，能行走已是成功；复杂的机械手臂价格高昂，只属少数富人或军官。义肢可能故障、被盗、被债权人扣押；使用者也可能拒绝被称为「机械人」。",
+        "story_uses": "剧情钩子：维护费用与零件黑市；老兵义肢上的专利纠纷；工厂主用义肢替代受伤工人以压低工资；机械师行会的秘密工艺；义肢在关键时刻失灵；歧视与「半人半机」的恐惧叙事；嫁接者互助会与工会的联合。",
+        "historical_scope": "参考 19 世纪到一战时期的义肢发展与战后伤残军人问题，但本条的精细程度是蒸汽朋克式的夸张，不等同于真实历史。",
+        "evidence_and_uncertainty": "百度百科《假肢》已读正文，核对了：假肢又称义肢，适用于因疾病、交通事故、工伤、运动创伤致残者，常用铝、木、皮革、塑料与金属件。本条『因工伤、战伤成为义肢使用者』『多数只是木腿或简易钩手』与之相符。蒸汽小锅炉、压缩气囊、发条供能的复杂义肢，以及互助会、修理行会、保险抚恤等页面没有支撑，属设定推演；历史上不存在这类复杂蒸汽义肢。 该条原有的网络来源（Wikipedia 或 Britannica）仍为 search_only，仅确认主题，未取得正文。"
+      },
+      "source_ids": [
+        "ws_race_src_setting",
+        "ws_race_src_wp_prosthesis",
+        "ws_race_src_bk_prosthesis"
+      ],
+      "related_ids": [
+        "steam_interchangeable_parts",
+        "steam_workshop_apprentice",
+        "steam_deskilling_craft"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "race_canal_boat_clans",
+      "name": "运河船民氏族",
+      "aliases": [
+        "canal boat folk",
+        "水路漂泊家族",
+        "窄船人"
+      ],
+      "tags": [
+        "kind:race",
+        "trait:itinerant",
+        "trait:kin_crew",
+        "habitat:canal",
+        "habitat:river",
+        "role:carrier",
+        "role:smuggler",
+        "genre:steampunk",
+        "genre:historical",
+        "genre:western_fantasy"
+      ],
+      "genres": [
+        "steampunk",
+        "historical",
+        "western_fantasy"
+      ],
+      "category": "life",
+      "summary": "世代在运河与内河驳船上生活的家族网络：船即是家，货运即是生计。适合描绘铁路兴起后被挤压的水路社群。",
+      "details": {
+        "definition": "指把一生放在内河与运河驳船上的家族式群体，可设定为人类的流动社群，自成一套婚姻、行话和禁忌。他们不是一个独立物种，而是被职业与居住方式塑造的族群。",
+        "mechanism": "典型方式：全家登船，父亲掌舵，母亲管炉灶与账目，孩子在船上学会牵绳与开闸。收入来自按吨位和路程结算的运费，受水闸开放时间、天气与枯水影响。社会上，他们依赖船闸管理员、码头商人和货主，是典型的「有路线而无固定居所」的人群，常因没有户籍而被排斥。",
+        "conditions": "前置条件：成网的运河或可通航河流、拖马或蒸汽拖船、成批的大宗货物（煤、陶瓷、粮食）。最低档位 tech:steam，但运河本身更早存在，所以在工业化前期的蒸汽世界最为合适。铁路普及后，他们的货运份额会被挤压。",
+        "exceptions": "并非所有船民都属家族船队，也有受雇的船夫；一些家族已上岸经营码头或客栈；个别家族因运货本领和地理知识成为走私和情报的中介。不要把他们一律写成罪犯或流浪者。",
+        "story_uses": "剧情钩子：铁路公司收购运河，导致船闸涨价与封闭；水路是逃亡者和偷运货物的通道；船民子女的教育与户籍问题；疾病沿水路传播引发的恐慌；老船民记得的旧水路与沉没的货物；船民与岸上居民的冲突。",
+        "historical_scope": "参考英国运河窄船（narrowboat）船民的生活，仅取一般特征，不规定任何具体年代与国家。",
+        "evidence_and_uncertainty": "百度百科《运河》已读正文，核对了：运河是人工开凿的通航河道，设闸运河靠船闸克服落差，并介绍了古代运河以及基尔、苏伊士（1869）、巴拿马等大型运河。运河与船闸的存在与本条一致。英国运河窄船（narrowboat）船民的家庭分工、收入方式、户籍问题等未能核对：以『窄船』检索落回百度百科首页，没有取得对应词条，这些属常识转述与设计归纳。 该条原有的网络来源（Wikipedia 或 Britannica）仍为 search_only，仅确认主题，未取得正文。"
+      },
+      "source_ids": [
+        "ws_race_src_setting",
+        "ws_race_src_wp_narrowboat",
+        "ws_race_src_bk_canal"
+      ],
+      "related_ids": [
+        "steam_trunk_railway",
+        "steam_paddle_steamer",
+        "steam_coaling_station_port"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "race_forge_kindred",
+      "name": "炉火裔",
+      "aliases": [
+        "forge kindred",
+        "火蜥蜴血脉",
+        "炉边世家"
+      ],
+      "tags": [
+        "kind:race",
+        "trait:heat_tolerant",
+        "trait:fire_affinity",
+        "habitat:foundry",
+        "habitat:volcanic",
+        "role:smelter",
+        "role:furnace_keeper",
+        "magic:rare",
+        "genre:steampunk",
+        "genre:western_fantasy"
+      ],
+      "genres": [
+        "steampunk",
+        "western_fantasy"
+      ],
+      "category": "life",
+      "summary": "传说中与火和炉有血缘关系的族群：能在高温炉前长时间作业，据说炉火中有他们的祖先。需要魔法稀少档以上，在工业世界里常被炼钢厂雇为炉工与炉长。",
+      "details": {
+        "definition": "指带有火或炉灵血脉传说、对高温有超常耐受的族群，是对火蜥蜴传说的工业化改写。他们可以是人类的一个家系，也可以是半精灵式的小族群。超常耐受只限高温环境，并不意味着刀枪不入。",
+        "mechanism": "机制：他们在炉前可连续作业更久，对热辐射和烟气的耐受更高，因此被铸造厂、炼钢厂与蒸汽锅炉房雇用。魔法方面仅限于「与炉火共鸣」这类小的特技，例如辨炉温、让火更稳，不能凭空造火。社会上，他们的价值被企业用来压低工资，血统传说也被厂主拿去做宣传。",
+        "conditions": "前置条件：魔法至少达到 rare 档；有高温的工业设施作为生存空间；需要设定他们的血统是遗传、拜火仪式授予，还是被炉火「认可」。tech:steam 是因为他们在这里最有社会意义，纯古典世界里也可作为铁匠世家出现。",
+        "exceptions": "耐热不是免疫；长期的烟尘、噪声和疲劳依旧致病；离开炉火太久，他们会失去「共鸣」的传说能力，或只是失去职业。个别人可能拒绝入厂，选择在乡野做铁匠。",
+        "story_uses": "剧情钩子：炼钢厂雇用炉火裔维持炉温，一旦其中一位出走，整座炉子停产；家系秘传的合金配方；厂主冒认炉火血统以提高品牌；炉前事故与「炉中有声音」的传闻；工会与血统共同体的矛盾。",
+        "historical_scope": "欧洲民间有火蜥蜴（salamander）栖于火中的传说（属一般常识转述，本次未能在百度百科核对；百度百科《火蝾螈》只介绍同名的真实两栖动物），本条仅取其与火和炉的关联。族群的魔法描述纯属设定。",
+        "evidence_and_uncertainty": "百度百科《火蝾螈》已读正文，但页面介绍的是真实两栖动物（黑底黄斑，分布于南欧、中欧），不含火中生物传说；另以『萨拉曼达』检索落到游戏角色义项。因此『火蜥蜴是火中生物』的传说本次未能在百度百科核对，原稿 historical_scope 中『由来已久』的说法已改为常识转述并注明未核对。族群的血统、耐热与『与炉火共鸣』全部是设定推演，不是事实。 该条原有的网络来源（Wikipedia 或 Britannica）仍为 search_only，仅确认主题，未取得正文。"
+      },
+      "source_ids": [
+        "ws_race_src_setting",
+        "ws_race_src_wp_salamander",
+        "ws_race_src_wp_foundry",
+        "ws_race_src_bk_fire_salamander"
+      ],
+      "related_ids": [
+        "steam_coal_fuel_chain",
+        "steam_high_pressure_boiler",
+        "steam_factory_discipline"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "race_animated_servitors",
+      "name": "魔偶劳役种",
+      "aliases": [
+        "animated servitors",
+        "黏土劳工",
+        "魔像工"
+      ],
+      "tags": [
+        "kind:race",
+        "trait:constructed",
+        "trait:command_bound",
+        "habitat:factory",
+        "habitat:workshop",
+        "role:laborer",
+        "role:legal_property",
+        "magic:common",
+        "genre:steampunk",
+        "genre:western_fantasy"
+      ],
+      "genres": [
+        "steampunk",
+        "western_fantasy"
+      ],
+      "category": "life",
+      "summary": "由法师用符文或仪式赋予活动能力的人形劳工，在魔法常见的工业世界里承担重体力活。关键不是它们能干什么，而是它们的法律地位与所有权。",
+      "details": {
+        "definition": "指被魔法驱动的类人形劳工，材质可为黏土、石或金属，靠符文或咒语被唤醒并接受指令。边界：本条处理的是社会身份，不规定它们是否有意识；若设定有意识，会立刻带来奴役、权利与解放的问题。",
+        "mechanism": "机制：创造需要法师和材料，成本高但运行成本低；指令由符文或口令控制，容易被劫持或误解；需要定期修补与重新刻写符文。工厂主偏爱它们，因为它们不罢工、不索要工资，但也因此压低人类工人的议价空间。",
+        "conditions": "前置条件：魔法至少 common 档（有公开的法师行当）；工业需求（矿井、码头、工厂）；法律需明确它们是财产、工具还是人。最低档位 tech:steam，这样才有大规模用工场景。",
+        "exceptions": "它们没有统一的外观；高阶魔偶可能具备学习能力，低阶只是木偶；魔偶可能因符文损坏而失控，也可能被工会争取为「准成员」。不要把它们默认写成无意识的工具。",
+        "story_uses": "剧情钩子：魔偶替代人类工人引发的罢工；魔偶失控造成的工伤事故与责任归属；魔偶是否有权保留自己的符文；法师行会垄断制造权；黑市魔偶被用于犯罪；一个偶然「觉醒」的魔偶要求自由。",
+        "historical_scope": "魔像（golem）是希伯来传说中用粘土、石头或青铜制成、注入魔力后可行动但无思考能力的假人；百度百科《戈仑》记述了布拉格拉比勒夫在 16 世纪用伏尔塔瓦河黏土造魔像的故事，同时指出这一传说可能实际起源于 19 世纪上半叶的德语文学，不宜简单说成古老的犹太民间传统。传统魔像无思考能力，本条允许的『有意识魔偶』是设计扩展。本条只取「被指令驱动的人形劳工」这一抽象，不涉及任何具体宗教叙事。",
+        "evidence_and_uncertainty": "百度百科《戈仑》已读正文，核对了：希伯来传说中用粘土、石头或青铜制成、注入魔力后可行动但无思考能力的假人；勒夫与伏尔塔瓦河黏土、希伯来语咒语的故事；页面称传说可能起源于 19 世纪上半叶的德语文学；1915 年梅林克《泥人》。据此把原稿『魔像传说源自欧洲犹太民间传统』改为更谨慎的表述。法律地位、所有权、工业用工等社会后果是设计推演，无史实对应。 该条原有的网络来源（Wikipedia 或 Britannica）仍为 search_only，仅确认主题，未取得正文。"
+      },
+      "source_ids": [
+        "ws_race_src_setting",
+        "ws_race_src_wp_golem",
+        "ws_race_src_bk_golem"
+      ],
+      "related_ids": [
+        "steam_deskilling_craft",
+        "steam_labour_union",
+        "western_mage_college"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "race_gaslight_fae",
+      "name": "煤灯下的妖精",
+      "aliases": [
+        "gaslight fae",
+        "烟尘精灵",
+        "街灯妖精"
+      ],
+      "tags": [
+        "kind:race",
+        "trait:iron_averse",
+        "trait:glamour",
+        "habitat:industrial_city",
+        "habitat:alley",
+        "role:trickster",
+        "role:informant",
+        "magic:rare",
+        "genre:steampunk",
+        "genre:folk_horror",
+        "genre:western_fantasy"
+      ],
+      "genres": [
+        "steampunk",
+        "folk_horror",
+        "western_fantasy"
+      ],
+      "category": "life",
+      "summary": "栖身于烟尘、街灯与旧墙缝里的小型妖精：对铁与煤烟敏感，却因城市的光和人流而存活。适合民俗恐怖风格的蒸汽城市故事。",
+      "details": {
+        "definition": "指在工业城市阴影中存活的妖精一族，体型小、行踪隐蔽，能用幻术改变视觉和气味。边界：与已有条目「妖精与仙境之民」分列，本条聚焦工业城市里的栖息与代价，不讨论仙境本身。",
+        "mechanism": "机制：铁与煤烟对其有伤害，所以他们躲在石砌旧墙、废弃烟囱和老教堂之间；煤气灯的光和人群成为食物或情绪来源；幻术只能制造小规模迷惑，不能对抗蒸汽机或枪。社会上，他们与街头孩子、流浪汉和拾荒人交换消息，以此换取物品。",
+        "conditions": "前置条件：魔法至少 rare 档；有足够大的工业城市；需要设定铁对他们有多大伤害，以及人类是否知道他们的存在。最低档位 tech:steam，因为煤气灯与烟尘是栖息条件。",
+        "exceptions": "部分妖精适应了铁，能在工坊里游荡；也有因烟尘生病而迁出的族群。不是所有妖精都有恶意，协助人类的也存在。不要把它们写成纯反派。",
+        "story_uses": "剧情钩子：失踪的孩子与「街灯下的小人」传闻；旧墙被拆除后妖精迁入新建筑；工厂主请来驱铁者对付妖精；一个线人妖精出卖地下信息；煤气灯被电灯取代，妖精失去栖息地。",
+        "historical_scope": "欧洲民间传说中有妖精忌铁的说法（属一般常识转述，本次未能在百度百科核对），本条据此做工业化改写，没有史实对应。",
+        "evidence_and_uncertainty": "百度百科没有取到对应欧洲 fairy 的词条：《妖精》落在中国神话义项，《Fairy》是韩国歌曲，《小精灵》到游戏，《仙子》《仙女》也是中国义项，均不用于支撑本条。《精灵》已读正文，介绍日耳曼神话中的 Elf（北欧、金发碧眼尖耳、居于森林深处），是近缘母题但不等于 fairy。对铁与煤烟的忌讳属民间传说，本次未能核对；工业城市里的栖息与代价全部是设计推演。 该条原有的网络来源（Wikipedia 或 Britannica）仍为 search_only，仅确认主题，未取得正文。"
+      },
+      "source_ids": [
+        "ws_race_src_setting",
+        "ws_race_src_wp_fairy",
+        "ws_race_src_bk_yaojing",
+        "ws_race_src_bk_elf"
+      ],
+      "related_ids": [
+        "steam_gaslight_telegraph_city",
+        "steam_smoke_pollution",
+        "horror_restless_dead"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    }
+  ]
+}

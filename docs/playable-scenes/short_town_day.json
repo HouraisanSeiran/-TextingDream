@@ -207,6 +207,10 @@
                 "op": "flag",
                 "id": "day_quality",
                 "value": true
+              },
+              {
+                "op": "signal",
+                "id": "grain_compared"
               }
             ],
             "requires": {
@@ -230,6 +234,10 @@
                 "op": "resource",
                 "id": "wheat",
                 "delta": 1
+              },
+              {
+                "op": "signal",
+                "id": "grain_bought"
               }
             ],
             "requires": {
@@ -266,6 +274,10 @@
                 "op": "resource",
                 "id": "wheat",
                 "delta": -1
+              },
+              {
+                "op": "signal",
+                "id": "grain_delivered"
               }
             ],
             "requires": {
@@ -1444,6 +1456,34 @@
                 "id": "day_deal_clean",
                 "value": true
               }
+            ],
+            "advance_on": [
+              {
+                "signal": "grain_compared",
+                "delta": 2
+              },
+              {
+                "signal": "grain_bought",
+                "delta": 1
+              },
+              {
+                "signal": "grain_delivered",
+                "delta": 1
+              }
+            ],
+            "stages": [
+              {
+                "id": "verified",
+                "at": 2,
+                "label": "成色已验",
+                "text": "干麦的成色验明了，接下来是买下并送到烤炉。"
+              },
+              {
+                "id": "settled",
+                "at": 4,
+                "label": "生意了结",
+                "text": "这笔干麦生意账目清楚地了结了。"
+              }
             ]
           },
           {
@@ -1499,6 +1539,252 @@
         "retry": {
           "same_approach": "refuse"
         }
+      },
+      "events": {
+        "version": 1,
+        "graph": "story_locations",
+        "interval_hours": 2,
+        "max_active": 4,
+        "events": [
+          {
+            "id": "errand_message",
+            "label": "酒馆捎来口信",
+            "origin": "town_hall",
+            "starts_at": 1,
+            "start_chance": 0.1,
+            "contagion": 0,
+            "max_towns": 1,
+            "fade_after": 2,
+            "heard": {
+              "small": "听说下游有个跑腿给铜杯酒馆捎来一句口信，只说傍晚的船照常靠岸；口信是谁托的，送信的人自己也含糊。",
+              "ended": "听说那句口信被柜台边的人取走了，没人再提起它。"
+            },
+            "notice": {
+              "small": "铜杯酒馆：有人捎来口信。",
+              "ended": "酒馆柜台上的口信被取走了。"
+            },
+            "on_level": {
+              "small": [
+                {
+                  "op": "flag",
+                  "id": "ev_message_waiting",
+                  "value": true
+                }
+              ],
+              "ended": [
+                {
+                  "op": "flag",
+                  "id": "ev_message_waiting",
+                  "value": false
+                }
+              ]
+            }
+          },
+          {
+            "id": "sudden_shower",
+            "label": "粮市突降阵雨",
+            "origin": "town_market",
+            "starts_at": 2,
+            "start_chance": 0.1,
+            "contagion": 0,
+            "max_towns": 1,
+            "fade_after": 2,
+            "heard": {
+              "small": "听说粮市刚下了一阵急雨，几家摊子提前收了摊，人群散得快，路上倒不挤；来不及盖货的摊主只好自认倒霉。",
+              "ended": "听说雨停了，粮市的摊子又陆续支了起来，地上的水洼还没干。"
+            },
+            "notice": {
+              "small": "粮市：突然下起阵雨，摊子陆续收摊。",
+              "ended": "粮市的雨停了，摊子重新支起来。"
+            },
+            "on_level": {
+              "small": [
+                {
+                  "op": "flag",
+                  "id": "ev_market_rain",
+                  "value": true
+                }
+              ],
+              "ended": [
+                {
+                  "op": "flag",
+                  "id": "ev_market_rain",
+                  "value": false
+                }
+              ]
+            }
+          },
+          {
+            "id": "boasting_mercenary",
+            "label": "酒馆里的吹牛佣兵",
+            "origin": "town_hall",
+            "starts_at": 3,
+            "start_chance": 0.1,
+            "contagion": 0,
+            "max_towns": 1,
+            "fade_after": 3,
+            "heard": {
+              "small": "听说铜杯酒馆来了个佣兵，逢人就吹自己一个人守过三座关隘；酒客们听得热闹，也有人悄悄说他的靴子比他的故事新得多。",
+              "ended": "听说那个佣兵结了账，说要去别处找活，故事讲到一半就走了。"
+            },
+            "notice": {
+              "small": "铜杯酒馆：来了个爱吹牛的佣兵。",
+              "ended": "那个吹牛的佣兵离开了酒馆。"
+            },
+            "on_level": {
+              "small": [
+                {
+                  "op": "flag",
+                  "id": "ev_mercenary_boasting",
+                  "value": true
+                }
+              ],
+              "ended": [
+                {
+                  "op": "flag",
+                  "id": "ev_mercenary_boasting",
+                  "value": false
+                }
+              ]
+            }
+          },
+          {
+            "id": "loose_planks",
+            "label": "雾桥桥板松动",
+            "origin": "town_bridge",
+            "starts_at": 4,
+            "start_chance": 0.1,
+            "contagion": 0,
+            "max_towns": 1,
+            "fade_after": 2,
+            "heard": {
+              "small": "听说雾桥有几块桥板松了，桥吏用木条围出一条窄道；有人说不碍事，也有人宁可绕远，不肯踩上去。",
+              "ended": "听说松动的桥板已经钉牢，木条也收走了。"
+            },
+            "notice": {
+              "small": "雾桥：几块桥板松动，桥口围出窄道。",
+              "ended": "雾桥的桥板修好了。"
+            },
+            "on_level": {
+              "small": [
+                {
+                  "op": "flag",
+                  "id": "ev_bridge_loose",
+                  "value": true
+                }
+              ],
+              "ended": [
+                {
+                  "op": "flag",
+                  "id": "ev_bridge_loose",
+                  "value": false
+                }
+              ]
+            }
+          },
+          {
+            "id": "small_favour",
+            "label": "有人想找人帮个小忙",
+            "origin": "town_hall",
+            "starts_at": 6,
+            "start_chance": 0.1,
+            "contagion": 0,
+            "max_towns": 1,
+            "fade_after": 3,
+            "heard": {
+              "small": "听说柜台边有位老妇想找个手脚利索的过客帮她搬一趟东西，不一定有酬谢，多半是一碗热汤；她说得很客气。",
+              "ended": "听说老妇的东西被别人帮着搬完了，她逢人就念叨那人的好。"
+            },
+            "notice": {
+              "small": "铜杯酒馆：有人想找人帮个小忙。",
+              "ended": "那个小忙已经有人帮了。"
+            },
+            "on_level": {
+              "small": [
+                {
+                  "op": "flag",
+                  "id": "ev_favour_asked",
+                  "value": true
+                }
+              ],
+              "ended": [
+                {
+                  "op": "flag",
+                  "id": "ev_favour_asked",
+                  "value": false
+                }
+              ]
+            }
+          },
+          {
+            "id": "drunk_sleeper",
+            "label": "路边醉汉",
+            "origin": "town_bridge",
+            "starts_at": 5,
+            "start_chance": 0.1,
+            "contagion": 0,
+            "max_towns": 1,
+            "fade_after": 3,
+            "heard": {
+              "small": "听说雾桥口的路边睡着一个醉汉，桥吏没有赶他；有人嫌他碍路，也有人说多亏他挡着湿板，赶路的人都放慢了脚步。",
+              "ended": "听说那个醉汉被桥吏摇醒，已经被人扶回酒馆去了。"
+            },
+            "notice": {
+              "small": "雾桥口：有人醉倒在路边。",
+              "ended": "雾桥口的路边又空了。"
+            },
+            "on_level": {
+              "small": [
+                {
+                  "op": "flag",
+                  "id": "ev_drunk_on_road",
+                  "value": true
+                }
+              ],
+              "ended": [
+                {
+                  "op": "flag",
+                  "id": "ev_drunk_on_road",
+                  "value": false
+                }
+              ]
+            }
+          },
+          {
+            "id": "lost_purse",
+            "label": "粮市丢了钱袋",
+            "origin": "town_market",
+            "starts_at": 7,
+            "start_chance": 0.1,
+            "contagion": 0,
+            "max_towns": 1,
+            "fade_after": 4,
+            "heard": {
+              "small": "听说粮市有人丢了钱袋，摊贩们为此把收据写得格外仔细；失主还在找，拾到的人似乎在犹豫要不要还。",
+              "ended": "听说那个钱袋有了着落，失主没追究，粮市恢复了往常的吵嚷。"
+            },
+            "notice": {
+              "small": "粮市：有人丢了钱袋，正在寻找。",
+              "ended": "粮市的钱袋风波平息了。"
+            },
+            "on_level": {
+              "small": [
+                {
+                  "op": "flag",
+                  "id": "ev_purse_lost",
+                  "value": true
+                }
+              ],
+              "ended": [
+                {
+                  "op": "flag",
+                  "id": "ev_purse_lost",
+                  "value": false
+                }
+              ]
+            }
+          }
+        ]
       }
     }
   },

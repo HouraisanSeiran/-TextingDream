@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>织梦 · 迷雾卷云笔刷样板（美术样板，尚未接入游戏）</title>
+<link rel="stylesheet" href="preview.css">
+</head>
+<body>
+<header>
+  <h1>迷雾卷云笔刷 · 视觉样板</h1>
+  <p class="warn">美术样板，尚未接入游戏。底图为 <code>assets/maps/world-hypsometric.png</code> 的局部，仅作示意，不是正式玩家地图。</p>
+</header>
+
+<section id="atlas">
+  <h2>一、笔刷图册</h2>
+  <p>每枚笔刷：中灰蓝原尺寸 · 内缘浅灰蓝原尺寸 · 中灰蓝放大 2 倍。全部 SVG 为原创手工路径。</p>
+  <div id="atlas-grid"></div>
+  <h3>色板（内缘 → 外侧）</h3>
+  <div id="tones"></div>
+</section>
+
+<section id="walls">
+  <h2>二、云墙小段</h2>
+  <p>直段与弯段：五层由远及近叠放，外层大而暗、内缘小而浅；笔刷随机错位、缩放、翻转。</p>
+  <div class="scene" id="scene-straight"></div>
+  <div class="scene" id="scene-curve"></div>
+</section>
+
+<section id="ring">
+  <h2>三、近圆形围合（示意底图）</h2>
+  <div class="scene" id="scene-ring"></div>
+</section>
+
+<section id="ships">
+  <h2>三之二、西方船型参考（木刻风）</h2>
+  <p>左：柯克船（13–14 世纪，单桅大方帆、艉部小城楼）；中：卡拉克船（哥伦布式，帆脚贴近甲板、红十字帆）——目前雾效里只用这一种；右：战列舰 / 盖伦式大帆船（三层炮门、每桅四层帆）。</p>
+  <div class="scene" id="scene-ships"></div>
+</section>
+
+<section id="east">
+  <h2>四、东方玄幻 · 祥云与海水纹（示意底图）</h2>
+  <p>国潮祥云画法：一簇簇圆云头合成一团，整团金线勾边，云团内向下缩两圈叠晕，大云头里勾金色卷纹；颜色以米白、赭黄、橘红为主，混入青绿、藏青。地图底部铺海水纹：波浪色带金线勾边、三道平行水纹、浪尖卷起螺旋浪花。角上点缀螺旋日轮与平底小金云。</p>
+  <div class="scene" id="scene-east-curve"></div>
+  <div class="scene" id="scene-east-ring"></div>
+</section>
+
+<script src="fog-brushes.js"></script>
+<script src="fog-xiangyun.js"></script>
+<script src="fog-celestial.js"></script>
+<script src="preview.js"></script>
+</body>
+</html>

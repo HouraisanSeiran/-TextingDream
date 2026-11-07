@@ -1,3 +1,4 @@
+import asyncio
 import functools
 import secrets
 from pathlib import Path
@@ -5,27 +6,37 @@ from fastapi import Depends, FastAPI, Request
 from fastapi.responses import FileResponse, JSONResponse, Response
 from fastapi.staticfiles import StaticFiles
 from starlette.concurrency import run_in_threadpool
+from starlette.middleware.gzip import GZipMiddleware
 from pydantic import BaseModel, ConfigDict, Field, ValidationError
 from .contracts import ApiSettings, ConnectionSettings, Corpus, DraftRequest, BatchDraftRequest, Element, IntentRequest, Move, NewSession, PackageEdit, Preferences, Turn, DevelopmentRequest, WaitRequest
 from .recall import dialogue_records
 from .cache_metrics import cache_usage
 from . import local_rules
+from . import world_setting
+from . import worldview_agent
+from . import poetry
+from . import element_assembly as element_assembly_mod
+from .runtime import now as _now_ws, uid as _uid_ws
 import copy
 from .service import Service
-from .storage import Store
+from .storage import Store, SessionNotFound
+from .paths import save_db
 from .knowledge import notebook
 from .world_generator import GenerateWorldRequest, GeneratorEdit
 from .reply_direction import ReplyDirectionRequest, DIRECTIONS, draft_reply
 from .world_pipeline import WorldPipeline, PipelineRequest, StageEdit
-from . import civ_atlas_snapshot, map_import, towns, play_map
+from . import civ_atlas_snapshot, map_import, towns, play_map, map_clues
 from . import spatial_draft
 from . import native_worlds
 from . import native_starts
 from . import npc_cards
+from . import ai_drafts
+from . import world_package_pipeline
 
 from .town_schema import (AdoptRequest, AdvanceRequest, PresetRequest, PublishRequest,
                           StageEditRequest, STAGE_NAMES,
                           DraftRequest as TownDraftRequest)
+from .town_plan import PlanOptions, generate_plan
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -65,6 +76,11 @@ class SpatialDraftBody(_Strict):
     the vertex budget stays in one place instead of drifting into two.
     """
     draft: dict = Field(min_length=1, max_length=64)
+
+
+class RenameSession(_Strict):
+    """Length is checked after stripping, in the route, so '  ' is refused with a 400."""
+    title: str = Field(max_length=2000)
 
 
 class NativeStartBody(_Strict):
@@ -140,11 +156,40 @@ class SpatialDraftConvertRequest(_Strict):
     author: dict = Field(min_length=1, max_length=64)
 
 
+class WorldPackagePropose(_Strict):
+    import_id: str = Field(default='', max_length=64)
+    region_id: str | None = Field(default=None, max_length=120)
+    setting: dict | None = Field(default=None, max_length=64)
+    note: str = Field(default='', max_length=400)
+
+
+class WorldPackageSelect(_Strict):
+    refs: list[str] = Field(min_length=1, max_length=80)
+    acknowledge_candidates: bool = False
+    expected_revision: int = Field(ge=0, strict=True)
+
+
+class WorldPackageEdit(_Strict):
+    content: dict = Field(min_length=1, max_length=64)
+    expected_revision: int = Field(ge=0, strict=True)
+
+
+class WorldPackageConfirm(_Strict):
+    expected_revision: int = Field(ge=0, strict=True)
+    note: str = Field(default='', max_length=400)
+
+
 def create_app(db_path=None):
     app = FastAPI(title='TextingDream')
-    service = Service(Store(db_path or ROOT / 'data/textiledream.sqlite3'), ROOT)
+    # Static JS/CSS/art is the bulk of the response bytes (the town catalogue alone is
+    # ~18 MB of JSON). Compress text responses once at the edge; API JSON is small but
+    # also benefits. Images are already compressed, so the minimum size keeps tiny
+    # payloads out of the compressor.
+    app.add_middleware(GZipMiddleware, minimum_size=2048)
+    service = Service(Store(db_path or save_db(ROOT)), ROOT)
     app.state.service = service
     pipeline=WorldPipeline(service)
+    sample_limit = asyncio.Semaphore(2)
     token = secrets.token_urlsafe(32)
     app.mount('/static', StaticFiles(directory=ROOT / 'app/static'), name='static')
     app.mount('/maps', StaticFiles(directory=ROOT / 'assets/maps'), name='maps')
@@ -188,12 +233,22 @@ def create_app(db_path=None):
                 if request.headers.get('x-textiledream-token') != token:
                     return JSONResponse({'detail': '请刷新页面后重试'}, status_code=403)
         response = await call_next(request)
-        response.headers['Cache-Control'] = 'no-store'
+        # HTML and API responses are live state and must never be reused. Static assets
+        # are content-addressed by ETag (many also carry ?v=), so let the browser keep
+        # them and revalidate instead of downloading the 18 MB town catalogue again on
+        # every page load. `must-revalidate` keeps edits visible after a normal refresh.
+        static = request.url.path.startswith(('/static/', '/maps/', '/native-map/'))
+        response.headers['Cache-Control'] = (
+            'public, max-age=0, must-revalidate' if static else 'no-store')
         response.headers['X-Content-Type-Options'] = 'nosniff'
         # img-src 必须允许 blob:：作者侧受保护路由（带 token 头）取回的预览图是
         # ObjectURL，不是 data: 也不是同源文件，否则地图一像素都画不出来。
         response.headers['Content-Security-Policy'] = "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'self'; frame-ancestors 'none'"
         return response
+
+    @app.exception_handler(SessionNotFound)
+    async def session_not_found(request, error):
+        return JSONResponse({'detail': str(error)}, status_code=404)
 
     @app.exception_handler(ValueError)
     async def value_error(request, error):
@@ -335,6 +390,20 @@ def create_app(db_path=None):
     def surface(id: str):
         return service.runtime.surface(service.store.session(id))
 
+    @app.patch('/api/sessions/{id}')
+    async def rename_session(id: str, req: RenameSession):
+        title = req.title.strip()
+        if not 1 <= len(title) <= 80:
+            raise ValueError('存档名称需要 1 到 80 个字')
+        async with service.lock:
+            return service.store.rename_session(id, title)
+
+    @app.delete('/api/sessions/{id}')
+    async def delete_session(id: str):
+        async with service.lock:
+            service.store.delete_session(id)
+        return {'deleted': id}
+
     # ---- player map: read-only projection + fog-masked basemap ----
     # The map comes from the revision this journey is bound to. Neither route takes an
     # import id, a coordinate, a layer or a size from the client, and neither writes a
@@ -353,6 +422,15 @@ def create_app(db_path=None):
         s, story, status, context = _play_map_context(id)
         return play_map.projection(s, story, status=status, context=context, session_id=id)
 
+    @app.get('/api/sessions/{id}/weather')
+    def journey_weather(id: str, hours: int = 0):
+        # Read-only projection of the deterministic weather generator. It never advances
+        # the journey clock, writes a trace or changes state_version.
+        from . import weather_view
+        s = service.store.session(id)
+        story = service.runtime.package(s['revision'])['story']
+        return weather_view.report(story, s, hours)
+
     @app.get('/api/sessions/{id}/play-map/basemap.png')
     def play_map_basemap(id: str):
         terrain_context = dreamterra.context(service.store, service.runtime, id)
@@ -366,7 +444,8 @@ def create_app(db_path=None):
             return JSONResponse({'detail': context.get('reason') or '地图不可用'},
                                 status_code=404)
         places = play_map.visible_places(s, story)
-        png = play_map.basemap_png(context, places, context.get('link'))
+        png = play_map.basemap_png(context, places, context.get('link'),
+                                   map_clues.projection(s, story))
         if png is None:
             return JSONResponse({'detail': '还没有带经纬度的已知位置，没有底图可画'},
                                 status_code=404)
@@ -485,6 +564,19 @@ def create_app(db_path=None):
     async def town_publish(draft_id: str, req: PublishRequest):
         async with service.lock:
             return service.towns.publish(draft_id, req.expected_revision)
+
+    @app.post('/api/inner/towns/{draft_id}/layout')
+    def town_draft_layout(draft_id: str, req: PlanOptions):
+        draft = service.towns.get_draft(draft_id)
+        snapshot = service.towns.snapshot(draft)
+        return {**generate_plan(snapshot, req),
+                'source': {'kind': 'draft', 'id': draft_id, 'revision': draft['revision']}}
+
+    @app.post('/api/inner/town-versions/{version_id}/layout')
+    def town_version_layout(version_id: str, req: PlanOptions):
+        version = service.towns.get_version(version_id)
+        return {**generate_plan(version['snapshot'], req),
+                'source': {'kind': 'version', 'id': version_id, 'content_hash': version['content_hash']}}
 
     @app.get('/api/inner/town-versions')
     def town_versions():
@@ -612,7 +704,7 @@ def create_app(db_path=None):
     def _sample_record(record, lon, lat, window_px, radius_km):
         # Same data root as the import that produced this record: a store built on a
         # temporary database must read its payloads from beside that database, not from
-        # the repository's data/ directory.
+        # the repository's saves/ directory.
         root = _import_root()
         if record.get('format') == civ_atlas_snapshot.FORMAT:
             world = civ_atlas_snapshot.load_world(root, record)
@@ -670,7 +762,7 @@ def create_app(db_path=None):
 
     # Imported map payloads live beside the database they belong to, never at a fixed
     # ROOT path: a service built on a temporary store (tests, a sandboxed playthrough)
-    # must not drop files into the real project's data/ directory.
+    # must not drop files into the real project's saves/ directory.
     def _import_root():
         return Path(service.store.path).resolve().parent
 
@@ -749,16 +841,18 @@ def create_app(db_path=None):
     @app.post('/api/inner/map-imports/{import_id}/sample')
     async def map_import_sample(import_id: str, payload: MapSampleRequest):
         record = map_import.get_import(service.store, import_id)
-        return _sample_record(record, payload.lon, payload.lat, payload.window_px,
-                              payload.radius_km)
+        async with sample_limit:
+            return await run_in_threadpool(_sample_record, record, payload.lon, payload.lat, payload.window_px,
+                                           payload.radius_km)
 
     @app.post('/api/inner/map-imports/{import_id}/town-input')
     async def map_import_town_input(import_id: str, payload: MapTownInputRequest):
         record = map_import.get_import(service.store, import_id)
         author = payload.author
         # The sample is always recomputed here: a client-sent sample is never trusted.
-        sample = _sample_record(record, payload.lon, payload.lat, payload.window_px,
-                                payload.radius_km)
+        async with sample_limit:
+            sample = await run_in_threadpool(_sample_record, record, payload.lon, payload.lat, payload.window_px,
+                                             payload.radius_km)
         built = map_import.build_town_input(record, sample, author,
                                             service.runtime.package()['id'])
         return {'sample': sample,
@@ -885,6 +979,69 @@ def create_app(db_path=None):
     async def save_pipeline(id:str):
         async with service.lock:return pipeline.save(id)
 
+    # ---- 地理 + 百科 → 故事包（首轮单地区）-------------------------------
+    # 草稿阶段不写故事包；只有 confirm 才编译并落盘。来源只接受已登记的 .civsnap，
+    # 客户端不能传文件路径或任意 source 身份。
+    def _world_package_source(import_id=''):
+        from .world_source_civ_atlas import CivAtlasSource
+        return CivAtlasSource.from_store(service.store, _import_root(), import_id or None)
+
+    @app.get('/api/inner/world-package/imports')
+    def world_package_imports():
+        rows = [map_import.summary(row) for row in map_import.list_imports(service.store)
+                if row.get('format') == civ_atlas_snapshot.FORMAT]
+        return {'imports': rows}
+
+    @app.get('/api/inner/world-package/regions')
+    def world_package_regions(import_id: str = ''):
+        source = _world_package_source(import_id)
+        return {'identity': source.identity(), 'regions': source.list_regions()}
+
+    @app.post('/api/inner/world-package/propose')
+    def world_package_propose(req: WorldPackagePropose):
+        source = _world_package_source(req.import_id)
+        draft = service.world_package.propose(source, req.region_id, req.setting, req.note)
+        return service.world_package.get(draft['id'])
+
+    @app.get('/api/inner/world-package/drafts')
+    def world_package_drafts():
+        return [world_package_pipeline.summary(d) for d in service.world_package.list()]
+
+    @app.get('/api/inner/world-package/drafts/{draft_id}')
+    def world_package_draft(draft_id: str):
+        return service.world_package.get(draft_id)
+
+    @app.put('/api/inner/world-package/drafts/{draft_id}/select')
+    async def world_package_select(draft_id: str, req: WorldPackageSelect):
+        async with service.lock:
+            return service.world_package.select(
+                draft_id, req.refs, acknowledge_candidates=req.acknowledge_candidates,
+                expected_revision=req.expected_revision)
+
+    @app.post('/api/inner/world-package/drafts/{draft_id}/generate')
+    async def world_package_generate(draft_id: str):
+        return await service.world_package.generate(draft_id)
+
+    @app.put('/api/inner/world-package/drafts/{draft_id}')
+    async def world_package_edit(draft_id: str, req: WorldPackageEdit):
+        async with service.lock:
+            return service.world_package.edit(draft_id, req.content,
+                                              expected_revision=req.expected_revision)
+
+    @app.get('/api/inner/world-package/drafts/{draft_id}/freshness')
+    def world_package_freshness(draft_id: str):
+        draft = service.world_package.get(draft_id)
+        import_id = ((draft.get('source') or {}).get('details') or {}).get('import_id') or ''
+        return service.world_package.freshness(draft_id, _world_package_source(import_id))
+
+    @app.post('/api/inner/world-package/drafts/{draft_id}/confirm')
+    async def world_package_confirm(draft_id: str, req: WorldPackageConfirm):
+        draft = service.world_package.get(draft_id)
+        import_id = ((draft.get('source') or {}).get('details') or {}).get('import_id') or ''
+        async with service.lock:
+            return service.world_package.confirm(draft_id, _world_package_source(import_id),
+                                                 expected_revision=req.expected_revision)
+
     @app.put('/api/inner/local-rules')
     async def put_local_rules(req: local_rules.LocalRules):
         async with service.lock:
@@ -892,6 +1049,112 @@ def create_app(db_path=None):
             p['story'].setdefault('mechanics',{})['local']=req.model_dump()
             revision=service.runtime.commit_package(p['story'],p['characters'],'修改本地资源与日程规则')
             return {'revision':revision,'rules':req.model_dump()}
+
+    # ---- world setting: genres / tech & magic tiers / polities, races, factions ----
+    @app.get('/api/inner/world-setting')
+    def get_world_setting():
+        if not service.store.get('pointer', 'package'):
+            return {'revision': None, 'setting': None, 'options': world_setting.options()}
+        p = service.runtime.package()
+        return {'revision': p['id'], 'setting': world_setting.of_story(p['story']),
+                'options': world_setting.options()}
+
+    @app.put('/api/inner/world-setting')
+    async def put_world_setting(req: dict):
+        async with service.lock:
+            if not service.store.get('pointer', 'package'):
+                raise ValueError('还没有世界：请先新建或导入一个故事包')
+            setting = world_setting.normalize(req.get('setting'))
+            p = copy.deepcopy(service.runtime.package())
+            worldview = p['story'].get('worldview') or {}
+            worldview['setting'] = setting
+            # 选大类 = 选元素：保存时把大类元素（含按科技档位纳入的技术）锁成快照随故事包走，
+            # 之后库更新不会让已保存的世界长出新元素。没选大类就清掉快照。
+            if setting and setting['categories']:
+                resolved = world_setting.category_elements(service.elements, setting)
+                worldview['category_elements'] = world_setting.snapshot(resolved)
+            else:
+                worldview.pop('category_elements', None)
+            p['story']['worldview'] = worldview
+            revision = service.runtime.commit_package(p['story'], p['characters'], '修改世界设定')
+            return {'revision': revision, 'setting': setting,
+                    'category_elements': len(worldview.get('category_elements') or [])}
+
+    @app.post('/api/inner/world-setting/categories')
+    def world_category_elements(req: dict):
+        """选中大类 → 纳入哪些元素（按科技 / 魔法档位过滤，科技元素单独按档位纳入）。只读。"""
+        return world_setting.category_elements(service.elements, req.get('setting'))
+
+    @app.post('/api/inner/worldview/generate')
+    async def generate_worldview(req: dict):
+        """世界观生成 agent：大类元素 + 设定 → 世界观草稿（不改故事包）。"""
+        setting = world_setting.normalize(req.get('setting'))
+        if not setting or not setting['categories']:
+            raise ValueError('请先选择至少一个大类')
+        resolved = world_setting.category_elements(service.elements, setting)
+        context = worldview_agent.build_context(setting, resolved)
+        if worldview_agent.context_size(context) > service.preferences()['context_chars']:
+            raise ValueError('世界观生成上下文超过预算：请减少大类或提高上下文预算')
+        raw, usage = await service.provider.complete(worldview_agent.SYSTEM, context,
+                                                     json_mode=True, scope='inner')
+        allowed = {row['ref'] for row in context['available_elements']}
+        result, warnings = worldview_agent.validate_result(raw, setting, allowed)
+        draft = {'id': _uid_ws(), 'created': _now_ws(), 'setting': setting, 'result': result,
+                 'warnings': warnings, 'usage': usage, 'status': 'draft',
+                 'base_revision': service.runtime.package()['id']
+                 if service.store.get('pointer', 'package') else None,
+                 'element_count': resolved['unique']}
+        service.store.put('worldview_draft', draft['id'], draft)
+        return draft
+
+    @app.post('/api/inner/worldview/drafts/{draft_id}/adopt')
+    async def adopt_worldview(draft_id: str):
+        async with service.lock:
+            draft = service.store.get('worldview_draft', draft_id)
+            if not draft:
+                raise ValueError('世界观草稿不存在')
+            if draft['status'] != 'draft':
+                raise ValueError('该草稿已经处理')
+            if not service.store.get('pointer', 'package'):
+                raise ValueError('还没有世界：请先新建或导入一个故事包')
+            p = copy.deepcopy(service.runtime.package())
+            worldview = worldview_agent.merge_into_worldview(p['story'].get('worldview'), draft['result'])
+            worldview['setting'] = draft['setting']
+            p['story']['worldview'] = worldview
+            revision = service.runtime.commit_package(p['story'], p['characters'], '采纳生成的世界观')
+            draft['status'] = 'adopted'
+            draft['adopted_revision'] = revision
+            service.store.put('worldview_draft', draft_id, draft)
+            return {'revision': revision, 'worldview': worldview}
+
+    @app.post('/api/inner/world-setting/recommend')
+    def recommend_world_elements(req: dict):
+        adopted = ()
+        if service.store.get('pointer', 'package'):
+            manifest = element_assembly_mod.package_manifest(service.runtime.package()['story'])
+            adopted = [e.get('ref') for e in (manifest or {}).get('elements', [])]
+        return world_setting.recommend(service.elements, req.get('setting'), adopted)
+
+    # ---- poetry: forms + examples from the element library, generation by the model ----
+    @app.get('/api/inner/poetry/forms')
+    def poetry_forms():
+        return {'forms': poetry.forms(service.elements)}
+
+    @app.post('/api/inner/poetry/generate')
+    async def poetry_generate(req: dict):
+        """按体裁写诗：体裁约束 + 经典范例 + 主题 / 说话人 / 当前世界设定 → 模型 → 结构检查。"""
+        setting = None
+        if service.store.get('pointer', 'package'):
+            setting = world_setting.prompt_block(service.runtime.package()['story'])
+        context, spec = poetry.build_context(service.elements, req.get('form'), req.get('theme'),
+                                             speaker=req.get('speaker') or '', mood=req.get('mood') or '',
+                                             setting=setting)
+        raw, usage = await service.provider.complete(poetry.SYSTEM, context, json_mode=True, scope='inner')
+        result = poetry.check(raw, spec)
+        result['form'] = context['form']['name']
+        result['examples_used'] = [e['title'] for e in context['examples']]
+        result['usage'] = usage
+        return result
 
     @app.get('/api/inner/package/document')
     def package_document():
@@ -1046,16 +1309,53 @@ def create_app(db_path=None):
     @app.put('/api/inner/npc-cards/{character_id}')
     async def npc_card_save(character_id: str, req: npc_cards.CardEdit):
         async with service.lock:
-            package = service.runtime.package()
-            if package['id'] != req.revision:
-                raise ValueError('故事包已更新，请重新读取角色卡后再保存')
-            characters = copy.deepcopy(package['characters'])
-            actor = next((c for c in characters['characters'] if c['id'] == character_id), None)
-            if actor is None or actor['role'] == '主角':
-                raise ValueError('请选择有效的 NPC')
-            actor['npc_card'] = req.card.model_dump()
-            revision = service.runtime.commit_package(package['story'], characters, '更新 NPC 角色卡：' + actor['name'])
+            revision = npc_cards.save_card(service.runtime, req.revision, character_id,
+                                           req.card.model_dump())
             return {'revision': revision}
+
+    # ---- AI drafts: author side (token protected by the /api/inner guard). ----
+    # Drafts never touch a package's element_manifest or a running journey's binding.
+    @app.get('/api/inner/ai-drafts')
+    def ai_draft_list(type: str = ''):
+        return [{k: d.get(k) for k in ('id', 'type', 'status', 'revision', 'created', 'updated',
+                                        'offline', 'request', 'confirmed', 'element_id')}
+                for d in service.ai_drafts.list(type or None)]
+
+    @app.get('/api/inner/ai-drafts/{draft_id}')
+    def ai_draft_get(draft_id: str):
+        return service.ai_drafts.get(draft_id)
+
+    @app.post('/api/inner/ai-drafts/elements')
+    async def ai_draft_element(req: ai_drafts.ElementDraftRequest):
+        return await service.ai_drafts.generate_element(req)
+
+    @app.post('/api/inner/ai-drafts/npcs')
+    async def ai_draft_npc(req: ai_drafts.NPCDraftRequest):
+        return await service.ai_drafts.generate_npc(req)
+
+    @app.post('/api/inner/ai-drafts/stories')
+    async def ai_draft_story(req: ai_drafts.StoryDraftRequest):
+        return await service.ai_drafts.generate_story(req)
+
+    @app.put('/api/inner/ai-drafts/{draft_id}')
+    async def ai_draft_edit(draft_id: str, req: ai_drafts.DraftEdit):
+        async with service.lock:
+            return service.ai_drafts.edit(draft_id, req)
+
+    @app.post('/api/inner/ai-drafts/{draft_id}/confirm')
+    async def ai_draft_confirm(draft_id: str, req: ai_drafts.DraftDecision | None = None):
+        async with service.lock:
+            return service.ai_drafts.confirm(draft_id, req or ai_drafts.DraftDecision())
+
+    @app.post('/api/inner/ai-drafts/{draft_id}/reject')
+    async def ai_draft_reject(draft_id: str, req: ai_drafts.DraftDecision | None = None):
+        async with service.lock:
+            return service.ai_drafts.reject(draft_id, req or ai_drafts.DraftDecision())
+
+    @app.post('/api/inner/ai-drafts/restore-confirmed')
+    async def ai_draft_restore():
+        async with service.lock:
+            return service.ai_drafts.restore_confirmed()
 
     @app.put('/api/inner/package')
     async def edit_package(req: PackageEdit):
@@ -1126,6 +1426,17 @@ def create_app(db_path=None):
     @app.get('/api/inner/sessions/{id}')
     def inspect_session(id: str):
         return service.store.session(id)
+
+    @app.get('/api/inner/sessions/{id}/events')
+    def event_pool_view(id: str):
+        """作者视图：全部事件、等级、波及城镇与国家、下次检查日、等级变化历史。"""
+        from . import events as event_pool
+        s = service.store.session(id)
+        p = service.runtime.package(s['revision'])
+        view = event_pool.authority_view(s, p['story'])
+        if view is None:
+            raise ValueError('这个故事包没有声明 mechanics.events')
+        return view
 
     @app.get('/api/inner/sessions/{id}/development')
     def developments(id: str):
@@ -1264,5 +1575,10 @@ def create_app(db_path=None):
         service.store.put('settings', 'preferences', req.model_dump())
         service.provider.configure({'thinking_mode': 'enabled' if req.surface_thinking else 'disabled'})
         return req
+
+    # ---- world generation: author side (token protected; logic in app/world_gen/web_jobs.py). ----
+    from .world_gen import web_jobs as worldgen_jobs, web_routes as worldgen_routes
+    app.state.worldgen = worldgen_jobs.WorldGenManager(ROOT)
+    worldgen_routes.install(app)
 
     return app

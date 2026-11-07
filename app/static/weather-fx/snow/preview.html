@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>织梦 · 天气美术：雪 / 雾 / 沙暴</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#1d2228;color:#dde3ea;font:13px system-ui,sans-serif}
+header{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;padding:10px 14px;background:#262d35;border-bottom:1px solid #39424d}
+h1{font-size:16px;margin:0 8px 0 0}label{display:flex;align-items:center;gap:6px;white-space:nowrap}
+input[type=range]{width:110px}select,button{font:inherit;padding:3px 8px;border-radius:4px;border:1px solid #56606c;background:#313945;color:inherit}
+output{display:inline-block;min-width:34px;text-align:right;font-variant-numeric:tabular-nums;color:#9fb3c8}
+#stage{position:relative;width:1400px;height:900px;margin:12px auto;overflow:hidden;background:#9fae8c}
+#townView,#fx{position:absolute;left:0;top:0;width:1400px;height:900px}
+#townView svg{display:block;width:1400px!important;height:900px!important}
+#fps{position:absolute;right:8px;top:6px;padding:2px 8px;border-radius:3px;background:rgba(0,0,0,.55);color:#c8f0c0;font:12px/1.5 ui-monospace,monospace;pointer-events:none}
+</style>
+</head>
+<body>
+<header>
+<h1>雪 / 雾 / 沙暴</h1>
+<label>城镇 <select id="townSel"></select></label>
+<label>天气 <select id="kind">
+  <option value="clear">clear 晴</option><option value="overcast">overcast 阴</option><option value="fog">fog 雾</option>
+  <option value="snow" selected>snow 雪</option><option value="blizzard">blizzard 暴风雪</option><option value="sleet">sleet 雨夹雪</option>
+  <option value="sandstorm">sandstorm 沙暴</option></select></label>
+<label>强度 <input id="intensity" type="range" min="0" max="1" step="0.01" value="0.5"><output></output></label>
+<label>风向 <input id="dir" type="range" min="0" max="359" step="1" value="110"><output></output></label>
+<label>风速 <input id="speed" type="range" min="0" max="1" step="0.01" value="0.3"><output></output></label>
+<label>阵风 <input id="gust" type="range" min="0" max="1" step="0.01" value="0.3"><output></output></label>
+<label>积雪 <input id="cover" type="range" min="0" max="1" step="0.01" value="0.5"><output></output></label>
+<label>雾量 <input id="fog" type="range" min="0" max="1" step="0.01" value="0"><output></output></label>
+<label>能见度 <input id="vis" type="range" min="0" max="1" step="0.01" value="0.7"><output></output></label>
+<label>气温 <input id="temp" type="range" min="-20" max="40" step="1" value="-3"><output></output></label>
+<label>时刻 <input id="hour" type="range" min="0" max="24" step="0.1" value="13"><output></output></label>
+<label title="改天气或强度时自动设积雪/雾/能见度/气温"><input id="link" type="checkbox" checked>联动</label>
+<button id="pause">暂停</button><button id="step">单步</button>
+</header>
+<div id="stage">
+  <div id="townView" aria-label="城镇底图"></div>
+  <canvas id="fx"></canvas>
+  <div id="fps">-- fps</div>
+</div>
+<script src="../../map-art/town/town-catalog.js"></script>
+<script src="../../map-art/town/layout-samples.js"></script>
+<script src="../../town-render.js"></script>
+<script src="../noise.js"></script>
+<script src="snow.js"></script>
+<script src="fog.js"></script>
+<script src="sand.js"></script>
+<script>
+(function () {
+  'use strict';
+  var C = 48, W = 1400, H = 900, GW = Math.ceil(W / C), GH = Math.ceil(H / C);
+  var NS = 'http://www.w3.org/2000/svg', cat = window.TOWN_CATALOG;
+  var meta = new Map(cat.meta.map(function (m) { return [m.id, m]; }));
+  var $ = function (id) { return document.getElementById(id); };
+  // ---------------------------------------------------------------- 城镇底图（规范第 6 节：layout-samples + town-render）
+  // TownRender 自己建 sprite 容器（0×0 绝对定位）；SVG 被 CSS 固定成 1400×900、preserveAspectRatio=meet，
+  // 所以布局坐标 → 舞台坐标是 P = (p - vb.xy) * s + o，s = min(W/vbW, H/vbH)，o 居中。
+  var SAMPLES = window.TOWN_LAYOUT_SAMPLES || [];
+  var BUILD_CAT = { house: 1, special: 1, castle: 1, wall: 1, fort: 1, landmark: 1, site: 1 };
+  var scene = null, tf = null, curLayout = null, mods = null;
+  SAMPLES.forEach(function (s, i) {
+    var o = document.createElement('option');
+    o.value = s.sample + '/' + s.style + '/' + s.race + '/' + s.seed; o.textContent = o.value;
+    $('townSel').appendChild(o);
+  });
+  function isOccluder(m, id) { return BUILD_CAT[m.category] || /tree|bush/.test(id); }
+  function rectOf(x, y, w, h) { return [(x - tf.vx) * tf.s + tf.ox, (y - tf.vy) * tf.s + tf.oy, w * tf.s, h * tf.s]; }
+  function loadTown(key) {
+    var smp = SAMPLES.find(function (s) { return s.sample + '/' + s.style + '/' + s.race + '/' + s.seed === key; }) || SAMPLES[0];
+    if (!smp) return;
+    $('townSel').value = smp.sample + '/' + smp.style + '/' + smp.race + '/' + smp.seed;
+    var lay = curLayout = smp.layout, C0 = lay.grid.cell;
+    var tsvg = TownRender.render($('townView'), lay, cat);
+    $('stage').style.background = lay.style === 'east' ? '#ced6aa' : '#bfcba9';   // 与 TownRender 底色一致，左右留边不出接缝
+    var vb = tsvg.getAttribute('viewBox').split(/\s+/).map(Number), s = Math.min(W / vb[2], H / vb[3]);
+    tf = { vx: vb[0], vy: vb[1], vw: vb[2], vh: vb[3], s: s, ox: (W - vb[2] * s) / 2, oy: (H - vb[3] * s) / 2 };
+    scene = { width: W, height: H, cell: C0 * s, water: [], buildings: [], lights: [], ground: [] };
+    (lay.grid.roads || []).forEach(function (p) { scene.ground.push(rectOf(p[0] * C0, p[1] * C0, C0, C0)); });
+    (lay.grid.water || []).forEach(function (p) { scene.water.push(rectOf(p[0] * C0, p[1] * C0, C0, C0)); });
+    lay.items.forEach(function (it) {
+      var m = meta.get(it.id); if (!m) return;
+      var top = it.bottom - m.anchor[1];
+      if (m.category === 'house' || m.category === 'special' || m.category === 'castle' || m.category === 'landmark') {
+        var r = rectOf(it.x, top, m.viewBox[2], m.viewBox[3]);
+        scene.buildings.push({ x: r[0], y: r[1], w: r[2], h: r[3], roofY: r[1] + 3 * s });
+        var lp = rectOf(it.x + m.viewBox[2] * 0.5, it.bottom - 18, 0, 0);
+        scene.lights.push({ x: lp[0], y: lp[1], kind: 'window' });
+      } else if (/campfire|brazier|torch/.test(it.id)) {
+        var fp = rectOf(it.x + 24, it.bottom - 16, 0, 0); scene.lights.push({ x: fp[0], y: fp[1], kind: 'fire' });
+      }
+    });
+    // 路灯：在道路格上按哈希稀疏放置
+    (lay.grid.roads || []).forEach(function (p) {
+      if (window.WeatherNoise.hash32(p[0] * 73856093 ^ p[1] * 19349663) % 9 !== 0) return;
+      var q = rectOf(p[0] * C0 + C0 / 2, p[1] * C0 + C0 / 2, 0, 0); scene.lights.push({ x: q[0], y: q[1], kind: 'lamp' });
+    });
+    window.__scene = scene; window.__occluderReady = false;
+    if (mods) mods.forEach(function (l) { l.setScene(scene); });
+    buildOccluder(lay, function (c) {
+      if (!c || lay !== curLayout) return;
+      scene.occluder = c;
+      if (mods) mods.forEach(function (l) { l.setScene(scene); });
+      window.__occluderReady = true;
+    });
+  }
+  // 前景剪影（建筑、城墙、树）：把用到的 symbol 抽出来拼成独立 SVG（同一 viewBox），栅格化成 scene.occluder
+  function occluderSvg(lay) {
+    var used = {}, defs = '', body = '';
+    lay.items.forEach(function (it) {
+      var m = meta.get(it.id); if (!m || !isOccluder(m, it.id)) return;
+      if (!used[it.id]) {
+        var a = cat.sprite.indexOf('<symbol id="' + it.id + '"'), e = cat.sprite.indexOf('</symbol>', a);
+        if (a >= 0 && e > a) defs += cat.sprite.slice(a, e + 9);
+        used[it.id] = 1;
+      }
+      body += '<use href="#' + it.id + '" x="' + it.x + '" y="' + (it.bottom - m.anchor[1]) + '" width="' +
+        m.viewBox[2] + '" height="' + m.viewBox[3] + '"/>';
+    });
+    return '<svg xmlns="http://www.w3.org/2000/svg" width="' + W + '" height="' + H + '" viewBox="' +
+      [tf.vx, tf.vy, tf.vw, tf.vh].join(' ') + '" preserveAspectRatio="xMidYMid meet"><defs>' + defs + '</defs>' + body + '</svg>';
+  }
+  function buildOccluder(lay, done) {
+    var img = new Image(), url = URL.createObjectURL(new Blob([occluderSvg(lay)], { type: 'image/svg+xml' }));
+    img.onload = function () {
+      var c = document.createElement('canvas'); c.width = W; c.height = H;
+      c.getContext('2d').drawImage(img, 0, 0, W, H); URL.revokeObjectURL(url); done(c);
+    };
+    img.onerror = function () { URL.revokeObjectURL(url); done(null); };
+    img.src = url;
+  }
+  var q0 = new URLSearchParams(location.search);
+  loadTown(q0.get('town') || 'port/west/common/1');
+  $('townSel').addEventListener('change', function () { loadTown(this.value); });
+  // ---------------------------------------------------------------- 叠层
+  var fx = $('fx'), dpr = Math.min(2, +(new URLSearchParams(location.search).get('dpr')) || window.devicePixelRatio || 1);
+  fx.width = W * dpr; fx.height = H * dpr;
+  var ctx = fx.getContext('2d');
+  var mods = [window.WeatherFX_snow, window.WeatherFX_fog, window.WeatherFX_sand].map(function (M, k) {
+    var l = M.create({ seed: 1234 + k * 7, noise: window.WeatherNoise });
+    l.resize(W, H, dpr); l.setScene(scene); return l;
+  });
+  var PASSES = ['ground', 'reflect', 'precip', 'fog', 'light', 'flash'];
+  // ---------------------------------------------------------------- 控件
+  var ids = ['intensity', 'dir', 'speed', 'gust', 'cover', 'fog', 'vis', 'temp', 'hour'];
+  function val(id) { return +$(id).value; }
+  function show() { ids.forEach(function (id) { $(id).nextElementSibling.textContent = $(id).value; }); }
+  // 联动：切天气 / 拖强度时给出与之自洽的积雪、雾、能见度、气温（只为预览方便，模块本身只读 state）
+  function link() {
+    if (!$('link').checked) return;
+    var k = $('kind').value, it = val('intensity'), set = function (id, v) { $(id).value = v; };
+    if (k === 'snow' || k === 'blizzard' || k === 'sleet') {
+      var bl = k === 'blizzard';
+      set('cover', Math.min(1, (bl ? 0.55 : 0.05) + it * (bl ? 0.45 : 0.85)).toFixed(2));
+      set('vis', Math.max(0.05, 1 - it * (bl ? 0.95 : 0.5)).toFixed(2));
+      set('temp', k === 'sleet' ? 1 : Math.round(-1 - it * (bl ? 14 : 8)));
+      set('fog', 0); set('speed', (bl ? 0.55 + 0.45 * it : 0.15 + 0.3 * it).toFixed(2));
+    } else if (k === 'fog') {
+      set('fog', it.toFixed(2)); set('vis', Math.max(0.05, 1 - it * 0.9).toFixed(2));
+      set('cover', 0); set('speed', 0.08); set('temp', 6);
+    } else if (k === 'sandstorm') {
+      set('vis', Math.max(0.05, 1 - it * 0.92).toFixed(2)); set('cover', 0); set('fog', 0);
+      set('speed', (0.4 + 0.6 * it).toFixed(2)); set('temp', 32);
+    } else { set('cover', 0); set('fog', 0); set('vis', 1); set('temp', 14); }
+  }
+  $('kind').addEventListener('change', function () { link(); show(); });
+  $('intensity').addEventListener('input', function () { link(); show(); });
+  ids.forEach(function (id) { $(id).addEventListener('input', show); });
+  function state() {
+    var k = $('kind').value;
+    return { seed: 1234, kind: k, intensity: val('intensity'),
+      time: { hour: val('hour'), day_of_year: 20, sunrise: 6.5, sunset: 17.5, moon_phase: 0.4 },
+      precipitation: { type: /snow|blizzard/.test(k) ? 'snow' : k === 'sleet' ? 'sleet' : 'none', rate: val('intensity') },
+      cloud_cover: 0.8, fog: val('fog'), wind: { dir_deg: val('dir'), speed: val('speed'), gust: val('gust') },
+      lightning: 0, temperature_c: val('temp'), humidity: 0.8, visibility: val('vis'),
+      ground: { wetness: 0.3, puddles: 0, snow_cover: val('cover') }, season: 'winter', climate: 'temperate' };
+  }
+  var paused = false, stepOnce = false;
+  $('pause').onclick = function () { paused = !paused; this.textContent = paused ? '继续' : '暂停'; };
+  $('step').onclick = function () { paused = true; $('pause').textContent = '继续'; stepOnce = true; };
+  // ---------------------------------------------------------------- 循环 + fps
+  var last = performance.now(), frames = 0, acc = 0, fpsLog = [];
+  function frame(now) {
+    var dt = Math.min(0.1, (now - last) / 1000); last = now;
+    frames++; acc += dt;
+    if (acc >= 0.5) { var f = frames / acc; fpsLog.push(f); $('fps').textContent = f.toFixed(1) + ' fps · dpr ' + dpr; frames = 0; acc = 0; }
+    if (!paused || stepOnce) {
+      var st = state(), d = stepOnce ? 1 / 60 : dt; stepOnce = false;
+      mods.forEach(function (m) { m.update(st, d); });
+      ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.clearRect(0, 0, fx.width, fx.height);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      PASSES.forEach(function (p) { mods.forEach(function (m) { m.draw(ctx, p); }); });
+    }
+    requestAnimationFrame(frame);
+  }
+  // 供自动化测试：设参数 → 前进若干步
+  window.__preview = {
+    set: function (o) {
+      Object.keys(o).forEach(function (k) { if ($(k)) { $(k).value = o[k]; } });
+      if (o.kind || o.intensity != null) link();
+      Object.keys(o).forEach(function (k) { if ($(k) && k !== 'kind' && k !== 'intensity') $(k).value = o[k]; });
+      show();
+    },
+    fps: function () { var a = fpsLog.slice(-6); return a.reduce(function (s, x) { return s + x; }, 0) / Math.max(1, a.length); },
+    resetFps: function () { fpsLog = []; }
+  };
+  window.__preview.town = function (key) { loadTown(key); };
+  link(); show();
+  requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

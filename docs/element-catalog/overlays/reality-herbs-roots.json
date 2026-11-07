@@ -1,0 +1,558 @@
+{
+  "schema": "catalog_overlay_v1",
+  "group": "reality-herbs-roots",
+  "entries": {
+    "herb_root_ginseng": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_root_codonopsis": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_root_astragalus": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_root_licorice": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_root_danggui": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_root_chuanxiong": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_root_baishao": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_root_chishao": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_root_rehmannia_raw": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_root_rehmannia_prepared": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_root_atractylodes_macrocephala": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_root_atractylodes_lancea": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_root_aconite_zi": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_root_aconite_mu": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_root_pinellia": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_root_arisaema": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_root_tripterygium": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_root_heshouwu": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_root_coptis": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_root_scutellaria": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_root_rheum": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_root_salvia": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_root_scrophularia": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_root_ophiopogon": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_root_asparagus": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_root_gastrodia": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_root_pueraria": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_root_bupleurum": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_root_saposhnikovia": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_root_notopterygium": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_root_angelica_pubescens": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_root_angelica_dahurica": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_root_platycodon": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_root_achyranthes": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "inferred",
+      "note": "正文自述「本条目的直接来源为零」，source_ids 有一条但不支撑核心断言，故降为 inferred",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_root_dipsacus": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "sourced",
+      "note": "形态有来源，别名（桑上寄生）已标为旧误称",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_root_morinda": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "mixed",
+      "note": "来源只支撑形态，产地与规格有较强不确定",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_root_cistanche": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_root_fritillaria": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_root_anemarrhena": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    }
+  }
+}

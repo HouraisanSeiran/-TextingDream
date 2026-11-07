@@ -1,0 +1,692 @@
+{
+  "schema": "game_fields_v1",
+  "group": "flavors",
+  "entries": {
+    "flavors_black_pepper": {
+      "price": {
+        "min": 12,
+        "max": 36,
+        "per": "一盎司",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "rainforest",
+        "import"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "spice_merchant",
+        "grocer"
+      ],
+      "note": "远途干香料按盎司计，约为一天短工的一至三倍。"
+    },
+    "flavors_cinnamon": {
+      "price": {
+        "min": 18,
+        "max": 48,
+        "per": "一盎司",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "rainforest",
+        "import"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "spice_merchant",
+        "grocer"
+      ],
+      "note": "卷皮香料远途进口，按盎司零卖，比黑胡椒略贵。"
+    },
+    "flavors_cassia": {
+      "price": {
+        "min": 8,
+        "max": 24,
+        "per": "一盎司",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "tropical_dry_forest",
+        "import"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "spice_merchant",
+        "grocer"
+      ],
+      "note": "与肉桂同用途的廉价替代，按盎司计，约为肉桂的一半。"
+    },
+    "flavors_ginger": {
+      "price": {
+        "min": 3,
+        "max": 9,
+        "per": "一盎司",
+        "tier": "groat"
+      },
+      "terrains": [
+        "rainforest",
+        "import"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "grocer",
+        "spice_merchant"
+      ],
+      "note": "干姜最常见的进口香料，按盎司计，是香料里最便宜的一档。"
+    },
+    "flavors_clove": {
+      "price": {
+        "min": 18,
+        "max": 48,
+        "per": "一盎司",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "rainforest",
+        "import"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "spice_merchant"
+      ],
+      "note": "岛屿产地远途输入，量小价高，按盎司计。"
+    },
+    "flavors_nutmeg_mace": {
+      "price": {
+        "min": 24,
+        "max": 60,
+        "per": "一盎司",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "rainforest",
+        "import"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "spice_merchant"
+      ],
+      "note": "产地极窄的远途香料，按盎司计，是常见香料中偏贵的一种。"
+    },
+    "flavors_cardamom": {
+      "price": {
+        "min": 18,
+        "max": 48,
+        "per": "一盎司",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "rainforest",
+        "import"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "spice_merchant"
+      ],
+      "note": "山地雨林产的蒴果香料，远途输入，按盎司计。"
+    },
+    "flavors_cumin": {
+      "price": {
+        "min": 4,
+        "max": 10,
+        "per": "一盎司",
+        "tier": "groat"
+      },
+      "terrains": [
+        "steppe",
+        "import"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "spice_merchant",
+        "grocer"
+      ],
+      "note": "干旱地带产的籽粒香料，按盎司计，属中低档香料。"
+    },
+    "flavors_coriander_seed": {
+      "price": {
+        "min": 2,
+        "max": 6,
+        "per": "一盎司",
+        "tier": "groat"
+      },
+      "terrains": [
+        "farmland",
+        "steppe"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "grocer",
+        "spice_merchant"
+      ],
+      "note": "可在本地田里种，按盎司计，价格接近日常调料。"
+    },
+    "flavors_chili_pepper": {
+      "price": {
+        "min": 1,
+        "max": 3,
+        "per": "一小把",
+        "tier": "penny"
+      },
+      "terrains": [
+        "tropical_dry_forest",
+        "farmland"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "market",
+        "grocer"
+      ],
+      "note": "干椒按小把零卖，视作日常辛味而非贵重香料。"
+    },
+    "flavors_sichuan_pepper": {
+      "price": {
+        "min": 6,
+        "max": 18,
+        "per": "一盎司",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "mountain",
+        "import"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "spice_merchant"
+      ],
+      "note": "山地产干果皮香料，远途输入，按盎司计。"
+    },
+    "flavors_star_anise": {
+      "price": {
+        "min": 8,
+        "max": 20,
+        "per": "一盎司",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "mountain",
+        "import"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "spice_merchant"
+      ],
+      "note": "南方山区产的干果，远途输入，按盎司计，价位在桂皮与肉桂之间。"
+    },
+    "flavors_fennel_seed": {
+      "price": {
+        "min": 2,
+        "max": 6,
+        "per": "一盎司",
+        "tier": "groat"
+      },
+      "terrains": [
+        "farmland",
+        "coast"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "grocer",
+        "spice_merchant"
+      ],
+      "note": "本地可种的籽粒香料，按盎司计，价格偏低。"
+    },
+    "flavors_saffron": {
+      "price": {
+        "min": 96,
+        "max": 240,
+        "per": "一小包",
+        "tier": "pound"
+      },
+      "terrains": [
+        "steppe",
+        "import"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "spice_merchant",
+        "apothecary"
+      ],
+      "note": "人工采柱头、远途输入，按一小包（约一钱）计，是香料里最贵的一档。"
+    },
+    "flavors_turmeric": {
+      "price": {
+        "min": 4,
+        "max": 10,
+        "per": "一盎司",
+        "tier": "groat"
+      },
+      "terrains": [
+        "tropical_dry_forest",
+        "import"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "spice_merchant",
+        "grocer"
+      ],
+      "note": "根茎磨粉的上色香料，按盎司计，价位低于胡椒。"
+    },
+    "flavors_mustard": {
+      "price": {
+        "min": 1,
+        "max": 3,
+        "per": "一小罐",
+        "tier": "penny"
+      },
+      "terrains": [
+        "farmland",
+        "workshop"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "grocer",
+        "market"
+      ],
+      "note": "芥籽本地可种，芥酱按小罐零卖，视作日常调料。"
+    },
+    "flavors_vanilla": {
+      "price": {
+        "min": 36,
+        "max": 120,
+        "per": "一条",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "rainforest",
+        "import"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "spice_merchant"
+      ],
+      "note": "手工授粉发酵的远途荚果，按单条计，量少价高。"
+    },
+    "flavors_spice_blend": {
+      "price": {
+        "min": 6,
+        "max": 24,
+        "per": "一小包",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "workshop",
+        "import"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "spice_merchant",
+        "grocer"
+      ],
+      "note": "由多种进口香料配成，按小包零卖，价取决于配方里贵香料的比例。"
+    },
+    "flavors_vinegar": {
+      "price": {
+        "min": 1,
+        "max": 3,
+        "per": "一小罐",
+        "tier": "penny"
+      },
+      "terrains": [
+        "workshop",
+        "orchard"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "grocer",
+        "market"
+      ],
+      "note": "酒或果酿的副产品，按小罐零卖，日常调味品。"
+    },
+    "flavors_soy_sauce": {
+      "price": {
+        "min": 6,
+        "max": 18,
+        "per": "一小瓶",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "workshop",
+        "import"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "grocer",
+        "spice_merchant"
+      ],
+      "note": "远方发酵酱料，按小瓶进口零卖，比本地调味品贵。"
+    },
+    "flavors_fish_sauce": {
+      "price": {
+        "min": 4,
+        "max": 10,
+        "per": "一小瓶",
+        "tier": "groat"
+      },
+      "terrains": [
+        "workshop",
+        "coast"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "market",
+        "grocer"
+      ],
+      "note": "沿海发酵小鱼酱汁，按小瓶计，价位中低。"
+    },
+    "flavors_miso": {
+      "price": {
+        "min": 4,
+        "max": 10,
+        "per": "一小罐",
+        "tier": "groat"
+      },
+      "terrains": [
+        "workshop",
+        "import"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "grocer"
+      ],
+      "note": "远方发酵豆酱，按小罐进口零卖，比本地酱料略贵。"
+    },
+    "flavors_tea": {
+      "price": {
+        "min": 12,
+        "max": 48,
+        "per": "一盎司",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "mountain",
+        "import"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "spice_merchant",
+        "grocer"
+      ],
+      "note": "山地嫩叶晒制后远途输入，按盎司计，近似昂贵饮品原料。"
+    },
+    "flavors_coffee": {
+      "price": {
+        "min": 24,
+        "max": 60,
+        "per": "一磅",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "tropical_dry_forest",
+        "import"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "grocer",
+        "spice_merchant"
+      ],
+      "note": "远途输入的烘焙豆，按磅计，是中高档饮品原料。"
+    },
+    "flavors_cocoa": {
+      "price": {
+        "min": 12,
+        "max": 48,
+        "per": "一磅",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "rainforest",
+        "import"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "spice_merchant",
+        "grocer"
+      ],
+      "note": "远途输入的可可，按磅计，加工成饮品或糖块后另计。"
+    },
+    "flavors_beer": {
+      "price": {
+        "min": 1,
+        "max": 3,
+        "per": "一杯",
+        "tier": "penny"
+      },
+      "terrains": [
+        "farmland",
+        "workshop"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "weeks",
+      "sold_by": [
+        "tavern",
+        "inn_kitchen"
+      ],
+      "note": "按已有锚点麦酒一杯 2 便士，淡啤到浓啤在 1–3 便士。"
+    },
+    "flavors_wine": {
+      "price": {
+        "min": 3,
+        "max": 8,
+        "per": "一杯",
+        "tier": "groat"
+      },
+      "terrains": [
+        "orchard",
+        "workshop"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "tavern",
+        "grocer"
+      ],
+      "note": "比麦酒贵的酿造酒，按杯零卖，远方名酒另计。"
+    },
+    "flavors_distilled_spirit": {
+      "price": {
+        "min": 4,
+        "max": 10,
+        "per": "一小杯",
+        "tier": "groat"
+      },
+      "terrains": [
+        "workshop",
+        "farmland"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "tavern",
+        "inn_kitchen"
+      ],
+      "note": "蒸馏费工，按小杯零卖，一小杯约为两三杯麦酒。"
+    },
+    "flavors_mead": {
+      "price": {
+        "min": 3,
+        "max": 8,
+        "per": "一杯",
+        "tier": "groat"
+      },
+      "terrains": [
+        "workshop",
+        "farmland"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "tavern",
+        "inn_kitchen"
+      ],
+      "note": "蜂蜜酿造，比麦酒贵，按杯零卖。"
+    },
+    "flavors_honey": {
+      "price": {
+        "min": 4,
+        "max": 10,
+        "per": "一磅",
+        "tier": "groat"
+      },
+      "terrains": [
+        "farmland",
+        "temperate_forest"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "market",
+        "farmer"
+      ],
+      "note": "本地蜜源，按磅计，是主要的本地甜味来源。"
+    },
+    "flavors_cane_sugar": {
+      "price": {
+        "min": 12,
+        "max": 36,
+        "per": "一磅",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "rainforest",
+        "import"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "grocer",
+        "spice_merchant"
+      ],
+      "note": "热带甘蔗制成后远途输入，按磅计，视作贵重调料。"
+    },
+    "flavors_beet_sugar": {
+      "price": {
+        "min": 6,
+        "max": 18,
+        "per": "一磅",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "farmland",
+        "workshop"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "grocer",
+        "market"
+      ],
+      "note": "本地作坊榨制，按磅计，比进口蔗糖便宜。"
+    },
+    "flavors_maple_syrup": {
+      "price": {
+        "min": 8,
+        "max": 24,
+        "per": "一小罐",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "temperate_forest",
+        "workshop"
+      ],
+      "seasons": [
+        "spring"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "market",
+        "grocer"
+      ],
+      "note": "早春采汁熬制，按小罐计，产量小，价位偏高。"
+    }
+  }
+}

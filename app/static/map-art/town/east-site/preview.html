@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>织梦 · 东方资源点 east-site 预览</title>
+<style>
+  body { margin: 0; padding: 16px 20px; background: #f4ead2; font: 13px/1.5 "Microsoft YaHei", sans-serif; color: #4a2c18; }
+  h1 { font-size: 20px; margin: 4px 0 10px; } h2 { font-size: 16px; margin: 22px 0 8px; border-bottom: 1px solid #c98f3c; }
+  .atlas { display: flex; flex-wrap: wrap; gap: 10px; }
+  .card { background: #d9c58f; border: 1px solid #c98f3c; border-radius: 4px; padding: 6px; text-align: center; }
+  .card svg { display: block; margin: 0 auto 4px; }
+  .card b { display: block; font-size: 12px; } .card i { display: block; font-style: normal; font-size: 11px; color: #7a5232; }
+  .scenes { display: flex; flex-wrap: wrap; gap: 14px; }
+  .scene { background: #fff6e0; border: 1px solid #c98f3c; padding: 6px; }
+  .scene h3 { margin: 0 0 4px; font-size: 14px; }
+</style>
+</head>
+<body>
+<h1>东方资源点（east-site）· 国潮平涂 + 金线勾边 · 尚未接入游戏</h1>
+<div id="sprites" style="position:absolute;width:0;height:0;overflow:hidden"></div>
+<h2>资源点示意小地图（10×8 格，地面 = east-ground 黄土底纹）</h2>
+<div class="scenes" id="scenes"></div>
+<h2>图册</h2>
+<div id="atlas"></div>
+
+<!-- east-ground 只读引用：黄土底纹 earth-01..04 -->
+<script src="../east-ground/core.js"></script>
+<script src="../east-ground/grid.js"></script>
+<script src="../east-ground/water.js"></script>
+<script src="../east-ground/water-tiles.js"></script>
+<script src="../east-ground/ground.js"></script>
+<script src="../east-ground/prop-kit.js"></script>
+<script src="../east-ground/props-plants.js"></script>
+<script src="../east-ground/props-stone.js"></script>
+<script src="../east-ground/props-farm.js"></script>
+<script src="../east-ground/props-yard.js"></script>
+<script src="../east-ground/props.js"></script>
+<script src="../east-ground/east-ground.js"></script>
+<!-- 本目录 -->
+<script src="core.js"></script>
+<script src="kit.js"></script>
+<script src="kit2.js"></script>
+<script src="sites-wood.js" onerror="void 0"></script>
+<script src="sites-stone.js" onerror="void 0"></script>
+<script src="sites-mine.js" onerror="void 0"></script>
+<script src="sites-water.js" onerror="void 0"></script>
+<script src="sites-farm.js" onerror="void 0"></script>
+<script src="sites-rare.js" onerror="void 0"></script>
+<script src="east-site.js"></script>
+<script src="preview-scenes.js"></script>
+<script src="scenes.js"></script>
+<script>
+(function () {
+  var ES = window.TownArt_eastSite.buildAll();
+  var EG = window.TownArt_eastGround ? window.TownArt_eastGround.buildAll() : null;
+  document.getElementById('sprites').innerHTML = (EG ? EG.spriteSvg() : '') + ES.spriteSvg();
+  var byId = {}; ES.items.forEach(function (it) { byId[it.id] = it.meta; });
+  window.ES_META = byId;
+  // 场景里也可以摆 east-ground 的松竹石等地面摆件（只读引用）
+  var sceneMeta = {}; if (EG) EG.items.forEach(function (it) { sceneMeta[it.id] = it.meta; });
+  for (var k0 in byId) sceneMeta[k0] = byId[k0];
+  // 图册：按 resource 分组
+  var groups = {}, order = [];
+  ES.items.forEach(function (it) { var k = it.meta.resource; if (!groups[k]) { groups[k] = []; order.push(k); } groups[k].push(it.meta); });
+  var CATN = { site: '主体', prop: '摆件', ground: '地面' };
+  var html = '';
+  order.forEach(function (k) {
+    html += '<h3>' + k + '</h3><div class="atlas">';
+    groups[k].forEach(function (m) {
+      var vb = m.viewBox, sc = m.category === 'site' ? 1 : 1.5;
+      html += '<div class="card"><svg width="' + vb[2] * sc + '" height="' + vb[3] * sc + '" viewBox="' + vb.join(' ') + '" style="overflow:visible"><use href="#' + m.id + '"/></svg>' +
+        '<b>' + m.name + '</b><i>' + m.id + '</i><i>' + CATN[m.category] + ' · ' + m.footprint.join('×') + ' · 上伸 ' + m.height_px + ' · ' + m.resource + (m.facility ? ' · ' + m.facility : '') + '</i></div>';
+    });
+    html += '</div>';
+  });
+  document.getElementById('atlas').innerHTML = html;
+  document.getElementById('scenes').innerHTML = window.ES_SCENES ? window.ES_SCENES.render(sceneMeta) : '';
+})();
+</script>
+</body>
+</html>

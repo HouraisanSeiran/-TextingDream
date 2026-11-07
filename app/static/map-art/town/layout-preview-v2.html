@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>织梦 · 城镇布局 v2</title>
+<link rel="icon" href="data:,">
+<style>
+*{box-sizing:border-box}body{margin:0;background:#edf0e8;color:#25372d;font:14px system-ui,sans-serif}
+header{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:12px 20px;background:#fff;border-bottom:1px solid #c8d1c9}
+h1{font-size:20px;margin:0 12px 0 0}h2{font-size:16px;margin:18px 0 8px}label{display:flex;align-items:center;gap:6px}
+select{padding:6px;border:1px solid #9cab9f;border-radius:4px;background:#fff;color:inherit;font:inherit}
+main{max-width:1500px;margin:auto;padding:16px}.scene{width:100%;background:#fff;border:1px solid #c8d1c9;border-radius:4px}
+.stats{display:flex;gap:18px;flex-wrap:wrap;padding:8px 0;color:#41584a}.stats b{color:#25372d}
+#missing{color:#873c32}details{padding:4px 0}summary{cursor:pointer}ul{padding-left:22px;margin:4px 0}
+.site-bar{display:flex;gap:14px;flex-wrap:wrap;align-items:center}#site-scene{max-width:720px}
+</style>
+</head>
+<body>
+<header>
+<h1>织梦 · 城镇布局 v2</h1>
+<label>聚落 <select id="sample"></select></label>
+<label>风格 <select id="style"><option value="west">西式</option><option value="east">东方</option><option value="arab">阿拉伯</option></select></label>
+<label>种族 <select id="race"><option value="common">人族</option><option value="elf">精灵</option><option value="dwarf">矮人</option><option value="orc">兽人</option></select></label>
+<label>墙形 <select id="shape"><option value="irregular">不规则</option><option value="square">方形</option></select></label>
+<label>种子 <select id="seed"></select></label>
+</header>
+<main>
+<div id="scene" class="scene"></div>
+<div class="stats" id="stats"></div>
+<details><summary>缺失与回落说明</summary><ul id="missing"></ul></details>
+<h2>资源点小地图</h2>
+<div class="site-bar">
+<label>风格 <select id="site-style"><option value="west">西式</option><option value="east">东方</option></select></label>
+<label>资源点 <select id="site"></select></label>
+<span id="site-info"></span>
+</div>
+<div id="site-scene" class="scene"></div>
+</main>
+<script src="town-catalog.js"></script>
+<script src="layout-samples-v2.js"></script>
+<script src="../../town-render.js"></script>
+<script src="layout-preview-v2.js"></script>
+</body>
+</html>

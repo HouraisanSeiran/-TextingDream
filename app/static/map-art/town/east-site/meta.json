@@ -1,0 +1,3874 @@
+[
+ {
+  "id": "east-common-site-lumber-01",
+  "style": "east",
+  "race": "common",
+  "category": "site",
+  "kind": "site_lumber_shed",
+  "resource": "timber",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   3,
+   2
+  ],
+  "height_px": 56,
+  "anchor": [
+   72,
+   152
+  ],
+  "viewBox": [
+   0,
+   0,
+   144,
+   152
+  ],
+  "tags": [
+   "lumber",
+   "shed",
+   "saw",
+   "logpile"
+  ],
+  "roof": "gable_thatch",
+  "name": "伐木场·锯木棚",
+  "note": "敞口茅草棚，棚下架两人大锯解木，右侧原木垛；无对应 FacilityKind"
+ },
+ {
+  "id": "east-common-prop-lumber-slide-01",
+  "style": "east",
+  "race": "common",
+  "category": "prop",
+  "kind": "prop_log_slide",
+  "resource": "timber",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 40,
+  "anchor": [
+   24,
+   88
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   88
+  ],
+  "tags": [
+   "lumber",
+   "chute"
+  ],
+  "roof": "none",
+  "name": "溜木槽",
+  "note": "从坡上把原木溜下来的木槽，后高前低"
+ },
+ {
+  "id": "east-common-prop-lumber-logrow-01",
+  "style": "east",
+  "race": "common",
+  "category": "prop",
+  "kind": "prop_log_row",
+  "resource": "timber",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 6,
+  "anchor": [
+   24,
+   54
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   54
+  ],
+  "tags": [
+   "lumber",
+   "logpile"
+  ],
+  "roof": "none",
+  "name": "原木排",
+  "note": "端面朝前的三层金字塔原木垛，两侧木楔挡住"
+ },
+ {
+  "id": "east-common-ground-stumps-01",
+  "style": "east",
+  "race": "common",
+  "category": "ground",
+  "kind": "ground_stumps",
+  "resource": "timber",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "tileable",
+   "cleared"
+  ],
+  "roof": "none",
+  "name": "树桩地 1",
+  "note": "伐后林地：草地底色与 east-ground 黄土底纹同色 #d9c58f，细节离边 ≥5 px，任意排列无缝"
+ },
+ {
+  "id": "east-common-ground-stumps-02",
+  "style": "east",
+  "race": "common",
+  "category": "ground",
+  "kind": "ground_stumps",
+  "resource": "timber",
+  "facility": null,
+  "variant": 2,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "tileable",
+   "cleared"
+  ],
+  "roof": "none",
+  "name": "树桩地 2",
+  "note": "伐后林地：草地底色与 east-ground 黄土底纹同色 #d9c58f，细节离边 ≥5 px，任意排列无缝"
+ },
+ {
+  "id": "east-common-site-quarry-01",
+  "style": "east",
+  "race": "common",
+  "category": "site",
+  "kind": "site_quarry_face",
+  "resource": "stone",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   4,
+   3
+  ],
+  "height_px": 70,
+  "anchor": [
+   96,
+   214
+  ],
+  "viewBox": [
+   0,
+   0,
+   192,
+   214
+  ],
+  "tags": [
+   "quarry",
+   "cliff",
+   "derrick"
+  ],
+  "roof": "none",
+  "name": "采石场·凿石崖面",
+  "note": "三级阶梯凿石崖面 + 木吊杆，前方石料与凿石人用的木凳；无对应 FacilityKind"
+ },
+ {
+  "id": "east-common-prop-stone-blocks-01",
+  "style": "east",
+  "race": "common",
+  "category": "prop",
+  "kind": "prop_stone_blocks",
+  "resource": "stone",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 14,
+  "anchor": [
+   24,
+   62
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   62
+  ],
+  "tags": [
+   "quarry",
+   "blocks"
+  ],
+  "roof": "none",
+  "name": "石料垛",
+  "note": "凿好的方石料两层码放，木楔垫底"
+ },
+ {
+  "id": "east-common-prop-stone-rubble-01",
+  "style": "east",
+  "race": "common",
+  "category": "prop",
+  "kind": "prop_rubble",
+  "resource": "stone",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 10,
+  "anchor": [
+   24,
+   58
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   58
+  ],
+  "tags": [
+   "quarry",
+   "rubble"
+  ],
+  "roof": "none",
+  "name": "碎石堆"
+ },
+ {
+  "id": "east-common-prop-stone-trolley-01",
+  "style": "east",
+  "race": "common",
+  "category": "prop",
+  "kind": "prop_stone_cart",
+  "resource": "stone",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 18,
+  "anchor": [
+   24,
+   66
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   66
+  ],
+  "tags": [
+   "quarry",
+   "cart"
+  ],
+  "roof": "none",
+  "name": "石料木轮车",
+  "note": "独轮推车载一块石料"
+ },
+ {
+  "id": "east-common-ground-rubble-01",
+  "style": "east",
+  "race": "common",
+  "category": "ground",
+  "kind": "ground_rubble",
+  "resource": "stone",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "tileable",
+   "quarry"
+  ],
+  "roof": "none",
+  "name": "碎石地 1",
+  "note": "采石场碎石裸地：底色与 east-ground 黄土同色 #d9c58f，碎石离边 ≥3 px，任意排列无缝"
+ },
+ {
+  "id": "east-common-ground-rubble-02",
+  "style": "east",
+  "race": "common",
+  "category": "ground",
+  "kind": "ground_rubble",
+  "resource": "stone",
+  "facility": null,
+  "variant": 2,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "tileable",
+   "quarry"
+  ],
+  "roof": "none",
+  "name": "碎石地 2",
+  "note": "采石场碎石裸地：底色与 east-ground 黄土同色 #d9c58f，碎石离边 ≥3 px，任意排列无缝"
+ },
+ {
+  "id": "east-common-site-claypit-01",
+  "style": "east",
+  "race": "common",
+  "category": "site",
+  "kind": "site_clay_pit",
+  "resource": "clay",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   3,
+   2
+  ],
+  "height_px": 30,
+  "anchor": [
+   72,
+   126
+  ],
+  "viewBox": [
+   0,
+   0,
+   144,
+   126
+  ],
+  "tags": [
+   "clay",
+   "pit",
+   "ladder"
+  ],
+  "roof": "none",
+  "name": "黏土坑·取土坑",
+  "note": "台阶状挖开的取土坑，坑底积一汪浑水，坑沿搭木板坡道与竹筐；无对应 FacilityKind（制坯烧砖另见 kiln）"
+ },
+ {
+  "id": "east-common-site-brickyard-01",
+  "style": "east",
+  "race": "common",
+  "category": "site",
+  "kind": "site_brick_drying",
+  "resource": "clay",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   3,
+   2
+  ],
+  "height_px": 40,
+  "anchor": [
+   72,
+   136
+  ],
+  "viewBox": [
+   0,
+   0,
+   144,
+   136
+  ],
+  "tags": [
+   "clay",
+   "adobe",
+   "drying",
+   "shed"
+  ],
+  "roof": "none",
+  "name": "晾坯场",
+  "note": "夯平场地上成行码放土坯晾干，后侧一溜低矮茅草遮雨棚和木制坯模；烧砖成窑另用 kiln"
+ },
+ {
+  "id": "east-common-prop-clay-mud-01",
+  "style": "east",
+  "race": "common",
+  "category": "prop",
+  "kind": "prop_clay_mud",
+  "resource": "clay",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 12,
+  "anchor": [
+   24,
+   60
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   60
+  ],
+  "tags": [
+   "clay"
+  ],
+  "roof": "none",
+  "name": "泥料堆",
+  "note": "闷好的湿泥，上插木锹"
+ },
+ {
+  "id": "east-common-prop-clay-adobe-01",
+  "style": "east",
+  "race": "common",
+  "category": "prop",
+  "kind": "prop_adobe_stack",
+  "resource": "clay",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 14,
+  "anchor": [
+   24,
+   62
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   62
+  ],
+  "tags": [
+   "clay",
+   "adobe"
+  ],
+  "roof": "none",
+  "name": "土坯垛",
+  "note": "晾干的土坯交错码成方垛"
+ },
+ {
+  "id": "east-common-prop-clay-baskets-01",
+  "style": "east",
+  "race": "common",
+  "category": "prop",
+  "kind": "prop_clay_baskets",
+  "resource": "clay",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 22,
+  "anchor": [
+   24,
+   70
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   70
+  ],
+  "tags": [
+   "clay",
+   "basket",
+   "carry_pole"
+  ],
+  "roof": "none",
+  "name": "挑泥担",
+  "note": "一根扁担两只泥筐"
+ },
+ {
+  "id": "east-common-site-mine-iron-01",
+  "style": "east",
+  "race": "common",
+  "category": "site",
+  "kind": "site_mine_adit",
+  "resource": "iron",
+  "facility": "mine_head",
+  "variant": 1,
+  "footprint": [
+   3,
+   2
+  ],
+  "height_px": 80,
+  "anchor": [
+   72,
+   176
+  ],
+  "viewBox": [
+   0,
+   0,
+   144,
+   176
+  ],
+  "tags": [
+   "mine",
+   "adit",
+   "timbering",
+   "iron"
+  ],
+  "roof": "gable_tile",
+  "name": "铁矿·山腹矿洞口",
+  "note": "山腹开平硐，木支护门框加小瓦檐与镇山符牌，出洞枕木轨道，洞口矿石堆"
+ },
+ {
+  "id": "east-common-site-mine-iron-02",
+  "style": "east",
+  "race": "common",
+  "category": "site",
+  "kind": "site_mine_shaft",
+  "resource": "iron",
+  "facility": "mine_head",
+  "variant": 1,
+  "footprint": [
+   2,
+   2
+  ],
+  "height_px": 26,
+  "anchor": [
+   48,
+   122
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   122
+  ],
+  "tags": [
+   "mine",
+   "shaft",
+   "windlass",
+   "iron"
+  ],
+  "roof": "gable_thatch",
+  "name": "铁矿·辘轳竖井",
+  "note": "方木井框上架辘轳卷筒和摇把，绳吊竹筐出矿，上搭小茅棚"
+ },
+ {
+  "id": "east-common-prop-mine-iron-basket-01",
+  "style": "east",
+  "race": "common",
+  "category": "prop",
+  "kind": "prop_ore_basket",
+  "resource": "iron",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 12,
+  "anchor": [
+   24,
+   60
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   60
+  ],
+  "tags": [
+   "ore",
+   "basket",
+   "iron"
+  ],
+  "roof": "none",
+  "name": "铁矿石筐",
+  "note": "一副扁担两只竹筐装满铁矿石"
+ },
+ {
+  "id": "east-common-prop-mine-iron-oreroast-01",
+  "style": "east",
+  "race": "common",
+  "category": "prop",
+  "kind": "prop_ore_roast",
+  "resource": "iron",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 30,
+  "anchor": [
+   24,
+   78
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   78
+  ],
+  "tags": [
+   "roast",
+   "smoke",
+   "iron"
+  ],
+  "roof": "none",
+  "name": "焙矿堆",
+  "note": "柴薪与铁矿石层层堆起焙烧，冒一缕烟"
+ },
+ {
+  "id": "east-common-ground-slag-iron-01",
+  "style": "east",
+  "race": "common",
+  "category": "ground",
+  "kind": "ground_slag",
+  "resource": "iron",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "tileable",
+   "slag",
+   "iron"
+  ],
+  "roof": "none",
+  "name": "铁矿渣地",
+  "note": "矿渣与碎矿石散落的裸地，可平铺"
+ },
+ {
+  "id": "east-common-site-mine-copper-01",
+  "style": "east",
+  "race": "common",
+  "category": "site",
+  "kind": "site_mine_adit",
+  "resource": "copper",
+  "facility": "mine_head",
+  "variant": 1,
+  "footprint": [
+   3,
+   2
+  ],
+  "height_px": 80,
+  "anchor": [
+   72,
+   176
+  ],
+  "viewBox": [
+   0,
+   0,
+   144,
+   176
+  ],
+  "tags": [
+   "mine",
+   "adit",
+   "timbering",
+   "copper"
+  ],
+  "roof": "gable_tile",
+  "name": "铜矿·山腹矿洞口",
+  "note": "山腹开平硐，木支护门框加小瓦檐与镇山符牌，出洞枕木轨道，洞口矿石堆"
+ },
+ {
+  "id": "east-common-site-mine-copper-02",
+  "style": "east",
+  "race": "common",
+  "category": "site",
+  "kind": "site_mine_shaft",
+  "resource": "copper",
+  "facility": "mine_head",
+  "variant": 1,
+  "footprint": [
+   2,
+   2
+  ],
+  "height_px": 26,
+  "anchor": [
+   48,
+   122
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   122
+  ],
+  "tags": [
+   "mine",
+   "shaft",
+   "windlass",
+   "copper"
+  ],
+  "roof": "gable_thatch",
+  "name": "铜矿·辘轳竖井",
+  "note": "方木井框上架辘轳卷筒和摇把，绳吊竹筐出矿，上搭小茅棚"
+ },
+ {
+  "id": "east-common-prop-mine-copper-basket-01",
+  "style": "east",
+  "race": "common",
+  "category": "prop",
+  "kind": "prop_ore_basket",
+  "resource": "copper",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 12,
+  "anchor": [
+   24,
+   60
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   60
+  ],
+  "tags": [
+   "ore",
+   "basket",
+   "copper"
+  ],
+  "roof": "none",
+  "name": "铜矿石筐",
+  "note": "一副扁担两只竹筐装满铜矿石"
+ },
+ {
+  "id": "east-common-prop-mine-copper-orewash-01",
+  "style": "east",
+  "race": "common",
+  "category": "prop",
+  "kind": "prop_ore_wash",
+  "resource": "copper",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 16,
+  "anchor": [
+   24,
+   64
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   64
+  ],
+  "tags": [
+   "wash",
+   "water",
+   "copper"
+  ],
+  "roof": "none",
+  "name": "洗矿槽",
+  "note": "木槽引水冲洗铜矿砂，槽尾一只接砂竹筐"
+ },
+ {
+  "id": "east-common-ground-slag-copper-01",
+  "style": "east",
+  "race": "common",
+  "category": "ground",
+  "kind": "ground_slag",
+  "resource": "copper",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "tileable",
+   "slag",
+   "copper"
+  ],
+  "roof": "none",
+  "name": "铜矿渣地",
+  "note": "矿渣与碎矿石散落的裸地，可平铺"
+ },
+ {
+  "id": "east-common-site-mine-tin-01",
+  "style": "east",
+  "race": "common",
+  "category": "site",
+  "kind": "site_mine_adit",
+  "resource": "tin",
+  "facility": "mine_head",
+  "variant": 1,
+  "footprint": [
+   3,
+   2
+  ],
+  "height_px": 80,
+  "anchor": [
+   72,
+   176
+  ],
+  "viewBox": [
+   0,
+   0,
+   144,
+   176
+  ],
+  "tags": [
+   "mine",
+   "adit",
+   "timbering",
+   "tin"
+  ],
+  "roof": "gable_tile",
+  "name": "锡矿·山腹矿洞口",
+  "note": "山腹开平硐，木支护门框加小瓦檐与镇山符牌，出洞枕木轨道，洞口矿石堆"
+ },
+ {
+  "id": "east-common-site-mine-tin-02",
+  "style": "east",
+  "race": "common",
+  "category": "site",
+  "kind": "site_mine_shaft",
+  "resource": "tin",
+  "facility": "mine_head",
+  "variant": 1,
+  "footprint": [
+   2,
+   2
+  ],
+  "height_px": 26,
+  "anchor": [
+   48,
+   122
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   122
+  ],
+  "tags": [
+   "mine",
+   "shaft",
+   "windlass",
+   "tin"
+  ],
+  "roof": "gable_thatch",
+  "name": "锡矿·辘轳竖井",
+  "note": "方木井框上架辘轳卷筒和摇把，绳吊竹筐出矿，上搭小茅棚"
+ },
+ {
+  "id": "east-common-prop-mine-tin-basket-01",
+  "style": "east",
+  "race": "common",
+  "category": "prop",
+  "kind": "prop_ore_basket",
+  "resource": "tin",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 12,
+  "anchor": [
+   24,
+   60
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   60
+  ],
+  "tags": [
+   "ore",
+   "basket",
+   "tin"
+  ],
+  "roof": "none",
+  "name": "锡矿石筐",
+  "note": "一副扁担两只竹筐装满锡矿石"
+ },
+ {
+  "id": "east-common-prop-mine-tin-tinpan-01",
+  "style": "east",
+  "race": "common",
+  "category": "prop",
+  "kind": "prop_tin_pan",
+  "resource": "tin",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 26,
+  "anchor": [
+   24,
+   74
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   74
+  ],
+  "tags": [
+   "pan",
+   "sieve",
+   "tin"
+  ],
+  "roof": "none",
+  "name": "淘锡簸箕架",
+  "note": "竹架上晾着淘锡用的簸箕与竹筛，底下一盆锡砂"
+ },
+ {
+  "id": "east-common-ground-slag-tin-01",
+  "style": "east",
+  "race": "common",
+  "category": "ground",
+  "kind": "ground_slag",
+  "resource": "tin",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "tileable",
+   "slag",
+   "tin"
+  ],
+  "roof": "none",
+  "name": "锡矿渣地",
+  "note": "矿渣与碎矿石散落的裸地，可平铺"
+ },
+ {
+  "id": "east-common-site-mine-gold-01",
+  "style": "east",
+  "race": "common",
+  "category": "site",
+  "kind": "site_mine_adit",
+  "resource": "gold",
+  "facility": "mine_head",
+  "variant": 1,
+  "footprint": [
+   3,
+   2
+  ],
+  "height_px": 80,
+  "anchor": [
+   72,
+   176
+  ],
+  "viewBox": [
+   0,
+   0,
+   144,
+   176
+  ],
+  "tags": [
+   "mine",
+   "adit",
+   "timbering",
+   "gold"
+  ],
+  "roof": "gable_tile",
+  "name": "金矿·山腹矿洞口",
+  "note": "山腹开平硐，木支护门框加小瓦檐与镇山符牌，出洞枕木轨道，洞口矿石堆"
+ },
+ {
+  "id": "east-common-site-mine-gold-02",
+  "style": "east",
+  "race": "common",
+  "category": "site",
+  "kind": "site_mine_shaft",
+  "resource": "gold",
+  "facility": "mine_head",
+  "variant": 1,
+  "footprint": [
+   2,
+   2
+  ],
+  "height_px": 26,
+  "anchor": [
+   48,
+   122
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   122
+  ],
+  "tags": [
+   "mine",
+   "shaft",
+   "windlass",
+   "gold"
+  ],
+  "roof": "gable_thatch",
+  "name": "金矿·辘轳竖井",
+  "note": "方木井框上架辘轳卷筒和摇把，绳吊竹筐出矿，上搭小茅棚"
+ },
+ {
+  "id": "east-common-prop-mine-gold-basket-01",
+  "style": "east",
+  "race": "common",
+  "category": "prop",
+  "kind": "prop_ore_basket",
+  "resource": "gold",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 12,
+  "anchor": [
+   24,
+   60
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   60
+  ],
+  "tags": [
+   "ore",
+   "basket",
+   "gold"
+  ],
+  "roof": "none",
+  "name": "金矿石筐",
+  "note": "一副扁担两只竹筐装满金矿石"
+ },
+ {
+  "id": "east-common-prop-mine-gold-goldsluice-01",
+  "style": "east",
+  "race": "common",
+  "category": "prop",
+  "kind": "prop_gold_sluice",
+  "resource": "gold",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 24,
+  "anchor": [
+   24,
+   72
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   72
+  ],
+  "tags": [
+   "sluice",
+   "water",
+   "panning",
+   "gold"
+  ],
+  "roof": "none",
+  "name": "淘金溜槽",
+  "note": "斜置木溜槽，槽底横档挂住金砂，槽尾一只淘金木盘"
+ },
+ {
+  "id": "east-common-ground-slag-gold-01",
+  "style": "east",
+  "race": "common",
+  "category": "ground",
+  "kind": "ground_slag",
+  "resource": "gold",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "tileable",
+   "slag",
+   "gold"
+  ],
+  "roof": "none",
+  "name": "金矿渣地",
+  "note": "矿渣与碎矿石散落的裸地，可平铺"
+ },
+ {
+  "id": "east-common-site-mine-silver-01",
+  "style": "east",
+  "race": "common",
+  "category": "site",
+  "kind": "site_mine_adit",
+  "resource": "silver",
+  "facility": "mine_head",
+  "variant": 1,
+  "footprint": [
+   3,
+   2
+  ],
+  "height_px": 80,
+  "anchor": [
+   72,
+   176
+  ],
+  "viewBox": [
+   0,
+   0,
+   144,
+   176
+  ],
+  "tags": [
+   "mine",
+   "adit",
+   "timbering",
+   "silver"
+  ],
+  "roof": "gable_tile",
+  "name": "银矿·山腹矿洞口",
+  "note": "山腹开平硐，木支护门框加小瓦檐与镇山符牌，出洞枕木轨道，洞口矿石堆"
+ },
+ {
+  "id": "east-common-site-mine-silver-02",
+  "style": "east",
+  "race": "common",
+  "category": "site",
+  "kind": "site_mine_shaft",
+  "resource": "silver",
+  "facility": "mine_head",
+  "variant": 1,
+  "footprint": [
+   2,
+   2
+  ],
+  "height_px": 26,
+  "anchor": [
+   48,
+   122
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   122
+  ],
+  "tags": [
+   "mine",
+   "shaft",
+   "windlass",
+   "silver"
+  ],
+  "roof": "gable_thatch",
+  "name": "银矿·辘轳竖井",
+  "note": "方木井框上架辘轳卷筒和摇把，绳吊竹筐出矿，上搭小茅棚"
+ },
+ {
+  "id": "east-common-prop-mine-silver-basket-01",
+  "style": "east",
+  "race": "common",
+  "category": "prop",
+  "kind": "prop_ore_basket",
+  "resource": "silver",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 12,
+  "anchor": [
+   24,
+   60
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   60
+  ],
+  "tags": [
+   "ore",
+   "basket",
+   "silver"
+  ],
+  "roof": "none",
+  "name": "银矿石筐",
+  "note": "一副扁担两只竹筐装满银矿石"
+ },
+ {
+  "id": "east-common-prop-mine-silver-silverfurnace-01",
+  "style": "east",
+  "race": "common",
+  "category": "prop",
+  "kind": "prop_silver_furnace",
+  "resource": "silver",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 40,
+  "anchor": [
+   24,
+   88
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   88
+  ],
+  "tags": [
+   "furnace",
+   "cupel",
+   "smoke",
+   "silver"
+  ],
+  "roof": "none",
+  "name": "炼银小炉",
+  "note": "泥砌小炉吹灰炼银，前开火门，旁有皮风箱；冶炼正式建筑另见 smelter"
+ },
+ {
+  "id": "east-common-ground-slag-silver-01",
+  "style": "east",
+  "race": "common",
+  "category": "ground",
+  "kind": "ground_slag",
+  "resource": "silver",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "tileable",
+   "slag",
+   "silver"
+  ],
+  "roof": "none",
+  "name": "银矿渣地",
+  "note": "矿渣与碎矿石散落的裸地，可平铺"
+ },
+ {
+  "id": "east-common-site-mine-coal-01",
+  "style": "east",
+  "race": "common",
+  "category": "site",
+  "kind": "site_mine_adit",
+  "resource": "coal",
+  "facility": "mine_head",
+  "variant": 1,
+  "footprint": [
+   3,
+   2
+  ],
+  "height_px": 80,
+  "anchor": [
+   72,
+   176
+  ],
+  "viewBox": [
+   0,
+   0,
+   144,
+   176
+  ],
+  "tags": [
+   "mine",
+   "adit",
+   "timbering",
+   "coal"
+  ],
+  "roof": "gable_tile",
+  "name": "煤矿·山腹矿洞口",
+  "note": "山腹开平硐，木支护门框加小瓦檐与镇山符牌，出洞枕木轨道，洞口矿石堆"
+ },
+ {
+  "id": "east-common-site-mine-coal-02",
+  "style": "east",
+  "race": "common",
+  "category": "site",
+  "kind": "site_mine_shaft",
+  "resource": "coal",
+  "facility": "mine_head",
+  "variant": 1,
+  "footprint": [
+   2,
+   2
+  ],
+  "height_px": 26,
+  "anchor": [
+   48,
+   122
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   122
+  ],
+  "tags": [
+   "mine",
+   "shaft",
+   "windlass",
+   "coal"
+  ],
+  "roof": "gable_thatch",
+  "name": "煤矿·辘轳竖井",
+  "note": "方木井框上架辘轳卷筒和摇把，绳吊竹筐出矿，上搭小茅棚"
+ },
+ {
+  "id": "east-common-prop-mine-coal-basket-01",
+  "style": "east",
+  "race": "common",
+  "category": "prop",
+  "kind": "prop_ore_basket",
+  "resource": "coal",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 12,
+  "anchor": [
+   24,
+   60
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   60
+  ],
+  "tags": [
+   "ore",
+   "basket",
+   "coal"
+  ],
+  "roof": "none",
+  "name": "煤矿石筐",
+  "note": "一副扁担两只竹筐装满煤矿石"
+ },
+ {
+  "id": "east-common-prop-mine-coal-coalheap-01",
+  "style": "east",
+  "race": "common",
+  "category": "prop",
+  "kind": "prop_coal_heap",
+  "resource": "coal",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 22,
+  "anchor": [
+   24,
+   70
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   70
+  ],
+  "tags": [
+   "coal",
+   "heap",
+   "coal"
+  ],
+  "roof": "none",
+  "name": "黑煤堆",
+  "note": "出井原煤堆成尖堆，插一把煤锹，旁边一只空筐"
+ },
+ {
+  "id": "east-common-ground-slag-coal-01",
+  "style": "east",
+  "race": "common",
+  "category": "ground",
+  "kind": "ground_slag",
+  "resource": "coal",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "tileable",
+   "slag",
+   "coal"
+  ],
+  "roof": "none",
+  "name": "煤矿渣地",
+  "note": "矿渣与碎矿石散落的裸地，可平铺"
+ },
+ {
+  "id": "east-common-ground-saltpan-01",
+  "style": "east",
+  "race": "common",
+  "category": "ground",
+  "kind": "ground_saltpan",
+  "resource": "salt",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "tileable",
+   "saltpan",
+   "brine"
+  ],
+  "roof": "none",
+  "name": "海盐晒场格 1",
+  "note": "泥埂方格晒盐池：埂宽 4px 沿格边，相邻格拼成连续埂网；1=卤水，2=半结晶，3=结满白盐"
+ },
+ {
+  "id": "east-common-ground-saltpan-02",
+  "style": "east",
+  "race": "common",
+  "category": "ground",
+  "kind": "ground_saltpan",
+  "resource": "salt",
+  "facility": null,
+  "variant": 2,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "tileable",
+   "saltpan",
+   "brine"
+  ],
+  "roof": "none",
+  "name": "海盐晒场格 2",
+  "note": "泥埂方格晒盐池：埂宽 4px 沿格边，相邻格拼成连续埂网；1=卤水，2=半结晶，3=结满白盐"
+ },
+ {
+  "id": "east-common-ground-saltpan-03",
+  "style": "east",
+  "race": "common",
+  "category": "ground",
+  "kind": "ground_saltpan",
+  "resource": "salt",
+  "facility": null,
+  "variant": 3,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "tileable",
+   "saltpan",
+   "brine"
+  ],
+  "roof": "none",
+  "name": "海盐晒场格 3",
+  "note": "泥埂方格晒盐池：埂宽 4px 沿格边，相邻格拼成连续埂网；1=卤水，2=半结晶，3=结满白盐"
+ },
+ {
+  "id": "east-common-site-saltfield-01",
+  "style": "east",
+  "race": "common",
+  "category": "site",
+  "kind": "site_salt_shed",
+  "resource": "salt",
+  "facility": "warehouse",
+  "variant": 1,
+  "footprint": [
+   3,
+   2
+  ],
+  "height_px": 50,
+  "anchor": [
+   72,
+   146
+  ],
+  "viewBox": [
+   0,
+   0,
+   144,
+   146
+  ],
+  "tags": [
+   "salt",
+   "sea_salt",
+   "shed",
+   "heap"
+  ],
+  "roof": "gable_thatch",
+  "name": "海盐晒场·盐廪棚",
+  "note": "晒场边的茅草盐廪，棚下白盐堆成尖堆，前有刮盐木耙与盐担；facility 取 warehouse（存盐），晒池本身用 ground_saltpan"
+ },
+ {
+  "id": "east-common-site-brinewell-01",
+  "style": "east",
+  "race": "common",
+  "category": "site",
+  "kind": "site_brine_derrick",
+  "resource": "salt",
+  "facility": "well",
+  "variant": 1,
+  "footprint": [
+   2,
+   2
+  ],
+  "height_px": 140,
+  "anchor": [
+   48,
+   236
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   236
+  ],
+  "tags": [
+   "salt",
+   "well_salt",
+   "derrick",
+   "tianche"
+  ],
+  "roof": "none",
+  "name": "井盐·卤井天车",
+  "note": "川式卓筒井天车：四根杉木捆扎成高架，顶上天滚，竹篾索吊汲卤竹筒入井；地面绞车（大车）收索；facility 取 well"
+ },
+ {
+  "id": "east-common-site-boilhouse-01",
+  "style": "east",
+  "race": "common",
+  "category": "site",
+  "kind": "site_salt_boiling",
+  "resource": "salt",
+  "facility": "boiler_house",
+  "variant": 1,
+  "footprint": [
+   3,
+   2
+  ],
+  "height_px": 66,
+  "anchor": [
+   72,
+   162
+  ],
+  "viewBox": [
+   0,
+   0,
+   144,
+   162
+  ],
+  "tags": [
+   "salt",
+   "well_salt",
+   "boiling",
+   "pan",
+   "smoke"
+  ],
+  "roof": "gable_tile",
+  "name": "井盐·熬盐灶棚",
+  "note": "长条灶台上并排三口熬盐铁锅（牢盆），灶门朝前烧柴，屋脊开气窗出蒸汽，右侧砖烟囱；facility 取 boiler_house"
+ },
+ {
+  "id": "east-common-prop-salt-rake-01",
+  "style": "east",
+  "race": "common",
+  "category": "prop",
+  "kind": "prop_salt_heap",
+  "resource": "salt",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 20,
+  "anchor": [
+   24,
+   68
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   68
+  ],
+  "tags": [
+   "salt",
+   "heap",
+   "rake"
+  ],
+  "roof": "none",
+  "name": "刮盐木耙与盐堆",
+  "note": "晒场边刮拢的白盐尖堆，斜靠一把长柄木耙"
+ },
+ {
+  "id": "east-common-prop-salt-brinetub-01",
+  "style": "east",
+  "race": "common",
+  "category": "prop",
+  "kind": "prop_brine_tubs",
+  "resource": "salt",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 18,
+  "anchor": [
+   24,
+   66
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   66
+  ],
+  "tags": [
+   "salt",
+   "brine",
+   "bucket"
+  ],
+  "roof": "none",
+  "name": "卤水桶担",
+  "note": "一副扁担两只木桶装卤水"
+ },
+ {
+  "id": "east-common-prop-salt-sacks-01",
+  "style": "east",
+  "race": "common",
+  "category": "prop",
+  "kind": "prop_salt_sacks",
+  "resource": "salt",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 14,
+  "anchor": [
+   24,
+   62
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   62
+  ],
+  "tags": [
+   "salt",
+   "sacks"
+  ],
+  "roof": "none",
+  "name": "盐包垛",
+  "note": "蒲包装盐，三包一垛，盖朱红盐引印"
+ },
+ {
+  "id": "east-common-site-fishpier-01",
+  "style": "east",
+  "race": "common",
+  "category": "site",
+  "kind": "site_fishing_pier",
+  "resource": "fish",
+  "facility": "dock",
+  "variant": 1,
+  "footprint": [
+   3,
+   3
+  ],
+  "height_px": 52,
+  "anchor": [
+   72,
+   196
+  ],
+  "viewBox": [
+   0,
+   0,
+   144,
+   196
+  ],
+  "tags": [
+   "fishing",
+   "pier",
+   "hut",
+   "water"
+  ],
+  "roof": "gable_thatch",
+  "name": "渔家栈桥",
+  "note": "岸上一间茅草渔寮，木栈桥伸进水里，桥头拴一条小舢板；占地后 1 格是岸、前 2 格是水"
+ },
+ {
+  "id": "east-common-prop-fish-netrack-01",
+  "style": "east",
+  "race": "common",
+  "category": "prop",
+  "kind": "prop_net_rack",
+  "resource": "fish",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 34,
+  "anchor": [
+   24,
+   82
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   82
+  ],
+  "tags": [
+   "fishing",
+   "net",
+   "bamboo"
+  ],
+  "roof": "none",
+  "name": "晒网竹架",
+  "note": "两根竹竿一道横杆，渔网搭在上面晾晒"
+ },
+ {
+  "id": "east-common-prop-fish-creel-01",
+  "style": "east",
+  "race": "common",
+  "category": "prop",
+  "kind": "prop_fish_creel",
+  "resource": "fish",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 12,
+  "anchor": [
+   24,
+   60
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   60
+  ],
+  "tags": [
+   "fishing",
+   "basket"
+  ],
+  "roof": "none",
+  "name": "鱼篓",
+  "note": "两只细颈竹鱼篓，一只倒着露出鱼尾"
+ },
+ {
+  "id": "east-common-prop-fish-cormorant-01",
+  "style": "east",
+  "race": "common",
+  "category": "prop",
+  "kind": "prop_cormorant_raft",
+  "resource": "fish",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 18,
+  "anchor": [
+   24,
+   66
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   66
+  ],
+  "tags": [
+   "fishing",
+   "raft",
+   "cormorant",
+   "water"
+  ],
+  "roof": "none",
+  "name": "鸬鹚竹排",
+  "note": "五根竹子扎成的窄排，两只鸬鹚立在排头；放在水面格上"
+ },
+ {
+  "id": "east-common-ground-shallows-01",
+  "style": "east",
+  "race": "common",
+  "category": "ground",
+  "kind": "ground_shallows",
+  "resource": "fish",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "tileable",
+   "water"
+  ],
+  "roof": "none",
+  "name": "浅水滩 1",
+  "note": "渔场、芦苇荡、采珠场用的整格浅水，水色 #6cc1b3 与 east-ground 驳岸水面一致；无勾边，任意排列无缝"
+ },
+ {
+  "id": "east-common-ground-shallows-02",
+  "style": "east",
+  "race": "common",
+  "category": "ground",
+  "kind": "ground_shallows",
+  "resource": "fish",
+  "facility": null,
+  "variant": 2,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "tileable",
+   "water"
+  ],
+  "roof": "none",
+  "name": "浅水滩 2",
+  "note": "渔场、芦苇荡、采珠场用的整格浅水，水色 #6cc1b3 与 east-ground 驳岸水面一致；无勾边，任意排列无缝"
+ },
+ {
+  "id": "east-common-site-reedbed-01",
+  "style": "east",
+  "race": "common",
+  "category": "site",
+  "kind": "site_reed_bed",
+  "resource": "reed",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   3,
+   2
+  ],
+  "height_px": 40,
+  "anchor": [
+   72,
+   136
+  ],
+  "viewBox": [
+   0,
+   0,
+   144,
+   136
+  ],
+  "tags": [
+   "reed",
+   "marsh",
+   "water",
+   "boat"
+  ],
+  "roof": "none",
+  "name": "芦苇荡·割苇滩",
+  "note": "浅水里密生芦苇，中间割开一条水道，泊一只装满苇捆的平底小船，岸边立苇捆；无对应 FacilityKind"
+ },
+ {
+  "id": "east-common-prop-reed-bundles-01",
+  "style": "east",
+  "race": "common",
+  "category": "prop",
+  "kind": "prop_reed_bundles",
+  "resource": "reed",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 36,
+  "anchor": [
+   24,
+   84
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   84
+  ],
+  "tags": [
+   "reed",
+   "bundle"
+  ],
+  "roof": "none",
+  "name": "苇捆",
+  "note": "割下的芦苇扎成捆，三捆互相斜靠成垛"
+ },
+ {
+  "id": "east-common-prop-reed-clump-01",
+  "style": "east",
+  "race": "common",
+  "category": "prop",
+  "kind": "prop_reed_clump",
+  "resource": "reed",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 30,
+  "anchor": [
+   24,
+   78
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   78
+  ],
+  "tags": [
+   "reed",
+   "plant"
+  ],
+  "roof": "none",
+  "name": "芦苇丛",
+  "note": "水边一丛芦苇，可散放在浅水格上"
+ },
+ {
+  "id": "east-common-site-pearlboat-01",
+  "style": "east",
+  "race": "common",
+  "category": "site",
+  "kind": "site_pearl_boat",
+  "resource": "pearls",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   3,
+   2
+  ],
+  "height_px": 46,
+  "anchor": [
+   72,
+   142
+  ],
+  "viewBox": [
+   0,
+   0,
+   144,
+   142
+  ],
+  "tags": [
+   "pearls",
+   "boat",
+   "diving",
+   "water"
+  ],
+  "roof": "none",
+  "name": "采珠渔船",
+  "note": "整片占地是水面；篷船船尾立绞绳木架，系绳下潜采珠，船头一筐珠蚌；无对应 FacilityKind"
+ },
+ {
+  "id": "east-common-prop-pearl-shells-01",
+  "style": "east",
+  "race": "common",
+  "category": "prop",
+  "kind": "prop_shell_heap",
+  "resource": "pearls",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 14,
+  "anchor": [
+   24,
+   62
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   62
+  ],
+  "tags": [
+   "pearls",
+   "shell"
+  ],
+  "roof": "none",
+  "name": "蚌壳堆",
+  "note": "剖过的珠蚌壳堆成小丘，内壁珠光，前面一只盛珍珠的小木盘"
+ },
+ {
+  "id": "east-common-prop-pearl-drying-01",
+  "style": "east",
+  "race": "common",
+  "category": "prop",
+  "kind": "prop_shell_tray",
+  "resource": "pearls",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 12,
+  "anchor": [
+   24,
+   60
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   60
+  ],
+  "tags": [
+   "pearls",
+   "tray",
+   "bamboo"
+  ],
+  "roof": "none",
+  "name": "晒蚌竹匾",
+  "note": "竹凳上架一只大竹匾，晒着剖开的蚌肉与蚌壳"
+ },
+ {
+  "id": "east-common-ground-teaterrace-01",
+  "style": "east",
+  "race": "common",
+  "category": "ground",
+  "kind": "ground_tea_terrace",
+  "resource": "herb",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "tileable",
+   "tea",
+   "terrace"
+  ],
+  "roof": "none",
+  "name": "梯田茶垄 1",
+  "note": "每格三级梯坎，每级一道茶垄；垄与坎都横贯整格、周期 8 px，左右上下平铺无缝"
+ },
+ {
+  "id": "east-common-ground-teaterrace-02",
+  "style": "east",
+  "race": "common",
+  "category": "ground",
+  "kind": "ground_tea_terrace",
+  "resource": "herb",
+  "facility": null,
+  "variant": 2,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "tileable",
+   "tea",
+   "terrace"
+  ],
+  "roof": "none",
+  "name": "梯田茶垄 2",
+  "note": "每格三级梯坎，每级一道茶垄；垄与坎都横贯整格、周期 8 px，左右上下平铺无缝"
+ },
+ {
+  "id": "east-common-site-teashed-01",
+  "style": "east",
+  "race": "common",
+  "category": "site",
+  "kind": "site_tea_roasting",
+  "resource": "herb",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   3,
+   2
+  ],
+  "height_px": 54,
+  "anchor": [
+   72,
+   150
+  ],
+  "viewBox": [
+   0,
+   0,
+   144,
+   150
+  ],
+  "tags": [
+   "tea",
+   "roasting",
+   "wok",
+   "shed"
+  ],
+  "roof": "gable_tile",
+  "name": "茶园·炒茶棚",
+  "note": "敞口瓦棚，砖灶上斜嵌两口炒茶铁锅，旁有揉茶竹匾与萎凋竹架；无对应 FacilityKind"
+ },
+ {
+  "id": "east-common-prop-tea-pickbasket-01",
+  "style": "east",
+  "race": "common",
+  "category": "prop",
+  "kind": "prop_tea_basket",
+  "resource": "herb",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 20,
+  "anchor": [
+   24,
+   68
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   68
+  ],
+  "tags": [
+   "tea",
+   "basket"
+  ],
+  "roof": "none",
+  "name": "采茶背篓",
+  "note": "高腰竹背篓装满鲜叶，旁放一顶竹斗笠"
+ },
+ {
+  "id": "east-common-prop-tea-bush-01",
+  "style": "east",
+  "race": "common",
+  "category": "prop",
+  "kind": "prop_tea_bush",
+  "resource": "herb",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 14,
+  "anchor": [
+   24,
+   62
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   62
+  ],
+  "tags": [
+   "tea",
+   "plant"
+  ],
+  "roof": "none",
+  "name": "茶丛",
+  "note": "修剪成半球形的单株茶树，可散放在茶垄之间"
+ },
+ {
+  "id": "east-common-ground-herbbed-01",
+  "style": "east",
+  "race": "common",
+  "category": "ground",
+  "kind": "ground_herb_bed",
+  "resource": "herb",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "tileable",
+   "herb",
+   "bed"
+  ],
+  "roof": "none",
+  "name": "药田 1",
+  "note": "两畦药苗、中间一道垄沟，畦沿格边对齐，左右上下平铺无缝；1=绿叶药苗，2=开紫花"
+ },
+ {
+  "id": "east-common-ground-herbbed-02",
+  "style": "east",
+  "race": "common",
+  "category": "ground",
+  "kind": "ground_herb_bed",
+  "resource": "herb",
+  "facility": null,
+  "variant": 2,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "tileable",
+   "herb",
+   "bed"
+  ],
+  "roof": "none",
+  "name": "药田 2",
+  "note": "两畦药苗、中间一道垄沟，畦沿格边对齐，左右上下平铺无缝；1=绿叶药苗，2=开紫花"
+ },
+ {
+  "id": "east-common-site-herbgarden-01",
+  "style": "east",
+  "race": "common",
+  "category": "site",
+  "kind": "site_herb_garden",
+  "resource": "herb",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   3,
+   2
+  ],
+  "height_px": 46,
+  "anchor": [
+   72,
+   142
+  ],
+  "viewBox": [
+   0,
+   0,
+   144,
+   142
+  ],
+  "tags": [
+   "herb",
+   "medicine",
+   "drying",
+   "shed"
+  ],
+  "roof": "gable_thatch",
+  "name": "药圃·晒药棚",
+  "note": "竹篱围着两畦药田，后侧茅棚檐下挂成串药材，前有晒药竹匾架；药铺本身另见 infirmary"
+ },
+ {
+  "id": "east-common-prop-herb-trays-01",
+  "style": "east",
+  "race": "common",
+  "category": "prop",
+  "kind": "prop_herb_trays",
+  "resource": "herb",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 30,
+  "anchor": [
+   24,
+   78
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   78
+  ],
+  "tags": [
+   "herb",
+   "drying",
+   "bamboo"
+  ],
+  "roof": "none",
+  "name": "晒药竹匾",
+  "note": "竹架三层，每层一只圆竹匾摊晒药材"
+ },
+ {
+  "id": "east-common-prop-herb-mortar-01",
+  "style": "east",
+  "race": "common",
+  "category": "prop",
+  "kind": "prop_herb_grinder",
+  "resource": "herb",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 14,
+  "anchor": [
+   24,
+   62
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   62
+  ],
+  "tags": [
+   "herb",
+   "grinder"
+  ],
+  "roof": "none",
+  "name": "药碾与药篓",
+  "note": "船形铁药碾配碾轮，旁边一只药篓"
+ },
+ {
+  "id": "east-common-site-pepperyard-01",
+  "style": "east",
+  "race": "common",
+  "category": "site",
+  "kind": "site_spice_drying",
+  "resource": "spices",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   3,
+   2
+  ],
+  "height_px": 40,
+  "anchor": [
+   72,
+   136
+  ],
+  "viewBox": [
+   0,
+   0,
+   144,
+   136
+  ],
+  "tags": [
+   "spices",
+   "pepper",
+   "drying",
+   "trees"
+  ],
+  "roof": "none",
+  "name": "花椒园·晒椒场",
+  "note": "后排两株花椒树，前方竹席上摊晒红花椒，竹竿上挂成串干辣椒；无对应 FacilityKind"
+ },
+ {
+  "id": "east-common-prop-spice-sacks-01",
+  "style": "east",
+  "race": "common",
+  "category": "prop",
+  "kind": "prop_spice_sacks",
+  "resource": "spices",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 16,
+  "anchor": [
+   24,
+   64
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   64
+  ],
+  "tags": [
+   "spices",
+   "sacks"
+  ],
+  "roof": "none",
+  "name": "香料麻袋",
+  "note": "敞口麻袋盛花椒、桂皮，袋口翻卷"
+ },
+ {
+  "id": "east-common-site-silkhouse-01",
+  "style": "east",
+  "race": "common",
+  "category": "site",
+  "kind": "site_silkworm_house",
+  "resource": "silk",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   3,
+   2
+  ],
+  "height_px": 62,
+  "anchor": [
+   72,
+   158
+  ],
+  "viewBox": [
+   0,
+   0,
+   144,
+   158
+  ],
+  "tags": [
+   "silk",
+   "sericulture",
+   "house",
+   "racks"
+  ],
+  "roof": "gable_tile",
+  "name": "桑园·蚕房",
+  "note": "粉墙小瓦蚕房，前檐敞开露出层层蚕匾竹架，檐下挂一串蚕簇；门前一株矮桑与采叶筐；无对应 FacilityKind"
+ },
+ {
+  "id": "east-common-prop-silk-mulberry-01",
+  "style": "east",
+  "race": "common",
+  "category": "prop",
+  "kind": "prop_mulberry_row",
+  "resource": "silk",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 34,
+  "anchor": [
+   24,
+   82
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   82
+  ],
+  "tags": [
+   "silk",
+   "mulberry",
+   "tree"
+  ],
+  "roof": "none",
+  "name": "桑树行",
+  "note": "两株截干拳桑一前一后，紫黑桑葚点缀；可沿格排成桑行"
+ },
+ {
+  "id": "east-common-prop-silk-reel-01",
+  "style": "east",
+  "race": "common",
+  "category": "prop",
+  "kind": "prop_silk_reel",
+  "resource": "silk",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 30,
+  "anchor": [
+   24,
+   78
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   78
+  ],
+  "tags": [
+   "silk",
+   "reeling",
+   "wheel"
+  ],
+  "roof": "none",
+  "name": "缫丝车",
+  "note": "小灶上一锅煮茧，丝从锅里引上木框大丝軖，脚踏摇转"
+ },
+ {
+  "id": "east-common-prop-silk-cocoons-01",
+  "style": "east",
+  "race": "common",
+  "category": "prop",
+  "kind": "prop_cocoon_baskets",
+  "resource": "silk",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 12,
+  "anchor": [
+   24,
+   60
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   60
+  ],
+  "tags": [
+   "silk",
+   "cocoon",
+   "basket"
+  ],
+  "roof": "none",
+  "name": "蚕茧箩",
+  "note": "两只圆竹箩盛满白茧，一只翻倒撒出几颗"
+ },
+ {
+  "id": "east-common-ground-paddy-01",
+  "style": "east",
+  "race": "common",
+  "category": "ground",
+  "kind": "ground_paddy",
+  "resource": "grain",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "tileable",
+   "paddy",
+   "water"
+  ],
+  "roof": "none",
+  "name": "水田格 1",
+  "note": "田埂沿格边（每格左、上两边各 3px），相邻格拼成连续埂网；格内水面同 east-ground 水色，1=新插秧，2=稻浪青，3=稻熟金黄"
+ },
+ {
+  "id": "east-common-ground-paddy-02",
+  "style": "east",
+  "race": "common",
+  "category": "ground",
+  "kind": "ground_paddy",
+  "resource": "grain",
+  "facility": null,
+  "variant": 2,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "tileable",
+   "paddy",
+   "water"
+  ],
+  "roof": "none",
+  "name": "水田格 2",
+  "note": "田埂沿格边（每格左、上两边各 3px），相邻格拼成连续埂网；格内水面同 east-ground 水色，1=新插秧，2=稻浪青，3=稻熟金黄"
+ },
+ {
+  "id": "east-common-ground-paddy-03",
+  "style": "east",
+  "race": "common",
+  "category": "ground",
+  "kind": "ground_paddy",
+  "resource": "grain",
+  "facility": null,
+  "variant": 3,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "tileable",
+   "paddy",
+   "water"
+  ],
+  "roof": "none",
+  "name": "水田格 3",
+  "note": "田埂沿格边（每格左、上两边各 3px），相邻格拼成连续埂网；格内水面同 east-ground 水色，1=新插秧，2=稻浪青，3=稻熟金黄"
+ },
+ {
+  "id": "east-common-site-waterwheel-01",
+  "style": "east",
+  "race": "common",
+  "category": "site",
+  "kind": "site_waterwheel",
+  "resource": "grain",
+  "facility": "mill",
+  "variant": 1,
+  "footprint": [
+   2,
+   2
+  ],
+  "height_px": 60,
+  "anchor": [
+   48,
+   156
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   156
+  ],
+  "tags": [
+   "grain",
+   "irrigation",
+   "waterwheel",
+   "water"
+  ],
+  "roof": "none",
+  "name": "稻田·龙骨水车",
+  "note": "溪边立轮式筒车：大轮挂竹筒提水入木槽，槽通向水田；facility 取 mill（水力设施）"
+ },
+ {
+  "id": "east-common-site-granary-01",
+  "style": "east",
+  "race": "common",
+  "category": "site",
+  "kind": "site_granary",
+  "resource": "grain",
+  "facility": "granary",
+  "variant": 1,
+  "footprint": [
+   3,
+   2
+  ],
+  "height_px": 64,
+  "anchor": [
+   72,
+   160
+  ],
+  "viewBox": [
+   0,
+   0,
+   144,
+   160
+  ],
+  "tags": [
+   "grain",
+   "granary",
+   "raised_floor"
+  ],
+  "roof": "gable_thatch",
+  "name": "稻田·谷仓",
+  "note": "木柱架空防潮的田头谷仓，木板墙，前有木梯与晒谷竹席、稻草垛"
+ },
+ {
+  "id": "east-common-prop-grain-sheaves-01",
+  "style": "east",
+  "race": "common",
+  "category": "prop",
+  "kind": "prop_straw_stack",
+  "resource": "grain",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 30,
+  "anchor": [
+   24,
+   78
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   78
+  ],
+  "tags": [
+   "grain",
+   "straw"
+  ],
+  "roof": "none",
+  "name": "稻草垛",
+  "note": "打完谷的稻草围成圆垛，顶上扎一束"
+ },
+ {
+  "id": "east-common-prop-grain-dryingmat-01",
+  "style": "east",
+  "race": "common",
+  "category": "prop",
+  "kind": "prop_grain_mat",
+  "resource": "grain",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 8,
+  "anchor": [
+   24,
+   56
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   56
+  ],
+  "tags": [
+   "grain",
+   "drying"
+  ],
+  "roof": "none",
+  "name": "晒谷席与木耙",
+  "note": "竹席摊晒稻谷，一把木推耙"
+ },
+ {
+  "id": "east-common-ground-pasture-01",
+  "style": "east",
+  "race": "common",
+  "category": "ground",
+  "kind": "ground_pasture",
+  "resource": "livestock",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "tileable",
+   "pasture",
+   "grass"
+  ],
+  "roof": "none",
+  "name": "草场 1",
+  "note": "放牧草场：比黄土底色偏绿的草地，草丛离边 ≥3 px，任意排列无缝"
+ },
+ {
+  "id": "east-common-ground-pasture-02",
+  "style": "east",
+  "race": "common",
+  "category": "ground",
+  "kind": "ground_pasture",
+  "resource": "livestock",
+  "facility": null,
+  "variant": 2,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "tileable",
+   "pasture",
+   "grass"
+  ],
+  "roof": "none",
+  "name": "草场 2",
+  "note": "放牧草场：比黄土底色偏绿的草地，草丛离边 ≥3 px，任意排列无缝"
+ },
+ {
+  "id": "east-common-site-pasture-01",
+  "style": "east",
+  "race": "common",
+  "category": "site",
+  "kind": "site_sheepfold",
+  "resource": "livestock",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   3,
+   2
+  ],
+  "height_px": 40,
+  "anchor": [
+   72,
+   136
+  ],
+  "viewBox": [
+   0,
+   0,
+   144,
+   136
+  ],
+  "tags": [
+   "pasture",
+   "fold",
+   "sheep",
+   "cattle",
+   "wool"
+  ],
+  "roof": "gable_thatch",
+  "name": "草场木栏·羊圈",
+  "note": "木栅栏围出的草场，后侧茅草羊棚，栏里几只羊一头牛，门边草料槽；毛料与肉畜共用此主体；无对应 FacilityKind"
+ },
+ {
+  "id": "east-common-site-horsefarm-01",
+  "style": "east",
+  "race": "common",
+  "category": "site",
+  "kind": "site_horse_stable",
+  "resource": "horses",
+  "facility": "stable",
+  "variant": 1,
+  "footprint": [
+   4,
+   2
+  ],
+  "height_px": 56,
+  "anchor": [
+   96,
+   152
+  ],
+  "viewBox": [
+   0,
+   0,
+   192,
+   152
+  ],
+  "tags": [
+   "horses",
+   "stable",
+   "paddock"
+  ],
+  "roof": "gable_tile",
+  "name": "马场·马厩",
+  "note": "一排五间敞口马厩，瓦顶朱柱，每间一匹马与料槽，前有拴马桩与跑马木栏"
+ },
+ {
+  "id": "east-common-prop-pasture-trough-01",
+  "style": "east",
+  "race": "common",
+  "category": "prop",
+  "kind": "prop_fodder_trough",
+  "resource": "livestock",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 24,
+  "anchor": [
+   24,
+   72
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   72
+  ],
+  "tags": [
+   "pasture",
+   "fodder",
+   "trough"
+  ],
+  "roof": "none",
+  "name": "草料槽与草垛",
+  "note": "木料槽装青草，后面一小垛干草"
+ },
+ {
+  "id": "east-common-prop-pasture-sheep-01",
+  "style": "east",
+  "race": "common",
+  "category": "prop",
+  "kind": "prop_sheep",
+  "resource": "wool",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 16,
+  "anchor": [
+   24,
+   64
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   64
+  ],
+  "tags": [
+   "pasture",
+   "sheep",
+   "wool"
+  ],
+  "roof": "none",
+  "name": "羊群",
+  "note": "三只绵羊，可散放在草场格上"
+ },
+ {
+  "id": "east-common-prop-pasture-woolbales-01",
+  "style": "east",
+  "race": "common",
+  "category": "prop",
+  "kind": "prop_wool_bales",
+  "resource": "wool",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 16,
+  "anchor": [
+   24,
+   64
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   64
+  ],
+  "tags": [
+   "wool",
+   "shearing"
+  ],
+  "roof": "none",
+  "name": "剪毛台与毛包",
+  "note": "木台上一堆剪下的羊毛，旁边两只麻布毛包"
+ },
+ {
+  "id": "east-common-prop-horse-post-01",
+  "style": "east",
+  "race": "common",
+  "category": "prop",
+  "kind": "prop_horse_post",
+  "resource": "horses",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 30,
+  "anchor": [
+   24,
+   78
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   78
+  ],
+  "tags": [
+   "horses",
+   "hitching"
+  ],
+  "roof": "none",
+  "name": "拴马桩与马",
+  "note": "石雕拴马桩上拴一匹鞍马"
+ },
+ {
+  "id": "east-common-site-indigopit-01",
+  "style": "east",
+  "race": "common",
+  "category": "site",
+  "kind": "site_indigo_vats",
+  "resource": "dye",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   3,
+   2
+  ],
+  "height_px": 30,
+  "anchor": [
+   72,
+   126
+  ],
+  "viewBox": [
+   0,
+   0,
+   144,
+   126
+  ],
+  "tags": [
+   "dye",
+   "indigo",
+   "vat",
+   "pool"
+  ],
+  "roof": "none",
+  "name": "蓝靛池",
+  "note": "石砌长方沤靛池两口：蓼蓝叶浸泡成靛泥，池边木耙打靛，后侧堆待沤的蓝草捆与靛泥缸；无对应 FacilityKind"
+ },
+ {
+  "id": "east-common-prop-dye-clothrack-01",
+  "style": "east",
+  "race": "common",
+  "category": "prop",
+  "kind": "prop_cloth_rack",
+  "resource": "dye",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 44,
+  "anchor": [
+   24,
+   92
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   92
+  ],
+  "tags": [
+   "dye",
+   "cloth",
+   "drying",
+   "bamboo"
+  ],
+  "roof": "none",
+  "name": "晒布架",
+  "note": "高竹架挂两幅长布：一幅靛蓝、一幅蓝白扎染"
+ },
+ {
+  "id": "east-common-prop-dye-vats-01",
+  "style": "east",
+  "race": "common",
+  "category": "prop",
+  "kind": "prop_dye_vats",
+  "resource": "dye",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 14,
+  "anchor": [
+   24,
+   62
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   62
+  ],
+  "tags": [
+   "dye",
+   "vat"
+  ],
+  "roof": "none",
+  "name": "染缸",
+  "note": "两口陶染缸，一口靛蓝、一口红花色，缸沿搭一根挑布棍"
+ },
+ {
+  "id": "east-common-prop-dye-indigoplants-01",
+  "style": "east",
+  "race": "common",
+  "category": "prop",
+  "kind": "prop_indigo_plants",
+  "resource": "dye",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 12,
+  "anchor": [
+   24,
+   60
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   60
+  ],
+  "tags": [
+   "dye",
+   "indigo",
+   "plant"
+  ],
+  "roof": "none",
+  "name": "蓼蓝田垄",
+  "note": "两垄蓼蓝，开红色穗花"
+ },
+ {
+  "id": "east-common-site-jadepit-01",
+  "style": "east",
+  "race": "common",
+  "category": "site",
+  "kind": "site_jade_pit",
+  "resource": "gems",
+  "facility": "mine_head",
+  "variant": 1,
+  "footprint": [
+   3,
+   2
+  ],
+  "height_px": 44,
+  "anchor": [
+   72,
+   140
+  ],
+  "viewBox": [
+   0,
+   0,
+   144,
+   140
+  ],
+  "tags": [
+   "gems",
+   "jade",
+   "pit",
+   "windlass"
+  ],
+  "roof": "none",
+  "name": "玉石矿·玉料坑",
+  "note": "河谷崖脚开的露天玉料坑：坑壁露出青绿玉脉，坑沿木三脚吊架起吊玉料，旁堆带皮籽料"
+ },
+ {
+  "id": "east-common-site-jadeshop-01",
+  "style": "east",
+  "race": "common",
+  "category": "site",
+  "kind": "site_jade_workshop",
+  "resource": "gems",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   3,
+   2
+  ],
+  "height_px": 52,
+  "anchor": [
+   72,
+   148
+  ],
+  "viewBox": [
+   0,
+   0,
+   144,
+   148
+  ],
+  "tags": [
+   "gems",
+   "jade",
+   "workshop",
+   "lathe"
+  ],
+  "roof": "gable_tile",
+  "name": "玉石矿·琢玉棚",
+  "note": "瓦顶敞棚，棚下两架脚踏琢玉砣机（立轮砣具 + 水盆解玉砂），案上摆半成品玉璧；无对应 FacilityKind"
+ },
+ {
+  "id": "east-common-prop-gems-rawjade-01",
+  "style": "east",
+  "race": "common",
+  "category": "prop",
+  "kind": "prop_raw_jade",
+  "resource": "gems",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 14,
+  "anchor": [
+   24,
+   62
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   62
+  ],
+  "tags": [
+   "gems",
+   "jade"
+  ],
+  "roof": "none",
+  "name": "玉料堆",
+  "note": "几块带赭皮的籽料，两块开了窗露出青玉"
+ },
+ {
+  "id": "east-common-prop-gems-sandtub-01",
+  "style": "east",
+  "race": "common",
+  "category": "prop",
+  "kind": "prop_jade_sand",
+  "resource": "gems",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 12,
+  "anchor": [
+   24,
+   60
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   60
+  ],
+  "tags": [
+   "gems",
+   "jade",
+   "sand",
+   "water"
+  ],
+  "roof": "none",
+  "name": "解玉砂盆",
+  "note": "木盆盛水调解玉砂，旁边一袋砂和一把木勺"
+ },
+ {
+  "id": "east-common-prop-gems-cutjade-01",
+  "style": "east",
+  "race": "common",
+  "category": "prop",
+  "kind": "prop_jade_crate",
+  "resource": "gems",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 14,
+  "anchor": [
+   24,
+   62
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   62
+  ],
+  "tags": [
+   "gems",
+   "jade",
+   "crate"
+  ],
+  "roof": "none",
+  "name": "玉坯木箱",
+  "note": "敞口木箱里垫稻草放着切好的方玉坯"
+ },
+ {
+  "id": "east-common-site-manavein-01",
+  "style": "east",
+  "race": "common",
+  "category": "site",
+  "kind": "site_mana_vein",
+  "resource": "mana",
+  "facility": "mine_head",
+  "variant": 1,
+  "footprint": [
+   3,
+   2
+  ],
+  "height_px": 76,
+  "anchor": [
+   72,
+   172
+  ],
+  "viewBox": [
+   0,
+   0,
+   144,
+   172
+  ],
+  "tags": [
+   "mana",
+   "spirit_stone",
+   "vein",
+   "glow",
+   "fantasy"
+  ],
+  "roof": "none",
+  "name": "灵石矿·发光矿脉",
+  "note": "山岩裂开露出发光青蓝灵石晶簇，四角立镇守符箓石柱，地上画一圈朱砂阵线；光晕用平涂半透明色块，不用模糊"
+ },
+ {
+  "id": "east-common-prop-mana-pillar-01",
+  "style": "east",
+  "race": "common",
+  "category": "prop",
+  "kind": "prop_talisman_pillar",
+  "resource": "mana",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 44,
+  "anchor": [
+   24,
+   92
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   92
+  ],
+  "tags": [
+   "mana",
+   "talisman",
+   "pillar",
+   "fantasy"
+  ],
+  "roof": "none",
+  "name": "镇守符箓石柱",
+  "note": "方石柱贴朱砂黄符，顶托一颗灵石宝珠，镇住矿脉灵气"
+ },
+ {
+  "id": "east-common-prop-mana-crystals-01",
+  "style": "east",
+  "race": "common",
+  "category": "prop",
+  "kind": "prop_mana_crystals",
+  "resource": "mana",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 20,
+  "anchor": [
+   24,
+   68
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   68
+  ],
+  "tags": [
+   "mana",
+   "crystal",
+   "glow",
+   "fantasy"
+  ],
+  "roof": "none",
+  "name": "灵石晶簇",
+  "note": "散落在地的灵石晶簇，外有一圈平涂光晕"
+ },
+ {
+  "id": "east-common-prop-mana-chest-01",
+  "style": "east",
+  "race": "common",
+  "category": "prop",
+  "kind": "prop_mana_chest",
+  "resource": "mana",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 16,
+  "anchor": [
+   24,
+   64
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   64
+  ],
+  "tags": [
+   "mana",
+   "chest",
+   "fantasy"
+  ],
+  "roof": "none",
+  "name": "灵石玉匣",
+  "note": "贴封条的朱漆木匣，盖半开露出灵石微光"
+ },
+ {
+  "id": "east-common-ground-manarock-01",
+  "style": "east",
+  "race": "common",
+  "category": "ground",
+  "kind": "ground_mana_rock",
+  "resource": "mana",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "tileable",
+   "mana",
+   "fantasy"
+  ],
+  "roof": "none",
+  "name": "灵脉裸岩 1",
+  "note": "灰岩裸地，散布发光碎晶；底色同 east-ground 黄土，碎晶离边 ≥3 px"
+ },
+ {
+  "id": "east-common-ground-manarock-02",
+  "style": "east",
+  "race": "common",
+  "category": "ground",
+  "kind": "ground_mana_rock",
+  "resource": "mana",
+  "facility": null,
+  "variant": 2,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "tileable",
+   "mana",
+   "fantasy"
+  ],
+  "roof": "none",
+  "name": "灵脉裸岩 2",
+  "note": "灰岩裸地，散布发光碎晶；底色同 east-ground 黄土，碎晶离边 ≥3 px"
+ },
+ {
+  "id": "east-common-site-dragonpit-01",
+  "style": "east",
+  "race": "common",
+  "category": "site",
+  "kind": "site_dragonbone_dig",
+  "resource": "dragonbone",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   4,
+   3
+  ],
+  "height_px": 60,
+  "anchor": [
+   96,
+   204
+  ],
+  "viewBox": [
+   0,
+   0,
+   192,
+   204
+  ],
+  "tags": [
+   "dragonbone",
+   "excavation",
+   "skull",
+   "fantasy"
+  ],
+  "roof": "none",
+  "name": "龙骨坑·巨骨发掘",
+  "note": "方形发掘坑里露出半截巨龙骸骨：龙首带角、一串脊骨与两排肋骨；坑沿木桩拉红绳分区，竹梯下坑；无对应 FacilityKind"
+ },
+ {
+  "id": "east-common-prop-dragon-altar-01",
+  "style": "east",
+  "race": "common",
+  "category": "prop",
+  "kind": "prop_incense_altar",
+  "resource": "dragonbone",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 30,
+  "anchor": [
+   24,
+   78
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   78
+  ],
+  "tags": [
+   "dragonbone",
+   "altar",
+   "incense",
+   "fantasy"
+  ],
+  "roof": "none",
+  "name": "祭龙香案",
+  "note": "朱漆香案上摆香炉、三炷香和供果，发掘前祭龙"
+ },
+ {
+  "id": "east-common-prop-dragon-bones-01",
+  "style": "east",
+  "race": "common",
+  "category": "prop",
+  "kind": "prop_bone_pile",
+  "resource": "dragonbone",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 16,
+  "anchor": [
+   24,
+   64
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   64
+  ],
+  "tags": [
+   "dragonbone",
+   "bones",
+   "fantasy"
+  ],
+  "roof": "none",
+  "name": "龙骨堆",
+  "note": "起出的龙肋骨与脊骨码在草席上，一支断角"
+ },
+ {
+  "id": "east-common-prop-dragon-tools-01",
+  "style": "east",
+  "race": "common",
+  "category": "prop",
+  "kind": "prop_dig_tools",
+  "resource": "dragonbone",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 30,
+  "anchor": [
+   24,
+   78
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   78
+  ],
+  "tags": [
+   "dragonbone",
+   "tools"
+  ],
+  "roof": "none",
+  "name": "发掘工具架",
+  "note": "木架上靠着铲、镐和扫骨用的竹刷"
+ }
+]

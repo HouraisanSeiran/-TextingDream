@@ -1,0 +1,208 @@
+{
+  "schema": "catalog_overlay_v1",
+  "group": "cuisine-british",
+  "entries": {
+    "cuisine_uk_stargazy_pie": {
+      "primary": "dish",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_uk_jellied_eels": {
+      "primary": "dish",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_uk_black_pudding": {
+      "primary": "dish",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_uk_haggis": {
+      "primary": "dish",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_uk_toad_in_the_hole": {
+      "primary": "dish",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_uk_steak_kidney_pie": {
+      "primary": "dish",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_uk_scotch_egg": {
+      "primary": "dish",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_uk_yorkshire_pudding": {
+      "primary": "dish",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_uk_marmite": {
+      "primary": "condiment",
+      "evidence_grade": "mixed",
+      "note": "酵母提取物咸酱，用户菜品清单外，按词表归 condiment",
+      "tech_tier": "steam",
+      "magic_tier": null,
+      "genres_add": [
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_uk_scone_cream_tea": {
+      "primary": "bread",
+      "evidence_grade": "mixed",
+      "note": "源标 bread,dish，归 bread",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_uk_kippers": {
+      "primary": "dish",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_uk_canned_meat": {
+      "primary": "preserved_food",
+      "evidence_grade": "mixed",
+      "note": "罐藏肉制品，按词表归 preserved_food",
+      "tech_tier": "steam",
+      "magic_tier": null,
+      "genres_add": [
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_uk_moulded_gelatin": {
+      "primary": "dish",
+      "evidence_grade": "mixed",
+      "note": "依赖冰与明胶，古法熬骨取胶也可成；商品明胶粉非必需，取低一档",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_uk_cullen_skink": {
+      "primary": "soup",
+      "evidence_grade": "mixed",
+      "note": "源标 dish，实为浓汤，归 soup",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_uk_welsh_rarebit": {
+      "primary": "dish",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_uk_pub_counter_snack": {
+      "primary": "institution",
+      "evidence_grade": "mixed",
+      "note": "正文以酒馆法定职责与柜台供餐制度为主，归 institution，也可归 snack",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "steampunk",
+        "modern"
+      ]
+    }
+  }
+}

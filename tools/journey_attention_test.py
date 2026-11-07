@@ -113,7 +113,8 @@ async def main():
     if len(keys)!=1:raise ValueError('需要唯一测试密钥')
     # Preserve actual production provider settings, except explicitly using online Flash.
     import sqlite3
-    with sqlite3.connect('file:'+str(ROOT/'data/textiledream.sqlite3')+'?mode=ro',uri=True) as db:
+    from app.paths import SAVE_DB
+    with sqlite3.connect(SAVE_DB.as_uri()+'?mode=ro',uri=True) as db:
         row=db.execute("SELECT body FROM documents WHERE kind='settings' AND id='api'").fetchone()
     cfg=json.loads(row[0]) if row else {}
     cfg.update(api_key=keys.pop(),offline=False,model='deepseek-flash',dialogue_model='deepseek-flash',max_tokens=8192)

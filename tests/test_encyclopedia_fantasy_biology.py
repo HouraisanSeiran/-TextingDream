@@ -32,7 +32,9 @@ import unittest
 from pathlib import Path
 
 from app import encyclopedia as enc
+from tools import catalog_overlay
 from tools import encyclopedia_build as build
+from tools import game_fields
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -92,6 +94,12 @@ def load_deliverable(path, label=None):
     return document
 
 
+def built_document(relative):
+    """与 tools.encyclopedia_build.build 同口径：读源文件，再叠加 game 旁挂与主标签旁挂。"""
+    document = load_deliverable(ROOT / relative, relative)
+    return catalog_overlay.overlay(game_fields.overlay(document))
+
+
 def tags_of(element, legacy=False):
     """原 ``tags`` + 由 ``category`` / ``genres`` 派生的标签（与引擎同口径）。
 
@@ -99,6 +107,16 @@ def tags_of(element, legacy=False):
     ``category:X`` / ``genre:Y``——这是既有引擎行为，本测试如实跟着走。
     """
     tags = [] if legacy else list(element.get('tags') or [])
+    # 主标签与证据等级由字段派生（旧 schema 也派生），见 app/encyclopedia._prepare_element。
+    if element.get('primary') is not None:
+        tags.append('primary:' + element['primary'])
+    if element.get('evidence_grade') is not None:
+        tags.append('evidence:' + element['evidence_grade'])
+    # 科技 / 魔法档位同样由字段派生（tech_tier / magic_tier，null 不出标签）。
+    if element.get('tech_tier') is not None:
+        tags.append('tech:' + element['tech_tier'])
+    if element.get('magic_tier') is not None:
+        tags.append('magic:' + element['magic_tier'])
     category = element.get('category')
     if category is not None:
         tags.append('category:' + category)
@@ -253,8 +271,9 @@ class FantasyBiologyLibraryCase(unittest.TestCase):
         cls.tmp = tempfile.TemporaryDirectory()
         cls.addClassCleanup(cls.tmp.cleanup)
         cls.db = Path(cls.tmp.name) / 'with-fantasy-biology.sqlite3'
-        cls.documents = {relative: load_deliverable(ROOT / relative, relative)
-                         for relative in EXPECTED_FILES}
+        # 构库会在内存里叠加游戏字段与主标签旁挂（tools.game_fields / tools.catalog_overlay），
+        # 所以这里比对的是叠加后的文档，与库里实际导入的内容同口径。
+        cls.documents = {relative: built_document(relative) for relative in EXPECTED_FILES}
         cls.namespaces = {relative: expected_namespace(document, relative)
                           for relative, document in cls.documents.items()}
         code = build.build(cls.db, as_json=True,
@@ -522,7 +541,7 @@ class FantasyBiologyLibraryCase(unittest.TestCase):
             sample = self.elements_of(relative)[0]['id']
             before = [row['version']
                       for row in enc.versions(self.db, sample, namespace=namespace)['versions']]
-            again = enc.import_file(self.db, ROOT / relative)
+            again = enc.import_document(self.db, built_document(relative))
             self.assertTrue(again.as_dict()['idempotent'], '%s 重跑必须零写入' % relative)
             self.assertEqual(again.as_dict()['element_versions_written'], 0, relative)
             self.assertEqual(again.as_dict()['source_versions_written'], 0, relative)

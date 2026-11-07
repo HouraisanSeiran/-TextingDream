@@ -311,7 +311,20 @@ def _record(session, pressure, stage, key, outcome):
 
 
 def advance(session, story, characters, hours, effects=None):
-    """**唯一**的时间推进入口，且**逐小时交错**推进两个系统。
+    """时间推进的唯一入口：先推进钟与压力，再（仅当包声明 ``mechanics.events``）处理跨过的事件池检查。
+
+    事件池检查在整段推进之后逐个边界执行（见 ``events.tick``）；没声明事件池的包完全不受影响。
+    """
+    before_time = session.get('time', 0)
+    applied = _advance_clock(session, story, characters, hours, effects)
+    if ((story or {}).get('mechanics') or {}).get('events') is not None:
+        from . import events as event_pool
+        event_pool.tick(session, story, characters, before_time, effects=effects)
+    return applied
+
+
+def _advance_clock(session, story, characters, hours, effects=None):
+    """**唯一**的钟推进实现，且**逐小时交错**推进两个系统。
 
     推进 1 小时 = ``local_rules.advance(1)`` → 再应用此刻到期的压力阶段。
     所以 ``advance(12)`` 与连续 12 次 ``advance(1)`` 在无玩家干预时结果相同：

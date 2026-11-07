@@ -51,6 +51,18 @@ def person(id, name, place, personality, role='次要角色'):
             'personality': personality, 'state': {}, 'attributes': {k: 55 for k in attributes.AXES}}
 
 
+def card(**parts):
+    """次要角色的 NPC 角色卡：只写性格、关系、所知与公开/私密边界，不写主线任务。"""
+    row = {'version': 1}
+    for key, value in parts.items():
+        if key == 'knowledge':
+            row[key] = [{'text': t, 'kind': k, 'source': src, 'confidence': c, 'visibility': v}
+                        for t, k, src, c, v in value]
+        else:
+            row[key] = {'text': value[0], 'visibility': value[1]}
+    return row
+
+
 def choice(line, trust=0, **flags):
     return {'line': line, 'trust_delta': trust, 'flags': flags}
 
@@ -96,6 +108,110 @@ def ending(id, title, summary, kind='saved'):
             'condition': {'all_flags': {id: True}}}
 
 
+PILOT = OUT / 'tavern-element-pilot.json'
+
+
+def pilot():
+    """铜杯酒馆元素试点清单（选自本地百科候选库；场景价是游戏设计值，不是库内估价）。"""
+    return json.loads(PILOT.read_text(encoding='utf-8'))
+
+
+def pilot_entries(use):
+    return [row for row in pilot()['entries'] if row['use'] == use]
+
+
+def pilot_buy_actions(place):
+    """清单里在 place 出售、且带 action 的货品 → 购买动作（沿用 action()/cost 写法，扣 pence）。
+
+    buy_ale 是已有锚点动作（麦酒 2 便士），保留手写版本，这里不重复生成。
+    酒馆货品只在 hall（贝丝）出售；面包与鱼货在码头摊位（面包师、鱼贩）出售。
+    酒馆动作受 tavern_banned 约束（被贝丝拒绝招待）；摊位是另外的人，不受它约束。
+    """
+    rows = []
+    for row in pilot()['entries']:
+        spec = row.get('action')
+        if not spec or spec['id'] == 'buy_ale' or row['sold_at'] != place:
+            continue
+        requires = {'tavern_banned': False} if row['supplied_by'] == 'tavern' else {}
+        rows.append(action(spec['id'], spec['label'], spec['text'], cost=row['scene_price'],
+                           requires=requires, aliases=spec.get('aliases', [])))
+    return rows
+
+
+def pilot_menu_text():
+    rows = [r for r in pilot_entries('menu') if r.get('action') and r['supplied_by'] == 'tavern']
+    return '铜杯酒馆菜单：' + '；'.join('%s%d便士' % (r['menu_name'], r['scene_price']) for r in rows) + '。'
+
+
+def pilot_stall_text():
+    rows = [r for r in pilot()['entries'] if r.get('action') and r['supplied_by'] in ('baker', 'fishmonger')]
+    return '码头摊位价目：' + '；'.join('%s%s %d便士' % (
+        {'baker': '面包摊', 'fishmonger': '鱼铺'}[r['supplied_by']] + '·', r['menu_name'], r['scene_price'])
+        for r in rows) + '。'
+
+
+def pilot_shelf_text():
+    rows = [r for r in pilot_entries('shelf') if r.get('inquiry')]
+    return '码头药铺货架（只询价，不在此购买）：' + '；'.join(
+        '%s %d便士/%s' % (r['menu_name'], r['scene_price'], r['library_price']['per'].lstrip('一')) for r in rows) + '。'
+
+
+def pilot_selections(acknowledge=True):
+    """把试点清单转成 app.element_assembly 的选择条目（版本取清单里的库内版本）。
+
+    public_description 是玩家视角、世界内口吻的外观与售价说明；public_fields 一律不开放。
+    """
+    rows = []
+    for row in pilot()['entries']:
+        rows.append({'namespace': row['namespace'], 'element_id': row['element_id'],
+                     'version': row['version'], 'state': 'existing',
+                     'acknowledge_candidate': acknowledge,
+                     'disclosure': {'public_description': row['public_description'], 'public_fields': [],
+                                    'location_id': row['sold_at'], 'known_by': ['player']},
+                     'note': '铜杯酒馆试点：%s（%s）' % (row['use'], row['supplied_by'])})
+    return rows
+
+
+def attach_pilot_manifest(data, assembly):
+    """用元素装配把试点清单锁进故事包 mechanics.element_manifest（需要百科库存在）。
+
+    scenes() 默认不调用它，保持导出的短篇不依赖本地库；作者装配时显式调用。
+    """
+    manifest, warnings = assembly.build_manifest(pilot_selections(), None, '铜杯酒馆元素试点')
+    data['story']['mechanics']['element_manifest'] = manifest
+    return manifest, warnings
+
+
+BAKER = dict(person('baker', '面包师葛蕾', 'quay', {'勤勉': .8, '直率': .6}),
+             npc_card=card(
+                 identity=('码头面包摊的摊主，天不亮就起来烤面包，在码头边做了很多年生意。', 'public'),
+                 experiences=('早年在内陆的面包坊当学徒，后来带着炉子来码头，靠赶船人的早饭和干粮过活。', 'private'),
+                 values=('面包要实在，价钱写在牌上，不为熟客偷偷涨价。', 'public'),
+                 goal=('把当天的面包卖完，不剩隔夜货。', 'public'),
+                 pressure=('码头上摊位多，傍晚后没卖完的只能折价；她不愿承认这让她心疼。', 'private'),
+                 boundaries=('不赊账；不会把摊位的面粉和炉子借给陌生人；被人拿面包开玩笑时只会冷下脸。', 'public'),
+                 bargaining=('标价不议，但会多给半个面包头；对赶船的人手脚很快。', 'public'),
+                 social_context=('与鱼贩互相照应摊位，对酒馆的贝丝熟，偶尔送去剩下的面包。', 'public'),
+                 emotion=('平稳，忙起来有点急躁。', 'public'),
+                 failure_response=('被人欺骗时不吵闹，只记住那张脸，下次不再卖给对方。', 'private'),
+                 knowledge=[('傍晚的渡船不等人，船工托马一般在天色发暗前收绳。', 'observation', '每天在码头摆摊', .8, 'public'),
+                            ('有人说酒馆最近丢过东西，她只是听说，没有亲眼见过。', 'rumor', '听别的摊主闲聊', .3, 'private')]))
+FISHMONGER = dict(person('fishmonger', '鱼贩鲁克', 'quay', {'耐心': .7, '爱说笑': .6}),
+                  npc_card=card(
+                      identity=('码头鱼铺的鱼贩，手上总是湿的，跟靠岸的渔船按早晚拿货。', 'public'),
+                      experiences=('出过几年海，后来腿受了伤，改在岸上卖鱼。', 'private'),
+                      values=('鱼要新鲜，不够新鲜的就如实说，宁可便宜卖。', 'public'),
+                      goal=('趁着傍晚前把熏好的鱼和新鱼卖掉。', 'public'),
+                      pressure=('渔船回得晚的话，货就不够；他怕摊位空着被别人占去。', 'private'),
+                      boundaries=('不卖变味的鱼；不让陌生人碰挂着的熏鱼；不爱被人催着称重。', 'public'),
+                      bargaining=('标价是死的，但整串买会给得慷慨一些；爱和客人聊天气和潮水。', 'public'),
+                      social_context=('与面包师葛蕾互相看摊，认识船工托马，酒馆的菜里有他卖的鱼。', 'public'),
+                      emotion=('随和，闲时爱哼船歌。', 'public'),
+                      failure_response=('被人嫌弃鱼时会笑着让对方闻一闻，被侮辱手艺就不再搭话。', 'private'),
+                      knowledge=[('潮水涨得晚时渡船会推迟出发，但今天看上去按时。', 'interpretation', '看海面和船桩', .5, 'public'),
+                                 ('他觉得药铺的人对海货不太在行。', 'interpretation', '以前闲聊', .3, 'private')]))
+
+
 def tavern():
     actors = {
         'bess': {'values': '勤恳、看重尊严；帮助可以挣得信任，拿贴身衣物公开羞辱会触到底线。',
@@ -110,10 +226,12 @@ def tavern():
                      'choices': {'respect': choice('船工承认你按约办事，替你留好一个座位。', .1)}}}
     places = [place('hall', '铜杯酒馆', '贝丝把空账夹放上柜台。码头的船傍晚出发，她愿付8便士找回丢在后院的运货单。麦酒每杯2便士。', ['yard', 'quay']),
               place('yard', '酒馆后院', '运货木箱靠着墙。贝丝在另一头清点空桶；近处晾衣绳上有她的贴身衬裤，伸手可及，但不是无主物。', ['hall']),
-              place('quay', '旧码头', '船工正收绳，船票12便士，也可先替他搬一批绳箱挣6便士。', ['hall'])]
+              place('quay', '旧码头', '船工正收绳，船票12便士，也可先替他搬一批绳箱挣6便士。码头边支着面包摊和鱼铺，价钱写在木牌上。', ['hall'])]
     events = [event('welcome', '一杯酒与一份委托', 'hall', ['bess'], [
         action('read_prices', '看看价目与船期', '我确认了麦酒2便士、船票12便士。', effects=[flag('prices'), info('酒馆找单报酬8便士；渡船票12便士。')]),
+        action('read_menu', '看看酒馆菜单', '我看了柜台上的菜单。', effects=[info(pilot_menu_text())], aliases=['菜单', '看菜单']),
         action('buy_ale', '买一杯麦酒（2便士）', '我付了2便士，喝下一杯麦酒。', cost=2, requires={'tavern_banned': False}, aliases=['喝酒', '买酒']),
+        *pilot_buy_actions('hall'),
         action('ask_job', '问清运货单与报酬', '贝丝指向后院木箱：单据印有蓝色船锚。找到后她支付8便士。', effects=[flag('job_known'), info('寻找蓝色船锚印的运货单，不需要拿走别人的衣物。')]),
         action('go_search', '接下委托，准备去后院', '我答应找单，走到后门。接下来可前往后院。', requires={'job_known': True}, end=True),
     ], 'yard_search', '挣到船费，决定怎样对待酒馆里的人。'),
@@ -144,19 +262,22 @@ def tavern():
                requires={'tavern_banned': False, 'report_planned': False}, social={'success': {'bess': ['thanks']}}),
         action('leave_for_quay', '结束交谈，去码头', '我把余下的话留在酒馆，准备前往码头。', requires={'paid': True}, end=True),
     ], 'departure'),
-    event('departure', '傍晚的渡船', 'quay', ['ferryman'], [
+    event('departure', '傍晚的渡船', 'quay', ['ferryman', 'baker', 'fishmonger'], [
+        action('ask_stalls', '看看面包摊和鱼铺的价牌', '我看了木牌，没有买。', effects=[info(pilot_stall_text())], aliases=['问摊位价', '看价牌']),
+        *pilot_buy_actions('quay'),
         action('dock_work', '搬一批绳箱，挣6便士', '我花一小时搬好绳箱，船工支付6便士。', hours=1, effects=[money(6)],
                social={'success': {'ferryman': ['respect']}}),
+        action('ask_apothecary', '问问码头药铺的药价', '我走到药铺货架前问了价，没有买。', effects=[info(pilot_shelf_text())], aliases=['问药价', '药铺']),
         action('sail', '买船票离开（12便士）', '我付清船票，登上渡船。酒馆里的关系与这次选择一起留在存档中。', cost=12,
                effects=[flag('sail')], end=True),
         action('stay', '留在港口，改日再走', '我留下旅费，决定明天再走。今天建立或破坏的关系不会因此消失。', effects=[flag('stay')], end=True),
     ])]
     data = base('tavern', '铜杯酒馆：一条衬裤的风波', '你有18便士，想赶上傍晚渡船。酒保贝丝丢了运货单，愿付8便士寻回。你可以认真帮忙，也可以惹出一场需要收拾的恶作剧。',
-                places, [person('bess', '贝丝', 'hall', {'责任': .8, '谨慎': .6}), person('ferryman', '船工托马', 'quay', {'责任': .7})], actors,
+                places, [person('bess', '贝丝', 'hall', {'责任': .8, '谨慎': .6}), person('ferryman', '船工托马', 'quay', {'责任': .7}), BAKER, FISHMONGER], actors,
                 '港郡禁止盗取私物。受害者可要求归还、拒绝服务或报官；报官意愿不等于卫兵已知或罚款已执行。', events,
                 [ending('sail', '带着后果出发', '你付清船票离港。钱账结清，但在人心里留下了什么，取决于你如何对待贝丝。'), ending('stay', '留下的旅人', '你留在港口，保留旅费与尚待修复的关系。', 'negotiated')],
-                ['read_prices', 'buy_ale', 'ask_job', 'go_search', '@yard', 'inspect_crates', '?search_slowly', 'finish_yard', '@hall', 'deliver_invoice', 'help_barrels', 'leave_for_quay', '@quay', 'dock_work', 'sail'],
-                ['ask_job', 'go_search', '@yard', 'search_slowly', 'steal_linen', '?show_linen', '?return_linen', 'finish_yard', '@hall', 'deliver_invoice', 'leave_for_quay', '@quay', 'stay'])
+                ['read_prices', 'buy_ale', 'ask_job', 'go_search', '@yard', 'inspect_crates', '?search_slowly', 'finish_yard', '@hall', 'deliver_invoice', 'help_barrels', 'leave_for_quay', '@quay', 'ask_stalls', 'buy_bread', 'dock_work', 'sail'],
+                ['ask_job', 'go_search', '@yard', 'search_slowly', 'steal_linen', '?show_linen', '?return_linen', 'finish_yard', '@hall', 'deliver_invoice', 'leave_for_quay', '@quay', 'buy_kippers', 'stay'])
     # During the yard event Bess is physically present; the routine follows game hours.
     # Both hall and yard observations are authored; movement of the scene cast is explicit below.
     data['story']['mechanics']['local']['resources'].append({'id': 'linen', 'name': '暂持的贝丝衬裤', 'unit': '件', 'initial': 0, 'maximum': 1})
@@ -361,7 +482,70 @@ def town_day():
         ]}
     data['playtest']['chaos'] = ['day_terms', 'day_breakfast', 'day_prank', 'day_to_market', '@town_market', 'day_compare', 'day_buy', 'day_deliver', 'day_return', '@town_hall', 'day_amends', 'day_rumor_to_bridge', '@town_bridge', 'day_hear_rumor', 'day_pay', 'day_prank_sail']
     _town_day_checks(mechanics, data['story'])
+    _town_day_events(mechanics)
     return data
+
+
+def _town_day_events(mechanics):
+    # 事件池试点：两个**小事件**，各自只发生在一处（contagion=0、max_towns=1，不外传）。
+    # 全是“局势”层：玩家只听说（未确认传闻）并看到一条公开提示；没有钱物、没有事实写入，
+    # 所以不碰既有的账本与结局断言。检查间隔 2 小时，保证一个白天内可见（默认是每游戏日一次）。
+    mechanics['events'] = {
+        'version': 1, 'graph': 'story_locations', 'interval_hours': 2, 'max_active': 4,
+        'events': [
+            # ---- 第一轮内容：好事 2（口信、小忙）、坏事 2（桥板、钱袋）、福祸相依 3（急雨、佣兵、醉汉）。
+            # 每个都限在镇内（contagion=0、max_towns=1），按 starts_at 错开；后果只有 flag 与未确认传闻，
+            # 不发钱物，不碰既有账本、钟与五条结局路线。
+            {'id': 'errand_message', 'label': '酒馆捎来口信', 'origin': 'town_hall',
+             'starts_at': 1, 'start_chance': 0.1, 'contagion': 0, 'max_towns': 1, 'fade_after': 2,
+             'heard': {'small': '听说下游有个跑腿给铜杯酒馆捎来一句口信，只说傍晚的船照常靠岸；口信是谁托的，送信的人自己也含糊。',
+                       'ended': '听说那句口信被柜台边的人取走了，没人再提起它。'},
+             'notice': {'small': '铜杯酒馆：有人捎来口信。', 'ended': '酒馆柜台上的口信被取走了。'},
+             'on_level': {'small': [{'op': 'flag', 'id': 'ev_message_waiting', 'value': True}],
+                          'ended': [{'op': 'flag', 'id': 'ev_message_waiting', 'value': False}]}},
+            {'id': 'sudden_shower', 'label': '粮市突降阵雨', 'origin': 'town_market',
+             'starts_at': 2, 'start_chance': 0.1, 'contagion': 0, 'max_towns': 1, 'fade_after': 2,
+             'heard': {'small': '听说粮市刚下了一阵急雨，几家摊子提前收了摊，人群散得快，路上倒不挤；来不及盖货的摊主只好自认倒霉。',
+                       'ended': '听说雨停了，粮市的摊子又陆续支了起来，地上的水洼还没干。'},
+             'notice': {'small': '粮市：突然下起阵雨，摊子陆续收摊。', 'ended': '粮市的雨停了，摊子重新支起来。'},
+             'on_level': {'small': [{'op': 'flag', 'id': 'ev_market_rain', 'value': True}],
+                          'ended': [{'op': 'flag', 'id': 'ev_market_rain', 'value': False}]}},
+            {'id': 'boasting_mercenary', 'label': '酒馆里的吹牛佣兵', 'origin': 'town_hall',
+             'starts_at': 3, 'start_chance': 0.1, 'contagion': 0, 'max_towns': 1, 'fade_after': 3,
+             'heard': {'small': '听说铜杯酒馆来了个佣兵，逢人就吹自己一个人守过三座关隘；酒客们听得热闹，也有人悄悄说他的靴子比他的故事新得多。',
+                       'ended': '听说那个佣兵结了账，说要去别处找活，故事讲到一半就走了。'},
+             'notice': {'small': '铜杯酒馆：来了个爱吹牛的佣兵。', 'ended': '那个吹牛的佣兵离开了酒馆。'},
+             'on_level': {'small': [{'op': 'flag', 'id': 'ev_mercenary_boasting', 'value': True}],
+                          'ended': [{'op': 'flag', 'id': 'ev_mercenary_boasting', 'value': False}]}},
+            {'id': 'loose_planks', 'label': '雾桥桥板松动', 'origin': 'town_bridge',
+             'starts_at': 4, 'start_chance': 0.1, 'contagion': 0, 'max_towns': 1, 'fade_after': 2,
+             'heard': {'small': '听说雾桥有几块桥板松了，桥吏用木条围出一条窄道；有人说不碍事，也有人宁可绕远，不肯踩上去。',
+                       'ended': '听说松动的桥板已经钉牢，木条也收走了。'},
+             'notice': {'small': '雾桥：几块桥板松动，桥口围出窄道。', 'ended': '雾桥的桥板修好了。'},
+             'on_level': {'small': [{'op': 'flag', 'id': 'ev_bridge_loose', 'value': True}],
+                          'ended': [{'op': 'flag', 'id': 'ev_bridge_loose', 'value': False}]}},
+            {'id': 'small_favour', 'label': '有人想找人帮个小忙', 'origin': 'town_hall',
+             'starts_at': 6, 'start_chance': 0.1, 'contagion': 0, 'max_towns': 1, 'fade_after': 3,
+             'heard': {'small': '听说柜台边有位老妇想找个手脚利索的过客帮她搬一趟东西，不一定有酬谢，多半是一碗热汤；她说得很客气。',
+                       'ended': '听说老妇的东西被别人帮着搬完了，她逢人就念叨那人的好。'},
+             'notice': {'small': '铜杯酒馆：有人想找人帮个小忙。', 'ended': '那个小忙已经有人帮了。'},
+             'on_level': {'small': [{'op': 'flag', 'id': 'ev_favour_asked', 'value': True}],
+                          'ended': [{'op': 'flag', 'id': 'ev_favour_asked', 'value': False}]}},
+            {'id': 'drunk_sleeper', 'label': '路边醉汉', 'origin': 'town_bridge',
+             'starts_at': 5, 'start_chance': 0.1, 'contagion': 0, 'max_towns': 1, 'fade_after': 3,
+             'heard': {'small': '听说雾桥口的路边睡着一个醉汉，桥吏没有赶他；有人嫌他碍路，也有人说多亏他挡着湿板，赶路的人都放慢了脚步。',
+                       'ended': '听说那个醉汉被桥吏摇醒，已经被人扶回酒馆去了。'},
+             'notice': {'small': '雾桥口：有人醉倒在路边。', 'ended': '雾桥口的路边又空了。'},
+             'on_level': {'small': [{'op': 'flag', 'id': 'ev_drunk_on_road', 'value': True}],
+                          'ended': [{'op': 'flag', 'id': 'ev_drunk_on_road', 'value': False}]}},
+            {'id': 'lost_purse', 'label': '粮市丢了钱袋', 'origin': 'town_market',
+             'starts_at': 7, 'start_chance': 0.1, 'contagion': 0, 'max_towns': 1, 'fade_after': 4,
+             'heard': {'small': '听说粮市有人丢了钱袋，摊贩们为此把收据写得格外仔细；失主还在找，拾到的人似乎在犹豫要不要还。',
+                       'ended': '听说那个钱袋有了着落，失主没追究，粮市恢复了往常的吵嚷。'},
+             'notice': {'small': '粮市：有人丢了钱袋，正在寻找。', 'ended': '粮市的钱袋风波平息了。'},
+             'on_level': {'small': [{'op': 'flag', 'id': 'ev_purse_lost', 'value': True}],
+                          'ended': [{'op': 'flag', 'id': 'ev_purse_lost', 'value': False}]}},
+        ]}
 
 
 def _town_day_checks(mechanics, story):
@@ -395,7 +579,16 @@ def _town_day_checks(mechanics, story):
         ],
         'clocks': [
             {'id': 'grain_deal', 'label': '干麦生意', 'segments': 4, 'kind': 'progress',
-             'known_by': ['player'], 'on_full': [flag('day_deal_clean')]},
+             'known_by': ['player'], 'on_full': [flag('day_deal_clean')],
+             # 买下、送到各推一格：认麦(标准=2格) + 买 + 送 = 4/4，钟不再停在 2/4。
+             # 认麦失败后走“对照样本”也等价于验明成色（+2），所以失败路线同样到 4/4。
+             'advance_on': [{'signal': 'grain_compared', 'delta': 2},
+                            {'signal': 'grain_bought', 'delta': 1},
+                            {'signal': 'grain_delivered', 'delta': 1}],
+             'stages': [{'id': 'verified', 'at': 2, 'label': '成色已验',
+                         'text': '干麦的成色验明了，接下来是买下并送到烤炉。'},
+                        {'id': 'settled', 'at': 4, 'label': '生意了结',
+                         'text': '这笔干麦生意账目清楚地了结了。'}]},
             {'id': 'guard_doubt', 'label': '桥吏的疑虑', 'segments': 4, 'kind': 'danger',
              'known_by': ['player']},
             # 奥伦自己的笔记：只有他能看到这个钟。
@@ -419,6 +612,10 @@ def _town_day_checks(mechanics, story):
              for event in story['events'] for entry in event.get('actions') or []}
     # 认麦：成功推进「干麦生意」；失败只给下一步提示（不软锁）。
     by_id['day_inspect']['check']['clock'] = {'id': 'grain_deal'}
+    # 买下 / 送到各发一个信号，推进「干麦生意」到 4/4（信号去重：每笔只算一次）。
+    by_id['day_compare']['effects'].append({'op': 'signal', 'id': 'grain_compared'})
+    by_id['day_buy']['effects'].append({'op': 'signal', 'id': 'grain_bought'})
+    by_id['day_deliver']['effects'].append({'op': 'signal', 'id': 'grain_delivered'})
     # 修桥：失败/恶化让桥吏更起疑（数字可省，默认 1/2）；付公开价的活不推这个钟。
     for name in ('day_bargain', 'day_hard_bargain'):
         by_id[name]['check']['danger_clock'] = {'id': 'guard_doubt', 'failure': 1,

@@ -1,0 +1,308 @@
+{
+  "schema": "catalog_overlay_v1",
+  "group": "cuisine",
+  "entries": {
+    "cuisine_sushi": {
+      "primary": "dish",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_dumpling": {
+      "primary": "dish",
+      "evidence_grade": "sourced",
+      "note": "包馅/无馅面团食物，归 dish；备选 snack",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_ramen": {
+      "primary": "noodle",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_kimchi": {
+      "primary": "preserved_food",
+      "evidence_grade": "sourced",
+      "note": "盐渍发酵蔬菜，归 preserved_food；备选 dish",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_tofu": {
+      "primary": "dish",
+      "evidence_grade": "sourced",
+      "note": "豆制品，词表无对应项，暂归 dish；建议新增 processed_ingredient",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_biryani": {
+      "primary": "dish",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_hummus": {
+      "primary": "dish",
+      "evidence_grade": "sourced",
+      "note": "蘸酱式菜品，归 dish；备选 sauce",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_falafel": {
+      "primary": "snack",
+      "evidence_grade": "sourced",
+      "note": "街头炸丸子，归 snack；备选 dish",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_couscous": {
+      "primary": "dish",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_injera": {
+      "primary": "bread",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_jollof_rice": {
+      "primary": "dish",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_pizza": {
+      "primary": "dish",
+      "evidence_grade": "sourced",
+      "note": "归 dish；备选 bread",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_risotto": {
+      "primary": "dish",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_paella": {
+      "primary": "dish",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_taco": {
+      "primary": "dish",
+      "evidence_grade": "sourced",
+      "note": "手持食物，归 dish；备选 snack。美洲物产，旧大陆世界需作者决定是否引入。",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_tortilla": {
+      "primary": "bread",
+      "evidence_grade": "sourced",
+      "note": "玉米薄饼，归 bread；备选 dish。美洲物产，旧大陆世界需作者决定是否引入。",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_ceviche": {
+      "primary": "dish",
+      "evidence_grade": "sourced",
+      "note": "美洲物产，旧大陆世界需作者决定是否引入。",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_pho": {
+      "primary": "noodle",
+      "evidence_grade": "sourced",
+      "note": "汤面，按「面」归 noodle；备选 soup",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_naan": {
+      "primary": "bread",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_curry": {
+      "primary": "dish",
+      "evidence_grade": "sourced",
+      "note": "做法类别而非单一配方，归 dish；备选 sauce",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_samosa": {
+      "primary": "snack",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_tamale": {
+      "primary": "snack",
+      "evidence_grade": "mixed",
+      "note": "包叶蒸玉米面团，归 snack；仅 1 个来源，证据 mixed。美洲物产，旧大陆世界需作者决定是否引入。",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_peking_duck": {
+      "primary": "dish",
+      "evidence_grade": "mixed",
+      "note": "仅 1 个来源，证据 mixed",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_kebab": {
+      "primary": "dish",
+      "evidence_grade": "mixed",
+      "note": "仅 1 个来源，证据 mixed",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "steampunk",
+        "modern"
+      ]
+    }
+  }
+}

@@ -307,3 +307,65 @@ civ-atlas 环境（群系、气候）作为 `place.tags` 由作者或原生开�
 - **civ-atlas 群系/气候**目前只能作为地点 `tags` 手写进包，未做从资源层自动映射（与规格 §5 最后一段一致）。
 - **未做**：多角色连续对抗、群体检定、伤害/血量系统改动（同 §12）。
 
+
+
+## 14. 多阶段钟、信号、隐藏/开启
+
+全部写在 `mechanics.checks.clocks[*]`，字段都是可选的；不写就与旧行为逐字节一致（`surface` 不多任何键）。
+
+### 14.1 钟的新字段
+
+| 字段 | 含义 |
+|---|---|
+| `stages: [{id, at, label, text, effects}]` | `at` 严格递增、不超过 `segments`。进度到达 `at` 格时**恰好触发一次**（先记账再执行 `effects`，所以阶段效果里再发信号也不会重复触发）。一次推进跨越多个阶段，则按顺序全部触发。`text` 非空时给玩家一条 information。 |
+| `advance_on: [{signal, delta}]` | 订阅信号：信号发出时按 `delta` 推进（同一信号多条求和）。满格后不再变化。 |
+| `visibility: 'hidden'` + `reveal_on` + `reveal_text` | 隐藏钟在 `reveal_on` 满足前**完全不出现**在玩家投影里（id、label、进度、阶段、信号名都没有）。`reveal_on` 为 `{flag}` 或 `{signal}` 二选一。揭示一次性，给玩家一条 information（`reveal_text`，缺省 `新的局势：` + label）。 |
+| `enabled_on` | 未开启的钟不推进、不显示；开启一次性。`{flag}` 或 `{signal}`。 |
+
+作者视图 `checks.authority_clocks` 看得到全部钟与阶段文字；玩家视图 `public_clocks` 只给 `known_by` 含 `player`、已开启且已揭示的钟。
+
+### 14.2 信号
+
+- `{"op": "signal", "id": "..."}` 可写在动作 `effects/success/failure`、`tiers.*.effects`、钟的 `on_full` 与阶段 `effects` 里（包里启用 `mechanics.checks` 才允许）。
+- 状态是 `session['signals']`：**有序去重列表**（不是计数）。同一信号只处理一次，这同时是递归防护：阶段效果互相发信号时，已发过的信号直接忽略。旧包不预建这个键，首次发信号时才创建。
+- 信号 id 格式同 flag：`^[A-Za-z0-9_.:-]{1,80}$`。信号名只在作者侧存在，不进任何玩家/模型投影。
+- 包校验：每个 `signal` 效果的 id 必须被至少一个钟（`advance_on` / `enabled_on` / `reveal_on`）**或**任务（`mechanics.quests.quests[*].enabled_on.signal` / `reveal_on.signal`）订阅，否则拒绝。`mechanics.checks.signals: [{id,label}]` 声明表可选，写了就要求所有效果与钟订阅都在表里。运行时 emit 不会因为无人订阅而报错。
+- 回滚：钟与信号都在 session 里，随快照/回滚一起恢复。
+- `flag` 触发的 `enabled_on` / `reveal_on` 在每批效果应用后、以及钟推进前重新评估。
+
+### 14.3 surface 与通知
+
+`surface.clocks[*]` 在原字段上，对有阶段的钟多：
+
+- `stages: [{at, label, reached}]`：未到达阶段 `label` 为空串，`reached=false`（不剧透）；
+- `stage_label`：已到达的最高阶段名（没有则缺省）。
+
+只在一次 `chat/move` 之后的那一次响应里出现（读一次即消耗，GET 不会重复出现）：
+
+- `clock_notices: [{kind: 'stage'|'reveal'|'enable', clock_label, text}]`：新到达且写了 `text` 的阶段、新揭示的隐藏钟、新开启且可见的钟。隐藏/未开启的钟不出现。
+- `quest_notices`：`quests.notices(before, after, story)` 的结果。
+
+通知由 `Runtime` 在内存里按旅程 id 暂存（`prepare_turn`/`move` 记 before，保存后算 diff），不写进存档，进程重启后丢失，所以只是“本步新出现”的提示，权威状态仍是 `clocks`。
+
+### 14.4 四档兜底（`tier_mode: margin_four`）
+
+当 `failure` / `disaster` 档且作者没写该档后果（该档 `effects`/`text`，或动作自己的 `failure`/`failure_text`，都算已写）时，引擎追加一条 `information`（`known_by: [player]`、`confirmed: false`，进“听说”），文本来源按顺序：
+
+1. 动作（缺省取事件）`fallback_hints` 中下一条未给过的；
+2. 包级 `mechanics.checks.fallback_text`（≤200 字）；
+3. 通用文本 `没成，但还可以换个办法`。
+
+兜底**不发钱物、不写 facts、不新增档位、不改 tier**，也不再充当正文。兜底是可选的运行期小保险，**包校验不要求**作者给每个检定写失败出路：写不写某一档都可以提交，写了照作者执行。
+
+### 14.4a 叙述时机与离线短句
+
+检定先结算，后产生文字。结算后 `result['settled']` 带有：`tier`、`tier_label`（大成功/成功/失败/大失败）、`action_label`（玩家公开的行动标签）、`authored_text`（作者写了的结果文本，没写就是空串，绝不用通用兜底句或离线短句顶替）和叙述规则。
+
+- **在线**：启用 `scene_judgment` 的包，模型在 `check` 里拿到 tier/tier_label/action_label/authored_text/narration_rule；未启用的包，模型在 `resolved_action.settled` 里拿到同样内容，`resolved_action.outcome` 只等于作者文本（可为空）。规则：按此档位描写已发生的结果，不能改结果、不能发奖励、不能立新事实、不新增钱物/关系数值/世界事实；大成功要让玩家清楚感到局面变好，大失败要写出实际的不利变化，成功/失败按正常力度；好坏方向只靠措辞与在场人物反应体现，实际状态变化仍由引擎按档位执行。`display: qualitative` 仍不给数值。引擎的通用兜底句不会进入模型的 `known`。
+- **离线**：没有模型，作者没写该档文本时，正文用 `checks.OFFLINE_TIER_LINES` 的按档短句（大成功/成功/失败/大失败各一句）。作者写了就照用。`legacy_five` 与 v1 包行为不变。
+
+### 14.5 限制
+
+- 通知槽在内存中，只覆盖 `chat/move`；其他入口（本地行动等）不产生 `clock_notices`。
+- `signal` 不能写在事件 `on_enter/on_exit` 之外的未列入 `EFFECT_OPS` 的位置；事件钩子里只允许 `signal/flag/information`。
+- 信号只增不减；需要“可重复触发”的玩法请用 flag 或钟的 `delta`。

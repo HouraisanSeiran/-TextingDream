@@ -1,0 +1,384 @@
+{
+  "schema": "catalog_overlay_v1",
+  "group": "eastern",
+  "entries": {
+    "eastern_cultivator_strata": {
+      "primary": "institution",
+      "evidence_grade": "inferred",
+      "note": "按“分层”写法选 institution；若视为人群也可 race",
+      "tech_tier": null,
+      "magic_tier": "common"
+    },
+    "eastern_yao_cultivator": {
+      "primary": "race",
+      "evidence_grade": "mixed",
+      "note": "妖修为非人群体，可能依附宗门体系升 common，取低一档",
+      "tech_tier": null,
+      "magic_tier": "rare"
+    },
+    "eastern_spirit_beast": {
+      "primary": "beast",
+      "evidence_grade": "inferred",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "common"
+    },
+    "eastern_yin_ghost": {
+      "primary": "undead_demon",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "rare"
+    },
+    "eastern_spirit_root": {
+      "primary": "magic_power",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "common"
+    },
+    "eastern_special_constitution": {
+      "primary": "magic_power",
+      "evidence_grade": "inferred",
+      "note": "条目自注零来源；体质依附修行体系，取低一档 rare",
+      "tech_tier": null,
+      "magic_tier": "rare"
+    },
+    "eastern_bloodline_inheritance": {
+      "primary": "magic_power",
+      "evidence_grade": "mixed",
+      "note": "也可视为 institution（出身位阶）；按力量传承选 magic_power；血脉力量世族垄断，取低一档 rare",
+      "tech_tier": null,
+      "magic_tier": "rare"
+    },
+    "eastern_realm_system": {
+      "primary": "magic_power",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "common"
+    },
+    "eastern_cultivation_method": {
+      "primary": "magic_power",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "common"
+    },
+    "eastern_spirit_qi": {
+      "primary": "magic_power",
+      "evidence_grade": "mixed",
+      "note": "灵气浓度有地域差异，取 common",
+      "tech_tier": null,
+      "magic_tier": "common"
+    },
+    "eastern_talisman": {
+      "primary": "magic_power",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "common"
+    },
+    "eastern_formation_array": {
+      "primary": "magic_power",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "common"
+    },
+    "eastern_alchemy": {
+      "primary": "craft_process",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "common"
+    },
+    "eastern_artifact_craft": {
+      "primary": "craft_process",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "common"
+    },
+    "eastern_sword_cultivation": {
+      "primary": "magic_power",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "common"
+    },
+    "eastern_thunder_ritual": {
+      "primary": "magic_power",
+      "evidence_grade": "mixed",
+      "note": "取低一档 rare",
+      "tech_tier": null,
+      "magic_tier": "rare"
+    },
+    "eastern_divine_power": {
+      "primary": "magic_power",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "rare"
+    },
+    "eastern_pill_elixir": {
+      "primary": "elixir_pill",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "common"
+    },
+    "eastern_treasure": {
+      "primary": "artifact",
+      "evidence_grade": "mixed",
+      "note": "法宝；词表无“器物/神器”，暂选 tool",
+      "tech_tier": null,
+      "magic_tier": "common"
+    },
+    "eastern_flying_sword": {
+      "primary": "weapon",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "common"
+    },
+    "eastern_storage_artifact": {
+      "primary": "artifact",
+      "evidence_grade": "inferred",
+      "note": "普及到日用时可升 abundant，取低一档 common",
+      "tech_tier": null,
+      "magic_tier": "common"
+    },
+    "eastern_heavenly_material": {
+      "primary": "magic_material",
+      "evidence_grade": "inferred",
+      "note": "词表缺“珍稀/灵性材料”，暂选 ore",
+      "tech_tier": null,
+      "magic_tier": "common"
+    },
+    "eastern_puppet": {
+      "primary": "artifact",
+      "evidence_grade": "mixed",
+      "note": "词表缺“造物/傀儡”，暂选 tool；依附炼器体系，取 common；若只算单件造物可降 rare",
+      "tech_tier": null,
+      "magic_tier": "common"
+    },
+    "eastern_secret_realm": {
+      "primary": "place",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "rare"
+    },
+    "eastern_dongtian_fudi": {
+      "primary": "place",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "common"
+    },
+    "eastern_spirit_vein": {
+      "primary": "place",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "common"
+    },
+    "eastern_market_fangshi": {
+      "primary": "place",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "common"
+    },
+    "eastern_sect": {
+      "primary": "organization",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "common"
+    },
+    "eastern_master_disciple": {
+      "primary": "institution",
+      "evidence_grade": "mixed",
+      "note": "师徒关系本身不要求超自然，因处于修真语境取 common",
+      "tech_tier": null,
+      "magic_tier": "common"
+    },
+    "eastern_cultivator_clan": {
+      "primary": "organization",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "common"
+    },
+    "eastern_court_patronage": {
+      "primary": "institution",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "common"
+    },
+    "eastern_dao_lineage": {
+      "primary": "organization",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "common"
+    },
+    "eastern_rogue_cultivator": {
+      "primary": "organization",
+      "evidence_grade": "mixed",
+      "note": "也可视为 profession",
+      "tech_tier": null,
+      "magic_tier": "common"
+    },
+    "eastern_demonic_path": {
+      "primary": "organization",
+      "evidence_grade": "mixed",
+      "note": "摘要写“路线及其实践者群体”；若按路线可改 magic_power",
+      "tech_tier": null,
+      "magic_tier": "common"
+    },
+    "eastern_alliance_pact": {
+      "primary": "organization",
+      "evidence_grade": "mixed",
+      "note": "盟约本身偏 institution",
+      "tech_tier": null,
+      "magic_tier": "common"
+    },
+    "eastern_sect_rules": {
+      "primary": "institution",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "common"
+    },
+    "eastern_immortal_register": {
+      "primary": "institution",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "common"
+    },
+    "eastern_spirit_stone_currency": {
+      "primary": "economy_trade",
+      "evidence_grade": "mixed",
+      "note": "灵石若成全社会能源可升 abundant，取低一档 common",
+      "tech_tier": null,
+      "magic_tier": "common"
+    },
+    "eastern_contribution_points": {
+      "primary": "economy_trade",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "common"
+    },
+    "eastern_spirit_agriculture": {
+      "primary": "economy_trade",
+      "evidence_grade": "mixed",
+      "note": "词表缺农业生产项，也可 craft_process",
+      "tech_tier": null,
+      "magic_tier": "common"
+    },
+    "eastern_tribulation": {
+      "primary": "conflict_event",
+      "evidence_grade": "mixed",
+      "note": "仅高层修行者承受，世界仍需修士群体，取 common",
+      "tech_tier": null,
+      "magic_tier": "common"
+    },
+    "eastern_sect_war": {
+      "primary": "conflict_event",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "common"
+    },
+    "eastern_orthodoxy_dispute": {
+      "primary": "conflict_event",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "common"
+    },
+    "eastern_demonic_calamity": {
+      "primary": "conflict_event",
+      "evidence_grade": "inferred",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "common"
+    },
+    "eastern_secret_contest": {
+      "primary": "conflict_event",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "common"
+    },
+    "eastern_mortal_plague": {
+      "primary": "conflict_event",
+      "evidence_grade": "mixed",
+      "note": "按条目写成灾害事件",
+      "tech_tier": null,
+      "magic_tier": "common"
+    },
+    "eastern_inheritance_strife": {
+      "primary": "conflict_event",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "common"
+    },
+    "eastern_forbidden_technique": {
+      "primary": "magic_power",
+      "evidence_grade": "mixed",
+      "note": "条目分类为 conflict，但实质是禁忌术法知识",
+      "tech_tier": null,
+      "magic_tier": "rare"
+    },
+    "eastern_ascension": {
+      "primary": "place",
+      "evidence_grade": "mixed",
+      "note": "飞升为极少数人的出口，取低一档 rare",
+      "tech_tier": null,
+      "magic_tier": "rare"
+    },
+    "eastern_outer_realm": {
+      "primary": "place",
+      "evidence_grade": "mixed",
+      "note": "界域通道为特殊存在，取低一档 rare",
+      "tech_tier": null,
+      "magic_tier": "rare"
+    },
+    "eastern_ruin_relic": {
+      "primary": "place",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "rare"
+    },
+    "eastern_mortal_city": {
+      "primary": "place",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "eastern_retainer": {
+      "primary": "profession",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "common"
+    },
+    "eastern_pilgrimage_festival": {
+      "primary": "belief_ritual",
+      "evidence_grade": "mixed",
+      "note": "庙会香火按民俗记述，不要求超自然生效，取 null",
+      "tech_tier": null,
+      "magic_tier": null
+    }
+  }
+}

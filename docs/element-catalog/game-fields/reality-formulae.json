@@ -1,0 +1,706 @@
+{
+  "schema": "game_fields_v1",
+  "group": "reality-formulae",
+  "entries": {
+    "formula_mahuangtang": {
+      "price": {
+        "min": 6,
+        "max": 12,
+        "per": "一剂",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "workshop",
+        "steppe"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "weeks",
+      "sold_by": [
+        "apothecary"
+      ],
+      "note": "按所含药材柜台价合计加工费估价"
+    },
+    "formula_guizhitang": {
+      "price": {
+        "min": 6,
+        "max": 12,
+        "per": "一剂",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "workshop",
+        "tropical_dry_forest"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "weeks",
+      "sold_by": [
+        "apothecary"
+      ],
+      "note": "按所含药材柜台价合计加工费估价"
+    },
+    "formula_daqinglongtang": {
+      "price": {
+        "min": 8,
+        "max": 18,
+        "per": "一剂",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "workshop",
+        "temperate_desert"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "weeks",
+      "sold_by": [
+        "apothecary"
+      ],
+      "note": "按所含药材柜台价合计加工费估价"
+    },
+    "formula_xiaochaihutang": {
+      "price": {
+        "min": 8,
+        "max": 18,
+        "per": "一剂",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "workshop",
+        "steppe"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "weeks",
+      "sold_by": [
+        "apothecary"
+      ],
+      "note": "按所含药材柜台价合计加工费估价"
+    },
+    "formula_banxiaxiexintang": {
+      "price": {
+        "min": 8,
+        "max": 18,
+        "per": "一剂",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "workshop",
+        "farmland"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "weeks",
+      "sold_by": [
+        "apothecary"
+      ],
+      "note": "按所含药材柜台价合计加工费估价"
+    },
+    "formula_dachengqitang": {
+      "price": {
+        "min": 6,
+        "max": 16,
+        "per": "一剂",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "workshop",
+        "mountain"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "weeks",
+      "sold_by": [
+        "apothecary"
+      ],
+      "note": "按所含药材柜台价合计加工费估价"
+    },
+    "formula_sinitang": {
+      "price": {
+        "min": 10,
+        "max": 30,
+        "per": "一剂",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "workshop",
+        "mountain"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "weeks",
+      "sold_by": [
+        "apothecary"
+      ],
+      "note": "含剧毒药味，仅药铺凭方配售；按药材柜台价合计估价"
+    },
+    "formula_lizhongwan": {
+      "price": {
+        "min": 8,
+        "max": 20,
+        "per": "一丸",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "workshop",
+        "mountain"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "apothecary"
+      ],
+      "note": "按所含药材柜台价合计加工费估价"
+    },
+    "formula_wulingsan": {
+      "price": {
+        "min": 6,
+        "max": 16,
+        "per": "一包",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "workshop",
+        "farmland"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "apothecary"
+      ],
+      "note": "按所含药材柜台价合计加工费估价"
+    },
+    "formula_sijunzitang": {
+      "price": {
+        "min": 12,
+        "max": 36,
+        "per": "一剂",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "workshop",
+        "mountain"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "weeks",
+      "sold_by": [
+        "apothecary"
+      ],
+      "note": "含人参，按药材柜台价合计估价"
+    },
+    "formula_siwutang": {
+      "price": {
+        "min": 8,
+        "max": 24,
+        "per": "一剂",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "workshop",
+        "farmland"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "weeks",
+      "sold_by": [
+        "apothecary"
+      ],
+      "note": "按所含药材柜台价合计加工费估价"
+    },
+    "formula_bajiantang": {
+      "price": {
+        "min": 18,
+        "max": 60,
+        "per": "一剂",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "workshop",
+        "farmland"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "weeks",
+      "sold_by": [
+        "apothecary"
+      ],
+      "note": "八味合方，按药材柜台价合计估价"
+    },
+    "formula_liuweidihuangwan": {
+      "price": {
+        "min": 12,
+        "max": 36,
+        "per": "一丸",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "workshop",
+        "farmland"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "apothecary"
+      ],
+      "note": "蜜丸成药，按药材柜台价合计加工费估价"
+    },
+    "formula_jinkuishenqiwan": {
+      "price": {
+        "min": 18,
+        "max": 48,
+        "per": "一丸",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "workshop",
+        "mountain"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "apothecary"
+      ],
+      "note": "含剧毒药味，仅药铺凭方配售；按药材柜台价合计估价"
+    },
+    "formula_zhigancaotang": {
+      "price": {
+        "min": 12,
+        "max": 36,
+        "per": "一剂",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "workshop",
+        "farmland"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "weeks",
+      "sold_by": [
+        "apothecary"
+      ],
+      "note": "大复方，药味多，按药材柜台价合计估价"
+    },
+    "formula_wumeiwan": {
+      "price": {
+        "min": 12,
+        "max": 36,
+        "per": "一丸",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "workshop",
+        "orchard"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "apothecary"
+      ],
+      "note": "含剧毒药味，仅药铺凭方配售；按药材柜台价合计估价"
+    },
+    "formula_duhuojishengtang": {
+      "price": {
+        "min": 20,
+        "max": 60,
+        "per": "一剂",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "workshop",
+        "mountain"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "weeks",
+      "sold_by": [
+        "apothecary"
+      ],
+      "note": "十五味大复方，按药材柜台价合计估价"
+    },
+    "formula_xiaoyaosan": {
+      "price": {
+        "min": 6,
+        "max": 16,
+        "per": "一包",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "workshop",
+        "farmland"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "apothecary"
+      ],
+      "note": "按所含药材柜台价合计加工费估价"
+    },
+    "formula_buzhongyiqitang": {
+      "price": {
+        "min": 12,
+        "max": 36,
+        "per": "一剂",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "workshop",
+        "mountain"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "weeks",
+      "sold_by": [
+        "apothecary"
+      ],
+      "note": "含人参与黄芪，按药材柜台价合计估价"
+    },
+    "formula_guipitang": {
+      "price": {
+        "min": 12,
+        "max": 36,
+        "per": "一剂",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "workshop",
+        "farmland"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "weeks",
+      "sold_by": [
+        "apothecary"
+      ],
+      "note": "按所含药材柜台价合计加工费估价"
+    },
+    "formula_pingweisan": {
+      "price": {
+        "min": 4,
+        "max": 11,
+        "per": "一包",
+        "tier": "groat"
+      },
+      "terrains": [
+        "workshop",
+        "farmland"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "apothecary"
+      ],
+      "note": "药味平常，按低档估价"
+    },
+    "formula_erchengtang": {
+      "price": {
+        "min": 4,
+        "max": 11,
+        "per": "一剂",
+        "tier": "groat"
+      },
+      "terrains": [
+        "workshop",
+        "orchard"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "weeks",
+      "sold_by": [
+        "apothecary"
+      ],
+      "note": "药味平常，按低档估价"
+    },
+    "formula_huoxiangzhengqisan": {
+      "price": {
+        "min": 6,
+        "max": 16,
+        "per": "一包",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "workshop",
+        "farmland"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "apothecary"
+      ],
+      "note": "按所含药材柜台价合计加工费估价"
+    },
+    "formula_longdanxiegantang": {
+      "price": {
+        "min": 8,
+        "max": 24,
+        "per": "一剂",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "workshop",
+        "mountain"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "weeks",
+      "sold_by": [
+        "apothecary"
+      ],
+      "note": "按所含药材柜台价合计加工费估价"
+    },
+    "formula_huanglianjiedutang": {
+      "price": {
+        "min": 12,
+        "max": 30,
+        "per": "一剂",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "workshop",
+        "mountain"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "weeks",
+      "sold_by": [
+        "apothecary"
+      ],
+      "note": "含黄连，按药材柜台价合计估价"
+    },
+    "formula_baihutang": {
+      "price": {
+        "min": 6,
+        "max": 16,
+        "per": "一剂",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "workshop",
+        "mine"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "weeks",
+      "sold_by": [
+        "apothecary"
+      ],
+      "note": "按所含药材与矿物柜台价合计估价"
+    },
+    "formula_yinqiaosan": {
+      "price": {
+        "min": 6,
+        "max": 16,
+        "per": "一包",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "workshop",
+        "mountain"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "apothecary"
+      ],
+      "note": "成药散剂，按药材柜台价合计加工费估价"
+    },
+    "formula_sangjuyin": {
+      "price": {
+        "min": 4,
+        "max": 11,
+        "per": "一剂",
+        "tier": "groat"
+      },
+      "terrains": [
+        "workshop",
+        "farmland"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "weeks",
+      "sold_by": [
+        "apothecary"
+      ],
+      "note": "药味平常，按低档估价"
+    },
+    "formula_angongniuhuangwan": {
+      "price": {
+        "min": 120,
+        "max": 480,
+        "per": "一丸",
+        "tier": "pound"
+      },
+      "terrains": [
+        "workshop",
+        "mountain"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "apothecary"
+      ],
+      "note": "含剧毒药味，仅药铺凭方配售；金箔包衣的名贵成药，取镑档"
+    },
+    "formula_suhexiangwan": {
+      "price": {
+        "min": 48,
+        "max": 200,
+        "per": "一丸",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "workshop",
+        "import"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "apothecary"
+      ],
+      "note": "含剧毒药味，仅药铺凭方配售；十五味香料类名药，取先令高档"
+    },
+    "formula_shixiaosan": {
+      "price": {
+        "min": 4,
+        "max": 11,
+        "per": "一包",
+        "tier": "groat"
+      },
+      "terrains": [
+        "workshop",
+        "lake"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "apothecary"
+      ],
+      "note": "药味少，按低档估价"
+    },
+    "formula_xuefuzhuyutang": {
+      "price": {
+        "min": 20,
+        "max": 60,
+        "per": "一剂",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "workshop",
+        "farmland"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "weeks",
+      "sold_by": [
+        "apothecary"
+      ],
+      "note": "药味多，按药材柜台价合计估价"
+    },
+    "formula_taohongsiwutang": {
+      "price": {
+        "min": 12,
+        "max": 36,
+        "per": "一剂",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "workshop",
+        "farmland"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "weeks",
+      "sold_by": [
+        "apothecary"
+      ],
+      "note": "四物汤加味，按药材柜台价合计估价"
+    },
+    "formula_yupingfengsan": {
+      "price": {
+        "min": 8,
+        "max": 24,
+        "per": "一包",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "workshop",
+        "steppe"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "apothecary"
+      ],
+      "note": "成药散剂，含黄芪，按药材柜台价合计估价"
+    },
+    "formula_shengmaisan": {
+      "price": {
+        "min": 12,
+        "max": 36,
+        "per": "一包",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "workshop",
+        "mountain"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "apothecary"
+      ],
+      "note": "含人参，按药材柜台价合计估价"
+    }
+  }
+}

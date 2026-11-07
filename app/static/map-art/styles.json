@@ -1,0 +1,331 @@
+{
+  "version": 2,
+  "note": "地图渲染风格（app/map_render.py 读取）。美术只决定怎么画，不改地形：海陆/高程/分类一律来自 app/terrain_source.py 的查询结果；海按 status=OCEAN 判，不按 height<0。尺寸类数值单位为「参考像素」，以 2048 px 宽的显示图为准，按实际显示尺寸等比缩放；高程/水深/起伏阈值单位为米。纸纹、晕染、水纹、海岸描边都是叠在数据上的显示纹理，海岸线条只画在海一侧。 三种风格：simple（简化地图，沿用 map-art.svg 全部符号含地形符号）、medieval（西式手绘，专属 map-art-medieval.svg，只有城市/资源/道路图示，不叠地形符号）、eastern（东方古舆图，专属 map-art-eastern.svg，同样不叠地形符号）。layers 声明各风格开启的符号层；medieval / eastern 连高程点（▲ 加数字）也关闭，图面上不出现任何山形标记，地形只由分层设色 + 阴影表现。",
+  "reference_px": 2048,
+  "terrain_symbols": {
+    "note": "按 manifest.json dem_hints 落地的阈值（米）。局部起伏 = 窗口内陆地最高-最低；只在 LAND 样点的局部极大处放山/雪峰/丘陵；沼泽 = 坡度近零的低洼陆地，属近似（本数据无湿地/群系）。",
+    "relief_window_m": 3000,
+    "peak_window_m": 1800,
+    "mountain_relief_m": 640,
+    "hill_relief_m": 330,
+    "snowline_m": 2900,
+    "marsh_slope_max": 0.008,
+    "marsh_elevation_max_m": 25,
+    "marsh_box_px": 28,
+    "marsh_min_fraction": 0.6
+  },
+  "icon_sets": {
+    "note": "medieval / eastern 两套图示必须恰好包含这些 id；资源 id 与 manifest.json resources（kinds + trade_kinds）同名，数据层可跨风格共用。",
+    "towns": ["town-hamlet", "town-town", "town-city", "town-capital"],
+    "resources_from_manifest": true,
+    "route_marks": ["mark-bridge", "mark-ford", "mark-pass", "mark-port"]
+  },
+  "styles": {
+    "simple": {
+      "label": "简化地图 · 分层设色 + 地形符号",
+      "sprites": ["map-art.svg"],
+      "page": {"background": "#e6d5ae", "ink": "#3b2a1e", "accent": "#7a1f22", "margin_px": 76},
+      "fonts": {"title": "'STSong','SimSun',Georgia,serif", "latin": "Georgia,'Times New Roman',serif", "body": "'STSong','SimSun',Georgia,serif"},
+      "land_bands": [
+        {"max_m": 60, "color": "#cfd1a0"},
+        {"max_m": 200, "color": "#d8d09a"},
+        {"max_m": 450, "color": "#ddcb97"},
+        {"max_m": 800, "color": "#dac28d"},
+        {"max_m": 1250, "color": "#d1b37f"},
+        {"max_m": 1800, "color": "#c4a271"},
+        {"max_m": 2400, "color": "#b49167"},
+        {"max_m": 3000, "color": "#a99474"},
+        {"max_m": 3400, "color": "#cfc5ae"},
+        {"max_m": null, "color": "#f1ece0"}
+      ],
+      "ocean_bands": [
+        {"max_depth_m": 50, "color": "#c3d2c3"},
+        {"max_depth_m": 200, "color": "#b5c8bc"},
+        {"max_depth_m": 1000, "color": "#a7bfb9"},
+        {"max_depth_m": 2000, "color": "#9ab4af"},
+        {"max_depth_m": null, "color": "#8ea9a6"}
+      ],
+      "closed_below_sea": {"color": "#bca27c", "pattern": "dots", "pattern_color": "#5e4630", "pattern_px": 5, "pattern_alpha": 0.55, "outline_alpha": 0.8},
+      "unknown": {"color": "#d9d2c0", "pattern": "hatch", "pattern_color": "#6b5a48", "pattern_px": 8, "pattern_alpha": 0.45},
+      "hillshade": {"mode": "multiply", "azimuth_deg": 315, "altitude_deg": 42, "z_factor": 2.2, "land_strength": 0.62, "ocean_strength": 0.1, "highlight": 0.1},
+      "band_contour_alpha": 0.2,
+      "band_contour_color": "#6b5236",
+      "paper": {"grain": 0.035, "blotch": 0.07, "blotch_cell_px": 260, "fiber": 0.0, "vignette": 0.22, "seed_name": "medieval/paper"},
+      "coast": {
+        "ink": "#3b2a1e",
+        "line_px": 1.8,
+        "second_line_at_px": 5.5,
+        "second_line_px": 0.9,
+        "second_alpha": 0.75,
+        "ripple_start_px": 10,
+        "ripple_step_px": 7,
+        "ripple_count": 8,
+        "ripple_px": 0.8,
+        "ripple_alpha": 0.42,
+        "ripple_color": "#4d5f5c",
+        "wobble_px": 0.0
+      },
+      "open_sea_pattern": null,
+      "soundings": {"step_px": 150, "min_coast_px": 70},
+      "symbols": {
+        "mountain": {"id": "terrain-mountain", "viewbox": [24, 18], "px": 56, "max": 260, "pad_px": 2},
+        "snowpeak": {"id": "terrain-snowpeak", "viewbox": [24, 18], "px": 62, "max": 90, "pad_px": 2},
+        "hill": {"id": "terrain-hill", "viewbox": [24, 12], "px": 38, "max": 140, "pad_px": 18},
+        "marsh": {"id": "terrain-marsh", "viewbox": [24, 12], "px": 34, "max": 24, "pad_px": 10},
+        "pad_px": 3
+      },
+      "decorations": [
+        {"name": "title", "kind": "cartouche", "symbol": "deco-cartouche", "w": 660, "h": 198, "target": [0.7, 0.88]},
+        {"name": "legend", "kind": "legend", "w": 430, "h": 400, "target": [0.86, 0.6]},
+        {"name": "compass", "kind": "compass", "symbol": "deco-compass", "w": 200, "h": 230, "target": [0.9, 0.3]},
+        {"name": "scale", "kind": "scale", "w": 470, "h": 84, "target": [0.3, 0.94]},
+        {"name": "ship-1", "kind": "ship", "symbol": "deco-carrack", "w": 132, "h": 120, "target": [0.47, 0.76]},
+        {"name": "ship-2", "kind": "ship", "symbol": "deco-carrack", "w": 112, "h": 102, "target": [0.92, 0.12], "mirror": true},
+        {"name": "serpent", "kind": "serpent", "symbol": "deco-seaserpent", "w": 190, "h": 95, "target": [0.58, 0.64]}
+      ],
+      "text": {"title": "地 形 样 图", "subtitle": "SPECIMEN · TABULA TERRAE EX DATIS", "legend_title": "图 例", "decoration_note": "罗盘、帆船、海兽为制图装饰，不表示数据"},
+      "layers": {"terrain_symbols": true, "spot_heights": true, "soundings": true, "decorations": true},
+      "towns": {
+        "sprite": "map-art.svg",
+        "pattern": "town-{race}-{tier}",
+        "default_race": "human",
+        "names": {"hamlet": "村落", "town": "城镇", "city": "城市", "capital": "首都"},
+        "capital_unique": false
+      },
+      "race_towns": {"enabled": true, "sprite": "map-art.svg", "races": ["elf", "dwarf", "orc", "halfling"], "note": "沿用 map-art.svg 全套种族城镇；人类 = town-human-{tier}"},
+      "routes": {"note": "沿用 manifest.json routes.kinds", "from_manifest": true},
+      "icon_sprite": "map-art.svg",
+      "decoration_symbols": {"map-art-medieval-deco.svg": ["deco-carrack"]},
+      "sprites_note": "sprites=整份内联的图示 sprite；decoration_symbols=只按 id 抽取的制图装饰（避免与其它 sprite 的同名 id 冲突）；race_towns 同样按 id 抽取"
+    },
+    "medieval": {
+      "label": "西式手绘 · 中世纪地图集",
+      "sprites": ["map-art-medieval.svg"],
+      "page": {"background": "#e6d5ae", "ink": "#3b2a1e", "accent": "#7a1f22", "margin_px": 76},
+      "fonts": {"title": "'STSong','SimSun',Georgia,serif", "latin": "Georgia,'Times New Roman',serif", "body": "'STSong','SimSun',Georgia,serif"},
+      "land_bands": [
+        {"max_m": 60, "color": "#cfd1a0"},
+        {"max_m": 200, "color": "#d8d09a"},
+        {"max_m": 450, "color": "#ddcb97"},
+        {"max_m": 800, "color": "#dac28d"},
+        {"max_m": 1250, "color": "#d1b37f"},
+        {"max_m": 1800, "color": "#c4a271"},
+        {"max_m": 2400, "color": "#b49167"},
+        {"max_m": 3000, "color": "#a99474"},
+        {"max_m": 3400, "color": "#cfc5ae"},
+        {"max_m": null, "color": "#f1ece0"}
+      ],
+      "ocean_bands": [
+        {"max_depth_m": 50, "color": "#c3d2c3"},
+        {"max_depth_m": 200, "color": "#b5c8bc"},
+        {"max_depth_m": 1000, "color": "#a7bfb9"},
+        {"max_depth_m": 2000, "color": "#9ab4af"},
+        {"max_depth_m": null, "color": "#8ea9a6"}
+      ],
+      "closed_below_sea": {"color": "#bca27c", "pattern": "dots", "pattern_color": "#5e4630", "pattern_px": 5, "pattern_alpha": 0.55, "outline_alpha": 0.8},
+      "unknown": {"color": "#d9d2c0", "pattern": "hatch", "pattern_color": "#6b5a48", "pattern_px": 8, "pattern_alpha": 0.45},
+      "hillshade": {"mode": "multiply", "azimuth_deg": 315, "altitude_deg": 42, "z_factor": 2.2, "land_strength": 0.62, "ocean_strength": 0.1, "highlight": 0.1},
+      "band_contour_alpha": 0.2,
+      "band_contour_color": "#6b5236",
+      "paper": {"grain": 0.04, "blotch": 0.09, "blotch_cell_px": 240, "fiber": 0.0, "vignette": 0.26, "seed_name": "medieval-hand/paper"},
+      "coast": {
+        "ink": "#3b2a1e",
+        "line_px": 2.0,
+        "second_line_at_px": 5.5,
+        "second_line_px": 0.9,
+        "second_alpha": 0.75,
+        "ripple_start_px": 10,
+        "ripple_step_px": 7,
+        "ripple_count": 8,
+        "ripple_px": 0.8,
+        "ripple_alpha": 0.42,
+        "ripple_color": "#4d5f5c",
+        "wobble_px": 1.2,
+        "line_jitter": 0.35
+      },
+      "open_sea_pattern": null,
+      "soundings": {"step_px": 150, "min_coast_px": 70},
+      "decorations": [
+        {"name": "title", "kind": "cartouche", "symbol": "deco-cartouche", "w": 660, "h": 198, "target": [0.7, 0.88]},
+        {"name": "legend", "kind": "legend", "w": 430, "h": 400, "target": [0.86, 0.6]},
+        {"name": "compass", "kind": "compass", "symbol": "deco-compass", "w": 200, "h": 230, "target": [0.9, 0.3]},
+        {"name": "scale", "kind": "scale", "w": 470, "h": 84, "target": [0.3, 0.94]},
+        {"name": "ship-1", "kind": "ship", "symbol": "deco-carrack", "w": 132, "h": 120, "target": [0.47, 0.76]},
+        {"name": "ship-2", "kind": "ship", "symbol": "deco-carrack", "w": 112, "h": 102, "target": [0.92, 0.12], "mirror": true},
+        {"name": "serpent", "kind": "serpent", "symbol": "deco-seaserpent", "w": 190, "h": 95, "target": [0.58, 0.64]}
+      ],
+      "text": {"title": "地 形 样 图", "subtitle": "SPECIMEN · TABULA TERRAE EX DATIS", "legend_title": "图 例", "decoration_note": "罗盘、帆船、海兽为制图装饰，不表示数据"},
+      "layers": {"terrain_symbols": false, "spot_heights": false, "soundings": true, "decorations": true},
+      "towns": {
+        "sprite": "map-art-medieval.svg",
+        "pattern": "town-{tier}",
+        "default_race": "human",
+        "names": {"hamlet": "村落", "town": "城镇", "city": "城市", "capital": "王都"},
+        "capital_unique": false
+      },
+      "race_towns": {
+        "enabled": true,
+        "sprite": "map-art.svg",
+        "races": ["elf", "dwarf", "orc", "halfling"],
+        "pattern": "town-{race}-{tier}",
+        "note": "非人类种族城镇沿用 map-art.svg 的种族变体（本轮不重画）；人类与未知种族用本风格的 town-{tier}"
+      },
+      "routes": {
+        "note": "道路线型（参考像素，2048 px 宽显示图）。casing=底边（先画），再画 stroke；dash 为空=实线；double=两条平行墨线（中间透出 casing）。",
+        "kinds": {
+          "royal_road": {
+            "name": "王道",
+            "stroke": "#7a1f22",
+            "width": 2.4,
+            "casing": "#f4e7c6",
+            "casing_width": 5.6,
+            "dash": [],
+            "double": true,
+            "edge": "#3b2a1e",
+            "edge_width": 0.9
+          },
+          "road": {"name": "大路", "stroke": "#5a3b22", "width": 1.8, "casing": "#f4e7c6", "casing_width": 3.8, "dash": []},
+          "track": {"name": "乡间小径", "stroke": "#5a3b22", "width": 1.3, "casing": null, "casing_width": 0, "dash": [6, 3.5]},
+          "trail": {"name": "山道", "stroke": "#4a3420", "width": 1.3, "casing": null, "casing_width": 0, "dash": [0.1, 3.4], "linecap": "round"},
+          "sea_route": {"name": "航线", "stroke": "#2f4f6a", "width": 1.2, "casing": null, "casing_width": 0, "dash": [9, 4, 2, 4]},
+          "river": {"name": "河流", "stroke": "#3f6f86", "width": 2.0, "casing": "#c9dad6", "casing_width": 3.6, "dash": [], "taper": true}
+        }
+      },
+      "icon_sprite": "map-art-medieval.svg",
+      "decoration_symbols": {"map-art.svg": ["deco-compass", "deco-scale", "deco-cartouche", "deco-seaserpent"], "map-art-medieval-deco.svg": ["deco-carrack"]},
+      "sprites_note": "sprites=整份内联的图示 sprite；decoration_symbols=只按 id 抽取的制图装饰（避免与其它 sprite 的同名 id 冲突）；race_towns 同样按 id 抽取",
+      "engraving": {
+        "note": "铜版排线：只在背光坡叠加斜向细线，强度随阴影深浅变化（显示纹理，不改地形）",
+        "angle_deg": 35,
+        "period_px": 4.6,
+        "line_px": 1.0,
+        "alpha": 0.5,
+        "threshold": 0.08,
+        "gain": 2.6,
+        "color": "#4a3624",
+        "wobble_px": 0.8,
+        "seed_name": "medieval-hand/engraving"
+      }
+    },
+    "eastern": {
+      "label": "东方古舆图 · 水墨青绿",
+      "legend_language": "east",
+      "moss_dots": {"seed_name": "eastern/moss", "from_m": 500, "span_m": 1600, "density": 0.012, "radius_px": 0.9, "gain": 5.0, "alpha": 0.55, "color": "#2f5a4f"},
+      "sprites": ["map-art-eastern.svg"],
+      "page": {"background": "#ebe1c9", "ink": "#2a2824", "accent": "#b3261e", "margin_px": 76},
+      "fonts": {"title": "'STKaiti','KaiTi','STXingkai',serif", "latin": "'STKaiti','KaiTi',serif", "body": "'STKaiti','KaiTi',serif"},
+      "land_bands": [
+        {"max_m": 80, "color": "#e7d9b7"},
+        {"max_m": 250, "color": "#dccca2"},
+        {"max_m": 550, "color": "#c9c69d"},
+        {"max_m": 950, "color": "#adbf9a"},
+        {"max_m": 1450, "color": "#8fb197"},
+        {"max_m": 2000, "color": "#76a197"},
+        {"max_m": 2600, "color": "#5f8e95"},
+        {"max_m": 3150, "color": "#4f7889"},
+        {"max_m": 3450, "color": "#b9c3c0"},
+        {"max_m": null, "color": "#efebe0"}
+      ],
+      "ocean_bands": [
+        {"max_depth_m": 50, "color": "#e5e2d1"},
+        {"max_depth_m": 200, "color": "#dedcce"},
+        {"max_depth_m": 1000, "color": "#d6d7cc"},
+        {"max_depth_m": 2000, "color": "#ced2c9"},
+        {"max_depth_m": null, "color": "#c7ccc5"}
+      ],
+      "closed_below_sea": {"color": "#cdb07e", "pattern": "dots", "pattern_color": "#3b342a", "pattern_px": 5, "pattern_alpha": 0.45, "outline_alpha": 0.75},
+      "unknown": {"color": "#f0e9d8", "pattern": "hatch", "pattern_color": "#7a7468", "pattern_px": 9, "pattern_alpha": 0.35},
+      "hillshade": {
+        "mode": "ink",
+        "azimuth_deg": 300,
+        "altitude_deg": 38,
+        "z_factor": 2.4,
+        "land_strength": 0.85,
+        "ocean_strength": 0.0,
+        "gamma": 1.2,
+        "elevation_ink": 0.12,
+        "ink_bleed_px": 2.4,
+        "highlight": 0.3,
+        "ink": "#22231f",
+        "desaturate": 0.25,
+        "coast_wash_px": 26,
+        "coast_wash_alpha": 0.22,
+        "coast_wash_color": "#7f8f80"
+      },
+      "band_contour_alpha": 0.0,
+      "band_contour_color": "#2a2824",
+      "paper": {"grain": 0.03, "blotch": 0.05, "blotch_cell_px": 320, "fiber": 0.045, "vignette": 0.1, "seed_name": "eastern/paper"},
+      "coast": {
+        "ink": "#24231f",
+        "line_px": 2.2,
+        "line_jitter": 0.7,
+        "second_line_at_px": 0,
+        "second_line_px": 0,
+        "second_alpha": 0,
+        "ripple_start_px": 9,
+        "ripple_step_px": 9,
+        "ripple_count": 5,
+        "ripple_px": 0.75,
+        "ripple_alpha": 0.38,
+        "ripple_color": "#3d4a4a",
+        "wobble_px": 2.2
+      },
+      "open_sea_pattern": {"step_px": 15, "amp_px": 3.2, "period_px": 46, "line_px": 0.7, "alpha": 0.26, "dash_period_px": 150, "color": "#3d4a4a", "start_px": 60},
+      "decorations": [
+        {"name": "title", "kind": "title_vertical", "w": 160, "h": 590, "target": [0.93, 0.62]},
+        {"name": "seal", "kind": "seal", "symbol": "east-seal", "w": 104, "h": 104, "target": [0.86, 0.86]},
+        {"name": "north", "kind": "north", "symbol": "east-north", "w": 120, "h": 160, "target": [0.92, 0.25]},
+        {"name": "legend", "kind": "legend", "w": 430, "h": 400, "target": [0.62, 0.84]},
+        {"name": "scale", "kind": "scale", "w": 470, "h": 84, "target": [0.28, 0.94]},
+        {"name": "ship-1", "kind": "ship", "symbol": "deco-ship-east", "w": 132, "h": 110, "target": [0.47, 0.74]},
+        {"name": "ship-2", "kind": "ship", "symbol": "deco-ship-east", "w": 108, "h": 90, "target": [0.88, 0.1], "mirror": true},
+        {"name": "cloud-1", "kind": "cloud", "symbol": "east-cloud", "w": 210, "h": 92, "target": [0.62, 0.6]},
+        {"name": "cloud-2", "kind": "cloud", "symbol": "east-cloud", "w": 170, "h": 74, "target": [0.12, 0.84], "mirror": true},
+        {"name": "cloud-3", "kind": "cloud", "symbol": "east-cloud", "w": 150, "h": 66, "target": [0.8, 0.42]}
+      ],
+      "text": {"title": "山海形势样图", "subtitle": "据三十米高程绘", "seal": ["织", "梦", "制", "图"], "legend_title": "图 例", "decoration_note": "福船、祥云、印章为装饰，不表示数据"},
+      "layers": {"terrain_symbols": false, "spot_heights": false, "soundings": false, "decorations": true},
+      "towns": {
+        "sprite": "map-art-eastern.svg",
+        "pattern": "town-{tier}",
+        "default_race": "human",
+        "system": "郡县制",
+        "names": {"hamlet": "村", "town": "县城", "city": "郡城", "capital": "都城"},
+        "capital_unique": true,
+        "note": "都城全图唯一：capital 级（含种族城镇）多于一个时 app/map_render.validate_towns 报错，不降级"
+      },
+      "race_towns": {
+        "enabled": true,
+        "secondary": true,
+        "sprite": "map-art.svg",
+        "races": ["elf", "dwarf", "orc", "halfling"],
+        "pattern": "town-{race}-{tier}",
+        "note": "次要用途：种族城镇可沿用西幻图示；都城唯一规则同样计入种族城镇"
+      },
+      "routes": {
+        "note": "道路线型（参考像素，2048 px 宽显示图）。casing=底边（先画），再画 stroke；dash 为空=实线；double=两条平行墨线。",
+        "kinds": {
+          "royal_road": {
+            "name": "驿道",
+            "stroke": "#b3261e",
+            "width": 2.2,
+            "casing": "#f3ecda",
+            "casing_width": 5.2,
+            "dash": [],
+            "double": true,
+            "edge": "#24231f",
+            "edge_width": 0.8
+          },
+          "road": {"name": "官路", "stroke": "#24231f", "width": 1.7, "casing": "#f3ecda", "casing_width": 3.4, "dash": []},
+          "track": {"name": "乡道", "stroke": "#24231f", "width": 1.2, "casing": null, "casing_width": 0, "dash": [7, 4]},
+          "trail": {"name": "山径", "stroke": "#a86b3c", "width": 1.4, "casing": null, "casing_width": 0, "dash": [0.1, 3.6], "linecap": "round"},
+          "sea_route": {"name": "海道", "stroke": "#3f7f86", "width": 1.2, "casing": null, "casing_width": 0, "dash": [10, 3, 2, 3]},
+          "river": {"name": "水道", "stroke": "#3f7f86", "width": 2.0, "casing": "#dfe6dc", "casing_width": 3.8, "dash": [], "taper": true, "wave": true}
+        }
+      },
+      "icon_sprite": "map-art-eastern.svg",
+      "decoration_symbols": {"map-art-eastern-deco.svg": ["east-seal", "east-north", "east-cloud"], "map-art.svg": ["deco-ship-east"]},
+      "sprites_note": "sprites=整份内联的图示 sprite；decoration_symbols=只按 id 抽取的制图装饰（避免与其它 sprite 的同名 id 冲突）；race_towns 同样按 id 抽取"
+    }
+  }
+}

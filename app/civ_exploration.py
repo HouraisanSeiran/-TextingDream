@@ -64,6 +64,28 @@ def shortest(graph, origin, stops=None):
     return costs, previous
 
 
+def town_polities(civ, towns, year):
+    """只读适配：已编译城镇 → 所属国家 id（无人地/无法确定为 ``None``）。
+
+    国家按州取：``settlement.region`` → ``_replay_block(civ, year)['polity'][region]``
+    （最近检查点 ≤ year 加其后变化日志；先过 endYear 自检）。``-1``、越界、回放状态不是
+    ``as_of_interval``（例如 year 早于第一个检查点）一律给 ``None``，不编造归属。
+    不改 compile_region 的输出；调用方（建包/测试）把结果写进 ``mechanics.events.polities``。
+    """
+    from . import civ_atlas_history
+    block = civ_atlas_history._replay_block(civ, year, [])
+    owners = block.get('polity') if block.get('status') == civ_atlas_history.INTERVAL else None
+    regions = {'settlement:%s' % r['id']: r.get('region') for r in civ.get('settlements', [])}
+    out = {}
+    for town in towns:
+        region = regions.get(town.get('city_id'))
+        value = None
+        if owners is not None and type(region) is int and 0 <= region < len(owners):
+            value = owners[region]
+        out[town['id']] = None if value in (None, -1) else value
+    return out
+
+
 def compile_region(story, characters, civ, world, doc, rows):
     """Compile an opt-in regional journey; existing stories remain unchanged."""
     start = doc['start_cell']

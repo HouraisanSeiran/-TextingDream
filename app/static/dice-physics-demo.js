@@ -256,6 +256,12 @@
   canvas.addEventListener('lostpointercapture', (ev) => { if (drag && ev.pointerId === drag.id) release(ev, true); });
 
   // ---------------------------------------------------------------- controls
+  // Material is a view preference only: it never changes geometry, physics or reading.
+  const materialBox = document.getElementById('lab-material');
+  if (materialBox) {
+    materialBox.value = C.material();
+    materialBox.addEventListener('change', () => { C.setMaterial(materialBox.value); draw(); });
+  }
   document.querySelectorAll('input[name="kind"]').forEach((input) => input.addEventListener('change', () => {
     if (!input.checked) return;
     kind = Number(input.value);

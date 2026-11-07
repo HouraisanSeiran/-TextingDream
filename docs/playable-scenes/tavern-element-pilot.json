@@ -1,0 +1,607 @@
+{
+  "schema_version": 1,
+  "scene": "short_tavern",
+  "status": "pilot",
+  "library": {
+    "default_path": "artifacts/human-encyclopedia/encyclopedia.sqlite3",
+    "build_command": ".venv\\Scripts\\python.exe -X utf8 -m tools.encyclopedia_build --with-traits --with-cuisine --with-attributes --with-culture --with-fantasy-biology --with-alchemy --with-reality-herbs --with-formulae --with-cuisine-western --with-world-setting --with-cuisine-world --with-shops"
+  },
+  "anchors": {
+    "ale_pence": 2,
+    "ferry_ticket_pence": 12,
+    "dock_work_pence": 6,
+    "job_reward_pence": 8,
+    "start_pence": 18
+  },
+  "notes": "库内价为估价区间（便士），场景价是本短篇的游戏设计值，必须落在库内区间内；锚点价格不得改动。shop 条目无 game 字段。 酒馆货品归铜杯酒馆（贝丝，hall）；面包与布里欧修归码头面包摊（面包师，quay）；烟熏鲱鱼与鲱鱼归码头鱼铺（鱼贩，quay）；药材只询价。public_description 是玩家视角的世界内口吻，不含疗效、用法与剂量。",
+  "entries": [
+    {
+      "namespace": "flavors",
+      "element_id": "flavors_beer",
+      "version": 4,
+      "name": "啤酒",
+      "primary": "alcohol",
+      "kind": "drink",
+      "use": "menu",
+      "supplied_by": "tavern",
+      "sold_at": "hall",
+      "npc": "bess",
+      "library_price": {
+        "min": 1,
+        "max": 3,
+        "per": "一杯",
+        "tier": "penny"
+      },
+      "library_sold_by": [
+        "tavern",
+        "inn_kitchen"
+      ],
+      "scene_price": 2,
+      "action": {
+        "id": "buy_ale",
+        "label": "买一杯麦酒（2便士）",
+        "text": "我付了2便士，要了麦酒。",
+        "aliases": [
+          "喝酒",
+          "买酒"
+        ]
+      },
+      "menu_name": "麦酒",
+      "public_description": "铜杯酒馆柜台出的麦酒，琥珀色，有谷物和面包的气味。一杯2便士，由酒保贝丝倒给客人。"
+    },
+    {
+      "namespace": "flavors",
+      "element_id": "flavors_mead",
+      "version": 4,
+      "name": "蜂蜜酒",
+      "primary": "alcohol",
+      "kind": "drink",
+      "use": "menu",
+      "supplied_by": "tavern",
+      "sold_at": "hall",
+      "npc": "bess",
+      "library_price": {
+        "min": 3,
+        "max": 8,
+        "per": "一杯",
+        "tier": "groat"
+      },
+      "library_sold_by": [
+        "tavern",
+        "inn_kitchen"
+      ],
+      "scene_price": 4,
+      "action": {
+        "id": "buy_mead",
+        "label": "买一份蜂蜜酒（4便士）",
+        "text": "我付了4便士，要了蜂蜜酒。",
+        "aliases": [
+          "喝蜂蜜酒"
+        ]
+      },
+      "menu_name": "蜂蜜酒",
+      "public_description": "柜台后陶壶里盛着蜂蜜酒，颜色发金，闻着有蜂蜜的甜味。一杯4便士，比麦酒贵，由贝丝倒酒。"
+    },
+    {
+      "namespace": "cuisine-british",
+      "element_id": "cuisine_uk_welsh_rarebit",
+      "version": 4,
+      "name": "威尔士兔子",
+      "primary": "dish",
+      "kind": "dish",
+      "use": "menu",
+      "supplied_by": "tavern",
+      "sold_at": "hall",
+      "npc": "bess",
+      "library_price": {
+        "min": 2,
+        "max": 6,
+        "per": "一份",
+        "tier": "groat"
+      },
+      "library_sold_by": [
+        "tavern",
+        "inn_kitchen"
+      ],
+      "scene_price": 3,
+      "action": {
+        "id": "buy_rarebit",
+        "label": "买一份奶酪吐司（3便士）",
+        "text": "我付了3便士，要了奶酪吐司。",
+        "aliases": [
+          "买奶酪吐司",
+          "吃奶酪"
+        ]
+      },
+      "menu_name": "奶酪吐司",
+      "public_description": "烤面包片上盖着一层化开的奶酪，边缘烤得焦褐，咸香扑鼻。一份3便士，贝丝在酒馆柜台出售。"
+    },
+    {
+      "namespace": "cuisine-french",
+      "element_id": "cuisine_fr_pot_au_feu",
+      "version": 4,
+      "name": "火上锅",
+      "primary": "dish",
+      "kind": "dish",
+      "use": "menu",
+      "supplied_by": "tavern",
+      "sold_at": "hall",
+      "npc": "bess",
+      "library_price": {
+        "min": 3,
+        "max": 8,
+        "per": "一份",
+        "tier": "groat"
+      },
+      "library_sold_by": [
+        "tavern",
+        "inn_kitchen"
+      ],
+      "scene_price": 4,
+      "action": {
+        "id": "buy_stew",
+        "label": "买一份炖肉蔬菜锅（4便士）",
+        "text": "我付了4便士，要了炖肉蔬菜锅。",
+        "aliases": [
+          "买炖菜",
+          "吃炖菜"
+        ]
+      },
+      "menu_name": "炖肉蔬菜锅",
+      "public_description": "灶上炖着大块的肉和蔬菜，汤色清亮，热气里是肉香。一份4便士，贝丝从灶边盛给客人。"
+    },
+    {
+      "namespace": "cuisine-british",
+      "element_id": "cuisine_uk_steak_kidney_pie",
+      "version": 4,
+      "name": "牛肉腰子派与牛排腰子布丁",
+      "primary": "dish",
+      "kind": "dish",
+      "use": "menu",
+      "supplied_by": "tavern",
+      "sold_at": "hall",
+      "npc": "bess",
+      "library_price": {
+        "min": 3,
+        "max": 8,
+        "per": "一只",
+        "tier": "groat"
+      },
+      "library_sold_by": [
+        "tavern",
+        "baker"
+      ],
+      "scene_price": 5,
+      "action": {
+        "id": "buy_pie",
+        "label": "买一份牛肉腰子派（5便士）",
+        "text": "我付了5便士，要了牛肉腰子派。",
+        "aliases": [
+          "买派",
+          "吃派"
+        ]
+      },
+      "menu_name": "牛肉腰子派",
+      "public_description": "酥皮烤得发黄，里面是牛肉和腰子，咬开有浓浓的肉汁。一只5便士，贝丝在酒馆柜台出售。"
+    },
+    {
+      "namespace": "cuisine-french",
+      "element_id": "cuisine_fr_potee_auvergnate",
+      "version": 4,
+      "name": "奥弗涅豆焖肉与腌肉菜锅",
+      "primary": "dish",
+      "kind": "dish",
+      "use": "menu",
+      "supplied_by": "tavern",
+      "sold_at": "hall",
+      "npc": "bess",
+      "library_price": {
+        "min": 3,
+        "max": 8,
+        "per": "一份",
+        "tier": "groat"
+      },
+      "library_sold_by": [
+        "tavern",
+        "inn_kitchen"
+      ],
+      "scene_price": 5,
+      "menu_name": "奥弗涅豆焖肉与腌肉菜锅",
+      "public_description": "一大锅豆子配腌肉和蔬菜慢炖出的浓汤，稠而咸香。一份5便士，贝丝从酒馆灶上盛出。"
+    },
+    {
+      "namespace": "cuisine-british",
+      "element_id": "cuisine_uk_cullen_skink",
+      "version": 4,
+      "name": "卡伦石龙子鱼汤",
+      "primary": "soup",
+      "kind": "dish",
+      "use": "menu",
+      "supplied_by": "tavern",
+      "sold_at": "hall",
+      "npc": "bess",
+      "library_price": {
+        "min": 3,
+        "max": 8,
+        "per": "一碗",
+        "tier": "groat"
+      },
+      "library_sold_by": [
+        "tavern",
+        "inn_kitchen"
+      ],
+      "scene_price": 4,
+      "menu_name": "卡伦石龙子鱼汤",
+      "public_description": "用烟熏鱼、土豆和洋葱熬成的奶白色浓汤，带着烟熏味。一碗4便士，贝丝从酒馆灶上盛出。"
+    },
+    {
+      "namespace": "cuisine-british",
+      "element_id": "cuisine_uk_black_pudding",
+      "version": 4,
+      "name": "黑布丁",
+      "primary": "dish",
+      "kind": "dish",
+      "use": "menu",
+      "supplied_by": "tavern",
+      "sold_at": "hall",
+      "npc": "bess",
+      "library_price": {
+        "min": 1,
+        "max": 3,
+        "per": "一段",
+        "tier": "penny"
+      },
+      "library_sold_by": [
+        "butcher",
+        "tavern"
+      ],
+      "scene_price": 2,
+      "menu_name": "黑布丁",
+      "public_description": "深色的血肠，煎过之后外皮微脆，味道浓重。一段2便士，贝丝在柜台切给客人。"
+    },
+    {
+      "namespace": "cuisine-british",
+      "element_id": "cuisine_uk_pub_counter_snack",
+      "version": 4,
+      "name": "酒吧柜台小食",
+      "primary": "institution",
+      "kind": "snack",
+      "use": "menu",
+      "supplied_by": "tavern",
+      "sold_at": "hall",
+      "npc": "bess",
+      "library_price": {
+        "min": 1,
+        "max": 3,
+        "per": "一小碟",
+        "tier": "penny"
+      },
+      "library_sold_by": [
+        "tavern"
+      ],
+      "scene_price": 1,
+      "menu_name": "酒吧柜台小食",
+      "public_description": "柜台上用小碟装的下酒小食，量不多，随酒吃着玩。一小碟1便士，向贝丝要就行。"
+    },
+    {
+      "namespace": "cuisine-british",
+      "element_id": "cuisine_uk_kippers",
+      "version": 4,
+      "name": "烟熏鲱鱼",
+      "primary": "dish",
+      "kind": "dish",
+      "use": "menu",
+      "supplied_by": "fishmonger",
+      "sold_at": "quay",
+      "npc": "fishmonger",
+      "library_price": {
+        "min": 2,
+        "max": 6,
+        "per": "一对",
+        "tier": "groat"
+      },
+      "library_sold_by": [
+        "fishmonger",
+        "tavern"
+      ],
+      "scene_price": 3,
+      "menu_name": "烟熏鲱鱼",
+      "public_description": "鱼铺挂着剖开熏过的鲱鱼，表面金褐色，烟味很重。一对3便士，鱼贩当场用纸包好。",
+      "action": {
+        "id": "buy_kippers",
+        "label": "买一对烟熏鲱鱼（3便士）",
+        "text": "我付了3便士，买了一对烟熏鲱鱼。",
+        "aliases": [
+          "买熏鱼",
+          "买烟熏鲱鱼"
+        ]
+      }
+    },
+    {
+      "namespace": "cuisine-french",
+      "element_id": "cuisine_fr_baguette",
+      "version": 4,
+      "name": "法棍",
+      "primary": "bread",
+      "kind": "bread",
+      "use": "menu",
+      "supplied_by": "baker",
+      "sold_at": "quay",
+      "npc": "baker",
+      "library_price": {
+        "min": 1,
+        "max": 3,
+        "per": "一根",
+        "tier": "penny"
+      },
+      "library_sold_by": [
+        "baker"
+      ],
+      "scene_price": 2,
+      "action": {
+        "id": "buy_bread",
+        "label": "买一份面包（2便士）",
+        "text": "我付了2便士，要了一根面包。",
+        "aliases": [
+          "买面包",
+          "吃面包"
+        ]
+      },
+      "menu_name": "面包",
+      "public_description": "面包摊上长条形的面包，外皮硬脆，里面松软。一根2便士，面包师现卖现拿。"
+    },
+    {
+      "namespace": "cuisine-french",
+      "element_id": "cuisine_fr_brioche",
+      "version": 4,
+      "name": "布里欧修",
+      "primary": "bread",
+      "kind": "bread",
+      "use": "menu",
+      "supplied_by": "baker",
+      "sold_at": "quay",
+      "npc": "baker",
+      "library_price": {
+        "min": 2,
+        "max": 6,
+        "per": "一个",
+        "tier": "groat"
+      },
+      "library_sold_by": [
+        "baker"
+      ],
+      "scene_price": 3,
+      "menu_name": "布里欧修",
+      "public_description": "面包摊上的黄油面包，颜色金黄，质地松软，味道偏甜。一个3便士，面包师现卖现拿。",
+      "action": {
+        "id": "buy_brioche",
+        "label": "买一个布里欧修（3便士）",
+        "text": "我付了3便士，买了一个布里欧修。",
+        "aliases": [
+          "买布里欧修",
+          "买甜面包"
+        ]
+      }
+    },
+    {
+      "namespace": "reality-herbs-aerial",
+      "element_id": "herb_aerial_aiye",
+      "version": 4,
+      "name": "艾叶",
+      "primary": "medicinal_herb",
+      "kind": "herb",
+      "use": "shelf",
+      "supplied_by": "apothecary",
+      "sold_at": "quay",
+      "npc": null,
+      "library_price": {
+        "min": 1,
+        "max": 3,
+        "per": "一把",
+        "tier": "penny"
+      },
+      "library_sold_by": [
+        "apothecary",
+        "herbalist",
+        "market"
+      ],
+      "scene_price": 1,
+      "inquiry": true,
+      "menu_name": "艾叶",
+      "public_description": "药铺柜上成把晾干的灰绿色叶子，背面发白，气味清苦带点辛香，当地叫艾叶。一把1便士，按把卖。"
+    },
+    {
+      "namespace": "reality-herbs-aerial",
+      "element_id": "herb_aerial_bohe",
+      "version": 4,
+      "name": "薄荷",
+      "primary": "medicinal_herb",
+      "kind": "herb",
+      "use": "shelf",
+      "supplied_by": "apothecary",
+      "sold_at": "quay",
+      "npc": null,
+      "library_price": {
+        "min": 1,
+        "max": 3,
+        "per": "一把",
+        "tier": "penny"
+      },
+      "library_sold_by": [
+        "apothecary",
+        "herbalist",
+        "market"
+      ],
+      "scene_price": 1,
+      "inquiry": true,
+      "menu_name": "薄荷",
+      "public_description": "药铺里成束的薄荷，叶片带细毛，揉一下就有清凉的气味。一把1便士，按把卖。"
+    },
+    {
+      "namespace": "reality-herbs-western",
+      "element_id": "herb_west_chamomile",
+      "version": 4,
+      "name": "洋甘菊",
+      "primary": "medicinal_herb",
+      "kind": "herb",
+      "use": "shelf",
+      "supplied_by": "apothecary",
+      "sold_at": "quay",
+      "npc": null,
+      "library_price": {
+        "min": 1,
+        "max": 3,
+        "per": "一包",
+        "tier": "penny"
+      },
+      "library_sold_by": [
+        "herbalist",
+        "apothecary",
+        "market"
+      ],
+      "scene_price": 2,
+      "inquiry": true,
+      "menu_name": "洋甘菊",
+      "public_description": "纸包里装着小朵的干花，白瓣黄心，闻起来有淡淡的苹果香。一包2便士，按包卖。"
+    },
+    {
+      "namespace": "reality-herbs-western",
+      "element_id": "herb_west_comfrey",
+      "version": 4,
+      "name": "聚合草",
+      "primary": "medicinal_herb",
+      "kind": "herb",
+      "use": "shelf",
+      "supplied_by": "apothecary",
+      "sold_at": "quay",
+      "npc": null,
+      "library_price": {
+        "min": 1,
+        "max": 3,
+        "per": "一把",
+        "tier": "penny"
+      },
+      "library_sold_by": [
+        "herbalist",
+        "apothecary"
+      ],
+      "scene_price": 1,
+      "inquiry": true,
+      "menu_name": "聚合草",
+      "public_description": "宽大多毛的叶子捆成一把，摸着粗糙，气味青涩，当地叫聚合草。一把1便士，按把卖。"
+    },
+    {
+      "namespace": "reality-herbs-roots",
+      "element_id": "herb_root_licorice",
+      "version": 4,
+      "name": "甘草",
+      "primary": "medicinal_herb",
+      "kind": "herb",
+      "use": "shelf",
+      "supplied_by": "apothecary",
+      "sold_at": "quay",
+      "npc": null,
+      "library_price": {
+        "min": 2,
+        "max": 6,
+        "per": "一两",
+        "tier": "groat"
+      },
+      "library_sold_by": [
+        "apothecary",
+        "market",
+        "spice_merchant"
+      ],
+      "scene_price": 2,
+      "inquiry": true,
+      "menu_name": "甘草",
+      "public_description": "切成段的黄褐色根，放在嘴里嚼有甜味，当地叫甘草。一两2便士，按重量称卖。"
+    },
+    {
+      "namespace": "animal-foods",
+      "element_id": "animal_food_herring",
+      "version": 4,
+      "name": "鲱与小型群游鱼",
+      "primary": "seafood",
+      "kind": "fish",
+      "use": "shelf",
+      "supplied_by": "fishmonger",
+      "sold_at": "quay",
+      "npc": "fishmonger",
+      "library_price": {
+        "min": 2,
+        "max": 6,
+        "per": "一串",
+        "tier": "groat"
+      },
+      "library_sold_by": [
+        "fishmonger",
+        "street_vendor"
+      ],
+      "scene_price": 2,
+      "menu_name": "鲱鱼",
+      "public_description": "鱼铺摊上用绳子穿成串的银亮小鱼，带着海腥味。一串2便士，鱼贩按串卖。",
+      "action": {
+        "id": "buy_herring",
+        "label": "买一串鲱鱼（2便士）",
+        "text": "我付了2便士，买了一串鲱鱼。",
+        "aliases": [
+          "买鲱鱼",
+          "买鱼"
+        ]
+      }
+    },
+    {
+      "namespace": "shops",
+      "element_id": "shop_tavern",
+      "version": 2,
+      "name": "酒馆",
+      "primary": "shop",
+      "kind": "shop",
+      "use": "shop",
+      "supplied_by": "tavern",
+      "sold_at": "hall",
+      "npc": "bess",
+      "public_description": "铜杯酒馆：厅里有长柜台和几张木桌，酒保贝丝管着酒桶和灶火，菜单写在柜台上。客人付便士，现点现吃。"
+    },
+    {
+      "namespace": "shops",
+      "element_id": "shop_apothecary",
+      "version": 2,
+      "name": "药铺",
+      "primary": "shop",
+      "kind": "shop",
+      "use": "shop",
+      "supplied_by": "apothecary",
+      "sold_at": "quay",
+      "npc": null,
+      "public_description": "码头药铺：一面墙是带小抽屉的木柜，柜台上摆着秤和纸包，空气里有干草味。货品按把、按包、按两称，价钱贴在货架上。"
+    },
+    {
+      "namespace": "shops",
+      "element_id": "shop_baker",
+      "version": 2,
+      "name": "面包房",
+      "primary": "shop",
+      "kind": "shop",
+      "use": "shop",
+      "supplied_by": "baker",
+      "sold_at": "quay",
+      "npc": "baker",
+      "public_description": "码头面包摊：木架上摆着刚出炉的面包，摊后有个小炉子，香味顺风飘到码头。面包按根、按个卖，现付便士现拿。"
+    },
+    {
+      "namespace": "shops",
+      "element_id": "shop_fishmonger",
+      "version": 2,
+      "name": "鱼铺",
+      "primary": "shop",
+      "kind": "shop",
+      "use": "shop",
+      "supplied_by": "fishmonger",
+      "sold_at": "quay",
+      "npc": "fishmonger",
+      "public_description": "码头鱼铺：湿木台上铺着海草，鱼有的挂着有的摆着，地面总是湿的。按串、按对卖，现付便士现拿。"
+    }
+  ]
+}

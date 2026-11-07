@@ -1,0 +1,3391 @@
+[
+  {
+    "id": "west-common-site-lapispit-01",
+    "style": "west",
+    "race": "common",
+    "category": "site",
+    "kind": "lapispit",
+    "name": "青金石露天矿",
+    "resource": "lapis",
+    "subtype": "open_pit",
+    "facility": "mine_head",
+    "variant": 1,
+    "footprint": [
+      4,
+      3
+    ],
+    "height_px": 46,
+    "anchor": [
+      96,
+      190
+    ],
+    "viewBox": [
+      0,
+      0,
+      192,
+      190
+    ],
+    "tags": [
+      "open_pit",
+      "terraced",
+      "sorting_table",
+      "derrick"
+    ],
+    "roof": "none",
+    "note": "露天采坑，最近 FacilityKind 为 mine_head"
+  },
+  {
+    "id": "west-common-prop-lapis-basket-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "lapis-basket",
+    "name": "青金石矿筐",
+    "resource": "lapis",
+    "subtype": null,
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 12,
+    "anchor": [
+      24,
+      60
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      60
+    ],
+    "tags": [
+      "ore",
+      "basket"
+    ],
+    "roof": "none",
+    "note": "配套摆件/地面，无对应 FacilityKind"
+  },
+  {
+    "id": "west-common-prop-lapis-spoil-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "lapis-spoil",
+    "name": "废石堆",
+    "resource": "lapis",
+    "subtype": null,
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 10,
+    "anchor": [
+      24,
+      58
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      58
+    ],
+    "tags": [
+      "spoil"
+    ],
+    "roof": "none",
+    "note": "配套摆件/地面，无对应 FacilityKind"
+  },
+  {
+    "id": "west-common-prop-lapis-cart-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "lapis-cart",
+    "name": "青金石手推车",
+    "resource": "lapis",
+    "subtype": null,
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 14,
+    "anchor": [
+      24,
+      62
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      62
+    ],
+    "tags": [
+      "wheelbarrow"
+    ],
+    "roof": "none",
+    "note": "配套摆件/地面，无对应 FacilityKind"
+  },
+  {
+    "id": "west-common-ground-lapisrubble-01",
+    "style": "west",
+    "race": "common",
+    "category": "ground",
+    "kind": "lapisrubble",
+    "name": "青金石碎岩地",
+    "resource": "lapis",
+    "subtype": null,
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "tile",
+      "seamless"
+    ],
+    "roof": "none",
+    "note": "平铺底纹；元素按 ±48 平移复制后裁切，任意排列无缝"
+  },
+  {
+    "id": "west-common-ground-lapisrubble-02",
+    "style": "west",
+    "race": "common",
+    "category": "ground",
+    "kind": "lapisrubble",
+    "name": "青金石碎岩地",
+    "resource": "lapis",
+    "subtype": null,
+    "facility": null,
+    "variant": 2,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "tile",
+      "seamless"
+    ],
+    "roof": "none",
+    "note": "平铺底纹；元素按 ±48 平移复制后裁切，任意排列无缝"
+  },
+  {
+    "id": "west-common-ground-lapisrubble-03",
+    "style": "west",
+    "race": "common",
+    "category": "ground",
+    "kind": "lapisrubble",
+    "name": "青金石碎岩地",
+    "resource": "lapis",
+    "subtype": null,
+    "facility": null,
+    "variant": 3,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "tile",
+      "seamless"
+    ],
+    "roof": "none",
+    "note": "平铺底纹；元素按 ±48 平移复制后裁切，任意排列无缝"
+  },
+  {
+    "id": "west-common-ground-lapisrubble-04",
+    "style": "west",
+    "race": "common",
+    "category": "ground",
+    "kind": "lapisrubble",
+    "name": "青金石碎岩地",
+    "resource": "lapis",
+    "subtype": null,
+    "facility": null,
+    "variant": 4,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "tile",
+      "seamless"
+    ],
+    "roof": "none",
+    "note": "平铺底纹；元素按 ±48 平移复制后裁切，任意排列无缝"
+  },
+  {
+    "id": "west-common-site-raremetal-adit-01",
+    "style": "west",
+    "race": "common",
+    "category": "site",
+    "kind": "raremetal-adit",
+    "name": "稀有金属矿",
+    "resource": "rare_metals",
+    "subtype": "adit",
+    "facility": "mine_head",
+    "variant": 1,
+    "footprint": [
+      4,
+      3
+    ],
+    "height_px": 70,
+    "anchor": [
+      96,
+      214
+    ],
+    "viewBox": [
+      0,
+      0,
+      192,
+      214
+    ],
+    "tags": [
+      "adit",
+      "hand_sorting_shed",
+      "sluice",
+      "rails"
+    ],
+    "roof": "monopitch",
+    "note": "山腰平硐 + 手选矿棚 + 洗矿槽；手选棚为单坡顶"
+  },
+  {
+    "id": "west-common-prop-raremetal-sluice-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "raremetal-sluice",
+    "name": "洗矿木槽",
+    "resource": "rare_metals",
+    "subtype": null,
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 16,
+    "anchor": [
+      24,
+      64
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      64
+    ],
+    "tags": [
+      "sluice",
+      "riffles"
+    ],
+    "roof": "none",
+    "note": "配套摆件/地面，无对应 FacilityKind"
+  },
+  {
+    "id": "west-common-prop-raremetal-panstack-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "raremetal-panstack",
+    "name": "淘洗盘与矿样",
+    "resource": "rare_metals",
+    "subtype": null,
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 8,
+    "anchor": [
+      24,
+      56
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      56
+    ],
+    "tags": [
+      "pan",
+      "ore_sample"
+    ],
+    "roof": "none",
+    "note": "配套摆件/地面，无对应 FacilityKind"
+  },
+  {
+    "id": "west-common-prop-raremetal-orebag-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "raremetal-orebag",
+    "name": "矿样麻袋",
+    "resource": "rare_metals",
+    "subtype": null,
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 14,
+    "anchor": [
+      24,
+      62
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      62
+    ],
+    "tags": [
+      "sack",
+      "ore"
+    ],
+    "roof": "none",
+    "note": "配套摆件/地面，无对应 FacilityKind"
+  },
+  {
+    "id": "west-common-site-coal-openpit-01",
+    "style": "west",
+    "race": "common",
+    "category": "site",
+    "kind": "coal-openpit",
+    "name": "露天煤坑",
+    "resource": "coal",
+    "subtype": "open_pit",
+    "facility": "mine_head",
+    "variant": 1,
+    "footprint": [
+      4,
+      3
+    ],
+    "height_px": 40,
+    "anchor": [
+      96,
+      184
+    ],
+    "viewBox": [
+      0,
+      0,
+      192,
+      184
+    ],
+    "tags": [
+      "open_pit",
+      "coal_seam",
+      "terraced",
+      "windlass"
+    ],
+    "roof": "none",
+    "note": "露天采煤坑，最近 FacilityKind 为 mine_head"
+  },
+  {
+    "id": "west-common-prop-coal-heap-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "coal-heap",
+    "name": "露天煤堆",
+    "resource": "coal",
+    "subtype": null,
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 14,
+    "anchor": [
+      24,
+      62
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      62
+    ],
+    "tags": [
+      "coal",
+      "heap"
+    ],
+    "roof": "none",
+    "note": "配套摆件/地面，无对应 FacilityKind"
+  },
+  {
+    "id": "west-common-prop-coal-basket-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "coal-basket",
+    "name": "背煤筐",
+    "resource": "coal",
+    "subtype": null,
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 18,
+    "anchor": [
+      24,
+      66
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      66
+    ],
+    "tags": [
+      "basket",
+      "coal"
+    ],
+    "roof": "none",
+    "note": "配套摆件/地面，无对应 FacilityKind"
+  },
+  {
+    "id": "west-common-ground-coalpitfloor-01",
+    "style": "west",
+    "race": "common",
+    "category": "ground",
+    "kind": "coalpitfloor",
+    "name": "煤坑煤屑地",
+    "resource": "coal",
+    "subtype": null,
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "tile",
+      "seamless"
+    ],
+    "roof": "none",
+    "note": "平铺底纹；元素按 ±48 平移复制后裁切，任意排列无缝"
+  },
+  {
+    "id": "west-common-ground-coalpitfloor-02",
+    "style": "west",
+    "race": "common",
+    "category": "ground",
+    "kind": "coalpitfloor",
+    "name": "煤坑煤屑地",
+    "resource": "coal",
+    "subtype": null,
+    "facility": null,
+    "variant": 2,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "tile",
+      "seamless"
+    ],
+    "roof": "none",
+    "note": "平铺底纹；元素按 ±48 平移复制后裁切，任意排列无缝"
+  },
+  {
+    "id": "west-common-ground-coalpitfloor-03",
+    "style": "west",
+    "race": "common",
+    "category": "ground",
+    "kind": "coalpitfloor",
+    "name": "煤坑煤屑地",
+    "resource": "coal",
+    "subtype": null,
+    "facility": null,
+    "variant": 3,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "tile",
+      "seamless"
+    ],
+    "roof": "none",
+    "note": "平铺底纹；元素按 ±48 平移复制后裁切，任意排列无缝"
+  },
+  {
+    "id": "west-common-ground-coalpitfloor-04",
+    "style": "west",
+    "race": "common",
+    "category": "ground",
+    "kind": "coalpitfloor",
+    "name": "煤坑煤屑地",
+    "resource": "coal",
+    "subtype": null,
+    "facility": null,
+    "variant": 4,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "tile",
+      "seamless"
+    ],
+    "roof": "none",
+    "note": "平铺底纹；元素按 ±48 平移复制后裁切，任意排列无缝"
+  },
+  {
+    "id": "west-common-site-charcoal-kiln-01",
+    "style": "west",
+    "race": "common",
+    "category": "site",
+    "kind": "charcoal-kiln",
+    "name": "烧炭窑场",
+    "resource": "coal",
+    "subtype": "charcoal_kiln",
+    "facility": "kiln",
+    "variant": 1,
+    "footprint": [
+      4,
+      3
+    ],
+    "height_px": 56,
+    "anchor": [
+      96,
+      200
+    ],
+    "viewBox": [
+      0,
+      0,
+      192,
+      200
+    ],
+    "tags": [
+      "charcoal",
+      "meiler",
+      "woodpile",
+      "collier_hut"
+    ],
+    "roof": "gable_thatch",
+    "note": "林中土覆木垛烧炭，属 kiln；产物按 coal 记"
+  },
+  {
+    "id": "west-common-prop-charcoal-sacks-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "charcoal-sacks",
+    "name": "木炭袋",
+    "resource": "coal",
+    "subtype": null,
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 14,
+    "anchor": [
+      24,
+      62
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      62
+    ],
+    "tags": [
+      "charcoal",
+      "sack"
+    ],
+    "roof": "none",
+    "note": "配套摆件/地面，无对应 FacilityKind"
+  },
+  {
+    "id": "west-common-prop-charcoal-woodpile-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "charcoal-woodpile",
+    "name": "烧炭劈柴垛",
+    "resource": "coal",
+    "subtype": null,
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 20,
+    "anchor": [
+      24,
+      68
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      68
+    ],
+    "tags": [
+      "firewood"
+    ],
+    "roof": "none",
+    "note": "配套摆件/地面，无对应 FacilityKind"
+  },
+  {
+    "id": "west-common-prop-charcoal-meiler-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "charcoal-meiler",
+    "name": "小炭窑",
+    "resource": "coal",
+    "subtype": null,
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 44,
+    "anchor": [
+      24,
+      92
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      92
+    ],
+    "tags": [
+      "meiler",
+      "smoke"
+    ],
+    "roof": "none",
+    "note": "配套摆件/地面，无对应 FacilityKind"
+  },
+  {
+    "id": "west-common-site-saffron-garden-01",
+    "style": "west",
+    "race": "common",
+    "category": "site",
+    "kind": "saffron-garden",
+    "name": "番红花香料园",
+    "resource": "spices",
+    "subtype": "saffron_garden",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      4,
+      3
+    ],
+    "height_px": 44,
+    "anchor": [
+      96,
+      188
+    ],
+    "viewBox": [
+      0,
+      0,
+      192,
+      188
+    ],
+    "tags": [
+      "saffron",
+      "crocus_field",
+      "drying_shed"
+    ],
+    "roof": "gable_thatch",
+    "note": "番红花田 + 晒花棚；无对应 FacilityKind（田园型资源点）"
+  },
+  {
+    "id": "west-common-prop-spice-flowerbasket-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "spice-flowerbasket",
+    "name": "番红花花筐",
+    "resource": "spices",
+    "subtype": null,
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 12,
+    "anchor": [
+      24,
+      60
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      60
+    ],
+    "tags": [
+      "basket",
+      "crocus"
+    ],
+    "roof": "none",
+    "note": "配套摆件/地面，无对应 FacilityKind"
+  },
+  {
+    "id": "west-common-prop-spice-sieve-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "spice-sieve",
+    "name": "晒花筛架",
+    "resource": "spices",
+    "subtype": null,
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 10,
+    "anchor": [
+      24,
+      58
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      58
+    ],
+    "tags": [
+      "sieve",
+      "trestle"
+    ],
+    "roof": "none",
+    "note": "配套摆件/地面，无对应 FacilityKind"
+  },
+  {
+    "id": "west-common-prop-spice-jars-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "spice-jars",
+    "name": "香料陶罐",
+    "resource": "spices",
+    "subtype": null,
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 6,
+    "anchor": [
+      24,
+      54
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      54
+    ],
+    "tags": [
+      "jar",
+      "sealed"
+    ],
+    "roof": "none",
+    "note": "配套摆件/地面，无对应 FacilityKind"
+  },
+  {
+    "id": "west-common-site-silk-filature-01",
+    "style": "west",
+    "race": "common",
+    "category": "site",
+    "kind": "silk-filature",
+    "name": "养蚕缫丝坊",
+    "resource": "silk",
+    "subtype": "sericulture",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      4,
+      3
+    ],
+    "height_px": 64,
+    "anchor": [
+      96,
+      208
+    ],
+    "viewBox": [
+      0,
+      0,
+      192,
+      208
+    ],
+    "tags": [
+      "mulberry",
+      "silkworm_house",
+      "reeling",
+      "two_storey"
+    ],
+    "roof": "gable_tile",
+    "note": "桑园 + 蚕室 + 缫丝车；无对应 FacilityKind（作坊型资源点，最近似 warehouse 但不是仓储）"
+  },
+  {
+    "id": "west-common-prop-silk-cocoontray-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "silk-cocoontray",
+    "name": "蚕匾（蚕茧）",
+    "resource": "silk",
+    "subtype": null,
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 6,
+    "anchor": [
+      24,
+      54
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      54
+    ],
+    "tags": [
+      "tray",
+      "cocoon"
+    ],
+    "roof": "none",
+    "note": "配套摆件/地面，无对应 FacilityKind"
+  },
+  {
+    "id": "west-common-prop-silk-reel-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "silk-reel",
+    "name": "缫丝车",
+    "resource": "silk",
+    "subtype": null,
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 30,
+    "anchor": [
+      24,
+      78
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      78
+    ],
+    "tags": [
+      "reeling_wheel"
+    ],
+    "roof": "none",
+    "note": "配套摆件/地面，无对应 FacilityKind"
+  },
+  {
+    "id": "west-common-prop-silk-mulberry-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "silk-mulberry",
+    "name": "桑树",
+    "resource": "silk",
+    "subtype": null,
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 30,
+    "anchor": [
+      24,
+      78
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      78
+    ],
+    "tags": [
+      "tree",
+      "mulberry"
+    ],
+    "roof": "none",
+    "note": "配套摆件/地面，无对应 FacilityKind"
+  },
+  {
+    "id": "west-common-site-ivory-workshop-01",
+    "style": "west",
+    "race": "common",
+    "category": "site",
+    "kind": "ivory-workshop",
+    "name": "象牙作坊与牙料仓",
+    "resource": "ivory",
+    "subtype": "carving_workshop",
+    "facility": "warehouse",
+    "variant": 1,
+    "footprint": [
+      4,
+      3
+    ],
+    "height_px": 60,
+    "anchor": [
+      96,
+      204
+    ],
+    "viewBox": [
+      0,
+      0,
+      192,
+      204
+    ],
+    "tags": [
+      "ivory_store",
+      "carving",
+      "trade_scale"
+    ],
+    "roof": "gable_tile",
+    "note": "只画收购、仓储、雕刻作坊，不画猎取；仓库按 warehouse 记"
+  },
+  {
+    "id": "west-common-prop-ivory-stack-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "ivory-stack",
+    "name": "牙料摞",
+    "resource": "ivory",
+    "subtype": null,
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 18,
+    "anchor": [
+      24,
+      66
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      66
+    ],
+    "tags": [
+      "raw_ivory",
+      "stack"
+    ],
+    "roof": "none",
+    "note": "配套摆件/地面，无对应 FacilityKind"
+  },
+  {
+    "id": "west-common-prop-ivory-scale-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "ivory-scale",
+    "name": "收购秤",
+    "resource": "ivory",
+    "subtype": null,
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 22,
+    "anchor": [
+      24,
+      70
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      70
+    ],
+    "tags": [
+      "scale",
+      "trade"
+    ],
+    "roof": "none",
+    "note": "配套摆件/地面，无对应 FacilityKind"
+  },
+  {
+    "id": "west-common-prop-ivory-crate-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "ivory-crate",
+    "name": "牙雕成品箱",
+    "resource": "ivory",
+    "subtype": null,
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 10,
+    "anchor": [
+      24,
+      58
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      58
+    ],
+    "tags": [
+      "crate",
+      "carvings"
+    ],
+    "roof": "none",
+    "note": "配套摆件/地面，无对应 FacilityKind"
+  },
+  {
+    "id": "west-common-site-dye-works-01",
+    "style": "west",
+    "race": "common",
+    "category": "site",
+    "kind": "dye-works",
+    "name": "染料场",
+    "resource": "dye",
+    "subtype": "woad_madder",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      4,
+      3
+    ],
+    "height_px": 56,
+    "anchor": [
+      96,
+      200
+    ],
+    "viewBox": [
+      0,
+      0,
+      192,
+      200
+    ],
+    "tags": [
+      "woad_vat",
+      "madder_rack",
+      "cloth_poles",
+      "dye_vat"
+    ],
+    "roof": "none",
+    "note": "菘蓝发酵池 + 茜草根晾架 + 染布晾杆；无对应 FacilityKind（最近似 tannery，但不是制革）"
+  },
+  {
+    "id": "west-common-prop-dye-vat-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "dye-vat",
+    "name": "染缸",
+    "resource": "dye",
+    "subtype": null,
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 12,
+    "anchor": [
+      24,
+      60
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      60
+    ],
+    "tags": [
+      "vat",
+      "woad"
+    ],
+    "roof": "none",
+    "note": "配套摆件/地面，无对应 FacilityKind"
+  },
+  {
+    "id": "west-common-prop-dye-madderrack-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "dye-madderrack",
+    "name": "茜草根晾架",
+    "resource": "dye",
+    "subtype": null,
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 24,
+    "anchor": [
+      24,
+      72
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      72
+    ],
+    "tags": [
+      "rack",
+      "madder_root"
+    ],
+    "roof": "none",
+    "note": "配套摆件/地面，无对应 FacilityKind"
+  },
+  {
+    "id": "west-common-prop-dye-clothpole-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "dye-clothpole",
+    "name": "染布晾杆",
+    "resource": "dye",
+    "subtype": null,
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 30,
+    "anchor": [
+      24,
+      78
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      78
+    ],
+    "tags": [
+      "cloth",
+      "drying"
+    ],
+    "roof": "none",
+    "note": "配套摆件/地面，无对应 FacilityKind"
+  },
+  {
+    "id": "west-common-ground-dyeyard-01",
+    "style": "west",
+    "race": "common",
+    "category": "ground",
+    "kind": "dyeyard",
+    "name": "染坊泼染地",
+    "resource": "dye",
+    "subtype": null,
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "tile",
+      "seamless"
+    ],
+    "roof": "none",
+    "note": "平铺底纹；元素按 ±48 平移复制后裁切，任意排列无缝"
+  },
+  {
+    "id": "west-common-ground-dyeyard-02",
+    "style": "west",
+    "race": "common",
+    "category": "ground",
+    "kind": "dyeyard",
+    "name": "染坊泼染地",
+    "resource": "dye",
+    "subtype": null,
+    "facility": null,
+    "variant": 2,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "tile",
+      "seamless"
+    ],
+    "roof": "none",
+    "note": "平铺底纹；元素按 ±48 平移复制后裁切，任意排列无缝"
+  },
+  {
+    "id": "west-common-ground-dyeyard-03",
+    "style": "west",
+    "race": "common",
+    "category": "ground",
+    "kind": "dyeyard",
+    "name": "染坊泼染地",
+    "resource": "dye",
+    "subtype": null,
+    "facility": null,
+    "variant": 3,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "tile",
+      "seamless"
+    ],
+    "roof": "none",
+    "note": "平铺底纹；元素按 ±48 平移复制后裁切，任意排列无缝"
+  },
+  {
+    "id": "west-common-ground-dyeyard-04",
+    "style": "west",
+    "race": "common",
+    "category": "ground",
+    "kind": "dyeyard",
+    "name": "染坊泼染地",
+    "resource": "dye",
+    "subtype": null,
+    "facility": null,
+    "variant": 4,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "tile",
+      "seamless"
+    ],
+    "roof": "none",
+    "note": "平铺底纹；元素按 ±48 平移复制后裁切，任意排列无缝"
+  },
+  {
+    "id": "west-common-site-pearl-oysterbed-01",
+    "style": "west",
+    "race": "common",
+    "category": "site",
+    "kind": "pearl-oysterbed",
+    "name": "采珠场",
+    "resource": "pearls",
+    "subtype": "oyster_bed",
+    "facility": "dock",
+    "variant": 1,
+    "footprint": [
+      4,
+      3
+    ],
+    "height_px": 40,
+    "anchor": [
+      96,
+      184
+    ],
+    "viewBox": [
+      0,
+      0,
+      192,
+      184
+    ],
+    "tags": [
+      "oyster_bed",
+      "shallows",
+      "skiff",
+      "shucking_table",
+      "jetty"
+    ],
+    "roof": "gable_thatch",
+    "note": "浅滩蚝床 + 采珠小艇 + 开蚌台；小栈桥按 dock 记"
+  },
+  {
+    "id": "west-common-prop-pearl-skiff-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "pearl-skiff",
+    "name": "采珠小艇",
+    "resource": "pearls",
+    "subtype": null,
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 4,
+    "anchor": [
+      24,
+      52
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      52
+    ],
+    "tags": [
+      "boat",
+      "on_water"
+    ],
+    "roof": "none",
+    "note": "放在水面格上；无对应 FacilityKind"
+  },
+  {
+    "id": "west-common-prop-pearl-shucktable-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "pearl-shucktable",
+    "name": "开蚌台",
+    "resource": "pearls",
+    "subtype": null,
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 12,
+    "anchor": [
+      24,
+      60
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      60
+    ],
+    "tags": [
+      "table",
+      "oyster"
+    ],
+    "roof": "none",
+    "note": "配套摆件/地面，无对应 FacilityKind"
+  },
+  {
+    "id": "west-common-prop-pearl-shellheap-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "pearl-shellheap",
+    "name": "蚌壳堆",
+    "resource": "pearls",
+    "subtype": null,
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 10,
+    "anchor": [
+      24,
+      58
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      58
+    ],
+    "tags": [
+      "shell",
+      "heap"
+    ],
+    "roof": "none",
+    "note": "配套摆件/地面，无对应 FacilityKind"
+  },
+  {
+    "id": "west-common-prop-pearl-net-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "pearl-net",
+    "name": "采珠网兜与篮",
+    "resource": "pearls",
+    "subtype": null,
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 22,
+    "anchor": [
+      24,
+      70
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      70
+    ],
+    "tags": [
+      "net",
+      "basket"
+    ],
+    "roof": "none",
+    "note": "配套摆件/地面，无对应 FacilityKind"
+  },
+  {
+    "id": "west-common-ground-pearlsand-01",
+    "style": "west",
+    "race": "common",
+    "category": "ground",
+    "kind": "pearlsand",
+    "name": "采珠湿沙滩",
+    "resource": "pearls",
+    "subtype": null,
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "tile",
+      "seamless"
+    ],
+    "roof": "none",
+    "note": "平铺底纹；元素按 ±48 平移复制后裁切，任意排列无缝"
+  },
+  {
+    "id": "west-common-ground-pearlsand-02",
+    "style": "west",
+    "race": "common",
+    "category": "ground",
+    "kind": "pearlsand",
+    "name": "采珠湿沙滩",
+    "resource": "pearls",
+    "subtype": null,
+    "facility": null,
+    "variant": 2,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "tile",
+      "seamless"
+    ],
+    "roof": "none",
+    "note": "平铺底纹；元素按 ±48 平移复制后裁切，任意排列无缝"
+  },
+  {
+    "id": "west-common-ground-pearlsand-03",
+    "style": "west",
+    "race": "common",
+    "category": "ground",
+    "kind": "pearlsand",
+    "name": "采珠湿沙滩",
+    "resource": "pearls",
+    "subtype": null,
+    "facility": null,
+    "variant": 3,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "tile",
+      "seamless"
+    ],
+    "roof": "none",
+    "note": "平铺底纹；元素按 ±48 平移复制后裁切，任意排列无缝"
+  },
+  {
+    "id": "west-common-ground-pearlsand-04",
+    "style": "west",
+    "race": "common",
+    "category": "ground",
+    "kind": "pearlsand",
+    "name": "采珠湿沙滩",
+    "resource": "pearls",
+    "subtype": null,
+    "facility": null,
+    "variant": 4,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "tile",
+      "seamless"
+    ],
+    "roof": "none",
+    "note": "平铺底纹；元素按 ±48 平移复制后裁切，任意排列无缝"
+  },
+  {
+    "id": "west-common-site-wheat-farmstead-01",
+    "style": "west",
+    "race": "common",
+    "category": "site",
+    "kind": "wheat-farmstead",
+    "name": "麦田农庄",
+    "resource": "grain",
+    "subtype": "wheat_farm",
+    "facility": "granary",
+    "variant": 1,
+    "footprint": [
+      4,
+      3
+    ],
+    "height_px": 56,
+    "anchor": [
+      96,
+      200
+    ],
+    "viewBox": [
+      0,
+      0,
+      192,
+      200
+    ],
+    "tags": [
+      "wheat_field",
+      "farmhouse",
+      "grain_stack",
+      "barn"
+    ],
+    "roof": "gable_thatch",
+    "note": "农舍 + 谷物堆垛 + 小谷仓；谷仓按 granary 记"
+  },
+  {
+    "id": "west-common-prop-grain-sheaves-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "grain-sheaves",
+    "name": "麦捆",
+    "resource": "grain",
+    "subtype": "wheat_farm",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 6,
+    "anchor": [
+      24,
+      54
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      54
+    ],
+    "tags": [
+      "sheaf"
+    ],
+    "roof": "none",
+    "note": "配套摆件/地面，无对应 FacilityKind"
+  },
+  {
+    "id": "west-common-prop-grain-rick-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "grain-rick",
+    "name": "谷物堆垛",
+    "resource": "grain",
+    "subtype": "wheat_farm",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 30,
+    "anchor": [
+      24,
+      78
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      78
+    ],
+    "tags": [
+      "rick",
+      "grain_stack"
+    ],
+    "roof": "none",
+    "note": "配套摆件/地面，无对应 FacilityKind"
+  },
+  {
+    "id": "west-common-prop-grain-cart-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "grain-cart",
+    "name": "运麦板车",
+    "resource": "grain",
+    "subtype": "wheat_farm",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 16,
+    "anchor": [
+      24,
+      64
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      64
+    ],
+    "tags": [
+      "cart"
+    ],
+    "roof": "none",
+    "note": "配套摆件/地面，无对应 FacilityKind"
+  },
+  {
+    "id": "west-common-site-vegetable-garden-01",
+    "style": "west",
+    "race": "common",
+    "category": "site",
+    "kind": "vegetable-garden",
+    "name": "菜园",
+    "resource": "grain",
+    "subtype": "vegetable_farm",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      4,
+      3
+    ],
+    "height_px": 40,
+    "anchor": [
+      96,
+      184
+    ],
+    "viewBox": [
+      0,
+      0,
+      192,
+      184
+    ],
+    "tags": [
+      "vegetable_beds",
+      "wattle_fence",
+      "bean_poles",
+      "scarecrow"
+    ],
+    "roof": "gable_thatch",
+    "note": "菜畦 + 豆架 + 农舍小屋；无对应 FacilityKind（田园型资源点）"
+  },
+  {
+    "id": "west-common-prop-veg-cabbagebed-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "veg-cabbagebed",
+    "name": "卷心菜畦",
+    "resource": "grain",
+    "subtype": "vegetable_farm",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "bed"
+    ],
+    "roof": "none",
+    "note": "配套摆件/地面，无对应 FacilityKind"
+  },
+  {
+    "id": "west-common-prop-veg-scarecrow-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "veg-scarecrow",
+    "name": "稻草人",
+    "resource": "grain",
+    "subtype": "vegetable_farm",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 20,
+    "anchor": [
+      24,
+      68
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      68
+    ],
+    "tags": [
+      "scarecrow"
+    ],
+    "roof": "none",
+    "note": "配套摆件/地面，无对应 FacilityKind"
+  },
+  {
+    "id": "west-common-prop-veg-beanpoles-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "veg-beanpoles",
+    "name": "豆架",
+    "resource": "grain",
+    "subtype": "vegetable_farm",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 6,
+    "anchor": [
+      24,
+      54
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      54
+    ],
+    "tags": [
+      "bean_poles"
+    ],
+    "roof": "none",
+    "note": "配套摆件/地面，无对应 FacilityKind"
+  },
+  {
+    "id": "west-common-site-flax-field-01",
+    "style": "west",
+    "race": "common",
+    "category": "site",
+    "kind": "flax-field",
+    "name": "亚麻田",
+    "resource": "grain",
+    "subtype": "flax_farm",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      4,
+      3
+    ],
+    "height_px": 30,
+    "anchor": [
+      96,
+      174
+    ],
+    "viewBox": [
+      0,
+      0,
+      192,
+      174
+    ],
+    "tags": [
+      "flax_field",
+      "retting_pond",
+      "flax_stooks",
+      "flax_brake"
+    ],
+    "roof": "none",
+    "note": "亚麻田 + 沤麻池 + 麻束 + 碎麻台；无对应 FacilityKind；按规范 16.2 归 grain"
+  },
+  {
+    "id": "west-common-prop-flax-stooks-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "flax-stooks",
+    "name": "亚麻束",
+    "resource": "grain",
+    "subtype": "flax_farm",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 4,
+    "anchor": [
+      24,
+      52
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      52
+    ],
+    "tags": [
+      "stook"
+    ],
+    "roof": "none",
+    "note": "配套摆件/地面，无对应 FacilityKind"
+  },
+  {
+    "id": "west-common-prop-flax-rettingpit-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "flax-rettingpit",
+    "name": "沤麻小池",
+    "resource": "grain",
+    "subtype": "flax_farm",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "retting",
+      "water"
+    ],
+    "roof": "none",
+    "note": "配套摆件/地面，无对应 FacilityKind"
+  },
+  {
+    "id": "west-common-site-apple-orchard-01",
+    "style": "west",
+    "race": "common",
+    "category": "site",
+    "kind": "apple-orchard",
+    "name": "苹果园",
+    "resource": "grain",
+    "subtype": "orchard",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      4,
+      3
+    ],
+    "height_px": 46,
+    "anchor": [
+      96,
+      190
+    ],
+    "viewBox": [
+      0,
+      0,
+      192,
+      190
+    ],
+    "tags": [
+      "apple_trees",
+      "fruit_shed",
+      "ladder",
+      "cider_barrels"
+    ],
+    "roof": "gable_thatch",
+    "note": "果园 + 果棚；无对应 FacilityKind（按规范 16.2 归 grain）"
+  },
+  {
+    "id": "west-common-prop-orchard-appletree-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "orchard-appletree",
+    "name": "苹果树",
+    "resource": "grain",
+    "subtype": "orchard",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 24,
+    "anchor": [
+      24,
+      72
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      72
+    ],
+    "tags": [
+      "tree"
+    ],
+    "roof": "none",
+    "note": "配套摆件/地面，无对应 FacilityKind"
+  },
+  {
+    "id": "west-common-prop-orchard-crates-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "orchard-crates",
+    "name": "苹果筐",
+    "resource": "grain",
+    "subtype": "orchard",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 6,
+    "anchor": [
+      24,
+      54
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      54
+    ],
+    "tags": [
+      "crate"
+    ],
+    "roof": "none",
+    "note": "配套摆件/地面，无对应 FacilityKind"
+  },
+  {
+    "id": "west-common-prop-orchard-ladder-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "orchard-ladder",
+    "name": "果梯与果篮",
+    "resource": "grain",
+    "subtype": "orchard",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 4,
+    "anchor": [
+      24,
+      52
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      52
+    ],
+    "tags": [
+      "ladder",
+      "basket"
+    ],
+    "roof": "none",
+    "note": "配套摆件/地面，无对应 FacilityKind"
+  },
+  {
+    "id": "west-common-site-olive-grove-01",
+    "style": "west",
+    "race": "common",
+    "category": "site",
+    "kind": "olive-grove",
+    "name": "橄榄园",
+    "resource": "grain",
+    "subtype": "olive_grove",
+    "facility": "mill",
+    "variant": 1,
+    "footprint": [
+      4,
+      3
+    ],
+    "height_px": 50,
+    "anchor": [
+      96,
+      194
+    ],
+    "viewBox": [
+      0,
+      0,
+      192,
+      194
+    ],
+    "tags": [
+      "olive_trees",
+      "olive_press",
+      "edge_runner",
+      "amphorae"
+    ],
+    "roof": "gable_tile",
+    "note": "橄榄树林 + 立轮榨油石磨（按 mill 记）；按规范 16.2 归 grain"
+  },
+  {
+    "id": "west-common-prop-olive-tree-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "olive-tree",
+    "name": "橄榄树",
+    "resource": "grain",
+    "subtype": "olive_grove",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 24,
+    "anchor": [
+      24,
+      72
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      72
+    ],
+    "tags": [
+      "tree"
+    ],
+    "roof": "none",
+    "note": "配套摆件/地面，无对应 FacilityKind"
+  },
+  {
+    "id": "west-common-prop-olive-press-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "olive-press",
+    "name": "榨油石磨",
+    "resource": "grain",
+    "subtype": "olive_grove",
+    "facility": "mill",
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 4,
+    "anchor": [
+      24,
+      52
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      52
+    ],
+    "tags": [
+      "olive_press"
+    ],
+    "roof": "none",
+    "note": "小型立轮碾，按 mill 记"
+  },
+  {
+    "id": "west-common-prop-olive-amphorae-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "olive-amphorae",
+    "name": "橄榄油罐",
+    "resource": "grain",
+    "subtype": "olive_grove",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 4,
+    "anchor": [
+      24,
+      52
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      52
+    ],
+    "tags": [
+      "amphora"
+    ],
+    "roof": "none",
+    "note": "配套摆件/地面，无对应 FacilityKind"
+  },
+  {
+    "id": "west-common-site-cattle-ranch-01",
+    "style": "west",
+    "race": "common",
+    "category": "site",
+    "kind": "cattle-ranch",
+    "name": "牛场",
+    "resource": "livestock",
+    "subtype": "cattle_ranch",
+    "facility": "stable",
+    "variant": 1,
+    "footprint": [
+      5,
+      3
+    ],
+    "height_px": 48,
+    "anchor": [
+      120,
+      192
+    ],
+    "viewBox": [
+      0,
+      0,
+      240,
+      192
+    ],
+    "tags": [
+      "cattle",
+      "paddock",
+      "cowshed",
+      "water_trough",
+      "hay"
+    ],
+    "roof": "gable_thatch",
+    "note": "牛棚 + 围栏草场；牲畜棚最近 FacilityKind 为 stable"
+  },
+  {
+    "id": "west-common-prop-cattle-trough-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "cattle-trough",
+    "name": "饮水槽",
+    "resource": "livestock",
+    "subtype": "cattle_ranch",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 2,
+    "anchor": [
+      24,
+      50
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      50
+    ],
+    "tags": [
+      "trough",
+      "water"
+    ],
+    "roof": "none",
+    "note": "配套摆件/地面，无对应 FacilityKind"
+  },
+  {
+    "id": "west-common-prop-cattle-cow-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "cattle-cow",
+    "name": "牛",
+    "resource": "livestock",
+    "subtype": "cattle_ranch",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "animal",
+      "cattle"
+    ],
+    "roof": "none",
+    "note": "配套摆件/地面，无对应 FacilityKind"
+  },
+  {
+    "id": "west-common-prop-cattle-hayrick-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "cattle-hayrick",
+    "name": "干草垛",
+    "resource": "livestock",
+    "subtype": "cattle_ranch",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 26,
+    "anchor": [
+      24,
+      74
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      74
+    ],
+    "tags": [
+      "hay"
+    ],
+    "roof": "none",
+    "note": "配套摆件/地面，无对应 FacilityKind"
+  },
+  {
+    "id": "west-common-site-dairy-farm-01",
+    "style": "west",
+    "race": "common",
+    "category": "site",
+    "kind": "dairy-farm",
+    "name": "奶牛场",
+    "resource": "livestock",
+    "subtype": "dairy_farm",
+    "facility": "stable",
+    "variant": 1,
+    "footprint": [
+      4,
+      3
+    ],
+    "height_px": 48,
+    "anchor": [
+      96,
+      192
+    ],
+    "viewBox": [
+      0,
+      0,
+      192,
+      192
+    ],
+    "tags": [
+      "milking_shed",
+      "churns",
+      "cheese_rack",
+      "dairy_cows"
+    ],
+    "roof": "gable_thatch",
+    "note": "挤奶棚 + 奶罐 + 奶酪架；牲畜棚最近 FacilityKind 为 stable"
+  },
+  {
+    "id": "west-common-prop-dairy-churns-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "dairy-churns",
+    "name": "奶罐组",
+    "resource": "livestock",
+    "subtype": "dairy_farm",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 4,
+    "anchor": [
+      24,
+      52
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      52
+    ],
+    "tags": [
+      "churn",
+      "milk"
+    ],
+    "roof": "none",
+    "note": "配套摆件/地面，无对应 FacilityKind"
+  },
+  {
+    "id": "west-common-prop-dairy-cheeserack-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "dairy-cheeserack",
+    "name": "奶酪架",
+    "resource": "livestock",
+    "subtype": "dairy_farm",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 4,
+    "anchor": [
+      24,
+      52
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      52
+    ],
+    "tags": [
+      "cheese"
+    ],
+    "roof": "none",
+    "note": "配套摆件/地面，无对应 FacilityKind"
+  },
+  {
+    "id": "west-common-prop-dairy-cow-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "dairy-cow",
+    "name": "奶牛",
+    "resource": "livestock",
+    "subtype": "dairy_farm",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "animal",
+      "dairy_cow"
+    ],
+    "roof": "none",
+    "note": "配套摆件/地面，无对应 FacilityKind"
+  },
+  {
+    "id": "west-common-site-pig-farm-01",
+    "style": "west",
+    "race": "common",
+    "category": "site",
+    "kind": "pig-farm",
+    "name": "猪圈",
+    "resource": "livestock",
+    "subtype": "pig_farm",
+    "facility": "stable",
+    "variant": 1,
+    "footprint": [
+      4,
+      3
+    ],
+    "height_px": 36,
+    "anchor": [
+      96,
+      180
+    ],
+    "viewBox": [
+      0,
+      0,
+      192,
+      180
+    ],
+    "tags": [
+      "pigsty",
+      "mud_wallow",
+      "trough",
+      "swill"
+    ],
+    "roof": "monopitch",
+    "note": "石砌猪舍 + 泥塘围栏；牲畜棚最近 FacilityKind 为 stable；猪舍为单坡石板顶"
+  },
+  {
+    "id": "west-common-prop-pig-trough-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "pig-trough",
+    "name": "猪食槽",
+    "resource": "livestock",
+    "subtype": "pig_farm",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 2,
+    "anchor": [
+      24,
+      50
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      50
+    ],
+    "tags": [
+      "trough"
+    ],
+    "roof": "none",
+    "note": "配套摆件/地面，无对应 FacilityKind"
+  },
+  {
+    "id": "west-common-prop-pig-pig-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "pig-pig",
+    "name": "猪",
+    "resource": "livestock",
+    "subtype": "pig_farm",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "animal",
+      "pig"
+    ],
+    "roof": "none",
+    "note": "配套摆件/地面，无对应 FacilityKind"
+  },
+  {
+    "id": "west-common-prop-pig-wallow-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "pig-wallow",
+    "name": "泥塘",
+    "resource": "livestock",
+    "subtype": "pig_farm",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "mud"
+    ],
+    "roof": "none",
+    "note": "配套摆件/地面，无对应 FacilityKind"
+  },
+  {
+    "id": "west-common-site-goat-farm-01",
+    "style": "west",
+    "race": "common",
+    "category": "site",
+    "kind": "goat-farm",
+    "name": "山羊场",
+    "resource": "livestock",
+    "subtype": "goat_farm",
+    "facility": "stable",
+    "variant": 1,
+    "footprint": [
+      4,
+      3
+    ],
+    "height_px": 40,
+    "anchor": [
+      96,
+      184
+    ],
+    "viewBox": [
+      0,
+      0,
+      192,
+      184
+    ],
+    "tags": [
+      "goats",
+      "drystone_wall",
+      "rocks",
+      "hay_rack"
+    ],
+    "roof": "gable_tile",
+    "note": "石墙围场 + 羊舍；牲畜棚最近 FacilityKind 为 stable"
+  },
+  {
+    "id": "west-common-prop-goat-goats-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "goat-goats",
+    "name": "山羊",
+    "resource": "livestock",
+    "subtype": "goat_farm",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "animal",
+      "goat"
+    ],
+    "roof": "none",
+    "note": "配套摆件/地面，无对应 FacilityKind"
+  },
+  {
+    "id": "west-common-prop-goat-rock-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "goat-rock",
+    "name": "山羊与岩块",
+    "resource": "livestock",
+    "subtype": "goat_farm",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 20,
+    "anchor": [
+      24,
+      68
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      68
+    ],
+    "tags": [
+      "rock",
+      "goat"
+    ],
+    "roof": "none",
+    "note": "配套摆件/地面，无对应 FacilityKind"
+  },
+  {
+    "id": "west-common-prop-goat-milkstool-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "goat-milkstool",
+    "name": "挤羊奶凳与奶桶",
+    "resource": "livestock",
+    "subtype": "goat_farm",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 2,
+    "anchor": [
+      24,
+      50
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      50
+    ],
+    "tags": [
+      "stool",
+      "pail"
+    ],
+    "roof": "none",
+    "note": "配套摆件/地面，无对应 FacilityKind"
+  },
+  {
+    "id": "west-common-site-poultry-yard-01",
+    "style": "west",
+    "race": "common",
+    "category": "site",
+    "kind": "poultry-yard",
+    "name": "鸡鸭场",
+    "resource": "livestock",
+    "subtype": "poultry_farm",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      4,
+      3
+    ],
+    "height_px": 40,
+    "anchor": [
+      96,
+      184
+    ],
+    "viewBox": [
+      0,
+      0,
+      192,
+      184
+    ],
+    "tags": [
+      "hen_house",
+      "duck_pond",
+      "hens",
+      "ducks"
+    ],
+    "roof": "gable_thatch",
+    "note": "鸡舍 + 鸭塘；无对应 FacilityKind（禽舍不算 stable）"
+  },
+  {
+    "id": "west-common-prop-poultry-coop-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "poultry-coop",
+    "name": "高脚鸡舍",
+    "resource": "livestock",
+    "subtype": "poultry_farm",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 30,
+    "anchor": [
+      24,
+      78
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      78
+    ],
+    "tags": [
+      "hen_house"
+    ],
+    "roof": "none",
+    "note": "配套摆件/地面，无对应 FacilityKind"
+  },
+  {
+    "id": "west-common-prop-poultry-hens-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "poultry-hens",
+    "name": "鸡群",
+    "resource": "livestock",
+    "subtype": "poultry_farm",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "animal",
+      "hen"
+    ],
+    "roof": "none",
+    "note": "配套摆件/地面，无对应 FacilityKind"
+  },
+  {
+    "id": "west-common-prop-poultry-duckpond-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "poultry-duckpond",
+    "name": "小鸭塘",
+    "resource": "livestock",
+    "subtype": "poultry_farm",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "pond",
+      "duck"
+    ],
+    "roof": "none",
+    "note": "配套摆件/地面，无对应 FacilityKind"
+  },
+  {
+    "id": "west-common-site-apiary-01",
+    "style": "west",
+    "race": "common",
+    "category": "site",
+    "kind": "apiary",
+    "name": "养蜂场",
+    "resource": "livestock",
+    "subtype": "apiary",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      4,
+      3
+    ],
+    "height_px": 40,
+    "anchor": [
+      96,
+      184
+    ],
+    "viewBox": [
+      0,
+      0,
+      192,
+      184
+    ],
+    "tags": [
+      "skeps",
+      "honey_shed",
+      "wildflowers",
+      "bees"
+    ],
+    "roof": "gable_thatch",
+    "note": "草编蜂箱 + 取蜜棚；无对应 FacilityKind；按规范 16.2 归 livestock"
+  },
+  {
+    "id": "west-common-prop-apiary-skeps-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "apiary-skeps",
+    "name": "草编蜂箱台",
+    "resource": "livestock",
+    "subtype": "apiary",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 4,
+    "anchor": [
+      24,
+      52
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      52
+    ],
+    "tags": [
+      "skep"
+    ],
+    "roof": "none",
+    "note": "配套摆件/地面，无对应 FacilityKind"
+  },
+  {
+    "id": "west-common-prop-apiary-honeypots-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "apiary-honeypots",
+    "name": "蜜罐",
+    "resource": "livestock",
+    "subtype": "apiary",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 2,
+    "anchor": [
+      24,
+      50
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      50
+    ],
+    "tags": [
+      "honey",
+      "jar"
+    ],
+    "roof": "none",
+    "note": "配套摆件/地面，无对应 FacilityKind"
+  },
+  {
+    "id": "west-common-site-sheep-station-01",
+    "style": "west",
+    "race": "common",
+    "category": "site",
+    "kind": "sheep-station",
+    "name": "羊场",
+    "resource": "wool",
+    "subtype": "sheep_station",
+    "facility": "stable",
+    "variant": 1,
+    "footprint": [
+      5,
+      3
+    ],
+    "height_px": 46,
+    "anchor": [
+      120,
+      190
+    ],
+    "viewBox": [
+      0,
+      0,
+      240,
+      190
+    ],
+    "tags": [
+      "shearing_shed",
+      "sheep_pen",
+      "wool_bales",
+      "sheep"
+    ],
+    "roof": "gable_thatch",
+    "note": "剪毛棚 + 羊群围栏；牲畜棚最近 FacilityKind 为 stable"
+  },
+  {
+    "id": "west-common-prop-wool-bales-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "wool-bales",
+    "name": "羊毛捆",
+    "resource": "wool",
+    "subtype": "sheep_station",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 10,
+    "anchor": [
+      24,
+      58
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      58
+    ],
+    "tags": [
+      "wool",
+      "bale"
+    ],
+    "roof": "none",
+    "note": "配套摆件/地面，无对应 FacilityKind"
+  },
+  {
+    "id": "west-common-prop-wool-flock-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "wool-flock",
+    "name": "羊群",
+    "resource": "wool",
+    "subtype": "sheep_station",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "animal",
+      "sheep"
+    ],
+    "roof": "none",
+    "note": "配套摆件/地面，无对应 FacilityKind"
+  },
+  {
+    "id": "west-common-prop-wool-shearstand-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "wool-shearstand",
+    "name": "剪毛台",
+    "resource": "wool",
+    "subtype": "sheep_station",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 8,
+    "anchor": [
+      24,
+      56
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      56
+    ],
+    "tags": [
+      "shearing"
+    ],
+    "roof": "none",
+    "note": "配套摆件/地面，无对应 FacilityKind"
+  },
+  {
+    "id": "west-common-site-horse-stud-01",
+    "style": "west",
+    "race": "common",
+    "category": "site",
+    "kind": "horse-stud",
+    "name": "种马场",
+    "resource": "horses",
+    "subtype": "horse_stud",
+    "facility": "stable",
+    "variant": 1,
+    "footprint": [
+      5,
+      3
+    ],
+    "height_px": 56,
+    "anchor": [
+      120,
+      200
+    ],
+    "viewBox": [
+      0,
+      0,
+      240,
+      200
+    ],
+    "tags": [
+      "stable_block",
+      "lunging_ring",
+      "stud",
+      "water_trough"
+    ],
+    "roof": "gable_tile",
+    "note": "马厩 + 训练圈，facility 为 stable"
+  },
+  {
+    "id": "west-common-prop-horse-mare-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "horse-mare",
+    "name": "母马与小马",
+    "resource": "horses",
+    "subtype": "horse_stud",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 4,
+    "anchor": [
+      24,
+      52
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      52
+    ],
+    "tags": [
+      "animal",
+      "horse",
+      "foal"
+    ],
+    "roof": "none",
+    "note": "配套摆件/地面，无对应 FacilityKind"
+  },
+  {
+    "id": "west-common-prop-horse-saddlerack-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "horse-saddlerack",
+    "name": "马鞍架",
+    "resource": "horses",
+    "subtype": "horse_stud",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 8,
+    "anchor": [
+      24,
+      56
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      56
+    ],
+    "tags": [
+      "saddle",
+      "tack"
+    ],
+    "roof": "none",
+    "note": "配套摆件/地面，无对应 FacilityKind"
+  },
+  {
+    "id": "west-common-prop-horse-haynet-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "horse-haynet",
+    "name": "草料栏",
+    "resource": "horses",
+    "subtype": "horse_stud",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 14,
+    "anchor": [
+      24,
+      62
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      62
+    ],
+    "tags": [
+      "hay",
+      "rack"
+    ],
+    "roof": "none",
+    "note": "配套摆件/地面，无对应 FacilityKind"
+  }
+]

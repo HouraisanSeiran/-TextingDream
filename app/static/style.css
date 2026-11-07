@@ -345,3 +345,76 @@ dialog.dice-overlay { position:fixed; inset:auto; margin:0; z-index:120;
 .dice-overlay .check-result-details > .check-clock-change,
 .dice-overlay .check-result-details > .check-clock,
 .dice-overlay .check-result-details > .muted { display:none; }
+
+/* Dice controls belong to the chat header; result view follows its lower edge. */
+.dice-panel-tools { display:flex; align-items:center; flex-wrap:wrap; gap:8px 12px;
+  margin-top:10px; padding-top:8px; border-top:1px solid var(--hair,var(--line)); }
+.dice-panel-tools a { font-size:12px; }
+.dice-material { display:inline-flex; align-items:center; gap:4px; font-size:12px; }
+.dice-material select { width:auto; padding:2px 6px; font-size:12px; }
+#play-left.is-collapsed #dice-toggle { display:none; }
+#dice-toggle[aria-expanded="true"] { background:var(--accent-soft,#e8f5fa); }
+
+/* ---- 进度钟：阶段刻度、阶段名、局势变化提示（无 stages/notices 时不生效） ---- */
+.check-clock .clock-stage-halo { stroke:var(--card,#fff); stroke-width:3.2; stroke-linecap:round; fill:none; }
+.check-clock .clock-stage-tick { stroke:var(--muted,#787774); stroke-width:1.4; stroke-linecap:round; fill:none; }
+.check-clock .clock-stage.is-reached .clock-stage-tick { stroke:var(--warm,#dfab01); stroke-width:2.2; }
+.check-clock .clock-stage-dot { fill:var(--warm,#dfab01); stroke:var(--card,#fff); stroke-width:.8; }
+.check-clock.is-danger .clock-stage.is-reached .clock-stage-tick { stroke:var(--red,#a75244); }
+.check-clock.is-danger .clock-stage-dot { fill:var(--red,#a75244); }
+.check-clock .check-clock-text { display:flex; flex-direction:column; gap:2px; min-width:0; overflow-wrap:anywhere; }
+.check-clock .clock-stage-name { font-size:12px; color:var(--muted,#787774); overflow-wrap:anywhere; }
+.situation-notice { display:flex; flex-direction:column; gap:6px; box-sizing:border-box; max-width:100%; min-width:0;
+  margin:0 0 12px; padding:10px 12px; border:1px solid var(--hair,var(--line)); border-left:3px solid var(--warm,#dfab01);
+  border-radius:6px; background:var(--accent-soft,#e8f5fa); color:var(--ink,var(--text)); font-size:14px; overflow-wrap:anywhere; }
+.situation-notice .situation-line { margin:0; min-width:0; }
+.situation-notice .situation-line strong { font-weight:600; }
+.situation-notice .situation-summary { display:block; margin-top:2px; color:var(--muted,#787774); font-size:12px; }
+.situation-notice .situation-dismiss { align-self:flex-end; padding:2px 10px; font-size:12px; }
+@media (max-width:480px) { .situation-notice { padding:8px 10px; font-size:13px; } }
+/* ---- 信息栏卡片收起：钟 / 任务 → 聊天栏顶栏「隐藏」区（纯显示，状态只在 localStorage） ---- */
+#play-left .chat-head { position:relative; }
+#hide-toggle { position:relative; }
+#hide-toggle:disabled { opacity:.5; cursor:default; }
+#hide-toggle .hide-count { display:inline-block; min-width:16px; padding:0 4px; border-radius:8px; background:var(--cv-accent-soft,#e8f5fa); color:var(--cv-ink,#1f352c); font-size:11px; line-height:16px; text-align:center; }
+#hide-toggle .hide-dot { position:absolute; top:2px; right:2px; width:8px; height:8px; border-radius:50%; background:#d9822b; box-shadow:0 0 0 2px var(--cv-card,#fff); }
+#hide-toggle .hide-dot[hidden] { display:none; }
+.hidden-cards-panel { position:absolute; top:calc(100% + 6px); right:14px; z-index:9; box-sizing:border-box; width:min(320px, calc(100% - 28px)); max-height:min(60vh, 360px); overflow:auto; padding:10px 12px; border:1px solid var(--cv-line,#d8d6cf); border-radius:var(--cv-radius,8px); background:var(--cv-card,#fff); color:var(--cv-ink,#1f352c); box-shadow:0 8px 24px #1f352c26; font-size:13px; }
+.hidden-cards-panel[hidden] { display:none; }
+.hidden-cards-head { display:flex; align-items:center; justify-content:space-between; gap:8px; margin-bottom:6px; }
+.hidden-cards-head button { padding:4px 10px; border:1px solid var(--cv-line,#d8d6cf); border-radius:var(--cv-radius-sm,6px); background:var(--cv-bg,#fff); font-size:12px; cursor:pointer; }
+.hidden-cards-list { margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:4px; }
+.hidden-card-row { display:flex; align-items:center; gap:8px; min-width:0; padding:5px 0; border-top:1px solid var(--cv-line-soft,#ecebe6); }
+.hidden-card-kind { flex:none; padding:0 6px; border-radius:4px; background:var(--cv-accent-soft,#e8f5fa); color:var(--cv-soft,#4b5d55); font-size:11px; }
+.hidden-card-title { flex:1; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.hidden-card-new { flex:none; color:#b5651d; font-size:11px; }
+.hidden-card-restore { flex:none; padding:3px 10px; border:1px solid var(--cv-line,#d8d6cf); border-radius:var(--cv-radius-sm,6px); background:var(--cv-bg,#fff); font-size:12px; cursor:pointer; }
+.hidden-cards-note { margin:8px 0 0; font-size:11px; }
+/* 右侧卡片上的「收起」小按钮 */
+#play-left .info-scene .fold-btn { float:right; margin:0 0 0 6px; padding:1px 8px; font-size:11px; line-height:1.6; color:var(--cv-muted,#787774); cursor:pointer; }
+#play-left .info-scene .fold-btn:hover { color:var(--cv-ink,#1f352c); border-color:var(--cv-accent,#2f7a63); }
+#play-left .info-scene .check-clock { position:relative; }
+#play-left .info-scene .check-clock .fold-btn { position:absolute; top:0; right:0; float:none; margin:0; }
+/* 任务卡片（surface.quests 公开投影） */
+#play-left .info-scene > .quest-list { display:flex; flex-direction:column; gap:10px; padding:0; border:0; background:transparent; }
+#play-left .info-scene > .quest-list[hidden] { display:none; }
+.quest-card { margin:0; padding:10px 12px; border:1px solid var(--cv-line,#d8d6cf); border-left:3px solid var(--cv-accent,#2f7a63); border-radius:var(--cv-radius,8px); background:var(--cv-card,#fff); font-size:12px; min-width:0; overflow-wrap:anywhere; }
+.quest-card .quest-head { display:flex; align-items:flex-start; justify-content:space-between; gap:6px; }
+.quest-card .quest-head strong { min-width:0; font-size:13px; }
+.quest-card .quest-head .fold-btn { float:none; flex:none; margin:0; }
+.quest-card .quest-state { display:block; color:var(--cv-muted,#787774); }
+.quest-card .quest-missing { margin:4px 0 0; padding-left:18px; color:var(--cv-soft,#4b5d55); }
+@media (max-width:480px) { .hidden-cards-panel { right:8px; width:calc(100% - 16px); } }
+
+/* 窄屏（<=1100px，由 play-ui.js 加 .is-narrow）：旅程存档 / 信息栏不再绝对定位盖住顶栏和行动区，
+ * 改成正文下方的底部抽屉，占单独一行，正文列相应缩短；顶栏按钮和行动按钮始终在抽屉之上。
+ * 选择器带 #conversation-content 以压过 atelier.css 里同名的覆盖层规则。 */
+#play-left.is-narrow #conversation-content { grid-template-rows:minmax(0,1fr) auto; }
+#play-left.is-narrow #conversation-content > .chat-col { grid-column:1; grid-row:1; }
+#play-left.is-narrow #conversation-content > .info-panel,
+#play-left.is-narrow #conversation-content > .journey-rail {
+  position:static; grid-column:1; grid-row:2; width:auto; z-index:auto;
+  max-height:min(42vh,340px); border-left:0; border-right:0; border-top:1px solid var(--cv-line);
+  box-shadow:0 -6px 16px #1f352c14;
+}
+#play-left.is-narrow .info-panel .mini-map { width:min(100%,176px); align-self:center; }

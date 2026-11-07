@@ -131,7 +131,7 @@ POST /api/inner/map-imports        {format:'civ_atlas_heightmap_v1', png_base64,
 - 有界：`png_base64` ≤ 24 MiB（解码后 ≤ 18 MiB），`note_text` ≤ 4000 字符；`width*height ≤ 16 777 216`（4096×4096 等价上限，2:1 下即 ≤ 8192×4096）；`IDAT` 解压上限 = `(w*2+1)*h` 字节 + 1 MiB 余量（防压缩炸弹）。
 - 严格：签名、`IHDR`（灰度/无隔行/位深 16/宽高>0/2:1）、每块 CRC、`IDAT` 解压长度精确匹配、`tEXt` 里 `Description` 必须可解析出 `lo`/`hi`/`S` 且 `lo < 0 < hi`、`0 < S < 65535`。
 - 一致性自检：重算 `sea/land` 像素数与 `lo/hi` 灰度区间，要求「所有海灰度 < S」且「所有陆灰度 > S」（与上游不变量一致），否则拒收；`min(gray) = 0` 且 `max(gray) = 65535` 才认「线性铺满」，否则警告。
-- 落地：PNG 按内容寻址存 `data/map_imports/<sha256>.png`；文档（`store.put('map_import', id, ...)`）只存元数据 + 有界统计 + 作者声明，**不存整图数组**。同内容重复导入 = 幂等（同 id，不重写文件）。
+- 落地：PNG 按内容寻址存 `saves/map_imports/<sha256>.png`；文档（`store.put('map_import', id, ...)`）只存元数据 + 有界统计 + 作者声明，**不存整图数组**。同内容重复导入 = 幂等（同 id，不重写文件）。
 - 记录来源：`commit`（作者声明）、`generator_version`（作者声明，可空）、`seed`（PNG `tEXt`）、`png_sha256`、尺寸、`lo/hi/S`、单位语义、`note_text`、`warnings`。
 
 ### 6.2 选点取样（球面经纬度，不是 cell id）
@@ -218,7 +218,7 @@ POST /api/inner/map-imports/{id}/town-input   {...selection + 作者字段 + cli
 1. **跨语言容器契约**（真实导出器的偏移编码 ↔ Python 解析器）：定宽 offset 往返、旧整数 offset
    仍可读、payload 跨 9 999 999→10 000 000 字节（offset 位数变化）仍能解析、三块 part 各自可寻址。
 2. **篡改拒收**：offset 尾部带垃圾、11 位短串、负数、布尔、未 8 字节对齐、越界、两块重叠 —— 一律拒。
-3. **隔离**：导入写在临时库旁边，仓库 `data/map_imports` 一个字节都不多；公开摘要不含绝对路径。
+3. **隔离**：导入写在临时库旁边，仓库 `saves/map_imports` 一个字节都不多；公开摘要不含绝对路径。
 4. **图层**：五层各自 PNG 有效、两两不同、不是同一张灰度图换标签；未知图层拒收。
 5. **采样诚实性**：高度图 `climate=null` 且 `missing` 列气温降水；`missing`/`measured` 口径在
    不适用的数据上被拒；经度回绕与极点拒收；偶数窗格拒收。

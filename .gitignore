@@ -16,9 +16,14 @@ api用后即删.txt
 
 # 运行期产生的数据与产物
 data/
+saves/
 logs/
 artifacts/
 temp_dl/
+temp/
+.scratch-numba-cache/
+temp_out.csv
+/build/
 
 # 由旅程临时生成的记录，属于派生数据而不是世界设定
 StoryPackage/*/生成记录/

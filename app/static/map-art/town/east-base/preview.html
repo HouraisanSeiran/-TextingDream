@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>织梦 · 东方玄幻城镇基础素材预览（east-base）</title>
+<style>
+  body { margin: 0; background: #f3e6c4; font: 13px/1.5 "Microsoft YaHei", sans-serif; color: #5a3a20; }
+  h1 { font-size: 18px; margin: 14px 18px 4px; }
+  h2 { font-size: 15px; margin: 18px 18px 6px; border-bottom: 1px solid #c98f3c; padding-bottom: 2px; }
+  .note { margin: 0 18px 8px; color: #8c3d22; }
+  .grid { display: flex; flex-wrap: wrap; gap: 10px; margin: 0 18px; }
+  .card { background: #d9c58f; border: 1px solid #c98f3c; padding: 6px; text-align: center; }
+  .card svg { display: block; margin: 0 auto; }
+  .card .id { font-family: Consolas, monospace; font-size: 10px; color: #1f3c5b; }
+  .card .zh { font-size: 12px; font-weight: bold; }
+  .tiles { display: grid; grid-template-columns: repeat(16, auto); gap: 4px; margin: 0 18px 6px; justify-content: start; }
+  .tiles .t { background: #d9c58f; border: 1px solid #c98f3c; text-align: center; font: 9px Consolas, monospace; }
+  .scene { margin: 0 18px; background: #d9c58f; border: 1px solid #c98f3c; display: inline-block; }
+</style>
+</head>
+<body>
+<h1>织梦 · 东方玄幻城镇基础素材（east-base）</h1>
+<p class="note">3/4 斜俯视，48 px 地面格。卡片里的虚线框是占地矩形，红点是锚点（占地前沿中点）。</p>
+<div id="sprite-host"></div>
+<h2>民居图册</h2>
+<div class="grid" id="houses"></div>
+<div id="tile-sections"></div>
+<div id="scenes"></div>
+
+<script src="east-core.js"></script>
+<script src="houses-a.js"></script>
+<script src="houses-b.js"></script>
+<script src="houses-c.js"></script>
+<script src="tiles.js"></script>
+<script src="east-base.js"></script>
+<script src="preview-scenes.js"></script>
+<script>
+(function () {
+  'use strict';
+  var NS = 'http://www.w3.org/2000/svg';
+  var EB = window.TownArt_eastBase, res = EB.buildAll();
+  document.getElementById('sprite-host').innerHTML = res.spriteSvg();
+  window.EAST_RES = res;
+
+  function useSvg(meta, scale, frame) {
+    var vb = meta.viewBox, W = vb[2], H = vb[3], pad = 8, sc = scale || 1;
+    var fw = meta.footprint[0] * 48, fd = meta.footprint[1] * 48;
+    var s = '<svg xmlns="' + NS + '" width="' + (W + pad * 2) * sc + '" height="' + (H + pad * 2) * sc + '" viewBox="' + (-pad) + ' ' + (-pad) + ' ' + (W + pad * 2) + ' ' + (H + pad * 2) + '">';
+    if (frame !== false) s += '<rect x="0" y="' + (H - fd) + '" width="' + fw + '" height="' + fd + '" fill="none" stroke="#8c3d22" stroke-width="0.6" stroke-dasharray="3 2"/>';
+    s += '<use href="#' + meta.id + '" x="0" y="0" width="' + W + '" height="' + H + '"/>';
+    if (frame !== false) s += '<circle cx="' + meta.anchor[0] + '" cy="' + meta.anchor[1] + '" r="1.8" fill="#cd5030"/>';
+    return s + '</svg>';
+  }
+  window.EAST_useSvg = useSvg;
+
+  var hb = document.getElementById('houses'), html = '';
+  res.items.filter(function (it) { return it.meta.category === 'house'; }).forEach(function (it) {
+    var m = it.meta;
+    html += '<div class="card">' + useSvg(m, 2) + '<div class="zh">' + it.name + ' · 变体 ' + m.variant + '（' + m.footprint.join('×') + '）</div><div class="id">' + m.id + '</div></div>';
+  });
+  hb.innerHTML = html;
+  if (window.EastPreviewScenes) window.EastPreviewScenes(res, useSvg);
+})();
+</script>
+</body>
+</html>

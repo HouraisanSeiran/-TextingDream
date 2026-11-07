@@ -1,0 +1,3495 @@
+[
+ {
+  "id": "west-common-water-bank-0000",
+  "style": "west",
+  "race": "common",
+  "category": "water",
+  "kind": "water_bank",
+  "facility": null,
+  "variant": 0,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "roof": "none",
+  "mask": 0,
+  "name": "水面·自然河岸 0000",
+  "tags": [
+   "dual_grid",
+   "mask_0000",
+   "waterside"
+  ],
+  "note": "双网格瓦片：渲染格与逻辑格错开半格，四角 = 逻辑格中心，mask = NW*8+NE*4+SW*2+SE*1。0000 为透明占位。水色 #a9b8ad，与 special-infra 西式码头/石拱桥一致。"
+ },
+ {
+  "id": "west-common-water-bank-0001",
+  "style": "west",
+  "race": "common",
+  "category": "water",
+  "kind": "water_bank",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "roof": "none",
+  "mask": 1,
+  "name": "水面·自然河岸 0001",
+  "tags": [
+   "dual_grid",
+   "mask_0001",
+   "waterside"
+  ],
+  "note": "双网格瓦片：渲染格与逻辑格错开半格，四角 = 逻辑格中心，mask = NW*8+NE*4+SW*2+SE*1。水色 #a9b8ad，与 special-infra 西式码头/石拱桥一致。"
+ },
+ {
+  "id": "west-common-water-bank-0010",
+  "style": "west",
+  "race": "common",
+  "category": "water",
+  "kind": "water_bank",
+  "facility": null,
+  "variant": 2,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "roof": "none",
+  "mask": 2,
+  "name": "水面·自然河岸 0010",
+  "tags": [
+   "dual_grid",
+   "mask_0010",
+   "waterside"
+  ],
+  "note": "双网格瓦片：渲染格与逻辑格错开半格，四角 = 逻辑格中心，mask = NW*8+NE*4+SW*2+SE*1。水色 #a9b8ad，与 special-infra 西式码头/石拱桥一致。"
+ },
+ {
+  "id": "west-common-water-bank-0011",
+  "style": "west",
+  "race": "common",
+  "category": "water",
+  "kind": "water_bank",
+  "facility": null,
+  "variant": 3,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "roof": "none",
+  "mask": 3,
+  "name": "水面·自然河岸 0011",
+  "tags": [
+   "dual_grid",
+   "mask_0011",
+   "waterside"
+  ],
+  "note": "双网格瓦片：渲染格与逻辑格错开半格，四角 = 逻辑格中心，mask = NW*8+NE*4+SW*2+SE*1。水色 #a9b8ad，与 special-infra 西式码头/石拱桥一致。"
+ },
+ {
+  "id": "west-common-water-bank-0100",
+  "style": "west",
+  "race": "common",
+  "category": "water",
+  "kind": "water_bank",
+  "facility": null,
+  "variant": 4,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "roof": "none",
+  "mask": 4,
+  "name": "水面·自然河岸 0100",
+  "tags": [
+   "dual_grid",
+   "mask_0100",
+   "waterside"
+  ],
+  "note": "双网格瓦片：渲染格与逻辑格错开半格，四角 = 逻辑格中心，mask = NW*8+NE*4+SW*2+SE*1。水色 #a9b8ad，与 special-infra 西式码头/石拱桥一致。"
+ },
+ {
+  "id": "west-common-water-bank-0101",
+  "style": "west",
+  "race": "common",
+  "category": "water",
+  "kind": "water_bank",
+  "facility": null,
+  "variant": 5,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "roof": "none",
+  "mask": 5,
+  "name": "水面·自然河岸 0101",
+  "tags": [
+   "dual_grid",
+   "mask_0101",
+   "waterside"
+  ],
+  "note": "双网格瓦片：渲染格与逻辑格错开半格，四角 = 逻辑格中心，mask = NW*8+NE*4+SW*2+SE*1。水色 #a9b8ad，与 special-infra 西式码头/石拱桥一致。"
+ },
+ {
+  "id": "west-common-water-bank-0110",
+  "style": "west",
+  "race": "common",
+  "category": "water",
+  "kind": "water_bank",
+  "facility": null,
+  "variant": 6,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "roof": "none",
+  "mask": 6,
+  "name": "水面·自然河岸 0110",
+  "tags": [
+   "dual_grid",
+   "mask_0110",
+   "waterside"
+  ],
+  "note": "双网格瓦片：渲染格与逻辑格错开半格，四角 = 逻辑格中心，mask = NW*8+NE*4+SW*2+SE*1。水色 #a9b8ad，与 special-infra 西式码头/石拱桥一致。"
+ },
+ {
+  "id": "west-common-water-bank-0111",
+  "style": "west",
+  "race": "common",
+  "category": "water",
+  "kind": "water_bank",
+  "facility": null,
+  "variant": 7,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "roof": "none",
+  "mask": 7,
+  "name": "水面·自然河岸 0111",
+  "tags": [
+   "dual_grid",
+   "mask_0111",
+   "waterside"
+  ],
+  "note": "双网格瓦片：渲染格与逻辑格错开半格，四角 = 逻辑格中心，mask = NW*8+NE*4+SW*2+SE*1。水色 #a9b8ad，与 special-infra 西式码头/石拱桥一致。"
+ },
+ {
+  "id": "west-common-water-bank-1000",
+  "style": "west",
+  "race": "common",
+  "category": "water",
+  "kind": "water_bank",
+  "facility": null,
+  "variant": 8,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "roof": "none",
+  "mask": 8,
+  "name": "水面·自然河岸 1000",
+  "tags": [
+   "dual_grid",
+   "mask_1000",
+   "waterside"
+  ],
+  "note": "双网格瓦片：渲染格与逻辑格错开半格，四角 = 逻辑格中心，mask = NW*8+NE*4+SW*2+SE*1。水色 #a9b8ad，与 special-infra 西式码头/石拱桥一致。"
+ },
+ {
+  "id": "west-common-water-bank-1001",
+  "style": "west",
+  "race": "common",
+  "category": "water",
+  "kind": "water_bank",
+  "facility": null,
+  "variant": 9,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "roof": "none",
+  "mask": 9,
+  "name": "水面·自然河岸 1001",
+  "tags": [
+   "dual_grid",
+   "mask_1001",
+   "waterside"
+  ],
+  "note": "双网格瓦片：渲染格与逻辑格错开半格，四角 = 逻辑格中心，mask = NW*8+NE*4+SW*2+SE*1。水色 #a9b8ad，与 special-infra 西式码头/石拱桥一致。"
+ },
+ {
+  "id": "west-common-water-bank-1010",
+  "style": "west",
+  "race": "common",
+  "category": "water",
+  "kind": "water_bank",
+  "facility": null,
+  "variant": 10,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "roof": "none",
+  "mask": 10,
+  "name": "水面·自然河岸 1010",
+  "tags": [
+   "dual_grid",
+   "mask_1010",
+   "waterside"
+  ],
+  "note": "双网格瓦片：渲染格与逻辑格错开半格，四角 = 逻辑格中心，mask = NW*8+NE*4+SW*2+SE*1。水色 #a9b8ad，与 special-infra 西式码头/石拱桥一致。"
+ },
+ {
+  "id": "west-common-water-bank-1011",
+  "style": "west",
+  "race": "common",
+  "category": "water",
+  "kind": "water_bank",
+  "facility": null,
+  "variant": 11,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "roof": "none",
+  "mask": 11,
+  "name": "水面·自然河岸 1011",
+  "tags": [
+   "dual_grid",
+   "mask_1011",
+   "waterside"
+  ],
+  "note": "双网格瓦片：渲染格与逻辑格错开半格，四角 = 逻辑格中心，mask = NW*8+NE*4+SW*2+SE*1。水色 #a9b8ad，与 special-infra 西式码头/石拱桥一致。"
+ },
+ {
+  "id": "west-common-water-bank-1100",
+  "style": "west",
+  "race": "common",
+  "category": "water",
+  "kind": "water_bank",
+  "facility": null,
+  "variant": 12,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "roof": "none",
+  "mask": 12,
+  "name": "水面·自然河岸 1100",
+  "tags": [
+   "dual_grid",
+   "mask_1100",
+   "waterside"
+  ],
+  "note": "双网格瓦片：渲染格与逻辑格错开半格，四角 = 逻辑格中心，mask = NW*8+NE*4+SW*2+SE*1。水色 #a9b8ad，与 special-infra 西式码头/石拱桥一致。"
+ },
+ {
+  "id": "west-common-water-bank-1101",
+  "style": "west",
+  "race": "common",
+  "category": "water",
+  "kind": "water_bank",
+  "facility": null,
+  "variant": 13,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "roof": "none",
+  "mask": 13,
+  "name": "水面·自然河岸 1101",
+  "tags": [
+   "dual_grid",
+   "mask_1101",
+   "waterside"
+  ],
+  "note": "双网格瓦片：渲染格与逻辑格错开半格，四角 = 逻辑格中心，mask = NW*8+NE*4+SW*2+SE*1。水色 #a9b8ad，与 special-infra 西式码头/石拱桥一致。"
+ },
+ {
+  "id": "west-common-water-bank-1110",
+  "style": "west",
+  "race": "common",
+  "category": "water",
+  "kind": "water_bank",
+  "facility": null,
+  "variant": 14,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "roof": "none",
+  "mask": 14,
+  "name": "水面·自然河岸 1110",
+  "tags": [
+   "dual_grid",
+   "mask_1110",
+   "waterside"
+  ],
+  "note": "双网格瓦片：渲染格与逻辑格错开半格，四角 = 逻辑格中心，mask = NW*8+NE*4+SW*2+SE*1。水色 #a9b8ad，与 special-infra 西式码头/石拱桥一致。"
+ },
+ {
+  "id": "west-common-water-bank-1111",
+  "style": "west",
+  "race": "common",
+  "category": "water",
+  "kind": "water_bank",
+  "facility": null,
+  "variant": 15,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "roof": "none",
+  "mask": 15,
+  "name": "水面·自然河岸 1111",
+  "tags": [
+   "dual_grid",
+   "mask_1111",
+   "waterside"
+  ],
+  "note": "双网格瓦片：渲染格与逻辑格错开半格，四角 = 逻辑格中心，mask = NW*8+NE*4+SW*2+SE*1。水色 #a9b8ad，与 special-infra 西式码头/石拱桥一致。"
+ },
+ {
+  "id": "west-common-water-quay-0000",
+  "style": "west",
+  "race": "common",
+  "category": "water",
+  "kind": "water_quay",
+  "facility": null,
+  "variant": 0,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "roof": "none",
+  "mask": 0,
+  "name": "水面·石砌码头岸 0000",
+  "tags": [
+   "dual_grid",
+   "mask_0000",
+   "waterside"
+  ],
+  "note": "双网格瓦片：渲染格与逻辑格错开半格，四角 = 逻辑格中心，mask = NW*8+NE*4+SW*2+SE*1。0000 为透明占位。水色 #a9b8ad，与 special-infra 西式码头/石拱桥一致。"
+ },
+ {
+  "id": "west-common-water-quay-0001",
+  "style": "west",
+  "race": "common",
+  "category": "water",
+  "kind": "water_quay",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "roof": "none",
+  "mask": 1,
+  "name": "水面·石砌码头岸 0001",
+  "tags": [
+   "dual_grid",
+   "mask_0001",
+   "waterside"
+  ],
+  "note": "双网格瓦片：渲染格与逻辑格错开半格，四角 = 逻辑格中心，mask = NW*8+NE*4+SW*2+SE*1。水色 #a9b8ad，与 special-infra 西式码头/石拱桥一致。"
+ },
+ {
+  "id": "west-common-water-quay-0010",
+  "style": "west",
+  "race": "common",
+  "category": "water",
+  "kind": "water_quay",
+  "facility": null,
+  "variant": 2,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "roof": "none",
+  "mask": 2,
+  "name": "水面·石砌码头岸 0010",
+  "tags": [
+   "dual_grid",
+   "mask_0010",
+   "waterside"
+  ],
+  "note": "双网格瓦片：渲染格与逻辑格错开半格，四角 = 逻辑格中心，mask = NW*8+NE*4+SW*2+SE*1。水色 #a9b8ad，与 special-infra 西式码头/石拱桥一致。"
+ },
+ {
+  "id": "west-common-water-quay-0011",
+  "style": "west",
+  "race": "common",
+  "category": "water",
+  "kind": "water_quay",
+  "facility": null,
+  "variant": 3,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "roof": "none",
+  "mask": 3,
+  "name": "水面·石砌码头岸 0011",
+  "tags": [
+   "dual_grid",
+   "mask_0011",
+   "waterside"
+  ],
+  "note": "双网格瓦片：渲染格与逻辑格错开半格，四角 = 逻辑格中心，mask = NW*8+NE*4+SW*2+SE*1。水色 #a9b8ad，与 special-infra 西式码头/石拱桥一致。"
+ },
+ {
+  "id": "west-common-water-quay-0100",
+  "style": "west",
+  "race": "common",
+  "category": "water",
+  "kind": "water_quay",
+  "facility": null,
+  "variant": 4,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "roof": "none",
+  "mask": 4,
+  "name": "水面·石砌码头岸 0100",
+  "tags": [
+   "dual_grid",
+   "mask_0100",
+   "waterside"
+  ],
+  "note": "双网格瓦片：渲染格与逻辑格错开半格，四角 = 逻辑格中心，mask = NW*8+NE*4+SW*2+SE*1。水色 #a9b8ad，与 special-infra 西式码头/石拱桥一致。"
+ },
+ {
+  "id": "west-common-water-quay-0101",
+  "style": "west",
+  "race": "common",
+  "category": "water",
+  "kind": "water_quay",
+  "facility": null,
+  "variant": 5,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "roof": "none",
+  "mask": 5,
+  "name": "水面·石砌码头岸 0101",
+  "tags": [
+   "dual_grid",
+   "mask_0101",
+   "waterside"
+  ],
+  "note": "双网格瓦片：渲染格与逻辑格错开半格，四角 = 逻辑格中心，mask = NW*8+NE*4+SW*2+SE*1。水色 #a9b8ad，与 special-infra 西式码头/石拱桥一致。"
+ },
+ {
+  "id": "west-common-water-quay-0110",
+  "style": "west",
+  "race": "common",
+  "category": "water",
+  "kind": "water_quay",
+  "facility": null,
+  "variant": 6,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "roof": "none",
+  "mask": 6,
+  "name": "水面·石砌码头岸 0110",
+  "tags": [
+   "dual_grid",
+   "mask_0110",
+   "waterside"
+  ],
+  "note": "双网格瓦片：渲染格与逻辑格错开半格，四角 = 逻辑格中心，mask = NW*8+NE*4+SW*2+SE*1。水色 #a9b8ad，与 special-infra 西式码头/石拱桥一致。"
+ },
+ {
+  "id": "west-common-water-quay-0111",
+  "style": "west",
+  "race": "common",
+  "category": "water",
+  "kind": "water_quay",
+  "facility": null,
+  "variant": 7,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "roof": "none",
+  "mask": 7,
+  "name": "水面·石砌码头岸 0111",
+  "tags": [
+   "dual_grid",
+   "mask_0111",
+   "waterside"
+  ],
+  "note": "双网格瓦片：渲染格与逻辑格错开半格，四角 = 逻辑格中心，mask = NW*8+NE*4+SW*2+SE*1。水色 #a9b8ad，与 special-infra 西式码头/石拱桥一致。"
+ },
+ {
+  "id": "west-common-water-quay-1000",
+  "style": "west",
+  "race": "common",
+  "category": "water",
+  "kind": "water_quay",
+  "facility": null,
+  "variant": 8,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "roof": "none",
+  "mask": 8,
+  "name": "水面·石砌码头岸 1000",
+  "tags": [
+   "dual_grid",
+   "mask_1000",
+   "waterside"
+  ],
+  "note": "双网格瓦片：渲染格与逻辑格错开半格，四角 = 逻辑格中心，mask = NW*8+NE*4+SW*2+SE*1。水色 #a9b8ad，与 special-infra 西式码头/石拱桥一致。"
+ },
+ {
+  "id": "west-common-water-quay-1001",
+  "style": "west",
+  "race": "common",
+  "category": "water",
+  "kind": "water_quay",
+  "facility": null,
+  "variant": 9,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "roof": "none",
+  "mask": 9,
+  "name": "水面·石砌码头岸 1001",
+  "tags": [
+   "dual_grid",
+   "mask_1001",
+   "waterside"
+  ],
+  "note": "双网格瓦片：渲染格与逻辑格错开半格，四角 = 逻辑格中心，mask = NW*8+NE*4+SW*2+SE*1。水色 #a9b8ad，与 special-infra 西式码头/石拱桥一致。"
+ },
+ {
+  "id": "west-common-water-quay-1010",
+  "style": "west",
+  "race": "common",
+  "category": "water",
+  "kind": "water_quay",
+  "facility": null,
+  "variant": 10,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "roof": "none",
+  "mask": 10,
+  "name": "水面·石砌码头岸 1010",
+  "tags": [
+   "dual_grid",
+   "mask_1010",
+   "waterside"
+  ],
+  "note": "双网格瓦片：渲染格与逻辑格错开半格，四角 = 逻辑格中心，mask = NW*8+NE*4+SW*2+SE*1。水色 #a9b8ad，与 special-infra 西式码头/石拱桥一致。"
+ },
+ {
+  "id": "west-common-water-quay-1011",
+  "style": "west",
+  "race": "common",
+  "category": "water",
+  "kind": "water_quay",
+  "facility": null,
+  "variant": 11,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "roof": "none",
+  "mask": 11,
+  "name": "水面·石砌码头岸 1011",
+  "tags": [
+   "dual_grid",
+   "mask_1011",
+   "waterside"
+  ],
+  "note": "双网格瓦片：渲染格与逻辑格错开半格，四角 = 逻辑格中心，mask = NW*8+NE*4+SW*2+SE*1。水色 #a9b8ad，与 special-infra 西式码头/石拱桥一致。"
+ },
+ {
+  "id": "west-common-water-quay-1100",
+  "style": "west",
+  "race": "common",
+  "category": "water",
+  "kind": "water_quay",
+  "facility": null,
+  "variant": 12,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "roof": "none",
+  "mask": 12,
+  "name": "水面·石砌码头岸 1100",
+  "tags": [
+   "dual_grid",
+   "mask_1100",
+   "waterside"
+  ],
+  "note": "双网格瓦片：渲染格与逻辑格错开半格，四角 = 逻辑格中心，mask = NW*8+NE*4+SW*2+SE*1。水色 #a9b8ad，与 special-infra 西式码头/石拱桥一致。"
+ },
+ {
+  "id": "west-common-water-quay-1101",
+  "style": "west",
+  "race": "common",
+  "category": "water",
+  "kind": "water_quay",
+  "facility": null,
+  "variant": 13,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "roof": "none",
+  "mask": 13,
+  "name": "水面·石砌码头岸 1101",
+  "tags": [
+   "dual_grid",
+   "mask_1101",
+   "waterside"
+  ],
+  "note": "双网格瓦片：渲染格与逻辑格错开半格，四角 = 逻辑格中心，mask = NW*8+NE*4+SW*2+SE*1。水色 #a9b8ad，与 special-infra 西式码头/石拱桥一致。"
+ },
+ {
+  "id": "west-common-water-quay-1110",
+  "style": "west",
+  "race": "common",
+  "category": "water",
+  "kind": "water_quay",
+  "facility": null,
+  "variant": 14,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "roof": "none",
+  "mask": 14,
+  "name": "水面·石砌码头岸 1110",
+  "tags": [
+   "dual_grid",
+   "mask_1110",
+   "waterside"
+  ],
+  "note": "双网格瓦片：渲染格与逻辑格错开半格，四角 = 逻辑格中心，mask = NW*8+NE*4+SW*2+SE*1。水色 #a9b8ad，与 special-infra 西式码头/石拱桥一致。"
+ },
+ {
+  "id": "west-common-water-quay-1111",
+  "style": "west",
+  "race": "common",
+  "category": "water",
+  "kind": "water_quay",
+  "facility": null,
+  "variant": 15,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "roof": "none",
+  "mask": 15,
+  "name": "水面·石砌码头岸 1111",
+  "tags": [
+   "dual_grid",
+   "mask_1111",
+   "waterside"
+  ],
+  "note": "双网格瓦片：渲染格与逻辑格错开半格，四角 = 逻辑格中心，mask = NW*8+NE*4+SW*2+SE*1。水色 #a9b8ad，与 special-infra 西式码头/石拱桥一致。"
+ },
+ {
+  "id": "west-common-ground-grass-01",
+  "style": "west",
+  "race": "common",
+  "category": "ground",
+  "kind": "ground_grass",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "roof": "none",
+  "name": "草地·素",
+  "tags": [
+   "tileable",
+   "seamless"
+  ],
+  "note": "可任意排列的草地底纹，四周 4 px 内无笔触。"
+ },
+ {
+  "id": "west-common-ground-grass-02",
+  "style": "west",
+  "race": "common",
+  "category": "ground",
+  "kind": "ground_grass",
+  "facility": null,
+  "variant": 2,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "roof": "none",
+  "name": "草地·草丛",
+  "tags": [
+   "tileable",
+   "seamless"
+  ],
+  "note": "可任意排列的草地底纹，四周 4 px 内无笔触。"
+ },
+ {
+  "id": "west-common-ground-grass-03",
+  "style": "west",
+  "race": "common",
+  "category": "ground",
+  "kind": "ground_grass",
+  "facility": null,
+  "variant": 3,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "roof": "none",
+  "name": "草地·碎石",
+  "tags": [
+   "tileable",
+   "seamless"
+  ],
+  "note": "可任意排列的草地底纹，四周 4 px 内无笔触。"
+ },
+ {
+  "id": "west-common-ground-grass-04",
+  "style": "west",
+  "race": "common",
+  "category": "ground",
+  "kind": "ground_grass",
+  "facility": null,
+  "variant": 4,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "roof": "none",
+  "name": "草地·野花",
+  "tags": [
+   "tileable",
+   "seamless"
+  ],
+  "note": "可任意排列的草地底纹，四周 4 px 内无笔触。"
+ },
+ {
+  "id": "west-common-ground-dirt-0000",
+  "style": "west",
+  "race": "common",
+  "category": "ground",
+  "kind": "ground_dirt",
+  "facility": null,
+  "variant": 0,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "roof": "none",
+  "mask": 0,
+  "name": "踩实土地/院坪 0000",
+  "tags": [
+   "dual_grid",
+   "mask_0000"
+  ],
+  "note": "双网格瓦片：渲染格与逻辑格错开半格，四角 = 逻辑格中心，mask = NW*8+NE*4+SW*2+SE*1。0000 为透明占位。"
+ },
+ {
+  "id": "west-common-ground-dirt-0001",
+  "style": "west",
+  "race": "common",
+  "category": "ground",
+  "kind": "ground_dirt",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "roof": "none",
+  "mask": 1,
+  "name": "踩实土地/院坪 0001",
+  "tags": [
+   "dual_grid",
+   "mask_0001"
+  ],
+  "note": "双网格瓦片：渲染格与逻辑格错开半格，四角 = 逻辑格中心，mask = NW*8+NE*4+SW*2+SE*1。"
+ },
+ {
+  "id": "west-common-ground-dirt-0010",
+  "style": "west",
+  "race": "common",
+  "category": "ground",
+  "kind": "ground_dirt",
+  "facility": null,
+  "variant": 2,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "roof": "none",
+  "mask": 2,
+  "name": "踩实土地/院坪 0010",
+  "tags": [
+   "dual_grid",
+   "mask_0010"
+  ],
+  "note": "双网格瓦片：渲染格与逻辑格错开半格，四角 = 逻辑格中心，mask = NW*8+NE*4+SW*2+SE*1。"
+ },
+ {
+  "id": "west-common-ground-dirt-0011",
+  "style": "west",
+  "race": "common",
+  "category": "ground",
+  "kind": "ground_dirt",
+  "facility": null,
+  "variant": 3,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "roof": "none",
+  "mask": 3,
+  "name": "踩实土地/院坪 0011",
+  "tags": [
+   "dual_grid",
+   "mask_0011"
+  ],
+  "note": "双网格瓦片：渲染格与逻辑格错开半格，四角 = 逻辑格中心，mask = NW*8+NE*4+SW*2+SE*1。"
+ },
+ {
+  "id": "west-common-ground-dirt-0100",
+  "style": "west",
+  "race": "common",
+  "category": "ground",
+  "kind": "ground_dirt",
+  "facility": null,
+  "variant": 4,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "roof": "none",
+  "mask": 4,
+  "name": "踩实土地/院坪 0100",
+  "tags": [
+   "dual_grid",
+   "mask_0100"
+  ],
+  "note": "双网格瓦片：渲染格与逻辑格错开半格，四角 = 逻辑格中心，mask = NW*8+NE*4+SW*2+SE*1。"
+ },
+ {
+  "id": "west-common-ground-dirt-0101",
+  "style": "west",
+  "race": "common",
+  "category": "ground",
+  "kind": "ground_dirt",
+  "facility": null,
+  "variant": 5,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "roof": "none",
+  "mask": 5,
+  "name": "踩实土地/院坪 0101",
+  "tags": [
+   "dual_grid",
+   "mask_0101"
+  ],
+  "note": "双网格瓦片：渲染格与逻辑格错开半格，四角 = 逻辑格中心，mask = NW*8+NE*4+SW*2+SE*1。"
+ },
+ {
+  "id": "west-common-ground-dirt-0110",
+  "style": "west",
+  "race": "common",
+  "category": "ground",
+  "kind": "ground_dirt",
+  "facility": null,
+  "variant": 6,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "roof": "none",
+  "mask": 6,
+  "name": "踩实土地/院坪 0110",
+  "tags": [
+   "dual_grid",
+   "mask_0110"
+  ],
+  "note": "双网格瓦片：渲染格与逻辑格错开半格，四角 = 逻辑格中心，mask = NW*8+NE*4+SW*2+SE*1。"
+ },
+ {
+  "id": "west-common-ground-dirt-0111",
+  "style": "west",
+  "race": "common",
+  "category": "ground",
+  "kind": "ground_dirt",
+  "facility": null,
+  "variant": 7,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "roof": "none",
+  "mask": 7,
+  "name": "踩实土地/院坪 0111",
+  "tags": [
+   "dual_grid",
+   "mask_0111"
+  ],
+  "note": "双网格瓦片：渲染格与逻辑格错开半格，四角 = 逻辑格中心，mask = NW*8+NE*4+SW*2+SE*1。"
+ },
+ {
+  "id": "west-common-ground-dirt-1000",
+  "style": "west",
+  "race": "common",
+  "category": "ground",
+  "kind": "ground_dirt",
+  "facility": null,
+  "variant": 8,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "roof": "none",
+  "mask": 8,
+  "name": "踩实土地/院坪 1000",
+  "tags": [
+   "dual_grid",
+   "mask_1000"
+  ],
+  "note": "双网格瓦片：渲染格与逻辑格错开半格，四角 = 逻辑格中心，mask = NW*8+NE*4+SW*2+SE*1。"
+ },
+ {
+  "id": "west-common-ground-dirt-1001",
+  "style": "west",
+  "race": "common",
+  "category": "ground",
+  "kind": "ground_dirt",
+  "facility": null,
+  "variant": 9,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "roof": "none",
+  "mask": 9,
+  "name": "踩实土地/院坪 1001",
+  "tags": [
+   "dual_grid",
+   "mask_1001"
+  ],
+  "note": "双网格瓦片：渲染格与逻辑格错开半格，四角 = 逻辑格中心，mask = NW*8+NE*4+SW*2+SE*1。"
+ },
+ {
+  "id": "west-common-ground-dirt-1010",
+  "style": "west",
+  "race": "common",
+  "category": "ground",
+  "kind": "ground_dirt",
+  "facility": null,
+  "variant": 10,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "roof": "none",
+  "mask": 10,
+  "name": "踩实土地/院坪 1010",
+  "tags": [
+   "dual_grid",
+   "mask_1010"
+  ],
+  "note": "双网格瓦片：渲染格与逻辑格错开半格，四角 = 逻辑格中心，mask = NW*8+NE*4+SW*2+SE*1。"
+ },
+ {
+  "id": "west-common-ground-dirt-1011",
+  "style": "west",
+  "race": "common",
+  "category": "ground",
+  "kind": "ground_dirt",
+  "facility": null,
+  "variant": 11,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "roof": "none",
+  "mask": 11,
+  "name": "踩实土地/院坪 1011",
+  "tags": [
+   "dual_grid",
+   "mask_1011"
+  ],
+  "note": "双网格瓦片：渲染格与逻辑格错开半格，四角 = 逻辑格中心，mask = NW*8+NE*4+SW*2+SE*1。"
+ },
+ {
+  "id": "west-common-ground-dirt-1100",
+  "style": "west",
+  "race": "common",
+  "category": "ground",
+  "kind": "ground_dirt",
+  "facility": null,
+  "variant": 12,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "roof": "none",
+  "mask": 12,
+  "name": "踩实土地/院坪 1100",
+  "tags": [
+   "dual_grid",
+   "mask_1100"
+  ],
+  "note": "双网格瓦片：渲染格与逻辑格错开半格，四角 = 逻辑格中心，mask = NW*8+NE*4+SW*2+SE*1。"
+ },
+ {
+  "id": "west-common-ground-dirt-1101",
+  "style": "west",
+  "race": "common",
+  "category": "ground",
+  "kind": "ground_dirt",
+  "facility": null,
+  "variant": 13,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "roof": "none",
+  "mask": 13,
+  "name": "踩实土地/院坪 1101",
+  "tags": [
+   "dual_grid",
+   "mask_1101"
+  ],
+  "note": "双网格瓦片：渲染格与逻辑格错开半格，四角 = 逻辑格中心，mask = NW*8+NE*4+SW*2+SE*1。"
+ },
+ {
+  "id": "west-common-ground-dirt-1110",
+  "style": "west",
+  "race": "common",
+  "category": "ground",
+  "kind": "ground_dirt",
+  "facility": null,
+  "variant": 14,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "roof": "none",
+  "mask": 14,
+  "name": "踩实土地/院坪 1110",
+  "tags": [
+   "dual_grid",
+   "mask_1110"
+  ],
+  "note": "双网格瓦片：渲染格与逻辑格错开半格，四角 = 逻辑格中心，mask = NW*8+NE*4+SW*2+SE*1。"
+ },
+ {
+  "id": "west-common-ground-dirt-1111",
+  "style": "west",
+  "race": "common",
+  "category": "ground",
+  "kind": "ground_dirt",
+  "facility": null,
+  "variant": 15,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "roof": "none",
+  "mask": 15,
+  "name": "踩实土地/院坪 1111",
+  "tags": [
+   "dual_grid",
+   "mask_1111"
+  ],
+  "note": "双网格瓦片：渲染格与逻辑格错开半格，四角 = 逻辑格中心，mask = NW*8+NE*4+SW*2+SE*1。"
+ },
+ {
+  "id": "west-common-prop-grass-tuft-01",
+  "style": "west",
+  "race": "common",
+  "category": "prop",
+  "kind": "grass_tuft",
+  "facility": null,
+  "variant": 1,
+  "name": "草丛 1",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "vegetation"
+  ],
+  "roof": "none",
+  "note": "地面摆件，锚点在脚底中点；按锚点 y 排序绘制。"
+ },
+ {
+  "id": "west-common-prop-grass-tuft-02",
+  "style": "west",
+  "race": "common",
+  "category": "prop",
+  "kind": "grass_tuft",
+  "facility": null,
+  "variant": 2,
+  "name": "草丛 2",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "vegetation"
+  ],
+  "roof": "none",
+  "note": "地面摆件，锚点在脚底中点；按锚点 y 排序绘制。"
+ },
+ {
+  "id": "west-common-prop-grass-tuft-03",
+  "style": "west",
+  "race": "common",
+  "category": "prop",
+  "kind": "grass_tuft",
+  "facility": null,
+  "variant": 3,
+  "name": "草丛 3",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "vegetation"
+  ],
+  "roof": "none",
+  "note": "地面摆件，锚点在脚底中点；按锚点 y 排序绘制。"
+ },
+ {
+  "id": "west-common-prop-flower-clump-01",
+  "style": "west",
+  "race": "common",
+  "category": "prop",
+  "kind": "flower_clump",
+  "facility": null,
+  "variant": 1,
+  "name": "野花丛 1",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "vegetation",
+   "flowers"
+  ],
+  "roof": "none",
+  "note": "地面摆件，锚点在脚底中点；按锚点 y 排序绘制。"
+ },
+ {
+  "id": "west-common-prop-flower-clump-02",
+  "style": "west",
+  "race": "common",
+  "category": "prop",
+  "kind": "flower_clump",
+  "facility": null,
+  "variant": 2,
+  "name": "野花丛 2",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "vegetation",
+   "flowers"
+  ],
+  "roof": "none",
+  "note": "地面摆件，锚点在脚底中点；按锚点 y 排序绘制。"
+ },
+ {
+  "id": "west-common-prop-bush-01",
+  "style": "west",
+  "race": "common",
+  "category": "prop",
+  "kind": "bush",
+  "facility": null,
+  "variant": 1,
+  "name": "灌木 1",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "vegetation"
+  ],
+  "roof": "none",
+  "note": "地面摆件，锚点在脚底中点；按锚点 y 排序绘制。"
+ },
+ {
+  "id": "west-common-prop-bush-02",
+  "style": "west",
+  "race": "common",
+  "category": "prop",
+  "kind": "bush",
+  "facility": null,
+  "variant": 2,
+  "name": "灌木 2",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "vegetation"
+  ],
+  "roof": "none",
+  "note": "地面摆件，锚点在脚底中点；按锚点 y 排序绘制。"
+ },
+ {
+  "id": "west-common-prop-bush-03",
+  "style": "west",
+  "race": "common",
+  "category": "prop",
+  "kind": "bush",
+  "facility": null,
+  "variant": 3,
+  "name": "灌木 3",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "vegetation"
+  ],
+  "roof": "none",
+  "note": "地面摆件，锚点在脚底中点；按锚点 y 排序绘制。"
+ },
+ {
+  "id": "west-common-prop-tree-oak-01",
+  "style": "west",
+  "race": "common",
+  "category": "prop",
+  "kind": "tree_oak",
+  "facility": null,
+  "variant": 1,
+  "name": "小橡树 1",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 18,
+  "anchor": [
+   24,
+   66
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   66
+  ],
+  "tags": [
+   "vegetation",
+   "tree"
+  ],
+  "roof": "none",
+  "note": "地面摆件，锚点在脚底中点；按锚点 y 排序绘制。"
+ },
+ {
+  "id": "west-common-prop-tree-oak-02",
+  "style": "west",
+  "race": "common",
+  "category": "prop",
+  "kind": "tree_oak",
+  "facility": null,
+  "variant": 2,
+  "name": "小橡树 2",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 18,
+  "anchor": [
+   24,
+   66
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   66
+  ],
+  "tags": [
+   "vegetation",
+   "tree"
+  ],
+  "roof": "none",
+  "note": "地面摆件，锚点在脚底中点；按锚点 y 排序绘制。"
+ },
+ {
+  "id": "west-common-prop-tree-pine-01",
+  "style": "west",
+  "race": "common",
+  "category": "prop",
+  "kind": "tree_pine",
+  "facility": null,
+  "variant": 1,
+  "name": "小松树 1",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 24,
+  "anchor": [
+   24,
+   72
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   72
+  ],
+  "tags": [
+   "vegetation",
+   "tree",
+   "conifer"
+  ],
+  "roof": "none",
+  "note": "地面摆件，锚点在脚底中点；按锚点 y 排序绘制。"
+ },
+ {
+  "id": "west-common-prop-tree-pine-02",
+  "style": "west",
+  "race": "common",
+  "category": "prop",
+  "kind": "tree_pine",
+  "facility": null,
+  "variant": 2,
+  "name": "小松树 2",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 24,
+  "anchor": [
+   24,
+   72
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   72
+  ],
+  "tags": [
+   "vegetation",
+   "tree",
+   "conifer"
+  ],
+  "roof": "none",
+  "note": "地面摆件，锚点在脚底中点；按锚点 y 排序绘制。"
+ },
+ {
+  "id": "west-common-prop-tree-fruit-01",
+  "style": "west",
+  "race": "common",
+  "category": "prop",
+  "kind": "tree_fruit",
+  "facility": null,
+  "variant": 1,
+  "name": "小果树 1",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 10,
+  "anchor": [
+   24,
+   58
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   58
+  ],
+  "tags": [
+   "vegetation",
+   "tree",
+   "orchard"
+  ],
+  "roof": "none",
+  "note": "地面摆件，锚点在脚底中点；按锚点 y 排序绘制。"
+ },
+ {
+  "id": "west-common-prop-tree-fruit-02",
+  "style": "west",
+  "race": "common",
+  "category": "prop",
+  "kind": "tree_fruit",
+  "facility": null,
+  "variant": 2,
+  "name": "小果树 2",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 10,
+  "anchor": [
+   24,
+   58
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   58
+  ],
+  "tags": [
+   "vegetation",
+   "tree",
+   "orchard"
+  ],
+  "roof": "none",
+  "note": "地面摆件，锚点在脚底中点；按锚点 y 排序绘制。"
+ },
+ {
+  "id": "west-common-prop-rock-01",
+  "style": "west",
+  "race": "common",
+  "category": "prop",
+  "kind": "rock",
+  "facility": null,
+  "variant": 1,
+  "name": "石块 1",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "stone"
+  ],
+  "roof": "none",
+  "note": "地面摆件，锚点在脚底中点；按锚点 y 排序绘制。"
+ },
+ {
+  "id": "west-common-prop-rock-02",
+  "style": "west",
+  "race": "common",
+  "category": "prop",
+  "kind": "rock",
+  "facility": null,
+  "variant": 2,
+  "name": "石块 2",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "stone"
+  ],
+  "roof": "none",
+  "note": "地面摆件，锚点在脚底中点；按锚点 y 排序绘制。"
+ },
+ {
+  "id": "west-common-prop-rock-03",
+  "style": "west",
+  "race": "common",
+  "category": "prop",
+  "kind": "rock",
+  "facility": null,
+  "variant": 3,
+  "name": "石块 3",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "stone"
+  ],
+  "roof": "none",
+  "note": "地面摆件，锚点在脚底中点；按锚点 y 排序绘制。"
+ },
+ {
+  "id": "west-common-prop-puddle-01",
+  "style": "west",
+  "race": "common",
+  "category": "prop",
+  "kind": "puddle",
+  "facility": null,
+  "variant": 1,
+  "name": "水洼",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "water"
+  ],
+  "roof": "none",
+  "note": "地面摆件，锚点在脚底中点；按锚点 y 排序绘制。"
+ },
+ {
+  "id": "west-common-prop-barrel-stack-01",
+  "style": "west",
+  "race": "common",
+  "category": "prop",
+  "kind": "barrel_stack",
+  "facility": null,
+  "variant": 1,
+  "name": "木桶堆 1",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "goods",
+   "barrel"
+  ],
+  "roof": "none",
+  "note": "地面摆件，锚点在脚底中点；按锚点 y 排序绘制。"
+ },
+ {
+  "id": "west-common-prop-barrel-stack-02",
+  "style": "west",
+  "race": "common",
+  "category": "prop",
+  "kind": "barrel_stack",
+  "facility": null,
+  "variant": 2,
+  "name": "木桶堆 2",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "goods",
+   "barrel"
+  ],
+  "roof": "none",
+  "note": "地面摆件，锚点在脚底中点；按锚点 y 排序绘制。"
+ },
+ {
+  "id": "west-common-prop-barrel-stack-03",
+  "style": "west",
+  "race": "common",
+  "category": "prop",
+  "kind": "barrel_stack",
+  "facility": null,
+  "variant": 3,
+  "name": "木桶堆 3",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "goods",
+   "barrel"
+  ],
+  "roof": "none",
+  "note": "地面摆件，锚点在脚底中点；按锚点 y 排序绘制。"
+ },
+ {
+  "id": "west-common-prop-crate-01",
+  "style": "west",
+  "race": "common",
+  "category": "prop",
+  "kind": "crate",
+  "facility": null,
+  "variant": 1,
+  "name": "木箱 1",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "goods",
+   "crate"
+  ],
+  "roof": "none",
+  "note": "地面摆件，锚点在脚底中点；按锚点 y 排序绘制。"
+ },
+ {
+  "id": "west-common-prop-crate-02",
+  "style": "west",
+  "race": "common",
+  "category": "prop",
+  "kind": "crate",
+  "facility": null,
+  "variant": 2,
+  "name": "木箱 2",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "goods",
+   "crate"
+  ],
+  "roof": "none",
+  "note": "地面摆件，锚点在脚底中点；按锚点 y 排序绘制。"
+ },
+ {
+  "id": "west-common-prop-crate-03",
+  "style": "west",
+  "race": "common",
+  "category": "prop",
+  "kind": "crate",
+  "facility": null,
+  "variant": 3,
+  "name": "木箱 3",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "goods",
+   "crate"
+  ],
+  "roof": "none",
+  "note": "地面摆件，锚点在脚底中点；按锚点 y 排序绘制。"
+ },
+ {
+  "id": "west-common-prop-hay-bale-01",
+  "style": "west",
+  "race": "common",
+  "category": "prop",
+  "kind": "hay_bale",
+  "facility": null,
+  "variant": 1,
+  "name": "干草堆 1",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "farm",
+   "hay"
+  ],
+  "roof": "none",
+  "note": "地面摆件，锚点在脚底中点；按锚点 y 排序绘制。"
+ },
+ {
+  "id": "west-common-prop-hay-bale-02",
+  "style": "west",
+  "race": "common",
+  "category": "prop",
+  "kind": "hay_bale",
+  "facility": null,
+  "variant": 2,
+  "name": "干草堆 2",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "farm",
+   "hay"
+  ],
+  "roof": "none",
+  "note": "地面摆件，锚点在脚底中点；按锚点 y 排序绘制。"
+ },
+ {
+  "id": "west-common-prop-woodpile-01",
+  "style": "west",
+  "race": "common",
+  "category": "prop",
+  "kind": "woodpile",
+  "facility": null,
+  "variant": 1,
+  "name": "木柴堆 1",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "goods",
+   "firewood"
+  ],
+  "roof": "none",
+  "note": "地面摆件，锚点在脚底中点；按锚点 y 排序绘制。"
+ },
+ {
+  "id": "west-common-prop-woodpile-02",
+  "style": "west",
+  "race": "common",
+  "category": "prop",
+  "kind": "woodpile",
+  "facility": null,
+  "variant": 2,
+  "name": "木柴堆 2",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "goods",
+   "firewood"
+  ],
+  "roof": "none",
+  "note": "地面摆件，锚点在脚底中点；按锚点 y 排序绘制。"
+ },
+ {
+  "id": "west-common-prop-handcart-01",
+  "style": "west",
+  "race": "common",
+  "category": "prop",
+  "kind": "handcart",
+  "facility": null,
+  "variant": 1,
+  "name": "手推车",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "vehicle",
+   "cart"
+  ],
+  "roof": "none",
+  "note": "地面摆件，锚点在脚底中点；按锚点 y 排序绘制。"
+ },
+ {
+  "id": "west-common-prop-wagon-01",
+  "style": "west",
+  "race": "common",
+  "category": "prop",
+  "kind": "wagon",
+  "facility": null,
+  "variant": 1,
+  "name": "马车（货车）",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "vehicle",
+   "wagon"
+  ],
+  "roof": "none",
+  "note": "地面摆件，锚点在脚底中点；按锚点 y 排序绘制。"
+ },
+ {
+  "id": "west-common-prop-trough-01",
+  "style": "west",
+  "race": "common",
+  "category": "prop",
+  "kind": "trough",
+  "facility": null,
+  "variant": 1,
+  "name": "水槽",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "water",
+   "livestock"
+  ],
+  "roof": "none",
+  "note": "地面摆件，锚点在脚底中点；按锚点 y 排序绘制。"
+ },
+ {
+  "id": "west-common-prop-fence-h-01",
+  "style": "west",
+  "race": "common",
+  "category": "prop",
+  "kind": "fence_h",
+  "facility": null,
+  "variant": 1,
+  "name": "木栅栏·横段",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "fence",
+   "tileable_ew"
+  ],
+  "roof": "none",
+  "note": "地面摆件，锚点在脚底中点；按锚点 y 排序绘制。"
+ },
+ {
+  "id": "west-common-prop-fence-v-01",
+  "style": "west",
+  "race": "common",
+  "category": "prop",
+  "kind": "fence_v",
+  "facility": null,
+  "variant": 1,
+  "name": "木栅栏·竖段",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 10,
+  "anchor": [
+   24,
+   58
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   58
+  ],
+  "tags": [
+   "fence",
+   "tileable_ns"
+  ],
+  "roof": "none",
+  "note": "地面摆件，锚点在脚底中点；按锚点 y 排序绘制。"
+ },
+ {
+  "id": "west-common-prop-fence-corner-01",
+  "style": "west",
+  "race": "common",
+  "category": "prop",
+  "kind": "fence_corner",
+  "facility": null,
+  "variant": 1,
+  "name": "木栅栏·转角",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "fence",
+   "corner_es"
+  ],
+  "roof": "none",
+  "note": "地面摆件，锚点在脚底中点；按锚点 y 排序绘制。"
+ },
+ {
+  "id": "west-common-prop-vegetable-bed-01",
+  "style": "west",
+  "race": "common",
+  "category": "prop",
+  "kind": "vegetable_bed",
+  "facility": null,
+  "variant": 1,
+  "name": "菜畦",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "farm",
+   "garden"
+  ],
+  "roof": "none",
+  "note": "地面摆件，锚点在脚底中点；按锚点 y 排序绘制。"
+ },
+ {
+  "id": "west-common-prop-clothesline-01",
+  "style": "west",
+  "race": "common",
+  "category": "prop",
+  "kind": "clothesline",
+  "facility": null,
+  "variant": 1,
+  "name": "晾衣绳",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "yard",
+   "laundry"
+  ],
+  "roof": "none",
+  "note": "地面摆件，锚点在脚底中点；按锚点 y 排序绘制。"
+ },
+ {
+  "id": "west-common-prop-chickens-01",
+  "style": "west",
+  "race": "common",
+  "category": "prop",
+  "kind": "chickens",
+  "facility": null,
+  "variant": 1,
+  "name": "鸡群",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "livestock",
+   "farm"
+  ],
+  "roof": "none",
+  "note": "地面摆件，锚点在脚底中点；按锚点 y 排序绘制。"
+ },
+ {
+  "id": "west-common-prop-signpost-01",
+  "style": "west",
+  "race": "common",
+  "category": "prop",
+  "kind": "signpost",
+  "facility": null,
+  "variant": 1,
+  "name": "路标",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "road",
+   "sign"
+  ],
+  "roof": "none",
+  "note": "地面摆件，锚点在脚底中点；按锚点 y 排序绘制。"
+ },
+ {
+  "id": "west-common-prop-bench-01",
+  "style": "west",
+  "race": "common",
+  "category": "prop",
+  "kind": "bench",
+  "facility": null,
+  "variant": 1,
+  "name": "长凳",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "plaza",
+   "seat"
+  ],
+  "roof": "none",
+  "note": "地面摆件，锚点在脚底中点；按锚点 y 排序绘制。"
+ },
+ {
+  "id": "west-common-prop-flower-bed-01",
+  "style": "west",
+  "race": "common",
+  "category": "prop",
+  "kind": "flower_bed",
+  "facility": null,
+  "variant": 1,
+  "name": "花坛",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "plaza",
+   "flowers"
+  ],
+  "roof": "none",
+  "note": "地面摆件，锚点在脚底中点；按锚点 y 排序绘制。"
+ },
+ {
+  "id": "west-common-prop-well-bits-01",
+  "style": "west",
+  "race": "common",
+  "category": "prop",
+  "kind": "well_bits",
+  "facility": null,
+  "variant": 1,
+  "name": "井台小件（水桶与辘轳绳）",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "water",
+   "well"
+  ],
+  "roof": "none",
+  "note": "地面摆件，锚点在脚底中点；按锚点 y 排序绘制。"
+ },
+ {
+  "id": "west-common-prop-campfire-01",
+  "style": "west",
+  "race": "common",
+  "category": "prop",
+  "kind": "campfire",
+  "facility": null,
+  "variant": 1,
+  "name": "篝火堆",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "fire"
+  ],
+  "roof": "none",
+  "note": "地面摆件，锚点在脚底中点；按锚点 y 排序绘制。"
+ },
+ {
+  "id": "west-elf-prop-mushroom-ring-01",
+  "style": "west",
+  "race": "elf",
+  "category": "prop",
+  "kind": "mushroom_ring",
+  "facility": null,
+  "variant": 1,
+  "name": "蘑菇圈",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "elf",
+   "fairy_ring"
+  ],
+  "roof": "none",
+  "note": "地面摆件，锚点在脚底中点；按锚点 y 排序绘制。"
+ },
+ {
+  "id": "west-elf-prop-moonstone-lamp-01",
+  "style": "west",
+  "race": "elf",
+  "category": "prop",
+  "kind": "moonstone_lamp",
+  "facility": null,
+  "variant": 1,
+  "name": "月光石小灯",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "elf",
+   "light"
+  ],
+  "roof": "none",
+  "note": "地面摆件，锚点在脚底中点；按锚点 y 排序绘制。"
+ },
+ {
+  "id": "west-elf-prop-flower-arch-01",
+  "style": "west",
+  "race": "elf",
+  "category": "prop",
+  "kind": "flower_arch",
+  "facility": null,
+  "variant": 1,
+  "name": "花藤拱",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "elf",
+   "arch",
+   "garden"
+  ],
+  "roof": "none",
+  "note": "地面摆件，锚点在脚底中点；按锚点 y 排序绘制。"
+ },
+ {
+  "id": "west-elf-prop-mossy-stone-01",
+  "style": "west",
+  "race": "elf",
+  "category": "prop",
+  "kind": "mossy_stone",
+  "facility": null,
+  "variant": 1,
+  "name": "苔石",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "elf",
+   "stone",
+   "moss"
+  ],
+  "roof": "none",
+  "note": "地面摆件，锚点在脚底中点；按锚点 y 排序绘制。"
+ },
+ {
+  "id": "west-elf-prop-silverleaf-tree-01",
+  "style": "west",
+  "race": "elf",
+  "category": "prop",
+  "kind": "silverleaf_tree",
+  "facility": null,
+  "variant": 1,
+  "name": "银叶小树 1",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 18,
+  "anchor": [
+   24,
+   66
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   66
+  ],
+  "tags": [
+   "elf",
+   "tree"
+  ],
+  "roof": "none",
+  "note": "地面摆件，锚点在脚底中点；按锚点 y 排序绘制。"
+ },
+ {
+  "id": "west-elf-prop-silverleaf-tree-02",
+  "style": "west",
+  "race": "elf",
+  "category": "prop",
+  "kind": "silverleaf_tree",
+  "facility": null,
+  "variant": 2,
+  "name": "银叶小树 2",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 18,
+  "anchor": [
+   24,
+   66
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   66
+  ],
+  "tags": [
+   "elf",
+   "tree"
+  ],
+  "roof": "none",
+  "note": "地面摆件，锚点在脚底中点；按锚点 y 排序绘制。"
+ },
+ {
+  "id": "west-dwarf-prop-ore-heap-01",
+  "style": "west",
+  "race": "dwarf",
+  "category": "prop",
+  "kind": "ore_heap",
+  "facility": null,
+  "variant": 1,
+  "name": "矿石堆",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "dwarf",
+   "ore",
+   "mining"
+  ],
+  "roof": "none",
+  "note": "地面摆件，锚点在脚底中点；按锚点 y 排序绘制。"
+ },
+ {
+  "id": "west-dwarf-prop-minecart-01",
+  "style": "west",
+  "race": "dwarf",
+  "category": "prop",
+  "kind": "minecart",
+  "facility": null,
+  "variant": 1,
+  "name": "矿车",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "dwarf",
+   "mining",
+   "vehicle"
+  ],
+  "roof": "none",
+  "note": "地面摆件，锚点在脚底中点；按锚点 y 排序绘制。"
+ },
+ {
+  "id": "west-dwarf-prop-mossy-boulder-01",
+  "style": "west",
+  "race": "dwarf",
+  "category": "prop",
+  "kind": "mossy_boulder",
+  "facility": null,
+  "variant": 1,
+  "name": "苔藓巨石",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "dwarf",
+   "stone",
+   "moss"
+  ],
+  "roof": "none",
+  "note": "地面摆件，锚点在脚底中点；按锚点 y 排序绘制。"
+ },
+ {
+  "id": "west-dwarf-prop-iron-ingots-01",
+  "style": "west",
+  "race": "dwarf",
+  "category": "prop",
+  "kind": "iron_ingots",
+  "facility": null,
+  "variant": 1,
+  "name": "铁锭垛",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "dwarf",
+   "metal",
+   "goods"
+  ],
+  "roof": "none",
+  "note": "地面摆件，锚点在脚底中点；按锚点 y 排序绘制。"
+ },
+ {
+  "id": "west-dwarf-prop-ale-casks-01",
+  "style": "west",
+  "race": "dwarf",
+  "category": "prop",
+  "kind": "ale_casks",
+  "facility": null,
+  "variant": 1,
+  "name": "啤酒桶堆",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "dwarf",
+   "ale",
+   "barrel"
+  ],
+  "roof": "none",
+  "note": "地面摆件，锚点在脚底中点；按锚点 y 排序绘制。"
+ },
+ {
+  "id": "west-orc-prop-bone-pile-01",
+  "style": "west",
+  "race": "orc",
+  "category": "prop",
+  "kind": "bone_pile",
+  "facility": null,
+  "variant": 1,
+  "name": "骨堆",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "orc",
+   "bones"
+  ],
+  "roof": "none",
+  "note": "地面摆件，锚点在脚底中点；按锚点 y 排序绘制。"
+ },
+ {
+  "id": "west-orc-prop-totem-small-01",
+  "style": "west",
+  "race": "orc",
+  "category": "prop",
+  "kind": "totem_small",
+  "facility": null,
+  "variant": 1,
+  "name": "小图腾",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "orc",
+   "totem",
+   "shrine"
+  ],
+  "roof": "none",
+  "note": "地面摆件，锚点在脚底中点；按锚点 y 排序绘制。"
+ },
+ {
+  "id": "west-orc-prop-fire-pit-01",
+  "style": "west",
+  "race": "orc",
+  "category": "prop",
+  "kind": "fire_pit",
+  "facility": null,
+  "variant": 1,
+  "name": "篝火坑",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "orc",
+   "fire"
+  ],
+  "roof": "none",
+  "note": "地面摆件，锚点在脚底中点；按锚点 y 排序绘制。"
+ },
+ {
+  "id": "west-orc-prop-stake-row-01",
+  "style": "west",
+  "race": "orc",
+  "category": "prop",
+  "kind": "stake_row",
+  "facility": null,
+  "variant": 1,
+  "name": "尖桩",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "orc",
+   "defense",
+   "stakes"
+  ],
+  "roof": "none",
+  "note": "地面摆件，锚点在脚底中点；按锚点 y 排序绘制。"
+ },
+ {
+  "id": "west-orc-prop-hide-rack-01",
+  "style": "west",
+  "race": "orc",
+  "category": "prop",
+  "kind": "hide_rack",
+  "facility": null,
+  "variant": 1,
+  "name": "兽皮晾架",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "orc",
+   "tannery",
+   "hide"
+  ],
+  "roof": "none",
+  "note": "地面摆件，锚点在脚底中点；按锚点 y 排序绘制。"
+ }
+]

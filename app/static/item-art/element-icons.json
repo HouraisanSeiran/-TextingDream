@@ -1,0 +1,552 @@
+{
+  "schema": "element_icons_v1",
+  "note": "元素 → 图标对照。键为 「分区/元素 id」；sprite 指向下面 sprites 里的文件（相对本文件所在目录），reuse=true 表示复用现有地图图示、没有新画。图标只做展示，不决定任何游戏数值。",
+  "sprites": {
+    "element": "element-icons.svg",
+    "map": "../map-art/map-art.svg",
+    "map_eastern": "../map-art/map-art-eastern.svg"
+  },
+  "entries": {
+    "polities/polity_feudal_kingdom": {
+      "sprite": "map",
+      "symbol": "town-human-capital",
+      "reuse": true
+    },
+    "polities/polity_parliamentary_monarchy": {
+      "sprite": "element",
+      "symbol": "ei-polity-parliament"
+    },
+    "polities/polity_bureaucratic_empire": {
+      "sprite": "map_eastern",
+      "symbol": "town-capital",
+      "reuse": true
+    },
+    "polities/polity_industrial_republic": {
+      "sprite": "element",
+      "symbol": "ei-polity-industrial"
+    },
+    "polities/polity_city_state_league": {
+      "sprite": "map",
+      "symbol": "town-human-city",
+      "reuse": true
+    },
+    "polities/polity_theocratic_state": {
+      "sprite": "map",
+      "symbol": "mark-temple",
+      "reuse": true
+    },
+    "polities/polity_tribal_confederation": {
+      "sprite": "map",
+      "symbol": "mark-camp",
+      "reuse": true
+    },
+    "polities/polity_merchant_republic": {
+      "sprite": "map",
+      "symbol": "mark-port",
+      "reuse": true
+    },
+    "polities/polity_mage_council_state": {
+      "sprite": "map",
+      "symbol": "mark-tower",
+      "reuse": true
+    },
+    "races-supplement/race_deepseam_delvers": {
+      "sprite": "map",
+      "symbol": "mark-mine",
+      "reuse": true
+    },
+    "races-supplement/race_cogwork_grafted": {
+      "sprite": "element",
+      "symbol": "ei-race-cogwork"
+    },
+    "races-supplement/race_canal_boat_clans": {
+      "sprite": "element",
+      "symbol": "ei-race-canal-boat"
+    },
+    "races-supplement/race_forge_kindred": {
+      "sprite": "element",
+      "symbol": "ei-race-forge-kindred"
+    },
+    "races-supplement/race_animated_servitors": {
+      "sprite": "element",
+      "symbol": "ei-race-servitor"
+    },
+    "races-supplement/race_gaslight_fae": {
+      "sprite": "element",
+      "symbol": "ei-race-gaslight-fae"
+    },
+    "western/western_dragon": {
+      "sprite": "map",
+      "symbol": "mark-dragon-lair",
+      "reuse": true
+    },
+    "steam-tech/tech_steam_locomotive": {
+      "sprite": "element",
+      "symbol": "ei-tech-locomotive"
+    },
+    "steam-tech/tech_electric_telegraph": {
+      "sprite": "element",
+      "symbol": "ei-tech-telegraph"
+    },
+    "steam-tech/tech_coal_gas_lighting": {
+      "sprite": "element",
+      "symbol": "ei-tech-gas-lighting"
+    },
+    "steam-tech/tech_ironclad_warship": {
+      "sprite": "element",
+      "symbol": "ei-tech-ironclad"
+    },
+    "steam-tech/tech_breech_loading_rifle": {
+      "sprite": "element",
+      "symbol": "ei-tech-rifle"
+    },
+    "steam-tech/tech_bessemer_steel": {
+      "sprite": "element",
+      "symbol": "ei-tech-bessemer"
+    },
+    "steam-tech/tech_internal_combustion_engine": {
+      "sprite": "element",
+      "symbol": "ei-tech-engine"
+    },
+    "steam-tech/tech_electric_power_grid": {
+      "sprite": "element",
+      "symbol": "ei-tech-power-grid"
+    },
+    "steam-tech/tech_wireless_radio": {
+      "sprite": "element",
+      "symbol": "ei-tech-radio"
+    },
+    "steam-tech/tech_early_airplane": {
+      "sprite": "element",
+      "symbol": "ei-tech-airplane"
+    },
+    "steam-tech/tech_machine_gun": {
+      "sprite": "element",
+      "symbol": "ei-tech-machine-gun"
+    },
+    "steam-tech/tech_armoured_vehicle": {
+      "sprite": "element",
+      "symbol": "ei-tech-tank"
+    },
+    "shops/shop_tavern": {
+      "sprite": "element",
+      "symbol": "ei-shop-tavern"
+    },
+    "shops/shop_inn_kitchen": {
+      "sprite": "element",
+      "symbol": "ei-shop-inn-kitchen"
+    },
+    "shops/shop_market": {
+      "sprite": "element",
+      "symbol": "ei-shop-market"
+    },
+    "shops/shop_grocer": {
+      "sprite": "element",
+      "symbol": "ei-shop-grocer"
+    },
+    "shops/shop_greengrocer": {
+      "sprite": "element",
+      "symbol": "ei-shop-greengrocer"
+    },
+    "shops/shop_butcher": {
+      "sprite": "element",
+      "symbol": "ei-shop-butcher"
+    },
+    "shops/shop_fishmonger": {
+      "sprite": "element",
+      "symbol": "ei-shop-fishmonger"
+    },
+    "shops/shop_baker": {
+      "sprite": "element",
+      "symbol": "ei-shop-baker"
+    },
+    "shops/shop_confectioner": {
+      "sprite": "element",
+      "symbol": "ei-shop-confectioner"
+    },
+    "shops/shop_cookshop": {
+      "sprite": "element",
+      "symbol": "ei-shop-cookshop"
+    },
+    "shops/shop_dairy": {
+      "sprite": "element",
+      "symbol": "ei-shop-dairy"
+    },
+    "shops/shop_miller": {
+      "sprite": "element",
+      "symbol": "ei-shop-miller"
+    },
+    "shops/shop_brewer": {
+      "sprite": "element",
+      "symbol": "ei-shop-brewer"
+    },
+    "shops/shop_wine_merchant": {
+      "sprite": "element",
+      "symbol": "ei-shop-wine-merchant"
+    },
+    "shops/shop_tea_house": {
+      "sprite": "element",
+      "symbol": "ei-shop-tea-house"
+    },
+    "shops/shop_chandler": {
+      "sprite": "element",
+      "symbol": "ei-shop-chandler"
+    },
+    "shops/shop_spice_merchant": {
+      "sprite": "element",
+      "symbol": "ei-shop-spice-merchant"
+    },
+    "shops/shop_apothecary": {
+      "sprite": "element",
+      "symbol": "ei-shop-apothecary"
+    },
+    "shops/shop_herbalist": {
+      "sprite": "element",
+      "symbol": "ei-shop-herbalist"
+    },
+    "shops/shop_alchemist": {
+      "sprite": "element",
+      "symbol": "ei-shop-alchemist"
+    },
+    "shops/shop_blacksmith": {
+      "sprite": "element",
+      "symbol": "ei-shop-blacksmith"
+    },
+    "shops/shop_armorer": {
+      "sprite": "element",
+      "symbol": "ei-shop-armorer"
+    },
+    "shops/shop_weaponsmith": {
+      "sprite": "element",
+      "symbol": "ei-shop-weaponsmith"
+    },
+    "shops/shop_bowyer": {
+      "sprite": "element",
+      "symbol": "ei-shop-bowyer"
+    },
+    "shops/shop_carpenter": {
+      "sprite": "element",
+      "symbol": "ei-shop-carpenter"
+    },
+    "shops/shop_cooper": {
+      "sprite": "element",
+      "symbol": "ei-shop-cooper"
+    },
+    "shops/shop_tanner": {
+      "sprite": "element",
+      "symbol": "ei-shop-tanner"
+    },
+    "shops/shop_saddler": {
+      "sprite": "element",
+      "symbol": "ei-shop-saddler"
+    },
+    "shops/shop_tailor": {
+      "sprite": "element",
+      "symbol": "ei-shop-tailor"
+    },
+    "shops/shop_draper": {
+      "sprite": "element",
+      "symbol": "ei-shop-draper"
+    },
+    "shops/shop_cobbler": {
+      "sprite": "element",
+      "symbol": "ei-shop-cobbler"
+    },
+    "shops/shop_potter": {
+      "sprite": "element",
+      "symbol": "ei-shop-potter"
+    },
+    "shops/shop_jeweler": {
+      "sprite": "element",
+      "symbol": "ei-shop-jeweler"
+    },
+    "shops/shop_moneychanger": {
+      "sprite": "element",
+      "symbol": "ei-shop-moneychanger"
+    },
+    "shops/shop_pawnshop": {
+      "sprite": "element",
+      "symbol": "ei-shop-pawnshop"
+    },
+    "shops/shop_bookseller": {
+      "sprite": "element",
+      "symbol": "ei-shop-bookseller"
+    },
+    "shops/shop_stable": {
+      "sprite": "element",
+      "symbol": "ei-shop-stable"
+    },
+    "professions/profession_tenant_farmer": {
+      "sprite": "element",
+      "symbol": "ei-prof-tenant-farmer"
+    },
+    "professions/profession_herder": {
+      "sprite": "element",
+      "symbol": "ei-prof-herder"
+    },
+    "professions/profession_fisher": {
+      "sprite": "element",
+      "symbol": "ei-prof-fisher"
+    },
+    "professions/profession_hunter": {
+      "sprite": "element",
+      "symbol": "ei-prof-hunter"
+    },
+    "professions/profession_woodcutter": {
+      "sprite": "element",
+      "symbol": "ei-prof-woodcutter"
+    },
+    "professions/profession_miner": {
+      "sprite": "element",
+      "symbol": "ei-prof-miner"
+    },
+    "professions/profession_porter_docker": {
+      "sprite": "element",
+      "symbol": "ei-prof-porter-docker"
+    },
+    "professions/profession_carter": {
+      "sprite": "element",
+      "symbol": "ei-prof-carter"
+    },
+    "professions/profession_boatman": {
+      "sprite": "element",
+      "symbol": "ei-prof-boatman"
+    },
+    "professions/profession_blacksmith": {
+      "sprite": "element",
+      "symbol": "ei-prof-blacksmith"
+    },
+    "professions/profession_carpenter": {
+      "sprite": "element",
+      "symbol": "ei-prof-carpenter"
+    },
+    "professions/profession_stonemason": {
+      "sprite": "element",
+      "symbol": "ei-prof-stonemason"
+    },
+    "professions/profession_potter": {
+      "sprite": "element",
+      "symbol": "ei-prof-potter"
+    },
+    "professions/profession_weaver": {
+      "sprite": "element",
+      "symbol": "ei-prof-weaver"
+    },
+    "professions/profession_dyer": {
+      "sprite": "element",
+      "symbol": "ei-prof-dyer"
+    },
+    "professions/profession_tanner": {
+      "sprite": "element",
+      "symbol": "ei-prof-tanner"
+    },
+    "professions/profession_tailor": {
+      "sprite": "element",
+      "symbol": "ei-prof-tailor"
+    },
+    "professions/profession_cobbler": {
+      "sprite": "element",
+      "symbol": "ei-prof-cobbler"
+    },
+    "professions/profession_baker": {
+      "sprite": "element",
+      "symbol": "ei-prof-baker"
+    },
+    "professions/profession_brewer": {
+      "sprite": "element",
+      "symbol": "ei-prof-brewer"
+    },
+    "professions/profession_goldsmith": {
+      "sprite": "element",
+      "symbol": "ei-prof-goldsmith"
+    },
+    "professions/profession_peddler": {
+      "sprite": "element",
+      "symbol": "ei-prof-peddler"
+    },
+    "professions/profession_shopkeeper": {
+      "sprite": "element",
+      "symbol": "ei-prof-shopkeeper"
+    },
+    "professions/profession_moneychanger_clerk": {
+      "sprite": "element",
+      "symbol": "ei-prof-moneychanger-clerk"
+    },
+    "professions/profession_innkeeper": {
+      "sprite": "element",
+      "symbol": "ei-prof-innkeeper"
+    },
+    "professions/profession_waiter": {
+      "sprite": "element",
+      "symbol": "ei-prof-waiter"
+    },
+    "professions/profession_cook": {
+      "sprite": "element",
+      "symbol": "ei-prof-cook"
+    },
+    "professions/profession_physician": {
+      "sprite": "element",
+      "symbol": "ei-prof-physician"
+    },
+    "professions/profession_pharmacist": {
+      "sprite": "element",
+      "symbol": "ei-prof-pharmacist"
+    },
+    "professions/profession_scribe": {
+      "sprite": "element",
+      "symbol": "ei-prof-scribe"
+    },
+    "professions/profession_teacher": {
+      "sprite": "element",
+      "symbol": "ei-prof-teacher"
+    },
+    "professions/profession_lawyer": {
+      "sprite": "element",
+      "symbol": "ei-prof-lawyer"
+    },
+    "professions/profession_surveyor": {
+      "sprite": "element",
+      "symbol": "ei-prof-surveyor"
+    },
+    "professions/profession_printer": {
+      "sprite": "element",
+      "symbol": "ei-prof-printer"
+    },
+    "professions/profession_parish_priest": {
+      "sprite": "element",
+      "symbol": "ei-prof-parish-priest"
+    },
+    "professions/profession_monk_daoist": {
+      "sprite": "element",
+      "symbol": "ei-prof-monk-daoist"
+    },
+    "professions/profession_tax_clerk": {
+      "sprite": "element",
+      "symbol": "ei-prof-tax-clerk"
+    },
+    "professions/profession_watchman": {
+      "sprite": "element",
+      "symbol": "ei-prof-watchman"
+    },
+    "professions/profession_soldier": {
+      "sprite": "element",
+      "symbol": "ei-prof-soldier"
+    },
+    "professions/profession_courier": {
+      "sprite": "element",
+      "symbol": "ei-prof-courier"
+    },
+    "professions/profession_factory_worker": {
+      "sprite": "element",
+      "symbol": "ei-prof-factory-worker"
+    },
+    "professions/profession_railway_worker": {
+      "sprite": "element",
+      "symbol": "ei-prof-railway-worker"
+    },
+    "professions/profession_newsboy": {
+      "sprite": "element",
+      "symbol": "ei-prof-newsboy"
+    },
+    "professions/profession_journalist": {
+      "sprite": "element",
+      "symbol": "ei-prof-journalist"
+    },
+    "professions/profession_beggar": {
+      "sprite": "element",
+      "symbol": "ei-prof-beggar"
+    },
+    "professions/profession_executioner": {
+      "sprite": "element",
+      "symbol": "ei-prof-executioner"
+    },
+    "professions/profession_smuggler": {
+      "sprite": "element",
+      "symbol": "ei-prof-smuggler"
+    },
+    "professions_fantasy/pfan_court_mage": {
+      "sprite": "element",
+      "symbol": "ei-prof-court-mage"
+    },
+    "professions_fantasy/pfan_academy_mage_apprentice": {
+      "sprite": "element",
+      "symbol": "ei-prof-academy-mage-apprentice"
+    },
+    "professions_fantasy/pfan_alchemist": {
+      "sprite": "element",
+      "symbol": "ei-prof-alchemist"
+    },
+    "professions_fantasy/pfan_enchanter": {
+      "sprite": "element",
+      "symbol": "ei-prof-enchanter"
+    },
+    "professions_fantasy/pfan_scroll_scribe": {
+      "sprite": "element",
+      "symbol": "ei-prof-scroll-scribe"
+    },
+    "professions_fantasy/pfan_druid": {
+      "sprite": "element",
+      "symbol": "ei-prof-druid"
+    },
+    "professions_fantasy/pfan_paladin": {
+      "sprite": "element",
+      "symbol": "ei-prof-paladin"
+    },
+    "professions_fantasy/pfan_priest_healer": {
+      "sprite": "element",
+      "symbol": "ei-prof-priest-healer"
+    },
+    "professions_fantasy/pfan_fantasy_bard": {
+      "sprite": "element",
+      "symbol": "ei-prof-fantasy-bard"
+    },
+    "professions_fantasy/pfan_adventurer_guild_member": {
+      "sprite": "element",
+      "symbol": "ei-prof-adventurer-guild-member"
+    },
+    "professions_fantasy/pfan_beast_tamer": {
+      "sprite": "element",
+      "symbol": "ei-prof-beast-tamer"
+    },
+    "professions_fantasy/pfan_outer_disciple": {
+      "sprite": "element",
+      "symbol": "ei-prof-outer-disciple"
+    },
+    "professions_fantasy/pfan_pill_refiner": {
+      "sprite": "element",
+      "symbol": "ei-prof-pill-refiner"
+    },
+    "professions_fantasy/pfan_artifact_refiner": {
+      "sprite": "element",
+      "symbol": "ei-prof-artifact-refiner"
+    },
+    "professions_fantasy/pfan_formation_master": {
+      "sprite": "element",
+      "symbol": "ei-prof-formation-master"
+    },
+    "professions_fantasy/pfan_talisman_master": {
+      "sprite": "element",
+      "symbol": "ei-prof-talisman-master"
+    },
+    "professions_fantasy/pfan_spirit_herb_farmer": {
+      "sprite": "element",
+      "symbol": "ei-prof-spirit-herb-farmer"
+    },
+    "professions_fantasy/pfan_beast_master_xianxia": {
+      "sprite": "element",
+      "symbol": "ei-prof-beast-master-xianxia"
+    },
+    "professions_fantasy/pfan_rogue_cultivator": {
+      "sprite": "element",
+      "symbol": "ei-prof-rogue-cultivator"
+    },
+    "professions_fantasy/pfan_mana_engineer": {
+      "sprite": "element",
+      "symbol": "ei-prof-mana-engineer"
+    },
+    "professions_fantasy/pfan_airship_navigator": {
+      "sprite": "element",
+      "symbol": "ei-prof-airship-navigator"
+    }
+  }
+}

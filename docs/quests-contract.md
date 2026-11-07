@@ -13,7 +13,7 @@
 |---|---|
 | `LocalState.flags` | 地方后果的开关（`flag` op），不另建标记表 |
 | `local_rules` 资源 | `resource` op，不另建库存账 |
-| `rewards` 账户/模板 | 报酬只能引用**已声明**的 `account` / `template` |
+| `rewards` 奖励声明 | 财物报酬只引用**已声明**的 `mechanics.rewards.rewards[]`；付款账户与模板由声明项指定 |
 | `Runtime.effects` | 唯一执行器；本模块只产出它吃得下的 effect 列表 |
 | `pressure` 时钟 | 期限只用游戏时刻（`session['time']`），不建第二时钟 |
 | `session` 快照 | 任务状态住 `session['quests']`，跟既有回滚 |
@@ -24,7 +24,15 @@
 ## 2. 声明结构
 
 ```json
-{"mechanics": {"quests": {"version": 1, "quests": [{
+{"mechanics": {
+"rewards": {
+  "version": 1,
+  "currencies": [{"id": "coin", "name": "铜币", "unit": "文"}],
+  "accounts": [{"id": "miller", "name": "磨坊主", "currency": "coin", "initial": 500}],
+  "rewards": [{"id": "escort_pay", "kind": "currency", "currency": "coin",
+               "amount_min": 30, "amount_max": 30, "payer": "miller"}]
+},
+"quests": {"version": 1, "quests": [{
   "id": "escort",
   "giver": "miller",
   "location": "square",
@@ -36,14 +44,14 @@
   "objectives": ["把柴火送到"],
   "evidence": [{"kind": "flag", "id": "firewood_delivered"}],
   "costs": [{"kind": "resource", "id": "plank", "amount": 2}],
-  "rewards": [{"kind": "currency", "id": "coin", "amount": 30, "payer": "miller"}],
+  "rewards": [{"kind": "currency", "id": "escort_pay"}],
   "effects": [{"op": "flag", "id": "mill_refurbished", "value": true},
                {"op": "resource", "id": "plank", "delta": 2},
                {"op": "information", "text": "旧粮仓的地板朽了",
                 "confirmed": true, "known_by": ["player"]}],
   "on_failure": "fallback_quest",
   "duration": 10
-}]}}
+}]}}}
 ```
 
 ### 字段
@@ -57,24 +65,44 @@
 | `public_summary` | **玩家可见的一句话。留空 = 整个任务不上台面** |
 | `secret_objective` | 隐藏目标，只进 `authority_view` |
 | `known_by` | 受众门禁；空 = 不限受众 |
-| `reveal_flag` | 需已置位的 flag 才提供 |
+| `reveal_flag` | 需已置位的 flag 才提供。`reveal_on.flag` 的旧写法，不能与 `reveal_on` 同写 |
+| `enabled_on` | 可选。`{"signal": id}` 或 `{"flag": id}`，见 §3.4。未满足前任务不可接、不出现 |
+| `reveal_on` | 可选。`{"signal": id}` 或 `{"flag": id}`，见 §3.4。未满足前玩家投影里没有它的任何内容 |
 | `objectives` | 作者描述的目标（判定完成靠 `evidence`） |
 | `evidence[]` | 完成证据：`flag` / `resource`(≥`at_least`) / `visited` |
 | `costs[]` | 完成要付的成本：`resource` / `item` |
-| `rewards[]` | `currency`（必填 `payer`）/ `item`（必填已声明 `template`）/ `relationship` / `clue` |
+| `rewards[]` | `currency` / `item` 用 `id` 引用 `mechanics.rewards.rewards[]` 中同种类的声明项；`relationship` / `clue` 用 `text` 描述 |
 | `effects[]` | 后果，只允许 `flag` / `resource` / `information` |
 | `on_failure` | 失败后接哪条已声明任务（不能指向自己、不能成环） |
 | `deadline` **或** `duration` | 二者只能选一个；都以 `session['time']` 计 |
+
+被引用的 `mechanics.rewards.rewards[]` 声明字段：
+
+| 字段 | 含义 |
+|---|---|
+| `id` / `kind` | 奖励声明 id 与种类；须与任务引用匹配 |
+| `currency` | `currency` 奖励的币种 id |
+| `amount_min` / `amount_max` | `currency` 奖励的金额区间；相等表示固定金额 |
+| `payer` | `currency` 奖励的付款账户 id，引用 `mechanics.rewards.accounts[]` |
+| `templates[]` | `item` 奖励的模板 id 列表，引用 `mechanics.rewards.templates[]` |
 
 ## 3. 三条硬边界
 
 ### 3.1 报酬必须有来源
 
-- `currency` → `payer` 必须是 **已声明** 的 `mechanics.rewards.accounts` 里的账户，
-  且 `amount ≤ account.initial`（上限，不是现有余额）；受理时由 `rewards.apply` 真实扣款。
-- `item` → `id` 必须是已声明的 `rewards.templates`。
+- `currency` → 任务只写 `{"kind":"currency","id":"escort_pay"}`。币种 `currency`、
+  金额区间 `amount_min` / `amount_max` 和付款人 `payer` 写在被引用的
+  `mechanics.rewards.rewards[]` 声明项，不写在任务条目上。
+  声明项的 `payer` 必须是 **已声明** 的 `mechanics.rewards.accounts` 账户，
+  且金额上限（`amount_max`，为 0 时取 `amount_min`）不超过 `account.initial`
+  （初始额度，不是现有余额）；受理时由 `rewards.apply` 真实扣款。
+- `item` → 任务的 `id` 同样引用 `mechanics.rewards.rewards[]`，该项的 `kind` 必须是
+  `item`，其 `templates[]` 必须引用已声明的 `mechanics.rewards.templates`。
 - `relationship` / `clue` → 必须写清 `text`（非财物收益不能是空的）。
 - **模型无法造钱造物**：模块只把“已声明的引用”翻译成 claim。
+
+作者视图解析奖励引用，显示付款人、币种和金额区间（固定金额还显示 `amount`）；
+玩家投影不包含付款人、账户或币种等结算细节。
 
 ### 3.2 完成必须有证据
 
@@ -83,8 +111,45 @@
 
 ### 3.3 知情是分级制的
 
-`public_summary` / `known_by` / `location` / `reveal_flag` 四个字段共同决定谁能看到什么。
-**被救的人知道、不等于全天下知道**。未公开的任务连数量都不进玩家侧。
+`public_summary` / `known_by` / `location` / `reveal_flag`（或 `reveal_on`）/ `enabled_on`
+共同决定谁能看到什么。**被救的人知道、不等于全天下知道**。未公开的任务连数量都不进玩家侧。
+
+### 3.4 开启与隐藏（`enabled_on` / `reveal_on`）
+
+两个字段都是可选的，缺省时行为与此前完全一样（旧包不变）。每个条件是一个 `Gate`：
+**且只能写** `signal` 或 `flag` 之一，写两个或都不写会被拒绝；未知字段拒绝。
+
+| 条件 | 格式 | 读取位置 |
+|---|---|---|
+| `{"signal": id}` | `^[A-Za-z0-9_.:-]{1,80}$` | `session['signals']`（有序去重列表） |
+| `{"flag": id}` | `^[A-Za-z0-9_.:-]{1,60}$` | `session['flags']` |
+
+- 本模块**只读** `session['signals']`，不写。写入由 `signal` effect op（runtime 侧）负责。
+  键不存在、或值不是列表时视为空列表，不报错。
+- **`enabled_on`**：未满足时任务不出现在 `available` / `public_view` / `actions` /
+  `context_snippet`，`accept` 抛 `QuestError`（「尚未开启」）。条件满足后正常走状态机。
+  `propose` 不受它限制（作者可在后台先发出，开启前玩家仍看不到）。
+- **`reveal_on`**：未满足时任务可以在后台存在、被 `propose` / `accept` / `start`，
+  但玩家投影、动作和 prompt 片段里没有它的 id、标题、摘要、目标、报酬。揭示后正常显示。
+- **与 `reveal_flag` 的关系**：`reveal_flag: X` 等价于 `reveal_on: {"flag": X}`。
+  二者同时写，模型校验直接拒绝。
+- 两者与 `public_summary`、`known_by`、`location` 叠加生效，全部满足才可见。
+- 条件只会随 session 状态变化；信号/flag 被回滚时，任务随之重新关闭/隐藏。
+
+**提示**：`notices(before_session, after_session, story, audience='player')` 是纯函数，
+返回本轮由不可见变为可见（且在玩家所在处可提供、未终结）的任务，只含声明了
+`enabled_on` / `reveal_on` / `reveal_flag` 的任务：
+
+```json
+[{"quest_id": "escort", "title": "送柴去磨坊", "summary": "把一捆柴火送到磨坊。", "kind": "opened"}]
+```
+
+`kind` 为 `opened`（`enabled_on` 在这一步由未满足变为满足）或 `revealed`（其余情形）。
+只含 id、公开标题与公开摘要，不含秘密目标、报酬或条件本身。
+
+**作者视图**：`authority_view` 显示全部任务；声明了任何开启/揭示条件的任务额外带
+`enabled`、`revealed` 两个布尔状态以及 `enabled_on`、`reveal_on`（旧 `reveal_flag` 归一为
+`{"flag": ...}`）。没有声明的任务不带这四个键，输出与以前逐字相同。
 
 ## 4. 状态机
 
@@ -114,7 +179,9 @@ due_at(session, quest_id, story)     # 纯读
 completion(session, story, quest_id)    # 干跑：缺什么、将要发什么
 apply_completion(session, story, quest_id, effects_fn=, source=)   # 原子完成
 
-available(session, story, audience)      # 可见任务（无秘密）
+available(session, story, audience)      # 可见任务（无秘密；尊重 enabled_on / reveal_on）
+notices(before, after, story, audience)  # 纯函数：本轮新开启/新揭示的任务（仅公开标题与摘要）
+is_enabled(quest, session) / is_revealed(quest, session)   # 纯读
 public_view(session, story, audience)    # 玩家投影 + 计数
 authority_view(session, story, quest_id=None)  # 作者视图（含秘密/付款方）
 context_snippet(session, story)          # 有界一行，给 prompt
@@ -150,6 +217,9 @@ quests.apply_transition(session, story, quest_id, transition,
 
 # 4) surface / context
 surface['quests'] = quests.public_view(session, story)
+
+# 5) 开启/揭示提示（需 runtime 另行接线，本模块只提供纯函数）
+surface['quest_notices'] = quests.notices(before_session, after_session, story)
 ```
 
 ## 9. 明确不做

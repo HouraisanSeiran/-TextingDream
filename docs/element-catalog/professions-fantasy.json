@@ -1,0 +1,1196 @@
+{
+  "schema_version": 1,
+  "status": "candidate",
+  "group": "professions_fantasy",
+  "genres": [
+    "western_fantasy",
+    "eastern_fantasy",
+    "xianxia",
+    "steampunk"
+  ],
+  "compiled_note": "奇幻、仙侠、蒸汽奇幻职业分区（元素库·职业侧），规范见 docs/element-catalog/professions-spec.md。共 21 条，每条带 profession 对象（shop_key、wage、class、settlement_min、guild）、tech_tier / magic_tier 两键与七节 details。取舍：已有主标签的职业条目（eastern_retainer、western_monster_hunter、horror_exorcist_office、horror_medium_go_between、steam_lone_inventor_prototype）不重复立条，只经 related_catalog_ids 指向；智慧非人族群归 race，不在此立职业。工资是游戏估价（整数便士，12 便士 = 1 先令，240 便士 = 1 镑），不是史实。来源只有 Britannica 的炼金术、德鲁伊、放鹰、道教概述（后两篇只读到开篇）；圣骑士条目抓取失败，登记 unavailable 且零引用；其余条目为本项目设计推演（evidence_grade=inferred，正文已注明）。全部条目 review_status=needs_review、detail_status=needs_detail。",
+  "sources": [
+    {
+      "id": "pf_src_01",
+      "title": "alchemy — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/alchemy",
+      "access": "read",
+      "supports": "炼金术是一类思辨性思想，目标之一是把铅、铜等贱金属变成银或金，并寻找治病与延寿之法；“alchemy”一词是 12 世纪拉丁欧洲对这一思想的称呼，与占星相对应，一个面向天，一个面向地上的自然；希腊炼金术的主要史料是一份约八万字的手稿，中国炼金术大多记录在道藏里约一百种“书”中。",
+      "rights_note": "Britannica 条目；仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "pf_src_02",
+      "title": "druid — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/Druid",
+      "access": "read",
+      "supports": "德鲁伊是古代活跃于爱尔兰、不列颠和高卢的宗教领袖；条目标题列有仪式、历史、证据和现代小说等分节，说明史料与后世想象需要分开看。",
+      "rights_note": "Britannica 条目；仅读取到开篇定义，仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "pf_src_03",
+      "title": "falconry — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/falconry",
+      "access": "read",
+      "supports": "放鹰术是用猎鹰、真鹰或鹫类打猎的活动，自有文字之前就已存在；赫梯人的石碑（前 13 世纪）描绘过放鹰；欧洲商人、冒险者和十字军在中东接触到放鹰术。",
+      "rights_note": "Britannica 条目；正文被付费墙截断，只读到开篇概述；仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "pf_src_04",
+      "title": "Taoism — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/Daoism",
+      "access": "read",
+      "supports": "道教是塑造中国人生活两千多年的本土宗教哲学传统，对神秘与形而上之事持积极主动的态度。",
+      "rights_note": "Britannica 条目；正文被付费墙截断，只读到开篇概述；仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "pf_src_05",
+      "title": "paladin — Encyclopaedia Britannica（抓取失败）",
+      "url": "https://www.britannica.com/topic/Paladin",
+      "access": "unavailable",
+      "supports": "未读取到正文（HTTP 404），不支持本分区任何断言。",
+      "rights_note": "抓取失败，登记备查，零引用。"
+    }
+  ],
+  "elements": [
+    {
+      "id": "pfan_court_mage",
+      "name": "宫廷法师",
+      "aliases": [
+        "王室法师",
+        "御用术士"
+      ],
+      "category": "economy",
+      "primary": "profession",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": "rare",
+      "genres": [
+        "western_fantasy"
+      ],
+      "profession": {
+        "shop_key": null,
+        "wage": {
+          "min": 4800,
+          "max": 19200,
+          "per": "年"
+        },
+        "class": "professional",
+        "settlement_min": "capital",
+        "guild": true
+      },
+      "tags": [
+        "kind:profession",
+        "tradition:western",
+        "class:professional",
+        "settlement:capital"
+      ],
+      "summary": "宫廷法师是被君主或大贵族长期供养的施法者，负责占卜顾问、护卫结界、鉴定魔物与遗物，以及在朝堂上替主人解释“这件事是不是魔法”。他拿的是年俸，地位介于顾问与家臣之间。",
+      "variants": [
+        "东方对应：国师、供奉（见客卿条）"
+      ],
+      "details": {
+        "definition": "宫廷法师指被王室或大贵族以年俸聘用、常驻宫廷的施法者，兼顾问、鉴定人和防卫者三种身份。",
+        "mechanism": "日常是晨间觐见、鉴定贡品与来路不明的遗物、维护宫室与宝库的防护、替主人撰写与别国的法术协议。要紧事靠几位助手和一间塔楼工作室，开销由宫廷账房支付。",
+        "conditions": "至少要有王城级的聚落与稳定的税收。通常出身学院，向君主宣誓；各国对“宫廷法师能不能离开宫廷、能不能收徒”的规定不同。晋升靠资历与君主信任，失宠即被驱逐。",
+        "exceptions": "典型纠纷：与神官争夺对君主的影响、被指控用法术操纵主君、学院召回自家弟子。年俸以四五镑到八十镑上下估价，罕见高阶者可更高；这是游戏估价。例外：小国只养一位兼职法师，薪酬折成封地。",
+        "story_uses": "①君主暴毙，宫廷法师是第一个被怀疑的人。②他发现自己的防护结界被人从内部悄悄改过。③新王继位要换掉他，他手里握着旧王的秘密。④邻国开价挖角。⑤他把一个孤儿送进学院，却没告诉任何人原因。",
+        "historical_scope": "本条是奇幻设定，不对应现实职业；现实中的宫廷占星师、御医与顾问只是远亲。改编时不要预设宫廷必须有法师，也不要把法师写成国家军力的唯一支柱。",
+        "evidence_and_uncertainty": "本项目设计推演，无直接来源；工资与阶层为游戏估价。魔法档取 rare：单个宫廷里有一位法师，在稀少魔法的世界里也成立；若世界达到 common，则法师会有学院和同行。"
+      },
+      "source_ids": [],
+      "related_ids": [],
+      "related_catalog_ids": [],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "pfan_academy_mage_apprentice",
+      "name": "学院法师学徒",
+      "aliases": [
+        "魔法学徒",
+        "学院见习生"
+      ],
+      "category": "organization",
+      "primary": "profession",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": "common",
+      "genres": [
+        "western_fantasy"
+      ],
+      "profession": {
+        "shop_key": null,
+        "wage": {
+          "min": 120,
+          "max": 600,
+          "per": "年"
+        },
+        "class": "professional",
+        "settlement_min": "city",
+        "guild": true
+      },
+      "tags": [
+        "kind:profession",
+        "tradition:western",
+        "class:professional",
+        "settlement:city"
+      ],
+      "summary": "学院法师学徒是进入法师学院或在导师门下学习基础法术的年轻人。多数没有薪水，只有食宿与零花钱，并替师长抄书、备材料、打扫工作室。",
+      "variants": [
+        "东方对应：宗门内门学子，见外门弟子条"
+      ],
+      "details": {
+        "definition": "学院法师学徒指在学院或持证导师门下学习法术的学生，身份像匠人学徒与大学生的混合体。",
+        "mechanism": "日常是上课、背诵、抄写、整理材料柜，轮流值守实验室。前几年只学识字、符号和安全规矩，不许单独施法。学徒的零用钱低于短工日薪，靠学院供饭。",
+        "conditions": "需要有学院的城市，学费或保荐人是门槛，入学常需导师推荐。学院有考核，通过后才算“出师”可挂牌。魔法档 common：因为需要公开的学院与导师。",
+        "exceptions": "典型纠纷：偷用材料、私自施法造成事故、被导师当廉价劳力、学费欠账。例外：天赋极高的孤儿被导师免费收养，反而被绑得更紧。",
+        "story_uses": "①学徒发现导师在用学生做实验。②考核前夜材料库失窃。③两位学徒来自敌对国家。④一次失控的练习法术让全城知道学院里有什么。⑤学徒替人抄一份不该抄的卷轴。",
+        "historical_scope": "借鉴中世纪大学与行会学徒制，但魔法学院是奇幻设定。年资口径（数年）仅供参考，不要当成固定规则。",
+        "evidence_and_uncertainty": "本项目设计推演，无直接来源；工资是游戏估价（含食宿折算后的零花钱）。学徒制的一般结构可参考店铺分区所引 Britannica 学徒制条目，本条未单独读取新来源。"
+      },
+      "source_ids": [],
+      "related_ids": [],
+      "related_catalog_ids": [],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "pfan_alchemist",
+      "name": "炼金术士",
+      "aliases": [
+        "炼金师",
+        "点金术士"
+      ],
+      "category": "economy",
+      "primary": "profession",
+      "evidence_grade": "mixed",
+      "tech_tier": null,
+      "magic_tier": "common",
+      "genres": [
+        "western_fantasy"
+      ],
+      "profession": {
+        "shop_key": "alchemist",
+        "wage": {
+          "min": 20,
+          "max": 60,
+          "per": "日"
+        },
+        "class": "artisan",
+        "settlement_min": "town",
+        "guild": true
+      },
+      "tags": [
+        "kind:profession",
+        "tradition:western",
+        "class:artisan",
+        "settlement:town",
+        "shop:alchemist"
+      ],
+      "summary": "炼金术士在奇幻世界里经营炼金铺或工作室，调制药剂、染料、助燃剂和金属处理剂，偶尔接受“点金”之类的委托。他们的信誉靠成品，名声常混着骗子的影子。",
+      "variants": [
+        "东方对应：炼丹师（见炼丹师条）",
+        "现实炼金术是思辨与实验混合的传统，奇幻版加入真实有效的魔法配方"
+      ],
+      "details": {
+        "definition": "炼金术士指以配方、器皿和熬炼制作药剂、染剂和特殊材料的行当。Britannica 称炼金术是一类思辨思想，目标含贱金属变金银和寻求治病延寿之法；奇幻版把其中一部分变成真实有效。",
+        "mechanism": "日常是炼炉、蒸馏器、采购药材、记录配方，与药铺、染坊、冒险者交易。较大的铺子分炼制、销售和账目三层，学徒负责看火。",
+        "conditions": "需要能养得起炼金铺的城镇；多数有行会，管配方登记、药剂检验和师徒传承。魔法档 common：药剂要靠有真实效力才能成行当，行会与执照才合理。若世界魔法稀少，炼金术士只会是江湖术士。",
+        "exceptions": "典型顾客：冒险者、医者、染坊、贵妇。纠纷：药剂效力不符、配方被偷、点金骗局。日薪按熟练匠人估高于短工日薪。例外：被贵族供养的炼金术士，薪酬折成年俸。",
+        "story_uses": "①一瓶药剂救了人，也让药铺和炼金术士互相告上行会。②金币一夜之间贬值，传言有人在点金。③学徒发现师傅的配方是抄来的。④委托人要一种“能让人说真话”的药。⑤炼炉爆炸后，全街的炼金铺都被官府查封。",
+        "historical_scope": "现实炼金术的历史范围见 Britannica；中世纪欧洲炼金术士不等于奇幻炼金铺主人。本条的行会、执照和日薪是游戏设定，不是史实。",
+        "evidence_and_uncertainty": "有来源支持的部分：炼金术是思辨思想，目标含贱金属变金银和治病延寿；12 世纪拉丁欧洲给它命名；希腊炼金术主要史料集中在一份约八万字手稿，中国炼金术大多在道藏中（据 pf_src_01）。魔法档、行会、工资和店铺关系是本项目推演。"
+      },
+      "source_ids": [
+        "pf_src_01"
+      ],
+      "related_ids": [
+        "pfan_pill_refiner"
+      ],
+      "related_catalog_ids": [],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "pfan_enchanter",
+      "name": "附魔师",
+      "aliases": [
+        "器物附魔者",
+        "铭文师"
+      ],
+      "category": "economy",
+      "primary": "profession",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": "common",
+      "genres": [
+        "western_fantasy"
+      ],
+      "profession": {
+        "shop_key": null,
+        "wage": {
+          "min": 120,
+          "max": 960,
+          "per": "件"
+        },
+        "class": "artisan",
+        "settlement_min": "city",
+        "guild": true
+      },
+      "tags": [
+        "kind:profession",
+        "tradition:western",
+        "class:artisan",
+        "settlement:city"
+      ],
+      "summary": "附魔师为武器、衣物、灯具和门锁赋予持续的小型魔法效果，按件收费。他们在铁匠、珠宝匠和学院之间接活，自己很少开店。",
+      "variants": [
+        "东方对应：炼器师（见炼器师条）"
+      ],
+      "details": {
+        "definition": "附魔师指在已完成的器物上刻写、浸染或封入法术，使其获得稳定效果的施法工匠。",
+        "mechanism": "日常是接活、检验器物材质能不能承载、刻铭、静置、验收。常与铁匠、珠宝匠合作，由对方交付器物再附魔。每件的价格取决于效果强度和材料。",
+        "conditions": "需要大城市：客户集中、材料全、有学院和行会检验。多数要领行会执照，附魔品要打记号。魔法档 common：因为可买卖，所以必须有公开的行当。",
+        "exceptions": "典型纠纷：效果失灵、被指仿冒他人记号、附魔后器物破裂。例外：战时被征调，批量处理军械。按件一先令到四镑估价。",
+        "story_uses": "①一把剑的附魔在关键时刻失效。②一个附魔师只给自己人做活，却被控垄断。③仿冒记号泛滥，行会开始搜铺。④他发现订货人想附的是一种违禁效果。⑤学徒私刻的小护符在城里传开。",
+        "historical_scope": "本条是奇幻设定，不对应现实职业。不要把附魔写成随手可得的日常服务，除非世界魔法档是 abundant。",
+        "evidence_and_uncertainty": "本项目设计推演，无直接来源；价格与行会管辖为游戏设定。魔法档取 common，是因为附魔品可买卖。"
+      },
+      "source_ids": [],
+      "related_ids": [],
+      "related_catalog_ids": [],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "pfan_scroll_scribe",
+      "name": "卷轴抄写师",
+      "aliases": [
+        "法术抄录员",
+        "符文抄手"
+      ],
+      "category": "economy",
+      "primary": "profession",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": "common",
+      "genres": [
+        "western_fantasy"
+      ],
+      "profession": {
+        "shop_key": "bookseller",
+        "wage": {
+          "min": 60,
+          "max": 360,
+          "per": "件"
+        },
+        "class": "artisan",
+        "settlement_min": "town",
+        "guild": true
+      },
+      "tags": [
+        "kind:profession",
+        "tradition:western",
+        "class:artisan",
+        "settlement:town",
+        "shop:bookseller"
+      ],
+      "summary": "卷轴抄写师专门誊抄法术卷轴与魔法文书。普通抄写员抄错一字只是难看，他们抄错一字，卷轴就可能失效或反噬。",
+      "variants": [
+        "东方对应：符箓师（见符箓师条）",
+        "现实对应：修道院抄写员与公证抄手"
+      ],
+      "details": {
+        "definition": "卷轴抄写师是抄写法术卷轴和魔法文书的抄手，需要同时懂文字与法术符号。",
+        "mechanism": "日常是调墨、裁纸、临摹、逐行校对。每份卷轴要有校对员复核，成品交给学院或书商。抄错就报废，所以按件计价，错一次赔一份材料。",
+        "conditions": "需要能养活书商的城镇；多有行会管登记与质量，卷轴的出处要能追溯。魔法档 common：卷轴要真实有效，才会形成行当。",
+        "exceptions": "典型纠纷：抄本私自流出、盗版卷轴、内容篡改。法术卷轴本身的内容在设定里保持抽象，不写现实可操作细节。例外：修道院里的抄写员为教会抄祈祷卷轴，不拿件酬。",
+        "story_uses": "①一份抄本的末尾被人加了一句咒。②抄写师认出这是失传的卷轴。③书商买到盗版，行会追查到一个老抄手。④官府要求交出全部卷轴底本。⑤他在校对时发现原本被人换过。",
+        "historical_scope": "现实中的抄写员与公证员是历史职业，本条的魔法部分是奇幻设定。",
+        "evidence_and_uncertainty": "本项目设计推演，无直接来源；卷轴价格与行会管辖是游戏设定。书商关系取自店铺分区的书商店，不是史实。"
+      },
+      "source_ids": [],
+      "related_ids": [],
+      "related_catalog_ids": [],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "pfan_druid",
+      "name": "德鲁伊（林地守护者）",
+      "aliases": [
+        "林地守护者",
+        "森林祭司",
+        "古林祭司"
+      ],
+      "category": "organization",
+      "primary": "profession",
+      "evidence_grade": "mixed",
+      "tech_tier": null,
+      "magic_tier": "rare",
+      "genres": [
+        "western_fantasy"
+      ],
+      "profession": {
+        "shop_key": null,
+        "wage": null,
+        "class": "clergy",
+        "settlement_min": "hamlet",
+        "guild": false
+      },
+      "tags": [
+        "kind:profession",
+        "tradition:western",
+        "class:clergy",
+        "settlement:hamlet"
+      ],
+      "summary": "奇幻版德鲁伊是守着一片古老林地、与季节仪式和野兽打交道的施法者。他们靠村民供奉与林地产出生活，不拿固定工资，与领主和神官时常冲突。",
+      "variants": [
+        "现实德鲁伊是古代凯尔特地区的宗教领袖，与奇幻德鲁伊不同",
+        "东方对应：山林隐修者、山神祠守"
+      ],
+      "details": {
+        "definition": "德鲁伊（林地守护者）指守护一片古林、主持季节仪式并能与自然之力沟通的奇幻施法者。Britannica 称历史上的德鲁伊是活跃于爱尔兰、不列颠和高卢的古代宗教领袖；奇幻版是对这一形象的再创作。",
+        "mechanism": "日常是巡林、看守泉眼、调解村民与林木的纠纷、主持播种和收获仪式、为伤病的野兽疗伤。没有工资，村民以食物、柴火和皮货换取保护与祝福。",
+        "conditions": "一个村子就养得起一位守护者，但不需要行会。传承靠师徒口传，各林地之间有松散的联络。魔法档 rare：单个林地的守护者和仪式，在魔法稀少的世界里也能成立。",
+        "exceptions": "典型纠纷：领主要砍伐林地、教会视其为异端、猎人偷猎。例外：被领主招为顾问，仍保留自己的林地。",
+        "story_uses": "①领主要砍伐林地建磨坊。②守护者发现林中有人用禁忌仪式。③一个孩子被林中野兽带回村。④守护者年老，没有传人。⑤战争将至，村民求他出山。",
+        "historical_scope": "历史上的德鲁伊史料有限，后世浪漫化很重。本条采用的是奇幻再创作，不对应任何史实仪式。",
+        "evidence_and_uncertainty": "有来源支持的部分：德鲁伊是古代活跃于爱尔兰、不列颠、高卢的宗教领袖（据 pf_src_02，仅读到开篇）。其余日常、供养和冲突是本项目推演。"
+      },
+      "source_ids": [
+        "pf_src_02"
+      ],
+      "related_ids": [],
+      "related_catalog_ids": [],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "pfan_paladin",
+      "name": "圣骑士",
+      "aliases": [
+        "圣武士",
+        "誓约骑士"
+      ],
+      "category": "organization",
+      "primary": "profession",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": "rare",
+      "genres": [
+        "western_fantasy"
+      ],
+      "profession": {
+        "shop_key": null,
+        "wage": {
+          "min": 1200,
+          "max": 4800,
+          "per": "年"
+        },
+        "class": "military",
+        "settlement_min": "town",
+        "guild": true
+      },
+      "tags": [
+        "kind:profession",
+        "tradition:western",
+        "class:military",
+        "settlement:town"
+      ],
+      "summary": "圣骑士是向某个信仰或誓约立誓的武装骑士，兼战斗与神职。他们受教团或大神殿管辖，负责守护圣地、护送朝圣者和讨伐被认定的邪物。",
+      "variants": [
+        "东方对应：护法武僧、宗门护法"
+      ],
+      "details": {
+        "definition": "圣骑士指受信仰或誓约约束的武装战士，同时承担部分神职和护卫职责。",
+        "mechanism": "日常是守卫圣地、巡逻朝圣路、训练、斋戒与宣誓。他们由教团提供装备和食宿，年金折成薪酬。誓约一旦被判破誓，圣力与身份都可能被收回。",
+        "conditions": "需要有教团或大神殿的城镇；有教团的戒律和执照。魔法档 rare：圣力真实存在但罕见，在多数世界里是少数人的事。",
+        "exceptions": "典型纠纷：誓约冲突、对异端的处置、与世俗领主争夺管辖权。例外：独行的圣骑士没有教团支持，生计靠施舍。",
+        "story_uses": "①他的誓约与领主的命令相冲突。②教团内部有人在造假圣迹。③一位普通骑士冒充圣骑士骗取供养。④誓约的代价逐年增加。⑤他护送的朝圣者里有人不是朝圣者。",
+        "historical_scope": "本条以奇幻小说和游戏中的圣骑士为原型，历史上圣殿骑士团、医院骑士团等军事修会只是远亲，不能直接套用。",
+        "evidence_and_uncertainty": "本项目设计推演，无直接来源；读取 Britannica 的 paladin 条目时抓取失败（HTTP 404），已在来源表登记为 unavailable，本条零引用。年金与誓约规则是游戏设定。"
+      },
+      "source_ids": [],
+      "related_ids": [],
+      "related_catalog_ids": [],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "pfan_priest_healer",
+      "name": "神官（治疗祭司）",
+      "aliases": [
+        "治疗祭司",
+        "施药神官"
+      ],
+      "category": "organization",
+      "primary": "profession",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": "rare",
+      "genres": [
+        "western_fantasy"
+      ],
+      "profession": {
+        "shop_key": null,
+        "wage": {
+          "min": 6,
+          "max": 18,
+          "per": "日"
+        },
+        "class": "clergy",
+        "settlement_min": "hamlet",
+        "guild": true
+      },
+      "tags": [
+        "kind:profession",
+        "tradition:western",
+        "class:clergy",
+        "settlement:hamlet"
+      ],
+      "summary": "神官（治疗祭司）在神殿或村庙里祈祷、施礼，并用祈祷和草药处理伤病。治疗奇迹是否有效取决于世界魔法档，大部分日常仍靠护理与草药。",
+      "variants": [
+        "东方对应：道士、庙祝、巫医"
+      ],
+      "details": {
+        "definition": "神官（治疗祭司）指隶属神殿或庙宇、主持礼拜并为病人祈祷、疗伤的神职人员。",
+        "mechanism": "日常是晨祷、施药、主持洗礼和葬礼、为伤者包扎。收入是信众奉献和神殿薪俸，大致与短工日薪相当。真正的治疗奇迹费力、代价高，所以只用在重要场合。",
+        "conditions": "一个村子就能有一座小神殿；神殿有等级，由上级主教任命。魔法档 rare：奇迹存在但稀少，普通伤病靠草药，所以档位取低一档。",
+        "exceptions": "典型纠纷：奇迹费用、与药铺争病人、教义纠纷、被指治疗不力。例外：战场上的随军神官，不拿薪水。",
+        "story_uses": "①村里瘟疫，神官用尽祈祷也救不了所有人。②她的治疗被怀疑是黑魔法。③神殿要收取治疗费，穷人没钱。④主教派人调查她是否私自施法。⑤一个濒死的逃犯请求庇护。",
+        "historical_scope": "现实中的神职人员与护理僧侣是历史职业；治疗奇迹的有效性是奇幻设定。",
+        "evidence_and_uncertainty": "本项目设计推演，无直接来源；工资为游戏估价。治疗奇迹的有效范围取决于世界设定，魔法档取 rare 是保守判断。"
+      },
+      "source_ids": [],
+      "related_ids": [],
+      "related_catalog_ids": [],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "pfan_fantasy_bard",
+      "name": "吟游诗人（法术版）",
+      "aliases": [
+        "法术吟游者",
+        "歌谣术士"
+      ],
+      "category": "life",
+      "primary": "profession",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": "rare",
+      "genres": [
+        "western_fantasy"
+      ],
+      "profession": {
+        "shop_key": null,
+        "wage": {
+          "min": 6,
+          "max": 24,
+          "per": "日"
+        },
+        "class": "outcast",
+        "settlement_min": "hamlet",
+        "guild": false
+      },
+      "tags": [
+        "kind:profession",
+        "tradition:western",
+        "class:outcast",
+        "settlement:hamlet"
+      ],
+      "summary": "奇幻世界里的吟游诗人靠歌唱讲述故事，其中少数人的歌声真有安抚、鼓舞或迷惑的效力。他们走村串镇，收入来自赏钱和食宿。",
+      "variants": [
+        "现实对应：中世纪游吟艺人与乐师",
+        "东方对应：说书人、卖艺人"
+      ],
+      "details": {
+        "definition": "吟游诗人（法术版）指以歌曲、故事和乐器谋生，并有少数人能把歌声变成实际法术效果的流动艺人。",
+        "mechanism": "日常是赶集、进酒馆表演、在领主宴会上献唱、收集各地消息。多数人只是普通艺人，只有少数会真正施法，所以他们的收入不稳定。",
+        "conditions": "一个村子就养得起；没有行会，但有些领主发放表演许可。魔法档 rare：真正会施法的吟游诗人是少数，普通艺人不需要魔法。",
+        "exceptions": "典型纠纷：歌词冒犯领主、被怀疑使用魅惑、与酒馆老板分账。例外：被贵族宫廷聘为乐师，转入固定俸禄。",
+        "story_uses": "①他的一首新歌在三个村子里同时被唱起。②领主怀疑歌里有煽动。③一个孩子学会了他不该会的旋律。④他靠一首歌安抚了一场暴乱。⑤他从各地听来的消息，被人买走。",
+        "historical_scope": "现实中的游吟艺人是历史职业；法术效力是奇幻设定。不要把所有吟游诗人都写成施法者。",
+        "evidence_and_uncertainty": "本项目设计推演，无直接来源；工资和施法比例为游戏设定。"
+      },
+      "source_ids": [],
+      "related_ids": [],
+      "related_catalog_ids": [],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "pfan_adventurer_guild_member",
+      "name": "冒险者（佣兵公会成员）",
+      "aliases": [
+        "冒险者",
+        "公会佣兵",
+        "委托承接人"
+      ],
+      "category": "organization",
+      "primary": "profession",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres": [
+        "western_fantasy"
+      ],
+      "profession": {
+        "shop_key": null,
+        "wage": {
+          "min": 120,
+          "max": 2400,
+          "per": "件"
+        },
+        "class": "military",
+        "settlement_min": "town",
+        "guild": true
+      },
+      "tags": [
+        "kind:profession",
+        "tradition:western",
+        "class:military",
+        "settlement:town"
+      ],
+      "summary": "冒险者是在公会登记、按委托接活的武装雇佣者，任务包括护送、清剿、搜寻和勘察。收入按委托计，风险高，受公会规则约束。",
+      "variants": [
+        "东方对应：镖师、江湖游侠（见客卿供奉）"
+      ],
+      "details": {
+        "definition": "冒险者（佣兵公会成员）指在公会登记，通过公会接受委托、按件收费的武装自由人。",
+        "mechanism": "日常是看委托板、组队、领预付款、完成后交付和结算。公会提供登记、保险和纠纷仲裁，抽取佣金。一单从半镑到十镑不等。",
+        "conditions": "需要有委托来源的城镇；公会负责登记和执照，成员有分级。本条不预设魔法，所以魔法档写 null；队伍里有施法者时另立条目。",
+        "exceptions": "典型纠纷：报酬争议、委托信息不实、队友背叛、公会抽成。例外：无登记的“野生”冒险者，被公会视作竞争者。",
+        "story_uses": "①委托人隐瞒了任务真相。②公会内部有人把好活留给自己人。③一次成功的任务让队伍被领主盯上。④新人偷了队友的战利品。⑤一张旧委托单揭开了某个村子的秘密。",
+        "historical_scope": "本条是奇幻设定，现实中最近的参照是佣兵队与护卫行当，不是同一件事。",
+        "evidence_and_uncertainty": "本项目设计推演，无直接来源；公会、分级与报酬为游戏设定，没有对应来源。"
+      },
+      "source_ids": [],
+      "related_ids": [],
+      "related_catalog_ids": [
+        "western_monster_hunter"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "pfan_beast_tamer",
+      "name": "驯兽师",
+      "aliases": [
+        "魔兽驯养者",
+        "兽栏师"
+      ],
+      "category": "economy",
+      "primary": "profession",
+      "evidence_grade": "mixed",
+      "tech_tier": null,
+      "magic_tier": "rare",
+      "genres": [
+        "western_fantasy"
+      ],
+      "profession": {
+        "shop_key": "stable",
+        "wage": {
+          "min": 14,
+          "max": 36,
+          "per": "日"
+        },
+        "class": "artisan",
+        "settlement_min": "town",
+        "guild": false
+      },
+      "tags": [
+        "kind:profession",
+        "tradition:western",
+        "class:artisan",
+        "settlement:town",
+        "shop:stable"
+      ],
+      "summary": "驯兽师驯养和训练被认定为可驯的奇幻兽，如骑乘用的飞行兽或看家的魔犬。普通动物的训练归马厩与放鹰人，奇幻兽才需要这一行。",
+      "variants": [
+        "现实对应：驯鹰人、驯马师",
+        "东方对应：驭兽师（见驭兽师条）",
+        "智慧非人族群不可当驯养对象，见种族分区"
+      ],
+      "details": {
+        "definition": "驯兽师指训练和管理可驯奇幻兽的匠人。Britannica 称放鹰是用猎鹰等猛禽打猎的古老活动，自有文字之前就存在；驯兽师是其奇幻延伸。",
+        "mechanism": "日常是喂养、训练、清理兽栏、检查兽具，卖出训练好的兽或出租骑乘。训练周期长，所以报酬按日计高于短工。",
+        "conditions": "需要有马厩或兽栏的城镇；有些地区对危险兽有登记要求。魔法档 rare：奇幻兽是稀少的生灵。若只驯普通动物则不需要魔法。",
+        "exceptions": "典型纠纷：兽伤人、兽逃脱、训练方法被批虐待。例外：军队训练骑乘兽，由军官管辖。",
+        "story_uses": "①一头训练好的兽拒绝服从。②驯兽师发现某头兽有智慧迹象，不能再当牲畜。③竞争对手放走他的兽。④贵族要买一头受保护的幼兽。⑤兽栏失火。",
+        "historical_scope": "放鹰术是历史上的真实传统，其详情本条未全读。奇幻兽驯养是设定，需要避开有心智的种族。",
+        "evidence_and_uncertainty": "有来源支持的部分：放鹰是用猛禽打猎的古老活动，赫梯石碑（前 13 世纪）已有描绘，欧洲商人、冒险者与十字军在中东接触到它（据 pf_src_03，仅读到开篇）。其余为本项目推演。"
+      },
+      "source_ids": [
+        "pf_src_03"
+      ],
+      "related_ids": [
+        "pfan_beast_master_xianxia"
+      ],
+      "related_catalog_ids": [],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "pfan_outer_disciple",
+      "name": "外门弟子",
+      "aliases": [
+        "外门学徒",
+        "杂役弟子"
+      ],
+      "category": "organization",
+      "primary": "profession",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": "common",
+      "genres": [
+        "eastern_fantasy",
+        "xianxia"
+      ],
+      "profession": {
+        "shop_key": null,
+        "wage": {
+          "min": 360,
+          "max": 1800,
+          "per": "年"
+        },
+        "class": "professional",
+        "settlement_min": "town",
+        "guild": true
+      },
+      "tags": [
+        "kind:profession",
+        "tradition:eastern",
+        "class:professional",
+        "settlement:town"
+      ],
+      "summary": "外门弟子是宗门最外层的弟子，做杂务、守山门、种灵田，换取修行资源和基础功法。他们人数多，晋升机会少。",
+      "variants": [
+        "西方对应：学院法师学徒（见该条）"
+      ],
+      "details": {
+        "definition": "外门弟子指在宗门外围劳作并学习基础功法的弟子，处于宗门等级的最底层。",
+        "mechanism": "日常是出工、打坐、领取配给、考核。宗门按月发放灵石或食物，折算后年额低于技术匠人。晋升靠考核或立功，大多数人一直停留在这一层。",
+        "conditions": "需要有宗门的山麓城镇；宗门有严格门规。魔法档 common：修炼门派存在，说明修炼是公开行当。",
+        "exceptions": "典型纠纷：资源被内门克扣、同门争斗、被指偷学功法。例外：被长老看中直接提拔。",
+        "story_uses": "①他在杂役中发现一本被遗落的残卷。②考核中有人作弊。③师兄把他的灵田据为己有。④宗门被迫招收更多外门以应对战事。⑤他离开宗门成为散修。",
+        "historical_scope": "本条是仙侠设定，不对应现实职业。现实中的宗教学徒与寺庙杂役只是远亲。",
+        "evidence_and_uncertainty": "本项目设计推演，无直接来源；月例和年额是游戏估价。"
+      },
+      "source_ids": [],
+      "related_ids": [
+        "pfan_rogue_cultivator"
+      ],
+      "related_catalog_ids": [
+        "eastern_retainer"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "pfan_pill_refiner",
+      "name": "炼丹师",
+      "aliases": [
+        "丹师",
+        "丹药匠"
+      ],
+      "category": "economy",
+      "primary": "profession",
+      "evidence_grade": "mixed",
+      "tech_tier": null,
+      "magic_tier": "common",
+      "genres": [
+        "eastern_fantasy",
+        "xianxia"
+      ],
+      "profession": {
+        "shop_key": "alchemist",
+        "wage": {
+          "min": 240,
+          "max": 4800,
+          "per": "件"
+        },
+        "class": "artisan",
+        "settlement_min": "city",
+        "guild": true
+      },
+      "tags": [
+        "kind:profession",
+        "tradition:eastern",
+        "class:artisan",
+        "settlement:city",
+        "shop:alchemist"
+      ],
+      "summary": "炼丹师炼制疗伤、增进修为的丹药，按炉计酬。顶级炼丹师受宗门与大商号争抢，普通炼丹师多在城里的丹铺里做工。",
+      "variants": [
+        "西方对应：炼金术士（见该条）",
+        "现实对应：道教外丹与内丹传统（据史料，不作为可操作指南）"
+      ],
+      "details": {
+        "definition": "炼丹师指以药材、灵材和火候炼制丹药的匠人。Britannica 说明中国炼金术大多记录在道藏中，奇幻版把其中一部分变成有实际效力的丹药。",
+        "mechanism": "日常是备料、控火、开炉、收丹、检品。一炉丹的成败看火候与材料，所以收费按炉计，成功率不稳定。",
+        "conditions": "需要有丹铺的城市，宗门丹堂有分级管辖。魔法档 common：丹药可买卖，所以须有修炼社会作为背景。",
+        "exceptions": "典型纠纷：丹药效力不符、材料被调包、药毒、丹方被盗。丹方来历在设定里保持抽象，不写现实可操作配方。例外：被宗门独占的炼丹师不得对外卖丹。",
+        "story_uses": "①一炉丹炼成时出现异象。②炼丹师发现订单中夹着禁用的材料。③竞争者放出他的丹有毒的谣言。④宗门要收回丹方。⑤他靠一颗丹救了对手。",
+        "historical_scope": "现实中的炼丹术是道教与方术传统，史料多为记述，不应当作可照做的配方。本条的丹药效力是仙侠设定。",
+        "evidence_and_uncertainty": "有来源支持的部分：中国炼金术大多记录在道藏约一百种“书”中（据 pf_src_01）；道教对神秘与形而上之事持积极态度（据 pf_src_04，仅读到开篇）。炼丹师的行当、收费和行会是本项目推演。"
+      },
+      "source_ids": [
+        "pf_src_01",
+        "pf_src_04"
+      ],
+      "related_ids": [
+        "pfan_alchemist",
+        "pfan_spirit_herb_farmer"
+      ],
+      "related_catalog_ids": [],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "pfan_artifact_refiner",
+      "name": "炼器师",
+      "aliases": [
+        "器师",
+        "法宝匠"
+      ],
+      "category": "economy",
+      "primary": "profession",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": "common",
+      "genres": [
+        "eastern_fantasy",
+        "xianxia"
+      ],
+      "profession": {
+        "shop_key": "blacksmith",
+        "wage": {
+          "min": 360,
+          "max": 9600,
+          "per": "件"
+        },
+        "class": "artisan",
+        "settlement_min": "city",
+        "guild": true
+      },
+      "tags": [
+        "kind:profession",
+        "tradition:eastern",
+        "class:artisan",
+        "settlement:city",
+        "shop:blacksmith"
+      ],
+      "summary": "炼器师炼制法器和灵兵，需要炉火、灵材和阵纹。普通炼器师打造低阶法器，高阶者的作品由宗门与大势力定制。",
+      "variants": [
+        "西方对应：附魔师（见该条），但炼器师连器物本体一起炼制"
+      ],
+      "details": {
+        "definition": "炼器师指用灵材、炉火和阵纹炼制法器、灵兵的工匠。",
+        "mechanism": "日常是选材、起炉、锻打、刻纹、淬炼、验器。炼制周期按件，价格取决于灵材与品阶。",
+        "conditions": "需要有灵材来源与炼器炉的城市；宗门器堂有分级与师承。魔法档 common：法器可买卖，需要修炼社会。",
+        "exceptions": "典型纠纷：灵材来源不明、法器品阶虚报、器灵失控。例外：宗门独占的炼器师不对外接单。",
+        "story_uses": "①他接到一单要用禁忌灵材的订货。②一把剑炼成后自行鸣响。③竞争者仿冒他的铭记。④宗门要他炼一件不该存在的东西。⑤他发现自己早年卖出的法器造成了灾难。",
+        "historical_scope": "本条是仙侠设定；现实中的锻造、铸剑传统见铁匠铺与兵器坊条目。",
+        "evidence_and_uncertainty": "本项目设计推演，无直接来源；价格为游戏估价。"
+      },
+      "source_ids": [],
+      "related_ids": [
+        "pfan_enchanter"
+      ],
+      "related_catalog_ids": [],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "pfan_formation_master",
+      "name": "阵法师",
+      "aliases": [
+        "布阵师",
+        "阵纹师"
+      ],
+      "category": "economy",
+      "primary": "profession",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": "common",
+      "genres": [
+        "eastern_fantasy",
+        "xianxia"
+      ],
+      "profession": {
+        "shop_key": null,
+        "wage": {
+          "min": 480,
+          "max": 7200,
+          "per": "件"
+        },
+        "class": "professional",
+        "settlement_min": "city",
+        "guild": true
+      },
+      "tags": [
+        "kind:profession",
+        "tradition:eastern",
+        "class:professional",
+        "settlement:city"
+      ],
+      "summary": "阵法师设计和布置护山大阵、聚灵阵、困敌阵，按阵计酬。工作需要勘察地势，所以耗时长、报酬高。",
+      "variants": [
+        "西方对应：法术结界师（本分区未立条）"
+      ],
+      "details": {
+        "definition": "阵法师指设计并布置法阵的专门人才，兼有风水勘察和法器布设能力。",
+        "mechanism": "日常是勘察地脉、绘图、布阵材料、调试、维护。一座大阵需要多人协作，所以他往往带着一群助手。",
+        "conditions": "需要有宗门或大商号的城市；阵法传承严格，行会或宗门管辖。魔法档 common：阵法可雇佣，需要修炼社会。",
+        "exceptions": "典型纠纷：阵法失效、被人暗中改动、地脉被人抢占。具体阵图在设定里保持抽象。例外：被宗门终身供养的阵法师，不得对外。",
+        "story_uses": "①护山大阵被人从内部动了手脚。②他发现自己布的阵正在吸别人的灵气。③雇主要求把阵留一个后门。④两个宗门争抢一处地脉。⑤他的阵图被盗。",
+        "historical_scope": "现实中的风水勘察与堪舆是历史职业；法阵效力是仙侠设定。",
+        "evidence_and_uncertainty": "本项目设计推演，无直接来源；价格为游戏估价。"
+      },
+      "source_ids": [],
+      "related_ids": [
+        "pfan_talisman_master"
+      ],
+      "related_catalog_ids": [],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "pfan_talisman_master",
+      "name": "符箓师",
+      "aliases": [
+        "画符师",
+        "符师"
+      ],
+      "category": "economy",
+      "primary": "profession",
+      "evidence_grade": "mixed",
+      "tech_tier": null,
+      "magic_tier": "common",
+      "genres": [
+        "eastern_fantasy",
+        "xianxia"
+      ],
+      "profession": {
+        "shop_key": null,
+        "wage": {
+          "min": 12,
+          "max": 120,
+          "per": "件"
+        },
+        "class": "artisan",
+        "settlement_min": "town",
+        "guild": true
+      },
+      "tags": [
+        "kind:profession",
+        "tradition:eastern",
+        "class:artisan",
+        "settlement:town"
+      ],
+      "summary": "符箓师把法术写成符，按张卖给修士和百姓。低阶符每张便宜，高阶符由宗门或道观出品。",
+      "variants": [
+        "西方对应：卷轴抄写师（见该条）",
+        "现实对应：道教符箓传统，作为民俗记述"
+      ],
+      "details": {
+        "definition": "符箓师指画制符箓的匠人，把法术压缩在一张符纸上，使用时激发。Britannica 提到道教对神秘与形而上之事的积极态度，符箓是其中的一种民间实践。",
+        "mechanism": "日常是备纸、调墨、画符、静置、包装。成品按张卖，低阶符价格与一餐饭相当，高阶符价格可到数镑。",
+        "conditions": "需要有道观或宗门的城镇；符箓传承严格，门派管辖。魔法档 common：符箓可买卖，需要修炼社会。",
+        "exceptions": "典型纠纷：假符骗人、符效力不稳、符被盗用。符箓内容在设定里保持抽象。例外：道观向信众发放的平安符不收钱。",
+        "story_uses": "①一张符突然失效，造成事故。②符箓师认出一张符是她师父的笔迹。③官府禁止私画某类符。④村民求她画一张镇宅符。⑤她发现自己的符被人用来作恶。",
+        "historical_scope": "现实中的道教符箓是宗教与民间实践，本条把它写成有实际效力的行当是仙侠设定。",
+        "evidence_and_uncertainty": "有来源支持的部分：道教是塑造中国人生活两千多年的本土宗教哲学传统，并对神秘与形而上之事持积极态度（据 pf_src_04，仅读到开篇）。符箓的买卖、价格和行会是本项目推演。"
+      },
+      "source_ids": [
+        "pf_src_04"
+      ],
+      "related_ids": [],
+      "related_catalog_ids": [
+        "horror_exorcist_office"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "pfan_spirit_herb_farmer",
+      "name": "灵植夫",
+      "aliases": [
+        "灵田农夫",
+        "药田夫"
+      ],
+      "category": "economy",
+      "primary": "profession",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": "common",
+      "genres": [
+        "eastern_fantasy",
+        "xianxia"
+      ],
+      "profession": {
+        "shop_key": "herbalist",
+        "wage": {
+          "min": 8,
+          "max": 20,
+          "per": "日"
+        },
+        "class": "laborer",
+        "settlement_min": "hamlet",
+        "guild": false
+      },
+      "tags": [
+        "kind:profession",
+        "tradition:eastern",
+        "class:laborer",
+        "settlement:hamlet",
+        "shop:herbalist"
+      ],
+      "summary": "灵植夫在灵田里种植灵草和灵药，按日或按田拿报酬。工作耗时、需要看天，收获归宗门或田主。",
+      "variants": [
+        "西方对应：药圃园丁"
+      ],
+      "details": {
+        "definition": "灵植夫指在灵田里栽培灵草的农夫，是仙侠世界的农业劳力。",
+        "mechanism": "日常是松土、浇灵水、驱虫、看火候温度、采摘。灵草对时令和灵气敏感，所以农夫要靠经验。日薪略高于短工。",
+        "conditions": "需要有灵田的村庄或宗门外围；没有正式行会，但田主或宗门有规定。魔法档 common：灵草种植需要修炼社会作需求端。",
+        "exceptions": "典型纠纷：灵草被偷、减产、田主克扣。例外：宗门的灵植夫可得修行资源。",
+        "story_uses": "①一株灵草在夜里被人拔走。②灵植夫发现灵田的土里有异物。③一次干旱让全田受损。④他培育出一株异种。⑤田主想换掉他。",
+        "historical_scope": "现实中的药草栽培是历史农业，见药材分区；灵田是仙侠设定。",
+        "evidence_and_uncertainty": "本项目设计推演，无直接来源；工资为游戏估价。"
+      },
+      "source_ids": [],
+      "related_ids": [
+        "pfan_pill_refiner"
+      ],
+      "related_catalog_ids": [],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "pfan_beast_master_xianxia",
+      "name": "驭兽师",
+      "aliases": [
+        "灵兽师",
+        "御兽修士"
+      ],
+      "category": "organization",
+      "primary": "profession",
+      "evidence_grade": "mixed",
+      "tech_tier": null,
+      "magic_tier": "common",
+      "genres": [
+        "eastern_fantasy",
+        "xianxia"
+      ],
+      "profession": {
+        "shop_key": "stable",
+        "wage": {
+          "min": 14,
+          "max": 40,
+          "per": "日"
+        },
+        "class": "artisan",
+        "settlement_min": "town",
+        "guild": true
+      },
+      "tags": [
+        "kind:profession",
+        "tradition:eastern",
+        "class:artisan",
+        "settlement:town",
+        "shop:stable"
+      ],
+      "summary": "驭兽师与灵兽结契、训练并带它们出战或运货。宗门里常有专门的驭兽堂，管理灵兽的喂养与出借。",
+      "variants": [
+        "西方对应：驯兽师（见该条）",
+        "智慧非人族群不能当灵兽，见种族分区"
+      ],
+      "details": {
+        "definition": "驭兽师指与灵兽结契、训练并使用灵兽的修行者或匠人。结契后人与兽共享一部分修行，所以关系远比驯养紧密。",
+        "mechanism": "日常是喂养、训练、巡山、出任务。灵兽的饲料昂贵，所以日薪高于短工。",
+        "conditions": "需要有宗门或灵兽栏的城镇；宗门驭兽堂有登记。魔法档 common：灵兽可交易，需要修炼社会。",
+        "exceptions": "典型纠纷：灵兽伤人、契约破裂、灵兽被偷。例外：结契的灵兽有心智，则不再算坐骑，见种族分区。",
+        "story_uses": "①灵兽突然拒绝服从。②驭兽师发现灵兽的契约被人改写。③宗门要收回灵兽。④灵兽幼崽出现异象。⑤灵兽为救主而死。",
+        "historical_scope": "放鹰等驯养传统是现实历史，灵兽是仙侠设定。",
+        "evidence_and_uncertainty": "有来源支持的部分：放鹰是古老的猛禽狩猎活动（据 pf_src_03，仅读到开篇）。契约机制与宗门驭兽堂是本项目推演。"
+      },
+      "source_ids": [
+        "pf_src_03"
+      ],
+      "related_ids": [
+        "pfan_beast_tamer"
+      ],
+      "related_catalog_ids": [],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "pfan_rogue_cultivator",
+      "name": "散修",
+      "aliases": [
+        "野修",
+        "独行修士"
+      ],
+      "category": "life",
+      "primary": "profession",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": "common",
+      "genres": [
+        "eastern_fantasy",
+        "xianxia"
+      ],
+      "profession": {
+        "shop_key": null,
+        "wage": null,
+        "class": "outcast",
+        "settlement_min": "hamlet",
+        "guild": false
+      },
+      "tags": [
+        "kind:profession",
+        "tradition:eastern",
+        "class:outcast",
+        "settlement:hamlet"
+      ],
+      "summary": "散修是不隶属任何宗门的修行者，靠接零工、采药、护送或猎妖谋生，没有固定收入。他们自由，但缺少功法、资源和保护。",
+      "variants": [
+        "西方对应：独行冒险者",
+        "见客卿供奉条，了解被宗门雇佣的路径"
+      ],
+      "details": {
+        "definition": "散修指没有宗门庇护、独自修行的修士。",
+        "mechanism": "日常是采药、接零活、在坊市换资源、寻找机缘。收入不稳定，所以不写固定工资。",
+        "conditions": "村里就能遇到；没有行会，但坊市有登记。魔法档 common：因为散修与宗门并存，说明修炼是公开行当。",
+        "exceptions": "典型纠纷：资源争夺、被宗门收编、被追杀。例外：有名的散修被宗门礼聘为客卿。",
+        "story_uses": "①他得到一份残缺功法。②散修在坊市被人盯上。③他被迫在宗门与自由之间选边。④他帮一村人驱走妖物，却被误会。⑤他最终被宗门招安。",
+        "historical_scope": "本条是仙侠设定，不对应现实职业。",
+        "evidence_and_uncertainty": "本项目设计推演，无直接来源；无固定工资，wage 写 null。"
+      },
+      "source_ids": [],
+      "related_ids": [
+        "pfan_outer_disciple"
+      ],
+      "related_catalog_ids": [
+        "eastern_retainer"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "pfan_mana_engineer",
+      "name": "魔导工程师",
+      "aliases": [
+        "魔导技师",
+        "奥术机械师"
+      ],
+      "category": "economy",
+      "primary": "profession",
+      "evidence_grade": "inferred",
+      "tech_tier": "steam",
+      "magic_tier": "common",
+      "genres": [
+        "steampunk",
+        "western_fantasy"
+      ],
+      "profession": {
+        "shop_key": null,
+        "wage": {
+          "min": 30,
+          "max": 90,
+          "per": "日"
+        },
+        "class": "professional",
+        "settlement_min": "city",
+        "guild": true
+      },
+      "tags": [
+        "kind:profession",
+        "tradition:western",
+        "class:professional",
+        "settlement:city"
+      ],
+      "summary": "魔导工程师设计和维护靠魔力驱动的机械，如魔导炉、传动机构和照明装置。他们要懂机械，也要懂魔力的限制，通常在大工厂与学院之间流动。",
+      "variants": [
+        "东方对应：炼器师（见该条）"
+      ],
+      "details": {
+        "definition": "魔导工程师指把魔法与蒸汽机械结合、设计并维护魔导机械的专业技术人员。",
+        "mechanism": "日常是读图、调校、维修、测试、写报告。工作场所是工厂、码头和学院实验室。薪酬为专业人员级，高于熟练匠人。",
+        "conditions": "需要有工厂的大城市；行会或工程学会管辖资格。科技档 steam：机械与工厂是前提；魔法档取 common，不取 abundant，因为拿不准时取低一档。",
+        "exceptions": "典型纠纷：事故责任、专利纠纷、魔力来源争议。例外：被军方征召，参与军工项目。",
+        "story_uses": "①一台魔导炉在测试时过载。②他发现自己的设计被偷用。③学院与工厂争夺技术。④他的发明引发工人罢工。⑤一台机器出现了不该有的行为。",
+        "historical_scope": "现实中最近的参照是蒸汽时代的机械工程师；魔导部分是奇幻设定。",
+        "evidence_and_uncertainty": "本项目设计推演，无直接来源；工资为游戏估价。"
+      },
+      "source_ids": [],
+      "related_ids": [
+        "pfan_airship_navigator"
+      ],
+      "related_catalog_ids": [
+        "steam_lone_inventor_prototype"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "pfan_airship_navigator",
+      "name": "飞艇领航员",
+      "aliases": [
+        "飞艇引航员",
+        "空中领航员"
+      ],
+      "category": "economy",
+      "primary": "profession",
+      "evidence_grade": "inferred",
+      "tech_tier": "steam",
+      "magic_tier": null,
+      "genres": [
+        "steampunk",
+        "western_fantasy"
+      ],
+      "profession": {
+        "shop_key": null,
+        "wage": {
+          "min": 150,
+          "max": 420,
+          "per": "周"
+        },
+        "class": "professional",
+        "settlement_min": "city",
+        "guild": true
+      },
+      "tags": [
+        "kind:profession",
+        "tradition:western",
+        "class:professional",
+        "settlement:city"
+      ],
+      "summary": "飞艇领航员负责飞艇的航线、定位和风向判断，是艇长之下最关键的技术人员。他们靠星图、气压计和地标飞行。",
+      "variants": [
+        "现实对应：船舶领航员"
+      ],
+      "details": {
+        "definition": "飞艇领航员指为飞艇规划和修正航线、观测风与高度的技术人员。",
+        "mechanism": "日常是研究天气、对星图、记录航向和高度、与艇长和机务协调。一次航程可长达数日，周薪高于普通匠人。",
+        "conditions": "需要有飞艇港口的大城市；航空公司或行会管辖资格。科技档 steam：早期飞艇是蒸汽档的事物。魔法档写 null，因为不预设魔法助推，若世界使用魔法浮力，再另行判断。",
+        "exceptions": "典型纠纷：航线失误、天气判断争议、事故责任。例外：军用飞艇的领航员归军方管辖。",
+        "story_uses": "①风暴中他必须选择改变航线。②他发现仪表被人动过。③公司要求他走一条不安全的捷径。④他的星图是偷来的。⑤他在一次迫降中救了全艇。",
+        "historical_scope": "现实中的飞艇是 19 世纪末至 20 世纪初的实际交通工具，领航员工作类似船舶领航。",
+        "evidence_and_uncertainty": "本项目设计推演，无直接来源；工资为游戏估价。魔法档取 null 是保守判断。"
+      },
+      "source_ids": [],
+      "related_ids": [
+        "pfan_mana_engineer"
+      ],
+      "related_catalog_ids": [
+        "steam_lone_inventor_prototype"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    }
+  ]
+}

@@ -16,7 +16,8 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def main():
-    source = Store(ROOT / 'data/textiledream.sqlite3')
+    from app.paths import SAVE_DB
+    source = Store(SAVE_DB)
     records = native_worlds.listing(source)
     if not records:
         raise RuntimeError('请先在本地生成一份 civ 世界')
@@ -24,7 +25,7 @@ def main():
     with tempfile.TemporaryDirectory() as tmp:
         root = Path(tmp)
         (root/'map_imports').mkdir()
-        shutil.copyfile(ROOT/'data/map_imports'/record['file'], root/'map_imports'/record['file'])
+        shutil.copyfile(source.path.parent/'map_imports'/record['file'], root/'map_imports'/record['file'])
         app = create_app(root/'test.sqlite3')
         app.state.service.store.put('map_import',record['id'],record)
         app.state.service.provider.configure({'offline':True})

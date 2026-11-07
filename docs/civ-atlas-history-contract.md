@@ -234,7 +234,7 @@ svc.adoption_for(snapshot_id, story_id, revision=None) -> adoption | None
 
 ## 14.5 读文件只用自己那一份数据根
 
-`_data_root()` 与 `Runtime` 同一规则：**只有生产库**（`<root>/data/textiledream.sqlite3`）读项目根，临时/沙箱库读自己的目录。所以测试永不碰用户 `data/`。读字节前重算 SHA-256 与记录对不上就拒收。
+`Runtime` 仅将生产库（`<root>/saves/textiledream.sqlite3`）的故事包关联到项目根；临时/沙箱库使用自己的目录。`_data_root()` 始终返回数据库所在目录，导入文件从该目录下的 `map_imports/` 读取，所以测试永不写入用户 `saves/`。读字节前重算 SHA-256 与记录对不上就拒收。
 
 ## 14.6 `world_basis` 的两条路径
 

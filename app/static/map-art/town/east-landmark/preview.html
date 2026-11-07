@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>东方玄幻 · 文化地标预览（east-landmark）</title>
+<style>
+  body { margin: 0; background: #f6ecc8; font: 13px/1.5 "Microsoft YaHei", sans-serif; color: #5a3a22; }
+  h1 { font-size: 18px; margin: 16px 20px 4px; }
+  h2 { font-size: 15px; margin: 20px 20px 6px; }
+  p.hint { margin: 0 20px 8px; color: #8c6a44; }
+  #grid { display: flex; flex-wrap: wrap; gap: 14px; padding: 6px 20px 10px; align-items: flex-end; }
+  .card { background: #efe0b4; border: 1px solid #d8c18a; border-radius: 6px; padding: 8px 8px 4px; text-align: center; cursor: zoom-in; }
+  .card svg { display: block; margin: 0 auto; }
+  .card .id { font: 11px Consolas, monospace; color: #8c3d22; }
+  .card .nm { font-size: 13px; }
+  .card .ft { font-size: 11px; color: #8c6a44; }
+  #scene { margin: 6px 20px 30px; border: 1px solid #d8c18a; display: inline-block; }
+  #zoom { position: fixed; inset: 0; background: rgba(40, 28, 16, 0.72); display: none; align-items: center; justify-content: center; z-index: 9; cursor: zoom-out; }
+  #zoom.on { display: flex; }
+  #zoom .box { background: #efe0b4; padding: 12px; border-radius: 8px; max-width: 96vw; max-height: 96vh; overflow: auto; text-align: center; }
+</style>
+</head>
+<body>
+<h1>东方玄幻（人族）· 文化地标（east-landmark）</h1>
+<p class="hint">3/4 斜俯视，48 px 一格。图册按 0.6 倍缩略，点击卡片看 1.5 倍大图。虚线框 = 占地矩形，红点 = 锚点（前沿中点）。素材尚未接入游戏。</p>
+<div id="grid"></div>
+<h2>城镇一角示意（地标 + east-base 民居 + east-special 建筑，按锚点 y 排序绘制；地面只是示意色块，不是道路瓦片）</h2>
+<div id="scene"></div>
+<div id="zoom"><div class="box" id="zoomBox"></div></div>
+<!-- 本目录 -->
+<script src="lm-core.js"></script>
+<script src="lm-parts.js"></script>
+<script src="lm-extra.js"></script>
+<script src="lm-taoist.js"></script>
+<script src="lm-buddhist.js"></script>
+<script src="lm-civic.js"></script>
+<script src="lm-fantasy.js"></script>
+<script src="east-landmark.js"></script>
+<!-- 只读引用其他目录（用于示意场景） -->
+<script src="../east-base/east-core.js"></script>
+<script src="../east-base/houses-a.js"></script>
+<script src="../east-base/houses-b.js"></script>
+<script src="../east-base/houses-c.js"></script>
+<script src="../east-base/tiles.js"></script>
+<script src="../east-base/east-base.js"></script>
+<script src="../east-special/core.js"></script>
+<script src="../east-special/civic.js"></script>
+<script src="../east-special/religion.js"></script>
+<script src="../east-special/trade.js"></script>
+<script src="../east-special/service.js"></script>
+<script src="../east-special/east-special.js"></script>
+<script src="preview-scene.js"></script>
+</body>
+</html>

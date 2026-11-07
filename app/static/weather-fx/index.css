@@ -1,0 +1,30 @@
+*{box-sizing:border-box}
+body{margin:0;background:#1b2027;color:#dde3ea;font:13px system-ui,"Microsoft YaHei",sans-serif}
+header{padding:8px 14px 6px;background:#252c35;border-bottom:1px solid #39424d}
+.row{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;margin:3px 0}
+h1{font-size:15px;margin:0 6px 0 0}
+label{display:inline-flex;align-items:center;gap:4px;white-space:nowrap}
+output{display:inline-block;min-width:3.2em;color:#a9c4de;font:12px ui-monospace,monospace}
+input[type=range]{width:100px}
+input[type=number]{width:64px}
+select,button,input[type=number]{font:inherit;padding:2px 7px;border-radius:4px;border:1px solid #56606c;background:#313945;color:inherit}
+button{cursor:pointer}button:hover{background:#3b4553}
+.seg{display:inline-flex}.seg button{border-radius:0}.seg button:first-child{border-radius:4px 0 0 4px}.seg button:last-child{border-radius:0 4px 4px 0}
+.seg button.on,.presets button.on{background:#4c6b8a;border-color:#7ea3c6}
+.presets button{padding:2px 9px}
+b{color:#8fa3b8;font-weight:600}
+#err{color:#f0a070}
+#summary{color:#c9d6e2;font:12px ui-monospace,monospace}
+#forecast{font:12px ui-monospace,monospace;color:#b9c7d4;gap:2px}
+#forecast span{display:inline-block;padding:1px 3px;border-radius:3px;background:#2f3742}
+#forecast span.now{background:#4c6b8a;color:#fff}
+body.gen .manualOnly input,body.gen .manualOnly select{opacity:.55}
+body.manual .genOnly{display:none}
+.stormOnly{display:none}body.storm .stormOnly{display:inline-flex}
+#stage{position:relative;width:1400px;height:900px;margin:10px auto;overflow:hidden;background:#111}
+#fx{position:absolute;left:0;top:0;width:1400px;height:900px}
+#fps{position:absolute;right:8px;top:6px;padding:2px 8px;border-radius:3px;background:rgba(0,0,0,.55);color:#c8f0c0;font:12px/1.5 ui-monospace,monospace;pointer-events:none}
+#loading{position:absolute;left:50%;top:45%;transform:translate(-50%,-50%);padding:6px 14px;background:rgba(0,0,0,.6);border-radius:4px;display:none}
+#jsonBox{width:1400px;margin:0 auto 20px}
+#jsonBox pre{max-height:420px;overflow:auto;background:#141920;padding:8px;font:12px/1.45 ui-monospace,monospace}
+#host{position:absolute;left:0;top:0;width:0;height:0;overflow:hidden}

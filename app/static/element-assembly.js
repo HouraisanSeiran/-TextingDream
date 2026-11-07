@@ -48,6 +48,7 @@ const EA_NS_LABEL={'animal-foods':'动物食材','character-attributes':'人物�
  'eastern-biology':'东方生物','fantasy-races':'奇幻种族','flavors':'风味','food-supplement':'食物补遗','materials':'材料','names-asian':'亚洲人名',
  'names-european':'欧洲人名','produce':'蔬果作物','reality-formulae':'方剂','reality-herbs-aerial':'草药·地上部','reality-herbs-other':'草药·其他',
  'reality-herbs-roots':'草药·根茎','reality-herbs-western':'西方草药','reality-human':'人体','reality-physical':'物理','society':'社会',
+ 'town-buildings':'城镇建筑',
  'staples':'主食','steam-horror':'蒸汽与恐怖（整组）','tools':'工具','western':'魔幻设定','western-alchemy':'西方炼金','western-biology':'西方生物'};
 const EA_CAT_LABEL={'cat-food':'饮食','cat-produce':'作物','cat-herb':'草药','cat-alchemy':'炼金','cat-formula':'方剂','cat-biology':'生物','cat-race':'种族',
  'cat-character':'人物','cat-trait':'特质','cat-material':'材料','cat-tool':'工具工艺','cat-society':'社会','cat-culture':'文化','cat-name':'人名',

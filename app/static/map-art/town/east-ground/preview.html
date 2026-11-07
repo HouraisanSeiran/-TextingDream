@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>织梦 · 东方玄幻城镇地面层预览（east-ground）</title>
+<style>
+  body { margin: 0; padding: 16px 24px 40px; background: #f6ecd2; color: #4a2a1c; font: 13px/1.5 "Microsoft YaHei", "PingFang SC", sans-serif; }
+  h1 { font-size: 20px; margin: 4px 0 2px; }
+  h2 { font-size: 16px; margin: 22px 0 8px; border-bottom: 1px solid #c98f3c; padding-bottom: 3px; }
+  .sub { color: #8c3d22; margin: 0 0 10px; }
+  .grid { display: flex; flex-wrap: wrap; gap: 8px; }
+  .cell { background: #fbf0d4; border: 1px solid #e3cf9c; border-radius: 4px; padding: 4px; text-align: center; width: 112px; }
+  .cell svg { display: block; margin: 0 auto; background: #d9c58f; }
+  .cell .id { font: 10px/1.25 Consolas, monospace; color: #6b4f32; word-break: break-all; }
+  .cell .nm { font-size: 12px; }
+  .scene { display: inline-block; margin: 0 16px 12px 0; vertical-align: top; }
+  .scene svg { display: block; border: 1px solid #c98f3c; }
+  .scene .cap { font-size: 12px; color: #8c3d22; }
+  #err { color: #cd5030; font-weight: bold; }
+</style>
+</head>
+<body>
+<h1>东方玄幻城镇地面层 · east-ground</h1>
+<p class="sub">水面双网格（自然河岸 / 条石驳岸）、地面底纹、青砖院坪双网格、地面摆件。浏览器现场用 build 同一套代码生成。美术素材，尚未接入游戏。</p>
+<div id="err"></div>
+<div id="sprites" style="position:absolute;width:0;height:0;overflow:hidden"></div>
+
+<h2>拼接验证</h2>
+<div id="scenes"></div>
+
+<h2>示意街区（地面底纹 + 青砖院坪 + east-base 民居 + 摆件，按锚点 y 排序）</h2>
+<div id="block"></div>
+
+<h2>图册</h2>
+<div id="atlas"></div>
+
+<script src="core.js"></script>
+<script src="grid.js"></script>
+<script src="water.js"></script>
+<script src="water-tiles.js"></script>
+<script src="ground.js"></script>
+<script src="prop-kit.js"></script>
+<script src="props-plants.js"></script>
+<script src="props-stone.js"></script>
+<script src="props-farm.js"></script>
+<script src="props-yard.js"></script>
+<script src="props.js"></script>
+<script src="east-ground.js"></script>
+<!-- 只读引用 east-base 的民居（不存在就跳过） -->
+<script src="../east-base/east-core.js" onerror="void 0"></script>
+<script src="../east-base/houses-a.js" onerror="void 0"></script>
+<script src="../east-base/houses-b.js" onerror="void 0"></script>
+<script src="../east-base/houses-c.js" onerror="void 0"></script>
+<script src="../east-base/tiles.js" onerror="void 0"></script>
+<script src="../east-base/east-base.js" onerror="void 0"></script>
+<!-- 只读引用 special-infra 的东方码头，用来对比水色（不存在就跳过） -->
+<script src="../special-infra/infra-core.js" onerror="void 0"></script>
+<script src="../special-infra/west-infra.js" onerror="void 0"></script>
+<script src="../special-infra/east-infra.js" onerror="void 0"></script>
+<script src="../special-infra/special-infra.js" onerror="void 0"></script>
+<script src="preview-scenes.js"></script>
+<script>
+(function () {
+  'use strict';
+  var EG = window.TownArt_eastGround, res = EG.buildAll(), NS = 'http://www.w3.org/2000/svg';
+  var base = null;
+  try { if (window.TownArt_eastBase) base = window.TownArt_eastBase.buildAll(); } catch (e) { base = null; }
+  var infra = '';
+  try { if (window.TownArt_specialInfra) infra = window.TownArt_specialInfra.sprite(); } catch (e) { infra = ''; }
+  document.getElementById('sprites').innerHTML = res.spriteSvg() + (base ? base.spriteSvg() : '') + infra;
+
+  // ---------- 图册 ----------
+  var CAT = { water: '水面瓦片', ground: '地面底纹与院坪', prop: '地面摆件' };
+  var atlas = document.getElementById('atlas');
+  Object.keys(CAT).forEach(function (cat) {
+    var h = document.createElement('h3'); h.textContent = CAT[cat]; atlas.appendChild(h);
+    var g = document.createElement('div'); g.className = 'grid'; atlas.appendChild(g);
+    res.items.filter(function (it) { return it.meta.category === cat; }).forEach(function (it) {
+      var vb = it.meta.viewBox, sc = 2, el = document.createElement('div');
+      el.className = 'cell';
+      el.innerHTML = '<svg xmlns="' + NS + '" width="' + vb[2] * sc + '" height="' + vb[3] * sc + '" viewBox="' + vb.join(' ') + '">' +
+        (cat === 'water' ? '<rect width="48" height="48" fill="#d9c58f"/>' : '') +
+        '<use href="#' + it.id + '" width="' + vb[2] + '" height="' + vb[3] + '"/>' +
+        '<rect x="0" y="' + (vb[3] - 48) + '" width="48" height="48" fill="none" stroke="#8c3d22" stroke-opacity="0.25" stroke-dasharray="2 2"/></svg>' +
+        '<div class="nm">' + (it.name || it.meta.name_zh) + '</div><div class="id">' + it.id + '</div>';
+      g.appendChild(el);
+    });
+  });
+
+  window.TownArtEG_scenes.render(EG, res, base, document.getElementById('scenes'), document.getElementById('block'));
+})();
+</script>
+</body>
+</html>

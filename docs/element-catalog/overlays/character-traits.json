@@ -1,0 +1,167 @@
+{
+  "schema": "catalog_overlay_v1",
+  "group": "character-traits",
+  "entries": {
+    "trait_stable_deliberate": {
+      "primary": "character_trait",
+      "evidence_grade": "inferred",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "trait_stable_warm_first": {
+      "primary": "character_trait",
+      "evidence_grade": "inferred",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "trait_stable_improviser": {
+      "primary": "character_trait",
+      "evidence_grade": "inferred",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "trait_value_keep_word": {
+      "primary": "character_trait",
+      "evidence_grade": "inferred",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "trait_value_no_cruelty": {
+      "primary": "character_trait",
+      "evidence_grade": "inferred",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "trait_value_distrust_authority": {
+      "primary": "character_trait",
+      "evidence_grade": "inferred",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "trait_motive_protect_town": {
+      "primary": "character_trait",
+      "evidence_grade": "inferred",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "trait_motive_clear_name": {
+      "primary": "character_trait",
+      "evidence_grade": "inferred",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "trait_motive_owe_debt": {
+      "primary": "character_trait",
+      "evidence_grade": "inferred",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "trait_express_indirect": {
+      "primary": "character_trait",
+      "evidence_grade": "inferred",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "trait_express_plain_numbers": {
+      "primary": "character_trait",
+      "evidence_grade": "inferred",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "trait_express_borrow_words": {
+      "primary": "character_trait",
+      "evidence_grade": "inferred",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "trait_identity_outsider": {
+      "primary": "character_trait",
+      "evidence_grade": "inferred",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "trait_identity_guild_raised": {
+      "primary": "character_trait",
+      "evidence_grade": "inferred",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "trait_identity_owed_a_debt": {
+      "primary": "character_trait",
+      "evidence_grade": "inferred",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "trait_strength_route_memory": {
+      "primary": "character_trait",
+      "evidence_grade": "inferred",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "trait_weakness_overthink": {
+      "primary": "character_trait",
+      "evidence_grade": "inferred",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "trait_weakness_scatter": {
+      "primary": "character_trait",
+      "evidence_grade": "inferred",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "trait_weakness_stubborn": {
+      "primary": "character_trait",
+      "evidence_grade": "inferred",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "trait_strength_calms_room": {
+      "primary": "character_trait",
+      "evidence_grade": "inferred",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "trait_social_obliged": {
+      "primary": "character_trait",
+      "evidence_grade": "inferred",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "trait_social_has_enemies": {
+      "primary": "character_trait",
+      "evidence_grade": "inferred",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "trait_social_can_borrow_a_name": {
+      "primary": "character_trait",
+      "evidence_grade": "inferred",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    }
+  }
+}

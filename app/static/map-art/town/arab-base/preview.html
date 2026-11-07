@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>织梦 · 阿拉伯风格（人族）城镇基础素材预览</title>
+<style>
+  body { margin: 0; padding: 16px 20px; background: #f4ead2; font: 13px/1.4 "Microsoft YaHei", sans-serif; color: #4a3020; }
+  h1 { font-size: 20px; margin: 4px 0 10px; }
+  h2 { font-size: 15px; margin: 18px 0 8px; border-bottom: 1px solid #c79d66; }
+  .grid { display: flex; flex-wrap: wrap; gap: 10px; align-items: flex-end; }
+  .card { background: #fbf5e6; border: 1px solid #e0cba0; padding: 6px; text-align: center; }
+  .lab { font-size: 11px; margin-top: 3px; color: #6b4a30; }
+  .scene { background: #e3cf9f; border: 1px solid #c79d66; display: inline-block; margin: 0 12px 12px 0; vertical-align: top; }
+  .scap { font-size: 12px; margin: 2px 0 4px; }
+  #sprite-host { position: absolute; width: 0; height: 0; overflow: hidden; }
+</style>
+</head>
+<body>
+<h1>阿拉伯风格（人族）· 民居与基础设施（arab-base，尚未接入游戏）</h1>
+<div id="sprite-host"></div>
+<div id="scenes"></div>
+<div id="atlas"></div>
+<script src="core.js"></script>
+<script src="parts.js"></script>
+<script src="parts2.js"></script>
+<script src="kit.js"></script>
+<script src="houses-a.js"></script>
+<script src="houses-b.js"></script>
+<script src="houses-c.js"></script>
+<script src="houses-d.js"></script>
+<script src="houses-e.js"></script>
+<script src="tiles-road.js"></script>
+<script src="tiles-wall.js"></script>
+<script src="spoke.js"></script>
+<script src="water.js"></script>
+<script src="props.js"></script>
+<script src="arab-base.js"></script>
+<script src="preview-atlas.js"></script>
+<script src="preview-scenes.js"></script>
+<script src="preview-scenes2.js"></script>
+<script>
+(function () {
+  var AB = window.TownArt_arabBase, list = AB.symbols();
+  document.getElementById('sprite-host').innerHTML = AB.spriteSVG(list);
+  if (window.ABScenes) window.ABScenes.render(list, document.getElementById('scenes'));
+  window.ABPreview.atlas(list, document.getElementById('atlas'), 1.5);
+  document.title += ' · ' + list.length + ' symbols';
+})();
+</script>
+</body>
+</html>

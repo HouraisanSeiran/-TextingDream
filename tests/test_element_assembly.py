@@ -290,10 +290,10 @@ class RuleTests(AssemblyCase):
 # ----------------------------------------------------------------------- 上限
 class LimitTests(AssemblyCase):
     def test_too_many_elements(self):
-        page = self.svc.elements.search(namespace='staples', limit=ea.MAX_ELEMENTS + 1)
-        ids = [item['element_id'] for item in page['items']]
-        self.assertGreater(len(ids), ea.MAX_ELEMENTS)
-        entries = [self.selection(('staples', element_id)) for element_id in ids]
+        page = self.svc.elements.search(limit=ea.MAX_ELEMENTS + 1)
+        pairs = [(item['namespace'], item['element_id']) for item in page['items']]
+        self.assertGreater(len(pairs), ea.MAX_ELEMENTS)
+        entries = [self.selection(pair) for pair in pairs]
         with self.assertRaisesRegex(ea.AssemblyError, '最多'):
             self.svc.elements.save_draft(entries, [])
         with self.assertRaisesRegex(ea.AssemblyError, '最多'):

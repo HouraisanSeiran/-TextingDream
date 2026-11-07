@@ -1,0 +1,111 @@
+{
+  "schema": "catalog_overlay_v1",
+  "group": "culture-literature",
+  "entries": {
+    "culture_poetry_lyric": {
+      "primary": "literature_form",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "culture_poetry_narrative": {
+      "primary": "literature_form",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "culture_poetry_epic": {
+      "primary": "literature_form",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "culture_poetry_elegy": {
+      "primary": "literature_form",
+      "evidence_grade": "mixed",
+      "note": "含仪式文本，归 literature_form，备选 belief_ritual",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "culture_poetry_song": {
+      "primary": "literature_form",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "culture_poetry_haiku": {
+      "primary": "literature_form",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "culture_novel_picaresque": {
+      "primary": "literature_form",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "culture_novel_gothic": {
+      "primary": "literature_form",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "culture_novel_epistolary": {
+      "primary": "literature_form",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "culture_novel_frame": {
+      "primary": "literature_form",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "culture_novel_coming_age": {
+      "primary": "literature_form",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "culture_novel_social": {
+      "primary": "literature_form",
+      "evidence_grade": "mixed",
+      "note": "社会现实主义视角（叙事取向），归 literature_form",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "culture_lit_courtly": {
+      "primary": "literature_form",
+      "evidence_grade": "mixed",
+      "note": "宫廷赞助关系，偏制度；词表无更合适项，归 literature_form，备选 institution",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "culture_lit_translation": {
+      "primary": "literature_form",
+      "evidence_grade": "mixed",
+      "note": "翻译改写实践，归 literature_form，备选 craft_process",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "culture_lit_folklore": {
+      "primary": "literature_form",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    }
+  }
+}

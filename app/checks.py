@@ -59,7 +59,10 @@ EFFECT_LABELS = {'limited': '有限', 'standard': '标准', 'great': '显著'}
 #: 作者可以在 tier / on_full 里写的效果 op = 既有 ``Runtime._apply_effects`` 的 op
 #: 再加 v2 的 ``clock``。``reward`` 也在这里，但只允许在声明了 mechanics.rewards 的包里。
 EFFECT_OPS = ('flag', 'take', 'fact', 'rumor', 'status', 'resource', 'information',
-              'health', 'reward', 'clock')
+              'health', 'place_clue', 'reward', 'clock', 'signal')
+
+#: 事件 ``on_enter`` / ``on_exit`` 里只允许这几种 op（进入/结束只做通知，不发钱物）。
+EVENT_HOOK_OPS = ('signal', 'flag', 'information')
 
 #: 玩家可见/模型可见的文案。全部是**不确定语气**：引擎不知道谁看见了什么时，
 #: 绝不说「没人看到」，只说「似乎没人注意」。
@@ -68,6 +71,28 @@ NOTICED_VISIBLE = '似乎有人注意到了，你看得见其中的人'
 NOTICED_NONE = '似乎没有旁人注意到'
 GENERIC_PARTIAL = '做到了，但不太体面'
 GENERIC_SETBACK = '没成，但你看清了阻碍在哪'
+#: margin_four 失败/大失败既无作者后果又无提示可给时，进“听说”的最后一级兜底句（可选，不阻塞提交）。
+GENERIC_FALLBACK = '没成，但还可以换个办法'
+#: 四档名（玩家可见）。
+MARGIN_FOUR_LABELS = {'critical': '大成功', 'success': '成功', 'failure': '失败', 'disaster': '大失败'}
+#: 离线（没有模型）且作者没写该档文本时的正文：每档一句短句。在线时这些句子不给模型，
+#: 由模型按档位写。好坏方向只靠措辞，实际状态变化仍由引擎按档位执行。
+OFFLINE_TIER_LINES = {
+    'critical': '这一下做得漂亮，局面明显朝好的方向走了。',
+    'success': '办成了。',
+    'failure': '没办成。',
+    'disaster': '不但没办成，局面还明显变坏了。',
+}
+#: 给在线叙述者的规则：检定先结算、后叙述。
+NARRATION_RULE = (
+    '检定已经结算，tier / tier_label 是已定的档位，action_label 是玩家公开的行动。'
+    'authored_text 是作者写好的结果文本；为空表示作者没写这一档，由你按档位描写。'
+    '按此档位描写已发生的结果，不能改结果、不能发奖励、不能立新事实，也不能新增钱物、'
+    '关系数值或世界事实。大成功要让玩家清楚感到局面变好（对方态度松动、省了力气、多看到一点'
+    '东西等）；大失败要写出实际的不利变化，不能轻描淡写；成功与失败按正常力度写。好坏方向'
+    '只靠措辞和在场人物的反应体现，只能描写引擎已结算的变化和现场可见的情况。'
+    'authored_text 非空时以它为准。')
+DEFAULT_REVEAL = '新的局势：'
 BLOCKED_TEXT = '同样的办法刚失败过：换个方法、找帮手、做准备或等局面变化'
 DEFAULT_REFUSAL = '这触到了他的底线'
 ABSENT_REFUSAL = '这个人此刻不在场'
@@ -171,6 +196,49 @@ class PushOption(Strict):
 
 
 # --------------------------------------------------------------------- 钟
+class ClockStage(Strict):
+    """多阶段钟的一个阶段：进度到达 ``at`` 格时恰好触发一次。"""
+    id: str = Field(pattern=ID)
+    at: int = Field(ge=1, le=24, strict=True)
+    label: str = Field(min_length=1, max_length=80)
+    #: 到达时推给玩家的一句话（未到达前绝不出现在任何玩家投影里）。
+    text: str = Field(default='', max_length=200)
+    effects: list[dict] = Field(default_factory=list, max_length=MAX_EFFECTS)
+
+
+class ClockTrigger(Strict):
+    """``flag`` 与 ``signal`` 二选一：flag 按当前值评估，signal 一经发出即成立。"""
+    flag: str = Field(default='', max_length=80)
+    signal: str = Field(default='', max_length=80)
+
+    @model_validator(mode='after')
+    def one_of(self):
+        if bool(self.flag) == bool(self.signal):
+            raise ValueError('触发条件必须且只能写 flag / signal 之一')
+        if self.flag and not re.match(FLAG_ID, self.flag):
+            raise ValueError('触发条件的标记名无效：%r' % self.flag)
+        if self.signal and not re.match(FLAG_ID, self.signal):
+            raise ValueError('触发条件的信号名无效：%r' % self.signal)
+        return self
+
+
+class AdvanceOn(Strict):
+    signal: str = Field(pattern=FLAG_ID)
+    delta: int = Field(default=1, ge=-24, le=24, strict=True)
+
+    @model_validator(mode='after')
+    def nonzero(self):
+        if self.delta == 0:
+            raise ValueError('advance_on.delta 不能是 0')
+        return self
+
+
+class SignalSpec(Strict):
+    """作者声明的信号（可选的声明表）。信号名只在作者侧存在，**永不**进任何玩家/模型投影。"""
+    id: str = Field(pattern=FLAG_ID)
+    label: str = Field(default='', max_length=80)
+
+
 class ClockSpec(Strict):
     id: str = Field(pattern=ID)
     label: str = Field(min_length=1, max_length=80)
@@ -179,6 +247,36 @@ class ClockSpec(Strict):
     #: 只有列在这里的受众看得到这个钟（含 label/segments/filled）。
     known_by: list[str] = Field(default_factory=lambda: ['player'], max_length=12)
     on_full: list[dict] = Field(default_factory=list, max_length=MAX_EFFECTS)
+    #: 多阶段（可选）。严格递增，``at`` 不超过 segments。
+    stages: list[ClockStage] = Field(default_factory=list, max_length=12)
+    #: 订阅信号：每次信号发出按 delta 推进（满格后不再变化）。
+    advance_on: list[AdvanceOn] = Field(default_factory=list, max_length=12)
+    #: ``hidden`` = 在 ``reveal_on`` 满足前完全不出现在玩家投影里。
+    visibility: Literal['hidden', 'revealed'] = 'revealed'
+    reveal_on: ClockTrigger | None = None
+    reveal_text: str = Field(default='', max_length=200)
+    #: 未开启的钟不推进、不显示；开启是一次性的。
+    enabled_on: ClockTrigger | None = None
+
+    @model_validator(mode='after')
+    def stages_ordered(self):
+        ids = [stage.id for stage in self.stages]
+        if len(set(ids)) != len(ids):
+            raise ValueError('钟 %s 的阶段 id 重复' % self.id)
+        last = 0
+        for stage in self.stages:
+            if stage.at > self.segments:
+                raise ValueError('钟 %s 的阶段 %s 超过了格数' % (self.id, stage.id))
+            if stage.at <= last:
+                raise ValueError('钟 %s 的阶段必须严格递增' % self.id)
+            last = stage.at
+        if self.reveal_on is not None and self.visibility != 'hidden':
+            raise ValueError('钟 %s：reveal_on 只用于 visibility=hidden' % self.id)
+        return self
+
+    def has_gates(self):
+        return bool(self.stages or self.advance_on or self.reveal_on
+                    or self.enabled_on or self.visibility == 'hidden')
 
 
 # --------------------------------------------------------------------- 社交
@@ -286,6 +384,10 @@ class ChecksConfig(Strict):
     factors: list[Factor] = Field(default_factory=list, max_length=MAX_FACTORS)
     push: list[PushOption] = Field(default_factory=list, max_length=MAX_PUSH)
     clocks: list[ClockSpec] = Field(default_factory=list, max_length=MAX_CLOCKS)
+    #: 信号声明表（可选）。写了就要求所有 ``signal`` 效果与订阅都引用这里的 id。
+    signals: list[SignalSpec] = Field(default_factory=list, max_length=48)
+    #: margin_four 失败/大失败既无作者后果又无提示池时的包级兜底文本（可选）。
+    fallback_text: str = Field(default='', max_length=200)
     social: dict[str, SocialProfile] = Field(default_factory=dict)
     default_costs: list[DefaultCost] = Field(default_factory=list, max_length=8)
     retry: RetryConfig = Field(default_factory=RetryConfig)
@@ -293,7 +395,7 @@ class ChecksConfig(Strict):
     @model_validator(mode='after')
     def unique_ids(self):
         for name, rows in (('factors', self.factors), ('push', self.push),
-                           ('clocks', self.clocks)):
+                           ('clocks', self.clocks), ('signals', self.signals)):
             ids = [row.id for row in rows]
             if len(set(ids)) != len(ids):
                 raise ValueError('mechanics.checks.%s 的 id 重复' % name)
@@ -577,9 +679,21 @@ def clock_state(session, story):
     if cfg is None:
         return {}
     block = session.get('clocks') or {}
-    return {spec.id: {'filled': int((block.get(spec.id) or {}).get('filled', 0)),
-                      'full_at': (block.get(spec.id) or {}).get('full_at')}
-            for spec in cfg.clocks}
+    out = {}
+    for spec in cfg.clocks:
+        raw = block.get(spec.id) or {}
+        row = {'filled': int(raw.get('filled', 0)), 'full_at': raw.get('full_at')}
+        if spec.has_gates():
+            # 只有声明了新字段的钟才多这几个键，旧钟的形状不变。
+            # 开启/揭示：账本里已锁存，或触发条件此刻已成立（只读推算，写入在 refresh_gates）。
+            enabled = (spec.enabled_on is None or bool(raw.get('enabled'))
+                       or trigger_met(session, spec.enabled_on))
+            row['enabled'] = enabled
+            row['revealed'] = (spec.visibility != 'hidden' or bool(raw.get('revealed'))
+                               or (enabled and trigger_met(session, spec.reveal_on)))
+            row['stages_done'] = list(raw.get('stages_done') or [])
+        out[spec.id] = row
+    return out
 
 
 def ensure(session, story):
@@ -596,8 +710,34 @@ def ensure(session, story):
         row = block.setdefault(spec.id, {'filled': 0, 'full_at': None})
         row.setdefault('filled', 0)
         row.setdefault('full_at', None)
+        _gated_defaults(spec, row)
     session.setdefault('check_attempts', {})
     return cfg
+
+
+def _gated_defaults(spec, row):
+    """只给声明了新字段的钟写这些账本键（旧钟状态形状不变）。"""
+    if spec.enabled_on is not None:
+        row.setdefault('enabled', False)
+    if spec.visibility == 'hidden':
+        row.setdefault('revealed', False)
+    if spec.stages:
+        row.setdefault('stages_done', [])
+    return row
+
+
+def _clock_row(session, spec):
+    """写路径：取（必要时创建）这个钟的账本行。"""
+    block = session.setdefault('clocks', {})
+    row = block.setdefault(spec.id, {'filled': 0, 'full_at': None})
+    row.setdefault('filled', 0)
+    row.setdefault('full_at', None)
+    return _gated_defaults(spec, row)
+
+
+def _player_visible(spec, state_row):
+    return ('player' in spec.known_by and state_row.get('enabled', True)
+            and state_row.get('revealed', True))
 
 
 def public_clocks(session, story, audience='player'):
@@ -611,9 +751,43 @@ def public_clocks(session, story, audience='player'):
         if audience not in spec.known_by:
             continue
         row = state[spec.id]
-        rows.append({'id': spec.id, 'label': spec.label, 'segments': spec.segments,
-                     'filled': row['filled'], 'kind': spec.kind})
+        if not (row.get('enabled', True) and row.get('revealed', True)):
+            # 未开启 / 还没揭示的钟：完全不出现（id、label、进度、阶段都不给）。
+            continue
+        out = {'id': spec.id, 'label': spec.label, 'segments': spec.segments,
+               'filled': row['filled'], 'kind': spec.kind}
+        if spec.stages:
+            done = set(row.get('stages_done') or [])
+            # 未到达的阶段只给刻度位置与 reached=false，不给名称与文字（防剧透）。
+            out['stages'] = [{'at': st.at, 'label': st.label if st.id in done else '',
+                              'reached': st.id in done} for st in spec.stages]
+            reached = [st.label for st in spec.stages if st.id in done]
+            if reached:
+                out['stage_label'] = reached[-1]
+        rows.append(out)
     return rows
+
+
+def authority_clocks(session, story):
+    """作者/审查视图：全部钟（含隐藏、阶段文字、订阅的信号）。**不**给玩家端。"""
+    cfg = config(story)
+    if cfg is None:
+        return []
+    state = clock_state(session, story)
+    out = []
+    for spec in cfg.clocks:
+        row = state[spec.id]
+        out.append({'id': spec.id, 'label': spec.label, 'segments': spec.segments,
+                    'filled': row['filled'], 'kind': spec.kind,
+                    'known_by': list(spec.known_by), 'visibility': spec.visibility,
+                    'enabled': row.get('enabled', True),
+                    'revealed': row.get('revealed', True),
+                    'stages': [st.model_dump() for st in spec.stages],
+                    'stages_done': list(row.get('stages_done') or []),
+                    'advance_on': [a.model_dump() for a in spec.advance_on],
+                    'enabled_on': spec.enabled_on.model_dump() if spec.enabled_on else None,
+                    'reveal_on': spec.reveal_on.model_dump() if spec.reveal_on else None})
+    return out
 
 
 def clock_public_row(session, story, clock_id):
@@ -625,7 +799,8 @@ def clock_public_row(session, story, clock_id):
         return None
     state = clock_state(session, story)[clock_id]
     return {'label': spec.label, 'segments': spec.segments, 'filled': state['filled'],
-            'kind': spec.kind, 'known_by': list(spec.known_by)}
+            'kind': spec.kind, 'known_by': list(spec.known_by),
+            'player_visible': _player_visible(spec, state)}
 
 
 def advance_clock(session, story, clock_id, delta, effects=None, source=''):
@@ -642,28 +817,209 @@ def advance_clock(session, story, clock_id, delta, effects=None, source=''):
         raise ValueError('未声明的钟：' + str(clock_id))
     if isinstance(delta, bool) or not isinstance(delta, int):
         raise ValueError('钟的变化必须是整数')
-    block = session.setdefault('clocks', {})
-    row = block.setdefault(clock_id, {'filled': 0, 'full_at': None})
-    row.setdefault('full_at', None)
+    if spec.enabled_on is not None or spec.reveal_on is not None:
+        refresh_gates(session, story, effects, source)
+    row = _clock_row(session, spec)
     before = int(row.get('filled', 0))
     if row['full_at'] is not None:
         # 满格以后不再变化：重复加码不会制造第二次满格效果。
         return {'id': clock_id, 'label': spec.label, 'kind': spec.kind,
                 'segments': spec.segments, 'from': before, 'to': before,
                 'changed': False, 'full': True}
+    if spec.enabled_on is not None and not row.get('enabled'):
+        # 还没开启的钟不推进（也不显示）。
+        return {'id': clock_id, 'label': spec.label, 'kind': spec.kind,
+                'segments': spec.segments, 'from': before, 'to': before,
+                'changed': False, 'full': False}
     after = _clamp(before + int(delta), 0, spec.segments)
     row['filled'] = after
     changed = after != before
-    if after >= spec.segments:
+    # 先记账再执行效果：重入（阶段效果又发信号）时同一阶段不会触发第二次。
+    reached = []
+    if spec.stages:
+        done = row.setdefault('stages_done', [])
+        for stage in spec.stages:
+            if stage.at <= after and stage.id not in done:
+                done.append(stage.id)
+                reached.append(stage)
+    full = after >= spec.segments
+    if full:
         row['full_at'] = session.get('time', 0)
-        if spec.on_full:
+    for stage in reached:
+        batch = [dict(effect) for effect in stage.effects]
+        if stage.text and _player_visible(spec, row):
+            batch.append({'op': 'information', 'text': stage.text,
+                          'known_by': list(spec.known_by), 'confirmed': False})
+        if batch:
             if effects is None:
-                raise ValueError('钟的满格效果必须由 Runtime.effects 应用')
-            effects(session, [dict(effect) for effect in spec.on_full],
-                    'clock:%s' % clock_id)
-    return {'id': clock_id, 'label': spec.label, 'kind': spec.kind,
-            'segments': spec.segments, 'from': before, 'to': after,
-            'changed': changed, 'full': after >= spec.segments}
+                raise ValueError('钟的阶段效果必须由 Runtime.effects 应用')
+            effects(session, batch, 'clock:%s:stage:%s' % (clock_id, stage.id))
+    if full and spec.on_full:
+        if effects is None:
+            raise ValueError('钟的满格效果必须由 Runtime.effects 应用')
+        effects(session, [dict(effect) for effect in spec.on_full],
+                'clock:%s' % clock_id)
+    result = {'id': clock_id, 'label': spec.label, 'kind': spec.kind,
+              'segments': spec.segments, 'from': before, 'to': after,
+              'changed': changed, 'full': full}
+    if reached:
+        result['stages'] = [stage.id for stage in reached]
+    return result
+
+
+# --------------------------------------------------------------------- 信号与开关
+def clock_signals(story):
+    """被钟订阅/触发（``advance_on`` / ``enabled_on`` / ``reveal_on``）的信号 id。"""
+    cfg = config(story)
+    if cfg is None:
+        return set()
+    ids = set()
+    for spec in cfg.clocks:
+        ids |= {rule.signal for rule in spec.advance_on}
+        for trigger in (spec.reveal_on, spec.enabled_on):
+            if trigger is not None and trigger.signal:
+                ids.add(trigger.signal)
+    return ids
+
+
+def quest_signals(story):
+    """被任务（``mechanics.quests``）订阅的信号 id：只读，不依赖 quests 模块。"""
+    block = (story.get('mechanics') or {}).get('quests')
+    rows = block.get('quests') if isinstance(block, dict) else None
+    ids = set()
+    for quest in rows or []:
+        if not isinstance(quest, dict):
+            continue
+        for key in ('enabled_on', 'reveal_on'):
+            gate = quest.get(key)
+            if isinstance(gate, dict) and isinstance(gate.get('signal'), str):
+                ids.add(gate['signal'])
+    return ids
+
+
+def declared_signals(story):
+    """作者可选的信号声明表；没写返回 ``None``（不限制）。"""
+    cfg = config(story)
+    if cfg is None or not cfg.signals:
+        return None
+    return {sig.id for sig in cfg.signals}
+
+
+def referenced_signals(story):
+    """包里有人订阅的信号 id = 钟订阅/触发 ∪ 任务订阅。``signal`` 效果必须落在这里。"""
+    return clock_signals(story) | quest_signals(story)
+
+
+def known_signals(story):
+    """合法的信号 id（校验用）：有人订阅的信号。"""
+    return referenced_signals(story)
+
+
+def _signal_list(session):
+    value = (session or {}).get('signals')
+    return value if isinstance(value, list) else []
+
+
+def trigger_met(session, trigger):
+    """``flag`` 按当前值评估；``signal`` 只要发出过就成立（只读）。"""
+    if trigger is None:
+        return False
+    flag = getattr(trigger, 'flag', None) if not isinstance(trigger, dict) \
+        else trigger.get('flag')
+    signal = getattr(trigger, 'signal', None) if not isinstance(trigger, dict) \
+        else trigger.get('signal')
+    if flag:
+        return bool((session.get('flags') or {}).get(flag))
+    if signal:
+        return signal in _signal_list(session)
+    return False
+
+
+def refresh_gates(session, story, effects=None, source=''):
+    """按当前 flag / 信号重新评估钟的 ``enabled_on`` 与 ``reveal_on``（写路径）。
+
+    开启与揭示都是一次性的；揭示时给玩家一条 information（来源 ``clock:<id>:reveal``）。
+    没有声明这两个字段的钟完全不碰。
+    """
+    cfg = config(story)
+    if cfg is None:
+        return
+    for spec in cfg.clocks:
+        if spec.enabled_on is None and spec.reveal_on is None:
+            continue
+        row = _clock_row(session, spec)
+        if (spec.enabled_on is not None and not row.get('enabled')
+                and trigger_met(session, spec.enabled_on)):
+            row['enabled'] = True
+        if (spec.reveal_on is not None and not row.get('revealed')
+                and row.get('enabled', True) and trigger_met(session, spec.reveal_on)):
+            row['revealed'] = True
+            if effects is not None and 'player' in spec.known_by:
+                text = spec.reveal_text or (DEFAULT_REVEAL + spec.label)
+                effects(session, [{'op': 'information', 'text': text,
+                                   'known_by': list(spec.known_by), 'confirmed': False}],
+                        'clock:%s:reveal' % spec.id)
+
+
+def emit_signal(session, story, signal_id, effects=None, source=''):
+    """发出一个信号：记账 → 开启/揭示 → 按订阅推进钟 → 再评估一次。"""
+    if not isinstance(signal_id, str) or not re.match(FLAG_ID, signal_id):
+        raise ValueError('信号名无效：%r' % (signal_id,))
+    book = session.get('signals')
+    if not isinstance(book, list):
+        book = session['signals'] = []
+    if signal_id in book:
+        # 去重：同一信号只处理一次，这也是阶段效果互相发信号时的递归防护。
+        return []
+    # 先记账再处理：重入的同名信号会在上面直接返回。
+    book.append(signal_id)
+    cfg = config(story)
+    changes = []
+    if cfg is not None:
+        refresh_gates(session, story, effects, source)
+        for spec in cfg.clocks:
+            total = sum(rule.delta for rule in spec.advance_on if rule.signal == signal_id)
+            if total:
+                changes.append(advance_clock(session, story, spec.id, total,
+                                             effects=effects, source=source))
+        refresh_gates(session, story, effects, source)
+    return changes
+
+
+def clock_notices(before_session, after_session, story):
+    """一步前后的钟变化 → 玩家可见的通知行 ``{kind, clock_label, text}``（纯 diff，只读）。
+
+    * ``stage``：新到达且写了 ``text`` 的阶段；
+    * ``reveal``：隐藏钟被揭示（``reveal_text`` 或默认文案）；
+    * ``enable``：未开启的钟开启且对玩家可见。
+
+    ``known_by`` 不含 player 的钟、仍隐藏/未开启的钟一律不出现。
+    """
+    cfg = config(story)
+    if cfg is None:
+        return []
+    before = clock_state(before_session or {}, story)
+    after = clock_state(after_session or {}, story)
+    rows = []
+    for spec in cfg.clocks:
+        if 'player' not in spec.known_by:
+            continue
+        now, was = after[spec.id], before[spec.id]
+        if not (now.get('enabled', True) and now.get('revealed', True)):
+            continue
+        if not (was.get('enabled', True) and was.get('revealed', True)):
+            if spec.visibility == 'hidden':
+                rows.append({'kind': 'reveal', 'clock_label': spec.label,
+                             'text': spec.reveal_text or (DEFAULT_REVEAL + spec.label)})
+            else:
+                rows.append({'kind': 'enable', 'clock_label': spec.label,
+                             'text': DEFAULT_REVEAL + spec.label})
+        old = set(was.get('stages_done') or [])
+        done = set(now.get('stages_done') or [])
+        for stage in spec.stages:
+            if stage.id in done and stage.id not in old and stage.text:
+                rows.append({'kind': 'stage', 'clock_label': spec.label, 'text': stage.text})
+    return rows
 
 
 # --------------------------------------------------------------------- 社交
@@ -1061,8 +1417,13 @@ def consequences(session, story, characters, node, action, resolved, scope='acti
     tier_effects = [dict(effect) for effect in (block.get('effects') or [])]
     base = list(action.get('effects') or []) + list(
         action.get('success' if success else 'failure') or [])
-    text = block.get('text') or action.get(
-        'success_text' if success else 'failure_text') or action.get('label', '')
+    # 作者写了的结果文本（没写就是空串，不拿任何通用句顶替）。
+    authored_text = block.get('text') or action.get(
+        'success_text' if success else 'failure_text') or ''
+    text = authored_text or action.get('label', '')
+    if cfg.tier_mode == 'margin_four' and not authored_text:
+        # 离线正文：按档位区分的短句。在线时由模型写，这句不进模型上下文。
+        text = OFFLINE_TIER_LINES.get(tier, text)
     effects = (base if include_base else []) + tier_effects
     relationships = []
     extra_hours = 0
@@ -1095,6 +1456,27 @@ def consequences(session, story, characters, node, action, resolved, scope='acti
                             'known_by': ['player'], 'confirmed': False})
         elif not text:
             text = GENERIC_SETBACK
+
+    # margin_four 兜底：失败/大失败既没有作者后果、也没有出路文字时，不能让玩家软锁。
+    # 只给一条公开提示（或通用回执）：不发钱物、不写事实、不结束事件。
+    fallback = None
+    if cfg.tier_mode == 'margin_four' and tier in ('failure', 'disaster'):
+        # “作者已写”：该档 effects / text，或动作自己的失败效果 / 失败文字。
+        authored = bool(block.get('effects') or block.get('text')
+                        or action.get('failure_text') or action.get('failure'))
+        if not authored:
+            # 文本来源顺序：动作/事件 fallback_hints 下一条未给过 > 包级 fallback_text > 通用。
+            # 只产一条 player 知情、未确认的 information（进 heard）：不发钱物、不写事实。
+            hint = next_hint(session, node, action) if scope != 'fallback' else None
+            if hint is not None and hint.get('text'):
+                hints.append(hint['id'])
+                line, fallback = hint['text'], 'hint'
+            elif cfg.fallback_text:
+                line, fallback = cfg.fallback_text, 'package'
+            else:
+                line, fallback = GENERIC_FALLBACK, 'generic'
+            effects.append({'op': 'information', 'text': line,
+                            'known_by': ['player'], 'confirmed': False})
     # 进度钟：critical 多一格，partial 少一格；作者已手写同一钟的 clock op 就不再自动加。
     manual = _clock_ops(tier_effects)
     clock = check.get('clock') or {}
@@ -1122,11 +1504,26 @@ def consequences(session, story, characters, node, action, resolved, scope='acti
             if delta:
                 clocks.append({'id': danger['id'], 'delta': delta})
 
-    return {'tier': tier, 'text': text, 'effects': effects,
+    return {'tier': tier, 'text': text, 'authored_text': authored_text, 'effects': effects,
             'relationships': relationships, 'extra_hours': extra_hours,
-            'clocks': clocks, 'hints': hints,
+            'clocks': clocks, 'hints': hints, 'fallback': fallback,
             'success': success,
             'used_default_cost': bool(tier == 'partial' and not _tier_block(action, 'partial'))}
+
+
+def narration_brief(story, action, tier, consequences):
+    """已结算的检定交给叙述者的摘要（只在 margin_four 下给；其他模式返回 None）。
+
+    只含档位、行动公开标签、作者写了的结果文本（没写就是空串）与叙述规则；
+    不含数值、种子、因素。通用兜底句与离线短句不会出现在这里。
+    """
+    cfg = config(story)
+    if cfg is None or cfg.tier_mode != 'margin_four':
+        return None
+    return {'tier': tier, 'tier_label': MARGIN_FOUR_LABELS.get(tier, tier),
+            'action_label': (action or {}).get('label', ''),
+            'authored_text': consequences.get('authored_text') or '',
+            'rule': NARRATION_RULE}
 
 
 # --------------------------------------------------------------------- 察觉
@@ -1223,7 +1620,7 @@ def preview(session, story, characters, node, action, push=None):
     clock = check.get('clock') or {}
     if clock.get('id'):
         row = clock_public_row(session, story, clock['id'])
-        if row is not None and 'player' in row['known_by']:
+        if row is not None and 'player' in row['known_by'] and row['player_visible']:
             block['clock'] = {'label': row['label'], 'segments': row['segments'],
                               'filled': row['filled'], 'kind': row['kind']}
     return block
@@ -1284,12 +1681,27 @@ def public_result(session, story, resolved, node=None, action=None, notice_info=
         if change is None or not change.get('changed'):
             continue
         spec = clock_public_row(session, story, change['id'])
-        if spec is None or 'player' not in spec['known_by']:
+        if spec is None or 'player' not in spec['known_by'] or not spec['player_visible']:
             continue
         row['clock'] = {'label': change['label'], 'from': change['from'],
                         'to': change['to'], 'segments': change['segments'],
                         'kind': change['kind']}
         break
+    return row
+
+
+def stamp(session, row):
+    """给一条刚产生的公开检定结果盖上单调递增的序号 ``check_seq``（就地改 ``row``）。
+
+    序号存在 session 里，随快照/回滚一起走；旧存档没有这个键时从 1 开始。只在
+    「真正产生了一条新检定结果」时调用（正常结算、refused、auto、兜底），所以
+    前端可以用「会话 id + 序号」判断是不是新检定，而不必比较内容。
+    """
+    current = session.get('check_seq')
+    base = current if isinstance(current, int) and not isinstance(current, bool) \
+        and current > 0 else 0
+    session['check_seq'] = base + 1
+    row['check_seq'] = base + 1
     return row
 
 
@@ -1321,6 +1733,18 @@ def _check_flag_name(name, where):
         raise ValueError('%s 的标记名无效：%r' % (where, name))
 
 
+def _check_signal_ref(signal_id, story, where):
+    """``signal`` 效果的 id：格式合法、至少有一个钟/任务订阅；写了声明表就必须在表里。"""
+    if not isinstance(signal_id, str) or not re.match(FLAG_ID, signal_id):
+        raise ValueError('%s 的信号名无效：%r' % (where, signal_id))
+    if signal_id not in referenced_signals(story):
+        raise ValueError('%s 的 signal 没有任何钟或任务订阅：%s' % (where, signal_id))
+    declared = declared_signals(story)
+    if declared is not None and signal_id not in declared:
+        raise ValueError('%s 的 signal 不在 mechanics.checks.signals 声明表里：%s'
+                         % (where, signal_id))
+
+
 def _validate_effects(effects, story, characters, resources, items, clocks, where):
     if not isinstance(effects, list):
         raise ValueError('%s 的效果必须是列表' % where)
@@ -1332,7 +1756,8 @@ def _validate_effects(effects, story, characters, resources, items, clocks, wher
         op = effect.get('op')
         if op not in EFFECT_OPS:
             raise ValueError('%s 的效果 op 不受支持：%r' % (where, op))
-        if op in ('flag', 'status', 'take', 'resource', 'health', 'clock', 'reward') \
+        if op in ('flag', 'status', 'take', 'resource', 'health', 'clock', 'reward',
+                  'signal') \
                 and not effect.get('id') and op != 'reward':
             raise ValueError('%s 的 %s 效果需要 id' % (where, op))
         if op == 'item' or (op == 'take' and effect['id'] not in items):
@@ -1340,6 +1765,8 @@ def _validate_effects(effects, story, characters, resources, items, clocks, wher
         if op == 'resource' and effect.get('id') not in resources:
             raise ValueError('%s 的 resource 引用了未声明的资源：%s'
                              % (where, effect.get('id')))
+        if op == 'signal':
+            _check_signal_ref(effect.get('id'), story, where)
         if op == 'clock' and effect.get('id') not in clocks:
             raise ValueError('%s 的 clock 引用了未声明的钟：%s' % (where, effect.get('id')))
         if op == 'clock':
@@ -1423,6 +1850,34 @@ def validate_package(story, characters):
                              % (spec.id, '、'.join(sorted(unknown))))
         _validate_effects(spec.on_full, story, characters, resources, items, clocks,
                           '钟 %s 的 on_full' % spec.id)
+        for stage in spec.stages:
+            _validate_effects(stage.effects, story, characters, resources, items, clocks,
+                              '钟 %s 的阶段 %s' % (spec.id, stage.id))
+        for trigger in (spec.reveal_on, spec.enabled_on):
+            if trigger is not None and trigger.flag:
+                _check_flag_name(trigger.flag, '钟 %s 的触发条件' % spec.id)
+        declared = declared_signals(story)
+        if declared is not None:
+            subscribed = {rule.signal for rule in spec.advance_on}
+            subscribed |= {t.signal for t in (spec.reveal_on, spec.enabled_on)
+                           if t is not None and t.signal}
+            if subscribed - declared:
+                raise ValueError('钟 %s 订阅了没有声明的信号：%s'
+                                 % (spec.id, '、'.join(sorted(subscribed - declared))))
+    for event in story.get('events') or []:
+        _validate_effects(list(event.get('on_enter') or []) + list(event.get('on_exit') or []),
+                          story, characters, resources, items, clocks,
+                          '事件 %s 的 on_enter/on_exit' % event.get('id'))
+        for effect in list(event.get('on_enter') or []) + list(event.get('on_exit') or []):
+            if effect.get('op') not in EVENT_HOOK_OPS:
+                raise ValueError('事件 %s 的 on_enter/on_exit 只允许 %s'
+                                 % (event.get('id'), '/'.join(EVENT_HOOK_OPS)))
+        for action in event.get('actions') or []:
+            for branch in ('effects', 'success', 'failure'):
+                for effect in action.get(branch) or []:
+                    if isinstance(effect, dict) and effect.get('op') == 'signal':
+                        _check_signal_ref(effect.get('id'), story, '事件 %s 的动作 %s'
+                                          % (event.get('id'), action.get('id')))
 
     for cid, profile in cfg.social.items():
         if cid not in chars:

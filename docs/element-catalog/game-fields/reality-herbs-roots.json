@@ -1,0 +1,827 @@
+{
+  "schema": "game_fields_v1",
+  "group": "reality-herbs-roots",
+  "entries": {
+    "herb_root_ginseng": {
+      "price": {
+        "min": 240,
+        "max": 1200,
+        "per": "一两",
+        "tier": "pound"
+      },
+      "terrains": [
+        "mountain",
+        "temperate_forest"
+      ],
+      "seasons": [
+        "autumn"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "apothecary"
+      ],
+      "note": "栽培年头越久越贵，按贵重药材估价，归入镑档"
+    },
+    "herb_root_codonopsis": {
+      "price": {
+        "min": 4,
+        "max": 10,
+        "per": "一两",
+        "tier": "groat"
+      },
+      "terrains": [
+        "mountain",
+        "farmland"
+      ],
+      "seasons": [
+        "autumn"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "apothecary",
+        "market"
+      ],
+      "note": "作为人参的平价替代品，按几个便士估价"
+    },
+    "herb_root_astragalus": {
+      "price": {
+        "min": 3,
+        "max": 8,
+        "per": "一两",
+        "tier": "groat"
+      },
+      "terrains": [
+        "steppe",
+        "mountain",
+        "farmland"
+      ],
+      "seasons": [
+        "autumn"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "apothecary",
+        "herbalist"
+      ],
+      "note": "大宗根类药材，按常见药材估价"
+    },
+    "herb_root_licorice": {
+      "price": {
+        "min": 2,
+        "max": 6,
+        "per": "一两",
+        "tier": "groat"
+      },
+      "terrains": [
+        "temperate_desert",
+        "steppe"
+      ],
+      "seasons": [
+        "autumn"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "apothecary",
+        "market",
+        "spice_merchant"
+      ],
+      "note": "大宗商品，兼作甜味与工业原料，价低量大"
+    },
+    "herb_root_danggui": {
+      "price": {
+        "min": 6,
+        "max": 18,
+        "per": "一两",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "mountain",
+        "farmland"
+      ],
+      "seasons": [
+        "autumn"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "apothecary",
+        "herbalist"
+      ],
+      "note": "头身尾分部定价，取中档估价"
+    },
+    "herb_root_chuanxiong": {
+      "price": {
+        "min": 4,
+        "max": 10,
+        "per": "一两",
+        "tier": "groat"
+      },
+      "terrains": [
+        "farmland",
+        "mountain"
+      ],
+      "seasons": [
+        "summer"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "apothecary",
+        "herbalist"
+      ],
+      "note": "产地分等的常用根茎，按中低档估价"
+    },
+    "herb_root_baishao": {
+      "price": {
+        "min": 4,
+        "max": 10,
+        "per": "一两",
+        "tier": "groat"
+      },
+      "terrains": [
+        "farmland"
+      ],
+      "seasons": [
+        "summer",
+        "autumn"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "apothecary",
+        "herbalist"
+      ],
+      "note": "去皮水煮加工品，比赤芍略贵"
+    },
+    "herb_root_chishao": {
+      "price": {
+        "min": 3,
+        "max": 8,
+        "per": "一两",
+        "tier": "groat"
+      },
+      "terrains": [
+        "mountain",
+        "temperate_forest"
+      ],
+      "seasons": [
+        "spring",
+        "autumn"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "apothecary",
+        "herbalist"
+      ],
+      "note": "直接干燥的野生根，按常见药材估价"
+    },
+    "herb_root_rehmannia_raw": {
+      "price": {
+        "min": 3,
+        "max": 8,
+        "per": "一两",
+        "tier": "groat"
+      },
+      "terrains": [
+        "farmland"
+      ],
+      "seasons": [
+        "autumn"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "apothecary",
+        "herbalist"
+      ],
+      "note": "干燥块根，按常见药材估价"
+    },
+    "herb_root_rehmannia_prepared": {
+      "price": {
+        "min": 6,
+        "max": 18,
+        "per": "一两",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "workshop",
+        "farmland"
+      ],
+      "seasons": [
+        "autumn"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "apothecary"
+      ],
+      "note": "反复蒸制费工，比生地黄贵一倍左右"
+    },
+    "herb_root_atractylodes_macrocephala": {
+      "price": {
+        "min": 5,
+        "max": 14,
+        "per": "一两",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "farmland",
+        "mountain"
+      ],
+      "seasons": [
+        "autumn"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "apothecary",
+        "herbalist"
+      ],
+      "note": "道地特产，栽培与加工都在产地，取中档估价"
+    },
+    "herb_root_atractylodes_lancea": {
+      "price": {
+        "min": 4,
+        "max": 10,
+        "per": "一两",
+        "tier": "groat"
+      },
+      "terrains": [
+        "mountain",
+        "temperate_forest"
+      ],
+      "seasons": [
+        "spring",
+        "autumn"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "apothecary",
+        "herbalist"
+      ],
+      "note": "按产地南北分档，取中低档估价"
+    },
+    "herb_root_aconite_zi": {
+      "price": {
+        "min": 6,
+        "max": 20,
+        "per": "一两",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "mountain",
+        "farmland"
+      ],
+      "seasons": [
+        "summer"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "apothecary"
+      ],
+      "note": "剧毒，仅药铺凭方配售；按加工品分档的游戏估价",
+      "restriction": "toxic"
+    },
+    "herb_root_aconite_mu": {
+      "price": {
+        "min": 6,
+        "max": 18,
+        "per": "一两",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "mountain",
+        "farmland"
+      ],
+      "seasons": [
+        "summer"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "apothecary"
+      ],
+      "note": "剧毒，仅药铺凭方配售；母根与附子同价档",
+      "restriction": "toxic"
+    },
+    "herb_root_pinellia": {
+      "price": {
+        "min": 3,
+        "max": 9,
+        "per": "一两",
+        "tier": "groat"
+      },
+      "terrains": [
+        "farmland"
+      ],
+      "seasons": [
+        "summer"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "apothecary"
+      ],
+      "note": "有毒，仅药铺凭方配售；按常见药材估价",
+      "restriction": "toxic"
+    },
+    "herb_root_arisaema": {
+      "price": {
+        "min": 3,
+        "max": 9,
+        "per": "一两",
+        "tier": "groat"
+      },
+      "terrains": [
+        "mountain",
+        "temperate_forest"
+      ],
+      "seasons": [
+        "autumn"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "apothecary"
+      ],
+      "note": "有毒，仅药铺凭方配售；按常见药材估价",
+      "restriction": "toxic"
+    },
+    "herb_root_tripterygium": {
+      "price": {
+        "min": 3,
+        "max": 8,
+        "per": "一两",
+        "tier": "groat"
+      },
+      "terrains": [
+        "mountain",
+        "temperate_forest"
+      ],
+      "seasons": [
+        "autumn"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "apothecary"
+      ],
+      "note": "大毒，仅药铺凭方配售；按常见药材估价；有毒，只宜药铺凭方配售",
+      "restriction": "toxic"
+    },
+    "herb_root_heshouwu": {
+      "price": {
+        "min": 8,
+        "max": 24,
+        "per": "一两",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "mountain",
+        "temperate_forest",
+        "farmland"
+      ],
+      "seasons": [
+        "autumn"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "apothecary",
+        "herbalist"
+      ],
+      "note": "传说加成的块根，取中高档估价"
+    },
+    "herb_root_coptis": {
+      "price": {
+        "min": 24,
+        "max": 72,
+        "per": "一两",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "mountain"
+      ],
+      "seasons": [
+        "autumn"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "apothecary"
+      ],
+      "note": "野生资源现实中受保护；世界选项可设为禁售或只售栽培品",
+      "restriction": "protected_wild"
+    },
+    "herb_root_scutellaria": {
+      "price": {
+        "min": 3,
+        "max": 9,
+        "per": "一两",
+        "tier": "groat"
+      },
+      "terrains": [
+        "steppe",
+        "farmland"
+      ],
+      "seasons": [
+        "spring",
+        "autumn"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "apothecary",
+        "herbalist"
+      ],
+      "note": "大宗根类药材，按常见药材估价"
+    },
+    "herb_root_rheum": {
+      "price": {
+        "min": 6,
+        "max": 20,
+        "per": "一两",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "mountain",
+        "farmland"
+      ],
+      "seasons": [
+        "autumn"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "apothecary",
+        "spice_merchant"
+      ],
+      "note": "出口大宗，按产地与切制形态分档，取中档估价"
+    },
+    "herb_root_salvia": {
+      "price": {
+        "min": 3,
+        "max": 8,
+        "per": "一两",
+        "tier": "groat"
+      },
+      "terrains": [
+        "farmland"
+      ],
+      "seasons": [
+        "spring",
+        "autumn"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "apothecary",
+        "herbalist"
+      ],
+      "note": "栽培量大，按常见药材估价"
+    },
+    "herb_root_scrophularia": {
+      "price": {
+        "min": 3,
+        "max": 8,
+        "per": "一两",
+        "tier": "groat"
+      },
+      "terrains": [
+        "farmland",
+        "mountain"
+      ],
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "apothecary",
+        "herbalist"
+      ],
+      "note": "栽培量大，按常见药材估价"
+    },
+    "herb_root_ophiopogon": {
+      "price": {
+        "min": 4,
+        "max": 10,
+        "per": "一两",
+        "tier": "groat"
+      },
+      "terrains": [
+        "farmland",
+        "river"
+      ],
+      "seasons": [
+        "summer"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "apothecary",
+        "herbalist"
+      ],
+      "note": "小块根，依赖特定阶地，取中低档估价"
+    },
+    "herb_root_asparagus": {
+      "price": {
+        "min": 4,
+        "max": 11,
+        "per": "一两",
+        "tier": "groat"
+      },
+      "terrains": [
+        "mountain",
+        "farmland"
+      ],
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "apothecary",
+        "herbalist"
+      ],
+      "note": "肥满半透明者价高，取中档估价"
+    },
+    "herb_root_gastrodia": {
+      "price": {
+        "min": 36,
+        "max": 120,
+        "per": "一两",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "mountain",
+        "temperate_forest"
+      ],
+      "seasons": [
+        "winter",
+        "spring"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "apothecary"
+      ],
+      "note": "野生资源现实中受保护；世界选项可设为禁售或只售栽培品",
+      "restriction": "protected_wild"
+    },
+    "herb_root_pueraria": {
+      "price": {
+        "min": 2,
+        "max": 6,
+        "per": "一两",
+        "tier": "groat"
+      },
+      "terrains": [
+        "mountain",
+        "temperate_forest"
+      ],
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "apothecary",
+        "market"
+      ],
+      "note": "淀粉根兼作粮食，价低量大"
+    },
+    "herb_root_bupleurum": {
+      "price": {
+        "min": 4,
+        "max": 10,
+        "per": "一两",
+        "tier": "groat"
+      },
+      "terrains": [
+        "steppe",
+        "mountain"
+      ],
+      "seasons": [
+        "spring",
+        "autumn"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "apothecary",
+        "herbalist"
+      ],
+      "note": "按北柴胡与南柴胡分档，取中低档估价"
+    },
+    "herb_root_saposhnikovia": {
+      "price": {
+        "min": 6,
+        "max": 16,
+        "per": "一两",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "steppe"
+      ],
+      "seasons": [
+        "spring",
+        "autumn"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "apothecary",
+        "herbalist"
+      ],
+      "note": "草原产优质根，取中档估价"
+    },
+    "herb_root_notopterygium": {
+      "price": {
+        "min": 12,
+        "max": 36,
+        "per": "一两",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "mountain",
+        "taiga"
+      ],
+      "seasons": [
+        "autumn"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "apothecary"
+      ],
+      "note": "高山产根茎，采挖难，取较高档估价"
+    },
+    "herb_root_angelica_pubescens": {
+      "price": {
+        "min": 6,
+        "max": 16,
+        "per": "一两",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "mountain",
+        "farmland"
+      ],
+      "seasons": [
+        "spring",
+        "autumn"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "apothecary",
+        "herbalist"
+      ],
+      "note": "香气浓烈的根，取中档估价"
+    },
+    "herb_root_angelica_dahurica": {
+      "price": {
+        "min": 4,
+        "max": 10,
+        "per": "一两",
+        "tier": "groat"
+      },
+      "terrains": [
+        "farmland"
+      ],
+      "seasons": [
+        "summer"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "apothecary",
+        "herbalist"
+      ],
+      "note": "栽培量大，抽苔即报废，取中低档估价"
+    },
+    "herb_root_platycodon": {
+      "price": {
+        "min": 2,
+        "max": 6,
+        "per": "一两",
+        "tier": "groat"
+      },
+      "terrains": [
+        "farmland"
+      ],
+      "seasons": [
+        "spring",
+        "autumn"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "apothecary",
+        "market"
+      ],
+      "note": "药菜并用，价格随行就市，取低档估价"
+    },
+    "herb_root_achyranthes": {
+      "price": {
+        "min": 3,
+        "max": 8,
+        "per": "一两",
+        "tier": "groat"
+      },
+      "terrains": [
+        "farmland"
+      ],
+      "seasons": [
+        "winter"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "apothecary",
+        "herbalist"
+      ],
+      "note": "栽培根，按常见药材估价"
+    },
+    "herb_root_dipsacus": {
+      "price": {
+        "min": 5,
+        "max": 14,
+        "per": "一两",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "mountain"
+      ],
+      "seasons": [
+        "autumn"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "apothecary",
+        "herbalist"
+      ],
+      "note": "同名伪品多，真货取中档估价"
+    },
+    "herb_root_morinda": {
+      "price": {
+        "min": 12,
+        "max": 36,
+        "per": "一两",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "rainforest",
+        "tropical_dry_forest"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "apothecary",
+        "spice_merchant"
+      ],
+      "note": "南方山林产，产量小，取较高档估价"
+    },
+    "herb_root_cistanche": {
+      "price": {
+        "min": 36,
+        "max": 120,
+        "per": "一两",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "temperate_desert"
+      ],
+      "seasons": [
+        "spring"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "apothecary"
+      ],
+      "note": "野生资源现实中受保护；世界选项可设为禁售或只售栽培品",
+      "restriction": "protected_wild"
+    },
+    "herb_root_fritillaria": {
+      "price": {
+        "min": 48,
+        "max": 200,
+        "per": "一两",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "mountain",
+        "tundra"
+      ],
+      "seasons": [
+        "summer"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "apothecary"
+      ],
+      "note": "野生资源现实中受保护；世界选项可设为禁售或只售栽培品",
+      "restriction": "protected_wild"
+    },
+    "herb_root_anemarrhena": {
+      "price": {
+        "min": 3,
+        "max": 9,
+        "per": "一两",
+        "tier": "groat"
+      },
+      "terrains": [
+        "steppe"
+      ],
+      "seasons": [
+        "spring",
+        "autumn"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "apothecary",
+        "herbalist"
+      ],
+      "note": "生长周期长，行情随年份起伏，取中低档估价"
+    }
+  }
+}

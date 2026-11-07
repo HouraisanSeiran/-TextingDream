@@ -23,6 +23,10 @@ const SHOTS = process.env.TD_SHOTS;
 const EDGE = 'C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe';
 const VIEWPORTS = [['1440x900', 1440, 900], ['1366x768', 1366, 768]];
 const SECRET = 'sk-P1TESTSECRET';
+// 会改数据的检查（存档重命名/删除）只在显式允许、且目标不是用户正在用的 8000 端口时运行。
+const ALLOW_MUTATE = process.env.TD_ALLOW_MUTATE === '1';
+const { runNewFeatureChecks } = require('./p1_ui_features.cjs');
+const skipped = [];
 
 const checks = [];
 function check(name, ok, detail) {
@@ -41,18 +45,21 @@ const VIEW = () => {
   };
   const img = document.getElementById('play-map-img');
   const empty = document.getElementById('play-map-empty');
-  const tabOn = document.querySelector('#play-tabs button.on');
+  const drawer = document.getElementById('play-left');
   const tri = document.querySelector('#play-map-overlay path');
   return {
     viewport: { w: innerWidth, h: innerHeight },
     docScrollW: document.documentElement.scrollWidth,
-    left: box('play-left'), right: box('play-right'), topbar: box('topbar'),
+    left: box('play-left'), right: box('play-right'), main: box('play-main'), topbar: box('topbar'),
+    rail: box('journey-rail'), info: box('info-panel'), surface: box('surface'),
     mapWrap: box('play-map-wrap'), mapImg: box('play-map-img'),
     composer: box('chat-form'),
     mapVisible: !!img && !img.hidden,
     emptyText: empty && !empty.hidden ? empty.textContent.trim().slice(0, 240) : null,
-    tabOn: tabOn ? tabOn.dataset.tab : null,
-    storedSplit: (() => { try { return localStorage.getItem('textiledream-play-split'); } catch (e) { return 'ERR'; } })(),
+    expanded: !!drawer && drawer.classList.contains('is-expanded'),
+    railOff: !!drawer && drawer.classList.contains('rail-off'),
+    infoOff: !!drawer && drawer.classList.contains('info-off'),
+    storedLayout: (() => { try { return localStorage.getItem('textiledream-chat-layout'); } catch (e) { return 'ERR'; } })(),
     connText: (document.getElementById('conn-state') || {}).textContent || null,
     apiFormParent: (() => { const f = document.getElementById('api-form'); return f && f.parentElement ? (f.parentElement.id || f.parentElement.className) : null; })(),
     keyType: (() => { const k = document.getElementById('api-key'); return k ? k.type : null; })(),
@@ -61,7 +68,7 @@ const VIEW = () => {
     circles: document.querySelectorAll('#play-map-overlay circle').length,
     legend: [...document.querySelectorAll('#play-map-legend .legend-item')].map((n) => n.textContent.trim()),
     mapNote: ((document.getElementById('play-map-note') || {}).textContent || '').slice(0, 400),
-    otherRows: [...document.querySelectorAll('#panel-other .other-row span')].map((n) => n.textContent),
+    otherRows: [...document.querySelectorAll('#workspace-other-menu button')].map((n) => n.textContent),
     overflowX: document.documentElement.scrollWidth > innerWidth + 1,
   };
 };
@@ -87,9 +94,16 @@ async function waitFor(page, fnBody, timeoutMs) {
 }
 
 async function waitApp(page) {
-  const ok = await waitFor(page, () => typeof token === 'string' && token.length > 8 && !!current,
-    30000);
-  if (!ok) throw new Error('应用未在 30s 内完成引导（token/current 未就位）');
+  // 新版启动停在作者模式空态（不自动打开旅程），所以只等 token。
+  const ok = await waitFor(page, () => typeof token === 'string' && token.length > 8 &&
+    typeof window.loadSession === 'function' && !!window.TDConversationDrawer, 30000);
+  if (!ok) throw new Error('应用未在 30s 内完成引导（token / loadSession 未就位）');
+}
+
+// 故事手记展开时盖住整块地图；测地图交互前要先收起，测对话前再展开。
+async function setDrawer(page, open) {
+  await page.evaluate((o) => (o ? window.TDConversationDrawer.open() : window.TDConversationDrawer.close()), open);
+  await page.waitForTimeout(380);
 }
 
 /* 跑一步，崩溃就**记成一条失败项**再继续——不是把失败变成功。
@@ -117,6 +131,13 @@ async function runViewport(browser, label, width, height) {
   page.on('pageerror', (e) => errors.push('pageerror: ' + String(e.message).slice(0, 200)));
   page.on('console', (m) => { if (m.type() === 'error') errors.push('console.error: ' + m.text().slice(0, 200)); });
   const responses = [];
+  const requests = [];   // 每个 /api 请求的 method + path，用来断言「没有发出不该发的请求」
+  page.on('request', (r) => {
+    try {
+      const u = new URL(r.url());
+      if (u.pathname.startsWith('/api/')) requests.push({ method: r.method(), path: u.pathname });
+    } catch (e) { /* 非常规 URL 忽略 */ }
+  });
   page.on('response', async (r) => {
     try {
       const url = r.url();
@@ -131,26 +152,21 @@ async function runViewport(browser, label, width, height) {
   console.log('\n=== ' + label + ' ===');
   await page.goto(BASE + '?p1=1', { waitUntil: 'domcontentloaded' });
   await waitApp(page);
-  // 先确认 localStorage 里没有残留偏好（新 context 应为空），再量默认宽度。
-  const emptyPref = await page.evaluate(() => {
-    try { return localStorage.getItem('textiledream-play-split'); } catch (e) { return 'ERR'; }
-  });
-  const boxBefore = await page.evaluate(() => {
-    const l = document.getElementById('play-left'), r = document.getElementById('play-right');
-    if (!l || !r) return null;
-    return { left: Math.round(l.getBoundingClientRect().width),
-             right: Math.round(r.getBoundingClientRect().width),
-             flex: l.style.flex || '' };
-  });
-  check(label + ' 新 context 里没有残留分栏偏好', emptyPref === null, String(emptyPref));
-  if (boxBefore) {
-    const r0 = boxBefore.left / (boxBefore.left + boxBefore.right);
-    check(label + ' 首次打开左栏默认 40%（不读旧偏好）', r0 >= 0.38 && r0 <= 0.42,
-      'left=' + boxBefore.left + ' right=' + boxBefore.right + ' ratio=' + r0.toFixed(3) +
-      ' flex=' + boxBefore.flex);
-  } else {
-    check(label + ' 首次打开左栏默认 40%（不读旧偏好）', false, 'play-left/right 不在');
-  }
+  // 新 context：没有残留布局偏好；首屏是完整地图 + 底部一条收起的故事手记。
+  const v0 = await page.evaluate(VIEW);
+  check(label + ' 新 context 里没有残留对话栏布局偏好', v0.storedLayout === null, String(v0.storedLayout));
+  check(label + ' 首屏故事手记默认收起（只占底部一条，地图可见）',
+    !v0.expanded && !!v0.left && v0.left.h <= 60 && !!v0.right && v0.right.h > v0.left.h * 4,
+    'expanded=' + v0.expanded + ' left.h=' + (v0.left && v0.left.h) + ' right.h=' + (v0.right && v0.right.h));
+  const sidebarSessions = await page.evaluate(() => ({
+    inDrawer: !!document.querySelector('#play-left #journey-list'),
+    inSidebar: document.querySelectorAll('#workspace-sidebar #journey-list, #workspace-sidebar .journey-item, #workspace-sessions').length,
+    newInDrawer: !!document.querySelector('#play-left #journey-new'),
+    newElsewhere: document.querySelectorAll('#play-new, #workspace-new-chat, #new-session').length,
+  }));
+  check(label + ' 旅程存档与新建对话只在对话栏里（侧栏/顶栏没有）',
+    sidebarSessions.inDrawer && sidebarSessions.inSidebar === 0 && sidebarSessions.newInDrawer && sidebarSessions.newElsewhere === 0,
+    JSON.stringify(sidebarSessions));
   await page.evaluate((id) => loadSession(id), FIXTURE.linked);
   const mapReady = await waitFor(page, () => {
     const img = document.getElementById('play-map-img');
@@ -181,14 +197,33 @@ async function runViewport(browser, label, width, height) {
   check(label + ' 已关联地图的底图在 25s 内加载完成', mapReady,
     'img.naturalWidth>0 = ' + mapReady);
   await page.waitForTimeout(400);
-  const v = await page.evaluate(VIEW);
+  const vc = await page.evaluate(VIEW);
   await shot(page, 'chat-' + label + '.png');
+  check(label + ' 打开旅程后故事手记展开并占满地图区',
+    vc.expanded && !!vc.main && Math.abs(vc.left.w - vc.main.w) <= 2 && Math.abs(vc.left.h - vc.main.h) <= 2,
+    'left=' + vc.left.w + 'x' + vc.left.h + ' main=' + (vc.main && vc.main.w + 'x' + vc.main.h));
+  check(label + ' 展开时三栏并排（存档 | 正文 | 信息）',
+    !vc.railOff && !vc.infoOff && vc.rail.w > 120 && vc.info.w > 160 && vc.surface.w > vc.rail.w &&
+    vc.rail.right <= vc.surface.x + 2 && vc.surface.right <= vc.info.x + 2,
+    'rail=' + vc.rail.w + ' surface=' + vc.surface.w + ' info=' + vc.info.w);
+  check(label + ' 输入框在正文栏内且底边不越界',
+    vc.composer.bottom <= vc.left.bottom + 1 && vc.composer.x >= vc.surface.x - 1 && vc.composer.right <= vc.surface.right + 1,
+    'composer.bottom=' + vc.composer.bottom + ' left.bottom=' + vc.left.bottom);
+  const mini = await page.evaluate(() => {
+    const img = document.getElementById('mini-map-img');
+    return { inInfo: !!document.querySelector('#info-panel #mini-map'), img: !!img && !img.hidden && img.naturalWidth > 0,
+             dot: !document.getElementById('mini-map-dot').hidden };
+  });
+  check(label + ' 信息栏有地图缩略图（已加载、标出当前位置）', mini.inInfo && mini.img && mini.dot, JSON.stringify(mini));
+
+  // 点缩略图回到地图：对话栏收起，地图重新可见、可交互。
+  await page.click('#mini-map');
+  await page.waitForTimeout(420);
+  const v = await page.evaluate(VIEW);
+  check(label + ' 点缩略图收起对话栏回到地图', !v.expanded && v.left.h <= 60, 'expanded=' + v.expanded + ' h=' + v.left.h);
 
   check(label + ' 无横向溢出', !v.overflowX, 'scrollW=' + v.docScrollW + ' viewport=' + v.viewport.w);
-  const ratio = v.left.w / (v.left.w + v.right.w);
-  check(label + ' 左栏默认约 40%（可拖拽分栏）', ratio >= 0.36 && ratio <= 0.44,
-    'left=' + v.left.w + ' right=' + v.right.w + ' ratio=' + ratio.toFixed(3));
-  check(label + ' 右栏是地图主画面（唯一一张底图已加载）', v.mapVisible && v.mapWrap.w >= v.right.w - 2,
+  check(label + ' 地图主画面占满地图区（唯一一张底图已加载）', v.mapVisible && v.mapWrap.w >= v.right.w - 2,
     'mapWrap=' + v.mapWrap.w + 'x' + v.mapWrap.h + ' right=' + v.right.w);
   check(label + ' 倒三角（当前位置）已画出', !!v.triD, String(v.triD).slice(0, 70));
   check(label + ' 图例含「当前位置」', (v.legend || []).some((t) => t.includes('当前位置')), JSON.stringify(v.legend));
@@ -201,10 +236,6 @@ async function runViewport(browser, label, width, height) {
     fogTitle.includes('不是真实视线') && fogTitle.includes('服务器'), fogTitle.slice(0, 120));
   check(label + ' 顶部连接状态只给状态值、不含密钥',
     !!v.connText && !v.connText.includes(SECRET) && v.connText.includes('密钥'), v.connText);
-  check(label + ' 左栏默认在「对话」页签', v.tabOn === 'chat', v.tabOn);
-  check(label + ' 输入框在左栏内且底边不越界',
-    v.composer.bottom <= v.left.bottom + 1 && v.composer.w <= v.left.w + 1,
-    'composer.bottom=' + v.composer.bottom + ' left.bottom=' + v.left.bottom);
 
   // 倒三角尖端必须落在服务器经纬度对应的**屏幕**位置上：<=1 屏幕像素。
   // 只比 SVG 用户单位会被缩放骗过（放大 8 倍时 1 单位就是 8 像素），所以一律换算到
@@ -225,8 +256,10 @@ async function runViewport(browser, label, width, height) {
     const nums = (d.match(/-?[\d.]+/g) || []).map(Number);
     // d = 'M x0 y0 L x1 y1 L tipX tipY Z'：第三个点是尖端（朝下）。
     const tipX = nums[4], tipY = nums[5];
-    const toScreenX = (vx) => rect.left + (vx / 1000) * rect.width;
-    const toScreenY = (vy) => rect.top + (vy / 1000) * rect.height;
+    // viewBox 不再固定为 1000×1000（现为底图像素尺寸），按实际 viewBox 换算。
+    const vb = (svg.getAttribute('viewBox') || '0 0 1000 1000').split(/[\s,]+/).map(Number);
+    const toScreenX = (vx) => rect.left + ((vx - vb[0]) / (vb[2] || 1000)) * rect.width;
+    const toScreenY = (vy) => rect.top + ((vy - vb[1]) / (vb[3] || 1000)) * rect.height;
     return {
       bbox, player: { lon: p.player.lon, lat: p.player.lat },
       rect: { x: rect.left, y: rect.top, w: rect.width, h: rect.height },
@@ -257,6 +290,10 @@ async function runViewport(browser, label, width, height) {
   check(label + ' 可见半径写明是玩法距离', a0.radius > 0 && String(a0.note || '').includes('玩法'),
     'radius=' + a0.radius);
 
+  // 探索面板默认是「城镇街区」，街区图会盖住整张底图、吃掉指针事件；
+  // 测世界底图的缩放/平移/点外部前，先切到「世界道路」。
+  const worldScale = page.locator('#exploration-panel button:has-text("世界道路")');
+  if (await worldScale.count()) { await worldScale.first().click(); await page.waitForTimeout(250); }
   // 缩放后仍 <=1 屏幕像素（这一条是用户明确要的：锚点按屏幕算，不按 viewBox 算）
   await page.click('#play-map-zoom-in');
   await page.click('#play-map-zoom-in');
@@ -309,7 +346,8 @@ async function runViewport(browser, label, width, height) {
       })(),
     };
   });
-  const FOG = [17, 20, 24];
+  // 雾色取自 app/fog_art.py 的 FOG_RGB（现为纸色 198,186,160）。
+  const FOG = [198, 186, 160];
   const isFog = (rgb) => rgb && rgb[0] === FOG[0] && rgb[1] === FOG[1] && rgb[2] === FOG[2];
   // 先断言图片真的解码成功、坐标落在图内；否则 ((-1,-1,[0,0,0])) 这种
   // 抽不到的像素会让 "当前位置不是雾" 假阳性通过。
@@ -325,9 +363,10 @@ async function runViewport(browser, label, width, height) {
   check(label + ' 当前位置像素不是雾（已探索真地形）', inBounds && !isFog(fog.playerPx.rgb),
     JSON.stringify(fog.playerPx));
 
-  // 正文独立滚动 + 输入框不压住内容
+  // 正文独立滚动 + 输入框不压住内容（滚动容器是 #surface）
+  await setDrawer(page, true);
   const scroll = await page.evaluate(() => {
-    const reading = document.querySelector('#surface > .reading');
+    const reading = document.getElementById('surface');
     const composer = document.getElementById('chat-form');
     const long = document.getElementById('story-text');
     if (!reading) return { skip: true };
@@ -353,85 +392,67 @@ async function runViewport(browser, label, width, height) {
     'scrollH=' + scroll.scrollH + ' clientH=' + scroll.clientH + ' scrollTop=' + scroll.scrollTop);
   check(label + ' 滚到底时输入框不压住正文', scroll.probeBottom <= scroll.composerTop + 2,
     'probeBottom=' + scroll.probeBottom + ' composerTop=' + scroll.composerTop);
-  check(label + ' 输入框底边不越出左栏', scroll.composerBottom <= scroll.leftBottom + 1,
+  check(label + ' 输入框底边不越出对话栏', scroll.composerBottom <= scroll.leftBottom + 1,
     'composerBottom=' + scroll.composerBottom + ' leftBottom=' + scroll.leftBottom);
 
-  // 分隔条拖动：**真实鼠标**拖（pointerdown/move/up 由浏览器发出），
-  // 不用合成 PointerEvent——合成事件没有 active pointer，setPointerCapture 会抛，
-  // 那就不是产品行为而是测试自己的造物。
-  const sp = await page.evaluate(() => {
-    const s = document.getElementById('column-splitter').getBoundingClientRect();
-    const b = document.getElementById('play-body').getBoundingClientRect();
-    return { x: s.left + s.width / 2, y: s.top + s.height / 2,
-             targetX: b.left + b.width * 0.56,
-             before: Math.round(document.getElementById('play-left').getBoundingClientRect().width) };
-  });
-  await page.mouse.move(sp.x, sp.y);
-  await page.mouse.down();
-  await page.mouse.move(sp.targetX, sp.y, { steps: 12 });
-  await page.mouse.up();
-  await page.waitForTimeout(220);
-  const drag = await page.evaluate((before) => ({
-    before,
-    after: Math.round(document.getElementById('play-left').getBoundingClientRect().width),
-    stored: localStorage.getItem('textiledream-play-split'),
-    resizing: document.body.classList.contains('resizing'),
-  }), sp.before);
-  check(label + ' 分隔条拖动真的改变列宽（真实鼠标）', Math.abs(drag.after - drag.before) > 40,
-    'before=' + drag.before + ' after=' + drag.after);
-  check(label + ' 分隔比例写入 localStorage 且在 28–64',
-    drag.stored !== null && Number(drag.stored) >= 28 && Number(drag.stored) <= 64, drag.stored);
-  check(label + ' 拖动结束后不再处于 resizing 状态', drag.resizing === false, 'resizing=' + drag.resizing);
-  await shot(page, 'split-' + label + '.png');
-  // 复位后回到 40% 附近，供后续页面截图
-  await page.evaluate(() => { localStorage.setItem('textiledream-play-split', '40');
-    document.getElementById('play-left').style.flex = '0 0 40%'; });
-
-  // 历史页签
-  const hist = await guard(page, label, '历史页签', async () => {
-    await page.evaluate(() => PlayUI.showTab('history', true));
-    await page.waitForTimeout(400);
-    return await page.evaluate(() => {
-      const panel = document.getElementById('panel-history');
-      return { hidden: panel.hidden, scrollable: panel.scrollHeight > panel.clientHeight + 1,
-               listButtons: document.querySelectorAll('#sessions button').length,
-               chapters: document.querySelectorAll('#conversations button').length };
-    });
-  });
-  check(label + ' 历史页签可打开且有存档/章节', !!hist && hist.hidden === false && hist.listButtons >= 1,
-    JSON.stringify(hist));
-  await shot(page, 'history-' + label + '.png');
-
-  // 物品页签
-  const items = await guard(page, label, '物品页签', async () => {
-    await page.evaluate(() => PlayUI.showTab('items', true));
+  // 存档栏 / 信息栏开关：真实点击，宽屏下写进 localStorage（textiledream-chat-layout）。
+  const sides = await guard(page, label, '存档/信息栏开关', async () => {
+    const before = await page.evaluate(VIEW);
+    await page.click('#rail-toggle');
+    await page.click('#info-toggle');
     await page.waitForTimeout(350);
-    return await page.evaluate(() => {
-      const panel = document.getElementById('panel-items');
-      return { hidden: panel.hidden, text: panel.textContent.trim().slice(0, 160),
-               rows: panel.querySelectorAll('.item-row').length };
-    });
-  });
-  check(label + ' 物品页签有内容（不是空白）', !!items && items.hidden === false && items.text.length > 4,
-    items && items.text);
-  await shot(page, 'items-' + label + '.png');
-
-  // 其他页签
-  const other = await guard(page, label, '其他页签', async () => {
-    await page.evaluate(() => PlayUI.showTab('other', true));
+    const off = await page.evaluate(VIEW);
+    await page.click('#rail-toggle');
+    await page.click('#info-toggle');
     await page.waitForTimeout(350);
-    return await page.evaluate(VIEW);
+    const on = await page.evaluate(VIEW);
+    return { before, off, on };
   });
-  const wanted = ['知识点记录簿', '旅程地图 · 旧图册', '世界创作', '世界地图工具', '城镇创作',
-                  '元素装配', '里层创作', '模型输入输出', 'API 配置', '设置'];
-  const missing = wanted.filter((w) => !((other && other.otherRows) || []).some((t) => t.includes(w)));
-  check(label + ' 「其他」收全部旧功能入口', !!other && missing.length === 0,
-    'missing=' + JSON.stringify(missing));
+  check(label + ' 收起存档栏与信息栏后正文变宽',
+    !!sides && sides.off.railOff && sides.off.infoOff && sides.off.surface.w > sides.before.surface.w + 200,
+    sides && ('surface ' + sides.before.surface.w + ' -> ' + sides.off.surface.w));
+  check(label + ' 两栏开关状态写入 localStorage',
+    !!sides && /"rail":false/.test(String(sides.off.storedLayout)) && /"info":false/.test(String(sides.off.storedLayout)),
+    sides && sides.off.storedLayout);
+  check(label + ' 再点一次两栏恢复', !!sides && !sides.on.railOff && !sides.on.infoOff,
+    sides && JSON.stringify({ railOff: sides.on.railOff, infoOff: sides.on.infoOff }));
+  await shot(page, 'layout-' + label + '.png');
+
+  // 存档栏（原「历史」页签）：存档与章节都在对话栏左栏里
+  const hist = await page.evaluate(() => ({
+    journeys: document.querySelectorAll('#journey-rail #journey-list .journey-item').length,
+    selected: document.querySelectorAll('#journey-list .journey-item.selected').length,
+    chapters: document.querySelectorAll('#journey-rail #conversations button').length,
+  }));
+  check(label + ' 存档栏列出旅程且标出当前旅程', hist.journeys >= 2 && hist.selected === 1, JSON.stringify(hist));
+
+  // 信息栏卡片（原「物品 / 其他」页签的内容）
+  const info = await page.evaluate(() => {
+    const t = (id) => ((document.getElementById(id) || {}).textContent || '').trim();
+    return {
+      local: t('local-state').slice(0, 120), journey: !!document.querySelector('#info-panel #info-journey #export-story'),
+      systems: !!document.querySelector('#info-panel #world-systems'), systemsText: t('world-systems').slice(0, 160),
+    };
+  });
+  check(label + ' 信息栏有资源与时间卡片且不是空白', info.local.length > 4, info.local);
+  check(label + ' 信息栏有「属性、物品与当地环境」卡片', info.systems && info.systemsText.length > 4, info.systemsText);
+  check(label + ' 信息栏有「本段旅程」（导出、归档）', info.journey, String(info.journey));
+  await shot(page, 'info-' + label + '.png');
+
+  // 「其他」菜单收全部旧功能入口（旧图册已删除，不再要求）
+  await page.click('#workspace-other');
+  await page.waitForTimeout(250);
+  const other = await page.evaluate(VIEW);
+  const wanted = ['知识点记录簿', '世界创作', '世界地图工具', '城镇创作', '里层创作', '模型输入输出', '设置'];
+  const missing = wanted.filter((w) => !(other.otherRows || []).some((t) => t.includes(w)));
+  check(label + ' 「其他」收全部旧功能入口', missing.length === 0, 'missing=' + JSON.stringify(missing));
+  check(label + ' 「旅程地图 · 旧图册」已不在入口里', !(other.otherRows || []).some((t) => t.includes('旧图册')),
+    JSON.stringify(other.otherRows));
   await shot(page, 'other-' + label + '.png');
 
   // 旧功能没丢：城镇创作 → 内容在 → 回到游玩
   const town = await guard(page, label, '旧「城镇创作」页', async () => {
-    await page.click('#panel-other .other-row:has-text("城镇创作")');
+    await page.click('#workspace-other-menu button:has-text("城镇创作")');
     await page.waitForTimeout(900);
     return await page.evaluate(() => ({
       legacyHidden: document.getElementById('legacy').hidden,
@@ -463,12 +484,12 @@ async function runViewport(browser, label, width, height) {
     return await page.evaluate(() => ({
       play: !document.getElementById('play').hidden,
       legacy: document.getElementById('legacy').hidden,
-      left: Math.round(document.getElementById('play-left').getBoundingClientRect().width),
-      right: Math.round(document.getElementById('play-right').getBoundingClientRect().width),
+      mainW: Math.round(document.getElementById('play-main').getBoundingClientRect().width),
+      leftW: Math.round(document.getElementById('play-left').getBoundingClientRect().width),
     }));
   });
-  check(label + ' 「回到游玩」回到两栏壳（左 < 右）',
-    !!back && back.play === true && back.legacy === true && back.left < back.right,
+  check(label + ' 「回到游玩」回到游玩壳（地图区 + 故事手记）',
+    !!back && back.play === true && back.legacy === true && back.mainW > 400 && back.leftW > 0,
     JSON.stringify(back));
 
   // 「其他 → 旧页 → 返回」不能丢掉 current（也不能换会话）
@@ -535,9 +556,13 @@ async function runViewport(browser, label, width, height) {
   // 关闭方式三：点弹层外部
   await page.click('#api-toggle');
   await page.waitForTimeout(300);
+  // 弹层盖在右上角：点击位置必须真的在弹层矩形之外（取主区左下角）。
   const outside = await page.evaluate(() => {
-    const r = document.getElementById('play-map-wrap').getBoundingClientRect();
-    return { x: r.left + r.width - 40, y: r.top + 40 };
+    const r = document.getElementById('play-main').getBoundingClientRect();
+    const p = document.getElementById('api-pop').getBoundingClientRect();
+    const pt = { x: r.left + 40, y: r.bottom - 80 };
+    const inPop = pt.x >= p.left && pt.x <= p.right && pt.y >= p.top && pt.y <= p.bottom;
+    return inPop ? { x: r.left + 20, y: r.bottom - 20 } : pt;
   });
   await page.mouse.click(outside.x, outside.y);
   await page.waitForTimeout(300);
@@ -556,7 +581,7 @@ async function runViewport(browser, label, width, height) {
     formVisible: document.getElementById('api-form').getBoundingClientRect().height > 40,
   }));
   check(label + ' API 旧页不再是空壳（表单搬回 #api 且可见）',
-    apiPage.visible && apiPage.parent === 'api' && apiPage.fields >= 5 && apiPage.formVisible,
+    apiPage.visible && apiPage.parent === 'api' && apiPage.fields >= 3 && apiPage.formVisible,
     JSON.stringify(apiPage));
   check(label + ' API 旧页里的密钥框仍为空（不回填）', !apiPage.keyValue, JSON.stringify(apiPage.keyValue));
   await shot(page, 'api-page-' + label + '.png');
@@ -574,23 +599,18 @@ async function runViewport(browser, label, width, height) {
   await shot(page, 'unlinked-' + label + '.png');
 
   // ---------------------------------------------------------- 保存偏好 vs 首次默认
-  // 上一段里「首次打开 40%」是在全新 context 量的；这里单独验「拖过之后重载要读回偏好」。
-  await page.evaluate(() => localStorage.setItem('textiledream-play-split', '52'));
+  // 首次默认（两栏都开）已在全新 context 验过；这里验「收起过存档栏，重载后读回偏好」。
+  await page.evaluate(() => localStorage.setItem('textiledream-chat-layout', JSON.stringify({ rail: false, info: true })));
   await page.reload({ waitUntil: 'domcontentloaded' });
   await waitApp(page);
-  await page.waitForTimeout(600);
-  const restored = await page.evaluate(() => {
-    const l = document.getElementById('play-left'), r = document.getElementById('play-right');
-    const w = l.getBoundingClientRect().width, total = w + r.getBoundingClientRect().width;
-    return { pct: (w / total) * 100, flex: l.style.flex,
-             stored: localStorage.getItem('textiledream-play-split') };
-  });
-  check(label + ' 重载后读回保存的分栏偏好（不是又退回 40%）',
-    Math.abs(restored.pct - 52) <= 1.5, 'stored=' + restored.stored +
-    ' got=' + restored.pct.toFixed(1) + '% flex=' + restored.flex);
-  // 清回默认，免得后续截图带岖偏好
-  await page.evaluate(() => { localStorage.setItem('textiledream-play-split', '40');
-    document.getElementById('play-left').style.flex = '0 0 40%'; });
+  await page.evaluate((id) => loadSession(id), FIXTURE.linked);
+  await page.waitForTimeout(900);
+  const restored = await page.evaluate(VIEW);
+  check(label + ' 重载后读回保存的两栏偏好（存档栏仍收起、信息栏仍打开）',
+    restored.expanded && restored.railOff === true && restored.infoOff === false,
+    JSON.stringify({ expanded: restored.expanded, railOff: restored.railOff, infoOff: restored.infoOff, stored: restored.storedLayout }));
+  // 清回默认，免得后续截图带着偏好
+  await page.evaluate(() => localStorage.removeItem('textiledream-chat-layout'));
 
   // ---------------------------------------------------------- 会话切换不串源
   // 关联 → 未关联 → 关联：底图/标记/空态都要跟着当前会话刷新，不能拿上一段的结果顶着。
@@ -662,6 +682,13 @@ async function runViewport(browser, label, width, height) {
     !!flip && flip.backOk === true && flip.after.overlay === 1,
     JSON.stringify(flip && { backOk: flip.backOk, after: flip.after }));
 
+  // ---------------------------------------------------------- 最近几轮新增的界面功能
+  // 阅读设置 / 侧栏分组 / 无地图引导 / chat-polish.css / 存档管理 / 世界设定卡片
+  await runNewFeatureChecks({
+    page, label, check, shot, waitApp, waitFor, guard, fixture: FIXTURE, requests,
+    allowMutate: ALLOW_MUTATE, skipped, viewport: { w: width, h: height },
+  });
+
   // 品牌文案：产品名是 TextingDream，旧名只允许留在内部 id / header 里。
   const brand = await page.evaluate(() => ({
     title: document.title,
@@ -688,6 +715,10 @@ async function runViewport(browser, label, width, height) {
 }
 
 (async () => {
+  if (!BASE || /:8000(\/|$)/.test(BASE)) {
+    console.error('拒绝运行：TD_BASE 未设置，或指向 8000 端口（用户正在使用的服务）：' + BASE);
+    process.exit(2);
+  }
   fs.mkdirSync(SHOTS, { recursive: true });
   const browser = await chromium.launch({
     executablePath: fs.existsSync(EDGE) ? EDGE : undefined,
@@ -712,6 +743,7 @@ async function runViewport(browser, label, width, height) {
     basemapNote: '底图是 fixture 16 位高度图经服务器掩膜的矩形色块，非最终 civ-atlas 画风，仅供布局/锚点验收',
     fixture: FIXTURE.note || '',
     generatedAt: new Date().toISOString(),
+    skipped, mutateAllowed: ALLOW_MUTATE,
     checks, passed, failed,
   };
   fs.writeFileSync(path.join(SHOTS, 'p1-ui-report.json'), JSON.stringify(report, null, 2));

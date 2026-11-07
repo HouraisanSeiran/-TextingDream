@@ -1,0 +1,153 @@
+{
+  "schema": "catalog_overlay_v1",
+  "group": "eastern-biology",
+  "entries": {
+    "eastern_bio_fox_spirit": {
+      "primary": "race",
+      "evidence_grade": "mixed",
+      "note": "非人知性体：有智慧、可交涉，按 primary-tags-spec §2.1 归 race",
+      "tech_tier": null,
+      "magic_tier": "rare"
+    },
+    "eastern_bio_dragon_kin": {
+      "primary": "race",
+      "evidence_grade": "mixed",
+      "note": "非人知性体：有智慧、可交涉，按 primary-tags-spec §2.1 归 race",
+      "tech_tier": null,
+      "magic_tier": "rare"
+    },
+    "eastern_bio_phoenix_kin": {
+      "primary": "beast",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "rare"
+    },
+    "eastern_bio_qilin": {
+      "primary": "beast",
+      "evidence_grade": "inferred",
+      "note": "本组仅得瑞应清单并列一条旁证，来源极弱",
+      "tech_tier": null,
+      "magic_tier": "rare"
+    },
+    "eastern_bio_mountain_specter": {
+      "primary": "spirit",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "rare"
+    },
+    "eastern_bio_demon_core_hunt": {
+      "primary": "magic_material",
+      "evidence_grade": "inferred",
+      "note": "核心是妖兽体内丹核这一可开采资源，按新词表归 magic_material；若认为主体是兽可改 beast；丹核作为可开采、可定价的资源，行会化猎采，取 common",
+      "tech_tier": null,
+      "magic_tier": "common"
+    },
+    "eastern_bio_spirit_beast_husbandry": {
+      "primary": "beast",
+      "evidence_grade": "inferred",
+      "note": "内容偏契约与组织手段，仍按用户规则归 beast，可改 institution；灵兽驯养是成体系的契约行当，取 common",
+      "tech_tier": null,
+      "magic_tier": "common"
+    },
+    "eastern_bio_giant_serpent": {
+      "primary": "beast",
+      "evidence_grade": "inferred",
+      "note": "大蛇属夸张记述，不要求超自然，取 null",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "eastern_bio_long_lived_tortoise": {
+      "primary": "beast",
+      "evidence_grade": "mixed",
+      "note": "“被读作”长寿与知吉凶，只是占卜材料层面的记述，取 null",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "eastern_bio_immortal_crane": {
+      "primary": "beast",
+      "evidence_grade": "inferred",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "rare"
+    },
+    "eastern_bio_gu_insects": {
+      "primary": "beast",
+      "evidence_grade": "inferred",
+      "note": "蛊虫条目只有「食者不蛊」一句早期文本为据，证据按 inferred；正文以下毒与无法举证为主，可由毒虫解释，取 null；若认蛊诅咒为真则至少 rare",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "eastern_bio_spirit_lotus": {
+      "primary": "plant",
+      "evidence_grade": "inferred",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "rare"
+    },
+    "eastern_bio_lingzhi_fungus": {
+      "primary": "plant",
+      "evidence_grade": "mixed",
+      "note": "灵气依存设定，拿不准取 rare",
+      "tech_tier": null,
+      "magic_tier": "rare"
+    },
+    "eastern_bio_ginseng_root": {
+      "primary": "plant",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "rare"
+    },
+    "eastern_bio_peach_wood": {
+      "primary": "plant",
+      "evidence_grade": "inferred",
+      "note": "辟邪属民俗防护记述，取 null",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "eastern_bio_immortal_fruit": {
+      "primary": "fruit",
+      "evidence_grade": "inferred",
+      "note": "灵果，按主要角色归 fruit",
+      "tech_tier": null,
+      "magic_tier": "rare"
+    },
+    "eastern_bio_demon_vine": {
+      "primary": "plant",
+      "evidence_grade": "inferred",
+      "note": "主动缠绞并放毒气的藤木，取 rare",
+      "tech_tier": null,
+      "magic_tier": "rare"
+    },
+    "eastern_bio_bamboo_grove": {
+      "primary": "plant",
+      "evidence_grade": "mixed",
+      "note": "正文强调可经营量产以支撑手工业与军需，取 common",
+      "tech_tier": null,
+      "magic_tier": "common"
+    },
+    "eastern_bio_lycoris_bloom": {
+      "primary": "plant",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "rare"
+    },
+    "eastern_bio_ancient_timber": {
+      "primary": "plant",
+      "evidence_grade": "inferred",
+      "note": "“被视为有灵”是信仰记述，取 null",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "eastern_bio_spirit_moss_rice": {
+      "primary": "grain",
+      "evidence_grade": "inferred",
+      "note": "灵谷，按主要角色归 grain；灵田作物是修行社会的农业地基，取 common",
+      "tech_tier": null,
+      "magic_tier": "common"
+    }
+  }
+}

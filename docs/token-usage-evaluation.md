@@ -17,7 +17,7 @@
 运行本地统计，不会访问模型：
 
 ```powershell
-D:\anaconda\python.exe -X utf8 tools\token_usage_report.py --db data\textiledream.sqlite3 --hours 24
+D:\anaconda\python.exe -X utf8 tools\token_usage_report.py --db saves\textiledream.sqlite3 --hours 24
 ```
 
 浏览器入口：左侧「模型输入输出」。选择 1 小时、24 小时或 7 天，查看调用次数、已计量次数、输入/输出 token 和 token/小时。`/api/inner/token-usage` 使用现有作者 token 和本机访问限制。

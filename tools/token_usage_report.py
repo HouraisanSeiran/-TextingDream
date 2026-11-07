@@ -1,6 +1,6 @@
 """Print observed model token rate from the independent local usage history.
 
-Usage: python tools/token_usage_report.py --db data/textiledream.sqlite3 --hours 24
+Usage: python tools/token_usage_report.py --db saves/textiledream.sqlite3 --hours 24
 No provider request is made and no prompt/response body is printed.
 """
 from __future__ import annotations
@@ -15,11 +15,12 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from app.storage import Store
+from app.paths import SAVE_DB
 
 
 def main(argv=None):
     parser = argparse.ArgumentParser()
-    parser.add_argument("--db", default="data/textiledream.sqlite3")
+    parser.add_argument("--db", default=str(SAVE_DB))
     parser.add_argument("--hours", type=float, default=24)
     args = parser.parse_args(argv)
     report = Store(Path(args.db)).token_usage_summary(hours=args.hours)

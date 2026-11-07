@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """civ-atlas 导入端点专项单测：隔离数据根、有界读取、严格请求体、图层与拒收。
 
-这些用**临时 store**，并断言仓库 data/map_imports 一个字节都没多——不是为了覆盖率，
+这些用**临时 store**，并断言仓库 saves/map_imports 一个字节都没多——不是为了覆盖率，
 而是因为早期实现把导入文件落在了固定的 ROOT 下，测试会在用户正式数据里留下残片。
 """
 import json
@@ -17,7 +17,7 @@ from app import civ_atlas_snapshot, map_import, web
 from app.storage import Store
 
 ROOT = Path(__file__).resolve().parents[1]
-REAL_IMPORTS = ROOT / 'data' / 'map_imports'
+REAL_IMPORTS = ROOT / 'saves' / 'map_imports'
 
 
 # ------------------------------------------------------------------ fixtures
@@ -164,7 +164,7 @@ def civsnap(cells=64):
 
 # ------------------------------------------------------------------ the tests
 class IsolatedImportRootTests(unittest.TestCase):
-    """Imports must land beside the store that recorded them, never in the repo's data/."""
+    """Imports must land beside the store that recorded them, never in the repo's saves/."""
 
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory()
@@ -180,7 +180,7 @@ class IsolatedImportRootTests(unittest.TestCase):
         target = Path(self.tmp.name) / 'map_imports' / record['file']
         self.assertTrue(target.exists(), '导入文件应写在临时库旁边')
         after = set(REAL_IMPORTS.glob('*')) if REAL_IMPORTS.exists() else set()
-        self.assertEqual(self.before, after, '正式 data/map_imports 不应被测试写入')
+        self.assertEqual(self.before, after, '正式 saves/map_imports 不应被测试写入')
 
     def test_snapshot_import_writes_beside_the_temp_store(self):
         store = Store(self.db)

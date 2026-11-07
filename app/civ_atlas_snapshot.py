@@ -581,7 +581,6 @@ def sample_region(world, lon, lat, window_px=3, radius_km=6371.0088):
             raise MapImportError('选点落在湖面上：湖泊不能建镇，请选湖岸的陆地'
                                  '（湖的存在不代表可用水量）')
     land = dry_land + lake_cells            # 有陆地性质的地块（湖面也在地面上）
-    water_cells = len(lake_cells) + len(ocean_cells)
     if not cells:
         raise MapImportError('取样窗里的地块太少，无法计算地形')
     sea_fraction = len(ocean_cells) / len(cells)
@@ -598,7 +597,6 @@ def sample_region(world, lon, lat, window_px=3, radius_km=6371.0088):
         raise MapImportError('窗格内没有干陆地地块，不能建镇')
 
     # 面积只算干陆地；水面（海/湖）单列，不当可耕地，也不计入 TownInput 的 area_km2。
-    area_km2 = cell_area * len(dry_land)
     # 不在这里按 TownInput 的 20000 km² 上限拒收：本网格的单个地块就可能已经大于它
     # （34097 格、R=6371 时单格约 14959 km²），按面积提前拒会让这类世界永远无法取样。
     # 面积语义说清楚：这是「干陆地面积」，且是球面均分近似；是否适合建镇由取样窗大小

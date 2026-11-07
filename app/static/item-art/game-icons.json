@@ -1,0 +1,47 @@
+{
+  "schema": "game_icons_v1",
+  "sprite": "game-icons.svg",
+  "note": "价格档 / 产地 / 季节图示映射。键与 tools/game_fields.py 的词表一一对应；图示本身不决定任何游戏数值。",
+  "price": {
+    "farthing": {"symbol": "gi-price-farthing", "label": "法寻", "hint": "不足 1 便士（¼ 便士铜币）"},
+    "penny": {"symbol": "gi-price-penny", "label": "便士", "hint": "1–3 便士"},
+    "groat": {"symbol": "gi-price-groat", "label": "格罗特", "hint": "4–11 便士（4 便士银币）"},
+    "shilling": {"symbol": "gi-price-shilling", "label": "先令", "hint": "12–239 便士"},
+    "pound": {"symbol": "gi-price-pound", "label": "镑", "hint": "240 便士起"},
+    "not_for_sale": {"symbol": "gi-price-not_for_sale", "label": "禁售", "hint": "不可合法买卖"},
+    "priceless": {"symbol": "gi-price-priceless", "label": "无价", "hint": "传说层，无市价"}
+  },
+  "terrain": {
+    "ocean": {"symbol": "gi-terrain-ocean", "label": "海洋"},
+    "lake": {"symbol": "gi-terrain-lake", "label": "湖泊"},
+    "tundra": {"symbol": "gi-terrain-tundra", "label": "苔原"},
+    "taiga": {"symbol": "gi-terrain-taiga", "label": "针叶林"},
+    "cold_desert": {"symbol": "gi-terrain-cold_desert", "label": "寒漠"},
+    "temperate_desert": {"symbol": "gi-terrain-temperate_desert", "label": "温带荒漠"},
+    "steppe": {"symbol": "gi-terrain-steppe", "label": "草原"},
+    "temperate_forest": {"symbol": "gi-terrain-temperate_forest", "label": "温带森林"},
+    "temperate_rainforest": {"symbol": "gi-terrain-temperate_rainforest", "label": "温带雨林"},
+    "hot_desert": {"symbol": "gi-terrain-hot_desert", "label": "热带荒漠"},
+    "savanna": {"symbol": "gi-terrain-savanna", "label": "稀树草原"},
+    "tropical_dry_forest": {"symbol": "gi-terrain-tropical_dry_forest", "label": "热带季雨林"},
+    "rainforest": {"symbol": "gi-terrain-rainforest", "label": "热带雨林"},
+    "wetland": {"symbol": "gi-terrain-wetland", "label": "湿地"},
+    "mountain": {"symbol": "gi-terrain-mountain", "label": "山地"},
+    "plateau": {"symbol": "gi-terrain-plateau", "label": "高原"},
+    "coast": {"symbol": "gi-terrain-coast", "label": "海岸"},
+    "river": {"symbol": "gi-terrain-river", "label": "河流"},
+    "farmland": {"symbol": "gi-terrain-farmland", "label": "农田"},
+    "orchard": {"symbol": "gi-terrain-orchard", "label": "果园菜圃"},
+    "pasture": {"symbol": "gi-terrain-pasture", "label": "牧场"},
+    "mine": {"symbol": "gi-terrain-mine", "label": "矿坑"},
+    "workshop": {"symbol": "gi-terrain-workshop", "label": "作坊厨房"},
+    "import": {"symbol": "gi-terrain-import", "label": "远途输入"}
+  },
+  "season": {
+    "spring": {"symbol": "gi-season-spring", "label": "春"},
+    "summer": {"symbol": "gi-season-summer", "label": "夏"},
+    "autumn": {"symbol": "gi-season-autumn", "label": "秋"},
+    "winter": {"symbol": "gi-season-winter", "label": "冬"},
+    "all_year": {"symbol": "gi-season-all_year", "label": "全年"}
+  }
+}

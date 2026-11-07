@@ -1,0 +1,1146 @@
+[
+  {
+    "id": "east-common-forge-01",
+    "style": "east",
+    "race": "common",
+    "category": "special",
+    "kind": "forge",
+    "facility": "forge",
+    "variant": 1,
+    "footprint": [
+      2,
+      2
+    ],
+    "height_px": 64,
+    "anchor": [
+      48,
+      160
+    ],
+    "viewBox": [
+      0,
+      0,
+      96,
+      160
+    ],
+    "tags": [
+      "open_front",
+      "workshop",
+      "smoke"
+    ],
+    "roof": "gable_tile",
+    "name_zh": "打铁铺",
+    "note": "开敞铺面：砖炉炉火、木风箱、农具架；门前铁砧、淬火桶、条铁；右侧挑出布幌子。硬山灰瓦，炉烟囱穿出屋面。"
+  },
+  {
+    "id": "east-common-forge-02",
+    "style": "east",
+    "race": "common",
+    "category": "special",
+    "kind": "forge",
+    "facility": "forge",
+    "variant": 2,
+    "footprint": [
+      3,
+      2
+    ],
+    "height_px": 96,
+    "anchor": [
+      72,
+      192
+    ],
+    "viewBox": [
+      0,
+      0,
+      144,
+      192
+    ],
+    "tags": [
+      "open_front",
+      "workshop",
+      "smoke",
+      "shop"
+    ],
+    "roof": "gable_tile",
+    "name_zh": "铁匠作坊（带铺面）",
+    "note": "左为敞棚锻打间（大砖炉、风箱、铁砧），后立高砖烟囱；右为兵器农具铺面，檐下挂刀枪架；院中炭堆、水槽、铁料。"
+  },
+  {
+    "id": "east-common-town-hall-01",
+    "style": "east",
+    "race": "common",
+    "category": "special",
+    "kind": "town_hall",
+    "facility": "town_hall",
+    "variant": 1,
+    "footprint": [
+      3,
+      3
+    ],
+    "height_px": 72,
+    "anchor": [
+      72,
+      216
+    ],
+    "viewBox": [
+      0,
+      0,
+      144,
+      216
+    ],
+    "tags": [
+      "compound",
+      "courtyard",
+      "administration"
+    ],
+    "roof": "hip_tile",
+    "name_zh": "县衙",
+    "note": "一进院：前为三间大门（朱门门钉、门当、匀额），两侧八字墙，门前石狮一对；左前鸣冤鼓架、右前告示牌；院后五间大堂，歇山灰瓦。"
+  },
+  {
+    "id": "east-common-town-hall-02",
+    "style": "east",
+    "race": "common",
+    "category": "special",
+    "kind": "town_hall",
+    "facility": "town_hall",
+    "variant": 2,
+    "footprint": [
+      4,
+      3
+    ],
+    "height_px": 80,
+    "anchor": [
+      96,
+      224
+    ],
+    "viewBox": [
+      0,
+      0,
+      192,
+      224
+    ],
+    "tags": [
+      "compound",
+      "courtyard",
+      "administration",
+      "large"
+    ],
+    "roof": "hip_tile",
+    "name_zh": "州衙（照壁大院）",
+    "note": "门前一堵红照壁（菱形斗方、岔角），两根令旗杆；歇山顶大门 + 八字墙 + 石狮；院内东西厢房、重檐大堂；左侧鸣冤鼓。"
+  },
+  {
+    "id": "east-common-lord-hall-01",
+    "style": "east",
+    "race": "common",
+    "category": "special",
+    "kind": "lord_hall",
+    "facility": "lord_hall",
+    "variant": 1,
+    "footprint": [
+      4,
+      3
+    ],
+    "height_px": 96,
+    "anchor": [
+      96,
+      240
+    ],
+    "viewBox": [
+      0,
+      0,
+      192,
+      240
+    ],
+    "tags": [
+      "compound",
+      "courtyard",
+      "residence",
+      "noble"
+    ],
+    "roof": "hip_tile",
+    "name_zh": "王府",
+    "note": "王府制式：绿琉璃瓦重檐正殿坐在高台基上，前有汉白玉样栏杆；五间府门朱门金钉、绿瓦；院中古树两株、石狮一对；红墙黄瓦帽。"
+  },
+  {
+    "id": "east-common-temple-01",
+    "style": "east",
+    "race": "common",
+    "category": "special",
+    "kind": "temple",
+    "facility": "temple",
+    "variant": 1,
+    "footprint": [
+      3,
+      3
+    ],
+    "height_px": 96,
+    "anchor": [
+      72,
+      240
+    ],
+    "viewBox": [
+      0,
+      0,
+      144,
+      240
+    ],
+    "tags": [
+      "compound",
+      "courtyard",
+      "buddhist"
+    ],
+    "roof": "hip_tile",
+    "name_zh": "佛寺",
+    "note": "一进院：红墙三洞山门（歇山、匾额），土黄院墙；院中三足铜香炉青烟袅袅、两棵古柏；后为重檐大雄宝殿，正脊中央宝珠。"
+  },
+  {
+    "id": "east-common-temple-02",
+    "style": "east",
+    "race": "common",
+    "category": "special",
+    "kind": "temple",
+    "facility": "temple",
+    "variant": 2,
+    "footprint": [
+      4,
+      3
+    ],
+    "height_px": 112,
+    "anchor": [
+      96,
+      256
+    ],
+    "viewBox": [
+      0,
+      0,
+      192,
+      256
+    ],
+    "tags": [
+      "compound",
+      "courtyard",
+      "buddhist",
+      "large",
+      "bell_tower",
+      "drum_tower"
+    ],
+    "roof": "hip_tile",
+    "name_zh": "大寺（钟鼓楼）",
+    "note": "黄琉璃瓦重檐大殿居中，前院左钟楼右鼓楼（砖台基 + 敞亭）；红墙三洞山门、土黄院墙、香炉与经幢长幡。"
+  },
+  {
+    "id": "east-common-temple-03",
+    "style": "east",
+    "race": "common",
+    "category": "special",
+    "kind": "temple",
+    "facility": "temple",
+    "variant": 3,
+    "footprint": [
+      3,
+      3
+    ],
+    "height_px": 96,
+    "anchor": [
+      72,
+      240
+    ],
+    "viewBox": [
+      0,
+      0,
+      144,
+      240
+    ],
+    "tags": [
+      "compound",
+      "courtyard",
+      "taoist",
+      "bagua"
+    ],
+    "roof": "hip_tile",
+    "name_zh": "道观",
+    "note": "道观：青绿琉璃歇山三清殿，正脊中央宝葫芦，门额太极；院中八卦石坛（先天八卦爻纹 + 太极）、三足香炉；左右杏黄长幡；白粉院墙、单洞红山门。"
+  },
+  {
+    "id": "east-common-temple-04",
+    "style": "east",
+    "race": "common",
+    "category": "special",
+    "kind": "temple",
+    "facility": "temple",
+    "variant": 4,
+    "footprint": [
+      2,
+      2
+    ],
+    "height_px": 144,
+    "anchor": [
+      48,
+      240
+    ],
+    "viewBox": [
+      0,
+      0,
+      96,
+      240
+    ],
+    "tags": [
+      "pagoda",
+      "buddhist",
+      "landmark"
+    ],
+    "roof": "hip_tile",
+    "name_zh": "七级佛塔",
+    "note": "七级楼阁式小佛塔：青石须弥座 + 栏杆，底层开朱门，上六层每层一个佛龛、层层出檐起翘、逐层收分；顶为攒尖 + 相轮塔刹。可单独立在寺后或街口。"
+  },
+  {
+    "id": "east-common-paifang-01",
+    "style": "east",
+    "race": "common",
+    "category": "prop",
+    "kind": "paifang",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      3,
+      1
+    ],
+    "height_px": 96,
+    "anchor": [
+      72,
+      144
+    ],
+    "viewBox": [
+      0,
+      0,
+      144,
+      144
+    ],
+    "tags": [
+      "gateway",
+      "landmark",
+      "street_arch"
+    ],
+    "roof": "hip_tile",
+    "name_zh": "三间四柱牌坊",
+    "note": "街口 / 寺前 / 墓道的三间四柱五楼木牌坊：朱柱、抱鼓石、青绿额枋、中间匾额，明楼高、次楼低、两端边楼。FacilityKind 里没有牌坊，facility = null；放在墓道前也可作义冢入口（义冢正式版由 ⑥ 负责）。"
+  },
+  {
+    "id": "east-common-stall-01",
+    "style": "east",
+    "race": "common",
+    "category": "prop",
+    "kind": "stall",
+    "facility": "market_hall",
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 40,
+    "anchor": [
+      24,
+      88
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      88
+    ],
+    "tags": [
+      "open_air",
+      "stall",
+      "scatter",
+      "vegetable"
+    ],
+    "roof": "none",
+    "name_zh": "菜摊",
+    "note": "青绿条纹布棚；案上白菜、萝卜；案前一副扁担箩筐。 1×1 散放摊位，可在空地上成片排布组成露天菜市（facility 按规范记 market_hall + open_air）；棚为布顶，roof 记 none。"
+  },
+  {
+    "id": "east-common-stall-02",
+    "style": "east",
+    "race": "common",
+    "category": "prop",
+    "kind": "stall",
+    "facility": "market_hall",
+    "variant": 2,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 40,
+    "anchor": [
+      24,
+      88
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      88
+    ],
+    "tags": [
+      "open_air",
+      "stall",
+      "scatter",
+      "fruit"
+    ],
+    "roof": "none",
+    "name_zh": "果摊",
+    "note": "橘红条纹布棚；案上橘子、桃子堆成垛；案前两只满筐。 1×1 散放摊位，可在空地上成片排布组成露天菜市（facility 按规范记 market_hall + open_air）；棚为布顶，roof 记 none。"
+  },
+  {
+    "id": "east-common-stall-03",
+    "style": "east",
+    "race": "common",
+    "category": "prop",
+    "kind": "stall",
+    "facility": "market_hall",
+    "variant": 3,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 40,
+    "anchor": [
+      24,
+      88
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      88
+    ],
+    "tags": [
+      "open_air",
+      "stall",
+      "scatter",
+      "fish"
+    ],
+    "roof": "none",
+    "name_zh": "鱼摊",
+    "note": "藏青布棚；案上砧板摆两尾鱼，案头挂一条；案前木盆养活鱼。 1×1 散放摊位，可在空地上成片排布组成露天菜市（facility 按规范记 market_hall + open_air）；棚为布顶，roof 记 none。"
+  },
+  {
+    "id": "east-common-stall-04",
+    "style": "east",
+    "race": "common",
+    "category": "prop",
+    "kind": "stall",
+    "facility": "market_hall",
+    "variant": 4,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 40,
+    "anchor": [
+      24,
+      88
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      88
+    ],
+    "tags": [
+      "open_air",
+      "stall",
+      "scatter",
+      "cloth"
+    ],
+    "roof": "none",
+    "name_zh": "布摊",
+    "note": "朱红条纹布棚；案上一卷卷花布；棚边竹竿上搭一匹青布。 1×1 散放摊位，可在空地上成片排布组成露天菜市（facility 按规范记 market_hall + open_air）；棚为布顶，roof 记 none。"
+  },
+  {
+    "id": "east-common-stall-05",
+    "style": "east",
+    "race": "common",
+    "category": "prop",
+    "kind": "stall",
+    "facility": "market_hall",
+    "variant": 5,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 40,
+    "anchor": [
+      24,
+      88
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      88
+    ],
+    "tags": [
+      "open_air",
+      "stall",
+      "scatter",
+      "food",
+      "steam"
+    ],
+    "roof": "none",
+    "name_zh": "点心摊",
+    "note": "赭黄布棚；案上竹蒸笼冒热气、一排小碗；案前小炉与条凳。 1×1 散放摊位，可在空地上成片排布组成露天菜市（facility 按规范记 market_hall + open_air）；棚为布顶，roof 记 none。"
+  },
+  {
+    "id": "east-common-carry-pole-01",
+    "style": "east",
+    "race": "common",
+    "category": "prop",
+    "kind": "carry-pole",
+    "facility": "market_hall",
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 4,
+    "anchor": [
+      24,
+      52
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      52
+    ],
+    "tags": [
+      "open_air",
+      "scatter",
+      "prop"
+    ],
+    "roof": "none",
+    "name_zh": "扁担箩筐",
+    "note": "散放小摆件：一副扁担挑两只满筐（青菜、萝卜），可撒在菜市空地、码头、城门口。"
+  },
+  {
+    "id": "east-common-market-hall-01",
+    "style": "east",
+    "race": "common",
+    "category": "special",
+    "kind": "market_hall",
+    "facility": "market_hall",
+    "variant": 1,
+    "footprint": [
+      3,
+      2
+    ],
+    "height_px": 80,
+    "anchor": [
+      72,
+      176
+    ],
+    "viewBox": [
+      0,
+      0,
+      144,
+      176
+    ],
+    "tags": [
+      "two_storey",
+      "covered_market",
+      "shop",
+      "plaque"
+    ],
+    "roof": "hip_tile",
+    "name_zh": "市楼（两层商楼）",
+    "note": "两层商楼：楼下四间全敞铺面，楼上格扇窗 + 平座栏杆，腰檐 + 歇山青绿瓦，二层正中挂大匾；檐下一排红灯笼；门前麻袋、木箱、箩筐与竖招牌。与 open_air 的摊棚区分。"
+  },
+  {
+    "id": "east-common-market-hall-02",
+    "style": "east",
+    "race": "common",
+    "category": "special",
+    "kind": "market_hall",
+    "facility": "market_hall",
+    "variant": 2,
+    "footprint": [
+      3,
+      2
+    ],
+    "height_px": 72,
+    "anchor": [
+      72,
+      168
+    ],
+    "viewBox": [
+      0,
+      0,
+      144,
+      168
+    ],
+    "tags": [
+      "two_storey",
+      "landmark",
+      "street_arch",
+      "drum",
+      "plaque"
+    ],
+    "roof": "hip_tile",
+    "name_zh": "跨街市楼（钟鼓市楼）",
+    "note": "跨街而立的市楼：青砖台基开一道券洞（街道从洞下穿过），台上两层重檐楼阁、四面平座栏杆；楼上悬鼓（击鼓开市、闭市），正中大匾；台下两侧摆箩筐扁担。参考平遥市楼一类形制，原创绘制。"
+  },
+  {
+    "id": "east-common-inn-01",
+    "style": "east",
+    "race": "common",
+    "category": "special",
+    "kind": "inn",
+    "facility": "inn",
+    "variant": 1,
+    "footprint": [
+      3,
+      2
+    ],
+    "height_px": 88,
+    "anchor": [
+      72,
+      184
+    ],
+    "viewBox": [
+      0,
+      0,
+      144,
+      184
+    ],
+    "tags": [
+      "two_storey",
+      "tavern",
+      "wine_flag",
+      "lanterns"
+    ],
+    "roof": "hip_tile",
+    "name_zh": "酒楼",
+    "note": "两层临街酒楼：楼下三间敞门（柜台、酒坛），楼上格扇窗 + 平座栏杆，腰檐 + 歇山灰瓦；右侧高杆挑青布酒旗，檐下一串红灯笼；门前酒坛、长凳。"
+  },
+  {
+    "id": "east-common-inn-02",
+    "style": "east",
+    "race": "common",
+    "category": "special",
+    "kind": "inn",
+    "facility": "inn",
+    "variant": 2,
+    "footprint": [
+      3,
+      2
+    ],
+    "height_px": 128,
+    "anchor": [
+      72,
+      224
+    ],
+    "viewBox": [
+      0,
+      0,
+      144,
+      224
+    ],
+    "tags": [
+      "three_storey",
+      "lodging",
+      "tavern",
+      "wine_flag",
+      "lanterns",
+      "landmark"
+    ],
+    "roof": "hip_tile",
+    "name_zh": "三层客栈楼",
+    "note": "三层客栈：底层敞门大堂，二三层客房格扇窗、层层腰檐与平座栏杆，青绿歇山顶；左侧酒旗杆，檐角挂灯笼，门前竖招牌与拴马桩。"
+  },
+  {
+    "id": "east-common-stable-01",
+    "style": "east",
+    "race": "common",
+    "category": "special",
+    "kind": "stable",
+    "facility": "stable",
+    "variant": 1,
+    "footprint": [
+      3,
+      2
+    ],
+    "height_px": 56,
+    "anchor": [
+      72,
+      152
+    ],
+    "viewBox": [
+      0,
+      0,
+      144,
+      152
+    ],
+    "tags": [
+      "open_front",
+      "animals",
+      "hay"
+    ],
+    "roof": "gable_tile",
+    "name_zh": "马厩",
+    "note": "五间敞棚马厩：木柱 + 横栏隔出马位，棚下两匹马对着石马槽；悬山灰瓦；右侧草垛，前院拴马桩、水桶。"
+  },
+  {
+    "id": "east-common-caravanserai-01",
+    "style": "east",
+    "race": "common",
+    "category": "special",
+    "kind": "caravanserai",
+    "facility": "caravanserai",
+    "variant": 1,
+    "footprint": [
+      4,
+      3
+    ],
+    "height_px": 72,
+    "anchor": [
+      96,
+      216
+    ],
+    "viewBox": [
+      0,
+      0,
+      192,
+      216
+    ],
+    "tags": [
+      "compound",
+      "courtyard",
+      "post_station",
+      "animals",
+      "lodging"
+    ],
+    "roof": "gable_tile",
+    "name_zh": "驿站",
+    "note": "官驿院落：前为门屋（门上「驿」字匾、两侧灯笼、驿旗），白墙环院；院内左侧马棚与石马槽、两匹驿马，右侧草垛与货车，后为五间客房正屋。"
+  },
+  {
+    "id": "east-common-granary-01",
+    "style": "east",
+    "race": "common",
+    "category": "special",
+    "kind": "granary",
+    "facility": "granary",
+    "variant": 1,
+    "footprint": [
+      3,
+      2
+    ],
+    "height_px": 64,
+    "anchor": [
+      72,
+      160
+    ],
+    "viewBox": [
+      0,
+      0,
+      144,
+      160
+    ],
+    "tags": [
+      "storage",
+      "round_bin",
+      "thatch"
+    ],
+    "roof": "gable_thatch",
+    "name_zh": "圆仓粮囤",
+    "note": "三座石台圆仓（夯土抹灰仓身、竹篾箍、圆锥草顶 + 宝顶，正面小仓门搭木梯）一字排开；前院麻袋、斗、扫帚。圆锥草顶在 RoofId 里没有，记最近的 gable_thatch。"
+  },
+  {
+    "id": "east-common-granary-02",
+    "style": "east",
+    "race": "common",
+    "category": "special",
+    "kind": "granary",
+    "facility": "granary",
+    "variant": 2,
+    "footprint": [
+      4,
+      2
+    ],
+    "height_px": 60,
+    "anchor": [
+      96,
+      156
+    ],
+    "viewBox": [
+      0,
+      0,
+      192,
+      156
+    ],
+    "tags": [
+      "storage",
+      "raised_floor",
+      "official"
+    ],
+    "roof": "gable_tile",
+    "name_zh": "官仓廒间",
+    "note": "官府廒间：长条五间仓房架在石墩上防潮（墩间露出暗空），墙上一排气窗，悬山灰瓦、屋脊开气楼；正中门上「仓」字匾，门前斛斗、麻袋垛与粮车。"
+  },
+  {
+    "id": "east-common-mill-01",
+    "style": "east",
+    "race": "common",
+    "category": "special",
+    "kind": "mill",
+    "facility": "mill",
+    "variant": 1,
+    "footprint": [
+      3,
+      2
+    ],
+    "height_px": 60,
+    "anchor": [
+      72,
+      156
+    ],
+    "viewBox": [
+      0,
+      0,
+      144,
+      156
+    ],
+    "tags": [
+      "water_power",
+      "noria",
+      "workshop"
+    ],
+    "roof": "gable_tile",
+    "name_zh": "水车磨坊",
+    "note": "临渠磨坊：左侧一架竹筒筒车（辐条 + 双圈轮辋 + 一圈竹筒，下半截浸在前方水渠里），轮轴伸进三间磨房；悬山灰瓦，敞门里露出石磨；门前麻袋。需放在水边，前沿一格内是水渠。"
+  },
+  {
+    "id": "east-common-mill-02",
+    "style": "east",
+    "race": "common",
+    "category": "special",
+    "kind": "mill",
+    "facility": "mill",
+    "variant": 2,
+    "footprint": [
+      2,
+      2
+    ],
+    "height_px": 44,
+    "anchor": [
+      48,
+      140
+    ],
+    "viewBox": [
+      0,
+      0,
+      96,
+      140
+    ],
+    "tags": [
+      "animal_power",
+      "roller_mill",
+      "open_front"
+    ],
+    "roof": "hip_tile",
+    "name_zh": "碾坊",
+    "note": "畜力碾坊（mill 的变体，不靠水）：四柱攒尖草亭下一盘石碾——圆形碾盘 + 立轴 + 石碾滚，一头毛驴蒙眼拉碾；亭外谷堆与簸箕。"
+  },
+  {
+    "id": "east-common-well-01",
+    "style": "east",
+    "race": "common",
+    "category": "prop",
+    "kind": "well",
+    "facility": "well",
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 40,
+    "anchor": [
+      24,
+      88
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      88
+    ],
+    "tags": [
+      "water",
+      "scatter",
+      "windlass"
+    ],
+    "roof": "none",
+    "name_zh": "辘轳井",
+    "note": "1×1 露天水井：青石井台、石砌圆井圈、木架辘轳（缠绳、摇把、吊桶）；井旁一只盛水木桶。可散放在街口、院中。"
+  },
+  {
+    "id": "east-common-well-02",
+    "style": "east",
+    "race": "common",
+    "category": "special",
+    "kind": "well",
+    "facility": "well",
+    "variant": 2,
+    "footprint": [
+      2,
+      2
+    ],
+    "height_px": 80,
+    "anchor": [
+      48,
+      176
+    ],
+    "viewBox": [
+      0,
+      0,
+      96,
+      176
+    ],
+    "tags": [
+      "water",
+      "pavilion",
+      "windlass"
+    ],
+    "roof": "hip_tile",
+    "name_zh": "井亭",
+    "note": "四柱攒尖井亭罩着石井：亭下井圈 + 辘轳，前檐挂小匾；青石井台、排水石槽，井旁木桶两只、洗衣石台，亭后一棵树。攒尖顶在 RoofId 里没有，记最近的 hip_tile。"
+  },
+  {
+    "id": "east-common-cistern-01",
+    "style": "east",
+    "race": "common",
+    "category": "special",
+    "kind": "cistern",
+    "facility": "cistern",
+    "variant": 1,
+    "footprint": [
+      3,
+      2
+    ],
+    "height_px": 30,
+    "anchor": [
+      72,
+      126
+    ],
+    "viewBox": [
+      0,
+      0,
+      144,
+      126
+    ],
+    "tags": [
+      "water",
+      "pond",
+      "lotus",
+      "fire_pool"
+    ],
+    "roof": "none",
+    "name_zh": "荷花池",
+    "note": "青石驳岸的方荷塘（兼作防火蓄水池）：水面叠晕、荷叶荷花、红鲤；岸上红栏杆、汲水石阶；角上一座小方亭。蓄水池用途靠石阶与水桶表达。"
+  },
+  {
+    "id": "east-common-cistern-02",
+    "style": "east",
+    "race": "common",
+    "category": "special",
+    "kind": "cistern",
+    "facility": "cistern",
+    "variant": 2,
+    "footprint": [
+      2,
+      2
+    ],
+    "height_px": 40,
+    "anchor": [
+      48,
+      136
+    ],
+    "viewBox": [
+      0,
+      0,
+      96,
+      136
+    ],
+    "tags": [
+      "water",
+      "reservoir",
+      "fire_pool"
+    ],
+    "roof": "none",
+    "name_zh": "石砌蓄水池（太平缸）",
+    "note": "条石砌的方形蓄水池：高出地面的石池壁、池里满水，侧壁一只铜龙头出水口，池前四只铜太平缸（防火储水）、两只木桶；池后一个引水竹笕。"
+  },
+  {
+    "id": "east-common-academy-01",
+    "style": "east",
+    "race": "common",
+    "category": "special",
+    "kind": "academy",
+    "facility": "academy",
+    "variant": 1,
+    "footprint": [
+      3,
+      3
+    ],
+    "height_px": 80,
+    "anchor": [
+      72,
+      224
+    ],
+    "viewBox": [
+      0,
+      0,
+      144,
+      224
+    ],
+    "tags": [
+      "compound",
+      "courtyard",
+      "scholar",
+      "library"
+    ],
+    "roof": "hip_tile",
+    "name_zh": "书院",
+    "note": "书院：后为两层藏书楼（重檐歇山、楼上格扇、正中匾额），院中泮池（半月形水池 + 小石桥）、碑亭石碑、松树；前为白墙门屋，门前两摞书箱。泮池是书院、文庙的标志部件。"
+  },
+  {
+    "id": "east-common-infirmary-01",
+    "style": "east",
+    "race": "common",
+    "category": "special",
+    "kind": "infirmary",
+    "facility": "infirmary",
+    "variant": 1,
+    "footprint": [
+      3,
+      2
+    ],
+    "height_px": 72,
+    "anchor": [
+      72,
+      168
+    ],
+    "viewBox": [
+      0,
+      0,
+      144,
+      168
+    ],
+    "tags": [
+      "shop",
+      "medicine",
+      "gourd_sign"
+    ],
+    "roof": "gable_tile",
+    "name_zh": "医馆（药铺）",
+    "note": "临街药铺医馆：三间铺面，中间敞门露出百子药柜与柜台，左右格扇；檐下挑一只大药葫芦（悬壶济世），门侧竖幌；门前木架竹匾晒药材、药碾子、煎药小炉冒热气。"
+  },
+  {
+    "id": "east-common-barracks-01",
+    "style": "east",
+    "race": "common",
+    "category": "special",
+    "kind": "barracks",
+    "facility": "barracks",
+    "variant": 1,
+    "footprint": [
+      4,
+      3
+    ],
+    "height_px": 72,
+    "anchor": [
+      96,
+      216
+    ],
+    "viewBox": [
+      0,
+      0,
+      192,
+      216
+    ],
+    "tags": [
+      "compound",
+      "military",
+      "drill_yard"
+    ],
+    "roof": "gable_tile",
+    "name_zh": "营房（兵营）",
+    "note": "营房：后排一长溜七间硬山营房（灰瓦、直棂窗、多门）；前为夯土校场，左右兵器架、箭靶，中间点将台插红牙旗；前沿木栅栏 + 辕门（两柱横梁挂牌）。"
+  },
+  {
+    "id": "east-common-watchtower-01",
+    "style": "east",
+    "race": "common",
+    "category": "special",
+    "kind": "watchtower",
+    "facility": "watchtower",
+    "variant": 1,
+    "footprint": [
+      2,
+      2
+    ],
+    "height_px": 128,
+    "anchor": [
+      48,
+      224
+    ],
+    "viewBox": [
+      0,
+      0,
+      96,
+      224
+    ],
+    "tags": [
+      "landmark",
+      "drum_tower",
+      "time_keeping"
+    ],
+    "roof": "hip_tile",
+    "name_zh": "鼓楼",
+    "note": "城中报时与警讯的鼓楼：青砖墩台开券洞、台上两层重檐楼阁，二层敞开悬一面大鼓（鼓面朝前）、四周平座栏杆。facility 记 watchtower（东方城镇以钟鼓楼报时、示警，兼瞭望）；钟楼可换鼓为钟。"
+  },
+  {
+    "id": "east-common-watchtower-02",
+    "style": "east",
+    "race": "common",
+    "category": "special",
+    "kind": "watchtower",
+    "facility": "watchtower",
+    "variant": 2,
+    "footprint": [
+      2,
+      2
+    ],
+    "height_px": 136,
+    "anchor": [
+      48,
+      232
+    ],
+    "viewBox": [
+      0,
+      0,
+      96,
+      232
+    ],
+    "tags": [
+      "lookout",
+      "timber",
+      "gong"
+    ],
+    "roof": "hip_tile",
+    "name_zh": "木望楼（更楼）",
+    "note": "四柱木构望楼：四根高柱斜撑、中间剪刀撑，柱间一架木梯直上；顶上瞭望台围栏、挂铜锣和灯笼，攒尖小顶；脚下一圈石础、一只水缸。用于街坊巡更、火警瞭望。"
+  }
+]

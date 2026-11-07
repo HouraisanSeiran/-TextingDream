@@ -1,0 +1,361 @@
+[
+  {
+    "id": "east-common-taoist-temple-01",
+    "style": "east",
+    "race": "common",
+    "category": "landmark",
+    "kind": "taoist_temple",
+    "facility": "temple",
+    "culture": "taoist",
+    "variant": 1,
+    "footprint": [
+      5,
+      6
+    ],
+    "height_px": 56,
+    "anchor": [
+      120,
+      344
+    ],
+    "viewBox": [
+      0,
+      0,
+      240,
+      344
+    ],
+    "tags": [
+      "compound",
+      "courtyard",
+      "axial",
+      "multi_court",
+      "bagua",
+      "bell_tower",
+      "drum_tower"
+    ],
+    "roof": "hip_tile",
+    "name_zh": "大型道观（三清宫）",
+    "note": "中轴对称三进道观：红墙三洞山门与石狮 → 前院左钟楼右鼓楼、香炉 → 灵官殿（单檐歇山灰瓦）→ 中院八卦坛（太极）与古松 → 汉白玉须弥座上的重檐歇山青绿琉璃三清殿（斗拱、宝葫芦、太极门额、御路台阶）。"
+  },
+  {
+    "id": "east-common-taoist-temple-02",
+    "style": "east",
+    "race": "common",
+    "category": "landmark",
+    "kind": "taoist_temple",
+    "facility": "temple",
+    "culture": "taoist",
+    "variant": 2,
+    "footprint": [
+      5,
+      5
+    ],
+    "height_px": 240,
+    "anchor": [
+      120,
+      480
+    ],
+    "viewBox": [
+      0,
+      0,
+      240,
+      480
+    ],
+    "tags": [
+      "mountain",
+      "terraced",
+      "fantasy",
+      "clouds",
+      "cranes",
+      "waterfall"
+    ],
+    "roof": "hip_tile",
+    "name_zh": "山顶道观（仙山宫观）",
+    "note": "依山三层台地的仙山宫观：山脚汉白玉台阶与石狮 → 第一层台地单洞山门、杏黄长幡 → 御路台阶 → 第二层灵官殿（藏青琉璃）与八角攒尖亭 → 侧面一跑石阶 → 山顶重檐歇山青绿琉璃主殿（斗拱、宝葫芦、太极）。背后两座青绿石笋，左峰顶一座小亭，右峰挂瀑布，祥云缭绕、仙鹤飞过。"
+  },
+  {
+    "id": "east-common-buddhist-temple-01",
+    "style": "east",
+    "race": "common",
+    "category": "landmark",
+    "kind": "buddhist_temple",
+    "facility": "temple",
+    "culture": "buddhist",
+    "variant": 1,
+    "footprint": [
+      6,
+      6
+    ],
+    "height_px": 32,
+    "anchor": [
+      144,
+      320
+    ],
+    "viewBox": [
+      0,
+      0,
+      288,
+      320
+    ],
+    "tags": [
+      "compound",
+      "courtyard",
+      "axial",
+      "multi_court",
+      "bell_tower",
+      "drum_tower",
+      "pond",
+      "sutra_library"
+    ],
+    "roof": "hip_tile",
+    "name_zh": "大型佛寺（丛林）",
+    "note": "中轴多进佛寺：红墙三洞山门与石狮 → 放生池（荷花、汉白玉拱桥）→ 天王殿（单檐歇山灰瓦）→ 左钟楼右鼓楼、铜鼎香炉、经幢长幡 → 汉白玉须弥座上的重檐庑殿黄琉璃大雄宝殿（七开间、斗拱、宝珠、御路台阶）→ 后院两层藏经阁（平座回廊）。黄墙院。"
+  },
+  {
+    "id": "east-common-pagoda-01",
+    "style": "east",
+    "race": "common",
+    "category": "landmark",
+    "kind": "pagoda",
+    "facility": "temple",
+    "culture": "buddhist",
+    "variant": 1,
+    "footprint": [
+      3,
+      3
+    ],
+    "height_px": 132,
+    "anchor": [
+      72,
+      276
+    ],
+    "viewBox": [
+      0,
+      0,
+      144,
+      276
+    ],
+    "tags": [
+      "pagoda",
+      "wooden",
+      "octagonal",
+      "multi_storey",
+      "balcony"
+    ],
+    "roof": "hip_tile",
+    "name_zh": "楼阁式木塔",
+    "note": "八角五层楼阁式木塔（应县木塔的气质）：两级青石台基 + 汉白玉栏杆，底层副阶周匝（一圈腰檐）；上四层每层平座回廊、斗拱、层层出檐、逐层收分；第三层挂竖匾；顶为八角攒尖 + 铁刹相轮。roof 用 hip_tile（实为攒尖），见 note。"
+  },
+  {
+    "id": "east-common-pagoda-02",
+    "style": "east",
+    "race": "common",
+    "category": "landmark",
+    "kind": "pagoda",
+    "facility": "temple",
+    "culture": "buddhist",
+    "variant": 2,
+    "footprint": [
+      2,
+      2
+    ],
+    "height_px": 160,
+    "anchor": [
+      48,
+      256
+    ],
+    "viewBox": [
+      0,
+      0,
+      96,
+      256
+    ],
+    "tags": [
+      "pagoda",
+      "brick",
+      "octagonal",
+      "dense_eave"
+    ],
+    "roof": "hip_tile",
+    "name_zh": "密檐砖塔",
+    "note": "八角十三级密檐砖塔（辽金密檐塔的气质）：须弥座 + 仰莲平座，高大的第一层塔身开券门、两侧直棂假窗、转角倚柱，上承斗拱；其上十三道密檐层层相叠，轮廓微鼓（卷杀）再收；顶为攒尖 + 塔刹。"
+  },
+  {
+    "id": "east-common-pagoda-03",
+    "style": "east",
+    "race": "common",
+    "category": "landmark",
+    "kind": "pagoda",
+    "facility": "temple",
+    "culture": "buddhist",
+    "variant": 3,
+    "footprint": [
+      3,
+      3
+    ],
+    "height_px": 94,
+    "anchor": [
+      72,
+      238
+    ],
+    "viewBox": [
+      0,
+      0,
+      144,
+      238
+    ],
+    "tags": [
+      "pagoda",
+      "stupa",
+      "lama",
+      "white"
+    ],
+    "roof": "none",
+    "name_zh": "喇嘛白塔（覆钵式）",
+    "note": "覆钵式喇嘛塔（妙应寺白塔的气质）：方台 + 两层亚字形须弥座（折角、束腰金线）→ 莲座 → 白色覆钵（塔肚子）正面开眼光门（佛龛）→ 塔脖子 → 十三天相轮（白色锥体 + 十三道金环）→ 铜华盖垂流苏 → 鎏金宝顶。塔前铜鼎香炉、两侧经幢长幡。"
+  },
+  {
+    "id": "east-common-confucian-temple-01",
+    "style": "east",
+    "race": "common",
+    "category": "landmark",
+    "kind": "confucian_temple",
+    "facility": "academy",
+    "culture": "confucian",
+    "variant": 1,
+    "footprint": [
+      5,
+      6
+    ],
+    "height_px": 24,
+    "anchor": [
+      120,
+      312
+    ],
+    "viewBox": [
+      0,
+      0,
+      240,
+      312
+    ],
+    "tags": [
+      "compound",
+      "courtyard",
+      "axial",
+      "multi_court",
+      "stele_pavilion",
+      "pond",
+      "cypress"
+    ],
+    "roof": "hip_tile",
+    "name_zh": "文庙（孔庙）",
+    "note": "中轴礼制建筑群：万仞宫墙（红墙黄瓦照壁）→ 汉白玉棂星门（冲天柱、云冠、朱红棂格）→ 半月泮池与状元桥 → 大成门（单檐歇山）→ 左右黄琉璃碑亭（亭中驮碑赑屃）→ 汉白玉月台上的重檐歇山黄琉璃大成殿（九开间、斗拱、竖匾、御路）。院中古柏成行。书院 / 学宫通用。"
+  },
+  {
+    "id": "east-common-famous-tower-01",
+    "style": "east",
+    "race": "common",
+    "category": "landmark",
+    "kind": "famous_tower",
+    "facility": "watchtower",
+    "culture": "chinese_classical",
+    "variant": 1,
+    "footprint": [
+      4,
+      4
+    ],
+    "height_px": 84,
+    "anchor": [
+      96,
+      276
+    ],
+    "viewBox": [
+      0,
+      0,
+      192,
+      276
+    ],
+    "tags": [
+      "tower",
+      "multi_storey",
+      "balcony",
+      "scenic",
+      "riverside",
+      "brick_podium"
+    ],
+    "roof": "hip_tile",
+    "name_zh": "名楼（临江高阁）",
+    "note": "黄鹤楼、滕王阁气质的名楼：青砖高城台（券门、门额、垛墙）→ 汉白玉须弥座 → 四层楼阁，每层平座回廊与斗拱、层层出檐（明三暗五的重檐）、八角折面；第二层挂横匾；顶层重檐歇山黄琉璃配宝珠。楼前一对石狮、两旁灯笼柱。FacilityKind 无\"名楼\"，按登高望远归 watchtower；实际游戏中更像文化景观，接入时可只作地标不承担军事瞭望。"
+  },
+  {
+    "id": "east-common-palace-hall-01",
+    "style": "east",
+    "race": "common",
+    "category": "landmark",
+    "kind": "palace_hall",
+    "facility": "lord_hall",
+    "culture": "chinese_imperial",
+    "variant": 1,
+    "footprint": [
+      6,
+      5
+    ],
+    "height_px": 44,
+    "anchor": [
+      144,
+      284
+    ],
+    "viewBox": [
+      0,
+      0,
+      288,
+      284
+    ],
+    "tags": [
+      "palace",
+      "imperial",
+      "three_tier_terrace",
+      "yulu",
+      "red_wall",
+      "gold_tile"
+    ],
+    "roof": "hip_tile",
+    "name_zh": "宫城正殿（王府大殿）",
+    "note": "皇城 / 宫城一角的正殿（太和殿气质的缩小版）：三层汉白玉须弥座（层层栏杆、龙头螭首排水），中轴三跑御路台阶；九开间重檐庑殿黄琉璃大殿（斗拱、鸱吻、竖匾）；月台左日晷、右嘉量位，两侧铜鹤与鼎炉；殿前广场、朱红宫墙黄琉璃墙帽。可作王府大殿。"
+  },
+  {
+    "id": "east-common-floating-pavilion-01",
+    "style": "east",
+    "race": "common",
+    "category": "landmark",
+    "kind": "floating_pavilion",
+    "facility": null,
+    "culture": "taoist",
+    "variant": 1,
+    "footprint": [
+      3,
+      3
+    ],
+    "height_px": 180,
+    "anchor": [
+      72,
+      324
+    ],
+    "viewBox": [
+      0,
+      0,
+      144,
+      324
+    ],
+    "tags": [
+      "fantasy",
+      "floating",
+      "clouds",
+      "waterfall",
+      "cranes",
+      "immortal"
+    ],
+    "roof": "hip_tile",
+    "name_zh": "浮空仙阁",
+    "note": "玄幻地标：一块倒锥形青绿山石浮在半空，底下层层祥云托举，岩边垂一道细瀑；岛面汉白玉栏杆，上立两层青绿琉璃楼阁（平座回廊、斗拱、宝葫芦），阁前铜鼎香炉，两只仙鹤绕飞。地面只有一座石台、一对长幡与云影。FacilityKind 无对应（仙门 / 宗门道场），facility = null。"
+  }
+]

@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>织梦 · 城镇西式基础素材预览</title>
+<style>
+  body { margin: 0; background: #c9c79a; font: 13px/1.4 "Microsoft YaHei", sans-serif; color: #4a3826; }
+  h2 { margin: 18px 16px 6px; font-size: 16px; }
+  .grid { display: flex; flex-wrap: wrap; gap: 10px; padding: 0 16px; }
+  .card { background: rgba(239,223,178,0.35); border: 1px solid rgba(74,56,38,0.25); padding: 6px; text-align: center; }
+  .card svg { display: block; margin: 0 auto; }
+  .lab { font-size: 11px; margin-top: 2px; white-space: nowrap; }
+  .lab b { font-weight: 600; }
+  .scene { padding: 0 16px; }
+  .note { margin: 0 16px; font-size: 12px; opacity: 0.8; }
+</style>
+</head>
+<body>
+<div id="sprite-host" style="position:absolute;width:0;height:0;overflow:hidden"></div>
+<h2>民居图册（每种 3 个变体；锚点 = 红点，占地 = 虚线框）</h2>
+<div id="houses" class="grid"></div>
+<div id="tiles-sec"></div>
+<div id="demo-sec"></div>
+<script src="common.js"></script>
+<script src="houses-a.js"></script>
+<script src="houses-b.js" onerror="void 0"></script>
+<script src="houses-c.js" onerror="void 0"></script>
+<script src="tiles.js" onerror="void 0"></script>
+<script src="west-base.js"></script>
+<script src="preview-demo.js" onerror="void 0"></script>
+<script>
+(function () {
+  'use strict';
+  var WB = window.TownArt_westBase, NS = 'http://www.w3.org/2000/svg', SC = 1.5;
+  var all = WB.symbols();
+  window.__WB_SYMBOLS = all;
+  document.getElementById('sprite-host').innerHTML = WB.spriteSVG(all);
+  function useSVG(sym, sc, frame) {
+    var vb = sym.viewBox, W = vb[2], H = vb[3], m = 8;
+    var s = '<svg xmlns="' + NS + '" width="' + (W + 2 * m) * sc + '" height="' + (H + 2 * m) * sc + '" viewBox="' + (-m) + ' ' + (-m) + ' ' + (W + 2 * m) + ' ' + (H + 2 * m) + '">';
+    if (frame) {
+      var fp = sym.meta.footprint, D = fp[1] * 48;
+      s += '<rect x="0" y="' + (H - D) + '" width="' + W + '" height="' + D + '" fill="#b9b78a" fill-opacity="0.45" stroke="#4a3826" stroke-opacity="0.35" stroke-dasharray="3 2"/>';
+    }
+    s += '<use href="#' + sym.id + '" x="0" y="0" width="' + W + '" height="' + H + '"/>';
+    if (frame) s += '<circle cx="' + sym.meta.anchor[0] + '" cy="' + sym.meta.anchor[1] + '" r="1.8" fill="#c0392b"/>';
+    return s + '</svg>';
+  }
+  window.__WB_useSVG = useSVG;
+  var host = document.getElementById('houses'), html = '';
+  all.filter(function (s) { return s.meta.category === 'house'; }).forEach(function (s) {
+    var m = s.meta;
+    html += '<div class="card">' + useSVG(s, SC, true) + '<div class="lab"><b>' + m.name + '</b> ' + m.footprint.join('×') + '</div><div class="lab">' + m.id + '</div></div>';
+  });
+  host.innerHTML = html;
+  if (window.TownArtWB_demo) window.TownArtWB_demo.render(WB, useSVG);
+})();
+</script>
+</body>
+</html>

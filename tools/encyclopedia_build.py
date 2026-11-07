@@ -11,6 +11,9 @@
     python -m tools.encyclopedia_build --with-traits --with-cuisine --with-culture --with-attributes
     D:\\anaconda\\python.exe -X utf8 -m tools.encyclopedia_build --with-fantasy-biology
     D:\\anaconda\\python.exe -X utf8 -m tools.encyclopedia_build --with-alchemy
+    D:\\anaconda\\python.exe -X utf8 -m tools.encyclopedia_build --with-world-setting
+    python -m tools.town_art_elements
+    python -m tools.encyclopedia_build --with-town-buildings
 
 约定：
 
@@ -37,6 +40,9 @@
 * 魔药／丹药分区（西幻魔药／东方丹药）是 ``FANTASY_ALCHEMY_GROUPS``：同样只有显式传
   ``--with-alchemy`` 才构入，与 ``--with-fantasy-biology`` **互不隐含**（只要生物不自动带药，
   反之亦然）。它们是游戏与小说素材，**不是任何现实用药依据**，也不含配方剂量。
+* 世界设定素材分区（国家与政体模板 / 补充种族 / 蒸汽与近现代技术）是 ``WORLD_SETTING_GROUPS``：
+  只有显式传 ``--with-world-setting`` 才构入，与其他开关互不隐含。条目带 ``kind:polity``、
+  ``polity:*``、``tech:*``、``magic:*`` 标签（定义见 ``docs/world-setting.md``），均为待审候选。
 * ``docs/element-catalog/shared-themes.json`` 是聚类索引、不是元素，**故意不在名单里**
   （导入会被元素库拒绝）。
 * 源 JSON 只读，本工具从不改写它们。
@@ -56,6 +62,8 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from app import encyclopedia as enc  # noqa: E402
+from tools import game_fields  # noqa: E402
+from tools import catalog_overlay  # noqa: E402
 
 EXIT_OK = 0
 EXIT_ERROR = 1
@@ -103,6 +111,12 @@ CULTURE_GROUPS = (
     'docs/human-encyclopedia/culture-literature.json',
     'docs/human-encyclopedia/names-asian.json',
     'docs/human-encyclopedia/names-european.json',
+    'docs/element-catalog/poetry-forms.json',
+    'docs/element-catalog/poetry-classics.json',
+    'docs/element-catalog/professions-bard.json',
+    'docs/element-catalog/myth-greco-roman.json',
+    'docs/element-catalog/myth-chinese-taoist.json',
+    'docs/element-catalog/religions.json',
 )
 ATTRIBUTE_GROUPS = (
     'docs/playable-demo/character-attributes.json',
@@ -141,13 +155,45 @@ CUISINE_WESTERN_GROUPS = (
     'docs/element-catalog/cuisine-french.json',
     'docs/element-catalog/cuisine-british.json',
 )
+# 世界设定素材分区：同样逐文件显式登记、不用通配，只有 ``--with-world-setting`` 才构入。
+# 条数由采集侧定稿，这里不写死。
+WORLD_SETTING_GROUPS = (
+    'docs/element-catalog/polities.json',
+    'docs/element-catalog/races-supplement.json',
+    'docs/element-catalog/steam-tech.json',
+    'docs/element-catalog/era-tech.json',
+    'docs/element-catalog/polities-extra.json',
+)
+# 世界各地菜系分区（中餐 / 欧陆 / 拉美）：只有 ``--with-cuisine-world`` 才构入，逐文件登记。
+# 欧陆与拉美采集完成后再追加到这里，避免缺文件导致构库失败。
+CUISINE_WORLD_GROUPS = (
+    'docs/element-catalog/cuisine-chinese.json',
+    'docs/element-catalog/cuisine-european.json',
+    'docs/element-catalog/cuisine-latin-american.json',
+)
+# 店铺分区：只有 ``--with-shops`` 才构入。shop.key 与 game.sold_by 词表一一对应（见 shops-spec.md）。
+SHOP_GROUPS = (
+    'docs/element-catalog/shops.json',
+)
+# 城镇美术候选分区：只有 --with-town-buildings 才构入，不隐含其他开关。
+TOWN_BUILDING_GROUPS = (
+    'docs/human-encyclopedia/town-buildings.json',
+)
+# 职业分区（现实与历史职业 / 奇幻职业）：只有 ``--with-professions`` 才构入。
+# profession.shop_key 与 game.sold_by 店铺键对应（见 docs/element-catalog/professions-spec.md）。
+PROFESSION_GROUPS = (
+    'docs/element-catalog/professions.json',
+    'docs/element-catalog/professions-fantasy.json',
+)
 # 带特质的历史基线（旧交付口径）；不带任何开关时仍是 ``GROUPS``。
 LATEST_GROUPS = GROUPS + TRAIT_GROUPS
 
 
 def groups_for(with_traits=False, with_cuisine=False, with_attributes=False, with_culture=False,
                with_fantasy_biology=False, with_alchemy=False, with_reality_herbs=False,
-               with_formulae=False, with_cuisine_western=False):
+               with_formulae=False, with_cuisine_western=False, with_world_setting=False,
+               with_cuisine_world=False, with_shops=False, with_town_buildings=False,
+               with_professions=False):
     """要构库的显式名单。
 
     不给开关 = 历史 14 组。with_attributes 显式追加现有六项属性资料。
@@ -174,7 +220,25 @@ def groups_for(with_traits=False, with_cuisine=False, with_attributes=False, wit
         groups = groups + FORMULA_GROUPS
     if with_cuisine_western:
         groups = groups + CUISINE_WESTERN_GROUPS
+    if with_world_setting:
+        groups = groups + WORLD_SETTING_GROUPS
+    if with_cuisine_world:
+        groups = groups + CUISINE_WORLD_GROUPS
+    if with_shops:
+        groups = groups + SHOP_GROUPS
+    if with_town_buildings:
+        groups = groups + TOWN_BUILDING_GROUPS
+    if with_professions:
+        groups = groups + PROFESSION_GROUPS
     return groups
+
+
+# 全部开关一次打开（校验工具用；按关键字传，新增开关不会错位）。
+ALL_FLAGS = {name: True for name in (
+    'with_traits', 'with_cuisine', 'with_attributes', 'with_culture', 'with_fantasy_biology',
+    'with_alchemy', 'with_reality_herbs', 'with_formulae', 'with_cuisine_western',
+    'with_world_setting', 'with_cuisine_world', 'with_shops', 'with_town_buildings',
+    'with_professions')}
 
 
 def _emit(payload, as_json):
@@ -208,7 +272,13 @@ def build(out_path, as_json=False, groups=None):
     expected = _expected(groups)
     results = []
     for relative in groups:
-        result = enc.import_file(out, ROOT / relative)
+        # 先在内存里叠加 game 旁挂字段（docs/element-catalog/game-fields/<group>.json）；
+        # 没有旁挂文件、元素也不带 game 时文档原样导入，内容哈希不变。源 JSON 从不改写。
+        text = (ROOT / relative).read_bytes().decode('utf-8')
+        document = game_fields.overlay(enc.loads_json(text))
+        # 再叠加主标签 / 证据等级 / 补充关联（docs/element-catalog/overlays/<group>.json）；同样只在内存。
+        document = catalog_overlay.overlay(document)
+        result = enc.import_document(out, document)
         results.append(result.as_dict())
     stats = enc.stats(out)
     if not as_json:
@@ -297,6 +367,16 @@ def build_parser():
                         help='追加现实经典方剂分区（只录药味名称与出处，不含剂量与服法）')
     parser.add_argument('--with-cuisine-western', action='store_true', dest='with_cuisine_western',
                         help='追加西方菜系分区（法餐 / 英国菜）')
+    parser.add_argument('--with-world-setting', action='store_true', dest='with_world_setting',
+                        help='追加世界设定素材分区（国家与政体模板 / 补充种族 / 蒸汽与近现代技术，3 个显式分区）')
+    parser.add_argument('--with-cuisine-world', action='store_true', dest='with_cuisine_world',
+                        help='追加世界各地菜系分区（中餐 / 欧陆 / 拉美）')
+    parser.add_argument('--with-shops', action='store_true', dest='with_shops',
+                        help='追加店铺分区（铁匠铺、盔甲铺、药铺等，与 sold_by 词表对应）')
+    parser.add_argument('--with-town-buildings', action='store_true',
+                        help='追加城镇建筑美术候选分区；先运行 python -m tools.town_art_elements；与其他开关独立')
+    parser.add_argument('--with-professions', action='store_true', dest='with_professions',
+                        help='追加职业分区（现实与历史职业 / 奇幻职业，2 个显式分区）')
     return parser
 
 
@@ -304,7 +384,9 @@ def main(argv=None):
     args = build_parser().parse_args(argv)
     groups = groups_for(args.with_traits, args.with_cuisine, args.with_attributes, args.with_culture,
                         args.with_fantasy_biology, args.with_alchemy, args.with_reality_herbs,
-                        args.with_formulae, args.with_cuisine_western)
+                        args.with_formulae, args.with_cuisine_western, args.with_world_setting,
+                        args.with_cuisine_world, args.with_shops, args.with_town_buildings,
+                        args.with_professions)
     try:
         if args.check:
             return check(args.out, args.json, groups)

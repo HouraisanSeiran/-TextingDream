@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" href="data:,">
+<title>织梦 · 天气美术：霾 / 浮尘 / 扬沙 / 热浪 / 太阳雨 / 彩虹</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#1d2228;color:#dde3ea;font:13px system-ui,sans-serif}
+header{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;padding:10px 14px;background:#262d35;border-bottom:1px solid #39424d}
+h1{font-size:16px;margin:0 8px 0 0}label{display:flex;align-items:center;gap:6px;white-space:nowrap}
+input[type=range]{width:100px}select,button{font:inherit;padding:3px 8px;border-radius:4px;border:1px solid #56606c;background:#313945;color:inherit}
+output{display:inline-block;min-width:34px;text-align:right;font-variant-numeric:tabular-nums;color:#9fb3c8}
+#stage{position:relative;width:1400px;height:900px;margin:12px auto;overflow:hidden;background:#bfcba9}
+#fx{position:absolute;left:0;top:0;width:1400px;height:900px}
+#host{position:absolute;left:0;top:0;width:0;height:0;overflow:hidden}
+#fps{position:absolute;right:8px;top:6px;padding:2px 8px;border-radius:3px;background:rgba(0,0,0,.55);color:#c8f0c0;font:12px/1.5 ui-monospace,monospace;pointer-events:none}
+#loading{position:absolute;left:12px;top:8px;padding:2px 8px;background:rgba(0,0,0,.5);border-radius:3px}
+</style>
+</head>
+<body>
+<header>
+<h1>天色天气</h1>
+<label>城镇 <select id="townSel"></select></label>
+<label>天气 <select id="kind">
+  <option value="clear">clear 晴</option><option value="cloudy">cloudy 多云</option><option value="rain">rain 雨（停后彩虹）</option>
+  <option value="haze" selected>haze 霾</option><option value="dust">dust 浮尘</option><option value="blowing_sand">blowing_sand 扬沙</option>
+  <option value="heatwave">heatwave 热浪</option><option value="sunshower">sunshower 太阳雨</option></select></label>
+<label>强度 <input id="intensity" type="range" min="0" max="1" step="0.01" value="0.5"><output></output></label>
+<label>气溶胶 <select id="aeroType"><option value="none">none</option><option value="haze">haze 霾</option>
+  <option value="dust">dust 尘</option><option value="sand">sand 沙</option></select></label>
+<label>密度 <input id="aeroDen" type="range" min="0" max="1" step="0.01" value="0.5"><output></output></label>
+<label>heat <input id="heat" type="range" min="0" max="1" step="0.01" value="0"><output></output></label>
+<label>rainbow <input id="rainbow" type="range" min="0" max="1" step="0.01" value="0"><output></output></label>
+<label>积灰 <input id="cover" type="range" min="0" max="1" step="0.01" value="0"><output></output></label>
+<label>云量 <input id="cloud" type="range" min="0" max="1" step="0.01" value="0.2"><output></output></label>
+<label>风向 <input id="dir" type="range" min="0" max="359" step="1" value="100"><output></output></label>
+<label>风速 <input id="speed" type="range" min="0" max="1" step="0.01" value="0.3"><output></output></label>
+<label>阵风 <input id="gust" type="range" min="0" max="1" step="0.01" value="0.2"><output></output></label>
+<label>时刻 <input id="hour" type="range" min="0" max="24" step="0.1" value="13"><output></output></label>
+<label title="改天气或强度时自动设气溶胶 / heat / rainbow / 积灰 / 风"><input id="link" type="checkbox" checked>联动</label>
+<label><input id="useDl" type="checkbox" checked>daylight 调色</label>
+<button id="pause">暂停</button><button id="step">单步</button>
+</header>
+<div id="stage">
+  <canvas id="fx"></canvas>
+  <div id="fps">-- fps</div>
+  <div id="loading">城镇栅格化中…</div>
+</div>
+<div id="host" aria-hidden="true"></div>
+<script src="../../map-art/town/town-catalog.js"></script>
+<script src="../../map-art/town/layout-samples.js"></script>
+<script src="../../town-render.js"></script>
+<script src="../noise.js"></script>
+<script src="../daylight/daylight.js"></script>
+<script src="sky.js"></script>
+<script src="preview-town.js"></script>
+<script src="preview.js"></script>
+</body>
+</html>

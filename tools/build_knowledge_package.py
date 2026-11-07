@@ -85,7 +85,8 @@ def main():
     if (destination / 'story.json').exists():
         print('Package already exists; no overwrite.')
         return
-    store = Store(ROOT / 'data/textiledream.sqlite3')
+    from app.paths import SAVE_DB
+    store = Store(SAVE_DB)
     pointer = store.get('pointer', 'package')
     current = store.get('package', pointer['id']) if pointer else None
     story = current['story'] if current else json.loads((ROOT / 'world_packages/玄陆_世界包.json').read_text(encoding='utf-8'))

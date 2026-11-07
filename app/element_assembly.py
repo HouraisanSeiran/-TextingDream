@@ -50,10 +50,11 @@ BUILD_COMMAND = 'python -m tools.encyclopedia_build'
 PROCESS_TOKEN = uuid.uuid4().hex
 
 # 有限上限：先全量校验，再一次提交；超限直接拒绝，不截断（截断会静默损坏设定）。
-MAX_ELEMENTS = 16
+# 64 条够装一个「大世界」的国家 / 种族 / 势力 / 技术；进提示词的仍只有 CONTEXT_MAX_ENTRIES 条。
+MAX_ELEMENTS = 64
 MAX_RULES = 64
 MAX_ELEMENT_PAYLOAD_CHARS = 30000
-MAX_MANIFEST_CHARS = 200000
+MAX_MANIFEST_CHARS = 800000
 MAX_ELEMENT_SOURCES = 16
 MAX_ELEMENT_RELATIONS = 16
 MAX_SOURCE_PAYLOAD_CHARS = 4000
@@ -954,6 +955,10 @@ def context_elements(story, audience, session):
     if manifest is None:
         return None
     rows = public_view(manifest, audience, session)
+    # 相关性：绑定在当前地点的元素优先，其余保持作者顺序（稳定排序）。
+    bound = {e.get('ref') for e in manifest.get('elements', [])
+             if (e.get('disclosure') or {}).get('location_id')}
+    rows = sorted(rows, key=lambda row: row['ref'] not in bound)
     items = []
     for row in rows[:CONTEXT_MAX_ENTRIES]:
         entry = {'name': row['name'], 'when': row['state_label'],

@@ -1,0 +1,1964 @@
+[
+ {
+  "style": "west",
+  "race": "common",
+  "roof": "none",
+  "id": "west-common-wallspoke-n",
+  "category": "wall",
+  "kind": "wall_spoke",
+  "facility": "city_wall",
+  "variant": 1,
+  "dir": "n",
+  "sort_offset": 0.1,
+  "name": "城墙半段（北）",
+  "tags": [
+   "spoke",
+   "dir_n",
+   "crenellated",
+   "orthogonal"
+  ],
+  "note": "辐条：从格中心墙节点画到格边中点。墙厚 24 px、高 40 px，同 west-base 城墙。同格排序键 = 本格前沿 y + 0.1",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 52,
+  "anchor": [
+   24,
+   100
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   100
+  ]
+ },
+ {
+  "style": "west",
+  "race": "common",
+  "roof": "none",
+  "id": "west-common-wallspoke-ne",
+  "category": "wall",
+  "kind": "wall_spoke",
+  "facility": "city_wall",
+  "variant": 2,
+  "dir": "ne",
+  "sort_offset": 0.1,
+  "name": "城墙半段（东北）",
+  "tags": [
+   "spoke",
+   "dir_ne",
+   "crenellated",
+   "diagonal"
+  ],
+  "note": "辐条：从格中心墙节点画到格角（斜段只按本行裁剪，左右越出格边 ≤ 17 px，viewBox 带 pad_x = 24）。墙厚 24 px、高 40 px，同 west-base 城墙。同格排序键 = 本格前沿 y + 0.1",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 52,
+  "anchor": [
+   24,
+   100
+  ],
+  "viewBox": [
+   -24,
+   0,
+   96,
+   100
+  ],
+  "pad_x": 24
+ },
+ {
+  "style": "west",
+  "race": "common",
+  "roof": "none",
+  "id": "west-common-wallspoke-e",
+  "category": "wall",
+  "kind": "wall_spoke",
+  "facility": "city_wall",
+  "variant": 3,
+  "dir": "e",
+  "sort_offset": 0.3,
+  "name": "城墙半段（东）",
+  "tags": [
+   "spoke",
+   "dir_e",
+   "crenellated",
+   "orthogonal"
+  ],
+  "note": "辐条：从格中心墙节点画到格边中点。墙厚 24 px、高 40 px，同 west-base 城墙。同格排序键 = 本格前沿 y + 0.3",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 40,
+  "anchor": [
+   24,
+   88
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   88
+  ]
+ },
+ {
+  "style": "west",
+  "race": "common",
+  "roof": "none",
+  "id": "west-common-wallspoke-se",
+  "category": "wall",
+  "kind": "wall_spoke",
+  "facility": "city_wall",
+  "variant": 4,
+  "dir": "se",
+  "sort_offset": 0.4,
+  "name": "城墙半段（东南）",
+  "tags": [
+   "spoke",
+   "dir_se",
+   "crenellated",
+   "diagonal"
+  ],
+  "note": "辐条：从格中心墙节点画到格角（斜段只按本行裁剪，左右越出格边 ≤ 17 px，viewBox 带 pad_x = 24）。墙厚 24 px、高 40 px，同 west-base 城墙。同格排序键 = 本格前沿 y + 0.4",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 33,
+  "anchor": [
+   24,
+   81
+  ],
+  "viewBox": [
+   -24,
+   0,
+   96,
+   81
+  ],
+  "pad_x": 24
+ },
+ {
+  "style": "west",
+  "race": "common",
+  "roof": "none",
+  "id": "west-common-wallspoke-s",
+  "category": "wall",
+  "kind": "wall_spoke",
+  "facility": "city_wall",
+  "variant": 5,
+  "dir": "s",
+  "sort_offset": 0.4,
+  "name": "城墙半段（南）",
+  "tags": [
+   "spoke",
+   "dir_s",
+   "crenellated",
+   "orthogonal"
+  ],
+  "note": "辐条：从格中心墙节点画到格边中点。墙厚 24 px、高 40 px，同 west-base 城墙。同格排序键 = 本格前沿 y + 0.4",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 16,
+  "anchor": [
+   24,
+   64
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   64
+  ]
+ },
+ {
+  "style": "west",
+  "race": "common",
+  "roof": "none",
+  "id": "west-common-wallspoke-sw",
+  "category": "wall",
+  "kind": "wall_spoke",
+  "facility": "city_wall",
+  "variant": 6,
+  "dir": "sw",
+  "sort_offset": 0.4,
+  "name": "城墙半段（西南）",
+  "tags": [
+   "spoke",
+   "dir_sw",
+   "crenellated",
+   "diagonal"
+  ],
+  "note": "辐条：从格中心墙节点画到格角（斜段只按本行裁剪，左右越出格边 ≤ 17 px，viewBox 带 pad_x = 24）。墙厚 24 px、高 40 px，同 west-base 城墙。同格排序键 = 本格前沿 y + 0.4",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 33,
+  "anchor": [
+   24,
+   81
+  ],
+  "viewBox": [
+   -24,
+   0,
+   96,
+   81
+  ],
+  "pad_x": 24
+ },
+ {
+  "style": "west",
+  "race": "common",
+  "roof": "none",
+  "id": "west-common-wallspoke-w",
+  "category": "wall",
+  "kind": "wall_spoke",
+  "facility": "city_wall",
+  "variant": 7,
+  "dir": "w",
+  "sort_offset": 0.3,
+  "name": "城墙半段（西）",
+  "tags": [
+   "spoke",
+   "dir_w",
+   "crenellated",
+   "orthogonal"
+  ],
+  "note": "辐条：从格中心墙节点画到格边中点。墙厚 24 px、高 40 px，同 west-base 城墙。同格排序键 = 本格前沿 y + 0.3",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 40,
+  "anchor": [
+   24,
+   88
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   88
+  ]
+ },
+ {
+  "style": "west",
+  "race": "common",
+  "roof": "none",
+  "id": "west-common-wallspoke-nw",
+  "category": "wall",
+  "kind": "wall_spoke",
+  "facility": "city_wall",
+  "variant": 8,
+  "dir": "nw",
+  "sort_offset": 0.1,
+  "name": "城墙半段（西北）",
+  "tags": [
+   "spoke",
+   "dir_nw",
+   "crenellated",
+   "diagonal"
+  ],
+  "note": "辐条：从格中心墙节点画到格角（斜段只按本行裁剪，左右越出格边 ≤ 17 px，viewBox 带 pad_x = 24）。墙厚 24 px、高 40 px，同 west-base 城墙。同格排序键 = 本格前沿 y + 0.1",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 52,
+  "anchor": [
+   24,
+   100
+  ],
+  "viewBox": [
+   -24,
+   0,
+   96,
+   100
+  ],
+  "pad_x": 24
+ },
+ {
+  "style": "west",
+  "race": "common",
+  "roof": "none",
+  "id": "west-common-wallnode",
+  "category": "wall",
+  "kind": "wall_node",
+  "facility": "city_wall",
+  "variant": 1,
+  "sort_offset": 0.2,
+  "name": "墙节点（墩子）",
+  "tags": [
+   "spoke_node",
+   "crenellated"
+  ],
+  "note": "墙格中心 28×28 墩子，高 46 px（高出墙顶 6 px），四面垛口；同格排序 +0.2",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 44,
+  "anchor": [
+   24,
+   92
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   92
+  ]
+ },
+ {
+  "style": "west",
+  "race": "common",
+  "roof": "hip_tile",
+  "id": "west-common-wallnode-02",
+  "category": "wall",
+  "kind": "wall_node",
+  "facility": "city_wall",
+  "variant": 2,
+  "sort_offset": 0.2,
+  "name": "墙节点（带小望台）",
+  "tags": [
+   "spoke_node",
+   "lookout",
+   "timber"
+  ],
+  "note": "墩子顶上木构四柱小望台，四坡红瓦小顶 + 小旗；可替代 wallnode",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 73,
+  "anchor": [
+   24,
+   121
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   121
+  ]
+ },
+ {
+  "style": "west",
+  "race": "common",
+  "roof": "none",
+  "id": "west-common-wallnode-pass-h",
+  "category": "wall",
+  "kind": "wall_node_pass",
+  "facility": "city_wall",
+  "variant": 3,
+  "sort_offset": 0.2,
+  "name": "墙节点（东西直通）",
+  "tags": [
+   "spoke_node",
+   "pass_through",
+   "crenellated"
+  ],
+  "note": "墙格只有一对相对辐条（e-w）时代替 wallnode：与墙同高 40 px，只在两侧墙面上垛口，直段走道不被墩子打断",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 40,
+  "anchor": [
+   24,
+   88
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   88
+  ]
+ },
+ {
+  "style": "west",
+  "race": "common",
+  "roof": "none",
+  "id": "west-common-wallnode-pass-v",
+  "category": "wall",
+  "kind": "wall_node_pass",
+  "facility": "city_wall",
+  "variant": 4,
+  "sort_offset": 0.2,
+  "name": "墙节点（南北直通）",
+  "tags": [
+   "spoke_node",
+   "pass_through",
+   "crenellated"
+  ],
+  "note": "墙格只有一对相对辐条（n-s）时代替 wallnode：与墙同高 40 px，只在两侧墙面上垛口，直段走道不被墩子打断",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 40,
+  "anchor": [
+   24,
+   88
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   88
+  ]
+ },
+ {
+  "style": "west",
+  "race": "common",
+  "roof": "none",
+  "id": "west-common-wallnode-pass-se",
+  "category": "wall",
+  "kind": "wall_node_pass",
+  "facility": "city_wall",
+  "variant": 5,
+  "sort_offset": 0.2,
+  "name": "墙节点（西北–东南直通）",
+  "tags": [
+   "spoke_node",
+   "pass_through",
+   "crenellated"
+  ],
+  "note": "墙格只有一对相对辐条（nw-se）时代替 wallnode：与墙同高 40 px，只在两侧墙面上垛口，直段走道不被墩子打断",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 40,
+  "anchor": [
+   24,
+   88
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   88
+  ]
+ },
+ {
+  "style": "west",
+  "race": "common",
+  "roof": "none",
+  "id": "west-common-wallnode-pass-ne",
+  "category": "wall",
+  "kind": "wall_node_pass",
+  "facility": "city_wall",
+  "variant": 6,
+  "sort_offset": 0.2,
+  "name": "墙节点（西南–东北直通）",
+  "tags": [
+   "spoke_node",
+   "pass_through",
+   "crenellated"
+  ],
+  "note": "墙格只有一对相对辐条（sw-ne）时代替 wallnode：与墙同高 40 px，只在两侧墙面上垛口，直段走道不被墩子打断",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 40,
+  "anchor": [
+   24,
+   88
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   88
+  ]
+ },
+ {
+  "style": "west",
+  "race": "common",
+  "roof": "steep_slate",
+  "id": "west-common-nodetower-round",
+  "category": "wall",
+  "kind": "node_tower_round",
+  "facility": "watchtower",
+  "variant": 1,
+  "sort_offset": 0.2,
+  "name": "节点圆角楼",
+  "tags": [
+   "spoke_node",
+   "round_tower",
+   "cone_roof",
+   "machicolation"
+  ],
+  "note": "放在辐条墙节点上替代 wallnode（同格排序 +0.2）；直径 34 px 盖住墙带交叉方块，塔身 56 px，青石板锥顶",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 108,
+  "anchor": [
+   24,
+   156
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   156
+  ]
+ },
+ {
+  "style": "west",
+  "race": "common",
+  "roof": "steep_slate",
+  "id": "west-common-nodetower-octagon",
+  "category": "wall",
+  "kind": "node_tower_octagon",
+  "facility": "watchtower",
+  "variant": 2,
+  "sort_offset": 0.2,
+  "name": "节点八角楼",
+  "tags": [
+   "spoke_node",
+   "octagonal_tower",
+   "crenellated"
+  ],
+  "note": "八角形塔身 60 px 带垛口，顶上八角小望亭 + 青石板攒尖；适合斜段拐点",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 96,
+  "anchor": [
+   24,
+   144
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   144
+  ]
+ },
+ {
+  "style": "west",
+  "race": "common",
+  "roof": "none",
+  "id": "west-common-bastion-n",
+  "category": "fort",
+  "kind": "bastion",
+  "facility": "watchtower",
+  "variant": 1,
+  "dir": "n",
+  "arms": [
+   "sw",
+   "se"
+  ],
+  "sort_offset": 0.45,
+  "name": "棱堡（尖角朝北）",
+  "tags": [
+   "bastion",
+   "dir_n",
+   "crenellated",
+   "cannon",
+   "guerite",
+   "star_fort"
+  ],
+  "note": "棱堡：五边形尖角堡（两棱面 + 两侧翼 + 喉部），占地 3×3，以城墙拐点墙格为中心；幕墙辐条沿 sw / se 两个方向从喉部接出（占地内的辐条与墙节点照常画）。台面高 44 px（比幕墙高 4 px，喉部补台阶立面），棱面各两门炮，尖角有哨亭。排序键 = 占地前沿 y + 0.45",
+  "footprint": [
+   3,
+   3
+  ],
+  "height_px": 57,
+  "anchor": [
+   72,
+   201
+  ],
+  "viewBox": [
+   0,
+   0,
+   144,
+   201
+  ]
+ },
+ {
+  "style": "west",
+  "race": "common",
+  "roof": "none",
+  "id": "west-common-bastion-ne",
+  "category": "fort",
+  "kind": "bastion",
+  "facility": "watchtower",
+  "variant": 2,
+  "dir": "ne",
+  "arms": [
+   "w",
+   "s"
+  ],
+  "sort_offset": 0.45,
+  "name": "棱堡（尖角朝东北）",
+  "tags": [
+   "bastion",
+   "dir_ne",
+   "crenellated",
+   "cannon",
+   "guerite",
+   "star_fort"
+  ],
+  "note": "棱堡：五边形尖角堡（两棱面 + 两侧翼 + 喉部），占地 3×3，以城墙拐点墙格为中心；幕墙辐条沿 w / s 两个方向从喉部接出（占地内的辐条与墙节点照常画）。台面高 44 px（比幕墙高 4 px，喉部补台阶立面），棱面各两门炮，尖角有哨亭。排序键 = 占地前沿 y + 0.45",
+  "footprint": [
+   3,
+   3
+  ],
+  "height_px": 56,
+  "anchor": [
+   72,
+   200
+  ],
+  "viewBox": [
+   0,
+   0,
+   144,
+   200
+  ]
+ },
+ {
+  "style": "west",
+  "race": "common",
+  "roof": "none",
+  "id": "west-common-bastion-e",
+  "category": "fort",
+  "kind": "bastion",
+  "facility": "watchtower",
+  "variant": 3,
+  "dir": "e",
+  "arms": [
+   "nw",
+   "sw"
+  ],
+  "sort_offset": 0.45,
+  "name": "棱堡（尖角朝东）",
+  "tags": [
+   "bastion",
+   "dir_e",
+   "crenellated",
+   "cannon",
+   "guerite",
+   "star_fort"
+  ],
+  "note": "棱堡：五边形尖角堡（两棱面 + 两侧翼 + 喉部），占地 3×3，以城墙拐点墙格为中心；幕墙辐条沿 nw / sw 两个方向从喉部接出（占地内的辐条与墙节点照常画）。台面高 44 px（比幕墙高 4 px，喉部补台阶立面），棱面各两门炮，尖角有哨亭。排序键 = 占地前沿 y + 0.45",
+  "footprint": [
+   3,
+   3
+  ],
+  "height_px": 56,
+  "anchor": [
+   72,
+   200
+  ],
+  "viewBox": [
+   0,
+   0,
+   144,
+   200
+  ]
+ },
+ {
+  "style": "west",
+  "race": "common",
+  "roof": "none",
+  "id": "west-common-bastion-se",
+  "category": "fort",
+  "kind": "bastion",
+  "facility": "watchtower",
+  "variant": 4,
+  "dir": "se",
+  "arms": [
+   "n",
+   "w"
+  ],
+  "sort_offset": 0.45,
+  "name": "棱堡（尖角朝东南）",
+  "tags": [
+   "bastion",
+   "dir_se",
+   "crenellated",
+   "cannon",
+   "guerite",
+   "star_fort"
+  ],
+  "note": "棱堡：五边形尖角堡（两棱面 + 两侧翼 + 喉部），占地 3×3，以城墙拐点墙格为中心；幕墙辐条沿 n / w 两个方向从喉部接出（占地内的辐条与墙节点照常画）。台面高 44 px（比幕墙高 4 px，喉部补台阶立面），棱面各两门炮，尖角有哨亭。排序键 = 占地前沿 y + 0.45",
+  "footprint": [
+   3,
+   3
+  ],
+  "height_px": 56,
+  "anchor": [
+   72,
+   200
+  ],
+  "viewBox": [
+   0,
+   0,
+   144,
+   200
+  ]
+ },
+ {
+  "style": "west",
+  "race": "common",
+  "roof": "none",
+  "id": "west-common-bastion-s",
+  "category": "fort",
+  "kind": "bastion",
+  "facility": "watchtower",
+  "variant": 5,
+  "dir": "s",
+  "arms": [
+   "ne",
+   "nw"
+  ],
+  "sort_offset": 0.45,
+  "name": "棱堡（尖角朝南）",
+  "tags": [
+   "bastion",
+   "dir_s",
+   "crenellated",
+   "cannon",
+   "guerite",
+   "star_fort"
+  ],
+  "note": "棱堡：五边形尖角堡（两棱面 + 两侧翼 + 喉部），占地 3×3，以城墙拐点墙格为中心；幕墙辐条沿 ne / nw 两个方向从喉部接出（占地内的辐条与墙节点照常画）。台面高 44 px（比幕墙高 4 px，喉部补台阶立面），棱面各两门炮，尖角有哨亭。排序键 = 占地前沿 y + 0.45",
+  "footprint": [
+   3,
+   3
+  ],
+  "height_px": 56,
+  "anchor": [
+   72,
+   200
+  ],
+  "viewBox": [
+   0,
+   0,
+   144,
+   200
+  ]
+ },
+ {
+  "style": "west",
+  "race": "common",
+  "roof": "none",
+  "id": "west-common-bastion-sw",
+  "category": "fort",
+  "kind": "bastion",
+  "facility": "watchtower",
+  "variant": 6,
+  "dir": "sw",
+  "arms": [
+   "e",
+   "n"
+  ],
+  "sort_offset": 0.45,
+  "name": "棱堡（尖角朝西南）",
+  "tags": [
+   "bastion",
+   "dir_sw",
+   "crenellated",
+   "cannon",
+   "guerite",
+   "star_fort"
+  ],
+  "note": "棱堡：五边形尖角堡（两棱面 + 两侧翼 + 喉部），占地 3×3，以城墙拐点墙格为中心；幕墙辐条沿 e / n 两个方向从喉部接出（占地内的辐条与墙节点照常画）。台面高 44 px（比幕墙高 4 px，喉部补台阶立面），棱面各两门炮，尖角有哨亭。排序键 = 占地前沿 y + 0.45",
+  "footprint": [
+   3,
+   3
+  ],
+  "height_px": 56,
+  "anchor": [
+   72,
+   200
+  ],
+  "viewBox": [
+   0,
+   0,
+   144,
+   200
+  ]
+ },
+ {
+  "style": "west",
+  "race": "common",
+  "roof": "none",
+  "id": "west-common-bastion-w",
+  "category": "fort",
+  "kind": "bastion",
+  "facility": "watchtower",
+  "variant": 7,
+  "dir": "w",
+  "arms": [
+   "se",
+   "ne"
+  ],
+  "sort_offset": 0.45,
+  "name": "棱堡（尖角朝西）",
+  "tags": [
+   "bastion",
+   "dir_w",
+   "crenellated",
+   "cannon",
+   "guerite",
+   "star_fort"
+  ],
+  "note": "棱堡：五边形尖角堡（两棱面 + 两侧翼 + 喉部），占地 3×3，以城墙拐点墙格为中心；幕墙辐条沿 se / ne 两个方向从喉部接出（占地内的辐条与墙节点照常画）。台面高 44 px（比幕墙高 4 px，喉部补台阶立面），棱面各两门炮，尖角有哨亭。排序键 = 占地前沿 y + 0.45",
+  "footprint": [
+   3,
+   3
+  ],
+  "height_px": 56,
+  "anchor": [
+   72,
+   200
+  ],
+  "viewBox": [
+   0,
+   0,
+   144,
+   200
+  ]
+ },
+ {
+  "style": "west",
+  "race": "common",
+  "roof": "none",
+  "id": "west-common-bastion-nw",
+  "category": "fort",
+  "kind": "bastion",
+  "facility": "watchtower",
+  "variant": 8,
+  "dir": "nw",
+  "arms": [
+   "s",
+   "e"
+  ],
+  "sort_offset": 0.45,
+  "name": "棱堡（尖角朝西北）",
+  "tags": [
+   "bastion",
+   "dir_nw",
+   "crenellated",
+   "cannon",
+   "guerite",
+   "star_fort"
+  ],
+  "note": "棱堡：五边形尖角堡（两棱面 + 两侧翼 + 喉部），占地 3×3，以城墙拐点墙格为中心；幕墙辐条沿 s / e 两个方向从喉部接出（占地内的辐条与墙节点照常画）。台面高 44 px（比幕墙高 4 px，喉部补台阶立面），棱面各两门炮，尖角有哨亭。排序键 = 占地前沿 y + 0.45",
+  "footprint": [
+   3,
+   3
+  ],
+  "height_px": 56,
+  "anchor": [
+   72,
+   200
+  ],
+  "viewBox": [
+   0,
+   0,
+   144,
+   200
+  ]
+ },
+ {
+  "style": "west",
+  "race": "common",
+  "roof": "none",
+  "id": "west-common-ravelin-n",
+  "category": "fort",
+  "kind": "ravelin",
+  "facility": "watchtower",
+  "variant": 1,
+  "dir": "n",
+  "name": "三角堡（尖角朝北）",
+  "tags": [
+   "ravelin",
+   "dir_n",
+   "crenellated",
+   "cannon",
+   "outwork"
+  ],
+  "note": "三角堡（ravelin）：放在城门外护城河里的独立三角小堡，尖角朝外、喉部朝城门；高 30 px，低于城墙，棱面各两门炮",
+  "footprint": [
+   2,
+   2
+  ],
+  "height_px": 41,
+  "anchor": [
+   48,
+   137
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   137
+  ]
+ },
+ {
+  "style": "west",
+  "race": "common",
+  "roof": "none",
+  "id": "west-common-ravelin-e",
+  "category": "fort",
+  "kind": "ravelin",
+  "facility": "watchtower",
+  "variant": 2,
+  "dir": "e",
+  "name": "三角堡（尖角朝东）",
+  "tags": [
+   "ravelin",
+   "dir_e",
+   "crenellated",
+   "cannon",
+   "outwork"
+  ],
+  "note": "三角堡（ravelin）：放在城门外护城河里的独立三角小堡，尖角朝外、喉部朝城门；高 30 px，低于城墙，棱面各两门炮",
+  "footprint": [
+   2,
+   2
+  ],
+  "height_px": 34,
+  "anchor": [
+   48,
+   130
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   130
+  ]
+ },
+ {
+  "style": "west",
+  "race": "common",
+  "roof": "none",
+  "id": "west-common-ravelin-s",
+  "category": "fort",
+  "kind": "ravelin",
+  "facility": "watchtower",
+  "variant": 3,
+  "dir": "s",
+  "name": "三角堡（尖角朝南）",
+  "tags": [
+   "ravelin",
+   "dir_s",
+   "crenellated",
+   "cannon",
+   "outwork"
+  ],
+  "note": "三角堡（ravelin）：放在城门外护城河里的独立三角小堡，尖角朝外、喉部朝城门；高 30 px，低于城墙，棱面各两门炮",
+  "footprint": [
+   2,
+   2
+  ],
+  "height_px": 38,
+  "anchor": [
+   48,
+   134
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   134
+  ]
+ },
+ {
+  "style": "west",
+  "race": "common",
+  "roof": "none",
+  "id": "west-common-ravelin-w",
+  "category": "fort",
+  "kind": "ravelin",
+  "facility": "watchtower",
+  "variant": 4,
+  "dir": "w",
+  "name": "三角堡（尖角朝西）",
+  "tags": [
+   "ravelin",
+   "dir_w",
+   "crenellated",
+   "cannon",
+   "outwork"
+  ],
+  "note": "三角堡（ravelin）：放在城门外护城河里的独立三角小堡，尖角朝外、喉部朝城门；高 30 px，低于城墙，棱面各两门炮",
+  "footprint": [
+   2,
+   2
+  ],
+  "height_px": 34,
+  "anchor": [
+   48,
+   130
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   130
+  ]
+ },
+ {
+  "style": "west",
+  "race": "common",
+  "roof": "none",
+  "id": "west-common-castlespoke-n",
+  "category": "castle",
+  "kind": "castle_spoke",
+  "facility": "city_wall",
+  "variant": 1,
+  "dir": "n",
+  "sort_offset": 0.1,
+  "name": "城堡幕墙半段（北）",
+  "tags": [
+   "spoke",
+   "dir_n",
+   "crenellated",
+   "curtain_wall",
+   "orthogonal"
+  ],
+  "note": "城堡幕墙辐条：墙厚 30 px、高 60 px（与 west-castle 幕墙同高），从格中心画到格边中点。同格排序 +0.1",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 72,
+  "anchor": [
+   24,
+   120
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   120
+  ]
+ },
+ {
+  "style": "west",
+  "race": "common",
+  "roof": "none",
+  "id": "west-common-castlespoke-ne",
+  "category": "castle",
+  "kind": "castle_spoke",
+  "facility": "city_wall",
+  "variant": 2,
+  "dir": "ne",
+  "sort_offset": 0.1,
+  "name": "城堡幕墙半段（东北）",
+  "tags": [
+   "spoke",
+   "dir_ne",
+   "crenellated",
+   "curtain_wall",
+   "diagonal"
+  ],
+  "note": "城堡幕墙辐条：墙厚 30 px、高 60 px（与 west-castle 幕墙同高），从格中心画到格角（只按本行裁剪，pad_x = 24）。同格排序 +0.1",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 72,
+  "anchor": [
+   24,
+   120
+  ],
+  "viewBox": [
+   -24,
+   0,
+   96,
+   120
+  ],
+  "pad_x": 24
+ },
+ {
+  "style": "west",
+  "race": "common",
+  "roof": "none",
+  "id": "west-common-castlespoke-e",
+  "category": "castle",
+  "kind": "castle_spoke",
+  "facility": "city_wall",
+  "variant": 3,
+  "dir": "e",
+  "sort_offset": 0.3,
+  "name": "城堡幕墙半段（东）",
+  "tags": [
+   "spoke",
+   "dir_e",
+   "crenellated",
+   "curtain_wall",
+   "orthogonal"
+  ],
+  "note": "城堡幕墙辐条：墙厚 30 px、高 60 px（与 west-castle 幕墙同高），从格中心画到格边中点。同格排序 +0.3",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 63,
+  "anchor": [
+   24,
+   111
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   111
+  ]
+ },
+ {
+  "style": "west",
+  "race": "common",
+  "roof": "none",
+  "id": "west-common-castlespoke-se",
+  "category": "castle",
+  "kind": "castle_spoke",
+  "facility": "city_wall",
+  "variant": 4,
+  "dir": "se",
+  "sort_offset": 0.4,
+  "name": "城堡幕墙半段（东南）",
+  "tags": [
+   "spoke",
+   "dir_se",
+   "crenellated",
+   "curtain_wall",
+   "diagonal"
+  ],
+  "note": "城堡幕墙辐条：墙厚 30 px、高 60 px（与 west-castle 幕墙同高），从格中心画到格角（只按本行裁剪，pad_x = 24）。同格排序 +0.4",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 55,
+  "anchor": [
+   24,
+   103
+  ],
+  "viewBox": [
+   -24,
+   0,
+   96,
+   103
+  ],
+  "pad_x": 24
+ },
+ {
+  "style": "west",
+  "race": "common",
+  "roof": "none",
+  "id": "west-common-castlespoke-s",
+  "category": "castle",
+  "kind": "castle_spoke",
+  "facility": "city_wall",
+  "variant": 5,
+  "dir": "s",
+  "sort_offset": 0.4,
+  "name": "城堡幕墙半段（南）",
+  "tags": [
+   "spoke",
+   "dir_s",
+   "crenellated",
+   "curtain_wall",
+   "orthogonal"
+  ],
+  "note": "城堡幕墙辐条：墙厚 30 px、高 60 px（与 west-castle 幕墙同高），从格中心画到格边中点。同格排序 +0.4",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 33,
+  "anchor": [
+   24,
+   81
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   81
+  ]
+ },
+ {
+  "style": "west",
+  "race": "common",
+  "roof": "none",
+  "id": "west-common-castlespoke-sw",
+  "category": "castle",
+  "kind": "castle_spoke",
+  "facility": "city_wall",
+  "variant": 6,
+  "dir": "sw",
+  "sort_offset": 0.4,
+  "name": "城堡幕墙半段（西南）",
+  "tags": [
+   "spoke",
+   "dir_sw",
+   "crenellated",
+   "curtain_wall",
+   "diagonal"
+  ],
+  "note": "城堡幕墙辐条：墙厚 30 px、高 60 px（与 west-castle 幕墙同高），从格中心画到格角（只按本行裁剪，pad_x = 24）。同格排序 +0.4",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 55,
+  "anchor": [
+   24,
+   103
+  ],
+  "viewBox": [
+   -24,
+   0,
+   96,
+   103
+  ],
+  "pad_x": 24
+ },
+ {
+  "style": "west",
+  "race": "common",
+  "roof": "none",
+  "id": "west-common-castlespoke-w",
+  "category": "castle",
+  "kind": "castle_spoke",
+  "facility": "city_wall",
+  "variant": 7,
+  "dir": "w",
+  "sort_offset": 0.3,
+  "name": "城堡幕墙半段（西）",
+  "tags": [
+   "spoke",
+   "dir_w",
+   "crenellated",
+   "curtain_wall",
+   "orthogonal"
+  ],
+  "note": "城堡幕墙辐条：墙厚 30 px、高 60 px（与 west-castle 幕墙同高），从格中心画到格边中点。同格排序 +0.3",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 63,
+  "anchor": [
+   24,
+   111
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   111
+  ]
+ },
+ {
+  "style": "west",
+  "race": "common",
+  "roof": "none",
+  "id": "west-common-castlespoke-nw",
+  "category": "castle",
+  "kind": "castle_spoke",
+  "facility": "city_wall",
+  "variant": 8,
+  "dir": "nw",
+  "sort_offset": 0.1,
+  "name": "城堡幕墙半段（西北）",
+  "tags": [
+   "spoke",
+   "dir_nw",
+   "crenellated",
+   "curtain_wall",
+   "diagonal"
+  ],
+  "note": "城堡幕墙辐条：墙厚 30 px、高 60 px（与 west-castle 幕墙同高），从格中心画到格角（只按本行裁剪，pad_x = 24）。同格排序 +0.1",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 72,
+  "anchor": [
+   24,
+   120
+  ],
+  "viewBox": [
+   -24,
+   0,
+   96,
+   120
+  ],
+  "pad_x": 24
+ },
+ {
+  "style": "west",
+  "race": "common",
+  "roof": "none",
+  "id": "west-common-castlenode",
+  "category": "castle",
+  "kind": "castle_node",
+  "facility": "city_wall",
+  "variant": 1,
+  "sort_offset": 0.2,
+  "name": "城堡幕墙节点",
+  "tags": [
+   "spoke_node",
+   "crenellated",
+   "curtain_wall"
+  ],
+  "note": "30×30 墩子，高 66 px（高出幕墙 6 px），四面垛口、箭缝、小旗；同格排序 +0.2",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 69,
+  "anchor": [
+   24,
+   117
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   117
+  ]
+ },
+ {
+  "style": "west",
+  "race": "common",
+  "roof": "none",
+  "id": "west-common-castlenode-pass-h",
+  "category": "castle",
+  "kind": "castle_node_pass",
+  "facility": "city_wall",
+  "variant": 2,
+  "sort_offset": 0.2,
+  "name": "城堡幕墙节点（东西直通）",
+  "tags": [
+   "spoke_node",
+   "pass_through",
+   "curtain_wall"
+  ],
+  "note": "只有一对相对辐条（e-w）时代替 castlenode，走道不断",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 63,
+  "anchor": [
+   24,
+   111
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   111
+  ]
+ },
+ {
+  "style": "west",
+  "race": "common",
+  "roof": "none",
+  "id": "west-common-castlenode-pass-v",
+  "category": "castle",
+  "kind": "castle_node_pass",
+  "facility": "city_wall",
+  "variant": 3,
+  "sort_offset": 0.2,
+  "name": "城堡幕墙节点（南北直通）",
+  "tags": [
+   "spoke_node",
+   "pass_through",
+   "curtain_wall"
+  ],
+  "note": "只有一对相对辐条（n-s）时代替 castlenode，走道不断",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 63,
+  "anchor": [
+   24,
+   111
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   111
+  ]
+ },
+ {
+  "style": "west",
+  "race": "common",
+  "roof": "none",
+  "id": "west-common-castlenode-pass-se",
+  "category": "castle",
+  "kind": "castle_node_pass",
+  "facility": "city_wall",
+  "variant": 4,
+  "sort_offset": 0.2,
+  "name": "城堡幕墙节点（西北–东南直通）",
+  "tags": [
+   "spoke_node",
+   "pass_through",
+   "curtain_wall"
+  ],
+  "note": "只有一对相对辐条（nw-se）时代替 castlenode，走道不断",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 63,
+  "anchor": [
+   24,
+   111
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   111
+  ]
+ },
+ {
+  "style": "west",
+  "race": "common",
+  "roof": "none",
+  "id": "west-common-castlenode-pass-ne",
+  "category": "castle",
+  "kind": "castle_node_pass",
+  "facility": "city_wall",
+  "variant": 5,
+  "sort_offset": 0.2,
+  "name": "城堡幕墙节点（西南–东北直通）",
+  "tags": [
+   "spoke_node",
+   "pass_through",
+   "curtain_wall"
+  ],
+  "note": "只有一对相对辐条（sw-ne）时代替 castlenode，走道不断",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 63,
+  "anchor": [
+   24,
+   111
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   111
+  ]
+ },
+ {
+  "style": "west",
+  "race": "common",
+  "roof": "none",
+  "id": "west-common-moatspoke-n",
+  "category": "water",
+  "kind": "moat_spoke",
+  "facility": null,
+  "variant": 1,
+  "dir": "n",
+  "layer": "ground",
+  "name": "护城河半段（北）",
+  "tags": [
+   "spoke",
+   "moat",
+   "dir_n",
+   "ground_layer"
+  ],
+  "note": "地面层护城河辐条：水宽 32 px，水色 #a9b8ad（同 west-ground），不上伸；先于墙体画。方向与拼接同城墙辐条",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   54
+  ]
+ },
+ {
+  "style": "west",
+  "race": "common",
+  "roof": "none",
+  "id": "west-common-moatspoke-ne",
+  "category": "water",
+  "kind": "moat_spoke",
+  "facility": null,
+  "variant": 2,
+  "dir": "ne",
+  "layer": "ground",
+  "name": "护城河半段（东北）",
+  "tags": [
+   "spoke",
+   "moat",
+   "dir_ne",
+   "ground_layer"
+  ],
+  "note": "地面层护城河辐条：水宽 32 px，水色 #a9b8ad（同 west-ground），不上伸；先于墙体画。方向与拼接同城墙辐条",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   -24,
+   0,
+   96,
+   54
+  ],
+  "pad_x": 24
+ },
+ {
+  "style": "west",
+  "race": "common",
+  "roof": "none",
+  "id": "west-common-moatspoke-e",
+  "category": "water",
+  "kind": "moat_spoke",
+  "facility": null,
+  "variant": 3,
+  "dir": "e",
+  "layer": "ground",
+  "name": "护城河半段（东）",
+  "tags": [
+   "spoke",
+   "moat",
+   "dir_e",
+   "ground_layer"
+  ],
+  "note": "地面层护城河辐条：水宽 32 px，水色 #a9b8ad（同 west-ground），不上伸；先于墙体画。方向与拼接同城墙辐条",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   54
+  ]
+ },
+ {
+  "style": "west",
+  "race": "common",
+  "roof": "none",
+  "id": "west-common-moatspoke-se",
+  "category": "water",
+  "kind": "moat_spoke",
+  "facility": null,
+  "variant": 4,
+  "dir": "se",
+  "layer": "ground",
+  "name": "护城河半段（东南）",
+  "tags": [
+   "spoke",
+   "moat",
+   "dir_se",
+   "ground_layer"
+  ],
+  "note": "地面层护城河辐条：水宽 32 px，水色 #a9b8ad（同 west-ground），不上伸；先于墙体画。方向与拼接同城墙辐条",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   -24,
+   0,
+   96,
+   54
+  ],
+  "pad_x": 24
+ },
+ {
+  "style": "west",
+  "race": "common",
+  "roof": "none",
+  "id": "west-common-moatspoke-s",
+  "category": "water",
+  "kind": "moat_spoke",
+  "facility": null,
+  "variant": 5,
+  "dir": "s",
+  "layer": "ground",
+  "name": "护城河半段（南）",
+  "tags": [
+   "spoke",
+   "moat",
+   "dir_s",
+   "ground_layer"
+  ],
+  "note": "地面层护城河辐条：水宽 32 px，水色 #a9b8ad（同 west-ground），不上伸；先于墙体画。方向与拼接同城墙辐条",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   54
+  ]
+ },
+ {
+  "style": "west",
+  "race": "common",
+  "roof": "none",
+  "id": "west-common-moatspoke-sw",
+  "category": "water",
+  "kind": "moat_spoke",
+  "facility": null,
+  "variant": 6,
+  "dir": "sw",
+  "layer": "ground",
+  "name": "护城河半段（西南）",
+  "tags": [
+   "spoke",
+   "moat",
+   "dir_sw",
+   "ground_layer"
+  ],
+  "note": "地面层护城河辐条：水宽 32 px，水色 #a9b8ad（同 west-ground），不上伸；先于墙体画。方向与拼接同城墙辐条",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   -24,
+   0,
+   96,
+   54
+  ],
+  "pad_x": 24
+ },
+ {
+  "style": "west",
+  "race": "common",
+  "roof": "none",
+  "id": "west-common-moatspoke-w",
+  "category": "water",
+  "kind": "moat_spoke",
+  "facility": null,
+  "variant": 7,
+  "dir": "w",
+  "layer": "ground",
+  "name": "护城河半段（西）",
+  "tags": [
+   "spoke",
+   "moat",
+   "dir_w",
+   "ground_layer"
+  ],
+  "note": "地面层护城河辐条：水宽 32 px，水色 #a9b8ad（同 west-ground），不上伸；先于墙体画。方向与拼接同城墙辐条",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   54
+  ]
+ },
+ {
+  "style": "west",
+  "race": "common",
+  "roof": "none",
+  "id": "west-common-moatspoke-nw",
+  "category": "water",
+  "kind": "moat_spoke",
+  "facility": null,
+  "variant": 8,
+  "dir": "nw",
+  "layer": "ground",
+  "name": "护城河半段（西北）",
+  "tags": [
+   "spoke",
+   "moat",
+   "dir_nw",
+   "ground_layer"
+  ],
+  "note": "地面层护城河辐条：水宽 32 px，水色 #a9b8ad（同 west-ground），不上伸；先于墙体画。方向与拼接同城墙辐条",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   -24,
+   0,
+   96,
+   54
+  ],
+  "pad_x": 24
+ },
+ {
+  "style": "west",
+  "race": "common",
+  "roof": "none",
+  "id": "west-common-moatnode",
+  "category": "water",
+  "kind": "moat_node",
+  "facility": null,
+  "variant": 1,
+  "layer": "ground",
+  "name": "护城河节点",
+  "tags": [
+   "spoke_node",
+   "moat",
+   "ground_layer"
+  ],
+  "note": "格中心 32×32 水面，无岸线（岸线由辐条画）",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   54
+  ]
+ },
+ {
+  "style": "west",
+  "race": "common",
+  "roof": "none",
+  "id": "west-common-moatnode-pass-se",
+  "category": "water",
+  "kind": "moat_node_pass",
+  "facility": null,
+  "variant": 2,
+  "layer": "ground",
+  "name": "护城河节点（西北–东南直通）",
+  "tags": [
+   "spoke_node",
+   "moat",
+   "pass_through",
+   "ground_layer"
+  ],
+  "note": "直通时代替 moatnode：岸线连续，斜向时还避免方块角伸出水带",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   54
+  ]
+ },
+ {
+  "style": "west",
+  "race": "common",
+  "roof": "none",
+  "id": "west-common-moatnode-pass-ne",
+  "category": "water",
+  "kind": "moat_node_pass",
+  "facility": null,
+  "variant": 3,
+  "layer": "ground",
+  "name": "护城河节点（西南–东北直通）",
+  "tags": [
+   "spoke_node",
+   "moat",
+   "pass_through",
+   "ground_layer"
+  ],
+  "note": "直通时代替 moatnode：岸线连续，斜向时还避免方块角伸出水带",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   54
+  ]
+ },
+ {
+  "style": "west",
+  "race": "common",
+  "roof": "none",
+  "id": "west-common-moatnode-pass-h",
+  "category": "water",
+  "kind": "moat_node_pass",
+  "facility": null,
+  "variant": 4,
+  "layer": "ground",
+  "name": "护城河节点（东西直通）",
+  "tags": [
+   "spoke_node",
+   "moat",
+   "pass_through",
+   "ground_layer"
+  ],
+  "note": "直通时代替 moatnode：岸线连续，斜向时还避免方块角伸出水带",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   54
+  ]
+ },
+ {
+  "style": "west",
+  "race": "common",
+  "roof": "none",
+  "id": "west-common-moatnode-pass-v",
+  "category": "water",
+  "kind": "moat_node_pass",
+  "facility": null,
+  "variant": 5,
+  "layer": "ground",
+  "name": "护城河节点（南北直通）",
+  "tags": [
+   "spoke_node",
+   "moat",
+   "pass_through",
+   "ground_layer"
+  ],
+  "note": "直通时代替 moatnode：岸线连续，斜向时还避免方块角伸出水带",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   54
+  ]
+ },
+ {
+  "style": "west",
+  "race": "common",
+  "roof": "none",
+  "id": "west-common-starfort-01",
+  "category": "landmark",
+  "kind": "star_fort",
+  "facility": "watchtower",
+  "culture": "renaissance",
+  "variant": 1,
+  "name": "小星堡",
+  "tags": [
+   "star_fort",
+   "bastion",
+   "moat",
+   "keep",
+   "cannon",
+   "guerite"
+  ],
+  "note": "整体小星堡地标：方形主体 + 四角尖棱堡（尖角朝 ne/se/sw/nw），台面高 40，外绕护城河（水色 #a9b8ad），南门带吊桥，内院中央方塔。facility 取最近的 watchtower",
+  "footprint": [
+   6,
+   6
+  ],
+  "height_px": 28,
+  "anchor": [
+   144,
+   316
+  ],
+  "viewBox": [
+   0,
+   0,
+   288,
+   316
+  ]
+ }
+]

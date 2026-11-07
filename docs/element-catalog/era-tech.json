@@ -1,0 +1,2618 @@
+{
+  "schema_version": 1,
+  "group": "era-tech",
+  "status": "candidate",
+  "note": "历史科技档位候选组（5 档共 48 条：tech:classical 10、tech:medieval 9、tech:renaissance 10、tech:steam 11、tech:early_modern 8）。每条只打一个 tech:*，标的是该技术最早能出现的档位，依据 docs/world-setting.md；科技止于 1939 年之前，不含核能、喷气机、雷达、电子计算机等。与 steam-tech.json 分工：该文件已有蒸汽机车、电报、煤气照明、铁甲舰、后膛枪、转炉炼钢及内燃机、电网、无线电、早期飞机、机枪、装甲车，本组不重写，只作关联；铁路制度、蒸汽机结构等社会与制度条目在 steam-horror.json，本组的蒸汽机条目只写发明谱系。条目中的影响、风险与剧情钩子为设计归纳；年份与人物取自 2026-11-04 用无头 Edge 读取的百度百科页面（access=read），只记录链接与自撰转述，未转载原文段落；读到的页面中义项不对或无历史细节的，在各条 evidence_and_uncertainty 里单独写明。Wikipedia 来源（城堡、风车、检疫）仍为 search_only，仅确认主题，未取得正文，不支撑任何具体论断。全部条目 review_status=needs_review、detail_status=needs_detail。",
+  "sources": [
+    {
+      "id": "ws_era_src_setting",
+      "title": "世界设定：类型配比、科技 / 魔法档位与国家 / 种族 / 势力（本项目设计文档）",
+      "url": "docs/world-setting.md",
+      "access": "read",
+      "supports": "tech:*、magic:*、kind:polity、polity:*、genre:* 标签的档位定义与使用方式（科技止于 1939 年之前）",
+      "rights_note": "本项目原创设计文档，随仓库分发；非第三方资料。条目内容为据此做的设计归纳，不是史料结论。"
+    },
+    {
+      "id": "ws_era_src_iron2",
+      "title": "百度百科：铁器（Baidu Baike）",
+      "url": "https://baike.baidu.com/item/%E9%93%81%E5%99%A8",
+      "access": "read",
+      "supports": "2026-11-04 用无头 Edge 读取：已读正文：最早的人工炼铁者为小亚细亚赫梯人，约前 1400 年；前 1300—前 1100 年铁术传入两河流域与古埃及，欧洲部分地区约前 1000 年进入铁器时代；早期多为块炼铁，约 1400 年欧洲出现水力鼓风炉后才有冶炼生铁；中国前 1300 年前已有陨铁刃，前 800 年的虢国玉柄铁剑是已知最早的人工冶炼铁器。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_era_src_arch",
+      "title": "百度百科：拱券（Baidu Baike）",
+      "url": "https://baike.baidu.com/item/%E6%8B%B1%E5%88%B8",
+      "access": "read",
+      "supports": "2026-11-04 用无头 Edge 读取：已读正文：拱券是用块状材料砌成的跨空承重结构；有古罗马半圆拱、哥特式尖拱、伊斯兰马蹄形拱；起源可追溯到前 4000 年的两河流域；中国西汉中期已有子母砖券顶涵洞，宋代用石灰泥浆，明清有五券五伏做法与无梁殿。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_era_src_aqueduct",
+      "title": "百度百科：罗马水道（Baidu Baike）",
+      "url": "https://baike.baidu.com/item/%E7%BD%97%E9%A9%AC%E6%B0%B4%E9%81%93",
+      "access": "read",
+      "supports": "2026-11-04 用无头 Edge 读取：已读正文：罗马水道是砖石结构的城市输水系统，上层为砖砌渠道，下层为拱式架渡槽；水源为泉水、凿井或水库；公元 1 世纪罗马城有 11 条干渠；城内以铅管、陶管配水并按人头征水税；塞戈维亚水道桥建于公元 1 世纪，全长 728 米、无灰浆石砌、现存 166 孔。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_era_src_oared",
+      "title": "百度百科：桨帆船（Baidu Baike）",
+      "url": "https://baike.baidu.com/item/%E6%A1%A8%E5%B8%86%E8%88%B9",
+      "access": "read",
+      "supports": "2026-11-04 用无头 Edge 读取：已读正文：桨帆船以人力划桨为主、风帆为辅，起源于前 2000 年以前的地中海并沿用到 18 世纪末；前 6 世纪希腊桨帆船已装撞角，是萨拉米斯海战主力；罗马船上加装弩炮；拜占庭德龙猛船载希腊火；隋代五牙船配拍杆；16 世纪地中海用奴隶桨手；17 世纪后被三桅帆船取代。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_era_src_bronze",
+      "title": "百度百科：青铜器（Baidu Baike）",
+      "url": "https://baike.baidu.com/item/%E9%9D%92%E9%93%9C%E5%99%A8",
+      "access": "read",
+      "supports": "2026-11-04 用无头 Edge 读取：已读正文：青铜是铜锡铅合金；最早约 7000 年前见于塞尔维亚；中国系统性生产始于二里头文化，商中期出现铭文，商晚期至西周早期最盛，春秋战国铁器普及后减少；使用铜锡铅三元配比与泥范块范法铸造，三星堆使用分铸法。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_era_src_crossbow",
+      "title": "百度百科：弩（古代的一种冷兵器）（Baidu Baike）",
+      "url": "https://baike.baidu.com/item/%E5%BC%A9/2223715",
+      "access": "read",
+      "supports": "2026-11-04 用无头 Edge 读取：已读正文：弩由弓、弩臂、弩机三部分构成，弦可预先拉开并锁定；页面称强弩射程可达 600 米、床弩可达千米；考古证实不晚于商周出现，春秋常见，战国广泛用于军事；西汉对匈奴发展，东汉有腰引弩，三国有诸葛亮元戎弩；步兵借弩对抗骑兵。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_era_src_clepsydra",
+      "title": "百度百科：水钟（Baidu Baike）",
+      "url": "https://baike.baidu.com/item/%E6%B0%B4%E9%92%9F",
+      "access": "read",
+      "supports": "2026-11-04 用无头 Edge 读取：已读正文：水钟又称刻漏、漏壶，分泄水型与受水型；约公元 85 年起带浮子漏箭的受水型漏壶流行；起源于埃及，最早约前 1500 年（信息框署名发明者阿门内姆哈特）。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_era_src_paper",
+      "title": "百度百科：造纸术（中国古代四大发明之一）（Baidu Baike）",
+      "url": "https://baike.baidu.com/item/%E9%80%A0%E7%BA%B8%E6%9C%AF/106744",
+      "access": "read",
+      "supports": "2026-11-04 用无头 Edge 读取：已读正文：造纸术起源于西汉，灞桥麻纸属前 2 世纪；东汉元兴元年（105 年）蔡伦改进，用树皮、麻头、破布、旧渔网，经锉、煮、捣、抄、烘五步；另有观点认为西汉古纸并非真正的纸；魏晋成为主要书写材料，隋唐有竹纸，并传朝鲜、日本、阿拉伯；12 世纪后欧洲陆续建纸厂；1990 年国际造纸历史协会确认蔡伦为发明者。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_era_src_stirrup",
+      "title": "百度百科：马镫（Baidu Baike）",
+      "url": "https://baike.baidu.com/item/%E9%A9%AC%E9%95%AB",
+      "access": "read",
+      "supports": "2026-11-04 用无头 Edge 读取：已读正文：马镫是悬在马鞍两侧的脚踏；东汉墓中有铁制单镫（2 世纪），东吴丁奉墓陶俑为 271 年，西晋长沙单镫为 302 年，东晋南京陶马俑 322 年出现双镫，北燕冯素弗墓 415 年的木芯包铜双镫是现存最早实物。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_era_src_porcelain",
+      "title": "百度百科：瓷器（一种器物）（Baidu Baike）",
+      "url": "https://baike.baidu.com/item/%E7%93%B7%E5%99%A8/601",
+      "access": "read",
+      "supports": "2026-11-04 用无头 Edge 读取：已读正文：瓷器以瓷石、高岭土等烧成并施釉，烧成温度约 1280—1400 摄氏度；严格科学意义上的瓷器始于东汉，东汉中晚期创烧成功，二里头出土过原始青瓷；宋代达到高峰，有五大名窑；通过海上丝绸之路出口。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_era_src_plough",
+      "title": "百度百科：三圃制（Baidu Baike）",
+      "url": "https://baike.baidu.com/item/%E4%B8%89%E5%9C%83%E5%88%B6",
+      "access": "read",
+      "supports": "2026-11-04 用无头 Edge 读取：已读正文：三圃制是中世纪欧洲庄园的轮耕制，土地分休闲、春播、秋播三类，三年一循环；春播大麦燕麦豆类，秋播小麦黑麦；休闲地比例从二圃制的 1/2 降到 1/3；二圃制盛行于 9 世纪前，三圃制自 8 世纪起在中西欧平原逐渐普及。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_era_src_plough2",
+      "title": "百度百科：重犁（Baidu Baike）",
+      "url": "https://baike.baidu.com/item/%E9%87%8D%E7%8A%81",
+      "access": "read",
+      "supports": "2026-11-04 用无头 Edge 读取：已读正文：重犁中世纪欧洲 9 世纪起使用，带犁刀、犁铧、犁壁和两轮，能耕湿重土壤，一遍成垄并利于排水；需 4—8 头牛或马牵引，促使农民共享农具与牲口，影响庄园制；推动开垦与冶铁业；发明者不明，一说来自斯拉夫地区。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_era_src_watermill",
+      "title": "百度百科：水磨（汉语词语）（Baidu Baike）",
+      "url": "https://baike.baidu.com/item/%E6%B0%B4%E7%A3%A8/33831",
+      "access": "read",
+      "supports": "2026-11-04 用无头 Edge 读取：已读正文：水磨是水力带动的磨，有上下磨盘、水磨轮和转轴，分平轮磨、立轮磨、船磨；页面称起源于晋代，南北朝广泛使用，北宋普及民间。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_era_src_mill",
+      "title": "百度百科：水车（灌溉工具）（Baidu Baike）",
+      "url": "https://baike.baidu.com/item/%E6%B0%B4%E8%BD%A6/10909584",
+      "access": "read",
+      "supports": "2026-11-04 用无头 Edge 读取：已读正文：水车页面讲的是中国的链轮式提水龙骨车（灌溉工具），说东汉毕岚发明、三国马钧完善；仅作水力与提水机械的旁证。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_era_src_windmill2",
+      "title": "百度百科：荷兰风车（Baidu Baike）",
+      "url": "https://baike.baidu.com/item/%E8%8D%B7%E5%85%B0%E9%A3%8E%E8%BD%A6",
+      "access": "read",
+      "supports": "2026-11-04 用无头 Edge 读取：已读正文：荷兰风车有可转动的顶篷，最早从德国引进，用于碾磨、锯木、造纸和围海造陆；18 世纪末约有 1.2 万座，现存不足千座。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_era_src_armour",
+      "title": "百度百科：板甲（古代装甲）（Baidu Baike）",
+      "url": "https://baike.baidu.com/item/%E6%9D%BF%E7%94%B2/6053909",
+      "access": "read",
+      "supports": "2026-11-04 用无头 Edge 读取：已读正文：板甲是整块锻造的钢板甲，区别于锁甲；14 世纪初起源于西欧，雏形是锁甲外加半身胸甲；借高炉冶金与水力锻锤，15 世纪发展出全身甲，有米兰式与哥特式；16 世纪火绳枪普及后防护简化为胸甲，17 世纪燧发枪出现后退出主流。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_era_src_woodblock",
+      "title": "百度百科：雕版印刷术（Baidu Baike）",
+      "url": "https://baike.baidu.com/item/%E9%9B%95%E7%89%88%E5%8D%B0%E5%88%B7%E6%9C%AF/3706107",
+      "access": "read",
+      "supports": "2026-11-04 用无头 Edge 读取：已读正文：雕版印刷是在木版上雕刻图文后刷印，常用梓木、梨木、枣木；由印章与拓石碑演进到雕版，再到活字；发明于唐朝，中后期普遍使用，盛唐时已有但质量低劣。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_era_src_compass",
+      "title": "百度百科：指南针（中国古代四大发明之一）（Baidu Baike）",
+      "url": "https://baike.baidu.com/item/%E6%8C%87%E5%8D%97%E9%92%88/77896",
+      "access": "read",
+      "supports": "2026-11-04 用无头 Edge 读取：已读正文：指南针古称司南，经司南、罗盘、磁针演变；北宋沈括《梦溪笔谈》记载人工磁化与磁偏角；杨惟德《茔原总录》有丙午针；南宋朱济南墓出土旱罗盘俑；北宋朱彧《萍洲可谈》记载航海应用；最早文献可追溯到战国。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_era_src_gothic",
+      "title": "百度百科：哥特式建筑（一种兴盛于中世纪高峰与末期的建筑风格）（Baidu Baike）",
+      "url": "https://baike.baidu.com/item/%E5%93%A5%E7%89%B9%E5%BC%8F%E5%BB%BA%E7%AD%91/400790",
+      "access": "read",
+      "supports": "2026-11-04 用无头 Edge 读取：已读正文：哥特式建筑是中世纪高峰与末期的风格，由罗曼式发展而来，12 世纪发源于法国，延续到 16 世纪，特征为尖顶与彩色玻璃窗；代表有科隆大教堂、米兰大教堂、威斯敏斯特教堂。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_era_src_movable",
+      "title": "百度百科：活字印刷术（中国古代的四大发明之一）（Baidu Baike）",
+      "url": "https://baike.baidu.com/item/%E6%B4%BB%E5%AD%97%E5%8D%B0%E5%88%B7%E6%9C%AF/7258232",
+      "access": "read",
+      "supports": "2026-11-04 用无头 Edge 读取：已读正文：活字印刷由北宋庆历年间（1041—1048）毕昇首创泥活字，流程为制字、排版、烘版、刷印、拆版；材质有胶泥、木、铜、瓷；南宋周必大用泥活字印《玉堂杂记》，元代王祯用木活字与转轮排字架，清代铜活字印《古今图书集成》；13 世纪朝鲜有金属活字；西夏文佛经是最早的木活字实物。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_era_src_hospital",
+      "title": "百度百科：医院（医疗机构）（Baidu Baike）",
+      "url": "https://baike.baidu.com/item/%E5%8C%BB%E9%99%A2/418798",
+      "access": "read",
+      "supports": "2026-11-04 用无头 Edge 读取：已读正文：西汉瘟疫时设医治场所，元始二年（公元 2 年）「舍空邸第，为置医药」近似隔离医院；北魏 497 年洛阳设别坊，隋有病人坊，宋有安济坊、养济院；欧洲最早的医院组织见于 5 世纪初君士坦丁堡，里昂 6 世纪、伦敦 7 世纪、巴黎 8 世纪；18 世纪末起医院脱离宗教；元 1270 年有广惠司阿拉伯式医院。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_era_src_quarantine",
+      "title": "百度百科：检疫（防止传染病传播的预防措施）（Baidu Baike）",
+      "url": "https://baike.baidu.com/item/%E6%A3%80%E7%96%AB/4790799",
+      "access": "read",
+      "supports": "2026-11-04 用无头 Edge 读取：已读正文：检疫页面只给出泛义定义（隔离、医学检查、卫生处理），无历史细节，仅作定义旁证。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_era_src_gunpowder",
+      "title": "百度百科：火药（可由火花、火焰等引起燃烧的药剂）（Baidu Baike）",
+      "url": "https://baike.baidu.com/item/%E7%81%AB%E8%8D%AF/2110683",
+      "access": "read",
+      "supports": "2026-11-04 用无头 Edge 读取：已读正文：火药页面摘要引《范子计然》「硝石出陇道」，称春秋时已有民间使用；军事上用作发射药与推进剂；归入中国四大发明。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_era_src_matchlock",
+      "title": "百度百科：鸟铳（Baidu Baike）",
+      "url": "https://baike.baidu.com/item/%E9%B8%9F%E9%93%B3/1865836",
+      "access": "read",
+      "supports": "2026-11-04 用无头 Edge 读取：已读正文：鸟铳是明清对火绳枪的统称，有枪管、火药池、枪机，有准星照门与铳托，首次需双手持握；《筹海图编》称「十发有八九中」，戚继光称其「临阵第一倚赖」；1523 年嘉靖二年西草湾海战缴获葡萄牙火绳枪后仿制，后经西班牙、日本再传入。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_era_src_gutenberg",
+      "title": "百度百科：约翰·古腾堡（Baidu Baike）",
+      "url": "https://baike.baidu.com/item/%E7%BA%A6%E7%BF%B0%C2%B7%E5%8F%A4%E8%85%BE%E5%A0%A1/973862",
+      "access": "read",
+      "supports": "2026-11-04 用无头 Edge 读取：已读正文：约翰·古腾堡（1398—1468）在美因茨，把金属活字、油墨、压印机合成一套系统；1434—1444 年在斯特拉斯堡；1455 年印出首部 42 行《圣经》，完整本现存 49 部；事业以破产告终；页面称 50 年内欧洲印出逾 1200 万份印刷品。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_era_src_carrack",
+      "title": "百度百科：卡瑞克帆船（Baidu Baike）",
+      "url": "https://baike.baidu.com/item/%E5%8D%A1%E7%91%9E%E5%85%8B%E5%B8%86%E8%88%B9/3789981",
+      "access": "read",
+      "supports": "2026-11-04 用无头 Edge 读取：已读正文：卡瑞克帆船 15—16 世纪为三桅或四桅，前桅、中桅用横帆，后桅用三角帆，有船首斜桅与弧形船尾；是欧洲第一款用作远洋的船，体积大、稳定，舱内分隔存放物资。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_era_src_navigation",
+      "title": "百度百科：大航海（15至17世纪欧洲主导的航海探索活动）（Baidu Baike）",
+      "url": "https://baike.baidu.com/item/%E5%A4%A7%E8%88%AA%E6%B5%B7/67087890",
+      "access": "read",
+      "supports": "2026-11-04 用无头 Edge 读取：已读正文：大航海指 15—17 世纪欧洲主导的航海探索：1487 年迪亚士到好望角，1492 年哥伦布，1498 年达伽马抵卡利卡特，1519—1522 年麦哲伦船队环球；动因是香料与「God, Gold, Glory」；发展出经度测量法；页面还把郑和 1405—1433 年的航行归入大航海范畴。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_era_src_bastion",
+      "title": "百度百科：棱堡（Baidu Baike）",
+      "url": "https://baike.baidu.com/item/%E6%A3%B1%E5%A0%A1",
+      "access": "read",
+      "supports": "2026-11-04 用无头 Edge 读取：已读正文：棱堡诞生于文艺复兴，依托火药武器：城塞由凸多边形变为凹多边形，进攻点会暴露在 2—3 个棱堡面的交叉火力下；16 世纪初由意大利人发明；1552 年梅斯守军借棱堡抵御神圣罗马帝国 4.5 万大军；外覆厚土吸收炮弹；有荷兰式水闸、沃邦；造价昂贵。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_era_src_hongyi",
+      "title": "百度百科：红夷大炮（火炮）（Baidu Baike）",
+      "url": "https://baike.baidu.com/item/%E7%BA%A2%E5%A4%B7%E5%A4%A7%E7%82%AE/1672490",
+      "access": "read",
+      "supports": "2026-11-04 用无头 Edge 读取：已读正文：红夷大炮是 16 世纪欧洲的长身管前装滑膛加农炮，明万历后期传入，1620 年从英国沉船「独角兽号」打捞 22 门；铁芯铜体；澳门卜加劳铸炮厂；1626 年宁远之战；后金 1631 年仿制「天佑助威大将军」；康熙时南怀仁设计神威将军；鸦片战争时已落后；长约 3 米、口径 110—130 毫米、射程 2.5 公里。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_era_src_clock",
+      "title": "百度百科：机械钟（计时器）（Baidu Baike）",
+      "url": "https://baike.baidu.com/item/%E6%9C%BA%E6%A2%B0%E9%92%9F/5109413",
+      "access": "read",
+      "supports": "2026-11-04 用无头 Edge 读取：已读正文：机械钟页面称 13 世纪欧洲修道院出现砝码驱动的机械钟，以钟声报时协调宗教活动；18 世纪航海精密时计解决经度问题（页面另提安提凯希拉仪起源说，本条不采用）。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_era_src_telescope",
+      "title": "百度百科：望远镜（利用透镜或反射镜以及其他光学器件观测遥远物体的光学仪器）（Baidu Baike）",
+      "url": "https://baike.baidu.com/item/%E6%9C%9B%E8%BF%9C%E9%95%9C/479223",
+      "access": "read",
+      "supports": "2026-11-04 用无头 Edge 读取：已读正文：望远镜页面信息框称发明者为荷兰人汉斯·李波尔，1608 年；有伽利略式与开普勒式。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_era_src_microscope",
+      "title": "百度百科：显微镜（科研仪器设备）（Baidu Baike）",
+      "url": "https://baike.baidu.com/item/%E6%98%BE%E5%BE%AE%E9%95%9C/133736",
+      "access": "read",
+      "supports": "2026-11-04 用无头 Edge 读取：已读正文：显微镜页面称前 5—前 4 世纪《墨经》已记载凹面镜成像；15 世纪中叶有单片透镜的单显微镜；1610 年左右伽利略首创两级放大显微镜；列文虎克放大约 200 倍；19 世纪中叶才广泛应用。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_era_src_vesalius",
+      "title": "百度百科：安德烈·维萨里（Baidu Baike）",
+      "url": "https://baike.baidu.com/item/%E5%AE%89%E5%BE%B7%E7%83%88%C2%B7%E7%BB%B4%E8%90%A8%E9%87%8C/4465604",
+      "access": "read",
+      "supports": "2026-11-04 用无头 Edge 读取：已读正文：安德烈·维萨里（1514—1564）在帕多瓦大学任教，1543 年出版《人体构造》，纠正盖仑多基于动物研究的错误，与哥白尼《天体运行论》同年；因挑战传统遭教会迫害。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_era_src_mercator",
+      "title": "百度百科：麦卡托投影法（Baidu Baike）",
+      "url": "https://baike.baidu.com/item/%E9%BA%A6%E5%8D%A1%E6%89%98%E6%8A%95%E5%BD%B1%E6%B3%95/4881210",
+      "access": "read",
+      "supports": "2026-11-04 用无头 Edge 读取：已读正文：麦卡托投影是 1569 年麦卡托创制的等角圆柱投影，恒向线呈直线，用于海图，高纬度面积变形严重（页面另称数学基础可追溯到 940 年宋朝，存疑，本条不采用）。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_era_src_steamengine",
+      "title": "百度百科：蒸汽机（将蒸汽的能量转换为机械功的往复式动力机械）（Baidu Baike）",
+      "url": "https://baike.baidu.com/item/%E8%92%B8%E6%B1%BD%E6%9C%BA/367409",
+      "access": "read",
+      "supports": "2026-11-04 用无头 Edge 读取：已读正文：蒸汽机页面：希罗汽转球是雏形；17 世纪末因矿井排水需求发展；萨弗里 1698 年专利「矿工之友」，吸力汲水不超过约 6 米；纽科门与卡利 1705 年造大气式蒸汽机，热效率很低、只在煤价低廉的产煤区推广，改型到 19 世纪初仍在造；瓦特 1765 年发明分离冷凝器，1768 年单动机，1769 年专利；信息框改良时间 1785；18 世纪末普及。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_era_src_jenny",
+      "title": "百度百科：珍妮机（Baidu Baike）",
+      "url": "https://baike.baidu.com/item/%E7%8F%8D%E5%A6%AE%E6%9C%BA/9820129",
+      "access": "read",
+      "supports": "2026-11-04 用无头 Edge 读取：已读正文：珍妮机：1764 年哈格里夫斯发明，一个纺轮带动八个竖直纱锭，效率约提高八倍；1768 年起使用、1770 年专利，后来纱锭增到 80 个以上；他死后十年英国已有两万多台；随后有 1769 年阿克莱特水力卷轴纺纱机、1779 年克朗普顿走锭精纺机、1785 年卡特赖特水力织布机。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_era_src_vaccine",
+      "title": "百度百科：牛痘（Baidu Baike）",
+      "url": "https://baike.baidu.com/item/%E7%89%9B%E7%97%98",
+      "access": "read",
+      "supports": "2026-11-04 用无头 Edge 读取：已读正文：牛痘页面：牛痘病毒与天花病毒抗原相同，接种牛痘疫苗可获天花免疫；18 世纪后用于免疫接种预防天花，是免疫接种的首次成功案例；世界卫生组织称天花已在全球消失。该页未提发明者姓名。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_era_src_ether",
+      "title": "百度百科：乙醚麻醉（Baidu Baike）",
+      "url": "https://baike.baidu.com/item/%E4%B9%99%E9%86%9A%E9%BA%BB%E9%86%89",
+      "access": "read",
+      "supports": "2026-11-04 用无头 Edge 读取：已读正文：乙醚麻醉页面：1846 年成为近现代最早使用的全身麻醉药，吸入给药，麻醉分四期，易燃易爆。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_era_src_lister",
+      "title": "百度百科：约瑟夫·李斯特（Baidu Baike）",
+      "url": "https://baike.baidu.com/item/%E7%BA%A6%E7%91%9F%E5%A4%AB%C2%B7%E6%9D%8E%E6%96%AF%E7%89%B9",
+      "access": "read",
+      "supports": "2026-11-04 用无头 Edge 读取：已读正文：约瑟夫·李斯特（1827—1912）：1865 年受巴斯德启发，8 月 12 日首次用稀释石炭酸消毒；1867 年在《柳叶刀》发表；页面称手术死亡率由 45% 降到 15%。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_era_src_daguerre",
+      "title": "百度百科：银版摄影法（Baidu Baike）",
+      "url": "https://baike.baidu.com/item/%E9%93%B6%E7%89%88%E6%91%84%E5%BD%B1%E6%B3%95/1603928",
+      "access": "read",
+      "supports": "2026-11-04 用无头 Edge 读取：已读正文：银版摄影法：1839 年达盖尔发明，用水银蒸汽显影；曝光约 30 分钟；影纹细腻，不能复制，影像左右相反。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_era_src_cement",
+      "title": "百度百科：硅酸盐水泥（Baidu Baike）",
+      "url": "https://baike.baidu.com/item/%E7%A1%85%E9%85%B8%E7%9B%90%E6%B0%B4%E6%B3%A5/1991271",
+      "access": "read",
+      "supports": "2026-11-04 用无头 Edge 读取：已读正文：硅酸盐水泥页面：英国人约瑟夫·阿斯谱丁 1824 年发明并注册「波特兰水泥」专利；1889 年传入中国。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_era_src_metric",
+      "title": "百度百科：公制单位（Baidu Baike）",
+      "url": "https://baike.baidu.com/item/%E5%85%AC%E5%88%B6%E5%8D%95%E4%BD%8D/2715813",
+      "access": "read",
+      "supports": "2026-11-04 用无头 Edge 读取：已读正文：公制单位：18 世纪末由法国创立，最初以地球子午线长度定义米；1875 年《米制公约》成立国际计量局。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_era_src_arsenal",
+      "title": "百度百科：江南制造总局旧址（Baidu Baike）",
+      "url": "https://baike.baidu.com/item/%E6%B1%9F%E5%8D%97%E5%88%B6%E9%80%A0%E6%80%BB%E5%B1%80%E6%97%A7%E5%9D%80/64878927",
+      "access": "read",
+      "supports": "2026-11-04 用无头 Edge 读取：已读正文：江南制造总局旧址：始建于同治四年（1865 年），在上海，开创中国近代军事工业完全采用机器生产的先河。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_era_src_pasteur",
+      "title": "百度百科：路易斯·巴斯德（Baidu Baike）",
+      "url": "https://baike.baidu.com/item/%E8%B7%AF%E6%98%93%E6%96%AF%C2%B7%E5%B7%B4%E6%96%AF%E5%BE%B7/1808574",
+      "access": "read",
+      "supports": "2026-11-04 用无头 Edge 读取：已读正文：路易斯·巴斯德（1822—1895）：1856—1860 年提出微生物代谢活动导致发酵的新理论；1857 年发表乳酸发酵记录；1864 年驳斥自然发生说；1881 年研制狂犬疫苗，1885 年首次用于人体；1888 年建巴斯德研究所。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_era_src_telephone",
+      "title": "百度百科：电话机（Baidu Baike）",
+      "url": "https://baike.baidu.com/item/%E7%94%B5%E8%AF%9D%E6%9C%BA/421571",
+      "access": "read",
+      "supports": "2026-11-04 用无头 Edge 读取：已读正文：电话机页面：电话归功于亚历山大·格拉汉姆·贝尔；早期靠电脉冲在金属线上传递；页面称贝尔系统曾占美国电话市场 80%。未读到具体年份。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_era_src_bulb",
+      "title": "百度百科：白炽灯（Baidu Baike）",
+      "url": "https://baike.baidu.com/item/%E7%99%BD%E7%82%BD%E7%81%AF",
+      "access": "read",
+      "supports": "2026-11-04 用无头 Edge 读取：已读正文：白炽灯页面：称 1878 年英国化学家斯旺发明；灯丝通电后白炽发光；页面所述最大光效约 19 流明每瓦、寿命约 1000 小时。页面未核实爱迪生。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_era_src_modelt",
+      "title": "百度百科：T型汽车（Baidu Baike）",
+      "url": "https://baike.baidu.com/item/T%E5%9E%8B%E6%B1%BD%E8%BD%A6/10006796",
+      "access": "read",
+      "supports": "2026-11-04 用无头 Edge 读取：已读正文：T 型汽车页面：1908 年 10 月 1 日推出，大量通用零部件；1913 年高地公园工厂采用流水线，一个底盘的装配时间由 14 小时缩到 1.5 小时；价格最终降到 260 美元；1921 年产量占世界 56.6%；1914 年「任何颜色只要是黑色」。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_era_src_xray",
+      "title": "百度百科：X射线（一种高频且穿透能力较强的电磁波）（Baidu Baike）",
+      "url": "https://baike.baidu.com/item/X%E5%B0%84%E7%BA%BF/836137",
+      "access": "read",
+      "supports": "2026-11-04 用无头 Edge 读取：已读正文：X 射线页面：1895 年伦琴发现并命名；穿透力强，用于医学诊断；属电离辐射，有危害。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_era_src_haber",
+      "title": "百度百科：合成氨（Baidu Baike）",
+      "url": "https://baike.baidu.com/item/%E5%90%88%E6%88%90%E6%B0%A8",
+      "access": "read",
+      "supports": "2026-11-04 用无头 Edge 读取：已读正文：合成氨页面：氮氢在高温高压和催化剂下合成；哈伯 1902 年起研究，1908 年申请循环法专利，1909 年氨含量达 6% 以上；20 世纪初形成工业，最初服务于火炸药原料，一战后转向农业。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_era_src_submarine",
+      "title": "百度百科：潜艇（可以潜入水中的舰船类别）（Baidu Baike）",
+      "url": "https://baike.baidu.com/item/%E6%BD%9C%E8%89%87/8452",
+      "access": "read",
+      "supports": "2026-11-04 用无头 Edge 读取：已读正文：潜艇页面：能在水下航行的舰艇，一战后被广泛运用。页面混有 1939 年之后的内容，早期历史段未取得，本条只采用定义与「一战后广泛运用」。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_era_src_concrete",
+      "title": "百度百科：钢砼（Baidu Baike）",
+      "url": "https://baike.baidu.com/item/%E9%92%A2%E7%A0%BC/9086460",
+      "access": "read",
+      "supports": "2026-11-04 用无头 Edge 读取：已读正文：钢砼（钢筋混凝土）页面：钢筋抗拉强度超过 200 兆帕，混凝土抗压约 35 兆帕，二者线膨胀系数相近；法国园艺师莫尼埃 1868 年取得专利，1872 年美国建成首座建筑。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_era_src_jingzhang",
+      "title": "百度百科：京张铁路（中国北京市和河北省境内铁路线路）（Baidu Baike）",
+      "url": "https://baike.baidu.com/item/%E4%BA%AC%E5%BC%A0%E9%93%81%E8%B7%AF/1702790",
+      "access": "read",
+      "supports": "2026-11-04 用无头 Edge 读取：已读正文：京张铁路页面：詹天佑主持，1905 年 9 月开工，1909 年通车，全长约 200 公里，是中国首条不使用外国资金与人员、自主设计营运的铁路；关沟段坡度 33‰，用人字形折返线，开凿八达岭等四座隧道。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_era_src_cinema",
+      "title": "百度百科：电影（艺术形式与技术手段）（Baidu Baike）",
+      "url": "https://baike.baidu.com/item/%E7%94%B5%E5%BD%B1/31689",
+      "access": "read",
+      "supports": "2026-11-04 用无头 Edge 读取：已读正文：电影页面：1895 年 12 月 28 日卢米埃尔兄弟在巴黎首次公开放映；1927 年华纳《爵士歌王》为有声片；20 世纪 30 年代出现特艺彩色。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_era_src_roman_road",
+      "title": "百度百科：罗马大道（Baidu Baike）",
+      "url": "https://baike.baidu.com/item/%E7%BD%97%E9%A9%AC%E5%A4%A7%E9%81%93",
+      "access": "read",
+      "supports": "2026-11-04 用无头 Edge 读取：已读正文：罗马大道页面：始于前 500 年，亚壁古道前 312 年建成、长 196 公里；以石头铺成，路面呈弧形，有人行道和排水沟，建设依赖精确测量；鼎盛时 29 条大型军事公路辐射，113 个省 372 条大道，总长超过 12 万公里，其中约 8.5 万公里铺石（页面说法）。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_era_src_castle",
+      "title": "Castle (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Castle",
+      "access": "search_only",
+      "supports": "仅确认该条目主题与链接存在，未取得正文，不支撑任何具体论断；关于「城堡的形制与演变」的表述为一般常识层面的转述与本项目设计归纳，待审阅时对照原文核实。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_era_src_windmill",
+      "title": "Windmill (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Windmill",
+      "access": "search_only",
+      "supports": "仅确认该条目主题与链接存在，未取得正文，不支撑任何具体论断；关于「风车的起源与发展」的表述为一般常识层面的转述与本项目设计归纳，待审阅时对照原文核实。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_era_src_quarantine_w",
+      "title": "Quarantine (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Quarantine",
+      "access": "search_only",
+      "supports": "仅确认该条目主题与链接存在，未取得正文，不支撑任何具体论断；关于「隔离检疫制度的历史」的表述为一般常识层面的转述与本项目设计归纳，待审阅时对照原文核实。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    }
+  ],
+  "elements": [
+    {
+      "id": "tech_iron_smelting",
+      "name": "铁器冶炼",
+      "aliases": [
+        "iron smelting",
+        "块炼铁",
+        "冶铁"
+      ],
+      "tags": [
+        "tech:classical",
+        "role:material",
+        "trait:industrial_base",
+        "genre:western_fantasy",
+        "genre:eastern_fantasy",
+        "genre:historical"
+      ],
+      "genres": [
+        "western_fantasy",
+        "eastern_fantasy",
+        "historical"
+      ],
+      "category": "economy",
+      "summary": "从铁矿石中还原出可锻造铁的冶炼技术：它让农具、兵器和工具第一次有了比青铜便宜、比石木耐用的金属来源。本条讲冶炼本体，铁的材料性质见 materials_iron_metal 等条目。",
+      "details": {
+        "definition": "铁器冶炼是把铁矿石与木炭一起加热还原，得到可锻铁块并锤打成器的工艺。早期产物是海绵状的块炼铁，需要反复加热锻打去渣；能把铁熔化浇铸的生铁要晚得多。",
+        "mechanism": "改变了什么：农业上，铁犁铧与铁锄让更硬的土地可以开垦；战争上，铁制兵器和甲胄能大量装备普通士兵；经济上，铁匠成为村镇的必需工匠，矿山与燃料（木炭）成为战略资源。",
+        "conditions": "前置技术与资源：铁矿、大量木炭、能持续鼓风的炉子（皮囊或风箱），以及懂得锻打除渣的匠人（见 shop_blacksmith、tools_forge_anvil）。最低档位 tech:classical。越档提示：水力鼓风的高炉与冶炼生铁属于更晚的时代，不要写进古典世界。",
+        "exceptions": "常见风险：铁矿和木炭产地决定谁能造铁，森林被砍光会引发燃料短缺；冶炼失败、铁质过脆或过软；铁器会生锈，需要维护（见 reality_phys_corrosion）。",
+        "story_uses": "剧情钩子：掌握铁矿的部族或城邦压制邻邦、铁匠被当作带有神秘色彩的人、被禁止外传的冶炼配方、青铜时代旧贵族对铁器的抵制、陨铁打造的圣物与人工炼铁的区别。",
+        "historical_scope": "据百度百科「铁器」：赫梯人约前 1400 年最早人工炼铁，铁术前 1300—前 1100 年传入两河流域与埃及，欧洲部分地区前 1000 年左右进入铁器时代；中国最早已知人工冶炼铁器为前 800 年的虢国玉柄铁剑。各地时间不同，世界可自行调整。",
+        "evidence_and_uncertainty": "已核对（百度百科「铁器」，2026-11-04 读取）：最早人工炼铁的族群与大致年份、块炼铁为主直到约 1400 年才出现水力鼓风炉与冶炼生铁、中国虢国铁剑；设计归纳：对农业与战争的影响、风险与剧情钩子；未取得：「冶铁」词条（404），冶炼温度与产量数据。"
+      },
+      "source_ids": [
+        "ws_era_src_setting",
+        "ws_era_src_iron2",
+        "ws_era_src_bronze"
+      ],
+      "related_ids": [
+        "materials_iron_metal",
+        "materials_wrought_iron",
+        "materials_pig_iron",
+        "shop_blacksmith",
+        "tools_forge_anvil",
+        "reality_phys_metal_supply",
+        "tech_bronze_casting",
+        "tech_bessemer_steel"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "tech_arch_aqueduct",
+      "name": "拱券与渡槽水道",
+      "aliases": [
+        "arch and aqueduct",
+        "拱桥",
+        "罗马水道"
+      ],
+      "tags": [
+        "tech:classical",
+        "role:infrastructure",
+        "trait:masonry",
+        "genre:western_fantasy",
+        "genre:historical"
+      ],
+      "genres": [
+        "western_fantasy",
+        "historical"
+      ],
+      "category": "item",
+      "summary": "用楔形石块或砖砌成拱来跨越空间并承重的结构技术，用在桥、拱门、穹顶与长距离输水的渡槽上：它让石砌城邦能把远处的水引进城里。",
+      "details": {
+        "definition": "拱券是把块状材料排成弧形、让各块互相挤压而不靠整根梁承重的结构；渡槽水道是把水源的水沿带坡度的砖石渠道、必要时架在多层拱上送入城市的系统。",
+        "mechanism": "改变了什么：城市可以突破本地水井和河流的限制，供应公共浴场、喷泉和作坊；桥梁和大型建筑的跨度变大；城市因为供水而能容纳更多人口，同时也出现按用水收费、专人维护水道的制度。",
+        "conditions": "前置技术与资源：能开采和切割石料的采石场、石灰类胶结材料或精确切石、测量坡度的能力、大量劳力和资金（见 reality_phys_measurement_precision、reality_phys_drinking_water_sanitation）。最低档位 tech:classical。",
+        "exceptions": "常见风险：水源被污染或被敌军截断，水垢堵塞渠道，地震与洪水损坏拱基；水管若用铅，长期饮用有健康风险；水道维护费用高，管理松弛会被私接偷水。",
+        "story_uses": "剧情钩子：切断水道的围城、负责巡渠的小官发现水源被投毒、权贵私接水管、新水道的路线引发土地纠纷、年久失修的废弃渡槽里的藏身者。",
+        "historical_scope": "据百度百科：拱的结构起源可追溯到前 4000 年的两河流域；罗马水道始建于前 6 世纪，公元 1 世纪罗马城已有 11 条干渠，塞戈维亚水道桥建于公元 1 世纪。中国西汉中期已有砖券顶涵洞。世界可自行调整。",
+        "evidence_and_uncertainty": "已核对（百度百科「拱券」「罗马水道」，2026-11-04 读取）：拱的类型与起源、水道结构、水源、配水与征税、塞戈维亚水道桥数据；设计归纳：城市与社会影响、风险；未核对：具体坡度数值与铅管毒性的程度。"
+      },
+      "source_ids": [
+        "ws_era_src_setting",
+        "ws_era_src_arch",
+        "ws_era_src_aqueduct"
+      ],
+      "related_ids": [
+        "materials_cement",
+        "reality_phys_drinking_water_sanitation",
+        "tools_irrigation_canal",
+        "reality_human_irrigation_water_rights",
+        "tech_roman_road",
+        "tech_gothic_architecture"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "tech_oared_sailing_ship",
+      "name": "帆桨船",
+      "aliases": [
+        "galley",
+        "桨帆船",
+        "战船"
+      ],
+      "tags": [
+        "tech:classical",
+        "role:naval_power",
+        "trait:crew_intensive",
+        "genre:western_fantasy",
+        "genre:historical"
+      ],
+      "genres": [
+        "western_fantasy",
+        "historical"
+      ],
+      "category": "item",
+      "summary": "以大量人力划桨为主、风帆为辅的狭长船只：它让地中海沿岸的城邦在无风时也能机动，是古典时代海战和沿岸贸易的主力。",
+      "details": {
+        "definition": "帆桨船船体细长、吃水浅，成排的桨手提供主要动力，风帆在顺风时节省人力；战船船首装有撞角，也可搭载弩炮和登船士兵。",
+        "mechanism": "改变了什么：海战成为用桨手冲撞、登船接舷的作战；沿岸城邦可以组织舰队控制海峡与商路；征召或雇佣桨手的需求影响城邦的人口和阶层结构。",
+        "conditions": "前置技术与资源：造船木材和船匠、桨手和训练、港口和补给点、撞角所需的青铜或铁件。最低档位 tech:classical。越档提示：远洋三桅帆船属于文艺复兴档，见 tech_ocean_sailing_navigation。",
+        "exceptions": "常见风险：风暴中易倾覆，不适合远洋；桨手需要大量食物和饮水，补给范围受限；船体木材会腐朽；海战中火攻和撞击都有极高的损失。",
+        "story_uses": "剧情钩子：桨手奴隶的起义、舰队因粮食或风暴不能出港、港口城邦因为桨手工资引发的罢工、一艘装有秘密武器的战船、海盗与舰队争夺海峡。",
+        "historical_scope": "据百度百科「桨帆船」：起源于前 2000 年之前的地中海，前 6 世纪希腊桨帆船已有撞角，一直使用到 18 世纪末。东方同类船型（如隋代五牙船）在页面中被提及。世界可自行调整。",
+        "evidence_and_uncertainty": "已核对（百度百科「桨帆船」，2026-11-04 读取）：起源与使用时段、撞角、萨拉米斯海战、拜占庭德龙猛船与希腊火、隋代五牙船、16 世纪奴隶桨手、17 世纪被三桅帆船取代；设计归纳：社会影响与风险；未核对：具体桨手人数与船速。"
+      },
+      "source_ids": [
+        "ws_era_src_setting",
+        "ws_era_src_oared"
+      ],
+      "related_ids": [
+        "reality_phys_communication_distance",
+        "reality_phys_river_flood",
+        "tech_ocean_sailing_navigation",
+        "tech_crossbow"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "tech_bronze_casting",
+      "name": "青铜铸造",
+      "aliases": [
+        "bronze casting",
+        "铜锡合金",
+        "失蜡与范铸"
+      ],
+      "tags": [
+        "tech:classical",
+        "role:material",
+        "trait:alloy",
+        "genre:western_fantasy",
+        "genre:eastern_fantasy",
+        "genre:historical"
+      ],
+      "genres": [
+        "western_fantasy",
+        "eastern_fantasy",
+        "historical"
+      ],
+      "category": "economy",
+      "summary": "把铜与锡（有时加铅）熔成合金，再浇进模具成形的金属加工技术：它是礼器、兵器和工具在铁器普及前的主要金属来源。",
+      "details": {
+        "definition": "青铜铸造是把铜与锡按配比熔化，倒入泥范、块范等模具冷却成器的工艺；成品比纯铜硬，熔点较低，能铸出复杂形状，坏器可以重新熔铸。",
+        "mechanism": "改变了什么：政治上，掌握铜锡矿和铸造工场的人能控制礼器与兵器的生产；贸易上，铜和锡产地往往相隔很远，催生长途金属贸易；宗教和礼制上，青铜器成为身份和祭祀的载体。",
+        "conditions": "前置技术与资源：铜矿和锡矿（两者常不在同一地）、熔炉与鼓风、制范匠与铸造匠、燃料。最低档位 tech:classical。",
+        "exceptions": "常见风险：配比不当造成器物脆裂或气孔，锡源被切断会让青铜供应中断；铸造需要大量熟练劳动，技术被少数世袭匠户垄断；青铜会生铜绿，需要保养。",
+        "story_uses": "剧情钩子：锡矿被敌国控制导致兵器短缺、铸造世家的秘传配方、重铸前朝礼器是否算亵渎、一件有铭文的鼎被盗、铁器出现后旧匠户失势。",
+        "historical_scope": "据百度百科「青铜器」：最早约 7000 年前见于塞尔维亚；中国系统性生产始于二里头文化，商晚期至西周早期最盛，春秋战国铁器普及后减少。世界可自行调整。",
+        "evidence_and_uncertainty": "已核对（百度百科「青铜器」，2026-11-04 读取）：定义、起源、中国时期划分、泥范块范与三元配比、三星堆分铸；设计归纳：贸易与社会影响、风险；未核对：具体配比数值与产量。"
+      },
+      "source_ids": [
+        "ws_era_src_setting",
+        "ws_era_src_bronze"
+      ],
+      "related_ids": [
+        "materials_bronze",
+        "tools_forge_anvil",
+        "reality_phys_metal_supply",
+        "shop_blacksmith",
+        "tech_iron_smelting"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "tech_crossbow",
+      "name": "弩",
+      "aliases": [
+        "crossbow",
+        "弩机",
+        "床弩"
+      ],
+      "tags": [
+        "tech:classical",
+        "role:infantry_arm",
+        "trait:mechanical",
+        "genre:eastern_fantasy",
+        "genre:historical"
+      ],
+      "genres": [
+        "eastern_fantasy",
+        "historical"
+      ],
+      "category": "item",
+      "summary": "用机械扳机预先锁定弓弦的远程武器：拉弦与瞄准分开，让训练不多的士兵也能射出强力箭矢。",
+      "details": {
+        "definition": "弩由弓、弩臂和弩机三部分组成，弓弦被拉到位后卡在机括里，扣动扳机即发射；比弓更易瞄准，也更省训练时间，但装填速度较慢。",
+        "mechanism": "改变了什么：战争上，步兵可以对抗骑兵并守城，大规模齐射的阵法出现；制度上，国家开始管制弩机的制造和流通，弩机需要标准化制造；工艺上，青铜或铁制弩机推动精密铸造。",
+        "conditions": "前置技术与资源：弓材（竹木牛角筋）、青铜或铁铸的弩机、训练过的弩手、箭矢的批量供应。最低档位 tech:classical。越档提示：火器类的枪炮不属于本条。",
+        "exceptions": "常见风险：弩机零件磨损或精度不足会失灵；装填慢，被骑兵近身后无力；弦受潮易松；私造弩机往往是重罪，关乎政治猜忌。",
+        "story_uses": "剧情钩子：军器监的弩机丢失、边关弩手被抽调后空虚、私造弩机的案件、一把传说中的连弩、守城战里床弩射杀大将。",
+        "historical_scope": "据百度百科「弩」：考古验证不晚于商周出现，春秋常见，战国广泛用于军事，西汉对匈奴时发展，东汉有腰引弩，三国有诸葛亮元戎弩。世界可自行调整。",
+        "evidence_and_uncertainty": "已核对（百度百科「弩」，2026-11-04 读取）：结构、出现时代、各时期发展；设计归纳：制度与战术影响、风险与钩子；页面称强弩射程可达 600 米、床弩可达千米，属页面说法，本条不引为定值。"
+      },
+      "source_ids": [
+        "ws_era_src_setting",
+        "ws_era_src_crossbow"
+      ],
+      "related_ids": [
+        "shop_armorer",
+        "reality_phys_material_strength",
+        "tech_stirrup",
+        "tech_matchlock_arquebus"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "tech_roman_road",
+      "name": "罗马大道与铺石道路",
+      "aliases": [
+        "Roman road",
+        "铺石大道",
+        "驿道"
+      ],
+      "tags": [
+        "tech:classical",
+        "role:infrastructure",
+        "trait:state_project",
+        "genre:western_fantasy",
+        "genre:historical"
+      ],
+      "genres": [
+        "western_fantasy",
+        "historical"
+      ],
+      "category": "item",
+      "summary": "用石头分层铺成、路面呈弧形并带排水沟的长距离道路网：它让军队和政令在雨天也能稳定通行。",
+      "details": {
+        "definition": "罗马大道是以测量定线、分层铺砌、路面隆起、两侧排水的干道，沿线有人行道和路标；与土路相比，它受季节和雨水的影响小得多。",
+        "mechanism": "改变了什么：军队可以快速调动，邮驿与税收更易运转（见 society_postal_relay）；沿线形成旅店、集市和城镇，商人与朝圣者能走得更远；帝国对边疆的控制力因此提高。",
+        "conditions": "前置技术与资源：精确的测量与定线（见 reality_phys_measurement_precision）、采石和运石的劳力、国家级的资金和长期维护、驻军保护沿线。最低档位 tech:classical。",
+        "exceptions": "常见风险：维护中断后路面崩坏；道路同样便于敌军入侵；沿线出现盗匪与关卡勒索；施工征调劳力与土地引发怨恨。",
+        "story_uses": "剧情钩子：废弃大道上的路碑暗藏路线图、沿线驿站的老板见证了一桩谋杀、军团改线引发的土地争议、关卡税吏勒索商队。",
+        "historical_scope": "据百度百科「罗马大道」：始于前 500 年，亚壁古道前 312 年建成，鼎盛时 29 条大型军事公路辐射，页面称总长超 12 万公里、约 8.5 万公里铺石。中国秦汉驰道、驿道可作同类参考，但本条未读到相关页面。世界可自行调整。",
+        "evidence_and_uncertainty": "已核对（百度百科「罗马大道」，2026-11-04 读取）：开始年代、亚壁古道、结构（弧形路面、人行道、排水沟）、网络规模；设计归纳：社会与军事影响；页面里的里程数字为页面说法，本条不引为定值。"
+      },
+      "source_ids": [
+        "ws_era_src_setting",
+        "ws_era_src_roman_road"
+      ],
+      "related_ids": [
+        "reality_phys_road_transport",
+        "society_postal_relay",
+        "tools_cart",
+        "reality_phys_measurement_precision",
+        "tech_arch_aqueduct"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "tech_water_clock",
+      "name": "水钟与漏刻",
+      "aliases": [
+        "clepsydra",
+        "漏壶",
+        "刻漏"
+      ],
+      "tags": [
+        "tech:classical",
+        "role:timekeeping",
+        "trait:water_driven",
+        "genre:western_fantasy",
+        "genre:eastern_fantasy",
+        "genre:historical"
+      ],
+      "genres": [
+        "western_fantasy",
+        "eastern_fantasy",
+        "historical"
+      ],
+      "category": "item",
+      "summary": "靠水从容器流出（或流入）的量来衡量时间的计时装置：它让夜间和阴天也能报时，是机械钟出现之前的主要计时手段。",
+      "details": {
+        "definition": "水钟分泄水型与受水型两种：前者看容器里水位下降，后者看水流入另一容器后浮子带动刻度上升；后来加上浮子和漏箭，读数更直观。",
+        "mechanism": "改变了什么：朝廷、神庙和法庭可以规定统一的值班和祭祀时辰；军队换岗和夜间守卫有了依据；天文观测和历法工作更易记录时刻。",
+        "conditions": "前置技术与资源：陶器或青铜容器、稳定的水位控制、专人看管、天文观测校对（见 reality_human_calendar_lunisolar_types）。最低档位 tech:classical。越档提示：砝码驱动的机械钟属于更晚时期，见 tech_mechanical_clock。",
+        "exceptions": "常见风险：水温和水压变化造成误差，冬季结冰停摆，漏孔堵塞，值班官员疏忽会影响军务；误差累积需要不断对钟。",
+        "story_uses": "剧情钩子：被人为拨快或拨慢的漏壶造成冤案、夜守官员因漏壶结冰误了时辰、神庙垄断计时权、发明家想用齿轮改进水钟。",
+        "historical_scope": "据百度百科「水钟」：起源于埃及，最早约前 1500 年；约公元 85 年起带浮子漏箭的受水型漏壶流行；中国称刻漏、漏壶。世界可自行调整。",
+        "evidence_and_uncertainty": "已核对（百度百科「水钟」，2026-11-04 读取）：别名、类型、起源与浮子漏箭流行年代；设计归纳：社会影响与风险；未取得：「漏刻」词条正文（摘要为空），中国古代的具体漏刻制度未核对。"
+      },
+      "source_ids": [
+        "ws_era_src_setting",
+        "ws_era_src_clepsydra"
+      ],
+      "related_ids": [
+        "reality_human_calendar_lunisolar_types",
+        "tech_mechanical_clock",
+        "steam_standard_time"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "tech_papermaking",
+      "name": "造纸术",
+      "aliases": [
+        "papermaking",
+        "蔡伦纸",
+        "植物纤维纸"
+      ],
+      "tags": [
+        "tech:classical",
+        "role:writing_medium",
+        "trait:fibre_processing",
+        "genre:eastern_fantasy",
+        "genre:historical"
+      ],
+      "genres": [
+        "eastern_fantasy",
+        "historical"
+      ],
+      "category": "economy",
+      "summary": "把树皮、麻头、破布等植物纤维捣碎成浆、在帘上抄成薄片并烘干的工艺：它让书写材料变得便宜，文书行政和书籍抄写的规模随之扩大。",
+      "details": {
+        "definition": "造纸是把植物纤维经锉、煮、捣后加水成浆，用竹帘捞起一层，再压干烘干成纸；与莎草纸、羊皮纸不同，原料来自废布和植物，可大量获取。",
+        "mechanism": "改变了什么：官府文书、账册和书信的成本降低，抄书业与学堂扩张；信息传播更远，识字门槛下降（见 reality_human_literacy_scribal_training、reality_human_document_archive_record）；印刷术有了合适的承印物。",
+        "conditions": "前置技术与资源：纤维原料（麻、树皮、竹、破布）、水源与捣料设备、烘干场地、熟练工匠。最低档位 tech:classical。",
+        "exceptions": "常见风险：水源污染与原料争夺，纸张受潮虫蛀；文书增多也使伪造和公文繁冗更常见；造纸作坊的配方常被保密。",
+        "story_uses": "剧情钩子：被迫外传的造纸技术、造纸作坊的行会冲突、一批伪造的官纸、古纸上被擦去的字、战俘工匠把技术带出国门。",
+        "historical_scope": "据百度百科「造纸术」：起源于西汉，灞桥麻纸属前 2 世纪；东汉元兴元年（105 年）蔡伦改进；魏晋成为主要书写材料，隋唐有竹纸，12 世纪后欧洲陆续建纸厂。世界可自行调整。",
+        "evidence_and_uncertainty": "已核对（百度百科「造纸术」，2026-11-04 读取）：起源、蔡伦改进、五步工艺、传播、欧洲建厂时间、对西汉古纸是否为纸的争议；设计归纳：社会影响；未核对：产量与价格。"
+      },
+      "source_ids": [
+        "ws_era_src_setting",
+        "ws_era_src_paper"
+      ],
+      "related_ids": [
+        "craft_supp_paper",
+        "craft_supp_parchment",
+        "craft_supp_ink",
+        "reality_human_literacy_scribal_training",
+        "reality_human_document_archive_record",
+        "tech_woodblock_printing"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "tech_stirrup",
+      "name": "马镫",
+      "aliases": [
+        "stirrup",
+        "双镫",
+        "骑兵马具"
+      ],
+      "tags": [
+        "tech:classical",
+        "role:cavalry_gear",
+        "trait:simple_device",
+        "genre:eastern_fantasy",
+        "genre:historical"
+      ],
+      "genres": [
+        "eastern_fantasy",
+        "historical"
+      ],
+      "category": "item",
+      "summary": "挂在马鞍两侧、供骑手踩脚的踏环：它让骑手在马上更稳，能双手使用长兵器，重装骑兵由此成为可能。",
+      "details": {
+        "definition": "马镫是鞍上悬挂的脚踏；早期只有单侧，用来上马；双镫出现后骑手可以借脚的支撑稳坐、发力，便于挥砍与冲击。",
+        "mechanism": "改变了什么：战争上，骑兵的冲击力和持续作战能力提升，养马、驯马和草原部族的地位变得更重要；社会上，供养重骑兵的贵族与军户制度随之调整。",
+        "conditions": "前置技术与资源：马匹和马鞍、铁或木包铜的镫、训练骑兵的场地与草料。最低档位 tech:classical。",
+        "exceptions": "常见风险：马镫不会自动让骑手变强，仍需长期训练；战马的饲养成本高；骑手落马时脚被镫挂住有危险；步兵配合弩阵可以克制骑兵。",
+        "story_uses": "剧情钩子：边境互市禁止出售铁镫、骑兵训练营的世袭军户、草原部族学会新马具后实力骤变、一对出自古墓的镫。",
+        "historical_scope": "据百度百科「马镫」：东汉墓有铁制单镫（2 世纪），271 年东吴丁奉墓陶俑、302 年西晋长沙单镫，322 年东晋南京陶马俑出现双镫，415 年北燕冯素弗墓的木芯包铜双镫是现存最早实物。世界可自行调整。",
+        "evidence_and_uncertainty": "已核对（百度百科「马镫」，2026-11-04 读取）：各时期的实物与陶俑年份；设计归纳：战术与社会影响；本条不断言马镫对欧洲封建制的作用，这部分未读到相关来源。"
+      },
+      "source_ids": [
+        "ws_era_src_setting",
+        "ws_era_src_stirrup"
+      ],
+      "related_ids": [
+        "shop_stable",
+        "tech_crossbow",
+        "tech_plate_armour_castle"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "tech_porcelain",
+      "name": "瓷器",
+      "aliases": [
+        "porcelain",
+        "青瓷",
+        "高岭土瓷"
+      ],
+      "tags": [
+        "tech:classical",
+        "role:trade_good",
+        "trait:high_temperature_kiln",
+        "genre:eastern_fantasy",
+        "genre:historical"
+      ],
+      "genres": [
+        "eastern_fantasy",
+        "historical"
+      ],
+      "category": "item",
+      "summary": "以瓷石或高岭土成坯、施釉后在高温窑中烧成的硬质陶瓷：它质地致密、不吸水，成为日用器皿和远洋贸易的重要商品。",
+      "details": {
+        "definition": "瓷器是用瓷石、高岭土等原料制坯，施釉后在约 1280—1400 摄氏度的窑里烧成的器物，胎体致密，敲击声清脆。",
+        "mechanism": "改变了什么：日用器皿更卫生、易清洗；窑业成为地方产业，窑场聚集形成城镇；瓷器沿陆路与海路出口，换回白银与香料，影响远方的消费习惯。",
+        "conditions": "前置技术与资源：优质的原料矿（瓷石、高岭土）、能达到高温的窑炉、大量燃料和熟练的拉坯与釉工（见 materials_ceramic）。最低档位 tech:classical（东汉创烧）。",
+        "exceptions": "常见风险：窑温失控造成成批废品，燃料用尽使窑场迁移，釉料有毒金属的使用风险；出口依赖商路，海难与战乱会损失货物；官窑与民窑的工艺保密。",
+        "story_uses": "剧情钩子：官窑的秘方被窑工带走、一批贡瓷被调包、商船满载瓷器沉没、窑火三年不熄的村子、仿品充当古瓷的骗局。",
+        "historical_scope": "据百度百科「瓷器」：严格科学意义上的瓷器开始于东汉，东汉中晚期创烧成功；二里头有原始青瓷；宋代达到高峰，有五大名窑；通过海上丝绸之路出口。世界可自行调整。",
+        "evidence_and_uncertainty": "已核对（百度百科「瓷器」，2026-11-04 读取）：烧成温度、创烧时代、宋代高峰、出口；设计归纳：产业与社会影响；未核对：具体窑口的年代细节与欧洲仿制史。"
+      },
+      "source_ids": [
+        "ws_era_src_setting",
+        "ws_era_src_porcelain"
+      ],
+      "related_ids": [
+        "materials_ceramic",
+        "reality_human_technical_diffusion",
+        "shop_blacksmith"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "tech_heavy_plough_three_field",
+      "name": "重犁与三圃制",
+      "aliases": [
+        "heavy plough",
+        "three-field system",
+        "轮耕制"
+      ],
+      "tags": [
+        "tech:medieval",
+        "role:agriculture",
+        "trait:communal_labour",
+        "genre:western_fantasy",
+        "genre:historical"
+      ],
+      "genres": [
+        "western_fantasy",
+        "historical"
+      ],
+      "category": "economy",
+      "summary": "带犁刀、犁铧和犁壁的重犁，加上把耕地分成三份轮流休耕的三圃制：两者合起来让北欧湿重土壤变成可耕地，也塑造了庄园的共耕生活。",
+      "details": {
+        "definition": "重犁能切开并翻起湿重土壤，形成垄沟利于排水；三圃制把土地分为秋播、春播和休闲三部分，每年轮换，休闲地比例从二圃制的一半降到三分之一。",
+        "mechanism": "改变了什么：产量和可耕地面积增加；牵引重犁需要多头牛或马，农民要共享牲口和农具，强化了村社合作和庄园秩序；开垦扩大，铁制农具需求也随之增长。",
+        "conditions": "前置技术与资源：铁制犁铧（见 tech_iron_smelting）、数头牲畜、愿意共用耕畜的村社、可以轮作的豆类与谷物（见 reality_phys_crop_rotation）。最低档位 tech:medieval。",
+        "exceptions": "常见风险：牲畜病死会让整村无法耕作；三圃的轮换需要领主和村民遵守，若被强行改种会减产；一遇灾年，休耕地的缩小意味着缓冲更少。",
+        "story_uses": "剧情钩子：一头公用耕牛被偷、领主强占休闲地、村社对谁先犁地的争吵、外来工匠带来改良犁、被开垦的荒林里的旧居民。",
+        "historical_scope": "据百度百科：重犁 9 世纪起在中世纪欧洲使用，发明者不明；二圃制盛行于 9 世纪前，三圃制自 8 世纪起在中西欧平原逐渐普及。世界可自行调整。",
+        "evidence_and_uncertainty": "已核对（百度百科「重犁」「三圃制」，2026-11-04 读取）：部件、牵引需求、轮作作物、休闲比例、年代；设计归纳：社会影响与风险；未核对：产量提升的具体数值。"
+      },
+      "source_ids": [
+        "ws_era_src_setting",
+        "ws_era_src_plough",
+        "ws_era_src_plough2"
+      ],
+      "related_ids": [
+        "tools_moldboard_plough",
+        "tools_ard_plough",
+        "reality_phys_crop_rotation",
+        "shop_stable",
+        "tech_water_wind_mill"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "tech_water_wind_mill",
+      "name": "水磨与风车",
+      "aliases": [
+        "watermill and windmill",
+        "水轮磨坊",
+        "风力磨坊"
+      ],
+      "tags": [
+        "tech:medieval",
+        "role:prime_mover",
+        "trait:natural_power",
+        "genre:western_fantasy",
+        "genre:eastern_fantasy",
+        "genre:historical"
+      ],
+      "genres": [
+        "western_fantasy",
+        "eastern_fantasy",
+        "historical"
+      ],
+      "category": "power",
+      "summary": "利用水流或风力转动轮轴、带动磨盘与其他机械的动力技术：它让碾磨、锯木、捣纸等重活不再完全靠人力和畜力。",
+      "details": {
+        "definition": "水磨由水轮、转轴和上下磨盘组成，有平轮磨、立轮磨和船磨；风车则让带翼的帆篷对着风转动，也能带动磨盘或提水设备。荷兰风车的顶篷可转，用来碾磨、锯木、造纸和围海造陆。",
+        "mechanism": "改变了什么：粮食加工能力大增，磨坊主成为村镇里有权势的人；作坊选址靠水边，工业的最早形态出现；排水造田使低地变成农田。",
+        "conditions": "前置技术与资源：稳定的水流或风向、木匠与铁匠、齿轮与轴承、对磨坊权的法律安排（见 shop_miller、tools_watermill、tools_windmill、reality_phys_energy_budget）。最低档位 tech:medieval。",
+        "exceptions": "常见风险：河流枯水或冻结时停磨，风向无常；磨坊主垄断磨粮收取过高费用；磨坊木结构易起火或被洪水毁坏；水权争端常见。",
+        "story_uses": "剧情钩子：磨坊主多收磨费、上游筑坝夺水引发村落争斗、夜里无人的磨坊里传来声响、风车与低地排水的维护、磨坊作为秘密集会处。",
+        "historical_scope": "据百度百科：水磨在中国页面称起源晋代，南北朝广泛使用，北宋普及民间；水车页面讲的是中国的提水龙骨车；荷兰风车 18 世纪末约有 1.2 万座。西欧水磨的起源时间和风车的起源本条未核对。世界可自行调整。",
+        "evidence_and_uncertainty": "已核对（百度百科「水磨」「水车」「荷兰风车」，2026-11-04 读取）：构成、类型、中国起源说法、荷兰风车用途与数量；设计归纳：社会影响与风险；未取得：「风车」词条（读到的是电视剧义项）、Wikipedia Windmill 为 search_only，风车在欧洲的最早年代未核对。"
+      },
+      "source_ids": [
+        "ws_era_src_setting",
+        "ws_era_src_watermill",
+        "ws_era_src_mill",
+        "ws_era_src_windmill2",
+        "ws_era_src_windmill"
+      ],
+      "related_ids": [
+        "tools_watermill",
+        "tools_windmill",
+        "shop_miller",
+        "reality_phys_energy_budget",
+        "tech_heavy_plough_three_field"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "tech_plate_armour_castle",
+      "name": "板甲与城堡筑城",
+      "aliases": [
+        "plate armour",
+        "castle",
+        "全身甲",
+        "石砌城堡"
+      ],
+      "tags": [
+        "tech:medieval",
+        "role:defence",
+        "trait:heavy_capital",
+        "genre:western_fantasy",
+        "genre:historical"
+      ],
+      "genres": [
+        "western_fantasy",
+        "historical"
+      ],
+      "category": "item",
+      "summary": "整块锻造钢板组成的护甲，加上用石墙塔楼据守的城堡：它们是中世纪晚期欧洲骑士与封建领主的防护标志。",
+      "details": {
+        "definition": "板甲是用整块锻造钢板拼成的护甲，区别于锁甲，后期可覆盖全身；城堡是兼作居所和军事据点的设防建筑，靠高墙、塔楼和壕沟抵御进攻。",
+        "mechanism": "改变了什么：贵族骑士可以在战场上有更高的存活率，战争费用也因此变高；城堡把地方统治与防御合为一体，领主靠它控制周边土地；攻城战依赖围困、坑道和后来的火炮。",
+        "conditions": "前置技术与资源：高质量钢材和水力锻锤（见 materials_steel、shop_armorer）、熟练的甲匠、石料和石匠、封地收入以养城。最低档位 tech:medieval。越档提示：棱堡与对抗火炮的城防属于文艺复兴档。",
+        "exceptions": "常见风险：板甲昂贵且需维护，重量过大使人疲惫；火器普及后防护价值下降；城堡维护费用高，围城中会遇到断粮和疫病；城堡守将的忠诚是长期问题。",
+        "story_uses": "剧情钩子：甲匠为一位领主打造不合身的甲、围城中水井被投毒、城堡地牢里的囚徒、领主死后继承人争夺城堡、旧堡改建引发的资金困难。",
+        "historical_scope": "据百度百科「板甲」：14 世纪初起源于西欧，15 世纪发展出全身甲；16 世纪火绳枪普及后简化为胸甲，17 世纪燧发枪后退出主流。城堡的年代细节未读到。世界可自行调整。",
+        "evidence_and_uncertainty": "已核对（百度百科「板甲」，2026-11-04 读取）：定义、年代、类型与退场过程；设计归纳：城堡的社会作用与风险；未取得：城堡正文（读到的是歌曲和图书义项与两个短页），城堡部分仅附 Wikipedia Castle 为 search_only，只确认主题。"
+      },
+      "source_ids": [
+        "ws_era_src_setting",
+        "ws_era_src_armour",
+        "ws_era_src_castle"
+      ],
+      "related_ids": [
+        "shop_armorer",
+        "materials_steel",
+        "tech_bastion_fortress",
+        "tech_matchlock_arquebus",
+        "tech_stirrup"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "tech_woodblock_printing",
+      "name": "雕版印刷",
+      "aliases": [
+        "woodblock printing",
+        "木版印刷",
+        "刻书"
+      ],
+      "tags": [
+        "tech:medieval",
+        "role:publishing",
+        "trait:carved_plate",
+        "genre:eastern_fantasy",
+        "genre:historical"
+      ],
+      "genres": [
+        "eastern_fantasy",
+        "historical"
+      ],
+      "category": "item",
+      "summary": "把图文反刻在整块木板上、涂墨后覆纸刷印的印刷法：它让经书、历书和年画等可以成批复制，但每块版只能印一种内容。",
+      "details": {
+        "definition": "雕版印刷先把书稿写在薄纸上，反贴到木板上刻出凸起的字，再刷墨、盖纸、拓印；版料常用梓木、梨木或枣木，刻好的版可以重复印刷。",
+        "mechanism": "改变了什么：佛经、历书、医书和科举用书能大批流通（见 reality_human_printing_reproduction）；刻书坊成为行业；知识不再只靠抄手，书价降低，识字人群扩大。",
+        "conditions": "前置技术与资源：纸（见 tech_papermaking）、墨、质地细密的木料、刻工与印工、保存雕版的仓库。最低档位 tech:medieval（世界设定里该档含早期雕版）。",
+        "exceptions": "常见风险：雕版容易开裂、虫蛀或遭火灾；每改一字要重刻一块；政府审查雕版内容，禁书的版会被销毁；盗版与翻刻出现。",
+        "story_uses": "剧情钩子：书坊被查封、雕版匠人私刻禁书、一部书的原版已经烧毁但有人偷藏了旧版、科举用书的泄题、书商之间的盗版斗争。",
+        "historical_scope": "据百度百科「雕版印刷术」：发明于唐朝，中后期普遍使用；盛唐已有但质量较低；由印章与拓石碑演进到雕版，再到活字。世界可自行调整。",
+        "evidence_and_uncertainty": "已核对（百度百科「雕版印刷术」，2026-11-04 读取）：版料、演变路径、年代范围；设计归纳：行业与社会影响、风险；未核对：具体产量、成本。"
+      },
+      "source_ids": [
+        "ws_era_src_setting",
+        "ws_era_src_woodblock"
+      ],
+      "related_ids": [
+        "reality_human_printing_reproduction",
+        "craft_supp_paper",
+        "craft_supp_ink",
+        "tech_papermaking",
+        "tech_movable_type_clay"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "tech_magnetic_compass",
+      "name": "指南针",
+      "aliases": [
+        "magnetic compass",
+        "司南",
+        "罗盘"
+      ],
+      "tags": [
+        "tech:medieval",
+        "role:navigation",
+        "trait:magnetic",
+        "genre:eastern_fantasy",
+        "genre:historical"
+      ],
+      "genres": [
+        "eastern_fantasy",
+        "historical"
+      ],
+      "category": "item",
+      "summary": "用磁针指示南北的方向仪器：它让陆上定向、堪舆和航海在无星无日的天气里也有参照。",
+      "details": {
+        "definition": "指南针由磁石或磁化的针配合刻度盘组成，经历了司南、罗盘和磁针的演变；后期的旱罗盘和水罗盘能固定在船或箱上使用。",
+        "mechanism": "改变了什么：航海中能够在阴天和夜间保持航向，海上贸易线路更稳定；陆上用于测量、堪舆和矿井；磁偏角的发现促使人们修正方向读数。",
+        "conditions": "前置技术与资源：磁石或磁化铁针、刻度盘和支撑架、关于磁偏角的经验、航海人员的训练（见 reality_phys_communication_distance）。最低档位 tech:medieval。越档提示：用罗盘支撑的远洋航行属于文艺复兴档，见 tech_ocean_sailing_navigation。",
+        "exceptions": "常见风险：附近的铁器和磁石会扰乱磁针，磁偏角使读数不准；海上摇晃使指针难读；匠人若把罗盘当作神秘器物，会生出迷信。",
+        "story_uses": "剧情钩子：舱里藏着铁器使船偏离航线、罗盘师被船主秘密雇佣、一个磁偏角不同的区域带来的怪谈、风水师与航海家的争论。",
+        "historical_scope": "据百度百科「指南针」：北宋沈括《梦溪笔谈》记载人工磁化与磁偏角，北宋朱彧《萍洲可谈》记载航海应用，南宋朱济南墓出土旱罗盘俑；最早文献可追溯到战国。世界可自行调整。",
+        "evidence_and_uncertainty": "已核对（百度百科「指南针」，2026-11-04 读取）：演变、沈括与朱彧记载、旱罗盘俑；设计归纳：航海与陆上用途、风险；未核对：欧洲与阿拉伯的接触与传播年代。"
+      },
+      "source_ids": [
+        "ws_era_src_setting",
+        "ws_era_src_compass"
+      ],
+      "related_ids": [
+        "reality_phys_communication_distance",
+        "tech_ocean_sailing_navigation",
+        "tech_mercator_chart"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "tech_gothic_architecture",
+      "name": "哥特式建筑",
+      "aliases": [
+        "Gothic architecture",
+        "尖拱与飞扶壁",
+        "大教堂"
+      ],
+      "tags": [
+        "tech:medieval",
+        "role:architecture",
+        "trait:masonry",
+        "genre:western_fantasy",
+        "genre:historical"
+      ],
+      "genres": [
+        "western_fantasy",
+        "historical"
+      ],
+      "category": "item",
+      "summary": "以尖拱、肋架拱顶和彩色玻璃窗为特征的石砌建筑风格：它把中世纪欧洲大教堂做得高耸明亮，也是城市财富与信仰的象征。",
+      "details": {
+        "definition": "哥特式建筑在罗曼式基础上发展，12 世纪发源于法国，使用尖拱、肋架拱顶、外部扶壁来分担侧推力，墙面可以开大窗装彩色玻璃。",
+        "mechanism": "改变了什么：教堂可以更高更亮，成为城市中心；建造周期长，需要石匠、玻璃匠、雕刻匠等行会协作，催生大型工地和学徒制度；城市与教会争夺空间和资金。",
+        "conditions": "前置技术与资源：拱券与切石技术（见 tech_arch_aqueduct）、石灰砂浆、彩色玻璃（见 materials_glass）、数十年的资金与行会工匠。最低档位 tech:medieval。",
+        "exceptions": "常见风险：结构计算靠经验，塌顶和裂缝时有发生；建造时间跨越几代人，设计易改；资金不足会让工地停工；火灾和战争会毁坏木构屋顶和玻璃。",
+        "story_uses": "剧情钩子：大教堂工地上的行会争执、总工匠的图纸被盗、塌方后的追责、窗玻璃里隐藏的符号、百年工程的继承人。",
+        "historical_scope": "据百度百科「哥特式建筑」：12 世纪发源于法国，持续到 16 世纪，代表有科隆大教堂、米兰大教堂、威斯敏斯特教堂。世界可自行调整。",
+        "evidence_and_uncertainty": "已核对（百度百科「哥特式建筑」，2026-11-04 读取）：风格定位、年代、特征与代表建筑；设计归纳：行会与社会影响；未核对：飞扶壁等结构原理与各教堂的具体工期。"
+      },
+      "source_ids": [
+        "ws_era_src_setting",
+        "ws_era_src_gothic",
+        "ws_era_src_arch"
+      ],
+      "related_ids": [
+        "materials_glass",
+        "reality_phys_material_strength",
+        "tech_arch_aqueduct"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "tech_movable_type_clay",
+      "name": "泥活字印刷",
+      "aliases": [
+        "clay movable type",
+        "毕昇活字",
+        "活字排版"
+      ],
+      "tags": [
+        "tech:medieval",
+        "role:publishing",
+        "trait:reusable_type",
+        "genre:eastern_fantasy",
+        "genre:historical"
+      ],
+      "genres": [
+        "eastern_fantasy",
+        "historical"
+      ],
+      "category": "item",
+      "summary": "把每个字单独做成小块，按需要排成版面印刷后再拆开重用的印刷法：北宋毕昇首创泥活字，适合需要少量多种内容的印刷。",
+      "details": {
+        "definition": "泥活字印刷是用胶泥刻字烧硬，拼在铁板上，涂松脂等固定后刷印，印完加热取下字块，下次重新排版；后来有木、铜、瓷等材料的活字。",
+        "mechanism": "改变了什么：同一批字模可重复使用，适合内容变化多的文书；对汉字这样字数极多的文字，活字存储和检字是主要难点，因此其推广受制约，雕版仍长期并存。",
+        "conditions": "前置技术与资源：胶泥烧造、字模保管与检字系统、纸与墨、排版匠人（见 tech_woodblock_printing）。最低档位 tech:medieval。越档提示：金属活字加压印机的体系属于文艺复兴档，见 tech_printing_press。",
+        "exceptions": "常见风险：泥字易碎、字面不平；印刷中字块松动；汉字字量大使检字费时；成批印刷的需求不足时，保管字模不划算。",
+        "story_uses": "剧情钩子：被小心收藏的一套珍贵字模、匠人想用木字替代泥字却受行会阻拦、一部书因一块错排的字引发争论、书院想自办印坊。",
+        "historical_scope": "据百度百科「活字印刷术」：北宋庆历年间（1041—1048）毕昇首创泥活字；南宋周必大用泥活字印《玉堂杂记》，元代王祯有木活字与转轮排字架，清代铜活字印《古今图书集成》；13 世纪朝鲜有金属活字。世界可自行调整。",
+        "evidence_and_uncertainty": "已核对（百度百科「活字印刷术」，2026-11-04 读取）：首创年代与人物、工序、材质与后续发展；设计归纳：推广受限的原因与风险；未核对：具体印量与成本。"
+      },
+      "source_ids": [
+        "ws_era_src_setting",
+        "ws_era_src_movable"
+      ],
+      "related_ids": [
+        "reality_human_printing_reproduction",
+        "craft_supp_paper",
+        "craft_supp_ink",
+        "tech_woodblock_printing",
+        "tech_printing_press"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "tech_hospital_quarantine",
+      "name": "医院与隔离检疫",
+      "aliases": [
+        "hospital and quarantine",
+        "病坊",
+        "安济坊",
+        "隔离所"
+      ],
+      "tags": [
+        "tech:medieval",
+        "role:public_health",
+        "trait:charitable",
+        "genre:western_fantasy",
+        "genre:eastern_fantasy",
+        "genre:historical"
+      ],
+      "genres": [
+        "western_fantasy",
+        "eastern_fantasy",
+        "historical"
+      ],
+      "category": "institution",
+      "summary": "为病人提供住所和照护的固定机构，以及在疫病期间把病人或来源地人员隔开的制度：它把医疗从家中搬到公共场所，也把防疫变成一种政府行为。",
+      "details": {
+        "definition": "医院是集中收治病人的机构，早期多由宗教团体或官府设立；隔离检疫是把可能带病的人或货物暂时隔离、观察、处置，防止传染病扩散。",
+        "mechanism": "改变了什么：贫病者有了收容处；疫病期间可通过隔离控制传播；医学教学与观察有了固定场所；国家和教会通过救济机构获得威望（见 society_charitable_relief、society_healthcare_access）。",
+        "conditions": "前置技术与资源：固定的建筑和床位、有经验的医者或僧侣、经费来源（捐赠或官费）、基本的卫生与饮水条件（见 reality_phys_drinking_water_sanitation）、关于传染的观念（见 reality_phys_disease_transmission、reality_phys_outbreak_investigation）。最低档位 tech:medieval。",
+        "exceptions": "常见风险：拥挤的病坊可能成为传染源；隔离侵犯商业和个人自由，易引发抗议；官员贪污救济款；疫病时被隔离者被遗弃或暴力对待。",
+        "story_uses": "剧情钩子：病坊里神秘的死亡增加、隔离令引起商人抗拒、官员收受钱财放行染病货船、病坊的僧人和药师秘密试药、被当作瘟疫源头的少数群体。",
+        "historical_scope": "据百度百科「医院」：西汉元始二年（公元 2 年）设空宅医治似隔离医院，北魏 497 年洛阳设别坊，宋代有安济坊、养济院；欧洲最早医院组织见于 5 世纪初君士坦丁堡；元 1270 年有广惠司阿拉伯式医院。海港检疫的欧洲起源本条未读到来源。世界可自行调整。",
+        "evidence_and_uncertainty": "已核对（百度百科「医院」，2026-11-04 读取）：中西早期医院、各朝设置；设计归纳：公共卫生影响与风险、剧情钩子；未取得：「检疫」页面只有泛义定义（无历史细节），Wikipedia Quarantine 为 search_only，仅确认主题。"
+      },
+      "source_ids": [
+        "ws_era_src_setting",
+        "ws_era_src_hospital",
+        "ws_era_src_quarantine",
+        "ws_era_src_quarantine_w"
+      ],
+      "related_ids": [
+        "society_charitable_relief",
+        "society_healthcare_access",
+        "reality_phys_disease_transmission",
+        "reality_phys_outbreak_investigation",
+        "reality_phys_drinking_water_sanitation",
+        "shop_apothecary"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "tech_gunpowder",
+      "name": "火药",
+      "aliases": [
+        "gunpowder",
+        "黑火药",
+        "硝石硫磺木炭"
+      ],
+      "tags": [
+        "tech:medieval",
+        "role:explosive",
+        "trait:hazardous",
+        "genre:eastern_fantasy",
+        "genre:historical"
+      ],
+      "genres": [
+        "eastern_fantasy",
+        "historical"
+      ],
+      "category": "item",
+      "summary": "由硝石、硫磺和木炭配成、遇火迅速燃烧或爆燃的混合药剂：它先是药物与烟火的配方，后来成为火器、火炮和爆破的推进剂。本条讲配方本体，用它的武器见 tech_matchlock_arquebus 与 tech_cannon_hongyi。",
+      "details": {
+        "definition": "火药是把硝石、硫磺、木炭按一定比例混合并研细的药剂，点燃后快速燃烧并产生大量气体；在管内用作发射药，可把弹丸推出，在封闭容器中则可爆裂。",
+        "mechanism": "改变了什么：战争上，守城与攻城依赖火器和爆炸物，城墙和甲胄的价值下降；经济上，硝石、硫磺的来源与运输成为国家要管的物资；生活上，烟火和爆竹进入节庆。",
+        "conditions": "前置技术与资源：硝石来源（矿物或土中提炼）、硫磺、木炭、研磨与配比的经验，以及防潮防火的储存条件。最低档位 tech:medieval。越档提示：无烟火药与高爆炸药属于更晚的档位；火绳枪和大炮归文艺复兴档。",
+        "exceptions": "常见风险：配制和研磨时的爆燃，作坊和仓库爆炸，受潮失效，配比不当造成炸膛；火药原料被官府管制，私制火药是重罪。不要把早期火药写成能轻易炸毁城墙的万能炸药。",
+        "story_uses": "剧情钩子：炼丹士偶然配出的爆燃药方、被官府查封的硝石贩子、火药作坊的连环爆炸、守军库房里受潮的火药、禁止外传的配方、烟火匠人被征召造军火。",
+        "historical_scope": "百度百科「火药」页面摘要引《范子计然》「硝石出陇道」，称春秋时已有民间使用；军事上用作发射药与推进剂。成型的军用火药年代本条未读到来源，世界可自行调整；与炼丹的关联见 eastern_alchemy。",
+        "evidence_and_uncertainty": "已核对（百度百科「火药」，2026-11-04 读取，仅摘要级）：引文与军事用途；设计归纳：配方成分、战争与经济影响、风险与剧情钩子；未核对：成型年代、各配比与威力、炼丹起源说（页面视频标题提及唐代炼丹，不作支撑）。"
+      },
+      "source_ids": [
+        "ws_era_src_setting",
+        "ws_era_src_gunpowder"
+      ],
+      "related_ids": [
+        "tech_matchlock_arquebus",
+        "tech_cannon_hongyi",
+        "eastern_alchemy",
+        "shop_apothecary",
+        "reality_phys_combustion_fire",
+        "tech_plate_armour_castle"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "tech_matchlock_arquebus",
+      "name": "火绳枪",
+      "aliases": [
+        "matchlock",
+        "arquebus",
+        "鸟铳",
+        "鸟枪"
+      ],
+      "tags": [
+        "tech:renaissance",
+        "role:infantry_arm",
+        "trait:slow_match",
+        "genre:western_fantasy",
+        "genre:eastern_fantasy",
+        "genre:historical"
+      ],
+      "genres": [
+        "western_fantasy",
+        "eastern_fantasy",
+        "historical"
+      ],
+      "category": "item",
+      "summary": "用燃着的火绳点燃火药池、由单兵双手持握发射的长管火器：它让没有多年武艺训练的步兵也能在战场上打穿甲胄。",
+      "details": {
+        "definition": "火绳枪由枪管、火药池、枪机和枪托组成，扣动机括把燃着的火绳压进火药池点火，弹丸从枪管射出。装填一次要经过倒药、压弹、装火绳等多道工序，射速很慢。",
+        "mechanism": "改变了什么：战争上，经过短期训练的步兵可以对骑士和重甲步兵造成致命杀伤，板甲的价值下降；组织上，军队转向成排射击和火枪方阵；经济上，火药、铅、枪匠和硝石来源成为国家要掌握的物资。",
+        "conditions": "前置技术与资源：火药（见 tech_gunpowder）、能钻出较直枪管的锻铁与加工能力、火绳（浸过硝的绳）、铅弹或铁弹，以及一定规模的军工作坊。最低档位 tech:renaissance。越档提示：燧发枪与后膛枪属于更晚的档位（后膛枪见 tech_breech_loading_rifle）。",
+        "exceptions": "常见风险：雨天火绳熄灭或火药受潮、夜间火绳亮光暴露位置、炸膛伤人、装填缓慢使射手在近战中无力自保；火药粉尘与火绳也容易在营地引起火灾。",
+        "story_uses": "剧情钩子：缴获外来火器后仿造的军匠、旧式骑士阶层对火枪手的蔑视、枪匠行会垄断枪管工艺、火药作坊爆炸、雨夜里火绳熄灭的守军、被指为不祥之器的火铳。",
+        "historical_scope": "据百度百科「鸟铳」：明清称火绳枪为鸟铳；1523 年嘉靖二年西草湾海战缴获葡萄牙火绳枪后仿制，后经西班牙、日本再度传入；戚继光称其为「临阵第一倚赖」。欧洲的具体推广年份本条未读到来源。世界可自行调整。",
+        "evidence_and_uncertainty": "已核对（百度百科「鸟铳」，2026-11-04 读取）：结构、首次需双手持握、明代仿制来源与评价、《筹海图编》命中说法；设计归纳：战术与经济影响、风险、剧情钩子；未取得：欧洲火绳枪的出现年份与装填步骤的详细数据。"
+      },
+      "source_ids": [
+        "ws_era_src_setting",
+        "ws_era_src_matchlock"
+      ],
+      "related_ids": [
+        "tech_gunpowder",
+        "tech_plate_armour_castle",
+        "tech_breech_loading_rifle",
+        "tech_cannon_hongyi",
+        "shop_armorer",
+        "eastern_alchemy"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "tech_printing_press",
+      "name": "活字印刷机",
+      "aliases": [
+        "printing press",
+        "古腾堡印刷",
+        "金属活字压印"
+      ],
+      "tags": [
+        "tech:renaissance",
+        "role:information",
+        "trait:mass_copy",
+        "genre:western_fantasy",
+        "genre:historical"
+      ],
+      "genres": [
+        "western_fantasy",
+        "historical"
+      ],
+      "category": "item",
+      "summary": "把金属活字、油墨和压印机配成一套系统，成批印出同样书页的技术：它让书从抄写员的手工品变成可以大量复制的商品。",
+      "details": {
+        "definition": "活字印刷机是把铸好的金属活字按文稿排成版，涂墨后用压印机压在纸上，印完拆版再排下一页的工艺系统。字母文字字数少，更适合这种排版方式。",
+        "mechanism": "改变了什么：知识上，书籍价格下降，同一文本可以在不同城市同时流通；宗教与政治上，教会和官府难以完全控制印刷品；经济上，出现印刷工场、出版商和书商网络，抄书工匠的收入受到冲击。",
+        "conditions": "前置技术与资源：纸张（见 craft_supp_paper）、油墨（见 craft_supp_ink）、可铸造活字的金属与铸字匠、压印机（可借鉴榨汁机类机械）、识字的读者群体（见 reality_human_literacy_scribal_training）。最低档位 tech:renaissance。越档提示：雕版和泥活字属更早档位，见 tech_woodblock_printing 与 tech_movable_type_clay。",
+        "exceptions": "常见风险：印刷品加速谣言、攻击性小册子和盗版的传播；官方审查与出版许可制度随之出现；印刷工场投资大，容易破产（古腾堡本人的事业就以破产收场）。",
+        "story_uses": "剧情钩子：被查封的秘密印坊、盗印大师新作的书商、抄写员行会的抵制、一份批量流通的煽动小册子、用印刷品传播假消息的阴谋、只剩一页的禁书。",
+        "historical_scope": "据百度百科「约翰·古腾堡」：古腾堡（1398—1468）在美因茨把金属活字、油墨与压印机合成一套系统，1455 年印出首部 42 行《圣经》，页面称 50 年内欧洲产出逾 1200 万份印刷品。具体数字为页面说法。世界可自行调整。",
+        "evidence_and_uncertainty": "已核对（百度百科「约翰·古腾堡」，2026-11-04 读取）：生平年份、成套系统、1455 年《圣经》、破产结局；设计归纳：社会影响、风险、剧情钩子；未核对：印刷品总量数字的统计出处与字母文字更适合活字的论断。"
+      },
+      "source_ids": [
+        "ws_era_src_setting",
+        "ws_era_src_gutenberg"
+      ],
+      "related_ids": [
+        "reality_human_printing_reproduction",
+        "craft_supp_paper",
+        "craft_supp_ink",
+        "reality_human_literacy_scribal_training",
+        "tech_woodblock_printing",
+        "tech_movable_type_clay",
+        "tech_papermaking"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "tech_ocean_sailing_navigation",
+      "name": "远洋帆船与罗盘导航",
+      "aliases": [
+        "carrack",
+        "ocean-going sailing ship",
+        "卡瑞克帆船",
+        "大航海"
+      ],
+      "tags": [
+        "tech:renaissance",
+        "role:naval_power",
+        "trait:long_range",
+        "genre:western_fantasy",
+        "genre:historical"
+      ],
+      "genres": [
+        "western_fantasy",
+        "historical"
+      ],
+      "category": "item",
+      "summary": "用大型多桅帆船加上罗盘与星象、航海图导航的远洋航行体系：它让船队能离开海岸线跨洋航行，并把世界各地连成一张海上贸易网。",
+      "details": {
+        "definition": "远洋帆船以多桅配合横帆与三角帆，船体大而稳定，舱内分隔，可装载大量货物和给养；导航靠罗盘辨向、测量纬度和推算位置，并参考航海图（见 tech_mercator_chart）。",
+        "mechanism": "改变了什么：贸易上，香料、白银、糖等货物可以跨洋运输，港口城市和商人公司兴起；政治上，海上强国开始建立远方殖民地与贸易站，也带来海盗与私掠；知识上，海图、航海日志和对陌生地区的记录积累下来。",
+        "conditions": "前置技术与资源：造船木材和船坞、帆布与缆绳、指南针（见 tech_magnetic_compass）、天文观测与计时、海图、愿意资助远航的商人或王室。最低档位 tech:renaissance。越档提示：蒸汽动力船属于 tech:steam。",
+        "exceptions": "常见风险：坏血病与饮水变质、风暴和触礁、海盗与敌国舰队、经度测量困难使位置不准、船员哗变；一次远航失败就可能让出资人破产。",
+        "story_uses": "剧情钩子：失踪的远航船队与漂回的航海日志、船长与出资商人的利益冲突、不准公开的航线图、远航途中的疫病、港口里等待发财的冒险者、船员的哗变。",
+        "historical_scope": "据百度百科：卡瑞克帆船 15—16 世纪流行，是欧洲第一款用作远洋的船；大航海指 15—17 世纪的探索，1487 年迪亚士到好望角、1492 年哥伦布、1498 年达伽马抵卡利卡特、1519—1522 年麦哲伦船队环球；页面还把郑和 1405—1433 年的航行归入范畴。世界可自行调整。",
+        "evidence_and_uncertainty": "已核对（百度百科「卡瑞克帆船」「大航海」，2026-11-04 读取）：船型结构、重要航行年份、经度测量问题的出现；设计归纳：贸易与政治影响、风险、剧情钩子；未核对：坏血病、船员人数等细节，未取得相关页面。"
+      },
+      "source_ids": [
+        "ws_era_src_setting",
+        "ws_era_src_carrack",
+        "ws_era_src_navigation"
+      ],
+      "related_ids": [
+        "tech_magnetic_compass",
+        "tech_mercator_chart",
+        "tech_oared_sailing_ship",
+        "tech_mechanical_clock",
+        "reality_phys_communication_distance",
+        "reality_phys_food_preservation",
+        "steam_paddle_steamer"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "tech_bastion_fortress",
+      "name": "棱堡",
+      "aliases": [
+        "bastion fort",
+        "trace italienne",
+        "星形要塞",
+        "棱堡式要塞"
+      ],
+      "tags": [
+        "tech:renaissance",
+        "role:fortification",
+        "trait:gunpowder_defence",
+        "genre:western_fantasy",
+        "genre:historical"
+      ],
+      "genres": [
+        "western_fantasy",
+        "historical"
+      ],
+      "category": "place",
+      "summary": "为对付火炮而设计的低矮厚墙、凸出棱角的要塞形制：它让城塞的任何一面都处在相邻棱堡的交叉火力之下，使围城变得漫长而昂贵。",
+      "details": {
+        "definition": "棱堡把城塞轮廓从凸多边形改成带尖角凸出的形状，每个尖角（棱堡）可以向相邻的墙面射击；外面常覆盖厚土来吸收炮弹，再加壕沟与外围工事。",
+        "mechanism": "改变了什么：战争上，围城需要的时间、兵力和钱显著增加，小国可以靠要塞拖住大军；财政上，修筑和驻守要塞成为国家开支的大项；技术上，工程师和测量、制图人才受到重用。",
+        "conditions": "前置技术与资源：火药火炮（见 tech_cannon_hongyi）、测量与几何知识、大量土方与砖石、劳力与资金，以及驻守要塞的炮兵。最低档位 tech:renaissance。越档提示：更早的中世纪高墙城堡见 tech_plate_armour_castle。",
+        "exceptions": "常见风险：造价极高，拖垮财政；驻军不足时再好的要塞也会失守；要塞若被修在错误的地点，反而成为包袱；守军长期被围会面临粮食与疾病问题。",
+        "story_uses": "剧情钩子：被派去督造要塞的工程师与地方领主的争吵、围城中缺粮的驻军、秘密绘制要塞图纸的间谍、要塞所在城镇被拆房扩壕、用水闸淹没围城营地的奇谋。",
+        "historical_scope": "据百度百科「棱堡」：诞生于文艺复兴，依托火药武器，16 世纪初由意大利人发明；页面称 1552 年梅斯守军依托棱堡抵御神圣罗马帝国 4.5 万大军；造价昂贵。世界可自行调整。",
+        "evidence_and_uncertainty": "已核对（百度百科「棱堡」，2026-11-04 读取）：外形变化、交叉火力、覆土、梅斯事例、造价；设计归纳：财政与人才影响、风险、剧情钩子；未核对：具体兵力数字的出处。"
+      },
+      "source_ids": [
+        "ws_era_src_setting",
+        "ws_era_src_bastion"
+      ],
+      "related_ids": [
+        "tech_cannon_hongyi",
+        "tech_plate_armour_castle",
+        "reality_phys_material_strength",
+        "reality_phys_shelter_building"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "tech_cannon_hongyi",
+      "name": "铸炮与红夷大炮",
+      "aliases": [
+        "cannon",
+        "hongyi cannon",
+        "加农炮",
+        "红衣炮"
+      ],
+      "tags": [
+        "tech:renaissance",
+        "role:artillery",
+        "trait:heavy_capital",
+        "genre:western_fantasy",
+        "genre:eastern_fantasy",
+        "genre:historical"
+      ],
+      "genres": [
+        "western_fantasy",
+        "eastern_fantasy",
+        "historical"
+      ],
+      "category": "item",
+      "summary": "用铜或铁铸出长身管前装火炮的技术：它能在远处击毁城墙和船体，同时需要昂贵的金属、熟练的铸炮匠和炮兵队伍。",
+      "details": {
+        "definition": "火炮是把弹丸装在炮膛里，由火药在身后爆发推出的重型火器。长身管的前装滑膛炮射程较远，炮身是铸造的，需要先造模和砂型，再浇注金属。",
+        "mechanism": "改变了什么：战争上，城墙不再安全，催生了棱堡（见 tech_bastion_fortress）；海战里火炮取代接舷战成为主要武器；国家需要工场、金属、火药和炮兵，权力向能养得起炮兵的王权集中。",
+        "conditions": "前置技术与资源：火药、足够大的熔炉与鼓风、良好的炮模和精确钻孔或铸造技术、金属（铜和铁）、运输火炮的车辆或船。最低档位 tech:renaissance。越档提示：钢制后膛炮与速射炮属后来的档位。",
+        "exceptions": "常见风险：铸造缺陷会炸膛伤及炮手；炮重难以机动；射击后需要冷却；成本高，铸炮厂常被王权垄断；弹药消耗快。",
+        "story_uses": "剧情钩子：被秘密打捞的外来大炮与仿制它的工匠、铸炮厂里偷工减料的官吏、炮手行会的秘传、一尊炮在祭典上炸膛、围城中用大炮对大炮的炮战。",
+        "historical_scope": "据百度百科「红夷大炮」：16 世纪欧洲的长身管前装滑膛加农炮，明万历后期传入，1620 年从英国沉船「独角兽号」打捞 22 门，1626 年宁远之战发挥作用，后金 1631 年仿制「天佑助威大将军」；页面称长约 3 米、口径 110—130 毫米、射程 2.5 公里。欧洲的铸炮史本条未读到来源。世界可自行调整。",
+        "evidence_and_uncertainty": "已核对（百度百科「红夷大炮」，2026-11-04 读取）：形制、传入与仿制年份、战例与参数；设计归纳：国家集权影响、风险、剧情钩子；未取得：欧洲铸炮技术的来龙去脉与各国火炮的年代。"
+      },
+      "source_ids": [
+        "ws_era_src_setting",
+        "ws_era_src_hongyi"
+      ],
+      "related_ids": [
+        "tech_gunpowder",
+        "tech_matchlock_arquebus",
+        "tech_bastion_fortress",
+        "materials_iron_metal",
+        "materials_bronze",
+        "reality_phys_metal_supply",
+        "tech_ironclad_warship"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "tech_mechanical_clock",
+      "name": "机械钟",
+      "aliases": [
+        "mechanical clock",
+        "砝码钟",
+        "塔钟"
+      ],
+      "tags": [
+        "tech:renaissance",
+        "role:timekeeping",
+        "trait:precision_craft",
+        "genre:western_fantasy",
+        "genre:historical"
+      ],
+      "genres": [
+        "western_fantasy",
+        "historical"
+      ],
+      "category": "item",
+      "summary": "靠重锤或发条带动齿轮、以擒纵机构控制节拍来报时的计时器：它让时间从日晷和水钟的粗略估计变成可以均匀划分的小时。",
+      "details": {
+        "definition": "机械钟由动力源（重锤，后来也有发条）、齿轮组、擒纵机构和指示装置组成，擒纵机构把动力一点点释放，使指针匀速前进。",
+        "mechanism": "改变了什么：城镇出现公共时钟，工作、市场和宗教活动按钟点安排；航海上，精密时计帮助测量经度；商业上，计时和计酬逐渐结合，时间纪律形成。",
+        "conditions": "前置技术与资源：能切割齿轮的金属加工技艺、钟匠、稳定的动力源和对时间划分的需求（见 reality_human_calendar_lunisolar_types、reality_phys_measurement_precision）。最低档位 tech:renaissance。越档提示：本条主要写钟的发展到这一档，更早的水钟见 tech_water_clock。",
+        "exceptions": "常见风险：早期钟走时不准，需要经常校对；机械磨损与温度变化影响精度；钟楼的钟匠技艺不外传，修理依赖少数人。",
+        "story_uses": "剧情钩子：只有一个钟匠会修的城市大钟、停摆的钟楼引发的恐慌、与行会争执的外来钟匠、被调快的工厂钟、用走时误差做不在场证明的凶案。",
+        "historical_scope": "据百度百科「机械钟」：13 世纪欧洲修道院出现砝码驱动的机械钟，钟声报时协调宗教活动；18 世纪航海精密时计解决经度问题。页面另提安提凯希拉仪起源说，本条未采用。世界可自行调整。",
+        "evidence_and_uncertainty": "已核对（百度百科「机械钟」，2026-11-04 读取）：13 世纪修道院钟、18 世纪航海时计；设计归纳：公共时间与时间纪律的影响、风险、剧情钩子；未核对：擒纵机构的发明细节与各地城市钟的具体年份。"
+      },
+      "source_ids": [
+        "ws_era_src_setting",
+        "ws_era_src_clock"
+      ],
+      "related_ids": [
+        "tech_water_clock",
+        "steam_standard_time",
+        "reality_phys_measurement_precision",
+        "reality_human_calendar_lunisolar_types",
+        "tech_ocean_sailing_navigation"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "tech_telescope",
+      "name": "望远镜",
+      "aliases": [
+        "telescope",
+        "折射望远镜",
+        "窥远镜"
+      ],
+      "tags": [
+        "tech:renaissance",
+        "role:observation",
+        "trait:optics",
+        "genre:western_fantasy",
+        "genre:historical"
+      ],
+      "genres": [
+        "western_fantasy",
+        "historical"
+      ],
+      "category": "item",
+      "summary": "用透镜把远处景物拉近的光学仪器：它既是军事与航海的侦察工具，也让天文观测突破了肉眼的极限。",
+      "details": {
+        "definition": "望远镜用物镜收集光线成像，再用目镜放大，有伽利略式与开普勒式两种基本构造；早期折射望远镜靠磨制精良的玻璃透镜。",
+        "mechanism": "改变了什么：航海与军事上，能更早发现远处的船只和敌军；知识上，天文观测发现月面起伏、行星的卫星等现象，动摇旧的宇宙图景（具体发现本条不展开）；工艺上，光学玻璃与磨镜匠成为有价值的专业。",
+        "conditions": "前置技术与资源：质地较纯的玻璃（见 materials_glass）、磨镜技艺、镜筒和支架、使用者对观测的需求。最低档位 tech:renaissance。越档提示：大口径反射望远镜与摄影天文属更晚。",
+        "exceptions": "常见风险：色差和成像模糊、镜片制作困难且昂贵、观测者可能因为发现与教义冲突的现象而遭到非议；间谍可借望远镜窥视要塞。",
+        "story_uses": "剧情钩子：磨镜匠的秘方被盗、某位天文学者发现不该公开的天象、用望远镜监视对手的商船、被指为巫术的镜子、传教士带来的新奇仪器。",
+        "historical_scope": "据百度百科「望远镜」：信息框称发明者为荷兰人汉斯·李波尔，1608 年；有伽利略式与开普勒式。关于伽利略的具体观测与发明权争议，本条未读到来源。世界可自行调整。",
+        "evidence_and_uncertainty": "已核对（百度百科「望远镜」，2026-11-04 读取）：发明者与年份的页面说法、两种基本构造；设计归纳：军事与知识影响、风险、剧情钩子；未取得：发明权归属的争论与具体天文发现。"
+      },
+      "source_ids": [
+        "ws_era_src_setting",
+        "ws_era_src_telescope"
+      ],
+      "related_ids": [
+        "materials_glass",
+        "tech_microscope",
+        "tech_mechanical_clock",
+        "reality_phys_measurement_precision"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "tech_microscope",
+      "name": "显微镜",
+      "aliases": [
+        "microscope",
+        "光学显微镜",
+        "放大镜"
+      ],
+      "tags": [
+        "tech:renaissance",
+        "role:observation",
+        "trait:optics",
+        "genre:western_fantasy",
+        "genre:historical"
+      ],
+      "genres": [
+        "western_fantasy",
+        "historical"
+      ],
+      "category": "item",
+      "summary": "用透镜放大微小物体的仪器：它让人第一次看见水滴、血细胞和昆虫的细部，为后来的微生物学埋下伏笔。",
+      "details": {
+        "definition": "显微镜用一片或多片透镜放大近处的小物体，单透镜的单显微镜构造简单，双透镜的复式显微镜放大倍数更高但成像更难清晰。",
+        "mechanism": "改变了什么：自然研究上，观察对象从肉眼可见扩展到极小的生物与组织；医学和农业上，为后来研究病因和发酵提供工具（见 tech_microbiology_fermentation）；工艺上，磨镜匠和光学仪器作坊兴起。",
+        "conditions": "前置技术与资源：质地较好的玻璃与磨制技艺、光源、样品制备方法和耐心的观察者。最低档位 tech:renaissance。越档提示：19 世纪中叶才被广泛使用，更高倍数和染色技术属更晚档位。",
+        "exceptions": "常见风险：早期成像模糊，观察结论可能受误导；普通人对「看见小虫」会感到恐惧或迷信；观测者的记录可能不被同行承认。",
+        "story_uses": "剧情钩子：一滴水里发现了什么的学者、被当作妖术的放大镜、制镜匠为保护配方而隐居、发现疫病成因的一次偶然观察、不愿公开发现的医生。",
+        "historical_scope": "据百度百科「显微镜」：前 5—前 4 世纪《墨经》已记载凹面镜成像；15 世纪中叶有单片透镜的单显微镜；1610 年左右伽利略首创两级放大显微镜；列文虎克放大约 200 倍；19 世纪中叶才广泛应用。世界可自行调整。",
+        "evidence_and_uncertainty": "已核对（百度百科「显微镜」，2026-11-04 读取）：上述年代与人物的页面说法；设计归纳：对医学与自然研究的影响、风险、剧情钩子；未取得：列文虎克的具体发现细节与复式显微镜的完整发明史。"
+      },
+      "source_ids": [
+        "ws_era_src_setting",
+        "ws_era_src_microscope"
+      ],
+      "related_ids": [
+        "materials_glass",
+        "tech_telescope",
+        "tech_microbiology_fermentation",
+        "reality_phys_disease_transmission"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "tech_anatomy_dissection",
+      "name": "人体解剖学",
+      "aliases": [
+        "anatomy",
+        "human dissection",
+        "解剖学"
+      ],
+      "tags": [
+        "tech:renaissance",
+        "role:medicine",
+        "trait:empirical",
+        "genre:western_fantasy",
+        "genre:historical"
+      ],
+      "genres": [
+        "western_fantasy",
+        "historical"
+      ],
+      "category": "life",
+      "summary": "通过亲自解剖人体来观察器官和结构、并据此修订旧医书的方法：它把医学的权威从古书转向实地观察。",
+      "details": {
+        "definition": "人体解剖学是在尸体上逐层切开，观察骨骼、肌肉、血管和脏器，并绘制图谱的研究方式。文艺复兴时期的医学家开始用观察来检验古代权威（如盖仑多基于动物的解剖）的结论。",
+        "mechanism": "改变了什么：医学教育上，大学开始设解剖课并印制图谱；外科上，医生对身体结构更有把握；社会上，尸体来源、宗教禁忌与对死者的尊重成为争议。",
+        "conditions": "前置技术与资源：大学或医学院的制度、获得尸体的合法或非法渠道、绘图与印刷技术（见 tech_printing_press）、医学古籍作对照。最低档位 tech:renaissance。越档提示：麻醉和防腐属更晚档位，见 tech_ether_anaesthesia 与 tech_antiseptic_surgery。",
+        "exceptions": "常见风险：尸体腐败快、解剖者可能染上疾病；盗尸与买卖尸体的灰色交易；教会或民众反对，解剖者可能被攻击；挑战古代权威的学者会受到同行排挤。",
+        "story_uses": "剧情钩子：夜里为解剖课盗尸的学生、学者发现古书里的错误却不敢公开、解剖图谱里被修改的一页、被当作异端的医学家、解剖剧场里发现的凶案线索。",
+        "historical_scope": "据百度百科「安德烈·维萨里」：维萨里（1514—1564）在帕多瓦大学任教，1543 年出版《人体构造》，纠正盖仑多基于动物研究的错误，与哥白尼《天体运行论》同年；因挑战传统遭教会迫害。世界可自行调整。",
+        "evidence_and_uncertainty": "已核对（百度百科「安德烈·维萨里」，2026-11-04 读取）：生平年份、《人体构造》、对盖仑的纠正与遭遇；设计归纳：医学与社会影响、风险、剧情钩子；未取得：解剖课制度与尸体来源的具体史实。"
+      },
+      "source_ids": [
+        "ws_era_src_setting",
+        "ws_era_src_vesalius"
+      ],
+      "related_ids": [
+        "society_medieval_university",
+        "tech_printing_press",
+        "society_healthcare_access",
+        "shop_apothecary",
+        "tech_ether_anaesthesia",
+        "tech_antiseptic_surgery"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "tech_mercator_chart",
+      "name": "墨卡托投影海图",
+      "aliases": [
+        "Mercator projection",
+        "等角航海图",
+        "恒向线海图"
+      ],
+      "tags": [
+        "tech:renaissance",
+        "role:navigation",
+        "trait:cartography",
+        "genre:western_fantasy",
+        "genre:historical"
+      ],
+      "genres": [
+        "western_fantasy",
+        "historical"
+      ],
+      "category": "item",
+      "summary": "把地球表面画成矩形、使航向恒定的线在图上是直线的航海图投影：水手只要按直线量角度就能画出航线。",
+      "details": {
+        "definition": "墨卡托投影是等角圆柱投影，图上经线平行、纬线水平，恒定罗盘方位的航线（恒向线）画成直线，便于航海者量取航向；代价是高纬度的面积被严重放大。",
+        "mechanism": "改变了什么：航海上，航线规划与海图作业简化；贸易与政治上，远洋航线更容易被标准化，海图成为有价值的情报；认知上，世界地图的形象长期受这种变形影响。",
+        "conditions": "前置技术与资源：数学与几何知识、罗盘与测纬度仪器、印刷与雕版（制图铜版）、关于海岸与港口的实测资料（见 tech_ocean_sailing_navigation）。最低档位 tech:renaissance。",
+        "exceptions": "常见风险：高纬度面积变形导致错误的大小印象；海图依赖的测量数据不准时会导致搁浅；海图常被各国视为机密，出现伪造与盗版。",
+        "story_uses": "剧情钩子：被篡改的海图让商船触礁、制图师被各国争相收买、私藏的航路图、按错误面积分配领地引起的争端、印版被盗的出版商。",
+        "historical_scope": "据百度百科「麦卡托投影法」：1569 年麦卡托创制的等角圆柱投影，恒向线呈直线，用于海图，高纬度面积变形严重。页面另称其数学基础可追溯到 940 年中国宋朝，该说法存疑，本条未采用。世界可自行调整。",
+        "evidence_and_uncertainty": "已核对（百度百科「麦卡托投影法」，2026-11-04 读取）：创制年份、投影性质、用途与变形；设计归纳：航海与情报影响、风险、剧情钩子；未采用：页面对 940 年中国渊源的说法。"
+      },
+      "source_ids": [
+        "ws_era_src_setting",
+        "ws_era_src_mercator"
+      ],
+      "related_ids": [
+        "tech_ocean_sailing_navigation",
+        "tech_magnetic_compass",
+        "tech_printing_press",
+        "reality_phys_measurement_precision"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "tech_steam_engine_lineage",
+      "name": "蒸汽机的发明谱系",
+      "aliases": [
+        "steam engine lineage",
+        "萨弗里与纽科门与瓦特",
+        "大气式蒸汽机"
+      ],
+      "tags": [
+        "tech:steam",
+        "role:prime_mover",
+        "trait:heavy_capital",
+        "genre:steampunk",
+        "genre:historical"
+      ],
+      "genres": [
+        "steampunk",
+        "historical"
+      ],
+      "category": "power",
+      "summary": "从矿井抽水泵到分离冷凝器的蒸汽机演进脉络：它说明蒸汽动力是一步步被矿主、匠人和发明家改出来的，而不是一个人的灵光。本条只讲谱系，机器结构见 steam_reciprocating_engine。",
+      "details": {
+        "definition": "蒸汽机把蒸汽的热能转为机械功。早期的萨弗里泵用蒸汽冷凝产生吸力汲水；纽科门的大气式机用蒸汽冷凝后由大气压推动活塞；瓦特加装分离冷凝器后明显节省燃料。",
+        "mechanism": "改变了什么：矿山排水不再完全靠人力畜力，更深的煤矿和金属矿可以开采；工厂不必再靠河边水轮，可以建在城市和煤产地；资本家有了可买、可租、可计价的动力。",
+        "conditions": "前置技术与资源：精密的汽缸镗孔与锻铁（见 steam_precision_boring）、可靠的锅炉（见 steam_high_pressure_boiler）、廉价的煤、矿井排水的迫切需求（见 steam_mine_drainage）、专利与资本。最低档位 tech:steam。",
+        "exceptions": "常见风险：燃料耗量大，只在煤价低廉处划算；锅炉爆炸与漏汽；专利垄断阻碍改进（见 steam_patent_monopoly）；机器操作员缺乏培训。不要把早期蒸汽机写成轻便高效的小机器。",
+        "story_uses": "剧情钩子：矿主与发明家争夺专利、被烧坏的试验机、偷走图纸的间谍、矿井里因停机而涨水被困的矿工、第一次把蒸汽机放进作坊时的工人抗议。",
+        "historical_scope": "据百度百科「蒸汽机」：萨弗里 1698 年取得「矿工之友」专利，吸力汲水不超过约 6 米；纽科门与卡利 1705 年造大气式蒸汽机，热效率很低，只在煤价低廉的产煤区推广，改型到 19 世纪初仍在造；瓦特 1765 年发明分离冷凝器，1769 年专利，18 世纪末普及。世界可自行调整。",
+        "evidence_and_uncertainty": "已核对（百度百科「蒸汽机」，2026-11-04 读取）：上述年代、人物与机器特点；设计归纳：社会影响、风险、剧情钩子；未取得：各机型的具体功率与燃耗数据，希罗汽转球的细节。"
+      },
+      "source_ids": [
+        "ws_era_src_setting",
+        "ws_era_src_steamengine"
+      ],
+      "related_ids": [
+        "steam_reciprocating_engine",
+        "steam_high_pressure_boiler",
+        "steam_mine_drainage",
+        "steam_precision_boring",
+        "steam_patent_monopoly",
+        "tech_steam_locomotive"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "tech_spinning_jenny",
+      "name": "机械纺纱机",
+      "aliases": [
+        "spinning jenny",
+        "珍妮机",
+        "水力纺纱机"
+      ],
+      "tags": [
+        "tech:steam",
+        "role:textile_machine",
+        "trait:mass_produced",
+        "genre:steampunk",
+        "genre:historical"
+      ],
+      "genres": [
+        "steampunk",
+        "historical"
+      ],
+      "category": "item",
+      "summary": "用一个纺轮同时带动多个纱锭的纺纱机：它让一个工人的纺纱量成倍增加，并把纺织从家庭手工推向工场生产。",
+      "details": {
+        "definition": "机械纺纱机是把传统的单锭手摇纺车改造成多锭联动的机器。早期的珍妮机用手摇，后来的水力纺纱机和走锭精纺机由水轮带动，产量更大、纱线更均匀。",
+        "mechanism": "改变了什么：产业上，纱线供应大幅增加，织布成为新的瓶颈并推动织布机械化；社会上，工场把工人集中，家庭纺纱的收入下降；经济上，棉纺织品出口成为工业国的重要收入。",
+        "conditions": "前置技术与资源：木工与金属零件的精确加工、水力或蒸汽动力、棉花等原料供应（见 tools_spinning_wheel、tools_loom）、愿意出资的工场主。最低档位 tech:steam。",
+        "exceptions": "常见风险：工人砸毁机器的骚乱、专利之争、棉纱断头与机器卡死、工场里的粉尘与棉絮火灾；原料依赖远方产地会受贸易与战争影响。",
+        "story_uses": "剧情钩子：工场主与纺纱工的冲突、被砸毁的新机器、发明者因专利陷入诉讼、童工进入工厂、一场棉絮引发的大火。",
+        "historical_scope": "据百度百科「珍妮机」：1764 年哈格里夫斯发明，一个纺轮带动八个竖直纱锭，效率约提高八倍，1770 年专利；随后有阿克莱特水力卷轴纺纱机（1769）、克朗普顿走锭精纺机（1779）、卡特赖特水力织布机（1785）。世界可自行调整。",
+        "evidence_and_uncertainty": "已核对（百度百科「珍妮机」，2026-11-04 读取）：发明年份、纱锭数、效率倍数、后续机器年代；设计归纳：社会与产业影响、风险、剧情钩子；未取得：工人反抗事件的具体史实与童工使用情况。"
+      },
+      "source_ids": [
+        "ws_era_src_setting",
+        "ws_era_src_jenny"
+      ],
+      "related_ids": [
+        "tools_spinning_wheel",
+        "tools_loom",
+        "steam_factory_discipline",
+        "steam_deskilling_craft",
+        "tech_steam_engine_lineage"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "tech_smallpox_vaccination",
+      "name": "牛痘接种",
+      "aliases": [
+        "smallpox vaccination",
+        "种痘",
+        "牛痘疫苗"
+      ],
+      "tags": [
+        "tech:steam",
+        "role:medicine",
+        "trait:public_health",
+        "genre:steampunk",
+        "genre:historical"
+      ],
+      "genres": [
+        "steampunk",
+        "historical"
+      ],
+      "category": "life",
+      "summary": "用牛痘病毒使人获得对天花的免疫的接种方法：它是免疫接种的第一次成功，也是公共卫生由治病转向预防的起点。",
+      "details": {
+        "definition": "牛痘病毒与天花病毒的抗原相似，接种牛痘后身体会产生对天花的免疫。接种过程是用少量牛痘物质划破皮肤引入，比直接接种天花更安全。",
+        "mechanism": "改变了什么：疫病上，天花的死亡与毁容率下降；公共卫生上，政府开始推行强制或免费接种；社会上，接种成为医生、教会和官方争论的话题。",
+        "conditions": "前置技术与资源：有牛痘病例的牛群与接种器具、医生或接种员的网络、疫苗保存方式（早期靠人传人连续接种）、民众的接受度（见 society_healthcare_access）。最低档位 tech:steam。",
+        "exceptions": "常见风险：早期接种物保存困难，可能失效；操作不洁带来感染或其他疾病的传播；民众因迷信或恐惧而拒绝接种；强制接种引发抗议。",
+        "story_uses": "剧情钩子：偏远村庄的接种队遇上拒绝者、官方与教士对接种的争执、被污染的接种物造成新疫情、保存疫苗的孩子被护送穿越疫区、贩卖假疫苗的骗子。",
+        "historical_scope": "据百度百科「牛痘」：牛痘病毒与天花病毒抗原相同，接种后可获天花免疫；18 世纪后用于预防天花，是免疫接种的首次成功案例；世界卫生组织称天花已在全球消失。该页未提发明者姓名，本条也不写人名。世界可自行调整。",
+        "evidence_and_uncertainty": "已核对（百度百科「牛痘」，2026-11-04 读取）：免疫原理、18 世纪后的应用、首次成功、天花消灭；设计归纳：公共卫生与社会影响、风险、剧情钩子；未取得：发明者与首次接种的具体年份。"
+      },
+      "source_ids": [
+        "ws_era_src_setting",
+        "ws_era_src_vaccine"
+      ],
+      "related_ids": [
+        "reality_phys_disease_transmission",
+        "reality_phys_outbreak_investigation",
+        "society_healthcare_access",
+        "tech_hospital_quarantine",
+        "tech_microbiology_fermentation"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "tech_ether_anaesthesia",
+      "name": "乙醚麻醉",
+      "aliases": [
+        "ether anaesthesia",
+        "吸入麻醉",
+        "全身麻醉"
+      ],
+      "tags": [
+        "tech:steam",
+        "role:medicine",
+        "trait:surgery",
+        "genre:steampunk",
+        "genre:historical"
+      ],
+      "genres": [
+        "steampunk",
+        "historical"
+      ],
+      "category": "life",
+      "summary": "用吸入乙醚使病人失去知觉的麻醉方法：它让外科手术不必再靠按住病人和抢时间，医生可以做更长、更精细的手术。",
+      "details": {
+        "definition": "乙醚麻醉是让病人吸入乙醚蒸气，使意识和痛觉消失。麻醉按深度分为几个阶段，过浅病人会挣扎，过深有窒息或死亡风险。",
+        "mechanism": "改变了什么：外科上，手术时间可以延长，腹腔等深部手术成为可能；医患关系上，病人对手术的恐惧下降；医院里出现专职管麻醉的人员。",
+        "conditions": "前置技术与资源：纯度较高的乙醚（需要蒸馏与化学知识）、吸入器具、经验丰富的医生、手术室条件（见 shop_apothecary）。最低档位 tech:steam。越档提示：本条不涉及更晚的静脉麻醉与现代麻醉监护。",
+        "exceptions": "常见风险：乙醚易燃易爆，手术室内的明火或电火花非常危险；剂量不当致死；术后恶心与呼吸道并发症；手术中感染（见 tech_antiseptic_surgery）仍是主要死因。",
+        "story_uses": "剧情钩子：医生为是否使用麻醉与教会辩论、被当作毒药的乙醚、手术室的爆炸、被秘密麻醉的证人、偷药的瘾君子。",
+        "historical_scope": "据百度百科「乙醚麻醉」：1846 年成为近现代最早使用的全身麻醉药，吸入给药，麻醉分四期，易燃易爆。具体首次公开手术的地点与人物本条未读到来源。世界可自行调整。",
+        "evidence_and_uncertainty": "已核对（百度百科「乙醚麻醉」，2026-11-04 读取）：年份、吸入给药、分期、易燃易爆；设计归纳：外科影响、风险、剧情钩子；未取得：首次公开使用的人物与细节。"
+      },
+      "source_ids": [
+        "ws_era_src_setting",
+        "ws_era_src_ether"
+      ],
+      "related_ids": [
+        "shop_apothecary",
+        "tech_antiseptic_surgery",
+        "tech_anatomy_dissection",
+        "reality_phys_combustion_fire"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "tech_antiseptic_surgery",
+      "name": "防腐外科",
+      "aliases": [
+        "antiseptic surgery",
+        "石炭酸消毒",
+        "李斯特消毒法"
+      ],
+      "tags": [
+        "tech:steam",
+        "role:medicine",
+        "trait:sterilization",
+        "genre:steampunk",
+        "genre:historical"
+      ],
+      "genres": [
+        "steampunk",
+        "historical"
+      ],
+      "category": "life",
+      "summary": "在手术前后用化学药剂消毒器械、伤口和空气，以防止术后感染的方法：它把「手术成功但病人死于化脓」的悲剧大幅减少。",
+      "details": {
+        "definition": "防腐外科是用石炭酸等消毒剂清洗手术器械、术者的手、伤口及敷料，阻止微生物进入伤口。它的依据是微生物会导致腐败和感染的理论（见 tech_microbiology_fermentation）。",
+        "mechanism": "改变了什么：外科上，术后死亡率下降，截肢、开腹等手术更安全；医院里出现消毒规程和卫生规范；医生行业需要改变习惯，接受洗手和器械消毒。",
+        "conditions": "前置技术与资源：消毒药剂（如石炭酸）、对微生物致病的认知、医院的清洁条件与训练有素的医生护士。最低档位 tech:steam。越档提示：无菌手术、抗生素属更晚档位。",
+        "exceptions": "常见风险：石炭酸对皮肤和呼吸道有刺激，早期使用方法粗糙；医生旧习惯难改，仍有人拒绝洗手；消毒不彻底会造成假的安全感；药剂被滥用或被造假。",
+        "story_uses": "剧情钩子：医生与同行为是否消毒争吵、医院里反复出现的术后感染、被妖魔化的「药水」、一位固执的老外科医生拒绝洗手、官方强制推行的卫生检查。",
+        "historical_scope": "据百度百科「约瑟夫·李斯特」：李斯特（1827—1912）1865 年受巴斯德启发，8 月 12 日首次用稀释石炭酸消毒，1867 年在《柳叶刀》发表，页面称手术死亡率由 45% 降到 15%。数字为页面说法。世界可自行调整。",
+        "evidence_and_uncertainty": "已核对（百度百科「约瑟夫·李斯特」，2026-11-04 读取）：生平年份、首次消毒日期、发表年份、死亡率数字；设计归纳：医院规程影响、风险、剧情钩子；未取得：死亡率数据的原始统计出处。"
+      },
+      "source_ids": [
+        "ws_era_src_setting",
+        "ws_era_src_lister",
+        "ws_era_src_pasteur"
+      ],
+      "related_ids": [
+        "tech_ether_anaesthesia",
+        "tech_microbiology_fermentation",
+        "reality_phys_disease_transmission",
+        "society_healthcare_access"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "tech_daguerreotype",
+      "name": "银版摄影",
+      "aliases": [
+        "daguerreotype",
+        "达盖尔银版法",
+        "早期摄影"
+      ],
+      "tags": [
+        "tech:steam",
+        "role:imaging",
+        "trait:unique_copy",
+        "genre:steampunk",
+        "genre:historical"
+      ],
+      "genres": [
+        "steampunk",
+        "historical"
+      ],
+      "category": "item",
+      "summary": "把影像直接显现在涂了感光物质的金属板上的摄影法：它是第一个商业化的摄影术，让普通人也能花钱留下一张肖像。",
+      "details": {
+        "definition": "银版摄影在镀银铜板上用碘蒸气使其感光，曝光后以水银蒸汽显影，再定影。每张银版都是独一无二的图像，无法复制，影像左右相反。",
+        "mechanism": "改变了什么：肖像上，中产阶级可以雇摄影师留下像；记录上，建筑、风景和事件有了较可信的影像资料；艺术上，画家对「写实」的竞争压力增大。",
+        "conditions": "前置技术与资源：光学镜头与暗箱、金属板制备、碘与水银等化学药剂、较长时间的曝光（页面称约 30 分钟，实际随条件变化）。最低档位 tech:steam。越档提示：胶片、纸质底片与电影属于更晚档位，见 tech_cinema。",
+        "exceptions": "常见风险：水银蒸汽有毒，摄影师长期接触会受害；银版易刮伤且难以复制；曝光时间长使活动的人物模糊；影像被用于伪造证据的疑虑。",
+        "story_uses": "剧情钩子：只有一张的遗像、摄影师因水银中毒而变得古怪、被拍进画面里的不该存在的人影、用银版指认罪犯、巡回摄影棚的骗局。",
+        "historical_scope": "据百度百科「银版摄影法」：1839 年达盖尔发明，水银蒸汽显影，曝光约 30 分钟，影纹细腻，不能复制，影像左右相反。世界可自行调整。",
+        "evidence_and_uncertainty": "已核对（百度百科「银版摄影法」，2026-11-04 读取）：发明年份、显影方式、曝光时间、不可复制特性；设计归纳：社会影响、风险、剧情钩子；未取得：碘感光的细节与早期价格。该页较短（摘要级）。"
+      },
+      "source_ids": [
+        "ws_era_src_setting",
+        "ws_era_src_daguerre"
+      ],
+      "related_ids": [
+        "tech_cinema",
+        "reality_phys_corrosion",
+        "tech_telescope"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "tech_portland_cement",
+      "name": "波特兰水泥",
+      "aliases": [
+        "Portland cement",
+        "硅酸盐水泥",
+        "人工水泥"
+      ],
+      "tags": [
+        "tech:steam",
+        "role:material",
+        "trait:industrial_base",
+        "genre:steampunk",
+        "genre:historical"
+      ],
+      "genres": [
+        "steampunk",
+        "historical"
+      ],
+      "category": "economy",
+      "summary": "把石灰石与黏土煅烧磨细而成的人工水硬性胶凝材料：它是现代混凝土的基础，使港口、桥梁与厂房可以用标准材料浇筑。",
+      "details": {
+        "definition": "波特兰水泥是将含钙与含硅的原料按比例配好、烧到高温成熟料后磨粉而得，加水后能硬化，在水下也能硬化。它不同于需要火山灰的古罗马式胶凝材料。",
+        "mechanism": "改变了什么：建筑上，桥墩、码头、下水道和高层厂房可用统一材料建造；城市上，地下管网与防洪设施更可靠；经济上，水泥厂成为新的大工业。",
+        "conditions": "前置技术与资源：优质石灰石与黏土产地、能达到较高温度的窑炉、燃料（煤）、粉磨设备和质量检验（见 materials_cement）。最低档位 tech:steam。越档提示：钢筋混凝土见 tech_reinforced_concrete。",
+        "exceptions": "常见风险：配比与烧成温度不稳会造成强度不一，工程质量事故；窑炉和粉尘污染环境并危害工人；劣质水泥被冒充，造成工程垮塌。",
+        "story_uses": "剧情钩子：偷换水泥的承包商与垮塌的桥、水泥厂周围的灰尘病、新材料对旧石匠行会的冲击、地下水道里的非法交易、一栋用劣质水泥造的楼。",
+        "historical_scope": "据百度百科「硅酸盐水泥」：英国人约瑟夫·阿斯谱丁 1824 年发明并注册「波特兰水泥」专利，1889 年传入中国。世界可自行调整。",
+        "evidence_and_uncertainty": "已核对（百度百科「硅酸盐水泥」，2026-11-04 读取）：发明人、年份、专利名称、传入中国年份；设计归纳：建筑与工业影响、风险、剧情钩子；未取得：成分比例、烧成温度等技术参数。"
+      },
+      "source_ids": [
+        "ws_era_src_setting",
+        "ws_era_src_cement"
+      ],
+      "related_ids": [
+        "materials_cement",
+        "tech_arch_aqueduct",
+        "tech_reinforced_concrete",
+        "tech_bessemer_steel",
+        "reality_phys_material_strength"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "tech_metric_system",
+      "name": "米制",
+      "aliases": [
+        "metric system",
+        "公制",
+        "公制单位"
+      ],
+      "tags": [
+        "tech:steam",
+        "role:standardization",
+        "trait:state_policy",
+        "genre:steampunk",
+        "genre:historical"
+      ],
+      "genres": [
+        "steampunk",
+        "historical"
+      ],
+      "category": "institution",
+      "summary": "以十进制为基础、用统一的长度和质量单位替代各地杂乱度量衡的制度：它让工程、贸易和科学数据可以跨地区比较。",
+      "details": {
+        "definition": "米制以地球子午线长度为基础定义「米」，用十进制倍率衍生出其他单位。它是由国家推行的标准化制度，需要标准器、检定机构和法律。",
+        "mechanism": "改变了什么：贸易上，不同地区的货物和图纸可以互相换算；工业上，零件与图纸能按同一单位制造（见 steam_interchangeable_parts）；治理上，国家用统一度量衡来征税和管理市场。",
+        "conditions": "前置技术与资源：精密测量与标准器（见 reality_phys_measurement_precision）、强力的中央政府、教育与宣传、对旧单位的补偿或过渡期（见 reality_human_weights_measures_local、reality_human_metrology_standardization）。最低档位 tech:steam。",
+        "exceptions": "常见风险：旧单位在民间顽强存在，造成长期的双轨制；商人借换算差价牟利；地方势力抵制中央统一；标准器被毁或被伪造。",
+        "story_uses": "剧情钩子：集市上新旧度量衡的争执、检定官发现被篡改的秤、抵制米制的行会、国际会议上各国争论基准、标准米尺被盗。",
+        "historical_scope": "据百度百科「公制单位」：18 世纪末由法国创立，最初以地球子午线长度定义米，1875 年《米制公约》成立国际计量局。具体推行时间与各国采用情况本条未读到来源。世界可自行调整。",
+        "evidence_and_uncertainty": "已核对（百度百科「公制单位」，2026-11-04 读取）：创立时期、最初定义、《米制公约》与国际计量局；设计归纳：贸易与国家治理影响、风险、剧情钩子；未取得：各国采纳年份与米原器的细节。"
+      },
+      "source_ids": [
+        "ws_era_src_setting",
+        "ws_era_src_metric"
+      ],
+      "related_ids": [
+        "reality_human_weights_measures_local",
+        "reality_human_metrology_standardization",
+        "reality_phys_measurement_precision",
+        "steam_interchangeable_parts",
+        "steam_gauge_standard"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "tech_jiangnan_arsenal",
+      "name": "江南制造总局",
+      "aliases": [
+        "Jiangnan Arsenal",
+        "洋务军工",
+        "近代机器兵工厂"
+      ],
+      "tags": [
+        "tech:steam",
+        "role:arsenal",
+        "trait:state_industry",
+        "genre:steampunk",
+        "genre:historical"
+      ],
+      "genres": [
+        "steampunk",
+        "historical"
+      ],
+      "category": "institution",
+      "summary": "清末在上海创办的官办机器军工厂：它代表东方大国引进机器、仿造枪炮船舶的一条道路，也说明引进设备不等于获得全套工业体系。",
+      "details": {
+        "definition": "江南制造总局是官办军工企业，用机器生产枪炮、弹药、船舰，并附设翻译和教学机构。它代表以国家资金引进西方机器、聘请洋匠、训练本土技工的做法。",
+        "mechanism": "改变了什么：军事上，部队开始装备机器制造的近代武器；工业上，培养了第一批近代机械技工和翻译人才；制度上，官办工业与官僚体系结合，带来效率与腐败并存的问题。",
+        "conditions": "前置技术与资源：国家资金与决心、进口或仿制的机床与蒸汽动力（见 tech_steam_engine_lineage）、原材料（钢铁、煤）、洋匠与教习、愿意学习的工匠。最低档位 tech:steam。",
+        "exceptions": "常见风险：原料和零件仍依赖进口，战时容易断供；官场侵占经费；机器模仿容易，但管理与标准化跟不上；工人缺乏训练。",
+        "story_uses": "剧情钩子：被派去核查账目的官员、洋匠与本地工匠之间的冲突、仿造不成的精密零件、厂里的工人罢工、被走私的机器图纸。",
+        "historical_scope": "据百度百科「江南制造总局旧址」：始建于同治四年（1865 年），在上海，开创中国近代军事工业完全采用机器生产的先河。具体产品与规模本条未读到来源。世界可自行调整。",
+        "evidence_and_uncertainty": "已核对（百度百科「江南制造总局旧址」，2026-11-04 读取）：始建年份、地点、首创机器生产的页面说法；设计归纳：军事与制度影响、风险、剧情钩子；未取得：产量、人员与翻译馆等细节。"
+      },
+      "source_ids": [
+        "ws_era_src_setting",
+        "ws_era_src_arsenal"
+      ],
+      "related_ids": [
+        "tech_ironclad_warship",
+        "tech_breech_loading_rifle",
+        "steam_deskilling_craft",
+        "steam_factory_discipline",
+        "tech_jingzhang_railway"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "tech_microbiology_fermentation",
+      "name": "微生物学与发酵理论",
+      "aliases": [
+        "microbiology",
+        "fermentation theory",
+        "巴斯德发酵研究",
+        "细菌学"
+      ],
+      "tags": [
+        "tech:steam",
+        "role:science",
+        "trait:germ_theory",
+        "genre:steampunk",
+        "genre:historical"
+      ],
+      "genres": [
+        "steampunk",
+        "historical"
+      ],
+      "category": "life",
+      "summary": "证明发酵与腐败由微生物引起、并推动疫苗和消毒法的科学：它改变了人们对疾病、食物保存和卫生的基本认识。",
+      "details": {
+        "definition": "微生物学研究肉眼看不见的细菌、酵母等微生物的生命活动。巴斯德的发酵研究表明发酵是微生物的代谢活动，并驳斥了生物可以凭空自然产生的说法。",
+        "mechanism": "改变了什么：医学上，疾病的细菌致病论逐渐取代「瘴气」等旧说，推动消毒、检疫和疫苗；食品上，发酵与腐败可以被控制；制度上，出现专门的研究所和公共卫生机构。",
+        "conditions": "前置技术与资源：质量较好的显微镜（见 tech_microscope）、玻璃器皿与培养基、严谨的实验方法、有资金的研究机构。最低档位 tech:steam。越档提示：抗生素与病毒学属于更晚档位。",
+        "exceptions": "常见风险：新理论与旧观念冲突，学界争论；实验污染得出错误结论；动物实验和疫苗试验引发伦理争议；官方可能将成果用于控制人群。",
+        "story_uses": "剧情钩子：老医生拒绝承认细菌致病论、研究所里被污染的培养物、用疫苗救人的第一次试验、有人利用菌株散播疫病、农民发现酒和奶变质的原因。",
+        "historical_scope": "据百度百科「路易斯·巴斯德」：巴斯德（1822—1895）1856—1860 年提出微生物代谢活动导致发酵的新理论，1857 年发表乳酸发酵记录，1864 年驳斥自然发生说，1881 年研制狂犬疫苗，1885 年首次用于人体，1888 年建巴斯德研究所。世界可自行调整。",
+        "evidence_and_uncertainty": "已核对（百度百科「路易斯·巴斯德」，2026-11-04 读取）：上述年份与成果；设计归纳：医学与食品影响、风险、剧情钩子；未取得：「巴氏消毒」等具体方法与实验细节。"
+      },
+      "source_ids": [
+        "ws_era_src_setting",
+        "ws_era_src_pasteur",
+        "ws_era_src_microscope"
+      ],
+      "related_ids": [
+        "tech_microscope",
+        "tech_antiseptic_surgery",
+        "tech_smallpox_vaccination",
+        "reality_phys_disease_transmission",
+        "reality_phys_outbreak_investigation",
+        "reality_phys_food_preservation"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "tech_reinforced_concrete",
+      "name": "钢筋混凝土",
+      "aliases": [
+        "reinforced concrete",
+        "钢砼",
+        "混凝土结构"
+      ],
+      "tags": [
+        "tech:steam",
+        "role:material",
+        "trait:composite",
+        "genre:steampunk",
+        "genre:historical"
+      ],
+      "genres": [
+        "steampunk",
+        "historical"
+      ],
+      "category": "economy",
+      "summary": "在混凝土中埋入钢筋，使抗压的混凝土与抗拉的钢筋合为一体的结构材料：它让桥梁、厂房、水坝和高层建筑能用统一工艺批量建造。",
+      "details": {
+        "definition": "钢筋混凝土中，混凝土承担压力，钢筋承担拉力，两者的热膨胀系数相近，不易分离。可现场浇筑，也可预制构件。",
+        "mechanism": "改变了什么：建筑上，大跨度、多层、防火的建筑变得便宜；城市上，高层住宅、地下工程和桥梁加快建设；工业上，水泥厂与钢厂成为建筑业的上游。",
+        "conditions": "前置技术与资源：水泥（见 tech_portland_cement）、钢筋与炼钢技术（见 tech_bessemer_steel）、模板与施工经验、设计计算知识。最低档位 tech:steam（页面称 1868 年取得专利），但大规模结构使用需水泥与钢供应成熟，世界可上调出现时间。",
+        "exceptions": "常见风险：钢筋锈蚀导致混凝土开裂、配比或养护不当造成强度不足、承包商偷工减料；施工高空坠落与塌模事故。",
+        "story_uses": "剧情钩子：偷工减料的承包商与垮塌的新大楼、老石匠与混凝土工的行会冲突、锈蚀暴露的旧桥、浇筑时失踪的人、被当作新式防空堡垒的混凝土工事。",
+        "historical_scope": "据百度百科「钢砼」：钢筋抗拉强度超过 200 兆帕，混凝土抗压约 35 兆帕，二者线膨胀系数相近；法国园艺师莫尼埃 1868 年取得专利，1872 年美国建成首座建筑。世界可自行调整。",
+        "evidence_and_uncertainty": "已核对（百度百科「钢砼」，2026-11-04 读取）：材料性能、专利与首座建筑年份；设计归纳：城市与工业影响、风险、剧情钩子；未取得：设计计算方法与施工规范。"
+      },
+      "source_ids": [
+        "ws_era_src_setting",
+        "ws_era_src_concrete",
+        "ws_era_src_cement"
+      ],
+      "related_ids": [
+        "tech_portland_cement",
+        "tech_bessemer_steel",
+        "materials_cement",
+        "reality_phys_material_strength",
+        "reality_phys_corrosion",
+        "reality_phys_shelter_building"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "tech_telephone",
+      "name": "电话",
+      "aliases": [
+        "telephone",
+        "电话机",
+        "有线电话"
+      ],
+      "tags": [
+        "tech:early_modern",
+        "role:communication",
+        "trait:infrastructure",
+        "genre:modern",
+        "genre:historical"
+      ],
+      "genres": [
+        "modern",
+        "historical"
+      ],
+      "category": "power",
+      "summary": "把声音转为电信号在导线上传送的通信技术：它让相隔很远的人能直接对话，而不必通过报务员翻译成电码。",
+      "details": {
+        "definition": "电话用话筒把声音变成电信号，经导线传到对方的听筒还原为声音，早期靠交换机和接线员人工接通线路。",
+        "mechanism": "改变了什么：商业上，决策与订货的速度加快；社会上，家庭与办公室之间的联系紧密，隐私与监听问题出现；城市上，电话线路和交换局成为新的基础设施，接线员成为大量女性的职业。",
+        "conditions": "前置技术与资源：电池或供电网络（见 tech_electric_power_grid）、铜线与绝缘材料、话筒和听筒、交换机，以及维护线路的公司。最低档位 tech:early_modern。越档提示：无线通话与广播属 tech_wireless_radio，更晚的程控与数字通信不在范围内。",
+        "exceptions": "常见风险：线路被窃听或切断、杂音与串线、接线员泄露谈话内容、电话公司垄断；暴风雨中线路易损坏。",
+        "story_uses": "剧情钩子：接线员听到不该听到的谈话、被切断的电话线造成的孤立、电话公司与市政的专利纠纷、凶案现场的最后一通电话、一条被窃听的专线。",
+        "historical_scope": "据百度百科「电话机」：电话归功于亚历山大·格拉汉姆·贝尔，早期靠电脉冲在金属线上传递，页面称贝尔系统曾占美国电话市场 80%。页面未读到具体发明年份，本条不写年份。世界可自行调整。",
+        "evidence_and_uncertainty": "已核对（百度百科「电话机」，2026-11-04 读取）：发明者的页面说法、早期原理、市场占有率说法；设计归纳：商业与社会影响、风险、剧情钩子；未取得：发明年份、专利争议与交换机细节。"
+      },
+      "source_ids": [
+        "ws_era_src_setting",
+        "ws_era_src_telephone"
+      ],
+      "related_ids": [
+        "tech_electric_telegraph",
+        "tech_electric_power_grid",
+        "tech_wireless_radio",
+        "steam_gaslight_telegraph_city"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "tech_incandescent_lamp",
+      "name": "白炽灯",
+      "aliases": [
+        "incandescent lamp",
+        "电灯",
+        "电灯泡"
+      ],
+      "tags": [
+        "tech:early_modern",
+        "role:lighting",
+        "trait:electric",
+        "genre:modern",
+        "genre:historical"
+      ],
+      "genres": [
+        "modern",
+        "historical"
+      ],
+      "category": "item",
+      "summary": "让电流通过灯丝使其发热发光的电灯：它比煤气灯更干净、更安全，并促成了电力供应网的建设。",
+      "details": {
+        "definition": "白炽灯是在玻璃泡内放入灯丝，通电后灯丝被加热到白炽状态发光。灯泡内为真空或充入惰性气体，以延长灯丝寿命。",
+        "mechanism": "改变了什么：城市和工厂的夜间照明更明亮、更安全，煤气灯和油灯逐渐退出；夜班工作和夜生活扩展；电力公司与供电网获得稳定的用户。",
+        "conditions": "前置技术与资源：稳定的电源与供电网（见 tech_electric_power_grid）、耐热灯丝材料、玻璃吹制与抽真空技术、铜线与开关。最低档位 tech:early_modern（页面称斯旺 1878 年发明，但大规模使用依赖电网，故按设定档位标）。",
+        "exceptions": "常见风险：灯丝易断、寿命短（页面称约 1000 小时）、光效低（页面称最大约 19 流明每瓦）；电线老化引发火灾；供电不稳造成闪烁和停电。",
+        "story_uses": "剧情钩子：第一个通电的街区、煤气公司与电力公司的商战、因电线短路而烧毁的剧院、点亮实验室里的秘密、电网故障时一个黑暗的城区。",
+        "historical_scope": "据百度百科「白炽灯」：称 1878 年英国化学家斯旺发明，灯丝通电白炽发光，最大光效约 19 流明每瓦，寿命约 1000 小时。页面未核实爱迪生的作用，本条不写。世界可自行调整。",
+        "evidence_and_uncertainty": "已核对（百度百科「白炽灯」，2026-11-04 读取）：发明者与年份的页面说法、工作原理、光效与寿命；设计归纳：照明与产业影响、风险、剧情钩子；未取得：爱迪生的贡献与专利争议。"
+      },
+      "source_ids": [
+        "ws_era_src_setting",
+        "ws_era_src_bulb"
+      ],
+      "related_ids": [
+        "tech_electric_power_grid",
+        "tech_coal_gas_lighting",
+        "materials_glass",
+        "reality_phys_combustion_fire",
+        "steam_gaslight_telegraph_city"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "tech_assembly_line_automobile",
+      "name": "福特T型车与流水线",
+      "aliases": [
+        "Ford Model T",
+        "assembly line",
+        "流水线生产",
+        "大众汽车"
+      ],
+      "tags": [
+        "tech:early_modern",
+        "role:mass_production",
+        "trait:liquid_fuel",
+        "genre:modern",
+        "genre:historical"
+      ],
+      "genres": [
+        "modern",
+        "historical"
+      ],
+      "category": "item",
+      "summary": "以通用零部件和流水线装配大批量生产廉价汽车的生产方式：它让汽车从富人玩具变成工人家庭也买得起的交通工具。",
+      "details": {
+        "definition": "流水线把装配工作分成固定的工序，让车身沿线移动，每个工人只重复一两项动作；零件按统一规格制造，不需要现场修配。",
+        "mechanism": "改变了什么：生产上，装配时间大幅缩短；经济上，价格下降使消费者增多，工人高工资与消费循环出现；社会上，道路、加油站、郊区住宅随之发展，传统马车行业受冲击。",
+        "conditions": "前置技术与资源：可靠的内燃机（见 tech_internal_combustion_engine）、通用零件与精密加工（见 steam_interchangeable_parts）、钢铁与橡胶供应、燃油供应、资金和大规模工厂。最低档位 tech:early_modern。",
+        "exceptions": "常见风险：工人单调疲劳、工会冲突与罢工；产品单一，难应对需求变化；对石油与道路依赖带来新的脆弱性；事故与交通混乱。",
+        "story_uses": "剧情钩子：流水线上被替换的熟练工、工会与厂主的暴力冲突、郊区新道路上的拦路抢劫、车商与马车行的对立、被拆散成零件走私的汽车。",
+        "historical_scope": "据百度百科「T 型汽车」：1908 年 10 月 1 日推出，大量通用零部件；1913 年高地公园工厂采用流水线，一个底盘的装配时间由 14 小时缩到 1.5 小时；价格最终降到 260 美元；1921 年产量占世界 56.6%；1914 年「任何颜色只要是黑色」。世界可自行调整。",
+        "evidence_and_uncertainty": "已核对（百度百科「T 型汽车」，2026-11-04 读取）：推出时间、流水线时间变化、价格、产量占比；设计归纳：社会与经济影响、风险、剧情钩子；未取得：工人工资与罢工事件的史实。"
+      },
+      "source_ids": [
+        "ws_era_src_setting",
+        "ws_era_src_modelt"
+      ],
+      "related_ids": [
+        "tech_internal_combustion_engine",
+        "steam_interchangeable_parts",
+        "steam_factory_discipline",
+        "reality_phys_road_transport",
+        "tech_machine_gun"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "tech_x_ray",
+      "name": "X射线",
+      "aliases": [
+        "X-ray",
+        "伦琴射线",
+        "透视"
+      ],
+      "tags": [
+        "tech:early_modern",
+        "role:medicine",
+        "trait:radiation",
+        "genre:modern",
+        "genre:historical"
+      ],
+      "genres": [
+        "modern",
+        "historical"
+      ],
+      "category": "item",
+      "summary": "一种能穿透人体软组织并在底片上留下骨骼影像的高能电磁辐射：它让医生第一次不开刀就能看到体内的骨折与异物。",
+      "details": {
+        "definition": "X 射线由高压电使真空管发出，穿透力强，不同密度的组织吸收不同，形成影像。它属于电离辐射，对人体有危害。",
+        "mechanism": "改变了什么：医学上，骨折、肺部和异物可以被无创诊断；军事上，战地医院可以定位弹片；社会上，公众对「看穿衣物」的恐慌和商业噱头出现。",
+        "conditions": "前置技术与资源：高压电源（见 tech_electric_power_grid）、真空管与玻璃制作、感光底片或荧光屏、操作者培训。最低档位 tech:early_modern。越档提示：CT 与同位素诊断属于更晚的技术。",
+        "exceptions": "常见风险：早期操作者未做防护，造成皮肤灼伤、脱发乃至癌症；影像模糊导致误诊；设备昂贵，仅大医院才有；被滥用于娱乐或商业噱头。",
+        "story_uses": "剧情钩子：被 X 光照出的凶器、操作员渐渐出现的灼伤、战地医院里的透视机、用 X 光检查走私品的海关、一个患者发现自己体内的异物。",
+        "historical_scope": "据百度百科「X射线」：1895 年伦琴发现并命名，穿透力强，用于医学诊断，属电离辐射，有危害。世界可自行调整。",
+        "evidence_and_uncertainty": "已核对（百度百科「X射线」，2026-11-04 读取）：发现年份与人物、穿透性、医学用途、电离辐射；设计归纳：医学与社会影响、风险、剧情钩子；未取得：早期防护措施与设备参数。"
+      },
+      "source_ids": [
+        "ws_era_src_setting",
+        "ws_era_src_xray"
+      ],
+      "related_ids": [
+        "tech_electric_power_grid",
+        "tech_ether_anaesthesia",
+        "tech_antiseptic_surgery",
+        "materials_glass"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "tech_ammonia_synthesis",
+      "name": "合成氨",
+      "aliases": [
+        "Haber-Bosch",
+        "ammonia synthesis",
+        "哈伯法",
+        "固氮"
+      ],
+      "tags": [
+        "tech:early_modern",
+        "role:chemistry",
+        "trait:industrial_base",
+        "genre:modern",
+        "genre:historical"
+      ],
+      "genres": [
+        "modern",
+        "historical"
+      ],
+      "category": "economy",
+      "summary": "在高温高压和催化剂下把空气中的氮与氢合成氨的工业方法：它既能造化肥，也能造火药原料，把粮食和战争绑在同一条化工线上。",
+      "details": {
+        "definition": "合成氨是让氮气和氢气在高温、高压与催化剂作用下反应生成氨，氨再制成化肥或硝酸。哈伯的循环法使连续生产成为可能。",
+        "mechanism": "改变了什么：农业上，化肥使单位面积产量增加，粮食供应摆脱对天然肥料的限制；军事上，氨可用于制备炸药原料，使一国的火药供应不再依赖天然硝石；产业上，化工厂成为新的大型工业设施。",
+        "conditions": "前置技术与资源：高压容器与耐压钢材（见 tech_bessemer_steel）、氢气来源（如煤）、催化剂、大量能源、化工人才。最低档位 tech:early_modern。越档提示：更晚的石油化工与农药化工不在范围内。",
+        "exceptions": "常见风险：高压设备爆炸与泄漏、氨气中毒、化工污染；化肥依赖导致土壤退化的长期问题；战时被改为军用而挤占农业。",
+        "story_uses": "剧情钩子：化工厂爆炸与被封锁的厂区、农民使用新化肥后的丰收与病害、战争中被切断天然硝石后的紧急转产、竞争对手窃取催化剂配方、化学家的伦理困境。",
+        "historical_scope": "据百度百科「合成氨」：哈伯 1902 年起研究，1908 年申请循环法专利，1909 年氨含量达 6% 以上；20 世纪初形成工业，最初服务于火炸药原料，一战后转向农业。世界可自行调整。",
+        "evidence_and_uncertainty": "已核对（百度百科「合成氨」，2026-11-04 读取）：工艺条件、年份、早期军用与转向农业；设计归纳：农业与军事影响、风险、剧情钩子；未取得：催化剂与压力温度的具体数值、产量数据。"
+      },
+      "source_ids": [
+        "ws_era_src_setting",
+        "ws_era_src_haber"
+      ],
+      "related_ids": [
+        "tech_bessemer_steel",
+        "tech_gunpowder",
+        "reality_phys_crop_rotation",
+        "reality_phys_energy_budget",
+        "tech_machine_gun"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "tech_submarine",
+      "name": "潜艇",
+      "aliases": [
+        "submarine",
+        "早期潜艇",
+        "潜水艇"
+      ],
+      "tags": [
+        "tech:early_modern",
+        "role:naval_power",
+        "trait:stealth",
+        "genre:modern",
+        "genre:historical"
+      ],
+      "genres": [
+        "modern",
+        "historical"
+      ],
+      "category": "item",
+      "summary": "能潜入水下航行的舰艇：它让弱小的海军也能对大型战舰和商船构成威胁，并改变了海上封锁与补给的规则。",
+      "details": {
+        "definition": "潜艇是靠压载水舱调节浮力、可在水下运行的舰艇。早期潜艇用内燃机在水面航行、用蓄电池在水下推进，水下航程和速度有限。",
+        "mechanism": "改变了什么：海战上，潜艇用鱼雷攻击水面舰船，对商船的通商破坏战成为可能；政治上，海上强国的优势被削弱；法律与道德上，对商船的攻击规则引发争论。",
+        "conditions": "前置技术与资源：密封的耐压船体、内燃机和蓄电池（见 tech_internal_combustion_engine、tech_electric_power_grid）、鱼雷或火炮、空气循环设备、训练有素的艇员。最低档位 tech:early_modern。越档提示：核潜艇不在范围内。",
+        "exceptions": "常见风险：艇体故障或操作失误可致全艇覆没；艇内空气、闷热与有毒气体威胁艇员；探测手段不足时难以发现敌人，同时易被水面舰艇反潜攻击；通信困难。",
+        "story_uses": "剧情钩子：失踪的潜艇与迟来的求救、封锁线下的偷袭、艇员在深水中缺氧的抉择、海军内部对潜艇是否「不光彩」的争论、被潜艇击沉的客船引发的外交危机。",
+        "historical_scope": "据百度百科「潜艇」：能在水下航行的舰艇，一战后被广泛运用。页面混有 1939 年之后的内容，早期历史段本条未取得，只采用定义与「一战后广泛运用」两点。世界可自行调整。",
+        "evidence_and_uncertainty": "已核对（百度百科「潜艇」，2026-11-04 读取）：定义与一战后广泛运用；设计归纳：战术与政治影响、风险、剧情钩子；未取得：早期潜艇发明史、鱼雷与动力系统的细节。"
+      },
+      "source_ids": [
+        "ws_era_src_setting",
+        "ws_era_src_submarine"
+      ],
+      "related_ids": [
+        "tech_internal_combustion_engine",
+        "tech_ironclad_warship",
+        "tech_wireless_radio",
+        "tech_oared_sailing_ship"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "tech_jingzhang_railway",
+      "name": "京张铁路",
+      "aliases": [
+        "Jingzhang Railway",
+        "詹天佑与京张铁路",
+        "自主筑路"
+      ],
+      "tags": [
+        "tech:early_modern",
+        "role:transport",
+        "trait:state_project",
+        "genre:modern",
+        "genre:historical"
+      ],
+      "genres": [
+        "modern",
+        "historical"
+      ],
+      "category": "place",
+      "summary": "由中国工程师主持、不用外国资金和人员建成的山区干线铁路：它是一次工程自主的象征，也是人字形折返线与隧道施工的典型案例。",
+      "details": {
+        "definition": "京张铁路是从北京通往张家口的铁路干线，由詹天佑主持设计和建造，穿越山区，关沟段坡度较陡，采用人字形折返线减缓爬坡，并开凿了包括八达岭在内的多座隧道。",
+        "mechanism": "改变了什么：运输上，京城与塞外的货物和客流更快；工程上，证明本国工程师可以独立完成复杂的山区铁路；政治上，成为收回路权、主张自主建设的象征。",
+        "conditions": "前置技术与资源：测量与制图、隧道开凿技术、铁轨和机车（见 tech_steam_locomotive、steam_trunk_railway）、劳力与资金、官方支持。最低档位 tech:early_modern（页面称 1905 年开工、1909 年通车，但铁路本身出现在更早的 tech:steam，世界可调整）。",
+        "exceptions": "常见风险：山区地形复杂，塌方、隧道渗水和爆破事故；预算和工期压力；外国势力借贷款干预；运营后需要大量维护。",
+        "story_uses": "剧情钩子：测量队在山里发现的意外、隧道开凿时的塌方与失踪民工、外国公司对筑路权的暗中阻挠、通车典礼上的突发事件、折返线上的一次刹车故障。",
+        "historical_scope": "据百度百科「京张铁路」：詹天佑主持，1905 年 9 月开工，1909 年通车，全长约 200 公里，是中国首条不使用外国资金与人员、自主设计营运的铁路；关沟段坡度 33‰，采用人字形折返线，开凿八达岭等四座隧道。世界可自行调整。",
+        "evidence_and_uncertainty": "已核对（百度百科「京张铁路」，2026-11-04 读取）：主持人、开工与通车年份、长度、坡度、折返线与隧道；设计归纳：政治与工程影响、风险、剧情钩子；未取得：造价、劳工数量与事故细节。"
+      },
+      "source_ids": [
+        "ws_era_src_setting",
+        "ws_era_src_jingzhang"
+      ],
+      "related_ids": [
+        "tech_steam_locomotive",
+        "steam_trunk_railway",
+        "steam_station_yard",
+        "tech_jiangnan_arsenal",
+        "steam_gauge_standard"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "tech_cinema",
+      "name": "电影",
+      "aliases": [
+        "cinema",
+        "motion picture",
+        "电影放映",
+        "有声电影"
+      ],
+      "tags": [
+        "tech:early_modern",
+        "role:media",
+        "trait:mass_audience",
+        "genre:modern",
+        "genre:historical"
+      ],
+      "genres": [
+        "modern",
+        "historical"
+      ],
+      "category": "item",
+      "summary": "用连续摄影和放映使图像「动起来」的影像艺术与技术：它把图像、故事和声音汇到一块银幕上，让大批观众同时观看。",
+      "details": {
+        "definition": "电影用摄影机连续拍摄，再用放映机以固定速度把胶片画面投射到银幕上，形成运动的错觉。后来加入同步声音与彩色。",
+        "mechanism": "改变了什么：娱乐上，影院成为城市大众文化的重要场所；宣传上，新闻片与宣传片被政府和企业利用；产业上，出现制片公司、明星制和发行网络。",
+        "conditions": "前置技术与资源：胶片与感光材料（见 tech_daguerreotype）、摄影机与放映机的精密机械、光源（见 tech_incandescent_lamp、tech_electric_power_grid）、影院与发行体系。最低档位 tech:early_modern。越档提示：电视、数字影像不在范围内。",
+        "exceptions": "常见风险：早期胶片易燃，放映室火灾频繁；审查与宣传被政治利用；盗版与拷贝泄露；观众沉迷与对旧娱乐业的冲击。",
+        "story_uses": "剧情钩子：放映厅失火的惨案、被查禁的影片、巡回放映师带来的新奇、胶片里不该出现的人影、影片被用于政治宣传。",
+        "historical_scope": "据百度百科「电影」：1895 年 12 月 28 日卢米埃尔兄弟在巴黎首次公开放映，1927 年华纳《爵士歌王》为有声片，20 世纪 30 年代出现特艺彩色。世界可自行调整。",
+        "evidence_and_uncertainty": "已核对（百度百科「电影」，2026-11-04 读取）：首次公开放映日期、有声与彩色的年份；设计归纳：娱乐与宣传影响、风险、剧情钩子；未取得：胶片易燃的具体记载与影院规模数据。"
+      },
+      "source_ids": [
+        "ws_era_src_setting",
+        "ws_era_src_cinema"
+      ],
+      "related_ids": [
+        "tech_daguerreotype",
+        "tech_incandescent_lamp",
+        "tech_electric_power_grid",
+        "reality_human_printing_reproduction"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    }
+  ]
+}

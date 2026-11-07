@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>织梦 · 三族棱垒 / 棱堡 / 要塞地标（race-fort-2）预览</title>
+<style>
+  body { margin: 0; background: #c9c79a; font: 13px/1.4 "Microsoft YaHei", sans-serif; color: #4a3826; }
+  h2 { margin: 18px 16px 6px; font-size: 16px; }
+  .grid { display: flex; flex-wrap: wrap; gap: 10px; padding: 0 16px; align-items: flex-end; }
+  .card { background: rgba(239,223,178,0.35); border: 1px solid rgba(74,56,38,0.25); padding: 6px; text-align: center; }
+  .card svg { display: block; margin: 0 auto; }
+  .lab { font-size: 11px; margin-top: 2px; white-space: nowrap; }
+  .scene { padding: 0 16px 8px; display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-start; }
+  .note { margin: 0 16px; font-size: 12px; opacity: 0.8; }
+  .warn { margin: 0 16px; color: #9a3b2a; font-weight: bold; }
+</style>
+</head>
+<body>
+<!-- sprite 容器：0×0 绝对定位（不能 display:none，否则 clipPath 失效） -->
+<div id="sprite-host" style="position:absolute;width:0;height:0;overflow:hidden"></div>
+<div id="out"></div>
+<script src="../race-fort/core.js"></script>
+<script src="../race-fort/spoke.js"></script>
+<script src="../race-fort/elf.js"></script>
+<script src="../race-fort/dwarf.js"></script>
+<script src="../race-fort/orc.js"></script>
+<script src="../race-fort/race-fort.js"></script>
+<script src="bastion.js"></script>
+<script src="elf2.js"></script>
+<script src="dwarf2.js"></script>
+<script src="orc2.js"></script>
+<script src="race-fort-2.js"></script>
+<script src="preview-scene2.js"></script>
+<script src="preview-cfg2.js"></script>
+<script>
+(function () {
+  'use strict';
+  var RF = window.TownArt_raceFort, R2 = window.TownArt_raceFort2, SC = window.RF2_scene, CFG = window.RF2_CFG;
+  var old = RF.symbols(), neu = R2.symbols(), lib = {}, host = document.getElementById('sprite-host'), out = document.getElementById('out');
+  old.forEach(function (s) { lib[s.id] = s.meta; });
+  neu.forEach(function (s) { lib[s.id] = s.meta; });
+  // 两个 sprite 合进一个容器（race-fort 的墙辐条只用于场景拼接）
+  host.innerHTML = R2.spriteSVG(neu.concat(old));
+  var html = '<h2>race-fort-2 图册（新 symbol ' + neu.length + ' 个，1 倍；锚点红点 = 占地前沿中点）</h2><div class="grid">';
+  neu.forEach(function (s) {
+    var m = s.meta, w = m.viewBox[2], h = m.viewBox[3], k = m.category === 'landmark' ? 1 : 1.5;
+    html += '<div class="card"><svg width="' + w * k + '" height="' + h * k + '" viewBox="0 0 ' + w + ' ' + h + '">' +
+      '<rect x="0" y="' + (h - m.footprint[1] * 48) + '" width="' + w + '" height="' + m.footprint[1] * 48 + '" fill="none" stroke="#4a3826" stroke-opacity="0.25" stroke-dasharray="3 3"/>' +
+      '<use href="#' + s.id + '" width="' + w + '" height="' + h + '"/><circle cx="' + m.anchor[0] + '" cy="' + m.anchor[1] + '" r="2" fill="#c0392b"/></svg>' +
+      '<div class="lab">' + s.id + '</div><div class="lab">' + m.footprint.join('×') + ' · up ' + m.height_px + ' · ' + m.facility + '</div></div>';
+  });
+  html += '</div>';
+  ['elf', 'dwarf', 'orc'].forEach(function (race) {
+    var cfg = CFG[race], sc = SC.build(cfg, lib);
+    html += '<h2>' + cfg.title + '</h2>';
+    if (sc.warn.length) html += '<div class="warn">' + sc.warn.join('；') + '</div>';
+    html += '<div class="scene" id="scene-' + race + '">' + SC.render(sc, lib, cfg.vb, 1, true) +
+      '<div><div class="note">对接处特写（3 倍）</div>' + SC.render(sc, lib, cfg.zoom, 3, true) + '</div></div>';
+  });
+  out.innerHTML = html;
+  window.RF2_WARN = [].concat.apply([], ['elf', 'dwarf', 'orc'].map(function (r) { return SC.build(CFG[r], lib).warn; }));
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>织梦 · 城镇西式水面与地面素材预览</title>
+<style>
+  body { margin: 0; background: #c9c79a; font: 13px/1.4 "Microsoft YaHei", sans-serif; color: #4a3826; }
+  h2 { margin: 18px 16px 6px; font-size: 16px; }
+  h3 { margin: 10px 16px 4px; font-size: 13px; }
+  .grid { display: flex; flex-wrap: wrap; gap: 8px; padding: 0 16px; }
+  .card { background: rgba(239,223,178,0.35); border: 1px solid rgba(74,56,38,0.25); padding: 5px; text-align: center; }
+  .card svg { display: block; margin: 0 auto; }
+  .lab { font-size: 11px; margin-top: 2px; white-space: nowrap; }
+  .lab b { font-weight: 600; }
+  .lab i { font-style: normal; opacity: 0.7; }
+  .scenes { display: flex; flex-wrap: wrap; gap: 12px; padding: 0 16px; align-items: flex-start; }
+  .note { margin: 0 16px 6px; font-size: 12px; opacity: 0.8; }
+</style>
+</head>
+<body>
+<div id="sprite-host" style="position:absolute;width:0;height:0;overflow:hidden"></div>
+<div id="extra-host" style="position:absolute;width:0;height:0;overflow:hidden"></div>
+<h2>拼接验证（双网格从逻辑格数组实时拼出）</h2>
+<p class="note">渲染瓦片与逻辑格错开半格；虚线 = 逻辑格。港池上沿放了 special-infra 的西式码头 west-common-dock-01 用来对比水色。</p>
+<div id="joins" class="scenes"></div>
+<h2>示意街区（草地底纹铺满 + 土地院坪 + west-base 民居 + 摆件，按锚点 y 排序）</h2>
+<div id="block" class="scenes"></div>
+<div id="atlas"></div>
+<script src="core.js"></script>
+<script src="dual.js"></script>
+<script src="water.js"></script>
+<script src="ground.js"></script>
+<script src="kit.js"></script>
+<script src="props-a.js"></script>
+<script src="props-b.js"></script>
+<script src="props-c.js"></script>
+<script src="props-race.js"></script>
+<script src="props-orc.js"></script>
+<script src="west-ground.js"></script>
+<!-- 只读引用：west-base 民居、special-infra 码头（不存在就跳过） -->
+<script src="../west-base/common.js" onerror="void 0"></script>
+<script src="../west-base/houses-a.js" onerror="void 0"></script>
+<script src="../west-base/houses-b.js" onerror="void 0"></script>
+<script src="../west-base/houses-c.js" onerror="void 0"></script>
+<script src="../west-base/west-base.js" onerror="void 0"></script>
+<script src="../special-infra/infra-core.js" onerror="void 0"></script>
+<script src="../special-infra/west-infra.js" onerror="void 0"></script>
+<script src="../special-infra/east-infra.js" onerror="void 0"></script>
+<script src="../special-infra/special-infra.js" onerror="void 0"></script>
+<script src="preview-scene.js"></script>
+<script src="preview-atlas.js"></script>
+</body>
+</html>

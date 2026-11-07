@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>西式特殊建筑预览（west-special）</title>
+<style>
+  body { margin: 0; padding: 18px; background: #c9c79a; font: 13px/1.4 "Microsoft YaHei", sans-serif; color: #4a3826; }
+  h1 { font-size: 18px; margin: 0 0 4px; }
+  h2 { font-size: 15px; margin: 22px 0 8px; }
+  .grid { display: flex; flex-wrap: wrap; gap: 14px; align-items: flex-end; }
+  .cell { background: #c9c79a; border: 1px dashed rgba(74,56,38,.35); padding: 6px 6px 4px; text-align: center; }
+  .cell svg { display: block; margin: 0 auto; }
+  .cell .id { font: 11px Consolas, monospace; opacity: .8; }
+  .cell .zh { font-size: 12px; font-weight: bold; }
+  #plaza svg { display: block; border: 1px solid rgba(74,56,38,.4); }
+</style>
+</head>
+<body>
+<h1>西式奇幻 · 特殊建筑（3/4 斜俯视，48 px 网格，尚未接入游戏）</h1>
+<div>虚线框 = viewBox；底部浅色方框 = 占地格；红点 = 锚点（前沿中点）。放大 2 倍显示。</div>
+<h2>全部建筑</h2>
+<div class="grid" id="grid"></div>
+<h2>小广场示意（按锚点 y 排序绘制）</h2>
+<div id="plaza"></div>
+
+<script src="prims.js"></script>
+<script src="civic.js"></script>
+<script src="trade.js"></script>
+<script src="service.js"></script>
+<script src="west-special.js"></script>
+<script>
+(function () {
+  'use strict';
+  var WS = window.TownArt_westSpecial, CELL = 48, K = 2;
+  var defs = WS.list(), byId = {};
+  defs.forEach(function (d) { byId[WS.idOf(d)] = d; });
+
+  // 全部建筑网格
+  var grid = document.getElementById('grid'), html = '';
+  defs.forEach(function (d) {
+    var s = WS.dims(d), id = WS.idOf(d), m = WS.meta(d);
+    var foot = '<rect x="0" y="' + d.up + '" width="' + s.W + '" height="' + (s.H - d.up) + '" fill="#000" fill-opacity="0.05" stroke="#4a3826" stroke-opacity="0.25" stroke-dasharray="3 3"/>';
+    var grid48 = '';
+    for (var x = CELL; x < s.W; x += CELL) grid48 += '<line x1="' + x + '" y1="' + d.up + '" x2="' + x + '" y2="' + s.H + '" stroke="#4a3826" stroke-opacity="0.15"/>';
+    for (var y = d.up + CELL; y < s.H; y += CELL) grid48 += '<line x1="0" y1="' + y + '" x2="' + s.W + '" y2="' + y + '" stroke="#4a3826" stroke-opacity="0.15"/>';
+    html += '<div class="cell"><svg xmlns="http://www.w3.org/2000/svg" width="' + s.W * K + '" height="' + s.H * K + '" viewBox="0 0 ' + s.W + ' ' + s.H + '">' +
+      foot + grid48 + '<use href="#' + id + '"/>' +
+      '<circle cx="' + m.anchor[0] + '" cy="' + m.anchor[1] + '" r="2" fill="#c0392b"/></svg>' +
+      '<div class="zh">' + d.name + '</div><div class="id">' + id + '</div>' +
+      '<div class="id">' + m.facility + ' · ' + d.fp[0] + '×' + d.fp[1] + '</div></div>';
+  });
+  grid.innerHTML = html;
+
+  // 共享 symbol 定义
+  var defsSvg = '<svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0">' + defs.map(WS.symbol).join('') + '</svg>';
+  document.body.insertAdjacentHTML('afterbegin', defsSvg);
+
+  // 小广场：16×11 格；放置以「占地左上格 (gx, gy)」计
+  var TOP = 150, GW = 16, GH = 11, PW = GW * CELL, PH = GH * CELL + TOP;
+  var place = [
+    ['west-common-town-hall-01', 6, 0],
+    ['west-common-temple-01', 1, 0],
+    ['west-common-temple-02', 12, 1],
+    ['west-common-market-hall-01', 10, 4],
+    ['west-common-forge-01', 0, 7],
+    ['west-common-inn-01', 12, 8],
+    ['west-common-well-01', 7, 5],
+    ['west-common-stall-01', 5, 7],
+    ['west-common-stall-02', 6, 8],
+    ['west-common-stall-03', 9, 8],
+    ['west-common-stall-01', 4, 5]
+  ];
+  var o = '<svg xmlns="http://www.w3.org/2000/svg" width="' + PW + '" height="' + PH + '" viewBox="0 ' + (-TOP) + ' ' + PW + ' ' + PH + '">';
+  o += '<rect x="0" y="' + (-TOP) + '" width="' + PW + '" height="' + PH + '" fill="#c9c79a"/>';
+  // 简单石板路面块（不是道路瓦片）：广场中心一圈
+  var P = WS.P, rnd = P.rng(77);
+  o += P.paving(3 * CELL, 3 * CELL, 12 * CELL, 10 * CELL, 12, rnd, '#d6c9aa');
+  var items = place.filter(function (p) { return byId[p[0]]; }).map(function (p) {
+    var d = byId[p[0]], s = WS.dims(d);
+    return { id: p[0], x: p[1] * CELL, y: (p[2] + d.fp[1]) * CELL - s.H, ay: (p[2] + d.fp[1]) * CELL, ax: p[1] * CELL + s.W / 2, W: s.W, H: s.H };
+  });
+  items.sort(function (a, b) { return a.ay - b.ay || a.ax - b.ax; });
+  items.forEach(function (it) {
+    o += '<use href="#' + it.id + '" x="' + it.x + '" y="' + it.y + '" width="' + it.W + '" height="' + it.H + '"/>';
+  });
+  o += '</svg>';
+  document.getElementById('plaza').innerHTML = o;
+  var missing = place.filter(function (p) { return !byId[p[0]]; }).map(function (p) { return p[0]; });
+  if (missing.length) document.getElementById('plaza').insertAdjacentHTML('beforeend', '<div>尚未绘制：' + missing.join('，') + '</div>');
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,593 @@
+{
+  "schema_version": 1,
+  "group": "polities",
+  "status": "candidate",
+  "note": "国家与政体模板候选组（kind:polity）。每条是可改写的政体模板，不是具体国家；标签 polity:*、genre:*、tech:*（最低档位）与可选的 magic:* 的含义见 docs/world-setting.md。科技止于 1939 年之前。全部条目 review_status=needs_review、detail_status=needs_detail，仅表示结构齐备；部分内容已对照百度百科核对（见各条 evidence_and_uncertainty），其余仍未经事实核验。2026-11-04 起，百度百科来源已用无头浏览器读取页面（access=read；个别词条只读到摘要级内容，见各来源 supports），并据此核对了相应条目；Wikipedia 与 Britannica 来源仍为 search_only，仅确认主题与链接，未取得正文，未据其引用具体事实；设计类内容为本项目归纳。独立文件，不改动其他分组。",
+  "sources": [
+    {
+      "id": "ws_polity_src_setting",
+      "title": "世界设定：类型配比、科技 / 魔法档位与国家 / 种族 / 势力（本项目设计文档）",
+      "url": "docs/world-setting.md",
+      "access": "read",
+      "supports": "tech:*、magic:*、kind:polity、polity:*、genre:* 标签的档位定义与使用方式（科技止于 1939 年之前）",
+      "rights_note": "本项目原创设计文档，随仓库分发；非第三方资料。条目内容为据此做的设计归纳，不是史料结论。"
+    },
+    {
+      "id": "ws_polity_src_wp_monarchy",
+      "title": "Monarchy (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Monarchy",
+      "access": "search_only",
+      "supports": "仅确认该条目主题与链接存在（本轮 HEAD 探测返回 403 人机校验，未取得正文），不支撑任何具体论断；关于「君主制的权力来源与继承」的表述为一般常识层面的转述与本项目设计归纳，待审阅时对照原文核实。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_polity_src_wp_constitutional",
+      "title": "Constitutional monarchy (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Constitutional_monarchy",
+      "access": "search_only",
+      "supports": "仅确认该条目主题与链接存在（本轮 HEAD 探测返回 403 人机校验，未取得正文），不支撑任何具体论断；关于「君主立宪制」的表述为一般常识层面的转述与本项目设计归纳，待审阅时对照原文核实。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_polity_src_brit_feudalism",
+      "title": "Feudalism (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/topic/feudalism",
+      "access": "search_only",
+      "supports": "仅确认该条目主题与链接存在（本轮 HEAD 探测返回 403 人机校验，未取得正文），不支撑任何具体论断；关于「封建制的封授与效忠」的表述为一般常识层面的转述与本项目设计归纳，待审阅时对照原文核实。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_polity_src_wp_empire",
+      "title": "Empire (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Empire",
+      "access": "search_only",
+      "supports": "仅确认该条目主题与链接存在（本轮 HEAD 探测返回 403 人机校验，未取得正文），不支撑任何具体论断；关于「帝国的多民族统治与官僚」的表述为一般常识层面的转述与本项目设计归纳，待审阅时对照原文核实。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_polity_src_wp_republic",
+      "title": "Republic (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Republic",
+      "access": "search_only",
+      "supports": "仅确认该条目主题与链接存在（本轮 HEAD 探测返回 403 人机校验，未取得正文），不支撑任何具体论断；关于「共和国的公共事务与任期制」的表述为一般常识层面的转述与本项目设计归纳，待审阅时对照原文核实。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_polity_src_brit_city_state",
+      "title": "City-state (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/topic/city-state",
+      "access": "search_only",
+      "supports": "仅确认该条目主题与链接存在（本轮 HEAD 探测返回 403 人机校验，未取得正文），不支撑任何具体论断；关于「城邦的规模与公民身份」的表述为一般常识层面的转述与本项目设计归纳，待审阅时对照原文核实。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_polity_src_wp_theocracy",
+      "title": "Theocracy (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Theocracy",
+      "access": "search_only",
+      "supports": "仅确认该条目主题与链接存在（本轮 HEAD 探测返回 403 人机校验，未取得正文），不支撑任何具体论断；关于「神权政体」的表述为一般常识层面的转述与本项目设计归纳，待审阅时对照原文核实。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_polity_src_wp_tribe",
+      "title": "Tribe (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Tribe",
+      "access": "search_only",
+      "supports": "仅确认该条目主题与链接存在（本轮 HEAD 探测返回 403 人机校验，未取得正文），不支撑任何具体论断；关于「部族社会与联盟」的表述为一般常识层面的转述与本项目设计归纳，待审阅时对照原文核实。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_polity_src_brit_hanse",
+      "title": "Hanseatic League (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/topic/Hanseatic-League",
+      "access": "search_only",
+      "supports": "仅确认该条目主题与链接存在（本轮 HEAD 探测返回 403 人机校验，未取得正文），不支撑任何具体论断；关于「汉萨同盟式的城市商业联盟」的表述为一般常识层面的转述与本项目设计归纳，待审阅时对照原文核实。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_polity_src_wp_merchant_republic",
+      "title": "Merchant republic (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Merchant_republic",
+      "access": "search_only",
+      "supports": "仅确认该条目主题与链接存在（本轮 HEAD 探测返回 403 人机校验，未取得正文），不支撑任何具体论断；关于「商业共和国」的表述为一般常识层面的转述与本项目设计归纳，待审阅时对照原文核实。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_polity_src_bk_feudal_w",
+      "title": "百度百科：西欧封建制度（Baidu Baike）",
+      "url": "https://baike.baidu.com/item/%E8%A5%BF%E6%AC%A7%E5%B0%81%E5%BB%BA%E5%88%B6%E5%BA%A6",
+      "access": "read",
+      "supports": "2026-11-04 用无头 Edge 读取：仅读到摘要级内容：西欧封建制度以封主与封臣之间的封土、效忠关系为核心；中央权力衰落后，各封建主在自己领地内趋于独立。只支撑本条『封土与效忠、权力分散』的总体描述，不支撑御前会议、巡回法官、城市特许状等机构清单。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_polity_src_bk_feudalism_marx",
+      "title": "百度百科：封建制度（Baidu Baike）",
+      "url": "https://baike.baidu.com/item/%E5%B0%81%E5%BB%BA%E5%88%B6%E5%BA%A6",
+      "access": "read",
+      "supports": "2026-11-04 用无头 Edge 读取：已读，但仅作参考、不用于支撑本条：该词条把『封建制度』界定为地主阶级剥削农民的社会经济形态（马克思主义用法），与本条『封土封臣的政体模板』含义不同。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_polity_src_bk_constitutional",
+      "title": "百度百科：君主立宪制（Baidu Baike）",
+      "url": "https://baike.baidu.com/item/%E5%90%9B%E4%B8%BB%E7%AB%8B%E5%AE%AA%E5%88%B6",
+      "access": "read",
+      "supports": "2026-11-04 用无头 Edge 读取：已读正文：光荣革命（1688）与《权利法案》是英国君主立宪制确立的标志；议会制君主立宪制中议会是最高国家权力机关、政府首脑由议会选举产生、君主『统而不治』；二元制君主立宪制中君主权力大于议会。支撑本条『君主为象征、实权在议会与内阁』的定义及其与二元制的区别；不支撑上下两院、选区不均、宪章运动式请愿等细节。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_polity_src_bk_empire",
+      "title": "百度百科：帝国（Baidu Baike）",
+      "url": "https://baike.baidu.com/item/%E5%B8%9D%E5%9B%BD/21615",
+      "access": "read",
+      "supports": "2026-11-04 用无头 Edge 读取：已读正文：狭义的帝国指君主（皇帝）统治的强大国家，广义的帝国不限于君主制。支撑本条『以皇帝为顶点』及『帝国不一定世袭』两处表述；不支撑罗马、波斯、中国诸王朝的具体制度。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_polity_src_bk_bureaucracy",
+      "title": "百度百科：官僚制（Baidu Baike）",
+      "url": "https://baike.baidu.com/item/%E5%AE%98%E5%83%9A%E5%88%B6/1833510",
+      "access": "read",
+      "supports": "2026-11-04 用无头 Edge 读取：已读正文：官僚制是大中型组织中由受过训练的专职人员组成的行政管理机构，18 世纪『官僚』一词被用作一种新的政府形式。支撑本条『任命官员行政』的一般含义；不支撑科举、驿传、监察等具体机构。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_polity_src_bk_republic",
+      "title": "百度百科：共和制（Baidu Baike）",
+      "url": "https://baike.baidu.com/item/%E5%85%B1%E5%92%8C%E5%88%B6",
+      "access": "read",
+      "supports": "2026-11-04 用无头 Edge 读取：已读正文：共和制指国家代表机关或元首由选举产生，与君主制相对；最早见于古希腊、古罗马，中世纪有威尼斯、马赛等城市共和制；现代分议会制、总统制。支撑本条『元首与立法者由选举产生、有任期』的定义。不支撑『抽签』产生官员、工会与财阀作为主要政治力量等内容。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_polity_src_bk_polis",
+      "title": "百度百科：城邦（Baidu Baike）",
+      "url": "https://baike.baidu.com/item/%E5%9F%8E%E9%82%A6",
+      "access": "read",
+      "supports": "2026-11-04 用无头 Edge 读取：已读正文：古希腊城邦约在前 8 世纪兴起，有公民大会与议事会；斯巴达有国王、长老会与公民大会，并分三个等级；伯罗奔尼撒战争（前 431—前 404）削弱了城邦，其后被马其顿取代；现存的类似案例有新加坡、摩纳哥、梵蒂冈。支撑本条『公民团体参政的小型政体』的总体描述；不支撑僭主、同盟霸权与非公民群体待遇等细节。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_polity_src_bk_theocracy",
+      "title": "百度百科：政教合一制度（Baidu Baike）",
+      "url": "https://baike.baidu.com/item/%E6%94%BF%E6%95%99%E5%90%88%E4%B8%80%E5%88%B6%E5%BA%A6/2407167?fromtitle=%E7%A5%9E%E6%9D%83%E6%94%BF%E6%B2%BB&fromid=8520109",
+      "access": "read",
+      "supports": "2026-11-04 用无头 Edge 读取：已读正文：政教合一指政权与教权融合，元首兼宗教领袖，法律依据教义；分神权国家（如梵蒂冈）与政权国家（如东罗马君主控制宗教事务）两类；现存案例有梵蒂冈、伊朗。支撑本条『教义同时是法律、最高权力出自神意』的定义；不支撑宗教法庭、什一税、圣战团等机构清单。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_polity_src_bk_tribal_alliance",
+      "title": "百度百科：部落联盟（Baidu Baike）",
+      "url": "https://baike.baidu.com/item/%E9%83%A8%E8%90%BD%E8%81%94%E7%9B%9F/1619531",
+      "access": "read",
+      "supports": "2026-11-04 用无头 Edge 读取：已读正文：几个亲近的部落结成暂时或永久的联盟，是原始社会末期部落向民族形成的第一步；中国古代和古希腊荷马时代存在这类联盟。支撑『部落通过联盟结合』这一定义；不支撑游牧联盟、誓约与人质制度、首领权威来源等内容。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_polity_src_bk_venice",
+      "title": "百度百科：威尼斯共和国（Baidu Baike）",
+      "url": "https://baike.baidu.com/item/%E5%A8%81%E5%B0%BC%E6%96%AF%E5%85%B1%E5%92%8C%E5%9B%BD/3494901",
+      "access": "read",
+      "supports": "2026-11-04 用无头 Edge 读取：仅读到摘要级内容：8 世纪初选出第一任总督建国，建国初隶属东罗马，10 世纪末独立，是富庶的商业国。支撑本条以威尼斯为商业共和国原型的总体说法；不支撑大议会、保险协会、检疫等机构细节。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    },
+    {
+      "id": "ws_polity_src_bk_hanse",
+      "title": "百度百科：汉萨同盟（Baidu Baike）",
+      "url": "https://baike.baidu.com/item/%E6%B1%89%E8%90%A8%E5%90%8C%E7%9B%9F",
+      "access": "read",
+      "supports": "2026-11-04 用无头 Edge 读取：已读正文：汉萨同盟是 13 世纪德意志北部城市的商业政治联盟，14 世纪鼎盛时多达 160 城，1367 年以吕贝克为核心设管理机构，1370 年击败丹麦、签订《斯特拉尔松德条约》后垄断波罗的海贸易。支撑本条『汉萨式的多城联盟不同于单一商业共和国』的区分。",
+      "rights_note": "商业百科页面，仅记录链接与自撰中文转述，未转载原文段落"
+    }
+  ],
+  "elements": [
+    {
+      "id": "polity_feudal_kingdom",
+      "name": "封建王国",
+      "aliases": [
+        "feudal kingdom",
+        "分封王国"
+      ],
+      "tags": [
+        "kind:polity",
+        "polity:monarchy",
+        "tech:medieval",
+        "trait:decentralised",
+        "role:vassal_network",
+        "genre:western_fantasy",
+        "genre:historical"
+      ],
+      "genres": [
+        "western_fantasy",
+        "historical"
+      ],
+      "category": "institution",
+      "summary": "以世袭君主为名义顶点、靠封土与效忠维系的分权王国模板：国王有头衔，实际治理落在领主、骑士与教会手里。",
+      "details": {
+        "definition": "以世袭君主为顶点、层层封授土地并换取兵役与效忠的王国模板。王权来自血统与加冕，国土更像一张人身契约网，而不是统一的行政区。本条是政体模板，不是具体国家。",
+        "mechanism": "权力沿封授链向下传递：君主授地，领主出兵役并充当顾问，地方庄园、教区与领主法庭承担日常司法和征税。典型机构：御前会议、封臣大会、巡回法官、修道院与主教区、城市特许状。对外靠联姻、封臣征召和临时雇佣兵，常备军很小。",
+        "conditions": "成立条件：交通与通信慢、货币经济薄弱、土地是主要财富，并有被承认的继承与加冕规则。最低档位 medieval。到 steam 档，铁路与电报会让集权成为可能，封建结构多退为礼仪或地方遗留。",
+        "exceptions": "强势君主可以架空封臣，封臣联合也可以立文书限制君主；小王国近似一个大领主，大王国可能只有名义宗主权。不要写成国王一句话全国照办的单线命令体系。",
+        "story_uses": "继承危机、封臣拒绝出兵、联姻外交、赎金与战利品纠纷、领主与自治城市争特许权、教会与王权争夺主教任命。每个钩子都可以落到具体的人：一位年幼的继承人，一位按兵不动的伯爵。",
+        "historical_scope": "参考中世纪西欧的封建结构。日本、东欧等地的类似制度各有差异，不能直接套用。本条不规定国名、疆域与宗教。与已有条目 western_kingdom_monarchy、western_feudal_fief 互补：这里侧重「作为政体模板如何在世界设定里取档」。",
+        "evidence_and_uncertainty": "百度百科《西欧封建制度》只读到摘要级内容，核对了封主与封臣的封土、效忠关系，以及中央权力衰落后各封建主在领地内独立这一总体描述。御前会议、巡回法官、城市特许状、赎金、教会任命权之争等机构与钩子清单未被核对，属设计归纳。百度百科《封建制度》指的是马克思主义意义上的社会经济形态，与本条的政体模板含义不同，未用于支撑。学界对『封建』一词的适用范围本身有争论，本条是通用化设计归纳，须按本世界实际调整。 该条原有的网络来源（Wikipedia 或 Britannica）仍为 search_only，仅确认主题，未取得正文。"
+      },
+      "source_ids": [
+        "ws_polity_src_setting",
+        "ws_polity_src_wp_monarchy",
+        "ws_polity_src_brit_feudalism",
+        "ws_polity_src_bk_feudal_w",
+        "ws_polity_src_bk_feudalism_marx"
+      ],
+      "related_ids": [
+        "western_kingdom_monarchy",
+        "western_feudal_fief"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "polity_parliamentary_monarchy",
+      "name": "议会君主国",
+      "aliases": [
+        "constitutional monarchy",
+        "君主立宪国"
+      ],
+      "tags": [
+        "kind:polity",
+        "polity:monarchy",
+        "tech:steam",
+        "trait:constitutional",
+        "role:parliament",
+        "genre:western_fantasy",
+        "genre:steampunk",
+        "genre:historical"
+      ],
+      "genres": [
+        "western_fantasy",
+        "steampunk",
+        "historical"
+      ],
+      "category": "institution",
+      "summary": "君主保留礼仪地位，实权由选举或财产资格产生的议会与内阁行使的王国模板，适合蒸汽工业化时期。",
+      "details": {
+        "definition": "君主为国家象征，立法与财政权归议会，行政由向议会负责的内阁执行的政体模板。王位继续世袭，但政策靠谈判与表决产生。是模板，不是具体国家。",
+        "mechanism": "典型机构：上下两院（贵族院与按财产或选区产生的下院）、内阁与首相、常设文官、独立法院、报刊与政党。财政表决是议会制衡君主的主要杠杆；铁路、工厂、殖民等工业事务被写成法案、特许状与公共调查。对外倾向靠海军、贸易与条约维持均势。",
+        "conditions": "成立条件：识字人群和报刊足以支撑公共辩论，有可观的商业与工业阶层要求参政，君主的军事与财政独立性已被削弱。最低档位 steam。选举权常受财产、性别或身份限制，范围由世界自行设定。",
+        "exceptions": "议会可以被少数大地主或大工厂主把持（选区不均）；君主可凭威望在危机时重新介入；殖民地、爱尔兰式的附属区域常没有同等代表权。不要把它直接写成现代全民选举制。",
+        "story_uses": "选举改革与宪章运动式的请愿、内阁倒台、工厂法与铁路法案的游说、君主与首相的幕后分歧、殖民地对议会决议的不满、报刊揭露丑闻引发的公共调查。",
+        "historical_scope": "参考 18—19 世纪英国一类的发展，但不等同于任何一国的真实年表。选举权扩张的节奏、君主的实际否决权都是世界变量。百度百科《君主立宪制》把光荣革命（1688）与《权利法案》视为英国君主立宪制确立的标志，并区分议会制（君主『统而不治』）与二元制（君主权力大于议会）；本条更接近前者。越档提示：本条要求 steam 档，在 medieval 档世界应作为越档提示而不是错误。",
+        "evidence_and_uncertainty": "百度百科《君主立宪制》已读正文，核对了光荣革命、《权利法案》，议会制君主立宪中议会为最高权力机关且君主『统而不治』，以及二元制中君主权力大于议会这一区别；本条定义与之相符，未发现事实错误。上下两院、财产选举权、选区不均、宪章运动式请愿、财政表决杠杆等为参考英国经验的设计归纳，未逐项核对。 该条原有的网络来源（Wikipedia 或 Britannica）仍为 search_only，仅确认主题，未取得正文。"
+      },
+      "source_ids": [
+        "ws_polity_src_setting",
+        "ws_polity_src_wp_constitutional",
+        "ws_polity_src_bk_constitutional"
+      ],
+      "related_ids": [
+        "western_kingdom_monarchy",
+        "polity_feudal_kingdom"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "polity_bureaucratic_empire",
+      "name": "官僚制帝国",
+      "aliases": [
+        "empire",
+        "大一统帝国",
+        "多民族帝国"
+      ],
+      "tags": [
+        "kind:polity",
+        "polity:empire",
+        "tech:classical",
+        "trait:bureaucratic",
+        "role:provincial_governor",
+        "genre:eastern_fantasy",
+        "genre:western_fantasy",
+        "genre:historical"
+      ],
+      "genres": [
+        "eastern_fantasy",
+        "western_fantasy",
+        "historical"
+      ],
+      "category": "institution",
+      "summary": "以皇帝为顶点、用任命官僚与驿道统治多个族群与行省的大型政体模板，强在整合，弱在边疆与官僚腐化。",
+      "details": {
+        "definition": "由皇帝（或同级称号）总揽最高权力，通过任命的官员、行省制度、统一的度量衡与驿路统治广阔疆域和多个族群的政体模板。不是具体国家，不规定皇帝的名号或王朝。",
+        "mechanism": "典型机构：中枢宰辅或元老机构、行省总督与监察官、征税与户籍系统、驿传和官道、常备军与边军、科举或荐举选官制度。对外倾向是通过朝贡、册封、边镇和联姻管理周边，而不是平等条约。信息靠文书传递，速度取决于道路与驿站。",
+        "conditions": "成立条件：有足以养活官僚和军队的农业剩余或贸易税基，有文字行政传统，并有一套让地方官服从中央的约束（任期、回避、监察）。最低档位 classical。到 steam 档，铁路和电报使中央控制力大幅提升，也让民族主义更易扩散。",
+        "exceptions": "松散型帝国靠地方总督自治维持，边疆军阀可能比皇帝更有实权；也可以是商业海上帝国，没有庞大官僚。帝国不一定世袭，也可以由选举或军队推举产生。",
+        "story_uses": "继承与宫廷政变、边将坐大、行省饥荒与赋税反抗、官员腐败与监察案、不同族群的同化与抵抗、边境游牧或海上势力的侵扰、征服后的整合难题。",
+        "historical_scope": "参考罗马、波斯、中国诸王朝等多种历史帝国的共性。各帝国的选官、税制、宗教政策差异巨大，本条只取共性结构，不代表任何一国。",
+        "evidence_and_uncertainty": "百度百科《帝国》《官僚制》已读正文，核对了：帝国狭义指君主（皇帝）统治的强大国家、广义不限于君主制；官僚制是受过训练的专职人员组成的行政管理机构。与本条定义不冲突。罗马、波斯、中国诸王朝的选官、税制、驿传、监察等具体制度未据百科核对，属设计归纳；本条机构清单同样是设计归纳。 该条原有的网络来源（Wikipedia 或 Britannica）仍为 search_only，仅确认主题，未取得正文。"
+      },
+      "source_ids": [
+        "ws_polity_src_setting",
+        "ws_polity_src_wp_empire",
+        "ws_polity_src_bk_empire",
+        "ws_polity_src_bk_bureaucracy"
+      ],
+      "related_ids": [
+        "polity_feudal_kingdom",
+        "polity_parliamentary_monarchy"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "polity_industrial_republic",
+      "name": "工业共和国",
+      "aliases": [
+        "republic",
+        "议会共和国"
+      ],
+      "tags": [
+        "kind:polity",
+        "polity:republic",
+        "tech:steam",
+        "trait:elected_office",
+        "role:industrial_lobby",
+        "genre:steampunk",
+        "genre:modern",
+        "genre:historical"
+      ],
+      "genres": [
+        "steampunk",
+        "modern",
+        "historical"
+      ],
+      "category": "institution",
+      "summary": "无世袭君主、官员按任期选出、工厂主与工会同时争夺政策影响的共和国模板，适合蒸汽到近现代档位。",
+      "details": {
+        "definition": "国家元首与立法者由选举或抽签等方式产生并有任期，公共事务名义上属于公民共同体的政体模板。本条取工业化时期的形态：财阀、工会、政党与报刊构成主要政治力量。",
+        "mechanism": "典型机构：议会或参议院、总统或执政官、宪法法院、官僚部门（铁路、邮政、税务、卫生）、政党机器、行业协会与工会。权力靠任期、分权与成文法约束。对外倾向是通商与条约，同时对海外资源和市场有强烈需求。",
+        "conditions": "成立条件：有被承认的公民身份与选举规则，国家有稳定税收，并有足够多人接受法治。最低档位 steam（工业公司和工会是其特征）。选举权的范围由世界设定决定，可以仅限男性纳税人。",
+        "exceptions": "共和国也会出现世袭政治家族或寡头；元首可在战争中获得近乎独裁的紧急权力；小型共和国可只管外交与防务。「共和」不等于「平等」或「民主」。",
+        "story_uses": "工厂罢工与镇压、选举舞弊与政党分肥、铁路和殖民特许权的贿赂案、紧急权力与宪法冲突、殖民政策争论、记者揭露事故引发的改革。",
+        "historical_scope": "参考 19 世纪末到 20 世纪初的共和国形态，但不等同于任何一国。越档提示：古典城邦共和国见 polity_city_state_league，本条重点是工业社会中的共和。",
+        "evidence_and_uncertainty": "百度百科《共和制》已读正文，核对了：共和制指国家代表机关或元首由选举产生、与君主制相对；起源于古希腊罗马，中世纪有威尼斯、马赛等城市共和制；现代分议会制与总统制。本条定义与之相符，未发现事实错误。定义里『抽签』这种产生方式、工会与财阀作为主要政治力量、机构清单均未被该页面支撑，属设计取舍。 该条原有的网络来源（Wikipedia 或 Britannica）仍为 search_only，仅确认主题，未取得正文。"
+      },
+      "source_ids": [
+        "ws_polity_src_setting",
+        "ws_polity_src_wp_republic",
+        "ws_polity_src_bk_republic"
+      ],
+      "related_ids": [
+        "polity_parliamentary_monarchy",
+        "steam_labour_union",
+        "steam_joint_stock_capital"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "polity_city_state_league",
+      "name": "城邦与城市同盟",
+      "aliases": [
+        "city-state",
+        "polis",
+        "城邦联盟"
+      ],
+      "tags": [
+        "kind:polity",
+        "polity:city_state",
+        "tech:classical",
+        "trait:small_territory",
+        "role:citizen_assembly",
+        "genre:western_fantasy",
+        "genre:historical"
+      ],
+      "genres": [
+        "western_fantasy",
+        "historical"
+      ],
+      "category": "institution",
+      "summary": "以一座城市及其周边乡村为国土、公民直接或半直接参与政治的小型政体模板，多个城邦可结成同盟。",
+      "details": {
+        "definition": "一座城市连同周边农业腹地构成的独立政体，公民团体拥有政治权利，政体可以是君主、贵族、僭主或公民大会。多个城邦常结为同盟或霸权体系。是模板，不是具体城邦。",
+        "mechanism": "典型机构：公民大会、议事会、执政官、将军或民兵指挥、神庙与祭司团、城墙与港口管理。公民兵是军队主体，城邦之间靠同盟、人质与海上力量竞争。对外倾向是结盟求安全、争夺海路与谷物供应。",
+        "conditions": "成立条件：地形分割（山海隔开）、城市能自养或能靠海运补粮、有公民与非公民（外邦人、奴隶）的区分。最低档位 classical。到 steam 档，城市可以是工业城市而非独立国家，需要额外理由。",
+        "exceptions": "大城邦可以建立附庸帝国；僭主可以废除公民大会；中世纪的自由城市与商业同盟（见 polity_merchant_republic）有相似之处但商业性更强。",
+        "story_uses": "派系斗争、僭主夺权、粮食进口中断、同盟霸主压迫小邦、流放与回归、神谕与政治交易、城墙被围时的公民抉择。",
+        "historical_scope": "参考古希腊城邦等历史形态，但不继承其具体制度、年代或事件；非公民群体的待遇在历史上很严苛，写作时需明确世界态度。",
+        "evidence_and_uncertainty": "百度百科《城邦》已读正文，核对了古希腊城邦的兴起时间、公民大会与议事会、斯巴达的国王与长老会及三个等级、伯罗奔尼撒战争后城邦衰落、被马其顿取代，以及新加坡、摩纳哥、梵蒂冈等现存案例。本条未发现事实错误。僭主、同盟霸权体系、非公民群体（外邦人、奴隶）的具体待遇未据百科逐项核对，属设计归纳。 该条原有的网络来源（Wikipedia 或 Britannica）仍为 search_only，仅确认主题，未取得正文。"
+      },
+      "source_ids": [
+        "ws_polity_src_setting",
+        "ws_polity_src_brit_city_state",
+        "ws_polity_src_bk_polis"
+      ],
+      "related_ids": [
+        "society_city_council",
+        "western_trade_league",
+        "polity_merchant_republic"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "polity_theocratic_state",
+      "name": "神权国",
+      "aliases": [
+        "theocracy",
+        "教权国家",
+        "祭司王国"
+      ],
+      "tags": [
+        "kind:polity",
+        "polity:theocracy",
+        "tech:classical",
+        "trait:clerical_rule",
+        "role:religious_law",
+        "genre:western_fantasy",
+        "genre:dark_fantasy",
+        "genre:eastern_fantasy"
+      ],
+      "genres": [
+        "western_fantasy",
+        "dark_fantasy",
+        "eastern_fantasy"
+      ],
+      "category": "institution",
+      "summary": "最高统治权被认定来自神意、由祭司或教会首领行使，法律与教义合一的政体模板。",
+      "details": {
+        "definition": "统治的正当性来自神明或教义，最高权力由祭司团、教宗式首领或转世的宗教领袖掌握，教义同时是法律的政体模板。是模板，不指定任何宗教。",
+        "mechanism": "典型机构：教首与教阶体系、宗教法庭、圣典学院、神庙或修院经济（地产、什一税）、宗教警察或圣战团。对外倾向是传教、朝圣者的保护和对异端或异教势力的敌意，也可能向世俗强邻称臣以求庇护。",
+        "conditions": "成立条件：宗教组织已有独立财源和武力，并有被广泛接受的教义解释权。最低档位 classical。魔法档位本身不决定：在 magic:none 世界神意只是信仰，在更高魔法档位神迹可能真实可见，需要另标 magic:*。",
+        "exceptions": "宗教领袖可以只做精神象征，实权在世俗摄政；神权国内部教派分裂常见；也可能多教共存而以某一教为国教。不应把神权国写成所有信徒思维一致的整体。",
+        "story_uses": "教义解释之争、异端审判与迫害、圣物与圣地的争夺、教会财富与信徒贫困的矛盾、世俗君主要求任命权、朝圣路线上的劫掠与保护。",
+        "historical_scope": "参考历史上祭司王与教会国家，但不指向任何现实宗教或其信徒。写作时避免用同一套负面印象概括某一现实宗教。",
+        "evidence_and_uncertainty": "百度百科《政教合一制度》已读正文，核对了：政权与教权融合、元首兼宗教领袖、法律依据教义；页面区分神权国家与政权国家（后者由君主控制宗教事务）；案例为梵蒂冈、伊朗。与本条定义相符，未发现事实错误。本条把『祭司团、教宗式首领、转世领袖』并列，并允许领袖只做精神象征，比页面的两类区分更宽，这部分以及机构清单属设计归纳。 该条原有的网络来源（Wikipedia 或 Britannica）仍为 search_only，仅确认主题，未取得正文。"
+      },
+      "source_ids": [
+        "ws_polity_src_setting",
+        "ws_polity_src_wp_theocracy",
+        "ws_polity_src_bk_theocracy"
+      ],
+      "related_ids": [
+        "western_pilgrimage_order"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "polity_tribal_confederation",
+      "name": "部族联盟",
+      "aliases": [
+        "tribal confederation",
+        "部落联盟"
+      ],
+      "tags": [
+        "kind:polity",
+        "polity:tribal",
+        "tech:classical",
+        "trait:kin_based",
+        "role:war_leader",
+        "genre:western_fantasy",
+        "genre:eastern_fantasy",
+        "genre:historical"
+      ],
+      "genres": [
+        "western_fantasy",
+        "eastern_fantasy",
+        "historical"
+      ],
+      "category": "institution",
+      "summary": "以亲属关系和誓约联结若干部族、首领靠威望与分赃维系权威的政体模板，战时集中、平时分散。",
+      "details": {
+        "definition": "若干按亲族或地域划分的部族通过誓约、联姻和共同敌人结成松散联盟，首领由推举或血统产生，权威依赖威望、战功和再分配能力的政体模板。",
+        "mechanism": "典型机构：长老会、部族大会、战争首领、祭司或萨满、誓约与人质制度、牧场或猎场的分配规则。对外倾向是劫掠与贸易并存、向定居强邻索取贡赋或雇佣出战。联盟常因一位强人而扩张，因其死亡而分裂。",
+        "conditions": "成立条件：人口分散且流动性高（游牧、半游牧或山地部族），有共同敌人或可掠夺的邻居。最低档位 classical。到 steam 档，定居国家的铁路和枪械会迅速压缩其生存空间。",
+        "exceptions": "部族联盟可以定居建城并过渡到王国；强势首领会建立世袭王朝。不要把部族写成「落后」的静态群体，他们与周边有活跃贸易和政治。",
+        "story_uses": "首领继承争夺、盟约背誓、牧场争夺、雇佣出战的报酬纠纷、定居强邻的分化拉拢、被迫迁徙、年轻战士与长老的分歧。",
+        "historical_scope": "参考多种历史游牧与部族联盟的共性，不指向任何现实民族。使用时避免把某个真实民族简化为刻板印象。百度百科《部落联盟》把它界定为原始社会末期的组织形式，而本条模板允许在 classical 及以后各档位出现，并包含游牧联盟，这是设计取舍。",
+        "evidence_and_uncertainty": "百度百科《部落联盟》已读正文，核对了：几个亲近部落结成暂时或永久联盟，是原始社会末期部落向民族形成的第一步，中国古代和古希腊荷马时代存在。该页面把部落联盟看作原始社会末期的组织形式，本条则允许它在 classical 及以后档位出现，两者范围不同，属设计取舍。誓约、人质、长老会、首领威望来源、游牧劫掠与贸易并存等机制未据百科核对。 该条原有的网络来源（Wikipedia 或 Britannica）仍为 search_only，仅确认主题，未取得正文。"
+      },
+      "source_ids": [
+        "ws_polity_src_setting",
+        "ws_polity_src_wp_tribe",
+        "ws_polity_src_bk_tribal_alliance"
+      ],
+      "related_ids": [
+        "polity_feudal_kingdom"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "polity_merchant_republic",
+      "name": "商业共和国",
+      "aliases": [
+        "merchant republic",
+        "海商共和国",
+        "商人寡头国"
+      ],
+      "tags": [
+        "kind:polity",
+        "polity:merchant",
+        "tech:medieval",
+        "trait:oligarchic",
+        "role:trade_fleet",
+        "genre:western_fantasy",
+        "genre:steampunk",
+        "genre:historical"
+      ],
+      "genres": [
+        "western_fantasy",
+        "steampunk",
+        "historical"
+      ],
+      "category": "institution",
+      "summary": "由大商人家族和行会组成的议事机构掌权，靠船队、港口与信贷网络立国的共和政体模板。",
+      "details": {
+        "definition": "以海上或河上贸易为国家命脉，政权由大商人家族、行会代表和少数选举官员共同掌握的共和国模板。名义上共和，实际接近寡头。",
+        "mechanism": "典型机构：大议会与小议会、总督或执政官（常有任期或象征性）、商船队与护航舰队、行会与保险协会、银行与汇票网络、港口检疫与仓储管理。对外倾向是买通、贸易条约和雇佣军，避免陆地战争。",
+        "conditions": "成立条件：控制一条或多条重要海路或河道，有良好的港口，陆上邻居无力吞并。最低档位 medieval；到 steam 档，蒸汽船和电报改变航线竞争，也加强了对殖民地的控制。",
+        "exceptions": "商业共和国可以被陆上强国吞并；商人家族之间内斗严重；总督也可能被家族操纵成傀儡。商业共和国和汉萨式的城市同盟不同：前者是单一国家，后者是多城联盟。",
+        "story_uses": "航线与港口垄断、海盗和私掠、家族婚姻与商业联盟、债务违约引发的危机、检疫与瘟疫、被陆上强国威胁或收买、航运保险欺诈。",
+        "historical_scope": "参考中世纪到近代地中海、波罗的海与北海的商业城市，但不继承其具体名号和年表。",
+        "evidence_and_uncertainty": "百度百科《威尼斯共和国》只读到摘要级内容，《汉萨同盟》已读正文。核对了：威尼斯 8 世纪初选出第一任总督、早期隶属东罗马、10 世纪末独立、商业富庶；汉萨同盟是 13 世纪德意志北部城市联盟，14 世纪鼎盛时多达 160 城，1367 年以吕贝克为核心设管理机构，1370 年击败丹麦后垄断波罗的海贸易。据此把原稿 historical_scope 中的『地中海与北海』改为『地中海、波罗的海与北海』（汉萨的活动中心在波罗的海）。本条『单一国家与多城联盟』的区分与之相符。大议会与小议会、保险协会、检疫、汇票网络等机构清单未据百科核对，属设计归纳。 该条原有的网络来源（Wikipedia 或 Britannica）仍为 search_only，仅确认主题，未取得正文。"
+      },
+      "source_ids": [
+        "ws_polity_src_setting",
+        "ws_polity_src_wp_merchant_republic",
+        "ws_polity_src_brit_hanse",
+        "ws_polity_src_bk_venice",
+        "ws_polity_src_bk_hanse"
+      ],
+      "related_ids": [
+        "society_merchant_guild",
+        "western_trade_league",
+        "polity_city_state_league"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "polity_mage_council_state",
+      "name": "法师议会魔导国",
+      "aliases": [
+        "mage council state",
+        "法师共治国",
+        "魔导寡头国"
+      ],
+      "tags": [
+        "kind:polity",
+        "polity:republic",
+        "tech:medieval",
+        "magic:common",
+        "trait:credentialed_rule",
+        "role:mage_council",
+        "genre:western_fantasy"
+      ],
+      "genres": [
+        "western_fantasy"
+      ],
+      "category": "institution",
+      "summary": "以施法资格作为从政门槛、由法师学院和公会组成议会共同治国的政体模板，适合魔法常见的世界。",
+      "details": {
+        "definition": "政权由持有施法资格的法师组成议会掌握，普通人参政受限或通过法师代理的政体模板。魔法是公开的行当（有学院、行会、法律管制），因此法师学院成为主要的人才与权力来源。",
+        "mechanism": "典型机构：法师议会（按学院、学派或职位分席）、资格考核院、魔法管制与执照署、学院财务与研究基金、监察与禁术审判庭、负责民用魔法设施的行政部门。对外倾向是靠魔法技术与顾问输出换取影响力，同时警惕他国招揽本国法师。",
+        "conditions": "成立条件：魔法需要专门训练、数量有限，且对战争、医疗或生产有关键价值，使法师团体能够垄断资格。魔法档位至少 common；在 rare 档魔法太少，在 abundant 档魔法普及，资格垄断难以维持。最低科技档位 medieval。",
+        "exceptions": "资格也可以向平民开放（奖学金、考试），使议会更像精英选拔；也可能只剩象征，真正权力在财政官或军队手里。魔法天赋是否遗传、是否可学，会改变阶层结构。",
+        "story_uses": "考试作弊与门阀、禁术研究被揭发、学院之间争夺经费、无施法者的平民要求参政、外国招揽法师、魔法设施事故、执照吊销引发的黑市。",
+        "historical_scope": "这是原创设定模板，借用了精英选拔、行会垄断与学院自治等真实制度的结构，不对应任何现实政权。使用时需先选定世界的魔法档位。",
+        "evidence_and_uncertainty": "原创设计，无独立史料支撑；所有机构清单均为设计归纳。"
+      },
+      "source_ids": [
+        "ws_polity_src_setting"
+      ],
+      "related_ids": [
+        "western_mage_college",
+        "polity_merchant_republic"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    }
+  ]
+}

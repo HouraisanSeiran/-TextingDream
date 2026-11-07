@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>织梦 · 三族不规则城墙与防御工事（race-fort）预览</title>
+<style>
+  body { margin: 0; background: #c9c79a; font: 13px/1.4 "Microsoft YaHei", sans-serif; color: #4a3826; }
+  h2 { margin: 18px 16px 6px; font-size: 16px; }
+  .grid { display: flex; flex-wrap: wrap; gap: 10px; padding: 0 16px; align-items: flex-end; }
+  .card { background: rgba(239,223,178,0.35); border: 1px solid rgba(74,56,38,0.25); padding: 6px; text-align: center; }
+  .card svg { display: block; margin: 0 auto; }
+  .lab { font-size: 11px; margin-top: 2px; white-space: nowrap; }
+  .scene { padding: 0 16px 8px; display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-start; }
+  .note { margin: 0 16px; font-size: 12px; opacity: 0.8; }
+</style>
+</head>
+<body>
+<!-- sprite 容器：0×0 绝对定位（不能 display:none，否则 clipPath 失效） -->
+<div id="sprite-host" style="position:absolute;width:0;height:0;overflow:hidden"></div>
+<div id="out"></div>
+<script src="core.js"></script>
+<script src="spoke.js"></script>
+<script src="elf.js"></script>
+<script src="dwarf.js" onerror="void 0"></script>
+<script src="orc.js" onerror="void 0"></script>
+<script src="race-fort.js"></script>
+<script src="preview-refs.js"></script>
+<script src="preview-scene.js"></script>
+<script src="preview-cfg.js"></script>
+<script>
+(function () {
+  'use strict';
+  var RF = window.TownArt_raceFort, SC = window.RF_scene, REFS = window.RF_REFS || {};
+  var list = RF.symbols(), lib = {}, host = document.getElementById('sprite-host'), out = document.getElementById('out');
+  list.forEach(function (s) { lib[s.id] = s.meta; });
+  var refSvg = '';
+  Object.keys(REFS).forEach(function (id) { lib[id] = { viewBox: REFS[id].viewBox, footprint: [1, 1] }; refSvg += REFS[id].svg; });
+  host.innerHTML = RF.spriteSVG(list).replace('</svg>', refSvg + '</svg>');
+  var html = '';
+  ['elf', 'dwarf', 'orc'].forEach(function (race) {
+    var mine = list.filter(function (s) { return s.meta.race === race; });
+    if (!mine.length) return;
+    html += '<h2>' + { elf: '精灵', dwarf: '矮人', orc: '兽人' }[race] + '：图册（红点 = 锚点，虚线 = 占地）</h2><div class="grid">';
+    mine.forEach(function (s) {
+      var m = s.meta, vb = m.viewBox, k = m.footprint[0] > 2 ? 1 : 1.5, fp = m.footprint;
+      var svg = '<svg width="' + (vb[2] + 24) * k + '" height="' + (vb[3] + 12) * k + '" viewBox="-12 -2 ' + (vb[2] + 24) + ' ' + (vb[3] + 12) + '">' +
+        '<rect x="0" y="' + (vb[3] - fp[1] * 48) + '" width="' + fp[0] * 48 + '" height="' + fp[1] * 48 + '" fill="none" stroke="#4a3826" stroke-opacity="0.45" stroke-dasharray="3 2"/>' +
+        '<use href="#' + s.id + '" x="0" y="0" width="' + vb[2] + '" height="' + vb[3] + '"/>' +
+        '<circle cx="' + m.anchor[0] + '" cy="' + m.anchor[1] + '" r="2" fill="#c0392b"/></svg>';
+      html += '<div class="card">' + svg + '<div class="lab"><b>' + s.id + '</b><br>' + fp.join('×') + ' · ' + (m.facility || '-') + '</div></div>';
+    });
+    html += '</div>';
+    var cfg = (window.RF_CFG || {})[race];
+    if (!cfg) return;
+    try {
+      var sc = SC.build(cfg, lib);
+      html += '<h2>' + cfg.title + '</h2><p class="note">' + cfg.note + '</p><div class="scene">' +
+        SC.render(sc, lib, cfg.vb, 1, true) + '<div><div class="lab">斜段 × 正交段对接处 3× 特写</div>' + SC.render(sc, lib, cfg.zoom, 3, true) + '</div></div>';
+    } catch (e) { console.error(race + ' 场景失败：' + e.message); }
+  });
+  out.innerHTML = html;
+})();
+</script>
+</body>
+</html>

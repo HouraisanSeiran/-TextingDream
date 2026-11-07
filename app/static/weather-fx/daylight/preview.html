@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" href="data:,">
+<title>织梦 · 天气美术：24 小时光照 / 夜空倒影</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#1b1f26;color:#dde3ea;font:13px system-ui,"Microsoft YaHei",sans-serif}
+header{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;padding:10px 14px;background:#252b34;border-bottom:1px solid #39424d}
+h1{font-size:16px;margin:0 8px 0 0}label{display:flex;align-items:center;gap:6px;white-space:nowrap}
+input[type=range]{width:110px}#hour{width:300px}
+select,button{font:inherit;padding:3px 8px;border-radius:4px;border:1px solid #56606c;background:#313945;color:inherit}
+output{display:inline-block;min-width:40px;text-align:right;font-variant-numeric:tabular-nums;color:#9fb3c8}
+#stage{position:relative;width:1400px;height:900px;margin:12px auto;overflow:hidden;background:#000}
+#fx{position:absolute;left:0;top:0;width:1400px;height:900px}
+#fps{position:absolute;right:8px;top:6px;padding:2px 8px;border-radius:3px;background:rgba(0,0,0,.55);color:#c8f0c0;font:12px/1.5 ui-monospace,monospace;pointer-events:none}
+#clock{position:absolute;left:8px;top:6px;padding:2px 10px;border-radius:3px;background:rgba(0,0,0,.45);color:#f2ead8;font:15px/1.5 ui-monospace,monospace;pointer-events:none}
+</style>
+</head>
+<body>
+<header>
+<h1>24 小时光照 · 夜空倒影</h1>
+<label>时刻 <input id="hour" type="range" min="0" max="24" step="0.01" value="19"><output id="hourOut"></output></label>
+<button id="play">▶ 自动播放</button>
+<label>速度 <select id="speed"><option value="60">1 秒 = 1 分钟</option><option value="600" selected>1 秒 = 10 分钟</option><option value="3600">1 秒 = 1 小时</option></select></label>
+<label>日出 <input id="sunrise" type="range" min="3" max="9" step="0.05" value="5.9"><output></output></label>
+<label>日落 <input id="sunset" type="range" min="15" max="21.5" step="0.05" value="18.4"><output></output></label>
+<label>月相 <input id="moon" type="range" min="0" max="1" step="0.01" value="0.5"><output></output></label>
+<label>天气 <select id="kind">
+  <option value="clear" selected>clear 晴</option><option value="cloudy">cloudy 多云</option><option value="overcast">overcast 阴</option>
+  <option value="fog">fog 雾</option><option value="drizzle">drizzle 毛毛雨</option><option value="rain">rain 雨</option>
+  <option value="storm">storm 雷暴</option><option value="snow">snow 雪</option><option value="blizzard">blizzard 暴风雪</option>
+  <option value="sleet">sleet 雨夹雪</option><option value="sandstorm">sandstorm 沙暴</option></select></label>
+<label>云量 <input id="cloud" type="range" min="0" max="1" step="0.01" value="0.15"><output></output></label>
+<label>强度 <input id="intensity" type="range" min="0" max="1" step="0.01" value="0.6"><output></output></label>
+<label>风速 <input id="wind" type="range" min="0" max="1" step="0.01" value="0.25"><output></output></label>
+<label><input id="aurora" type="checkbox">极光</label>
+<label>极光强度 <input id="aurS" type="range" min="0" max="1" step="0.01" value="0.5"><output></output></label>
+<label>极光色相 <input id="aurH" type="range" min="0" max="1" step="0.01" value="0"><output></output></label>
+<label>城镇 <select id="town"><option value="port-west" selected>港口样例 · 西式</option><option value="river">自拼河镇（大水面）</option><option value="port-east">港口样例 · 东方</option></select></label>
+</header>
+<div id="stage">
+  <canvas id="fx"></canvas>
+  <div id="clock">--:--</div>
+  <div id="fps">-- fps</div>
+</div>
+<script src="../../map-art/town/town-catalog.js"></script>
+<script src="../noise.js"></script>
+<script src="daylight.js"></script>
+<script src="../../map-art/town/layout-samples.js"></script>
+<script src="../../town-render.js"></script>
+<script src="preview-town.js"></script>
+<script src="preview-port.js"></script>
+<script src="preview-main.js"></script>
+</body>
+</html>

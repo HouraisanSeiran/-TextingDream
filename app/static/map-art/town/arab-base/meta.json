@@ -1,0 +1,4460 @@
+[
+ {
+  "id": "arab-common-house-courtyard-01",
+  "style": "arab",
+  "race": "common",
+  "category": "house",
+  "kind": "house_courtyard",
+  "facility": null,
+  "variant": 1,
+  "name": "内院宅 1",
+  "tags": [
+   "courtyard",
+   "pool",
+   "palm"
+  ],
+  "roof": "flat_mud",
+  "note": "方正平房，三拱回廊",
+  "footprint": [
+   2,
+   2
+  ],
+  "height_px": 23,
+  "anchor": [
+   48,
+   119
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   119
+  ]
+ },
+ {
+  "id": "arab-common-house-courtyard-02",
+  "style": "arab",
+  "race": "common",
+  "category": "house",
+  "kind": "house_courtyard",
+  "facility": null,
+  "variant": 2,
+  "name": "内院宅 2",
+  "tags": [
+   "courtyard",
+   "pool",
+   "palm"
+  ],
+  "roof": "flat_mud",
+  "note": "后翼两层石灰白楼带木格窗",
+  "footprint": [
+   2,
+   2
+  ],
+  "height_px": 41,
+  "anchor": [
+   48,
+   137
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   137
+  ]
+ },
+ {
+  "id": "arab-common-house-courtyard-03",
+  "style": "arab",
+  "race": "common",
+  "category": "house",
+  "kind": "house_courtyard",
+  "facility": null,
+  "variant": 3,
+  "name": "内院宅 3",
+  "tags": [
+   "courtyard",
+   "pool",
+   "palm"
+  ],
+  "roof": "flat_mud",
+  "note": "前翼起高门楼（pishtaq）马蹄拱门",
+  "footprint": [
+   2,
+   2
+  ],
+  "height_px": 23,
+  "anchor": [
+   48,
+   119
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   119
+  ]
+ },
+ {
+  "id": "arab-common-house-mudhut-01",
+  "style": "arab",
+  "race": "common",
+  "category": "house",
+  "kind": "house_mudhut",
+  "facility": null,
+  "variant": 1,
+  "name": "平顶土坯小屋 1",
+  "tags": [
+   "adobe",
+   "small"
+  ],
+  "roof": "flat_mud",
+  "note": "单方盒",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 13,
+  "anchor": [
+   24,
+   61
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   61
+  ]
+ },
+ {
+  "id": "arab-common-house-mudhut-02",
+  "style": "arab",
+  "race": "common",
+  "category": "house",
+  "kind": "house_mudhut",
+  "facility": null,
+  "variant": 2,
+  "name": "平顶土坯小屋 2",
+  "tags": [
+   "adobe",
+   "small"
+  ],
+  "roof": "flat_mud",
+  "note": "矮披屋 + 主屋",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 19,
+  "anchor": [
+   24,
+   67
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   67
+  ]
+ },
+ {
+  "id": "arab-common-house-mudhut-03",
+  "style": "arab",
+  "race": "common",
+  "category": "house",
+  "kind": "house_mudhut",
+  "facility": null,
+  "variant": 3,
+  "name": "平顶土坯小屋 3",
+  "tags": [
+   "adobe",
+   "small"
+  ],
+  "roof": "flat_mud",
+  "note": "后置小屋 + 前院矮墙与椰枣",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 21,
+  "anchor": [
+   24,
+   69
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   69
+  ]
+ },
+ {
+  "id": "arab-common-house-windtower-01",
+  "style": "arab",
+  "race": "common",
+  "category": "house",
+  "kind": "house_windtower",
+  "facility": null,
+  "variant": 1,
+  "name": "风塔宅 1",
+  "tags": [
+   "barjeel",
+   "wind_tower"
+  ],
+  "roof": "flat_mud",
+  "note": "单风塔",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 33,
+  "anchor": [
+   24,
+   81
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   81
+  ]
+ },
+ {
+  "id": "arab-common-house-windtower-02",
+  "style": "arab",
+  "race": "common",
+  "category": "house",
+  "kind": "house_windtower",
+  "facility": null,
+  "variant": 2,
+  "name": "风塔宅 2",
+  "tags": [
+   "barjeel",
+   "wind_tower"
+  ],
+  "roof": "flat_mud",
+  "note": "石灰白墙宽风塔、瓷砖带",
+  "footprint": [
+   2,
+   1
+  ],
+  "height_px": 41,
+  "anchor": [
+   48,
+   89
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   89
+  ]
+ },
+ {
+  "id": "arab-common-house-windtower-03",
+  "style": "arab",
+  "race": "common",
+  "category": "house",
+  "kind": "house_windtower",
+  "facility": null,
+  "variant": 3,
+  "name": "风塔宅 3",
+  "tags": [
+   "barjeel",
+   "wind_tower"
+  ],
+  "roof": "flat_mud",
+  "note": "前矮翼 + 后高楼双风塔",
+  "footprint": [
+   2,
+   2
+  ],
+  "height_px": 41,
+  "anchor": [
+   48,
+   137
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   137
+  ]
+ },
+ {
+  "id": "arab-common-house-mashrabiya-01",
+  "style": "arab",
+  "race": "common",
+  "category": "house",
+  "kind": "house_mashrabiya",
+  "facility": null,
+  "variant": 1,
+  "name": "木格窗白楼 1",
+  "tags": [
+   "two_storey",
+   "mashrabiya",
+   "lime"
+  ],
+  "roof": "flat_mud",
+  "note": "两层",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 42,
+  "anchor": [
+   24,
+   90
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   90
+  ]
+ },
+ {
+  "id": "arab-common-house-mashrabiya-02",
+  "style": "arab",
+  "race": "common",
+  "category": "house",
+  "kind": "house_mashrabiya",
+  "facility": null,
+  "variant": 2,
+  "name": "木格窗白楼 2",
+  "tags": [
+   "two_storey",
+   "mashrabiya",
+   "lime"
+  ],
+  "roof": "flat_mud",
+  "note": "中央大挑窗、屋顶晾布",
+  "footprint": [
+   2,
+   1
+  ],
+  "height_px": 46,
+  "anchor": [
+   48,
+   94
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   94
+  ]
+ },
+ {
+  "id": "arab-common-house-mashrabiya-03",
+  "style": "arab",
+  "race": "common",
+  "category": "house",
+  "kind": "house_mashrabiya",
+  "facility": null,
+  "variant": 3,
+  "name": "木格窗白楼 3",
+  "tags": [
+   "two_storey",
+   "mashrabiya",
+   "lime"
+  ],
+  "roof": "flat_mud",
+  "note": "三层窄高楼带屋顶梯间",
+  "footprint": [
+   1,
+   2
+  ],
+  "height_px": 60,
+  "anchor": [
+   24,
+   156
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   156
+  ]
+ },
+ {
+  "id": "arab-common-house-terrace-01",
+  "style": "arab",
+  "race": "common",
+  "category": "house",
+  "kind": "house_terrace",
+  "facility": null,
+  "variant": 1,
+  "name": "屋顶露台宅 1",
+  "tags": [
+   "roof_terrace",
+   "awning"
+  ],
+  "roof": "flat_mud",
+  "note": "条纹布棚",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 16,
+  "anchor": [
+   24,
+   64
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   64
+  ]
+ },
+ {
+  "id": "arab-common-house-terrace-02",
+  "style": "arab",
+  "race": "common",
+  "category": "house",
+  "kind": "house_terrace",
+  "facility": null,
+  "variant": 2,
+  "name": "屋顶露台宅 2",
+  "tags": [
+   "roof_terrace",
+   "awning"
+  ],
+  "roof": "flat_mud",
+  "note": "退台二层 + 前露台布棚",
+  "footprint": [
+   2,
+   1
+  ],
+  "height_px": 35,
+  "anchor": [
+   48,
+   83
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   83
+  ]
+ },
+ {
+  "id": "arab-common-house-terrace-03",
+  "style": "arab",
+  "race": "common",
+  "category": "house",
+  "kind": "house_terrace",
+  "facility": null,
+  "variant": 3,
+  "name": "屋顶露台宅 3",
+  "tags": [
+   "roof_terrace",
+   "awning"
+  ],
+  "roof": "flat_mud",
+  "note": "棕榈叶凉棚 + 外挂楼梯",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 19,
+  "anchor": [
+   24,
+   67
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   67
+  ]
+ },
+ {
+  "id": "arab-common-house-dome-01",
+  "style": "arab",
+  "race": "common",
+  "category": "house",
+  "kind": "house_dome",
+  "facility": null,
+  "variant": 1,
+  "name": "穹顶小屋 1",
+  "tags": [
+   "dome"
+  ],
+  "roof": "none",
+  "note": "土坯方屋 + 白穹顶；roof 为穹顶，RoofId 无对应",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 13,
+  "anchor": [
+   24,
+   61
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   61
+  ]
+ },
+ {
+  "id": "arab-common-house-dome-02",
+  "style": "arab",
+  "race": "common",
+  "category": "house",
+  "kind": "house_dome",
+  "facility": null,
+  "variant": 2,
+  "name": "穹顶小屋 2",
+  "tags": [
+   "dome"
+  ],
+  "roof": "none",
+  "note": "石灰白长屋双穹顶 + 青瓷小穹",
+  "footprint": [
+   2,
+   1
+  ],
+  "height_px": 14,
+  "anchor": [
+   48,
+   62
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   62
+  ]
+ },
+ {
+  "id": "arab-common-house-dome-03",
+  "style": "arab",
+  "race": "common",
+  "category": "house",
+  "kind": "house_dome",
+  "facility": null,
+  "variant": 3,
+  "name": "穹顶小屋 3",
+  "tags": [
+   "dome"
+  ],
+  "roof": "none",
+  "note": "叙利亚式蜂巢圆锥屋（双锥）",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 26,
+  "anchor": [
+   24,
+   74
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   74
+  ]
+ },
+ {
+  "id": "arab-common-house-tower-01",
+  "style": "arab",
+  "race": "common",
+  "category": "house",
+  "kind": "house_tower",
+  "facility": null,
+  "variant": 1,
+  "name": "塔楼宅 1",
+  "tags": [
+   "tower_house",
+   "multi_storey",
+   "yemeni"
+  ],
+  "roof": "flat_mud",
+  "note": "也门式单塔，石膏饰带 + 半月彩窗",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 100,
+  "anchor": [
+   24,
+   148
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   148
+  ]
+ },
+ {
+  "id": "arab-common-house-tower-02",
+  "style": "arab",
+  "race": "common",
+  "category": "house",
+  "kind": "house_tower",
+  "facility": null,
+  "variant": 2,
+  "name": "塔楼宅 2",
+  "tags": [
+   "tower_house",
+   "multi_storey",
+   "yemeni"
+  ],
+  "roof": "flat_mud",
+  "note": "后高塔 + 前矮翼露台",
+  "footprint": [
+   1,
+   2
+  ],
+  "height_px": 110,
+  "anchor": [
+   24,
+   206
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   206
+  ]
+ },
+ {
+  "id": "arab-common-house-tower-03",
+  "style": "arab",
+  "race": "common",
+  "category": "house",
+  "kind": "house_tower",
+  "facility": null,
+  "variant": 3,
+  "name": "塔楼宅 3",
+  "tags": [
+   "tower_house",
+   "multi_storey",
+   "yemeni"
+  ],
+  "roof": "flat_mud",
+  "note": "高低双塔 + 中间拱门连廊",
+  "footprint": [
+   2,
+   1
+  ],
+  "height_px": 110,
+  "anchor": [
+   48,
+   158
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   158
+  ]
+ },
+ {
+  "id": "arab-common-house-arcade-01",
+  "style": "arab",
+  "race": "common",
+  "category": "house",
+  "kind": "house_arcade",
+  "facility": null,
+  "variant": 1,
+  "name": "拱廊铺面住宅 1",
+  "tags": [
+   "shop",
+   "arcade",
+   "two_storey"
+  ],
+  "roof": "flat_mud",
+  "note": "单拱铺 + 木格窗白楼",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 35,
+  "anchor": [
+   24,
+   83
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   83
+  ]
+ },
+ {
+  "id": "arab-common-house-arcade-02",
+  "style": "arab",
+  "race": "common",
+  "category": "house",
+  "kind": "house_arcade",
+  "facility": null,
+  "variant": 2,
+  "name": "拱廊铺面住宅 2",
+  "tags": [
+   "shop",
+   "arcade",
+   "two_storey"
+  ],
+  "roof": "flat_mud",
+  "note": "三拱铺 + 二层三挑窗 + 布棚",
+  "footprint": [
+   2,
+   1
+  ],
+  "height_px": 35,
+  "anchor": [
+   48,
+   83
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   83
+  ]
+ },
+ {
+  "id": "arab-common-house-arcade-03",
+  "style": "arab",
+  "race": "common",
+  "category": "house",
+  "kind": "house_arcade",
+  "facility": null,
+  "variant": 3,
+  "name": "拱廊铺面住宅 3",
+  "tags": [
+   "shop",
+   "arcade",
+   "two_storey"
+  ],
+  "roof": "flat_mud",
+  "note": "马蹄拱铺 + 三层退台露台",
+  "footprint": [
+   2,
+   1
+  ],
+  "height_px": 54,
+  "anchor": [
+   48,
+   102
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   102
+  ]
+ },
+ {
+  "id": "arab-common-house-tent-01",
+  "style": "arab",
+  "race": "common",
+  "category": "house",
+  "kind": "house_tent",
+  "facility": null,
+  "variant": 1,
+  "name": "贝都因黑帐篷 1",
+  "tags": [
+   "tent",
+   "nomad",
+   "bedouin"
+  ],
+  "roof": "none",
+  "note": "双柱小帐",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 7,
+  "anchor": [
+   24,
+   55
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   55
+  ]
+ },
+ {
+  "id": "arab-common-house-tent-02",
+  "style": "arab",
+  "race": "common",
+  "category": "house",
+  "kind": "house_tent",
+  "facility": null,
+  "variant": 2,
+  "name": "贝都因黑帐篷 2",
+  "tags": [
+   "tent",
+   "nomad",
+   "bedouin"
+  ],
+  "roof": "none",
+  "note": "三柱长帐",
+  "footprint": [
+   2,
+   1
+  ],
+  "height_px": 7,
+  "anchor": [
+   48,
+   55
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   55
+  ]
+ },
+ {
+  "id": "arab-common-house-tent-03",
+  "style": "arab",
+  "race": "common",
+  "category": "house",
+  "kind": "house_tent",
+  "facility": null,
+  "variant": 3,
+  "name": "贝都因黑帐篷 3",
+  "tags": [
+   "tent",
+   "nomad",
+   "bedouin"
+  ],
+  "roof": "none",
+  "note": "四柱大帐，进深两格",
+  "footprint": [
+   2,
+   2
+  ],
+  "height_px": 7,
+  "anchor": [
+   48,
+   103
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   103
+  ]
+ },
+ {
+  "id": "arab-common-house-barasti-01",
+  "style": "arab",
+  "race": "common",
+  "category": "house",
+  "kind": "house_barasti",
+  "facility": null,
+  "variant": 1,
+  "name": "绿洲棕榈茅屋 1",
+  "tags": [
+   "palm_frond",
+   "oasis",
+   "barasti"
+  ],
+  "roof": "gable_thatch",
+  "note": "单屋",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 2,
+  "anchor": [
+   24,
+   50
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   50
+  ]
+ },
+ {
+  "id": "arab-common-house-barasti-02",
+  "style": "arab",
+  "race": "common",
+  "category": "house",
+  "kind": "house_barasti",
+  "facility": null,
+  "variant": 2,
+  "name": "绿洲棕榈茅屋 2",
+  "tags": [
+   "palm_frond",
+   "oasis",
+   "barasti"
+  ],
+  "roof": "gable_thatch",
+  "note": "屋 + 棕榈叶凉棚 + 椰枣树",
+  "footprint": [
+   2,
+   1
+  ],
+  "height_px": 33,
+  "anchor": [
+   48,
+   81
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   81
+  ]
+ },
+ {
+  "id": "arab-common-house-barasti-03",
+  "style": "arab",
+  "race": "common",
+  "category": "house",
+  "kind": "house_barasti",
+  "facility": null,
+  "variant": 3,
+  "name": "绿洲棕榈茅屋 3",
+  "tags": [
+   "palm_frond",
+   "oasis",
+   "barasti"
+  ],
+  "roof": "gable_thatch",
+  "note": "屋 + 棕榈叶风塔",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 28,
+  "anchor": [
+   24,
+   76
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   76
+  ]
+ },
+ {
+  "id": "arab-common-house-hillside-01",
+  "style": "arab",
+  "race": "common",
+  "category": "house",
+  "kind": "house_hillside",
+  "facility": null,
+  "variant": 1,
+  "name": "山坡退台屋 1",
+  "tags": [
+   "terraced",
+   "hillside",
+   "retaining_wall"
+  ],
+  "roof": "flat_mud",
+  "note": "两台",
+  "footprint": [
+   1,
+   2
+  ],
+  "height_px": 43,
+  "anchor": [
+   24,
+   139
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   139
+  ]
+ },
+ {
+  "id": "arab-common-house-hillside-02",
+  "style": "arab",
+  "race": "common",
+  "category": "house",
+  "kind": "house_hillside",
+  "facility": null,
+  "variant": 2,
+  "name": "山坡退台屋 2",
+  "tags": [
+   "terraced",
+   "hillside",
+   "retaining_wall"
+  ],
+  "roof": "flat_mud",
+  "note": "三台错落 + 梯道",
+  "footprint": [
+   2,
+   2
+  ],
+  "height_px": 47,
+  "anchor": [
+   48,
+   143
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   143
+  ]
+ },
+ {
+  "id": "arab-common-house-hillside-03",
+  "style": "arab",
+  "race": "common",
+  "category": "house",
+  "kind": "house_hillside",
+  "facility": null,
+  "variant": 3,
+  "name": "山坡退台屋 3",
+  "tags": [
+   "terraced",
+   "hillside",
+   "retaining_wall"
+  ],
+  "roof": "flat_mud",
+  "note": "前后两台 + 侧台",
+  "footprint": [
+   2,
+   1
+  ],
+  "height_px": 39,
+  "anchor": [
+   48,
+   87
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   87
+  ]
+ },
+ {
+  "id": "arab-common-house-dovecote-01",
+  "style": "arab",
+  "race": "common",
+  "category": "house",
+  "kind": "house_dovecote",
+  "facility": null,
+  "variant": 1,
+  "name": "鸽塔农舍 1",
+  "tags": [
+   "farm",
+   "dovecote",
+   "pigeon_tower"
+  ],
+  "roof": "flat_mud",
+  "note": "小屋 + 侧鸽塔",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 36,
+  "anchor": [
+   24,
+   84
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   84
+  ]
+ },
+ {
+  "id": "arab-common-house-dovecote-02",
+  "style": "arab",
+  "race": "common",
+  "category": "house",
+  "kind": "house_dovecote",
+  "facility": null,
+  "variant": 2,
+  "name": "鸽塔农舍 2",
+  "tags": [
+   "farm",
+   "dovecote",
+   "pigeon_tower"
+  ],
+  "roof": "flat_mud",
+  "note": "农舍 + 院墙 + 双鸽塔",
+  "footprint": [
+   2,
+   1
+  ],
+  "height_px": 44,
+  "anchor": [
+   48,
+   92
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   92
+  ]
+ },
+ {
+  "id": "arab-common-house-dovecote-03",
+  "style": "arab",
+  "race": "common",
+  "category": "house",
+  "kind": "house_dovecote",
+  "facility": null,
+  "variant": 3,
+  "name": "鸽塔农舍 3",
+  "tags": [
+   "farm",
+   "dovecote",
+   "pigeon_tower"
+  ],
+  "roof": "flat_mud",
+  "note": "院落农舍 + 大鸽塔",
+  "footprint": [
+   2,
+   2
+  ],
+  "height_px": 46,
+  "anchor": [
+   48,
+   142
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   142
+  ]
+ },
+ {
+  "id": "arab-common-road-dirt-0000",
+  "style": "arab",
+  "race": "common",
+  "category": "road",
+  "kind": "road_dirt",
+  "facility": null,
+  "variant": 0,
+  "mask": 0,
+  "name": "沙土路 0000",
+  "tags": [
+   "dual_grid",
+   "mask_0000"
+  ],
+  "roof": "none",
+  "note": "空瓦片（透明占位）",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "arab-common-road-dirt-0001",
+  "style": "arab",
+  "race": "common",
+  "category": "road",
+  "kind": "road_dirt",
+  "facility": null,
+  "variant": 1,
+  "mask": 1,
+  "name": "沙土路 0001",
+  "tags": [
+   "dual_grid",
+   "mask_0001"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "arab-common-road-dirt-0010",
+  "style": "arab",
+  "race": "common",
+  "category": "road",
+  "kind": "road_dirt",
+  "facility": null,
+  "variant": 2,
+  "mask": 2,
+  "name": "沙土路 0010",
+  "tags": [
+   "dual_grid",
+   "mask_0010"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "arab-common-road-dirt-0011",
+  "style": "arab",
+  "race": "common",
+  "category": "road",
+  "kind": "road_dirt",
+  "facility": null,
+  "variant": 3,
+  "mask": 3,
+  "name": "沙土路 0011",
+  "tags": [
+   "dual_grid",
+   "mask_0011"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "arab-common-road-dirt-0100",
+  "style": "arab",
+  "race": "common",
+  "category": "road",
+  "kind": "road_dirt",
+  "facility": null,
+  "variant": 4,
+  "mask": 4,
+  "name": "沙土路 0100",
+  "tags": [
+   "dual_grid",
+   "mask_0100"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "arab-common-road-dirt-0101",
+  "style": "arab",
+  "race": "common",
+  "category": "road",
+  "kind": "road_dirt",
+  "facility": null,
+  "variant": 5,
+  "mask": 5,
+  "name": "沙土路 0101",
+  "tags": [
+   "dual_grid",
+   "mask_0101"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "arab-common-road-dirt-0110",
+  "style": "arab",
+  "race": "common",
+  "category": "road",
+  "kind": "road_dirt",
+  "facility": null,
+  "variant": 6,
+  "mask": 6,
+  "name": "沙土路 0110",
+  "tags": [
+   "dual_grid",
+   "mask_0110"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "arab-common-road-dirt-0111",
+  "style": "arab",
+  "race": "common",
+  "category": "road",
+  "kind": "road_dirt",
+  "facility": null,
+  "variant": 7,
+  "mask": 7,
+  "name": "沙土路 0111",
+  "tags": [
+   "dual_grid",
+   "mask_0111"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "arab-common-road-dirt-1000",
+  "style": "arab",
+  "race": "common",
+  "category": "road",
+  "kind": "road_dirt",
+  "facility": null,
+  "variant": 8,
+  "mask": 8,
+  "name": "沙土路 1000",
+  "tags": [
+   "dual_grid",
+   "mask_1000"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "arab-common-road-dirt-1001",
+  "style": "arab",
+  "race": "common",
+  "category": "road",
+  "kind": "road_dirt",
+  "facility": null,
+  "variant": 9,
+  "mask": 9,
+  "name": "沙土路 1001",
+  "tags": [
+   "dual_grid",
+   "mask_1001"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "arab-common-road-dirt-1010",
+  "style": "arab",
+  "race": "common",
+  "category": "road",
+  "kind": "road_dirt",
+  "facility": null,
+  "variant": 10,
+  "mask": 10,
+  "name": "沙土路 1010",
+  "tags": [
+   "dual_grid",
+   "mask_1010"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "arab-common-road-dirt-1011",
+  "style": "arab",
+  "race": "common",
+  "category": "road",
+  "kind": "road_dirt",
+  "facility": null,
+  "variant": 11,
+  "mask": 11,
+  "name": "沙土路 1011",
+  "tags": [
+   "dual_grid",
+   "mask_1011"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "arab-common-road-dirt-1100",
+  "style": "arab",
+  "race": "common",
+  "category": "road",
+  "kind": "road_dirt",
+  "facility": null,
+  "variant": 12,
+  "mask": 12,
+  "name": "沙土路 1100",
+  "tags": [
+   "dual_grid",
+   "mask_1100"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "arab-common-road-dirt-1101",
+  "style": "arab",
+  "race": "common",
+  "category": "road",
+  "kind": "road_dirt",
+  "facility": null,
+  "variant": 13,
+  "mask": 13,
+  "name": "沙土路 1101",
+  "tags": [
+   "dual_grid",
+   "mask_1101"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "arab-common-road-dirt-1110",
+  "style": "arab",
+  "race": "common",
+  "category": "road",
+  "kind": "road_dirt",
+  "facility": null,
+  "variant": 14,
+  "mask": 14,
+  "name": "沙土路 1110",
+  "tags": [
+   "dual_grid",
+   "mask_1110"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "arab-common-road-dirt-1111",
+  "style": "arab",
+  "race": "common",
+  "category": "road",
+  "kind": "road_dirt",
+  "facility": null,
+  "variant": 15,
+  "mask": 15,
+  "name": "沙土路 1111",
+  "tags": [
+   "dual_grid",
+   "mask_1111"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "arab-common-road-stone-0000",
+  "style": "arab",
+  "race": "common",
+  "category": "road",
+  "kind": "road_stone",
+  "facility": null,
+  "variant": 0,
+  "mask": 0,
+  "name": "石板路 0000",
+  "tags": [
+   "dual_grid",
+   "mask_0000"
+  ],
+  "roof": "none",
+  "note": "空瓦片（透明占位）",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "arab-common-road-stone-0001",
+  "style": "arab",
+  "race": "common",
+  "category": "road",
+  "kind": "road_stone",
+  "facility": null,
+  "variant": 1,
+  "mask": 1,
+  "name": "石板路 0001",
+  "tags": [
+   "dual_grid",
+   "mask_0001"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "arab-common-road-stone-0010",
+  "style": "arab",
+  "race": "common",
+  "category": "road",
+  "kind": "road_stone",
+  "facility": null,
+  "variant": 2,
+  "mask": 2,
+  "name": "石板路 0010",
+  "tags": [
+   "dual_grid",
+   "mask_0010"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "arab-common-road-stone-0011",
+  "style": "arab",
+  "race": "common",
+  "category": "road",
+  "kind": "road_stone",
+  "facility": null,
+  "variant": 3,
+  "mask": 3,
+  "name": "石板路 0011",
+  "tags": [
+   "dual_grid",
+   "mask_0011"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "arab-common-road-stone-0100",
+  "style": "arab",
+  "race": "common",
+  "category": "road",
+  "kind": "road_stone",
+  "facility": null,
+  "variant": 4,
+  "mask": 4,
+  "name": "石板路 0100",
+  "tags": [
+   "dual_grid",
+   "mask_0100"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "arab-common-road-stone-0101",
+  "style": "arab",
+  "race": "common",
+  "category": "road",
+  "kind": "road_stone",
+  "facility": null,
+  "variant": 5,
+  "mask": 5,
+  "name": "石板路 0101",
+  "tags": [
+   "dual_grid",
+   "mask_0101"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "arab-common-road-stone-0110",
+  "style": "arab",
+  "race": "common",
+  "category": "road",
+  "kind": "road_stone",
+  "facility": null,
+  "variant": 6,
+  "mask": 6,
+  "name": "石板路 0110",
+  "tags": [
+   "dual_grid",
+   "mask_0110"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "arab-common-road-stone-0111",
+  "style": "arab",
+  "race": "common",
+  "category": "road",
+  "kind": "road_stone",
+  "facility": null,
+  "variant": 7,
+  "mask": 7,
+  "name": "石板路 0111",
+  "tags": [
+   "dual_grid",
+   "mask_0111"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "arab-common-road-stone-1000",
+  "style": "arab",
+  "race": "common",
+  "category": "road",
+  "kind": "road_stone",
+  "facility": null,
+  "variant": 8,
+  "mask": 8,
+  "name": "石板路 1000",
+  "tags": [
+   "dual_grid",
+   "mask_1000"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "arab-common-road-stone-1001",
+  "style": "arab",
+  "race": "common",
+  "category": "road",
+  "kind": "road_stone",
+  "facility": null,
+  "variant": 9,
+  "mask": 9,
+  "name": "石板路 1001",
+  "tags": [
+   "dual_grid",
+   "mask_1001"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "arab-common-road-stone-1010",
+  "style": "arab",
+  "race": "common",
+  "category": "road",
+  "kind": "road_stone",
+  "facility": null,
+  "variant": 10,
+  "mask": 10,
+  "name": "石板路 1010",
+  "tags": [
+   "dual_grid",
+   "mask_1010"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "arab-common-road-stone-1011",
+  "style": "arab",
+  "race": "common",
+  "category": "road",
+  "kind": "road_stone",
+  "facility": null,
+  "variant": 11,
+  "mask": 11,
+  "name": "石板路 1011",
+  "tags": [
+   "dual_grid",
+   "mask_1011"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "arab-common-road-stone-1100",
+  "style": "arab",
+  "race": "common",
+  "category": "road",
+  "kind": "road_stone",
+  "facility": null,
+  "variant": 12,
+  "mask": 12,
+  "name": "石板路 1100",
+  "tags": [
+   "dual_grid",
+   "mask_1100"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "arab-common-road-stone-1101",
+  "style": "arab",
+  "race": "common",
+  "category": "road",
+  "kind": "road_stone",
+  "facility": null,
+  "variant": 13,
+  "mask": 13,
+  "name": "石板路 1101",
+  "tags": [
+   "dual_grid",
+   "mask_1101"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "arab-common-road-stone-1110",
+  "style": "arab",
+  "race": "common",
+  "category": "road",
+  "kind": "road_stone",
+  "facility": null,
+  "variant": 14,
+  "mask": 14,
+  "name": "石板路 1110",
+  "tags": [
+   "dual_grid",
+   "mask_1110"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "arab-common-road-stone-1111",
+  "style": "arab",
+  "race": "common",
+  "category": "road",
+  "kind": "road_stone",
+  "facility": null,
+  "variant": 15,
+  "mask": 15,
+  "name": "石板路 1111",
+  "tags": [
+   "dual_grid",
+   "mask_1111"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "arab-common-road-tile-0000",
+  "style": "arab",
+  "race": "common",
+  "category": "road",
+  "kind": "road_tile",
+  "facility": null,
+  "variant": 0,
+  "mask": 0,
+  "name": "几何纹砖铺大道 0000",
+  "tags": [
+   "dual_grid",
+   "mask_0000"
+  ],
+  "roof": "none",
+  "note": "空瓦片（透明占位）",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "arab-common-road-tile-0001",
+  "style": "arab",
+  "race": "common",
+  "category": "road",
+  "kind": "road_tile",
+  "facility": null,
+  "variant": 1,
+  "mask": 1,
+  "name": "几何纹砖铺大道 0001",
+  "tags": [
+   "dual_grid",
+   "mask_0001"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "arab-common-road-tile-0010",
+  "style": "arab",
+  "race": "common",
+  "category": "road",
+  "kind": "road_tile",
+  "facility": null,
+  "variant": 2,
+  "mask": 2,
+  "name": "几何纹砖铺大道 0010",
+  "tags": [
+   "dual_grid",
+   "mask_0010"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "arab-common-road-tile-0011",
+  "style": "arab",
+  "race": "common",
+  "category": "road",
+  "kind": "road_tile",
+  "facility": null,
+  "variant": 3,
+  "mask": 3,
+  "name": "几何纹砖铺大道 0011",
+  "tags": [
+   "dual_grid",
+   "mask_0011"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "arab-common-road-tile-0100",
+  "style": "arab",
+  "race": "common",
+  "category": "road",
+  "kind": "road_tile",
+  "facility": null,
+  "variant": 4,
+  "mask": 4,
+  "name": "几何纹砖铺大道 0100",
+  "tags": [
+   "dual_grid",
+   "mask_0100"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "arab-common-road-tile-0101",
+  "style": "arab",
+  "race": "common",
+  "category": "road",
+  "kind": "road_tile",
+  "facility": null,
+  "variant": 5,
+  "mask": 5,
+  "name": "几何纹砖铺大道 0101",
+  "tags": [
+   "dual_grid",
+   "mask_0101"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "arab-common-road-tile-0110",
+  "style": "arab",
+  "race": "common",
+  "category": "road",
+  "kind": "road_tile",
+  "facility": null,
+  "variant": 6,
+  "mask": 6,
+  "name": "几何纹砖铺大道 0110",
+  "tags": [
+   "dual_grid",
+   "mask_0110"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "arab-common-road-tile-0111",
+  "style": "arab",
+  "race": "common",
+  "category": "road",
+  "kind": "road_tile",
+  "facility": null,
+  "variant": 7,
+  "mask": 7,
+  "name": "几何纹砖铺大道 0111",
+  "tags": [
+   "dual_grid",
+   "mask_0111"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "arab-common-road-tile-1000",
+  "style": "arab",
+  "race": "common",
+  "category": "road",
+  "kind": "road_tile",
+  "facility": null,
+  "variant": 8,
+  "mask": 8,
+  "name": "几何纹砖铺大道 1000",
+  "tags": [
+   "dual_grid",
+   "mask_1000"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "arab-common-road-tile-1001",
+  "style": "arab",
+  "race": "common",
+  "category": "road",
+  "kind": "road_tile",
+  "facility": null,
+  "variant": 9,
+  "mask": 9,
+  "name": "几何纹砖铺大道 1001",
+  "tags": [
+   "dual_grid",
+   "mask_1001"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "arab-common-road-tile-1010",
+  "style": "arab",
+  "race": "common",
+  "category": "road",
+  "kind": "road_tile",
+  "facility": null,
+  "variant": 10,
+  "mask": 10,
+  "name": "几何纹砖铺大道 1010",
+  "tags": [
+   "dual_grid",
+   "mask_1010"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "arab-common-road-tile-1011",
+  "style": "arab",
+  "race": "common",
+  "category": "road",
+  "kind": "road_tile",
+  "facility": null,
+  "variant": 11,
+  "mask": 11,
+  "name": "几何纹砖铺大道 1011",
+  "tags": [
+   "dual_grid",
+   "mask_1011"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "arab-common-road-tile-1100",
+  "style": "arab",
+  "race": "common",
+  "category": "road",
+  "kind": "road_tile",
+  "facility": null,
+  "variant": 12,
+  "mask": 12,
+  "name": "几何纹砖铺大道 1100",
+  "tags": [
+   "dual_grid",
+   "mask_1100"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "arab-common-road-tile-1101",
+  "style": "arab",
+  "race": "common",
+  "category": "road",
+  "kind": "road_tile",
+  "facility": null,
+  "variant": 13,
+  "mask": 13,
+  "name": "几何纹砖铺大道 1101",
+  "tags": [
+   "dual_grid",
+   "mask_1101"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "arab-common-road-tile-1110",
+  "style": "arab",
+  "race": "common",
+  "category": "road",
+  "kind": "road_tile",
+  "facility": null,
+  "variant": 14,
+  "mask": 14,
+  "name": "几何纹砖铺大道 1110",
+  "tags": [
+   "dual_grid",
+   "mask_1110"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "arab-common-road-tile-1111",
+  "style": "arab",
+  "race": "common",
+  "category": "road",
+  "kind": "road_tile",
+  "facility": null,
+  "variant": 15,
+  "mask": 15,
+  "name": "几何纹砖铺大道 1111",
+  "tags": [
+   "dual_grid",
+   "mask_1111"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：四角落在逻辑格中心",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "arab-common-wall-0000",
+  "style": "arab",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_rammed_earth",
+  "facility": "city_wall",
+  "variant": 0,
+  "mask": 0,
+  "name": "夯土城墙 0000",
+  "tags": [
+   "dual_grid",
+   "mask_0000",
+   "rammed_earth",
+   "stepped_merlons"
+  ],
+  "roof": "none",
+  "note": "空瓦片（透明占位）",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "arab-common-wall-0001",
+  "style": "arab",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_rammed_earth",
+  "facility": "city_wall",
+  "variant": 1,
+  "mask": 1,
+  "name": "夯土城墙 0001",
+  "tags": [
+   "dual_grid",
+   "mask_0001",
+   "rammed_earth",
+   "stepped_merlons"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：墙沿逻辑格中心线，墙厚 24 px，高 38 px",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 48,
+  "anchor": [
+   24,
+   96
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   96
+  ]
+ },
+ {
+  "id": "arab-common-wall-0010",
+  "style": "arab",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_rammed_earth",
+  "facility": "city_wall",
+  "variant": 2,
+  "mask": 2,
+  "name": "夯土城墙 0010",
+  "tags": [
+   "dual_grid",
+   "mask_0010",
+   "rammed_earth",
+   "stepped_merlons"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：墙沿逻辑格中心线，墙厚 24 px，高 38 px",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 48,
+  "anchor": [
+   24,
+   96
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   96
+  ]
+ },
+ {
+  "id": "arab-common-wall-0011",
+  "style": "arab",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_rammed_earth",
+  "facility": "city_wall",
+  "variant": 3,
+  "mask": 3,
+  "name": "夯土城墙 0011",
+  "tags": [
+   "dual_grid",
+   "mask_0011",
+   "rammed_earth",
+   "stepped_merlons"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：墙沿逻辑格中心线，墙厚 24 px，高 38 px",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 48,
+  "anchor": [
+   24,
+   96
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   96
+  ]
+ },
+ {
+  "id": "arab-common-wall-0100",
+  "style": "arab",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_rammed_earth",
+  "facility": "city_wall",
+  "variant": 4,
+  "mask": 4,
+  "name": "夯土城墙 0100",
+  "tags": [
+   "dual_grid",
+   "mask_0100",
+   "rammed_earth",
+   "stepped_merlons"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：墙沿逻辑格中心线，墙厚 24 px，高 38 px",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 48,
+  "anchor": [
+   24,
+   96
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   96
+  ]
+ },
+ {
+  "id": "arab-common-wall-0101",
+  "style": "arab",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_rammed_earth",
+  "facility": "city_wall",
+  "variant": 5,
+  "mask": 5,
+  "name": "夯土城墙 0101",
+  "tags": [
+   "dual_grid",
+   "mask_0101",
+   "rammed_earth",
+   "stepped_merlons"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：墙沿逻辑格中心线，墙厚 24 px，高 38 px",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 48,
+  "anchor": [
+   24,
+   96
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   96
+  ]
+ },
+ {
+  "id": "arab-common-wall-0110",
+  "style": "arab",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_rammed_earth",
+  "facility": "city_wall",
+  "variant": 6,
+  "mask": 6,
+  "name": "夯土城墙 0110",
+  "tags": [
+   "dual_grid",
+   "mask_0110",
+   "rammed_earth",
+   "stepped_merlons"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：墙沿逻辑格中心线，墙厚 24 px，高 38 px",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 48,
+  "anchor": [
+   24,
+   96
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   96
+  ]
+ },
+ {
+  "id": "arab-common-wall-0111",
+  "style": "arab",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_rammed_earth",
+  "facility": "city_wall",
+  "variant": 7,
+  "mask": 7,
+  "name": "夯土城墙 0111",
+  "tags": [
+   "dual_grid",
+   "mask_0111",
+   "rammed_earth",
+   "stepped_merlons"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：墙沿逻辑格中心线，墙厚 24 px，高 38 px",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 48,
+  "anchor": [
+   24,
+   96
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   96
+  ]
+ },
+ {
+  "id": "arab-common-wall-1000",
+  "style": "arab",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_rammed_earth",
+  "facility": "city_wall",
+  "variant": 8,
+  "mask": 8,
+  "name": "夯土城墙 1000",
+  "tags": [
+   "dual_grid",
+   "mask_1000",
+   "rammed_earth",
+   "stepped_merlons"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：墙沿逻辑格中心线，墙厚 24 px，高 38 px",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 48,
+  "anchor": [
+   24,
+   96
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   96
+  ]
+ },
+ {
+  "id": "arab-common-wall-1001",
+  "style": "arab",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_rammed_earth",
+  "facility": "city_wall",
+  "variant": 9,
+  "mask": 9,
+  "name": "夯土城墙 1001",
+  "tags": [
+   "dual_grid",
+   "mask_1001",
+   "rammed_earth",
+   "stepped_merlons"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：墙沿逻辑格中心线，墙厚 24 px，高 38 px",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 48,
+  "anchor": [
+   24,
+   96
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   96
+  ]
+ },
+ {
+  "id": "arab-common-wall-1010",
+  "style": "arab",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_rammed_earth",
+  "facility": "city_wall",
+  "variant": 10,
+  "mask": 10,
+  "name": "夯土城墙 1010",
+  "tags": [
+   "dual_grid",
+   "mask_1010",
+   "rammed_earth",
+   "stepped_merlons"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：墙沿逻辑格中心线，墙厚 24 px，高 38 px",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 48,
+  "anchor": [
+   24,
+   96
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   96
+  ]
+ },
+ {
+  "id": "arab-common-wall-1011",
+  "style": "arab",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_rammed_earth",
+  "facility": "city_wall",
+  "variant": 11,
+  "mask": 11,
+  "name": "夯土城墙 1011",
+  "tags": [
+   "dual_grid",
+   "mask_1011",
+   "rammed_earth",
+   "stepped_merlons"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：墙沿逻辑格中心线，墙厚 24 px，高 38 px",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 48,
+  "anchor": [
+   24,
+   96
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   96
+  ]
+ },
+ {
+  "id": "arab-common-wall-1100",
+  "style": "arab",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_rammed_earth",
+  "facility": "city_wall",
+  "variant": 12,
+  "mask": 12,
+  "name": "夯土城墙 1100",
+  "tags": [
+   "dual_grid",
+   "mask_1100",
+   "rammed_earth",
+   "stepped_merlons"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：墙沿逻辑格中心线，墙厚 24 px，高 38 px",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 48,
+  "anchor": [
+   24,
+   96
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   96
+  ]
+ },
+ {
+  "id": "arab-common-wall-1101",
+  "style": "arab",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_rammed_earth",
+  "facility": "city_wall",
+  "variant": 13,
+  "mask": 13,
+  "name": "夯土城墙 1101",
+  "tags": [
+   "dual_grid",
+   "mask_1101",
+   "rammed_earth",
+   "stepped_merlons"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：墙沿逻辑格中心线，墙厚 24 px，高 38 px",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 48,
+  "anchor": [
+   24,
+   96
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   96
+  ]
+ },
+ {
+  "id": "arab-common-wall-1110",
+  "style": "arab",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_rammed_earth",
+  "facility": "city_wall",
+  "variant": 14,
+  "mask": 14,
+  "name": "夯土城墙 1110",
+  "tags": [
+   "dual_grid",
+   "mask_1110",
+   "rammed_earth",
+   "stepped_merlons"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：墙沿逻辑格中心线，墙厚 24 px，高 38 px",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 48,
+  "anchor": [
+   24,
+   96
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   96
+  ]
+ },
+ {
+  "id": "arab-common-wall-1111",
+  "style": "arab",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_rammed_earth",
+  "facility": "city_wall",
+  "variant": 15,
+  "mask": 15,
+  "name": "夯土城墙 1111",
+  "tags": [
+   "dual_grid",
+   "mask_1111",
+   "rammed_earth",
+   "stepped_merlons"
+  ],
+  "roof": "none",
+  "note": "双网格渲染瓦片：墙沿逻辑格中心线，墙厚 24 px，高 38 px",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 48,
+  "anchor": [
+   24,
+   96
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   96
+  ]
+ },
+ {
+  "id": "arab-common-wall-gate-h",
+  "style": "arab",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_gate_h",
+  "facility": "gate",
+  "variant": 1,
+  "name": "城门（东西向墙段）",
+  "tags": [
+   "overlay",
+   "rammed_earth"
+  ],
+  "roof": "none",
+  "note": "叠加件，锚点 = 所在逻辑格前沿中点；马蹄拱门洞、钴蓝瓷砖拱框、门钉木门",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 51,
+  "anchor": [
+   24,
+   99
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   99
+  ]
+ },
+ {
+  "id": "arab-common-wall-gate-v",
+  "style": "arab",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_gate_v",
+  "facility": "gate",
+  "variant": 1,
+  "name": "城门（南北向墙段）",
+  "tags": [
+   "overlay",
+   "rammed_earth"
+  ],
+  "roof": "none",
+  "note": "叠加件，锚点 = 所在逻辑格前沿中点；门道东西向，正面为端墙尖拱盲龛",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 53,
+  "anchor": [
+   24,
+   101
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   101
+  ]
+ },
+ {
+  "id": "arab-common-wall-tower",
+  "style": "arab",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_tower",
+  "facility": "watchtower",
+  "variant": 1,
+  "name": "圆形夯土塔",
+  "tags": [
+   "overlay",
+   "rammed_earth"
+  ],
+  "roof": "none",
+  "note": "叠加件，锚点 = 所在逻辑格前沿中点；放在墙拐角 / 端点 / 辐条墙节点上",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 59,
+  "anchor": [
+   24,
+   107
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   107
+  ]
+ },
+ {
+  "id": "arab-common-wallspoke-n",
+  "style": "arab",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_spoke",
+  "facility": "city_wall",
+  "variant": 1,
+  "dir": "n",
+  "sort_offset": 0.1,
+  "name": "辐条夯土墙 N",
+  "tags": [
+   "spoke",
+   "dir_n",
+   "rammed_earth",
+   "stepped_merlons"
+  ],
+  "roof": "none",
+  "note": "半段墙：格中心 → 格边中点；排序键 = 本格前沿 y + 0.1",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 38,
+  "anchor": [
+   24,
+   86
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   86
+  ]
+ },
+ {
+  "id": "arab-common-wallspoke-ne",
+  "style": "arab",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_spoke",
+  "facility": "city_wall",
+  "variant": 1,
+  "dir": "ne",
+  "sort_offset": 0.1,
+  "name": "辐条夯土墙 NE",
+  "tags": [
+   "spoke",
+   "dir_ne",
+   "rammed_earth",
+   "stepped_merlons"
+  ],
+  "roof": "none",
+  "note": "半段墙：格中心 → 格角；排序键 = 本格前沿 y + 0.1；端头伸出本格 ≤ 8.5 px",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 49,
+  "anchor": [
+   24,
+   97
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   97
+  ]
+ },
+ {
+  "id": "arab-common-wallspoke-e",
+  "style": "arab",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_spoke",
+  "facility": "city_wall",
+  "variant": 1,
+  "dir": "e",
+  "sort_offset": 0.3,
+  "name": "辐条夯土墙 E",
+  "tags": [
+   "spoke",
+   "dir_e",
+   "rammed_earth",
+   "stepped_merlons"
+  ],
+  "roof": "none",
+  "note": "半段墙：格中心 → 格边中点；排序键 = 本格前沿 y + 0.3",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 26,
+  "anchor": [
+   24,
+   74
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   74
+  ]
+ },
+ {
+  "id": "arab-common-wallspoke-se",
+  "style": "arab",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_spoke",
+  "facility": "city_wall",
+  "variant": 1,
+  "dir": "se",
+  "sort_offset": 0.4,
+  "name": "辐条夯土墙 SE",
+  "tags": [
+   "spoke",
+   "dir_se",
+   "rammed_earth",
+   "stepped_merlons"
+  ],
+  "roof": "none",
+  "note": "半段墙：格中心 → 格角；排序键 = 本格前沿 y + 0.4；端头伸出本格 ≤ 8.5 px",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 20,
+  "anchor": [
+   24,
+   68
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   68
+  ]
+ },
+ {
+  "id": "arab-common-wallspoke-s",
+  "style": "arab",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_spoke",
+  "facility": "city_wall",
+  "variant": 1,
+  "dir": "s",
+  "sort_offset": 0.4,
+  "name": "辐条夯土墙 S",
+  "tags": [
+   "spoke",
+   "dir_s",
+   "rammed_earth",
+   "stepped_merlons"
+  ],
+  "roof": "none",
+  "note": "半段墙：格中心 → 格边中点；排序键 = 本格前沿 y + 0.4",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "arab-common-wallspoke-sw",
+  "style": "arab",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_spoke",
+  "facility": "city_wall",
+  "variant": 1,
+  "dir": "sw",
+  "sort_offset": 0.4,
+  "name": "辐条夯土墙 SW",
+  "tags": [
+   "spoke",
+   "dir_sw",
+   "rammed_earth",
+   "stepped_merlons"
+  ],
+  "roof": "none",
+  "note": "半段墙：格中心 → 格角；排序键 = 本格前沿 y + 0.4；端头伸出本格 ≤ 8.5 px",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 20,
+  "anchor": [
+   24,
+   68
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   68
+  ]
+ },
+ {
+  "id": "arab-common-wallspoke-w",
+  "style": "arab",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_spoke",
+  "facility": "city_wall",
+  "variant": 1,
+  "dir": "w",
+  "sort_offset": 0.3,
+  "name": "辐条夯土墙 W",
+  "tags": [
+   "spoke",
+   "dir_w",
+   "rammed_earth",
+   "stepped_merlons"
+  ],
+  "roof": "none",
+  "note": "半段墙：格中心 → 格边中点；排序键 = 本格前沿 y + 0.3",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 26,
+  "anchor": [
+   24,
+   74
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   74
+  ]
+ },
+ {
+  "id": "arab-common-wallspoke-nw",
+  "style": "arab",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_spoke",
+  "facility": "city_wall",
+  "variant": 1,
+  "dir": "nw",
+  "sort_offset": 0.1,
+  "name": "辐条夯土墙 NW",
+  "tags": [
+   "spoke",
+   "dir_nw",
+   "rammed_earth",
+   "stepped_merlons"
+  ],
+  "roof": "none",
+  "note": "半段墙：格中心 → 格角；排序键 = 本格前沿 y + 0.1；端头伸出本格 ≤ 8.5 px",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 49,
+  "anchor": [
+   24,
+   97
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   97
+  ]
+ },
+ {
+  "id": "arab-common-wallnode-01",
+  "style": "arab",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_node",
+  "facility": "city_wall",
+  "variant": 1,
+  "sort_offset": 0.2,
+  "name": "辐条墙节点 东西直段平齐墩",
+  "tags": [
+   "spoke",
+   "node",
+   "rammed_earth",
+   "straight_ew"
+  ],
+  "roof": "none",
+  "note": "墙格中心的墩子 / 拐点，排序键 = 本格前沿 y + 0.2；可用 arab-common-wall-tower 替代",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 36,
+  "anchor": [
+   24,
+   84
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   84
+  ]
+ },
+ {
+  "id": "arab-common-wallnode-02",
+  "style": "arab",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_node",
+  "facility": "city_wall",
+  "variant": 2,
+  "sort_offset": 0.2,
+  "name": "辐条墙节点 拐点八角墩",
+  "tags": [
+   "spoke",
+   "node",
+   "rammed_earth",
+   "corner"
+  ],
+  "roof": "none",
+  "note": "墙格中心的墩子 / 拐点，排序键 = 本格前沿 y + 0.2；可用 arab-common-wall-tower 替代",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 41,
+  "anchor": [
+   24,
+   89
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   89
+  ]
+ },
+ {
+  "id": "arab-common-wallnode-03",
+  "style": "arab",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_node",
+  "facility": "city_wall",
+  "variant": 3,
+  "sort_offset": 0.2,
+  "name": "辐条墙节点 南北 / 斜向直段平齐墩",
+  "tags": [
+   "spoke",
+   "node",
+   "rammed_earth",
+   "straight_ns_diag"
+  ],
+  "roof": "none",
+  "note": "墙格中心的墩子 / 拐点，排序键 = 本格前沿 y + 0.2；可用 arab-common-wall-tower 替代",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 38,
+  "anchor": [
+   24,
+   86
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   86
+  ]
+ },
+ {
+  "id": "arab-common-water-oasis-0000",
+  "style": "arab",
+  "race": "common",
+  "category": "water",
+  "kind": "water_oasis",
+  "facility": null,
+  "variant": 0,
+  "mask": 0,
+  "name": "绿洲水面 0000",
+  "tags": [
+   "dual_grid",
+   "mask_0000",
+   "oasis",
+   "sand_bank",
+   "reeds"
+  ],
+  "roof": "none",
+  "water_color": "#a9b8ad",
+  "note": "空瓦片（透明占位）",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "arab-common-water-oasis-0001",
+  "style": "arab",
+  "race": "common",
+  "category": "water",
+  "kind": "water_oasis",
+  "facility": null,
+  "variant": 1,
+  "mask": 1,
+  "name": "绿洲水面 0001",
+  "tags": [
+   "dual_grid",
+   "mask_0001",
+   "oasis",
+   "sand_bank",
+   "reeds"
+  ],
+  "roof": "none",
+  "water_color": "#a9b8ad",
+  "note": "双网格渲染瓦片：1 = 该角是水；水色 #a9b8ad 与 west-ground 对齐；椰枣树用 prop 摆在岸上",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "arab-common-water-oasis-0010",
+  "style": "arab",
+  "race": "common",
+  "category": "water",
+  "kind": "water_oasis",
+  "facility": null,
+  "variant": 2,
+  "mask": 2,
+  "name": "绿洲水面 0010",
+  "tags": [
+   "dual_grid",
+   "mask_0010",
+   "oasis",
+   "sand_bank",
+   "reeds"
+  ],
+  "roof": "none",
+  "water_color": "#a9b8ad",
+  "note": "双网格渲染瓦片：1 = 该角是水；水色 #a9b8ad 与 west-ground 对齐；椰枣树用 prop 摆在岸上",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "arab-common-water-oasis-0011",
+  "style": "arab",
+  "race": "common",
+  "category": "water",
+  "kind": "water_oasis",
+  "facility": null,
+  "variant": 3,
+  "mask": 3,
+  "name": "绿洲水面 0011",
+  "tags": [
+   "dual_grid",
+   "mask_0011",
+   "oasis",
+   "sand_bank",
+   "reeds"
+  ],
+  "roof": "none",
+  "water_color": "#a9b8ad",
+  "note": "双网格渲染瓦片：1 = 该角是水；水色 #a9b8ad 与 west-ground 对齐；椰枣树用 prop 摆在岸上",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "arab-common-water-oasis-0100",
+  "style": "arab",
+  "race": "common",
+  "category": "water",
+  "kind": "water_oasis",
+  "facility": null,
+  "variant": 4,
+  "mask": 4,
+  "name": "绿洲水面 0100",
+  "tags": [
+   "dual_grid",
+   "mask_0100",
+   "oasis",
+   "sand_bank",
+   "reeds"
+  ],
+  "roof": "none",
+  "water_color": "#a9b8ad",
+  "note": "双网格渲染瓦片：1 = 该角是水；水色 #a9b8ad 与 west-ground 对齐；椰枣树用 prop 摆在岸上",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "arab-common-water-oasis-0101",
+  "style": "arab",
+  "race": "common",
+  "category": "water",
+  "kind": "water_oasis",
+  "facility": null,
+  "variant": 5,
+  "mask": 5,
+  "name": "绿洲水面 0101",
+  "tags": [
+   "dual_grid",
+   "mask_0101",
+   "oasis",
+   "sand_bank",
+   "reeds"
+  ],
+  "roof": "none",
+  "water_color": "#a9b8ad",
+  "note": "双网格渲染瓦片：1 = 该角是水；水色 #a9b8ad 与 west-ground 对齐；椰枣树用 prop 摆在岸上",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "arab-common-water-oasis-0110",
+  "style": "arab",
+  "race": "common",
+  "category": "water",
+  "kind": "water_oasis",
+  "facility": null,
+  "variant": 6,
+  "mask": 6,
+  "name": "绿洲水面 0110",
+  "tags": [
+   "dual_grid",
+   "mask_0110",
+   "oasis",
+   "sand_bank",
+   "reeds"
+  ],
+  "roof": "none",
+  "water_color": "#a9b8ad",
+  "note": "双网格渲染瓦片：1 = 该角是水；水色 #a9b8ad 与 west-ground 对齐；椰枣树用 prop 摆在岸上",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "arab-common-water-oasis-0111",
+  "style": "arab",
+  "race": "common",
+  "category": "water",
+  "kind": "water_oasis",
+  "facility": null,
+  "variant": 7,
+  "mask": 7,
+  "name": "绿洲水面 0111",
+  "tags": [
+   "dual_grid",
+   "mask_0111",
+   "oasis",
+   "sand_bank",
+   "reeds"
+  ],
+  "roof": "none",
+  "water_color": "#a9b8ad",
+  "note": "双网格渲染瓦片：1 = 该角是水；水色 #a9b8ad 与 west-ground 对齐；椰枣树用 prop 摆在岸上",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "arab-common-water-oasis-1000",
+  "style": "arab",
+  "race": "common",
+  "category": "water",
+  "kind": "water_oasis",
+  "facility": null,
+  "variant": 8,
+  "mask": 8,
+  "name": "绿洲水面 1000",
+  "tags": [
+   "dual_grid",
+   "mask_1000",
+   "oasis",
+   "sand_bank",
+   "reeds"
+  ],
+  "roof": "none",
+  "water_color": "#a9b8ad",
+  "note": "双网格渲染瓦片：1 = 该角是水；水色 #a9b8ad 与 west-ground 对齐；椰枣树用 prop 摆在岸上",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "arab-common-water-oasis-1001",
+  "style": "arab",
+  "race": "common",
+  "category": "water",
+  "kind": "water_oasis",
+  "facility": null,
+  "variant": 9,
+  "mask": 9,
+  "name": "绿洲水面 1001",
+  "tags": [
+   "dual_grid",
+   "mask_1001",
+   "oasis",
+   "sand_bank",
+   "reeds"
+  ],
+  "roof": "none",
+  "water_color": "#a9b8ad",
+  "note": "双网格渲染瓦片：1 = 该角是水；水色 #a9b8ad 与 west-ground 对齐；椰枣树用 prop 摆在岸上",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "arab-common-water-oasis-1010",
+  "style": "arab",
+  "race": "common",
+  "category": "water",
+  "kind": "water_oasis",
+  "facility": null,
+  "variant": 10,
+  "mask": 10,
+  "name": "绿洲水面 1010",
+  "tags": [
+   "dual_grid",
+   "mask_1010",
+   "oasis",
+   "sand_bank",
+   "reeds"
+  ],
+  "roof": "none",
+  "water_color": "#a9b8ad",
+  "note": "双网格渲染瓦片：1 = 该角是水；水色 #a9b8ad 与 west-ground 对齐；椰枣树用 prop 摆在岸上",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "arab-common-water-oasis-1011",
+  "style": "arab",
+  "race": "common",
+  "category": "water",
+  "kind": "water_oasis",
+  "facility": null,
+  "variant": 11,
+  "mask": 11,
+  "name": "绿洲水面 1011",
+  "tags": [
+   "dual_grid",
+   "mask_1011",
+   "oasis",
+   "sand_bank",
+   "reeds"
+  ],
+  "roof": "none",
+  "water_color": "#a9b8ad",
+  "note": "双网格渲染瓦片：1 = 该角是水；水色 #a9b8ad 与 west-ground 对齐；椰枣树用 prop 摆在岸上",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "arab-common-water-oasis-1100",
+  "style": "arab",
+  "race": "common",
+  "category": "water",
+  "kind": "water_oasis",
+  "facility": null,
+  "variant": 12,
+  "mask": 12,
+  "name": "绿洲水面 1100",
+  "tags": [
+   "dual_grid",
+   "mask_1100",
+   "oasis",
+   "sand_bank",
+   "reeds"
+  ],
+  "roof": "none",
+  "water_color": "#a9b8ad",
+  "note": "双网格渲染瓦片：1 = 该角是水；水色 #a9b8ad 与 west-ground 对齐；椰枣树用 prop 摆在岸上",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "arab-common-water-oasis-1101",
+  "style": "arab",
+  "race": "common",
+  "category": "water",
+  "kind": "water_oasis",
+  "facility": null,
+  "variant": 13,
+  "mask": 13,
+  "name": "绿洲水面 1101",
+  "tags": [
+   "dual_grid",
+   "mask_1101",
+   "oasis",
+   "sand_bank",
+   "reeds"
+  ],
+  "roof": "none",
+  "water_color": "#a9b8ad",
+  "note": "双网格渲染瓦片：1 = 该角是水；水色 #a9b8ad 与 west-ground 对齐；椰枣树用 prop 摆在岸上",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "arab-common-water-oasis-1110",
+  "style": "arab",
+  "race": "common",
+  "category": "water",
+  "kind": "water_oasis",
+  "facility": null,
+  "variant": 14,
+  "mask": 14,
+  "name": "绿洲水面 1110",
+  "tags": [
+   "dual_grid",
+   "mask_1110",
+   "oasis",
+   "sand_bank",
+   "reeds"
+  ],
+  "roof": "none",
+  "water_color": "#a9b8ad",
+  "note": "双网格渲染瓦片：1 = 该角是水；水色 #a9b8ad 与 west-ground 对齐；椰枣树用 prop 摆在岸上",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "arab-common-water-oasis-1111",
+  "style": "arab",
+  "race": "common",
+  "category": "water",
+  "kind": "water_oasis",
+  "facility": null,
+  "variant": 15,
+  "mask": 15,
+  "name": "绿洲水面 1111",
+  "tags": [
+   "dual_grid",
+   "mask_1111",
+   "oasis",
+   "sand_bank",
+   "reeds"
+  ],
+  "roof": "none",
+  "water_color": "#a9b8ad",
+  "note": "双网格渲染瓦片：1 = 该角是水；水色 #a9b8ad 与 west-ground 对齐；椰枣树用 prop 摆在岸上",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "arab-common-prop-datepalm-01",
+  "style": "arab",
+  "race": "common",
+  "category": "prop",
+  "kind": "prop_datepalm",
+  "facility": null,
+  "variant": 1,
+  "name": "椰枣树 1",
+  "tags": [
+   "plant",
+   "palm",
+   "oasis"
+  ],
+  "roof": "none",
+  "note": "单株挂果；锚点在脚底中点，上伸 ≤ 48 px",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 43,
+  "anchor": [
+   24,
+   91
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   91
+  ]
+ },
+ {
+  "id": "arab-common-prop-datepalm-02",
+  "style": "arab",
+  "race": "common",
+  "category": "prop",
+  "kind": "prop_datepalm",
+  "facility": null,
+  "variant": 2,
+  "name": "椰枣树 2",
+  "tags": [
+   "plant",
+   "palm",
+   "oasis"
+  ],
+  "roof": "none",
+  "note": "双株 + 灌丛；锚点在脚底中点，上伸 ≤ 48 px",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 40,
+  "anchor": [
+   24,
+   88
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   88
+  ]
+ },
+ {
+  "id": "arab-common-prop-jars-01",
+  "style": "arab",
+  "race": "common",
+  "category": "prop",
+  "kind": "prop_jars",
+  "facility": null,
+  "variant": 1,
+  "name": "陶罐 1",
+  "tags": [
+   "pottery",
+   "water_jar"
+  ],
+  "roof": "none",
+  "note": "素陶罐组；锚点在脚底中点，上伸 ≤ 48 px",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "arab-common-prop-jars-02",
+  "style": "arab",
+  "race": "common",
+  "category": "prop",
+  "kind": "prop_jars",
+  "facility": null,
+  "variant": 2,
+  "name": "陶罐 2",
+  "tags": [
+   "pottery",
+   "water_jar"
+  ],
+  "roof": "none",
+  "note": "釉面储水罐 + 木架；锚点在脚底中点，上伸 ≤ 48 px",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "arab-common-prop-camel-01",
+  "style": "arab",
+  "race": "common",
+  "category": "prop",
+  "kind": "prop_camel",
+  "facility": null,
+  "variant": 1,
+  "name": "骆驼 1",
+  "tags": [
+   "animal",
+   "camel",
+   "caravan"
+  ],
+  "roof": "none",
+  "note": "站立带鞍毯；锚点在脚底中点，上伸 ≤ 48 px",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ },
+ {
+  "id": "arab-common-prop-camel-02",
+  "style": "arab",
+  "race": "common",
+  "category": "prop",
+  "kind": "prop_camel",
+  "facility": null,
+  "variant": 2,
+  "name": "骆驼 2",
+  "tags": [
+   "animal",
+   "camel",
+   "caravan"
+  ],
+  "roof": "none",
+  "note": "卧姿 + 货罐；锚点在脚底中点，上伸 ≤ 48 px",
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ]
+ }
+]

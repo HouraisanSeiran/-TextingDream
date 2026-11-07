@@ -1,0 +1,3865 @@
+[
+  {
+    "id": "west-common-site-sawshed-01",
+    "style": "west",
+    "race": "common",
+    "category": "site",
+    "kind": "sawshed",
+    "name": "锯木棚",
+    "resource": "timber",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      3,
+      2
+    ],
+    "height_px": 52,
+    "anchor": [
+      72,
+      148
+    ],
+    "viewBox": [
+      0,
+      0,
+      144,
+      148
+    ],
+    "tags": [
+      "open_shed",
+      "saw_pit"
+    ],
+    "roof": "gable_thatch",
+    "note": "FacilityKind 无锯木坊，facility 为 null"
+  },
+  {
+    "id": "west-common-site-watersaw-01",
+    "style": "west",
+    "race": "common",
+    "category": "site",
+    "kind": "watersaw",
+    "name": "水力锯坊",
+    "resource": "timber",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      3,
+      3
+    ],
+    "height_px": 60,
+    "anchor": [
+      72,
+      204
+    ],
+    "viewBox": [
+      0,
+      0,
+      144,
+      204
+    ],
+    "tags": [
+      "water_wheel",
+      "sash_saw"
+    ],
+    "roof": "gable_tile",
+    "note": "中世纪水力往复锯（框锯）；需临水。FacilityKind 的 mill 指磨坊，故 facility 为 null"
+  },
+  {
+    "id": "west-common-prop-logpile-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "logpile",
+    "name": "原木垛",
+    "resource": "timber",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 14,
+    "anchor": [
+      24,
+      62
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      62
+    ],
+    "tags": [
+      "stack"
+    ],
+    "roof": "none",
+    "note": ""
+  },
+  {
+    "id": "west-common-prop-logcart-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "logcart",
+    "name": "运木车",
+    "resource": "timber",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 12,
+    "anchor": [
+      24,
+      60
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      60
+    ],
+    "tags": [
+      "cart"
+    ],
+    "roof": "none",
+    "note": ""
+  },
+  {
+    "id": "west-common-prop-chopblock-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "chopblock",
+    "name": "劈柴墩",
+    "resource": "timber",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 6,
+    "anchor": [
+      24,
+      54
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      54
+    ],
+    "tags": [
+      "axe"
+    ],
+    "roof": "none",
+    "note": ""
+  },
+  {
+    "id": "west-common-ground-stumpfield-01",
+    "style": "west",
+    "race": "common",
+    "category": "ground",
+    "kind": "stumpfield",
+    "name": "树桩地",
+    "resource": "timber",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "tile",
+      "seamless"
+    ],
+    "roof": "none",
+    "note": "平铺底纹；元素按 ±48 平移复制后裁切，任意排列无缝"
+  },
+  {
+    "id": "west-common-ground-stumpfield-02",
+    "style": "west",
+    "race": "common",
+    "category": "ground",
+    "kind": "stumpfield",
+    "name": "树桩地",
+    "resource": "timber",
+    "facility": null,
+    "variant": 2,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "tile",
+      "seamless"
+    ],
+    "roof": "none",
+    "note": "平铺底纹；元素按 ±48 平移复制后裁切，任意排列无缝"
+  },
+  {
+    "id": "west-common-ground-stumpfield-03",
+    "style": "west",
+    "race": "common",
+    "category": "ground",
+    "kind": "stumpfield",
+    "name": "树桩地",
+    "resource": "timber",
+    "facility": null,
+    "variant": 3,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "tile",
+      "seamless"
+    ],
+    "roof": "none",
+    "note": "平铺底纹；元素按 ±48 平移复制后裁切，任意排列无缝"
+  },
+  {
+    "id": "west-common-ground-stumpfield-04",
+    "style": "west",
+    "race": "common",
+    "category": "ground",
+    "kind": "stumpfield",
+    "name": "树桩地",
+    "resource": "timber",
+    "facility": null,
+    "variant": 4,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "tile",
+      "seamless"
+    ],
+    "roof": "none",
+    "note": "平铺底纹；元素按 ±48 平移复制后裁切，任意排列无缝"
+  },
+  {
+    "id": "west-common-site-quarry-01",
+    "style": "west",
+    "race": "common",
+    "category": "site",
+    "kind": "quarry",
+    "name": "阶梯采石面",
+    "resource": "stone",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      4,
+      3
+    ],
+    "height_px": 70,
+    "anchor": [
+      96,
+      214
+    ],
+    "viewBox": [
+      0,
+      0,
+      192,
+      214
+    ],
+    "tags": [
+      "terraced_face",
+      "crane",
+      "open_pit"
+    ],
+    "roof": "none",
+    "note": "露天阶梯采面 + 木吊杆；FacilityKind 无采石场，facility 为 null"
+  },
+  {
+    "id": "west-common-site-marblequarry-01",
+    "style": "west",
+    "race": "common",
+    "category": "site",
+    "kind": "marblequarry",
+    "name": "大理石采面",
+    "resource": "marble",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      4,
+      3
+    ],
+    "height_px": 70,
+    "anchor": [
+      96,
+      214
+    ],
+    "viewBox": [
+      0,
+      0,
+      192,
+      214
+    ],
+    "tags": [
+      "terraced_face",
+      "white_stone",
+      "sawn_blocks"
+    ],
+    "roof": "none",
+    "note": "白色阶梯采面，立面是锯切留下的平直方格切缝（区别于普通采石的乱凿痕）；facility 为 null"
+  },
+  {
+    "id": "west-common-prop-stonestack-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "stonestack",
+    "name": "石块垛",
+    "resource": "stone",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 4,
+    "anchor": [
+      24,
+      52
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      52
+    ],
+    "tags": [
+      "stack"
+    ],
+    "roof": "none",
+    "note": ""
+  },
+  {
+    "id": "west-common-prop-rubble-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "rubble",
+    "name": "碎石堆",
+    "resource": "stone",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "heap",
+      "pick"
+    ],
+    "roof": "none",
+    "note": ""
+  },
+  {
+    "id": "west-common-prop-marbleblock-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "marbleblock",
+    "name": "精切大理石块",
+    "resource": "marble",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 6,
+    "anchor": [
+      24,
+      54
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      54
+    ],
+    "tags": [
+      "ashlar",
+      "white_stone"
+    ],
+    "roof": "none",
+    "note": ""
+  },
+  {
+    "id": "west-common-ground-bedrock-01",
+    "style": "west",
+    "race": "common",
+    "category": "ground",
+    "kind": "bedrock",
+    "name": "采石场裸岩",
+    "resource": "stone",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "tile",
+      "seamless",
+      "quarry_floor"
+    ],
+    "roof": "none",
+    "note": "平铺底纹；元素按 ±48 平移复制后裁切，任意排列无缝"
+  },
+  {
+    "id": "west-common-ground-bedrock-02",
+    "style": "west",
+    "race": "common",
+    "category": "ground",
+    "kind": "bedrock",
+    "name": "采石场裸岩",
+    "resource": "stone",
+    "facility": null,
+    "variant": 2,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "tile",
+      "seamless",
+      "quarry_floor"
+    ],
+    "roof": "none",
+    "note": "平铺底纹；元素按 ±48 平移复制后裁切，任意排列无缝"
+  },
+  {
+    "id": "west-common-ground-bedrock-03",
+    "style": "west",
+    "race": "common",
+    "category": "ground",
+    "kind": "bedrock",
+    "name": "采石场裸岩",
+    "resource": "stone",
+    "facility": null,
+    "variant": 3,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "tile",
+      "seamless",
+      "quarry_floor"
+    ],
+    "roof": "none",
+    "note": "平铺底纹；元素按 ±48 平移复制后裁切，任意排列无缝"
+  },
+  {
+    "id": "west-common-ground-bedrock-04",
+    "style": "west",
+    "race": "common",
+    "category": "ground",
+    "kind": "bedrock",
+    "name": "采石场裸岩",
+    "resource": "stone",
+    "facility": null,
+    "variant": 4,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "tile",
+      "seamless",
+      "quarry_floor"
+    ],
+    "roof": "none",
+    "note": "平铺底纹；元素按 ±48 平移复制后裁切，任意排列无缝"
+  },
+  {
+    "id": "west-common-ground-marblechips-01",
+    "style": "west",
+    "race": "common",
+    "category": "ground",
+    "kind": "marblechips",
+    "name": "大理石碎屑地",
+    "resource": "marble",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "tile",
+      "seamless",
+      "quarry_floor"
+    ],
+    "roof": "none",
+    "note": "平铺底纹；元素按 ±48 平移复制后裁切，任意排列无缝"
+  },
+  {
+    "id": "west-common-ground-marblechips-02",
+    "style": "west",
+    "race": "common",
+    "category": "ground",
+    "kind": "marblechips",
+    "name": "大理石碎屑地",
+    "resource": "marble",
+    "facility": null,
+    "variant": 2,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "tile",
+      "seamless",
+      "quarry_floor"
+    ],
+    "roof": "none",
+    "note": "平铺底纹；元素按 ±48 平移复制后裁切，任意排列无缝"
+  },
+  {
+    "id": "west-common-ground-marblechips-03",
+    "style": "west",
+    "race": "common",
+    "category": "ground",
+    "kind": "marblechips",
+    "name": "大理石碎屑地",
+    "resource": "marble",
+    "facility": null,
+    "variant": 3,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "tile",
+      "seamless",
+      "quarry_floor"
+    ],
+    "roof": "none",
+    "note": "平铺底纹；元素按 ±48 平移复制后裁切，任意排列无缝"
+  },
+  {
+    "id": "west-common-ground-marblechips-04",
+    "style": "west",
+    "race": "common",
+    "category": "ground",
+    "kind": "marblechips",
+    "name": "大理石碎屑地",
+    "resource": "marble",
+    "facility": null,
+    "variant": 4,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "tile",
+      "seamless",
+      "quarry_floor"
+    ],
+    "roof": "none",
+    "note": "平铺底纹；元素按 ±48 平移复制后裁切，任意排列无缝"
+  },
+  {
+    "id": "west-common-site-mine-iron-01",
+    "style": "west",
+    "race": "common",
+    "category": "site",
+    "kind": "mine-iron",
+    "name": "铁矿井架",
+    "resource": "iron",
+    "facility": "mine_head",
+    "variant": 1,
+    "footprint": [
+      4,
+      3
+    ],
+    "height_px": 96,
+    "anchor": [
+      96,
+      240
+    ],
+    "viewBox": [
+      0,
+      0,
+      192,
+      240
+    ],
+    "tags": [
+      "headframe",
+      "shaft",
+      "winch"
+    ],
+    "roof": "none",
+    "note": "竖井：A 字木井架 + 天轮 + 绞车房，矿车轨道通向矿石堆；"
+  },
+  {
+    "id": "west-common-site-mine-copper-01",
+    "style": "west",
+    "race": "common",
+    "category": "site",
+    "kind": "mine-copper",
+    "name": "铜矿矿道口",
+    "resource": "copper",
+    "facility": "mine_head",
+    "variant": 1,
+    "footprint": [
+      4,
+      3
+    ],
+    "height_px": 64,
+    "anchor": [
+      96,
+      208
+    ],
+    "viewBox": [
+      0,
+      0,
+      192,
+      208
+    ],
+    "tags": [
+      "adit",
+      "hillside",
+      "timbered_portal"
+    ],
+    "roof": "none",
+    "note": "平硐：山腹矿道口 + 木支护，矿车轨道通向矿石堆；山坡带绿色铜锈"
+  },
+  {
+    "id": "west-common-site-mine-tin-01",
+    "style": "west",
+    "race": "common",
+    "category": "site",
+    "kind": "mine-tin",
+    "name": "锡矿矿道口",
+    "resource": "tin",
+    "facility": "mine_head",
+    "variant": 1,
+    "footprint": [
+      4,
+      3
+    ],
+    "height_px": 64,
+    "anchor": [
+      96,
+      208
+    ],
+    "viewBox": [
+      0,
+      0,
+      192,
+      208
+    ],
+    "tags": [
+      "adit",
+      "hillside",
+      "timbered_portal"
+    ],
+    "roof": "none",
+    "note": "平硐：山腹矿道口 + 木支护，矿车轨道通向矿石堆；"
+  },
+  {
+    "id": "west-common-site-mine-gold-01",
+    "style": "west",
+    "race": "common",
+    "category": "site",
+    "kind": "mine-gold",
+    "name": "金矿矿道口",
+    "resource": "gold",
+    "facility": "mine_head",
+    "variant": 1,
+    "footprint": [
+      4,
+      3
+    ],
+    "height_px": 64,
+    "anchor": [
+      96,
+      208
+    ],
+    "viewBox": [
+      0,
+      0,
+      192,
+      208
+    ],
+    "tags": [
+      "adit",
+      "hillside",
+      "timbered_portal"
+    ],
+    "roof": "none",
+    "note": "平硐：山腹矿道口 + 木支护，矿车轨道通向矿石堆；旁有溪流，配套淘金槽"
+  },
+  {
+    "id": "west-common-site-mine-silver-01",
+    "style": "west",
+    "race": "common",
+    "category": "site",
+    "kind": "mine-silver",
+    "name": "银矿井架",
+    "resource": "silver",
+    "facility": "mine_head",
+    "variant": 1,
+    "footprint": [
+      4,
+      3
+    ],
+    "height_px": 96,
+    "anchor": [
+      96,
+      240
+    ],
+    "viewBox": [
+      0,
+      0,
+      192,
+      240
+    ],
+    "tags": [
+      "headframe",
+      "shaft",
+      "winch"
+    ],
+    "roof": "none",
+    "note": "竖井：A 字木井架 + 天轮 + 绞车房，矿车轨道通向矿石堆；马拉绞盘提升"
+  },
+  {
+    "id": "west-common-site-mine-coal-01",
+    "style": "west",
+    "race": "common",
+    "category": "site",
+    "kind": "mine-coal",
+    "name": "煤矿矿道口",
+    "resource": "coal",
+    "facility": "mine_head",
+    "variant": 1,
+    "footprint": [
+      4,
+      3
+    ],
+    "height_px": 64,
+    "anchor": [
+      96,
+      208
+    ],
+    "viewBox": [
+      0,
+      0,
+      192,
+      208
+    ],
+    "tags": [
+      "adit",
+      "hillside",
+      "timbered_portal"
+    ],
+    "roof": "none",
+    "note": "平硐：山腹矿道口 + 木支护，矿车轨道通向矿石堆；山体露出黑色煤层"
+  },
+  {
+    "id": "west-common-prop-ore-iron-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "ore-iron",
+    "name": "铁矿矿石堆",
+    "resource": "iron",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "ore",
+      "heap"
+    ],
+    "roof": "none",
+    "note": ""
+  },
+  {
+    "id": "west-common-prop-minecart-iron-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "minecart-iron",
+    "name": "铁矿矿车",
+    "resource": "iron",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "minecart",
+      "rails"
+    ],
+    "roof": "none",
+    "note": ""
+  },
+  {
+    "id": "west-common-prop-ore-copper-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "ore-copper",
+    "name": "铜矿矿石堆",
+    "resource": "copper",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "ore",
+      "heap"
+    ],
+    "roof": "none",
+    "note": ""
+  },
+  {
+    "id": "west-common-prop-minecart-copper-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "minecart-copper",
+    "name": "铜矿矿车",
+    "resource": "copper",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "minecart",
+      "rails"
+    ],
+    "roof": "none",
+    "note": ""
+  },
+  {
+    "id": "west-common-prop-ore-tin-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "ore-tin",
+    "name": "锡矿矿石堆",
+    "resource": "tin",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "ore",
+      "heap"
+    ],
+    "roof": "none",
+    "note": ""
+  },
+  {
+    "id": "west-common-prop-minecart-tin-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "minecart-tin",
+    "name": "锡矿矿车",
+    "resource": "tin",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "minecart",
+      "rails"
+    ],
+    "roof": "none",
+    "note": ""
+  },
+  {
+    "id": "west-common-prop-ore-gold-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "ore-gold",
+    "name": "金矿矿石堆",
+    "resource": "gold",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "ore",
+      "heap"
+    ],
+    "roof": "none",
+    "note": ""
+  },
+  {
+    "id": "west-common-prop-minecart-gold-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "minecart-gold",
+    "name": "金矿矿车",
+    "resource": "gold",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "minecart",
+      "rails"
+    ],
+    "roof": "none",
+    "note": ""
+  },
+  {
+    "id": "west-common-prop-ore-silver-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "ore-silver",
+    "name": "银矿矿石堆",
+    "resource": "silver",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "ore",
+      "heap"
+    ],
+    "roof": "none",
+    "note": ""
+  },
+  {
+    "id": "west-common-prop-minecart-silver-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "minecart-silver",
+    "name": "银矿矿车",
+    "resource": "silver",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "minecart",
+      "rails"
+    ],
+    "roof": "none",
+    "note": ""
+  },
+  {
+    "id": "west-common-prop-ore-coal-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "ore-coal",
+    "name": "煤矿矿石堆",
+    "resource": "coal",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "ore",
+      "heap"
+    ],
+    "roof": "none",
+    "note": ""
+  },
+  {
+    "id": "west-common-prop-minecart-coal-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "minecart-coal",
+    "name": "煤矿矿车",
+    "resource": "coal",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "minecart",
+      "rails"
+    ],
+    "roof": "none",
+    "note": ""
+  },
+  {
+    "id": "west-common-prop-sluice-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "sluice",
+    "name": "淘金槽",
+    "resource": "gold",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 10,
+    "anchor": [
+      24,
+      58
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      58
+    ],
+    "tags": [
+      "sluice",
+      "placer"
+    ],
+    "roof": "none",
+    "note": ""
+  },
+  {
+    "id": "west-common-prop-roastclamp-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "roastclamp",
+    "name": "焙烧矿堆",
+    "resource": "iron",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 20,
+    "anchor": [
+      24,
+      68
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      68
+    ],
+    "tags": [
+      "roasting",
+      "smoke"
+    ],
+    "roof": "none",
+    "note": ""
+  },
+  {
+    "id": "west-common-prop-buddle-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "buddle",
+    "name": "洗矿圆池",
+    "resource": "tin",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 4,
+    "anchor": [
+      24,
+      52
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      52
+    ],
+    "tags": [
+      "ore_dressing",
+      "water"
+    ],
+    "roof": "none",
+    "note": ""
+  },
+  {
+    "id": "west-common-prop-leachpit-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "leachpit",
+    "name": "淋铜池",
+    "resource": "copper",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "leaching",
+      "water"
+    ],
+    "roof": "none",
+    "note": ""
+  },
+  {
+    "id": "west-common-prop-cupel-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "cupel",
+    "name": "灰吹炉",
+    "resource": "silver",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 18,
+    "anchor": [
+      24,
+      66
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      66
+    ],
+    "tags": [
+      "cupellation",
+      "furnace"
+    ],
+    "roof": "none",
+    "note": ""
+  },
+  {
+    "id": "west-common-prop-coalbaskets-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "coalbaskets",
+    "name": "煤筐",
+    "resource": "coal",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "basket"
+    ],
+    "roof": "none",
+    "note": ""
+  },
+  {
+    "id": "west-common-ground-slag-01",
+    "style": "west",
+    "race": "common",
+    "category": "ground",
+    "kind": "slag",
+    "name": "矿渣地",
+    "resource": "iron",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "tile",
+      "seamless",
+      "mine_floor"
+    ],
+    "roof": "none",
+    "note": "平铺底纹；铁/铜/锡/金/银矿共用（resource 记 iron）；元素按 ±48 平移复制后裁切，任意排列无缝"
+  },
+  {
+    "id": "west-common-ground-slag-02",
+    "style": "west",
+    "race": "common",
+    "category": "ground",
+    "kind": "slag",
+    "name": "矿渣地",
+    "resource": "iron",
+    "facility": null,
+    "variant": 2,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "tile",
+      "seamless",
+      "mine_floor"
+    ],
+    "roof": "none",
+    "note": "平铺底纹；铁/铜/锡/金/银矿共用（resource 记 iron）；元素按 ±48 平移复制后裁切，任意排列无缝"
+  },
+  {
+    "id": "west-common-ground-slag-03",
+    "style": "west",
+    "race": "common",
+    "category": "ground",
+    "kind": "slag",
+    "name": "矿渣地",
+    "resource": "iron",
+    "facility": null,
+    "variant": 3,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "tile",
+      "seamless",
+      "mine_floor"
+    ],
+    "roof": "none",
+    "note": "平铺底纹；铁/铜/锡/金/银矿共用（resource 记 iron）；元素按 ±48 平移复制后裁切，任意排列无缝"
+  },
+  {
+    "id": "west-common-ground-slag-04",
+    "style": "west",
+    "race": "common",
+    "category": "ground",
+    "kind": "slag",
+    "name": "矿渣地",
+    "resource": "iron",
+    "facility": null,
+    "variant": 4,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "tile",
+      "seamless",
+      "mine_floor"
+    ],
+    "roof": "none",
+    "note": "平铺底纹；铁/铜/锡/金/银矿共用（resource 记 iron）；元素按 ±48 平移复制后裁切，任意排列无缝"
+  },
+  {
+    "id": "west-common-ground-coaldust-01",
+    "style": "west",
+    "race": "common",
+    "category": "ground",
+    "kind": "coaldust",
+    "name": "煤尘地",
+    "resource": "coal",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "tile",
+      "seamless",
+      "mine_floor"
+    ],
+    "roof": "none",
+    "note": "平铺底纹；元素按 ±48 平移复制后裁切，任意排列无缝"
+  },
+  {
+    "id": "west-common-ground-coaldust-02",
+    "style": "west",
+    "race": "common",
+    "category": "ground",
+    "kind": "coaldust",
+    "name": "煤尘地",
+    "resource": "coal",
+    "facility": null,
+    "variant": 2,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "tile",
+      "seamless",
+      "mine_floor"
+    ],
+    "roof": "none",
+    "note": "平铺底纹；元素按 ±48 平移复制后裁切，任意排列无缝"
+  },
+  {
+    "id": "west-common-ground-coaldust-03",
+    "style": "west",
+    "race": "common",
+    "category": "ground",
+    "kind": "coaldust",
+    "name": "煤尘地",
+    "resource": "coal",
+    "facility": null,
+    "variant": 3,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "tile",
+      "seamless",
+      "mine_floor"
+    ],
+    "roof": "none",
+    "note": "平铺底纹；元素按 ±48 平移复制后裁切，任意排列无缝"
+  },
+  {
+    "id": "west-common-ground-coaldust-04",
+    "style": "west",
+    "race": "common",
+    "category": "ground",
+    "kind": "coaldust",
+    "name": "煤尘地",
+    "resource": "coal",
+    "facility": null,
+    "variant": 4,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "tile",
+      "seamless",
+      "mine_floor"
+    ],
+    "roof": "none",
+    "note": "平铺底纹；元素按 ±48 平移复制后裁切，任意排列无缝"
+  },
+  {
+    "id": "west-common-site-claypit-01",
+    "style": "west",
+    "race": "common",
+    "category": "site",
+    "kind": "claypit",
+    "name": "取土坑",
+    "resource": "clay",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      3,
+      2
+    ],
+    "height_px": 16,
+    "anchor": [
+      72,
+      112
+    ],
+    "viewBox": [
+      0,
+      0,
+      144,
+      112
+    ],
+    "tags": [
+      "pit",
+      "digging"
+    ],
+    "roof": "none",
+    "note": "露天黏土坑；砖窑可对 kiln，但取土坑本身对不上，facility 为 null"
+  },
+  {
+    "id": "west-common-site-brickyard-01",
+    "style": "west",
+    "race": "common",
+    "category": "site",
+    "kind": "brickyard",
+    "name": "晒坯场",
+    "resource": "clay",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      3,
+      2
+    ],
+    "height_px": 30,
+    "anchor": [
+      72,
+      126
+    ],
+    "viewBox": [
+      0,
+      0,
+      144,
+      126
+    ],
+    "tags": [
+      "drying_floor",
+      "brick_mould"
+    ],
+    "roof": "monopitch",
+    "note": "晒砖坯的平地 + 单坡草棚；facility 为 null（烧砖窑属 kiln，另见 west-special）"
+  },
+  {
+    "id": "west-common-prop-brickstack-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "brickstack",
+    "name": "砖坯垛",
+    "resource": "clay",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 6,
+    "anchor": [
+      24,
+      54
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      54
+    ],
+    "tags": [
+      "stack",
+      "hack"
+    ],
+    "roof": "none",
+    "note": ""
+  },
+  {
+    "id": "west-common-site-saltboil-01",
+    "style": "west",
+    "race": "common",
+    "category": "site",
+    "kind": "saltboil",
+    "name": "熬盐棚",
+    "resource": "salt",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      3,
+      2
+    ],
+    "height_px": 56,
+    "anchor": [
+      72,
+      152
+    ],
+    "viewBox": [
+      0,
+      0,
+      144,
+      152
+    ],
+    "tags": [
+      "salt_pan",
+      "brine",
+      "furnace"
+    ],
+    "roof": "gable_tile",
+    "note": "盐井卤水在铁锅里熬干成盐（盐井式盐场）；facility 为 null"
+  },
+  {
+    "id": "west-common-prop-saltheap-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "saltheap",
+    "name": "盐堆",
+    "resource": "salt",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "heap"
+    ],
+    "roof": "none",
+    "note": ""
+  },
+  {
+    "id": "west-common-ground-saltpan-01",
+    "style": "west",
+    "race": "common",
+    "category": "ground",
+    "kind": "saltpan",
+    "name": "盐田格",
+    "resource": "salt",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "tile",
+      "seamless",
+      "evaporation_pond",
+      "water"
+    ],
+    "roof": "none",
+    "note": "平铺底纹：每张瓦片一个蒸发池，四边土埂各占 3 px，拼起来成网格；水色 #a9b8ad"
+  },
+  {
+    "id": "west-common-ground-saltpan-02",
+    "style": "west",
+    "race": "common",
+    "category": "ground",
+    "kind": "saltpan",
+    "name": "盐田格",
+    "resource": "salt",
+    "facility": null,
+    "variant": 2,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "tile",
+      "seamless",
+      "evaporation_pond",
+      "water"
+    ],
+    "roof": "none",
+    "note": "平铺底纹：每张瓦片一个蒸发池，四边土埂各占 3 px，拼起来成网格；水色 #a9b8ad"
+  },
+  {
+    "id": "west-common-ground-saltpan-03",
+    "style": "west",
+    "race": "common",
+    "category": "ground",
+    "kind": "saltpan",
+    "name": "盐田格",
+    "resource": "salt",
+    "facility": null,
+    "variant": 3,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "tile",
+      "seamless",
+      "evaporation_pond",
+      "water"
+    ],
+    "roof": "none",
+    "note": "平铺底纹：每张瓦片一个蒸发池，四边土埂各占 3 px，拼起来成网格；水色 #a9b8ad"
+  },
+  {
+    "id": "west-common-ground-saltpan-04",
+    "style": "west",
+    "race": "common",
+    "category": "ground",
+    "kind": "saltpan",
+    "name": "盐田格",
+    "resource": "salt",
+    "facility": null,
+    "variant": 4,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "tile",
+      "seamless",
+      "evaporation_pond",
+      "water"
+    ],
+    "roof": "none",
+    "note": "平铺底纹：每张瓦片一个蒸发池，四边土埂各占 3 px，拼起来成网格；水色 #a9b8ad"
+  },
+  {
+    "id": "west-common-site-sulfurpit-01",
+    "style": "west",
+    "race": "common",
+    "category": "site",
+    "kind": "sulfurpit",
+    "name": "硫磺喷气坑",
+    "resource": "sulfur",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      3,
+      2
+    ],
+    "height_px": 60,
+    "anchor": [
+      72,
+      156
+    ],
+    "viewBox": [
+      0,
+      0,
+      144,
+      156
+    ],
+    "tags": [
+      "fumarole",
+      "yellow_crust"
+    ],
+    "roof": "none",
+    "note": "火山喷气孔周围结黄色硫华，人工凿取；facility 为 null"
+  },
+  {
+    "id": "west-common-prop-sulfurlumps-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "sulfurlumps",
+    "name": "硫磺块堆",
+    "resource": "sulfur",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "heap"
+    ],
+    "roof": "none",
+    "note": ""
+  },
+  {
+    "id": "west-common-ground-sulfurcrust-01",
+    "style": "west",
+    "race": "common",
+    "category": "ground",
+    "kind": "sulfurcrust",
+    "name": "硫华地",
+    "resource": "sulfur",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "tile",
+      "seamless",
+      "volcanic"
+    ],
+    "roof": "none",
+    "note": "平铺底纹；元素按 ±48 平移复制后裁切，任意排列无缝"
+  },
+  {
+    "id": "west-common-ground-sulfurcrust-02",
+    "style": "west",
+    "race": "common",
+    "category": "ground",
+    "kind": "sulfurcrust",
+    "name": "硫华地",
+    "resource": "sulfur",
+    "facility": null,
+    "variant": 2,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "tile",
+      "seamless",
+      "volcanic"
+    ],
+    "roof": "none",
+    "note": "平铺底纹；元素按 ±48 平移复制后裁切，任意排列无缝"
+  },
+  {
+    "id": "west-common-ground-sulfurcrust-03",
+    "style": "west",
+    "race": "common",
+    "category": "ground",
+    "kind": "sulfurcrust",
+    "name": "硫华地",
+    "resource": "sulfur",
+    "facility": null,
+    "variant": 3,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "tile",
+      "seamless",
+      "volcanic"
+    ],
+    "roof": "none",
+    "note": "平铺底纹；元素按 ±48 平移复制后裁切，任意排列无缝"
+  },
+  {
+    "id": "west-common-ground-sulfurcrust-04",
+    "style": "west",
+    "race": "common",
+    "category": "ground",
+    "kind": "sulfurcrust",
+    "name": "硫华地",
+    "resource": "sulfur",
+    "facility": null,
+    "variant": 4,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "tile",
+      "seamless",
+      "volcanic"
+    ],
+    "roof": "none",
+    "note": "平铺底纹；元素按 ±48 平移复制后裁切，任意排列无缝"
+  },
+  {
+    "id": "west-common-site-gempit-01",
+    "style": "west",
+    "race": "common",
+    "category": "site",
+    "kind": "gempit",
+    "name": "宝石手工矿坑",
+    "resource": "gems",
+    "facility": "mine_head",
+    "variant": 1,
+    "footprint": [
+      3,
+      2
+    ],
+    "height_px": 26,
+    "anchor": [
+      72,
+      122
+    ],
+    "viewBox": [
+      0,
+      0,
+      144,
+      122
+    ],
+    "tags": [
+      "hand_pit",
+      "windlass"
+    ],
+    "roof": "none",
+    "note": "冲积层里挖宝石的小竖坑 + 木辘轳；规模小，仍记 mine_head"
+  },
+  {
+    "id": "west-common-prop-gemsieve-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "gemsieve",
+    "name": "宝石筛矿台",
+    "resource": "gems",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "sieve",
+      "washing"
+    ],
+    "roof": "none",
+    "note": ""
+  },
+  {
+    "id": "west-common-site-amberpit-01",
+    "style": "west",
+    "race": "common",
+    "category": "site",
+    "kind": "amberpit",
+    "name": "琥珀挖掘坑",
+    "resource": "amber",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      3,
+      2
+    ],
+    "height_px": 26,
+    "anchor": [
+      72,
+      122
+    ],
+    "viewBox": [
+      0,
+      0,
+      144,
+      122
+    ],
+    "tags": [
+      "hand_pit",
+      "resin"
+    ],
+    "roof": "none",
+    "note": "琥珀产于泥炭/砂层，人工挖掘；坑旁倒着一截古木（树脂来源），facility 为 null"
+  },
+  {
+    "id": "west-common-prop-ambersieve-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "ambersieve",
+    "name": "琥珀筛选台",
+    "resource": "amber",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "sieve"
+    ],
+    "roof": "none",
+    "note": ""
+  },
+  {
+    "id": "west-common-site-fishjetty-01",
+    "style": "west",
+    "race": "common",
+    "category": "site",
+    "kind": "fishjetty",
+    "name": "渔村栈桥",
+    "resource": "fish",
+    "facility": "dock",
+    "variant": 1,
+    "footprint": [
+      4,
+      3
+    ],
+    "height_px": 48,
+    "anchor": [
+      96,
+      192
+    ],
+    "viewBox": [
+      0,
+      0,
+      192,
+      192
+    ],
+    "tags": [
+      "jetty",
+      "fishing_boat",
+      "hut"
+    ],
+    "roof": "gable_thatch",
+    "note": "岸在后、水在前：栈桥朝屏幕下方伸进水面；小码头对 dock"
+  },
+  {
+    "id": "west-common-prop-netrack-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "netrack",
+    "name": "晒网架",
+    "resource": "fish",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 12,
+    "anchor": [
+      24,
+      60
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      60
+    ],
+    "tags": [
+      "net",
+      "drying"
+    ],
+    "roof": "none",
+    "note": ""
+  },
+  {
+    "id": "west-common-prop-fishbasket-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "fishbasket",
+    "name": "鱼篓",
+    "resource": "fish",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "basket",
+      "catch"
+    ],
+    "roof": "none",
+    "note": ""
+  },
+  {
+    "id": "west-common-site-reedcut-01",
+    "style": "west",
+    "race": "common",
+    "category": "site",
+    "kind": "reedcut",
+    "name": "芦苇割场",
+    "resource": "reed",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      4,
+      2
+    ],
+    "height_px": 30,
+    "anchor": [
+      96,
+      126
+    ],
+    "viewBox": [
+      0,
+      0,
+      192,
+      126
+    ],
+    "tags": [
+      "marsh",
+      "reed_bed",
+      "punt"
+    ],
+    "roof": "none",
+    "note": "沼泽浅水边割苇；facility 为 null"
+  },
+  {
+    "id": "west-common-prop-reedstook-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "reedstook",
+    "name": "捆苇垛",
+    "resource": "reed",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 20,
+    "anchor": [
+      24,
+      68
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      68
+    ],
+    "tags": [
+      "bundle",
+      "stook"
+    ],
+    "roof": "none",
+    "note": ""
+  },
+  {
+    "id": "west-common-prop-reedclump-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "reedclump",
+    "name": "芦苇丛",
+    "resource": "reed",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 12,
+    "anchor": [
+      24,
+      60
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      60
+    ],
+    "tags": [
+      "marsh"
+    ],
+    "roof": "none",
+    "note": ""
+  },
+  {
+    "id": "west-common-site-sheepfold-01",
+    "style": "west",
+    "race": "common",
+    "category": "site",
+    "kind": "sheepfold",
+    "name": "羊圈",
+    "resource": "livestock",
+    "facility": "stable",
+    "variant": 1,
+    "footprint": [
+      4,
+      3
+    ],
+    "height_px": 40,
+    "anchor": [
+      96,
+      184
+    ],
+    "viewBox": [
+      0,
+      0,
+      192,
+      184
+    ],
+    "tags": [
+      "pen",
+      "wattle_fence",
+      "sheep"
+    ],
+    "roof": "gable_thatch",
+    "note": "牲畜棚圈，最近 FacilityKind 为 stable"
+  },
+  {
+    "id": "west-common-site-shearshed-01",
+    "style": "west",
+    "race": "common",
+    "category": "site",
+    "kind": "shearshed",
+    "name": "剪毛棚",
+    "resource": "wool",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      3,
+      2
+    ],
+    "height_px": 46,
+    "anchor": [
+      72,
+      142
+    ],
+    "viewBox": [
+      0,
+      0,
+      144,
+      142
+    ],
+    "tags": [
+      "open_shed",
+      "shearing",
+      "fleece"
+    ],
+    "roof": "gable_thatch",
+    "note": "剪羊毛的开敞棚；对不上 FacilityKind，facility 为 null"
+  },
+  {
+    "id": "west-common-prop-hayrack-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "hayrack",
+    "name": "干草架",
+    "resource": "livestock",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 16,
+    "anchor": [
+      24,
+      64
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      64
+    ],
+    "tags": [
+      "hay",
+      "fodder"
+    ],
+    "roof": "none",
+    "note": ""
+  },
+  {
+    "id": "west-common-site-horsecorral-01",
+    "style": "west",
+    "race": "common",
+    "category": "site",
+    "kind": "horsecorral",
+    "name": "驯马场",
+    "resource": "horses",
+    "facility": "stable",
+    "variant": 1,
+    "footprint": [
+      4,
+      3
+    ],
+    "height_px": 44,
+    "anchor": [
+      96,
+      188
+    ],
+    "viewBox": [
+      0,
+      0,
+      192,
+      188
+    ],
+    "tags": [
+      "round_pen",
+      "paddock",
+      "horses"
+    ],
+    "roof": "gable_tile",
+    "note": "圆形驯马圈 + 小马棚；facility 为 stable"
+  },
+  {
+    "id": "west-common-site-barn-01",
+    "style": "west",
+    "race": "common",
+    "category": "site",
+    "kind": "barn",
+    "name": "谷仓",
+    "resource": "grain",
+    "facility": "granary",
+    "variant": 1,
+    "footprint": [
+      3,
+      2
+    ],
+    "height_px": 80,
+    "anchor": [
+      72,
+      176
+    ],
+    "viewBox": [
+      0,
+      0,
+      144,
+      176
+    ],
+    "tags": [
+      "barn",
+      "threshing_door"
+    ],
+    "roof": "gable_thatch",
+    "note": "中世纪什一税谷仓式；facility 为 granary"
+  },
+  {
+    "id": "west-common-prop-threshfloor-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "threshfloor",
+    "name": "打谷场",
+    "resource": "grain",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 4,
+    "anchor": [
+      24,
+      52
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      52
+    ],
+    "tags": [
+      "threshing",
+      "flail"
+    ],
+    "roof": "none",
+    "note": ""
+  },
+  {
+    "id": "west-common-ground-wheatfield-01",
+    "style": "west",
+    "race": "common",
+    "category": "ground",
+    "kind": "wheatfield",
+    "name": "麦田格",
+    "resource": "grain",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "tile",
+      "seamless",
+      "crop_rows",
+      "field"
+    ],
+    "roof": "none",
+    "note": "平铺底纹：每 8 px 一道横垄，左右边对齐；变体 4 为收割后的麦茬"
+  },
+  {
+    "id": "west-common-ground-wheatfield-02",
+    "style": "west",
+    "race": "common",
+    "category": "ground",
+    "kind": "wheatfield",
+    "name": "麦田格",
+    "resource": "grain",
+    "facility": null,
+    "variant": 2,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "tile",
+      "seamless",
+      "crop_rows",
+      "field"
+    ],
+    "roof": "none",
+    "note": "平铺底纹：每 8 px 一道横垄，左右边对齐；变体 4 为收割后的麦茬"
+  },
+  {
+    "id": "west-common-ground-wheatfield-03",
+    "style": "west",
+    "race": "common",
+    "category": "ground",
+    "kind": "wheatfield",
+    "name": "麦田格",
+    "resource": "grain",
+    "facility": null,
+    "variant": 3,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "tile",
+      "seamless",
+      "crop_rows",
+      "field"
+    ],
+    "roof": "none",
+    "note": "平铺底纹：每 8 px 一道横垄，左右边对齐；变体 4 为收割后的麦茬"
+  },
+  {
+    "id": "west-common-ground-wheatfield-04",
+    "style": "west",
+    "race": "common",
+    "category": "ground",
+    "kind": "wheatfield",
+    "name": "麦田格",
+    "resource": "grain",
+    "facility": null,
+    "variant": 4,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "tile",
+      "seamless",
+      "crop_rows",
+      "field"
+    ],
+    "roof": "none",
+    "note": "平铺底纹：每 8 px 一道横垄，左右边对齐；变体 4 为收割后的麦茬"
+  },
+  {
+    "id": "west-common-site-herbgarden-01",
+    "style": "west",
+    "race": "common",
+    "category": "site",
+    "kind": "herbgarden",
+    "name": "药草田",
+    "resource": "herb",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      3,
+      2
+    ],
+    "height_px": 30,
+    "anchor": [
+      72,
+      126
+    ],
+    "viewBox": [
+      0,
+      0,
+      144,
+      126
+    ],
+    "tags": [
+      "raised_beds",
+      "wattle_fence",
+      "well"
+    ],
+    "roof": "none",
+    "note": "修道院式药圃：编篱围着的几畦药草 + 小井；对不上 FacilityKind（infirmary 是城镇医馆），facility 为 null"
+  },
+  {
+    "id": "west-common-prop-herbrack-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "herbrack",
+    "name": "晒药架",
+    "resource": "herb",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 14,
+    "anchor": [
+      24,
+      62
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      62
+    ],
+    "tags": [
+      "drying"
+    ],
+    "roof": "none",
+    "note": ""
+  },
+  {
+    "id": "west-common-ground-vinerows-01",
+    "style": "west",
+    "race": "common",
+    "category": "ground",
+    "kind": "vinerows",
+    "name": "葡萄架行列",
+    "resource": "wine",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "tile",
+      "seamless",
+      "trellis",
+      "crop_rows"
+    ],
+    "roof": "none",
+    "note": "平铺底纹：每格两行葡萄架（y=16、y=40），桩距 24 px，左右拼接连续；藤高 ≤ 10 px，不出格"
+  },
+  {
+    "id": "west-common-ground-vinerows-02",
+    "style": "west",
+    "race": "common",
+    "category": "ground",
+    "kind": "vinerows",
+    "name": "葡萄架行列",
+    "resource": "wine",
+    "facility": null,
+    "variant": 2,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "tile",
+      "seamless",
+      "trellis",
+      "crop_rows"
+    ],
+    "roof": "none",
+    "note": "平铺底纹：每格两行葡萄架（y=16、y=40），桩距 24 px，左右拼接连续；藤高 ≤ 10 px，不出格"
+  },
+  {
+    "id": "west-common-ground-vinerows-03",
+    "style": "west",
+    "race": "common",
+    "category": "ground",
+    "kind": "vinerows",
+    "name": "葡萄架行列",
+    "resource": "wine",
+    "facility": null,
+    "variant": 3,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "tile",
+      "seamless",
+      "trellis",
+      "crop_rows"
+    ],
+    "roof": "none",
+    "note": "平铺底纹：每格两行葡萄架（y=16、y=40），桩距 24 px，左右拼接连续；藤高 ≤ 10 px，不出格"
+  },
+  {
+    "id": "west-common-ground-vinerows-04",
+    "style": "west",
+    "race": "common",
+    "category": "ground",
+    "kind": "vinerows",
+    "name": "葡萄架行列",
+    "resource": "wine",
+    "facility": null,
+    "variant": 4,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "tile",
+      "seamless",
+      "trellis",
+      "crop_rows"
+    ],
+    "roof": "none",
+    "note": "平铺底纹：每格两行葡萄架（y=16、y=40），桩距 24 px，左右拼接连续；藤高 ≤ 10 px，不出格"
+  },
+  {
+    "id": "west-common-site-winepress-01",
+    "style": "west",
+    "race": "common",
+    "category": "site",
+    "kind": "winepress",
+    "name": "压榨坊",
+    "resource": "wine",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      3,
+      2
+    ],
+    "height_px": 60,
+    "anchor": [
+      72,
+      156
+    ],
+    "viewBox": [
+      0,
+      0,
+      144,
+      156
+    ],
+    "tags": [
+      "screw_press",
+      "cellar"
+    ],
+    "roof": "gable_tile",
+    "note": "中世纪梁式/螺杆葡萄压榨机放在开敞门廊下；FacilityKind 无酿酒坊，facility 为 null"
+  },
+  {
+    "id": "west-common-prop-winebarrels-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "winebarrels",
+    "name": "酒桶",
+    "resource": "wine",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 2,
+    "anchor": [
+      24,
+      50
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      50
+    ],
+    "tags": [
+      "barrel",
+      "cask"
+    ],
+    "roof": "none",
+    "note": ""
+  },
+  {
+    "id": "west-common-prop-grapebasket-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "grapebasket",
+    "name": "葡萄采摘筐",
+    "resource": "wine",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "harvest"
+    ],
+    "roof": "none",
+    "note": ""
+  },
+  {
+    "id": "west-common-prop-sheep-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "sheep",
+    "name": "羊群",
+    "resource": "livestock",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "animal",
+      "sheep"
+    ],
+    "roof": "none",
+    "note": ""
+  },
+  {
+    "id": "west-common-prop-woolbales-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "woolbales",
+    "name": "羊毛捆",
+    "resource": "wool",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 4,
+    "anchor": [
+      24,
+      52
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      52
+    ],
+    "tags": [
+      "fleece",
+      "sack"
+    ],
+    "roof": "none",
+    "note": ""
+  },
+  {
+    "id": "west-common-prop-hitchtrough-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "hitchtrough",
+    "name": "拴马桩与饮马槽",
+    "resource": "horses",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 6,
+    "anchor": [
+      24,
+      54
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      54
+    ],
+    "tags": [
+      "trough",
+      "hitching_rail"
+    ],
+    "roof": "none",
+    "note": ""
+  },
+  {
+    "id": "west-common-prop-sheafstook-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "sheafstook",
+    "name": "麦捆垛",
+    "resource": "grain",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "sheaf",
+      "harvest"
+    ],
+    "roof": "none",
+    "note": ""
+  },
+  {
+    "id": "west-common-prop-herbbasket-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "herbbasket",
+    "name": "药草篮",
+    "resource": "herb",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "harvest",
+      "basket"
+    ],
+    "roof": "none",
+    "note": ""
+  },
+  {
+    "id": "west-common-site-manamine-01",
+    "style": "west",
+    "race": "common",
+    "category": "site",
+    "kind": "manamine",
+    "name": "魔力晶簇矿坑",
+    "resource": "mana",
+    "facility": "mine_head",
+    "variant": 1,
+    "footprint": [
+      4,
+      3
+    ],
+    "height_px": 64,
+    "anchor": [
+      96,
+      208
+    ],
+    "viewBox": [
+      0,
+      0,
+      192,
+      208
+    ],
+    "tags": [
+      "crystal_cluster",
+      "open_pit",
+      "runestones"
+    ],
+    "roof": "none",
+    "note": "奇幻资源：露天晶簇矿坑，矿坑后沿立一圈守护符文石；按矿井记 mine_head"
+  },
+  {
+    "id": "west-common-prop-manacluster-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "manacluster",
+    "name": "魔力晶簇",
+    "resource": "mana",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 10,
+    "anchor": [
+      24,
+      58
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      58
+    ],
+    "tags": [
+      "crystal"
+    ],
+    "roof": "none",
+    "note": ""
+  },
+  {
+    "id": "west-common-prop-runestone-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "runestone",
+    "name": "守护符文石",
+    "resource": "mana",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 12,
+    "anchor": [
+      24,
+      60
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      60
+    ],
+    "tags": [
+      "ward",
+      "runes"
+    ],
+    "roof": "none",
+    "note": ""
+  },
+  {
+    "id": "west-common-prop-manacrates-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "manacrates",
+    "name": "晶块货箱",
+    "resource": "mana",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "crate"
+    ],
+    "roof": "none",
+    "note": ""
+  },
+  {
+    "id": "west-common-ground-crystalgrit-01",
+    "style": "west",
+    "race": "common",
+    "category": "ground",
+    "kind": "crystalgrit",
+    "name": "晶屑岩地",
+    "resource": "mana",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "tile",
+      "seamless",
+      "crystal"
+    ],
+    "roof": "none",
+    "note": "平铺底纹；元素按 ±48 平移复制后裁切，任意排列无缝"
+  },
+  {
+    "id": "west-common-ground-crystalgrit-02",
+    "style": "west",
+    "race": "common",
+    "category": "ground",
+    "kind": "crystalgrit",
+    "name": "晶屑岩地",
+    "resource": "mana",
+    "facility": null,
+    "variant": 2,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "tile",
+      "seamless",
+      "crystal"
+    ],
+    "roof": "none",
+    "note": "平铺底纹；元素按 ±48 平移复制后裁切，任意排列无缝"
+  },
+  {
+    "id": "west-common-ground-crystalgrit-03",
+    "style": "west",
+    "race": "common",
+    "category": "ground",
+    "kind": "crystalgrit",
+    "name": "晶屑岩地",
+    "resource": "mana",
+    "facility": null,
+    "variant": 3,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "tile",
+      "seamless",
+      "crystal"
+    ],
+    "roof": "none",
+    "note": "平铺底纹；元素按 ±48 平移复制后裁切，任意排列无缝"
+  },
+  {
+    "id": "west-common-ground-crystalgrit-04",
+    "style": "west",
+    "race": "common",
+    "category": "ground",
+    "kind": "crystalgrit",
+    "name": "晶屑岩地",
+    "resource": "mana",
+    "facility": null,
+    "variant": 4,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "tile",
+      "seamless",
+      "crystal"
+    ],
+    "roof": "none",
+    "note": "平铺底纹；元素按 ±48 平移复制后裁切，任意排列无缝"
+  },
+  {
+    "id": "west-common-site-dragondig-01",
+    "style": "west",
+    "race": "common",
+    "category": "site",
+    "kind": "dragondig",
+    "name": "龙骨发掘场",
+    "resource": "dragonbone",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      5,
+      3
+    ],
+    "height_px": 72,
+    "anchor": [
+      120,
+      216
+    ],
+    "viewBox": [
+      0,
+      0,
+      240,
+      216
+    ],
+    "tags": [
+      "excavation",
+      "scaffold",
+      "giant_skeleton"
+    ],
+    "roof": "none",
+    "note": "发掘坑里半埋着巨龙骨架（头骨、脊椎、成排肋骨），坑边搭木脚手架与吊绳；facility 为 null"
+  },
+  {
+    "id": "west-common-prop-bonepile-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "bonepile",
+    "name": "龙骨堆",
+    "resource": "dragonbone",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 4,
+    "anchor": [
+      24,
+      52
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      52
+    ],
+    "tags": [
+      "bones"
+    ],
+    "roof": "none",
+    "note": ""
+  },
+  {
+    "id": "west-common-prop-scaffold-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "scaffold",
+    "name": "发掘脚手架",
+    "resource": "dragonbone",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 30,
+    "anchor": [
+      24,
+      78
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      78
+    ],
+    "tags": [
+      "scaffold",
+      "ladder"
+    ],
+    "roof": "none",
+    "note": ""
+  },
+  {
+    "id": "west-common-prop-tooltent-01",
+    "style": "west",
+    "race": "common",
+    "category": "prop",
+    "kind": "tooltent",
+    "name": "发掘工具帐",
+    "resource": "dragonbone",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 18,
+    "anchor": [
+      24,
+      66
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      66
+    ],
+    "tags": [
+      "tent",
+      "tools"
+    ],
+    "roof": "none",
+    "note": ""
+  },
+  {
+    "id": "west-common-ground-digsoil-01",
+    "style": "west",
+    "race": "common",
+    "category": "ground",
+    "kind": "digsoil",
+    "name": "发掘翻土地",
+    "resource": "dragonbone",
+    "facility": null,
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "tile",
+      "seamless",
+      "excavation"
+    ],
+    "roof": "none",
+    "note": "平铺底纹；元素按 ±48 平移复制后裁切，任意排列无缝"
+  },
+  {
+    "id": "west-common-ground-digsoil-02",
+    "style": "west",
+    "race": "common",
+    "category": "ground",
+    "kind": "digsoil",
+    "name": "发掘翻土地",
+    "resource": "dragonbone",
+    "facility": null,
+    "variant": 2,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "tile",
+      "seamless",
+      "excavation"
+    ],
+    "roof": "none",
+    "note": "平铺底纹；元素按 ±48 平移复制后裁切，任意排列无缝"
+  },
+  {
+    "id": "west-common-ground-digsoil-03",
+    "style": "west",
+    "race": "common",
+    "category": "ground",
+    "kind": "digsoil",
+    "name": "发掘翻土地",
+    "resource": "dragonbone",
+    "facility": null,
+    "variant": 3,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "tile",
+      "seamless",
+      "excavation"
+    ],
+    "roof": "none",
+    "note": "平铺底纹；元素按 ±48 平移复制后裁切，任意排列无缝"
+  },
+  {
+    "id": "west-common-ground-digsoil-04",
+    "style": "west",
+    "race": "common",
+    "category": "ground",
+    "kind": "digsoil",
+    "name": "发掘翻土地",
+    "resource": "dragonbone",
+    "facility": null,
+    "variant": 4,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 0,
+    "anchor": [
+      24,
+      48
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "tags": [
+      "tile",
+      "seamless",
+      "excavation"
+    ],
+    "roof": "none",
+    "note": "平铺底纹；元素按 ±48 平移复制后裁切，任意排列无缝"
+  }
+]

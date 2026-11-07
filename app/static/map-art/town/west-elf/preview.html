@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>织梦 · 城镇西式精灵族素材预览</title>
+<style>
+  body { margin: 0; background: #c9c79a; font: 13px/1.4 "Microsoft YaHei", sans-serif; color: #4a3826; }
+  h2 { margin: 18px 16px 6px; font-size: 16px; }
+  .grid { display: flex; flex-wrap: wrap; gap: 10px; padding: 0 16px; align-items: flex-end; }
+  .card { background: rgba(239,223,178,0.35); border: 1px solid rgba(74,56,38,0.25); padding: 6px; text-align: center; }
+  .card svg { display: block; margin: 0 auto; }
+  .lab { font-size: 11px; margin-top: 2px; white-space: nowrap; }
+  .lab b { font-weight: 600; }
+  .scene { padding: 0 16px 24px; }
+  .note { margin: 0 16px; font-size: 12px; opacity: 0.8; }
+</style>
+</head>
+<body>
+<!-- sprite 容器：0×0 绝对定位（不能 display:none，否则 clipPath 失效） -->
+<div id="sprite-host" style="position:absolute;width:0;height:0;overflow:hidden"></div>
+<h2>精灵族民居（锚点 = 红点，占地 = 虚线框）</h2>
+<div id="houses" class="grid"></div>
+<h2>精灵族特殊建筑</h2>
+<div id="specials" class="grid"></div>
+<h2>城墙瓦片 / 叠加件</h2>
+<div id="tiles" class="grid"></div>
+<h2>精灵村落示意（按锚点 y 排序绘制）</h2>
+<p class="note">一段荆棘藤墙带城门，墙内民居、市场、铁匠铺、议事古树殿。</p>
+<div id="scene" class="scene"></div>
+<script src="core.js"></script>
+<script src="parts.js"></script>
+<script src="forms.js"></script>
+<script src="houses-a.js"></script>
+<script src="houses-b.js" onerror="void 0"></script>
+<script src="special-a.js" onerror="void 0"></script>
+<script src="special-b.js" onerror="void 0"></script>
+<script src="tiles.js" onerror="void 0"></script>
+<script src="west-elf.js"></script>
+<script src="preview-scene.js" onerror="void 0"></script>
+<script>
+(function () {
+  'use strict';
+  var WE = window.TownArt_westElf, NS = 'http://www.w3.org/2000/svg';
+  var SC = parseFloat((location.search.match(/sc=([\d.]+)/) || [])[1]) || 1.5;
+  var all = WE.symbols();
+  window.__WE_SYMBOLS = all;
+  document.getElementById('sprite-host').innerHTML = WE.spriteSVG(all);
+  function useSVG(sym, sc, frame) {
+    var vb = sym.viewBox, W = vb[2], H = vb[3], m = 8;
+    var s = '<svg xmlns="' + NS + '" width="' + (W + 2 * m) * sc + '" height="' + (H + 2 * m) * sc + '" viewBox="' + (-m) + ' ' + (-m) + ' ' + (W + 2 * m) + ' ' + (H + 2 * m) + '">';
+    if (frame) {
+      var fp = sym.meta.footprint, D = fp[1] * 48;
+      s += '<rect x="0" y="' + (H - D) + '" width="' + W + '" height="' + D + '" fill="#b7b585" fill-opacity="0.5" stroke="#4a3826" stroke-opacity="0.45" stroke-dasharray="3 3"/>';
+    }
+    s += '<use href="#' + sym.id + '" x="0" y="0" width="' + W + '" height="' + H + '"/>';
+    if (frame) s += '<circle cx="' + sym.meta.anchor[0] + '" cy="' + sym.meta.anchor[1] + '" r="2" fill="#c0392b"/>';
+    return s + '</svg>';
+  }
+  function card(sym) {
+    var m = sym.meta;
+    return '<div class="card">' + useSVG(sym, SC, true) + '<div class="lab"><b>' + m.name + '</b> ' + m.footprint.join('×') +
+      (m.facility ? ' · ' + m.facility : '') + '</div><div class="lab">' + sym.id + '</div></div>';
+  }
+  var H = '', S = '', T = '';
+  all.forEach(function (s) {
+    if (s.meta.category === 'house') H += card(s);
+    else if (s.meta.category === 'wall') T += card(s);
+    else S += card(s);
+  });
+  document.getElementById('houses').innerHTML = H;
+  document.getElementById('specials').innerHTML = S || '<p class="note">（暂无）</p>';
+  document.getElementById('tiles').innerHTML = T || '<p class="note">（暂无）</p>';
+  if (window.TownArtWE_scene) document.getElementById('scene').innerHTML = window.TownArtWE_scene(WE, all);
+  window.__WE_READY = true;
+})();
+</script>
+</body>
+</html>

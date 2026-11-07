@@ -1,0 +1,710 @@
+{
+  "schema": "game_fields_v1",
+  "group": "staples",
+  "entries": {
+    "staples_wheat": {
+      "price": {
+        "min": 8,
+        "max": 12,
+        "per": "一袋",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "farmland",
+        "steppe"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "market",
+        "grocer",
+        "farmer"
+      ],
+      "note": "按一袋干麦12便士的锚点定价，丰年取低位。"
+    },
+    "staples_rice": {
+      "price": {
+        "min": 24,
+        "max": 48,
+        "per": "一袋",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "farmland",
+        "wetland",
+        "import"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "grocer",
+        "market"
+      ],
+      "note": "本地少产，按远途输入估价，约为同袋小麦的三四倍。"
+    },
+    "staples_barley": {
+      "price": {
+        "min": 6,
+        "max": 9,
+        "per": "一袋",
+        "tier": "groat"
+      },
+      "terrains": [
+        "farmland",
+        "steppe"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "market",
+        "grocer",
+        "farmer"
+      ],
+      "note": "按比小麦便宜的主粮估价，酿酒与喂畜需求大。"
+    },
+    "staples_rye": {
+      "price": {
+        "min": 6,
+        "max": 10,
+        "per": "一袋",
+        "tier": "groat"
+      },
+      "terrains": [
+        "farmland",
+        "taiga"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "market",
+        "grocer",
+        "farmer"
+      ],
+      "note": "按贫瘠地与寒地的廉价主粮估价。"
+    },
+    "staples_oats": {
+      "price": {
+        "min": 4,
+        "max": 7,
+        "per": "一袋",
+        "tier": "groat"
+      },
+      "terrains": [
+        "farmland",
+        "pasture"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "market",
+        "farmer"
+      ],
+      "note": "按喂畜与粥料的廉价谷物估价。"
+    },
+    "staples_maize": {
+      "price": {
+        "min": 6,
+        "max": 10,
+        "per": "一袋",
+        "tier": "groat"
+      },
+      "terrains": [
+        "farmland",
+        "savanna"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "market",
+        "grocer",
+        "farmer"
+      ],
+      "note": "按与大麦相当的粗粮估价。"
+    },
+    "staples_sorghum": {
+      "price": {
+        "min": 5,
+        "max": 9,
+        "per": "一袋",
+        "tier": "groat"
+      },
+      "terrains": [
+        "savanna",
+        "farmland"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "market",
+        "grocer",
+        "farmer"
+      ],
+      "note": "按旱地粗粮估价，略低于大麦。"
+    },
+    "staples_millet_foxtail": {
+      "price": {
+        "min": 5,
+        "max": 9,
+        "per": "一袋",
+        "tier": "groat"
+      },
+      "terrains": [
+        "farmland",
+        "steppe"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "market",
+        "grocer",
+        "farmer"
+      ],
+      "note": "按旱地小粒谷物估价。"
+    },
+    "staples_millet_pearl": {
+      "price": {
+        "min": 4,
+        "max": 8,
+        "per": "一袋",
+        "tier": "groat"
+      },
+      "terrains": [
+        "savanna",
+        "hot_desert",
+        "farmland"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "market",
+        "farmer"
+      ],
+      "note": "按干旱地区最廉价的粗粮估价。"
+    },
+    "staples_teff": {
+      "price": {
+        "min": 18,
+        "max": 36,
+        "per": "一袋",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "mountain",
+        "farmland"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "market",
+        "grocer"
+      ],
+      "note": "籽粒极细、产量低，按小麦两三倍估价。"
+    },
+    "staples_quinoa": {
+      "price": {
+        "min": 18,
+        "max": 36,
+        "per": "一袋",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "mountain",
+        "farmland",
+        "import"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "grocer",
+        "market"
+      ],
+      "note": "高地特产，外地买到需经商路，按小麦两三倍估价。"
+    },
+    "staples_buckwheat": {
+      "price": {
+        "min": 5,
+        "max": 9,
+        "per": "一袋",
+        "tier": "groat"
+      },
+      "terrains": [
+        "farmland",
+        "temperate_forest"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "market",
+        "farmer",
+        "grocer"
+      ],
+      "note": "生长期短的补种粮，按廉价杂粮估价。"
+    },
+    "staples_emmer_wheat": {
+      "price": {
+        "min": 6,
+        "max": 10,
+        "per": "一袋",
+        "tier": "groat"
+      },
+      "terrains": [
+        "farmland",
+        "steppe"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "market",
+        "farmer"
+      ],
+      "note": "带壳古老小麦，脱壳费工，价低于普通小麦。"
+    },
+    "staples_potato": {
+      "price": {
+        "min": 2,
+        "max": 4,
+        "per": "一篮",
+        "tier": "groat"
+      },
+      "terrains": [
+        "farmland",
+        "mountain"
+      ],
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "market",
+        "farmer"
+      ],
+      "note": "按一篮约十来磅的块茎估价，秋收后贮窖慢慢卖。"
+    },
+    "staples_sweet_potato": {
+      "price": {
+        "min": 3,
+        "max": 6,
+        "per": "一篮",
+        "tier": "groat"
+      },
+      "terrains": [
+        "farmland",
+        "tropical_dry_forest"
+      ],
+      "seasons": [
+        "autumn"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "market",
+        "street_vendor"
+      ],
+      "note": "按一篮块根估价，烤薯摊常见。"
+    },
+    "staples_yam": {
+      "price": {
+        "min": 4,
+        "max": 8,
+        "per": "一篮",
+        "tier": "groat"
+      },
+      "terrains": [
+        "farmland",
+        "rainforest"
+      ],
+      "seasons": [
+        "autumn"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "market",
+        "farmer"
+      ],
+      "note": "按一篮大块根估价，比马铃薯略贵。"
+    },
+    "staples_cassava": {
+      "price": {
+        "min": 3,
+        "max": 6,
+        "per": "一篮",
+        "tier": "groat"
+      },
+      "terrains": [
+        "rainforest",
+        "farmland"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "days",
+      "sold_by": [
+        "market",
+        "farmer"
+      ],
+      "note": "可留在地里随挖随卖，挖出后放不久，按一篮块根估价。"
+    },
+    "staples_taro": {
+      "price": {
+        "min": 3,
+        "max": 6,
+        "per": "一篮",
+        "tier": "groat"
+      },
+      "terrains": [
+        "wetland",
+        "farmland"
+      ],
+      "seasons": [
+        "autumn"
+      ],
+      "keeps": "weeks",
+      "sold_by": [
+        "market",
+        "farmer"
+      ],
+      "note": "按一篮水田块茎估价。"
+    },
+    "staples_soybean": {
+      "price": {
+        "min": 6,
+        "max": 10,
+        "per": "一袋",
+        "tier": "groat"
+      },
+      "terrains": [
+        "farmland"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "market",
+        "grocer"
+      ],
+      "note": "按干豆估价，榨油与做豆制品用量大。"
+    },
+    "staples_common_bean": {
+      "price": {
+        "min": 6,
+        "max": 10,
+        "per": "一袋",
+        "tier": "groat"
+      },
+      "terrains": [
+        "farmland"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "market",
+        "grocer",
+        "farmer"
+      ],
+      "note": "按干豆估价，略低于小麦。"
+    },
+    "staples_chickpea": {
+      "price": {
+        "min": 8,
+        "max": 14,
+        "per": "一袋",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "farmland",
+        "steppe"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "market",
+        "grocer"
+      ],
+      "note": "按较贵的干豆估价。"
+    },
+    "staples_lentil": {
+      "price": {
+        "min": 8,
+        "max": 14,
+        "per": "一袋",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "farmland",
+        "steppe"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "market",
+        "grocer"
+      ],
+      "note": "按较贵的干豆估价。"
+    },
+    "staples_pea": {
+      "price": {
+        "min": 6,
+        "max": 10,
+        "per": "一袋",
+        "tier": "groat"
+      },
+      "terrains": [
+        "farmland"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "market",
+        "farmer",
+        "grocer"
+      ],
+      "note": "按晒干豌豆估价。"
+    },
+    "staples_broad_bean": {
+      "price": {
+        "min": 5,
+        "max": 9,
+        "per": "一袋",
+        "tier": "groat"
+      },
+      "terrains": [
+        "farmland"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "market",
+        "farmer"
+      ],
+      "note": "按廉价干豆估价，常做穷人的粥。"
+    },
+    "staples_cowpea": {
+      "price": {
+        "min": 5,
+        "max": 9,
+        "per": "一袋",
+        "tier": "groat"
+      },
+      "terrains": [
+        "savanna",
+        "farmland"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "market",
+        "grocer"
+      ],
+      "note": "按旱地干豆估价。"
+    },
+    "staples_peanut": {
+      "price": {
+        "min": 10,
+        "max": 18,
+        "per": "一袋",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "farmland",
+        "savanna"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "street_vendor",
+        "market",
+        "grocer"
+      ],
+      "note": "按带壳花生估价，炒货摊常见。"
+    },
+    "staples_olive": {
+      "price": {
+        "min": 18,
+        "max": 36,
+        "per": "一壶",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "orchard",
+        "coast"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "grocer",
+        "market"
+      ],
+      "note": "按一壶榨好的橄榄油估价，鲜果另论更便宜。"
+    },
+    "staples_rapeseed": {
+      "price": {
+        "min": 8,
+        "max": 14,
+        "per": "一袋",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "farmland"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "market",
+        "farmer"
+      ],
+      "note": "按油料籽粒估价，榨油后另算。"
+    },
+    "staples_sunflower": {
+      "price": {
+        "min": 10,
+        "max": 16,
+        "per": "一袋",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "farmland",
+        "steppe"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "market",
+        "street_vendor",
+        "grocer"
+      ],
+      "note": "按葵花籽估价，零食摊也卖。"
+    },
+    "staples_sesame": {
+      "price": {
+        "min": 3,
+        "max": 6,
+        "per": "一磅",
+        "tier": "groat"
+      },
+      "terrains": [
+        "farmland",
+        "savanna"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "spice_merchant",
+        "grocer",
+        "market"
+      ],
+      "note": "籽小价高，按一磅估价。"
+    },
+    "staples_oil_palm": {
+      "price": {
+        "min": 12,
+        "max": 24,
+        "per": "一壶",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "rainforest",
+        "import"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "market",
+        "grocer"
+      ],
+      "note": "按一壶棕榈油估价，非热带地区只能靠输入。"
+    },
+    "staples_flax": {
+      "price": {
+        "min": 8,
+        "max": 14,
+        "per": "一袋",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "farmland",
+        "temperate_forest"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "market",
+        "grocer"
+      ],
+      "note": "按亚麻籽估价，纤维另作纺织原料。"
+    },
+    "staples_einkorn": {
+      "price": {
+        "min": 5,
+        "max": 9,
+        "per": "一袋",
+        "tier": "groat"
+      },
+      "terrains": [
+        "farmland",
+        "mountain"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "market",
+        "farmer"
+      ],
+      "note": "带壳古老小麦，产量低但耐瘠，价低于普通小麦。"
+    }
+  }
+}

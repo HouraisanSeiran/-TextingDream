@@ -1,0 +1,172 @@
+{
+  "version": 1,
+  "style": "medieval-atlas",
+  "note": "地图美术资产清单。为之后的 DEM/灰度图地图系统预备：只描述「用哪个符号/颜色」，不描述规则。资源符号只表示「此处有该资源候选」，不表示储量；种族与树种的来源字段在新地图系统接入前都需要作者确认。",
+  "sprite": "/static/map-art/map-art.svg",
+  "usage": "在页面内嵌或 fetch 后插入 map-art.svg，再用 <svg><use href=\"#town-human-city\"/></svg>；Canvas 绘制可把单个 symbol 包成独立 SVG 后转 Image 缓存。",
+  "anchors": {
+    "town": { "viewBox": [32, 32], "anchor": [16, 28], "note": "地面线中点对准城镇坐标" },
+    "resource": { "viewBox": [24, 24], "anchor": [12, 12] },
+    "tree": { "viewBox": [16, 20], "anchor": [8, 19] },
+    "mark": { "viewBox": [24, 24], "anchor": [12, 21] },
+    "terrain": { "viewBox": [24, 18], "anchor": [12, 17] }
+  },
+  "towns": {
+    "races": {
+      "human":    { "name": "人类",   "accent": "#a3472f", "motif": "砖红坡顶、城墙雉堞、旗帜" },
+      "elf":      { "name": "精灵",   "accent": "#4f7a4a", "motif": "叶形尖塔、拱形廊、伴生树" },
+      "dwarf":    { "name": "矮人",   "accent": "#5d6b78", "motif": "依山凿门、石砌方塔、锻炉烟囱" },
+      "orc":      { "name": "兽人",   "accent": "#6b5a2a", "motif": "尖桩木栅、兽皮帐、骨角、血红旗" },
+      "halfling": { "name": "半身人", "accent": "#7a8a3a", "motif": "山丘洞屋、圆门圆窗、小烟囱" }
+    },
+    "tiers": [
+      { "id": "hamlet",  "name": "村落", "civ_kind": [0],    "size_px": 18 },
+      { "id": "town",    "name": "城镇", "civ_kind": [1],    "size_px": 22 },
+      { "id": "city",    "name": "城市", "civ_kind": [2, 3], "size_px": 26 },
+      { "id": "capital", "name": "首都", "civ_kind": [4],    "size_px": 30 }
+    ],
+    "symbol_pattern": "town-{race}-{tier}",
+    "civ_kind_note": "civ_kind 对应 civ-atlas host.tsx 里 ['村落','城镇','城市','大城','首都'] 的下标。",
+    "race_source": "种族由地图生成之后的独立种族/城镇系统给出，美术层只接收 race id，不自行推断。未知种族回落到 human 图标。"
+  },
+  "resources": {
+    "symbol_pattern": "res-{kind}",
+    "source": "app/town_schema.py ResourceCandidate.kind",
+    "kinds": {
+      "iron": "铁矿", "coal": "煤矿", "copper": "铜矿", "tin": "锡矿", "gold": "金矿", "rare_metals": "稀有金属",
+      "stone": "石料", "clay": "黏土", "salt": "盐", "timber": "木材", "grain": "谷物", "livestock": "牲畜",
+      "fish": "渔获", "herb": "草药", "wool": "羊毛", "reed": "芦苇"
+    },
+    "trade_kinds": {
+      "note": "第二批：贸易品与奇物。尚未进入 app/town_schema.py 的资源枚举；接入新地图系统前需要作者确认是否作为可开采资源。mana/dragonbone 为奇幻资源，只在世界设定声明时使用。",
+      "silver": "银矿", "gems": "宝石", "marble": "大理石", "sulfur": "硫磺", "spices": "香料", "silk": "丝绸",
+      "horses": "良马", "ivory": "象牙", "amber": "琥珀", "pearls": "珍珠", "wine": "葡萄与酒", "dye": "染料",
+      "mana": "魔力晶簇（奇幻）", "dragonbone": "龙骨（奇幻）"
+    },
+    "unsurveyed_style": "未勘测的候选用 opacity .45 + 虚线外圈显示，不当作已知矿藏"
+  },
+  "trees": {
+    "symbol_pattern": "tree-{species}",
+    "species": {
+      "pine": "松", "spruce": "云杉", "larch": "落叶松", "oak": "橡", "beech": "山毛榉", "birch": "桦", "maple": "枫",
+      "redwood": "红杉", "teak": "柚木", "bamboo": "竹", "kapok": "木棉（雨林巨木）", "acacia": "金合欢", "willow": "柳", "mangrove": "红树",
+      "cypress": "柏/地中海柏", "cedar": "雪松（黎巴嫩雪松）", "fir": "冷杉", "chestnut": "栗", "ash": "白蜡/水曲柳", "elm": "榆",
+      "yew": "红豆杉", "olive": "橄榄", "palm": "棕榈/椰子", "baobab": "猴面包树", "joshua": "约书亚树", "cactus": "仙人掌",
+      "dragonblood": "龙血树", "cherry": "樱"
+    },
+    "fantasy_species": {
+      "note": "奇幻树种不进 by_biome 默认配比；只有世界设定声明了对应区域（如精灵古林、腐化之地、地下菌林、魔力晶林）时才用。",
+      "silverleaf": "银叶树（古林）", "gloomwood": "幽暗枯木（腐化/暗影之地）", "mushroom": "巨菌（菌林/地下）", "crystal": "晶树（魔力晶林）"
+    },
+    "by_biome": {
+      "note": "按群系给出树种配比（权重和为 1）。是绘图时的默认配比，不是生态模型；新系统若有更细的气候或海拔信息可覆盖。",
+      "针叶林": { "spruce": 0.35, "fir": 0.2, "pine": 0.25, "larch": 0.12, "birch": 0.08 },
+      "苔原": { "larch": 0.6, "birch": 0.4 },
+      "温带森林": { "oak": 0.25, "beech": 0.18, "maple": 0.12, "chestnut": 0.1, "ash": 0.1, "elm": 0.08, "birch": 0.07, "yew": 0.05, "pine": 0.05 },
+      "温带雨林": { "redwood": 0.4, "fir": 0.2, "spruce": 0.15, "cedar": 0.1, "maple": 0.15 },
+      "草原": { "oak": 0.35, "elm": 0.25, "willow": 0.25, "cherry": 0.15 },
+      "温带荒漠": { "joshua": 0.5, "cactus": 0.3, "olive": 0.2 },
+      "热带荒漠": { "cactus": 0.5, "palm": 0.3, "dragonblood": 0.2 },
+      "稀树草原": { "acacia": 0.7, "baobab": 0.3 },
+      "热带季雨林": { "teak": 0.4, "bamboo": 0.3, "acacia": 0.15, "palm": 0.15 },
+      "热带雨林": { "kapok": 0.55, "bamboo": 0.15, "teak": 0.15, "palm": 0.15 },
+      "湿地": { "willow": 0.45, "mangrove": 0.3, "birch": 0.15, "cypress": 0.1 }
+    },
+    "climate_variants": {
+      "note": "同一群系内按气候细分的可选替换。新地图系统有季节降水/海拔时使用；没有就忽略。",
+      "夏干冬湿（地中海式）": { "olive": 0.35, "cypress": 0.3, "cedar": 0.15, "oak": 0.2 },
+      "东亚温带": { "cherry": 0.2, "maple": 0.3, "pine": 0.25, "bamboo": 0.25 },
+      "高海拔山地": { "fir": 0.4, "cedar": 0.3, "spruce": 0.3 }
+    },
+    "coastal_override": { "热带雨林": "mangrove", "热带季雨林": "mangrove", "湿地": "mangrove" },
+    "density": { "针叶林": 0.75, "苔原": 0.12, "温带森林": 0.7, "温带雨林": 0.9, "草原": 0.06, "温带荒漠": 0.03, "热带荒漠": 0.02, "稀树草原": 0.15, "热带季雨林": 0.65, "热带雨林": 0.95, "湿地": 0.3 }
+  },
+  "biomes": {
+    "note": "群系名与顺序和 civ-atlas src/gen/biomes.ts BIOMES 一致（下标 0..15）。fill=主色；shade=山体暗面/等高线色；pattern=叠在色块上的手绘纹理。",
+    "palette": [
+      { "name": "海洋",       "fill": "#a7bfb9", "shade": "#7f9e9b", "pattern": "waves" },
+      { "name": "湖泊",       "fill": "#9dbcbc", "shade": "#76999b", "pattern": "waves" },
+      { "name": "海冰",       "fill": "#e8ece6", "shade": "#c3cbc7", "pattern": "floes" },
+      { "name": "冰原",       "fill": "#f2efe4", "shade": "#cfd4d2", "pattern": "none" },
+      { "name": "苔原",       "fill": "#c9c3a2", "shade": "#a59e7c", "pattern": "tussock" },
+      { "name": "针叶林",     "fill": "#9aa883", "shade": "#748463", "pattern": "trees" },
+      { "name": "寒漠",       "fill": "#d6cba7", "shade": "#b4a77f", "pattern": "stipple" },
+      { "name": "温带荒漠",   "fill": "#e4cf9c", "shade": "#c4aa72", "pattern": "dunes" },
+      { "name": "草原",       "fill": "#d6cd92", "shade": "#b3a96b", "pattern": "grass" },
+      { "name": "温带森林",   "fill": "#adb883", "shade": "#869361", "pattern": "trees" },
+      { "name": "温带雨林",   "fill": "#98ae81", "shade": "#708a5e", "pattern": "trees" },
+      { "name": "热带荒漠",   "fill": "#ecd29a", "shade": "#cdac6a", "pattern": "dunes" },
+      { "name": "稀树草原",   "fill": "#dac98a", "shade": "#b8a462", "pattern": "grass" },
+      { "name": "热带季雨林", "fill": "#b6bf83", "shade": "#8f9a5d", "pattern": "trees" },
+      { "name": "热带雨林",   "fill": "#93ad7a", "shade": "#6b8955", "pattern": "trees" },
+      { "name": "湿地",       "fill": "#abb994", "shade": "#84966f", "pattern": "marsh" }
+    ]
+  },
+  "routes": {
+    "note": "道路分级线型（屏幕像素，缩放 k=1 时）。casing=底边色（先画宽一点的这层），再画 stroke。dash 为空=实线。",
+    "kinds": {
+      "royal_road": { "name": "王道/官道", "stroke": "#7a1f22", "width": 2.2, "casing": "#f3e6c4", "casing_width": 4.2, "dash": [] },
+      "road":       { "name": "大路",      "stroke": "#6b4a2e", "width": 1.6, "casing": "#f3e6c4", "casing_width": 3.4, "dash": [] },
+      "track":      { "name": "乡间小径",  "stroke": "#6b4a2e", "width": 1.2, "casing": null, "casing_width": 0, "dash": [4, 3] },
+      "trail":      { "name": "山道/小道", "stroke": "#5a4128", "width": 1.0, "casing": null, "casing_width": 0, "dash": [1, 3] },
+      "sea_route":  { "name": "航线",      "stroke": "#2f5a7a", "width": 1.2, "casing": null, "casing_width": 0, "dash": [7, 5] },
+      "river":      { "name": "河流",      "stroke": "#4f7f96", "width": 1.4, "casing": null, "casing_width": 0, "dash": [], "taper": true }
+    },
+    "crossings": { "road_x_river": "mark-bridge", "track_x_river": "mark-ford", "road_x_range": "mark-pass" }
+  },
+  "marks": {
+    "port": "港口", "fortress": "要塞", "ruin": "遗迹", "temple": "神殿", "tower": "法师塔", "pass": "关隘", "mine": "矿井",
+    "lighthouse": "灯塔", "bridge": "桥", "ford": "渡口", "waystation": "驿站", "camp": "营地", "cave": "洞穴", "shrine": "石圈圣地",
+    "windmill": "风车", "farm": "农庄", "monastery": "修道院", "graveyard": "墓地", "battlefield": "古战场", "portal": "传送门",
+    "dragon-lair": "龙巢", "oasis": "绿洲", "volcano": "火山", "whirlpool": "漩涡", "giant-tree": "古树/世界树", "treasure": "宝藏"
+  },
+  "decorations": {
+    "note": "制图装饰，不对应世界数据。海怪/帆船只放在开阔海面的空白处，不表示实际航线或生物。",
+    "compass": { "symbol": "deco-compass", "viewBox": [64, 64], "name": "罗盘玫瑰" },
+    "scale": { "symbol": "deco-scale", "viewBox": [120, 16], "name": "比例尺（五段）" },
+    "seaserpent": { "symbol": "deco-seaserpent", "viewBox": [64, 32], "name": "海蛇" },
+    "ship_east": { "symbol": "deco-ship-east", "viewBox": [48, 40], "name": "福船", "worldview": "east" },
+    "ship_west": { "symbol": "deco-ship-west", "viewBox": [48, 40], "name": "卡拉克船", "worldview": "west" },
+    "cartouche": { "symbol": "deco-cartouche", "viewBox": [200, 60], "name": "标题卷轴框" }
+  },
+  "element_categories": {
+    "note": "元素数据库（/api/inner/elements）namespace → 分类徽记。单色 currentColor，跟随界面预设。未列出的 namespace 用 cat-generic。",
+    "map": {
+      "animal-foods": "cat-food", "cuisine": "cat-food", "cuisine-british": "cat-food", "cuisine-french": "cat-food", "staples": "cat-food",
+      "food-supplement": "cat-food", "flavors": "cat-food", "produce": "cat-produce",
+      "reality-herbs-aerial": "cat-herb", "reality-herbs-other": "cat-herb", "reality-herbs-roots": "cat-herb", "reality-herbs-western": "cat-herb",
+      "eastern-alchemy": "cat-alchemy", "western-alchemy": "cat-alchemy", "reality-formulae": "cat-formula",
+      "eastern-biology": "cat-biology", "western-biology": "cat-biology", "fantasy-races": "cat-race",
+      "character-attributes": "cat-character", "character-traits": "cat-trait", "reality-human": "cat-character",
+      "town-buildings": "cat-society",
+      "materials": "cat-material", "tools": "cat-tool", "craft-supplement": "cat-tool",
+      "society": "cat-society", "culture-literature": "cat-culture", "names-asian": "cat-name", "names-european": "cat-name",
+      "eastern": "cat-eastern", "western": "cat-western", "reality-physical": "cat-physical", "steam-horror": "cat-steam"
+    },
+    "virtual": {
+      "note": "一个 namespace 混了两类内容时，按标签拆成虚拟分组（只是筛选条件，不改库）。条目同时带两个标签时两边都会出现。",
+      "groups": [
+        { "id": "steampunk", "label": "蒸汽朋克", "namespace": "steam-horror", "tag": "genre:steampunk", "icon": "cat-steam" },
+        { "id": "folk-horror", "label": "民俗恐怖", "namespace": "steam-horror", "tag": "genre:folk_horror", "icon": "cat-horror" }
+      ]
+    },
+    "worldviews": {
+      "note": "世界观切换只决定分组导航里显示哪些分组；自由搜索（全部分组）仍覆盖整库。未列在 hide 里的分组两边共用。",
+      "all": { "label": "全部", "hide": [] },
+      "west": { "label": "西方魔幻", "icon": "cat-western",
+        "hide": ["eastern", "eastern-alchemy", "eastern-biology", "names-asian"] },
+      "east": { "label": "东方玄幻", "icon": "cat-eastern",
+        "hide": ["western", "western-alchemy", "western-biology", "reality-herbs-western", "names-european", "cuisine-british", "cuisine-french"] }
+    }
+  },
+  "terrain": { "mountain": "山峰", "snowpeak": "雪峰", "hill": "丘陵", "marsh": "沼泽" },
+  "dem_hints": {
+    "note": "给之后基于 DEM/灰度图的生成系统的符号选择建议：只定义阈值的含义，数值由新系统按自己的高程尺度标定。",
+    "terrain_by_relief": [
+      { "when": "局部起伏大且海拔高于雪线", "symbol": "terrain-snowpeak" },
+      { "when": "局部起伏大", "symbol": "terrain-mountain" },
+      { "when": "局部起伏中等", "symbol": "terrain-hill" },
+      { "when": "坡度近零且湿地群系", "symbol": "terrain-marsh" }
+    ]
+  }
+}

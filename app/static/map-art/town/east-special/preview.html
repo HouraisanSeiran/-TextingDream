@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>东方玄幻 · 城镇特殊建筑预览（east-special）</title>
+<style>
+  body { margin: 0; background: #f6ecc8; font: 13px/1.5 "Microsoft YaHei", sans-serif; color: #5a3a22; }
+  h1 { font-size: 18px; margin: 16px 20px 4px; }
+  h2 { font-size: 15px; margin: 20px 20px 6px; }
+  p.hint { margin: 0 20px 8px; color: #8c6a44; }
+  #grid { display: flex; flex-wrap: wrap; gap: 14px; padding: 6px 20px 10px; align-items: flex-end; }
+  .card { background: #efe0b4; border: 1px solid #d8c18a; border-radius: 6px; padding: 8px 8px 4px; text-align: center; }
+  .card svg { display: block; margin: 0 auto; }
+  .card .id { font: 11px Consolas, monospace; color: #8c3d22; }
+  .card .nm { font-size: 13px; }
+  .card .ft { font-size: 11px; color: #8c6a44; }
+  #street { margin: 6px 20px 30px; border: 1px solid #d8c18a; background: #d9c58f; }
+</style>
+</head>
+<body>
+<h1>东方玄幻 · 城镇特殊建筑（east-special）</h1>
+<p class="hint">3/4 斜俯视，48 px 一格。虚线框 = 占地矩形，红点 = 锚点（前沿中点）。素材尚未接入游戏。</p>
+<div id="grid"></div>
+<h2>街市示意（按锚点 y 排序绘制；地面只是青石板示意面块，不是道路瓦片）</h2>
+<div id="streetWrap"></div>
+<script src="core.js"></script>
+<script src="civic.js"></script>
+<script src="religion.js"></script>
+<script src="trade.js"></script>
+<script src="service.js"></script>
+<script src="east-special.js"></script>
+<script>
+(function () {
+  'use strict';
+  var A = window.TownArt_eastSpecial, CELL = 48, NS = 'http://www.w3.org/2000/svg';
+  var sprite = document.createElement('div');
+  sprite.innerHTML = A.spriteSvg();
+  document.body.insertBefore(sprite.firstChild, document.body.firstChild);
+  var metas = A.list(), byId = {};
+  metas.forEach(function (m) { byId[m.id] = m; });
+
+  var grid = document.getElementById('grid');
+  metas.forEach(function (m) {
+    var w = m.viewBox[2], h = m.viewBox[3], pad = 8;
+    var card = document.createElement('div'); card.className = 'card';
+    card.innerHTML =
+      '<svg xmlns="' + NS + '" width="' + (w + pad * 2) + '" height="' + (h + pad * 2) + '" viewBox="' + (-pad) + ' ' + (-pad) + ' ' + (w + pad * 2) + ' ' + (h + pad * 2) + '">' +
+      '<rect x="' + (-pad) + '" y="' + (-pad) + '" width="' + (w + pad * 2) + '" height="' + (h + pad * 2) + '" fill="#d9c58f"/>' +
+      '<rect x="0" y="' + m.height_px + '" width="' + w + '" height="' + (h - m.height_px) + '" fill="none" stroke="#8c3d22" stroke-opacity="0.35" stroke-dasharray="3 3"/>' +
+      '<use href="#' + m.id + '" x="0" y="0" width="' + w + '" height="' + h + '"/>' +
+      '<circle cx="' + m.anchor[0] + '" cy="' + m.anchor[1] + '" r="2.2" fill="#e0332a"/></svg>' +
+      '<div class="id">' + m.id + '</div><div class="nm">' + m.name_zh + '</div>' +
+      '<div class="ft">' + m.footprint.join('×') + ' · ' + (m.facility || 'null') + (m.tags.indexOf('open_air') >= 0 ? ' · open_air' : '') + '</div>';
+    grid.appendChild(card);
+  });
+
+  // 街市示意：[id, 格 x, 格 y（占地后沿所在格）]；锚点 = ((gx + w/2)·48, (gy + d)·48)
+  var COLS = 17, ROWS = 11, TOP = 3;
+  var plan = [
+    ['east-common-town-hall-01', 0, 0], ['east-common-temple-01', 4, 0], ['east-common-temple-03', 8, 1], ['east-common-lord-hall-01', 12, 0],
+    ['east-common-paifang-01', 8, 4],
+    ['east-common-market-hall-01', 1, 5], ['east-common-stall-01', 5, 5], ['east-common-stall-02', 6, 5], ['east-common-stall-03', 7, 5],
+    ['east-common-stall-04', 5, 6], ['east-common-stall-05', 7, 6], ['east-common-well-01', 9, 5],
+    ['east-common-inn-01', 10, 5], ['east-common-forge-01', 14, 5],
+    ['east-common-forge-02', 1, 8], ['east-common-infirmary-01', 5, 8], ['east-common-inn-02', 9, 8], ['east-common-watchtower-01', 13, 8]
+  ];
+  var W = COLS * CELL, H = (ROWS + TOP) * CELL, oy = TOP * CELL;
+  var g = '<rect width="' + W + '" height="' + H + '" fill="#d9c58f"/>';
+  // 青石板示意面块：两条横街 + 一条竖街
+  function slab(x, y, w, h) {
+    var s = '<rect x="' + x + '" y="' + y + '" width="' + w + '" height="' + h + '" fill="#cdbf9c"/>';
+    for (var yy = y; yy < y + h; yy += 12) {
+      s += '<path d="M' + x + ' ' + yy + 'H' + (x + w) + '" stroke="#a8997a" stroke-width="0.6" opacity="0.6"/>';
+      for (var xx = x + ((yy - y) / 12 % 2 ? 9 : 18); xx < x + w; xx += 18) s += '<path d="M' + xx + ' ' + yy + 'v12" stroke="#a8997a" stroke-width="0.6" opacity="0.6"/>';
+    }
+    return s;
+  }
+  g += slab(0, oy + 4 * CELL, W, CELL) + slab(0, oy + 7 * CELL, W, CELL) + slab(4 * CELL, oy + 4 * CELL, CELL, 4 * CELL);
+  var items = plan.filter(function (p) { return byId[p[0]]; }).map(function (p) {
+    var m = byId[p[0]], ax = (p[1] + m.footprint[0] / 2) * CELL, ay = oy + (p[2] + m.footprint[1]) * CELL;
+    return { m: m, ax: ax, ay: ay };
+  });
+  items.sort(function (a, b) { return a.ay - b.ay || a.ax - b.ax; });
+  items.forEach(function (it) {
+    var m = it.m;
+    g += '<use href="#' + m.id + '" x="' + (it.ax - m.anchor[0]) + '" y="' + (it.ay - m.anchor[1]) + '" width="' + m.viewBox[2] + '" height="' + m.viewBox[3] + '"/>';
+  });
+  document.getElementById('streetWrap').innerHTML = '<svg id="street" xmlns="' + NS + '" width="' + W + '" height="' + H + '" viewBox="0 0 ' + W + ' ' + H + '">' + g + '</svg>';
+  window.__previewReady = { count: metas.length, placed: items.length };
+})();
+</script>
+</body>
+</html>

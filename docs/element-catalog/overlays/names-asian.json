@@ -1,0 +1,69 @@
+{
+  "schema": "catalog_overlay_v1",
+  "group": "names-asian",
+  "entries": {
+    "names_asian_sinitic": {
+      "primary": "name_pool",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "names_asian_japanese": {
+      "primary": "name_pool",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "names_asian_korean": {
+      "primary": "name_pool",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "names_asian_indic": {
+      "primary": "name_pool",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "names_asian_arabic": {
+      "primary": "name_pool",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "names_asian_persian": {
+      "primary": "name_pool",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "names_asian_turkic": {
+      "primary": "name_pool",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "names_asian_vietnamese": {
+      "primary": "name_pool",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "names_asian_mongolic": {
+      "primary": "name_pool",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    }
+  }
+}

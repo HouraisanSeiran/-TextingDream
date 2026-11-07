@@ -1,0 +1,3312 @@
+[
+ {
+  "id": "east-common-house-siheyuan-01",
+  "style": "east",
+  "race": "common",
+  "category": "house",
+  "kind": "house_siheyuan",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   2,
+   2
+  ],
+  "height_px": 31,
+  "anchor": [
+   48,
+   127
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   127
+  ],
+  "tags": [
+   "courtyard",
+   "screen_wall",
+   "enclosed"
+  ],
+  "roof": "gable_tile",
+  "note": "四合院：北方合院：正房与厢房硬山顶，东南角开宅门，进门正对东厢南山墙上的座山影壁",
+  "name_zh": "四合院"
+ },
+ {
+  "id": "east-common-house-siheyuan-02",
+  "style": "east",
+  "race": "common",
+  "category": "house",
+  "kind": "house_siheyuan",
+  "facility": null,
+  "variant": 2,
+  "footprint": [
+   2,
+   2
+  ],
+  "height_px": 31,
+  "anchor": [
+   48,
+   127
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   127
+  ],
+  "tags": [
+   "courtyard",
+   "screen_wall",
+   "enclosed"
+  ],
+  "roof": "gable_tile",
+  "note": "四合院：北方合院：正房与厢房硬山顶，东南角开宅门，进门正对东厢南山墙上的座山影壁",
+  "name_zh": "四合院"
+ },
+ {
+  "id": "east-common-house-sanheyuan-01",
+  "style": "east",
+  "race": "common",
+  "category": "house",
+  "kind": "house_sanheyuan",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   2,
+   1
+  ],
+  "height_px": 27,
+  "anchor": [
+   48,
+   75
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   75
+  ],
+  "tags": [
+   "courtyard",
+   "open_front",
+   "swallowtail_ridge"
+  ],
+  "roof": "gable_tile",
+  "note": "三合院：一正两厢、前面敞开；正身悬山，屋脊两端燕尾起翘；厢房山面朝南",
+  "name_zh": "三合院"
+ },
+ {
+  "id": "east-common-house-sanheyuan-02",
+  "style": "east",
+  "race": "common",
+  "category": "house",
+  "kind": "house_sanheyuan",
+  "facility": null,
+  "variant": 2,
+  "footprint": [
+   2,
+   1
+  ],
+  "height_px": 27,
+  "anchor": [
+   48,
+   75
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   75
+  ],
+  "tags": [
+   "courtyard",
+   "open_front",
+   "swallowtail_ridge"
+  ],
+  "roof": "gable_tile",
+  "note": "三合院：一正两厢、前面敞开；正身悬山，屋脊两端燕尾起翘；厢房山面朝南",
+  "name_zh": "三合院"
+ },
+ {
+  "id": "east-common-house-huipai-01",
+  "style": "east",
+  "race": "common",
+  "category": "house",
+  "kind": "house_huipai",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   2,
+   1
+  ],
+  "height_px": 35,
+  "anchor": [
+   48,
+   83
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   83
+  ],
+  "tags": [
+   "two_storey",
+   "firewall",
+   "white_wall"
+  ],
+  "roof": "gable_tile",
+  "note": "徽派马头墙民居：硬山顶被两侧三阶马头墙夹住；正面白墙高窗、门罩披檐；1×1 小变体为两阶",
+  "name_zh": "徽派马头墙民居"
+ },
+ {
+  "id": "east-common-house-huipai-02",
+  "style": "east",
+  "race": "common",
+  "category": "house",
+  "kind": "house_huipai",
+  "facility": null,
+  "variant": 2,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 33,
+  "anchor": [
+   24,
+   81
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   81
+  ],
+  "tags": [
+   "two_storey",
+   "firewall",
+   "white_wall"
+  ],
+  "roof": "gable_tile",
+  "note": "徽派马头墙民居：硬山顶被两侧三阶马头墙夹住；正面白墙高窗、门罩披檐；1×1 小变体为两阶",
+  "name_zh": "徽派马头墙民居"
+ },
+ {
+  "id": "east-common-house-huipai-03",
+  "style": "east",
+  "race": "common",
+  "category": "house",
+  "kind": "house_huipai",
+  "facility": null,
+  "variant": 3,
+  "footprint": [
+   2,
+   1
+  ],
+  "height_px": 35,
+  "anchor": [
+   48,
+   83
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   83
+  ],
+  "tags": [
+   "two_storey",
+   "firewall",
+   "white_wall"
+  ],
+  "roof": "gable_tile",
+  "note": "徽派马头墙民居：硬山顶被两侧三阶马头墙夹住；正面白墙高窗、门罩披檐；1×1 小变体为两阶",
+  "name_zh": "徽派马头墙民居"
+ },
+ {
+  "id": "east-common-house-diaojiaolou-01",
+  "style": "east",
+  "race": "common",
+  "category": "house",
+  "kind": "house_diaojiaolou",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   1,
+   2
+  ],
+  "height_px": 13,
+  "anchor": [
+   24,
+   109
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   109
+  ],
+  "tags": [
+   "stilts",
+   "hillside",
+   "balcony"
+  ],
+  "roof": "hip_tile",
+  "note": "吊脚楼：实际为小青瓦歇山顶（RoofId 无歇山，取 hip_tile）；前檐木柱落在坡下，柱脚垫石",
+  "name_zh": "吊脚楼"
+ },
+ {
+  "id": "east-common-house-diaojiaolou-02",
+  "style": "east",
+  "race": "common",
+  "category": "house",
+  "kind": "house_diaojiaolou",
+  "facility": null,
+  "variant": 2,
+  "footprint": [
+   2,
+   2
+  ],
+  "height_px": 24,
+  "anchor": [
+   48,
+   120
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   120
+  ],
+  "tags": [
+   "stilts",
+   "hillside",
+   "balcony"
+  ],
+  "roof": "hip_tile",
+  "note": "吊脚楼：实际为小青瓦歇山顶（RoofId 无歇山，取 hip_tile）；前檐木柱落在坡下，柱脚垫石",
+  "name_zh": "吊脚楼"
+ },
+ {
+  "id": "east-common-house-tulou-01",
+  "style": "east",
+  "race": "common",
+  "category": "house",
+  "kind": "house_tulou",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   2,
+   2
+  ],
+  "height_px": 37,
+  "anchor": [
+   48,
+   133
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   133
+  ],
+  "tags": [
+   "earthen",
+   "fortified",
+   "courtyard",
+   "multi_storey"
+  ],
+  "roof": "hip_tile",
+  "note": "客家土楼：环形（或回字形）双坡瓦顶，RoofId 取 hip_tile；外墙夯土，底层无窗，正门一处",
+  "name_zh": "客家土楼"
+ },
+ {
+  "id": "east-common-house-tulou-02",
+  "style": "east",
+  "race": "common",
+  "category": "house",
+  "kind": "house_tulou",
+  "facility": null,
+  "variant": 2,
+  "footprint": [
+   2,
+   2
+  ],
+  "height_px": 37,
+  "anchor": [
+   48,
+   133
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   133
+  ],
+  "tags": [
+   "earthen",
+   "fortified",
+   "courtyard",
+   "multi_storey"
+  ],
+  "roof": "hip_tile",
+  "note": "客家土楼：环形（或回字形）双坡瓦顶，RoofId 取 hip_tile；外墙夯土，底层无窗，正门一处",
+  "name_zh": "客家土楼"
+ },
+ {
+  "id": "east-common-house-puwu-01",
+  "style": "east",
+  "race": "common",
+  "category": "house",
+  "kind": "house_puwu",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   2,
+   1
+  ],
+  "height_px": 32,
+  "anchor": [
+   48,
+   80
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   80
+  ],
+  "tags": [
+   "two_storey",
+   "shop",
+   "banner"
+  ],
+  "roof": "gable_tile",
+  "note": "两层铺面：下店上宅，悬山顶带燕尾脊，一道腰檐；门前立杆挂燕尾幌子",
+  "name_zh": "两层铺面"
+ },
+ {
+  "id": "east-common-house-puwu-02",
+  "style": "east",
+  "race": "common",
+  "category": "house",
+  "kind": "house_puwu",
+  "facility": null,
+  "variant": 2,
+  "footprint": [
+   2,
+   1
+  ],
+  "height_px": 32,
+  "anchor": [
+   48,
+   80
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   80
+  ],
+  "tags": [
+   "two_storey",
+   "shop",
+   "banner"
+  ],
+  "roof": "gable_tile",
+  "note": "两层铺面：下店上宅，悬山顶带燕尾脊，一道腰檐；门前立杆挂燕尾幌子",
+  "name_zh": "两层铺面"
+ },
+ {
+  "id": "east-common-house-puwu-03",
+  "style": "east",
+  "race": "common",
+  "category": "house",
+  "kind": "house_puwu",
+  "facility": null,
+  "variant": 3,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 32,
+  "anchor": [
+   24,
+   80
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   80
+  ],
+  "tags": [
+   "two_storey",
+   "shop",
+   "banner"
+  ],
+  "roof": "gable_tile",
+  "note": "两层铺面：下店上宅，悬山顶带燕尾脊，一道腰檐；门前立杆挂燕尾幌子",
+  "name_zh": "两层铺面"
+ },
+ {
+  "id": "east-common-house-maoshe-01",
+  "style": "east",
+  "race": "common",
+  "category": "house",
+  "kind": "house_maoshe",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 9,
+  "anchor": [
+   24,
+   57
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   57
+  ],
+  "tags": [
+   "thatch",
+   "poor",
+   "fence"
+  ],
+  "roof": "gable_thatch",
+  "note": "茅舍：夯土墙，茅草悬山顶，屋脊压一道草绳；前面柴门篱笆（变体 2 带草垛）",
+  "name_zh": "茅舍"
+ },
+ {
+  "id": "east-common-house-maoshe-02",
+  "style": "east",
+  "race": "common",
+  "category": "house",
+  "kind": "house_maoshe",
+  "facility": null,
+  "variant": 2,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 9,
+  "anchor": [
+   24,
+   57
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   57
+  ],
+  "tags": [
+   "thatch",
+   "poor",
+   "fence"
+  ],
+  "roof": "gable_thatch",
+  "note": "茅舍：夯土墙，茅草悬山顶，屋脊压一道草绳；前面柴门篱笆（变体 2 带草垛）",
+  "name_zh": "茅舍"
+ },
+ {
+  "id": "east-common-house-yingshan-01",
+  "style": "east",
+  "race": "common",
+  "category": "house",
+  "kind": "house_yingshan",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 14,
+  "anchor": [
+   24,
+   62
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   62
+  ],
+  "tags": [
+   "brick_gable",
+   "small"
+  ],
+  "roof": "gable_tile",
+  "note": "硬山小宅：硬山顶，山墙与屋面齐平，檐下两端砖雕墀头；变体 2 圆窗、燕尾脊",
+  "name_zh": "硬山小宅"
+ },
+ {
+  "id": "east-common-house-yingshan-02",
+  "style": "east",
+  "race": "common",
+  "category": "house",
+  "kind": "house_yingshan",
+  "facility": null,
+  "variant": 2,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 14,
+  "anchor": [
+   24,
+   62
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   62
+  ],
+  "tags": [
+   "brick_gable",
+   "small"
+  ],
+  "roof": "gable_tile",
+  "note": "硬山小宅：硬山顶，山墙与屋面齐平，檐下两端砖雕墀头；变体 2 圆窗、燕尾脊",
+  "name_zh": "硬山小宅"
+ },
+ {
+  "id": "east-common-house-zhulou-01",
+  "style": "east",
+  "race": "common",
+  "category": "house",
+  "kind": "house_zhulou",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 29,
+  "anchor": [
+   24,
+   77
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   77
+  ],
+  "tags": [
+   "stilts",
+   "bamboo",
+   "tropical"
+  ],
+  "roof": "hip_tile",
+  "note": "竹楼：干栏式竹楼，陡坡歇山顶（茅草 / 灰瓦），RoofId 取 hip_tile；楼下架空，木梯上楼",
+  "name_zh": "竹楼"
+ },
+ {
+  "id": "east-common-house-zhulou-02",
+  "style": "east",
+  "race": "common",
+  "category": "house",
+  "kind": "house_zhulou",
+  "facility": null,
+  "variant": 2,
+  "footprint": [
+   2,
+   1
+  ],
+  "height_px": 33,
+  "anchor": [
+   48,
+   81
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   81
+  ],
+  "tags": [
+   "stilts",
+   "bamboo",
+   "tropical"
+  ],
+  "roof": "hip_tile",
+  "note": "竹楼：干栏式竹楼，陡坡歇山顶（茅草 / 灰瓦），RoofId 取 hip_tile；楼下架空，木梯上楼",
+  "name_zh": "竹楼"
+ },
+ {
+  "id": "east-common-house-yaodong-01",
+  "style": "east",
+  "race": "common",
+  "category": "house",
+  "kind": "house_yaodong",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   2,
+   1
+  ],
+  "height_px": 35,
+  "anchor": [
+   48,
+   83
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   83
+  ],
+  "tags": [
+   "cave",
+   "loess",
+   "hillside"
+  ],
+  "roof": "flat_mud",
+  "note": "窑洞：靠崖窑：背后黄土崖，拱形窑脸，崖顶即屋顶（flat_mud）；变体 1 挂辣椒串和碾盘，变体 2 两孔窑带土院墙和枣树",
+  "name_zh": "窑洞"
+ },
+ {
+  "id": "east-common-house-yaodong-02",
+  "style": "east",
+  "race": "common",
+  "category": "house",
+  "kind": "house_yaodong",
+  "facility": null,
+  "variant": 2,
+  "footprint": [
+   2,
+   1
+  ],
+  "height_px": 35,
+  "anchor": [
+   48,
+   83
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   83
+  ],
+  "tags": [
+   "cave",
+   "loess",
+   "hillside"
+  ],
+  "roof": "flat_mud",
+  "note": "窑洞：靠崖窑：背后黄土崖，拱形窑脸，崖顶即屋顶（flat_mud）；变体 1 挂辣椒串和碾盘，变体 2 两孔窑带土院墙和枣树",
+  "name_zh": "窑洞"
+ },
+ {
+  "id": "east-common-house-diaolou-01",
+  "style": "east",
+  "race": "common",
+  "category": "house",
+  "kind": "house_diaolou",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 77,
+  "anchor": [
+   24,
+   125
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   125
+  ],
+  "tags": [
+   "tower",
+   "fortified",
+   "multi_storey"
+  ],
+  "roof": "hip_tile",
+  "note": "碉楼：四层碉楼，顶层挑台（燕子窝）+ 四角攒尖顶（RoofId 取 hip_tile）；变体 2 为毛石碉楼、灰瓦",
+  "name_zh": "碉楼"
+ },
+ {
+  "id": "east-common-house-diaolou-02",
+  "style": "east",
+  "race": "common",
+  "category": "house",
+  "kind": "house_diaolou",
+  "facility": null,
+  "variant": 2,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 77,
+  "anchor": [
+   24,
+   125
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   125
+  ],
+  "tags": [
+   "tower",
+   "fortified",
+   "multi_storey"
+  ],
+  "roof": "hip_tile",
+  "note": "碉楼：四层碉楼，顶层挑台（燕子窝）+ 四角攒尖顶（RoofId 取 hip_tile）；变体 2 为毛石碉楼、灰瓦",
+  "name_zh": "碉楼"
+ },
+ {
+  "id": "east-common-house-yuanlin-01",
+  "style": "east",
+  "race": "common",
+  "category": "house",
+  "kind": "house_yuanlin",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   2,
+   2
+  ],
+  "height_px": 25,
+  "anchor": [
+   48,
+   121
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   121
+  ],
+  "tags": [
+   "garden",
+   "courtyard",
+   "pond",
+   "moon_gate"
+  ],
+  "roof": "gable_tile",
+  "note": "园林宅院：江南宅园：花厅卷棚顶（RoofId 取 gable_tile），园中凿池、架曲桥、立湖石与方亭，白粉墙月洞门",
+  "name_zh": "园林宅院"
+ },
+ {
+  "id": "east-common-house-yuanlin-02",
+  "style": "east",
+  "race": "common",
+  "category": "house",
+  "kind": "house_yuanlin",
+  "facility": null,
+  "variant": 2,
+  "footprint": [
+   2,
+   2
+  ],
+  "height_px": 25,
+  "anchor": [
+   48,
+   121
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   121
+  ],
+  "tags": [
+   "garden",
+   "courtyard",
+   "pond",
+   "moon_gate"
+  ],
+  "roof": "gable_tile",
+  "note": "园林宅院：江南宅园：花厅卷棚顶（RoofId 取 gable_tile），园中凿池、架曲桥、立湖石与方亭，白粉墙月洞门",
+  "name_zh": "园林宅院"
+ },
+ {
+  "id": "east-common-house-xieshan-01",
+  "style": "east",
+  "race": "common",
+  "category": "house",
+  "kind": "house_xieshan",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   2,
+   2
+  ],
+  "height_px": 42,
+  "anchor": [
+   48,
+   138
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   138
+  ],
+  "tags": [
+   "manor",
+   "wealthy",
+   "double_eave",
+   "terrace"
+  ],
+  "roof": "hip_tile",
+  "note": "歇山大宅：富户正厅：歇山顶（RoofId 无歇山，取 hip_tile），重檐、高台基、月台石阶；变体 1 青绿琉璃，变体 2 灰瓦单檐带前院照壁",
+  "name_zh": "歇山大宅"
+ },
+ {
+  "id": "east-common-house-xieshan-02",
+  "style": "east",
+  "race": "common",
+  "category": "house",
+  "kind": "house_xieshan",
+  "facility": null,
+  "variant": 2,
+  "footprint": [
+   2,
+   2
+  ],
+  "height_px": 34,
+  "anchor": [
+   48,
+   130
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   130
+  ],
+  "tags": [
+   "manor",
+   "wealthy",
+   "double_eave",
+   "terrace"
+  ],
+  "roof": "hip_tile",
+  "note": "歇山大宅：富户正厅：歇山顶（RoofId 无歇山，取 hip_tile），重檐、高台基、月台石阶；变体 1 青绿琉璃，变体 2 灰瓦单檐带前院照壁",
+  "name_zh": "歇山大宅"
+ },
+ {
+  "id": "east-common-house-yupeng-01",
+  "style": "east",
+  "race": "common",
+  "category": "house",
+  "kind": "house_yupeng",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   2,
+   1
+  ],
+  "height_px": 23,
+  "anchor": [
+   48,
+   71
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   71
+  ],
+  "tags": [
+   "waterside",
+   "stilts",
+   "fishing"
+  ],
+  "roof": "gable_thatch",
+  "note": "渔家棚屋：水边棚屋：前沿木桩站在水里，悬山茅草顶，侧挂渔网，前泊舢板；变体 2 为灰瓦并带晒鱼架",
+  "name_zh": "渔家棚屋"
+ },
+ {
+  "id": "east-common-house-yupeng-02",
+  "style": "east",
+  "race": "common",
+  "category": "house",
+  "kind": "house_yupeng",
+  "facility": null,
+  "variant": 2,
+  "footprint": [
+   2,
+   1
+  ],
+  "height_px": 25,
+  "anchor": [
+   48,
+   73
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   73
+  ],
+  "tags": [
+   "waterside",
+   "stilts",
+   "fishing"
+  ],
+  "roof": "gable_tile",
+  "note": "渔家棚屋：水边棚屋：前沿木桩站在水里，悬山茅草顶，侧挂渔网，前泊舢板；变体 2 为灰瓦并带晒鱼架",
+  "name_zh": "渔家棚屋"
+ },
+ {
+  "id": "east-common-house-xuanshan-01",
+  "style": "east",
+  "race": "common",
+  "category": "house",
+  "kind": "house_xuanshan",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   2,
+   1
+  ],
+  "height_px": 20,
+  "anchor": [
+   48,
+   68
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   68
+  ],
+  "tags": [
+   "farm",
+   "rural",
+   "yard"
+  ],
+  "roof": "gable_tile",
+  "note": "悬山农舍：悬山顶：屋面出际挑过两山，山面挂博风板；一侧接矮披屋作灶间；变体 2 为藏青瓦并带石碾",
+  "name_zh": "悬山农舍"
+ },
+ {
+  "id": "east-common-house-xuanshan-02",
+  "style": "east",
+  "race": "common",
+  "category": "house",
+  "kind": "house_xuanshan",
+  "facility": null,
+  "variant": 2,
+  "footprint": [
+   2,
+   1
+  ],
+  "height_px": 20,
+  "anchor": [
+   48,
+   68
+  ],
+  "viewBox": [
+   0,
+   0,
+   96,
+   68
+  ],
+  "tags": [
+   "farm",
+   "rural",
+   "yard"
+  ],
+  "roof": "gable_tile",
+  "note": "悬山农舍：悬山顶：屋面出际挑过两山，山面挂博风板；一侧接矮披屋作灶间；变体 2 为藏青瓦并带石碾",
+  "name_zh": "悬山农舍"
+ },
+ {
+  "id": "east-common-house-juanpeng-01",
+  "style": "east",
+  "race": "common",
+  "category": "house",
+  "kind": "house_juanpeng",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 15,
+  "anchor": [
+   24,
+   63
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   63
+  ],
+  "tags": [
+   "study",
+   "garden",
+   "veranda"
+  ],
+  "roof": "gable_tile",
+  "note": "卷棚小筑：卷棚顶（圆脊无正脊，RoofId 取 gable_tile），前出廊带栏杆，门边竹丛 / 湖石；变体 2 为青绿瓦",
+  "name_zh": "卷棚小筑"
+ },
+ {
+  "id": "east-common-house-juanpeng-02",
+  "style": "east",
+  "race": "common",
+  "category": "house",
+  "kind": "house_juanpeng",
+  "facility": null,
+  "variant": 2,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 15,
+  "anchor": [
+   24,
+   63
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   63
+  ],
+  "tags": [
+   "study",
+   "garden",
+   "veranda"
+  ],
+  "roof": "gable_tile",
+  "note": "卷棚小筑：卷棚顶（圆脊无正脊，RoofId 取 gable_tile），前出廊带栏杆，门边竹丛 / 湖石；变体 2 为青绿瓦",
+  "name_zh": "卷棚小筑"
+ },
+ {
+  "id": "east-common-road-dirt-0000",
+  "style": "east",
+  "race": "common",
+  "category": "road",
+  "kind": "road_dirt",
+  "facility": null,
+  "variant": 0,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_0000",
+   "empty"
+  ],
+  "roof": "none",
+  "note": "黄土路双网格瓦片，四角 NW NE SW SE = 0000（空瓦片，透明占位）；渲染格与逻辑格错开半格",
+  "name_zh": "黄土路",
+  "mask": 0
+ },
+ {
+  "id": "east-common-road-dirt-0001",
+  "style": "east",
+  "race": "common",
+  "category": "road",
+  "kind": "road_dirt",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_0001"
+  ],
+  "roof": "none",
+  "note": "黄土路双网格瓦片，四角 NW NE SW SE = 0001；渲染格与逻辑格错开半格",
+  "name_zh": "黄土路",
+  "mask": 1
+ },
+ {
+  "id": "east-common-road-dirt-0010",
+  "style": "east",
+  "race": "common",
+  "category": "road",
+  "kind": "road_dirt",
+  "facility": null,
+  "variant": 2,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_0010"
+  ],
+  "roof": "none",
+  "note": "黄土路双网格瓦片，四角 NW NE SW SE = 0010；渲染格与逻辑格错开半格",
+  "name_zh": "黄土路",
+  "mask": 2
+ },
+ {
+  "id": "east-common-road-dirt-0011",
+  "style": "east",
+  "race": "common",
+  "category": "road",
+  "kind": "road_dirt",
+  "facility": null,
+  "variant": 3,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_0011"
+  ],
+  "roof": "none",
+  "note": "黄土路双网格瓦片，四角 NW NE SW SE = 0011；渲染格与逻辑格错开半格",
+  "name_zh": "黄土路",
+  "mask": 3
+ },
+ {
+  "id": "east-common-road-dirt-0100",
+  "style": "east",
+  "race": "common",
+  "category": "road",
+  "kind": "road_dirt",
+  "facility": null,
+  "variant": 4,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_0100"
+  ],
+  "roof": "none",
+  "note": "黄土路双网格瓦片，四角 NW NE SW SE = 0100；渲染格与逻辑格错开半格",
+  "name_zh": "黄土路",
+  "mask": 4
+ },
+ {
+  "id": "east-common-road-dirt-0101",
+  "style": "east",
+  "race": "common",
+  "category": "road",
+  "kind": "road_dirt",
+  "facility": null,
+  "variant": 5,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_0101"
+  ],
+  "roof": "none",
+  "note": "黄土路双网格瓦片，四角 NW NE SW SE = 0101；渲染格与逻辑格错开半格",
+  "name_zh": "黄土路",
+  "mask": 5
+ },
+ {
+  "id": "east-common-road-dirt-0110",
+  "style": "east",
+  "race": "common",
+  "category": "road",
+  "kind": "road_dirt",
+  "facility": null,
+  "variant": 6,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_0110"
+  ],
+  "roof": "none",
+  "note": "黄土路双网格瓦片，四角 NW NE SW SE = 0110；渲染格与逻辑格错开半格",
+  "name_zh": "黄土路",
+  "mask": 6
+ },
+ {
+  "id": "east-common-road-dirt-0111",
+  "style": "east",
+  "race": "common",
+  "category": "road",
+  "kind": "road_dirt",
+  "facility": null,
+  "variant": 7,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_0111"
+  ],
+  "roof": "none",
+  "note": "黄土路双网格瓦片，四角 NW NE SW SE = 0111；渲染格与逻辑格错开半格",
+  "name_zh": "黄土路",
+  "mask": 7
+ },
+ {
+  "id": "east-common-road-dirt-1000",
+  "style": "east",
+  "race": "common",
+  "category": "road",
+  "kind": "road_dirt",
+  "facility": null,
+  "variant": 8,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_1000"
+  ],
+  "roof": "none",
+  "note": "黄土路双网格瓦片，四角 NW NE SW SE = 1000；渲染格与逻辑格错开半格",
+  "name_zh": "黄土路",
+  "mask": 8
+ },
+ {
+  "id": "east-common-road-dirt-1001",
+  "style": "east",
+  "race": "common",
+  "category": "road",
+  "kind": "road_dirt",
+  "facility": null,
+  "variant": 9,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_1001"
+  ],
+  "roof": "none",
+  "note": "黄土路双网格瓦片，四角 NW NE SW SE = 1001；渲染格与逻辑格错开半格",
+  "name_zh": "黄土路",
+  "mask": 9
+ },
+ {
+  "id": "east-common-road-dirt-1010",
+  "style": "east",
+  "race": "common",
+  "category": "road",
+  "kind": "road_dirt",
+  "facility": null,
+  "variant": 10,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_1010"
+  ],
+  "roof": "none",
+  "note": "黄土路双网格瓦片，四角 NW NE SW SE = 1010；渲染格与逻辑格错开半格",
+  "name_zh": "黄土路",
+  "mask": 10
+ },
+ {
+  "id": "east-common-road-dirt-1011",
+  "style": "east",
+  "race": "common",
+  "category": "road",
+  "kind": "road_dirt",
+  "facility": null,
+  "variant": 11,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_1011"
+  ],
+  "roof": "none",
+  "note": "黄土路双网格瓦片，四角 NW NE SW SE = 1011；渲染格与逻辑格错开半格",
+  "name_zh": "黄土路",
+  "mask": 11
+ },
+ {
+  "id": "east-common-road-dirt-1100",
+  "style": "east",
+  "race": "common",
+  "category": "road",
+  "kind": "road_dirt",
+  "facility": null,
+  "variant": 12,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_1100"
+  ],
+  "roof": "none",
+  "note": "黄土路双网格瓦片，四角 NW NE SW SE = 1100；渲染格与逻辑格错开半格",
+  "name_zh": "黄土路",
+  "mask": 12
+ },
+ {
+  "id": "east-common-road-dirt-1101",
+  "style": "east",
+  "race": "common",
+  "category": "road",
+  "kind": "road_dirt",
+  "facility": null,
+  "variant": 13,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_1101"
+  ],
+  "roof": "none",
+  "note": "黄土路双网格瓦片，四角 NW NE SW SE = 1101；渲染格与逻辑格错开半格",
+  "name_zh": "黄土路",
+  "mask": 13
+ },
+ {
+  "id": "east-common-road-dirt-1110",
+  "style": "east",
+  "race": "common",
+  "category": "road",
+  "kind": "road_dirt",
+  "facility": null,
+  "variant": 14,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_1110"
+  ],
+  "roof": "none",
+  "note": "黄土路双网格瓦片，四角 NW NE SW SE = 1110；渲染格与逻辑格错开半格",
+  "name_zh": "黄土路",
+  "mask": 14
+ },
+ {
+  "id": "east-common-road-dirt-1111",
+  "style": "east",
+  "race": "common",
+  "category": "road",
+  "kind": "road_dirt",
+  "facility": null,
+  "variant": 15,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_1111"
+  ],
+  "roof": "none",
+  "note": "黄土路双网格瓦片，四角 NW NE SW SE = 1111；渲染格与逻辑格错开半格",
+  "name_zh": "黄土路",
+  "mask": 15
+ },
+ {
+  "id": "east-common-road-stone-0000",
+  "style": "east",
+  "race": "common",
+  "category": "road",
+  "kind": "road_stone",
+  "facility": null,
+  "variant": 0,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_0000",
+   "empty"
+  ],
+  "roof": "none",
+  "note": "青石板路双网格瓦片，四角 NW NE SW SE = 0000（空瓦片，透明占位）；渲染格与逻辑格错开半格",
+  "name_zh": "青石板路",
+  "mask": 0
+ },
+ {
+  "id": "east-common-road-stone-0001",
+  "style": "east",
+  "race": "common",
+  "category": "road",
+  "kind": "road_stone",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_0001"
+  ],
+  "roof": "none",
+  "note": "青石板路双网格瓦片，四角 NW NE SW SE = 0001；渲染格与逻辑格错开半格",
+  "name_zh": "青石板路",
+  "mask": 1
+ },
+ {
+  "id": "east-common-road-stone-0010",
+  "style": "east",
+  "race": "common",
+  "category": "road",
+  "kind": "road_stone",
+  "facility": null,
+  "variant": 2,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_0010"
+  ],
+  "roof": "none",
+  "note": "青石板路双网格瓦片，四角 NW NE SW SE = 0010；渲染格与逻辑格错开半格",
+  "name_zh": "青石板路",
+  "mask": 2
+ },
+ {
+  "id": "east-common-road-stone-0011",
+  "style": "east",
+  "race": "common",
+  "category": "road",
+  "kind": "road_stone",
+  "facility": null,
+  "variant": 3,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_0011"
+  ],
+  "roof": "none",
+  "note": "青石板路双网格瓦片，四角 NW NE SW SE = 0011；渲染格与逻辑格错开半格",
+  "name_zh": "青石板路",
+  "mask": 3
+ },
+ {
+  "id": "east-common-road-stone-0100",
+  "style": "east",
+  "race": "common",
+  "category": "road",
+  "kind": "road_stone",
+  "facility": null,
+  "variant": 4,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_0100"
+  ],
+  "roof": "none",
+  "note": "青石板路双网格瓦片，四角 NW NE SW SE = 0100；渲染格与逻辑格错开半格",
+  "name_zh": "青石板路",
+  "mask": 4
+ },
+ {
+  "id": "east-common-road-stone-0101",
+  "style": "east",
+  "race": "common",
+  "category": "road",
+  "kind": "road_stone",
+  "facility": null,
+  "variant": 5,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_0101"
+  ],
+  "roof": "none",
+  "note": "青石板路双网格瓦片，四角 NW NE SW SE = 0101；渲染格与逻辑格错开半格",
+  "name_zh": "青石板路",
+  "mask": 5
+ },
+ {
+  "id": "east-common-road-stone-0110",
+  "style": "east",
+  "race": "common",
+  "category": "road",
+  "kind": "road_stone",
+  "facility": null,
+  "variant": 6,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_0110"
+  ],
+  "roof": "none",
+  "note": "青石板路双网格瓦片，四角 NW NE SW SE = 0110；渲染格与逻辑格错开半格",
+  "name_zh": "青石板路",
+  "mask": 6
+ },
+ {
+  "id": "east-common-road-stone-0111",
+  "style": "east",
+  "race": "common",
+  "category": "road",
+  "kind": "road_stone",
+  "facility": null,
+  "variant": 7,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_0111"
+  ],
+  "roof": "none",
+  "note": "青石板路双网格瓦片，四角 NW NE SW SE = 0111；渲染格与逻辑格错开半格",
+  "name_zh": "青石板路",
+  "mask": 7
+ },
+ {
+  "id": "east-common-road-stone-1000",
+  "style": "east",
+  "race": "common",
+  "category": "road",
+  "kind": "road_stone",
+  "facility": null,
+  "variant": 8,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_1000"
+  ],
+  "roof": "none",
+  "note": "青石板路双网格瓦片，四角 NW NE SW SE = 1000；渲染格与逻辑格错开半格",
+  "name_zh": "青石板路",
+  "mask": 8
+ },
+ {
+  "id": "east-common-road-stone-1001",
+  "style": "east",
+  "race": "common",
+  "category": "road",
+  "kind": "road_stone",
+  "facility": null,
+  "variant": 9,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_1001"
+  ],
+  "roof": "none",
+  "note": "青石板路双网格瓦片，四角 NW NE SW SE = 1001；渲染格与逻辑格错开半格",
+  "name_zh": "青石板路",
+  "mask": 9
+ },
+ {
+  "id": "east-common-road-stone-1010",
+  "style": "east",
+  "race": "common",
+  "category": "road",
+  "kind": "road_stone",
+  "facility": null,
+  "variant": 10,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_1010"
+  ],
+  "roof": "none",
+  "note": "青石板路双网格瓦片，四角 NW NE SW SE = 1010；渲染格与逻辑格错开半格",
+  "name_zh": "青石板路",
+  "mask": 10
+ },
+ {
+  "id": "east-common-road-stone-1011",
+  "style": "east",
+  "race": "common",
+  "category": "road",
+  "kind": "road_stone",
+  "facility": null,
+  "variant": 11,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_1011"
+  ],
+  "roof": "none",
+  "note": "青石板路双网格瓦片，四角 NW NE SW SE = 1011；渲染格与逻辑格错开半格",
+  "name_zh": "青石板路",
+  "mask": 11
+ },
+ {
+  "id": "east-common-road-stone-1100",
+  "style": "east",
+  "race": "common",
+  "category": "road",
+  "kind": "road_stone",
+  "facility": null,
+  "variant": 12,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_1100"
+  ],
+  "roof": "none",
+  "note": "青石板路双网格瓦片，四角 NW NE SW SE = 1100；渲染格与逻辑格错开半格",
+  "name_zh": "青石板路",
+  "mask": 12
+ },
+ {
+  "id": "east-common-road-stone-1101",
+  "style": "east",
+  "race": "common",
+  "category": "road",
+  "kind": "road_stone",
+  "facility": null,
+  "variant": 13,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_1101"
+  ],
+  "roof": "none",
+  "note": "青石板路双网格瓦片，四角 NW NE SW SE = 1101；渲染格与逻辑格错开半格",
+  "name_zh": "青石板路",
+  "mask": 13
+ },
+ {
+  "id": "east-common-road-stone-1110",
+  "style": "east",
+  "race": "common",
+  "category": "road",
+  "kind": "road_stone",
+  "facility": null,
+  "variant": 14,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_1110"
+  ],
+  "roof": "none",
+  "note": "青石板路双网格瓦片，四角 NW NE SW SE = 1110；渲染格与逻辑格错开半格",
+  "name_zh": "青石板路",
+  "mask": 14
+ },
+ {
+  "id": "east-common-road-stone-1111",
+  "style": "east",
+  "race": "common",
+  "category": "road",
+  "kind": "road_stone",
+  "facility": null,
+  "variant": 15,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_1111"
+  ],
+  "roof": "none",
+  "note": "青石板路双网格瓦片，四角 NW NE SW SE = 1111；渲染格与逻辑格错开半格",
+  "name_zh": "青石板路",
+  "mask": 15
+ },
+ {
+  "id": "east-common-road-highway-0000",
+  "style": "east",
+  "race": "common",
+  "category": "road",
+  "kind": "road_highway",
+  "facility": null,
+  "variant": 0,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_0000",
+   "empty"
+  ],
+  "roof": "none",
+  "note": "官道双网格瓦片，四角 NW NE SW SE = 0000（空瓦片，透明占位）；渲染格与逻辑格错开半格",
+  "name_zh": "官道",
+  "mask": 0
+ },
+ {
+  "id": "east-common-road-highway-0001",
+  "style": "east",
+  "race": "common",
+  "category": "road",
+  "kind": "road_highway",
+  "facility": null,
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_0001"
+  ],
+  "roof": "none",
+  "note": "官道双网格瓦片，四角 NW NE SW SE = 0001；渲染格与逻辑格错开半格",
+  "name_zh": "官道",
+  "mask": 1
+ },
+ {
+  "id": "east-common-road-highway-0010",
+  "style": "east",
+  "race": "common",
+  "category": "road",
+  "kind": "road_highway",
+  "facility": null,
+  "variant": 2,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_0010"
+  ],
+  "roof": "none",
+  "note": "官道双网格瓦片，四角 NW NE SW SE = 0010；渲染格与逻辑格错开半格",
+  "name_zh": "官道",
+  "mask": 2
+ },
+ {
+  "id": "east-common-road-highway-0011",
+  "style": "east",
+  "race": "common",
+  "category": "road",
+  "kind": "road_highway",
+  "facility": null,
+  "variant": 3,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_0011"
+  ],
+  "roof": "none",
+  "note": "官道双网格瓦片，四角 NW NE SW SE = 0011；渲染格与逻辑格错开半格",
+  "name_zh": "官道",
+  "mask": 3
+ },
+ {
+  "id": "east-common-road-highway-0100",
+  "style": "east",
+  "race": "common",
+  "category": "road",
+  "kind": "road_highway",
+  "facility": null,
+  "variant": 4,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_0100"
+  ],
+  "roof": "none",
+  "note": "官道双网格瓦片，四角 NW NE SW SE = 0100；渲染格与逻辑格错开半格",
+  "name_zh": "官道",
+  "mask": 4
+ },
+ {
+  "id": "east-common-road-highway-0101",
+  "style": "east",
+  "race": "common",
+  "category": "road",
+  "kind": "road_highway",
+  "facility": null,
+  "variant": 5,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_0101"
+  ],
+  "roof": "none",
+  "note": "官道双网格瓦片，四角 NW NE SW SE = 0101；渲染格与逻辑格错开半格",
+  "name_zh": "官道",
+  "mask": 5
+ },
+ {
+  "id": "east-common-road-highway-0110",
+  "style": "east",
+  "race": "common",
+  "category": "road",
+  "kind": "road_highway",
+  "facility": null,
+  "variant": 6,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_0110"
+  ],
+  "roof": "none",
+  "note": "官道双网格瓦片，四角 NW NE SW SE = 0110；渲染格与逻辑格错开半格",
+  "name_zh": "官道",
+  "mask": 6
+ },
+ {
+  "id": "east-common-road-highway-0111",
+  "style": "east",
+  "race": "common",
+  "category": "road",
+  "kind": "road_highway",
+  "facility": null,
+  "variant": 7,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_0111"
+  ],
+  "roof": "none",
+  "note": "官道双网格瓦片，四角 NW NE SW SE = 0111；渲染格与逻辑格错开半格",
+  "name_zh": "官道",
+  "mask": 7
+ },
+ {
+  "id": "east-common-road-highway-1000",
+  "style": "east",
+  "race": "common",
+  "category": "road",
+  "kind": "road_highway",
+  "facility": null,
+  "variant": 8,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_1000"
+  ],
+  "roof": "none",
+  "note": "官道双网格瓦片，四角 NW NE SW SE = 1000；渲染格与逻辑格错开半格",
+  "name_zh": "官道",
+  "mask": 8
+ },
+ {
+  "id": "east-common-road-highway-1001",
+  "style": "east",
+  "race": "common",
+  "category": "road",
+  "kind": "road_highway",
+  "facility": null,
+  "variant": 9,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_1001"
+  ],
+  "roof": "none",
+  "note": "官道双网格瓦片，四角 NW NE SW SE = 1001；渲染格与逻辑格错开半格",
+  "name_zh": "官道",
+  "mask": 9
+ },
+ {
+  "id": "east-common-road-highway-1010",
+  "style": "east",
+  "race": "common",
+  "category": "road",
+  "kind": "road_highway",
+  "facility": null,
+  "variant": 10,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_1010"
+  ],
+  "roof": "none",
+  "note": "官道双网格瓦片，四角 NW NE SW SE = 1010；渲染格与逻辑格错开半格",
+  "name_zh": "官道",
+  "mask": 10
+ },
+ {
+  "id": "east-common-road-highway-1011",
+  "style": "east",
+  "race": "common",
+  "category": "road",
+  "kind": "road_highway",
+  "facility": null,
+  "variant": 11,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_1011"
+  ],
+  "roof": "none",
+  "note": "官道双网格瓦片，四角 NW NE SW SE = 1011；渲染格与逻辑格错开半格",
+  "name_zh": "官道",
+  "mask": 11
+ },
+ {
+  "id": "east-common-road-highway-1100",
+  "style": "east",
+  "race": "common",
+  "category": "road",
+  "kind": "road_highway",
+  "facility": null,
+  "variant": 12,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_1100"
+  ],
+  "roof": "none",
+  "note": "官道双网格瓦片，四角 NW NE SW SE = 1100；渲染格与逻辑格错开半格",
+  "name_zh": "官道",
+  "mask": 12
+ },
+ {
+  "id": "east-common-road-highway-1101",
+  "style": "east",
+  "race": "common",
+  "category": "road",
+  "kind": "road_highway",
+  "facility": null,
+  "variant": 13,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_1101"
+  ],
+  "roof": "none",
+  "note": "官道双网格瓦片，四角 NW NE SW SE = 1101；渲染格与逻辑格错开半格",
+  "name_zh": "官道",
+  "mask": 13
+ },
+ {
+  "id": "east-common-road-highway-1110",
+  "style": "east",
+  "race": "common",
+  "category": "road",
+  "kind": "road_highway",
+  "facility": null,
+  "variant": 14,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_1110"
+  ],
+  "roof": "none",
+  "note": "官道双网格瓦片，四角 NW NE SW SE = 1110；渲染格与逻辑格错开半格",
+  "name_zh": "官道",
+  "mask": 14
+ },
+ {
+  "id": "east-common-road-highway-1111",
+  "style": "east",
+  "race": "common",
+  "category": "road",
+  "kind": "road_highway",
+  "facility": null,
+  "variant": 15,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 0,
+  "anchor": [
+   24,
+   48
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   48
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_1111"
+  ],
+  "roof": "none",
+  "note": "官道双网格瓦片，四角 NW NE SW SE = 1111；渲染格与逻辑格错开半格",
+  "name_zh": "官道",
+  "mask": 15
+ },
+ {
+  "id": "east-common-wall-0000",
+  "style": "east",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_city",
+  "facility": "city_wall",
+  "variant": 0,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 30,
+  "anchor": [
+   24,
+   78
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   78
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_0000",
+   "crenellated",
+   "brick_faced",
+   "empty"
+  ],
+  "roof": "none",
+  "note": "夯土包砖城墙双网格瓦片，NW NE SW SE = 0000；墙体比逻辑格四边各收 6 px，墙高 26，南沿与东西沿是垛口（灰瓦压顶、开望孔），北沿是女墙；空瓦片，透明占位",
+  "name_zh": "城墙",
+  "mask": 0
+ },
+ {
+  "id": "east-common-wall-0001",
+  "style": "east",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_city",
+  "facility": "city_wall",
+  "variant": 1,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 30,
+  "anchor": [
+   24,
+   78
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   78
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_0001",
+   "crenellated",
+   "brick_faced"
+  ],
+  "roof": "none",
+  "note": "夯土包砖城墙双网格瓦片，NW NE SW SE = 0001；墙体比逻辑格四边各收 6 px，墙高 26，南沿与东西沿是垛口（灰瓦压顶、开望孔），北沿是女墙",
+  "name_zh": "城墙",
+  "mask": 1
+ },
+ {
+  "id": "east-common-wall-0010",
+  "style": "east",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_city",
+  "facility": "city_wall",
+  "variant": 2,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 30,
+  "anchor": [
+   24,
+   78
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   78
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_0010",
+   "crenellated",
+   "brick_faced"
+  ],
+  "roof": "none",
+  "note": "夯土包砖城墙双网格瓦片，NW NE SW SE = 0010；墙体比逻辑格四边各收 6 px，墙高 26，南沿与东西沿是垛口（灰瓦压顶、开望孔），北沿是女墙",
+  "name_zh": "城墙",
+  "mask": 2
+ },
+ {
+  "id": "east-common-wall-0011",
+  "style": "east",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_city",
+  "facility": "city_wall",
+  "variant": 3,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 30,
+  "anchor": [
+   24,
+   78
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   78
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_0011",
+   "crenellated",
+   "brick_faced"
+  ],
+  "roof": "none",
+  "note": "夯土包砖城墙双网格瓦片，NW NE SW SE = 0011；墙体比逻辑格四边各收 6 px，墙高 26，南沿与东西沿是垛口（灰瓦压顶、开望孔），北沿是女墙",
+  "name_zh": "城墙",
+  "mask": 3
+ },
+ {
+  "id": "east-common-wall-0100",
+  "style": "east",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_city",
+  "facility": "city_wall",
+  "variant": 4,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 30,
+  "anchor": [
+   24,
+   78
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   78
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_0100",
+   "crenellated",
+   "brick_faced"
+  ],
+  "roof": "none",
+  "note": "夯土包砖城墙双网格瓦片，NW NE SW SE = 0100；墙体比逻辑格四边各收 6 px，墙高 26，南沿与东西沿是垛口（灰瓦压顶、开望孔），北沿是女墙",
+  "name_zh": "城墙",
+  "mask": 4
+ },
+ {
+  "id": "east-common-wall-0101",
+  "style": "east",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_city",
+  "facility": "city_wall",
+  "variant": 5,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 30,
+  "anchor": [
+   24,
+   78
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   78
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_0101",
+   "crenellated",
+   "brick_faced"
+  ],
+  "roof": "none",
+  "note": "夯土包砖城墙双网格瓦片，NW NE SW SE = 0101；墙体比逻辑格四边各收 6 px，墙高 26，南沿与东西沿是垛口（灰瓦压顶、开望孔），北沿是女墙",
+  "name_zh": "城墙",
+  "mask": 5
+ },
+ {
+  "id": "east-common-wall-0110",
+  "style": "east",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_city",
+  "facility": "city_wall",
+  "variant": 6,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 30,
+  "anchor": [
+   24,
+   78
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   78
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_0110",
+   "crenellated",
+   "brick_faced"
+  ],
+  "roof": "none",
+  "note": "夯土包砖城墙双网格瓦片，NW NE SW SE = 0110；墙体比逻辑格四边各收 6 px，墙高 26，南沿与东西沿是垛口（灰瓦压顶、开望孔），北沿是女墙",
+  "name_zh": "城墙",
+  "mask": 6
+ },
+ {
+  "id": "east-common-wall-0111",
+  "style": "east",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_city",
+  "facility": "city_wall",
+  "variant": 7,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 30,
+  "anchor": [
+   24,
+   78
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   78
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_0111",
+   "crenellated",
+   "brick_faced"
+  ],
+  "roof": "none",
+  "note": "夯土包砖城墙双网格瓦片，NW NE SW SE = 0111；墙体比逻辑格四边各收 6 px，墙高 26，南沿与东西沿是垛口（灰瓦压顶、开望孔），北沿是女墙",
+  "name_zh": "城墙",
+  "mask": 7
+ },
+ {
+  "id": "east-common-wall-1000",
+  "style": "east",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_city",
+  "facility": "city_wall",
+  "variant": 8,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 30,
+  "anchor": [
+   24,
+   78
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   78
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_1000",
+   "crenellated",
+   "brick_faced"
+  ],
+  "roof": "none",
+  "note": "夯土包砖城墙双网格瓦片，NW NE SW SE = 1000；墙体比逻辑格四边各收 6 px，墙高 26，南沿与东西沿是垛口（灰瓦压顶、开望孔），北沿是女墙",
+  "name_zh": "城墙",
+  "mask": 8
+ },
+ {
+  "id": "east-common-wall-1001",
+  "style": "east",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_city",
+  "facility": "city_wall",
+  "variant": 9,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 30,
+  "anchor": [
+   24,
+   78
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   78
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_1001",
+   "crenellated",
+   "brick_faced"
+  ],
+  "roof": "none",
+  "note": "夯土包砖城墙双网格瓦片，NW NE SW SE = 1001；墙体比逻辑格四边各收 6 px，墙高 26，南沿与东西沿是垛口（灰瓦压顶、开望孔），北沿是女墙",
+  "name_zh": "城墙",
+  "mask": 9
+ },
+ {
+  "id": "east-common-wall-1010",
+  "style": "east",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_city",
+  "facility": "city_wall",
+  "variant": 10,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 30,
+  "anchor": [
+   24,
+   78
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   78
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_1010",
+   "crenellated",
+   "brick_faced"
+  ],
+  "roof": "none",
+  "note": "夯土包砖城墙双网格瓦片，NW NE SW SE = 1010；墙体比逻辑格四边各收 6 px，墙高 26，南沿与东西沿是垛口（灰瓦压顶、开望孔），北沿是女墙",
+  "name_zh": "城墙",
+  "mask": 10
+ },
+ {
+  "id": "east-common-wall-1011",
+  "style": "east",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_city",
+  "facility": "city_wall",
+  "variant": 11,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 30,
+  "anchor": [
+   24,
+   78
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   78
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_1011",
+   "crenellated",
+   "brick_faced"
+  ],
+  "roof": "none",
+  "note": "夯土包砖城墙双网格瓦片，NW NE SW SE = 1011；墙体比逻辑格四边各收 6 px，墙高 26，南沿与东西沿是垛口（灰瓦压顶、开望孔），北沿是女墙",
+  "name_zh": "城墙",
+  "mask": 11
+ },
+ {
+  "id": "east-common-wall-1100",
+  "style": "east",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_city",
+  "facility": "city_wall",
+  "variant": 12,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 30,
+  "anchor": [
+   24,
+   78
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   78
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_1100",
+   "crenellated",
+   "brick_faced"
+  ],
+  "roof": "none",
+  "note": "夯土包砖城墙双网格瓦片，NW NE SW SE = 1100；墙体比逻辑格四边各收 6 px，墙高 26，南沿与东西沿是垛口（灰瓦压顶、开望孔），北沿是女墙",
+  "name_zh": "城墙",
+  "mask": 12
+ },
+ {
+  "id": "east-common-wall-1101",
+  "style": "east",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_city",
+  "facility": "city_wall",
+  "variant": 13,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 30,
+  "anchor": [
+   24,
+   78
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   78
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_1101",
+   "crenellated",
+   "brick_faced"
+  ],
+  "roof": "none",
+  "note": "夯土包砖城墙双网格瓦片，NW NE SW SE = 1101；墙体比逻辑格四边各收 6 px，墙高 26，南沿与东西沿是垛口（灰瓦压顶、开望孔），北沿是女墙",
+  "name_zh": "城墙",
+  "mask": 13
+ },
+ {
+  "id": "east-common-wall-1110",
+  "style": "east",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_city",
+  "facility": "city_wall",
+  "variant": 14,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 30,
+  "anchor": [
+   24,
+   78
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   78
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_1110",
+   "crenellated",
+   "brick_faced"
+  ],
+  "roof": "none",
+  "note": "夯土包砖城墙双网格瓦片，NW NE SW SE = 1110；墙体比逻辑格四边各收 6 px，墙高 26，南沿与东西沿是垛口（灰瓦压顶、开望孔），北沿是女墙",
+  "name_zh": "城墙",
+  "mask": 14
+ },
+ {
+  "id": "east-common-wall-1111",
+  "style": "east",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_city",
+  "facility": "city_wall",
+  "variant": 15,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 30,
+  "anchor": [
+   24,
+   78
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   78
+  ],
+  "tags": [
+   "dual_grid",
+   "mask_1111",
+   "crenellated",
+   "brick_faced"
+  ],
+  "roof": "none",
+  "note": "夯土包砖城墙双网格瓦片，NW NE SW SE = 1111；墙体比逻辑格四边各收 6 px，墙高 26，南沿与东西沿是垛口（灰瓦压顶、开望孔），北沿是女墙",
+  "name_zh": "城墙",
+  "mask": 15
+ },
+ {
+  "id": "east-common-wall-gate-h",
+  "style": "east",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_gate_h",
+  "facility": "gate",
+  "variant": 1,
+  "footprint": [
+   3,
+   1
+  ],
+  "height_px": 56,
+  "anchor": [
+   72,
+   104
+  ],
+  "viewBox": [
+   0,
+   0,
+   144,
+   104
+  ],
+  "tags": [
+   "overlay",
+   "logical_cell",
+   "gatehouse",
+   "double_eave",
+   "arch_gate"
+  ],
+  "roof": "hip_tile",
+  "note": "东西向墙段城门楼，占 3 个逻辑格、门洞在中间格；锚点 = 中间格前沿中点。重檐歇山（RoofId 无歇山，取 hip_tile）。叠加件画在城墙瓦片之后",
+  "name_zh": "城门楼（东西向墙）"
+ },
+ {
+  "id": "east-common-wall-gate-v",
+  "style": "east",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_gate_v",
+  "facility": "gate",
+  "variant": 2,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 49,
+  "anchor": [
+   24,
+   97
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   97
+  ],
+  "tags": [
+   "overlay",
+   "logical_cell",
+   "gatehouse",
+   "double_eave"
+  ],
+  "roof": "gable_tile",
+  "note": "南北向墙段城门楼，锚点 = 门洞所在逻辑格前沿中点；城楼向北伸出约 1 格（画在上伸区）。门洞东西向穿墙，斜俯视下侧面不可见；上层悬山（gable_tile）",
+  "name_zh": "城门楼（南北向墙）"
+ },
+ {
+  "id": "east-common-wall-tower",
+  "style": "east",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_tower",
+  "facility": "watchtower",
+  "variant": 3,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 50,
+  "anchor": [
+   24,
+   98
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   98
+  ],
+  "tags": [
+   "overlay",
+   "logical_cell",
+   "corner_tower",
+   "double_eave",
+   "pyramid_roof"
+  ],
+  "roof": "hip_tile",
+  "note": "角楼：包砖方墩台 + 两层楼阁，重檐攒尖（RoofId 无攒尖，取 hip_tile）；放在城墙拐角或端点的逻辑格上",
+  "name_zh": "角楼（攒尖）"
+ },
+ {
+  "id": "east-common-wall-tower-xieshan",
+  "style": "east",
+  "race": "common",
+  "category": "wall",
+  "kind": "wall_tower",
+  "facility": "watchtower",
+  "variant": 4,
+  "footprint": [
+   1,
+   1
+  ],
+  "height_px": 49,
+  "anchor": [
+   24,
+   97
+  ],
+  "viewBox": [
+   0,
+   0,
+   48,
+   97
+  ],
+  "tags": [
+   "overlay",
+   "logical_cell",
+   "corner_tower",
+   "double_eave"
+  ],
+  "roof": "hip_tile",
+  "note": "角楼变体：藏青瓦重檐歇山（取 hip_tile）",
+  "name_zh": "角楼（歇山）"
+ }
+]

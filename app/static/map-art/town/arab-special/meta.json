@@ -1,0 +1,1308 @@
+[
+  {
+    "id": "arab-common-mosque-01",
+    "name": "清真寺（绿松石穹顶）",
+    "style": "arab",
+    "race": "common",
+    "category": "special",
+    "kind": "mosque",
+    "facility": "temple",
+    "variant": 1,
+    "footprint": [
+      4,
+      3
+    ],
+    "height_px": 140,
+    "anchor": [
+      96,
+      284
+    ],
+    "viewBox": [
+      0,
+      0,
+      192,
+      284
+    ],
+    "tags": [
+      "dome",
+      "minaret",
+      "courtyard",
+      "ablution_pool"
+    ],
+    "roof": "flat_mud",
+    "note": "穹顶无对应 RoofId，按平顶 flat_mud 记"
+  },
+  {
+    "id": "arab-common-mosque-02",
+    "name": "清真寺（双塔钴蓝穹顶）",
+    "style": "arab",
+    "race": "common",
+    "category": "special",
+    "kind": "mosque",
+    "facility": "temple",
+    "variant": 2,
+    "footprint": [
+      4,
+      3
+    ],
+    "height_px": 140,
+    "anchor": [
+      96,
+      284
+    ],
+    "viewBox": [
+      0,
+      0,
+      192,
+      284
+    ],
+    "tags": [
+      "dome",
+      "minaret",
+      "twin_minaret",
+      "courtyard",
+      "ablution_pool"
+    ],
+    "roof": "flat_mud",
+    "note": "穹顶无对应 RoofId，按平顶 flat_mud 记；方形马格里布式宣礼塔"
+  },
+  {
+    "id": "arab-common-minaret-01",
+    "name": "宣礼塔（单塔）",
+    "style": "arab",
+    "race": "common",
+    "category": "special",
+    "kind": "minaret",
+    "facility": "temple",
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 144,
+    "anchor": [
+      24,
+      192
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      192
+    ],
+    "tags": [
+      "minaret",
+      "tower"
+    ],
+    "roof": "none",
+    "note": "独立宣礼塔，可配小礼拜点"
+  },
+  {
+    "id": "arab-common-bazaar-01",
+    "name": "巴扎（拱顶长廊）",
+    "style": "arab",
+    "race": "common",
+    "category": "special",
+    "kind": "bazaar",
+    "facility": "market_hall",
+    "variant": 1,
+    "footprint": [
+      4,
+      2
+    ],
+    "height_px": 80,
+    "anchor": [
+      96,
+      176
+    ],
+    "viewBox": [
+      0,
+      0,
+      192,
+      176
+    ],
+    "tags": [
+      "covered",
+      "vaulted",
+      "skylight",
+      "shops"
+    ],
+    "roof": "flat_mud",
+    "note": "砖拱顶屋面，按 flat_mud 记"
+  },
+  {
+    "id": "arab-common-bazaar-02",
+    "name": "巴扎（筒拱有顶街）",
+    "style": "arab",
+    "race": "common",
+    "category": "special",
+    "kind": "bazaar",
+    "facility": "market_hall",
+    "variant": 2,
+    "footprint": [
+      3,
+      2
+    ],
+    "height_px": 76,
+    "anchor": [
+      72,
+      172
+    ],
+    "viewBox": [
+      0,
+      0,
+      144,
+      172
+    ],
+    "tags": [
+      "covered",
+      "barrel_vault",
+      "skylight",
+      "shops",
+      "windtower"
+    ],
+    "roof": "flat_mud",
+    "note": "筒拱屋面，按 flat_mud 记"
+  },
+  {
+    "id": "arab-common-stall-spice-01",
+    "name": "香料摊",
+    "style": "arab",
+    "race": "common",
+    "category": "prop",
+    "kind": "stall_spice",
+    "facility": "market_hall",
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 40,
+    "anchor": [
+      24,
+      88
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      88
+    ],
+    "tags": [
+      "open_air",
+      "stall",
+      "spice"
+    ],
+    "roof": "none",
+    "note": "露天集市摊位（规范第 5 节：facility=market_hall + open_air）"
+  },
+  {
+    "id": "arab-common-stall-rug-01",
+    "name": "地毯摊",
+    "style": "arab",
+    "race": "common",
+    "category": "prop",
+    "kind": "stall_rug",
+    "facility": "market_hall",
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 40,
+    "anchor": [
+      24,
+      88
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      88
+    ],
+    "tags": [
+      "open_air",
+      "stall",
+      "carpet"
+    ],
+    "roof": "none",
+    "note": "露天集市摊位（规范第 5 节：facility=market_hall + open_air）"
+  },
+  {
+    "id": "arab-common-stall-pottery-01",
+    "name": "陶器摊",
+    "style": "arab",
+    "race": "common",
+    "category": "prop",
+    "kind": "stall_pottery",
+    "facility": "market_hall",
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 40,
+    "anchor": [
+      24,
+      88
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      88
+    ],
+    "tags": [
+      "open_air",
+      "stall",
+      "pottery"
+    ],
+    "roof": "none",
+    "note": "露天集市摊位（规范第 5 节：facility=market_hall + open_air）"
+  },
+  {
+    "id": "arab-common-stall-lamp-01",
+    "name": "铜灯摊",
+    "style": "arab",
+    "race": "common",
+    "category": "prop",
+    "kind": "stall_lamp",
+    "facility": "market_hall",
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 40,
+    "anchor": [
+      24,
+      88
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      88
+    ],
+    "tags": [
+      "open_air",
+      "stall",
+      "brass",
+      "lamp"
+    ],
+    "roof": "none",
+    "note": "露天集市摊位（规范第 5 节：facility=market_hall + open_air）"
+  },
+  {
+    "id": "arab-common-caravanserai-01",
+    "name": "商队客栈（方院门楼）",
+    "style": "arab",
+    "race": "common",
+    "category": "special",
+    "kind": "caravanserai",
+    "facility": "caravanserai",
+    "variant": 1,
+    "footprint": [
+      4,
+      3
+    ],
+    "height_px": 96,
+    "anchor": [
+      96,
+      240
+    ],
+    "viewBox": [
+      0,
+      0,
+      192,
+      240
+    ],
+    "tags": [
+      "courtyard",
+      "two_storey_arcade",
+      "gatehouse",
+      "crenellated"
+    ],
+    "roof": "flat_mud"
+  },
+  {
+    "id": "arab-common-inn-01",
+    "name": "旅舍茶馆（木格窗二层）",
+    "style": "arab",
+    "race": "common",
+    "category": "special",
+    "kind": "inn_teahouse",
+    "facility": "inn",
+    "variant": 1,
+    "footprint": [
+      3,
+      2
+    ],
+    "height_px": 92,
+    "anchor": [
+      72,
+      188
+    ],
+    "viewBox": [
+      0,
+      0,
+      144,
+      188
+    ],
+    "tags": [
+      "two_storey",
+      "mashrabiya",
+      "teahouse",
+      "roof_terrace",
+      "windtower"
+    ],
+    "roof": "flat_mud"
+  },
+  {
+    "id": "arab-common-townhall-01",
+    "name": "行政厅（迪万）",
+    "style": "arab",
+    "race": "common",
+    "category": "special",
+    "kind": "diwan",
+    "facility": "town_hall",
+    "variant": 1,
+    "footprint": [
+      3,
+      2
+    ],
+    "height_px": 92,
+    "anchor": [
+      72,
+      188
+    ],
+    "viewBox": [
+      0,
+      0,
+      144,
+      188
+    ],
+    "tags": [
+      "two_storey",
+      "mashrabiya",
+      "arcade",
+      "flag"
+    ],
+    "roof": "flat_mud"
+  },
+  {
+    "id": "arab-common-palace-01",
+    "name": "宫殿（总督府）",
+    "style": "arab",
+    "race": "common",
+    "category": "special",
+    "kind": "palace",
+    "facility": "lord_hall",
+    "variant": 1,
+    "footprint": [
+      4,
+      3
+    ],
+    "height_px": 124,
+    "anchor": [
+      96,
+      268
+    ],
+    "viewBox": [
+      0,
+      0,
+      192,
+      268
+    ],
+    "tags": [
+      "dome",
+      "iwan",
+      "towers",
+      "mashrabiya",
+      "garden_front",
+      "crenellated"
+    ],
+    "roof": "flat_mud",
+    "note": "穹顶无对应 RoofId，按 flat_mud 记"
+  },
+  {
+    "id": "arab-common-madrasa-01",
+    "name": "学院（四伊旺经学院）",
+    "style": "arab",
+    "race": "common",
+    "category": "special",
+    "kind": "madrasa",
+    "facility": "academy",
+    "variant": 1,
+    "footprint": [
+      3,
+      3
+    ],
+    "height_px": 112,
+    "anchor": [
+      72,
+      256
+    ],
+    "viewBox": [
+      0,
+      0,
+      144,
+      256
+    ],
+    "tags": [
+      "courtyard",
+      "four_iwan",
+      "twin_minaret_portal",
+      "dome"
+    ],
+    "roof": "flat_mud"
+  },
+  {
+    "id": "arab-common-bimaristan-01",
+    "name": "医院（比马里斯坦）",
+    "style": "arab",
+    "race": "common",
+    "category": "special",
+    "kind": "bimaristan",
+    "facility": "infirmary",
+    "variant": 1,
+    "footprint": [
+      3,
+      2
+    ],
+    "height_px": 84,
+    "anchor": [
+      72,
+      180
+    ],
+    "viewBox": [
+      0,
+      0,
+      144,
+      180
+    ],
+    "tags": [
+      "courtyard",
+      "dome",
+      "herb_garden",
+      "arcade"
+    ],
+    "roof": "flat_mud"
+  },
+  {
+    "id": "arab-common-hammam-01",
+    "name": "公共浴室（哈曼）",
+    "style": "arab",
+    "race": "common",
+    "category": "special",
+    "kind": "hammam",
+    "facility": "cistern",
+    "variant": 1,
+    "footprint": [
+      3,
+      2
+    ],
+    "height_px": 70,
+    "anchor": [
+      72,
+      166
+    ],
+    "viewBox": [
+      0,
+      0,
+      144,
+      166
+    ],
+    "tags": [
+      "bathhouse",
+      "multi_dome",
+      "star_skylight",
+      "boiler"
+    ],
+    "roof": "flat_mud",
+    "note": "FacilityKind 无浴室，按用水设施 cistern 记；穹顶屋面按 flat_mud 记"
+  },
+  {
+    "id": "arab-common-abanbar-01",
+    "name": "蓄水池（阿布安巴，穹顶风塔）",
+    "style": "arab",
+    "race": "common",
+    "category": "special",
+    "kind": "ab_anbar",
+    "facility": "cistern",
+    "variant": 1,
+    "footprint": [
+      2,
+      2
+    ],
+    "height_px": 104,
+    "anchor": [
+      48,
+      200
+    ],
+    "viewBox": [
+      0,
+      0,
+      96,
+      200
+    ],
+    "tags": [
+      "dome",
+      "windtower",
+      "underground_tank",
+      "stair_portal"
+    ],
+    "roof": "flat_mud",
+    "note": "地下蓄水池，地面上只露穹顶与风塔"
+  },
+  {
+    "id": "arab-common-well-01",
+    "name": "水井与井亭（萨比尔）",
+    "style": "arab",
+    "race": "common",
+    "category": "special",
+    "kind": "well_kiosk",
+    "facility": "well",
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 52,
+    "anchor": [
+      24,
+      100
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      100
+    ],
+    "tags": [
+      "well",
+      "kiosk",
+      "dome",
+      "public_water"
+    ],
+    "roof": "none",
+    "note": "四柱小穹顶井亭；roof 按 none 记"
+  },
+  {
+    "id": "arab-common-forge-01",
+    "name": "铁匠铺",
+    "style": "arab",
+    "race": "common",
+    "category": "special",
+    "kind": "smithy",
+    "facility": "forge",
+    "variant": 1,
+    "footprint": [
+      2,
+      2
+    ],
+    "height_px": 60,
+    "anchor": [
+      48,
+      156
+    ],
+    "viewBox": [
+      0,
+      0,
+      96,
+      156
+    ],
+    "tags": [
+      "open_front",
+      "chimney",
+      "anvil"
+    ],
+    "roof": "flat_mud"
+  },
+  {
+    "id": "arab-common-smelter-01",
+    "name": "冶炼炉（土竖炉）",
+    "style": "arab",
+    "race": "common",
+    "category": "special",
+    "kind": "shaft_furnace",
+    "facility": "smelter",
+    "variant": 1,
+    "footprint": [
+      2,
+      2
+    ],
+    "height_px": 96,
+    "anchor": [
+      48,
+      192
+    ],
+    "viewBox": [
+      0,
+      0,
+      96,
+      192
+    ],
+    "tags": [
+      "furnace",
+      "bellows",
+      "slag"
+    ],
+    "roof": "none"
+  },
+  {
+    "id": "arab-common-kiln-01",
+    "name": "陶窑（蜂窝窑）",
+    "style": "arab",
+    "race": "common",
+    "category": "special",
+    "kind": "pottery_kiln",
+    "facility": "kiln",
+    "variant": 1,
+    "footprint": [
+      2,
+      2
+    ],
+    "height_px": 58,
+    "anchor": [
+      48,
+      154
+    ],
+    "viewBox": [
+      0,
+      0,
+      96,
+      154
+    ],
+    "tags": [
+      "beehive_kiln",
+      "pottery",
+      "drying_rack"
+    ],
+    "roof": "none",
+    "note": "穹形窑体，无屋面，roof=none"
+  },
+  {
+    "id": "arab-common-tannery-01",
+    "name": "制革染坊（彩色染池）",
+    "style": "arab",
+    "race": "common",
+    "category": "special",
+    "kind": "tannery_dyeworks",
+    "facility": "tannery",
+    "variant": 1,
+    "footprint": [
+      3,
+      2
+    ],
+    "height_px": 52,
+    "anchor": [
+      72,
+      148
+    ],
+    "viewBox": [
+      0,
+      0,
+      144,
+      148
+    ],
+    "tags": [
+      "dye_vats",
+      "open_air",
+      "drying_hides"
+    ],
+    "roof": "flat_mud"
+  },
+  {
+    "id": "arab-common-granary-01",
+    "name": "粮仓（筑垒粮仓 agadir）",
+    "style": "arab",
+    "race": "common",
+    "category": "special",
+    "kind": "fortified_granary",
+    "facility": "granary",
+    "variant": 1,
+    "footprint": [
+      2,
+      2
+    ],
+    "height_px": 90,
+    "anchor": [
+      48,
+      186
+    ],
+    "viewBox": [
+      0,
+      0,
+      96,
+      186
+    ],
+    "tags": [
+      "fortified",
+      "cells",
+      "crenellated"
+    ],
+    "roof": "flat_mud"
+  },
+  {
+    "id": "arab-common-stable-01",
+    "name": "马厩骆驼栏",
+    "style": "arab",
+    "race": "common",
+    "category": "special",
+    "kind": "stable_camel",
+    "facility": "stable",
+    "variant": 1,
+    "footprint": [
+      3,
+      2
+    ],
+    "height_px": 44,
+    "anchor": [
+      72,
+      140
+    ],
+    "viewBox": [
+      0,
+      0,
+      144,
+      140
+    ],
+    "tags": [
+      "open_shed",
+      "trough",
+      "fenced_yard"
+    ],
+    "roof": "flat_mud",
+    "note": "只画饲槽与草料，未画骆驼（骆驼摆件属 arab-base）"
+  },
+  {
+    "id": "arab-common-barracks-01",
+    "name": "兵营（里巴特式营房）",
+    "style": "arab",
+    "race": "common",
+    "category": "special",
+    "kind": "barracks",
+    "facility": "barracks",
+    "variant": 1,
+    "footprint": [
+      3,
+      2
+    ],
+    "height_px": 70,
+    "anchor": [
+      72,
+      166
+    ],
+    "viewBox": [
+      0,
+      0,
+      144,
+      166
+    ],
+    "tags": [
+      "crenellated",
+      "corner_towers",
+      "arrow_slits",
+      "weapon_rack"
+    ],
+    "roof": "flat_mud"
+  },
+  {
+    "id": "arab-common-watchtower-01",
+    "name": "瞭望塔（夯土方塔）",
+    "style": "arab",
+    "race": "common",
+    "category": "special",
+    "kind": "watchtower",
+    "facility": "watchtower",
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 120,
+    "anchor": [
+      24,
+      168
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      168
+    ],
+    "tags": [
+      "tower",
+      "crenellated",
+      "machicolation"
+    ],
+    "roof": "flat_mud"
+  },
+  {
+    "id": "arab-common-warehouse-01",
+    "name": "货栈（瓦卡拉仓房）",
+    "style": "arab",
+    "race": "common",
+    "category": "special",
+    "kind": "wakala_storehouse",
+    "facility": "warehouse",
+    "variant": 1,
+    "footprint": [
+      3,
+      2
+    ],
+    "height_px": 66,
+    "anchor": [
+      72,
+      162
+    ],
+    "viewBox": [
+      0,
+      0,
+      144,
+      162
+    ],
+    "tags": [
+      "storage",
+      "loading_door",
+      "bales",
+      "mashrabiya"
+    ],
+    "roof": "flat_mud"
+  },
+  {
+    "id": "arab-common-noria-01",
+    "name": "水车（诺里亚大木轮）",
+    "style": "arab",
+    "race": "common",
+    "category": "special",
+    "kind": "noria",
+    "facility": "mill",
+    "variant": 1,
+    "footprint": [
+      3,
+      2
+    ],
+    "height_px": 96,
+    "anchor": [
+      72,
+      192
+    ],
+    "viewBox": [
+      0,
+      0,
+      144,
+      192
+    ],
+    "tags": [
+      "water_wheel",
+      "aqueduct",
+      "river"
+    ],
+    "roof": "none",
+    "note": "提水水车，归 mill；需临河放置，水面为示意"
+  },
+  {
+    "id": "arab-common-windmill-01",
+    "name": "风磨（波斯立轴风车）",
+    "style": "arab",
+    "race": "common",
+    "category": "special",
+    "kind": "asbad_windmill",
+    "facility": "mill",
+    "variant": 1,
+    "footprint": [
+      2,
+      2
+    ],
+    "height_px": 92,
+    "anchor": [
+      48,
+      188
+    ],
+    "viewBox": [
+      0,
+      0,
+      96,
+      188
+    ],
+    "tags": [
+      "windmill",
+      "vertical_axis",
+      "reed_sails"
+    ],
+    "roof": "flat_mud",
+    "note": "立轴风车（asbad），风帆在两道高墙间，归 mill"
+  },
+  {
+    "id": "arab-common-dock-01",
+    "name": "码头（三角帆船 dhow）",
+    "style": "arab",
+    "race": "common",
+    "category": "special",
+    "kind": "dhow_dock",
+    "facility": "dock",
+    "variant": 1,
+    "footprint": [
+      3,
+      3
+    ],
+    "height_px": 70,
+    "anchor": [
+      72,
+      214
+    ],
+    "viewBox": [
+      0,
+      0,
+      144,
+      214
+    ],
+    "tags": [
+      "harbor",
+      "dhow",
+      "lateen_sail",
+      "jetty"
+    ],
+    "roof": "none",
+    "note": "前两排为水面示意，后排为石砌码头"
+  },
+  {
+    "id": "arab-common-cemetery-01",
+    "name": "墓园（圣墓与墓碑）",
+    "style": "arab",
+    "race": "common",
+    "category": "special",
+    "kind": "cemetery_qubba",
+    "facility": "cemetery",
+    "variant": 1,
+    "footprint": [
+      3,
+      2
+    ],
+    "height_px": 62,
+    "anchor": [
+      72,
+      158
+    ],
+    "viewBox": [
+      0,
+      0,
+      144,
+      158
+    ],
+    "tags": [
+      "tombs",
+      "qubba",
+      "low_wall",
+      "cypress"
+    ],
+    "roof": "none",
+    "note": "院墙低矮；圣墓小穹（qubba）"
+  },
+  {
+    "id": "arab-common-bridge-01",
+    "name": "石桥（尖拱桥）",
+    "style": "arab",
+    "race": "common",
+    "category": "special",
+    "kind": "pointed_arch_bridge",
+    "facility": "bridge",
+    "variant": 1,
+    "footprint": [
+      4,
+      2
+    ],
+    "height_px": 30,
+    "anchor": [
+      96,
+      126
+    ],
+    "viewBox": [
+      0,
+      0,
+      192,
+      126
+    ],
+    "tags": [
+      "stone",
+      "pointed_arch",
+      "river"
+    ],
+    "roof": "none",
+    "note": "东西向跨河；水面为示意"
+  },
+  {
+    "id": "arab-common-minehead-01",
+    "name": "矿井口（滑轮绞架）",
+    "style": "arab",
+    "race": "common",
+    "category": "special",
+    "kind": "mine_shaft",
+    "facility": "mine_head",
+    "variant": 1,
+    "footprint": [
+      2,
+      2
+    ],
+    "height_px": 66,
+    "anchor": [
+      48,
+      162
+    ],
+    "viewBox": [
+      0,
+      0,
+      96,
+      162
+    ],
+    "tags": [
+      "shaft",
+      "windlass",
+      "ore_baskets"
+    ],
+    "roof": "none"
+  },
+  {
+    "id": "arab-common-boilerhouse-01",
+    "name": "锅炉房（浴室火房）",
+    "style": "arab",
+    "race": "common",
+    "category": "special",
+    "kind": "furnace_house",
+    "facility": "boiler_house",
+    "variant": 1,
+    "footprint": [
+      2,
+      2
+    ],
+    "height_px": 92,
+    "anchor": [
+      48,
+      188
+    ],
+    "viewBox": [
+      0,
+      0,
+      96,
+      188
+    ],
+    "tags": [
+      "chimney",
+      "fuel_stack",
+      "furnace"
+    ],
+    "roof": "flat_mud",
+    "note": "借浴室火房（gulkhan）形制"
+  },
+  {
+    "id": "arab-common-wardtower-01",
+    "name": "结界塔（星形瓷砖塔）",
+    "style": "arab",
+    "race": "common",
+    "category": "special",
+    "kind": "star_tile_tower",
+    "facility": "ward_tower",
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 136,
+    "anchor": [
+      24,
+      184
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      184
+    ],
+    "tags": [
+      "tower",
+      "star_tiles",
+      "arcane",
+      "lantern"
+    ],
+    "roof": "none",
+    "note": "奇幻设施：塔身满铺八角星瓷砖，顶端金灯"
+  },
+  {
+    "id": "arab-common-landmark-greatmosque-01",
+    "name": "大清真寺（四塔大穹顶）",
+    "style": "arab",
+    "race": "common",
+    "category": "landmark",
+    "kind": "great_mosque",
+    "facility": "temple",
+    "variant": 1,
+    "footprint": [
+      6,
+      5
+    ],
+    "height_px": 236,
+    "anchor": [
+      144,
+      476
+    ],
+    "viewBox": [
+      0,
+      0,
+      288,
+      476
+    ],
+    "tags": [
+      "dome",
+      "four_minarets",
+      "grand_courtyard",
+      "iwan",
+      "ablution_pool"
+    ],
+    "roof": "flat_mud",
+    "culture": "islamic",
+    "note": "穹顶无对应 RoofId，按 flat_mud 记"
+  },
+  {
+    "id": "arab-common-landmark-charbagh-01",
+    "name": "宫殿园林（四分园）",
+    "style": "arab",
+    "race": "common",
+    "category": "landmark",
+    "kind": "palace_garden",
+    "facility": "lord_hall",
+    "variant": 1,
+    "footprint": [
+      6,
+      5
+    ],
+    "height_px": 150,
+    "anchor": [
+      144,
+      390
+    ],
+    "viewBox": [
+      0,
+      0,
+      288,
+      390
+    ],
+    "tags": [
+      "charbagh",
+      "water_channels",
+      "pavilion",
+      "arcade",
+      "cypress",
+      "fountain"
+    ],
+    "roof": "flat_mud",
+    "culture": "persian",
+    "note": "波斯 / 安达卢斯四分园：十字水渠分四块花圃；后殿伊旺 + 穹顶亭，归 lord_hall"
+  },
+  {
+    "id": "arab-common-landmark-kasbah-01",
+    "name": "卡斯巴卫城（层叠夯土塔堡）",
+    "style": "arab",
+    "race": "common",
+    "category": "landmark",
+    "kind": "kasbah",
+    "facility": "barracks",
+    "variant": 1,
+    "footprint": [
+      5,
+      5
+    ],
+    "height_px": 210,
+    "anchor": [
+      120,
+      450
+    ],
+    "viewBox": [
+      0,
+      0,
+      240,
+      450
+    ],
+    "tags": [
+      "citadel",
+      "tapered_towers",
+      "crenellated",
+      "rammed_earth",
+      "gatehouse"
+    ],
+    "roof": "flat_mud",
+    "culture": "maghrebi",
+    "note": "马格里布夯土卫城；驻军与治所合一，facility 取 barracks"
+  },
+  {
+    "id": "arab-common-landmark-rocktemple-01",
+    "name": "岩凿神殿（佩特拉式崖面）",
+    "style": "arab",
+    "race": "common",
+    "category": "landmark",
+    "kind": "rock_cut_temple",
+    "facility": "temple",
+    "variant": 1,
+    "footprint": [
+      5,
+      4
+    ],
+    "height_px": 200,
+    "anchor": [
+      120,
+      392
+    ],
+    "viewBox": [
+      0,
+      0,
+      240,
+      392
+    ],
+    "tags": [
+      "rock_cut",
+      "cliff_face",
+      "tholos",
+      "columns",
+      "pediment"
+    ],
+    "roof": "none",
+    "culture": "nabataean",
+    "note": "纳巴泰岩凿立面：崖面凿出双层柱廊、断山花与圆亭；立面后是山体，roof=none"
+  },
+  {
+    "id": "arab-common-landmark-observatory-01",
+    "name": "天文台（大六分仪与观星塔）",
+    "style": "arab",
+    "race": "common",
+    "category": "landmark",
+    "kind": "observatory",
+    "facility": "academy",
+    "variant": 1,
+    "footprint": [
+      5,
+      4
+    ],
+    "height_px": 170,
+    "anchor": [
+      120,
+      362
+    ],
+    "viewBox": [
+      0,
+      0,
+      240,
+      362
+    ],
+    "tags": [
+      "observatory",
+      "sextant",
+      "astrolabe",
+      "dome",
+      "library"
+    ],
+    "roof": "flat_mud",
+    "culture": "persian",
+    "note": "撒马尔罕 / 马拉盖式天文台：大弧形子午仪槽 + 观星穹顶塔 + 学舍，归 academy"
+  }
+]

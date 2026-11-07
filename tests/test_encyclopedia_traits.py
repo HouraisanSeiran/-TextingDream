@@ -10,6 +10,7 @@ import unittest
 from pathlib import Path
 
 from app import encyclopedia as enc
+from tools import catalog_overlay, game_fields
 from tools import encyclopedia_build as build
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -109,7 +110,10 @@ class TraitLibraryCase(unittest.TestCase):
         rows = enc.versions(self.db, sample, namespace=NAMESPACE)
         self.assertEqual([row['version'] for row in rows['versions']], [1])
         self.assertTrue(rows['versions'][0]['is_current'])
-        again = enc.import_file(self.db, TRAIT_FILE)
+        # 构库导入的是叠加后的文档（与 encyclopedia_build.build 同口径），重导入也用同一份。
+        text = TRAIT_FILE.read_bytes().decode('utf-8')
+        overlaid = catalog_overlay.overlay(game_fields.overlay(enc.loads_json(text)))
+        again = enc.import_document(self.db, overlaid)
         self.assertTrue(again.as_dict()['idempotent'], '同一份源文件重跑必须零写入')
         self.assertEqual(again.as_dict()['element_versions_written'], 0)
         self.assertEqual([row['version'] for row in

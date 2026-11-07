@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "sprite": "/static/map-art/map-art-ground-rocks.svg",
+  "note": "林下点缀石头清单，供混排代码读取。只是装饰：不表示石料资源、不表示真实岩性或积雪数据。weight 为同一场景内候选之间的相对出现权重（不必归一）；scenes 给出建议可用场景。",
+  "symbol_pattern": "rock-{kind}-{n}",
+  "defaults": {
+    "viewBox": [12, 8],
+    "anchor": [6, 7],
+    "anchor_note": "地面线 y=7 的中点；投影椭圆可伸到 y≈7.8。",
+    "scale_note": "建议与树按同一 px/viewBox 单位绘制：符号框宽 = 树宽 × 0.75（树 tree_px=10 → 石头框宽 7.5 px，高 5 px）。"
+  },
+  "scenes": {
+    "conifer": "针叶林",
+    "broadleaf": "阔叶林",
+    "treeline": "高山林线、山脚林缘",
+    "alpine": "林线以上的高山/寒带"
+  },
+  "kinds": {
+    "boulder": "单块圆润巨石",
+    "cluster": "两三块碎石堆",
+    "flat": "扁平板石、露头岩",
+    "mossy": "长苔藓的林地石",
+    "scree": "碎屑小石子",
+    "snowcap": "顶部积雪的石头",
+    "split": "劈裂石（冻裂/根劈）",
+    "tor": "叠石（风化石堆）"
+  },
+  "rocks": [
+    { "id": "rock-boulder-1", "kind": "boulder", "viewBox": [12, 8], "anchor": [6, 7], "scenes": ["conifer", "broadleaf", "treeline"], "weight": 1.0 },
+    { "id": "rock-boulder-2", "kind": "boulder", "viewBox": [12, 8], "anchor": [6, 7], "scenes": ["conifer", "broadleaf", "treeline"], "weight": 0.6 },
+    { "id": "rock-boulder-3", "kind": "boulder", "viewBox": [12, 8], "anchor": [6, 7], "scenes": ["conifer", "broadleaf", "treeline"], "weight": 1.0 },
+    { "id": "rock-boulder-4", "kind": "boulder", "viewBox": [12, 8], "anchor": [6, 7], "scenes": ["conifer", "broadleaf"], "weight": 0.8 },
+    { "id": "rock-cluster-1", "kind": "cluster", "viewBox": [12, 8], "anchor": [6, 7], "scenes": ["conifer", "broadleaf", "treeline"], "weight": 1.0 },
+    { "id": "rock-cluster-2", "kind": "cluster", "viewBox": [12, 8], "anchor": [6, 7], "scenes": ["conifer", "broadleaf", "treeline"], "weight": 0.9 },
+    { "id": "rock-cluster-3", "kind": "cluster", "viewBox": [12, 8], "anchor": [6, 7], "scenes": ["conifer", "treeline", "alpine"], "weight": 0.8 },
+    { "id": "rock-cluster-4", "kind": "cluster", "viewBox": [12, 8], "anchor": [6, 7], "scenes": ["conifer", "broadleaf", "treeline"], "weight": 0.7 },
+    { "id": "rock-flat-1", "kind": "flat", "viewBox": [12, 8], "anchor": [6, 7], "scenes": ["conifer", "broadleaf", "treeline"], "weight": 0.8 },
+    { "id": "rock-flat-2", "kind": "flat", "viewBox": [12, 8], "anchor": [6, 7], "scenes": ["broadleaf", "conifer"], "weight": 0.7 },
+    { "id": "rock-flat-3", "kind": "flat", "viewBox": [12, 8], "anchor": [6, 7], "scenes": ["treeline", "alpine", "conifer"], "weight": 0.6 },
+    { "id": "rock-flat-4", "kind": "flat", "viewBox": [12, 8], "anchor": [6, 7], "scenes": ["treeline", "alpine"], "weight": 0.6 },
+    { "id": "rock-mossy-1", "kind": "mossy", "viewBox": [12, 8], "anchor": [6, 7], "scenes": ["broadleaf", "conifer"], "weight": 1.2 },
+    { "id": "rock-mossy-2", "kind": "mossy", "viewBox": [12, 8], "anchor": [6, 7], "scenes": ["broadleaf", "conifer"], "weight": 1.0 },
+    { "id": "rock-mossy-3", "kind": "mossy", "viewBox": [12, 8], "anchor": [6, 7], "scenes": ["broadleaf", "conifer"], "weight": 1.0 },
+    { "id": "rock-mossy-4", "kind": "mossy", "viewBox": [12, 8], "anchor": [6, 7], "scenes": ["broadleaf"], "weight": 0.8 },
+    { "id": "rock-scree-1", "kind": "scree", "viewBox": [12, 8], "anchor": [6, 7], "scenes": ["treeline", "alpine"], "weight": 1.0 },
+    { "id": "rock-scree-2", "kind": "scree", "viewBox": [12, 8], "anchor": [6, 7], "scenes": ["treeline", "alpine", "conifer"], "weight": 0.9 },
+    { "id": "rock-scree-3", "kind": "scree", "viewBox": [12, 8], "anchor": [6, 7], "scenes": ["treeline", "alpine"], "weight": 0.8 },
+    { "id": "rock-snowcap-1", "kind": "snowcap", "viewBox": [12, 8], "anchor": [6, 7], "scenes": ["alpine", "treeline"], "weight": 1.0 },
+    { "id": "rock-snowcap-2", "kind": "snowcap", "viewBox": [12, 8], "anchor": [6, 7], "scenes": ["alpine", "treeline"], "weight": 0.9 },
+    { "id": "rock-snowcap-3", "kind": "snowcap", "viewBox": [12, 8], "anchor": [6, 7], "scenes": ["alpine"], "weight": 0.8 },
+    { "id": "rock-snowcap-4", "kind": "snowcap", "viewBox": [12, 8], "anchor": [6, 7], "scenes": ["alpine", "treeline"], "weight": 0.7 },
+    { "id": "rock-split-1", "kind": "split", "viewBox": [12, 8], "anchor": [6, 7], "scenes": ["conifer", "treeline"], "weight": 0.5 },
+    { "id": "rock-split-2", "kind": "split", "viewBox": [12, 8], "anchor": [6, 7], "scenes": ["conifer", "broadleaf", "treeline"], "weight": 0.4 },
+    { "id": "rock-split-3", "kind": "split", "viewBox": [12, 8], "anchor": [6, 7], "scenes": ["treeline", "alpine"], "weight": 0.4 },
+    { "id": "rock-tor-1", "kind": "tor", "viewBox": [12, 8], "anchor": [6, 7], "scenes": ["treeline", "conifer"], "weight": 0.3 },
+    { "id": "rock-tor-2", "kind": "tor", "viewBox": [12, 8], "anchor": [6, 7], "scenes": ["treeline", "alpine"], "weight": 0.3 },
+    { "id": "rock-tor-3", "kind": "tor", "viewBox": [12, 8], "anchor": [6, 7], "scenes": ["broadleaf", "conifer", "treeline"], "weight": 0.25 }
+  ]
+}

@@ -167,3 +167,37 @@
   .player-map-bar { padding: 7px 10px; }
   .player-map-foot { padding: 5px 10px; }
 }
+
+/* 独立配置窗口（FloatingWindow.tsx，portal 到 body）。配色跟随当前界面预设的变量，无预设时回落到森林手记色。 */
+.dream-window {
+  position: fixed; z-index: 60; width: min(440px, calc(100vw - 24px)); max-height: calc(100dvh - 32px);
+  display: flex; flex-direction: column; overflow: hidden;
+  color: var(--rt-ink, #263730); background: var(--rt-card, #faf9f4);
+  border: 2px solid var(--rt-ink, #6f8a78); border-radius: var(--rt-r, 6px);
+  box-shadow: 6px 6px 0 var(--rt-ink, rgba(20,40,30,.25)), 0 18px 40px rgba(0,0,0,.18);
+}
+html[data-ui-theme="medieval"] .dream-window { box-shadow: 0 18px 44px rgba(30,18,10,.45); outline: 1px solid var(--rt-line); outline-offset: -6px; }
+.dream-window-bar {
+  display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 9px 12px 9px 16px;
+  cursor: move; user-select: none; touch-action: none;
+  color: var(--rt-on-accent, #f6f1e5); background: var(--rt-bar-bg, #1b382f);
+  border-bottom: 3px solid var(--rt-mustard, #b8844f);
+}
+.dream-window-title { display: flex; align-items: baseline; gap: 10px; font: 600 15px/1.3 var(--rt-serif, 'Songti SC', 'SimSun', serif); letter-spacing: .06em; }
+.dream-window-title small { font: 11px var(--rt-mono, Georgia, serif); color: var(--rt-mustard, #d9c39a); letter-spacing: .08em; }
+.dream-window-close { min-width: 28px; min-height: 28px; padding: 0; border: 1px solid currentColor; border-radius: 50%; background: transparent; color: inherit; font-size: 16px; line-height: 1; cursor: pointer; }
+.dream-window-close:hover:not(:disabled) { background: var(--rt-orange, #a75244); color: #fff; }
+.dream-window-body { overflow: auto; padding: 4px 18px 16px; }
+.dream-window .dream-create { display: block !important; padding: 10px 0 0; font-size: 12px; color: var(--rt-ink-soft, #4d6356); }
+.dream-window .dream-create-heading { display: flex; flex-direction: column; gap: 3px; padding-bottom: 8px; border-bottom: 1.5px dashed var(--rt-line, #dce2d8); }
+.dream-window .dream-create-heading strong { color: var(--rt-ink, #1b382f); font: 600 14px var(--rt-serif, serif); }
+.dream-window .dream-create-heading span { color: var(--rt-muted, #829187); }
+.dream-window .dream-param-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px 14px; padding-top: 10px; }
+.dream-window .dream-create label { display: block; margin: 2px 0; min-width: 0; }
+.dream-window .dream-create input { display: block; width: 100%; min-width: 0; height: 32px; min-height: 32px; margin-top: 3px; padding: 3px 8px;
+  background: var(--rt-cream, #fff); color: var(--rt-ink, #263730); border: 1.5px solid var(--rt-ink-soft, #d4dbd0); border-radius: var(--rt-r-sm, 3px); font: 12px var(--rt-mono, Consolas, monospace); }
+.dream-window .dream-create-actions { display: flex; justify-content: space-between; gap: 8px; margin-top: 14px; }
+.dream-window .dream-create-actions button { padding: 7px 14px; font-size: 12px; border: 1.5px solid var(--rt-ink, #d2dbd0); border-radius: var(--rt-r-sm, 3px); background: var(--rt-cream, #fff); color: var(--rt-ink, #263730); cursor: pointer; }
+.dream-window .dream-create-actions button:hover:not(:disabled) { background: var(--rt-mustard, #e9eee5); }
+.dream-window .dream-create-actions .primary { background: var(--rt-orange, #25483e); color: var(--rt-on-accent, #fff); }
+.dream-window progress { width: 100%; margin: 12px 0 0; accent-color: var(--rt-orange, #25483e); }

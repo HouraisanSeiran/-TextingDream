@@ -1,0 +1,146 @@
+{
+  "schema": "catalog_overlay_v1",
+  "group": "eastern-alchemy",
+  "entries": {
+    "eastern_alc_healing_pill": {
+      "primary": "elixir_pill",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "common"
+    },
+    "eastern_alc_life_sustaining_pill": {
+      "primary": "elixir_pill",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "common"
+    },
+    "eastern_alc_antidote_pill": {
+      "primary": "elixir_pill",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "common"
+    },
+    "eastern_alc_grain_avoidance_pill": {
+      "primary": "elixir_pill",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "common"
+    },
+    "eastern_alc_qi_gathering_pill": {
+      "primary": "elixir_pill",
+      "evidence_grade": "inferred",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "common"
+    },
+    "eastern_alc_breakthrough_pill": {
+      "primary": "elixir_pill",
+      "evidence_grade": "inferred",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "common"
+    },
+    "eastern_alc_foundation_pill": {
+      "primary": "elixir_pill",
+      "evidence_grade": "inferred",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "common"
+    },
+    "eastern_alc_marrow_wash_pill": {
+      "primary": "elixir_pill",
+      "evidence_grade": "inferred",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "common"
+    },
+    "eastern_alc_longevity_pill": {
+      "primary": "elixir_pill",
+      "evidence_grade": "mixed",
+      "note": "传说层孤本丹方，取 rare",
+      "tech_tier": null,
+      "magic_tier": "rare"
+    },
+    "eastern_alc_face_retaining_pill": {
+      "primary": "elixir_pill",
+      "evidence_grade": "inferred",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "common"
+    },
+    "eastern_alc_breath_conceal_pill": {
+      "primary": "elixir_pill",
+      "evidence_grade": "inferred",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "common"
+    },
+    "eastern_alc_climate_ward_pill": {
+      "primary": "elixir_pill",
+      "evidence_grade": "inferred",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "common"
+    },
+    "eastern_alc_lightness_pill": {
+      "primary": "elixir_pill",
+      "evidence_grade": "inferred",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "common"
+    },
+    "eastern_alc_ward_evil_pill": {
+      "primary": "elixir_pill",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "common"
+    },
+    "eastern_alc_shape_change_pill": {
+      "primary": "elixir_pill",
+      "evidence_grade": "inferred",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "common"
+    },
+    "eastern_alc_spirit_calm_pill": {
+      "primary": "elixir_pill",
+      "evidence_grade": "inferred",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "common"
+    },
+    "eastern_alc_beast_core_refine": {
+      "primary": "craft_process",
+      "evidence_grade": "inferred",
+      "note": "以兽核入丹的炼制工序，归 craft_process",
+      "tech_tier": null,
+      "magic_tier": "common"
+    },
+    "eastern_alc_pill_toxin": {
+      "primary": "elixir_pill",
+      "evidence_grade": "mixed",
+      "note": "丹毒与废丹：词表无「毒/副作用」项，暂归 elixir_pill，也可考虑 craft_process",
+      "tech_tier": null,
+      "magic_tier": "common"
+    },
+    "eastern_alc_pill_grading": {
+      "primary": "institution",
+      "evidence_grade": "mixed",
+      "note": "品级与鉴伪属分级制度，归 institution，也可考虑 craft_process",
+      "tech_tier": null,
+      "magic_tier": "common"
+    },
+    "eastern_alc_furnace_fire": {
+      "primary": "craft_process",
+      "evidence_grade": "mixed",
+      "note": "丹炉与火候属炼制工艺，归 craft_process",
+      "tech_tier": null,
+      "magic_tier": "common"
+    }
+  }
+}

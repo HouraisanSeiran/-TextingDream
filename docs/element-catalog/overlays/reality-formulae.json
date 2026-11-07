@@ -1,0 +1,771 @@
+{
+  "schema": "catalog_overlay_v1",
+  "group": "reality-formulae",
+  "entries": {
+    "formula_mahuangtang": {
+      "primary": "formula",
+      "evidence_grade": "mixed",
+      "note": "",
+      "related_add": [
+        "herb_aerial_mahuang",
+        "herb_aerial_guizhi",
+        "herb_aerial_kuxingren",
+        "herb_root_licorice"
+      ],
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "formula_guizhitang": {
+      "primary": "formula",
+      "evidence_grade": "mixed",
+      "note": "芍药按通行用白芍；桂枝指肉桂嫩枝，不是桂皮",
+      "related_add": [
+        "herb_aerial_guizhi",
+        "herb_root_baishao",
+        "flavors_ginger",
+        "produce_jujube",
+        "herb_root_licorice"
+      ],
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "formula_daqinglongtang": {
+      "primary": "formula",
+      "evidence_grade": "mixed",
+      "note": "",
+      "related_add": [
+        "herb_aerial_mahuang",
+        "herb_aerial_guizhi",
+        "herb_aerial_kuxingren",
+        "herb_root_licorice",
+        "materials_gypsum",
+        "flavors_ginger",
+        "produce_jujube"
+      ],
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "formula_xiaochaihutang": {
+      "primary": "formula",
+      "evidence_grade": "mixed",
+      "note": "",
+      "related_add": [
+        "herb_root_bupleurum",
+        "herb_root_scutellaria",
+        "herb_root_pinellia",
+        "herb_root_ginseng",
+        "herb_root_licorice",
+        "flavors_ginger",
+        "produce_jujube"
+      ],
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "formula_banxiaxiexintang": {
+      "primary": "formula",
+      "evidence_grade": "mixed",
+      "note": "",
+      "related_add": [
+        "herb_root_pinellia",
+        "herb_root_coptis",
+        "herb_root_scutellaria",
+        "flavors_ginger",
+        "herb_root_licorice",
+        "produce_jujube",
+        "herb_root_ginseng"
+      ],
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "formula_dachengqitang": {
+      "primary": "formula",
+      "evidence_grade": "mixed",
+      "note": "",
+      "related_add": [
+        "herb_root_rheum",
+        "herb_aerial_houpo",
+        "herb_aerial_zhishi"
+      ],
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "formula_sinitang": {
+      "primary": "formula",
+      "evidence_grade": "mixed",
+      "note": "",
+      "related_add": [
+        "herb_root_aconite_zi",
+        "flavors_ginger",
+        "herb_root_licorice"
+      ],
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "formula_lizhongwan": {
+      "primary": "formula",
+      "evidence_grade": "mixed",
+      "note": "药味清单正文标「待复核」",
+      "related_add": [
+        "herb_root_ginseng",
+        "flavors_ginger",
+        "herb_root_atractylodes_macrocephala",
+        "herb_root_licorice"
+      ],
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "formula_wulingsan": {
+      "primary": "formula",
+      "evidence_grade": "mixed",
+      "note": "",
+      "related_add": [
+        "herb_other_zhuling",
+        "herb_other_fuling",
+        "herb_root_atractylodes_macrocephala",
+        "herb_aerial_guizhi"
+      ],
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "formula_sijunzitang": {
+      "primary": "formula",
+      "evidence_grade": "mixed",
+      "note": "",
+      "related_add": [
+        "herb_root_ginseng",
+        "herb_root_atractylodes_macrocephala",
+        "herb_other_fuling",
+        "herb_root_licorice"
+      ],
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "formula_siwutang": {
+      "primary": "formula",
+      "evidence_grade": "mixed",
+      "note": "芍药按通行用白芍（后世亦有赤芍）；地黄取熟地黄",
+      "related_add": [
+        "herb_root_danggui",
+        "herb_root_chuanxiong",
+        "herb_root_baishao",
+        "herb_root_rehmannia_prepared"
+      ],
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "formula_bajiantang": {
+      "primary": "formula",
+      "evidence_grade": "mixed",
+      "note": "芍药按通行用白芍；地黄取熟地黄",
+      "related_add": [
+        "herb_root_ginseng",
+        "herb_root_atractylodes_macrocephala",
+        "herb_other_fuling",
+        "herb_root_licorice",
+        "herb_root_danggui",
+        "herb_root_chuanxiong",
+        "herb_root_baishao",
+        "herb_root_rehmannia_prepared"
+      ],
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "formula_liuweidihuangwan": {
+      "primary": "formula",
+      "evidence_grade": "mixed",
+      "note": "",
+      "related_add": [
+        "herb_root_rehmannia_prepared",
+        "staples_yam",
+        "herb_other_moutan_bark",
+        "herb_other_fuling"
+      ],
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "formula_jinkuishenqiwan": {
+      "primary": "formula",
+      "evidence_grade": "mixed",
+      "note": "按古方八味；今市售加牛膝、车前子的部分未收；「地黄」取生地黄条目（古方为干地黄）",
+      "related_add": [
+        "herb_root_rehmannia_raw",
+        "staples_yam",
+        "herb_other_fuling",
+        "herb_other_moutan_bark",
+        "herb_aerial_guizhi",
+        "herb_root_aconite_zi"
+      ],
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "formula_zhigancaotang": {
+      "primary": "formula",
+      "evidence_grade": "mixed",
+      "note": "药味清单正文标「待复核」",
+      "related_add": [
+        "herb_root_licorice",
+        "flavors_ginger",
+        "herb_root_ginseng",
+        "herb_root_rehmannia_raw",
+        "herb_aerial_guizhi",
+        "herb_other_donkey_hide_gelatin",
+        "herb_root_ophiopogon",
+        "produce_jujube"
+      ],
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "formula_wumeiwan": {
+      "primary": "formula",
+      "evidence_grade": "mixed",
+      "note": "药味清单正文标「待复核」",
+      "related_add": [
+        "flavors_ginger",
+        "herb_root_coptis",
+        "herb_root_danggui",
+        "herb_root_aconite_zi",
+        "flavors_sichuan_pepper",
+        "herb_aerial_guizhi",
+        "herb_root_ginseng",
+        "herb_other_phellodendron_bark"
+      ],
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "formula_duhuojishengtang": {
+      "primary": "formula",
+      "evidence_grade": "mixed",
+      "note": "芍药取白芍；干地黄取生地黄条目；「肉桂心」对到 flavors_cassia（桂皮），不是桂枝",
+      "related_add": [
+        "herb_root_angelica_pubescens",
+        "herb_other_eucommia_bark",
+        "herb_root_achyranthes",
+        "herb_other_fuling",
+        "flavors_cassia",
+        "herb_root_saposhnikovia",
+        "herb_root_chuanxiong",
+        "herb_root_ginseng",
+        "herb_root_licorice",
+        "herb_root_danggui",
+        "herb_root_baishao",
+        "herb_root_rehmannia_raw"
+      ],
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "formula_xiaoyaosan": {
+      "primary": "formula",
+      "evidence_grade": "mixed",
+      "note": "各本药味清点略有出入（正文自述），按通行八味；芍药取白芍",
+      "related_add": [
+        "herb_root_bupleurum",
+        "herb_root_danggui",
+        "herb_root_baishao",
+        "herb_root_atractylodes_macrocephala",
+        "herb_other_fuling",
+        "herb_root_licorice",
+        "herb_aerial_bohe",
+        "flavors_ginger"
+      ],
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "formula_buzhongyiqitang": {
+      "primary": "formula",
+      "evidence_grade": "mixed",
+      "note": "",
+      "related_add": [
+        "herb_root_astragalus",
+        "herb_root_ginseng",
+        "herb_root_atractylodes_macrocephala",
+        "herb_root_licorice",
+        "herb_root_danggui",
+        "herb_aerial_chenpi",
+        "herb_root_bupleurum"
+      ],
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "formula_guipitang": {
+      "primary": "formula",
+      "evidence_grade": "mixed",
+      "note": "",
+      "related_add": [
+        "herb_root_astragalus",
+        "herb_root_ginseng",
+        "herb_root_atractylodes_macrocephala",
+        "herb_root_danggui",
+        "herb_root_licorice",
+        "flavors_ginger",
+        "produce_jujube"
+      ],
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "formula_pingweisan": {
+      "primary": "formula",
+      "evidence_grade": "mixed",
+      "note": "",
+      "related_add": [
+        "herb_root_atractylodes_lancea",
+        "herb_aerial_houpo",
+        "herb_aerial_chenpi",
+        "herb_root_licorice",
+        "flavors_ginger",
+        "produce_jujube"
+      ],
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "formula_erchengtang": {
+      "primary": "formula",
+      "evidence_grade": "mixed",
+      "note": "「橘红」是橘皮外层，未对到陈皮",
+      "related_add": [
+        "herb_root_pinellia",
+        "herb_other_fuling",
+        "herb_root_licorice",
+        "flavors_ginger"
+      ],
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "formula_huoxiangzhengqisan": {
+      "primary": "formula",
+      "evidence_grade": "mixed",
+      "note": "半夏曲是半夏的发酵制品，未对到 herb_root_pinellia",
+      "related_add": [
+        "herb_aerial_dafupi",
+        "herb_root_angelica_dahurica",
+        "herb_aerial_zisu",
+        "herb_other_fuling",
+        "herb_root_atractylodes_macrocephala",
+        "herb_aerial_chenpi",
+        "herb_aerial_houpo",
+        "herb_root_platycodon",
+        "herb_root_licorice",
+        "flavors_ginger",
+        "produce_jujube"
+      ],
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "formula_longdanxiegantang": {
+      "primary": "formula",
+      "evidence_grade": "mixed",
+      "note": "",
+      "related_add": [
+        "herb_root_scutellaria",
+        "herb_aerial_zhizi",
+        "herb_root_danggui",
+        "herb_root_rehmannia_raw",
+        "herb_root_bupleurum",
+        "herb_root_licorice"
+      ],
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "formula_huanglianjiedutang": {
+      "primary": "formula",
+      "evidence_grade": "mixed",
+      "note": "",
+      "related_add": [
+        "herb_root_coptis",
+        "herb_root_scutellaria",
+        "herb_other_phellodendron_bark",
+        "herb_aerial_zhizi"
+      ],
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "formula_baihutang": {
+      "primary": "formula",
+      "evidence_grade": "mixed",
+      "note": "粳米对到 staples_rice（水稻），粳米为其中一类，存疑",
+      "related_add": [
+        "materials_gypsum",
+        "herb_root_anemarrhena",
+        "staples_rice",
+        "herb_root_licorice"
+      ],
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "formula_yinqiaosan": {
+      "primary": "formula",
+      "evidence_grade": "mixed",
+      "note": "「竹叶」可能指鲜竹叶或淡竹叶，未对到 herb_aerial_danzhuye；药味清单自述待复核",
+      "related_add": [
+        "herb_aerial_lianqiao",
+        "herb_aerial_jinyinhua",
+        "herb_root_platycodon",
+        "herb_aerial_bohe",
+        "herb_root_licorice",
+        "herb_aerial_jingjie",
+        "herb_aerial_niubangzi"
+      ],
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "formula_sangjuyin": {
+      "primary": "formula",
+      "evidence_grade": "mixed",
+      "note": "",
+      "related_add": [
+        "herb_aerial_sangye",
+        "herb_aerial_juhua",
+        "herb_root_platycodon",
+        "herb_aerial_lianqiao",
+        "herb_aerial_kuxingren",
+        "herb_root_licorice",
+        "herb_aerial_bohe"
+      ],
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "formula_angongniuhuangwan": {
+      "primary": "formula",
+      "evidence_grade": "mixed",
+      "note": "「郁金」对到 flavors_turmeric（其别名含郁金），但郁金与姜黄是同属不同药用部位，存疑；蜂蜜、金箔等辅料未收",
+      "related_add": [
+        "herb_other_musk",
+        "herb_other_pearl",
+        "herb_other_cinnabar",
+        "herb_other_realgar",
+        "herb_root_coptis",
+        "herb_root_scutellaria",
+        "herb_aerial_zhizi",
+        "flavors_turmeric"
+      ],
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "formula_suhexiangwan": {
+      "primary": "formula",
+      "evidence_grade": "mixed",
+      "note": "水牛角（浓缩粉）库中无药材条目，animal_food_water_buffalo 是食用动物，未对",
+      "related_add": [
+        "herb_other_musk",
+        "flavors_clove",
+        "herb_other_frankincense",
+        "herb_root_atractylodes_macrocephala",
+        "herb_other_cinnabar"
+      ],
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "formula_shixiaosan": {
+      "primary": "formula",
+      "evidence_grade": "mixed",
+      "note": "",
+      "related_add": [
+        "herb_aerial_puhuang"
+      ],
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "formula_xuefuzhuyutang": {
+      "primary": "formula",
+      "evidence_grade": "mixed",
+      "note": "枳壳与枳实是不同药材，未对到 herb_aerial_zhishi；芍药为赤芍",
+      "related_add": [
+        "herb_aerial_taoren",
+        "herb_aerial_huahong",
+        "herb_root_danggui",
+        "herb_root_rehmannia_raw",
+        "herb_root_chuanxiong",
+        "herb_root_chishao",
+        "herb_root_achyranthes",
+        "herb_root_platycodon",
+        "herb_root_bupleurum",
+        "herb_root_licorice"
+      ],
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "formula_taohongsiwutang": {
+      "primary": "formula",
+      "evidence_grade": "mixed",
+      "note": "四物部分按通行用白芍与熟地黄",
+      "related_add": [
+        "herb_aerial_taoren",
+        "herb_aerial_huahong",
+        "herb_root_danggui",
+        "herb_root_chuanxiong",
+        "herb_root_baishao",
+        "herb_root_rehmannia_prepared"
+      ],
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "formula_yupingfengsan": {
+      "primary": "formula",
+      "evidence_grade": "inferred",
+      "note": "组成层只有书目页的间接证据，来源极弱，降为 inferred",
+      "related_add": [
+        "herb_root_astragalus",
+        "herb_root_atractylodes_macrocephala",
+        "herb_root_saposhnikovia"
+      ],
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "formula_shengmaisan": {
+      "primary": "formula",
+      "evidence_grade": "mixed",
+      "note": "",
+      "related_add": [
+        "herb_root_ginseng",
+        "herb_root_ophiopogon",
+        "herb_aerial_wuweizi"
+      ],
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    }
+  }
+}

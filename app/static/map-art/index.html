@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>织梦 · 地图美术资产</title>
+<link rel="stylesheet" href="/static/map-art/preview.css?v=1">
+<script defer src="/static/map-art/preview.js?v=1"></script>
+</head><body>
+<header class="ma-head"><div><span class="ma-kicker">TEXTINGDREAM · MAP ART</span><h1>地图美术资产</h1>
+<p>中世纪魔幻地图集风格的符号库，供之后基于 DEM 和灰度图的地图生成系统使用。当前 civ-atlas 地图还没有接入这套资产。</p></div>
+<a class="ma-back" href="/">← 回到织梦</a></header>
+<main>
+<section class="ma-card"><h2>示意地图</h2><p class="ma-note">用种子随机生成的演示地形，只用来检验配色、树种、道路和图标放在一起的效果。不是真实世界数据。</p>
+<div class="ma-toolbar"><button type="button" id="ma-reroll">换一个种子</button><label><input type="checkbox" id="ma-show-res" checked> 资源</label><label><input type="checkbox" id="ma-show-trees" checked> 森林</label><label><input type="checkbox" id="ma-show-roads" checked> 道路</label><label><input type="checkbox" id="ma-show-fog"> 迷雾 + 传闻线索</label><span id="ma-seed" class="ma-mono"></span></div>
+<div class="ma-map-wrap"><svg id="ma-map" viewBox="0 0 960 540" role="img" aria-label="示意地图"></svg></div></section>
+<section class="ma-card"><h2>群系配色</h2><div id="ma-biomes" class="ma-grid ma-biomes"></div></section>
+<section class="ma-card"><h2>城镇 · 按种族 × 规模</h2><div id="ma-towns" class="ma-town-table"></div></section>
+<section class="ma-card"><h2>资源</h2><div id="ma-res" class="ma-grid"></div></section>
+<section class="ma-card"><h2>树种</h2><div id="ma-trees" class="ma-grid"></div></section>
+<section class="ma-card"><h2>道路与水路</h2><div id="ma-routes" class="ma-routes"></div></section>
+<section class="ma-card"><h2>地标与地形</h2><div id="ma-marks" class="ma-grid"></div></section>
+<section class="ma-card"><h2>制图装饰</h2><div id="ma-deco" class="ma-grid ma-deco"></div></section>
+<section class="ma-card"><h2>元素数据库分类徽记</h2><p class="ma-note">单色墨线，颜色跟随界面预设。元素数据库页面按 namespace 自动取用。</p><div id="ma-cats" class="ma-grid ma-cats"></div></section>
+</main>
+</body></html>

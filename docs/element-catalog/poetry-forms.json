@@ -1,0 +1,1602 @@
+{
+  "schema_version": 1,
+  "group": "poetry-forms",
+  "status": "candidate",
+  "genres": [
+    "eastern_fantasy",
+    "western_fantasy",
+    "historical",
+    "real_world",
+    "xianxia"
+  ],
+  "note": "诗歌体裁候选（元素库·文学侧）。东西方并列，古典到 1939 年前。每条在通用字段外带一个 顶层结构化字段 poetry_form（tradition / language / lines / line_pattern / meter / rhyme_scheme / stanza / constraints / example_ref），app/poetry.py 直接读它来约束 AI 写诗。lines 为 null 表示行数不固定；中文体裁的 line_pattern 一律写成「每句N字」，代码按此检查字数。资料只有读到正文的百度百科条目才引用；格律描述中属英诗通例、本次没核到来源的部分记 inferred。全部条目 review_status=needs_review、detail_status=needs_detail。",
+  "sources": [
+    {
+      "id": "pform_src_01",
+      "title": "五言绝句 — 百度百科",
+      "url": "https://baike.baidu.com/item/五言绝句",
+      "access": "read",
+      "supports": "全篇四句、每句五字、共二十字；一般只押平声韵且不能出韵，晚唐以后首句可借邻韵（孤雁出群格）；在平平仄仄、仄仄平平两组基础上加一音节构成四种基本句型，按粘对规则组成仄起／平起、首句入韵／不入韵四种格式；要避免犯孤平与三平调；对仗不作严格要求，词条举出四种截取方式。",
+      "rights_note": "百度百科词条；仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "pform_src_02",
+      "title": "七言绝句 — 百度百科",
+      "url": "https://baike.baidu.com/item/七言绝句",
+      "access": "read",
+      "supports": "全诗四句、每句七字、共二十八字；通常只押平声韵且不能出韵；以两个音节为一个音步平仄交互；按首句头两字平仄分平起式与仄起式，各又分首句入韵与不入韵；四种标准句型为平平仄仄仄平平、平平仄仄平平仄、仄仄平平仄仄平、仄仄平平平仄仄；所谓一三五不论、二四六分明，但也要避免孤平与三平调。",
+      "rights_note": "百度百科词条；仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "pform_src_03",
+      "title": "五言律诗 — 百度百科",
+      "url": "https://baike.baidu.com/item/五言律诗",
+      "access": "read",
+      "supports": "五言八句而又合乎律诗规范的诗即五言律诗；从五言古诗继承每句五个音节、两句一组、总句数为偶数，同时增加对偶与平仄的规则；定型于初唐、成熟于盛唐。",
+      "rights_note": "百度百科词条；仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "pform_src_04",
+      "title": "七言律诗 — 百度百科",
+      "url": "https://baike.baidu.com/item/七言律诗",
+      "access": "read",
+      "supports": "每首八句、每句七字、共五十六字，两句一联，依次为首联、颔联、颈联、尾联；全篇四韵或五韵，一般逢偶数句押韵，首句可押可不押，通常押平声、一韵到底；颔联与颈联必须对仗，首联与尾联可对可不对；七律以首句入韵为正格。",
+      "rights_note": "百度百科词条；仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "pform_src_05",
+      "title": "词牌 — 百度百科",
+      "url": "https://baike.baidu.com/item/词牌",
+      "access": "read",
+      "supports": "词牌规定一首词的句数、每句字数与平仄；有一调数名、一调数体之别；如《如梦令》为单调三十三字、五仄韵、一叠韵，上去通押。",
+      "rights_note": "百度百科词条；仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "pform_src_06",
+      "title": "元曲 — 百度百科",
+      "url": "https://baike.baidu.com/item/元曲",
+      "access": "read",
+      "supports": "散曲分小令与套数，小令又叫叶儿，体制短小，通常只是一支独立的曲子；曲牌名称多很俚俗，说明散曲比词更接近民歌；格律上虽有定式，但允许在定格中加衬字、部分曲牌可增句，押韵上允许平仄通押；语言口语化通俗化，多用方言俚语；音乐上采用宫调制。",
+      "rights_note": "百度百科词条；仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "pform_src_07",
+      "title": "乐府 — 百度百科",
+      "url": "https://baike.baidu.com/item/乐府",
+      "access": "read",
+      "supports": "乐府是秦汉以来的司乐机构，汉武帝时扩大职能，为郊祀之礼配乐，采诗、协律、造为诗赋；这类配乐的歌辞即后世所称乐府诗，与音乐相配、可被乐工歌唱。",
+      "rights_note": "百度百科词条；仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "pform_src_08",
+      "title": "楚辞 — 百度百科",
+      "url": "https://baike.baidu.com/item/楚辞",
+      "access": "read",
+      "supports": "楚辞是以战国时楚国屈原的创作为代表的新诗体，运用楚地方言声韵；与《诗经》古朴的四言体相比，句式较活泼，节奏和韵律独具特色；因《离骚》而别称骚体，效仿其体例的作品也称楚辞体。",
+      "rights_note": "百度百科词条；仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "pform_src_09",
+      "title": "十四行诗 — 百度百科",
+      "url": "https://baike.baidu.com/item/十四行诗",
+      "access": "read",
+      "supports": "彼特拉克体为两个四行节加两个三行节，押韵 ABBA ABBA CDE CDE 或 CDC DCD 等，每行十一音节；莎士比亚体为三个四行节加一个对句，押韵 ABAB CDCD EFEF GG，每行十个抑扬格音节，常在最后对句点题；斯宾塞体为 ABAB BCBC CDCD EE；另有每行十二音节、讲究半逗律的亚历山大格。",
+      "rights_note": "百度百科词条；仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "pform_src_10",
+      "title": "英雄双韵体 — 百度百科",
+      "url": "https://baike.baidu.com/item/英雄双韵体",
+      "access": "read",
+      "supports": "英雄双韵体的界定条件：五音步抑扬格、押尾韵的对偶句、韵尾 AABB 依次且不重复、风格简洁；由德莱顿命名，此前乔叟已把十音节双韵体从法国引入英国；蒲柏以之作说教与讽刺。",
+      "rights_note": "百度百科词条；仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "pform_src_11",
+      "title": "无韵诗 — 百度百科",
+      "url": "https://baike.baidu.com/item/无韵诗",
+      "access": "read",
+      "supports": "不押韵的诗歌形式，每行十个音节、采用抑扬格五音步，行数不限；16 世纪中期见于英语诗，1580 年代起流行，广泛用于戏剧与叙事诗，适合人物会话与独白，实际运用中音节与音步数可有增减。",
+      "rights_note": "百度百科词条；仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "pform_src_12",
+      "title": "头韵 — 百度百科",
+      "url": "https://baike.baidu.com/item/头韵",
+      "access": "read",
+      "supports": "alliteration 指两个或两个以上单词首个字母（辅音或辅音群的第一个音素）发音相同；押头韵手法可上溯到古英语时期，是盎格鲁撒克逊诗歌的主要特征之一；头韵是加强行内节奏的手段。",
+      "rights_note": "百度百科词条；仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "pform_src_13",
+      "title": "自由诗 — 百度百科",
+      "url": "https://baike.baidu.com/item/自由诗",
+      "access": "read",
+      "supports": "一般认为美国 19 世纪诗人惠特曼是近现代主流自由诗的创始者，代表作《草叶集》；其主张为不拘格律、不拘平仄、不拘长短，有什么题目就做什么诗。",
+      "rights_note": "百度百科词条；仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "pform_src_14",
+      "title": "俳句 — 百度百科",
+      "url": "https://baike.baidu.com/item/俳句",
+      "access": "read",
+      "supports": "俳句是以三句十七音为一首，首句五音、次句七音、末句五音，以日文为准；创作须遵循两条基本规则：十七音的五七五句式，以及必有一个季语；俳句起源于连歌的发句，发句原为五七五、胁句为七七。",
+      "rights_note": "百度百科词条；仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "pform_src_15",
+      "title": "和歌 — 百度百科",
+      "url": "https://baike.baidu.com/item/和歌",
+      "access": "read",
+      "supports": "和歌包括长歌、短歌、片歌、连歌等，短歌有五句三十一个音节，格式为五七五七七；和歌受汉诗影响，长歌最后也以五七五七七收束；俳句只保留了连歌上句的五七五格式。",
+      "rights_note": "百度百科词条；仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "pform_src_16",
+      "title": "关雎 — 百度百科",
+      "url": "https://baike.baidu.com/item/关雎",
+      "access": "read",
+      "supports": "《诗经·周南》篇名，全篇四言，分五章、以荇菜等物反复起兴；词条引元人许谦语「以荇起兴，取其柔洁」，说明其兴体手法。",
+      "rights_note": "百度百科词条；仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "pform_src_17",
+      "title": "三行诗 — 百度百科",
+      "url": "https://baike.baidu.com/item/三行诗",
+      "access": "read",
+      "supports": "《神曲》全书一百歌一律用「三行韵律」或「三行连锁押韵法」写成，每个歌都由三行诗节一环扣一环、连锁接成长链条。词条主体讲汉语的三行小诗，本条只取这一句。",
+      "rights_note": "百度百科词条；仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "pform_src_18",
+      "title": "游吟诗人 — 百度百科",
+      "url": "https://baike.baidu.com/item/游吟诗人",
+      "access": "read",
+      "supports": "游吟诗人的歌曲中心题材是爱情，最重要的新主题是宫廷之恋；歌曲主要形式分康索、晨歌、田园歌、辩论歌、讽刺歌、悲歌、记功歌等几类；康索（canso）即爱情诗歌，晨歌写幽会情人在清晨分手，田园歌写骑士与牧羊女。",
+      "rights_note": "百度百科词条；仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "pform_src_19",
+      "title": "维拉内拉 — 百度百科",
+      "url": "https://baike.baidu.com/item/维拉内拉",
+      "access": "read",
+      "supports": "",
+      "rights_note": "已读到正文，但该词条讲的是那不勒斯的 villanella 音乐体裁，与法国的 19 行定形诗 villanelle 不是同一事物，本条不据它立论，故零引用。"
+    },
+    {
+      "id": "pform_src_20",
+      "title": "回旋诗 — 百度百科",
+      "url": "https://baike.baidu.com/item/回旋诗",
+      "access": "read",
+      "supports": "",
+      "rights_note": "已读到正文，但该词条实际讲的是汉语的回文诗，与法国定形诗 rondeau 无关，本条不据它立论，故零引用。"
+    },
+    {
+      "id": "pform_src_21",
+      "title": "Poetry — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/art/poetry",
+      "access": "search_only",
+      "supports": "",
+      "rights_note": "本次无头浏览器未取到正文；仅作检索入口登记，零引用，不当依据。"
+    },
+    {
+      "id": "pform_src_22",
+      "title": "Sonnet / Terza rima — Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Sonnet",
+      "access": "search_only",
+      "supports": "",
+      "rights_note": "本次无头浏览器未取到正文；仅作检索入口登记，零引用，不当依据。"
+    }
+  ],
+  "elements": [
+    {
+      "id": "poetry_form_wujue",
+      "name": "五言绝句",
+      "aliases": [
+        "五绝",
+        "五言四句"
+      ],
+      "category": "culture",
+      "primary": "literature_form",
+      "evidence_grade": "mixed",
+      "tech_tier": "medieval",
+      "magic_tier": null,
+      "genres": [
+        "historical",
+        "real_world",
+        "eastern_fantasy",
+        "xianxia"
+      ],
+      "tags": [
+        "kind:poetry_form",
+        "tradition:eastern"
+      ],
+      "summary": "五言四句、合乎近体诗格律的短诗，唐代定型并成为最常用的短制之一。",
+      "poetry_form": {
+        "tradition": "chinese",
+        "language": "classical_chinese",
+        "lines": 4,
+        "line_pattern": "每句五字",
+        "meter": "平仄：以平平仄仄、仄仄平平两音节为一音步交替，四种基本句按粘对组合；避孤平与三平调",
+        "rhyme_scheme": "AABA（二、四句押平声韵；首句可入韵，不入韵时首句不押）",
+        "stanza": "一首四句，不分节",
+        "constraints": [
+          "全诗四句，每句五字，共二十字。",
+          "第二、四句押平声韵，韵脚须同属一个韵部，不能出韵。",
+          "首句可押可不押；若首句押韵而用邻韵，称为孤雁出群格。",
+          "平仄按平平仄仄平、仄仄平平仄、平平平仄仄、仄仄仄平平四种基本句组成粘对格式。",
+          "避免犯孤平与三平调（句末连用三个平声）。",
+          "对仗不作要求；若用对仗，多在前两句或后两句。"
+        ],
+        "example_ref": "poetry_classic_jingyesi"
+      },
+      "details": {
+        "definition": "五言绝句是五言四句而又合乎近体诗格律的短诗，简称五绝。它源于汉魏乐府与五言短古，初唐以后随近体诗定型，盛唐达到顶峰。",
+        "mechanism": "以二十个字装一个完整的意思：起句给景象或情境，转句翻一层，结句留余味。格律上靠二、四句押平声韵和粘对的平仄骨架，字少而味长，创作难度反而更高。",
+        "conditions": "适合在宴席、题壁、赠别、题画等短促场合写作与传诵；世界里需要有能写汉诗的识字阶层和纸、笔、壁面或扇面这类载体。",
+        "exceptions": "盛唐以前不少五绝并不讲究平仄对仗，属于古绝；押仄韵、句中用邻韵、结句不对仗的变体也常见。作者可以有意写成古绝，但要标明不是律绝。",
+        "story_uses": "①吟游诗人或士子在酒席上即席题一首，内容暗指席间某人。②题在驿站墙上的一首绝句被人抄走，成了某桩案子的线索。③一首二十字的诗被当作密语，每句首字连读成一句口令。",
+        "historical_scope": "五绝的成熟期在中国唐代（约 7—8 世纪），对应 tech:medieval。",
+        "evidence_and_uncertainty": "格律描述核对自 pform_src_01（五言绝句词条：四句五字二十字、只押平声韵不能出韵、四种基本句与粘对、忌孤平三平调、对仗不严）。押韵与平仄的具体判定本项目不做机检，只作为给模型的约束。"
+      },
+      "source_ids": [
+        "pform_src_01"
+      ],
+      "related_ids": [
+        "culture_poetry_lyric"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "poetry_form_qijue",
+      "name": "七言绝句",
+      "aliases": [
+        "七绝",
+        "七言四句"
+      ],
+      "category": "culture",
+      "primary": "literature_form",
+      "evidence_grade": "mixed",
+      "tech_tier": "medieval",
+      "magic_tier": null,
+      "genres": [
+        "historical",
+        "real_world",
+        "eastern_fantasy",
+        "xianxia"
+      ],
+      "tags": [
+        "kind:poetry_form",
+        "tradition:eastern"
+      ],
+      "summary": "七言四句的近体短诗，句式比五绝舒展，唐代以后成为题材最宽的短制。",
+      "poetry_form": {
+        "tradition": "chinese",
+        "language": "classical_chinese",
+        "lines": 4,
+        "line_pattern": "每句七字",
+        "meter": "平仄：以两字为一音步平仄交互；一三五不论、二四六分明，但避孤平与三平调",
+        "rhyme_scheme": "AABA（二、四句押平声韵；首句多入韵）",
+        "stanza": "一首四句，不分节",
+        "constraints": [
+          "全诗四句，每句七字，共二十八字。",
+          "通常只押平声韵，不能出韵，中间不换韵。",
+          "平仄按四种标准句型组合：平平仄仄仄平平、平平仄仄平平仄、仄仄平平仄仄平、仄仄平平平仄仄。",
+          "按首句头两字定平起或仄起，再定首句是否入韵，共四种格式。",
+          "不要求对仗；若对仗，多在后两句。",
+          "避免孤平与三平调。"
+        ],
+        "example_ref": "poetry_classic_zaofabaidicheng"
+      },
+      "details": {
+        "definition": "七言绝句是七言四句的近体诗，简称七绝。七言四句体先以古绝形态出现，唐代随近体诗成熟而定型，盛唐时与五绝并驾齐驱。",
+        "mechanism": "二十八个字里要完成起承转合，因此第三句多作转折、第四句宕开一笔。句式比五绝长，能容纳叙事与议论，题材可以很宽。",
+        "conditions": "适合题壁、送别、出塞、怀古、宫怨等场合；世界里需要七言诗的读写传统，以及可以张贴、传抄的场合。",
+        "exceptions": "早期七绝有不完全协律、以对仗作结的作品；也有押仄韵的古绝。后人有意写成拗体时，应说明不是律绝。",
+        "story_uses": "①边关墙上的一首七绝，第二句的用字与官方战报不符。②商人用七绝作暗号记账，一句对一笔货。③一首讽刺权贵的七绝在三个城镇同时传开，作者是谁成了谜。",
+        "historical_scope": "七绝在唐代（7—10 世纪）成熟，对应 tech:medieval。",
+        "evidence_and_uncertainty": "格律描述核对自 pform_src_02（七言绝句词条：四句七字二十八字、只押平声韵不出韵、四种标准句型、一三五不论二四六分明、忌孤平三平调）。平仄判定未机检。"
+      },
+      "source_ids": [
+        "pform_src_02"
+      ],
+      "related_ids": [
+        "culture_poetry_lyric"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "poetry_form_wulv",
+      "name": "五言律诗",
+      "aliases": [
+        "五律"
+      ],
+      "category": "culture",
+      "primary": "literature_form",
+      "evidence_grade": "mixed",
+      "tech_tier": "medieval",
+      "magic_tier": null,
+      "genres": [
+        "historical",
+        "real_world",
+        "eastern_fantasy",
+        "xianxia"
+      ],
+      "tags": [
+        "kind:poetry_form",
+        "tradition:eastern"
+      ],
+      "summary": "五言八句、讲究平仄与对仗的近体诗，四联各有其职。",
+      "poetry_form": {
+        "tradition": "chinese",
+        "language": "classical_chinese",
+        "lines": 8,
+        "line_pattern": "每句五字",
+        "meter": "平仄：五言粘对，四种基本句按联组合；忌孤平与三平调",
+        "rhyme_scheme": "0ABACADA 式（二、四、六、八句押平声韵，一韵到底；首句可入韵）",
+        "stanza": "四联八句：首联、颔联、颈联、尾联，每联两句",
+        "constraints": [
+          "全诗八句，每句五字，共四十字。",
+          "第二、四、六、八句押平声韵，一韵到底，中间不换韵。",
+          "颔联（三四句）与颈联（五六句）必须对仗。",
+          "首联与尾联可对可不对；首句可入韵也可不入韵。",
+          "平仄按五言粘对规则，避免孤平与三平调。",
+          "四联分工：首联起、颔联承、颈联转、尾联收。"
+        ],
+        "example_ref": "poetry_classic_chunwang"
+      },
+      "details": {
+        "definition": "五言律诗是五言八句而又合乎律诗规范的诗，简称五律。它从五言古诗继承每句五字、两句一组、句数为偶数的格局，再加上对偶与平仄规则，定型于初唐、成熟于盛唐。",
+        "mechanism": "八句分四联，中间两联必须对仗，因此写五律的核心是找出两组能对得上的意象。格律严、字数固定，适合写景兼寄怀。",
+        "conditions": "适合科举、酬赠、纪行、试帖等正式场合；世界里需要有比较严格的诗律传统，或者至少有人会挑剔平仄。",
+        "exceptions": "初唐以前有不少半古半律的作品；后人也有故意写拗律的。若中间两联不对仗，严格说就不是律诗，而是五言古诗或排律的片段。",
+        "story_uses": "①一场诗会以五律定胜负，评判者是极挑剔的老儒。②囚徒在墙上题五律，中间两联藏了地名人名。③考生临场忘了对仗，被主考当场逐出。",
+        "historical_scope": "五律定型于初唐、成熟于盛唐（7—8 世纪），对应 tech:medieval。",
+        "evidence_and_uncertainty": "格律描述核对自 pform_src_03（五言律诗词条：五言八句、两句一组、句数偶数、增加对偶与平仄、定型于初唐）。颔联颈联必须对仗这一条是近体诗通例，与 pform_src_04（七律词条）互证，五律词条本身未逐字写死。"
+      },
+      "source_ids": [
+        "pform_src_03",
+        "pform_src_04"
+      ],
+      "related_ids": [
+        "culture_poetry_lyric",
+        "culture_lit_courtly"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "poetry_form_qilv",
+      "name": "七言律诗",
+      "aliases": [
+        "七律"
+      ],
+      "category": "culture",
+      "primary": "literature_form",
+      "evidence_grade": "mixed",
+      "tech_tier": "medieval",
+      "magic_tier": null,
+      "genres": [
+        "historical",
+        "real_world",
+        "eastern_fantasy",
+        "xianxia"
+      ],
+      "tags": [
+        "kind:poetry_form",
+        "tradition:eastern"
+      ],
+      "summary": "七言八句、四联对仗严整的近体诗，杜甫以后成为最难也最重的诗体之一。",
+      "poetry_form": {
+        "tradition": "chinese",
+        "language": "classical_chinese",
+        "lines": 8,
+        "line_pattern": "每句七字",
+        "meter": "平仄：七言粘对，一三五不论、二四六分明；忌孤平与三平调",
+        "rhyme_scheme": "AABA CACA 式（二、四、六、八句押平声韵，一韵到底；首句多入韵）",
+        "stanza": "四联八句：首联、颔联、颈联、尾联，每联两句",
+        "constraints": [
+          "全诗八句，每句七字，共五十六字。",
+          "第二、四、六、八句押平声韵，通常押平声、一韵到底；首句可押可不押，首句入韵为正格。",
+          "颔联与颈联必须对仗；首联与尾联可对可不对，以都不对为常格。",
+          "平仄按七言粘对规则，避免孤平与三平调。",
+          "全篇四韵或五韵，不得中途换韵。"
+        ],
+        "example_ref": "poetry_classic_denggao"
+      },
+      "details": {
+        "definition": "七言律诗是七言八句、合乎律诗规范的诗，简称七律。它起源于南北朝、萌芽于齐梁、定型于初盛唐，到杜甫手上才被用到极处。",
+        "mechanism": "五十六个字要在四联里完成起承转合，中间两联对仗，首句多入韵。它是近体诗中最费工夫的一种，适合写时事、身世、怀古、酬赠。",
+        "conditions": "多用于正式应制、酬赠、怀古与抒怀；世界里要有成熟的七言诗传统与讲究声律的读者。",
+        "exceptions": "盛唐不少七律有失对、失粘、重字之误；也有故意写成拗体的。首句不入韵是允许的变体，只是不是正格。",
+        "story_uses": "①一首七律被当作寿礼，颔联暗讽受贺者。②某人的七律与二十年前另一位死者的诗只差两个字。③抄本上的七律缺一句，谁能补上成了身份的证明。",
+        "historical_scope": "七律定型于初盛唐（7—8 世纪），杜甫以后成为文人常用体，对应 tech:medieval。",
+        "evidence_and_uncertainty": "格律描述核对自 pform_src_04（七言律诗词条：八句七字五十六字、四韵或五韵、偶数句押韵、首句入韵为正格、颔联颈联必须对仗、首尾联常不对）。平仄与对仗未机检。"
+      },
+      "source_ids": [
+        "pform_src_04"
+      ],
+      "related_ids": [
+        "culture_poetry_lyric",
+        "culture_lit_courtly"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "poetry_form_ci",
+      "name": "词（词牌体）",
+      "aliases": [
+        "长短句",
+        "诗余",
+        "曲子词"
+      ],
+      "category": "culture",
+      "primary": "literature_form",
+      "evidence_grade": "mixed",
+      "tech_tier": "medieval",
+      "magic_tier": null,
+      "genres": [
+        "historical",
+        "real_world",
+        "eastern_fantasy",
+        "xianxia"
+      ],
+      "tags": [
+        "kind:poetry_form",
+        "tradition:eastern"
+      ],
+      "summary": "按词牌规定句数、字数与平仄的长短句抒情诗，两宋最盛。",
+      "poetry_form": {
+        "tradition": "chinese",
+        "language": "classical_chinese",
+        "lines": null,
+        "line_pattern": "每句字数按所选词牌而定（长短句，句数不固定）",
+        "meter": "平仄依词谱；词牌规定每句每字的平仄",
+        "rhyme_scheme": "依词牌而定（平韵或仄韵，多为一韵到底，个别词牌换韵）",
+        "stanza": "依词牌：单调不分片，双调分上下片",
+        "constraints": [
+          "句数、每句字数、平仄都按所选词牌的词谱，不写成整齐的五言或七言句式。",
+          "先选定一个词牌再写，不要混用两个词牌的字句。",
+          "常见词牌格式：《如梦令》单调三十三字、五仄韵、一叠韵；《水调歌头》双调九十五字、平韵；《念奴娇》双调一百字、多用仄韵。",
+          "韵脚在词牌规定的韵部内一韵到底，个别词牌按词谱换韵。",
+          "双调词在上下片之间通常换意（过片），但不换韵。",
+          "同一词牌可以有不同的体（正格与别格），选定一体后要前后一致。"
+        ],
+        "example_ref": "poetry_classic_shuidiaogetou"
+      },
+      "details": {
+        "definition": "词是按词牌填写、句子长短不齐的抒情诗，也称长短句、诗余、曲子词。它起于隋唐燕乐，五代发展，两宋成为一代之文学。",
+        "mechanism": "词的音乐性在词牌里：每个词牌规定句数、每句字数、平仄与韵位。写词叫填词，先选调再按谱填字，上片多写景、下片多抒情。",
+        "conditions": "需要词谱、韵书和会唱或会念的人；世界里要有宴乐、歌伎、文人结社这类场合，否则词就退化为只供阅读的诗。",
+        "exceptions": "同一词牌有正格与别格，字数略有出入；也有把单调重复成双调的做法。作者可以自度曲，但要另外说明，不能算成已有词牌。",
+        "story_uses": "①歌伎唱的某一首词，被人认出用的是禁用的词牌名。②词里嵌了只有一两个人能读懂的字序，成了传信工具。③两个文人用同一词牌对写，互相讥刺。",
+        "historical_scope": "词在两宋（10—13 世纪）达到顶峰，对应 tech:medieval。",
+        "evidence_and_uncertainty": "词牌的作用与《如梦令》的具体规格核对自 pform_src_05（词牌词条：词牌定字句平仄、一调数名与一调数体、如梦令单调三十三字五仄韵一叠韵）。《水调歌头》《念奴娇》的字数与韵部核对自诗条目的注释（poetry_classics 里的两条词）。具体词谱的逐字平仄未逐字核对，只写了大体规格。"
+      },
+      "source_ids": [
+        "pform_src_05"
+      ],
+      "related_ids": [
+        "culture_poetry_lyric",
+        "culture_lit_courtly"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "poetry_form_yuanqu_xiaoling",
+      "name": "元曲小令",
+      "aliases": [
+        "散曲小令",
+        "叶儿"
+      ],
+      "category": "culture",
+      "primary": "literature_form",
+      "evidence_grade": "mixed",
+      "tech_tier": "medieval",
+      "magic_tier": null,
+      "genres": [
+        "historical",
+        "real_world",
+        "eastern_fantasy"
+      ],
+      "tags": [
+        "kind:poetry_form",
+        "tradition:eastern"
+      ],
+      "summary": "按曲牌填写、一支曲子成篇的短曲，语言口语化，元代最盛。",
+      "poetry_form": {
+        "tradition": "chinese",
+        "language": "classical_chinese",
+        "lines": null,
+        "line_pattern": "每句字数按曲牌（如《天净沙》全曲五句二十八字）",
+        "meter": "平仄依曲谱，允许平仄通押；可在定格外加衬字",
+        "rhyme_scheme": "依曲牌（《天净沙》句句押韵、一韵到底）",
+        "stanza": "一支曲牌为一首小令，不分片",
+        "constraints": [
+          "用曲牌写，句数与每句字数按曲谱；不要混用词牌。",
+          "语言通俗口语化，可用方言俚语，比词更接近民歌。",
+          "可在定格外加衬字，但衬字不占正字，改写后本体字句数目不能变。",
+          "押韵允许平仄通押，一般一韵到底。",
+          "要标出宫调与曲牌，如【越调】天净沙。"
+        ],
+        "example_ref": "poetry_classic_tianjingsha"
+      },
+      "details": {
+        "definition": "元曲小令是按曲牌填写、一支曲子独立成篇的短曲，属散曲，又称叶儿。它与词相近而更通俗，元代最盛。",
+        "mechanism": "曲牌定句数字数与平仄，但允许加衬字、增句，押韵还可以平仄通押，所以比词自由、也更口语。多用来写羁旅、叹世、讥刺。",
+        "conditions": "需要曲谱、宫调和能唱或能听的人；市井、酒肆、书会这类场合最适合，比词的宫廷气更平民。",
+        "exceptions": "衬字、增句、平仄通押都是曲的常态，不能按词的严苛去要求；套数由同一宫调的若干曲牌联缀，与小令不同，不可混称。",
+        "story_uses": "①酒馆里有人唱一支讥刺本地官吏的小令，第二天就被请去问话。②曲牌底下藏着一句只有同伙懂的衬字。③书会里比试作小令，胜者得赏。",
+        "historical_scope": "散曲在元、明、清三代流行，元代（13—14 世纪）最盛，对应 tech:medieval。",
+        "evidence_and_uncertainty": "曲体特征核对自 pform_src_06（元曲词条：散曲分小令与套数、小令体制短小、可加衬字可增句、平仄通押、语言口语化、用宫调制）。《天净沙》五句二十八字核对自该书条目的注释。"
+      },
+      "source_ids": [
+        "pform_src_06"
+      ],
+      "related_ids": [
+        "culture_poetry_song"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "poetry_form_yuefu",
+      "name": "乐府体",
+      "aliases": [
+        "汉乐府",
+        "歌行",
+        "拟乐府"
+      ],
+      "category": "culture",
+      "primary": "literature_form",
+      "evidence_grade": "mixed",
+      "tech_tier": "classical",
+      "magic_tier": null,
+      "genres": [
+        "historical",
+        "real_world",
+        "eastern_fantasy"
+      ],
+      "tags": [
+        "kind:poetry_form",
+        "tradition:eastern"
+      ],
+      "summary": "与音乐相配、可被歌唱的歌辞传统，句式长短不拘，汉魏六朝最盛，后世多拟作。",
+      "poetry_form": {
+        "tradition": "chinese",
+        "language": "classical_chinese",
+        "lines": null,
+        "line_pattern": "句数、字数不限，多为五言，也有杂言",
+        "meter": "",
+        "rhyme_scheme": "可换韵，韵脚较宽",
+        "stanza": "按乐曲分章，可多章叠唱",
+        "constraints": [
+          "不要求平仄粘对，可以是纯粹的句式与节奏。",
+          "句式可杂言，五言为主，允许三言、四言、七言夹杂。",
+          "可以换韵，韵脚比近体诗宽。",
+          "标题常用歌、行、吟、曲、辞、谣等字。",
+          "多用第一人称或代言体叙事，允许复沓与叠句。",
+          "可以配乐歌唱，要能分章。"
+        ],
+        "example_ref": "poetry_classic_shangxie"
+      },
+      "details": {
+        "definition": "乐府原指秦汉以来的司乐机构，汉代扩大职能、为郊祀配乐并采诗协律；这类配乐的歌辞后世称乐府诗，也包括后世沿其体裁写的拟乐府。",
+        "mechanism": "乐府首先是歌辞，所以节奏、分章、复沓都比平仄重要。可以整首换韵，句式也可以长短错落，叙事性强于近体诗。",
+        "conditions": "需要乐器、歌者与演奏场合；朝会、祭礼、市井歌场都能唱，因此它的流通面比文人诗宽。",
+        "exceptions": "同一首乐府在不同乐府歌本里的字句与分章常不一致；后世拟作只沿用题名与体制，并不真配乐。不能把拟乐府说成当时的民歌。",
+        "story_uses": "①官署采诗，采诗官把市井的歌辞记下来送进府里。②一首乐府被改了两句，改词的人想让它变成另一种意思。③戍卒唱的乐府里提到的地名人名，与官方记载不合。",
+        "historical_scope": "乐府机构与乐府诗的盛期是汉魏六朝（约前 2 世纪—6 世纪），对应 tech:classical。",
+        "evidence_and_uncertainty": "乐府机构的采诗、协律、造为诗赋与配乐职能核对自 pform_src_07（乐府词条）。歌辞与音乐相配、可被歌唱这一点来自同一词条；分章、复沓、换韵等体式特征属通例，本次未逐条核到具体来源。"
+      },
+      "source_ids": [
+        "pform_src_07"
+      ],
+      "related_ids": [
+        "culture_poetry_narrative",
+        "culture_poetry_song"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "poetry_form_chuci",
+      "name": "楚辞体（骚体）",
+      "aliases": [
+        "骚体",
+        "楚辞"
+      ],
+      "category": "culture",
+      "primary": "literature_form",
+      "evidence_grade": "mixed",
+      "tech_tier": "classical",
+      "magic_tier": null,
+      "genres": [
+        "historical",
+        "real_world",
+        "eastern_fantasy",
+        "xianxia"
+      ],
+      "tags": [
+        "kind:poetry_form",
+        "tradition:eastern"
+      ],
+      "summary": "以楚地声韵写成、句中多用「兮」字的长篇抒情诗体，屈原的作品为代表。",
+      "poetry_form": {
+        "tradition": "chinese",
+        "language": "classical_chinese",
+        "lines": null,
+        "line_pattern": "以六言、七言为主，句中常用「兮」字作语气停顿",
+        "meter": "",
+        "rhyme_scheme": "韵脚较疏，可换韵",
+        "stanza": "篇幅长，分段铺陈，不分固定节",
+        "constraints": [
+          "每句常在句中或句尾用「兮」（也可用「些」「只」）作停顿。",
+          "句子比《诗经》的四言长，多为六言、七言。",
+          "多用楚地物产、神话、香草作比兴，人名地名可直入诗。",
+          "允许长篇铺陈与反复追问，不必受短制限制。",
+          "可以不押严整的韵，韵脚较疏、可换韵。"
+        ],
+        "example_ref": "poetry_classic_lisao"
+      },
+      "details": {
+        "definition": "楚辞体是以战国时楚国屈原的创作为代表的新诗体，又称骚体。它用楚地的方言声韵，写楚地的山川人物与神话。",
+        "mechanism": "句式比《诗经》四言活泼，句中常用「兮」字调节节奏；大量铺陈、比兴、反问，篇幅可以很长，情感外放。",
+        "conditions": "需要有楚地或类似的地方传统、神话系统与香草名物；写在竹简、帛上，适合长篇。世界里要有能读长篇韵文的听众。",
+        "exceptions": "后世效仿楚辞体例的作品也称楚辞或骚体，与屈原原作不是一回事；《楚辞》通行本在汉代由刘向辑十六篇、王逸增《九思》成十七篇，篇目本身有版本问题。",
+        "story_uses": "①一卷残简上只剩楚辞体的几行，其中的香草名指向某个封地。②有人用骚体写讽刺长诗，被指借古讽今。③祭礼上唱的骚体歌辞被临时改了句，改动者想借神意说事。",
+        "historical_scope": "楚辞成于战国、编成于汉代（约前 4—公元 2 世纪），对应 tech:classical。",
+        "evidence_and_uncertainty": "楚辞的方言声韵、句式较《诗经》活泼、又因《离骚》别称骚体这几点核对自 pform_src_08（楚辞词条）。「兮」字用法与铺陈、香草比兴属通例与常识推演，本次未逐条核到来源。"
+      },
+      "source_ids": [
+        "pform_src_08"
+      ],
+      "related_ids": [
+        "culture_poetry_lyric",
+        "culture_poetry_epic"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "poetry_form_shijing_siyan",
+      "name": "诗经四言体",
+      "aliases": [
+        "四言诗",
+        "风体",
+        "重章叠句"
+      ],
+      "category": "culture",
+      "primary": "literature_form",
+      "evidence_grade": "mixed",
+      "tech_tier": "classical",
+      "magic_tier": null,
+      "genres": [
+        "historical",
+        "real_world",
+        "eastern_fantasy"
+      ],
+      "tags": [
+        "kind:poetry_form",
+        "tradition:eastern"
+      ],
+      "summary": "以四言为主、分章复沓、以兴起句的早期汉诗体，《诗经》为代表。",
+      "poetry_form": {
+        "tradition": "chinese",
+        "language": "classical_chinese",
+        "lines": null,
+        "line_pattern": "以四言为主（允许少量杂言，故不按固定字数机检）",
+        "meter": "",
+        "rhyme_scheme": "多为偶句押韵，韵脚较宽，可换韵",
+        "stanza": "分章，章与章句数相同，只换少量字（重章叠句）",
+        "constraints": [
+          "每句四字为主，可以有少量杂言。",
+          "分成若干章，各章句式相同，只在固定位置换一两个字。",
+          "首句常用「兴」：先写一个物象，再引出要说的事。",
+          "用赋、比、兴三种手法，不靠平仄。",
+          "常用叠字与双声叠韵，如关关、苍苍。",
+          "押韵较宽，可以换韵，不必一韵到底。"
+        ],
+        "example_ref": "poetry_classic_guanju"
+      },
+      "details": {
+        "definition": "诗经四言体是以四言为主、分章复沓的早期汉诗体，《诗经》三百篇是它的总集。它是汉诗可考的最早成熟形态。",
+        "mechanism": "以四字一顿的节奏为骨架，靠章与章之间的重复和替换推进内容；开篇多用兴体，先言他物再引起所咏。",
+        "conditions": "多在仪式、宴飨、劳作与民间歌场中唱；世界里要有能被采诗、被演唱的场合，以及记音的书写系统。",
+        "exceptions": "《诗经》各篇分章与用韵并不统一，也有杂言与不押韵的篇章；后世拟四言诗多只仿句式，不再配乐。",
+        "story_uses": "①采诗官在乡间记下一首歌，回朝后它成了讽刺某位大夫的把柄。②两章之间只换一个字，那一个字决定了这首诗是情诗还是讥刺。③学者为某句该读哪一个字争执不休。",
+        "historical_scope": "《诗经》的年代约前 11—前 6 世纪，对应 tech:classical。",
+        "evidence_and_uncertainty": "四言、分章起兴与「以荇起兴」的注语核对自 pform_src_16（关雎词条）。重章叠句、赋比兴、叠字等体式特征是通例，本次未逐条核到来源。"
+      },
+      "source_ids": [
+        "pform_src_16"
+      ],
+      "related_ids": [
+        "culture_poetry_song",
+        "culture_lit_folklore"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "poetry_form_haiku",
+      "name": "俳句",
+      "aliases": [
+        "发句",
+        "俳谐发句"
+      ],
+      "category": "culture",
+      "primary": "literature_form",
+      "evidence_grade": "mixed",
+      "tech_tier": "medieval",
+      "magic_tier": null,
+      "genres": [
+        "historical",
+        "real_world",
+        "eastern_fantasy"
+      ],
+      "tags": [
+        "kind:poetry_form",
+        "tradition:eastern"
+      ],
+      "summary": "三句十七音、必含季语的日本短诗，由连歌的发句独立而成。",
+      "poetry_form": {
+        "tradition": "japanese",
+        "language": "japanese",
+        "lines": 3,
+        "line_pattern": "三句音数 5、7、5，共十七音（日语以音为单位，不等于汉字字数）",
+        "meter": "",
+        "rhyme_scheme": "none",
+        "stanza": "一首三句，不分节",
+        "constraints": [
+          "三句十七音，按 5、7、5 排。",
+          "必含一个季语（表示季节的词，如雪、蛙、蝉、樱花、月）。",
+          "用切字（や、かな、けり等）切开句子，造成停顿。",
+          "只写一个瞬间的景象，不作解释与抒情铺陈。",
+          "不押韵，不要凑韵脚。",
+          "不要把汉字字数当成音数。"
+        ],
+        "example_ref": "poetry_classic_issa_fly"
+      },
+      "details": {
+        "definition": "俳句是三句十七音的日本短诗，五音、七音、五音各一句，由连歌的发句独立而成，江户时代定型。",
+        "mechanism": "一首只有十七个音，所以靠一个季语定季节、一个切字断开、一个瞬间的物象留下余韵，几乎不作解释。",
+        "conditions": "需要日语、季语传统与能接住这种省略的读者；题在色纸、挂在茶室、题在画上都是常见用法。",
+        "exceptions": "有无季俳句与自由律俳句，放弃了季语甚至格式；汉俳是汉语仿作，不等于日语俳句。写作时应标明是借用格式。",
+        "story_uses": "①茶室墙上的一首俳句，季语与当日节令不合。②有人在句子里用了只有本地才懂的季语，暴露了他的来处。③一首俳句被当作诀别之句。",
+        "historical_scope": "俳句在江户时代（17 世纪以后）定型，对应 tech:medieval。",
+        "evidence_and_uncertainty": "三句十七音、五七五、必含季语、源于连歌发句这几点核对自 pform_src_14（俳句词条）。无季俳句与自由律俳句的存在也见于同一词条。具体作品的音数未逐句机检。"
+      },
+      "source_ids": [
+        "pform_src_14"
+      ],
+      "related_ids": [
+        "culture_poetry_haiku"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "poetry_form_waka_tanka",
+      "name": "和歌（短歌）",
+      "aliases": [
+        "短歌",
+        "三十一文字"
+      ],
+      "category": "culture",
+      "primary": "literature_form",
+      "evidence_grade": "mixed",
+      "tech_tier": "medieval",
+      "magic_tier": null,
+      "genres": [
+        "historical",
+        "real_world",
+        "eastern_fantasy"
+      ],
+      "tags": [
+        "kind:poetry_form",
+        "tradition:eastern"
+      ],
+      "summary": "五句三十一音的日本定形诗，五七五七七排列，日本最古老的定型诗体。",
+      "poetry_form": {
+        "tradition": "japanese",
+        "language": "japanese",
+        "lines": 5,
+        "line_pattern": "五句音数 5、7、5、7、7，共三十一音",
+        "meter": "",
+        "rhyme_scheme": "none",
+        "stanza": "一首五句，不分节",
+        "constraints": [
+          "五句三十一音，按 5、7、5、7、7 排。",
+          "不押韵。",
+          "常用枕词、序词、挂词这类修辞，让词兼两个意思。",
+          "上句（五七五）与下句（七七）之间常有一个意思的停顿。",
+          "题材以四季、恋爱、羁旅、哀悼为主。",
+          "不要把汉字字数当成音数。"
+        ],
+        "example_ref": ""
+      },
+      "details": {
+        "definition": "和歌是日本的传统定型诗，短歌为五句三十一音，按五七五七七排列；和歌还包括长歌、片歌、连歌等。",
+        "mechanism": "三十一个音排成五句，前十七音一句组、后十四音一句组，常用枕词与挂词在有限字数里叠出两层意思。",
+        "conditions": "需要日语、假名书写与歌会、歌枕这类共同知识；题在屏风、扇面、卷轴上最常见。",
+        "exceptions": "和歌与长歌、旋头歌、俳句是不同的体裁，不能混称；万叶假名时代用汉字表音，读音复原仍有争议。",
+        "story_uses": "①屏风上的一首和歌，歌枕地名指向一场旧战。②两人以和歌赠答，第二首的挂词暗含拒绝。③编纂歌集时的取舍之争，变成两家的长期仇怨。",
+        "historical_scope": "和歌从 7 世纪起发展，奈良、平安时代（8—12 世纪）最盛，对应 tech:medieval。",
+        "evidence_and_uncertainty": "五句三十一音、五七五七七、与俳句的关系核对自 pform_src_15（和歌词条）。枕词、序词、挂词等修辞属通行说法，本次未核到具体来源；日文范例本次未能核到可引用的原文。"
+      },
+      "source_ids": [
+        "pform_src_15"
+      ],
+      "related_ids": [
+        "culture_poetry_lyric"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "poetry_form_petrarchan_sonnet",
+      "name": "彼特拉克体十四行诗",
+      "aliases": [
+        "意大利体十四行诗",
+        "商籁体",
+        "Petrarchan sonnet"
+      ],
+      "category": "culture",
+      "primary": "literature_form",
+      "evidence_grade": "mixed",
+      "tech_tier": "medieval",
+      "magic_tier": null,
+      "genres": [
+        "historical",
+        "real_world",
+        "western_fantasy"
+      ],
+      "tags": [
+        "kind:poetry_form",
+        "tradition:western"
+      ],
+      "summary": "两个四行节加两个三行节的十四行诗，押抱韵，第九行处转折。",
+      "poetry_form": {
+        "tradition": "western",
+        "language": "italian",
+        "lines": 14,
+        "line_pattern": "每行十一音节（意大利语按音节计；英语仿作多用抑扬格五音步）",
+        "meter": "意大利语按音节与重音；英语仿作用抑扬格五音步",
+        "rhyme_scheme": "ABBA ABBA CDE CDE（或 CDE DCE、CDC DCD）",
+        "stanza": "两个四行节加两个三行节（4+4+3+3）",
+        "constraints": [
+          "全诗十四行。",
+          "前八行是两个四行节，用抱韵 ABBA ABBA。",
+          "后六行是两个三行节，韵式按 CDE CDE 或 CDC DCD。",
+          "第九行处意思要转折（volta），从前八行的陈述转向回应。",
+          "意大利语每行十一音节；用英语写时改用抑扬格五音步。",
+          "全诗只用四到五个韵，韵不能重复过多。"
+        ],
+        "example_ref": ""
+      },
+      "details": {
+        "definition": "彼特拉克体十四行诗是十四行的抒情诗，前两个四行节用抱韵，后两个三行节收束，因彼特拉克的《歌集》而定型，又称意大利体。",
+        "mechanism": "结构是 4+4+3+3，前八行铺陈一个情境或比喻，第九行转折，后六行回应。抱韵 ABBA 让前八行有种闭合感，与莎士比亚体的交替韵不同。",
+        "conditions": "需要有十四行诗的传统、书写材料与能读意大利语或仿作的读者；贵族沙龙、宫廷与文人的通信最适合。",
+        "exceptions": "英语仿作常把后六行改成其他韵式；也有不规则十四行（如雪莱《奥兹曼迪亚斯》），行数与结构像十四行而韵式自由，不能算严格的彼特拉克体。",
+        "story_uses": "①一首献诗的对象是谁，靠第九行的转折读出。②两份手稿的韵式不同，说明其中一份是后人改的。③诗人用十四行诗写政治讽刺，被赞助人要求删除后六行。",
+        "historical_scope": "彼特拉克体在 14 世纪意大利定型，16 世纪传入英法，对应 tech:medieval（英语仿作出现时已是文艺复兴）。",
+        "evidence_and_uncertainty": "彼特拉克体的 4+4+3+3 结构、ABBA ABBA CDE CDE 等韵式、每行十一音节，核对自 pform_src_09（十四行诗词条）。彼特拉克本人的意大利文诗作本次未取到可引用的原文，故 example_ref 留空。"
+      },
+      "source_ids": [
+        "pform_src_09"
+      ],
+      "related_ids": [
+        "culture_poetry_lyric"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "poetry_form_shakespearean_sonnet",
+      "name": "莎士比亚体十四行诗",
+      "aliases": [
+        "英国体十四行诗",
+        "伊丽莎白体",
+        "English sonnet"
+      ],
+      "category": "culture",
+      "primary": "literature_form",
+      "evidence_grade": "mixed",
+      "tech_tier": "renaissance",
+      "magic_tier": null,
+      "genres": [
+        "historical",
+        "real_world",
+        "western_fantasy"
+      ],
+      "tags": [
+        "kind:poetry_form",
+        "tradition:western"
+      ],
+      "summary": "三个四行节加一个对句的十四行诗，交替韵，末对句点题。",
+      "poetry_form": {
+        "tradition": "western",
+        "language": "english",
+        "lines": 14,
+        "line_pattern": "每行十个音节（抑扬格五音步）",
+        "meter": "抑扬格五音步",
+        "rhyme_scheme": "ABAB CDCD EFEF GG",
+        "stanza": "三个四行节加一个对句（4+4+4+2）",
+        "constraints": [
+          "全诗十四行。",
+          "结构为三个四行节加一个对句。",
+          "韵式为 ABAB CDCD EFEF GG，最后两行同韵。",
+          "每行抑扬格五音步，十个音节。",
+          "最后一副对句点明题旨，常与前十二行形成反差。",
+          "第三节末或对句处转折，不要写成平铺。"
+        ],
+        "example_ref": "poetry_classic_sonnet18"
+      },
+      "details": {
+        "definition": "莎士比亚体十四行诗是十四行诗的一种，三个四行节加一个对句，押交替韵，因莎士比亚的一百五十四首而普及。",
+        "mechanism": "4+4+4+2 的结构让前十二行可以逐层推进，最后两行用一个对句收束、点题或翻案。韵式比彼特拉克体多两个韵，写起来更宽。",
+        "conditions": "适合抒情、讽喻、赠答与题献；需要英语的抑扬格传统与能读懂双关的读者。",
+        "exceptions": "莎士比亚本人也有不合十四行的例外（第 99 首十五行、第 126 首十二行）；斯宾塞体用 ABAB BCBC CDCD EE，雪莱体又不同，不能混称。",
+        "story_uses": "①对句里那两个字换了，整首诗的意思就反了。②一首十四行诗被题献给两个人，对句同时取悦双方却互相矛盾。③抄本只剩前十二行，缺的对句成了争抢的东西。",
+        "historical_scope": "莎士比亚体在 16 世纪末的英国盛行，对应 tech:renaissance。",
+        "evidence_and_uncertainty": "4+4+4+2 结构、ABAB CDCD EFEF GG、每行十个抑扬格音节，核对自 pform_src_09（十四行诗词条）；第 18 首英文原文另核对自 shakespeare.mit.edu（见 poetry_classics 的来源）。"
+      },
+      "source_ids": [
+        "pform_src_09"
+      ],
+      "related_ids": [
+        "culture_poetry_lyric",
+        "culture_lit_courtly"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "poetry_form_ballad_stanza",
+      "name": "民谣体",
+      "aliases": [
+        "故事歌体",
+        "ballad stanza",
+        "四三体"
+      ],
+      "category": "culture",
+      "primary": "literature_form",
+      "evidence_grade": "inferred",
+      "tech_tier": "medieval",
+      "magic_tier": null,
+      "genres": [
+        "historical",
+        "real_world",
+        "western_fantasy",
+        "folk_horror"
+      ],
+      "tags": [
+        "kind:poetry_form",
+        "tradition:western"
+      ],
+      "summary": "四行一节、以二四行押韵、讲述一个事件的歌谣体，英语民谣的常用格式。",
+      "poetry_form": {
+        "tradition": "western",
+        "language": "english",
+        "lines": null,
+        "line_pattern": "每节四行；英语民谣多为一、三行四音步，二、四行三音步",
+        "meter": "强重音四、三交替（音节数可有出入）",
+        "rhyme_scheme": "ABCB（一二行也押时作 ABAB）",
+        "stanza": "四行一节，可连续多节叙事",
+        "constraints": [
+          "每节四行。",
+          "第二、四行押韵（ABCB）；若第一行也押，则为 ABAB。",
+          "讲一个事件，多用对话与动作，不作心理分析。",
+          "常用叠句或半句重复，方便合唱与记忆。",
+          "音步不要求严格，一、三行比二、四行长。",
+          "不押韵的位置不要硬凑，宁可换成 ABAB。"
+        ],
+        "example_ref": ""
+      },
+      "details": {
+        "definition": "民谣体是英语叙事歌谣常用的四行一节格式，二、四行押韵，讲述一个完整的事件，多用于口头传唱。",
+        "mechanism": "四行一节、二四行押韵，靠重复、对话和跳跃的情节推进；因为是唱出来的，音步可以有出入，叠句比工整更重要。",
+        "conditions": "需要口头传唱的场合：市集、酒馆、纺线时的合唱、节日舞会；世界里要有能记谱或至少能口耳相传的艺人。",
+        "exceptions": "同一首民谣在不同地区有不同唱词与节数；也有印成单页歌篇（broadside）的版本。不能把某一个印本的文字当成唯一原文。",
+        "story_uses": "①一首民谣在三个村子唱法不同，其中一个版本多了一节，多出来的那节说出了凶手的名字。②领主禁止唱某首民谣，反而让它传得更快。③吟游诗人靠改一句词把讽刺藏进歌里。",
+        "historical_scope": "英语民谣体在 13 世纪以后流行，15—17 世纪大量被记录，对应 tech:medieval。",
+        "evidence_and_uncertainty": "本条没有读到专门讲英语民谣体格律的来源（百度百科「民谣」词条讲的是汉语民谣与各国民族音乐，未涉及四三体韵式），四行一节、ABCB、四三音步等属于英诗通例，记为 inferred，待核。"
+      },
+      "source_ids": [],
+      "related_ids": [
+        "culture_poetry_song",
+        "culture_poetry_narrative"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "poetry_form_english_quatrain",
+      "name": "英诗四行体",
+      "aliases": [
+        "四行节",
+        "quatrain",
+        "赞歌四行体"
+      ],
+      "category": "culture",
+      "primary": "literature_form",
+      "evidence_grade": "inferred",
+      "tech_tier": "renaissance",
+      "magic_tier": null,
+      "genres": [
+        "historical",
+        "real_world",
+        "western_fantasy",
+        "folk_horror"
+      ],
+      "tags": [
+        "kind:poetry_form",
+        "tradition:western"
+      ],
+      "summary": "以四行为一节、可连续多节的英语抒情格式，韵式在 ABAB 与 AABB 之间。",
+      "poetry_form": {
+        "tradition": "western",
+        "language": "english",
+        "lines": null,
+        "line_pattern": "每行四音步（八个音节上下），可略有出入",
+        "meter": "抑扬格四音步，或强重音四拍",
+        "rhyme_scheme": "AABB 或 ABAB（依所选变体，全诗一致）",
+        "stanza": "四行一节，可多节，节间用同一韵式",
+        "constraints": [
+          "每节四行，可连续写若干节。",
+          "选定一种韵式（AABB 或 ABAB）后全诗保持一致。",
+          "每行以四音步为主，允许个别行增减音节。",
+          "每一节自成一个小单位，可换意但不换韵式。",
+          "不要与民谣体的四三交替混用。"
+        ],
+        "example_ref": "poetry_classic_tyger"
+      },
+      "details": {
+        "definition": "英诗四行体是以四行为一节、可连续多节写下去的抒情格式，韵式多为 AABB 或 ABAB，是英语诗里最常见的诗节之一。",
+        "mechanism": "四行一节的结构短而易记，靠节与节的并列或递进推进；AABB 适合对句式的宣告，ABAB 适合前后呼应。",
+        "conditions": "适合题赠、赞歌、讽刺短诗与歌词；世界里要有押韵的读写传统与能唱会诵的场合。",
+        "exceptions": "四行一节还有 ABCB 与 ABBA 等变体，与民谣体、赞歌体（common meter）交叉；写作时要选定一种并说明。",
+        "story_uses": "①一首四行体的歌在酒馆被改词唱成了另一种意思。②孩子唱的童谣每节换一样东西，换到第五节时唱出了一个真实地名。③四行一节的讽刺诗贴在某家门上。",
+        "historical_scope": "四行体在英语诗中自中世纪起就有，16 世纪以后成为常用诗节，对应 tech:renaissance。",
+        "evidence_and_uncertainty": "本条没有读到专门讲英诗四行体的来源，韵式与音步属英诗通例，记为 inferred；举例作品（布莱克《老虎》）的原文核对情况见 poetry_classics。"
+      },
+      "source_ids": [],
+      "related_ids": [
+        "culture_poetry_lyric"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "poetry_form_heroic_couplet",
+      "name": "英雄双韵体",
+      "aliases": [
+        "英雄双行体",
+        "heroic couplet",
+        "十音节双韵体"
+      ],
+      "category": "culture",
+      "primary": "literature_form",
+      "evidence_grade": "mixed",
+      "tech_tier": "renaissance",
+      "magic_tier": null,
+      "genres": [
+        "historical",
+        "real_world",
+        "western_fantasy"
+      ],
+      "tags": [
+        "kind:poetry_form",
+        "tradition:western"
+      ],
+      "summary": "两行一韵、抑扬格五音步的成对诗句，17—18 世纪英国新古典主义的主要诗体。",
+      "poetry_form": {
+        "tradition": "western",
+        "language": "english",
+        "lines": null,
+        "line_pattern": "每行十个音节（抑扬格五音步）",
+        "meter": "抑扬格五音步",
+        "rhyme_scheme": "AABB CCDD…（每两行换韵，韵不重复）",
+        "stanza": "两行一联，全诗连续成篇，不分节",
+        "constraints": [
+          "每两行成一对偶句，押同一个韵，韵尾依次更换且不重复。",
+          "每行抑扬格五音步，十个音节。",
+          "一个对句讲完一层意思，第二行要收得住。",
+          "风格简洁、句式均衡，常用来论辩、讽刺与说教。",
+          "全诗每一联都要合律，只有几联合律不能算这个体裁。"
+        ],
+        "example_ref": "poetry_classic_coopers_hill"
+      },
+      "details": {
+        "definition": "英雄双韵体是两行一韵、每行抑扬格五音步的成对诗句，由德莱顿命名并在 17—18 世纪的英国成为新古典主义的主要诗体。",
+        "mechanism": "以对偶句为单位推进：第一行立论，第二行收束或翻案，下一联换韵再接。因为韵脚成对、句子短促，特别适合讽刺与说理。",
+        "conditions": "适合序诗、讽刺诗、论说文与译诗；世界里要有讲究工整与机智的读者群。",
+        "exceptions": "乔叟已把十音节双韵体从法国引入英国，但它还不是后来的英雄双韵体；蒲柏好用三韵句与亚历山大诗行作变体。只有个别对偶句合律的长诗，不能称为英雄双韵体。",
+        "story_uses": "①一首英雄双韵体的讽刺诗，每联都在影射一个朝臣。②译诗的韵脚改了一处，法律上的意思就不同了。③有人以诗句赌输赢，条件是整首不能重复同一个韵。",
+        "historical_scope": "英雄双韵体在 17 世纪定型、18 世纪英国最盛，对应 tech:renaissance。",
+        "evidence_and_uncertainty": "英雄双韵体的四项界定条件（五音步抑扬格、押尾韵对偶、韵尾 AABB 不重复、风格简洁）以及德莱顿命名、乔叟引入十音节双韵体，核对自 pform_src_10（英雄双韵体词条）。词条所引德纳姆诗的英文原文见 poetry_classics。"
+      },
+      "source_ids": [
+        "pform_src_10"
+      ],
+      "related_ids": [
+        "culture_poetry_lyric"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "poetry_form_blank_verse",
+      "name": "素体诗",
+      "aliases": [
+        "无韵诗",
+        "blank verse",
+        "抑扬格五音步无韵诗"
+      ],
+      "category": "culture",
+      "primary": "literature_form",
+      "evidence_grade": "mixed",
+      "tech_tier": "renaissance",
+      "magic_tier": null,
+      "genres": [
+        "historical",
+        "real_world",
+        "western_fantasy"
+      ],
+      "tags": [
+        "kind:poetry_form",
+        "tradition:western"
+      ],
+      "summary": "不押韵、每行抑扬格五音步的诗体，英语诗剧与长篇叙事的主要形式。",
+      "poetry_form": {
+        "tradition": "western",
+        "language": "english",
+        "lines": null,
+        "line_pattern": "每行十个音节（抑扬格五音步）",
+        "meter": "抑扬格五音步",
+        "rhyme_scheme": "none",
+        "stanza": "行数不限，不分节，不押韵",
+        "constraints": [
+          "每行抑扬格五音步，十个音节。",
+          "全诗不押韵。",
+          "行数不限，可长可短。",
+          "允许跨行（一句伸到下一行），让语流接近说话。",
+          "音节与音步可以偶尔增减，但主干要保持在五步。",
+          "适合人物独白、戏剧对白与长篇叙事。"
+        ],
+        "example_ref": "poetry_classic_macbeth_tomorrow"
+      },
+      "details": {
+        "definition": "素体诗是不押韵、每行抑扬格五音步的诗体，16 世纪中期进入英语诗，1580 年代起流行，广泛用于戏剧与叙事诗。",
+        "mechanism": "不押韵而保留五音步，把注意力从韵脚转到语序与停顿上；可以跨行，因此能写得像人说话，特别适合独白与长篇叙述。",
+        "conditions": "适合戏剧台词、长篇叙事与译诗；世界里要有剧场或长篇诵读的场合。",
+        "exceptions": "实际运用中音节与音步数常被增减，属于常态的节奏变体；印刷时诗剧要按诗行排版，否则节奏会被读乱。用韵的段落不能叫素体诗。",
+        "story_uses": "①一段独白里多出的半个音步，被演员当成暗示。②台词本按散文排版，念出来意思全变。③有人把素体诗的断行改掉，把一句话拆成了两意。",
+        "historical_scope": "素体诗在 16 世纪中期的英语诗中记载，1580 年代起流行，对应 tech:renaissance。",
+        "evidence_and_uncertainty": "不押韵、每行十个音节抑扬格五音步、行数不限、常用于戏剧与叙事诗、可有节奏变体、诗剧排版须按诗行，核对自 pform_src_11（无韵诗词条）。"
+      },
+      "source_ids": [
+        "pform_src_11"
+      ],
+      "related_ids": [
+        "culture_poetry_narrative"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "poetry_form_terza_rima",
+      "name": "三行连环韵",
+      "aliases": [
+        "三行体",
+        "terza rima",
+        "三行连锁押韵"
+      ],
+      "category": "culture",
+      "primary": "literature_form",
+      "evidence_grade": "mixed",
+      "tech_tier": "medieval",
+      "magic_tier": null,
+      "genres": [
+        "historical",
+        "real_world",
+        "western_fantasy"
+      ],
+      "tags": [
+        "kind:poetry_form",
+        "tradition:western"
+      ],
+      "summary": "三行一节、首尾韵互相勾连的长诗格律，但丁《神曲》用它写成。",
+      "poetry_form": {
+        "tradition": "western",
+        "language": "italian",
+        "lines": null,
+        "line_pattern": "每行十一音节（意大利语）；英语仿作用抑扬格五音步",
+        "meter": "意大利语按音节；英语仿作用抑扬格五音步",
+        "rhyme_scheme": "ABA BCB CDC …（末节以单行收韵）",
+        "stanza": "三行一节，节与节以韵勾连；末节单行收尾",
+        "constraints": [
+          "每节三行。",
+          "第一节韵式 ABA，第二节以上一节的 B 起韵作 BCB，依次连锁。",
+          "全诗以一个单行收尾，该行押上一节的中间韵。",
+          "总行数为三的整数倍加一。",
+          "韵脚只用少数组，靠连锁维持推进，不要中途断链。",
+          "适合长篇叙事，格律要贯穿全篇。"
+        ],
+        "example_ref": ""
+      },
+      "details": {
+        "definition": "三行连环韵是三行一节、韵脚在节与节之间互相勾连的格律，但丁《神曲》全书一百歌都用它写成。",
+        "mechanism": "每一节三行，中间的韵被下一节借去起韵，形成 ABA BCB CDC 的链条，因此全诗像锁链一样无法从中间断开。适合长篇叙事与巡游式的结构。",
+        "conditions": "适合长篇叙事诗、巡游或层层推进的结构；世界里要有能读长篇韵文的读者与足够的书写材料。",
+        "exceptions": "英语仿作常改押抑扬格五音步；也有只在段落里用三行连锁、全诗不贯的例子。断链或末节不收单行，严格说就不是这种格律。",
+        "story_uses": "①一卷长诗缺了中间三行，链条断了，后人补写时露出破绽。②三行一节的押韵里藏着首字母顺序。③译者把连锁韵改成对句，原作的行进感丢了。",
+        "historical_scope": "三行连环韵在 13—14 世纪的意大利定型，《神曲》是最著名的用例，对应 tech:medieval。",
+        "evidence_and_uncertainty": "《神曲》全书一百歌一律用「三行韵律」或「三行连锁押韵法」、每歌由三行诗节一环扣一环连锁接成长链条，核对自 pform_src_17（三行诗词条，该词条主体讲汉语三行小诗，只有这一句讲《神曲》）。ABA BCB 的具体韵式与末节收单行属通行说法，本次未核到专门来源；《神曲》意大利文原文本次未取到，故 example_ref 留空。"
+      },
+      "source_ids": [
+        "pform_src_17"
+      ],
+      "related_ids": [
+        "culture_poetry_narrative",
+        "culture_poetry_epic"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "poetry_form_villanelle",
+      "name": "维拉内拉",
+      "aliases": [
+        "十九行诗",
+        "villanelle"
+      ],
+      "category": "culture",
+      "primary": "literature_form",
+      "evidence_grade": "inferred",
+      "tech_tier": "renaissance",
+      "magic_tier": null,
+      "genres": [
+        "historical",
+        "real_world",
+        "western_fantasy"
+      ],
+      "tags": [
+        "kind:poetry_form",
+        "tradition:western"
+      ],
+      "summary": "十九行、只用两个韵、以两句叠句交替回旋的法国定形诗。",
+      "poetry_form": {
+        "tradition": "western",
+        "language": "french",
+        "lines": 19,
+        "line_pattern": "每行十音节（法语）；英语仿作用抑扬格五音步",
+        "meter": "法语按音节；英语仿作用抑扬格五音步",
+        "rhyme_scheme": "ABA ABA ABA ABA ABA ABAA（全诗只用两个韵）",
+        "stanza": "五个三行节加一个四行节",
+        "constraints": [
+          "共十九行：五个三行节加一个四行节。",
+          "全诗只用两个韵，韵式按 ABA 反复。",
+          "第一节的第一行与第三行是叠句，之后每节交替用其中一句作末行。",
+          "最后的四行节以两句叠句一起收尾。",
+          "叠句每次出现要与上下文换义，不能原样重复而无变化。",
+          "全诗只谈一个主题，靠回旋推进。"
+        ],
+        "example_ref": ""
+      },
+      "details": {
+        "definition": "维拉内拉是 19 行的法国定形诗，五个三行节加一个四行节，只用两个韵，第一节的一、三行作为叠句在全诗交替回旋。",
+        "mechanism": "两行叠句像副歌一样反复出现，每次落进不同的上下文里，意思随之移动，这是这个体裁的全部难点。",
+        "conditions": "适合写执念、追忆与回旋不去的心绪；世界里要有法国或仿法的定形诗传统与沙龙式的读者。",
+        "exceptions": "19 世纪以后才有大量英语仿作；法语原作与意大利的 villanella（乡村歌曲）不是同一体裁，不能混谈。叠句数错一处，全诗结构就不成立。",
+        "story_uses": "①一首维拉内拉的叠句在两处意思相反，读者据此判断作者的态度变了。②两人用同一组叠句对写，成了书信式的争吵。③抄本多出一节，多出的那节破坏了回旋。",
+        "historical_scope": "维拉内拉在 16 世纪的法国定型，19 世纪以后在英语诗中被广泛仿作，对应 tech:renaissance。",
+        "evidence_and_uncertainty": "本条没有读到讲这种 19 行定形诗的来源：百度百科「维拉内拉」词条讲的是那不勒斯的 villanella 音乐体裁，与法国的 villanelle 不是同一事物，故零引用。行数、叠句与两韵结构属通行说法，记为 inferred，待核。"
+      },
+      "source_ids": [],
+      "related_ids": [
+        "culture_poetry_lyric"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "poetry_form_rondeau",
+      "name": "回旋诗",
+      "aliases": [
+        "朗多",
+        "rondeau"
+      ],
+      "category": "culture",
+      "primary": "literature_form",
+      "evidence_grade": "inferred",
+      "tech_tier": "renaissance",
+      "magic_tier": null,
+      "genres": [
+        "historical",
+        "real_world",
+        "western_fantasy"
+      ],
+      "tags": [
+        "kind:poetry_form",
+        "tradition:western"
+      ],
+      "summary": "五、四、四三节、只用两韵、以开篇半句作叠句回旋的法国定形诗。",
+      "poetry_form": {
+        "tradition": "western",
+        "language": "french",
+        "lines": null,
+        "line_pattern": "每行八音节（法语）",
+        "meter": "法语按音节与重音",
+        "rhyme_scheme": "AABBA AAB AABBA（全诗只用两个韵）",
+        "stanza": "五、四、四三节，末行接开篇半句作叠句",
+        "constraints": [
+          "分五、四、四三节。",
+          "全诗只用两个韵。",
+          "以开篇半句作叠句，在中段末尾与结尾重复。",
+          "每行八音节（法语），气息轻巧。",
+          "题材以爱情、机锋与轻讽为主，不宜写沉重史诗。"
+        ],
+        "example_ref": ""
+      },
+      "details": {
+        "definition": "回旋诗是法国的一种定形诗，分五、四、四三节，只用两个韵，以开篇的半句作叠句反复回来。",
+        "mechanism": "短行、两韵、叠句回旋，读起来像绕圈子的舞曲。难点在叠句每次回来都要接得自然、意思略有移动。",
+        "conditions": "适合宫廷游戏、赠答与轻讽；世界里要有以作诗为社交技艺的圈子。",
+        "exceptions": "15—16 世纪是它的盛期，后世多作拟体；与汉语的回文诗完全不同，不能因为译名相近而混谈。",
+        "story_uses": "①一首回旋诗的叠句被改了一个字，整首诗从赞美变成讥刺。②贵族以回旋诗定婚约的条件。③抄本缺了第一节，叠句的来处不明。",
+        "historical_scope": "回旋诗在 15—16 世纪的法国流行，对应 tech:renaissance。",
+        "evidence_and_uncertainty": "本条没有读到讲法国回旋诗的来源：百度百科「回旋诗」词条实际讲的是汉语回文诗，与 rondeau 无关，故零引用。节数、两韵与叠句结构属通行说法，记为 inferred，待核。"
+      },
+      "source_ids": [],
+      "related_ids": [
+        "culture_lit_courtly"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "poetry_form_canso",
+      "name": "行吟诗人的情歌（canso）",
+      "aliases": [
+        "康索",
+        "宫廷情歌",
+        "canso"
+      ],
+      "category": "culture",
+      "primary": "literature_form",
+      "evidence_grade": "mixed",
+      "tech_tier": "medieval",
+      "magic_tier": null,
+      "genres": [
+        "historical",
+        "real_world",
+        "western_fantasy"
+      ],
+      "tags": [
+        "kind:poetry_form",
+        "tradition:western"
+      ],
+      "summary": "普罗旺斯行吟诗人写宫廷之恋的定式情歌，诗与曲一体，各节同调。",
+      "poetry_form": {
+        "tradition": "occitan",
+        "language": "occitan",
+        "lines": null,
+        "line_pattern": "每行八到十二音节，句数依曲调（一节约五到七句）",
+        "meter": "按音节与重音，须能配旋律唱",
+        "rhyme_scheme": "每节韵式相同，句尾押韵（常见 AAB 之类组合）",
+        "stanza": "五节或六节，末节为向对象致意的短节（tornada）",
+        "constraints": [
+          "主题是宫廷之恋：诗人自居下位，向高位的夫人效忠。",
+          "各节旋律与韵式相同，末节（tornada）向夫人或赞助人致意。",
+          "诗与曲一体，写的时候要能唱出来。",
+          "常用晨歌（幽会情人清晨分手）、田园歌（骑士与牧羊女）等变体，但主题仍是爱。",
+          "对夫人的称呼要抬升，对诗人自己要压低。",
+          "不直呼其名，用化名或代称（senhal）。"
+        ],
+        "example_ref": ""
+      },
+      "details": {
+        "definition": "情歌（canso）是普罗旺斯行吟诗人最主要的体裁，写宫廷之恋：诗人以陪臣自居，向高位的夫人效忠。",
+        "mechanism": "各节同调同韵，配旋律演唱；末节（tornada）把歌献给夫人或赞助人。晨歌、田园歌、辩论歌、讽刺歌、悲歌都是在同一套技艺上分出来的变体。",
+        "conditions": "需要赞助人、宫廷或贵族沙龙，以及能听懂奥克语或当地语言的听众；诗人往往兼有贵族或骑士身份。",
+        "exceptions": "南北方言与曲调不同（troubadour 与 trouvère）；大量旋律已经失传，只剩唱词。不能把某一部抄本的韵式当成唯一标准。",
+        "story_uses": "①一首情歌的化名指向谁，成了整个宫廷的赌局。②诗人把讽刺藏进情歌的末节，得罪了赞助人。③同一首歌在两地唱词不同，一处多出一句不利于某位贵族的暗示。",
+        "historical_scope": "情歌与行吟诗人在 12—13 世纪的普罗旺斯（奥克语区）最盛，对应 tech:medieval。",
+        "evidence_and_uncertainty": "宫廷之恋的主题、康索即爱情诗歌、以及晨歌／田园歌／辩论歌／讽刺歌／悲歌的分类，核对自 pform_src_18（游吟诗人词条）。各节同调同韵、末节 tornada、化名（senhal）等细节属通行说法，本次未核到专门来源；奥克语原文本次未取到，故 example_ref 留空。"
+      },
+      "source_ids": [
+        "pform_src_18"
+      ],
+      "related_ids": [
+        "culture_lit_courtly",
+        "culture_poetry_lyric"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "poetry_form_hexameter_epic",
+      "name": "古典六步格史诗",
+      "aliases": [
+        "六音步诗行",
+        "hexameter",
+        "达克提洛斯六步格"
+      ],
+      "category": "culture",
+      "primary": "literature_form",
+      "evidence_grade": "inferred",
+      "tech_tier": "classical",
+      "magic_tier": null,
+      "genres": [
+        "historical",
+        "real_world",
+        "western_fantasy"
+      ],
+      "tags": [
+        "kind:poetry_form",
+        "tradition:western"
+      ],
+      "summary": "以六音步诗行写成的希腊罗马史诗格律，全篇不押韵。",
+      "poetry_form": {
+        "tradition": "western",
+        "language": "latin_greek",
+        "lines": null,
+        "line_pattern": "每行六个音步（约十三到十七音节）",
+        "meter": "六步格（希腊语与拉丁语的扬抑抑格 dactylic hexameter）",
+        "rhyme_scheme": "none",
+        "stanza": "行数不限，全篇连续，不分节",
+        "constraints": [
+          "每行六个音步。",
+          "以扬抑抑格为主，可用扬抑格替换，第五步通常是完整的扬抑抑格。",
+          "不押韵，靠音步与停顿构成节奏。",
+          "开篇向诗神祈求（invocation），并点明主题。",
+          "常用固定修饰语与程式化句式（epithet、formula）。",
+          "长篇叙事，格律贯穿全篇，不因分段而改格。"
+        ],
+        "example_ref": "poetry_classic_aeneid_1"
+      },
+      "details": {
+        "definition": "古典六步格史诗是用六音步诗行写成的长篇叙事诗，荷马史诗与维吉尔《埃涅阿斯纪》都用这种格律，全篇不押韵。",
+        "mechanism": "每行六个音步，以长短短的音步为主，靠固定的修饰语与程式化句式即席铺展；不押韵，所以节奏全在音步与行内停顿上。",
+        "conditions": "需要有能听长篇吟诵的场合与吟诵者；书面流传后仍按音步分行。世界里要有相应的语言传统（希腊语或拉丁语）或仿作。",
+        "exceptions": "希腊语与拉丁语的音步规则不完全相同；中译本多用散文或自由体，不宜当格律范例。仿作若改用押韵，就不是六步格了。",
+        "story_uses": "①吟诵者在某一行停错了位置，听众听出他的记诵是抄来的。②两卷史诗对同一段战事的说法不同，学者各执一卷。③一段残卷的行数与已知版本不符，说明它是另一套传本。",
+        "historical_scope": "六步格史诗在希腊古典时期与罗马帝国时期（约前 8 世纪—公元 1 世纪）成熟，对应 tech:classical。",
+        "evidence_and_uncertainty": "本条没有读到讲六步格格律的来源；维吉尔《埃涅阿斯纪》第一卷开头的拉丁文原文核对自 thelatinlibrary.com（见 poetry_classics 的来源），但那页只有原文、不含格律说明。音步规则属通行说法，记为 inferred，待核。"
+      },
+      "source_ids": [],
+      "related_ids": [
+        "culture_poetry_epic"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "poetry_form_alliterative_verse",
+      "name": "头韵诗（古英语与古诺尔斯）",
+      "aliases": [
+        "头韵体",
+        "alliterative verse",
+        "古英语诗体"
+      ],
+      "category": "culture",
+      "primary": "literature_form",
+      "evidence_grade": "mixed",
+      "tech_tier": "medieval",
+      "magic_tier": null,
+      "genres": [
+        "historical",
+        "real_world",
+        "western_fantasy",
+        "folk_horror"
+      ],
+      "tags": [
+        "kind:poetry_form",
+        "tradition:norse_germanic"
+      ],
+      "summary": "以头韵而非尾韵组织节奏的日耳曼语长行诗，古英语史诗《贝奥武夫》用它写成。",
+      "poetry_form": {
+        "tradition": "norse_germanic",
+        "language": "old_english",
+        "lines": null,
+        "line_pattern": "每行分前后两个半行，每个半行两个重读音节",
+        "meter": "每半行两重音，靠头韵把两个半行连起来",
+        "rhyme_scheme": "none（用头韵代替尾韵）",
+        "stanza": "行数不限，一般不分节，可按段落分段",
+        "constraints": [
+          "每行由前后两个半行组成，中间用停顿（caesura）分开。",
+          "每个半行有两个重读音节。",
+          "重读音节之间用头韵相连：前一半行的两个重音通常都要与后一半行的第一个重音同辅音。",
+          "不押尾韵。",
+          "常用代称（kenning）与异名指同一事物，如把海称作鲸路。",
+          "允许跳脱的语序与插入句。"
+        ],
+        "example_ref": ""
+      },
+      "details": {
+        "definition": "头韵诗是日耳曼语族的传统诗体，用头韵（词首辅音相同）而不是尾韵来组织节奏，古英语《贝奥武夫》与古诺尔斯诗都用它。",
+        "mechanism": "一行分成两个半行，每半行两个重音，前三个重音之间用同一辅音开头把两半行扣在一起；不押韵，靠重音与停顿成节奏。",
+        "conditions": "需要在厅堂里由吟诵者当众背诵的场合；世界里要有以口头传承为主的长篇诗与能听懂代称的听众。",
+        "exceptions": "古英语、古诺尔斯与中古英语的头韵规则不完全相同；基督教传入后部分作品改用尾韵。现代仿作若只堆头韵而不合半行与重音规则，就不是这个体裁。",
+        "story_uses": "①吟诵者在同一行里换了三次头韵，听众听出他忘词了。②一段头韵诗里的代称只有某个家族会用，据此判断诗的来处。③有人把口头传的诗写下来时改了语序，意思变了。",
+        "historical_scope": "头韵诗在 5—11 世纪的日耳曼语地区流行，对应 tech:medieval。",
+        "evidence_and_uncertainty": "头韵指两个以上单词首音素相同、可上溯到古英语时期、是盎格鲁撒克逊诗歌的主要特征、并且是加强行内节奏的手段，核对自 pform_src_12（头韵词条）。半行两重音、caesura、kenning 等具体规则属通行说法，本次未核到专门来源；《贝奥武夫》古英语原文本次未取到，故 example_ref 留空。"
+      },
+      "source_ids": [
+        "pform_src_12"
+      ],
+      "related_ids": [
+        "culture_poetry_epic",
+        "culture_poetry_narrative"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "poetry_form_free_verse",
+      "name": "自由诗（1939 年前）",
+      "aliases": [
+        "自由体诗",
+        "free verse",
+        "新诗体"
+      ],
+      "category": "culture",
+      "primary": "literature_form",
+      "evidence_grade": "mixed",
+      "tech_tier": "steam",
+      "magic_tier": null,
+      "genres": [
+        "historical",
+        "real_world",
+        "western_fantasy",
+        "steampunk"
+      ],
+      "tags": [
+        "kind:poetry_form",
+        "tradition:western"
+      ],
+      "summary": "不押韵、不拘音步，靠断行与行内节奏组织的近代诗体，惠特曼是主要开创者。",
+      "poetry_form": {
+        "tradition": "western",
+        "language": "any",
+        "lines": null,
+        "line_pattern": "行无固定字数，以断行为单位",
+        "meter": "",
+        "rhyme_scheme": "none",
+        "stanza": "分节自由，可分节也可不分节",
+        "constraints": [
+          "不押韵、不拘音步与行数。",
+          "靠断行、行内节奏与意象组织，句子可以跨行。",
+          "自由不等于松散：每一行都要有具体的物象或动作。",
+          "不作抽象说教，把判断留给读者。",
+          "1939 年前的自由诗参照惠特曼一路，多用列举与平行结构。"
+        ],
+        "example_ref": "poetry_classic_whitman_singing"
+      },
+      "details": {
+        "definition": "自由诗是不押韵、不拘音步与行数的诗体，19 世纪由惠特曼等人推向主流，20 世纪上半叶成为英语诗的主要形式之一。",
+        "mechanism": "放弃了格律的外壳，靠断行、重复、列举与意象的排列制造节奏；分行本身就是意义，改一次断行就换一层意思。",
+        "conditions": "需要有印刷与报刊这类能大量传播诗的媒介，以及不再以格律判断诗高低的读者；城市、工厂、移民社会是它常见的背景。",
+        "exceptions": "自由诗内部差别很大（惠特曼式的长行与意象派的短行完全不同）；押韵的自由诗仍可称为自由诗，但不能同时声称是十四行诗之类的定形诗。",
+        "story_uses": "①一首自由诗在报纸上发表后被指影射某位工厂主。②断行被排字工改掉，诗的意思变了，作者要求更正。③一位老派批评家以不合格律为由否定它，反让它更出名。",
+        "historical_scope": "自由诗在 19 世纪中期兴起，1939 年前已成形，对应 tech:steam。",
+        "evidence_and_uncertainty": "惠特曼是近现代主流自由诗的创始者、主张不拘格律平仄长短，核对自 pform_src_13（自由诗词条）。惠特曼《我听见美洲在歌唱》英文原文核对自 poets.org（见 poetry_classics 的来源）。"
+      },
+      "source_ids": [
+        "pform_src_13"
+      ],
+      "related_ids": [
+        "culture_poetry_lyric"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    }
+  ]
+}

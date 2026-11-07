@@ -1,0 +1,384 @@
+{
+  "schema": "catalog_overlay_v1",
+  "group": "western",
+  "entries": {
+    "western_dragon": {
+      "primary": "race",
+      "evidence_grade": "mixed",
+      "note": "非人知性体：有智慧、可交涉，按 primary-tags-spec §2.1 归 race",
+      "tech_tier": null,
+      "magic_tier": "rare"
+    },
+    "western_elf": {
+      "primary": "race",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "rare"
+    },
+    "western_dwarf": {
+      "primary": "race",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "rare"
+    },
+    "western_gnome_goblin": {
+      "primary": "race",
+      "evidence_grade": "mixed",
+      "note": "非人知性体：有智慧、可交涉，按 primary-tags-spec §2.1 归 race",
+      "tech_tier": null,
+      "magic_tier": "rare"
+    },
+    "western_fey_folk": {
+      "primary": "race",
+      "evidence_grade": "mixed",
+      "note": "非人知性体：有智慧、可交涉，按 primary-tags-spec §2.1 归 race",
+      "tech_tier": null,
+      "magic_tier": "rare"
+    },
+    "western_werewolf": {
+      "primary": "beast",
+      "evidence_grade": "mixed",
+      "note": "兽化者；词表缺“变形者”",
+      "tech_tier": null,
+      "magic_tier": "rare"
+    },
+    "western_vampire": {
+      "primary": "undead_demon",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "rare"
+    },
+    "western_restless_dead": {
+      "primary": "undead_demon",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "rare"
+    },
+    "western_demon_possession": {
+      "primary": "undead_demon",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "rare"
+    },
+    "western_arcane_spellcraft": {
+      "primary": "magic_power",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "common"
+    },
+    "western_magic_price": {
+      "primary": "magic_power",
+      "evidence_grade": "inferred",
+      "note": "代价是施法的通用约束，最低档即成立，取 rare",
+      "tech_tier": null,
+      "magic_tier": "rare"
+    },
+    "western_divine_miracle": {
+      "primary": "magic_power",
+      "evidence_grade": "mixed",
+      "note": "神术可由教会认证但真实性依设定，取低一档 rare",
+      "tech_tier": null,
+      "magic_tier": "rare"
+    },
+    "western_alchemy": {
+      "primary": "craft_process",
+      "evidence_grade": "mixed",
+      "note": "炼金术按历史秘学记述，不要求超自然生效，取 null",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "western_necromancy": {
+      "primary": "magic_power",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "rare"
+    },
+    "western_curse_oath": {
+      "primary": "magic_power",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "rare"
+    },
+    "western_divination": {
+      "primary": "magic_power",
+      "evidence_grade": "mixed",
+      "note": "占卜按技艺记述，不要求真能预知，取 null",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "western_enchanting": {
+      "primary": "craft_process",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "common"
+    },
+    "western_witchcraft": {
+      "primary": "magic_power",
+      "evidence_grade": "mixed",
+      "note": "正文须同时容纳确有法力与诬告，取低一档 null",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "western_enchanted_armament": {
+      "primary": "weapon",
+      "evidence_grade": "mixed",
+      "note": "兵器与铠甲合并条目；附魔兵器多为单件有来历之物，取低一档 rare",
+      "tech_tier": null,
+      "magic_tier": "rare"
+    },
+    "western_holy_relic": {
+      "primary": "belief_ritual",
+      "evidence_grade": "mixed",
+      "note": "效力来自宗教认定，真伪之争是剧情，不要求真实生效，取 null",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "western_potion_elixir": {
+      "primary": "potion",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "common"
+    },
+    "western_arcane_material": {
+      "primary": "magic_material",
+      "evidence_grade": "inferred",
+      "note": "词表缺“魔法材料”，暂选 ore",
+      "tech_tier": null,
+      "magic_tier": "common"
+    },
+    "western_treasure_hoard": {
+      "primary": "place",
+      "evidence_grade": "mixed",
+      "note": "宝库为主；词表缺“宝物/财货”",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "western_dungeon_ruin": {
+      "primary": "place",
+      "evidence_grade": "inferred",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "western_castle_keep": {
+      "primary": "place",
+      "evidence_grade": "sourced",
+      "note": "城堡取世界档表所列中世纪典型事物，古典要塞另算",
+      "tech_tier": "medieval",
+      "magic_tier": null
+    },
+    "western_gothic_cathedral": {
+      "primary": "place",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": "medieval",
+      "magic_tier": null
+    },
+    "western_monastery_scriptorium": {
+      "primary": "place",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "western_crypt_catacomb": {
+      "primary": "place",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "western_haunted_manor": {
+      "primary": "place",
+      "evidence_grade": "mixed",
+      "note": "哥特恐怖空间，超自然成分依设定，取 null",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "western_free_city": {
+      "primary": "place",
+      "evidence_grade": "mixed",
+      "note": "也可视为 institution（自治体）",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "western_kingdom_monarchy": {
+      "primary": "institution",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "western_feudal_fief": {
+      "primary": "institution",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "western_manor_serfdom": {
+      "primary": "institution",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "western_knighthood_chivalry": {
+      "primary": "institution",
+      "evidence_grade": "mixed",
+      "note": "骑士道与骑士团合并；按 category 选 institution；骑士阶层可追溯到古典，不标科技档",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "western_guild_charter": {
+      "primary": "organization",
+      "evidence_grade": "mixed",
+      "note": "行会与特许状合并，按行会选 organization",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "western_church_hierarchy": {
+      "primary": "organization",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "western_inquisition_heresy": {
+      "primary": "institution",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "western_monastic_order": {
+      "primary": "organization",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "western_taboo_forbidden_lore": {
+      "primary": "institution",
+      "evidence_grade": "inferred",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "western_magic_regulation": {
+      "primary": "institution",
+      "evidence_grade": "inferred",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "common"
+    },
+    "western_mage_college": {
+      "primary": "organization",
+      "evidence_grade": "inferred",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "common"
+    },
+    "western_monster_hunter": {
+      "primary": "profession",
+      "evidence_grade": "mixed",
+      "note": "猎魔人可只是猎巫人，取低一档 rare",
+      "tech_tier": null,
+      "magic_tier": "rare"
+    },
+    "western_underworld_guild": {
+      "primary": "organization",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "western_secret_cult": {
+      "primary": "organization",
+      "evidence_grade": "mixed",
+      "note": "秘密结社按宗教社会现象记述，取 null",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "western_pilgrimage_order": {
+      "primary": "organization",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "western_trade_league": {
+      "primary": "organization",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "western_mining_smelting": {
+      "primary": "craft_process",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "western_usury_finance": {
+      "primary": "economy_trade",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "western_apprenticeship": {
+      "primary": "institution",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "western_siege_warfare": {
+      "primary": "conflict_event",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "western_tournament": {
+      "primary": "conflict_event",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "western_monster_incursion": {
+      "primary": "conflict_event",
+      "evidence_grade": "inferred",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "rare"
+    },
+    "western_plague_famine": {
+      "primary": "conflict_event",
+      "evidence_grade": "mixed",
+      "note": "按条目写成事件",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "western_witch_trial": {
+      "primary": "conflict_event",
+      "evidence_grade": "mixed",
+      "note": "也可视为 institution",
+      "tech_tier": null,
+      "magic_tier": null
+    }
+  }
+}

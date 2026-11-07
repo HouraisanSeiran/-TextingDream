@@ -1,0 +1,2059 @@
+{
+  "schema_version": 1,
+  "status": "candidate",
+  "group": "cuisine-latin-american",
+  "genres": [
+    "real_world"
+  ],
+  "compiled_note": "拉丁美洲菜系候选资料（元素库·现实基础侧）。不是完整食谱集，不是数据库记录，也没有被任何故事包采纳为正典。取舍标准：只收成品菜、酱与饮品、制作技法和饮食制度，重点是**美洲原生食材与旧大陆物种交会后长成的样子**（玉米碱化、木薯去毒、冻干马铃薯、辣椒与可可、牛肉与小麦的引入），每条要能解释「它为什么长成这样」。**食材级条目不在此重复**：玉米、马铃薯、木薯、菜豆、藜麦、甘薯、番茄、香蕉与煮食蕉、鳄梨、辣椒、可可、香草、蔗糖、牛肉、猪肉、鸡肉、奶酪、黄油、禽蛋、乳、熬炼动物脂肪、盐、石灰、炭、木材、石磨盘、研钵、陶制炊具等均已在 staples / produce / flavors / animal-foods / food-supplement / materials / tools 各组立条，本组只写菜品如何依赖它们，并以 related_catalog_ids 指向。做法只写到技法与工序顺序，**不给克数配比、不写成可执行食谱**；不写宰杀与长期保存的操作参数。菜名与做法的存在不等于当前世界存在，也不自动生成配方、库存或市场价格；game 字段里的价格为游戏行情估计，不是史料。全部条目 review_status=needs_review、detail_status=needs_detail。证据分层：每条带 evidence_grade（sourced / mixed / inferred）。本次有 20 条已读来源，但 Wikipedia 全站连不上、Britannica 多个菜名地址返回 404 或 403、UNESCO 秘鲁菜页只取到导航，所以 pozole、cochinita pibil、feijoada、asado、tostones、lomo saltado、pão de queijo 七条只有项目归纳或部分原料来源，一律标为 inferred，并在第七节 details.evidence_and_uncertainty 里写明「未取证」。",
+  "distinct_from": {
+    "docs/human-encyclopedia/cuisine.json": "24 条（寿司、饺子、拉面、泡菜、豆腐、比尔亚尼、鹰嘴豆泥、法拉费、库斯库斯、英吉拉、乔洛夫饭、披萨、炖饭、海鲜饭、塔可、tortilla、腌鱼、越南粉、馕、咖喱、萨莫萨、塔马利、北京烤鸭、卡巴布）。其中塔可、tortilla、腌鱼（ceviche）、塔马利四条属拉美菜，本组**不重复立条**，只在相关条目里用 related_catalog_ids 指向 cuisine_taco / cuisine_tortilla / cuisine_ceviche / cuisine_tamale。本组 cuisine_latam_nixtamalization 是玉米碱化处理本身（技法与饮食基础），与 tortilla 条（饼的成品）分开，边界见 md 第八节。其余 20 条与该文件无同名、无同菜。",
+    "docs/element-catalog/cuisine-british.json": "16 条英国菜，无同名、无同菜。",
+    "docs/element-catalog/cuisine-french.json": "33 条法餐，无同名、无同菜。",
+    "docs/element-catalog/cuisine-chinese.json": "33 条中餐，无同名、无同菜。",
+    "docs/element-catalog/cuisine-european.json": "32 条欧陆菜。cuisine_eu 组里的玉米糊（polenta）与腌鳕鱼（bacalhau）涉及玉米与旧大陆交换的话题，但本组没有同名条目；本组 cuisine_latam_empanada 与欧陆组的塔帕斯等无同菜，仅在 empanada 条里提到它见于西班牙与葡萄牙。"
+  },
+  "sources": [
+    {
+      "id": "cuisine_latam_src_01",
+      "title": "Mole — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/mole-sauce",
+      "access": "read",
+      "supports": "莫莱（mole）是墨西哥起源的煮制辣椒酱，被视为墨西哥菜的要项。西班牙语 mole 源自纳瓦特尔语 mōlli（酱）；在墨西哥西班牙语里泛指煮过的酱。它与 salsa 的区别是更像肉汁而非佐料，原料磨或搅至细腻；salsa 是配菜的，mole 则是一道菜的定义性部分。鳄梨酱 guacamole 是 mole 与 aguacate 的合成词，但因未经烹煮不算真正的 mole。莫莱界定了墨西哥中部与南部的菜；通常以烘烤后磨成粉或糊的干辣椒（ancho、guajillo、pasilla、chipotle 最常见）为底，传统上用磨石 metate 与 mano 研磨，家庭与专业厨师后来也用其它器具。本次读到的正文在此之后被截断，其余配料与地方变体未取得。",
+      "rights_note": "机构页面；仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "cuisine_latam_src_02",
+      "title": "Traditional Mexican cuisine - ancestral, ongoing community culture, the Michoacán paradigm — UNESCO Intangible Cultural Heritage",
+      "url": "https://ich.unesco.org/en/RL/traditional-mexican-cuisine-ancestral-ongoing-community-culture-the-michoacan-paradigm-00400",
+      "access": "read",
+      "supports": "2010 年列入人类非物质文化遗产代表作名录。传统墨西哥菜被描述为一套综合文化模式：耕作、仪式、古老技艺、烹饪工艺与祖传的社区习俗，靠从种植收获到烹煮食用的整条食物链的集体参与维持。体系以玉米、豆与辣椒为基础，包含 milpa（玉米与其它作物轮作的游耕地）与 chinampa（湖区人造耕地）等耕作法，包含 nixtamalization（石灰处理玉米，提高营养价值）等烹饪工序，以及磨石与石臼等器具；番茄、南瓜、鳄梨、可可、香草等本土食材补充主食。日常的 tortilla 与 tamale 均以玉米制，并是亡灵节供品的一部分。米却肯州与全国各地有女性厨师与相关从业者的集体，其知识与技艺表达社区认同、强化社会联系，并被视为可持续发展的手段。",
+      "rights_note": "UNESCO 名录页；仅事实核对与自行转述。"
+    },
+    {
+      "id": "cuisine_latam_src_03",
+      "title": "Hominy — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/hominy",
+      "access": "read",
+      "supports": "Hominy 指去掉外壳与胚芽的整粒或磨碎的玉米粒，去除过程通常用碱性物质。传统做法是把玉米放进木灰浸出的稀碱液中煮，直到外壳易于手工去除并用流水冲走；现代商业做法用稀氢氧化钠，由旋转滚筒和流水去壳。木灰碱仍常被使用（正文后续说明其与钙有关，本次只读到片段，细节未取得）。",
+      "rights_note": "机构页面；仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "cuisine_latam_src_04",
+      "title": "Guacamole — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/guacamole",
+      "access": "read",
+      "supports": "鳄梨酱是以捣碎鳄梨与盐为主的蘸酱或抹酱，常加青柠汁、香菜、洋葱与辣青椒，有些加番茄。词源为纳瓦特尔语 ahuacamolli（鳄梨酱）；西班牙征服的 16 世纪，它已是阿兹特克饮食的一部分。传统用石臼研磨，也可在碗里用叉子捣，或用搅拌机做细腻版。鳄梨原产美洲西半球，从墨西哥到安第斯；墨西哥与中美洲可能在公元前 4000—2800 年间独立驯化，对玛雅有文化意义。青柠汁常用来减缓鳄梨氧化变褐。美国的流行形态是配玉米片或作墨西哥菜的浇头。",
+      "rights_note": "Britannica 条目（含站内 AI 摘要段）；仅事实核对。AI 摘要段的年代断言标为二手，不当作定论。"
+    },
+    {
+      "id": "cuisine_latam_src_05",
+      "title": "Atole — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/atole",
+      "access": "read",
+      "supports": "Atole 是墨西哥热饮，通常以 masa（玉米面团）或 masa harina 加水与香料制成，有时改用燕麦、米、大麦或小麦。常见做法是先把 masa 在平底锅上烘香，再兑水、糖、香草与肉桂；可加水果或坚果；加巧克力的版本叫 champurrado。稠度从稀薄到粥状不等。常在早餐与 tamale 同食，并在亡灵节与圣诞季节尤其流行。",
+      "rights_note": "机构页面；仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "cuisine_latam_src_06",
+      "title": "Churro — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/churro",
+      "access": "read",
+      "supports": "吉事果是源于西班牙的油炸点心：以面糊挤入极热的油中炸，再滚肉桂糖。常见形状是带棱的粗条（由裱花嘴形成）。名称可能来自伊比利亚 churra 羊，其角与炸后的形态相似。多在早晨由街头小贩或咖啡店出售。古代地中海已有油炸面食；甘蔗大约在 9 世纪由摩尔人带到西班牙南部；小麦与甘蔗在近代早期随西班牙殖民地传到加那利群岛、加勒比、菲律宾与墨西哥。吉事果在墨西哥极受欢迎，以致常被误认为起源于墨西哥。churrería 在西班牙与墨西哥很多；阿根廷常填 dulce de leche，古巴配水果，墨西哥与西班牙最常见的配搭是融化巧克力。家庭做法常用小批量与裱花袋。",
+      "rights_note": "机构页面；仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "cuisine_latam_src_07",
+      "title": "Jerk chicken — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/jerk-chicken",
+      "access": "read",
+      "supports": "Jerk 是一种烹饪方式：主料多为鸡，也可用牛、猪、山羊、野猪、海鲜或蔬菜，裹香料后在火或烤架上慢烤，传统燃料是铺在炭火上的青 pimento（多香果）木，烟是风味关键。该条称这种烹饪起源于 Taino 人，后来传给非洲奴隶，后者据此创制了 jerk chicken；jerk 一词据说来自西班牙语 charqui（肉干）。牙买加版以多香果与苏格兰帽辣椒（Scotch bonnet，近似哈瓦那辣椒）的辛辣腌料著称，通常在肉上戳孔以便腌料渗入。常配米饭、豆、芭蕉、甘薯与名为 festival 的小玉米面炸饼。",
+      "rights_note": "机构页面；仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "cuisine_latam_src_08",
+      "title": "A Brief History of Jamaican Jerk — Smithsonian Magazine",
+      "url": "https://www.smithsonianmag.com/arts-culture/brief-history-jamaican-jerk-180976597/",
+      "access": "read",
+      "supports": "文章引牙买加文学学者 Carolyn Cooper 的话：jerk 是牙买加非洲与 Taíno 文化融合的持久遗产。Taíno 是加勒比原住民阿拉瓦克人的一支，曾称该岛 Xaymaca（「林木与水之地」）；哥伦布 1494 年到达，西班牙殖民者 15 年后正式到来，聚落较小；17 世纪中叶英西战争波及牙买加，英国入侵，西班牙人撤往古巴；曾被奴役者逃入山区，被称为 Maroons（源自西班牙语 cimarrones）；Maroons 与逃入山区的原住民相遇时，Taíno 人口已减去约九成。文章还写到 jerk 在牙买加人及侨民中的意义（尤其圣诞时节），以及快餐连锁与名厨推出所谓 jerk 产品引发侨民抗议的事件。本次读到的正文在中途被截断，后续对考古证据的讨论未取得。",
+      "rights_note": "Smithsonian Magazine 文章；仅事实核对与自行转述。"
+    },
+    {
+      "id": "cuisine_latam_src_09",
+      "title": "Sancocho — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/sancocho",
+      "access": "read",
+      "supports": "Sancocho 是拉美传统炖菜，用鱼或肉、根茎蔬菜、芭蕉，以芫荽或刺芫荽调味。词源为西班牙语 sancochar（半煮）。是巴拿马的国菜、多米尼加共和国国菜之一，在波多黎各、委内瑞拉、哥伦比亚也常见，各有变体：多米尼加常含南瓜与甘薯，有「七种肉」版；哥伦比亚版可含牛排骨、青芭蕉、玉米、马铃薯与木薯，配米饭、鳄梨与 ají；波多黎各版以番茄为底并含 chorizo。该页称其可能源自 15 世纪西班牙的塞法迪犹太炖菜 adafina，演变为西班牙 cocido，也可能是带非洲影响的 cocido，最初是加那利群岛的鱼炖，随 15 世纪末西班牙殖民传入新大陆。（页面为站内 AI 摘要风格，起源链条按「说法」处理。）",
+      "rights_note": "Britannica 条目（站内 AI 摘要段）；仅事实核对。起源链条按二手说法，不当作定论。"
+    },
+    {
+      "id": "cuisine_latam_src_10",
+      "title": "Plantain — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/plant/plantain",
+      "access": "read",
+      "supports": "Plantain（煮食蕉）是香蕉属中一大类品种，是许多热带地区的主食。果实比甜点香蕉含更多淀粉，不生吃；未熟时淀粉最多，故多在青时煮或炸，用于咸味菜；熟后微甜，常与椰汁或糖同煮；也可干制或磨成粉。植株是巨型草本，高 3—10 米。",
+      "rights_note": "机构页面；仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "cuisine_latam_src_11",
+      "title": "Cassava — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/plant/cassava",
+      "access": "read",
+      "supports": "木薯（Manihot esculenta）原产美洲热带，块根可制木薯粉、面包、tapioca、淀粉与酒；可能最早由尤卡坦的玛雅人栽培。多数品种含生氰糖苷。原住民发展出复杂的去毒工序：磨碎、压榨、加热。甜品种作蔬菜时要厚削皮、充分煮透并倒掉煮水，有的还预先浸泡；制粉多用「苦」品种，需长时间浸泡、发酵，并让糊状物暴露于空气数小时。处理不当会急性氰化物中毒，长期暴露与甲状腺肿、慢性胰腺炎和共济失调性神经病有关。相关词条含 tapioca 与 farinha。",
+      "rights_note": "Britannica 条目；仅事实核对。涉及去毒的工序只引用页面所述层级，不作为可执行操作说明。"
+    },
+    {
+      "id": "cuisine_latam_src_12",
+      "title": "Arepa — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/arepa",
+      "access": "read",
+      "supports": "阿雷帕是中南美洲流行的扁圆玉米面饼，尤以哥伦比亚与委内瑞拉为盛，形似英式玛芬，配奶酪、黄油或肉等馅料或浇头。做法差异大：委内瑞拉常烤或炸后剖开当三明治；哥伦比亚加勒比海岸的街头摊贩出售内含蛋的油炸阿雷帕。哥伦比亚多作早餐或午后点心，常配辣味调料 ají；委内瑞拉则全天都吃。",
+      "rights_note": "机构页面；仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "cuisine_latam_src_13",
+      "title": "Empanada — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/empanada",
+      "access": "read",
+      "supports": "恩帕纳达是烤或炸的馅饼，把面皮折过馅料并封口后烹制；见于拉美、西班牙与葡萄牙。起源不确定，可能由中东糕点经穆斯林征服传入伊比利亚；名称来自西班牙语 empanar（裹以面团或面包）。廉价、便携，是常见街头食物。面皮常用小麦粉加猪油或黄油；委内瑞拉与哥伦比亚常见玉米面皮，加勒比等地有木薯或芭蕉面皮。多为半月形；封边方式或附加面团可标示馅料。布宜诺斯艾利斯的牛肉馅含洋葱、甜椒、水煮蛋，有时加葡萄干；委内瑞拉的 pabellón 版含牛肉丝、黑豆与炸甜芭蕉。甜味版被认为较晚近。常配鳄梨酱、番茄辣酱或香草蒜酱。",
+      "rights_note": "机构页面；仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "cuisine_latam_src_14",
+      "title": "Preserved Potatoes Discovered in Inca Site in Southern Peru — Archaeology Magazine",
+      "url": "https://archaeology.org/news/2026/06/16/preserved-potatoes-discovered-in-inca-site-in-southern-peru/",
+      "access": "read",
+      "supports": "2026 年 6 月报道：在秘鲁南部干旱的 Acarí 河谷印加遗址 Tambo Viejo 的地面陶罐中发现两枚约 500 年的冻干马铃薯（chuño）。卡尔加里大学的 Lidio Valdez 说，chuño 只能把整薯暴露于山区冬夜的严寒霜冻，再在日下解冻，如此反复，之后踩踏并干燥；该遗址所见品种天然有毒，冻后还要浸泡数周再干燥。成品轻便，可保存数年。chuño 出现在海岸河谷，说明它曾被运过印加帝国的各地；化学分析或可查出产地。",
+      "rights_note": "Archaeology Magazine 新闻稿（转述 Phys.org 报道）；仅事实核对与自行转述。"
+    },
+    {
+      "id": "cuisine_latam_src_15",
+      "title": "Farinha — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/farinha",
+      "access": "read",
+      "supports": "Farinha 是葡萄牙语「粉、粗粉」，在此特指木薯粗粉。页面摘要称它是巴西 farofa 配菜的原料，farofa 常与被称为巴西国菜的 feijoada completa 同上；亚马孙一条相关摘录说，farinha 是热带美洲广泛使用的主食，这类产品出自亚马孙原住民对木薯去毒的完善。（页面为策展式汇总加站内 AI 摘要，不是完整条目。）",
+      "rights_note": "Britannica 汇总页；仅事实核对。摘要段按二手处理。"
+    },
+    {
+      "id": "cuisine_latam_src_16",
+      "title": "Chimichurri — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/chimichurri",
+      "access": "read",
+      "supports": "奇米丘里是阿根廷起源的酱，通常含欧芹、牛至、大蒜与红酒醋，另有橄榄油、盐、辣椒等；南美各地配方无数，别处常用芫荽，也可加茶、柠檬、蜂蜜、薄荷。阿根廷人给牛排除盐胡椒外很少添别的，奇米丘里是例外。风味的辛辣程度取决于醋量，加醋可使酱「复活」。多数人认为它源自 19 世纪游走于今阿根廷、乌拉圭、巴拉圭草原的高乔人，但文献要到 1950 年代末之后才见于食谱。名称来源不明，可能出自巴斯克语 tximitxurri（大杂烩）。口味反映各国移民带来的多种风味。",
+      "rights_note": "机构页面；仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "cuisine_latam_src_17",
+      "title": "Dulce de leche — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/dulce-de-leche",
+      "access": "read",
+      "supports": "Dulce de leche 是由焦糖化牛奶与糖制成的黏稠焦糖色糖酱，常加香草与小苏打，单吃或作抹酱、夹心、浇头。起源不明，遍及拉美；阿根廷传说称 19 世纪初一名女仆把加糖牛奶忘在炉上而偶然发现。它与秘鲁、智利、哥伦比亚的 manjar blanco 以及法国的 confiture de lait 近亲。在阿根廷与乌拉圭（拉普拉塔河两岸）近乎「痴迷」，是两国的自豪。用于煎饼、蛋糕、冰淇淋，也是南美饼干夹心点心 alfajor 的传统内馅。风味奶香浓，缺少焦糖那种烧焦的强烈感。",
+      "rights_note": "Britannica 条目；仅事实核对。阿根廷传说按「流传的说法」处理。"
+    },
+    {
+      "id": "cuisine_latam_src_18",
+      "title": "Mate — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/mate-beverage",
+      "access": "read",
+      "supports": "马黛茶是南美流行的类茶饮料，用冬青近缘的常绿灌木或乔木 Ilex paraguariensis 的干叶冲泡，含咖啡因与单宁，有提神作用，涩味比茶轻。做法是把干叶（yerba）放进干葫芦或其它容器，浇热水短时浸泡，用带滤头的金属吸管 bombilla 吸饮。一份叶可反复续水约十次；常由一人负责添水并依次递给在座的人共饮。可加牛奶、糖、香草、咖啡或柠檬汁。尤其流行于阿根廷、巴拉圭、乌拉圭与巴西南部，也经阿根廷传入叙利亚与黎巴嫩部分地区。",
+      "rights_note": "机构页面；仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "cuisine_latam_src_19",
+      "title": "Quinoa — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/plant/quinoa",
+      "access": "read",
+      "supports": "藜麦（Chenopodium quinoa）因细小可食种子而栽培，不是真正的谷类；种子富含蛋白质与纤维，嫩叶也可当类似菠菜的蔬菜。原产南美安第斯地区，数千年来是当地主粮作物；今在多国栽培，但多数仍产自秘鲁与玻利维亚。",
+      "rights_note": "机构页面；仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "cuisine_latam_src_20",
+      "title": "Columbian Exchange — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/Columbian-exchange",
+      "access": "read",
+      "supports": "哥伦布大交换自 1492 年起，是一场生物层面的全球化，使因大陆漂移而分隔的生态区重新连通，牵涉美洲、欧洲与非洲。疾病：欧亚与非洲人带来天花、流感，美洲原住民缺乏免疫，人口灾难性下降；梅毒可能源于美洲。动物：马、牛、猪传入美洲，改变农业、交通乃至战争。植物：玉米、马铃薯、木薯等美洲作物成为全球主粮；小麦、水稻等也传入美洲。本页含站内 AI 摘要段，年代与数字按二手处理，本项目不引用具体人口数字。",
+      "rights_note": "Britannica 条目（含站内 AI 摘要段）；仅事实核对。殖民与疾病叙述只取来源所述层级。"
+    },
+    {
+      "id": "cuisine_latam_src_un_01",
+      "title": "Feijoada — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/feijoada",
+      "access": "unavailable",
+      "supports": "返回 HTTP 404，未取得正文。另见搜索摘要，仅作线索，未读正文，零引用。",
+      "rights_note": "失败如实登记；零引用。"
+    },
+    {
+      "id": "cuisine_latam_src_un_02",
+      "title": "Pozole / Asado / Churrasco / Lomo saltado / Cochinita pibil / Tostones 的 Britannica 地址",
+      "url": "https://www.britannica.com/topic/pozole",
+      "access": "unavailable",
+      "supports": "逐一尝试均为 HTTP 404 或 403（人机校验），未取得正文；零引用。",
+      "rights_note": "失败如实登记；零引用。"
+    },
+    {
+      "id": "cuisine_latam_src_un_03",
+      "title": "Wikipedia 与 Wikiwand（Feijoada、Asado、Lomo saltado、Chuño、Cochinita pibil、Pozole、Pão de queijo、Guinea pig as food、Tostones、Jerk、Casabe）",
+      "url": "https://en.wikipedia.org/",
+      "access": "unavailable",
+      "supports": "本机网络连接超时或被拒，全部未取得正文；仅见到搜索结果摘要，不当作已读来源，零引用。",
+      "rights_note": "失败如实登记；零引用。"
+    },
+    {
+      "id": "cuisine_latam_src_un_04",
+      "title": "Peruvian cuisine — UNESCO Intangible Cultural Heritage",
+      "url": "https://ich.unesco.org/en/RL/peruvian-cuisine-00894",
+      "access": "unavailable",
+      "supports": "抓到的只有站点公告与导航，没有条目正文，未取得内容；零引用。",
+      "rights_note": "失败如实登记；零引用。"
+    },
+    {
+      "id": "cuisine_latam_src_un_05",
+      "title": "In Brazil, a meal without beans is incomplete — BBC Travel",
+      "url": "https://www.bbc.com/travel/article/20210614-in-brazil-a-meal-without-beans-is-incomplete",
+      "access": "unavailable",
+      "supports": "连接超时，未取得正文；零引用。",
+      "rights_note": "失败如实登记；零引用。"
+    },
+    {
+      "id": "cuisine_latam_src_un_06",
+      "title": "Feijoada and Hoppin’ John — Southern Cultures",
+      "url": "https://www.southerncultures.org/article/feijoada-and-hoppin-john/",
+      "access": "unavailable",
+      "supports": "请求超时，未取得正文；零引用。",
+      "rights_note": "失败如实登记；零引用。"
+    },
+    {
+      "id": "cuisine_latam_src_un_07",
+      "title": "Pão de queijo / Cuy / Lomo saltado 的机构或大学页面",
+      "url": "https://www.britannica.com/",
+      "access": "unavailable",
+      "supports": "检索只返回餐饮博客、食谱站与 Wikipedia 摘要，未找到可读的机构或博物馆页面；这三条在文中按「无已读来源」处理。",
+      "rights_note": "失败如实登记；零引用。"
+    }
+  ],
+  "elements": [
+    {
+      "id": "cuisine_latam_mole",
+      "name": "莫莱酱（mole）",
+      "aliases": [
+        "mole",
+        "mole sauce",
+        "mōlli",
+        "墨西哥莫莱",
+        "莫雷酱"
+      ],
+      "category": "item",
+      "primary": "sauce",
+      "evidence_grade": "sourced",
+      "summary": "墨西哥中部与南部的煮制辣椒酱：干辣椒烘过、磨细，再与其它料同煮，酱本身就是这道菜的定义。它与跟在菜旁边的 salsa 不同，更像浓稠的肉汁。",
+      "tags": [
+        "kind:dish",
+        "region:mexico",
+        "cuisine:latin_american",
+        "course:main",
+        "technique:roast",
+        "technique:grind",
+        "technique:simmer",
+        "price:shilling",
+        "terrain:workshop",
+        "terrain:import",
+        "season:all_year",
+        "sold_by:noble_kitchen",
+        "sold_by:street_vendor"
+      ],
+      "details": {
+        "definition": "mole 是墨西哥起源的煮制辣椒酱，词源是纳瓦特尔语 mōlli（酱），在墨西哥西班牙语里泛指煮过的酱。它与 salsa 的区别在于：salsa 是配在菜旁的佐料，mole 是整道菜的定义性部分，质地更像肉汁，原料磨或搅到细腻。鳄梨酱 guacamole 名字里带 mole，但因为不经烹煮，不算真正的 mole。",
+        "mechanism": "工序骨架是「干辣椒烘烤 → 磨成粉或糊 → 与其它配料合煮成酱 → 浇在肉或其它主料上」。来源明确写到的是前两步：辣椒（常见 ancho、guajillo、pasilla、chipotle）先烘后磨，传统上用磨石 metate 与 mano，后来家庭与职业厨师也用其它器具。烘烤改变风味，研磨决定酱的细腻度。",
+        "conditions": "依赖多种干辣椒的稳定供应、可长时间看火的灶与锅、以及把料磨细的人力或器具。磨料本身是重体力，所以大份 mole 往往是需要多人分工的场合菜。",
+        "exceptions": "①mole 不是单一配方，各地各家的配料不同，「某种配料才算正宗」之类的说法不能当规则；②本次读到的正文在辣椒之后被截断，巧克力、坚果、种子、香料等其它配料是否常见、如何搭配，未取得来源；③鳄梨酱与 salsa 都不算 mole。",
+        "story_uses": "①家庭的分工与传承：磨酱需要人手，谁来做、谁能出师可以写成家族内部的位置。②场合菜：酱的复杂程度可以成为一场宴请的体面标尺。③身份与地域：同一个词在不同村镇指不同的酱，外人一句「这不正宗」可以引出冲突。④技术与器具：磨石与现代器具并存，可写新旧两代厨师的分歧。",
+        "historical_scope": "本条限定在墨西哥中部与南部的饮食语境，名称可追溯到纳瓦特尔语。改编边界：架空世界可借用「干辣椒烘磨成酱 + 酱即主菜」的结构，但不应顺带断言必须有辣椒、玉米或特定磨石；也不要把某一地区的配方当作全拉美通用。",
+        "evidence_and_uncertainty": "有来源支持的部分：mole 的定义、词源、与 salsa 和 guacamole 的区别、干辣椒种类、烘后磨的做法与传统磨石（据 cuisine_latam_src_01）。属本项目归纳：家庭分工与场合菜的叙事用法。未取得：完整配料表、各州变体、历史起源与年代（来源正文被截断）；Wikipedia 等页面本次连不上，未补读。"
+      },
+      "source_ids": [
+        "cuisine_latam_src_01"
+      ],
+      "related_ids": [
+        "cuisine_latam_guacamole",
+        "cuisine_latam_pozole"
+      ],
+      "related_catalog_ids": [
+        "flavors_chili_pepper",
+        "flavors_cocoa",
+        "produce_tomato",
+        "tools_saddle_quern",
+        "cuisine_tamale"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "game": {
+        "schema": "game_fields_v1",
+        "price": {
+          "min": 12,
+          "max": 30,
+          "per": "一份",
+          "tier": "shilling"
+        },
+        "terrains": [
+          "workshop",
+          "import"
+        ],
+        "seasons": [
+          "all_year"
+        ],
+        "keeps": "days",
+        "sold_by": [
+          "noble_kitchen",
+          "street_vendor"
+        ],
+        "note": "干辣椒与磨制人工推高成本；对西欧式城镇属远途输入料做的成菜。游戏行情估计，非历史物价。"
+      }
+    },
+    {
+      "id": "cuisine_latam_pozole",
+      "name": "波佐雷汤（pozole）",
+      "aliases": [
+        "pozole",
+        "posole",
+        "pozolli",
+        "玉米粒炖汤",
+        "去壳玉米汤"
+      ],
+      "category": "item",
+      "primary": "soup",
+      "evidence_grade": "inferred",
+      "summary": "以去壳玉米粒（hominy）为主料、加肉炖成的墨西哥汤或炖菜，上桌时配生菜或甘蓝、辣椒等现加的佐料。",
+      "tags": [
+        "kind:dish",
+        "region:mexico",
+        "cuisine:latin_american",
+        "course:main",
+        "technique:simmer",
+        "technique:nixtamalize",
+        "price:groat",
+        "terrain:workshop",
+        "terrain:farmland",
+        "season:all_year",
+        "sold_by:street_vendor",
+        "sold_by:tavern"
+      ],
+      "details": {
+        "definition": "pozole 是墨西哥传统的汤或炖菜，名称源自纳瓦特尔语 pozolli，主料是 hominy（碱处理后去掉外壳的玉米粒），加肉（常见鸡或猪），上桌时配切丝的生菜或甘蓝、辣椒、洋葱、萝卜等现加的佐料。以上特指部分只来自搜索结果摘要，本次没有读到 pozole 的专条正文。",
+        "mechanism": "工序骨架：先有碱处理过的玉米粒，再与肉同炖，最后上桌由食客自己加佐料。来源已读到的只有第一步：hominy 传统上是把玉米放进木灰浸出的稀碱液里煮，直到外壳易于手工去除并用流水冲走；现代商业做法用稀氢氧化钠。其余步骤是项目归纳。",
+        "conditions": "依赖碱处理的玉米（需要木灰或石灰一类的碱）、能长时间炖的锅与燃料、以及肉。这是一道为多人准备的锅菜，不适合单人小份。",
+        "exceptions": "①颜色与配料因地而异（红、绿、白几种说法只来自搜索摘要，未读正文）；②肉的种类不固定；③「某日必吃」「解酒」这类民间说法只见于食谱网站摘要，未取证，不写进机制。",
+        "story_uses": "①节庆锅菜：大锅分食适合写聚会、节日的集体场面。②自助加料的餐桌：每人自己调味，可用来写座次与口味的争执。③食材的来龙去脉：一粒玉米要先经过碱与水才能进锅，适合写「处理本身是手艺」。",
+        "historical_scope": "本条限定在墨西哥饮食语境。改编边界：可借用「碱处理谷粒 + 肉炖 + 食客自加佐料」，但不应顺带断言必须有玉米或特定节日。",
+        "evidence_and_uncertainty": "有来源支持的部分：hominy 的碱处理（据 cuisine_latam_src_03）；碱处理玉米在墨西哥饮食体系中的地位（据 cuisine_latam_src_02）。未取证：pozole 的专条定义、起源年代、地区变体与节日用法，Britannica 的 pozole 地址返回 404 或 403，Wikipedia 连不上（见 cuisine_latam_src_un_02、un_03），仅见搜索摘要，不当作已读来源。"
+      },
+      "source_ids": [
+        "cuisine_latam_src_03",
+        "cuisine_latam_src_02"
+      ],
+      "related_ids": [
+        "cuisine_latam_nixtamalization",
+        "cuisine_latam_mole"
+      ],
+      "related_catalog_ids": [
+        "staples_maize",
+        "materials_lime",
+        "animal_food_pork",
+        "animal_food_chicken",
+        "flavors_chili_pepper"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "game": {
+        "schema": "game_fields_v1",
+        "price": {
+          "min": 4,
+          "max": 8,
+          "per": "一碗",
+          "tier": "groat"
+        },
+        "terrains": [
+          "workshop",
+          "farmland"
+        ],
+        "seasons": [
+          "all_year"
+        ],
+        "keeps": "days",
+        "sold_by": [
+          "street_vendor",
+          "tavern"
+        ],
+        "note": "玉米与肉均为常见料，按锅菜分碗卖。游戏行情估计。"
+      }
+    },
+    {
+      "id": "cuisine_latam_cochinita_pibil",
+      "name": "尤卡坦烤乳猪（cochinita pibil）",
+      "aliases": [
+        "cochinita pibil",
+        "puerco pibil",
+        "pibil",
+        "尤卡坦酸橙腌烤猪肉"
+      ],
+      "category": "item",
+      "primary": "dish",
+      "evidence_grade": "inferred",
+      "summary": "墨西哥东南部尤卡坦一带的腌制慢烹猪肉，传统上与地下坑灶（pib）联系在一起，常包在叶中烹制。",
+      "tags": [
+        "kind:dish",
+        "region:mexico",
+        "cuisine:latin_american",
+        "course:main",
+        "technique:marinate",
+        "technique:slow_cook",
+        "occasion:feast",
+        "price:shilling",
+        "terrain:workshop",
+        "terrain:tropical_dry_forest",
+        "season:all_year",
+        "sold_by:street_vendor",
+        "sold_by:market"
+      ],
+      "details": {
+        "definition": "cochinita pibil 是尤卡坦半岛的猪肉菜，名字里的 pibil 与 pib（地下坑灶）有关，cochinita 是小猪之意。典型描述是：猪肉用带酸味和红色香料的腌料腌过，包起来慢烹，成品软烂，常夹进 tortilla 或配腌洋葱。以上均为项目归纳，本次没有读到该菜的已读来源。",
+        "mechanism": "工序骨架：腌制 → 包裹 → 长时间的封闭式慢烹 → 拆成丝上桌。关键点是包裹与封闭保水，使肉在低而稳的热里变软。本条按规则不写温度、时间与配比。",
+        "conditions": "依赖猪肉、能稳定保温的坑灶或封闭炉具、包裹用的叶或类似材料、以及酸味腌料。猪是欧洲输入的家畜，所以这道菜必须放在哥伦布大交换之后的语境里。",
+        "exceptions": "①现代餐馆常用普通烤箱代替坑灶；②「必须用某种酸橙或某种红色香料」的说法未取证；③与 tamal 的叶包做法容易混淆，二者不是同一类食物。",
+        "story_uses": "①节庆与聚会菜：整块猪肉的慢烹适合大场面。②新旧技术的并置：玛雅坑灶与欧洲家畜叠在一道菜上，可写文化接触，但不宜写成单向的「谁征服了谁」。③地方认同：尤卡坦菜与墨西哥中部菜的差别可用来写地域自豪。",
+        "historical_scope": "本条限定在墨西哥尤卡坦半岛的饮食语境。改编边界：架空世界可借用「腌 + 包 + 封闭慢烹」，不应预设必须有猪或坑灶。",
+        "evidence_and_uncertainty": "本次没有已读来源：cochinita pibil 的 Wikipedia 与 Britannica 页面未取得（见 cuisine_latam_src_un_02、un_03）。上述内容全部属项目归纳，只能作为线索，需要后续补读后才能提升可信度。仅有的间接支撑是 cuisine_latam_src_20 所述猪由欧洲传入美洲。"
+      },
+      "source_ids": [
+        "cuisine_latam_src_20"
+      ],
+      "related_ids": [
+        "cuisine_latam_columbian_exchange"
+      ],
+      "related_catalog_ids": [
+        "animal_food_pork",
+        "flavors_chili_pepper",
+        "cuisine_taco",
+        "cuisine_tortilla",
+        "produce_onion"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "game": {
+        "schema": "game_fields_v1",
+        "price": {
+          "min": 10,
+          "max": 24,
+          "per": "一份",
+          "tier": "shilling"
+        },
+        "terrains": [
+          "workshop",
+          "tropical_dry_forest"
+        ],
+        "seasons": [
+          "all_year"
+        ],
+        "keeps": "days",
+        "sold_by": [
+          "street_vendor",
+          "market"
+        ],
+        "note": "猪肉与长时间慢烹的燃料成本；产地按尤卡坦的干热林估计。游戏行情估计。"
+      }
+    },
+    {
+      "id": "cuisine_latam_guacamole",
+      "name": "鳄梨酱（guacamole）",
+      "aliases": [
+        "guacamole",
+        "ahuacamolli",
+        "牛油果酱",
+        "酪梨酱"
+      ],
+      "category": "item",
+      "primary": "sauce",
+      "evidence_grade": "mixed",
+      "summary": "以捣碎的鳄梨和盐为底、常加青柠汁、香菜、洋葱与辣青椒的酱，不经烹煮；名字来自纳瓦特尔语。",
+      "tags": [
+        "kind:condiment",
+        "region:mexico",
+        "region:central_america",
+        "cuisine:latin_american",
+        "course:side",
+        "technique:mash",
+        "price:groat",
+        "terrain:workshop",
+        "terrain:orchard",
+        "season:all_year",
+        "sold_by:street_vendor",
+        "sold_by:market"
+      ],
+      "details": {
+        "definition": "guacamole 是主要由捣碎鳄梨与盐做成的蘸酱或抹酱，常加青柠汁、香菜、洋葱和辣青椒，有些配方加番茄。词源为纳瓦特尔语 ahuacamolli（鳄梨酱）。它不经烹煮，所以不算 mole。",
+        "mechanism": "工序骨架：去皮、把鳄梨肉与盐和其它料一起捣碎。传统用石臼，也可用碗和叉子，要细腻时用搅拌机。青柠汁常被用来延缓鳄梨氧化变褐。",
+        "conditions": "依赖熟透的鳄梨（无法远途储存，只能就近），以及石臼或可捣的器具。鳄梨成熟后很快变软，所以这是一道随做随吃的酱。",
+        "exceptions": "①加不加番茄或其它料是个人或地方的选择；②来源页中关于独立驯化年代的说法出自站内 AI 摘要段，按二手处理；③美国流行的配玉米片吃法是近现代的形态，不能直接套到前哥伦布时期。",
+        "story_uses": "①即席调制：石臼上现捣，适合写一场宴席前的小仪式。②易腐的体面：酱存不住，说明主人家现做，可作待客诚意的细节。③食物的名字：词中带 mole 的玩笑可以用来写语言接触，但不要夸大。",
+        "historical_scope": "本条限定在墨西哥与中美洲的饮食语境，来源称西班牙征服的 16 世纪它已是阿兹特克饮食的一部分。改编边界：可借用「易氧化的果肉酱 + 酸汁保色」，不应预设必有鳄梨。",
+        "evidence_and_uncertainty": "有来源支持的部分：定义、词源、常见配料、石臼与叉子的捣法、青柠汁保色、鳄梨原产美洲与可能的独立驯化、16 世纪已在阿兹特克饮食中（据 cuisine_latam_src_04，含站内 AI 摘要段，年代按二手）。属项目归纳：叙事用法。"
+      },
+      "source_ids": [
+        "cuisine_latam_src_04"
+      ],
+      "related_ids": [
+        "cuisine_latam_mole"
+      ],
+      "related_catalog_ids": [
+        "food_supp_avocado",
+        "produce_lemon_lime",
+        "produce_onion",
+        "flavors_chili_pepper",
+        "tools_mortar_pestle",
+        "cuisine_tortilla"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "game": {
+        "schema": "game_fields_v1",
+        "price": {
+          "min": 3,
+          "max": 6,
+          "per": "一碗",
+          "tier": "groat"
+        },
+        "terrains": [
+          "workshop",
+          "orchard"
+        ],
+        "seasons": [
+          "all_year"
+        ],
+        "keeps": "hours",
+        "sold_by": [
+          "street_vendor",
+          "market"
+        ],
+        "note": "鳄梨是原产美洲的果，易熟易烂；对西欧式城镇多半是远途输入，此处按产地集市估价。游戏行情估计。"
+      }
+    },
+    {
+      "id": "cuisine_latam_atole_champurrado",
+      "name": "阿托莱与恰姆普拉多（atole / champurrado）",
+      "aliases": [
+        "atole",
+        "atol",
+        "champurrado",
+        "玉米面热饮",
+        "巧克力玉米饮"
+      ],
+      "category": "item",
+      "primary": "beverage",
+      "evidence_grade": "sourced",
+      "summary": "墨西哥的玉米面热饮；加巧克力的版本叫 champurrado，常和 tamal 同食，亡灵节与圣诞季尤其常见。",
+      "tags": [
+        "kind:drink",
+        "region:mexico",
+        "cuisine:latin_american",
+        "course:drink",
+        "technique:toast",
+        "occasion:festival",
+        "occasion:seasonal",
+        "price:groat",
+        "terrain:workshop",
+        "terrain:farmland",
+        "season:autumn",
+        "season:winter",
+        "sold_by:street_vendor",
+        "sold_by:market"
+      ],
+      "details": {
+        "definition": "atole 是墨西哥热饮，通常用 masa（玉米面团）或 masa harina 加水和香料做成；有时改用燕麦、米、大麦或小麦。加巧克力的版本叫 champurrado。稠度从稀薄到粥状都有。",
+        "mechanism": "工序骨架：把 masa 在平底锅上烘香，再兑水，加糖、香草、肉桂；可加水果或坚果。烘香是风味的来源，稠度由面与水的比例决定（不给配比）。",
+        "conditions": "依赖碱处理过的玉米面（见 nixtamalization 条）、热源、糖与香料。巧克力版本还依赖可可，对非产区是贵重输入。",
+        "exceptions": "①燕麦、米等代替玉米的做法同样被称作 atole；②稠度没有统一标准；③champurrado 与普通热巧克力不是一回事，前者以玉米面增稠。",
+        "story_uses": "①节令饮食：亡灵节与圣诞季的热饮，适合写冬日街角的摊子。②早餐搭档：与 tamal 同食，可写一整套早餐摊的分工。③可可的身价：同一杯热饮里加不加可可，可以作为食客手头宽紧的标志。",
+        "historical_scope": "本条限定在墨西哥饮食语境。改编边界：可借用「谷物面糊 + 热饮 + 节令」的结构，不预设玉米或可可。",
+        "evidence_and_uncertainty": "有来源支持的部分：atole 的定义、原料、烘 masa 的做法、champurrado 的区别、与 tamal 同食、亡灵节与圣诞季的流行（据 cuisine_latam_src_05）。UNESCO 页面说明玉米、tamal 在亡灵节供品中的地位（据 cuisine_latam_src_02）。未取证：起源年代、历史上的可可用法。"
+      },
+      "source_ids": [
+        "cuisine_latam_src_05",
+        "cuisine_latam_src_02"
+      ],
+      "related_ids": [
+        "cuisine_latam_nixtamalization",
+        "cuisine_latam_street_stall_system"
+      ],
+      "related_catalog_ids": [
+        "staples_maize",
+        "flavors_cocoa",
+        "flavors_vanilla",
+        "flavors_cinnamon",
+        "flavors_cane_sugar",
+        "cuisine_tamale"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "game": {
+        "schema": "game_fields_v1",
+        "price": {
+          "min": 2,
+          "max": 4,
+          "per": "一杯",
+          "tier": "groat"
+        },
+        "terrains": [
+          "workshop",
+          "farmland"
+        ],
+        "seasons": [
+          "autumn",
+          "winter"
+        ],
+        "keeps": "hours",
+        "sold_by": [
+          "street_vendor",
+          "market"
+        ],
+        "note": "玉米面便宜，可可与糖抬高 champurrado 的价；按节令季节写。游戏行情估计。"
+      }
+    },
+    {
+      "id": "cuisine_latam_churro",
+      "name": "吉事果（churro）",
+      "aliases": [
+        "churro",
+        "churros",
+        "西班牙油条",
+        "拉美炸条"
+      ],
+      "category": "item",
+      "primary": "snack",
+      "evidence_grade": "sourced",
+      "summary": "挤入热油炸成带棱的长条、裹肉桂糖的点心。起源于西班牙，在墨西哥流行到常被误以为是墨西哥的发明。",
+      "tags": [
+        "kind:dish",
+        "region:mexico",
+        "cuisine:latin_american",
+        "course:snack",
+        "technique:fry",
+        "occasion:breakfast",
+        "trade:street_vendor",
+        "price:penny",
+        "terrain:workshop",
+        "terrain:farmland",
+        "season:all_year",
+        "sold_by:street_vendor",
+        "sold_by:baker"
+      ],
+      "details": {
+        "definition": "churro 是源自西班牙的油炸点心，面糊挤入极热的油里炸，再滚上肉桂糖。常见形状是带棱的粗条，棱来自裱花嘴。名字可能来自伊比利亚的 churra 羊，因炸后的弯角形状。多在早晨由街头小贩或咖啡店出售。",
+        "mechanism": "工序骨架：调面糊 → 挤入热油 → 炸熟 → 沥油 → 滚糖。家庭做法一般小批量用裱花袋挤。不写油温与时间。",
+        "conditions": "依赖小麦粉、油、糖，以及能控制油温的锅灶。甘蔗与小麦要先传入当地，来源称它们随西班牙殖民传到加那利群岛、加勒比、菲律宾与墨西哥。",
+        "exceptions": "①来源明说「常被误认为起源于墨西哥」；②配巧克力是墨西哥与西班牙最常见，阿根廷常填 dulce de leche，古巴配水果；③糖、脂肪和钠含量高，来源建议适量。",
+        "story_uses": "①早餐摊的日常：晨间街头小贩的固定景致。②起源的误会：一道菜被一地认作自己的，可写「传播比出身更响」。③搭配的地域差异：不同城市的人为蘸什么争论。",
+        "historical_scope": "本条的语境是西班牙与墨西哥、阿根廷、古巴等地。改编边界：可借用「面糊挤入油」「晨间街头食物」，不预设必有糖或肉桂。",
+        "evidence_and_uncertainty": "有来源支持的部分：定义、词源推测、形状、晨间销售、各地搭配、传播路径（据 cuisine_latam_src_06）。此条的 region 标签为 mexico 只表示流行地，不表示起源，起源在来源中明确指向西班牙。"
+      },
+      "source_ids": [
+        "cuisine_latam_src_06"
+      ],
+      "related_ids": [
+        "cuisine_latam_dulce_de_leche",
+        "cuisine_latam_street_stall_system"
+      ],
+      "related_catalog_ids": [
+        "staples_wheat",
+        "flavors_cane_sugar",
+        "flavors_cinnamon",
+        "flavors_cocoa"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "game": {
+        "schema": "game_fields_v1",
+        "price": {
+          "min": 1,
+          "max": 3,
+          "per": "一把",
+          "tier": "penny"
+        },
+        "terrains": [
+          "workshop",
+          "farmland"
+        ],
+        "seasons": [
+          "all_year"
+        ],
+        "keeps": "hours",
+        "sold_by": [
+          "street_vendor",
+          "baker"
+        ],
+        "note": "麦粉、油与糖都不算贵，小贩现炸现卖。游戏行情估计。"
+      }
+    },
+    {
+      "id": "cuisine_latam_nixtamalization",
+      "name": "玉米碱化处理（nixtamalization）",
+      "aliases": [
+        "nixtamalization",
+        "nixtamal",
+        "石灰处理玉米",
+        "碱煮玉米"
+      ],
+      "category": "item",
+      "primary": "cooking_technique",
+      "evidence_grade": "sourced",
+      "summary": "把玉米放进碱液里煮，去掉外壳并改变质地的处理。它是 tortilla、tamal、atole、pozole 共同的前一道工序，UNESCO 称其提高营养价值。",
+      "tags": [
+        "kind:technique",
+        "region:mexico",
+        "region:central_america",
+        "cuisine:latin_american",
+        "technique:nixtamalize",
+        "technique:grind",
+        "price:penny",
+        "terrain:workshop",
+        "terrain:farmland",
+        "season:all_year",
+        "sold_by:market",
+        "sold_by:farmer"
+      ],
+      "details": {
+        "definition": "nixtamalization 指用碱处理玉米：UNESCO 的说法是「石灰处理玉米，提高营养价值」；Britannica 的 hominy 条说，传统上把玉米放进木灰浸出的稀碱液中煮，外壳易手工去除并用流水冲走，现代商业做法用稀氢氧化钠。",
+        "mechanism": "工序骨架：玉米粒 + 碱液煮 → 冲洗去壳 → 得到 hominy 整粒，或进一步磨成 masa。UNESCO 把它与磨石、石臼并列为墨西哥饮食体系的标志性工序。本条不写碱的用量与煮的时间。",
+        "conditions": "依赖玉米、碱（木灰或石灰类）、水与锅，以及后续磨具。没有这一道工序，下游的 tortilla、tamal、atole、pozole 都无法按原样成立。",
+        "exceptions": "①「提高营养价值」是 UNESCO 页面的概括，具体营养机制本次未取得来源，不在此展开；②不同地区的碱来源不同；③hominy 的商业做法与家庭传统做法并存。",
+        "story_uses": "①无声的前置工序：每天清早有人处理玉米，适合写一家人的作息。②技艺的传承：UNESCO 提到的女性厨师集体可作为叙事主体。③饮食与健康：一个文化在不知道原理时靠经验保住营养，这类故事要慎用，避免写成「古人早知科学」的夸张。",
+        "historical_scope": "本条限定在墨西哥与中美洲的玉米饮食体系。改编边界：可借用「谷物先经碱浸再磨」，不预设必有玉米。",
+        "evidence_and_uncertainty": "有来源支持的部分：UNESCO 对 nixtamalization 的定义与地位（据 cuisine_latam_src_02）；hominy 的传统与现代去壳做法（据 cuisine_latam_src_03）。营养机制、起源年代、传播范围未取得，需后续补读。"
+      },
+      "source_ids": [
+        "cuisine_latam_src_02",
+        "cuisine_latam_src_03"
+      ],
+      "related_ids": [
+        "cuisine_latam_pozole",
+        "cuisine_latam_atole_champurrado"
+      ],
+      "related_catalog_ids": [
+        "staples_maize",
+        "materials_lime",
+        "tools_saddle_quern",
+        "cuisine_tortilla",
+        "cuisine_tamale"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "game": {
+        "schema": "game_fields_v1",
+        "price": {
+          "min": 1,
+          "max": 3,
+          "per": "一批处理",
+          "tier": "penny"
+        },
+        "terrains": [
+          "workshop",
+          "farmland"
+        ],
+        "seasons": [
+          "all_year"
+        ],
+        "keeps": "days",
+        "sold_by": [
+          "market",
+          "farmer"
+        ],
+        "note": "这是加工服务而非商品，价格按代人处理一批玉米的人工估计。游戏行情估计。"
+      }
+    },
+    {
+      "id": "cuisine_latam_street_stall_system",
+      "name": "街头小吃摊体系（拉美）",
+      "aliases": [
+        "street food stalls",
+        "puesto",
+        "street vendors",
+        "街头摊贩"
+      ],
+      "category": "institution",
+      "primary": "institution",
+      "evidence_grade": "mixed",
+      "summary": "拉丁美洲城镇里靠街头摊贩卖现做小吃的日常体系。三篇来源（吉事果、阿雷帕、恩帕纳达）都把摊贩写成这些食物的主要销路。",
+      "tags": [
+        "kind:institution",
+        "region:mexico",
+        "region:andes",
+        "region:northern_south_america",
+        "cuisine:latin_american",
+        "trade:street_vendor",
+        "class_marker:common",
+        "price:priceless",
+        "terrain:workshop",
+        "season:all_year",
+        "sold_by:none"
+      ],
+      "details": {
+        "definition": "指拉美城镇里以街头摊贩销售现做、便携、便宜的食物的体系。来源提到的例子：churro 由街头小贩或咖啡店出售；arepa 是哥伦比亚加勒比海岸街头摊贩的热门品；empanada 廉价、便携，是常见街头食物。",
+        "mechanism": "运转方式是项目归纳：摊主在固定地点现做现卖，食物小而单一、能用手拿、做好即食。来源没有给出摊位的管理方式、许可或租金。",
+        "conditions": "依赖人流、一种便于批量做的单品、以及基本的灶具和原料供应。热食要现做，所以多靠清晨、午后、夜间的特定人群。",
+        "exceptions": "①各国的摊位管理差异未取得来源；②摊贩与固定店铺的界线在不同城市不同；③不应把「街头摊」写成统一的拉美景象，各地名字、品种差别很大。",
+        "story_uses": "①城镇的日常节奏：早餐摊、午后点心摊、夜宵摊。②阶级与体面：便宜而方便的食物对劳动者重要，富人也可能偷偷去吃。③地盘与关系：摊位的位置、与官府的关系、与批发商的关系，可写成一个小行当的政治。",
+        "historical_scope": "本条是一个跨国的归纳性条目，限定在来源提到的几种食物。改编边界：架空世界可借用「现做便携小吃 + 街头摊贩」，但摊位制度与许可需要自行设计。",
+        "evidence_and_uncertainty": "有来源支持的部分：churro（据 cuisine_latam_src_06）、arepa（据 cuisine_latam_src_12）、empanada（据 cuisine_latam_src_13）各自与街头销售的联系。其余——制度、许可、行业规矩、历史发展——都是项目归纳，未取得来源。待裁定：是否保留此条，或并入各菜品的 sold_by 说明。"
+      },
+      "source_ids": [
+        "cuisine_latam_src_06",
+        "cuisine_latam_src_12",
+        "cuisine_latam_src_13"
+      ],
+      "related_ids": [
+        "cuisine_latam_churro",
+        "cuisine_latam_arepa",
+        "cuisine_latam_empanada"
+      ],
+      "related_catalog_ids": [
+        "cuisine_taco",
+        "cuisine_tamale"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "game": {
+        "schema": "game_fields_v1",
+        "price": {
+          "min": null,
+          "max": null,
+          "tier": "priceless"
+        },
+        "terrains": [
+          "workshop"
+        ],
+        "seasons": [
+          "all_year"
+        ],
+        "keeps": "years",
+        "sold_by": [
+          "none"
+        ],
+        "note": "这是行业与场所的归纳，不是商品；因此不标价。"
+      }
+    },
+    {
+      "id": "cuisine_latam_arepa",
+      "name": "阿雷帕（arepa）",
+      "aliases": [
+        "arepa",
+        "arepas",
+        "玉米饼",
+        "哥伦比亚委内瑞拉玉米饼"
+      ],
+      "category": "item",
+      "primary": "bread",
+      "evidence_grade": "sourced",
+      "summary": "哥伦比亚与委内瑞拉流行的扁圆玉米面饼，可烤可炸，夹奶酪、黄油或肉当三明治吃。",
+      "tags": [
+        "kind:bread",
+        "region:northern_south_america",
+        "cuisine:latin_american",
+        "course:breakfast",
+        "technique:griddle",
+        "technique:fry",
+        "trade:street_vendor",
+        "price:penny",
+        "terrain:workshop",
+        "terrain:farmland",
+        "season:all_year",
+        "sold_by:street_vendor",
+        "sold_by:market"
+      ],
+      "details": {
+        "definition": "arepa 是中南美洲流行的扁圆玉米面饼，尤以哥伦比亚和委内瑞拉为盛，形状类似英式玛芬，常配奶酪、黄油或肉。Britannica 的写法是：它既是主食也是便携餐点，委内瑞拉全天都吃，哥伦比亚多在早餐或午后点心时吃。",
+        "mechanism": "工序骨架：玉米面团整成扁圆 → 烤或炸熟 → 剖开夹馅或抹料。来源只说到做法差异：委内瑞拉常烤或炸后剖开当三明治；哥伦比亚加勒比海岸的街头摊贩出售内含蛋的油炸阿雷帕。面团如何制备（是否用碱处理玉米）本次未取得来源。",
+        "conditions": "依赖玉米面、平底锅或油锅，以及作为馅料的奶酪、黄油或肉。哥伦比亚常配辣味调料 ají。",
+        "exceptions": "①做法在各地差异很大，来源明说「preparation varies widely」；②哥伦比亚与委内瑞拉的吃法不同，不可混写；③玉米面的具体种类与处理方式未取得来源。",
+        "story_uses": "①国别认同的小摩擦：两国都把阿雷帕当自己的日常食物，可写边境小镇的口味之争。②早餐摊的位置：摊主靠一种单品养活一家。③馅料即阶层：只加黄油与加满肉的阿雷帕，体面不同。",
+        "historical_scope": "本条限定在哥伦比亚与委内瑞拉的现代饮食语境，来源未给出历史年代。改编边界：可借用「玉米面扁饼 + 可剖开夹馅」，不预设必有奶酪或特定辣酱。",
+        "evidence_and_uncertainty": "有来源支持的部分：定义、形状、两国的做法差异与进食时段、ají 搭配（据 cuisine_latam_src_12）。未取得：起源年代、面团制法、前殖民时期的先例。"
+      },
+      "source_ids": [
+        "cuisine_latam_src_12"
+      ],
+      "related_ids": [
+        "cuisine_latam_empanada",
+        "cuisine_latam_street_stall_system",
+        "cuisine_latam_nixtamalization"
+      ],
+      "related_catalog_ids": [
+        "staples_maize",
+        "animal_food_cheese",
+        "animal_food_butter",
+        "animal_food_egg",
+        "cuisine_tortilla"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "game": {
+        "schema": "game_fields_v1",
+        "price": {
+          "min": 1,
+          "max": 3,
+          "per": "一个",
+          "tier": "penny"
+        },
+        "terrains": [
+          "workshop",
+          "farmland"
+        ],
+        "seasons": [
+          "all_year"
+        ],
+        "keeps": "hours",
+        "sold_by": [
+          "street_vendor",
+          "market"
+        ],
+        "note": "玉米面饼，现做现卖，按一个计价。游戏行情估计。"
+      }
+    },
+    {
+      "id": "cuisine_latam_empanada",
+      "name": "恩帕纳达（empanada）",
+      "aliases": [
+        "empanada",
+        "empanadas",
+        "馅饼",
+        "拉美馅饼",
+        "半月形馅饼"
+      ],
+      "category": "item",
+      "primary": "snack",
+      "evidence_grade": "sourced",
+      "summary": "面皮折过馅料封口后烤或炸的馅饼，便宜、便携，面皮和馅各地不同。",
+      "tags": [
+        "kind:dish",
+        "region:rio_de_la_plata",
+        "region:northern_south_america",
+        "region:caribbean",
+        "cuisine:latin_american",
+        "course:snack",
+        "technique:bake",
+        "technique:fry",
+        "trade:street_vendor",
+        "price:groat",
+        "terrain:workshop",
+        "terrain:farmland",
+        "season:all_year",
+        "sold_by:street_vendor",
+        "sold_by:baker"
+      ],
+      "details": {
+        "definition": "empanada 是烤或炸的馅饼，把一张面皮折过馅料并封口后烹制。名称来自西班牙语 empanar（裹以面团或面包）。馅料可以是肉、奶酪、蔬菜、水果；它见于拉美、西班牙和葡萄牙。Britannica 称其廉价、便携，是常见的街头食物，可作前菜、点心甚至一餐。",
+        "mechanism": "工序骨架：擀面皮 → 放馅 → 折叠封边 → 烤或炸。来源提到封边可以有拧绳、叉齿压纹等样式，封边样式或附加面团可以用来标示馅料。面皮通常是小麦粉加猪油或黄油，也有玉米面皮（委内瑞拉、哥伦比亚）和木薯或芭蕉面皮（加勒比等地）。",
+        "conditions": "依赖面皮原料（小麦或玉米、木薯、芭蕉）、能烤或炸的灶具、以及馅料。常配鳄梨酱、番茄辣酱或香草蒜酱。",
+        "exceptions": "①起源不确定，来源只说「可能」由中东糕点经穆斯林征服传入伊比利亚；②布宜诺斯艾利斯的牛肉馅（含洋葱、甜椒、水煮蛋，有时加葡萄干）和委内瑞拉 pabellón 馅（牛肉丝、黑豆、炸甜芭蕉）只是两个例子，不代表整个拉美；③甜味版被认为较晚近。",
+        "story_uses": "①封边的暗号：用封边样式区分馅料，可写摊贩与熟客之间的默契。②面皮的阶层：小麦面皮与玉米、木薯面皮的价格不同，可作入城者与本地人的区别。③路上的食物：便携，适合写旅途、劳作与集市。",
+        "historical_scope": "本条限定在拉美、伊比利亚的现代饮食语境。来源给出的起源链条只是推测。改编边界：可借用「折叠封边的馅饼」，不预设必有小麦或猪油。",
+        "evidence_and_uncertainty": "有来源支持的部分：定义、词源、面皮与馅料的地区差异、封边标示、蘸酱（据 cuisine_latam_src_13）。未取得：起源的可靠文献、各地确切年代。"
+      },
+      "source_ids": [
+        "cuisine_latam_src_13"
+      ],
+      "related_ids": [
+        "cuisine_latam_arepa",
+        "cuisine_latam_street_stall_system",
+        "cuisine_latam_cassava_casabe"
+      ],
+      "related_catalog_ids": [
+        "staples_wheat",
+        "staples_maize",
+        "staples_cassava",
+        "produce_banana",
+        "animal_food_beef",
+        "animal_food_cheese",
+        "animal_food_rendered_fat"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "game": {
+        "schema": "game_fields_v1",
+        "price": {
+          "min": 2,
+          "max": 4,
+          "per": "一个",
+          "tier": "groat"
+        },
+        "terrains": [
+          "workshop",
+          "farmland"
+        ],
+        "seasons": [
+          "all_year"
+        ],
+        "keeps": "days",
+        "sold_by": [
+          "street_vendor",
+          "baker"
+        ],
+        "note": "含馅，比单纯面饼略贵。游戏行情估计。"
+      }
+    },
+    {
+      "id": "cuisine_latam_chuno",
+      "name": "冻干马铃薯（chuño）",
+      "aliases": [
+        "chuño",
+        "chuno",
+        "冻干薯",
+        "安第斯冻干马铃薯"
+      ],
+      "category": "item",
+      "primary": "preserved_food",
+      "evidence_grade": "sourced",
+      "summary": "安第斯高原用夜间霜冻加白天日晒反复制成的马铃薯干，轻、耐放，可存数年，印加时代已被运往帝国各地。",
+      "tags": [
+        "kind:preserved",
+        "region:andes",
+        "cuisine:latin_american",
+        "technique:freeze_dry",
+        "trade:storage",
+        "class_marker:common",
+        "price:penny",
+        "terrain:plateau",
+        "terrain:mountain",
+        "season:all_year",
+        "sold_by:market",
+        "sold_by:farmer"
+      ],
+      "details": {
+        "definition": "chuño 是安第斯山区的冻干马铃薯。Archaeology Magazine 转述 Phys.org 的报道：2026 年在秘鲁南部 Acarí 河谷的印加遗址 Tambo Viejo，地面陶罐里发现两枚约 500 年的 chuño。卡尔加里大学的 Lidio Valdez 说，它只能由整薯暴露于高山冬夜的严寒，再在日下解冻，如此反复制成。",
+        "mechanism": "工序骨架（据报道）：夜间霜冻 → 白天日晒解冻 → 反复多个循环 → 踩踏 → 干燥。该遗址所见的品种天然有毒，霜冻之后还须浸泡数周再干燥。成品轻便，可保存数年。本条不写具体天数与浸泡操作。",
+        "conditions": "依赖高海拔地区旱季的大昼夜温差（报道称 4 到 9 月）、足够多的马铃薯、晒场和人力。不在高处就做不了：它出现在海岸河谷，说明它被运过印加帝国。",
+        "exceptions": "①报道说该遗址的品种有毒，所以浸泡不是可省略的步骤，不能把 chuño 写成任意马铃薯冻一冻就行；②两枚实物是极少见的出土物，不能据此推出印加人口食物结构；③本次未读到专门关于 chuño 的大学或博物馆长篇资料。",
+        "story_uses": "①高原的出口货：低地买不到，只能由山上的人运下来，可写商路与价格的落差。②仓储与军需：可存数年，适合写帝国的粮仓和远征。③手艺的封闭性：只有高处的村子会做，下山的人要靠他们。",
+        "historical_scope": "本条限定在安第斯山区，印加时期有考古物证。现代做法和当代村社的组织本次没有取得来源。改编边界：可借用「靠昼夜温差把块根做成耐放干品」，不预设必有马铃薯或高原。",
+        "evidence_and_uncertainty": "有来源支持的部分：遗址、年代、制法概要、有毒品种需浸泡、可存数年、被运输到海岸（据 cuisine_latam_src_14）。其中「4 到 9 月」来自同一事件的另一篇二手转述，没有读到原文，只当线索。未取得：营养、口味、当代价格。"
+      },
+      "source_ids": [
+        "cuisine_latam_src_14"
+      ],
+      "related_ids": [
+        "cuisine_latam_quinoa_porridge",
+        "cuisine_latam_columbian_exchange"
+      ],
+      "related_catalog_ids": [
+        "staples_potato"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "game": {
+        "schema": "game_fields_v1",
+        "price": {
+          "min": 1,
+          "max": 3,
+          "per": "一把",
+          "tier": "penny"
+        },
+        "terrains": [
+          "plateau",
+          "mountain"
+        ],
+        "seasons": [
+          "all_year"
+        ],
+        "keeps": "years",
+        "sold_by": [
+          "market",
+          "farmer"
+        ],
+        "note": "安第斯高原产，运到低地会贵很多；此处按产地价估。游戏行情估计。"
+      }
+    },
+    {
+      "id": "cuisine_latam_quinoa_porridge",
+      "name": "藜麦粥（quinoa porridge）",
+      "aliases": [
+        "quinoa porridge",
+        "quinua",
+        "quinoa",
+        "藜麦粥",
+        "安第斯谷物粥"
+      ],
+      "category": "item",
+      "primary": "dish",
+      "evidence_grade": "mixed",
+      "summary": "用安第斯主粮藜麦煮成的粥。藜麦不是真正的谷类，种子富含蛋白质与纤维，在秘鲁和玻利维亚产量最大。",
+      "tags": [
+        "kind:dish",
+        "region:andes",
+        "cuisine:latin_american",
+        "course:breakfast",
+        "technique:simmer",
+        "price:groat",
+        "terrain:plateau",
+        "terrain:farmland",
+        "terrain:import",
+        "season:all_year",
+        "sold_by:market",
+        "sold_by:street_vendor"
+      ],
+      "details": {
+        "definition": "本条是项目归纳的粥类菜，不是来源明确记载的传统菜名。Britannica 的藜麦条写到：Chenopodium quinoa 因其细小的可食种子而栽培，不是真正的谷类，种子富含蛋白质与纤维，嫩叶也可当类似菠菜的蔬菜；原产安第斯地区，数千年来是当地主粮，多数仍产自秘鲁与玻利维亚。",
+        "mechanism": "工序骨架：洗净藜麦 → 加水煮至软烂 → 可加奶、糖、香料或水果。来源没有给出粥的做法，以上是项目归纳；不写比例与时间。",
+        "conditions": "依赖藜麦（高原作物）、水、燃料与锅。藜麦对西欧式城镇属远途输入。",
+        "exceptions": "①是否有地方把藜麦煮成粥作传统早餐，本次未取得来源，只能当设计性条目；②来源没有提到藜麦种子的外皮处理，不在此展开；③「超级食物」之类的说法不写入。",
+        "story_uses": "①高原人的早饭：与 chuño 一样是高原日常食物，可写山村的一天。②远途货：低地城镇的人吃到的是商人运来的藜麦，可写价格与名声。③外来者的好奇：外人把它当新奇食物，本地人觉得平常。",
+        "historical_scope": "本条限定在安第斯地区，时间上是现代饮食语境。改编边界：可借用「高原谷物粥」，不预设必有藜麦。",
+        "evidence_and_uncertainty": "有来源支持的部分：藜麦的植物学与产地（据 cuisine_latam_src_19）。属本项目归纳：粥这一具体菜品与它的做法、场景。"
+      },
+      "source_ids": [
+        "cuisine_latam_src_19"
+      ],
+      "related_ids": [
+        "cuisine_latam_chuno"
+      ],
+      "related_catalog_ids": [
+        "staples_quinoa",
+        "animal_food_milk",
+        "flavors_cane_sugar"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "game": {
+        "schema": "game_fields_v1",
+        "price": {
+          "min": 2,
+          "max": 4,
+          "per": "一碗",
+          "tier": "groat"
+        },
+        "terrains": [
+          "plateau",
+          "farmland",
+          "import"
+        ],
+        "seasons": [
+          "all_year"
+        ],
+        "keeps": "days",
+        "sold_by": [
+          "market",
+          "street_vendor"
+        ],
+        "note": "藜麦对低地城镇属远途输入，故加 import。游戏行情估计。"
+      }
+    },
+    {
+      "id": "cuisine_latam_dulce_de_leche",
+      "name": "杜尔塞德莱切（dulce de leche）",
+      "aliases": [
+        "dulce de leche",
+        "manjar blanco",
+        "arequipe",
+        "焦糖牛奶酱",
+        "牛奶焦糖酱"
+      ],
+      "category": "item",
+      "primary": "sauce",
+      "evidence_grade": "sourced",
+      "summary": "把牛奶与糖熬到焦糖色的黏稠甜酱，阿根廷和乌拉圭尤其痴迷，用作抹酱和夹心。",
+      "tags": [
+        "kind:condiment",
+        "region:rio_de_la_plata",
+        "cuisine:latin_american",
+        "course:dessert",
+        "technique:reduce",
+        "price:groat",
+        "terrain:workshop",
+        "terrain:pasture",
+        "season:all_year",
+        "sold_by:confectioner",
+        "sold_by:dairy",
+        "sold_by:grocer"
+      ],
+      "details": {
+        "definition": "dulce de leche 的字面意思是「奶的甜」，是由焦糖化牛奶与糖制成的黏稠焦糖色糖酱，常加香草与小苏打，可单吃，也用作抹酱、夹心或浇头。Britannica 说它起源不明，遍及拉美；在阿根廷与乌拉圭（拉普拉塔河两岸）近乎痴迷，是两国的自豪。",
+        "mechanism": "工序骨架：牛奶加糖 → 慢慢熬浓、褐变 → 得到黏稠酱。来源未给出具体做法，本条不写比例与火候。它用作 alfajor 的传统内馅，也用于煎饼、蛋糕、冰淇淋。",
+        "conditions": "依赖牛奶、蔗糖和能长时间看火的灶。拉普拉塔河一带有大规模牧牛，是奶的来源，但来源没有把二者因果写出来，这是本项目推断。",
+        "exceptions": "①起源不明，阿根廷流传的说法是 19 世纪初一名女仆把加糖牛奶忘在炉上而偶然发现，来源只当传说；②它与秘鲁、智利、哥伦比亚的 manjar blanco 和法国 confiture de lait 近亲，不应说成某国独有；③风味奶香浓，缺少糖焦糖的烧焦强度。",
+        "story_uses": "①民族自豪与争名：两国都说自己的才正宗，可写小型外交风波。②甜食的社交：下午茶、孩子的零食，也是赠礼。③意外的发明：流传的偶然发现传说可作为人物的口头禅，但要标明是传说。",
+        "historical_scope": "本条限定在拉美，重点是拉普拉塔河两岸。来源给的年代只是传说。改编边界：可借用「熬浓乳糖成酱」，不预设必有牛或蔗糖。",
+        "evidence_and_uncertainty": "有来源支持的部分：定义、名称含义、起源不明、传说、近亲、alfajor 内馅与拉普拉塔河的重要性、风味（据 cuisine_latam_src_17）。属本项目归纳：与牧牛的因果。"
+      },
+      "source_ids": [
+        "cuisine_latam_src_17"
+      ],
+      "related_ids": [
+        "cuisine_latam_churro",
+        "cuisine_latam_mate"
+      ],
+      "related_catalog_ids": [
+        "animal_food_milk",
+        "flavors_cane_sugar",
+        "flavors_vanilla",
+        "animal_food_cattle"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "game": {
+        "schema": "game_fields_v1",
+        "price": {
+          "min": 4,
+          "max": 10,
+          "per": "一罐",
+          "tier": "groat"
+        },
+        "terrains": [
+          "workshop",
+          "pasture"
+        ],
+        "seasons": [
+          "all_year"
+        ],
+        "keeps": "months",
+        "sold_by": [
+          "confectioner",
+          "dairy",
+          "grocer"
+        ],
+        "note": "糖与奶合成，耐存，按一罐计价。游戏行情估计。"
+      }
+    },
+    {
+      "id": "cuisine_latam_mate",
+      "name": "马黛茶（mate）",
+      "aliases": [
+        "mate",
+        "maté",
+        "yerba mate",
+        "bombilla",
+        "巴拉圭茶",
+        "马黛",
+        "玛黛茶"
+      ],
+      "category": "item",
+      "primary": "beverage",
+      "evidence_grade": "sourced",
+      "summary": "用冬青近缘灌木的干叶浸泡，用金属吸管轮流共饮的南美茶饮，阿根廷、乌拉圭、巴拉圭和巴西南部最流行。",
+      "tags": [
+        "kind:drink",
+        "region:rio_de_la_plata",
+        "cuisine:latin_american",
+        "course:drink",
+        "occasion:social",
+        "role:shared_drink",
+        "price:penny",
+        "terrain:workshop",
+        "terrain:import",
+        "season:all_year",
+        "sold_by:grocer",
+        "sold_by:street_vendor"
+      ],
+      "details": {
+        "definition": "mate 是类茶饮料，用冬青的近缘常绿灌木或乔木 Ilex paraguariensis 的干叶（yerba）制成，含咖啡因和单宁，有提神作用，涩味比茶轻。做法是把叶放进干葫芦或其它容器，浇热水短时浸泡，用带滤头的金属吸管 bombilla 吸饮。",
+        "mechanism": "工序骨架：干叶入容器 → 热水冲泡 → 吸管吸饮 → 续水。一份叶可反复续水约十次；常由一个人负责添水，依次递给在座者共饮。可加牛奶、糖、香草、咖啡或柠檬汁。",
+        "conditions": "依赖该植物的叶、热水、葫芦或其它容器和吸管。它是社交饮品：共用同一个容器是传递的前提。",
+        "exceptions": "①共饮的卫生与礼仪规则本次未取得来源；②各地加料不同，来源只说可以加；③不要把「共饮」写成所有人必须遵守的习俗。",
+        "story_uses": "①一圈人的秩序：谁添水、谁先喝、谁被跳过，可写关系的细微变化。②远行与劳作：高乔人和牧场工人的随身饮品只是项目联想，来源未提。③外来者的第一口：涩与烫是新手的难关。",
+        "historical_scope": "本条限定在南美南部，来源称它也经阿根廷传入叙利亚和黎巴嫩部分地区。改编边界：可借用「共饮一器」，不预设必有该植物。",
+        "evidence_and_uncertainty": "有来源支持的部分：定义、原料、容器与吸管、续水次数、共享方式、加料、流行地区（据 cuisine_latam_src_18）。未取得：历史、与原住民的关联、价格与产业。"
+      },
+      "source_ids": [
+        "cuisine_latam_src_18"
+      ],
+      "related_ids": [
+        "cuisine_latam_dulce_de_leche",
+        "cuisine_latam_asado"
+      ],
+      "related_catalog_ids": [
+        "flavors_tea",
+        "flavors_cane_sugar",
+        "animal_food_milk"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "game": {
+        "schema": "game_fields_v1",
+        "price": {
+          "min": 1,
+          "max": 3,
+          "per": "一葫芦",
+          "tier": "penny"
+        },
+        "terrains": [
+          "workshop",
+          "import"
+        ],
+        "seasons": [
+          "all_year"
+        ],
+        "keeps": "months",
+        "sold_by": [
+          "grocer",
+          "street_vendor"
+        ],
+        "note": "叶可存放，一份反复续水，所以单价低；对西欧式城镇属远途输入。游戏行情估计。"
+      }
+    },
+    {
+      "id": "cuisine_latam_jerk",
+      "name": "牙买加烟熏烤肉（jerk）",
+      "aliases": [
+        "jerk",
+        "jerk chicken",
+        "jerk pork",
+        "牙买加烤鸡",
+        "杰克烤肉"
+      ],
+      "category": "item",
+      "primary": "cooking_technique",
+      "evidence_grade": "sourced",
+      "summary": "牙买加的腌制慢烤法：肉裹以多香果与苏格兰帽辣椒为主的腌料，在铺着多香果木的炭火上烤，烟是风味的关键。",
+      "tags": [
+        "kind:dish",
+        "region:caribbean",
+        "cuisine:latin_american",
+        "course:main",
+        "technique:marinate",
+        "technique:smoke",
+        "technique:grill",
+        "occasion:festival",
+        "price:shilling",
+        "terrain:workshop",
+        "terrain:tropical_dry_forest",
+        "season:all_year",
+        "sold_by:street_vendor",
+        "sold_by:tavern"
+      ],
+      "details": {
+        "definition": "jerk 指一种烹饪方式，而不是单一菜。主料多为鸡，也可用牛、猪、山羊、野猪、海鲜或蔬菜，裹上香料后在火或烤架上慢烤。Britannica 说传统燃料是铺在炭火上的青 pimento（多香果）木，烟是风味的关键。牙买加版以多香果与苏格兰帽辣椒（Scotch bonnet）的辛辣腌料著称。",
+        "mechanism": "工序骨架：肉上戳孔 → 腌料渗入 → 在多香果木烟熏的炭火上慢烤。来源提到的配菜有米饭、豆、芭蕉、甘薯和名为 festival 的小玉米面炸饼。本条不写腌制时间与火候。",
+        "conditions": "依赖肉、辣椒与多香果、燃料木（多香果木）、开放的火坑或烤架。多香果与苏格兰帽辣椒都是美洲作物。",
+        "exceptions": "①起源说法有分歧：Britannica 称起源于 Taino 并传给被奴役的非洲人；Smithsonian 引牙买加学者的话说，jerk 是非洲与 Taíno 文化融合的持久遗产，并提到 Maroons。这些叙述都不能被简化成单线因果；②jerk 一词据说来自西班牙语 charqui（肉干），这是 Britannica 的「据说」，未经核实；③快餐连锁和名厨推出的所谓 jerk 产品曾引发牙买加侨民的抗议，说明它对牙买加人不只是调味。",
+        "story_uses": "①山地与自由：Maroons 逃入山区的历史可作为人物背景，但不要把某个具体事件编入「正史」。②火坑摊：路边烤架和烟味是一个地点的招牌。③被借用的名字：外人把 jerk 当调味品卖，本地人抗议，可写文化占有的摩擦。",
+        "historical_scope": "本条限定在加勒比，以牙买加为核心。历史叙述涉及殖民、奴役与原住民人口剧减，本条只引用来源所述的层级：1494 年哥伦布到达，英国 17 世纪中叶入侵，Taíno 人口在 Maroons 与其相遇时已减去约九成。改编边界：可借用「腌肉+果木烟慢烤」，不预设必有多香果或辣椒。",
+        "evidence_and_uncertainty": "有来源支持的部分：定义、主料范围、燃料、腌料、配菜、起源的两种叙述、侨民意义（据 cuisine_latam_src_07、08）。Smithsonian 正文中途被截断，其后对考古证据的讨论未取得。"
+      },
+      "source_ids": [
+        "cuisine_latam_src_07",
+        "cuisine_latam_src_08"
+      ],
+      "related_ids": [
+        "cuisine_latam_columbian_exchange",
+        "cuisine_latam_asado"
+      ],
+      "related_catalog_ids": [
+        "flavors_chili_pepper",
+        "animal_food_chicken",
+        "animal_food_pork",
+        "staples_sweet_potato",
+        "produce_banana",
+        "materials_charcoal",
+        "materials_wood"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "game": {
+        "schema": "game_fields_v1",
+        "price": {
+          "min": 6,
+          "max": 14,
+          "per": "一份",
+          "tier": "shilling"
+        },
+        "terrains": [
+          "workshop",
+          "tropical_dry_forest"
+        ],
+        "seasons": [
+          "all_year"
+        ],
+        "keeps": "days",
+        "sold_by": [
+          "street_vendor",
+          "tavern"
+        ],
+        "note": "烟熏慢烤费燃料与时间，辣椒与多香果为远途输入。游戏行情估计。"
+      }
+    },
+    {
+      "id": "cuisine_latam_sancocho",
+      "name": "加勒比与美洲炖菜（sancocho）",
+      "aliases": [
+        "sancocho",
+        "桑科乔",
+        "拉美炖菜",
+        "肉薯炖汤"
+      ],
+      "category": "item",
+      "primary": "soup",
+      "evidence_grade": "mixed",
+      "summary": "鱼或肉加根茎蔬菜与芭蕉，用芫荽或刺芫荽调味的炖菜，是巴拿马与多米尼加的国菜之一。",
+      "tags": [
+        "kind:dish",
+        "region:caribbean",
+        "region:central_america",
+        "region:northern_south_america",
+        "cuisine:latin_american",
+        "course:main",
+        "technique:simmer",
+        "occasion:communal",
+        "price:groat",
+        "terrain:workshop",
+        "terrain:tropical_dry_forest",
+        "season:all_year",
+        "sold_by:street_vendor",
+        "sold_by:inn_kitchen"
+      ],
+      "details": {
+        "definition": "sancocho 是拉美传统炖菜，用鱼或肉、根茎蔬菜、芭蕉，以芫荽或刺芫荽调味。词源是西班牙语 sancochar（半煮）。Britannica 说它是巴拿马的国菜，也是多米尼加共和国的国菜之一，在波多黎各、委内瑞拉、哥伦比亚也流行，各有变体。",
+        "mechanism": "工序骨架：肉或鱼与根茎、芭蕉同锅炖煮 → 调味 → 配米饭、鳄梨上桌。来源举到的变体：多米尼加常含南瓜与甘薯，有「七种肉」版；哥伦比亚版可含牛排骨、青芭蕉、玉米、马铃薯和木薯，配米饭、鳄梨与 ají；波多黎各版以番茄为底，含 chorizo。",
+        "conditions": "依赖一口大锅、燃料，以及肉与块根块茎的组合。芭蕉、木薯、甘薯、玉米是美洲作物，肉则有欧洲输入的家畜。",
+        "exceptions": "①起源链条（15 世纪西班牙塞法迪犹太炖菜 adafina → cocido → 带非洲影响 → 加那利群岛鱼炖 → 殖民时传入）出自带站内 AI 摘要风格的页面，只当「说法」，未核实；②没有统一配方，来源明说「no two are exactly alike」；③各国的国菜地位以来源为准，不可推广到其它国家。",
+        "story_uses": "①一锅端的人情：全家或街坊一起吃，适合写聚会与赶集。②「七种肉」的体面：炫耀多肉的版本可作为家境符号。③国菜之争：多国都把它当自己的，可写邻国间的善意口角。",
+        "historical_scope": "本条限定在加勒比、中美洲与哥伦比亚、委内瑞拉的现代饮食语境。起源叙述涉及殖民与奴役，只引用来源所述层级。改编边界：可借用「肉与块根同锅炖」，不预设必有芭蕉或芫荽。",
+        "evidence_and_uncertainty": "有来源支持的部分：定义、词源、国菜地位、各国变体、常见配饭（据 cuisine_latam_src_09）。该页面混有站内 AI 摘要段，故证据等级定为 mixed。未取得：文献可靠的起源、早期食谱。"
+      },
+      "source_ids": [
+        "cuisine_latam_src_09",
+        "cuisine_latam_src_10",
+        "cuisine_latam_src_11"
+      ],
+      "related_ids": [
+        "cuisine_latam_cassava_casabe",
+        "cuisine_latam_columbian_exchange"
+      ],
+      "related_catalog_ids": [
+        "produce_banana",
+        "staples_cassava",
+        "staples_sweet_potato",
+        "staples_potato",
+        "staples_maize",
+        "produce_squash_pumpkin",
+        "animal_food_beef",
+        "animal_food_pork",
+        "animal_food_chicken",
+        "food_supp_avocado"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "game": {
+        "schema": "game_fields_v1",
+        "price": {
+          "min": 3,
+          "max": 7,
+          "per": "一碗",
+          "tier": "groat"
+        },
+        "terrains": [
+          "workshop",
+          "tropical_dry_forest"
+        ],
+        "seasons": [
+          "all_year"
+        ],
+        "keeps": "days",
+        "sold_by": [
+          "street_vendor",
+          "inn_kitchen"
+        ],
+        "note": "大锅分碗，肉与块根并用。游戏行情估计。"
+      }
+    },
+    {
+      "id": "cuisine_latam_cassava_casabe",
+      "name": "木薯面饼与木薯粉（casabe / farinha）",
+      "aliases": [
+        "casabe",
+        "cazabe",
+        "cassava bread",
+        "farinha",
+        "farinha de mandioca",
+        "木薯饼",
+        "木薯粗粉"
+      ],
+      "category": "item",
+      "primary": "bread",
+      "evidence_grade": "mixed",
+      "summary": "美洲热带的木薯加工食品：木薯要先去毒才能当主食，成品有面饼与粗粉。巴西的木薯粗粉 farinha 是 farofa 的原料。",
+      "tags": [
+        "kind:bread",
+        "region:caribbean",
+        "region:brazil",
+        "cuisine:latin_american",
+        "technique:grate",
+        "technique:detoxify",
+        "trade:storage",
+        "price:penny",
+        "terrain:workshop",
+        "terrain:farmland",
+        "terrain:rainforest",
+        "season:all_year",
+        "sold_by:market",
+        "sold_by:farmer"
+      ],
+      "details": {
+        "definition": "木薯（Manihot esculenta）原产美洲热带，块根可制粉、面包、tapioca 与淀粉。Britannica 说它可能最早由尤卡坦的玛雅人栽培。多数品种含生氰糖苷。原住民发展出复杂的去毒系统：磨碎、压榨、加热。Britannica 的 farinha 页说 farinha 特指木薯粗粉，是巴西 farofa 配菜的原料，亚马孙原住民对木薯去毒的完善使其成为热带美洲广泛使用的主食。casabe 是木薯饼，本次未读到专条，名称与形态只来自已知常识。",
+        "mechanism": "工序骨架：磨碎 → 压榨 → 加热（据 Britannica 的概括层级）→ 得到粗粉或饼。甜品种作蔬菜须厚削皮、煮透并倒掉煮水；制粉多用「苦」品种，需长时间浸泡、发酵并让糊状物暴露于空气数小时。本条只引用来源所述层级，不作为可执行操作说明；不写时间、不写剂量。",
+        "conditions": "依赖木薯、足够的水与加热器具、足够的人力。去毒不是可省略的步骤：处理不当会急性氰化物中毒，长期暴露与甲状腺肿、慢性胰腺炎和共济失调性神经病有关。",
+        "exceptions": "①casabe 饼的专条来源没读到，本条以 Britannica 的木薯条与 farinha 汇总页为依据，不能把 casabe 的具体形态当成已证实；②甜品种与苦品种的处理强度不同，不能混用；③Britannica 对起源的说法是「可能」。",
+        "story_uses": "①去毒是手艺：一个村子的主妇世代掌握的技能，外人错用就会出事，适合写紧张情节。②远行的干粮：粉和饼耐放，适合写海路、军队与逃亡。③殖民者的主食借用：外来者靠它度日，但来源未提，只能当项目联想。",
+        "historical_scope": "本条限定在美洲热带，以加勒比与巴西为主。来源提到的原住民去毒系统属前殖民时期的知识。改编边界：可借用「有毒块根需多道工序方可食」，不预设必有木薯。",
+        "evidence_and_uncertainty": "有来源支持的部分：木薯的原产、毒性、去毒层级、farinha 的含义与 farofa 的联系（据 cuisine_latam_src_11、15）。属本项目归纳：casabe 饼与加勒比的关联。未取得：casabe 的专条、起源地、传播细节。"
+      },
+      "source_ids": [
+        "cuisine_latam_src_11",
+        "cuisine_latam_src_15"
+      ],
+      "related_ids": [
+        "cuisine_latam_feijoada",
+        "cuisine_latam_empanada"
+      ],
+      "related_catalog_ids": [
+        "staples_cassava"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "game": {
+        "schema": "game_fields_v1",
+        "price": {
+          "min": 1,
+          "max": 3,
+          "per": "一块",
+          "tier": "penny"
+        },
+        "terrains": [
+          "workshop",
+          "farmland",
+          "rainforest"
+        ],
+        "seasons": [
+          "all_year"
+        ],
+        "keeps": "months",
+        "sold_by": [
+          "market",
+          "farmer"
+        ],
+        "note": "去毒工序费人力，成品耐放。游戏行情估计。"
+      }
+    },
+    {
+      "id": "cuisine_latam_feijoada",
+      "name": "巴西黑豆炖肉（feijoada）",
+      "aliases": [
+        "feijoada",
+        "feijoada completa",
+        "黑豆饭",
+        "巴西国菜",
+        "黑豆炖"
+      ],
+      "category": "item",
+      "primary": "dish",
+      "evidence_grade": "inferred",
+      "summary": "巴西常被称为国菜的黑豆加腌熏肉炖菜，配木薯粗粉 farofa。",
+      "tags": [
+        "kind:dish",
+        "region:brazil",
+        "cuisine:latin_american",
+        "course:main",
+        "technique:simmer",
+        "occasion:communal",
+        "price:groat",
+        "terrain:workshop",
+        "terrain:farmland",
+        "season:all_year",
+        "sold_by:tavern",
+        "sold_by:street_vendor"
+      ],
+      "details": {
+        "definition": "feijoada 是巴西的豆炖肉。Britannica 的 farinha 汇总页提到，farofa 是木薯粗粉做的配菜，常与被称为巴西国菜的 feijoada completa 同上桌。除此之外，本次没有读到 feijoada 的专条正文（Britannica 返回 404，Wikipedia 与 BBC 连不上）。",
+        "mechanism": "工序骨架是项目归纳：黑豆与腌熏肉同炖，配米饭、青菜和 farofa。不写克数、时长。",
+        "conditions": "依赖黑豆（菜豆类）、腌熏的猪肉或牛肉、一口大锅，以及配菜用的木薯粉。",
+        "exceptions": "①「由奴隶用种植园主丢弃的猪耳猪脚等边角肉创制」是流传很广的叙述，本次只在搜索结果摘要里见到，未读到学术或机构来源，所以不写入机制；②它是否真的是巴西各地通行的日常菜，本次没有来源；③「国菜」是 Britannica 汇总页摘要的措辞，不是官方认定。",
+        "story_uses": "①周末的大锅：全家或街坊聚餐的场合。②边角肉与阶级：用便宜部位做出体面菜，适合写贫富之间的转化。③配菜的秩序：谁取哪一样，可写座席礼仪。",
+        "historical_scope": "本条限定在巴西的现代饮食语境，历史起源未取得可靠来源。涉及奴役的传闻只作「未取证说法」标注。改编边界：可借用「豆炖腌肉 + 木薯粉配」，不预设必有黑豆。",
+        "evidence_and_uncertainty": "有来源支持的部分：farofa 与 feijoada completa 的联系、国菜称谓（据 cuisine_latam_src_15，且该页为汇总+AI 摘要）。其余均为项目归纳或未取证说法，故证据等级定为 inferred。"
+      },
+      "source_ids": [
+        "cuisine_latam_src_15"
+      ],
+      "related_ids": [
+        "cuisine_latam_cassava_casabe",
+        "cuisine_latam_asado"
+      ],
+      "related_catalog_ids": [
+        "staples_common_bean",
+        "animal_food_pork",
+        "animal_food_ham_bacon",
+        "staples_rice",
+        "staples_cassava"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "game": {
+        "schema": "game_fields_v1",
+        "price": {
+          "min": 4,
+          "max": 9,
+          "per": "一碗",
+          "tier": "groat"
+        },
+        "terrains": [
+          "workshop",
+          "farmland"
+        ],
+        "seasons": [
+          "all_year"
+        ],
+        "keeps": "days",
+        "sold_by": [
+          "tavern",
+          "street_vendor"
+        ],
+        "note": "豆与腌肉都耐存，成本不高。游戏行情估计。"
+      }
+    },
+    {
+      "id": "cuisine_latam_asado",
+      "name": "阿萨多烤肉（asado）",
+      "aliases": [
+        "asado",
+        "asado argentino",
+        "parrillada",
+        "阿根廷烤肉",
+        "拉普拉塔烤肉"
+      ],
+      "category": "item",
+      "primary": "dish",
+      "evidence_grade": "inferred",
+      "summary": "阿根廷与乌拉圭以明火和炭火烤牛肉等肉类的聚餐传统，既是做法也是社交场合。",
+      "tags": [
+        "kind:dish",
+        "region:rio_de_la_plata",
+        "cuisine:latin_american",
+        "course:main",
+        "technique:grill",
+        "occasion:communal",
+        "trade:herding",
+        "price:shilling",
+        "terrain:workshop",
+        "terrain:pasture",
+        "season:all_year",
+        "sold_by:street_vendor",
+        "sold_by:butcher"
+      ],
+      "details": {
+        "definition": "asado 在阿根廷与乌拉圭既指烤肉的做法，也指聚在一起吃烤肉的场合。Britannica 的 chimichurri 条写到，阿根廷人（世界上牛肉最好的产地之一）很少让牛排沾盐胡椒以外的东西，奇米丘里是例外。除此之外，本次没有读到 asado 的专条正文。",
+        "mechanism": "工序骨架是项目归纳：明火或炭火 → 肉置火上慢烤 → 趁热分食。不写温度、时间。",
+        "conditions": "依赖大量牛肉、明火场地和燃料。拉普拉塔河平原有大片牧场，但来源没有把二者因果写出来，这是项目推断。",
+        "exceptions": "①高乔人（gauchos）与烤肉的联系是常见叙述，本次只在 chimichurri 条见到 gauchos 的说法，未取得 asado 的来源；②各国的细节（用哪几种肉、火法）未取得；③不要把「一人一年吃多少肉」之类的统计数字写入，本次未读到。",
+        "story_uses": "①周末的集会：一个人守火、众人聊天，适合写家族与友谊。②牛与财富：牧场主与雇工分享同一堆火但座位不同。③外来者的新鲜感：满桌肉而配菜很少。",
+        "historical_scope": "本条限定在阿根廷与乌拉圭，时间是现代饮食语境，缺少历史年代来源。改编边界：可借用「明火烤肉的集会」，不预设必有牛。",
+        "evidence_and_uncertainty": "有来源支持的部分：阿根廷牛排很少加调料、奇米丘里为例外、高乔人传说（据 cuisine_latam_src_16 的相关语句）。asado 本身的定义与历史未取得来源，故证据等级定为 inferred。Britannica 的 asado 地址返回 404 或 403，Wikipedia 连不上。"
+      },
+      "source_ids": [
+        "cuisine_latam_src_16"
+      ],
+      "related_ids": [
+        "cuisine_latam_chimichurri",
+        "cuisine_latam_mate"
+      ],
+      "related_catalog_ids": [
+        "animal_food_beef",
+        "materials_charcoal",
+        "materials_salt",
+        "animal_food_cattle"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "game": {
+        "schema": "game_fields_v1",
+        "price": {
+          "min": 8,
+          "max": 20,
+          "per": "一份",
+          "tier": "shilling"
+        },
+        "terrains": [
+          "workshop",
+          "pasture"
+        ],
+        "seasons": [
+          "all_year"
+        ],
+        "keeps": "hours",
+        "sold_by": [
+          "street_vendor",
+          "butcher"
+        ],
+        "note": "牛肉量大、燃料多，按人份估价。游戏行情估计。"
+      }
+    },
+    {
+      "id": "cuisine_latam_chimichurri",
+      "name": "奇米丘里酱（chimichurri）",
+      "aliases": [
+        "chimichurri",
+        "tximitxurri",
+        "阿根廷香草酱",
+        "欧芹蒜醋酱"
+      ],
+      "category": "item",
+      "primary": "sauce",
+      "evidence_grade": "sourced",
+      "summary": "阿根廷起源的香草酱：欧芹、牛至、大蒜与红酒醋为基础，配烤肉。文献要到 1950 年代末才见于食谱。",
+      "tags": [
+        "kind:condiment",
+        "region:rio_de_la_plata",
+        "cuisine:latin_american",
+        "course:sauce",
+        "price:groat",
+        "terrain:workshop",
+        "terrain:orchard",
+        "season:summer",
+        "season:autumn",
+        "sold_by:street_vendor",
+        "sold_by:butcher"
+      ],
+      "details": {
+        "definition": "chimichurri 是阿根廷起源的酱，通常含欧芹、牛至、大蒜和红酒醋，另有橄榄油、盐、辣椒；南美各地配方无数，别处常用芫荽，也可加茶、柠檬、蜂蜜、薄荷。Britannica 说，风味的辛辣取决于醋量，加醋可使酱「复活」。",
+        "mechanism": "工序骨架：香草、大蒜切碎 → 加醋、油、盐与辣椒 → 静置入味。来源没给出工序，本条是项目归纳。不写比例。",
+        "conditions": "依赖新鲜香草、大蒜、醋和油。红酒醋与橄榄油都是欧洲输入作物的产物。",
+        "exceptions": "①Britannica 说多数人认为它源自 19 世纪游走于草原的高乔人，但文献要到 1950 年代末之后才见于食谱，这两点并存，不能把「高乔起源」当事实；②名称来自巴斯克语 tximitxurri（大杂烩）只是「可能」；③它是口味反映各国移民带来的风味，不是单一民族产物。",
+        "story_uses": "①牛排的例外：几乎不加调料的国家中，这是唯一被接受的酱，可写餐桌上的规则。②起源故事的争夺：游牧牧人与移民之间对「谁发明」的各说各话。③酱的复活：陈酱加醋重生，可用作比喻。",
+        "historical_scope": "本条限定在阿根廷及邻近地区的现代饮食语境，文献证据最早到 1950 年代末。改编边界：可借用「香草加醋的冷酱配烤肉」，不预设必有欧芹。",
+        "evidence_and_uncertainty": "有来源支持的部分：成分、地区差异、风味与醋量、起源传说与文献最晚时间、名称推测（据 cuisine_latam_src_16）。"
+      },
+      "source_ids": [
+        "cuisine_latam_src_16"
+      ],
+      "related_ids": [
+        "cuisine_latam_asado"
+      ],
+      "related_catalog_ids": [
+        "produce_garlic",
+        "flavors_vinegar",
+        "staples_olive",
+        "flavors_chili_pepper"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "game": {
+        "schema": "game_fields_v1",
+        "price": {
+          "min": 2,
+          "max": 4,
+          "per": "一碟",
+          "tier": "groat"
+        },
+        "terrains": [
+          "workshop",
+          "orchard"
+        ],
+        "seasons": [
+          "summer",
+          "autumn"
+        ],
+        "keeps": "weeks",
+        "sold_by": [
+          "street_vendor",
+          "butcher"
+        ],
+        "note": "新鲜香草时令价格浮动；橄榄油为远途输入。游戏行情估计。"
+      }
+    },
+    {
+      "id": "cuisine_latam_columbian_exchange",
+      "name": "哥伦布大交换对饮食的影响",
+      "aliases": [
+        "Columbian Exchange",
+        "哥伦布大交换",
+        "新旧大陆物种交换"
+      ],
+      "category": "institution",
+      "primary": "institution",
+      "evidence_grade": "mixed",
+      "summary": "1492 年之后美洲、欧洲、非洲之间动植物与疾病的大规模流动。拉美菜的许多面貌——牛肉与猪肉、小麦、蔗糖——由此而来，玉米、马铃薯、木薯也由此走向全球。",
+      "tags": [
+        "kind:institution",
+        "region:caribbean",
+        "region:mexico",
+        "region:andes",
+        "cuisine:latin_american",
+        "trade:long_distance",
+        "price:priceless",
+        "terrain:ocean",
+        "season:all_year",
+        "sold_by:none"
+      ],
+      "details": {
+        "definition": "Columbian Exchange 指 1492 年之后跨大西洋的生物交换。Britannica 称它是一场生物层面的全球化，使因大陆漂移分隔的生态区重新连通，牵涉美洲、欧洲与非洲，涉及疾病、动物与植物。",
+        "mechanism": "运转方式（据来源概括）：疾病——欧亚与非洲人带来天花、流感，美洲原住民缺乏免疫，人口灾难性下降；动物——马、牛、猪传入美洲；植物——玉米、马铃薯、木薯等美洲作物成为全球主粮，小麦、水稻等传入美洲。本项目不引用具体人口数字。",
+        "conditions": "依赖远洋船运、殖民据点和种植园体系。来源页面带站内 AI 摘要段，具体数字按二手处理。",
+        "exceptions": "①交换不是均等的双向，也不是和平的，它与殖民、奴役和原住民人口剧减同时发生；②「谁先带来什么」的细节，本次来源没有逐项给出；③不要把菜品的混合写成「美好的融合」，也不要把一切都归咎于单一原因。",
+        "story_uses": "①菜单的考古：一道菜里有几样是旧大陆的、几样是新大陆的，可作人物的话头。②食物与权力：谁拥有牛、谁种甘蔗、谁被迫种，写成地方的阶层结构。③价格的来源：远途输入料的价格由航线决定。",
+        "historical_scope": "本条限定在 15 世纪末到 17 世纪（Britannica 页上给出的 c.1400–c.1600），影响延续至今。涉及殖民叙事的部分只取来源所述层级。改编边界：架空世界可借用「两片隔绝大陆突然连通」，不预设必有这些物种。",
+        "evidence_and_uncertainty": "有来源支持的部分：概念定义、疾病、动物、植物三类（据 cuisine_latam_src_20，页面含站内 AI 摘要，故证据等级为 mixed）。属本项目归纳：对拉美菜的具体联系。"
+      },
+      "source_ids": [
+        "cuisine_latam_src_20"
+      ],
+      "related_ids": [
+        "cuisine_latam_cochinita_pibil",
+        "cuisine_latam_sancocho"
+      ],
+      "related_catalog_ids": [
+        "staples_maize",
+        "staples_potato",
+        "staples_cassava",
+        "staples_wheat",
+        "flavors_cane_sugar",
+        "animal_food_cattle",
+        "animal_food_pig"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "game": {
+        "schema": "game_fields_v1",
+        "price": {
+          "min": null,
+          "max": null,
+          "tier": "priceless"
+        },
+        "terrains": [
+          "ocean"
+        ],
+        "seasons": [
+          "all_year"
+        ],
+        "keeps": "years",
+        "sold_by": [
+          "none"
+        ],
+        "note": "制度性背景条目，无市价。"
+      }
+    },
+    {
+      "id": "cuisine_latam_tostones",
+      "name": "二次油炸青芭蕉片（tostones）",
+      "aliases": [
+        "tostones",
+        "patacones",
+        "twice-fried plantain",
+        "炸青蕉",
+        "芭蕉脆饼"
+      ],
+      "category": "item",
+      "primary": "snack",
+      "evidence_grade": "inferred",
+      "summary": "用未熟的煮食蕉切段，炸过、压扁、再炸一次的咸味小食。成菜名称与做法只有项目归纳，煮食蕉本身有来源。",
+      "tags": [
+        "kind:dish",
+        "region:caribbean",
+        "cuisine:latin_american",
+        "course:side",
+        "technique:fry",
+        "trade:street_vendor",
+        "price:penny",
+        "terrain:workshop",
+        "terrain:tropical_dry_forest",
+        "season:all_year",
+        "sold_by:street_vendor",
+        "sold_by:market"
+      ],
+      "details": {
+        "definition": "tostones（有的地方叫 patacones）是加勒比与南美沿海常见的咸味芭蕉小食。本条的菜名与「炸—压—再炸」的做法没有读到专条来源，属项目归纳；有来源的是原料：Britannica 的 plantain 条说煮食蕉比甜点香蕉含更多淀粉，不生吃，未熟时淀粉最多，所以多在青时煮或炸，用于咸味菜。",
+        "mechanism": "工序骨架（项目归纳）：青煮食蕉去皮切段 → 下油炸至半熟 → 压扁 → 再炸至脆，趁热加盐。本条不写油温与时间。来源只支持「青时煮或炸、咸味用」这一层。",
+        "conditions": "依赖青煮食蕉、油脂和炸锅。煮食蕉是热带作物，产地在潮湿温暖地带；离开产区就不易取得。",
+        "exceptions": "①熟透发黄的煮食蕉另有甜味做法，来源提到熟后微甜、常与椰汁或糖同煮，不要与本条混写；②各地的名称、厚薄与蘸料说法本次未取得来源；③「tostones 起源于某地」的说法未取证，不写。",
+        "story_uses": "①街头小食：一包热的青蕉片，适合写港口、码头与集市。②配菜里的主角：与炖菜、烤肉同桌，可写「便宜的一份盘中物」。③热带作物的限制：内陆人买不到青蕉，口味因此带上地域标记。",
+        "historical_scope": "本条限定在加勒比与热带美洲的现代饮食语境，煮食蕉作为主食的历史背景见 Britannica plantain 条的概述。改编边界：可借用「淀粉型果实炸熟压扁再炸」，不预设必有芭蕉。",
+        "evidence_and_uncertainty": "有来源支持的部分：煮食蕉的淀粉特性与青时煮或炸的用法（据 cuisine_latam_src_10）。属项目归纳：tostones 这一菜名、二次油炸的做法、蘸料与地区分布。Britannica 的 tostones 地址返回 404 或 403，Wikipedia 连不上（见 cuisine_latam_src_un_02、un_03）。"
+      },
+      "source_ids": [
+        "cuisine_latam_src_10"
+      ],
+      "related_ids": [
+        "cuisine_latam_sancocho",
+        "cuisine_latam_street_stall_system"
+      ],
+      "related_catalog_ids": [
+        "produce_banana",
+        "animal_food_rendered_fat",
+        "materials_salt"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "game": {
+        "schema": "game_fields_v1",
+        "price": {
+          "min": 1,
+          "max": 3,
+          "per": "一份",
+          "tier": "penny"
+        },
+        "terrains": [
+          "workshop",
+          "tropical_dry_forest"
+        ],
+        "seasons": [
+          "all_year"
+        ],
+        "keeps": "hours",
+        "sold_by": [
+          "street_vendor",
+          "market"
+        ],
+        "note": "青蕉便宜，主要成本是油。游戏行情估计。"
+      }
+    },
+    {
+      "id": "cuisine_latam_lomo_saltado",
+      "name": "秘鲁炒牛肉（lomo saltado）",
+      "aliases": [
+        "lomo saltado",
+        "洛莫萨尔塔多",
+        "秘鲁炒牛柳",
+        "中秘炒牛肉"
+      ],
+      "category": "item",
+      "primary": "dish",
+      "evidence_grade": "inferred",
+      "summary": "秘鲁的炒牛肉条，配洋葱、番茄与辣椒，常与米饭和炸薯条同盘；一般认为带有华人移民带来的炒法。本次没有取得来源。",
+      "tags": [
+        "kind:dish",
+        "region:andes",
+        "cuisine:latin_american",
+        "course:main",
+        "technique:stir_fry",
+        "price:shilling",
+        "terrain:workshop",
+        "terrain:plateau",
+        "season:all_year",
+        "sold_by:street_vendor",
+        "sold_by:tavern"
+      ],
+      "details": {
+        "definition": "lomo saltado 是秘鲁的一道炒牛肉：牛肉切条，与洋葱、番茄、辣椒大火快炒，上桌时常配米饭和炸薯条。以上全部来自项目既有常识，本次没有读到任何机构来源。",
+        "mechanism": "工序骨架（项目归纳）：牛肉切条 → 高温快炒 → 加洋葱、番茄、辣椒与调味汁 → 与米饭、薯条同盘。本条不写火候与调味配比。",
+        "conditions": "依赖牛肉或其他肉、洋葱、番茄、辣椒、高温炒锅，以及米与马铃薯这两种碳水。",
+        "exceptions": "①常见说法认为它是秘鲁菜与华人移民饮食（chifa）融合的例子，本次没有取得来源，不写进机制；②用什么酱汁、是否加醋，各家不同，未取证；③是否算国菜之一属评价问题，不写。",
+        "story_uses": "①移民与融合：把一道炒菜放进安第斯与海岸的语境里，可写不同来源的人在同一口锅里相遇。②两种碳水同盘：米与薯条并列，可作为描写丰盛或讲究的小细节。③快炒的摊位：热锅与明火适合写夜市。",
+        "historical_scope": "本条限定在秘鲁现代饮食语境。来源缺失，所以不给年代与起源。改编边界：可借用「肉条快炒、配洋葱与番茄、搭两种碳水」，不预设必有酱油或特定品种。",
+        "evidence_and_uncertainty": "本条没有任何已读来源，证据等级为 inferred。Britannica 地址返回 404 或 403，Wikipedia 连不上，UNESCO 的 Peruvian cuisine 页只取到导航（见 cuisine_latam_src_un_02、un_03、un_04、un_07）。"
+      },
+      "source_ids": [],
+      "related_ids": [
+        "cuisine_latam_chimichurri",
+        "cuisine_latam_street_stall_system"
+      ],
+      "related_catalog_ids": [
+        "animal_food_beef",
+        "produce_onion",
+        "produce_tomato",
+        "flavors_chili_pepper",
+        "staples_rice",
+        "staples_potato"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "game": {
+        "schema": "game_fields_v1",
+        "price": {
+          "min": 6,
+          "max": 14,
+          "per": "一份",
+          "tier": "shilling"
+        },
+        "terrains": [
+          "workshop",
+          "plateau"
+        ],
+        "seasons": [
+          "all_year"
+        ],
+        "keeps": "hours",
+        "sold_by": [
+          "street_vendor",
+          "tavern"
+        ],
+        "note": "牛肉与两种碳水，较贵。游戏行情估计。"
+      }
+    },
+    {
+      "id": "cuisine_latam_pao_de_queijo",
+      "name": "巴西奶酪面包（pão de queijo）",
+      "aliases": [
+        "pão de queijo",
+        "pao de queijo",
+        "cheese bread",
+        "木薯粉奶酪球",
+        "巴西奶酪球"
+      ],
+      "category": "item",
+      "primary": "bread",
+      "evidence_grade": "inferred",
+      "summary": "用木薯淀粉与奶酪揉成小球烤成的巴西小面包。成品本身没有读到来源，只有木薯可制淀粉这一层。",
+      "tags": [
+        "kind:bread",
+        "region:brazil",
+        "cuisine:latin_american",
+        "course:snack",
+        "technique:bake",
+        "price:penny",
+        "terrain:workshop",
+        "terrain:farmland",
+        "season:all_year",
+        "sold_by:street_vendor",
+        "sold_by:baker"
+      ],
+      "details": {
+        "definition": "pão de queijo 是巴西的小面包，用木薯淀粉与奶酪做成，外壳略脆。除木薯可以制粉与淀粉这一点来自 Britannica 的 cassava 条，其余全部是项目既有常识，没有读到专条。",
+        "mechanism": "工序骨架（项目归纳）：木薯淀粉和奶酪、液体和油脂揉成团 → 搓成小球 → 烤。本条不写配比与烤温。",
+        "conditions": "依赖木薯淀粉、奶酪、烤炉。由于不含小麦面粉，它的原料来自美洲的块根加旧大陆的奶酪，是两个世界物种合起来的一例。",
+        "exceptions": "①木薯去毒后才能制粉，来源明说苦品种须浸泡、发酵并暴露于空气（见木薯条），不要写成「任何木薯直接磨粉」；②发源地与年代未取证；③不同地区的配方差异未取得来源。",
+        "story_uses": "①两个世界的合成：块根淀粉加旧大陆奶酪，适合写物种交换的后果。②热点心：早餐与下午茶桌，可写家庭或小店的日常。③无麦的面包：当小麦难得时，用块根淀粉代替面粉。",
+        "historical_scope": "本条限定在巴西的现代饮食语境。来源缺失，不给年代与起源。改编边界：可借用「块根淀粉加奶酪烤成的小球」，不预设必有木薯。",
+        "evidence_and_uncertainty": "证据等级为 inferred。有来源的只有木薯可制粉与淀粉（据 cuisine_latam_src_11）；其余无已读来源，Britannica 与机构地址未找到（见 cuisine_latam_src_un_03、un_07）。"
+      },
+      "source_ids": [
+        "cuisine_latam_src_11"
+      ],
+      "related_ids": [
+        "cuisine_latam_cassava_casabe",
+        "cuisine_latam_columbian_exchange"
+      ],
+      "related_catalog_ids": [
+        "staples_cassava",
+        "animal_food_cheese",
+        "animal_food_egg",
+        "animal_food_milk"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "game": {
+        "schema": "game_fields_v1",
+        "price": {
+          "min": 1,
+          "max": 3,
+          "per": "一个",
+          "tier": "penny"
+        },
+        "terrains": [
+          "workshop",
+          "farmland"
+        ],
+        "seasons": [
+          "all_year"
+        ],
+        "keeps": "hours",
+        "sold_by": [
+          "street_vendor",
+          "baker"
+        ],
+        "note": "小个、便宜、趁热卖。游戏行情估计。"
+      }
+    }
+  ]
+}

@@ -1,0 +1,153 @@
+{
+  "schema": "catalog_overlay_v1",
+  "group": "western-biology",
+  "entries": {
+    "western_bio_unicorn": {
+      "primary": "beast",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "rare"
+    },
+    "western_bio_griffin": {
+      "primary": "beast",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "rare"
+    },
+    "western_bio_cockatrice": {
+      "primary": "beast",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "rare"
+    },
+    "western_bio_phoenix": {
+      "primary": "beast",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": "rare"
+    },
+    "western_bio_sea_serpent": {
+      "primary": "beast",
+      "evidence_grade": "mixed",
+      "note": "只描述目击证据链，可解释为未知大型海洋动物，不要求超自然，取 null",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "western_bio_mermaid": {
+      "primary": "race",
+      "evidence_grade": "mixed",
+      "note": "非人知性体：有智慧、可交涉，按 primary-tags-spec §2.1 归 race；有社会的智慧群体且与沿岸渔业争浅海，可能达 common，拿不准取 rare",
+      "tech_tier": null,
+      "magic_tier": "rare"
+    },
+    "western_bio_troll": {
+      "primary": "race",
+      "evidence_grade": "mixed",
+      "note": "非人知性体：有智慧、可交涉，按 primary-tags-spec §2.1 归 race；有固定栖地的智慧巨型群体，拿不准取 rare",
+      "tech_tier": null,
+      "magic_tier": "rare"
+    },
+    "western_bio_raven": {
+      "primary": "beast",
+      "evidence_grade": "mixed",
+      "note": "现实动物但带本项目原创生态设定，归 beast",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "western_bio_deer_herd": {
+      "primary": "beast",
+      "evidence_grade": "mixed",
+      "note": "现实动物但带本项目原创生态设定，归 beast",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "western_bio_wolf_pack": {
+      "primary": "beast",
+      "evidence_grade": "mixed",
+      "note": "现实动物但带本项目原创生态设定，归 beast",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "western_bio_mandrake": {
+      "primary": "plant",
+      "evidence_grade": "mixed",
+      "note": "尖叫致死属传说，条内已声明非现实事实，取 null",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "western_bio_yew": {
+      "primary": "plant",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "western_bio_oak": {
+      "primary": "plant",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "western_bio_mistletoe": {
+      "primary": "plant",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "western_bio_hawthorn": {
+      "primary": "plant",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "western_bio_ash_wood": {
+      "primary": "plant",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "western_bio_willow": {
+      "primary": "plant",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "western_bio_fern": {
+      "primary": "plant",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "western_bio_mushroom_ring": {
+      "primary": "plant",
+      "evidence_grade": "mixed",
+      "note": "真菌，词表有 mushroom（食材）但本条是生态与民俗标尺，按奇幻植物归 plant",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "western_bio_lamp_moss": {
+      "primary": "plant",
+      "evidence_grade": "inferred",
+      "note": "纯原创，零来源；发弱光的苔类可由生物发光解释，不要求魔法，取 null",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "western_bio_iron_rust_vine": {
+      "primary": "plant",
+      "evidence_grade": "inferred",
+      "note": "纯原创，零来源；分泌腐蚀液的攀藤可由自然化学解释，取 null",
+      "tech_tier": null,
+      "magic_tier": null
+    }
+  }
+}

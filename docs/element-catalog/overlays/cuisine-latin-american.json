@@ -1,0 +1,318 @@
+{
+  "schema": "catalog_overlay_v1",
+  "group": "cuisine-latin-american",
+  "entries": {
+    "cuisine_latam_mole": {
+      "primary": "sauce",
+      "evidence_grade": "sourced",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "美洲物产，旧大陆世界需作者决定是否引入。",
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_latam_pozole": {
+      "primary": "soup",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "美洲物产，旧大陆世界需作者决定是否引入。",
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_latam_cochinita_pibil": {
+      "primary": "dish",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "美洲物产，旧大陆世界需作者决定是否引入。",
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_latam_guacamole": {
+      "primary": "sauce",
+      "evidence_grade": "mixed",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "美洲物产，旧大陆世界需作者决定是否引入。",
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_latam_atole_champurrado": {
+      "primary": "beverage",
+      "evidence_grade": "sourced",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "美洲物产，旧大陆世界需作者决定是否引入。",
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_latam_churro": {
+      "primary": "snack",
+      "evidence_grade": "sourced",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "美洲物产，旧大陆世界需作者决定是否引入。",
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_latam_nixtamalization": {
+      "primary": "cooking_technique",
+      "evidence_grade": "sourced",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "美洲物产，旧大陆世界需作者决定是否引入。",
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_latam_street_stall_system": {
+      "primary": "institution",
+      "evidence_grade": "mixed",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "美洲物产，旧大陆世界需作者决定是否引入。",
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_latam_arepa": {
+      "primary": "bread",
+      "evidence_grade": "sourced",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "美洲物产，旧大陆世界需作者决定是否引入。",
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_latam_empanada": {
+      "primary": "snack",
+      "evidence_grade": "sourced",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "美洲物产，旧大陆世界需作者决定是否引入。",
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_latam_chuno": {
+      "primary": "preserved_food",
+      "evidence_grade": "sourced",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "美洲物产，旧大陆世界需作者决定是否引入。",
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_latam_quinoa_porridge": {
+      "primary": "dish",
+      "evidence_grade": "mixed",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "美洲物产，旧大陆世界需作者决定是否引入。",
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_latam_dulce_de_leche": {
+      "primary": "sauce",
+      "evidence_grade": "sourced",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "美洲物产，旧大陆世界需作者决定是否引入。",
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_latam_mate": {
+      "primary": "beverage",
+      "evidence_grade": "sourced",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "美洲物产，旧大陆世界需作者决定是否引入。",
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_latam_jerk": {
+      "primary": "cooking_technique",
+      "evidence_grade": "sourced",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "美洲物产，旧大陆世界需作者决定是否引入。",
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_latam_sancocho": {
+      "primary": "soup",
+      "evidence_grade": "mixed",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "美洲物产，旧大陆世界需作者决定是否引入。",
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_latam_cassava_casabe": {
+      "primary": "bread",
+      "evidence_grade": "mixed",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "美洲物产，旧大陆世界需作者决定是否引入。",
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_latam_feijoada": {
+      "primary": "dish",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "美洲物产，旧大陆世界需作者决定是否引入。",
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_latam_asado": {
+      "primary": "dish",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "美洲物产，旧大陆世界需作者决定是否引入。",
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_latam_chimichurri": {
+      "primary": "sauce",
+      "evidence_grade": "sourced",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "美洲物产，旧大陆世界需作者决定是否引入。",
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_latam_columbian_exchange": {
+      "primary": "institution",
+      "evidence_grade": "mixed",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "美洲物产，旧大陆世界需作者决定是否引入。",
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_latam_tostones": {
+      "primary": "snack",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "美洲物产，旧大陆世界需作者决定是否引入。",
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_latam_lomo_saltado": {
+      "primary": "dish",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "美洲物产，旧大陆世界需作者决定是否引入。",
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "cuisine_latam_pao_de_queijo": {
+      "primary": "bread",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": null,
+      "note": "美洲物产，旧大陆世界需作者决定是否引入。",
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "steampunk",
+        "modern"
+      ]
+    }
+  }
+}

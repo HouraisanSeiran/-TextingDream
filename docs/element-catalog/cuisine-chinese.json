@@ -1,0 +1,2903 @@
+{
+  "schema_version": 1,
+  "status": "candidate",
+  "group": "cuisine-chinese",
+  "genres": [
+    "real_world"
+  ],
+  "compiled_note": "中餐（中国菜）候选资料：约三十道菜、点心、小吃与年节食，按八大菜系代表菜、北方面点与街头小吃、粤式点心、年节食组织。不是完整食谱集，不是数据库记录，没有被任何故事包采纳为正典。只收成品菜，不收食材物种（食材已在 staples / produce / flavors / animal-foods 等组立条，本组用 related_catalog_ids 指向）。做法只写到工序顺序与原理，不给克数配比、温度与时长。起源传说一律标为传说；「来源支持」与「本项目归纳」在 evidence_and_uncertainty 中分开写。来源以 Chinese Food Wiki（社区维基，可靠度中等）与 Britannica（部分为 AI 摘要页）为主；中文维基、百度百科等读取失败，已如实登记为 unavailable 且零引用。每条自带 game 对象与对应 price:/terrain:/season:/sold_by: 标签，价格为游戏设计数值而非史实。全部条目 review_status=needs_review、detail_status=needs_detail。",
+  "sources": [
+    {
+      "id": "cuisine_cn_src_01",
+      "title": "Chinese Food Wiki：Scallion Braised Sea Cucumber",
+      "url": "https://chinesefoodwiki.org/Scallion_Braised_Sea_Cucumber",
+      "access": "read",
+      "supports": "葱烧海参是山东（鲁菜）的奢华宴席菜：泡发的干海参与大量葱在酱色汤汁中烧制；海参重口感而味本身不强，靠葱香与浓缩的酱汁提味；山东写作常把胶东/福山沿海海参与章丘大葱配对；干海参的泡发漫长且依赖技术，需多次浸泡与煨煮；页面称福山籍厨师与北京丰泽园的改良使之成为广为模仿的名菜。",
+      "rights_note": "Chinese Food Wiki 为社区维基，页面自带参考文献但本项目未逐条核对；可靠度中等，页面常用「soft / 民间传说」标注存疑处。仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "cuisine_cn_src_02",
+      "title": "Lu cuisine (Shandong cuisine) — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/Lu-cuisine",
+      "access": "read",
+      "supports": "鲁菜（山东菜）为八大菜系之一，代表中国北方古典烹饪，起源于山东，重视提升主料的风味与质地、调味相对清淡，受蒙古与满族王朝影响，历史上是宫廷菜；沿海用海鲜、葱与盐，内陆多肉与汤，常见炖与慢煮；蒸馒头常用来代替米饭。（本页只有 Quick Summary，注明由 Britannica AI 生成，Britannica 无完整条目，故权重低。）",
+      "rights_note": "Britannica 条目，商业百科；仅事实核对与自行转述，不复制原文段落；对外分发需另行处理授权。 本页为 AI 摘要页。"
+    },
+    {
+      "id": "cuisine_cn_src_03",
+      "title": "Chinese Food Wiki：Dezhou Braised Chicken",
+      "url": "https://chinesefoodwiki.org/Dezhou_Braised_Chicken",
+      "access": "read",
+      "supports": "德州扒鸡是山东（鲁菜）名产：整鸡与香料一起扒（长时间焖煮）至肉酥烂可脱骨（「五香脱骨」），常以包装形式作旅行食品，室温食用；调味常说由丁香、桂皮、花椒、八角、茴香等组成，各家配方不同，生产者保守秘方。",
+      "rights_note": "Chinese Food Wiki 为社区维基，页面自带参考文献但本项目未逐条核对；可靠度中等，页面常用「soft / 民间传说」标注存疑处。仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "cuisine_cn_src_04",
+      "title": "Chinese Food Wiki：Jiuzhuan Dachang",
+      "url": "https://chinesefoodwiki.org/Jiuzhuan_Dachang",
+      "access": "read",
+      "supports": "九转大肠是山东（鲁菜）宴席名菜：彻底清洗的猪大肠先炸后烧，成甜咸带醋香、红褐亮汁；多种叙述把定名菜放在清末济南，归功于九华楼一系，早先朴素名字叫红烧大肠；改名「九转」借道家炼丹术语，页面称不要求烹饪或摆盘转九次；页面提醒店家沿革属有归属的鲁菜传闻。",
+      "rights_note": "Chinese Food Wiki 为社区维基，页面自带参考文献但本项目未逐条核对；可靠度中等，页面常用「soft / 民间传说」标注存疑处。仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "cuisine_cn_src_05",
+      "title": "Chinese Food Wiki：Mapo Tofu",
+      "url": "https://chinesefoodwiki.org/Mapo_Tofu",
+      "access": "read",
+      "supports": "麻婆豆腐是与成都和川菜相关的名菜：豆腐配辣味豆酱，常加牛肉末或猪肉末，豆豉与花椒提供深度与麻香；各家做法不同；陈麻婆饭店（成都北门附近，1862 年创立）经商务部老字号馆介绍，店主之妻姓陈，其做的豆腐因其绰号得名，页面明确这是饭店自述；成都市级非遗名录单独收入陈麻婆豆腐烹饪技艺；变体可用牛肉、猪肉或不放肉。",
+      "rights_note": "Chinese Food Wiki 为社区维基，页面自带参考文献但本项目未逐条核对；可靠度中等，页面常用「soft / 民间传说」标注存疑处。仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "cuisine_cn_src_06",
+      "title": "人民中国：マーポー豆腐（麻婆豆腐，日文）",
+      "url": "http://www.peoplechina.com.cn/home/second/2010-02/10/content_246446.htm",
+      "access": "read",
+      "supports": "日文随笔式介绍页（作者为在日中国料理研究者）：麻婆豆腐始于四川成都清同治元年（1862）的一家小店，店主姓陈、妻子掌勺，因其脸有麻点被称作「陈麻婆豆腐」，后店以此为名；四川厨师陈建民把它传入日本并改良（不撒花椒粉，以蚝油代替豆豉酱）；麻辣味使菜不易凉、余味清爽；成都家庭常有以蒜苗或葱简化的做法。",
+      "rights_note": "人民中国网站随笔页；仅事实核对与自行转述；创店叙述属店家或传闻，不作史实。"
+    },
+    {
+      "id": "cuisine_cn_src_07",
+      "title": "Chuan cuisine (Sichuan cuisine) — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/Sichuan-cuisine",
+      "access": "read",
+      "supports": "川菜是起源于四川的中国菜风格，以浓烈风味尤其「麻辣」著称，麻来自花椒、辣来自辣椒，还兼有甜酸咸香苦的层次；常用大蒜、姜与花生，宫保鸡丁是其中常见名菜；川菜与京菜、浙苏菜并列为中国烹饪的重要流派。",
+      "rights_note": "Britannica 条目，商业百科；仅事实核对与自行转述，不复制原文段落；对外分发需另行处理授权。"
+    },
+    {
+      "id": "cuisine_cn_src_08",
+      "title": "Sichuan pepper — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/plant/Sichuan-pepper",
+      "access": "read",
+      "supports": "花椒是花椒属（Zanthoxylum）树木干果皮制成的中国香料，与黑胡椒、辣椒无亲缘；味带柑橘样的温和香气并使舌头产生麻感；有油、整粒与粉的形态，是五香粉成分之一。",
+      "rights_note": "Britannica 条目，商业百科；仅事实核对与自行转述，不复制原文段落；对外分发需另行处理授权。"
+    },
+    {
+      "id": "cuisine_cn_src_09",
+      "title": "Chinese Food Wiki：Kung Pao Chicken",
+      "url": "https://chinesefoodwiki.org/Kung_Pao_Chicken",
+      "access": "read",
+      "supports": "宫保鸡丁与山东的酱爆鸡丁和贵州的辣子鸡丁有渊源，后由清代山东巡抚、后任四川总督的丁宝桢改良发展，最初是丁家私房菜；页面列产地为山东、四川、贵州；风味描述为干香、甜辣。",
+      "rights_note": "Chinese Food Wiki 为社区维基，页面自带参考文献但本项目未逐条核对；可靠度中等，页面常用「soft / 民间传说」标注存疑处。仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "cuisine_cn_src_10",
+      "title": "Chinese Food Wiki：Twice Cooked Pork",
+      "url": "https://chinesefoodwiki.org/Twice_Cooked_Pork",
+      "access": "read",
+      "supports": "回锅肉是起源于四川的传统菜，页面称一般认为由宋代（12 世纪）农民所创（原文用 widely believed）；页面另述古时四川农民在祭祖仪式后把用作祭品的煮猪肉再次烹制；四川几乎家家会做，新手易上手但做到极致很难。",
+      "rights_note": "Chinese Food Wiki 为社区维基，页面自带参考文献但本项目未逐条核对；可靠度中等，页面常用「soft / 民间传说」标注存疑处。仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "cuisine_cn_src_11",
+      "title": "Chinese cuisine — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/Chinese-cuisine",
+      "access": "read",
+      "supports": "中国菜是对中国各种饮食风格的总称，因地理生态多样与人口众多而极度多样，差异体现在原料、地区与民族传统、文化意义；食物兼有促进健康、创造性表达、强化社会纽带与确认家庭价值等用途，许多菜与历史或民间传说相连；许多菜需长时间准备以获得成熟风味；全国最常食用的肉是猪肉，也吃鸡、羊、牛等；食物保存主要靠干燥、盐渍、腌渍与发酵四类方法之一或几种并用；乳制品历史上相对少见。",
+      "rights_note": "Britannica 条目，商业百科；仅事实核对与自行转述，不复制原文段落；对外分发需另行处理授权。"
+    },
+    {
+      "id": "cuisine_cn_src_12",
+      "title": "Chinese Food Wiki：Char Siu",
+      "url": "https://chinesefoodwiki.org/Char_Siu",
+      "access": "read",
+      "supports": "叉烧是粤式烧烤猪肉，涂甜咸酱汁烤至边缘焦糖化，是广东与香港烧味文化的基石，在烧腊店售卖，可配饭、面或作馅；海外唐人街的叉烧饭是日常一份；近亲含烧鹅与脆皮烧肉。",
+      "rights_note": "Chinese Food Wiki 为社区维基，页面自带参考文献但本项目未逐条核对；可靠度中等，页面常用「soft / 民间传说」标注存疑处。仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "cuisine_cn_src_13",
+      "title": "Yue cuisine (Cantonese cuisine) — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/Yue-cuisine",
+      "access": "read",
+      "supports": "粤菜（广东菜）是与广东和香港相关的南方菜系，强调优质、当季的原料与细腻自然的风味；西方常见的「中餐」往往是南方风格，因为早期海外移民多来自南方省份；点心是其代表性类别，含各种小份饺类与包类。",
+      "rights_note": "Britannica 条目，商业百科；仅事实核对与自行转述，不复制原文段落；对外分发需另行处理授权。"
+    },
+    {
+      "id": "cuisine_cn_src_14",
+      "title": "Chinese Food Wiki：Roast Goose",
+      "url": "https://chinesefoodwiki.org/Roast_Goose",
+      "access": "read",
+      "supports": "烧鹅是粤式烧味：鹅烤至皮亮而脆，在烧腊店挂起、点单现斩，常配酸梅酱；页面软性历史框架是北方烤鸭技术遇上广东本地养鹅，烧腊店文化在清代及近代城市市场兴旺，并提醒避免无来源的「某帝发明」说法；战后香港烧腊店使之成为城市名片。",
+      "rights_note": "Chinese Food Wiki 为社区维基，页面自带参考文献但本项目未逐条核对；可靠度中等，页面常用「soft / 民间传说」标注存疑处。仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "cuisine_cn_src_15",
+      "title": "Chinese Food Wiki：Har Gow",
+      "url": "https://chinesefoodwiki.org/Har_Gow",
+      "access": "read",
+      "supports": "虾饺是薄而半透明的粉皮包鲜虾馅的蒸饺，是粤式点心与饮茶文化中最具代表性的一款，在广东与香港流行；确切发明时间在一般读者可得的原始档案中没有定论；视觉上依赖淀粉皮的透明度，食客与评论者常议论褶数、透明度与虾的鲜甜。",
+      "rights_note": "Chinese Food Wiki 为社区维基，页面自带参考文献但本项目未逐条核对；可靠度中等，页面常用「soft / 民间传说」标注存疑处。仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "cuisine_cn_src_16",
+      "title": "Dim sum — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/dim-sum",
+      "access": "read",
+      "supports": "点心是大概源于粤菜的各式小食总称；在粤菜中传统上于早餐和午餐在餐馆供应，可由推车、传送带或勾选单点；名称来自粤语「点心」，被认为起源于丝路沿线茶馆，约在两千五百年前就作为茶的佐食（原文用 thought to have）；分蒸与炸两大类，蒸类如叉烧包与烧卖，传统以竹笼盛装；广州的饮茶（yum cha）是慢节奏的周末社交；20 世纪 20 年代纽约、旧金山唐人街已有点心店。",
+      "rights_note": "Britannica 条目，商业百科；仅事实核对与自行转述，不复制原文段落；对外分发需另行处理授权。"
+    },
+    {
+      "id": "cuisine_cn_src_17",
+      "title": "Chinese Food Wiki：Siu Mai",
+      "url": "https://chinesefoodwiki.org/Siu_Mai",
+      "access": "read",
+      "supports": "烧卖是顶部开口的蒸饺，皮收成杯或花形；粤式茶楼版以猪肉与虾为馅、皮薄而偏黄，经香港与海外饮茶成为点心的全球标志；其他地区也有不同馅料、尺寸与餐次角色的烧卖；早期茶馆烧卖被说成出自呼和浩特等北方城市、元代、「顺带卖剩馅」之类的故事，没有无争议的档案配方，应视为存疑或民间传说。",
+      "rights_note": "Chinese Food Wiki 为社区维基，页面自带参考文献但本项目未逐条核对；可靠度中等，页面常用「soft / 民间传说」标注存疑处。仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "cuisine_cn_src_18",
+      "title": "Chinese Food Wiki：Char Siu Bao",
+      "url": "https://chinesefoodwiki.org/Char_Siu_Bao",
+      "access": "read",
+      "supports": "叉烧包是发酵面皮包以叉烧丁与甜咸酱汁的包子，是广东与香港茶楼的核心点心，也是海外粤式面包店的常见品；确切发明时间在可靠的二手资料中不确定；其在清末至民国及之后饮茶文化中的角色是清楚的：烧味的风味从烧腊店传入茶楼推车。",
+      "rights_note": "Chinese Food Wiki 为社区维基，页面自带参考文献但本项目未逐条核对；可靠度中等，页面常用「soft / 民间传说」标注存疑处。仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "cuisine_cn_src_19",
+      "title": "Chinese Food Wiki：Egg Tart",
+      "url": "https://chinesefoodwiki.org/Egg_Tart",
+      "access": "read",
+      "supports": "蛋挞有两条线：广州/香港式（20 世纪早期广州百货公司西式烘焙，借英式蛋奶挞的做法，后进入香港茶餐厅，酥皮或曲奇皮、奶黄色光滑的蛋奶馅）与澳门「葡挞」（20 世纪 80 年代末路环烘焙房改良葡萄牙 pastel de nata，酥皮分层、顶面焦斑）；页面强调 pastel de nata 是葡萄牙食物史而非中国发明；两线的形成都与港口城市烘焙交流相联。",
+      "rights_note": "Chinese Food Wiki 为社区维基，页面自带参考文献但本项目未逐条核对；可靠度中等，页面常用「soft / 民间传说」标注存疑处。仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "cuisine_cn_src_20",
+      "title": "Chinese Food Wiki：Lion's Head Meatballs",
+      "url": "https://chinesefoodwiki.org/Lion's_Head_Meatballs",
+      "access": "read",
+      "supports": "狮子头是江苏（尤其淮扬）的大号猪肉丸，炖或烧至软嫩，常配青菜；清炖与红烧两类并存，清炖常与扬州相联、红烧常与镇江一带相联（页面称是软地理）；手法强调肥瘦搭配与「细切粗斩」，使内部松软而非糊状；有的厨房加荸荠一类脆口配料。",
+      "rights_note": "Chinese Food Wiki 为社区维基，页面自带参考文献但本项目未逐条核对；可靠度中等，页面常用「soft / 民间传说」标注存疑处。仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "cuisine_cn_src_21",
+      "title": "Chinese Food Wiki：Nanjing Salted Duck",
+      "url": "https://chinesefoodwiki.org/Nanjing_Salted_Duck",
+      "access": "read",
+      "supports": "南京盐水鸭是江苏南京（金陵）特产：整鸭用盐水与香料腌制后温和煮熟，温食或常温食，与烟熏烤制的北京烤鸭不同；传统工序含热盐擦、清卤腌、晾干、低温煮；页面提到江苏非遗名录（2007 年前后）对南京盐水鸭与烤鸭制作技艺的承认，并提醒把它视为技艺承认而非商号广告；常作为伴手礼。",
+      "rights_note": "Chinese Food Wiki 为社区维基，页面自带参考文献但本项目未逐条核对；可靠度中等，页面常用「soft / 民间传说」标注存疑处。仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "cuisine_cn_src_22",
+      "title": "Chinese Food Wiki：DongPo Stewed Pork",
+      "url": "https://chinesefoodwiki.org/DongPo_Stewed_Pork",
+      "access": "read",
+      "supports": "东坡肉用五花肉切方块，肥瘦相间，色红亮，口感油而不腻，绍兴酒香明显，烹制耗时；页面据民间故事称是苏东坡所创：被贬杭州期间，一次大水中他带领民众抢修堤坝，百姓送肉，他命人烧成肉回赠；该故事被页面标为民间传说。",
+      "rights_note": "Chinese Food Wiki 为社区维基，页面自带参考文献但本项目未逐条核对；可靠度中等，页面常用「soft / 民间传说」标注存疑处。仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "cuisine_cn_src_23",
+      "title": "Chinese Food Wiki：West Lake Vinegar Fish",
+      "url": "https://chinesefoodwiki.org/West_Lake_Vinegar_Fish",
+      "access": "read",
+      "supports": "西湖醋鱼是杭州特产：淡水鱼配光亮的糖醋汁，是浙菜与西湖餐馆文化的标志性宴席菜而非家常炒菜；与南宋「宋嫂鱼羹」的联系被页面称为软性/被夸大的说法，清代杭州「醋搂鱼」的记载与 20 世纪饭店品牌化可能更接近现代版本的文献线索。",
+      "rights_note": "Chinese Food Wiki 为社区维基，页面自带参考文献但本项目未逐条核对；可靠度中等，页面常用「soft / 民间传说」标注存疑处。仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "cuisine_cn_src_24",
+      "title": "Chinese Food Wiki：Buddha Jumps Over the Wall",
+      "url": "https://chinesefoodwiki.org/Buddha_Jumps_Over_the_Wall",
+      "access": "read",
+      "supports": "佛跳墙是福建（闽菜）宴席汤羹：多种高档海味与肉类长时间煨在一起，汤浓香醇厚；名字来自香味引诱僧人跳墙的民间说法（页面标为软性/民间文学色彩）；与清末福州厨师郑春发及聚春园等名店相联，出现时间在 19 世纪末或 1900 年前后，各地方志有争议。",
+      "rights_note": "Chinese Food Wiki 为社区维基，页面自带参考文献但本项目未逐条核对；可靠度中等，页面常用「soft / 民间传说」标注存疑处。仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "cuisine_cn_src_25",
+      "title": "Chinese Food Wiki：Oyster Omelette",
+      "url": "https://chinesefoodwiki.org/Oyster_Omelette",
+      "access": "read",
+      "supports": "蚵仔煎是蛋、淀粉浆与鲜蚝在平底锅煎成的咸味饼，通常淋甜咸酱并加香草；是台湾夜市标志小吃，也是闽南/福建南部沿海小吃，潮汕有蚝烙等近亲；淀粉常用地瓜粉或混合淀粉；做法因摊而异；页面把郑成功军队发明之说标为民间故事，历史框架是闽南沿海烹饪随河洛移民传到台湾。",
+      "rights_note": "Chinese Food Wiki 为社区维基，页面自带参考文献但本项目未逐条核对；可靠度中等，页面常用「soft / 民间传说」标注存疑处。仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "cuisine_cn_src_26",
+      "title": "Chinese Food Wiki：Steamed Fish Head with Chop Bell Pepper",
+      "url": "https://chinesefoodwiki.org/Steamed_Fish_Head_with_Chop_Bell_Pepper",
+      "access": "read",
+      "supports": "剁椒鱼头是湖南（湘菜）招牌菜：大号淡水鱼头（常用鳙鱼）剖开，覆盖厚厚一层剁辣椒蒸制；成菜红亮咸辣，味型是湘菜的辣香加咸鲜，而非川式麻辣；有的店混用红黄剁椒或加豆豉，最后淋热油于葱蒜之上。",
+      "rights_note": "Chinese Food Wiki 为社区维基，页面自带参考文献但本项目未逐条核对；可靠度中等，页面常用「soft / 民间传说」标注存疑处。仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "cuisine_cn_src_27",
+      "title": "Chinese Food Wiki：Mao's Red-Braised Pork",
+      "url": "https://chinesefoodwiki.org/Mao's_Red-Braised_Pork",
+      "access": "read",
+      "supports": "毛氏红烧肉是湖南（湘）的五花肉红烧，与韶山餐饮及「毛家」品牌相联，属红烧肉家族（酱油加糖色的炖烧），当地说法倾向于比江南甜口版本更辣更香辣；页面提醒饮食偏好的轶事应视为有归属的传闻，不是某一固定配方的档案证明，也不是 UNESCO 之类的承认。",
+      "rights_note": "Chinese Food Wiki 为社区维基，页面自带参考文献但本项目未逐条核对；可靠度中等，页面常用「soft / 民间传说」标注存疑处。仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "cuisine_cn_src_28",
+      "title": "Chinese Food Wiki：Stinky Mandarin Fish",
+      "url": "https://chinesefoodwiki.org/Stinky_Mandarin_Fish",
+      "access": "read",
+      "supports": "臭鳜鱼是安徽（徽菜）招牌菜：鳜鱼经轻度发酵后再烧或蒸，气味强烈而肉质嫩；游客多在黄山/徽州餐馆首次接触；页面把商人山路运鱼、鱼因轻度发酵而仍可食用的故事标为民间传说；黄山一带被称为生产与品牌核心区。",
+      "rights_note": "Chinese Food Wiki 为社区维基，页面自带参考文献但本项目未逐条核对；可靠度中等，页面常用「soft / 民间传说」标注存疑处。仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "cuisine_cn_src_29",
+      "title": "Chinese Food Wiki：Anhui Cuisine",
+      "url": "https://chinesefoodwiki.org/Anhui_Cuisine",
+      "access": "read",
+      "supports": "徽菜是历史上徽州的地方菜，是八大菜系之一；徽州旧府含一城六县，跨今安徽南部与江西东北部，因此历史菜区与今省界不完全一致；山地河谷与湿润四季气候提供淡水鱼、竹笋、菌类、野菜；家庭保存方法使应季食物可跨季食用；徽商把家乡饮食习惯与餐馆文化带到各地；强调原料的出处、季节与部位，但没有统一的味型规则；臭鳜鱼先腌后熟再烹，毛豆腐发酵出白色菌毛面，常煎后食用；徽菜烹饪技艺 2021 年列入国家级非遗。",
+      "rights_note": "Chinese Food Wiki 为社区维基，页面自带参考文献但本项目未逐条核对；可靠度中等，页面常用「soft / 民间传说」标注存疑处。仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "cuisine_cn_src_30",
+      "title": "Chinese Food Wiki：Baozi",
+      "url": "https://chinesefoodwiki.org/Baozi",
+      "access": "read",
+      "supports": "包子是发酵的蒸制面食，内包咸或甜馅（猪肉、蔬菜、豆沙等），是全国早餐铺、集市与餐馆的日常主食，形制馅料因地而异；诸葛亮用面团做「人头」代替祭品的故事被页面标为后世流传的民间传说，不是考古证据；与无馅的馒头对照。",
+      "rights_note": "Chinese Food Wiki 为社区维基，页面自带参考文献但本项目未逐条核对；可靠度中等，页面常用「soft / 民间传说」标注存疑处。仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "cuisine_cn_src_31",
+      "title": "Chinese Food Wiki：Shaobing",
+      "url": "https://chinesefoodwiki.org/Shaobing",
+      "access": "read",
+      "supports": "烧饼是北方多层烘烤面饼的一类，常裹芝麻，早餐摊售卖，可素吃或夹肉、酱、蛋；食物史家常把它放在北方麦面饼的长链条里，认为它吸收了以「胡饼」为名的西域烤饼理念，并与丝路接触及中古城市里的芝麻饼相联（页面用 soft 语气）；另有民间故事。",
+      "rights_note": "Chinese Food Wiki 为社区维基，页面自带参考文献但本项目未逐条核对；可靠度中等，页面常用「soft / 民间传说」标注存疑处。仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "cuisine_cn_src_32",
+      "title": "Chinese Food Wiki：Knife-cut Noodles",
+      "url": "https://chinesefoodwiki.org/Knife-cut_Noodles",
+      "access": "read",
+      "supports": "刀削面是用刀从面团上直接削入沸水的厚面条，是山西面食标志，也是全国面馆的品类；面片不规则，中间厚两边薄；浇头常见西红柿鸡蛋、肉酱或清汤；传统山西面食技艺（含龙须面与刀削面）2008 年列入国家级非遗名录，承认的是手艺而非某个品牌；元代铁器短缺、唐代战场应急等起源传说被页面明确标为民间传说。",
+      "rights_note": "Chinese Food Wiki 为社区维基，页面自带参考文献但本项目未逐条核对；可靠度中等，页面常用「soft / 民间传说」标注存疑处。仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "cuisine_cn_src_33",
+      "title": "Chinese Food Wiki：Roujiamo",
+      "url": "https://chinesefoodwiki.org/Roujiamo",
+      "access": "read",
+      "supports": "肉夹馍是陕西街头小吃：切碎或撕开的炖肉夹在剖开的白吉馍里；西安式用腊汁肉（长时间在浓味汤中煮烂的猪肉），肉汁润饼；馍应外脆内软；常与凉皮搭售；「中国汉堡」只是现代昵称，不是汉堡起源的历史主张。",
+      "rights_note": "Chinese Food Wiki 为社区维基，页面自带参考文献但本项目未逐条核对；可靠度中等，页面常用「soft / 民间传说」标注存疑处。仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "cuisine_cn_src_34",
+      "title": "Chinese Food Wiki：Jianbing Guozi",
+      "url": "https://chinesefoodwiki.org/Jianbing_Guozi",
+      "access": "read",
+      "supports": "煎饼果子是北方街头早餐卷饼：薄煎饼摊在铛上，卷入传统称为「馃子」的馅（历史上是油条类炸面，现代天津与连锁摊常用薄脆），加蛋、酱与香草；页面把它与煎饼分开立页，因为「煎饼」指饼皮及更宽的早餐类别，而煎饼果子指带馅卷饼，与天津相联；民间与商业用法常把二者混用。",
+      "rights_note": "Chinese Food Wiki 为社区维基，页面自带参考文献但本项目未逐条核对；可靠度中等，页面常用「soft / 民间传说」标注存疑处。仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "cuisine_cn_src_35",
+      "title": "Chinese Food Wiki：Youtiao",
+      "url": "https://chinesefoodwiki.org/Youtiao",
+      "access": "read",
+      "supports": "油条是小麦发面坯油炸而成的金黄长条，通常两条面坯压合再炸以便手撕分开；外脆内松，趁热吃，咸而带酵香；早餐常配豆浆或粥，也夹在烧饼、粢饭团、煎饼果子里；「油炸桧」的秦桧夫妇词源被页面标为民间传说，不能证明南宋定年；食物随笔把它与古代「寒具」类油炸面食联系，页面称这是软历史框架。",
+      "rights_note": "Chinese Food Wiki 为社区维基，页面自带参考文献但本项目未逐条核对；可靠度中等，页面常用「soft / 民间传说」标注存疑处。仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "cuisine_cn_src_36",
+      "title": "Chinese Food Wiki：Tanghulu",
+      "url": "https://chinesefoodwiki.org/Tanghulu",
+      "access": "read",
+      "supports": "糖葫芦是竹签串水果（经典为山楂）、裹硬而亮的糖壳的小吃，尤其是北京冬季街头食品；糖壳脆裂而内里水果酸或多汁；现代摊也串草莓、葡萄、猕猴桃、橘瓣、小番茄；历史上多在庙会与集市附近售卖；南宋太医用糖煮山楂给光宗皇帝的贵妃治病的故事被页面标为存疑。",
+      "rights_note": "Chinese Food Wiki 为社区维基，页面自带参考文献但本项目未逐条核对；可靠度中等，页面常用「soft / 民间传说」标注存疑处。仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "cuisine_cn_src_37",
+      "title": "Dragon Boat Festival — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/Dragon-Boat-Festival",
+      "access": "read",
+      "supports": "端午节在农历五月初五，至少有 1500 年历史，与春节、中秋并称三大「生者节日」；活动含龙舟竞渡、吃粽子、驱邪防疫（沐浴花香水、佩香囊、悬挂植物、张挂钟馗像）；与祈求稻米丰收的古老生育仪式有关，龙与水和季节相联；粽子为金字塔形、糯米包甜或咸馅、竹叶包裹、蒸或煮。",
+      "rights_note": "Britannica 条目，商业百科；仅事实核对与自行转述，不复制原文段落；对外分发需另行处理授权。"
+    },
+    {
+      "id": "cuisine_cn_src_38",
+      "title": "Dragon Boat festival — UNESCO Intangible Cultural Heritage",
+      "url": "https://ich.unesco.org/en/RL/dragon-boat-festival-00225",
+      "access": "read",
+      "supports": "端午节 2009 年列入人类非物质文化遗产代表作名录（中国）；从农历五月初五开始，中国多个民族及海外华人庆祝，长江中下游尤盛；各地形式不同，但常见对本地英雄的祭祀仪式结合竞渡等体育活动。（本页正文仅读到开头部分。）",
+      "rights_note": "UNESCO 名录官方页面；仅事实核对与自行转述；引用应以「UNESCO 名录条目」方式表述。"
+    },
+    {
+      "id": "cuisine_cn_src_39",
+      "title": "Chinese Food Wiki：Zongzi",
+      "url": "https://chinesefoodwiki.org/Zongzi",
+      "access": "read",
+      "supports": "粽子是糯米加各种馅，用竹叶、芦苇叶或其他大片叶子包裹，蒸或煮；传统在端午节（农历五月初五，约 5 月下旬至 6 月中旬）食用；流行说法认为纪念战国时期楚国诗人屈原之死；页面列产地为中国南方。",
+      "rights_note": "Chinese Food Wiki 为社区维基，页面自带参考文献但本项目未逐条核对；可靠度中等，页面常用「soft / 民间传说」标注存疑处。仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "cuisine_cn_src_40",
+      "title": "Mooncake — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/mooncake",
+      "access": "read",
+      "supports": "月饼是中秋节传统食用的中国糕点；传统上为圆形或方形，薄而微甜的酥皮包裹以莲子蓉为主的浓馅；后来加入整颗咸蛋黄象征月亮；如今馅料更多样（豆沙、坚果、籽、咸火腿、榴莲、芋泥等），另有冰皮与冰淇淋月饼；因馅浓很少整个吃而切成角；据称月饼曾在推翻元朝的起义中被用来传递藏在饼里的起事消息（原文用 allegedly）。",
+      "rights_note": "Britannica 条目，商业百科；仅事实核对与自行转述，不复制原文段落；对外分发需另行处理授权。"
+    },
+    {
+      "id": "cuisine_cn_src_41",
+      "title": "Zhongqiu Jie (Mid-Autumn Festival) — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/Zhongqiu-Jie",
+      "access": "read",
+      "supports": "中秋节在农历八月十五，与全年最亮的满月重合，是收获节日；传统含家人团聚、赏月、分享月饼；月饼馅传统上用莲子蓉，常含象征月亮的咸蛋黄；节日与嫦娥传说相关；月饼被作为礼物送给亲友邻居。",
+      "rights_note": "Britannica 条目，商业百科；仅事实核对与自行转述，不复制原文段落；对外分发需另行处理授权。"
+    },
+    {
+      "id": "cuisine_cn_src_42",
+      "title": "Chinese Food Wiki：Mooncake",
+      "url": "https://chinesefoodwiki.org/Mooncake",
+      "access": "read",
+      "supports": "月饼是中秋节食用并赠送的浓馅糕点；圆形与分角分食通常联系到满月与团圆；馅料从莲蓉、咸蛋黄到坚果、豆沙、鲜肉、火腿，饼皮种类多；二手年表常把宫廷与民间中秋饼俗放在宋至明的文献里，清代家庭烘焙记载表明习俗已成型，页面称这是有用的定位而非发明者定年；元末起义在月饼里藏起事日期的故事被页面标为广泛转述的传说。",
+      "rights_note": "Chinese Food Wiki 为社区维基，页面自带参考文献但本项目未逐条核对；可靠度中等，页面常用「soft / 民间传说」标注存疑处。仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "cuisine_cn_src_43",
+      "title": "Chinese New Year — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/Chinese-New-Year",
+      "access": "read",
+      "supports": "春节为期 15 天，始于 1 月 21 日至 2 月 20 日之间的新月，持续至下一个满月；起源带有传说色彩（年兽怕巨响、亮光与红色）；传统含大扫除、鞭炮烟花、红色装饰、红包；节期的某些日子会准备并享用特定食物；最后一项是元宵灯节。",
+      "rights_note": "Britannica 条目，商业百科；仅事实核对与自行转述，不复制原文段落；对外分发需另行处理授权。"
+    },
+    {
+      "id": "cuisine_cn_src_44",
+      "title": "Chinese Food Wiki：Nian Gao",
+      "url": "https://chinesefoodwiki.org/Nian_Gao",
+      "access": "read",
+      "supports": "年糕即「年糕」，是糯米糕，全年可食、春节尤盛；名字谐音「年年高」，寓意来年更高；口感从软嫩可切到致密有弹性，视糯米比例与是否蒸后切片入锅；页面据《齐民要术》引述更早文献中以蜂蜜加糯米、竹叶蒸的糕，是「祖型」提示而非现代年糕的定年；祭灶王爷粘住其嘴、伍子胥等故事被标为传说。",
+      "rights_note": "Chinese Food Wiki 为社区维基，页面自带参考文献但本项目未逐条核对；可靠度中等，页面常用「soft / 民间传说」标注存疑处。仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "cuisine_cn_src_45",
+      "title": "Lantern Festival — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/Lantern-Festival",
+      "access": "read",
+      "supports": "元宵（灯）节在农历正月十五，是首个满月，也是春节庆祝的收尾；挂花灯、灯谜、舞龙舞狮、烟花；节日吃元宵/汤圆，是包果仁等馅的小糯米团，圆形象征家庭的圆满团结；节日可能追溯到汉代（佛教僧人在正月十五点灯供佛），后为民间采用；另有玉皇大帝与仙女点灯骗过天火的传说。",
+      "rights_note": "Britannica 条目，商业百科；仅事实核对与自行转述，不复制原文段落；对外分发需另行处理授权。"
+    },
+    {
+      "id": "cuisine_cn_src_46",
+      "title": "Chinese Food Wiki：Tangyuan",
+      "url": "https://chinesefoodwiki.org/Tangyuan",
+      "access": "read",
+      "supports": "汤圆是糯米粉团在甜汤或糖水中食用，与北方的元宵相近，是元宵节与冬至的节令食，也出现在婚礼、团聚与日常甜点；名字谐音「团圆」；明代北方口语让元宵成为食物名，南方多称汤圆；袁世凯嫌「元宵」谐音「袁消」而推行汤圆名的故事被页面标为存疑民间传说，宫女元宵的传说同样是民间叙事。",
+      "rights_note": "Chinese Food Wiki 为社区维基，页面自带参考文献但本项目未逐条核对；可靠度中等，页面常用「soft / 民间传说」标注存疑处。仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "cuisine_cn_src_un_01",
+      "title": "维基百科：宫保鸡丁（中文）",
+      "url": "https://zh.wikipedia.org/wiki/%E5%AE%AB%E4%BF%9D%E9%B8%A1%E4%B8%81",
+      "access": "unavailable",
+      "supports": "连接超时（dial tcp 无响应），未读到正文。",
+      "rights_note": "失败如实登记；零引用。"
+    },
+    {
+      "id": "cuisine_cn_src_un_02",
+      "title": "维基百科：麻婆豆腐（中文）",
+      "url": "https://zh.wikipedia.org/wiki/%E9%BA%BB%E5%A9%86%E8%B1%86%E8%85%90",
+      "access": "unavailable",
+      "supports": "连接超时，未读到正文。",
+      "rights_note": "失败如实登记；零引用。"
+    },
+    {
+      "id": "cuisine_cn_src_un_03",
+      "title": "维基百科：东坡肉（中文）",
+      "url": "https://zh.wikipedia.org/wiki/%E4%B8%9C%E5%9D%A1%E8%82%89",
+      "access": "unavailable",
+      "supports": "连接超时，未读到正文。",
+      "rights_note": "失败如实登记；零引用。"
+    },
+    {
+      "id": "cuisine_cn_src_un_04",
+      "title": "Wikipedia: Mapo doufu",
+      "url": "https://en.wikipedia.org/wiki/Mapo_doufu",
+      "access": "unavailable",
+      "supports": "连接超时，未读到正文。",
+      "rights_note": "失败如实登记；零引用。"
+    },
+    {
+      "id": "cuisine_cn_src_un_05",
+      "title": "百度百科：小笼包",
+      "url": "https://baike.baidu.com/item/%E5%B0%8F%E7%AC%BC%E5%8C%85",
+      "access": "unavailable",
+      "supports": "被百度安全验证拦截（HTTP 403），未读到正文。",
+      "rights_note": "失败如实登记；零引用。"
+    },
+    {
+      "id": "cuisine_cn_src_un_06",
+      "title": "Zongzi — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/zongzi",
+      "access": "unavailable",
+      "supports": "返回 HTTP 404。粽子改由 Dragon Boat Festival 条目与 Chinese Food Wiki 支撑。",
+      "rights_note": "失败如实登记；零引用。"
+    },
+    {
+      "id": "cuisine_cn_src_un_07",
+      "title": "The Twenty-Four Solar Terms — UNESCO Intangible Cultural Heritage",
+      "url": "https://ich.unesco.org/en/RL/the-twenty-four-solar-terms-knowledge-in-china-of-time-and-practice-developed-through-observation-of-the-sun-s-annual-motion-00647",
+      "access": "unavailable",
+      "supports": "页面可取回，但抽取到的只有站点导航，没有读到条目正文；不据此立论。",
+      "rights_note": "失败如实登记；零引用。"
+    },
+    {
+      "id": "cuisine_cn_src_un_08",
+      "title": "Chinese Food Wiki：Steamed Fish Head with Chopped Chili（错误路径）",
+      "url": "https://chinesefoodwiki.org/Steamed_Fish_Head_with_Chopped_Chili",
+      "access": "unavailable",
+      "supports": "返回 HTTP 404（正确页名是 Steamed Fish Head with Chop Bell Pepper，已另列并读取）。",
+      "rights_note": "失败如实登记；零引用。"
+    },
+    {
+      "id": "cuisine_cn_src_un_09",
+      "title": "Chinese Food Wiki：Huangshan Shaobing",
+      "url": "https://chinesefoodwiki.org/Huangshan_Shaobing",
+      "access": "unavailable",
+      "supports": "返回 HTTP 404，无此页。",
+      "rights_note": "失败如实登记；零引用。"
+    },
+    {
+      "id": "cuisine_cn_src_un_10",
+      "title": "Chinese Food Wiki：Mao Tofu",
+      "url": "https://chinesefoodwiki.org/Mao_Tofu",
+      "access": "unavailable",
+      "supports": "返回 HTTP 404，无独立页面；毛豆腐仅能从徽菜页的简述取证。",
+      "rights_note": "失败如实登记；零引用。"
+    },
+    {
+      "id": "cuisine_cn_src_un_11",
+      "title": "早稲田大学：山西刀削面随笔（日文）",
+      "url": "https://www.waseda.jp/inst/weekly/news/2021/05/14/86112",
+      "access": "unavailable",
+      "supports": "本次重新读取返回 HTTP 404，没有读到正文；不据此立论。",
+      "rights_note": "失败如实登记；零引用。"
+    }
+  ],
+  "elements": [
+    {
+      "id": "cuisine_cn_sea_cucumber_scallion",
+      "name": "葱烧海参（鲁菜宴席名菜）",
+      "aliases": [
+        "scallion braised sea cucumber",
+        "葱烧海参",
+        "葱烧辽参",
+        "福山海参"
+      ],
+      "category": "item",
+      "tags": [
+        "tradition:eastern",
+        "cuisine:chinese",
+        "kind:dish",
+        "region:shandong",
+        "school:lu",
+        "course:main",
+        "technique:rehydrate",
+        "technique:braise",
+        "occasion:banquet",
+        "class_marker:elite",
+        "trade:merchant",
+        "price:shilling",
+        "terrain:coast",
+        "terrain:workshop",
+        "season:all_year",
+        "sold_by:tavern",
+        "sold_by:noble_kitchen"
+      ],
+      "summary": "山东（鲁菜）的奢华宴席菜：干海参经漫长泡发后与大量葱同烧，收成酱色浓汁。海参自身味淡，菜靠葱香与汁的浓缩立住，考的是泡发的工夫而不是调料。",
+      "details": {
+        "definition": "葱烧海参是山东鲁菜的宴席菜，主料是干制海参（棘皮动物，沿海捕获后煮制晒干远销），配料是大量的葱，成品是酱色、浓亮、带葱香的烧汁海参。海参本身几乎无味，吃的是软糯而带弹性的口感，味道全部由葱与汁赋予。它是「用时间和手艺把一件难吃的干货变成体面菜」的典型。",
+        "mechanism": "工序骨架：干参反复浸泡、加热、再浸泡，使其充分吸水回软并去除腥与杂质；葱先煸出香，再与酱油系调味和高汤一起把参烧透；最后收汁使汁挂住参体。原理是干货靠多轮吸水恢复结构，烧的阶段让参吸入葱与酱汁，收汁则提高浓度与光泽。本条不写浸泡时长与火候数值。",
+        "conditions": "前提一：有干制海参这种可长途运输的海产加工品，意味着沿海渔捕、煮晒加工与商路并存。前提二：有足够的火源与耐心完成多日泡发。前提三：有大葱产区。来源页的说法是山东写作里常把胶东（福山）海参与章丘大葱配成一对，这是饮食书写里的搭配，不等于只有这两地的原料才成立。前提四：有付得起价的宴席场合。",
+        "exceptions": "泡发失败（欠水或过烂）会毁掉整道菜，来源页强调泡发漫长且依赖技术。反例与近亲：同一类干海参也做成葱烧以外的菜式，不应混为一谈；也不能把「海参」等同于鲁菜独有，其他菜系同样用干货海味。现代餐馆亦有用提前处理好的涨发参简化流程。",
+        "story_uses": "酒楼或官宦宴席上的压轴硬菜，用来标记主人愿花多少钱。可写：客人看不懂这盘无味的东西为何昂贵，旁人解释泡发要几天；商人用它试探对方身份；账房算海参、葱与燃料的总成本；赝品或泡发不足的参能暴露店家底细。沿海渔村把干参卖给内陆商路，是一条清楚的货流线索。",
+        "historical_scope": "本条限定在山东沿海与鲁菜宴席传统，以近代至当代的饭店名菜为主；来源页称福山籍厨师与北京丰泽园的改良使它成为被广泛模仿的名菜，具体年份不在此采信。更早的海参食用史不在本条范围。改编时可借用「干货＋长泡发＋无味主料靠配料立味」三件套，不要强配山东地名。",
+        "evidence_and_uncertainty": "来源支持：Chinese Food Wiki（社区维基）葱烧海参页关于泡发、葱汁、福山海参配章丘大葱的叙述。Britannica 的鲁菜条目（Quick Summary，为摘要页）支持「沿海用海鲜、葱、盐」这一总体印象。本项目归纳：把它概括为「用时间把低味干货变宴席菜」，以及故事用法与价位，均不是来源原话。社区维基的可靠度中等，福山厨师与饭店的改良叙述需要更硬的来源核对。"
+      },
+      "source_ids": [
+        "cuisine_cn_src_01",
+        "cuisine_cn_src_02"
+      ],
+      "related_catalog_ids": [
+        "flavors_soy_sauce",
+        "materials_salt",
+        "produce_onion"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "game": {
+        "schema": "game_fields_v1",
+        "price": {
+          "min": 36,
+          "max": 96,
+          "per": "一盘（宴席份）",
+          "tier": "shilling"
+        },
+        "terrains": [
+          "coast",
+          "workshop"
+        ],
+        "seasons": [
+          "all_year"
+        ],
+        "keeps": "hours",
+        "sold_by": [
+          "tavern",
+          "noble_kitchen"
+        ],
+        "note": "估价为游戏设计数值，不是史实价目；干参可存放，成品当餐吃；宴席价位按先令到数十先令估。"
+      }
+    },
+    {
+      "id": "cuisine_cn_dezhou_chicken",
+      "name": "德州扒鸡（酱汤扒到脱骨的整鸡）",
+      "aliases": [
+        "Dezhou braised chicken",
+        "Dezhou po chicken",
+        "五香脱骨鸡",
+        "德州脱骨扒鸡"
+      ],
+      "category": "item",
+      "tags": [
+        "tradition:eastern",
+        "cuisine:chinese",
+        "kind:dish",
+        "region:shandong",
+        "school:lu",
+        "course:main",
+        "technique:braise",
+        "technique:spice",
+        "occasion:travel",
+        "role:portable_food",
+        "class_marker:common",
+        "price:shilling",
+        "terrain:farmland",
+        "terrain:workshop",
+        "season:all_year",
+        "sold_by:market",
+        "sold_by:street_vendor",
+        "sold_by:grocer"
+      ],
+      "summary": "山东德州的整鸡名产：整鸡与香料在汤里长时间扒到酥烂脱骨，凉了也能吃，是靠铁路站台叫卖出名的路上食物。",
+      "details": {
+        "definition": "德州扒鸡是山东德州一带的卤扒整鸡：整只鸡造型后与香料和酱汤同煮至肉酥烂可脱骨，常说的是「五香脱骨」。它多以真空或纸包形式作旅行伴手，室温即可食用，是少数「放凉了仍是成品」的名菜。",
+        "mechanism": "工序骨架：宰杀整理的整鸡先定型，常过油上色，再入香料酱汤中长时间焖扒；汤里的盐、酱与香料渗入，胶原软化使骨肉分离；出锅后整形。原理是长时间湿热加热把胶质熬软，让肉自行脱骨。调味常说的香料有丁香、桂皮、花椒、八角、茴香等，各家配比是不外传的秘方，本条不给配比。",
+        "conditions": "前提：有现成的整鸡供应、炉灶与大锅、可长时间加热的燃料；香料靠贸易（桂皮、八角、丁香多来自远处）；运输条件是销路的一半，来源页描述它在铁路开通后借站台叫卖扩大知名度。保存性来自盐与酱的浸透，而不是冷链。",
+        "exceptions": "同类名鸡：道口烧鸡、符离集烧鸡、沟帮子熏鸡等被并称「四大名鸡」，做法不同，不能互换。起源有多种说法（运河码头、具体店主等），来源页多标为存疑。反例：不脱骨的酱鸡、白切鸡、烤鸡都是不同的菜。",
+        "story_uses": "车站、码头、驿路上的叫卖食物：旅客隔着车窗买一只包好的鸡；商队把它当可存放的口粮；店家用「祖传秘方」做门面，彼此指责偷方。可写一条新开通的铁路或运河如何捧红一道本地菜，也可写香料账本如何暴露一家店的货源。",
+        "historical_scope": "本条限定在山东德州一带，名声形成在近代交通开通之后；来源页的叙述是京沪、津浦线开通后（20 世纪初）借站台叫卖出名，起源传说一律视为存疑。更早的元明清运河时期说法不作采信。",
+        "evidence_and_uncertainty": "来源支持：Chinese Food Wiki 德州扒鸡页关于整鸡扒至脱骨、香料构成、秘方保守、站台叫卖出名与起源争议的叙述。本项目归纳：把它概括为「靠铁路扩大销路的路上食物」，以及故事用法。香料名单是来源页「常说」的构成，不是统一配方；起源争议没有被解决。"
+      },
+      "source_ids": [
+        "cuisine_cn_src_03"
+      ],
+      "related_catalog_ids": [
+        "animal_food_chicken",
+        "flavors_star_anise",
+        "flavors_cassia",
+        "flavors_clove",
+        "flavors_fennel_seed",
+        "flavors_sichuan_pepper",
+        "flavors_soy_sauce",
+        "materials_salt"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "game": {
+        "schema": "game_fields_v1",
+        "price": {
+          "min": 18,
+          "max": 36,
+          "per": "一只",
+          "tier": "shilling"
+        },
+        "terrains": [
+          "farmland",
+          "workshop"
+        ],
+        "seasons": [
+          "all_year"
+        ],
+        "keeps": "days",
+        "sold_by": [
+          "market",
+          "street_vendor",
+          "grocer"
+        ],
+        "note": "估价为游戏设计数值，不是史实价目；可存放数日按游戏设计取值，史料未给保存期。"
+      }
+    },
+    {
+      "id": "cuisine_cn_jiuzhuan_intestine",
+      "name": "九转大肠（济南甜咸酱烧猪大肠）",
+      "aliases": [
+        "Jiuzhuan Dachang",
+        "nine-turn large intestine",
+        "红烧大肠",
+        "九转肥肠"
+      ],
+      "category": "item",
+      "tags": [
+        "tradition:eastern",
+        "cuisine:chinese",
+        "kind:dish",
+        "region:shandong",
+        "school:lu",
+        "course:main",
+        "technique:deep_fry",
+        "technique:braise",
+        "occasion:banquet",
+        "class_marker:common",
+        "role:offal",
+        "price:shilling",
+        "terrain:farmland",
+        "terrain:workshop",
+        "season:all_year",
+        "sold_by:tavern",
+        "sold_by:butcher"
+      ],
+      "summary": "清末济南饭馆把洗净的猪大肠先炸后烧，调出甜、咸、香辛带醋香的亮红酱汁。「九转」借道家炼丹的说法，是饭馆起的名。",
+      "details": {
+        "definition": "九转大肠是山东济南一带的鲁菜：猪大肠经反复清洗处理后，先油炸再用糖、酱、醋和香辛料烧成红褐亮汁。成菜软嫩略带嚼劲，味型在甜咸之间带一点醋的亮度。名字里的「九转」是借自道家炼丹的雅称，来源页明确说并不是要求烧制或摆盘转九次。",
+        "mechanism": "工序骨架：大肠彻底清洗去味，预先煮熟，再下油炸使表面紧缩；然后与糖、酱油、醋和葱姜香辛一起烧，收汁挂亮。原理是先去味与预熟，炸出表面质地，再用糖酱把杂碎味压住。清洗与预熟是整道菜的关键，来源页称之为「功夫」。",
+        "conditions": "前提：屠宰业提供猪大肠；有足够的清水与碱盐醋之类洗涤手段；有油、糖、酱和炉灶。社会前提：这个城市的饭馆愿意把下水做成宴席份量的菜，并有一批能买它的食客。",
+        "exceptions": "近亲与反例：潮汕卤水大肠、川味辣肠、街头炒大肠都不是它；来源页明确要求与它们区分。厨师个人的糖、酸、香辛平衡不同，同属鲁菜甜咸圈内。现代不少店为去油腻减少炸的步骤，已偏离传统说法。",
+        "story_uses": "一道把「下水」抬进宴席的故事菜：寒酸食材靠手艺升格，适合写厨子靠一道菜翻身，或富户嫌弃、穷人偏爱的口味分裂。「九转」的雅名可写成店家包装噱头，食客一边挑剔名字一边吃光盘子。",
+        "historical_scope": "本条限定在山东济南（鲁菜）；叙述把定名放在清末济南的九华楼一线，早先叫红烧大肠；来源页提醒创店人细节只是鲁菜地方叙述中一致的说法，应当作带归属的传说，不是档案。其前身红烧大肠的年代不明。",
+        "evidence_and_uncertainty": "来源支持：Chinese Food Wiki 九转大肠页关于炸后烧、甜咸带醋、名字出自道家炼丹、定名在济南及饭馆线的叙述（页面自引中文维基与一个山东文化页）。本项目归纳：「把下水抬进宴席」的概括与故事用法。创店人、年份均属地方叙述，不作史实。"
+      },
+      "source_ids": [
+        "cuisine_cn_src_04",
+        "cuisine_cn_src_02"
+      ],
+      "related_catalog_ids": [
+        "animal_food_pork",
+        "flavors_vinegar",
+        "flavors_soy_sauce",
+        "flavors_cane_sugar",
+        "flavors_ginger",
+        "animal_food_rendered_fat"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "game": {
+        "schema": "game_fields_v1",
+        "price": {
+          "min": 14,
+          "max": 30,
+          "per": "一盘",
+          "tier": "shilling"
+        },
+        "terrains": [
+          "farmland",
+          "workshop"
+        ],
+        "seasons": [
+          "all_year"
+        ],
+        "keeps": "hours",
+        "sold_by": [
+          "tavern",
+          "butcher"
+        ],
+        "note": "估价为游戏设计数值，不是史实价目；"
+      }
+    },
+    {
+      "id": "cuisine_cn_mapo_tofu",
+      "name": "麻婆豆腐（成都辣豆瓣烧豆腐）",
+      "aliases": [
+        "mapo tofu",
+        "mapo doufu",
+        "陈麻婆豆腐",
+        "麻婆豆腐"
+      ],
+      "category": "item",
+      "tags": [
+        "tradition:eastern",
+        "cuisine:chinese",
+        "kind:dish",
+        "region:sichuan",
+        "school:chuan",
+        "course:main",
+        "technique:braise",
+        "technique:stir_fry",
+        "flavor:mala",
+        "occasion:everyday",
+        "class_marker:common",
+        "price:groat",
+        "terrain:farmland",
+        "terrain:workshop",
+        "season:all_year",
+        "sold_by:tavern",
+        "sold_by:street_vendor"
+      ],
+      "summary": "成都名菜：豆腐配辣豆瓣酱，常加牛肉末或猪肉末，豆豉和花椒给出深度与麻香。「陈麻婆」的创店故事来自饭店自述，只能带归属引用。",
+      "details": {
+        "definition": "麻婆豆腐是四川成都一带的名菜：嫩豆腐块在辣豆瓣酱调的红亮汤汁里烧成，常加牛肉末或猪肉末，豆豉与花椒提供咸香和麻感，成菜红、烫、麻、辣、嫩。也有不放肉的做法。它是川菜里最容易让外人认出「川味」的一道。",
+        "mechanism": "工序骨架：豆腐切块后先下盐水预烫，去豆腥并让块更定型；热油里炒香辣豆瓣酱和豆豉、肉末，使红油析出；加汤与豆腐轻烧入味；勾薄芡使汁挂住豆腐；起锅后撒花椒面。原理是用红油和发酵豆酱给无味的豆腐上味，芡汁让每块豆腐都裹上酱。",
+        "conditions": "前提：有豆腐（大豆凝固制品）、辣椒与发酵辣豆酱、花椒、豆豉、菜油或牛油，以及猛火炉灶。辣椒是美洲传入后才成为川菜底色的食材，所以这道菜的成立晚于辣椒的引入；Britannica 的川菜与花椒页支持「麻辣＝花椒＋辣椒」。",
+        "exceptions": "变体：牛肉末与猪肉末两派；素的、无肉版；日本经陈建民改良的版本不撒花椒粉、豆豉酱换成较温和的调料（见人民中国等页的叙述）。反例：同样用豆腐的家常豆腐、红烧豆腐不是它；麻辣程度因店而异。",
+        "story_uses": "小饭铺里穷人的下饭菜与大饭店的名菜并存：写一间桥头小店靠一盘辣豆腐出名，或外地人被麻得说不出话，本地人配饭吃得很香。「老字号」的招牌故事适合写成各家争正宗的闹剧。",
+        "historical_scope": "本条限定在四川（成都）川菜，辣椒引入后的时期；陈麻婆饭店自述创立于清同治元年（1862），页面明确这是饭店自述，成都市级非遗名录单独收入陈麻婆豆腐烹饪技艺。创始人姓陈、脸有麻点的由来属店家叙述，不作史实。",
+        "evidence_and_uncertainty": "来源支持：Chinese Food Wiki 麻婆豆腐页（含对饭店自述的归属说明）、人民中国的日文介绍页关于成都、豆腐、辣豆酱、豆豉与花椒的叙述、Britannica 川菜条目（Quick Summary）与花椒条目。本项目归纳：工序顺序的概括、故事用法。创店年份与由来只算带归属的说法。"
+      },
+      "source_ids": [
+        "cuisine_cn_src_05",
+        "cuisine_cn_src_06",
+        "cuisine_cn_src_07",
+        "cuisine_cn_src_08"
+      ],
+      "related_catalog_ids": [
+        "cuisine_tofu",
+        "staples_soybean",
+        "flavors_sichuan_pepper",
+        "flavors_chili_pepper",
+        "animal_food_beef",
+        "animal_food_pork",
+        "produce_garlic"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "game": {
+        "schema": "game_fields_v1",
+        "price": {
+          "min": 4,
+          "max": 8,
+          "per": "一碗",
+          "tier": "groat"
+        },
+        "terrains": [
+          "farmland",
+          "workshop"
+        ],
+        "seasons": [
+          "all_year"
+        ],
+        "keeps": "hours",
+        "sold_by": [
+          "tavern",
+          "street_vendor"
+        ],
+        "note": "估价为游戏设计数值，不是史实价目；"
+      }
+    },
+    {
+      "id": "cuisine_cn_kung_pao_chicken",
+      "name": "宫保鸡丁（甜辣干香的鸡丁炒菜）",
+      "aliases": [
+        "kung pao chicken",
+        "gong bao chicken",
+        "宫爆鸡丁",
+        "酱爆鸡丁（近亲）"
+      ],
+      "category": "item",
+      "tags": [
+        "tradition:eastern",
+        "cuisine:chinese",
+        "kind:dish",
+        "region:sichuan",
+        "region:shandong",
+        "region:guizhou",
+        "school:chuan",
+        "course:main",
+        "technique:stir_fry",
+        "flavor:sweet_spicy",
+        "occasion:banquet",
+        "class_marker:common",
+        "price:shilling",
+        "terrain:farmland",
+        "terrain:workshop",
+        "season:all_year",
+        "sold_by:tavern",
+        "sold_by:inn_kitchen"
+      ],
+      "summary": "以清代官员丁宝桢命名的鸡丁炒菜，与山东酱爆鸡丁、贵州辣子鸡丁有渊源，后在四川定型：干辣、花生、甜酸之间走钢丝。",
+      "details": {
+        "definition": "宫保鸡丁是鸡肉切丁、与干辣椒、花生等猛火快炒的名菜，味型偏干香、甜辣。来源页称它与山东的酱爆鸡丁、贵州的辣子鸡丁有渊源，由清代山东巡抚、后任四川总督的丁宝桢改良发展，最初是丁家的私房菜。「宫保」是他的荣衔，不是厨师的名字。",
+        "mechanism": "工序骨架：鸡丁先上浆（腌渍并裹薄糊）保嫩；热锅里让干辣椒与花椒炸出香；下鸡丁快炒定型；加糖醋酱汁炒至挂汁；最后拌入花生。原理是浆保水、猛火快炒锁住嫩度、调好的酱汁一次下锅让甜酸辣同时挂住。Britannica 的川菜条目把它列为常见川菜名菜。",
+        "conditions": "前提：鸡肉、干辣椒、花生、糖醋酱汁、高温大火；花生（落花生）与辣椒都是美洲传入作物，所以成型期应晚于它们的引入。川菜的花椒与辣椒组合给出「麻辣」的底。",
+        "exceptions": "变体：山东酱爆鸡丁（甜面酱路线）、贵州辣子鸡丁、川式荔枝味与西式加糖加醋的海外版，味道可从干香到明显甜酸不等。反例：同样用花生的凉拌、炒花生米，或不用辣椒的酱爆鸡丁，不能互称。",
+        "story_uses": "官员、幕僚的私房菜进入大众饭馆的过程可写成阶层下渗的故事；也适合写海外餐馆为迎合食客把它改成更甜的菜，被家乡人看了皱眉。「宫保」二字可写成名字里藏着官衔的玩笑。",
+        "historical_scope": "本条限定在清代至当代的鲁、川、黔三地菜谱交汇：丁宝桢先在山东任巡抚、后任四川总督，来源页叙述的是这条线；是否确为他本人所创没有档案级证据，本项目只当作来源页的叙述。",
+        "evidence_and_uncertainty": "来源支持：Chinese Food Wiki 宫保鸡丁页关于三地渊源、丁宝桢线、风味描述；Britannica 川菜条目（Quick Summary）关于它是常见川菜。本项目归纳：工序概括与「官员私房菜下渗」的故事用法。丁氏创制属带归属的传说，社区维基权重中等。"
+      },
+      "source_ids": [
+        "cuisine_cn_src_09",
+        "cuisine_cn_src_07"
+      ],
+      "related_catalog_ids": [
+        "animal_food_chicken",
+        "staples_peanut",
+        "flavors_chili_pepper",
+        "flavors_sichuan_pepper",
+        "flavors_vinegar",
+        "flavors_soy_sauce",
+        "flavors_cane_sugar"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "game": {
+        "schema": "game_fields_v1",
+        "price": {
+          "min": 8,
+          "max": 24,
+          "per": "一盘",
+          "tier": "shilling"
+        },
+        "terrains": [
+          "farmland",
+          "workshop"
+        ],
+        "seasons": [
+          "all_year"
+        ],
+        "keeps": "hours",
+        "sold_by": [
+          "tavern",
+          "inn_kitchen"
+        ],
+        "note": "估价为游戏设计数值，不是史实价目；"
+      }
+    },
+    {
+      "id": "cuisine_cn_twice_cooked_pork",
+      "name": "回锅肉（先煮后炒的川味猪肉）",
+      "aliases": [
+        "twice cooked pork",
+        "hui guo rou",
+        "熬锅肉",
+        "油爆锅"
+      ],
+      "category": "item",
+      "tags": [
+        "tradition:eastern",
+        "cuisine:chinese",
+        "kind:dish",
+        "region:sichuan",
+        "school:chuan",
+        "course:main",
+        "technique:boil",
+        "technique:stir_fry",
+        "occasion:everyday",
+        "class_marker:common",
+        "role:home_cooking",
+        "price:shilling",
+        "terrain:farmland",
+        "terrain:workshop",
+        "season:all_year",
+        "sold_by:tavern",
+        "sold_by:inn_kitchen"
+      ],
+      "summary": "四川家家会做的先煮后炒猪肉。来源页称一般认为由宋代农民所创，更稳妥的说法是：猪肉煮熟后再用锅里的油和酱二次烹制。",
+      "details": {
+        "definition": "回锅肉是四川的传统家常菜：猪肉先整块煮熟，放凉切片，再下锅用猛火爆炒，与辣豆瓣酱、蒜苗等同炒，肉片边缘卷曲、出油、带酱香。名字里的「回锅」就是第二次入锅。来源页说它几乎家家会做，上手容易但做到极致很难。",
+        "mechanism": "工序骨架：整块猪肉入水煮到刚熟，放凉后切片；热锅少油煸炒使肥肉部分出油卷边；加辣豆瓣酱等炒出红油；放蒜苗或其他蔬菜同炒收尾。原理是先用水煮保证熟透，再用锅内油脂把表面炒香，肥肉出油后被酱吸收。具体时长火候不在本条。",
+        "conditions": "前提：四川产猪多，猪肉是日常肉食；有酱（豆瓣酱）、蒜苗等配菜；有炒锅。Britannica 的中国菜条目说猪肉是全国最常食用的肉；同一条目说长时间准备是许多中国菜获得成熟风味的方式。",
+        "exceptions": "变体：加锅盔、青椒的版本，北方的炒肉片近亲；用熟肉的二次加工也是祭祀余肉的惯用处理，页面记古时四川农民祭祖后把煮过的祭肉再次烹制。反例：不预煮直接爆炒的炒肉片不是回锅肉。",
+        "story_uses": "家庭餐桌的「节日后第二天的菜」：祭祀或节庆剩下的煮肉要变成下饭菜，适合写农家的节俭与对肥肉的珍惜。也可写学徒被考验的第一道家常菜，师傅一口就尝出刀工和火候。",
+        "historical_scope": "本条限定在四川，时期按来源页「widely believed 为宋代（12 世纪）农民所创」的说法记录，该年代说明没有进一步佐证，本项目不当作定论。祭祖煮肉再烹的说法也属民间叙述。",
+        "evidence_and_uncertainty": "来源支持：Chinese Food Wiki 回锅肉页关于起源于四川、宋代农民所创的通行说法、祭祖后再烹、家家会做；Britannica 中国菜条目关于猪肉最常食用与长时间准备。本项目归纳：工序概括、故事用法。年代与祭祖由来只是页面转述的说法。"
+      },
+      "source_ids": [
+        "cuisine_cn_src_10",
+        "cuisine_cn_src_11"
+      ],
+      "related_catalog_ids": [
+        "animal_food_pork",
+        "flavors_chili_pepper",
+        "flavors_soy_sauce",
+        "produce_garlic"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "game": {
+        "schema": "game_fields_v1",
+        "price": {
+          "min": 8,
+          "max": 18,
+          "per": "一盘",
+          "tier": "shilling"
+        },
+        "terrains": [
+          "farmland",
+          "workshop"
+        ],
+        "seasons": [
+          "all_year"
+        ],
+        "keeps": "hours",
+        "sold_by": [
+          "tavern",
+          "inn_kitchen"
+        ],
+        "note": "估价为游戏设计数值，不是史实价目；"
+      }
+    },
+    {
+      "id": "cuisine_cn_char_siu",
+      "name": "叉烧（粤式烧味烤猪肉）",
+      "aliases": [
+        "char siu",
+        "cha siu",
+        "蜜汁叉烧",
+        "广式叉烧"
+      ],
+      "category": "item",
+      "tags": [
+        "tradition:eastern",
+        "cuisine:chinese",
+        "kind:dish",
+        "region:guangdong",
+        "school:yue",
+        "course:main",
+        "technique:roast",
+        "technique:glaze",
+        "occasion:everyday",
+        "class_marker:common",
+        "trade:butcher",
+        "price:groat",
+        "terrain:workshop",
+        "terrain:farmland",
+        "season:all_year",
+        "sold_by:street_vendor",
+        "sold_by:butcher",
+        "sold_by:tavern"
+      ],
+      "summary": "广东、香港烧腊店的基石：猪肉涂甜咸酱汁烤到边缘焦糖化，可配饭配面，也是叉烧包的馅。",
+      "details": {
+        "definition": "叉烧是粤式烧味（烧腊）里的烤猪肉：肉条腌入甜咸酱汁，挂起烤到表面上色，边缘有焦糖化的深色，切片后淋汁。它在烧腊店挂窗售卖，可配饭、面，也可剁碎作点心馅。",
+        "mechanism": "工序骨架：肉切条后先腌渍入味；悬挂或架起明火烘烤；烤制过程中反复刷糖酱使表面上亮；出炉静置后斩件。原理是糖与酱在高温下焦化，形成甜咸并重的壳，内部靠腌渍保持湿润。本条不写配比与火候数值。",
+        "conditions": "前提：猪肉、糖、酱油类调味、可以明火或烤炉烘烤的炉具；烧腊店的挂炉与斩板。粤菜强调原料质量，Britannica 的粤菜条目把它归入南方风格；海外唐人街的叉烧饭是日常一份。",
+        "exceptions": "近亲有烧鹅、脆皮烧肉等其他烧味；不同店的酱色、肥瘦与焦边程度差别很大。反例：白切与卤水类不烤，不是叉烧。",
+        "story_uses": "烧腊店窗口的挂肉是整条街的招牌；可写师傅凌晨起炉、学徒被派去刷酱，也可写海外华人餐馆以叉烧饭谋生的第一代。适合表现城市小店的日常与手艺传承。",
+        "historical_scope": "本条限定在广东与香港的烧腊店文化，近代城市市场时期；来源页把它称为基石而不给发明年代，本项目也不给。",
+        "evidence_and_uncertainty": "来源支持：Chinese Food Wiki 叉烧页关于烧味、甜咸酱汁、边缘焦糖化、烧腊店售卖与近亲；Britannica 粤菜条目关于粤菜总体风格。本项目归纳：工序概括与故事用法。社区维基权重中等。"
+      },
+      "source_ids": [
+        "cuisine_cn_src_12",
+        "cuisine_cn_src_13"
+      ],
+      "related_catalog_ids": [
+        "animal_food_pork",
+        "flavors_soy_sauce",
+        "flavors_cane_sugar",
+        "flavors_honey",
+        "materials_charcoal"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "game": {
+        "schema": "game_fields_v1",
+        "price": {
+          "min": 3,
+          "max": 8,
+          "per": "一份（配饭）",
+          "tier": "groat"
+        },
+        "terrains": [
+          "workshop",
+          "farmland"
+        ],
+        "seasons": [
+          "all_year"
+        ],
+        "keeps": "days",
+        "sold_by": [
+          "street_vendor",
+          "butcher",
+          "tavern"
+        ],
+        "note": "估价为游戏设计数值，不是史实价目；"
+      }
+    },
+    {
+      "id": "cuisine_cn_roast_goose",
+      "name": "烧鹅（粤式烧味脆皮鹅）",
+      "aliases": [
+        "roast goose",
+        "广式烧鹅",
+        "烧鹅配梅酱"
+      ],
+      "category": "item",
+      "tags": [
+        "tradition:eastern",
+        "cuisine:chinese",
+        "kind:dish",
+        "region:guangdong",
+        "school:yue",
+        "course:main",
+        "technique:roast",
+        "occasion:banquet",
+        "class_marker:elite",
+        "trade:poultry",
+        "price:shilling",
+        "terrain:workshop",
+        "terrain:wetland",
+        "season:all_year",
+        "sold_by:tavern",
+        "sold_by:street_vendor",
+        "sold_by:noble_kitchen"
+      ],
+      "summary": "烧腊店里挂起、点单现斩的脆皮烧鹅，常配酸梅酱。来源页把它的来路说成北方烤鸭技术遇上广东本地养鹅，属软说法。",
+      "details": {
+        "definition": "烧鹅是粤式烧味：整鹅处理后烤到皮亮而脆，挂在烧腊店里，点单后现斩上桌，常蘸酸梅酱。它与北京烤鸭同属烤禽，但用鹅、用广东烧腊店的挂炉传统，成品不卷饼。",
+        "mechanism": "工序骨架：整鹅清理后调味腌入腹腔，吹干或烫皮使皮与肉分离；挂入炉中烘烤；皮层脱水变脆，脂肪渗出；出炉斩件配酱。原理是皮干燥后受热酥脆，内部脂肪保持多汁。本条不写温度与时长。",
+        "conditions": "前提：有养鹅的农户或市场提供整鹅；有能挂炉烘烤的炉具与燃料；烧腊店需要稳定客流才能日日起炉。",
+        "exceptions": "近亲：北京烤鸭（已有元素 cuisine_peking_duck，另立）、广式烧鸭；不同于卤水鹅和潮汕卤鹅。反例：不吹干的湿烤，皮不会脆。",
+        "story_uses": "宴席和节日的大菜，也可写成烧腊店老板的招牌；香港战后烧腊店把它变成城市名片。可用于表现商业城市里手艺与价位分层：同一只鹅，整只送礼，半只堂食，一碟饭上只放一两块。",
+        "historical_scope": "本条限定在广东与香港，清代至当代的城市烧腊店；来源页提醒不要接受无来源的某帝发明说法；北方烤鸭技术南传属软说法。",
+        "evidence_and_uncertainty": "来源支持：Chinese Food Wiki 烧鹅页关于烧味、脆皮、点单现斩、梅酱、北方烤鸭技术与本地养鹅的软历史框架；战后香港烧腊店使之成为城市名片。本项目归纳：工序概括与故事用法。南传说没有硬证据。"
+      },
+      "source_ids": [
+        "cuisine_cn_src_14",
+        "cuisine_cn_src_13"
+      ],
+      "related_catalog_ids": [
+        "animal_food_goose",
+        "cuisine_peking_duck",
+        "flavors_soy_sauce",
+        "materials_charcoal"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "game": {
+        "schema": "game_fields_v1",
+        "price": {
+          "min": 6,
+          "max": 18,
+          "per": "一份（斩件）",
+          "tier": "shilling"
+        },
+        "terrains": [
+          "workshop",
+          "wetland"
+        ],
+        "seasons": [
+          "all_year"
+        ],
+        "keeps": "days",
+        "sold_by": [
+          "tavern",
+          "street_vendor",
+          "noble_kitchen"
+        ],
+        "note": "估价为游戏设计数值，不是史实价目；"
+      }
+    },
+    {
+      "id": "cuisine_cn_har_gow",
+      "name": "虾饺（透明粉皮包鲜虾的蒸点心）",
+      "aliases": [
+        "har gow",
+        "ha gau",
+        "水晶虾饺",
+        "虾饺皇"
+      ],
+      "category": "item",
+      "tags": [
+        "tradition:eastern",
+        "cuisine:chinese",
+        "kind:pastry",
+        "region:guangdong",
+        "school:yue",
+        "course:dim_sum",
+        "technique:steam",
+        "occasion:yum_cha",
+        "class_marker:common",
+        "trade:teahouse",
+        "price:groat",
+        "terrain:workshop",
+        "terrain:coast",
+        "season:all_year",
+        "sold_by:tavern",
+        "sold_by:street_vendor"
+      ],
+      "summary": "粤式茶楼点心的标杆：半透明的淀粉皮包着鲜虾，蒸熟后透出虾色。发明时间没有定论，评判标准是皮的透明度与虾的鲜甜。",
+      "details": {
+        "definition": "虾饺是粤式点心：用薄而半透明的淀粉皮包鲜虾馅，捏出褶后入竹笼蒸熟。它在广东与香港的饮茶文化里是最具代表性的一款，也是评判一家点心师傅水平的常用试金石。",
+        "mechanism": "工序骨架：淀粉类粉料烫成可擀薄的面团；擀成小圆皮；包入虾馅并捏出褶；入笼急火蒸熟，淀粉糊化后皮变透明。原理是糊化淀粉透明且有韧性，能透出虾色。本条不写配比。",
+        "conditions": "前提：新鲜的虾、淀粉类粉料、蒸笼与蒸汽火力、茶楼的现蒸现卖节奏。Britannica 点心条目说点心分蒸与炸两大类，蒸类以竹笼盛装。",
+        "exceptions": "变体：加笋丁、肉丁、不同褶数与大小的版本；反例：北方的水饺、馄饨皮是小麦面皮，不透明，不是虾饺，也不同于已有元素 cuisine_dumpling 所述的小麦面皮饺类。",
+        "story_uses": "茶楼里的推车叫卖、一笼三四只的份量、清晨的老茶客。可写点心师傅因为皮蒸破被客人当面退货，也可写小茶楼靠一笼好虾饺立足。",
+        "historical_scope": "本条限定在广东、香港与海外粤式茶楼，近代饮茶文化时期；来源页明确说发明时间在一般读者可得的原始档案中没有定论；点心起于丝路茶馆两千五百年的说法在 Britannica 里以「被认为」表述，不能用于虾饺。",
+        "evidence_and_uncertainty": "来源支持：Chinese Food Wiki 虾饺页关于粉皮、鲜虾、蒸制、发明年代无定论；Britannica 点心条目关于点心的蒸/炸分类与饮茶。本项目归纳：工序概括与故事用法。糊化淀粉透明的原理是通用常识，不是来源页原话。"
+      },
+      "source_ids": [
+        "cuisine_cn_src_15",
+        "cuisine_cn_src_16"
+      ],
+      "related_catalog_ids": [
+        "animal_food_shrimp_prawn",
+        "flavors_tea",
+        "cuisine_dumpling"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "game": {
+        "schema": "game_fields_v1",
+        "price": {
+          "min": 3,
+          "max": 6,
+          "per": "一笼",
+          "tier": "groat"
+        },
+        "terrains": [
+          "workshop",
+          "coast"
+        ],
+        "seasons": [
+          "all_year"
+        ],
+        "keeps": "hours",
+        "sold_by": [
+          "tavern",
+          "street_vendor"
+        ],
+        "note": "估价为游戏设计数值，不是史实价目；"
+      }
+    },
+    {
+      "id": "cuisine_cn_siu_mai",
+      "name": "烧卖（顶部开口的粤式茶楼蒸点心）",
+      "aliases": [
+        "siu mai",
+        "shaomai",
+        "shumai",
+        "烧麦",
+        "干蒸烧卖"
+      ],
+      "category": "item",
+      "tags": [
+        "tradition:eastern",
+        "cuisine:chinese",
+        "kind:pastry",
+        "region:guangdong",
+        "school:yue",
+        "course:dim_sum",
+        "technique:steam",
+        "occasion:yum_cha",
+        "class_marker:common",
+        "trade:teahouse",
+        "price:groat",
+        "terrain:workshop",
+        "terrain:farmland",
+        "season:all_year",
+        "sold_by:tavern",
+        "sold_by:street_vendor"
+      ],
+      "summary": "顶部不封口的蒸饺，粤式茶楼版以猪肉与虾为馅，是全球最常见的点心。呼和浩特元代起源说属存疑。",
+      "details": {
+        "definition": "烧卖是皮收成杯形或花形、顶部开口的蒸饺。粤式茶楼版以猪肉和虾为馅，皮薄而偏黄，经香港与海外饮茶成为点心的标志之一；其他地区的烧卖在馅料、尺寸和餐次上各不相同。",
+        "mechanism": "工序骨架：馅料调制并搅上劲；薄皮托在手心，填入馅并收成杯形，顶部留口；入笼蒸熟，馅出汁，皮变软韧。原理是开口让馅料蒸汽散出，馅保持多汁而不涨破皮。",
+        "conditions": "前提：猪肉与虾、薄面皮、蒸笼；饮茶客流。Britannica 点心条目把烧卖列为传统蒸类点心。",
+        "exceptions": "变体：糯米烧卖（北方与湖北一带）、牛肉烧卖、蟹粉烧卖；烧卖与同为开口的包子不同。反例：封口的包子、饺子不是烧卖。",
+        "story_uses": "早茶茶楼的常备点心，可写成小店用廉价肉馅撑场面、客人从竹笼里一眼看穿料的虚实。也适合表现同一道点心在不同城市被改造的故事。",
+        "historical_scope": "本条限定在粤式饮茶与近代茶楼；来源页说呼和浩特元代起源、顺带卖剩馅一类说法没有无争议的档案配方，应视为存疑或民间传说。",
+        "evidence_and_uncertainty": "来源支持：Chinese Food Wiki 烧卖页关于顶部开口的构造、粤式馅料、其他地区变体与起源传说存疑；Britannica 点心条目关于蒸类点心。本项目归纳：开口利于蒸汽散出的原理推断与故事用法。"
+      },
+      "source_ids": [
+        "cuisine_cn_src_17",
+        "cuisine_cn_src_16"
+      ],
+      "related_catalog_ids": [
+        "animal_food_pork",
+        "animal_food_shrimp_prawn",
+        "flavors_tea",
+        "cuisine_dumpling"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "game": {
+        "schema": "game_fields_v1",
+        "price": {
+          "min": 3,
+          "max": 6,
+          "per": "一笼",
+          "tier": "groat"
+        },
+        "terrains": [
+          "workshop",
+          "farmland"
+        ],
+        "seasons": [
+          "all_year"
+        ],
+        "keeps": "hours",
+        "sold_by": [
+          "tavern",
+          "street_vendor"
+        ],
+        "note": "估价为游戏设计数值，不是史实价目；"
+      }
+    },
+    {
+      "id": "cuisine_cn_char_siu_bao",
+      "name": "叉烧包（发酵面皮包叉烧馅）",
+      "aliases": [
+        "char siu bao",
+        "cha siu bao",
+        "BBQ pork bun",
+        "蜜汁叉烧包"
+      ],
+      "category": "item",
+      "tags": [
+        "tradition:eastern",
+        "cuisine:chinese",
+        "kind:pastry",
+        "region:guangdong",
+        "school:yue",
+        "course:dim_sum",
+        "technique:steam",
+        "technique:leaven",
+        "occasion:yum_cha",
+        "class_marker:common",
+        "trade:teahouse",
+        "price:groat",
+        "terrain:workshop",
+        "terrain:farmland",
+        "season:all_year",
+        "sold_by:tavern",
+        "sold_by:baker",
+        "sold_by:street_vendor"
+      ],
+      "summary": "发酵面皮包叉烧丁与甜咸酱汁的蒸包，是茶楼推车的常客。把烧腊店的风味搬进了面点。",
+      "details": {
+        "definition": "叉烧包是发酵面皮包着叉烧丁和甜咸酱汁的包子，是广东与香港茶楼的核心点心，也是海外粤式面包店的常见品。蒸熟后顶部常裂开。",
+        "mechanism": "工序骨架：叉烧切丁，拌入勾芡的甜咸酱汁作馅；发酵面团擀成皮，包入馅；入笼蒸熟，面皮受热膨胀并在顶部开裂。原理是酵母发酵产气，蒸汽使面胚胀大并定型。",
+        "conditions": "前提：烧腊店的叉烧、小麦粉、酵母或老面、蒸笼；茶楼或面包店的销售渠道。",
+        "exceptions": "变体：焗叉烧包（烤制）、不同大小的版本。反例：北方的包子是肉馅蒸包，不是叉烧馅；已有元素 cuisine_dumpling 的无发酵薄皮饺类也不同。",
+        "story_uses": "烧腊店与茶楼的分工：叉烧从烧腊店进入茶楼推车；可写店主把卖不完的叉烧碎做成包子馅的节俭，或写客人只点叉烧包的怪癖。",
+        "historical_scope": "本条限定在广东与香港，清末至当代的饮茶文化；来源页明说确切发明时间在可靠二手资料里不确定，只有它在茶楼里的角色是清楚的。",
+        "evidence_and_uncertainty": "来源支持：Chinese Food Wiki 叉烧包页关于发酵面皮、叉烧馅、茶楼核心点心、发明年代不确定；Britannica 点心条目关于叉烧包属蒸类点心。本项目归纳：发酵与蒸的原理概括与故事用法。"
+      },
+      "source_ids": [
+        "cuisine_cn_src_18",
+        "cuisine_cn_src_16"
+      ],
+      "related_catalog_ids": [
+        "staples_wheat",
+        "animal_food_pork",
+        "flavors_soy_sauce",
+        "flavors_cane_sugar"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "game": {
+        "schema": "game_fields_v1",
+        "price": {
+          "min": 2,
+          "max": 5,
+          "per": "一笼",
+          "tier": "groat"
+        },
+        "terrains": [
+          "workshop",
+          "farmland"
+        ],
+        "seasons": [
+          "all_year"
+        ],
+        "keeps": "hours",
+        "sold_by": [
+          "tavern",
+          "baker",
+          "street_vendor"
+        ],
+        "note": "估价为游戏设计数值，不是史实价目；"
+      }
+    },
+    {
+      "id": "cuisine_cn_egg_tart",
+      "name": "蛋挞（港式与澳门式两条线）",
+      "aliases": [
+        "egg tart",
+        "dan tat",
+        "pou tat",
+        "葡式蛋挞",
+        "港式蛋挞"
+      ],
+      "category": "item",
+      "tags": [
+        "tradition:eastern",
+        "cuisine:chinese",
+        "kind:pastry",
+        "region:guangdong",
+        "region:macau",
+        "school:yue",
+        "course:dessert",
+        "technique:bake",
+        "occasion:everyday",
+        "class_marker:common",
+        "trade:baker",
+        "price:penny",
+        "terrain:workshop",
+        "terrain:farmland",
+        "season:all_year",
+        "sold_by:baker",
+        "sold_by:street_vendor",
+        "sold_by:tavern"
+      ],
+      "summary": "蛋奶糊烤在酥壳里的小点心。港式蛋挞来自 1920 年代广州的西式百货烘焙，澳门葡挞是另一条线，借鉴里斯本的 pastel de nata。",
+      "details": {
+        "definition": "蛋挞是蛋奶糊倒入挞壳烘烤成的小点心，在中国有两条线：港式与广式，壳是酥饼状或千层酥，馅光滑均匀的黄色；澳门的葡挞，千层壳、馅面有焦斑。它是被中国吸收的外来点心的好例子。",
+        "mechanism": "工序骨架：先做挞壳，酥饼式或千层式；蛋、糖、奶混成糊过滤倒入壳中；入炉烘烤使蛋糊凝固。原理是蛋白与蛋黄在受热时凝固成嫩滑质地，壳吸收少量水分而保持酥脆。本条不写配方。",
+        "conditions": "前提：小麦粉与油脂、鸡蛋、糖和奶、能控温的烤炉。来源页说港式蛋挞起于 20 世纪初广州百货公司烘焙，说明需要城市和西式烘焙技术的传入。",
+        "exceptions": "变体：港式酥饼壳与千层壳、澳门葡挞焦面、不同的奶与淡奶配方。反例：里斯本 pastel de nata 是葡萄牙的修道院蛋黄点心，不是中国发明；也不是欧洲各地的蛋塔。",
+        "story_uses": "港式茶餐厅的下午茶套餐；澳门科洛安的排队店；可写外来点心如何一步步变成本地的日常，或写一家老烘焙店坚持自己的壳。",
+        "historical_scope": "本条限定在 20 世纪广州、香港、澳门；来源页说港式线起自 1920 年代广州百货公司，澳门线与 1980 年代末科洛安烘焙店相关。更早的葡萄牙修道院线不在本条范围。",
+        "evidence_and_uncertainty": "来源支持：Chinese Food Wiki 蛋挞页关于港式与澳门式的区别、广州百货烘焙起源与里斯本参照。本项目归纳：工序概括、故事用法。另有报道说法的年份没有第二个来源核对。"
+      },
+      "source_ids": [
+        "cuisine_cn_src_19"
+      ],
+      "related_catalog_ids": [
+        "staples_wheat",
+        "animal_food_egg",
+        "animal_food_rendered_fat",
+        "flavors_cane_sugar"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "game": {
+        "schema": "game_fields_v1",
+        "price": {
+          "min": 1,
+          "max": 3,
+          "per": "一只",
+          "tier": "penny"
+        },
+        "terrains": [
+          "workshop",
+          "farmland"
+        ],
+        "seasons": [
+          "all_year"
+        ],
+        "keeps": "hours",
+        "sold_by": [
+          "baker",
+          "street_vendor",
+          "tavern"
+        ],
+        "note": "估价为游戏设计数值，不是史实价目；这是近代点心，古典世界使用时需另行取舍。"
+      }
+    },
+    {
+      "id": "cuisine_cn_lions_head",
+      "name": "狮子头（淮扬大肉丸）",
+      "aliases": [
+        "lion's head meatballs",
+        "清炖狮子头",
+        "红烧狮子头",
+        "四喜丸子（近亲）"
+      ],
+      "category": "item",
+      "tags": [
+        "tradition:eastern",
+        "cuisine:chinese",
+        "kind:dish",
+        "region:jiangsu",
+        "school:su",
+        "course:main",
+        "technique:braise",
+        "technique:simmer",
+        "occasion:banquet",
+        "class_marker:common",
+        "price:shilling",
+        "terrain:wetland",
+        "terrain:workshop",
+        "season:all_year",
+        "sold_by:tavern",
+        "sold_by:noble_kitchen"
+      ],
+      "summary": "江苏淮扬的大号猪肉丸，肥瘦搭配、细切粗斩，炖或烧到软嫩，常配青菜成狮鬃。清炖与红烧两派，地理归属只是软说法。",
+      "details": {
+        "definition": "狮子头是江苏（尤其淮扬一带）的大号猪肉丸，炖或烧至极软，常配青菜。名字取自丸形似狮头、青菜似鬃。成菜内部松软而不糊，是淮扬菜讲刀工与火候的代表。",
+        "mechanism": "工序骨架：猪肉用肥瘦搭配，以细切再粗斩的刀法处理，保留颗粒感；调味后摔打上劲，团成大丸；入汤用小火长时间炖，或先煎上色再红烧；配青菜垫底或围边。原理是粗斩颗粒加肥肉使肉丸内部松软多汁，慢炖使其保形而不散。本条不写配比与时长。",
+        "conditions": "前提：猪肉、刀工、砂锅或陶罐类容器与持续的小火；淮扬一带的水乡蔬菜为配。有的厨房加荸荠一类脆口配料，也有加蟹肉或虾的做法。",
+        "exceptions": "清炖与红烧两类并存，清炖常与扬州相联、红烧常与镇江一带相联，但来源页称这只是软地理。反例：油炸实心的丸子、北方的四喜丸子是相近但不同的菜；打成泥状的肉丸不符合「细切粗斩」。",
+        "story_uses": "宴席里一只丸子就是一盘菜，可用来写主人如何排场；也可写厨师为证明手艺，当众只用刀不用绞肉。学徒练刀工，被师傅一口尝出肉太碎。",
+        "historical_scope": "本条限定在江苏淮扬与镇江一带，近代以来的名菜体系；来源页未给定年代，本项目也不给。隋炀帝等传说式起源不采信，也未在本次来源中读到。",
+        "evidence_and_uncertainty": "来源支持：Chinese Food Wiki 狮子头页关于大肉丸、清炖/红烧、软地理、细切粗斩、荸荠一类配料。本项目归纳：工序概括与故事用法。社区维基权重中等。"
+      },
+      "source_ids": [
+        "cuisine_cn_src_20"
+      ],
+      "related_catalog_ids": [
+        "animal_food_pork",
+        "produce_chinese_cabbage",
+        "food_supp_water_chestnut",
+        "flavors_soy_sauce",
+        "tools_pottery_cooking_pot"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "game": {
+        "schema": "game_fields_v1",
+        "price": {
+          "min": 6,
+          "max": 18,
+          "per": "一只（宴席份）",
+          "tier": "shilling"
+        },
+        "terrains": [
+          "wetland",
+          "workshop"
+        ],
+        "seasons": [
+          "all_year"
+        ],
+        "keeps": "hours",
+        "sold_by": [
+          "tavern",
+          "noble_kitchen"
+        ],
+        "note": "估价为游戏设计数值，不是史实价目；"
+      }
+    },
+    {
+      "id": "cuisine_cn_nanjing_salted_duck",
+      "name": "南京盐水鸭（盐渍后低温煮的整鸭）",
+      "aliases": [
+        "Nanjing salted duck",
+        "盐水鸭",
+        "桂花鸭",
+        "金陵盐水鸭"
+      ],
+      "category": "item",
+      "tags": [
+        "tradition:eastern",
+        "cuisine:chinese",
+        "kind:dish",
+        "region:jiangsu",
+        "school:su",
+        "course:main",
+        "technique:cure",
+        "technique:poach",
+        "role:gift_food",
+        "class_marker:common",
+        "trade:poultry",
+        "price:shilling",
+        "terrain:wetland",
+        "terrain:workshop",
+        "season:all_year",
+        "sold_by:market",
+        "sold_by:street_vendor",
+        "sold_by:butcher"
+      ],
+      "summary": "南京特产：整鸭先盐渍入味再温和煮熟，温食或常温食，与烟熏烤制的北京烤鸭不同。常作伴手礼。",
+      "details": {
+        "definition": "南京盐水鸭是江苏南京（金陵）一带的鸭菜：整鸭用盐与香料腌制，晾干后以不沸的温度煮熟，肉白嫩，皮带盐香，温食或放凉食都可。它常被当作伴手礼。",
+        "mechanism": "工序骨架：鸭处理干净后先用热盐擦遍；再入卤水腌渍入味；沥干风干使皮紧；低温煮熟，保持汤面不大滚。原理是盐渍使肉入味保水，风干让皮紧实，低温煮防止肉质变柴。本条不写盐量与温度时长。",
+        "conditions": "前提：鸭（江南水乡多养）、盐与香料、可晾干的场地与煮锅；季节上桂花鸭是秋季营销说法，全年皆可做。",
+        "exceptions": "与北京烤鸭（已有元素 cuisine_peking_duck）不同：不烤、不烟熏，成品不卷饼。反例：烟熏鸭、卤鸭、板鸭等是别的菜。来源页把「桂花鸭」说成季节营销。",
+        "story_uses": "伴手礼与探亲礼：车站、码头买一只盐水鸭带回家；饭馆里以「冷切一盘」作下酒；可写店家为抢秋季桂花鸭的名头而互相攀比。",
+        "historical_scope": "本条限定在南京，明清以来城镇食品传统与近现代品牌化；来源页提到江苏非遗名录（2007 年前后）承认的是南京盐水鸭与烤鸭制作技艺，并提醒这是技艺承认而非商号广告。",
+        "evidence_and_uncertainty": "来源支持：Chinese Food Wiki 南京盐水鸭页关于盐渍、香料、低温煮、与烤鸭的区别、桂花鸭、非遗与伴手礼。本项目归纳：工序概括、故事用法。年代与非遗确切批次未核对。"
+      },
+      "source_ids": [
+        "cuisine_cn_src_21"
+      ],
+      "related_catalog_ids": [
+        "animal_food_duck",
+        "materials_salt",
+        "cuisine_peking_duck",
+        "flavors_star_anise"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "game": {
+        "schema": "game_fields_v1",
+        "price": {
+          "min": 4,
+          "max": 12,
+          "per": "半只",
+          "tier": "shilling"
+        },
+        "terrains": [
+          "wetland",
+          "workshop"
+        ],
+        "seasons": [
+          "all_year"
+        ],
+        "keeps": "days",
+        "sold_by": [
+          "market",
+          "street_vendor",
+          "butcher"
+        ],
+        "note": "估价为游戏设计数值，不是史实价目；"
+      }
+    },
+    {
+      "id": "cuisine_cn_dongpo_pork",
+      "name": "东坡肉（杭州方块五花肉久炖）",
+      "aliases": [
+        "DongPo stewed pork",
+        "Dongpo pork",
+        "东坡方肉"
+      ],
+      "category": "item",
+      "tags": [
+        "tradition:eastern",
+        "cuisine:chinese",
+        "kind:dish",
+        "region:zhejiang",
+        "school:zhe",
+        "course:main",
+        "technique:braise",
+        "occasion:banquet",
+        "class_marker:common",
+        "price:shilling",
+        "terrain:farmland",
+        "terrain:workshop",
+        "season:all_year",
+        "sold_by:tavern",
+        "sold_by:noble_kitchen"
+      ],
+      "summary": "杭州名菜：方块五花肉肥瘦相间，加绍兴酒久炖到红亮软烂。苏东坡亲手所创之说属民间传说。",
+      "details": {
+        "definition": "东坡肉是杭州（浙菜）的名菜：五花肉切成方块，皮色红亮，肥瘦相间，口感油而不腻，绍兴酒香明显，烹制耗时。名字借自北宋诗人苏轼（东坡），但这是民间故事的归属。",
+        "mechanism": "工序骨架：五花肉切方块，先焯水去血沫，再加酱油、糖与黄酒用小火长时间炖，皮朝下码放并密闭焖；最后收汁。原理是长时间湿热使胶原溶解，肥肉的油脂部分渗出，酒与糖提香上色。本条不写时长与火候。",
+        "conditions": "前提：猪肉（江南养猪）、黄酒、酱油与糖、密闭的炖锅、持续的小火和耐心。",
+        "exceptions": "同类：红烧肉、毛氏红烧肉（另立）、梅菜扣肉是不同菜；东坡肉的特色是方块大、酒香重。反例：快炒的炒肉片不是它。来源页把苏轼贬杭州治水、百姓送肉、他烧好回赠的故事明确标为民间传说。",
+        "story_uses": "宴席的压轴硬菜，也可写成饭馆的招牌；故事用法：一个流放官员与百姓之间以食物建立的信任，适合写成传说式的地方节日，但要标明是传说。",
+        "historical_scope": "本条限定在杭州及浙菜体系，近代以来；与苏轼相联的故事属民间传说，不作史实。",
+        "evidence_and_uncertainty": "来源支持：Chinese Food Wiki 东坡肉页关于五花肉方块、绍兴酒香、久炖及苏轼民间故事。本项目归纳：工序概括与故事用法。百度百科、中文维基未能读取，本条没有引用它们。"
+      },
+      "source_ids": [
+        "cuisine_cn_src_22"
+      ],
+      "related_catalog_ids": [
+        "animal_food_pork",
+        "flavors_soy_sauce",
+        "flavors_cane_sugar",
+        "tools_pottery_cooking_pot"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "game": {
+        "schema": "game_fields_v1",
+        "price": {
+          "min": 6,
+          "max": 18,
+          "per": "一块（宴席份）",
+          "tier": "shilling"
+        },
+        "terrains": [
+          "farmland",
+          "workshop"
+        ],
+        "seasons": [
+          "all_year"
+        ],
+        "keeps": "hours",
+        "sold_by": [
+          "tavern",
+          "noble_kitchen"
+        ],
+        "note": "估价为游戏设计数值，不是史实价目；"
+      }
+    },
+    {
+      "id": "cuisine_cn_west_lake_fish",
+      "name": "西湖醋鱼（杭州糖醋汁淡水鱼）",
+      "aliases": [
+        "West Lake vinegar fish",
+        "醋溜鱼",
+        "醋搂鱼",
+        "宋嫂鱼羹（近亲传说）"
+      ],
+      "category": "item",
+      "tags": [
+        "tradition:eastern",
+        "cuisine:chinese",
+        "kind:dish",
+        "region:zhejiang",
+        "school:zhe",
+        "course:main",
+        "technique:poach",
+        "technique:glaze",
+        "occasion:banquet",
+        "class_marker:elite",
+        "price:shilling",
+        "terrain:lake",
+        "terrain:workshop",
+        "season:all_year",
+        "sold_by:tavern",
+        "sold_by:noble_kitchen"
+      ],
+      "summary": "杭州西湖餐馆的名菜：淡水鱼烹熟后淋上光亮的糖醋汁。它与南宋宋嫂鱼羹的联系被来源页称为软说法。",
+      "details": {
+        "definition": "西湖醋鱼是杭州的特产名菜：淡水鱼整条或大块烹熟，再淋上光亮的糖醋汁，是浙菜与西湖餐馆文化的标志性宴席菜，不是家常炒菜。",
+        "mechanism": "工序骨架：活鱼养净去土腥；水中微沸烹熟；沥干后淋上以糖、醋、酱油调的汁，使汁挂鱼。原理是用不沸的水温保持鱼肉的嫩，糖醋汁盖住淡水鱼的土腥。本条不写温度时长。",
+        "conditions": "前提：淡水鱼（湖泊水乡）、醋、糖、酱油；有养鱼池或鲜鱼市场；餐馆文化。西湖风景区的餐馆是最典型的场景。",
+        "exceptions": "同类：糖醋鱼、松鼠鳜鱼（本组未立）；反例：红烧鱼、清蒸鱼不用糖醋汁。来源页说它与南宋宋嫂鱼羹的联系被夸大，清代杭州「醋搂鱼」的记载与 20 世纪饭店品牌化更接近现代版本的文献线索。",
+        "story_uses": "游客宴席和商人应酬的名菜，可写成「一道菜里藏着湖的名声」：游客点它，本地人叹气。适合写风景区餐饮的真假与品牌争夺。",
+        "historical_scope": "本条限定在杭州，清代至当代；宋嫂鱼羹的联系只作软说法，本项目不采信为史实。",
+        "evidence_and_uncertainty": "来源支持：Chinese Food Wiki 西湖醋鱼页关于淡水鱼、糖醋汁、宴席菜、与宋嫂鱼羹的软联系、清代醋搂鱼记载。本项目归纳：工序概括与故事用法。社区维基权重中等。"
+      },
+      "source_ids": [
+        "cuisine_cn_src_23"
+      ],
+      "related_catalog_ids": [
+        "flavors_vinegar",
+        "flavors_soy_sauce",
+        "flavors_cane_sugar"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "game": {
+        "schema": "game_fields_v1",
+        "price": {
+          "min": 8,
+          "max": 24,
+          "per": "一条（宴席份）",
+          "tier": "shilling"
+        },
+        "terrains": [
+          "lake",
+          "workshop"
+        ],
+        "seasons": [
+          "all_year"
+        ],
+        "keeps": "hours",
+        "sold_by": [
+          "tavern",
+          "noble_kitchen"
+        ],
+        "note": "估价为游戏设计数值，不是史实价目；"
+      }
+    },
+    {
+      "id": "cuisine_cn_buddha_jumps_wall",
+      "name": "佛跳墙（福州闽菜宴席汤）",
+      "aliases": [
+        "Buddha Jumps Over the Wall",
+        "福寿全",
+        "佛跳墙"
+      ],
+      "category": "item",
+      "tags": [
+        "tradition:eastern",
+        "cuisine:chinese",
+        "kind:dish",
+        "region:fujian",
+        "school:min",
+        "course:soup",
+        "technique:braise",
+        "technique:simmer",
+        "occasion:banquet",
+        "class_marker:elite",
+        "price:shilling",
+        "terrain:coast",
+        "terrain:workshop",
+        "season:all_year",
+        "sold_by:tavern",
+        "sold_by:noble_kitchen"
+      ],
+      "summary": "福州闽菜的宴席汤：多种高档海味与肉类在酒香高汤里长时间煨在密封陶坛中。出现年代约在清末，各方志有争议；闻香跳墙是民间说法。",
+      "details": {
+        "definition": "佛跳墙是福建（闽菜）的宴席汤羹：多种高档海味（鲍、海参、干贝等）与肉类长时间煨在一起，汤浓香醇厚。名字来自「香味引得僧人跳墙」的民间说法，页面把它标为带民间文学色彩的软说法。",
+        "mechanism": "工序骨架：各种干货先分别泡发处理；肉类焯水；依次码入陶坛，加酒与高汤；坛口密封，小火长时间煨。原理是密闭使香味不散，长时间煨使各料的味融入汤。本条不写时长与配比。",
+        "conditions": "前提：有价格昂贵的干货海味与肉类供应（海运商路）、陶坛与长时间持续的小火、宴席场合。历史上的版本含鱼翅，现代常省略。",
+        "exceptions": "各家料不同，早期名字叫「福寿全」。反例：普通炖汤、闽式家常汤不用这些贵重海味。来源页把出现时间放在 19 世纪末或 1900 年前后，并提到清末福州厨师郑春发与聚春园等名店，各地方志有争议。",
+        "story_uses": "宴席里让客人惊叹的汤，可写官员宴请、商人炫富；也可写穷人只能闻香。「闻香跳墙」可做地方传说的素材，标明是传说。",
+        "historical_scope": "本条限定在福州，清末至当代；年份与创始人叙述为店家与地方志的争议说法，本项目不定论。现代版本省略鱼翅属后世改变。",
+        "evidence_and_uncertainty": "来源支持：Chinese Food Wiki 佛跳墙页关于宴席汤、高档海味、密封陶坛、郑春发与聚春园、年代争议、民间说法。本项目归纳：工序概括与故事用法。社区维基权重中等；中文维基读取失败，未引用。"
+      },
+      "source_ids": [
+        "cuisine_cn_src_24"
+      ],
+      "related_catalog_ids": [
+        "animal_food_pork",
+        "animal_food_chicken",
+        "animal_food_oyster",
+        "tools_pottery_cooking_pot",
+        "tools_storage_jar"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "game": {
+        "schema": "game_fields_v1",
+        "price": {
+          "min": 60,
+          "max": 180,
+          "per": "一坛（宴席份）",
+          "tier": "shilling"
+        },
+        "terrains": [
+          "coast",
+          "workshop"
+        ],
+        "seasons": [
+          "all_year"
+        ],
+        "keeps": "hours",
+        "sold_by": [
+          "tavern",
+          "noble_kitchen"
+        ],
+        "note": "估价为游戏设计数值，不是史实价目；宴席大菜价位按数十先令到一镑以内估。"
+      }
+    },
+    {
+      "id": "cuisine_cn_oyster_omelette",
+      "name": "海蛎煎（闽南与台湾夜市的蚝煎饼）",
+      "aliases": [
+        "oyster omelette",
+        "oyster omelet",
+        "蚵仔煎",
+        "蚝烙（潮汕近亲）",
+        "蚵嗲"
+      ],
+      "category": "item",
+      "tags": [
+        "tradition:eastern",
+        "cuisine:chinese",
+        "kind:snack",
+        "region:fujian",
+        "region:taiwan",
+        "school:min",
+        "course:snack",
+        "technique:pan_fry",
+        "occasion:night_market",
+        "class_marker:common",
+        "role:street_food",
+        "price:penny",
+        "terrain:coast",
+        "terrain:workshop",
+        "season:all_year",
+        "sold_by:street_vendor"
+      ],
+      "summary": "鲜蚝加蛋和淀粉糊同煎成的咸饼，淋甜咸酱，是闽南沿海与台湾夜市的标志小吃。郑成功军队发明之说是民间故事。",
+      "details": {
+        "definition": "海蛎煎（蚵仔煎）是蛋、淀粉浆与鲜蚝在平底锅煎成的咸味饼，通常淋甜咸酱并加香草。它是台湾夜市的标志小吃，也是闽南沿海小吃，潮汕有蚝烙这样的近亲。",
+        "mechanism": "工序骨架：平锅热油，先下淀粉浆与蚝，加蛋翻煎；使淀粉糊化成半透明的黏皮，蚝刚熟；装盘后淋酱。原理是淀粉糊使蛋与蚝黏结成饼，快煎保住蚝的鲜嫩。淀粉常用地瓜粉或混合淀粉。本条不写配比。",
+        "conditions": "前提：沿海鲜蚝供应、淀粉（地瓜粉）、平锅与油、摊位和夜间客流。作物上与地瓜传入后的淀粉利用有关，这是本项目的归纳。",
+        "exceptions": "做法因摊而异；潮汕蚝烙是近亲，台湾版与福建版口感不同。反例：不加淀粉的蛋饼、蚝汤不是它。来源页把郑成功军队发明之说标为民间故事。",
+        "story_uses": "夜市摊贩与食客，一只铁锅一块招牌；可写海边小镇靠鲜蚝活命，也可写台湾移民把家乡小吃带到新地方。",
+        "historical_scope": "本条限定在闽南、台湾与潮汕沿海，近代以来；来源页的历史框架是闽南沿海烹饪随河洛移民传到台湾。军队发明说不作史实。",
+        "evidence_and_uncertainty": "来源支持：Chinese Food Wiki 蚵仔煎页关于蛋、淀粉浆、鲜蚝、甜咸酱、夜市、闽南与潮汕近亲、郑成功故事为民间故事。本项目归纳：工序概括与地瓜淀粉的关联推断。"
+      },
+      "source_ids": [
+        "cuisine_cn_src_25"
+      ],
+      "related_catalog_ids": [
+        "animal_food_oyster",
+        "animal_food_egg",
+        "staples_sweet_potato",
+        "flavors_soy_sauce"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "game": {
+        "schema": "game_fields_v1",
+        "price": {
+          "min": 1,
+          "max": 3,
+          "per": "一份",
+          "tier": "penny"
+        },
+        "terrains": [
+          "coast",
+          "workshop"
+        ],
+        "seasons": [
+          "all_year"
+        ],
+        "keeps": "hours",
+        "sold_by": [
+          "street_vendor"
+        ],
+        "note": "估价为游戏设计数值，不是史实价目；"
+      }
+    },
+    {
+      "id": "cuisine_cn_chopped_chili_fish_head",
+      "name": "剁椒鱼头（湘菜剁椒蒸鱼头）",
+      "aliases": [
+        "steamed fish head with chopped chili",
+        "chop bell pepper fish head",
+        "剁椒蒸鱼头"
+      ],
+      "category": "item",
+      "tags": [
+        "tradition:eastern",
+        "cuisine:chinese",
+        "kind:dish",
+        "region:hunan",
+        "school:xiang",
+        "course:main",
+        "technique:steam",
+        "flavor:spicy_salty",
+        "occasion:banquet",
+        "class_marker:common",
+        "price:shilling",
+        "terrain:lake",
+        "terrain:workshop",
+        "season:all_year",
+        "sold_by:tavern",
+        "sold_by:inn_kitchen"
+      ],
+      "summary": "湖南招牌菜：大淡水鱼头剖开，铺厚厚的剁辣椒清蒸，红亮咸辣。味型是湘菜的辣香加咸鲜，不是川式麻辣。",
+      "details": {
+        "definition": "剁椒鱼头是湖南（湘菜）的招牌菜：大号淡水鱼头（常用鳙鱼）剖开，覆盖厚厚一层剁辣椒蒸制，成菜红亮咸辣。有的店混用红黄剁椒或加豆豉，最后淋热油于葱蒜之上。",
+        "mechanism": "工序骨架：鱼头剖开，抹盐腌入味；铺上腌制的剁辣椒；上笼蒸熟；出锅后撒葱蒜并淋热油。原理是蒸能保持鱼头的嫩，剁辣椒的盐、辣和发酵香气渗入鱼肉，热油激香。本条不写时长。",
+        "conditions": "前提：大淡水鱼（湖泊水田）、腌制的辣椒（辣椒是美洲传入作物，所以成立于其引入之后）、蒸笼与蒸汽、热油。",
+        "exceptions": "变体：加豆豉、红黄双椒；反例：川式麻辣鱼、水煮鱼用花椒与油煮，不是蒸，不是它。味型上湘菜侧重辣香与咸鲜，川菜侧重麻辣。",
+        "story_uses": "饭馆的招牌，一盘红色的鱼头摆上桌就是话题；可写外地客人被辣得出汗，本地人用饭拌汁。",
+        "historical_scope": "本条限定在湖南，辣椒引入后的时期；来源页未给创制年份。",
+        "evidence_and_uncertainty": "来源支持：Chinese Food Wiki 剁椒鱼头页关于鱼头、剁椒蒸制、红黄剁椒与热油。本项目归纳：工序概括与故事用法，以及辣椒引入时间的推断。清代数学家尝辣椒蒸鱼的传说未在本次采信。"
+      },
+      "source_ids": [
+        "cuisine_cn_src_26"
+      ],
+      "related_catalog_ids": [
+        "flavors_chili_pepper",
+        "flavors_soy_sauce",
+        "materials_salt",
+        "produce_garlic"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "game": {
+        "schema": "game_fields_v1",
+        "price": {
+          "min": 6,
+          "max": 14,
+          "per": "一盘",
+          "tier": "shilling"
+        },
+        "terrains": [
+          "lake",
+          "workshop"
+        ],
+        "seasons": [
+          "all_year"
+        ],
+        "keeps": "hours",
+        "sold_by": [
+          "tavern",
+          "inn_kitchen"
+        ],
+        "note": "估价为游戏设计数值，不是史实价目；"
+      }
+    },
+    {
+      "id": "cuisine_cn_mao_red_braised_pork",
+      "name": "毛氏红烧肉（湘味五花肉红烧）",
+      "aliases": [
+        "Mao's red-braised pork",
+        "毛家红烧肉",
+        "湘味红烧肉"
+      ],
+      "category": "item",
+      "tags": [
+        "tradition:eastern",
+        "cuisine:chinese",
+        "kind:dish",
+        "region:hunan",
+        "school:xiang",
+        "course:main",
+        "technique:braise",
+        "occasion:everyday",
+        "class_marker:common",
+        "price:groat",
+        "terrain:farmland",
+        "terrain:workshop",
+        "season:all_year",
+        "sold_by:tavern",
+        "sold_by:inn_kitchen"
+      ],
+      "summary": "湖南（韶山关联）的五花肉红烧，酱油加糖色炖烧，当地说法偏辣偏香。「毛家」是品牌化说法，轶事不是档案证据。",
+      "details": {
+        "definition": "毛氏红烧肉是湖南的五花肉红烧，与韶山餐饮及「毛家」品牌相联，属红烧肉家族。当地说法倾向于比江南的甜口版本更辣更香。",
+        "mechanism": "工序骨架：五花肉切块焯水；用糖炒出色，下肉翻炒上色；加酱油、香辛料和水炖烧；收汁。原理是糖色与酱油使肉上色，慢炖使胶原软化、肥肉油脂部分排出。本条不写配比与时长。",
+        "conditions": "前提：猪肉、酱油与糖、辣椒或辣味调料、炒锅和炖锅。",
+        "exceptions": "变体：不同辣度、加不加豆豉；与东坡肉相比不用大量黄酒，不成方块。反例：甜口的上海红烧肉。来源页提醒饮食偏好的轶事应视为有归属的传闻，不是某一固定配方的档案证明，也不是 UNESCO 之类的承认。",
+        "story_uses": "家宴和小饭馆的当家菜；「某名人爱吃」的招牌效应可用来写旅游餐饮的品牌化与真假争论。",
+        "historical_scope": "本条限定在湖南，现代品牌化餐饮；与人物相联的说法只作带归属的传闻。",
+        "evidence_and_uncertainty": "来源支持：Chinese Food Wiki 毛氏红烧肉页关于五花肉红烧、湖南、辣度、品牌与轶事的提醒。本项目归纳：工序概括与故事用法。证据较薄，仅此一个来源。"
+      },
+      "source_ids": [
+        "cuisine_cn_src_27"
+      ],
+      "related_catalog_ids": [
+        "animal_food_pork",
+        "flavors_soy_sauce",
+        "flavors_cane_sugar",
+        "flavors_chili_pepper"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "game": {
+        "schema": "game_fields_v1",
+        "price": {
+          "min": 4,
+          "max": 10,
+          "per": "一碗",
+          "tier": "groat"
+        },
+        "terrains": [
+          "farmland",
+          "workshop"
+        ],
+        "seasons": [
+          "all_year"
+        ],
+        "keeps": "hours",
+        "sold_by": [
+          "tavern",
+          "inn_kitchen"
+        ],
+        "note": "估价为游戏设计数值，不是史实价目；"
+      }
+    },
+    {
+      "id": "cuisine_cn_stinky_mandarin_fish",
+      "name": "臭鳜鱼（徽州轻度发酵鳜鱼）",
+      "aliases": [
+        "stinky mandarin fish",
+        "smelly mandarin fish",
+        "臭桂鱼",
+        "徽州臭鳜鱼"
+      ],
+      "category": "item",
+      "tags": [
+        "tradition:eastern",
+        "cuisine:chinese",
+        "kind:dish",
+        "region:anhui",
+        "school:hui",
+        "course:main",
+        "technique:cure",
+        "technique:ferment",
+        "technique:braise",
+        "trade:merchant",
+        "class_marker:common",
+        "price:shilling",
+        "terrain:mountain",
+        "terrain:river",
+        "terrain:workshop",
+        "season:all_year",
+        "sold_by:tavern",
+        "sold_by:market"
+      ],
+      "summary": "徽州招牌菜：鳜鱼经盐渍并轻度发酵后再烧或蒸，气味强烈而肉质嫩。商人山路运鱼的故事是民间传说。",
+      "details": {
+        "definition": "臭鳜鱼是安徽（徽菜）的招牌菜：鳜鱼经轻度发酵后再烧或蒸，气味强烈而肉质嫩。游客多在黄山、徽州的餐馆首次接触，黄山一带被称为生产与品牌核心区。",
+        "mechanism": "工序骨架：鲜鳜鱼处理后盐渍；放置使其轻度发酵；再烧或蒸熟。原理是盐渍加低温放置使鱼肉蛋白部分分解，产生浓烈气味和紧实口感，加热后香气转为鲜。本条不写盐量、温度和时间，这些参数对食品安全很重要，需要可靠来源。",
+        "conditions": "前提：鳜鱼（淡水）、盐、凉爽山地环境；徽州山地河谷与湿润气候提供淡水鱼、竹笋、菌类和野菜，家庭保存方法使应季食物可跨季食用。",
+        "exceptions": "商人山路运鱼、鱼因轻度发酵仍可食用的故事被来源页标为民间传说。反例：鱼变质腐败不是这道菜，它依靠控制的盐渍，而不是任其腐败。徽州旧府含一城六县，跨今安徽南部与江西东北部，所以历史菜区与今省界不完全一致。",
+        "story_uses": "山路商队、徽商把家乡饮食带到各地；可写外来客第一次闻到它的反应，或写徽商旅居他乡仍要吃家乡的臭鳜鱼。",
+        "historical_scope": "本条限定在历史徽州（安徽南部）；徽菜烹饪技艺 2021 年列入国家级非遗。徽菜的整体历史叙述只来自单一社区维基，证据较薄。毛豆腐（发酵出白色菌毛面、多先煎后食）只在徽菜总页有一句话，本项目没有单独立条。",
+        "evidence_and_uncertainty": "来源支持：Chinese Food Wiki 臭鳜鱼页与徽菜总页关于轻度发酵、强烈气味、黄山核心区、民间传说、非遗与徽商。本项目归纳：盐渍与发酵的原理概括和故事用法。徽菜只立这一条，其余证据不足。"
+      },
+      "source_ids": [
+        "cuisine_cn_src_28",
+        "cuisine_cn_src_29"
+      ],
+      "related_catalog_ids": [
+        "materials_salt",
+        "flavors_soy_sauce",
+        "flavors_ginger"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "game": {
+        "schema": "game_fields_v1",
+        "price": {
+          "min": 6,
+          "max": 14,
+          "per": "一条",
+          "tier": "shilling"
+        },
+        "terrains": [
+          "mountain",
+          "river",
+          "workshop"
+        ],
+        "seasons": [
+          "all_year"
+        ],
+        "keeps": "days",
+        "sold_by": [
+          "tavern",
+          "market"
+        ],
+        "note": "估价为游戏设计数值，不是史实价目；"
+      }
+    },
+    {
+      "id": "cuisine_cn_mao_tofu",
+      "name": "毛豆腐（徽州表面长白色菌毛的发酵豆腐）",
+      "aliases": [
+        "hairy tofu",
+        "mao doufu",
+        "徽州毛豆腐",
+        "霉豆腐（近亲）"
+      ],
+      "category": "item",
+      "tags": [
+        "tradition:eastern",
+        "cuisine:chinese",
+        "kind:dish",
+        "region:anhui",
+        "school:hui",
+        "course:side",
+        "technique:ferment",
+        "technique:pan_fry",
+        "occasion:everyday",
+        "class_marker:common",
+        "role:fermented_food",
+        "price:penny",
+        "terrain:mountain",
+        "terrain:workshop",
+        "season:all_year",
+        "sold_by:market",
+        "sold_by:street_vendor"
+      ],
+      "summary": "徽州的发酵豆腐：豆腐表面长出白色菌毛，多半先煎再吃。本项目只找到徽菜总页里的一句话，证据薄，条目只写能确认的部分。",
+      "details": {
+        "definition": "毛豆腐是徽州一带的发酵豆腐制品：豆腐放置发酵后表面长出一层白色的菌毛，因此得名；吃法多为先煎再吃。它与已有元素 cuisine_tofu 所述的大豆凝固制品同源，但多出一道微生物发酵的工序，成品风味和用途不同。",
+        "mechanism": "工序骨架：先有成块的豆腐；在适宜的温湿环境中放置，让表面长出菌丝；之后煎制食用。原理是豆腐表面被微生物覆盖，分解蛋白质并产生新的风味。本条不写菌种、温湿度与时长，来源页也没有给。",
+        "conditions": "前提：已有豆腐；徽州山区湿润的四季气候和家庭保存、发酵腌渍食品的传统，使这类食品能够成立。徽菜总页提到山地河谷与湿润气候提供了笋、菌类等物产，并说家庭保存方法使应季食物可跨季食用，这是对徽菜的总体描述，没有专门解释毛豆腐。",
+        "exceptions": "近亲包括各地的霉豆腐、腐乳、臭豆腐，它们是不同的发酵路线，本条不混同。反例：不长菌毛的普通煎豆腐不是毛豆腐；表面发黑或有异味的变质豆腐也不是，发酵与腐败的界线不能凭本条判断。",
+        "story_uses": "山里人家把暂时吃不完的豆腐放进湿润的屋角，客人第一次见到满是白毛的豆腐可能吓退。适合写外地商人初到徽州的食物冲击，或写一家小店靠一盘煎毛豆腐留住熟客。",
+        "historical_scope": "本条限定在历史上的徽州一带（今安徽南部，旧徽州府还包括今江西婺源一带），具体形成年代没有读到来源，本项目不给。",
+        "evidence_and_uncertainty": "来源支持：Chinese Food Wiki 徽菜页仅有一句描述：毛豆腐表面发酵出白色菌毛，常煎后食用。它没有专页（检索对应页面返回 404，已登记）。本项目归纳：工序概括、与豆腐和臭豆腐的区分、故事用法。这是全组证据最薄的一条，起源、做法细节、安全要点都缺来源，建议主审决定是否保留。"
+      },
+      "source_ids": [
+        "cuisine_cn_src_29"
+      ],
+      "related_catalog_ids": [
+        "cuisine_tofu",
+        "staples_soybean"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "game": {
+        "schema": "game_fields_v1",
+        "price": {
+          "min": 1,
+          "max": 3,
+          "per": "一小碟",
+          "tier": "penny"
+        },
+        "terrains": [
+          "mountain",
+          "workshop"
+        ],
+        "seasons": [
+          "all_year"
+        ],
+        "keeps": "days",
+        "sold_by": [
+          "market",
+          "street_vendor"
+        ],
+        "note": "估价为游戏设计数值，不是史实价目；"
+      }
+    },
+    {
+      "id": "cuisine_cn_baozi",
+      "name": "包子（发酵面皮包馅的蒸点）",
+      "aliases": [
+        "baozi",
+        "bao",
+        "肉包",
+        "菜包",
+        "馒头（无馅近亲）"
+      ],
+      "category": "item",
+      "tags": [
+        "tradition:eastern",
+        "cuisine:chinese",
+        "kind:snack",
+        "region:pan_china",
+        "course:breakfast",
+        "technique:steam_leaven",
+        "occasion:everyday",
+        "class_marker:common",
+        "role:daily_staple",
+        "trade:baker",
+        "price:penny",
+        "terrain:farmland",
+        "terrain:workshop",
+        "season:all_year",
+        "sold_by:street_vendor",
+        "sold_by:baker",
+        "sold_by:market"
+      ],
+      "summary": "发酵面皮包咸或甜馅再蒸的主食，早餐铺、集市、餐馆里的日常食物。与无馅的馒头对照，诸葛亮以面做人头的故事是民间传说。",
+      "details": {
+        "definition": "包子是发酵面皮包馅后蒸熟的面食，馅有猪肉、蔬菜、豆沙等咸甜两类，形制和馅料随地区而变，是全国早餐铺、集市和餐馆的日常主食。它与已有元素 cuisine_dumpling 所述的饺子类不同：包子的皮是发酵的、较厚而松软，靠蒸汽加热；饺子类多为不发酵的薄皮。",
+        "mechanism": "工序骨架：面粉加酵头发起；擀成皮；包入馅料并收口；醒发后入蒸笼用蒸汽蒸熟。原理是酵母产气使面皮松软多孔，蒸汽加热让面皮定型而馅料熟透出汁。本条不写发酵时间和火力。",
+        "conditions": "前提：小麦面粉（华北主产）、发酵剂、蒸笼和持续的蒸汽火力；馅料取决于当地肉菜。Britannica 的中国菜条目把北方干燥温带的面条、粥、馒头列为主食，南方则以稻米为主。",
+        "exceptions": "无馅的馒头是近亲，来源页用它作对照。大小不同的小笼汤包、生煎等是别的品种，不在本条。反例：不经发酵的烫面或死面包子，口感更紧实，本条不细分。",
+        "story_uses": "早市蒸笼冒出的白汽是一条街的钟点：写赶路的差役、赶集的农妇、赶考的书生都在摊前站着吃。包子也可作军粮、行商干粮。故事里可写师傅用蒸笼层数和馅的好坏表现一家铺子的兴衰。",
+        "historical_scope": "本条限定在中国各地的日常面点，近现代早餐文化为主。诸葛亮用面团做「人头」代替祭品的故事，来源页明确说是后世流传的民间传说，不是考古证据，本项目不作史实。",
+        "evidence_and_uncertainty": "来源支持：Chinese Food Wiki 包子页关于发酵蒸制、咸甜馅、日常主食、馒头对照、诸葛亮传说；Britannica 中国菜条目关于北方面食为主食的总体说明。本项目归纳：与饺子类的区分、工序概括、故事用法。各地具体品种和年代没有读到来源。"
+      },
+      "source_ids": [
+        "cuisine_cn_src_30",
+        "cuisine_cn_src_11"
+      ],
+      "related_catalog_ids": [
+        "staples_wheat",
+        "animal_food_pork",
+        "cuisine_dumpling"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "game": {
+        "schema": "game_fields_v1",
+        "price": {
+          "min": 1,
+          "max": 2,
+          "per": "一只",
+          "tier": "penny"
+        },
+        "terrains": [
+          "farmland",
+          "workshop"
+        ],
+        "seasons": [
+          "all_year"
+        ],
+        "keeps": "hours",
+        "sold_by": [
+          "street_vendor",
+          "baker",
+          "market"
+        ],
+        "note": "估价为游戏设计数值，不是史实价目；"
+      }
+    },
+    {
+      "id": "cuisine_cn_shaobing",
+      "name": "烧饼（北方多层烘烤的芝麻面饼）",
+      "aliases": [
+        "shaobing",
+        "sesame flatbread",
+        "芝麻烧饼",
+        "胡饼（古代近亲）"
+      ],
+      "category": "item",
+      "tags": [
+        "tradition:eastern",
+        "cuisine:chinese",
+        "kind:snack",
+        "region:north_china",
+        "course:breakfast",
+        "technique:bake",
+        "occasion:everyday",
+        "class_marker:common",
+        "role:portable_food",
+        "trade:baker",
+        "price:penny",
+        "terrain:farmland",
+        "terrain:workshop",
+        "season:all_year",
+        "sold_by:street_vendor",
+        "sold_by:baker",
+        "sold_by:market"
+      ],
+      "summary": "北方的层酥烘烤面饼，常裹芝麻，早餐摊现卖，可素吃也可夹肉、酱、蛋。食物史上被放进「胡饼」这条西域面饼的链条里，说法偏软。",
+      "details": {
+        "definition": "烧饼是北方的多层烘烤面饼，表面常裹芝麻，早餐摊现烤现卖，可以单吃，也可以夹肉、酱、蛋。它是干燥麦作地区面食体系的一员，与蒸制的包子、馒头是不同的路线：它是烘烤的。",
+        "mechanism": "工序骨架：面团擀开，抹油酥并折叠出层；表面沾芝麻；贴入炉壁或放入烤炉烘烤至两面上色。原理是油酥隔开面层，受热后层间蒸汽使饼分层酥脆，芝麻增添香气。本条不写炉温和时间。",
+        "conditions": "前提：小麦面粉、芝麻、油脂、可贴烤或烘烤的炉具和燃料。来源页和 Britannica 都把北方麦面视为干燥温带的主食基础。",
+        "exceptions": "近亲：古代以「胡饼」为名的西域烤饼、各地的火烧、馕（已有元素 cuisine_naan 的相关条目另见）。反例：蒸制的馒头和煎制的葱油饼不是烧饼。烧饼夹油条等吃法是地方搭配。",
+        "story_uses": "清晨炉火边排队的人群，是写城镇生活的好背景：挑夫、衙役、学童都以它为早餐。可写丝路来的胡商怎样把一种面饼留在中原城里，名字换了几次，味道本地化。",
+        "historical_scope": "本条限定在北方，中古到当代。来源页的说法是：食物史家常把它放在北方麦面饼的长链条里，认为它吸收了以「胡饼」为名的西域烤饼理念，并与丝路接触及中古城市里的芝麻饼相联，语气是「软」的；另有某位汉代将领传入的故事，页面标为民间传说。",
+        "evidence_and_uncertainty": "来源支持：Chinese Food Wiki 烧饼页关于层酥烘烤、芝麻、早餐摊、胡饼链条和民间传说。本项目归纳：工序概括、与蒸制面点的区分、故事用法。具体传入年代与路线没有硬证据，本项目不采信。"
+      },
+      "source_ids": [
+        "cuisine_cn_src_31",
+        "cuisine_cn_src_11"
+      ],
+      "related_catalog_ids": [
+        "staples_wheat",
+        "staples_sesame"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "game": {
+        "schema": "game_fields_v1",
+        "price": {
+          "min": 1,
+          "max": 2,
+          "per": "一个",
+          "tier": "penny"
+        },
+        "terrains": [
+          "farmland",
+          "workshop"
+        ],
+        "seasons": [
+          "all_year"
+        ],
+        "keeps": "days",
+        "sold_by": [
+          "street_vendor",
+          "baker",
+          "market"
+        ],
+        "note": "估价为游戏设计数值，不是史实价目；"
+      }
+    },
+    {
+      "id": "cuisine_cn_knife_cut_noodles",
+      "name": "刀削面（山西以刀削入沸水的厚面片）",
+      "aliases": [
+        "knife-cut noodles",
+        "dao xiao mian",
+        "削面",
+        "山西刀削面"
+      ],
+      "category": "item",
+      "tags": [
+        "tradition:eastern",
+        "cuisine:chinese",
+        "kind:dish",
+        "region:shanxi",
+        "course:main",
+        "technique:knife_cut",
+        "technique:boil",
+        "occasion:everyday",
+        "class_marker:common",
+        "role:daily_staple",
+        "price:groat",
+        "terrain:plateau",
+        "terrain:workshop",
+        "season:all_year",
+        "sold_by:tavern",
+        "sold_by:street_vendor"
+      ],
+      "summary": "山西面食标志：用刀从面团上直接削入沸水的厚面片，中间厚两边薄，浇头常用西红柿鸡蛋或肉酱。元代禁铁器、唐代军中等起源说法都是民间传说。",
+      "details": {
+        "definition": "刀削面是山西的面食：手持面团，用特制的刀把面一片片削入沸水，煮熟后浇头食用。面片不规则，中间厚两边薄，口感劲道。它是全国面馆的一个品类，浇头常见西红柿鸡蛋、肉酱或清汤。",
+        "mechanism": "工序骨架：和硬面团并醒；一手托面团，另一手持刀向沸水锅里削出长条状面片；煮熟捞起；配浇头或汤。原理是把成形的步骤放在入锅时一次完成，削出的面片厚度不均，煮后口感丰富。本条不写面水比例和时间。",
+        "conditions": "前提：小麦面粉（山西内陆高原耐旱谷物与小麦）、沸水大锅、专用削刀和熟练手工。已有元素 cuisine_ramen 是日本化的碱水拉面，刀削面不是拉出来的，是削出来的，工艺不同，故另立。",
+        "exceptions": "变体：龙须面等同属山西面食技艺（一并列入非遗名录），不同浇头。反例：拉面、刀切面（切好的面条）、猫耳朵都是别的山西面食。元代铁器短缺、唐代战场应急的起源说法，来源页明确标为民间传说。",
+        "story_uses": "面馆里厨师在锅边飞刀削面是现成的表演，可写出外地人惊叹、本地人只关心浇头。也可写山西商人把面食带到全国，驿站、票号伙计的一碗面。",
+        "historical_scope": "本条限定在山西及各地山西面馆。来源页称传统山西面食技艺（含龙须面与刀削面）2008 年列入国家级非遗名录，承认的是手艺而非某个品牌；起源传说不采信。",
+        "evidence_and_uncertainty": "来源支持：Chinese Food Wiki 刀削面页关于山西、削入沸水、面片形状、浇头、非遗名录和起源传说。本项目归纳：与拉面的区分、工序概括、故事用法。早稲田大学的日文随笔页重新读取时返回 404，已登记为 unavailable 且不引用；先前读到的「山西粉食约 2000 年历史」等随笔说法因此不采用。"
+      },
+      "source_ids": [
+        "cuisine_cn_src_32"
+      ],
+      "related_catalog_ids": [
+        "staples_wheat",
+        "cuisine_ramen",
+        "animal_food_egg"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "game": {
+        "schema": "game_fields_v1",
+        "price": {
+          "min": 2,
+          "max": 4,
+          "per": "一碗",
+          "tier": "groat"
+        },
+        "terrains": [
+          "plateau",
+          "workshop"
+        ],
+        "seasons": [
+          "all_year"
+        ],
+        "keeps": "hours",
+        "sold_by": [
+          "tavern",
+          "street_vendor"
+        ],
+        "note": "估价为游戏设计数值，不是史实价目；"
+      }
+    },
+    {
+      "id": "cuisine_cn_roujiamo",
+      "name": "肉夹馍（陕西腊汁肉夹白吉馍）",
+      "aliases": [
+        "roujiamo",
+        "rou jia mo",
+        "腊汁肉夹馍",
+        "中国汉堡（现代昵称）"
+      ],
+      "category": "item",
+      "tags": [
+        "tradition:eastern",
+        "cuisine:chinese",
+        "kind:snack",
+        "region:shaanxi",
+        "course:snack",
+        "technique:braise",
+        "technique:bake",
+        "occasion:everyday",
+        "class_marker:common",
+        "role:street_food",
+        "price:penny",
+        "terrain:farmland",
+        "terrain:workshop",
+        "season:all_year",
+        "sold_by:street_vendor",
+        "sold_by:market"
+      ],
+      "summary": "陕西街头小吃：切碎或撕开的炖肉夹在剖开的白吉馍里，肉汁润饼。「中国汉堡」只是现代昵称，不是起源主张。",
+      "details": {
+        "definition": "肉夹馍是陕西的街头小吃：长时间在浓味汤里煮烂的猪肉（西安式的腊汁肉）切碎或撕开，夹进剖开的白吉馍。馍外脆内软，肉汁渗进饼里，常与凉皮搭售。",
+        "mechanism": "工序骨架：猪肉先长时间在多种香料的老汤里煮到软烂，捞出后切碎；白吉馍用面饼烘烤出外脆内软；剖开后夹入肉并淋一勺汤。原理是长时间湿热使肉酥烂，老汤沿用使风味累积，馍作为吸汁的载体。本条不写香料配比。",
+        "conditions": "前提：小麦面粉做馍、猪肉和香料、大锅与持续的小火，以及街边可以热着保温的案台。北方干燥温带的面食体系与猪肉最常见的肉类这两点，Britannica 中国菜条目均有总体支持。",
+        "exceptions": "变体：腊汁肉与其他炖肉的版本；馍的形制各地不同。反例：汉堡不是它的起源，来源页明确说「中国汉堡」只是现代昵称，不是汉堡起源的历史主张；有的旅游宣传称它是「最古老的汉堡」，这是宣传说法。",
+        "story_uses": "街角摊前吃一口的人流：可写西北商路上的货郎、车站边的夜班工人，老汤一锅煮几十年的摊子成为一处地标。也适合写旅游宣传与本地人说法的差距。",
+        "historical_scope": "本条限定在陕西（西安）及各地陕西小吃店，近现代街头小吃文化为主；起源年代没有读到来源，本项目不给。",
+        "evidence_and_uncertainty": "来源支持：Chinese Food Wiki 肉夹馍页关于陕西、腊汁肉、白吉馍、与凉皮搭售、汉堡昵称。本项目归纳：工序概括、故事用法。老汤的传承期和各家配方都属店家叙述，没有核对。"
+      },
+      "source_ids": [
+        "cuisine_cn_src_33",
+        "cuisine_cn_src_11"
+      ],
+      "related_catalog_ids": [
+        "staples_wheat",
+        "animal_food_pork",
+        "flavors_star_anise",
+        "flavors_cassia"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "game": {
+        "schema": "game_fields_v1",
+        "price": {
+          "min": 1,
+          "max": 3,
+          "per": "一个",
+          "tier": "penny"
+        },
+        "terrains": [
+          "farmland",
+          "workshop"
+        ],
+        "seasons": [
+          "all_year"
+        ],
+        "keeps": "hours",
+        "sold_by": [
+          "street_vendor",
+          "market"
+        ],
+        "note": "估价为游戏设计数值，不是史实价目；"
+      }
+    },
+    {
+      "id": "cuisine_cn_jianbing_guozi",
+      "name": "煎饼果子（天津早餐的蛋酱卷饼）",
+      "aliases": [
+        "jianbing guozi",
+        "jianbing",
+        "煎饼馃子",
+        "天津煎饼果子"
+      ],
+      "category": "item",
+      "tags": [
+        "tradition:eastern",
+        "cuisine:chinese",
+        "kind:snack",
+        "region:tianjin",
+        "course:breakfast",
+        "technique:griddle",
+        "occasion:everyday",
+        "class_marker:common",
+        "role:street_food",
+        "price:penny",
+        "terrain:farmland",
+        "terrain:workshop",
+        "season:all_year",
+        "sold_by:street_vendor"
+      ],
+      "summary": "北方街头早餐：薄煎饼摊在铛上，卷入蛋、酱、葱香菜和「馃子」（炸面或薄脆），与天津相联。",
+      "details": {
+        "definition": "煎饼果子是北方的街头早餐卷饼：在平铛上把面糊摊成薄饼，打入蛋，抹酱，撒葱和香菜，卷入「馃子」（历史上是油条类炸面，现代天津与连锁摊常用薄脆）。来源页把它与「煎饼」分开立页：煎饼指饼皮及更宽的早餐类别，煎饼果子指带馅卷饼。",
+        "mechanism": "工序骨架：热铛上把稀面糊摊成薄饼；打蛋摊匀；翻面后刷酱、撒葱香菜；放入馃子；折叠或卷起。原理是薄饼受热迅速定型，蛋层粘合，馃子提供脆感，酱和香菜提供咸鲜香。本条不写糊的配比。",
+        "conditions": "前提：用粮食面糊（小麦、杂粮或豆粉都可）、平铛和现炸或现备的馃子、街边摊位。其做法依赖热铛和即做即卖的节奏，摊主按人流在清晨集中出摊。",
+        "exceptions": "民间与商业用法常把煎饼与煎饼果子混用；山东等地的煎饼是更大更干的另一类面饼。反例：不带馅的煎饼卷大葱、各地油饼夹蛋不是它。",
+        "story_uses": "清晨码头边、学堂外的小摊，一份下来就能赶路。可写摊主眼力快、手上不停，也可写不同城市的摊主就「馃子该用什么」吵起来。",
+        "historical_scope": "本条限定在天津及北方城市，近现代街头早餐；来源页没有给出起源年代，本项目也不给。",
+        "evidence_and_uncertainty": "来源支持：Chinese Food Wiki 煎饼果子页关于卷饼结构、馃子的两种含义、天津联系、与煎饼的区分。本项目归纳：工序概括、故事用法。历史起源没有读到来源。"
+      },
+      "source_ids": [
+        "cuisine_cn_src_34"
+      ],
+      "related_catalog_ids": [
+        "staples_wheat",
+        "animal_food_egg",
+        "flavors_soy_sauce"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "game": {
+        "schema": "game_fields_v1",
+        "price": {
+          "min": 1,
+          "max": 2,
+          "per": "一个",
+          "tier": "penny"
+        },
+        "terrains": [
+          "farmland",
+          "workshop"
+        ],
+        "seasons": [
+          "all_year"
+        ],
+        "keeps": "hours",
+        "sold_by": [
+          "street_vendor"
+        ],
+        "note": "估价为游戏设计数值，不是史实价目；"
+      }
+    },
+    {
+      "id": "cuisine_cn_youtiao",
+      "name": "油条（两条面坯叠压油炸的早点）",
+      "aliases": [
+        "youtiao",
+        "yau char kway",
+        "油炸鬼",
+        "馃子",
+        "炸面棍"
+      ],
+      "category": "item",
+      "tags": [
+        "tradition:eastern",
+        "cuisine:chinese",
+        "kind:snack",
+        "region:pan_china",
+        "course:breakfast",
+        "technique:deep_fry",
+        "occasion:everyday",
+        "class_marker:common",
+        "role:street_food",
+        "price:penny",
+        "terrain:farmland",
+        "terrain:workshop",
+        "season:all_year",
+        "sold_by:street_vendor"
+      ],
+      "summary": "两条面坯压在一起炸到蓬松酥脆，配豆浆或粥的早餐。秦桧夫妇的民间词源不能证明南宋发明。",
+      "details": {
+        "definition": "油条是中国各地的油炸面点：两条面坯叠压在一起，下油锅炸到金黄蓬松，外酥内软，可以用手拉开。咸味、带酵母香，不甜；常与豆浆、粥搭配，也被夹在烧饼、卷在饭团里，或作为煎饼果子里的馃子。",
+        "mechanism": "工序骨架：发酵或加膨松剂的面团静置醒好；切成条，两条叠压在一起；拉长后下热油炸，翻面至上色。原理是叠压处受热分离使条体鼓开，热油使面团表面脱水变脆，内部因气体而松软。来源页提到面团过夜静置、压合与油温的控制，是摊主的手艺。本条不写温度与配方。",
+        "conditions": "前提：小麦面粉、盐、膨松手段（酵母、化学膨松剂或传统碱面）和一锅可持续加热的油。Britannica 的中国菜条目说食物保存靠干燥、盐渍、腌渍与发酵，油炸面食即做即吃，不属保存食品。",
+        "exceptions": "近亲：泰国、印尼等地的同类名字说明这种面点随华人早餐传到东南亚。反例：甜味的短条糖糕是另一类小吃；便利店复热的油条口感不如现炸。起源的秦桧夫妇词源是民间说法，见下。",
+        "story_uses": "清晨摊前一口大油锅是一条街的招牌；写学徒被罚炸废一锅，或者摊主用一根油条的粗细表现生意好坏。「油炸鬼」的民间词源可写成民间怨气的讲法，但要标明属传说。",
+        "historical_scope": "本条限定在中国各地的早餐文化，近现代为主。南宋秦桧夫妇的故事是民间词源，来源页指出清代笔记《清稗类钞》记有相关说法，但这只能证明传说流行，不能证明南宋发明；与古代「寒具」之类油炸面点的联系是软的历史框架。",
+        "evidence_and_uncertainty": "来源支持：Chinese Food Wiki 油条页关于叠压油炸、豆浆与粥搭配、东南亚同类、秦桧民间词源、手艺要点。本项目归纳：工序概括、与保存食品的区分、故事用法。起源年代没有硬证据。"
+      },
+      "source_ids": [
+        "cuisine_cn_src_35",
+        "cuisine_cn_src_11"
+      ],
+      "related_catalog_ids": [
+        "staples_wheat",
+        "animal_food_rendered_fat",
+        "materials_salt"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "game": {
+        "schema": "game_fields_v1",
+        "price": {
+          "min": 1,
+          "max": 2,
+          "per": "一根",
+          "tier": "penny"
+        },
+        "terrains": [
+          "farmland",
+          "workshop"
+        ],
+        "seasons": [
+          "all_year"
+        ],
+        "keeps": "hours",
+        "sold_by": [
+          "street_vendor"
+        ],
+        "note": "估价为游戏设计数值，不是史实价目；"
+      }
+    },
+    {
+      "id": "cuisine_cn_tanghulu",
+      "name": "糖葫芦（竹签串山楂裹脆糖壳）",
+      "aliases": [
+        "tanghulu",
+        "bingtang hulu",
+        "冰糖葫芦",
+        "糖墩儿",
+        "糖球"
+      ],
+      "category": "item",
+      "tags": [
+        "tradition:eastern",
+        "cuisine:chinese",
+        "kind:snack",
+        "region:beijing",
+        "course:dessert",
+        "technique:candy",
+        "occasion:festival",
+        "occasion:temple_fair",
+        "class_marker:common",
+        "role:street_food",
+        "price:penny",
+        "terrain:orchard",
+        "terrain:workshop",
+        "season:winter",
+        "sold_by:street_vendor"
+      ],
+      "summary": "北京冬季街头和庙会的小吃：山楂串在竹签上，外裹一层硬而亮的糖壳。南宋太医用糖山楂治妃子病的说法有争议。",
+      "details": {
+        "definition": "糖葫芦是用竹签串起水果、外裹硬而亮糖壳的小吃，经典用山楂，是北京冬季街头和庙会的象征食品。糖壳一咬即碎，里面水果微酸多汁；现代摊也串草莓、葡萄、猕猴桃、橘瓣、小番茄。",
+        "mechanism": "工序骨架：山楂洗净去核串在签上；糖熬成能结成硬壳的糖浆；把果串蘸糖转动，再迅速放凉使糖壳定型。原理是熬到足够浓度的糖浆冷却后变成玻璃状的薄壳，水果的酸味抵消甜腻。来源页强调动作要快，湿度大时糖壳会发软，干冷天气最适合。本条不写温度和比例。",
+        "conditions": "前提：山楂（北方果树）或其他水果，白糖或冰糖，竹签和凉处。干冷的冬天使糖壳保持硬脆，这是它与北方冬季与庙会相联的原因。",
+        "exceptions": "各地有别名：天津叫糖墩儿，安徽叫糖球，山东叫糖盏儿（来源页作为软名称列出）。与西方裹厚焦糖的糖苹果不同，经典做法追求薄如玻璃的糖膜。反例：湿热天气下糖壳会返潮，这是摊贩常说的问题。",
+        "story_uses": "庙会、灯市上的孩子手里一串红果，是年节背景的标配。写摊贩在雪天里抓紧时间蘸糖，或孩子舔糖壳粘住舌头。故事里它也能代表「小钱买到的节日」。",
+        "historical_scope": "本条限定在北方（以北京为核心）的冬季街头与庙会，近现代为主；南宋太医用糖煮山楂给光宗皇帝的贵妃治病的故事，来源页标为存疑，本项目不采信。",
+        "evidence_and_uncertainty": "来源支持：Chinese Food Wiki 糖葫芦页关于山楂、糖壳、冬季北京、现代水果种类、别名与存疑的宋代故事。本项目归纳：工序概括、故事用法。山楂在本库没有食材条目，因此没有写 related_catalog_ids 指向它。"
+      },
+      "source_ids": [
+        "cuisine_cn_src_36"
+      ],
+      "related_catalog_ids": [
+        "flavors_cane_sugar"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "game": {
+        "schema": "game_fields_v1",
+        "price": {
+          "min": 1,
+          "max": 2,
+          "per": "一串",
+          "tier": "penny"
+        },
+        "terrains": [
+          "orchard",
+          "workshop"
+        ],
+        "seasons": [
+          "winter"
+        ],
+        "keeps": "days",
+        "sold_by": [
+          "street_vendor"
+        ],
+        "note": "估价为游戏设计数值，不是史实价目；"
+      }
+    },
+    {
+      "id": "cuisine_cn_zongzi",
+      "name": "粽子（端午节用叶子包裹的糯米食）",
+      "aliases": [
+        "zongzi",
+        "rice dumpling",
+        "角黍",
+        "粽"
+      ],
+      "category": "item",
+      "tags": [
+        "tradition:eastern",
+        "cuisine:chinese",
+        "kind:dish",
+        "region:south_china",
+        "course:festival_food",
+        "technique:wrap",
+        "technique:steam",
+        "technique:boil",
+        "occasion:festival",
+        "occasion:duanwu",
+        "class_marker:common",
+        "role:festival_food",
+        "price:penny",
+        "terrain:wetland",
+        "terrain:workshop",
+        "season:summer",
+        "sold_by:street_vendor",
+        "sold_by:market",
+        "sold_by:grocer"
+      ],
+      "summary": "端午节（农历五月初五）的节令食：糯米加甜或咸馅，用竹叶、芦苇叶包成三角或金字塔形再蒸煮。屈原投江的故事是通行说法，但学者认为节日更早，且各地纪念的人不同。",
+      "details": {
+        "definition": "粽子是用竹叶、芦苇叶或其他大片叶子把糯米和馅料包裹成形，再蒸或煮熟的食物。传统在端午节（农历五月初五，约在公历五月下旬到六月中旬）食用，常见形状是三角形或金字塔形，馅有枣、豆沙等甜馅，也有咸蛋黄、肉等咸馅。叶子既是容器也给米饭带来清香。",
+        "mechanism": "工序骨架：糯米预先浸泡吸水；叶子洗净处理；叶子卷成漏斗，装入米和馅；折叠包严，用绳扎紧；入锅蒸或长时间煮熟，糯米在叶子里糊化成团，叶香渗入。原理是叶子把米和馅限制在一个小空间里，水热使糯米黏结成块，同时叶子防止散开并带来香味。本条不写浸泡、蒸煮时间与配比。",
+        "conditions": "前提：糯米（稻作地区，见 staples_rice）、大片的叶子（竹叶、芦苇叶多生长在水边和南方）、绳线、可长时间煮的锅和燃料。来源页把产地列为中国南方。节令上落在农历五月初五，夏初稻作和水乡节令之交；Britannica 说端午至少有 1500 年，与祈求稻米丰收的古老生育仪式有关。",
+        "exceptions": "变体：甜粽（枣、豆沙）、咸粽（肉、咸蛋黄）、不同形状和叶子；各地风格差异大。反例：不用叶子包裹的糯米饭团、年糕、汤圆是别的食物。传说上，屈原（约前 339—前 278）投江后人们以粽投江喂鱼是通行说法，但 Britannica 引学者意见认为节日早于屈原传说，UNESCO 条目也说各地纪念的本地英雄不同（如伍子胥等）。",
+        "story_uses": "水乡节庆：龙舟竞渡后的食物、互送亲邻的礼物、驱邪防疫的节令（沐浴、悬挂植物、佩香囊）的一部分。可写一户人家怎样包到半夜、邻里怎样比谁包得紧，也可写商人把粽子当作行船干粮。故事里需要一个节日起源时，可以把「多个相互矛盾的英雄」当作一种有趣的地方差异。",
+        "historical_scope": "本条限定在中国南方稻作地区及华人社群，端午节至少 1500 年（Britannica），2009 年端午节列入联合国教科文组织人类非物质文化遗产代表作名录（UNESCO 条目，正文仅读到开头一段）。具体什么时候开始用叶子包糯米的年代，本次来源未给，本项目不给。屈原是通行说法，不是定论。",
+        "evidence_and_uncertainty": "来源支持：Britannica 端午节条目关于时间、粽子形状与馅料、稻作生育仪式背景、屈原传说；UNESCO 端午条目关于列名与各地不同英雄；Chinese Food Wiki 粽子页关于糯米、叶子、蒸煮、南方产地。Britannica 粽子专条返回 404，已登记 unavailable 且不引用。本项目归纳：工序概括、故事用法。"
+      },
+      "source_ids": [
+        "cuisine_cn_src_37",
+        "cuisine_cn_src_38",
+        "cuisine_cn_src_39"
+      ],
+      "related_catalog_ids": [
+        "staples_rice",
+        "produce_jujube",
+        "animal_food_pork",
+        "animal_food_egg"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "game": {
+        "schema": "game_fields_v1",
+        "price": {
+          "min": 1,
+          "max": 3,
+          "per": "一只",
+          "tier": "penny"
+        },
+        "terrains": [
+          "wetland",
+          "workshop"
+        ],
+        "seasons": [
+          "summer"
+        ],
+        "keeps": "days",
+        "sold_by": [
+          "street_vendor",
+          "market",
+          "grocer"
+        ],
+        "note": "估价为游戏设计数值，不是史实价目；节令食，节日期间出摊，其余时间少见。"
+      }
+    },
+    {
+      "id": "cuisine_cn_mooncake",
+      "name": "月饼（中秋节的浓馅糕点）",
+      "aliases": [
+        "mooncake",
+        "yue bing",
+        "广式月饼",
+        "苏式月饼"
+      ],
+      "category": "item",
+      "tags": [
+        "tradition:eastern",
+        "cuisine:chinese",
+        "kind:pastry",
+        "region:pan_china",
+        "course:festival_food",
+        "technique:bake",
+        "technique:pastry",
+        "occasion:festival",
+        "occasion:mid_autumn",
+        "class_marker:common",
+        "role:gift_food",
+        "trade:baker",
+        "price:groat",
+        "terrain:workshop",
+        "terrain:farmland",
+        "season:autumn",
+        "sold_by:baker",
+        "sold_by:grocer",
+        "sold_by:market"
+      ],
+      "summary": "中秋节（农历八月十五）食用并赠送的浓馅糕点，圆形，切角分食。馅传统用莲蓉，后加咸蛋黄象征月亮。元末起义用月饼传信的故事是传说。",
+      "details": {
+        "definition": "月饼是中秋节传统食用的中国糕点：圆形或方形，薄而微甜的饼皮包着浓厚的馅，传统以莲子蓉为主，常含一颗象征月亮的咸蛋黄。因馅浓，很少整个吃，一般切成角分享。它也是中秋最主要的礼物，送给亲友邻居。",
+        "mechanism": "工序骨架：先做馅（如莲子磨成蓉再炒制）；面皮另调，擀开包馅；入模压出花纹；烘烤上色并刷蛋液。原理是薄皮包住高糖高油的浓馅，烘烤使皮面焦糖化上亮，浓馅给糕点以保存性和分量感。广式以糖浆皮有光泽，苏式以油酥起层。本条不写馅皮比例与炉温。",
+        "conditions": "前提：莲子（见 food_supp_lotus）、糖、油脂、面粉、模具和炉具；时间节令是农历八月十五，与全年最亮的满月重合，是收获节日（Britannica 中秋条目）。馅料今多样，如豆沙、坚果、火腿、榴莲、芋泥，冰皮与冰淇淋月饼是现代品种。",
+        "exceptions": "变体：广式、苏式、滇式、京式等不同皮型；咸甜馅；现代冰皮。反例：西式水果蛋糕、普通酥饼不是月饼；仅在节日期间作为礼盒的商业月饼与家庭手作月饼性质不同。元末起义以月饼藏信的故事，Britannica 用「据称」，Chinese Food Wiki 标为广泛转述的传说，不采信为史实。",
+        "story_uses": "节日礼物与人情往来：礼盒从官员送到商家再送到下人；一个盒子里的月饼从上到下比规格。也可写月圆之夜全家围坐切开一块月饼、分发给远方亲人的场景，是团圆主题的标准道具。传说里的起义传信可当作地方故事，但要标明是传说。",
+        "historical_scope": "本条限定在中国各地及华人社群，中秋节俗；二手年表常把宫廷和民间中秋饼俗放在宋至明的文献里，清代家庭烘焙记载表明习俗已成型（Chinese Food Wiki），这是大致定位，不是发明者定年。",
+        "evidence_and_uncertainty": "来源支持：Britannica 月饼与中秋条目关于馅料、咸蛋黄象征、切角、礼物、元末起义「据称」；Chinese Food Wiki 月饼页关于广式苏式皮型与二手年表。本项目归纳：工序概括、故事用法。清代以前的具体文献没有核对。"
+      },
+      "source_ids": [
+        "cuisine_cn_src_40",
+        "cuisine_cn_src_41",
+        "cuisine_cn_src_42"
+      ],
+      "related_catalog_ids": [
+        "food_supp_lotus",
+        "staples_wheat",
+        "animal_food_egg",
+        "staples_sesame",
+        "flavors_cane_sugar"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "game": {
+        "schema": "game_fields_v1",
+        "price": {
+          "min": 3,
+          "max": 8,
+          "per": "一只",
+          "tier": "groat"
+        },
+        "terrains": [
+          "workshop",
+          "farmland"
+        ],
+        "seasons": [
+          "autumn"
+        ],
+        "keeps": "weeks",
+        "sold_by": [
+          "baker",
+          "grocer",
+          "market"
+        ],
+        "note": "估价为游戏设计数值，不是史实价目；节令礼品，礼盒价按人情档次浮动；保存期按游戏设计取值。"
+      }
+    },
+    {
+      "id": "cuisine_cn_nian_gao",
+      "name": "年糕（春节取「年高」之意的糯米糕）",
+      "aliases": [
+        "nian gao",
+        "niangao",
+        "rice cake",
+        "年年高"
+      ],
+      "category": "item",
+      "tags": [
+        "tradition:eastern",
+        "cuisine:chinese",
+        "kind:snack",
+        "region:pan_china",
+        "course:festival_food",
+        "technique:steam",
+        "occasion:festival",
+        "occasion:new_year",
+        "class_marker:common",
+        "role:festival_food",
+        "price:penny",
+        "terrain:wetland",
+        "terrain:workshop",
+        "season:all_year",
+        "sold_by:market",
+        "sold_by:street_vendor",
+        "sold_by:grocer"
+      ],
+      "summary": "糯米做的糕，全年可吃、春节尤盛，名字谐音「年年高」。灶王爷封口和伍子胥城砖粮的故事都是传说。",
+      "details": {
+        "definition": "年糕是糯米做的糕，全年皆可食，春节期间尤盛。名字的「糕」与「高」谐音，寓意来年更高。口感因糯米比例与做法不同，从软嫩可切到致密有弹性不等，可以蒸后切片再煎，也可以入汤。",
+        "mechanism": "工序骨架：糯米浸泡后磨成粉或蒸熟捣成团；成型为糕；蒸熟冷却定型；切片后可再煎、煮、炒。原理是糯米淀粉糊化后冷却回生变得致密，切片再加热又变软变香。本条不写比例与时间。",
+        "conditions": "前提：糯米（见 staples_rice）、蒸笼或蒸锅、磨具或石臼等加工工具（可对应 tools_mortar_pestle）。春节期间集中制作，是因为春节供人情往来和家庭自用，Britannica 春节条目把年糕列为「年高」的吉利食物。",
+        "exceptions": "变体：甜年糕（红糖、红枣）、咸年糕（炒年糕、汤年糕）、各地形状差别。反例：汤圆、粽子也用糯米，但不是糕；不含糯米的米糕、发糕不是年糕。灶王爷封口、伍子胥城砖粮等故事，Chinese Food Wiki 一律标为传说。",
+        "story_uses": "年关的家务与礼物：腊月里蒸糕，祭灶之后年味才开始；也可写农家用糯米换盐、布，买不起的穷人用杂粮糕充数。年糕是「祝你来年步步高」的最直白的象征，适合写送礼场面。",
+        "historical_scope": "本条限定在中国各地春节节俗，年代上不定。Chinese Food Wiki 说《齐民要术》引更早文献中有以蜂蜜加糯米、竹叶蒸制的糕，可视为祖型提示，而不是现代年糕的定年。",
+        "evidence_and_uncertainty": "来源支持：Britannica 春节条目关于「年高」寓意；Chinese Food Wiki 年糕页关于糯米糕、谐音、《齐民要术》祖型、传说。本项目归纳：工序概括、故事用法。各地年糕的具体做法和起源年代未核对。"
+      },
+      "source_ids": [
+        "cuisine_cn_src_43",
+        "cuisine_cn_src_44"
+      ],
+      "related_catalog_ids": [
+        "staples_rice",
+        "flavors_cane_sugar",
+        "tools_mortar_pestle"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "game": {
+        "schema": "game_fields_v1",
+        "price": {
+          "min": 1,
+          "max": 3,
+          "per": "一块",
+          "tier": "penny"
+        },
+        "terrains": [
+          "wetland",
+          "workshop"
+        ],
+        "seasons": [
+          "all_year"
+        ],
+        "keeps": "weeks",
+        "sold_by": [
+          "market",
+          "street_vendor",
+          "grocer"
+        ],
+        "note": "估价为游戏设计数值，不是史实价目；"
+      }
+    },
+    {
+      "id": "cuisine_cn_tangyuan",
+      "name": "汤圆（元宵节和冬至的糯米粉团甜汤）",
+      "aliases": [
+        "tangyuan",
+        "yuanxiao",
+        "元宵",
+        "汤团",
+        "glutinous rice balls"
+      ],
+      "category": "item",
+      "tags": [
+        "tradition:eastern",
+        "cuisine:chinese",
+        "kind:dish",
+        "region:pan_china",
+        "course:dessert",
+        "technique:boil",
+        "occasion:festival",
+        "occasion:lantern",
+        "occasion:winter_solstice",
+        "class_marker:common",
+        "role:festival_food",
+        "price:penny",
+        "terrain:wetland",
+        "terrain:workshop",
+        "season:winter",
+        "sold_by:street_vendor",
+        "sold_by:market",
+        "sold_by:tavern"
+      ],
+      "summary": "糯米粉团在甜汤里煮，圆形象征团圆，是元宵节和冬至的节令食。北方叫元宵、南方叫汤圆，袁世凯禁名之说是存疑的民间故事。",
+      "details": {
+        "definition": "汤圆是糯米粉团在甜汤或糖水中煮食的小圆团，馅有芝麻、果仁、豆沙等，圆形象征家庭的圆满团结。它是元宵节（农历正月十五，春节的收尾）和冬至的节令食，也出现在婚礼、团聚和日常甜点里。名字谐音「团圆」。",
+        "mechanism": "工序骨架：糯米磨粉加水和成粉团；包入馅料搓圆；入沸水煮到浮起；连汤盛出。原理是糯米粉遇热糊化，皮柔软黏糯，汤水既传热也作为甜汤。北方的元宵常用摇制（馅料在粉里滚大），工序不同，本条不细写。本条不写配比与时间。",
+        "conditions": "前提：糯米粉（见 staples_rice）、馅料（芝麻见 staples_sesame、糖）、锅与水。节令上元宵节是新年后的第一个满月，Britannica 说它可能追溯到汉代佛教僧人正月十五点灯供佛；节日里吃元宵或汤圆是圆形象征团圆。",
+        "exceptions": "变体：甜汤圆、咸汤圆、无馅小汤圆；北方元宵与南方汤圆做法不同；明代北方口语让「元宵」成为食物名，南方多称汤圆（Chinese Food Wiki）。与已有元素 cuisine_dumpling 所述的饺子类不同：汤圆用糯米粉团、整球、水煮甜汤。反例：粽子、年糕也用糯米，但不是汤圆。袁世凯嫌「元宵」谐音「袁消」的故事，来源页标为存疑的民间传说。",
+        "story_uses": "灯会夜里的小摊，一碗热汤圆在冬夜里是最便宜的暖手物；也可写家人团圆时碗里的圆团、远行人在异乡吃不到的一口。「团圆」谐音适合当作台词里的双关。",
+        "historical_scope": "本条限定在中国各地元宵与冬至节俗，大致宋元以后的圆形糯米团食；元宵节的起源在 Britannica 里为「可能追溯到汉代」，是软说法。",
+        "evidence_and_uncertainty": "来源支持：Britannica 元宵节条目关于汤圆是糯米团、圆形象征、汉代起源可能与传说；Chinese Food Wiki 汤圆页关于冬至、谐音、南北名称与袁世凯故事。本项目归纳：与饺子类的区分、工序概括、故事用法。"
+      },
+      "source_ids": [
+        "cuisine_cn_src_45",
+        "cuisine_cn_src_46"
+      ],
+      "related_catalog_ids": [
+        "staples_rice",
+        "staples_sesame",
+        "flavors_cane_sugar",
+        "cuisine_dumpling"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "game": {
+        "schema": "game_fields_v1",
+        "price": {
+          "min": 1,
+          "max": 3,
+          "per": "一碗",
+          "tier": "penny"
+        },
+        "terrains": [
+          "wetland",
+          "workshop"
+        ],
+        "seasons": [
+          "winter"
+        ],
+        "keeps": "hours",
+        "sold_by": [
+          "street_vendor",
+          "market",
+          "tavern"
+        ],
+        "note": "估价为游戏设计数值，不是史实价目；"
+      }
+    }
+  ]
+}

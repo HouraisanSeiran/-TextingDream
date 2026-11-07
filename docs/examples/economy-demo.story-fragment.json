@@ -1,0 +1,50 @@
+{
+  "_说明": "最小可用的商人与集市示例片段。把 mechanics 里的 rewards 与 economy 两块合并进你自己的 story.json 的 mechanics（不要直接改 StoryPackage/玄陆），再把下面 _需要的地点与物品 补进 story 的 locations / items，保存新版本后新建旅程即可生效。未配置 mechanics.economy.merchants 时引擎行为与旧版完全一致。",
+  "_需要的地点与物品": {
+    "locations": [{"id": "market", "name": "河口集市"}],
+    "items": [{"id": "lamp", "name": "黄铜灯"}]
+  },
+  "_讨价还价": "讨价还价需要 mechanics.checks（version 2）已开启；没有开启时买、卖、以物易物照常可用，只是没有「讨价还价」入口。",
+  "mechanics": {
+    "rewards": {
+      "version": 1,
+      "currencies": [
+        {"id": "pence", "name": "便士", "unit": "便士", "maximum": 100000}
+      ],
+      "accounts": [
+        {"id": "smith_purse", "name": "老铁匠的钱袋", "currency": "pence", "initial": 300}
+      ]
+    },
+    "economy": {
+      "currency": "pence",
+      "note": "河口集市每七天开一次，平日只有酒馆与零散摊子。",
+      "market_day": {"every_days": 7, "offset": 0},
+      "polities": {
+        "home": {"customs": 20},
+        "far": {"customs": 0}
+      },
+      "places": {
+        "market": {"polity": "home", "produces": ["wool"], "lacks": ["salt"]}
+      },
+      "merchants": [
+        {
+          "id": "smith",
+          "name": "老铁匠",
+          "location": "market",
+          "account": "smith_purse",
+          "haggle_difficulty": 0.3,
+          "sells": [
+            {"id": "grain", "name": "干麦", "base": 12, "unit": "袋", "resource": "grain", "season_class": "grain", "stock": 5},
+            {"id": "lamp", "name": "黄铜灯", "base": 100, "item": "lamp"},
+            {"id": "ale", "name": "麦酒", "base": 2, "unit": "杯", "always": true},
+            {"id": "spice", "name": "香料", "base": 40, "unit": "包", "origin": "imported", "origin_polity": "far"}
+          ],
+          "buys": [
+            {"id": "wool", "name": "羊毛", "base": 20, "unit": "捆"},
+            {"id": "grain", "name": "干麦", "base": 12, "unit": "袋"}
+          ]
+        }
+      ]
+    }
+  }
+}

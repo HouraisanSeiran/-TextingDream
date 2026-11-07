@@ -1,0 +1,456 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" style="position:absolute">
+<!-- 织梦 · 地图美术资产 · 林下点缀石头（ground rocks）。本工程原创，手绘铜版 + 淡彩，与 map-art.svg 的 tree-* 同一画风。
+     规格：全部符号 viewBox 12×8，地面线 y=7，锚点 = 底边中点 (6,7)。地面投影椭圆可伸到 y≈7.8。
+     尺度：建议与树按「同一 px/viewBox 单位」绘制（树 16 单位宽 → 石头 12 单位宽，即符号框宽 = 树宽 × 0.75）；
+           石头实体约 3–9 单位宽，自然比树冠小。
+     光照：光源西北（左上）。亮面在左上，暗面在右/右下，投影椭圆向东南略偏（cx 比锚点大 0.2–0.8）。
+     描线：外轮廓墨线 #3b2a1e 宽 .8（碎石子 .6），裂纹/层理/阴影排线 .45–.55；圆角接头。
+     色板：墨 #3b2a1e；投影 #b89a6a(.7)；
+           岩石 中 #a59f90 暗 #7b7466 亮 #d3cdbd 缝 #4a4238；板石/露头 中 #b3a78b 暗 #877c64 亮 #ddd1b3；
+           高山岩 中 #8f8879 暗 #645d50 亮 #bbb4a4；雪 #fbf7ee 雪影 #d8dbd6；
+           苔藓 #7f9450 亮 #a9b86e 深 #5e7240 苔边线 #4e6136。
+     命名：rock-{kind}-{n}，n 从 1 起。kind：boulder 圆巨石 / cluster 碎石堆 / flat 板石露头 / mossy 苔石 /
+           scree 碎屑石子 / snowcap 积雪石 / split 劈裂石 / tor 叠石。使用场景与权重见 ground-rocks.json。
+     每个 <symbol> 自包含（无 defs/href/内部 id），可被 app/map_render.py extract_symbols 单独摘取。 -->
+<defs>
+
+<!-- ======================= boulder · 单块圆润巨石 ======================= -->
+<symbol id="rock-boulder-1" viewBox="0 0 12 8"><g stroke="#3b2a1e" stroke-width=".8" stroke-linejoin="round" stroke-linecap="round">
+ <ellipse cx="6.8" cy="7.1" rx="4.6" ry=".75" fill="#b89a6a" stroke="none" opacity=".7"/>
+ <g stroke="none">
+  <path d="M2.2 7 C1.7 5.4 2.3 3.2 4.3 2.5 C5.9 1.9 8.3 2 9.3 3.5 C10.2 4.8 10.3 6.1 9.8 7 Z" fill="#a59f90"/>
+  <path d="M8.2 2.3 C9.6 3.4 10.3 4.9 9.8 7 H6.6 C7.8 5.9 8.6 4.3 8.2 2.3 Z" fill="#7b7466"/>
+  <path d="M2.2 7 C2.8 6.4 4.6 6.2 6.8 6.6 L6.6 7 Z" fill="#7b7466" opacity=".6"/>
+  <path d="M3.2 4.6 C3.4 3.4 4.6 2.7 6 2.7 C4.9 3.3 4.1 4 3.9 5 Z" fill="#d3cdbd"/>
+ </g>
+ <path d="M2.2 7 C1.7 5.4 2.3 3.2 4.3 2.5 C5.9 1.9 8.3 2 9.3 3.5 C10.2 4.8 10.3 6.1 9.8 7 Z" fill="none"/>
+ <path d="M6.3 3 Q6.9 4 6.4 5.1" fill="none" stroke-width=".5"/>
+ <path d="M8.3 6.2 L9.2 5.3" fill="none" stroke-width=".45" opacity=".6"/>
+</g></symbol>
+<symbol id="rock-boulder-2" viewBox="0 0 12 8"><g stroke="#3b2a1e" stroke-width=".8" stroke-linejoin="round" stroke-linecap="round">
+ <ellipse cx="6.9" cy="7.1" rx="5.1" ry=".8" fill="#b89a6a" stroke="none" opacity=".7"/>
+ <g stroke="none">
+  <path d="M1.6 7 C1.2 4.8 2.4 2 4.8 1.4 C7 .9 9.4 1.8 10.2 3.8 C10.8 5.2 10.7 6.3 10.3 7 Z" fill="#a59f90"/>
+  <path d="M8.6 1.5 C10 2.4 10.9 4.6 10.3 7 H6.8 C8.4 5.6 9.2 3.6 8.6 1.5 Z" fill="#7b7466"/>
+  <path d="M1.6 7 C2.4 6.3 4.4 6.1 7 6.5 L6.8 7 Z" fill="#7b7466" opacity=".55"/>
+  <path d="M2.8 4.2 C3 2.8 4.4 1.9 6.2 1.8 C4.8 2.4 3.8 3.4 3.5 4.6 Z" fill="#d3cdbd"/>
+ </g>
+ <path d="M1.6 7 C1.2 4.8 2.4 2 4.8 1.4 C7 .9 9.4 1.8 10.2 3.8 C10.8 5.2 10.7 6.3 10.3 7 Z" fill="none"/>
+ <path d="M5 4.6 Q5.8 5.2 5.4 6.2" fill="none" stroke-width=".5"/>
+ <path d="M8.6 5.2 L9.5 4.5 M8.2 6.3 L9.6 5.3 M9.2 3.6 L9.8 3.2" fill="none" stroke-width=".45" opacity=".6"/>
+</g></symbol>
+<symbol id="rock-boulder-3" viewBox="0 0 12 8"><g stroke="#3b2a1e" stroke-width=".8" stroke-linejoin="round" stroke-linecap="round">
+ <ellipse cx="6.4" cy="7.1" rx="3.4" ry=".6" fill="#b89a6a" stroke="none" opacity=".7"/>
+ <g stroke="none">
+  <path d="M3 7 C2.7 5.9 3.4 4.4 5.2 4 C6.8 3.6 8.4 4.1 8.9 5.3 C9.2 6 9.1 6.6 8.8 7 Z" fill="#a59f90"/>
+  <path d="M7.8 3.9 C8.6 4.4 9.2 5.5 8.8 7 H6.6 C7.6 6.2 8 5.2 7.8 3.9 Z" fill="#7b7466"/>
+  <path d="M3.8 5.6 C4 4.8 4.8 4.3 5.8 4.2 C5 4.7 4.5 5.2 4.4 5.9 Z" fill="#d3cdbd"/>
+ </g>
+ <path d="M3 7 C2.7 5.9 3.4 4.4 5.2 4 C6.8 3.6 8.4 4.1 8.9 5.3 C9.2 6 9.1 6.6 8.8 7 Z" fill="none"/>
+ <path d="M7.6 6.4 L8.3 5.8" fill="none" stroke-width=".45" opacity=".6"/>
+</g></symbol>
+<symbol id="rock-boulder-4" viewBox="0 0 12 8"><g stroke="#3b2a1e" stroke-width=".8" stroke-linejoin="round" stroke-linecap="round">
+ <ellipse cx="6.6" cy="7.1" rx="4.8" ry=".75" fill="#b89a6a" stroke="none" opacity=".7"/>
+ <g stroke="none">
+  <path d="M1.8 7 C1.6 5.6 2 4.2 3.4 3.2 C4.8 2.2 7 1.9 8.4 2.6 C9.8 3.3 10.4 5 10 7 Z" fill="#a59f90"/>
+  <path d="M7.2 2.1 C9.4 2.6 10.6 4.6 10 7 H7.4 C8.2 5.4 8.2 3.6 7.2 2.1 Z" fill="#7b7466"/>
+  <path d="M2.8 5 C3 3.9 4 3 5.4 2.6 C4.5 3.4 3.8 4.2 3.5 5.3 Z" fill="#d3cdbd"/>
+ </g>
+ <path d="M1.8 7 C1.6 5.6 2 4.2 3.4 3.2 C4.8 2.2 7 1.9 8.4 2.6 C9.8 3.3 10.4 5 10 7 Z" fill="none"/>
+ <path d="M5.4 2.3 L5.9 3.6 L5.3 4.6 L5.8 6 M5.3 4.6 L4.6 5.1" fill="none" stroke-width=".5"/>
+ <path d="M8.4 5.6 L9.3 4.8 M8.2 6.6 L9.5 5.8" fill="none" stroke-width=".45" opacity=".6"/>
+</g></symbol>
+
+<!-- ======================= cluster · 两三块碎石堆 ======================= -->
+<symbol id="rock-cluster-1" viewBox="0 0 12 8"><g stroke="#3b2a1e" stroke-width=".8" stroke-linejoin="round" stroke-linecap="round">
+ <ellipse cx="6.6" cy="7.1" rx="5.2" ry=".75" fill="#b89a6a" stroke="none" opacity=".7"/>
+ <g stroke="none">
+  <path d="M1.6 7 C1.3 5.4 2 3.6 3.8 3.1 C5.4 2.7 6.8 3.4 7.1 4.8 C7.3 5.6 7.1 6.4 6.8 7 Z" fill="#a59f90"/>
+  <path d="M6 3.2 C7 3.9 7.4 5.4 6.8 7 H5 C5.9 6 6.3 4.6 6 3.2 Z" fill="#7b7466"/>
+  <path d="M2.5 5 C2.7 4 3.4 3.4 4.4 3.3 C3.6 3.8 3.2 4.4 3.1 5.2 Z" fill="#d3cdbd"/>
+ </g>
+ <path d="M1.6 7 C1.3 5.4 2 3.6 3.8 3.1 C5.4 2.7 6.8 3.4 7.1 4.8 C7.3 5.6 7.1 6.4 6.8 7 Z" fill="none"/>
+ <g stroke="none">
+  <path d="M6.2 7 C6 6 6.6 5 7.8 4.8 C9 4.6 10.2 5.3 10.4 6.2 C10.5 6.6 10.4 6.8 10.2 7 Z" fill="#a59f90"/>
+  <path d="M9.4 4.8 C10.2 5.3 10.6 6.2 10.2 7 H8.6 C9.2 6.4 9.6 5.6 9.4 4.8 Z" fill="#7b7466"/>
+  <path d="M6.8 6.1 C7 5.5 7.6 5.1 8.3 5 C7.8 5.4 7.4 5.8 7.3 6.3 Z" fill="#d3cdbd"/>
+  <path d="M10.6 7 C10.6 6.6 11 6.4 11.4 6.6 L11.5 7 Z" fill="#a59f90"/>
+ </g>
+ <path d="M6.2 7 C6 6 6.6 5 7.8 4.8 C9 4.6 10.2 5.3 10.4 6.2 C10.5 6.6 10.4 6.8 10.2 7 Z" fill="none"/>
+ <path d="M10.6 7 C10.6 6.6 11 6.4 11.4 6.6 L11.5 7 Z" fill="none" stroke-width=".6"/>
+ <path d="M4.4 3.2 L4.7 4.2" fill="none" stroke-width=".5"/>
+</g></symbol>
+<symbol id="rock-cluster-2" viewBox="0 0 12 8"><g stroke="#3b2a1e" stroke-width=".8" stroke-linejoin="round" stroke-linecap="round">
+ <ellipse cx="6.6" cy="7.1" rx="5.4" ry=".75" fill="#b89a6a" stroke="none" opacity=".7"/>
+ <g stroke="none">
+  <path d="M3.6 7 C3.2 5 3.8 2.8 5.6 2.2 C7.2 1.8 8.4 2.9 8.5 4.6 C8.6 5.6 8.4 6.4 8.2 7 Z" fill="#a59f90"/>
+  <path d="M7.4 2 C8.4 2.8 8.8 4.8 8.2 7 H6.8 C7.6 5.6 7.8 3.6 7.4 2 Z" fill="#7b7466"/>
+  <path d="M4.4 4.4 C4.6 3.4 5.2 2.6 6.2 2.4 C5.5 3 5.1 3.8 5 4.6 Z" fill="#d3cdbd"/>
+ </g>
+ <path d="M3.6 7 C3.2 5 3.8 2.8 5.6 2.2 C7.2 1.8 8.4 2.9 8.5 4.6 C8.6 5.6 8.4 6.4 8.2 7 Z" fill="none"/>
+ <g stroke="none">
+  <path d="M1.4 7 C1.3 6.2 1.8 5.4 2.8 5.3 C3.8 5.2 4.6 5.8 4.6 6.6 L4.5 7 Z" fill="#a59f90"/>
+  <path d="M3.9 5.4 C4.6 5.8 4.8 6.5 4.5 7 H3.6 C4 6.5 4.1 5.9 3.9 5.4 Z" fill="#7b7466"/>
+  <path d="M1.9 6.3 C2 5.8 2.4 5.5 3 5.5 C2.6 5.8 2.4 6.1 2.4 6.5 Z" fill="#d3cdbd"/>
+  <path d="M7.2 7 C7.2 6.3 7.8 5.6 9 5.5 C10.2 5.4 11 5.9 11.1 6.5 L11 7 Z" fill="#a59f90"/>
+  <path d="M10.2 5.5 C10.9 5.8 11.2 6.4 11 7 H9.8 C10.3 6.6 10.4 6 10.2 5.5 Z" fill="#7b7466"/>
+  <path d="M7.9 6.4 C8.1 6 8.6 5.7 9.3 5.7 C8.8 6 8.5 6.3 8.4 6.6 Z" fill="#d3cdbd"/>
+ </g>
+ <path d="M1.4 7 C1.3 6.2 1.8 5.4 2.8 5.3 C3.8 5.2 4.6 5.8 4.6 6.6 L4.5 7 Z M7.2 7 C7.2 6.3 7.8 5.6 9 5.5 C10.2 5.4 11 5.9 11.1 6.5 L11 7 Z" fill="none"/>
+ <path d="M6.2 2.5 Q6.6 3.4 6.1 4.2" fill="none" stroke-width=".5"/>
+</g></symbol>
+<symbol id="rock-cluster-3" viewBox="0 0 12 8"><g stroke="#3b2a1e" stroke-width=".8" stroke-linejoin="round" stroke-linecap="round">
+ <ellipse cx="6.6" cy="7.1" rx="5" ry=".75" fill="#b89a6a" stroke="none" opacity=".7"/>
+ <g stroke="none">
+  <path d="M5.4 7 C5 5.2 5.8 3.4 7.6 3 C9.2 2.7 10.4 3.8 10.6 5.2 C10.7 6 10.6 6.6 10.4 7 Z" fill="#a59f90"/>
+  <path d="M9.6 3 C10.5 3.7 10.9 5.3 10.4 7 H8.8 C9.6 5.8 9.9 4.3 9.6 3 Z" fill="#7b7466"/>
+  <path d="M6.2 4.8 C6.4 4 7 3.4 7.8 3.2 C7.2 3.7 6.9 4.2 6.8 5 Z" fill="#d3cdbd"/>
+ </g>
+ <path d="M5.4 7 C5 5.2 5.8 3.4 7.6 3 C9.2 2.7 10.4 3.8 10.6 5.2 C10.7 6 10.6 6.6 10.4 7 Z" fill="none"/>
+ <g stroke="none">
+  <path d="M1.8 7 C1.5 5.8 2.2 4.4 3.8 4.1 C5.2 3.8 6.6 4.6 6.8 5.8 C6.9 6.4 6.8 6.8 6.6 7 Z" fill="#a59f90"/>
+  <path d="M5.8 4.2 C6.6 4.7 7 5.8 6.6 7 H5.2 C5.8 6.2 6 5.2 5.8 4.2 Z" fill="#7b7466"/>
+  <path d="M2.5 5.8 C2.7 5 3.3 4.5 4.1 4.3 C3.5 4.8 3.2 5.3 3.1 5.9 Z" fill="#d3cdbd"/>
+ </g>
+ <path d="M1.8 7 C1.5 5.8 2.2 4.4 3.8 4.1 C5.2 3.8 6.6 4.6 6.8 5.8 C6.9 6.4 6.8 6.8 6.6 7 Z" fill="none"/>
+ <path d="M4.4 4.2 L4.7 5.2 L4.4 5.8" fill="none" stroke-width=".5"/>
+ <path d="M9.4 6.4 L10.1 5.6" fill="none" stroke-width=".45" opacity=".6"/>
+</g></symbol>
+<symbol id="rock-cluster-4" viewBox="0 0 12 8"><g stroke="#3b2a1e" stroke-width=".8" stroke-linejoin="round" stroke-linecap="round">
+ <ellipse cx="6.4" cy="7.1" rx="5.2" ry=".75" fill="#b89a6a" stroke="none" opacity=".7"/>
+ <g stroke="none">
+  <path d="M2.6 7 L3.2 3.6 L5.4 2.2 L7.2 3.4 L7.6 7 Z" fill="#a59f90"/>
+  <path d="M5.4 2.2 L7.2 3.4 L7.6 7 H5.8 L5.6 3.8 Z" fill="#7b7466"/>
+  <path d="M3.2 3.6 L5.4 2.2 L5.6 3.8 L3.6 4.6 Z" fill="#d3cdbd"/>
+ </g>
+ <path d="M2.6 7 L3.2 3.6 L5.4 2.2 L7.2 3.4 L7.6 7 Z" fill="none"/>
+ <path d="M5.4 2.2 L5.6 3.8 L5.8 7 M3.6 4.6 L5.6 3.8" fill="none" stroke-width=".5"/>
+ <g stroke="none">
+  <path d="M1.2 7 L1.8 5.4 L3.4 4.8 L4.6 5.8 L4.6 7 Z" fill="#a59f90"/>
+  <path d="M3.4 4.8 L4.6 5.8 L4.6 7 H3.6 Z" fill="#7b7466"/>
+  <path d="M1.8 5.4 L3.4 4.8 L3.5 5.6 L2 6 Z" fill="#d3cdbd"/>
+  <path d="M6.6 7 L7.2 5.6 L9 4.6 L10.6 5.6 L10.8 7 Z" fill="#a59f90"/>
+  <path d="M9 4.6 L10.6 5.6 L10.8 7 H9.2 Z" fill="#7b7466"/>
+  <path d="M7.2 5.6 L9 4.6 L8.9 5.6 L7.4 6.2 Z" fill="#d3cdbd"/>
+ </g>
+ <path d="M1.2 7 L1.8 5.4 L3.4 4.8 L4.6 5.8 L4.6 7 Z M6.6 7 L7.2 5.6 L9 4.6 L10.6 5.6 L10.8 7 Z" fill="none"/>
+ <path d="M3.4 4.8 L3.6 7 M9 4.6 L9.2 7" fill="none" stroke-width=".5"/>
+</g></symbol>
+
+<!-- ======================= flat · 扁平板石、露头岩 ======================= -->
+<symbol id="rock-flat-1" viewBox="0 0 12 8"><g stroke="#3b2a1e" stroke-width=".8" stroke-linejoin="round" stroke-linecap="round">
+ <ellipse cx="6.6" cy="7.1" rx="5.6" ry=".7" fill="#b89a6a" stroke="none" opacity=".7"/>
+ <g stroke="none">
+  <path d="M1 7 L1.6 5.4 L4 4.4 L9 4.2 L11 5.2 L11.2 7 Z" fill="#b3a78b"/>
+  <path d="M1.6 5.4 L4 4.4 L9 4.2 L11 5.2 L8.6 5.9 L3.4 6 Z" fill="#ddd1b3"/>
+  <path d="M8.6 5.9 L11 5.2 L11.2 7 H8.8 Z" fill="#877c64"/>
+ </g>
+ <path d="M1 7 L1.6 5.4 L4 4.4 L9 4.2 L11 5.2 L11.2 7 Z" fill="none"/>
+ <path d="M1.6 5.4 L3.4 6 L8.6 5.9 L11 5.2 M8.6 5.9 L8.8 7 M5.6 4.4 L6 5.1 L5.7 5.9" fill="none" stroke-width=".5"/>
+</g></symbol>
+<symbol id="rock-flat-2" viewBox="0 0 12 8"><g stroke="#3b2a1e" stroke-width=".8" stroke-linejoin="round" stroke-linecap="round">
+ <ellipse cx="6.8" cy="7.1" rx="5.4" ry=".7" fill="#b89a6a" stroke="none" opacity=".7"/>
+ <g stroke="none">
+  <path d="M1.2 7 L2 5.6 L5.2 4 L8.8 2.6 L10.6 3.2 L11 7 Z" fill="#b3a78b"/>
+  <path d="M2 5.6 L5.2 4 L8.8 2.6 L10.6 3.2 L9.2 3.8 L5.6 5 L2.6 6.2 Z" fill="#ddd1b3"/>
+  <path d="M9.2 3.8 L10.6 3.2 L11 7 H9.6 Z" fill="#877c64"/>
+ </g>
+ <path d="M1.2 7 L2 5.6 L5.2 4 L8.8 2.6 L10.6 3.2 L11 7 Z" fill="none"/>
+ <path d="M2 5.6 L2.6 6.2 L5.6 5 L9.2 3.8 L10.6 3.2 M9.2 3.8 L9.6 7" fill="none" stroke-width=".5"/>
+ <path d="M3.8 6.7 L6.2 5.8 L9.3 4.9 M6.8 6.7 L9.4 6" fill="none" stroke-width=".45" opacity=".7"/>
+</g></symbol>
+<symbol id="rock-flat-3" viewBox="0 0 12 8"><g stroke="#3b2a1e" stroke-width=".8" stroke-linejoin="round" stroke-linecap="round">
+ <ellipse cx="6.6" cy="7.1" rx="5.6" ry=".7" fill="#b89a6a" stroke="none" opacity=".7"/>
+ <g stroke="none">
+  <path d="M1 7 L1.4 5.8 L6 5.2 L11 5.6 L11.2 7 Z" fill="#b3a78b"/>
+  <path d="M1.4 5.8 L6 5.2 L11 5.6 L9.6 6.1 L2 6.3 Z" fill="#ddd1b3"/>
+  <path d="M9.6 6.1 L11 5.6 L11.2 7 H9.8 Z" fill="#877c64"/>
+ </g>
+ <path d="M1 7 L1.4 5.8 L6 5.2 L11 5.6 L11.2 7 Z" fill="none"/>
+ <path d="M1.4 5.8 L2 6.3 L9.6 6.1 L11 5.6 M9.6 6.1 L9.8 7" fill="none" stroke-width=".5"/>
+ <g stroke="none">
+  <path d="M3 5.7 L3.4 4.2 L5.8 3.4 L8.6 3.6 L9.2 4.6 L9 5.5 Z" fill="#b3a78b"/>
+  <path d="M3.4 4.2 L5.8 3.4 L8.6 3.6 L7.8 4.3 L4 4.6 Z" fill="#ddd1b3"/>
+  <path d="M7.8 4.3 L8.6 3.6 L9.2 4.6 L9 5.5 L7.9 5.5 Z" fill="#877c64"/>
+ </g>
+ <path d="M3 5.7 L3.4 4.2 L5.8 3.4 L8.6 3.6 L9.2 4.6 L9 5.5 Z" fill="none"/>
+ <path d="M3.4 4.2 L4 4.6 L7.8 4.3 L8.6 3.6 M7.8 4.3 L7.9 5.5" fill="none" stroke-width=".5"/>
+</g></symbol>
+<symbol id="rock-flat-4" viewBox="0 0 12 8"><g stroke="#3b2a1e" stroke-width=".8" stroke-linejoin="round" stroke-linecap="round">
+ <ellipse cx="6.4" cy="7.05" rx="5.6" ry=".55" fill="#b89a6a" stroke="none" opacity=".7"/>
+ <g stroke="none">
+  <path d="M.8 7 C1.2 6.2 2.4 5.8 3.6 5.9 L5.4 5.3 C6.8 5 8.6 5.2 9.6 5.7 C10.6 6 11.2 6.5 11.3 7 Z" fill="#b3a78b"/>
+  <path d="M1.6 6.4 C2.4 6 3.2 5.9 3.6 5.9 L5.4 5.3 C6.6 5.1 8 5.2 9 5.5 C7.8 5.7 6 5.8 4.6 6.2 C3.6 6.4 2.4 6.5 1.6 6.4 Z" fill="#ddd1b3"/>
+  <path d="M9 5.5 C10.4 5.9 11.1 6.4 11.3 7 H8.4 C8.9 6.5 9.1 6 9 5.5 Z" fill="#877c64"/>
+ </g>
+ <path d="M.8 7 C1.2 6.2 2.4 5.8 3.6 5.9 L5.4 5.3 C6.8 5 8.6 5.2 9.6 5.7 C10.6 6 11.2 6.5 11.3 7 Z" fill="none"/>
+ <path d="M4.4 5.6 L4.8 6.3 M7 5.2 L7.3 5.9 L7 6.6" fill="none" stroke-width=".5"/>
+</g></symbol>
+
+<!-- ======================= mossy · 长苔藓的林地石 ======================= -->
+<symbol id="rock-mossy-1" viewBox="0 0 12 8"><g stroke="#3b2a1e" stroke-width=".8" stroke-linejoin="round" stroke-linecap="round">
+ <ellipse cx="6.8" cy="7.1" rx="4.6" ry=".75" fill="#b89a6a" stroke="none" opacity=".7"/>
+ <g stroke="none">
+  <path d="M2.2 7 C1.7 5.4 2.3 3.2 4.3 2.5 C5.9 1.9 8.3 2 9.3 3.5 C10.2 4.8 10.3 6.1 9.8 7 Z" fill="#a59f90"/>
+  <path d="M8.2 2.3 C9.6 3.4 10.3 4.9 9.8 7 H6.6 C7.8 5.9 8.6 4.3 8.2 2.3 Z" fill="#7b7466"/>
+  <path d="M2.4 4.6 C2.9 3.2 4.4 2.4 6.2 2.2 C7.6 2.1 8.7 2.6 9.1 3.2 C8.2 3.4 7.4 3.1 6.6 3.4 C5.6 3.7 5 3.4 4.2 4 C3.6 4.4 3.2 4.2 2.4 4.6 Z" fill="#7f9450" opacity=".92"/>
+  <path d="M3.2 3.8 C3.8 3 4.8 2.6 5.8 2.5 C5 2.9 4.4 3.2 4 3.6 Z" fill="#a9b86e"/>
+  <path d="M2 6.2 C2.6 5.8 3.4 5.9 3.8 6.5 L3.9 7 H2.2 Z" fill="#7f9450" opacity=".9"/>
+ </g>
+ <path d="M2.4 4.6 C3.2 4.2 3.6 4.4 4.2 4 C5 3.4 5.6 3.7 6.6 3.4 C7.4 3.1 8.2 3.4 9.1 3.2 M3.4 4.3 L3.5 4.9 M6.1 3.6 L6.2 4.2 M2.2 6.2 C2.8 5.9 3.4 6 3.8 6.5" fill="none" stroke="#4e6136" stroke-width=".4"/>
+ <path d="M2.2 7 C1.7 5.4 2.3 3.2 4.3 2.5 C5.9 1.9 8.3 2 9.3 3.5 C10.2 4.8 10.3 6.1 9.8 7 Z" fill="none"/>
+ <path d="M8.3 6.2 L9.2 5.3" fill="none" stroke-width=".45" opacity=".6"/>
+</g></symbol>
+<symbol id="rock-mossy-2" viewBox="0 0 12 8"><g stroke="#3b2a1e" stroke-width=".8" stroke-linejoin="round" stroke-linecap="round">
+ <ellipse cx="6.6" cy="7.1" rx="5.2" ry=".75" fill="#b89a6a" stroke="none" opacity=".7"/>
+ <g stroke="none">
+  <path d="M1.6 7 C1.4 5.6 2.4 4.2 4.4 3.8 C6.4 3.4 8.8 3.6 9.9 4.8 C10.5 5.5 10.6 6.4 10.3 7 Z" fill="#a59f90"/>
+  <path d="M8.8 3.7 C10 4.3 10.7 5.6 10.3 7 H7.8 C8.8 6 9.2 4.9 8.8 3.7 Z" fill="#7b7466"/>
+  <path d="M1.7 5.8 C2 4.6 3.2 3.9 4.6 3.7 C6.4 3.4 8.6 3.5 9.8 4.6 C9.6 5.2 8.8 5 8.2 5.3 C7.4 5.6 6.8 5.1 6 5.4 C5 5.8 4.6 5.2 3.6 5.6 C2.8 5.9 2.4 5.6 1.7 5.8 Z" fill="#7f9450" opacity=".92"/>
+  <path d="M2.6 4.8 C3.2 4.2 4.2 3.9 5.4 3.8 C4.6 4.1 3.8 4.4 3.4 4.8 Z" fill="#a9b86e"/>
+  <path d="M6.4 3.8 C7.2 3.6 8 3.7 8.6 4 C7.8 4.1 7.1 4.1 6.4 3.8 Z" fill="#a9b86e"/>
+ </g>
+ <path d="M1.7 5.8 C2.4 5.6 2.8 5.9 3.6 5.6 C4.6 5.2 5 5.8 6 5.4 C6.8 5.1 7.4 5.6 8.2 5.3 C8.8 5 9.6 5.2 9.8 4.6 M3.6 5.6 L3.7 6.1 M6 5.4 L6.1 6 M8.2 5.3 L8.3 5.8" fill="none" stroke="#4e6136" stroke-width=".4"/>
+ <path d="M1.6 7 C1.4 5.6 2.4 4.2 4.4 3.8 C6.4 3.4 8.8 3.6 9.9 4.8 C10.5 5.5 10.6 6.4 10.3 7 Z" fill="none"/>
+ <path d="M8.8 6.5 L9.6 5.8" fill="none" stroke-width=".45" opacity=".6"/>
+</g></symbol>
+<symbol id="rock-mossy-3" viewBox="0 0 12 8"><g stroke="#3b2a1e" stroke-width=".8" stroke-linejoin="round" stroke-linecap="round">
+ <ellipse cx="6.4" cy="7.1" rx="5" ry=".75" fill="#b89a6a" stroke="none" opacity=".7"/>
+ <g stroke="none">
+  <path d="M1.8 7 C1.4 5 2 2.8 3.8 2.2 C5.4 1.7 6.8 2.6 7 4.4 C7.2 5.6 7 6.4 6.8 7 Z" fill="#a59f90"/>
+  <path d="M6 2.4 C6.9 3.2 7.3 5 6.8 7 H5.2 C6 5.6 6.3 4 6 2.4 Z" fill="#7b7466"/>
+  <path d="M1.7 4.6 C1.9 3.2 2.8 2.4 3.8 2.2 C5 1.9 6.2 2.3 6.6 3.2 C5.8 3.3 5.2 3 4.6 3.4 C3.8 3.8 3.4 3.5 2.8 4 C2.4 4.4 2.1 4.4 1.7 4.6 Z" fill="#7f9450" opacity=".92"/>
+  <path d="M2.4 3.6 C2.8 2.8 3.4 2.4 4.2 2.3 C3.6 2.7 3.2 3.1 3 3.6 Z" fill="#a9b86e"/>
+  <path d="M1.6 6.2 C2 5.8 2.8 5.9 3.2 6.4 C3.4 6.7 3.2 7 3.2 7 H1.7 Z" fill="#7f9450" opacity=".9"/>
+ </g>
+ <path d="M1.7 4.6 C2.1 4.4 2.4 4.4 2.8 4 C3.4 3.5 3.8 3.8 4.6 3.4 C5.2 3 5.8 3.3 6.6 3.2 M2.8 4 L2.9 4.6 M4.6 3.4 L4.7 4 M1.6 6.2 C2 5.8 2.8 5.9 3.2 6.4" fill="none" stroke="#4e6136" stroke-width=".4"/>
+ <path d="M1.8 7 C1.4 5 2 2.8 3.8 2.2 C5.4 1.7 6.8 2.6 7 4.4 C7.2 5.6 7 6.4 6.8 7 Z" fill="none"/>
+ <g stroke="none">
+  <path d="M6.4 7 C6.3 6.1 7 5.3 8.2 5.2 C9.4 5.1 10.2 5.8 10.3 6.6 L10.2 7 Z" fill="#a59f90"/>
+  <path d="M9.4 5.2 C10.1 5.6 10.4 6.4 10.2 7 H8.9 C9.4 6.5 9.6 5.8 9.4 5.2 Z" fill="#7b7466"/>
+  <path d="M6.5 6.2 C6.8 5.5 7.6 5.2 8.4 5.2 C9.2 5.2 9.8 5.5 10 5.9 C9.4 6 8.9 5.8 8.3 6 C7.6 6.2 7.2 6 6.5 6.2 Z" fill="#7f9450" opacity=".92"/>
+ </g>
+ <path d="M6.5 6.2 C7.2 6 7.6 6.2 8.3 6 C8.9 5.8 9.4 6 10 5.9" fill="none" stroke="#4e6136" stroke-width=".4"/>
+ <path d="M6.4 7 C6.3 6.1 7 5.3 8.2 5.2 C9.4 5.1 10.2 5.8 10.3 6.6 L10.2 7 Z" fill="none"/>
+</g></symbol>
+<symbol id="rock-mossy-4" viewBox="0 0 12 8"><g stroke="#3b2a1e" stroke-width=".8" stroke-linejoin="round" stroke-linecap="round">
+ <ellipse cx="6.6" cy="7.1" rx="5.6" ry=".65" fill="#b89a6a" stroke="none" opacity=".7"/>
+ <g stroke="none">
+  <path d="M1 7 L1.4 5.6 C2.6 4.8 4.4 4.4 6.6 4.4 C8.6 4.4 10.2 4.8 11 5.6 L11.2 7 Z" fill="#a59f90"/>
+  <path d="M1.4 5.6 C2.6 4.8 4.4 4.4 6.6 4.4 C8.6 4.4 10.2 4.8 11 5.6 C9 6 7.4 6.1 5.6 6.1 C3.8 6.1 2.4 5.9 1.4 5.6 Z" fill="#d3cdbd"/>
+  <path d="M9 5.95 L11 5.6 L11.2 7 H9.2 Z" fill="#7b7466"/>
+  <path d="M2 5.4 C2.8 4.9 4 4.7 5 4.8 C4.8 5.3 3.6 5.6 2 5.4 Z" fill="#7f9450" opacity=".92"/>
+  <path d="M6.4 4.6 C7.6 4.5 8.8 4.6 9.6 5 C8.8 5.4 7.4 5.3 6.4 4.6 Z" fill="#7f9450" opacity=".92"/>
+  <path d="M3 5 C3.4 4.9 3.8 4.8 4.2 4.8 C3.9 5 3.5 5.1 3 5 Z" fill="#a9b86e"/>
+  <path d="M1 7 C1.4 6.4 2.4 6.3 3.2 6.6 L3.4 7 Z" fill="#7f9450" opacity=".9"/>
+ </g>
+ <path d="M2 5.4 C3.6 5.6 4.8 5.3 5 4.8 M6.4 4.6 C7.4 5.3 8.8 5.4 9.6 5 M1.2 6.7 C1.8 6.4 2.6 6.4 3.2 6.6" fill="none" stroke="#4e6136" stroke-width=".4"/>
+ <path d="M1 7 L1.4 5.6 C2.6 4.8 4.4 4.4 6.6 4.4 C8.6 4.4 10.2 4.8 11 5.6 L11.2 7 Z" fill="none"/>
+ <path d="M1.4 5.6 C3.8 6.1 7.4 6.1 11 5.6 M9 5.95 L9.2 7" fill="none" stroke-width=".5"/>
+</g></symbol>
+
+<!-- ======================= scree · 碎屑小石子（山脚、林线） ======================= -->
+<symbol id="rock-scree-1" viewBox="0 0 12 8"><g stroke="#3b2a1e" stroke-width=".6" stroke-linejoin="round" stroke-linecap="round">
+ <ellipse cx="6.2" cy="7.05" rx="5.4" ry=".55" fill="#b89a6a" stroke="none" opacity=".6"/>
+ <path d="M4.6 4.8 L5 4.2 L5.6 4.4 L5.4 5 Z" fill="#7b7466"/>
+ <path d="M5.4 5.6 L6 4.4 L7.2 4.2 L7.8 5.2 L7.2 6 L6 6 Z" fill="#a59f90"/>
+ <path d="M8 5.6 L8.8 4.9 L9.8 5.2 L9.9 6 L9 6.2 Z" fill="#d3cdbd"/>
+ <path d="M1.2 7 L1.6 6.2 L2.6 6 L3.1 6.7 L3 7 Z" fill="#a59f90"/>
+ <path d="M3.4 7 L3.8 5.8 L5 5.4 L5.8 6.2 L5.6 7 Z" fill="#d3cdbd"/>
+ <path d="M6 7 L6.4 6.2 L7.6 6 L8.4 6.6 L8.3 7 Z" fill="#7b7466"/>
+ <path d="M8.8 7 L9.2 6.4 L10.2 6.3 L10.8 7 Z" fill="#a59f90"/>
+ <g fill="#3b2a1e" stroke="none" opacity=".6"><circle cx="2.2" cy="5.6" r=".22"/><circle cx="10.7" cy="5.8" r=".22"/><circle cx="11.3" cy="6.8" r=".25"/><circle cx=".7" cy="6.8" r=".22"/></g>
+</g></symbol>
+<symbol id="rock-scree-2" viewBox="0 0 12 8"><g stroke="#3b2a1e" stroke-width=".6" stroke-linejoin="round" stroke-linecap="round">
+ <ellipse cx="5.8" cy="7.05" rx="5.4" ry=".55" fill="#b89a6a" stroke="none" opacity=".6"/>
+ <path d="M2.6 4.9 L3.2 3.8 L4.4 3.6 L4.8 4.6 L3.8 5.4 Z" fill="#d3cdbd"/>
+ <path d="M.8 7 L1.4 5.4 L2.8 4.8 L3.8 5.6 L3.6 7 Z" fill="#a59f90"/>
+ <path d="M5 5.6 L5.6 4.8 L6.6 5 L6.6 5.8 Z" fill="#a59f90"/>
+ <path d="M3.8 7 L4.2 6 L5.4 5.8 L5.8 6.6 L5.6 7 Z" fill="#7b7466"/>
+ <path d="M7.4 5.9 L7.8 5.4 L8.6 5.5 L8.6 6.1 Z" fill="#a59f90"/>
+ <path d="M6 7 L6.4 6.4 L7.4 6.2 L7.8 7 Z" fill="#d3cdbd"/>
+ <path d="M8.4 7 L8.7 6.5 L9.4 6.5 L9.6 7 Z" fill="#7b7466"/>
+ <path d="M9.8 6.4 L10.2 6.1 L10.7 6.3 L10.6 6.7 Z" fill="#a59f90"/>
+ <path d="M1.4 5.4 L2.4 6.6 M3.2 3.8 L3.6 4.8" fill="none" stroke-width=".4"/>
+ <g fill="#3b2a1e" stroke="none" opacity=".6"><circle cx="11.2" cy="6.9" r=".22"/><circle cx="10.2" cy="7" r=".2"/><circle cx="6.9" cy="5.5" r=".2"/><circle cx="9.4" cy="5.9" r=".2"/></g>
+</g></symbol>
+<symbol id="rock-scree-3" viewBox="0 0 12 8"><g stroke="#3b2a1e" stroke-width=".6" stroke-linejoin="round" stroke-linecap="round">
+ <ellipse cx="6.3" cy="7.05" rx="5.4" ry=".45" fill="#b89a6a" stroke="none" opacity=".55"/>
+ <path d="M5.8 5.4 C5.9 5.1 6.3 5 6.6 5.2 C6.7 5.5 6.4 5.7 6.1 5.6 Z" fill="#a59f90"/>
+ <path d="M1 7 C1 6.3 1.6 6 2.2 6.1 C2.8 6.2 3 6.7 2.9 7 Z" fill="#a59f90"/>
+ <path d="M4 6.9 C3.9 6.3 4.4 5.9 5.1 6 C5.6 6.1 5.8 6.6 5.6 6.9 Z" fill="#d3cdbd"/>
+ <path d="M6.6 7 C6.6 6.6 7 6.3 7.5 6.4 C7.9 6.5 8 6.8 7.9 7 Z" fill="#7b7466"/>
+ <path d="M8.8 6.9 C8.7 6.1 9.4 5.7 10.2 5.8 C10.9 5.9 11.2 6.5 11 6.9 Z" fill="#a59f90"/>
+ <path d="M10.4 5.9 C10.8 6.2 10.9 6.6 10.7 6.9" fill="none" stroke-width=".4"/>
+ <g fill="#3b2a1e" stroke="none" opacity=".6"><circle cx="3.3" cy="6.9" r=".22"/><circle cx="8.3" cy="6.2" r=".2"/><circle cx="2.6" cy="5.6" r=".2"/><circle cx="11.4" cy="6.4" r=".2"/></g>
+</g></symbol>
+
+<!-- ======================= snowcap · 顶部积雪（高山/寒带） ======================= -->
+<symbol id="rock-snowcap-1" viewBox="0 0 12 8"><g stroke="#3b2a1e" stroke-width=".8" stroke-linejoin="round" stroke-linecap="round">
+ <ellipse cx="6.8" cy="7.1" rx="4.6" ry=".75" fill="#b89a6a" stroke="none" opacity=".7"/>
+ <g stroke="none">
+  <path d="M2.2 7 C1.7 5.4 2.3 3.2 4.3 2.5 C5.9 1.9 8.3 2 9.3 3.5 C10.2 4.8 10.3 6.1 9.8 7 Z" fill="#8f8879"/>
+  <path d="M8.2 2.3 C9.6 3.4 10.3 4.9 9.8 7 H6.6 C7.8 5.9 8.6 4.3 8.2 2.3 Z" fill="#645d50"/>
+  <path d="M2.3 4.4 C2.8 3.2 4 2.6 5.2 2.3 C6.6 2 8.4 2.2 9.4 3.6 C9 3.9 8.6 3.6 8.2 3.9 C7.6 4.3 7.2 3.7 6.6 4 C6 4.4 5.6 3.9 5 4.2 C4.4 4.6 4 4.1 3.4 4.4 C3 4.6 2.7 4.3 2.3 4.4 Z" fill="#fbf7ee"/>
+  <path d="M7.2 2.2 C8.4 2.4 9 2.9 9.4 3.6 C9 3.9 8.6 3.6 8.2 3.9 C8 3.5 7.8 2.8 7.2 2.2 Z" fill="#d8dbd6"/>
+  <path d="M1.6 7 C2 6.6 2.8 6.5 3.4 6.8 L3.6 7 Z" fill="#fbf7ee"/>
+ </g>
+ <path d="M2.3 4.4 C2.7 4.3 3 4.6 3.4 4.4 C4 4.1 4.4 4.6 5 4.2 C5.6 3.9 6 4.4 6.6 4 C7.2 3.7 7.6 4.3 8.2 3.9 C8.6 3.6 9 3.9 9.4 3.6 M1.6 7 C2 6.6 2.8 6.5 3.4 6.8" fill="none" stroke-width=".45"/>
+ <path d="M2.2 7 C1.7 5.4 2.3 3.2 4.3 2.5 C5.9 1.9 8.3 2 9.3 3.5 C10.2 4.8 10.3 6.1 9.8 7 Z" fill="none"/>
+ <path d="M8.3 6.2 L9.2 5.3 M7.9 5.4 L8.8 4.6" fill="none" stroke-width=".45" opacity=".6"/>
+</g></symbol>
+<symbol id="rock-snowcap-2" viewBox="0 0 12 8"><g stroke="#3b2a1e" stroke-width=".8" stroke-linejoin="round" stroke-linecap="round">
+ <ellipse cx="6.6" cy="7.1" rx="5" ry=".75" fill="#b89a6a" stroke="none" opacity=".7"/>
+ <g stroke="none">
+  <path d="M1.6 7 L2.4 4.6 L4 2.8 L5.4 1.2 L7 2.2 L8.6 3.4 L10.2 5 L10.6 7 Z" fill="#8f8879"/>
+  <path d="M5.4 1.2 L7 2.2 L8.6 3.4 L10.2 5 L10.6 7 H7 L6.6 4.2 Z" fill="#645d50"/>
+  <path d="M2.4 4.6 L4 2.8 L5.4 1.2 L5.2 3 L3.4 4.8 Z" fill="#bbb4a4"/>
+  <path d="M3.6 3.2 L4 2.8 L5.4 1.2 L7 2.2 L7.8 2.8 L7.2 3.1 L6.6 2.7 L6.1 3.4 L5.5 2.8 L4.9 3.5 L4.3 3.1 Z" fill="#fbf7ee"/>
+  <path d="M5.4 1.2 L7 2.2 L7.8 2.8 L7.2 3.1 L6.6 2.7 L6.1 3.4 Z" fill="#d8dbd6"/>
+  <path d="M8.4 4.4 L9.4 4.4 L9.8 4.8 L9.1 4.9 L8.6 4.7 Z M2.6 5.6 L3.6 5.4 L3.9 5.8 L3.1 5.9 Z" fill="#fbf7ee"/>
+ </g>
+ <path d="M3.6 3.2 L4.3 3.1 L4.9 3.5 L5.5 2.8 L6.1 3.4 L6.6 2.7 L7.2 3.1 L7.8 2.8 M8.6 4.7 L9.1 4.9 L9.8 4.8 M3.1 5.9 L3.9 5.8" fill="none" stroke-width=".45"/>
+ <path d="M1.6 7 L2.4 4.6 L4 2.8 L5.4 1.2 L7 2.2 L8.6 3.4 L10.2 5 L10.6 7 Z" fill="none"/>
+ <path d="M6.1 3.4 L6.6 4.2 L7 7" fill="none" stroke-width=".5"/>
+ <path d="M7.8 5.6 L8.9 4.9 M7.9 6.6 L9.8 5.5" fill="none" stroke-width=".45" opacity=".6"/>
+</g></symbol>
+<symbol id="rock-snowcap-3" viewBox="0 0 12 8"><g stroke="#3b2a1e" stroke-width=".8" stroke-linejoin="round" stroke-linecap="round">
+ <ellipse cx="6.4" cy="7.1" rx="5.2" ry=".6" fill="#b89a6a" stroke="none" opacity=".55"/>
+ <g stroke="none">
+  <path d="M2.6 6.2 C2.6 4.8 3.6 3.6 5.4 3.4 C7.2 3.2 8.8 4.2 9.2 5.6 L9.2 6.2 Z" fill="#8f8879"/>
+  <path d="M8 3.6 C8.8 4.2 9.2 5 9.2 6.2 H7.4 C8.2 5.4 8.3 4.6 8 3.6 Z" fill="#645d50"/>
+ </g>
+ <path d="M2.6 6.2 C2.6 4.8 3.6 3.6 5.4 3.4 C7.2 3.2 8.8 4.2 9.2 5.6 L9.2 6.2" fill="none"/>
+ <g stroke="none">
+  <path d="M2.8 5.2 C3 4.2 4 3.5 5.4 3.4 C6.8 3.3 8 3.8 8.6 4.6 C8.2 4.8 7.8 4.5 7.3 4.8 C6.8 5.1 6.3 4.6 5.8 4.9 C5.2 5.3 4.8 4.8 4.2 5.1 C3.6 5.4 3.3 5.1 2.8 5.2 Z" fill="#fbf7ee"/>
+  <path d="M.8 7 C1.4 6.2 2.8 5.8 4.4 6.1 C5.6 6.3 6.8 6 8 5.9 C9.6 5.8 10.8 6.3 11.4 7 Z" fill="#fbf7ee"/>
+  <path d="M5 6.4 C6.4 6.6 8 6.4 9.4 6.4 C8.6 6.7 6.6 6.8 5 6.4 Z" fill="#d8dbd6"/>
+ </g>
+ <path d="M2.8 5.2 C3.3 5.1 3.6 5.4 4.2 5.1 C4.8 4.8 5.2 5.3 5.8 4.9 C6.3 4.6 6.8 5.1 7.3 4.8 C7.8 4.5 8.2 4.8 8.6 4.6" fill="none" stroke-width=".45"/>
+ <path d="M.8 7 C1.4 6.2 2.8 5.8 4.4 6.1 C5.6 6.3 6.8 6 8 5.9 C9.6 5.8 10.8 6.3 11.4 7" fill="none" stroke-width=".55"/>
+</g></symbol>
+<symbol id="rock-snowcap-4" viewBox="0 0 12 8"><g stroke="#3b2a1e" stroke-width=".8" stroke-linejoin="round" stroke-linecap="round">
+ <ellipse cx="6.6" cy="7.1" rx="5.2" ry=".75" fill="#b89a6a" stroke="none" opacity=".7"/>
+ <g stroke="none">
+  <path d="M1.6 7 C1.3 5.4 2 3.6 3.8 3.1 C5.4 2.7 6.8 3.4 7.1 4.8 C7.3 5.6 7.1 6.4 6.8 7 Z" fill="#8f8879"/>
+  <path d="M6 3.2 C7 3.9 7.4 5.4 6.8 7 H5 C5.9 6 6.3 4.6 6 3.2 Z" fill="#645d50"/>
+  <path d="M1.6 5 C1.9 3.8 2.8 3.2 3.8 3.1 C5.2 2.8 6.6 3.4 7 4.4 C6.6 4.6 6.2 4.3 5.8 4.6 C5.3 4.9 5 4.4 4.4 4.7 C3.8 5 3.4 4.6 2.8 4.9 C2.3 5.1 2 4.9 1.6 5 Z" fill="#fbf7ee"/>
+  <path d="M5.4 3 C6.2 3.3 6.8 3.8 7 4.4 C6.6 4.6 6.2 4.3 5.8 4.6 C5.8 4 5.7 3.5 5.4 3 Z" fill="#d8dbd6"/>
+ </g>
+ <path d="M1.6 5 C2 4.9 2.3 5.1 2.8 4.9 C3.4 4.6 3.8 5 4.4 4.7 C5 4.4 5.3 4.9 5.8 4.6 C6.2 4.3 6.6 4.6 7 4.4" fill="none" stroke-width=".45"/>
+ <path d="M1.6 7 C1.3 5.4 2 3.6 3.8 3.1 C5.4 2.7 6.8 3.4 7.1 4.8 C7.3 5.6 7.1 6.4 6.8 7 Z" fill="none"/>
+ <g stroke="none">
+  <path d="M6.2 7 C6 6 6.6 5 7.8 4.8 C9 4.6 10.2 5.3 10.4 6.2 C10.5 6.6 10.4 6.8 10.2 7 Z" fill="#8f8879"/>
+  <path d="M9.4 4.8 C10.2 5.3 10.6 6.2 10.2 7 H8.6 C9.2 6.4 9.6 5.6 9.4 4.8 Z" fill="#645d50"/>
+  <path d="M6.3 6.1 C6.6 5.3 7.2 4.9 7.8 4.8 C8.8 4.6 9.9 5 10.3 5.8 C9.9 6 9.6 5.8 9.2 6 C8.8 6.2 8.4 5.9 8 6.1 C7.6 6.3 7.2 6 6.8 6.2 C6.6 6.3 6.4 6.2 6.3 6.1 Z" fill="#fbf7ee"/>
+  <path d="M10.6 7 C10.8 6.6 11.3 6.5 11.6 6.8 L11.6 7 Z" fill="#fbf7ee"/>
+ </g>
+ <path d="M6.3 6.1 C6.4 6.2 6.6 6.3 6.8 6.2 C7.2 6 7.6 6.3 8 6.1 C8.4 5.9 8.8 6.2 9.2 6 C9.6 5.8 9.9 6 10.3 5.8" fill="none" stroke-width=".45"/>
+ <path d="M6.2 7 C6 6 6.6 5 7.8 4.8 C9 4.6 10.2 5.3 10.4 6.2 C10.5 6.6 10.4 6.8 10.2 7 Z" fill="none"/>
+</g></symbol>
+
+<!-- ======================= split · 劈裂石（林地点题：缝里生苗/蕨） ======================= -->
+<symbol id="rock-split-1" viewBox="0 0 12 8"><g stroke="#3b2a1e" stroke-width=".8" stroke-linejoin="round" stroke-linecap="round">
+ <ellipse cx="6.6" cy="7.1" rx="4.8" ry=".75" fill="#b89a6a" stroke="none" opacity=".7"/>
+ <g stroke="none">
+  <path d="M1.6 7 C1.2 5 2.2 2.8 4.4 2.2 C5 2 5.6 2 6 2.1 L5.5 3.5 L5.9 4.9 L5.5 7 Z" fill="#a59f90"/>
+  <path d="M6.2 7 L6.6 4.9 L6.2 3.5 L6.7 2.1 C8.4 2.2 9.8 3.2 10.2 4.8 C10.5 5.8 10.4 6.5 10.2 7 Z" fill="#a59f90"/>
+  <path d="M6 2.1 L6.7 2.1 L6.2 3.5 L6.6 4.9 L6.2 7 H5.5 L5.9 4.9 L5.5 3.5 Z" fill="#4a4238"/>
+  <path d="M9 2.6 C9.9 3.4 10.5 4.8 10.2 7 H8.2 C9.2 5.6 9.4 4.2 9 2.6 Z" fill="#7b7466"/>
+  <path d="M5.5 3.5 L5.9 4.9 L5.5 7 H4.9 C5.3 5.8 5.3 4.6 5.5 3.5 Z" fill="#7b7466"/>
+  <path d="M2.6 4.6 C2.8 3.4 3.8 2.6 5 2.4 C4.2 2.9 3.6 3.6 3.3 4.8 Z" fill="#d3cdbd"/>
+  <path d="M6.9 3 C7.4 2.6 8 2.5 8.6 2.6 C8 2.8 7.6 3 7.3 3.4 Z" fill="#d3cdbd"/>
+ </g>
+ <path d="M1.6 7 C1.2 5 2.2 2.8 4.4 2.2 C5 2 5.6 2 6 2.1 L5.5 3.5 L5.9 4.9 L5.5 7 Z M6.2 7 L6.6 4.9 L6.2 3.5 L6.7 2.1 C8.4 2.2 9.8 3.2 10.2 4.8 C10.5 5.8 10.4 6.5 10.2 7 Z" fill="none"/>
+ <path d="M6.35 3 Q6.1 1.8 6.5 .9" fill="none" stroke="#5e7240" stroke-width=".5"/>
+ <path d="M6.45 1.5 C7.3 1 7.9 1.2 8.2 1.5 C7.6 1.9 7 1.9 6.45 1.5 Z M6.25 2.2 C5.6 1.7 5 1.8 4.8 2.05 C5.2 2.4 5.8 2.5 6.25 2.2 Z" fill="#7f9450" stroke="#4e6136" stroke-width=".35"/>
+ <path d="M8.6 6.2 L9.5 5.3" fill="none" stroke-width=".45" opacity=".6"/>
+</g></symbol>
+<symbol id="rock-split-2" viewBox="0 0 12 8"><g stroke="#3b2a1e" stroke-width=".8" stroke-linejoin="round" stroke-linecap="round">
+ <ellipse cx="6.4" cy="7.1" rx="5.2" ry=".75" fill="#b89a6a" stroke="none" opacity=".7"/>
+ <g stroke="none">
+  <path d="M1.2 7 C1 5.4 1.8 3.8 3.4 3.2 C4.2 2.9 5 2.9 5.6 3.1 L5.2 4.6 L5.4 7 Z" fill="#a59f90"/>
+  <path d="M6.4 7 L6.4 5 L6.9 3.2 C8.6 3.1 10.2 3.9 10.7 5.3 C10.9 6 10.8 6.6 10.6 7 Z" fill="#a59f90"/>
+  <path d="M5.6 3.1 L6.9 3.2 L6.4 5 L6.4 7 H5.4 L5.2 4.6 Z" fill="#4a4238"/>
+  <path d="M9.4 3.4 C10.3 4 10.9 5.2 10.6 7 H8.8 C9.6 5.8 9.8 4.6 9.4 3.4 Z" fill="#7b7466"/>
+  <path d="M5.2 4.6 L5.4 7 H4.6 C5 6.2 5 5.4 5.2 4.6 Z" fill="#7b7466"/>
+  <path d="M2 5 C2.2 4.1 2.9 3.5 3.8 3.3 C3.2 3.8 2.8 4.4 2.6 5.2 Z" fill="#d3cdbd"/>
+  <path d="M7.2 4 C7.6 3.6 8.2 3.4 8.8 3.4 C8.2 3.7 7.8 4 7.6 4.4 Z" fill="#d3cdbd"/>
+  <path d="M5.6 7 C5.6 6.6 6 6.4 6.3 6.6 L6.3 7 Z" fill="#a59f90"/>
+ </g>
+ <path d="M1.2 7 C1 5.4 1.8 3.8 3.4 3.2 C4.2 2.9 5 2.9 5.6 3.1 L5.2 4.6 L5.4 7 Z M6.4 7 L6.4 5 L6.9 3.2 C8.6 3.1 10.2 3.9 10.7 5.3 C10.9 6 10.8 6.6 10.6 7 Z" fill="none"/>
+ <path d="M5.6 7 C5.6 6.6 6 6.4 6.3 6.6" fill="none" stroke-width=".5"/>
+ <path d="M9.2 6.2 L10 5.4 M3.2 6.2 L3.4 5.4" fill="none" stroke-width=".45" opacity=".6"/>
+</g></symbol>
+<symbol id="rock-split-3" viewBox="0 0 12 8"><g stroke="#3b2a1e" stroke-width=".8" stroke-linejoin="round" stroke-linecap="round">
+ <ellipse cx="6.8" cy="7.1" rx="5" ry=".8" fill="#b89a6a" stroke="none" opacity=".7"/>
+ <g stroke="none">
+  <path d="M1.6 7 C1.2 4.8 2.4 2 4.8 1.4 C5.6 1.2 6.4 1.2 7 1.3 L6 3.6 L6.6 5.2 L5.8 7 Z" fill="#a59f90"/>
+  <path d="M6.6 7 L7.4 5.2 L6.8 3.6 L7.8 1.4 C9.2 1.8 10.2 3 10.5 4.6 C10.7 5.6 10.6 6.4 10.3 7 Z" fill="#a59f90"/>
+  <path d="M7 1.3 L7.8 1.4 L6.8 3.6 L7.4 5.2 L6.6 7 H5.8 L6.6 5.2 L6 3.6 Z" fill="#4a4238"/>
+  <path d="M9 1.9 C10 2.8 10.7 4.4 10.3 7 H8.6 C9.4 5.6 9.6 3.8 9 1.9 Z" fill="#7b7466"/>
+  <path d="M2.8 4.2 C3 2.8 4.4 1.9 6.2 1.8 C4.8 2.4 3.8 3.4 3.5 4.6 Z" fill="#d3cdbd"/>
+  <path d="M5.9 7 C6 6.4 6.4 6 6.9 6 C7.2 6.3 7 6.8 6.7 7 Z" fill="#7f9450"/>
+ </g>
+ <path d="M1.6 7 C1.2 4.8 2.4 2 4.8 1.4 C5.6 1.2 6.4 1.2 7 1.3 L6 3.6 L6.6 5.2 L5.8 7 Z M6.6 7 L7.4 5.2 L6.8 3.6 L7.8 1.4 C9.2 1.8 10.2 3 10.5 4.6 C10.7 5.6 10.6 6.4 10.3 7 Z" fill="none"/>
+ <path d="M5.9 7 C6 6.4 6.4 6 6.9 6" fill="none" stroke="#4e6136" stroke-width=".4"/>
+ <path d="M6.9 3.6 Q8.1 2.7 8.5 .9 M7.5 3.05 L8.2 3.25 M7.95 2.35 L8.7 2.45 M8.3 1.7 L8.9 1.7 M7.4 2.95 L7.2 2.3 M7.85 2.3 L7.65 1.7 M8.2 1.65 L8 1.15" fill="none" stroke="#5e7240" stroke-width=".42"/>
+ <path d="M4.6 4.4 Q5.2 5 4.9 6" fill="none" stroke-width=".5"/>
+ <path d="M8.8 6.3 L9.8 5.4" fill="none" stroke-width=".45" opacity=".6"/>
+</g></symbol>
+
+<!-- ======================= tor · 叠石（岩丘顶、高地林缘） ======================= -->
+<symbol id="rock-tor-1" viewBox="0 0 12 8"><g stroke="#3b2a1e" stroke-width=".8" stroke-linejoin="round" stroke-linecap="round">
+ <ellipse cx="6.6" cy="7.1" rx="5" ry=".75" fill="#b89a6a" stroke="none" opacity=".7"/>
+ <g stroke="none">
+  <path d="M1.8 7 C1.4 5.8 2 4.6 3.6 4.3 C5.4 4 7.8 4 9.2 4.4 C10.4 4.8 10.6 6.2 10.2 7 Z" fill="#a59f90"/>
+  <path d="M8.6 4.2 C10 4.6 10.7 5.8 10.2 7 H7.8 C8.8 6.2 9 5.2 8.6 4.2 Z" fill="#7b7466"/>
+  <path d="M2.6 5.6 C2.8 4.9 3.4 4.5 4.4 4.4 C3.8 4.8 3.4 5.2 3.2 5.8 Z" fill="#d3cdbd"/>
+  <path d="M3.6 4.6 C5 4.9 6.6 4.9 8 4.6 C7 5.3 4.6 5.3 3.6 4.6 Z" fill="#7b7466" opacity=".8"/>
+ </g>
+ <path d="M1.8 7 C1.4 5.8 2 4.6 3.6 4.3 C5.4 4 7.8 4 9.2 4.4 C10.4 4.8 10.6 6.2 10.2 7 Z" fill="none"/>
+ <path d="M3.2 6.1 C5 6.3 7 6.2 8.6 5.9" fill="none" stroke-width=".45"/>
+ <g stroke="none">
+  <path d="M3.4 4.5 C3.1 3.4 3.6 2.2 5 1.9 C6.4 1.6 7.8 2 8.2 3 C8.5 3.7 8.3 4.2 8 4.5 Z" fill="#a59f90"/>
+  <path d="M7.2 1.8 C8 2.2 8.5 3.4 8 4.5 H6.6 C7.3 3.8 7.5 2.8 7.2 1.8 Z" fill="#7b7466"/>
+  <path d="M4 3.4 C4.2 2.6 4.8 2.1 5.6 2 C5 2.4 4.6 2.9 4.5 3.6 Z" fill="#d3cdbd"/>
+ </g>
+ <path d="M3.4 4.5 C3.1 3.4 3.6 2.2 5 1.9 C6.4 1.6 7.8 2 8.2 3 C8.5 3.7 8.3 4.2 8 4.5 Z" fill="none"/>
+</g></symbol>
+<symbol id="rock-tor-2" viewBox="0 0 12 8"><g stroke="#3b2a1e" stroke-width=".8" stroke-linejoin="round" stroke-linecap="round">
+ <ellipse cx="6.4" cy="7.1" rx="4.6" ry=".7" fill="#b89a6a" stroke="none" opacity=".7"/>
+ <g stroke="none">
+  <path d="M2.2 7 C2 6 2.6 5.2 3.8 5 L8.4 5 C9.6 5.2 10 6.2 9.8 7 Z" fill="#a59f90"/>
+  <path d="M8.4 5 C9.6 5.2 10 6.2 9.8 7 H8 C8.6 6.4 8.8 5.6 8.4 5 Z" fill="#7b7466"/>
+  <path d="M2.8 6.2 C3 5.6 3.4 5.2 4.2 5.1 C3.8 5.4 3.5 5.8 3.4 6.3 Z" fill="#d3cdbd"/>
+  <path d="M3 5 C2.8 4.2 3.4 3.4 4.4 3.3 L7.8 3.2 C8.8 3.4 9 4.4 8.6 5 Z" fill="#a59f90"/>
+  <path d="M7.8 3.2 C8.8 3.4 9 4.4 8.6 5 H7.4 C7.9 4.6 8.1 3.8 7.8 3.2 Z" fill="#7b7466"/>
+  <path d="M3.6 4.4 C3.7 3.9 4.1 3.5 4.8 3.4 C4.4 3.7 4.2 4 4.1 4.5 Z" fill="#d3cdbd"/>
+  <path d="M4 3.3 C3.8 2.4 4.4 1.4 5.6 1.3 C6.8 1.2 7.6 2 7.6 2.8 L7.4 3.3 Z" fill="#a59f90"/>
+  <path d="M6.8 1.3 C7.5 1.7 7.8 2.6 7.4 3.3 H6.4 C6.9 2.8 7 2 6.8 1.3 Z" fill="#7b7466"/>
+  <path d="M4.5 2.6 C4.6 2 5 1.6 5.6 1.5 C5.2 1.8 5 2.2 4.9 2.7 Z" fill="#d3cdbd"/>
+ </g>
+ <path d="M2.2 7 C2 6 2.6 5.2 3.8 5 L8.4 5 C9.6 5.2 10 6.2 9.8 7 Z M3 5 C2.8 4.2 3.4 3.4 4.4 3.3 L7.8 3.2 C8.8 3.4 9 4.4 8.6 5 M4 3.3 C3.8 2.4 4.4 1.4 5.6 1.3 C6.8 1.2 7.6 2 7.6 2.8 L7.4 3.3" fill="none"/>
+ <path d="M8.4 6.4 L9.2 5.7 M7.8 4.6 L8.4 4" fill="none" stroke-width=".45" opacity=".6"/>
+</g></symbol>
+<symbol id="rock-tor-3" viewBox="0 0 12 8"><g stroke="#3b2a1e" stroke-width=".8" stroke-linejoin="round" stroke-linecap="round">
+ <ellipse cx="5.8" cy="7.1" rx="5" ry=".75" fill="#b89a6a" stroke="none" opacity=".7"/>
+ <g stroke="none">
+  <path d="M1 7 C.9 5.6 1.8 4.6 3.4 4.4 C5.4 4.1 7.6 4.3 8.8 5 C9.6 5.5 9.8 6.4 9.6 7 Z" fill="#a59f90"/>
+  <path d="M8 4.5 C9.2 5 9.9 6 9.6 7 H7.4 C8.2 6.2 8.4 5.4 8 4.5 Z" fill="#7b7466"/>
+  <path d="M1.8 5.8 C2 5.1 2.8 4.6 3.8 4.5 C3.1 4.9 2.7 5.3 2.5 5.9 Z" fill="#d3cdbd"/>
+  <path d="M6 4.5 C7 4.95 8.2 4.95 9 4.6 C8.4 5.2 6.8 5.2 6 4.5 Z" fill="#7b7466" opacity=".8"/>
+ </g>
+ <path d="M1 7 C.9 5.6 1.8 4.6 3.4 4.4 C5.4 4.1 7.6 4.3 8.8 5 C9.6 5.5 9.8 6.4 9.6 7 Z" fill="none"/>
+ <path d="M2.6 6.4 C4.4 6.6 6.4 6.5 7.8 6.2" fill="none" stroke-width=".45"/>
+ <g stroke="none">
+  <path d="M5.6 4.4 C5.2 3.4 5.8 2 7.2 1.8 C8.6 1.6 9.8 2.6 9.8 3.6 C9.8 4.2 9.4 4.5 9 4.6 C7.8 4.8 6.4 4.7 5.6 4.4 Z" fill="#a59f90"/>
+  <path d="M8.8 1.9 C9.6 2.4 10 3.4 9.6 4.3 C9.2 4.6 8.6 4.6 8.2 4.7 C8.9 3.8 9.1 2.8 8.8 1.9 Z" fill="#7b7466"/>
+  <path d="M6.1 3.4 C6.2 2.6 6.8 2 7.6 1.9 C7 2.3 6.7 2.8 6.6 3.5 Z" fill="#d3cdbd"/>
+ </g>
+ <path d="M5.6 4.4 C5.2 3.4 5.8 2 7.2 1.8 C8.6 1.6 9.8 2.6 9.8 3.6 C9.8 4.2 9.4 4.5 9 4.6 C7.8 4.8 6.4 4.7 5.6 4.4 Z" fill="none"/>
+ <path d="M7.6 2.4 L7.9 3.3" fill="none" stroke-width=".5"/>
+</g></symbol>
+
+</defs>
+</svg>

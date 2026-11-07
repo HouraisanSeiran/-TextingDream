@@ -76,6 +76,8 @@ button:hover { background:#ece9df; }
 #play-map-img[hidden],#play-map-overlay[hidden] { display:none !important; }
 #play-map-img { image-rendering:auto; pointer-events:none; }
 #play-map-overlay { pointer-events:none; overflow:visible; }
+#play-map-fog { position:absolute; left:0; top:0; pointer-events:none; }
+#play-map-fog[hidden] { display:none !important; }
 .play-map-empty { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:min(420px,calc(100% - 48px)); padding:28px 30px; background:#faf9f2f0; border:1px solid #cdd8cc; border-left:3px solid var(--brass); box-shadow:0 14px 42px #253a3022; color:#4b6556; font:14px/1.7 'Segoe UI','Microsoft YaHei',sans-serif; text-align:left; }
 .player-map-foot { z-index:2; display:flex; justify-content:space-between; align-items:center; gap:15px; min-height:34px; padding:6px 18px; background:#f1f3ebdf; color:#677a6b; border-top:1px solid #d6ded2; font-size:11px; }
 .play-map-legend { display:flex; gap:10px; }
@@ -196,6 +198,15 @@ button:hover { background:#ece9df; }
 
 /* 右栏：缩略图 + 场景 + 资源 + 属性 + 本段旅程 */
 #play-left .info-panel { min-width:0; display:flex; flex-direction:column; gap:10px; padding:14px 12px; overflow:auto; background:var(--cv-side); border-left:1px solid var(--cv-line); scrollbar-width:thin; }
+#play-left:not(.has-journey) .info-panel > :not(.mini-map) { display:none; }
+#play-left .mini-map { display:block; width:100%; padding:0; border:1px solid var(--cv-line); border-radius:var(--cv-radius); background:var(--cv-card); overflow:hidden; text-align:left; cursor:pointer; }
+#play-left .mini-map:hover { border-color:var(--cv-accent); box-shadow:0 4px 14px #1f352c1a; }
+#play-left .mini-map-frame { position:relative; display:grid; place-items:center; aspect-ratio:16 / 10; background:#dfe6dc radial-gradient(#7c968260 .7px,transparent .7px) 0 0/14px 14px; overflow:hidden; }
+#play-left .mini-map-frame img { position:absolute; inset:0; width:100%; height:100%; object-fit:fill; }
+#play-left #mini-map-dot { position:absolute; width:10px; height:10px; margin:-5px 0 0 -5px; border:2px solid #fffaf0; border-radius:50%; background:#b56f3f; box-shadow:0 0 0 3px #b56f3f55; }
+#play-left #mini-map-empty { color:var(--cv-muted); font-size:12px; }
+#play-left .mini-map-caption { display:flex; justify-content:space-between; gap:8px; padding:7px 10px; font-size:12px; color:var(--cv-soft); }
+#play-left .mini-map-caption span:first-child { min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; color:var(--cv-ink); font-weight:600; }
 #play-left .info-scene:empty { display:none; }
 #play-left .info-scene { display:flex; flex-direction:column; gap:10px; }
 #play-left .info-scene > [hidden] { display:none; }
@@ -309,6 +320,7 @@ button:hover { background:#ece9df; }
 #topbar .ui-theme-picker select { background:transparent; color:inherit; border:1px solid currentColor; }
 #topbar .ui-theme-picker select option { color:#222; }
 @media (max-width:900px) { #topbar .ui-theme-picker span { display:none; } }
+.play-map-legend .legend-clue { display:inline-block; width:12px; height:12px; border:2px dashed #c9a14a; border-radius:50%; background:rgba(201,161,74,.15); vertical-align:-2px; margin-right:4px; }
 /* 新建对话弹窗 */
 #new-dialog { width:min(460px,calc(100vw - 32px)); padding:0; border-radius:12px; overflow:hidden; }
 #new-dialog form { display:flex; flex-direction:column; gap:14px; padding:22px 24px 18px; }
@@ -323,5 +335,3 @@ button:hover { background:#ece9df; }
 #new-dialog .start-profile:has(input:checked) { border-color:var(--forest); box-shadow:inset 0 0 0 1px var(--forest); }
 #new-dialog .start-profile input { grid-row:span 3; margin-top:3px; }
 #new-dialog .start-profile small,#new-dialog .start-facts { grid-column:2; font-size:12px; color:var(--quiet); }
-
-#play-left:not(.has-journey) .info-panel > * { display:none; }

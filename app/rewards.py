@@ -38,7 +38,8 @@ DERIVATION = ('weight = template.weight or shape.base_weight * material.weight_p
               'value = (shape.base_value * quality.value_percent // 100) * material.value_percent // 100 '
               '+ 已公开附魔的 partial_value * value_percent_per_level * level // 100; '
               'mana_capacity = template.mana_capacity or shape.mana_capacity; '
-              '耐久与魔力容量本版为静态数值，没有损耗、修理或充能；全部为整数运算，无公式求值器')
+               '耐久与魔力容量本版为静态数值，没有损耗、修理或充能；全部为整数运算，无公式求值器；'
+               '重量单位为克（公制），显示时满 1000 克换算为千克')
 
 
 class Strict(BaseModel):
@@ -78,7 +79,7 @@ class Shape(Strict):
     name: str = Field(min_length=1, max_length=40)
     base_damage: int = _int(0, 1000)
     base_value: int = _int(0, 1000000)
-    base_weight: int = _int(1, 100000, 1)
+    base_weight: int = _int(1, 100000, 1)        # 克（整数），上限 100 千克
     base_durability: int = _int(0, 100000, 10)
     mana_capacity: int = _int(0, 100000)
 
@@ -118,7 +119,7 @@ class Template(Strict):
     material: str
     shape: str
     quality: str
-    weight: int | None = Field(default=None, ge=1, le=100000, strict=True)
+    weight: int | None = Field(default=None, ge=1, le=100000, strict=True)   # 克（整数）
     durability: int | None = Field(default=None, ge=0, le=100000, strict=True)
     mana_capacity: int | None = Field(default=None, ge=0, le=100000, strict=True)
     enchantments: list[str] = Field(default_factory=list, max_length=4)

@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<title>织梦 · 西式中世纪城堡 · 城镇美术预览</title>
+<style>
+  body { margin: 0; padding: 16px 20px 40px; background: #e8dcbc; color: #4a3826; font: 13px/1.5 "Microsoft YaHei", sans-serif; }
+  h1 { font-size: 20px; margin: 0 0 4px; }
+  h2 { font-size: 16px; margin: 22px 0 8px; border-bottom: 1px solid #b1a287; }
+  .note { color: #6b4f32; margin: 0 0 6px; }
+  #atlas { display: flex; flex-wrap: wrap; gap: 10px; align-items: flex-end; }
+  .card { background: #f3ead2; border: 1px solid #cfc0a2; padding: 4px; display: flex; flex-direction: column; align-items: center; }
+  .cap { font-size: 11px; max-width: 200px; text-align: center; word-break: break-all; }
+  #castle svg { display: block; border: 1px solid #b1a287; }
+  #status { white-space: pre-wrap; font-family: Consolas, monospace; font-size: 12px; }
+</style>
+</head>
+<body>
+<h1>西式中世纪城堡（west-castle）</h1>
+<p class="note">3/4 斜俯视，地面格 48 px，光从左上。图册里虚线是占地格，红点是锚点（占地前沿中点）。所有图形都由 *.js 现场生成，与 node build.js 生成的 sprite.svg 同源。</p>
+
+<h2>示范城堡（双网格真实拼接）</h2>
+<p class="note">护城河一圈 + 南面放下的吊桥、东面收起的吊桥 + 两座城门楼 + 四角塔楼 + 幕墙；内院放两座主楼、大厅、厨房、礼拜堂、兵营、井、粮仓、马厩、铁匠棚。城外民居来自 west-base（存在时才拼）。</p>
+<div id="castle"></div>
+<div id="status"></div>
+
+<h2>图册</h2>
+<div id="atlas"></div>
+
+<div id="sprites"></div>
+
+<script src="core.js"></script>
+<script src="walls.js"></script>
+<script src="keep.js"></script>
+<script src="towers.js" onerror="void 0"></script>
+<script src="annex.js" onerror="void 0"></script>
+<script src="west-castle.js"></script>
+<script src="preview.js"></script>
+<!-- 复用子代理①的民居：只读引用，文件不存在时跳过 -->
+<script src="../west-base/common.js" onerror="void 0"></script>
+<script src="../west-base/houses-a.js" onerror="void 0"></script>
+<script src="../west-base/houses-b.js" onerror="void 0"></script>
+<script src="../west-base/houses-c.js" onerror="void 0"></script>
+<script src="../west-base/tiles.js" onerror="void 0"></script>
+<script src="../west-base/west-base.js" onerror="void 0"></script>
+<script>
+(function () {
+  var WC = window.TownArt_westCastle, PV = window.TownArtWC_preview;
+  var list = WC.entries(), meta = WC.meta(list), byId = {};
+  meta.forEach(function (m) { byId[m.id] = m; });
+  var html = WC.sprite(list), wbNote = 'west-base：未找到，城外民居已跳过';
+  var WB = window.TownArt_westBase;
+  if (WB && WB.houses) {
+    try {
+      var hs = WB.houses().concat(WB.tiles ? WB.tiles() : []);
+      html += WB.spriteSVG(hs);
+      hs.forEach(function (s) { byId[s.id] = s.meta || { id: s.id, viewBox: s.viewBox, footprint: [1, 1] }; });
+      wbNote = 'west-base：已引用 ' + hs.length + ' 个 symbol（民居 + 土路）';
+    } catch (e) { wbNote = 'west-base：加载失败，已跳过（' + e.message + '）'; }
+  }
+  document.getElementById('sprites').innerHTML = html;
+  var r = PV.renderCastle(document.getElementById('castle'), byId);
+  var st = '本目录 symbol ' + list.length + ' 个；' + wbNote + '\n示范城堡：地面瓦片 ' + r.counts.ground + ' 张，排序绘制 ' + r.counts.sorted + ' 件';
+  if (r.missing.length) st += '\n缺少 symbol（尚未画）：' + r.missing.join(', ');
+  document.getElementById('status').textContent = st;
+  window.__WC_STATUS = { symbols: list.length, missing: r.missing, wb: wbNote, counts: r.counts };
+  PV.renderAtlas(document.getElementById('atlas'), meta.filter(function (m) { return !/-0000$/.test(m.id); }), 1);
+})();
+</script>
+</body>
+</html>

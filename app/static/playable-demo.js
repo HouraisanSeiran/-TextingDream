@@ -18,6 +18,8 @@
   let confirmRequest = 0;
   let lastCheck = null;
   let lastCheckSession = null;
+  // 「会话 id:check_seq」。服务端给每条新检定一个单调递增序号，有序号时只看它。
+  let lastCheckSeq = null;
   // Set only while a confirmed action that carries a v2 check is in flight, so a
   // new roll that happens to equal the previous one still animates once.
   let expectCheck = false;
@@ -29,57 +31,106 @@
 
   function positionCheckOverlay() {
     if (!checkOverlay || !checkOverlay.open) return;
-    const anchor = byId('story-text') || byId('play-left');
-    if (!anchor) return;
-    const scroller = byId('surface') || anchor;
-    const rect = scroller.getBoundingClientRect();
+    const anchor = byId('play-left-head');
+    const drawer = byId('play-left');
+    if (!anchor || !drawer || drawer.classList.contains('is-collapsed') || !current) {
+      closeCheckOverlay();
+      return;
+    }
+    const rect = anchor.getBoundingClientRect();
     const width = Math.min(380, Math.max(240, rect.width - 24), innerWidth - 24);
-    const left = Math.max(12, Math.min(rect.left + rect.width / 2 - width / 2, innerWidth - width - 12));
+    const left = Math.max(12, Math.min(rect.left + 12, innerWidth - width - 12));
     const composer = byId('chat-form');
     const inputTop = composer && !composer.hidden ? composer.getBoundingClientRect().top : innerHeight;
-    const desiredTop = Math.max(12, rect.top + 12);
+    const desiredTop = Math.max(12, rect.bottom + 8);
     const top = Math.min(desiredTop, Math.max(12, innerHeight - 220));
     checkOverlay.style.width = width + 'px';
     checkOverlay.style.left = left + 'px';
     checkOverlay.style.top = top + 'px';
     checkOverlay.style.maxHeight = Math.max(160, Math.min(innerHeight - top - 12,
       inputTop > top + 160 ? inputTop - top - 8 : innerHeight - top - 100)) + 'px';
-    checkOverlay.dataset.anchor = 'surface';
+    checkOverlay.dataset.anchor = 'play-left-head';
   }
 
   function closeCheckOverlay() {
+    byId('dice-toggle')?.setAttribute('aria-expanded', 'false');
     if (!checkOverlay) return;
     const host = checkOverlay.querySelector('.dice-overlay-result');
     if (host && window.TDDice) window.TDDice.stop(host);
     if (checkOverlay.open) checkOverlay.close();
   }
 
-  function showCheckOverlay(check) {
+  function currentCheck() {
+    return current && (current.last_check || current.check_public
+      || (current.result && (current.result.last_check || current.result.check_public)));
+  }
+
+  function syncDiceButton() {
+    const button = byId('dice-toggle');
+    if (!button) return;
+    button.disabled = !current;
+    button.setAttribute('aria-expanded', String(Boolean(checkOverlay && checkOverlay.open)));
+    if (!current) closeCheckOverlay();
+  }
+
+  function showCheckOverlay(check, animate = false) {
+    if (!current || byId('play-left')?.classList.contains('is-collapsed')) return;
     // Never cover an unsubmitted author/player confirmation dialog.
     if (document.querySelector('dialog[open]:not(#demo-dice-overlay)')) return;
+    closeFoldPanel();
     if (!checkOverlay) {
       checkOverlay = el('dialog', undefined, 'dice-overlay');
       checkOverlay.id = 'demo-dice-overlay';
       checkOverlay.setAttribute('aria-labelledby', 'demo-dice-overlay-title');
       const head = el('div', undefined, 'dice-overlay-head');
-      const title = el('strong', '判定结果');
+      const title = el('strong', '骰子');
       title.id = 'demo-dice-overlay-title';
       const close = el('button', '×', 'dice-overlay-close');
       close.type = 'button'; close.title = '关闭判定结果';
       close.setAttribute('aria-label', '关闭判定结果');
       close.addEventListener('click', closeCheckOverlay);
       head.append(title, close);
-      checkOverlay.append(head, el('div', undefined, 'dice-overlay-result'));
+      const footer = el('div', undefined, 'dice-panel-tools');
+      const replay = el('button', '重放动画');
+      replay.id = 'dice-replay'; replay.type = 'button';
+      replay.addEventListener('click', () => {
+        const latest = currentCheck();
+        if (latest) showCheckOverlay(latest, true);
+      });
+      const sandbox = el('a', '自由沙盘（试投不影响剧情）');
+      sandbox.href = '/static/dice-physics-demo.html';
+      sandbox.target = '_blank'; sandbox.rel = 'noopener';
+      // Material: browser-local view preference, never sent to the server.
+      const matLabel = el('label', undefined, 'dice-material');
+      const matSelect = el('select');
+      matSelect.id = 'dice-material';
+      matSelect.setAttribute('aria-label', '骰子材质');
+      const core = window.TDDiceCore;
+      Object.entries((core && core.MATERIALS) || {}).forEach(([id, row]) => {
+        const option = el('option', row.label);
+        option.value = id;
+        matSelect.append(option);
+      });
+      if (core) matSelect.value = core.material();
+      matSelect.addEventListener('change', () => {
+        if (core) core.setMaterial(matSelect.value);
+        const latest = currentCheck();
+        if (latest) showCheckOverlay(latest, false);
+      });
+      matLabel.append(document.createTextNode('材质 '), matSelect);
+      footer.append(replay, matLabel, sandbox);
+      checkOverlay.append(head, el('div', undefined, 'dice-overlay-result'), footer);
       checkOverlay.addEventListener('keydown', (event) => {
         if (event.key === 'Escape') { event.preventDefault(); closeCheckOverlay(); }
       });
       checkOverlay.addEventListener('close', () => {
         if (checkOverlay.open) return;
+        byId('dice-toggle')?.setAttribute('aria-expanded', 'false');
         window.TDDice.stop(checkOverlay.querySelector('.dice-overlay-result'));
         if (overlayFocus && overlayFocus.isConnected) overlayFocus.focus({ preventScroll: true });
       });
       document.body.append(checkOverlay);
-      const anchor = byId('surface') || byId('play-left');
+      const anchor = byId('play-left-head');
       if (anchor && window.ResizeObserver) {
         overlayResize = new ResizeObserver(positionCheckOverlay);
         overlayResize.observe(anchor);
@@ -96,8 +147,16 @@
       overlayFocus = document.activeElement;
       checkOverlay.show();
     }
+    const host = checkOverlay.querySelector('.dice-overlay-result');
+    window.TDDice.stop(host);
+    if (check) window.TDDice.roll(host, check, { mode: 'spin', animate });
+    else {
+      host.className = 'dice-overlay-result';
+      host.replaceChildren(el('p', '尚无检定。完成一次检定后，可在这里查看结果。', 'muted'));
+    }
+    byId('dice-replay').disabled = !check || check.rolled !== true;
+    syncDiceButton();
     positionCheckOverlay();
-    window.TDDice.roll(checkOverlay.querySelector('.dice-overlay-result'), check, { mode: 'spin' });
     checkOverlay.querySelector('button').focus({ preventScroll: true });
   }
 
@@ -271,6 +330,8 @@
       });
       if (sessionEpoch !== epoch || !current || current.id !== sessionId) return;
       expectCheck = Boolean(action.check && action.check.v2);
+      // 确保这份响应被当作「本页刚提交的结果」（api 包装失败时也成立）。
+      freshResponses.add(response);
       current = response;
       const intent = byId('demo-intent-text');
       if (intent) intent.value = '';
@@ -487,7 +548,9 @@
 
   function drawDemoPanels() {
     const surface = current;
-    if (!surface) { closeCheckOverlay(); return; }
+    syncDiceButton();
+    foldCards = new Map();
+    if (!surface) { closeCheckOverlay(); syncFoldUi(); return; }
     if (byId('close-event')) byId('close-event').hidden = Boolean(surface.short_scene);
     const scene = panel('short-scene', 'demo-card');
     if (scene) {
@@ -517,6 +580,7 @@
         }
       }
     }
+    drawQuests(surface);
     if (window.TDDice) drawChecks(surface);
     const opening = panel('demo-opening', 'demo-card');
     if (opening) {
@@ -602,6 +666,7 @@
         ending.hidden = true;
       }
     }
+    syncFoldUi();
   }
 
   function drawChecks(surface) {
@@ -620,6 +685,7 @@
       }
       clockHost.hidden = false;
       window.TDDice.clocks(clockHost, surface.clocks);
+      decorateClocks(clockHost, surface.clocks);
     } else if (clockHost) clockHost.remove();
     const check = surface.last_check || surface.check_public
       || (surface.result && (surface.result.last_check || surface.result.check_public));
@@ -630,11 +696,32 @@
     if (!check) {
       if (host) host.remove();
       lastCheck = null;
+      lastCheckSeq = null;
       expectCheck = false;
       return;
     }
     if (!host) host = panel('demo-last-check', 'check-result', 'story');
     if (!host) return;
+    // 有 check_seq（服务端为每条新检定盖的单调序号）：序号变了才算新检定，并且只有
+    // 本页成功提交的 chat/move 响应才播动画；刷新、读档、切会话得到的 surface 只静态
+    // 展示。内容相同的两次检定序号不同，所以会播；没产生新检定的确认序号不变，不播。
+    const seq = Number.isInteger(check.check_seq) && check.check_seq > 0 ? check.check_seq : null;
+    if (seq !== null) {
+      const seqKey = surface.id + ':' + seq;
+      const isNew = seqKey !== lastCheckSeq;
+      const animateSeq = !fresh && isNew && freshResponses.has(surface);
+      expectCheck = false;
+      lastCheckSeq = seqKey;
+      if (animateSeq || fresh || isNew || !host.firstChild) {
+        lastCheck = JSON.stringify(check);
+        window.TDDice.roll(host, check, { animate: false });
+        if (animateSeq) showCheckOverlay(check, true);
+        else if (checkOverlay && checkOverlay.open) showCheckOverlay(check, false);
+      }
+      return;
+    }
+    // 旧存档（没有 check_seq）：保留原来的回退逻辑。
+    lastCheckSeq = null;
     // A reload/session switch only shows the stored result statically. The
     // request-local flag is set after a successful confirmed check response;
     // changed fingerprints alone never reopen the floating view.
@@ -644,14 +731,344 @@
     if (animate || fresh || key !== lastCheck || !host.firstChild) {
       lastCheck = key;
       window.TDDice.roll(host, check, { animate: false });
-      if (animate) showCheckOverlay(check);
+      if (animate) showCheckOverlay(check, true);
+      else if (checkOverlay && checkOverlay.open) showCheckOverlay(check, false);
     }
+  }
+
+  // ------------------------------------------------ 局势变化提示（钟阶段 / 揭示 / 开启 / 任务）
+  // 只对**本页成功提交**后的新响应显示：api 包装层把 POST /chat、/move 的响应对象记进
+  // freshResponses；读档（GET）、刷新页面得到的 surface 不在其中，所以不会重复弹出。
+  // 文本全部来自服务端的公开字段，前端不推断、不拼接未公开内容。
+  const freshResponses = new WeakSet();
+  let noticeOwner = null;
+  let noticeItems = [];
+
+  function collectNotices(surface) {
+    const rows = [];
+    (Array.isArray(surface.clock_notices) ? surface.clock_notices : []).forEach((row) => {
+      if (!row || typeof row.text !== 'string' || !row.text.trim()) return;
+      const kind = ['stage', 'reveal', 'enable'].includes(row.kind) ? row.kind : 'stage';
+      const label = typeof row.clock_label === 'string' ? row.clock_label.trim() : '';
+      rows.push({ kind, head: label || '局势', text: row.text.trim() });
+    });
+    (Array.isArray(surface.quest_notices) ? surface.quest_notices : []).forEach((row) => {
+      if (!row || typeof row.title !== 'string' || !row.title.trim()) return;
+      rows.push({ kind: 'quest', head: '新的局势', text: row.title.trim(),
+        summary: typeof row.summary === 'string' ? row.summary.trim() : '' });
+    });
+    return rows;
+  }
+
+  function drawSituation() {
+    const surface = current;
+    if (!surface || typeof surface !== 'object') return;
+    if (surface !== noticeOwner) {
+      noticeOwner = surface;
+      noticeItems = freshResponses.has(surface) ? collectNotices(surface) : [];
+    }
+    let host = byId('demo-situation');
+    if (!noticeItems.length) { if (host) host.remove(); return; }
+    if (!host) {
+      const story = byId('story-text');
+      if (!story || !story.parentNode) return;
+      host = el('div', undefined, 'situation-notice');
+      host.id = 'demo-situation';
+      host.setAttribute('role', 'status');
+      story.parentNode.insertBefore(host, story);
+    }
+    host.replaceChildren();
+    noticeItems.forEach((row) => {
+      const line = el('p', undefined, 'situation-line is-' + row.kind);
+      line.append(el('strong', '局势变化 · ' + row.head + '：'), document.createTextNode(row.text));
+      if (row.summary) line.append(el('small', row.summary, 'situation-summary'));
+      host.append(line);
+    });
+    const close = el('button', '知道了', 'situation-dismiss');
+    close.type = 'button';
+    close.onclick = () => { noticeItems = []; host.remove(); };
+    host.append(close);
+  }
+
+  function trackFreshResponses() {
+    try {
+      if (typeof api !== 'function' || api.tdTracksFresh) return;
+      const originalApi = api;
+      api = async function (path, method) {
+        const result = await originalApi.apply(this, arguments);
+        // 回滚成功：check_seq 随快照回退，回滚后第一次新检定的序号可能等于回滚前页面上记着的那条。
+        // 清掉前端记的「上一条检定」，使回滚后的下一次真实检定一定按新检定处理（回滚响应本身
+        // 不在 freshResponses 里，所以回滚不会播动画；读档/刷新/切会话路径不经过这里）。
+        if (String(method || '').toUpperCase() === 'POST'
+          && /^\/sessions\/[^/?]+\/rollback\/[^/?]+(\?|$)/.test(String(path))
+          && result && typeof result === 'object') {
+          lastCheckSeq = null;
+          lastCheck = null;
+          expectCheck = false;
+        }
+        if (String(method || '').toUpperCase() === 'POST'
+          && /^\/sessions\/[^/?]+\/(chat|move)(\?|$)/.test(String(path))
+          && result && typeof result === 'object') freshResponses.add(result);
+        return result;
+      };
+      api.tdTracksFresh = true;
+    } catch (error) { /* 无法包装时只是不显示提示，不影响玩法 */ }
+  }
+
+  // ------------------------------------------------ 信息栏卡片收起（钟 / 任务）
+  // 纯显示偏好：只写浏览器 localStorage，不写存档、不发请求。按旅程 id 分桶，桶内按卡片 key
+  // （clock:<钟 id> / quest:<任务 id>）记录；被收起的卡片放进聊天栏顶栏的「隐藏」区。
+  const FOLD_KEY = 'td-folded-cards-v1';
+  let foldStore = null;
+  let foldCards = new Map();
+  let foldPanelSession = null;
+
+  function foldData() {
+    if (foldStore) return foldStore;
+    foldStore = {};
+    try {
+      const raw = JSON.parse(localStorage.getItem(FOLD_KEY) || '{}');
+      if (raw && typeof raw === 'object' && !Array.isArray(raw)) foldStore = raw;
+    } catch (error) { /* 存储不可用或内容损坏：当作没有收起过 */ }
+    return foldStore;
+  }
+  function foldSave() {
+    try { localStorage.setItem(FOLD_KEY, JSON.stringify(foldData())); } catch (error) { /* 只是记不住，不影响玩法 */ }
+  }
+  function foldBucket(create) {
+    const sid = current && current.id;
+    if (!sid) return null;
+    const data = foldData();
+    let bucket = data[sid];
+    if (!bucket || typeof bucket !== 'object' || Array.isArray(bucket)) {
+      if (!create) return null;
+      bucket = data[sid] = {};
+    }
+    return bucket;
+  }
+  function foldEntry(key) {
+    const bucket = foldBucket(false);
+    const entry = bucket && bucket[key];
+    return entry && typeof entry === 'object' ? entry : null;
+  }
+  const foldIsFolded = (key) => Boolean(foldEntry(key));
+  function foldRegister(card) { foldCards.set(card.key, card); }
+  function foldFolded() { return [...foldCards.values()].filter((card) => foldIsFolded(card.key)); }
+
+  // 钟的变化签名：进度格数 + 已到达阶段数 + 当前阶段名（全部来自服务端公开字段）。
+  function clockSig(row) {
+    const reached = Array.isArray(row.stages) ? row.stages.filter((s) => s && s.reached === true).length : 0;
+    return [row.filled, reached, typeof row.stage_label === 'string' ? row.stage_label : ''].join('|');
+  }
+  // 被收起的卡片有新变化：只打标记，不自动弹回。
+  function foldNote(key, sig) {
+    const entry = foldEntry(key);
+    if (!entry || typeof sig !== 'string' || sig === '' || entry.sig === sig) return;
+    entry.sig = sig;
+    entry.changed = true;
+    foldSave();
+  }
+  function foldHide(key, sig) {
+    const bucket = foldBucket(true);
+    if (!bucket) return;
+    bucket[key] = { sig: sig || '', changed: false };
+    foldSave();
+    drawDemoPanels();
+    const toggle = byId('hide-toggle');
+    if (toggle && !toggle.disabled) toggle.focus({ preventScroll: true });
+  }
+  function foldRestore(keys) {
+    const bucket = foldBucket(false);
+    if (!bucket) return;
+    keys.forEach((key) => { delete bucket[key]; });
+    if (!Object.keys(bucket).length) delete foldData()[current.id];
+    foldSave();
+    drawDemoPanels();
+  }
+  function foldButton(key, title, sig) {
+    const button = el('button', '收起', 'fold-btn');
+    button.type = 'button';
+    button.title = '收起「' + title + '」，放进顶栏的「隐藏」';
+    button.setAttribute('aria-label', '收起 ' + title);
+    button.addEventListener('click', () => foldHide(key, sig));
+    return button;
+  }
+
+  // 钟：dice.js 把整组钟画进 #demo-clocks，这里只在结果上按序号加标记 / 按钮 / 隐藏。
+  function decorateClocks(host, rows) {
+    const nodes = Array.from(host.children);
+    let shown = 0;
+    rows.forEach((row, index) => {
+      const node = nodes[index];
+      if (!node || !row || row.id == null) { if (node) shown += 1; return; }
+      const key = 'clock:' + row.id;
+      const title = String(row.label || '钟');
+      const sig = clockSig(row);
+      foldRegister({ key, type: 'clock', title });
+      node.dataset.cardKey = key;
+      node.dataset.clockId = String(row.id);
+      if (foldIsFolded(key)) {
+        foldNote(key, sig);
+        node.hidden = true;
+        return;
+      }
+      shown += 1;
+      node.append(foldButton(key, title, sig));
+    });
+    host.hidden = shown === 0;
+  }
+
+  // 任务：surface.quests 是 quests.public_view 的玩家投影 {quests:[{quest_id,title,summary,state,due,missing}]}。
+  const QUEST_STATE = { proposed: '可接', accepted: '已接下', active: '进行中' };
+  function questRows(surface) {
+    const block = surface.quests;
+    const rows = Array.isArray(block) ? block : (block && Array.isArray(block.quests) ? block.quests : []);
+    return rows.filter((row) => row && typeof row === 'object' && typeof row.quest_id === 'string'
+      && typeof row.title === 'string' && row.title.trim());
+  }
+  function drawQuests(surface) {
+    const rows = questRows(surface);
+    const host = rows.length ? panel('demo-quests', 'quest-list') : byId('demo-quests');
+    if (!host) return;
+    host.replaceChildren();
+    let shown = 0;
+    rows.forEach((row) => {
+      const key = 'quest:' + row.quest_id;
+      const title = row.title.trim();
+      foldRegister({ key, type: 'quest', title });
+      if (foldIsFolded(key)) return;
+      shown += 1;
+      const card = el('section', undefined, 'quest-card');
+      card.dataset.cardKey = key;
+      card.dataset.questId = row.quest_id;
+      const head = el('div', undefined, 'quest-head');
+      const name = el('strong', title);
+      head.append(name, foldButton(key, title, ''));
+      card.append(head);
+      const state = QUEST_STATE[row.state];
+      if (state) card.append(el('small', '任务 · ' + state, 'quest-state'));
+      if (typeof row.summary === 'string' && row.summary.trim()) card.append(el('p', row.summary.trim()));
+      if (typeof row.due === 'number' && Number.isFinite(row.due)) card.append(el('p', '期限：游戏时刻 ' + row.due, 'muted'));
+      if (Array.isArray(row.missing) && row.missing.length) {
+        const list = el('ul', undefined, 'quest-missing');
+        row.missing.filter((text) => typeof text === 'string' && text).forEach((text) => list.append(el('li', text)));
+        card.append(list);
+      }
+      host.append(card);
+    });
+    host.hidden = shown === 0;
+  }
+
+  // 顶栏「隐藏」区
+  const isFoldPanelOpen = () => { const p = byId('hidden-cards-panel'); return Boolean(p && !p.hidden); };
+  function closeFoldPanel(focusBack) {
+    const panelNode = byId('hidden-cards-panel');
+    const toggle = byId('hide-toggle');
+    foldPanelSession = null;
+    if (toggle) toggle.setAttribute('aria-expanded', 'false');
+    if (!panelNode || panelNode.hidden) return;
+    panelNode.hidden = true;
+    if (focusBack && toggle && !toggle.disabled) toggle.focus({ preventScroll: true });
+  }
+  function openFoldPanel() {
+    const panelNode = byId('hidden-cards-panel');
+    const toggle = byId('hide-toggle');
+    if (!panelNode || !toggle || toggle.disabled || !current) return;
+    if (byId('play-left')?.classList.contains('is-collapsed')) return;
+    closeCheckOverlay();
+    panelNode.hidden = false;
+    toggle.setAttribute('aria-expanded', 'true');
+    foldPanelSession = current.id;
+    syncFoldUi();
+  }
+  function renderFoldList(list) {
+    const ul = byId('hidden-cards-list');
+    if (!ul) return;
+    ul.replaceChildren();
+    list.forEach((card) => {
+      const entry = foldEntry(card.key) || {};
+      const item = el('li', undefined, 'hidden-card-row');
+      item.dataset.cardKey = card.key;
+      item.append(el('span', card.type === 'quest' ? '任务' : '钟', 'hidden-card-kind'),
+        el('span', card.title, 'hidden-card-title'));
+      if (entry.changed) item.append(el('span', '有变化', 'hidden-card-new'));
+      const restore = el('button', '恢复', 'hidden-card-restore');
+      restore.type = 'button';
+      restore.setAttribute('aria-label', '恢复 ' + card.title + ' 到右侧');
+      restore.addEventListener('click', () => {
+        foldRestore([card.key]);
+        const next = byId('hidden-cards-list')?.querySelector('button');
+        (next || byId('hide-toggle'))?.focus({ preventScroll: true });
+      });
+      item.append(restore);
+      ul.append(item);
+    });
+  }
+  function syncFoldUi() {
+    const toggle = byId('hide-toggle');
+    if (!toggle) return;
+    const list = current ? foldFolded() : [];
+    if (!list.length || !current || (foldPanelSession && foldPanelSession !== current.id)) closeFoldPanel();
+    if (isFoldPanelOpen()) {
+      renderFoldList(list);
+      // 面板正开着就等于看过了：清掉「有变化」标记，下面的提示点随之消失。
+      let cleared = false;
+      list.forEach((card) => {
+        const entry = foldEntry(card.key);
+        if (entry && entry.changed) { entry.changed = false; cleared = true; }
+      });
+      if (cleared) foldSave();
+    }
+    const changed = list.some((card) => (foldEntry(card.key) || {}).changed);
+    const count = byId('hide-count');
+    if (count) count.textContent = String(list.length);
+    const dot = byId('hide-dot');
+    if (dot) dot.hidden = !changed;
+    toggle.disabled = list.length === 0;
+    toggle.setAttribute('aria-label', '隐藏区，' + (list.length
+      ? '已收起 ' + list.length + ' 张卡片' + (changed ? '，有新的变化' : '') : '没有收起的卡片'));
+    toggle.dataset.changed = changed ? 'true' : 'false';
+  }
+  function installFoldArea() {
+    const toggle = byId('hide-toggle');
+    if (!toggle) return;
+    toggle.addEventListener('click', () => { if (isFoldPanelOpen()) closeFoldPanel(true); else openFoldPanel(); });
+    byId('hidden-restore-all')?.addEventListener('click', () => {
+      foldRestore(foldFolded().map((card) => card.key));
+      byId('hide-toggle')?.focus({ preventScroll: true });
+    });
+    // 先于 play-ui 的 Esc（收起整个聊天栏）处理：面板开着时 Esc 只关面板。
+    document.addEventListener('keydown', (event) => {
+      if (event.key !== 'Escape' || !isFoldPanelOpen()) return;
+      event.preventDefault();
+      event.stopPropagation();
+      closeFoldPanel(true);
+    }, true);
+    // 用 pointerdown：点「恢复」后行会被重绘，click 时目标已脱离面板，会被误判成点在外面。
+    document.addEventListener('pointerdown', (event) => {
+      if (!isFoldPanelOpen()) return;
+      const target = event.target;
+      if (target instanceof Node && (byId('hidden-cards-panel').contains(target) || toggle.contains(target))) return;
+      closeFoldPanel(false);
+    }, true);
+    syncFoldUi();
   }
 
   // --------------------------------------------------------------- 装到已有界面上
   function install() {
     if (!byId('new-form') || !byId('actions')) return;
     ensureConfirmDialog();
+    byId('dice-toggle')?.addEventListener('click', () => {
+      if (checkOverlay && checkOverlay.open) closeCheckOverlay();
+      else showCheckOverlay(currentCheck(), false);
+    });
+    syncDiceButton();
+    installFoldArea();
+    const drawer = byId('play-left');
+    if (drawer) new MutationObserver(() => {
+      if (drawer.classList.contains('is-collapsed')) { closeCheckOverlay(); closeFoldPanel(); }
+      else positionCheckOverlay();
+    }).observe(drawer, { attributes: true, attributeFilter: ['class'] });
     ensureIntentBox();
     const inner = byId('inner');
     if (inner && !byId('unmatched-intents')) {
@@ -708,17 +1125,21 @@
     const originalAuthorMode = window.TDEnterAuthorMode;
     if (originalAuthorMode) window.TDEnterAuthorMode = function () {
       sessionEpoch += 1; actionBusy = false; expectCheck = false; closeCheckOverlay();
-      return originalAuthorMode.apply(this, arguments);
+      const result = originalAuthorMode.apply(this, arguments);
+      syncDiceButton();
+      return result;
     };
+    trackFreshResponses();
     const originalRender = render;
     render = function () {
       originalRender.apply(this, arguments);
       decorateActions();
       drawDemoPanels();
+      drawSituation();
     };
 
     drawProfiles();
-    if (current) { decorateActions(); drawDemoPanels(); }
+    if (current) { decorateActions(); drawDemoPanels(); drawSituation(); }
   }
 
   async function loadProfiles() {

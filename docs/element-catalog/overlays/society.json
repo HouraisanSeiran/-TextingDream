@@ -1,0 +1,377 @@
+{
+  "schema": "catalog_overlay_v1",
+  "group": "society",
+  "entries": {
+    "society_palace_court": {
+      "primary": "institution",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "society_estate_assembly": {
+      "primary": "institution",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "society_bureaucratic_merit": {
+      "primary": "institution",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "society_patrimonial_official": {
+      "primary": "institution",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "society_noble_precedence": {
+      "primary": "institution",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "society_knightly_estate": {
+      "primary": "institution",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "society_four_estates": {
+      "primary": "institution",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "society_servile_outcaste": {
+      "primary": "institution",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "society_fief_succession": {
+      "primary": "institution",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "society_manor_labor_rent": {
+      "primary": "economy_trade",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "society_lord_jurisdiction": {
+      "primary": "institution",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "society_land_survey_tax": {
+      "primary": "economy_trade",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "society_corvee_service": {
+      "primary": "economy_trade",
+      "evidence_grade": "mixed",
+      "note": "也可 institution",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "society_tithe_benefice": {
+      "primary": "economy_trade",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "society_market_duty": {
+      "primary": "economy_trade",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "society_lineage_clan": {
+      "primary": "organization",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "society_craft_guild": {
+      "primary": "organization",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "society_merchant_guild": {
+      "primary": "organization",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "society_journeyman_travel": {
+      "primary": "profession",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "society_religious_order": {
+      "primary": "organization",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "society_parish_clergy": {
+      "primary": "organization",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "society_heresy_inquisition": {
+      "primary": "institution",
+      "evidence_grade": "mixed",
+      "note": "条目分类为 conflict，实质是机制",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "society_urban_charter": {
+      "primary": "institution",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "society_city_council": {
+      "primary": "institution",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "society_communal_militia": {
+      "primary": "organization",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "society_coinage_mint": {
+      "primary": "economy_trade",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "society_bill_of_exchange": {
+      "primary": "economy_trade",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "society_deposit_house": {
+      "primary": "economy_trade",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "society_tax_farm": {
+      "primary": "economy_trade",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "society_customary_law": {
+      "primary": "institution",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "society_court_hierarchy": {
+      "primary": "institution",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "society_gentry_notable": {
+      "primary": "organization",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "society_military_household": {
+      "primary": "institution",
+      "evidence_grade": "mixed",
+      "note": "条目分类为 organization，实质是军制",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "society_mercenary_band": {
+      "primary": "organization",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "society_postal_relay": {
+      "primary": "institution",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "society_medieval_university": {
+      "primary": "organization",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "society_private_academy": {
+      "primary": "organization",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "society_charitable_relief": {
+      "primary": "organization",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "society_household_register": {
+      "primary": "institution",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "society_limited_company": {
+      "primary": "organization",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": "steam",
+      "magic_tier": null
+    },
+    "society_corporate_board": {
+      "primary": "organization",
+      "evidence_grade": "mixed",
+      "note": "董事会与职业经理人在工业公司中成形，取 steam 而非 early_modern",
+      "tech_tier": "steam",
+      "magic_tier": null
+    },
+    "society_employment_contract": {
+      "primary": "institution",
+      "evidence_grade": "mixed",
+      "note": "含社保内容偏晚，按工厂雇佣取低一档 steam",
+      "tech_tier": "steam",
+      "magic_tier": null
+    },
+    "society_labor_union": {
+      "primary": "organization",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": "steam",
+      "magic_tier": null
+    },
+    "society_dispatched_labor": {
+      "primary": "economy_trade",
+      "evidence_grade": "mixed",
+      "note": "劳务派遣属二十世纪，平台零工需网络、超出世界档上限，取 early_modern",
+      "tech_tier": "early_modern",
+      "magic_tier": null
+    },
+    "society_social_insurance": {
+      "primary": "institution",
+      "evidence_grade": "mixed",
+      "note": "制度史上德国 1880 年代出现，取低一档 steam",
+      "tech_tier": "steam",
+      "magic_tier": null
+    },
+    "society_compulsory_school": {
+      "primary": "institution",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "society_nuclear_family": {
+      "primary": "organization",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "society_mass_media": {
+      "primary": "organization",
+      "evidence_grade": "mixed",
+      "note": "取最早形态大众报刊 steam；广播、电视、网络属更高档或超出上限",
+      "tech_tier": "steam",
+      "magic_tier": null
+    },
+    "society_police_force": {
+      "primary": "organization",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "society_administrative_service": {
+      "primary": "institution",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "society_healthcare_access": {
+      "primary": "institution",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "society_consumer_credit": {
+      "primary": "economy_trade",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "society_property_owners": {
+      "primary": "organization",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    }
+  }
+}

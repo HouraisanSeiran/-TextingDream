@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><title>玩家地图迷雾预览</title>
+<style>
+ body { margin:0; padding:18px; background:#2a2119; color:#eadcc0; font:14px/1.6 'Segoe UI','Microsoft YaHei',sans-serif; }
+ h1 { font-size:18px; margin:0 0 6px; } p { margin:0 0 14px; color:#bfae8e; }
+ .grid { display:flex; flex-wrap:wrap; gap:18px; }
+ .card h2 { font-size:14px; margin:0 0 6px; font-weight:600; }
+ .wrap { position:relative; width:var(--w,620px); height:var(--h,420px); overflow:hidden; background:#c6baa0; border:1px solid #5a4632; }
+ .wrap img, .wrap svg { position:absolute; display:block; }
+ .wrap canvas { position:absolute; left:0; top:0; }
+ label { margin-right:14px; }
+</style></head>
+<body>
+<h1>玩家地图迷雾预览（独立夹具）</h1>
+<p>底图 = assets/maps/world-hypsometric.png 按经纬度裁切后经服务端揭示白名单处理（圈外为纯色）；
+雾 = /static/map-fog.js 在浏览器里按屏幕分辨率绘制。线索圈与地点标记画在雾上面。</p>
+<div><label><input type="checkbox" id="show-fog" checked> 绘制雾</label><label>缩放 <input type="range" id="zoom" min="1" max="3" step="0.25" value="1"></label></div>
+<div class="grid" id="grid"></div>
+<script src="/static/map-fog.js"></script>
+<script src="/static/map-art/fog-preview.js"></script>
+</body></html>

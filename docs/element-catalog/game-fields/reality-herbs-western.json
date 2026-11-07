@@ -1,0 +1,805 @@
+{
+  "schema": "game_fields_v1",
+  "group": "reality-herbs-western",
+  "entries": {
+    "herb_west_sage": {
+      "price": {
+        "min": 1,
+        "max": 3,
+        "per": "一把",
+        "tier": "penny"
+      },
+      "terrains": [
+        "orchard",
+        "coast"
+      ],
+      "seasons": [
+        "summer"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "herbalist",
+        "market",
+        "apothecary"
+      ],
+      "note": "修道院药圃与家庭园圃常见，按几便士估价"
+    },
+    "herb_west_rosemary": {
+      "price": {
+        "min": 1,
+        "max": 3,
+        "per": "一把",
+        "tier": "penny"
+      },
+      "terrains": [
+        "orchard",
+        "coast"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "herbalist",
+        "market"
+      ],
+      "note": "常绿灌木，全年可剪，按几便士估价"
+    },
+    "herb_west_thyme": {
+      "price": {
+        "min": 1,
+        "max": 3,
+        "per": "一把",
+        "tier": "penny"
+      },
+      "terrains": [
+        "orchard",
+        "coast"
+      ],
+      "seasons": [
+        "summer"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "herbalist",
+        "market",
+        "spice_merchant"
+      ],
+      "note": "常见园圃香草，按几便士估价"
+    },
+    "herb_west_oregano": {
+      "price": {
+        "min": 1,
+        "max": 3,
+        "per": "一把",
+        "tier": "penny"
+      },
+      "terrains": [
+        "orchard",
+        "coast"
+      ],
+      "seasons": [
+        "summer"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "market",
+        "spice_merchant"
+      ],
+      "note": "常见香草，按几便士估价"
+    },
+    "herb_west_basil": {
+      "price": {
+        "min": 1,
+        "max": 3,
+        "per": "一把",
+        "tier": "penny"
+      },
+      "terrains": [
+        "orchard"
+      ],
+      "seasons": [
+        "summer"
+      ],
+      "keeps": "days",
+      "sold_by": [
+        "market",
+        "herbalist"
+      ],
+      "note": "不耐霜且易凋，只在夏季售鲜叶"
+    },
+    "herb_west_chamomile": {
+      "price": {
+        "min": 1,
+        "max": 3,
+        "per": "一包",
+        "tier": "penny"
+      },
+      "terrains": [
+        "farmland",
+        "orchard"
+      ],
+      "seasons": [
+        "summer"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "herbalist",
+        "apothecary",
+        "market"
+      ],
+      "note": "干花包装，按几便士估价"
+    },
+    "herb_west_mint": {
+      "price": {
+        "min": 1,
+        "max": 2,
+        "per": "一把",
+        "tier": "penny"
+      },
+      "terrains": [
+        "orchard",
+        "river"
+      ],
+      "seasons": [
+        "summer"
+      ],
+      "keeps": "weeks",
+      "sold_by": [
+        "market",
+        "herbalist"
+      ],
+      "note": "易扩张的香草，处处可得，价最低"
+    },
+    "herb_west_dill": {
+      "price": {
+        "min": 1,
+        "max": 3,
+        "per": "一把",
+        "tier": "penny"
+      },
+      "terrains": [
+        "orchard",
+        "farmland"
+      ],
+      "seasons": [
+        "summer"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "market",
+        "spice_merchant"
+      ],
+      "note": "叶与籽分开出售，按几便士估价"
+    },
+    "herb_west_parsley": {
+      "price": {
+        "min": 1,
+        "max": 2,
+        "per": "一把",
+        "tier": "penny"
+      },
+      "terrains": [
+        "orchard",
+        "farmland"
+      ],
+      "seasons": [
+        "summer"
+      ],
+      "keeps": "weeks",
+      "sold_by": [
+        "market",
+        "farmer"
+      ],
+      "note": "菜圃最常见的香草，价最低"
+    },
+    "herb_west_bay_laurel": {
+      "price": {
+        "min": 2,
+        "max": 5,
+        "per": "一包",
+        "tier": "groat"
+      },
+      "terrains": [
+        "orchard",
+        "coast"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "spice_merchant",
+        "market"
+      ],
+      "note": "干叶按香料类低档估价"
+    },
+    "herb_west_juniper": {
+      "price": {
+        "min": 2,
+        "max": 6,
+        "per": "一包",
+        "tier": "groat"
+      },
+      "terrains": [
+        "mountain",
+        "temperate_forest"
+      ],
+      "seasons": [
+        "autumn"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "spice_merchant",
+        "apothecary"
+      ],
+      "note": "球果入香料，按低档估价"
+    },
+    "herb_west_lavender": {
+      "price": {
+        "min": 2,
+        "max": 6,
+        "per": "一包",
+        "tier": "groat"
+      },
+      "terrains": [
+        "orchard",
+        "coast"
+      ],
+      "seasons": [
+        "summer"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "apothecary",
+        "herbalist",
+        "market"
+      ],
+      "note": "干花与香袋原料，按低档估价"
+    },
+    "herb_west_st_johns_wort": {
+      "price": {
+        "min": 1,
+        "max": 3,
+        "per": "一把",
+        "tier": "penny"
+      },
+      "terrains": [
+        "pasture",
+        "temperate_forest"
+      ],
+      "seasons": [
+        "summer"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "herbalist",
+        "apothecary"
+      ],
+      "note": "田野路边常见，按几便士估价"
+    },
+    "herb_west_echinacea": {
+      "price": {
+        "min": 3,
+        "max": 9,
+        "per": "一两",
+        "tier": "groat"
+      },
+      "terrains": [
+        "steppe",
+        "farmland"
+      ],
+      "seasons": [
+        "autumn"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "apothecary",
+        "herbalist"
+      ],
+      "note": "北美输入的根，取中低档估价"
+    },
+    "herb_west_valerian": {
+      "price": {
+        "min": 2,
+        "max": 6,
+        "per": "一两",
+        "tier": "groat"
+      },
+      "terrains": [
+        "river",
+        "orchard"
+      ],
+      "seasons": [
+        "autumn"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "apothecary",
+        "herbalist"
+      ],
+      "note": "药圃栽培的根，按低档估价"
+    },
+    "herb_west_marsh_mallow": {
+      "price": {
+        "min": 2,
+        "max": 6,
+        "per": "一两",
+        "tier": "groat"
+      },
+      "terrains": [
+        "wetland",
+        "coast"
+      ],
+      "seasons": [
+        "autumn"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "apothecary",
+        "herbalist"
+      ],
+      "note": "海边沼泽的根，按低档估价"
+    },
+    "herb_west_mullein": {
+      "price": {
+        "min": 1,
+        "max": 3,
+        "per": "一把",
+        "tier": "penny"
+      },
+      "terrains": [
+        "pasture"
+      ],
+      "seasons": [
+        "summer"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "herbalist",
+        "market"
+      ],
+      "note": "路边先锋野草，按几便士估价"
+    },
+    "herb_west_comfrey": {
+      "price": {
+        "min": 1,
+        "max": 3,
+        "per": "一把",
+        "tier": "penny"
+      },
+      "terrains": [
+        "river",
+        "orchard"
+      ],
+      "seasons": [
+        "summer"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "herbalist",
+        "apothecary"
+      ],
+      "note": "园圃常见，按几便士估价"
+    },
+    "herb_west_nettle": {
+      "price": {
+        "min": 1,
+        "max": 2,
+        "per": "一把",
+        "tier": "penny"
+      },
+      "terrains": [
+        "temperate_forest",
+        "river"
+      ],
+      "seasons": [
+        "spring"
+      ],
+      "keeps": "days",
+      "sold_by": [
+        "market",
+        "herbalist"
+      ],
+      "note": "春季野菜，随处可采，价最低"
+    },
+    "herb_west_elder": {
+      "price": {
+        "min": 1,
+        "max": 3,
+        "per": "一包",
+        "tier": "penny"
+      },
+      "terrains": [
+        "temperate_forest"
+      ],
+      "seasons": [
+        "summer",
+        "autumn"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "herbalist",
+        "market"
+      ],
+      "note": "花与果分季出售，按几便士估价"
+    },
+    "herb_west_yarrow": {
+      "price": {
+        "min": 1,
+        "max": 3,
+        "per": "一把",
+        "tier": "penny"
+      },
+      "terrains": [
+        "pasture"
+      ],
+      "seasons": [
+        "summer"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "herbalist",
+        "market"
+      ],
+      "note": "田野常见，按几便士估价"
+    },
+    "herb_west_pot_marigold": {
+      "price": {
+        "min": 1,
+        "max": 3,
+        "per": "一包",
+        "tier": "penny"
+      },
+      "terrains": [
+        "orchard",
+        "farmland"
+      ],
+      "seasons": [
+        "summer",
+        "autumn"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "herbalist",
+        "apothecary",
+        "market"
+      ],
+      "note": "园圃花卉，按几便士估价"
+    },
+    "herb_west_feverfew": {
+      "price": {
+        "min": 1,
+        "max": 3,
+        "per": "一把",
+        "tier": "penny"
+      },
+      "terrains": [
+        "orchard"
+      ],
+      "seasons": [
+        "summer"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "herbalist",
+        "apothecary"
+      ],
+      "note": "园圃常见，按几便士估价"
+    },
+    "herb_west_tansy": {
+      "price": {
+        "min": 1,
+        "max": 3,
+        "per": "一把",
+        "tier": "penny"
+      },
+      "terrains": [
+        "pasture"
+      ],
+      "seasons": [
+        "summer",
+        "autumn"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "herbalist"
+      ],
+      "note": "气味强烈的路边草，按几便士估价"
+    },
+    "herb_west_burdock": {
+      "price": {
+        "min": 1,
+        "max": 3,
+        "per": "一两",
+        "tier": "penny"
+      },
+      "terrains": [
+        "farmland",
+        "pasture"
+      ],
+      "seasons": [
+        "autumn"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "herbalist",
+        "market"
+      ],
+      "note": "栽培根兼作野菜，按几便士估价"
+    },
+    "herb_west_chicory": {
+      "price": {
+        "min": 1,
+        "max": 3,
+        "per": "一包",
+        "tier": "penny"
+      },
+      "terrains": [
+        "farmland"
+      ],
+      "seasons": [
+        "autumn"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "market",
+        "grocer"
+      ],
+      "note": "烘根可掺入咖啡代用，按几便士估价"
+    },
+    "herb_west_licorice": {
+      "price": {
+        "min": 4,
+        "max": 11,
+        "per": "一两",
+        "tier": "groat"
+      },
+      "terrains": [
+        "coast",
+        "farmland"
+      ],
+      "seasons": [
+        "autumn"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "apothecary",
+        "spice_merchant",
+        "grocer"
+      ],
+      "note": "药房与糖果业共用，取中低档估价"
+    },
+    "herb_west_ginseng": {
+      "price": {
+        "min": 120,
+        "max": 600,
+        "per": "一两",
+        "tier": "pound"
+      },
+      "terrains": [
+        "temperate_forest",
+        "mountain"
+      ],
+      "seasons": [
+        "autumn"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "apothecary",
+        "spice_merchant"
+      ],
+      "note": "野生资源现实中受保护；世界选项可设为禁售或只售栽培品",
+      "restriction": "protected_wild"
+    },
+    "herb_west_foxglove": {
+      "price": {
+        "min": 3,
+        "max": 8,
+        "per": "一把",
+        "tier": "groat"
+      },
+      "terrains": [
+        "orchard",
+        "temperate_forest"
+      ],
+      "seasons": [
+        "summer"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "apothecary"
+      ],
+      "note": "剧毒，仅药铺凭方配售；按园圃草药估价",
+      "restriction": "toxic"
+    },
+    "herb_west_monkshood": {
+      "price": {
+        "min": 3,
+        "max": 8,
+        "per": "一把",
+        "tier": "groat"
+      },
+      "terrains": [
+        "mountain",
+        "temperate_forest"
+      ],
+      "seasons": [
+        "summer"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "apothecary"
+      ],
+      "note": "剧毒，仅药铺凭方配售；按山地草药估价",
+      "restriction": "toxic"
+    },
+    "herb_west_belladonna": {
+      "price": {
+        "min": 3,
+        "max": 8,
+        "per": "一把",
+        "tier": "groat"
+      },
+      "terrains": [
+        "temperate_forest"
+      ],
+      "seasons": [
+        "summer",
+        "autumn"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "apothecary"
+      ],
+      "note": "剧毒，仅药铺凭方配售；按林缘草药估价",
+      "restriction": "toxic"
+    },
+    "herb_west_poison_hemlock": {
+      "price": {
+        "min": 2,
+        "max": 6,
+        "per": "一把",
+        "tier": "groat"
+      },
+      "terrains": [
+        "river",
+        "wetland"
+      ],
+      "seasons": [
+        "summer"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "apothecary"
+      ],
+      "note": "剧毒，仅药铺凭方配售；按路边野草估价",
+      "restriction": "toxic"
+    },
+    "herb_west_wormwood": {
+      "price": {
+        "min": 1,
+        "max": 3,
+        "per": "一把",
+        "tier": "penny"
+      },
+      "terrains": [
+        "farmland",
+        "steppe"
+      ],
+      "seasons": [
+        "summer"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "herbalist",
+        "apothecary"
+      ],
+      "note": "苦味野草，按几便士估价"
+    },
+    "herb_west_borage": {
+      "price": {
+        "min": 1,
+        "max": 3,
+        "per": "一把",
+        "tier": "penny"
+      },
+      "terrains": [
+        "orchard",
+        "farmland"
+      ],
+      "seasons": [
+        "summer"
+      ],
+      "keeps": "weeks",
+      "sold_by": [
+        "market",
+        "herbalist"
+      ],
+      "note": "沙拉与饮料增香用，按几便士估价"
+    },
+    "herb_west_hyssop": {
+      "price": {
+        "min": 1,
+        "max": 3,
+        "per": "一把",
+        "tier": "penny"
+      },
+      "terrains": [
+        "orchard",
+        "coast"
+      ],
+      "seasons": [
+        "summer"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "herbalist",
+        "apothecary"
+      ],
+      "note": "常绿园圃香草，按几便士估价"
+    },
+    "herb_west_horehound": {
+      "price": {
+        "min": 1,
+        "max": 3,
+        "per": "一包",
+        "tier": "penny"
+      },
+      "terrains": [
+        "pasture",
+        "steppe"
+      ],
+      "seasons": [
+        "summer"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "herbalist",
+        "market"
+      ],
+      "note": "糖果与药房共用，按几便士估价"
+    },
+    "herb_west_lemon_balm": {
+      "price": {
+        "min": 1,
+        "max": 3,
+        "per": "一把",
+        "tier": "penny"
+      },
+      "terrains": [
+        "orchard"
+      ],
+      "seasons": [
+        "summer"
+      ],
+      "keeps": "weeks",
+      "sold_by": [
+        "herbalist",
+        "market"
+      ],
+      "note": "药茶与酒饮增香，按几便士估价"
+    },
+    "herb_west_angelica": {
+      "price": {
+        "min": 3,
+        "max": 9,
+        "per": "一两",
+        "tier": "groat"
+      },
+      "terrains": [
+        "wetland",
+        "river"
+      ],
+      "seasons": [
+        "summer"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "apothecary",
+        "spice_merchant"
+      ],
+      "note": "根与果产油、嫩茎可糖渍，取中低档估价"
+    }
+  }
+}

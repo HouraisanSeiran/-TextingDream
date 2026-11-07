@@ -1,0 +1,14 @@
+{
+  "sources": [
+    {
+      "kind": "native-terrain-v3",
+      "path": "D:/codexwork/山川形意Terragenesis/.scratch/river-upgrade-20261101/terrain-v3",
+      "identity": "c751a09a6f02e8c336b6b9b8fb4b11b5dc67386e9a8470b0b1d90858bf1ffb72"
+    },
+    {
+      "kind": "tectonic-macro-v2",
+      "path": "D:/codexwork/山川形意Terragenesis/.scratch/plate-formation-coast-20261101/shaped-run-v4/product.npz",
+      "identity": "b4c8bbdba29111b8c3ba3270e2f0d3a4fed3544655249fa07c506654b8ae6af9"
+    }
+  ]
+}

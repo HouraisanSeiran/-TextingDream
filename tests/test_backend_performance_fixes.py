@@ -1,9 +1,12 @@
-import asyncio
+﻿import asyncio
+import time
 from pathlib import Path
 from unittest.mock import patch
 
 from app.service import Service
 from app.storage import Store
+from app.web import create_app, MapSampleRequest
+from app import civ_atlas_snapshot
 
 
 def test_polish_releases_lock_and_rejects_stale_session(tmp_path):
@@ -32,6 +35,19 @@ def test_polish_releases_lock_and_rejects_stale_session(tmp_path):
     asyncio.run(run())
 
 
+def test_sampling_does_not_block_event_loop(tmp_path):
+    async def run():
+        app = create_app(tmp_path / 'test.sqlite3')
+        app.state.service.store.put('map_import', 'sn_aabbccddeeff', {'id': 'sn_aabbccddeeff', 'format': civ_atlas_snapshot.FORMAT})
+        endpoint = next(r.endpoint for r in app.routes if getattr(r, 'path', '') == '/api/inner/map-imports/{import_id}/sample')
+        def load(*args):
+            time.sleep(.2); return object()
+        with patch('app.web.civ_atlas_snapshot.load_world', side_effect=load), patch('app.web.civ_atlas_snapshot.sample_region', return_value={}):
+            task = asyncio.create_task(endpoint('sn_aabbccddeeff', MapSampleRequest(lon=0, lat=0)))
+            await asyncio.sleep(.02)
+            assert not task.done()
+            await task
+    asyncio.run(run())
 
 
 
@@ -116,3 +132,21 @@ def test_generator_releases_global_lock(tmp_path):
     asyncio.run(run())
 
 
+def test_town_input_sampling_does_not_block_event_loop(tmp_path):
+    from types import SimpleNamespace
+    from app.web import MapTownInputRequest
+
+    async def run():
+        app = create_app(tmp_path / 'town.sqlite3')
+        svc = app.state.service
+        svc.store.put('map_import', 'sn_aabbccddeeff', {'id': 'sn_aabbccddeeff', 'format': civ_atlas_snapshot.FORMAT})
+        endpoint = next(r.endpoint for r in app.routes if getattr(r, 'path', '') == '/api/inner/map-imports/{import_id}/town-input')
+        def load(*args):
+            time.sleep(.2); return object()
+        built = {'input': SimpleNamespace(model_dump=lambda **kwargs: {}), 'provenance': {}, 'warnings': []}
+        with patch('app.web.civ_atlas_snapshot.load_world', side_effect=load), patch('app.web.civ_atlas_snapshot.sample_region', return_value={}), patch('app.web.map_import.build_town_input', return_value=built), patch.object(svc.runtime, 'package', return_value={'id': 'p'}):
+            task = asyncio.create_task(endpoint('sn_aabbccddeeff', MapTownInputRequest(lon=0, lat=0, author={'name': 'test'})))
+            await asyncio.sleep(.02)
+            assert not task.done()
+            await task
+    asyncio.run(run())

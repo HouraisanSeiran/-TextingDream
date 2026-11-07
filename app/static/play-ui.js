@@ -142,6 +142,44 @@
     }
   }
 
+  // ------------------------------------------------------- 信息栏顶部的地图缩略图
+  // 只复用已经拿到的服务端掩膜底图（同一张 data: 图），不额外请求任何地图。
+  function drawMiniMap(payload, dataUrl) {
+    const img = byId('mini-map-img'), dot = byId('mini-map-dot'), empty = byId('mini-map-empty');
+    const label = byId('mini-map-label');
+    if (!img || !dot || !empty) return;
+    if (dataUrl !== undefined) {
+      if (dataUrl) img.src = dataUrl; else img.removeAttribute('src');
+      img.hidden = !dataUrl;
+    }
+    empty.hidden = !img.hidden;
+    empty.textContent = current ? '暂无地图' : '世界地图';
+    const box = payload && payload.basemap && payload.basemap.bbox;
+    const player = payload && payload.player;
+    if (!img.hidden && box && player && player.lon !== null && player.lat !== null) {
+      const [lonMin, lonMax, latMin, latMax] = box;
+      dot.style.left = (100 * (player.lon - lonMin) / ((lonMax - lonMin) || 1)) + '%';
+      dot.style.top = (100 * (latMax - player.lat) / ((latMax - latMin) || 1)) + '%';
+      dot.hidden = false;
+    } else dot.hidden = true;
+    if (label) label.textContent = current ? (current.location || '旅程地图') : '地图';
+    // 只有服务端明确回了「没有可用底图」才提示关联；加载中不闪。
+    setMiniNote(!!current && !!payload && !(payload.status === 'ok' && payload.basemap && payload.basemap.available), payload && payload.reason);
+  }
+
+  // 信息栏缩略图下方的「关联地图」说明行。按钮不放进 #mini-map（它本身是 button）。
+  function setMiniNote(show, reason) {
+    const note = byId('mini-map-note');
+    if (!note) return;
+    note.hidden = !show;
+    note.title = show && reason ? String(reason) : '';
+  }
+  // 与旅程地图空态里的「去世界地图工具关联」是同一个跳转，只写这一处。
+  function openMapToolsForLink() {
+    setDrawerOpen(false);
+    return safe(() => showPage('map-tools'));
+  }
+
   // ------------------------------------------------------------- 顶部 API 弹层
   // 表单本体始终只有一份（#api-form）。弹层打开时把它接到弹层里，关掉时**搬回**
   // 「其他 → API 配置」页，所以那一页不会变成只剩标题的空壳。
@@ -244,6 +282,7 @@
     const fit = fitRect();
     if (!img || !fit) {
       // 没有可用的真实比例：维持整块铺满，不猜比例。
+      scheduleFog(null);
       const size = 100 * view.zoom;
       for (const node of [img, overlay]) {
         if (!node) continue;
@@ -267,6 +306,41 @@
       node.style.top = top + 'px';
     }
     drawOverlay();
+    scheduleFog({ left, top, width, height });
+  }
+
+  // 绘制雾（static/map-fog.js）：铺满整个视口的 canvas，按屏幕分辨率画。只是装饰：
+  // 底图 PNG 里揭示圈外已经是服务端画好的纯色，这层雾的透明区只会更小。
+  // 拖动/缩放时先用 CSS 变换跟随上一帧，停下后再重画。
+  let fogPainted = null, fogTimer = 0;
+  function scheduleFog(rect) {
+    const canvas = byId('play-map-fog'), wrap = byId('play-map-wrap'), img = byId('play-map-img');
+    const payload = mapState.payload;
+    const ok = canvas && wrap && img && !img.hidden && rect && window.TDMapFog && payload
+      && payload.basemap && payload.basemap.bbox && payload.fog && Array.isArray(payload.fog.reveal);
+    if (!ok) { if (canvas) canvas.hidden = true; fogPainted = null; return; }
+    if (fogPainted && fogPainted.cw === wrap.clientWidth && fogPainted.ch === wrap.clientHeight) {
+      const k = rect.width / fogPainted.rect.width;
+      canvas.style.transformOrigin = '0 0';
+      canvas.style.transform = 'translate(' + (rect.left - fogPainted.rect.left * k) + 'px,'
+        + (rect.top - fogPainted.rect.top * k) + 'px) scale(' + k + ')';
+    }
+    clearTimeout(fogTimer);
+    fogTimer = setTimeout(() => paintFog(rect), fogPainted ? 140 : 0);
+  }
+  function paintFog(rect) {
+    const canvas = byId('play-map-fog'), wrap = byId('play-map-wrap');
+    const payload = mapState.payload;
+    if (!canvas || !wrap || !payload || !payload.fog) return;
+    const dpr = Math.min(2, window.devicePixelRatio || 1);
+    const cw = wrap.clientWidth, ch = wrap.clientHeight;
+    canvas.width = Math.round(cw * dpr); canvas.height = Math.round(ch * dpr);
+    canvas.style.width = cw + 'px'; canvas.style.height = ch + 'px';
+    canvas.style.transform = '';
+    window.TDMapFog.paint(canvas, { box: payload.basemap.bbox, reveal: payload.fog.reveal,
+      cloudDeg: payload.fog.cloud_deg, rect, scale: dpr });
+    canvas.hidden = false;
+    fogPainted = { rect, cw, ch };
   }
 
   function drawOverlay() {
@@ -339,6 +413,32 @@
         overlay.append(label);
       }
     }
+    // 大致位置线索：服务端给的是偏移后的圆心（真实地点一定在圈内，但不在圆心）。
+    // 圈内仍是雾：只画虚线圈与问号，不揭示地形。
+    const kmToPx = (lat, km) => {
+      const deg = km / 111.195;
+      return { rx: deg / Math.max(0.02, Math.cos(lat * Math.PI / 180)) / spanLon * W, ry: deg / spanLat * H };
+    };
+    for (const clue of payload.clues || []) {
+      const [x, y] = at(clue.lon, clue.lat);
+      const { rx, ry } = kmToPx(clue.lat, clue.radius_km);
+      const group = svgEl('g', { class: 'map-clue' });
+      group.append(svgEl('ellipse', { cx: x, cy: y, rx, ry, fill: 'rgba(201,161,74,.10)',
+        stroke: '#c9a14a', 'stroke-width': 2.5, 'stroke-dasharray': '10 7' }));
+      group.append(svgEl('circle', { cx: x, cy: y, r: 14, fill: '#2e1d12', stroke: '#c9a14a', 'stroke-width': 2 }));
+      const mark = svgEl('text', { x, y: y + 7, 'text-anchor': 'middle', fill: '#f0d58a', 'font-size': 20, 'font-weight': 700 });
+      mark.textContent = '?';
+      group.append(mark);
+      const label = svgEl('text', { x, y: y - 22, 'text-anchor': 'middle', fill: '#f0e3c2', 'font-size': 20,
+        stroke: '#0d1418', 'stroke-width': 4, 'paint-order': 'stroke', 'font-style': 'italic' });
+      label.textContent = clue.label;
+      group.append(label);
+      const tip = svgEl('title', {});
+      tip.textContent = clue.label + '：大致在这一带（约 ' + Math.round(clue.radius_km) + ' km 范围内）'
+        + (clue.text ? '\n' + clue.text : '') + '\n到达后线索自动消失。';
+      group.append(tip);
+      overlay.append(group);
+    }
     const player = payload.player;
     if (player && player.lon !== null && player.lat !== null) {
       const [x, y] = at(player.lon, player.lat);
@@ -377,7 +477,7 @@
     if (canAuthor) {
       const go = el('button', '去世界地图工具关联 civ-atlas 数据', 'tb-btn');
       go.type = 'button';
-      go.onclick = () => safe(() => showPage('map-tools'));
+      go.onclick = () => openMapToolsForLink();
       box.append(go);
     }
   }
@@ -395,6 +495,7 @@
     add('legend-tri', '当前位置');
     add('legend-explored', '已探索');
     add('legend-known', '已知未到');
+    if ((payload.clues || []).length) add('legend-clue', '传闻中的大致位置');
   }
 
   function drawMapNote(payload) {
@@ -430,9 +531,10 @@
     byId('play-map-img').removeAttribute('src');
     byId('play-map-overlay').replaceChildren();
     byId('play-map-overlay').hidden = true;
+    if (byId('play-map-fog')) byId('play-map-fog').hidden = true;
     byId('play-map-empty').hidden = true;
     mapState = { status: 'loading', payload: null };
-    drawLegend(null); drawMapNote(null);
+    drawLegend(null); drawMapNote(null); setMiniNote(false);
     try {
       const payload = await apiBase('/sessions/' + sessionId + '/play-map');
       if (current?.id !== sessionId || window.__tdNativeMode !== 'player' || seq !== imageSeq) return;
@@ -440,6 +542,7 @@
       drawLegend(payload);
       drawMapNote(payload);
       const img = byId('play-map-img');
+      drawMiniMap(payload, null);
       if (payload.status === 'ok' && payload.basemap.available) {
         // 页面 CSP 是 `img-src 'self' data:`：blob: 不在白名单里，直接 createObjectURL
         // 会让图片静默失败（naturalWidth 一直 0）。token 又不能进 URL。
@@ -460,7 +563,7 @@
             reader.readAsDataURL(blob);
           });
           if (seq !== imageSeq || current?.id !== sessionId || window.__tdNativeMode !== 'player') return;
-          img.onload = () => { if (seq !== imageSeq || current?.id !== sessionId || window.__tdNativeMode !== 'player') return; img.hidden = false; byId('play-map-empty').hidden = true; applyTransform(); };
+          img.onload = () => { if (seq !== imageSeq || current?.id !== sessionId || window.__tdNativeMode !== 'player') return; img.hidden = false; byId('play-map-empty').hidden = true; applyTransform(); drawMiniMap(payload, dataUrl); };
           img.onerror = () => { if (seq !== imageSeq || current?.id !== sessionId || window.__tdNativeMode !== 'player') return; img.hidden = true; drawOverlay(); setMapEmpty('底图无法显示（格式或 CSP 问题）', true); };
           img.src = dataUrl;
           if (!view.fitted) { view.fitted = true; }
@@ -478,6 +581,7 @@
       byId('play-map-img').hidden = true;
       byId('play-map-img').removeAttribute('src');
       setMapEmpty('地图读取失败：' + error.message, true);
+      setMiniNote(true, '地图读取失败：' + error.message);
       drawOverlay();
     } finally {
       mapLoading = false;
@@ -542,6 +646,7 @@
         if (img) { img.hidden = true; img.removeAttribute('src'); }
         byId('play-map-overlay')?.replaceChildren();
         byId('play-map-overlay').hidden = true;
+        if (byId('play-map-fog')) byId('play-map-fog').hidden = true;
         byId('play-map-empty').hidden = true;
         drawLegend(null); drawMapNote(null);
         resetView();
@@ -552,8 +657,10 @@
         if (img) { img.hidden = true; img.removeAttribute('src'); }
         byId('play-map-overlay')?.replaceChildren();
         byId('play-map-overlay').hidden = true;
+        if (byId('play-map-fog')) byId('play-map-fog').hidden = true;
         byId('play-map-empty').hidden = true;
         drawLegend(null); drawMapNote(null);
+        drawMiniMap(null, null);
       }
     });
   }
@@ -565,7 +672,7 @@
     // 对话层默认收起，留出完整地图；点击手记、存档或新建对话才展开。
     setDrawerOpen(false);
     if (handle) handle.onclick = () => setDrawerOpen(!drawer.classList.contains('is-expanded'));
-    for (const id of ['drawer-collapse']) {
+    for (const id of ['drawer-collapse', 'mini-map']) {
       const button = byId(id);
       if (button) button.onclick = () => setDrawerOpen(false);
     }
@@ -642,6 +749,11 @@
         item.onclick = () => safe(() => showPage(target));
         otherMenu.append(item);
       }
+      // 地图美术资产预览是独立页面（新标签打开），不进旧功能层的页面路由。
+      const artLink = el('button', '地图美术资产', 'workspace-sub-link');
+      artLink.type = 'button';
+      artLink.onclick = () => window.open('/static/map-art/index.html', '_blank', 'noopener');
+      otherMenu.append(artLink);
       otherButton.onclick = () => {
         otherMenu.hidden = !otherMenu.hidden;
         otherButton.setAttribute('aria-expanded', String(!otherMenu.hidden));
@@ -705,8 +817,68 @@
     };
   }
 
+  // ------------------------------------------------- 信息栏「阅读」与侧栏分组
+  const READING_KEY = 'textiledream-reading';
+  const AUTHOR_GROUP_KEY = 'textiledream-author-group';
+  const store = {
+    get(key) { try { return JSON.parse(localStorage.getItem(key) || 'null'); } catch (e) { return null; } },
+    set(key, value) { try { localStorage.setItem(key, JSON.stringify(value)); } catch (e) { /* 存不了就只对本次生效 */ } },
+    del(key) { try { localStorage.removeItem(key); } catch (e) { /* 同上 */ } },
+  };
+  function installReading() {
+    const card = byId('info-reading'), story = byId('story-text');
+    if (!card || !story) return;
+    const allowed = { size: ['15', '17', '19'], leading: ['1.6', '1.9', '2.2'] };
+    let prefs = store.get(READING_KEY) || {};
+    const apply = () => {
+      if (allowed.size.includes(String(prefs.size))) story.style.setProperty('--read-size', prefs.size + 'px');
+      else story.style.removeProperty('--read-size');
+      if (allowed.leading.includes(String(prefs.leading))) story.style.setProperty('--read-leading', String(prefs.leading));
+      else story.style.removeProperty('--read-leading');
+      card.querySelectorAll('.read-group').forEach((group) => {
+        const picked = String(prefs[group.dataset.read] ?? '');
+        group.querySelectorAll('button').forEach((button) => {
+          const on = button.dataset.value === picked;
+          button.classList.toggle('selected', on);
+          button.setAttribute('aria-pressed', String(on));
+        });
+      });
+    };
+    card.querySelectorAll('.read-group button').forEach((button) => {
+      button.onclick = () => {
+        const key = button.closest('.read-group').dataset.read;
+        prefs = { ...prefs, [key]: button.dataset.value };
+        store.set(READING_KEY, prefs);
+        apply();
+      };
+    });
+    const reset = byId('read-reset');
+    if (reset) reset.onclick = () => { prefs = {}; store.del(READING_KEY); apply(); };
+    apply();
+  }
+  function installSidebarGroups() {
+    const toggle = byId('workspace-author-toggle'), body = byId('workspace-author-group');
+    if (toggle && body) {
+      const isOpen = () => toggle.getAttribute('aria-expanded') === 'true';
+      const set = (open) => {
+        toggle.setAttribute('aria-expanded', String(open));
+        toggle.parentElement?.classList.toggle('is-collapsed', !open);
+      };
+      set(store.get(AUTHOR_GROUP_KEY) !== 'closed');
+      toggle.onclick = () => {
+        const open = !isOpen();
+        set(open);
+        store.set(AUTHOR_GROUP_KEY, open ? 'open' : 'closed');
+      };
+    }
+    const link = byId('mini-map-link');
+    if (link) link.onclick = () => openMapToolsForLink();
+  }
+
   window.addEventListener('DOMContentLoaded', () => {
     try {
+      installReading();
+      installSidebarGroups();
       installPlayChrome();
       installComposer();
       installApiPopover();

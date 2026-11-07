@@ -195,42 +195,114 @@
   const css = (c, a) => a == null ? 'rgb(' + c.map(Math.round).join(',') + ')' : 'rgba(' + c.map(Math.round).join(',') + ',' + a + ')';
   const lerp = (a, b, t) => [0, 1, 2].map((i) => a[i] + (b[i] - a[i]) * t);
   const LIGHT = unit([-0.55, 1, 0.35]);
-  // Die material: warm ivory body with forest-ink numerals. `body` overrides.
+  // Materials only change how faces are painted. Geometry, face numbering and
+  // the up-face reading are identical for every material.
+  const MATERIALS = {
+    ivory: { label: '象牙' },
+    metal: { label: '金属', body: [178, 142, 90], edge: [70, 50, 26], ink: [40, 27, 12],
+      hi: [255, 246, 220], spec: 0.95, power: 70 },
+    wood: { label: '木质', body: [160, 106, 62], edge: [70, 40, 20], ink: [48, 25, 10],
+      hi: [252, 228, 160], spec: 0.08, power: 12 },
+    crystal: { label: '水晶', body: [156, 200, 230], edge: [56, 100, 148], ink: [16, 42, 82],
+      hi: [214, 140, 30], spec: 0.9, power: 90, alpha: 0.42 },
+  };
+  const MATERIAL_KEY = 'td-dice-material';
+  let materialId = 'ivory';
+  try {
+    const saved = window.localStorage && localStorage.getItem(MATERIAL_KEY);
+    if (saved && MATERIALS[saved]) materialId = saved;
+  } catch (err) { /* storage blocked: keep default */ }
+  function material() { return materialId; }
+  // A view preference only: stored in this browser, never sent to the server.
+  function setMaterial(id) {
+    if (!MATERIALS[id]) return materialId;
+    materialId = id;
+    try { localStorage.setItem(MATERIAL_KEY, id); } catch (err) { /* ignore */ }
+    try { window.dispatchEvent(new CustomEvent('td-dice-material', { detail: id })); } catch (err) { /* ignore */ }
+    return id;
+  }
+  function facePath(ctx, f, scr) {
+    ctx.beginPath();
+    f.idx.forEach((i, k) => (k ? ctx.lineTo(scr[i][0], scr[i][1]) : ctx.moveTo(scr[i][0], scr[i][1])));
+    ctx.closePath();
+  }
+  // Wood grain drawn in face-local coordinates so it bends with the face.
+  function grain(ctx, f, scr, m, edge) {
+    ctx.save();
+    facePath(ctx, f, scr);
+    ctx.clip();
+    ctx.transform(m[0], m[1], m[2], m[3], m[4], m[5]);
+    const phase = f.value * 1.7;
+    ctx.lineWidth = 3;
+    for (let y = -170; y <= 170; y += 30) {
+      ctx.strokeStyle = css(edge, 0.12 + 0.1 * ((Math.abs(y) / 30 + f.value) % 2));
+      ctx.beginPath();
+      for (let x = -220; x <= 220; x += 20) {
+        const yy = y + 9 * Math.sin(x / 45 + phase + y / 60) + 4 * Math.sin(x / 13 + phase);
+        if (x === -220) ctx.moveTo(x, yy); else ctx.lineTo(x, yy);
+      }
+      ctx.stroke();
+    }
+    ctx.restore();
+  }
+  // Default material: warm ivory body with forest-ink numerals. `body` overrides.
   function drawDie(ctx, cam, die, colors, style) {
     style = style || {};
+    const matId = MATERIALS[style.material] ? style.material : materialId;
+    const mat = MATERIALS[matId];
+    const plain = matId === 'ivory';
     const s = solidOf(die.kind);
     const R = die.R, pos = die.pos, size = (die.scale || 1) * s.size;
     const world = s.verts.map((v) => add(pos, scl(apply(R, v), size)));
     const scr = world.map((p) => cam.project(p));
-    const body = style.body || colors.paper;
-    const edge = style.edge || colors.deep;
-    const ink = style.ink || colors.ink;
-    // Contact shadow on the table (drawn by caller first if desired).
-    const vis = s.faces.map((f) => {
+    const body = plain ? (style.body || colors.paper) : mat.body;
+    const edge = plain ? (style.edge || colors.deep) : mat.edge;
+    const ink = plain ? (style.ink || colors.ink) : mat.ink;
+    const hiColor = plain ? colors.brass : mat.hi;
+    const rows = s.faces.map((f) => {
       const n = apply(R, f.n);
       const c = add(pos, scl(apply(R, f.c), size));
       return { f, n, c, facing: dot(n, sub(cam.eye, c)) };
-    }).filter((r) => r.facing > 1e-4);
+    });
+    const vis = rows.filter((r) => r.facing > 1e-4);
     vis.sort((a, b) => dot(sub(b.c, cam.eye), cam.fwd) - dot(sub(a.c, cam.eye), cam.fwd));
+    const lw = Math.max(1, size * cam.w / 260);
+    ctx.save();
+    // Unused die of a pair: non-ivory materials fade instead of recolouring.
+    if (!plain && style.dim) ctx.globalAlpha *= 0.42;
     ctx.lineJoin = 'round';
+    if (matId === 'crystal') {
+      // Far side seen through the glass: faint facets and edges only. Back
+      // numerals are never drawn, so they can not be misread as the result.
+      rows.filter((r) => r.facing <= 1e-4).forEach(({ f }) => {
+        facePath(ctx, f, scr);
+        ctx.fillStyle = css(lerp(edge, body, 0.55), 0.16);
+        ctx.fill();
+        ctx.strokeStyle = css(lerp(body, [255, 255, 255], 0.5), 0.32);
+        ctx.lineWidth = lw * 0.8;
+        ctx.stroke();
+      });
+    }
     vis.forEach(({ f, n, c }) => {
       const lam = Math.max(0, dot(n, LIGHT));
       const view = unit(sub(cam.eye, c));
       const half = unit(add(LIGHT, view));
-      const spec = Math.pow(Math.max(0, dot(n, half)), 40) * 0.35;
+      const spec = Math.pow(Math.max(0, dot(n, half)), plain ? 40 : mat.power) * (plain ? 0.35 : mat.spec);
       const shade = 0.42 + 0.58 * lam;
-      const base = lerp(lerp(edge, body, 0.25), body, shade);
-      const fill = lerp(base, [255, 255, 255], spec);
-      ctx.beginPath();
-      f.idx.forEach((i, k) => (k ? ctx.lineTo(scr[i][0], scr[i][1]) : ctx.moveTo(scr[i][0], scr[i][1])));
-      ctx.closePath();
-      ctx.fillStyle = css(fill);
+      let base = lerp(lerp(edge, body, 0.25), body, shade);
+      if (matId === 'metal') {
+        // Environment reflection: bright sky above, dark floor below.
+        const env = 0.5 + 0.5 * n[1];
+        base = lerp(lerp(edge, body, 0.15), lerp(body, [255, 250, 236], 0.4),
+          Math.min(1, env * 0.65 + lam * 0.5));
+      } else if (matId === 'wood') {
+        base = lerp(base, edge, (f.value % 3) * 0.04);
+      }
+      const fill = lerp(base, [255, 255, 255], Math.min(1, spec));
+      facePath(ctx, f, scr);
+      ctx.fillStyle = matId === 'crystal' ? css(fill, mat.alpha + 0.3 * spec) : css(fill);
       ctx.fill();
-      // Edge line: darker on shadow side, thin highlight on lit side.
-      ctx.strokeStyle = css(lerp(edge, body, 0.15 + lam * 0.3), 0.9);
-      ctx.lineWidth = Math.max(1, size * cam.w / 260);
-      ctx.stroke();
-      // Numeral painted in the face plane (affine map from face coords to screen).
+      // Face-plane affine map (face coords to screen) for grain and numerals.
       const p0 = cam.project(c);
       const e = 0.02;
       const u = apply(R, f.side), v = apply(R, f.up);
@@ -241,6 +313,14 @@
       const k = glyph / e / 100;
       const ax = (pu[0] - p0[0]) * k, ay = (pu[1] - p0[1]) * k;
       const bx = -(pv[0] - p0[0]) * k, by = -(pv[1] - p0[1]) * k;
+      if (matId === 'wood') grain(ctx, f, scr, [ax, ay, bx, by, p0[0], p0[1]], edge);
+      facePath(ctx, f, scr);
+      // Edge line per material: bevel highlight on metal, bright rim on glass.
+      if (matId === 'metal') ctx.strokeStyle = css(lerp(edge, [255, 248, 225], 0.3 + lam * 0.5), 0.95);
+      else if (matId === 'crystal') ctx.strokeStyle = css(lerp(body, [255, 255, 255], 0.6 + lam * 0.3), 0.9);
+      else ctx.strokeStyle = css(lerp(edge, body, 0.15 + lam * 0.3), 0.9);
+      ctx.lineWidth = lw;
+      ctx.stroke();
       // Skip numerals only on faces seen almost edge-on (scale-independent:
       // view cosine, not screen-space area, so small/mobile canvases still
       // print every readable face).
@@ -253,12 +333,20 @@
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
       const offset = die.kind === 20 || die.kind === 8 ? 10 : 4;
-      ctx.fillStyle = css(lerp(ink, edge, 0.2 * (1 - lam)), 0.55 + 0.45 * Math.min(1, n[1] * 0.5 + 0.7));
-      if (style.highlightValue === f.value) ctx.fillStyle = css(colors.brass);
+      const highlighted = style.highlightValue === f.value;
+      if (!highlighted && (matId === 'metal' || matId === 'wood')) {
+        // Engraved look: a light lip below the dark cut.
+        ctx.fillStyle = css(mat.hi, matId === 'metal' ? 0.45 : 0.3);
+        ctx.fillText(label, 0, offset + 4);
+      }
+      if (matId === 'crystal') ctx.fillStyle = css(ink, 0.95);
+      else ctx.fillStyle = css(lerp(ink, edge, 0.2 * (1 - lam)), 0.55 + 0.45 * Math.min(1, n[1] * 0.5 + 0.7));
+      if (highlighted) ctx.fillStyle = css(hiColor);
       ctx.fillText(label, 0, offset);
       if ((f.value === 6 || f.value === 9) && s.kind !== 6) ctx.fillRect(-18, offset + 40, 36, 6);
       ctx.restore();
     });
+    ctx.restore();
   }
   // Soft contact shadow under the die: footprint of hull projected onto table,
   // tighter and darker the closer the die is to the table.
@@ -490,7 +578,7 @@
 
   window.TDDiceCore = { PHI, add, sub, scl, dot, cross, len, unit, apply, mul, transpose, axisAngle, align, orthonormal, ID,
     solidOf, restPose, readUp, camera, palette, css, lerp, drawDie, drawShadow, body, step, WORLD,
-    symmetries, simulate, track, scripted, sample, THROWS, TRAY };
+    symmetries, simulate, track, scripted, sample, THROWS, TRAY, MATERIALS, material, setMaterial };
 })();
 
 /* Public d20 projections only; no client-side resolution or random outcome.
@@ -536,14 +624,45 @@
     });
     return group;
   }
+  // Stage marks come only from the server's player-visible `stages`; without them
+  // (older data) the clock is drawn exactly as before.
+  function clockStages(row, segments) {
+    if (!Array.isArray(row.stages)) return [];
+    return row.stages.map((stage) => {
+      if (!stage || typeof stage !== 'object') return null;
+      const at = Number(stage.at);
+      if (!Number.isFinite(at)) return null;
+      return { at: Math.max(0, Math.min(segments, at)),
+        label: typeof stage.label === 'string' ? stage.label : '', reached: stage.reached === true };
+    }).filter(Boolean);
+  }
+  function stageMark(stage, segments, gapAngle) {
+    const angle = (-90 + stage.at * 360 / segments) * Math.PI / 180 - gapAngle / 2;
+    const point = (radius) => [Number((32 + Math.cos(angle) * radius).toFixed(2)),
+      Number((32 + Math.sin(angle) * radius).toFixed(2))];
+    const inner = point(19.5);
+    const outer = point(stage.reached ? 29.5 : 30.5);
+    const mark = svg('g', { class: 'clock-stage' + (stage.reached ? ' is-reached' : '') });
+    const hint = svg('title', {});
+    hint.textContent = (stage.label || '阶段') + (stage.reached ? '（已到达）' : '（未到达）');
+    mark.append(hint,
+      svg('line', { x1: inner[0], y1: inner[1], x2: outer[0], y2: outer[1], class: 'clock-stage-halo' }),
+      svg('line', { x1: inner[0], y1: inner[1], x2: outer[0], y2: outer[1], class: 'clock-stage-tick' }));
+    if (stage.reached) mark.append(svg('circle', { cx: outer[0], cy: outer[1], r: 2, class: 'clock-stage-dot' }));
+    return mark;
+  }
   function clock(row) {
     const segments = Math.max(1, Math.floor(Number(row.segments) || 1));
     const filled = Math.max(0, Math.min(segments, Number(row.filled) || 0));
     const label = (row.label || '钟') + ' ' + filled + '/' + segments;
-    const group = el('div', undefined, 'check-clock' + (row.kind === 'danger' ? ' is-danger' : ''));
-    const ring = svg('svg', { viewBox: '0 0 64 64', role: 'img', 'aria-label': label });
+    const stages = clockStages(row, segments);
+    const stageLabel = typeof row.stage_label === 'string' ? row.stage_label.trim() : '';
+    const group = el('div', undefined, 'check-clock' + (row.kind === 'danger' ? ' is-danger' : '')
+      + (stages.length ? ' has-stages' : ''));
+    const spoken = label + (stageLabel ? '，阶段：' + stageLabel : '');
+    const ring = svg('svg', { viewBox: '0 0 64 64', role: 'img', 'aria-label': spoken });
     const title = svg('title', {});
-    title.textContent = label;
+    title.textContent = spoken;
     ring.append(title);
     const circumference = 2 * Math.PI * 25;
     const step = circumference / segments;
@@ -553,7 +672,15 @@
         transform: 'rotate(' + (-90 + i * 360 / segments) + ' 32 32)',
         class: i < filled ? 'clock-filled' : 'clock-empty' }));
     }
-    group.append(ring, el('span', label));
+    const gapAngle = Math.min(4, step * 0.2) / 25;
+    stages.forEach((stage) => ring.append(stageMark(stage, segments, gapAngle)));
+    if (stageLabel) {
+      const text = el('span', label, 'check-clock-text');
+      text.append(el('small', '阶段：' + stageLabel, 'clock-stage-name'));
+      group.append(ring, text);
+    } else {
+      group.append(ring, el('span', label));
+    }
     return group;
   }
   function clocks(container, rows) {
@@ -681,6 +808,7 @@
         const hi = d.settled && d.i === keptIndex ? { highlightValue: values[d.i] } : {};
         ctx.save();
         C.drawDie(ctx, cam, d.die, colors, dim ? {
+          dim: true,
           body: C.lerp(colors.paper, colors.cloth, 0.75),
           edge: C.lerp(colors.deep, colors.paper, 0.4),
           ink: C.lerp(colors.ink, colors.paper, 0.38) } : hi);

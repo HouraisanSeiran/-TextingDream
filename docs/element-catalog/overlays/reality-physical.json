@@ -1,0 +1,230 @@
+{
+  "schema": "catalog_overlay_v1",
+  "group": "reality-physical",
+  "entries": {
+    "reality_phys_gravity_load": {
+      "primary": "natural_phenomenon",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "reality_phys_lever_pulley": {
+      "primary": "technology",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "reality_phys_friction_traction": {
+      "primary": "natural_phenomenon",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "reality_phys_pressure_fluid": {
+      "primary": "natural_phenomenon",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "reality_phys_heat_transfer": {
+      "primary": "natural_phenomenon",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "reality_phys_phase_change": {
+      "primary": "natural_phenomenon",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "reality_phys_buoyancy": {
+      "primary": "natural_phenomenon",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "reality_phys_combustion_fire": {
+      "primary": "natural_phenomenon",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "reality_phys_energy_budget": {
+      "primary": "natural_phenomenon",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "reality_phys_material_strength": {
+      "primary": "natural_phenomenon",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "reality_phys_corrosion": {
+      "primary": "natural_phenomenon",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "reality_phys_metal_supply": {
+      "primary": "craft_process",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "reality_phys_measurement_precision": {
+      "primary": "technology",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "reality_phys_water_cycle": {
+      "primary": "natural_phenomenon",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "reality_phys_groundwater_well": {
+      "primary": "place",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "reality_phys_river_flood": {
+      "primary": "place",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "reality_phys_terrain_erosion": {
+      "primary": "place",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "reality_phys_climate_season": {
+      "primary": "natural_phenomenon",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "reality_phys_soil_fertility": {
+      "primary": "stone_earth",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "reality_phys_food_spoilage": {
+      "primary": "natural_phenomenon",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "reality_phys_food_preservation": {
+      "primary": "craft_process",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "reality_phys_fermentation": {
+      "primary": "craft_process",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "reality_phys_crop_rotation": {
+      "primary": "craft_process",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "reality_phys_agriculture_origin": {
+      "primary": "technology",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "reality_phys_ecosystem_flow": {
+      "primary": "natural_phenomenon",
+      "evidence_grade": "sourced",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "reality_phys_carrying_capacity": {
+      "primary": "natural_phenomenon",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "reality_phys_drinking_water_sanitation": {
+      "primary": "institution",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "reality_phys_disease_transmission": {
+      "primary": "natural_phenomenon",
+      "evidence_grade": "sourced",
+      "note": "按条目写成传播机理",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "reality_phys_outbreak_investigation": {
+      "primary": "institution",
+      "evidence_grade": "mixed",
+      "note": "流行病学方法近代化程度拿不准，不标科技档",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "reality_phys_road_transport": {
+      "primary": "place",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "reality_phys_communication_distance": {
+      "primary": "technology",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "reality_phys_shelter_building": {
+      "primary": "craft_process",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    }
+  }
+}

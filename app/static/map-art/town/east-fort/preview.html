@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>织梦 · 东方城防工事 east-fort 预览</title>
+<style>
+  body { margin: 0; padding: 16px 20px; background: #efe3c2; font: 13px/1.5 "Microsoft YaHei", sans-serif; color: #4a2d1c; }
+  h1 { font-size: 18px; margin: 0 0 8px; } h2 { font-size: 15px; margin: 18px 0 6px; }
+  #atlas { display: flex; flex-wrap: wrap; gap: 8px; }
+  .card { background: #d9c58f; border: 1px solid #c98f3c; padding: 4px; text-align: center; font-size: 11px; }
+  .card svg { display: block; margin: 0 auto; }
+  .scene { background: #d9c58f; border: 1px solid #c98f3c; display: block; }
+  #spriteHost { position: absolute; left: 0; top: 0; width: 0; height: 0; overflow: hidden; }
+</style>
+</head>
+<body>
+<h1>东方城防工事 east-fort（美术素材，尚未接入游戏）</h1>
+<div id="spriteHost"></div>
+<h2>图册（id · 占地 · 上伸）</h2>
+<div id="atlas"></div>
+<h2>场景 a：不规则城墙（正交 + 45° 斜段，含凹角；gate-h / gate-v 引自 east-base）</h2>
+<svg id="sceneA" class="scene" width="720" height="660"></svg>
+<h2>场景 b：城门外接瓮城与月城</h2>
+<svg id="sceneB" class="scene" width="840" height="460"></svg>
+<h2>场景 c：斜段与正交段对接处 3 倍特写</h2>
+<svg id="sceneC" class="scene" width="720" height="540"></svg>
+<script src="../east-base/east-core.js"></script>
+<script src="../east-base/houses-a.js"></script>
+<script src="../east-base/tiles.js"></script>
+<script src="core.js"></script>
+<script src="spoke.js"></script>
+<script src="forts.js"></script>
+<script src="forts-b.js"></script>
+<script src="moat.js"></script>
+<script src="passfort.js"></script>
+<script src="east-fort.js"></script>
+<script src="preview-scenes.js"></script>
+<script>
+(function () {
+  var S = window.EastFortScenes, NS = 'http://www.w3.org/2000/svg';
+  document.getElementById('spriteHost').innerHTML = '<svg xmlns="' + NS + '" width="0" height="0">' + S.ALL.map(function (x) { return x.svg; }).join('') + '</svg>';
+  var atlas = document.getElementById('atlas');
+  window.TownArt_eastFort.items().forEach(function (it) {
+    var m = it.meta, vw = m.viewBox[2], vh = m.viewBox[3], sc = vw > 150 ? 1 : 1.5;
+    var d = document.createElement('div'); d.className = 'card';
+    d.innerHTML = '<svg width="' + (vw * sc + 12) + '" height="' + (vh * sc + 12) + '" viewBox="-6 -6 ' + (vw + 12) + ' ' + (vh + 12) + '">' +
+      '<rect x="0" y="' + (vh - m.footprint[1] * 48) + '" width="' + vw + '" height="' + (m.footprint[1] * 48) + '" fill="none" stroke="#8c3d22" stroke-dasharray="2 2" stroke-width="0.6"/>' +
+      '<use href="#' + it.id + '" width="' + vw + '" height="' + vh + '"/></svg>' + it.id.replace('east-common-', '') + '<br>' + m.footprint.join('×') + ' · ↑' + m.height_px;
+    atlas.appendChild(d);
+  });
+  S.render(document.getElementById('sceneA'), S.sceneA(), 15 * 48, 13 * 48, [-24, -120, 15 * 48 + 24, 13 * 48 + 130]);
+  if (S.sceneB && S.sceneB()) S.render(document.getElementById('sceneB'), S.sceneB(), 16 * 48, 8 * 48, [-24, -60, 16 * 48 + 48, 8 * 48 + 70]);
+  else document.getElementById('sceneB').outerHTML = '<p>（瓮城 / 月城尚未完成）</p>';
+  // 场景 c：场景 a 的右上斜角 (9,2)-(12,5) 放大 3 倍
+  var pc = S.wallPlaces(S.wallCells([S.LOOP]));
+  S.render(document.getElementById('sceneC'), pc, 15 * 48, 13 * 48, [8 * 48, 1 * 48 - 40, 240, 180]);
+})();
+</script>
+</body>
+</html>

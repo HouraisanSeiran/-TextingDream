@@ -97,7 +97,7 @@ API Key 仅在当前服务内存保存，重启需要重新输入或用环境变
 
 Python/FastAPI/Pydantic/SQLite/HTTPX，原生 HTML/CSS/JavaScript。`web.py` 为接口，`runtime.py` 为导演与状态逻辑，`service.py` 串联模型，`prompts.py` 负责固定序列化与前缀，`provider.py` 负责请求及脱敏记录，`storage.py` 负责事务。源码 UTF-8。
 
-故事包初始文件位于 world_packages，独立角色位于 character_packages。运行版本、存档与调试记录在 data/textiledream.sqlite3。初始 JSON 不会自动覆盖已有数据库；这次扩充通过版本提交进入正式数据库，并导出完整组合包供导入复用。
+故事包初始文件位于 world_packages，独立角色位于 character_packages。运行版本、存档与调试记录在 saves/textiledream.sqlite3。初始 JSON 不会自动覆盖已有数据库；这次扩充通过版本提交进入正式数据库，并导出完整组合包供导入复用。
 
 ## 11. 当前边界与验收
 
@@ -218,7 +218,7 @@ Python/FastAPI/Pydantic/SQLite/HTTPX，原生 HTML/CSS/JavaScript。`web.py` 为
 | 旧位置 | 旧表述 | 现状与新决策 |
 |---|---|---|
 | §4 主要场景与事件 | 「跨主要场景时创建新对话」 | 现状默认长篇连续（`conversation_mode=chapter`），累计满 `chapter_turns`（默认 40）轮后、下一次切换主要场景时才分章；设置可切回每场景新建。§4 该句作废，以现状与新决策为准。 |
-| §10 工程与数据 | 「故事包初始文件位于 world_packages」 | 当前世界设定来源是 `StoryPackage/<故事包>/`（`总概.md` + `知识点/*.md` + `story.json`）；`world_packages/` 只是早期导入资料。`data/textiledream.sqlite3` 服务于版本、存档、回滚与运行状态。 |
+| §10 工程与数据 | 「故事包初始文件位于 world_packages」 | 当前世界设定来源是 `StoryPackage/<故事包>/`（`总概.md` + `知识点/*.md` + `story.json`）；`world_packages/` 只是早期导入资料。`saves/textiledream.sqlite3` 服务于版本、存档、回滚与运行状态。 |
 | §8 游戏机制与状态权威 | 物品仅表现为 `story.items`(id/name) 与会话 `inventory` 字符串数组 | 旧版从无模板/实例分层、无耐久/魔力/附魔；阶段 1 新增 `mechanics.rewards` 下的模板/实例/派生与 `session['rewards']`，旧字段继续可用，旧旅程不变。 |
 | §10 工程与数据 | 只有 SQLite 事务与三张信息分表 | 阶段 1 已把奖励状态放进 `session['rewards']`，随会话快照同事务保存；无独立永久审计表。原子提交语义不变。 |
 | §6 提示词与 token 预算 | 上下文预算按字符计，不是精确 token 数 | 保持；§12.5 的百万/千万 token 是目标与评测计划，不等于已具备该规模验证。 |

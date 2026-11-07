@@ -99,6 +99,11 @@ LEGACY_DETAILS_KEYS = {
 
 REVIEW_STATUSES = ('needs_review', 'reviewed_detail', 'reviewed', 'rejected')
 DETAIL_STATUSES = ('summary_only', 'needs_detail', 'reviewed_detail')
+# 证据等级：sourced=主要断言有已读来源；mixed=来源与本项目推演混合；inferred=基本为设计推演。
+EVIDENCE_GRADES = ('sourced', 'mixed', 'inferred')
+# 科技 / 魔法档位（docs/world-setting.md §2–3）：元素最早能出现的科技档、要求世界至少达到的魔法档。
+TECH_TIERS = ('classical', 'medieval', 'renaissance', 'steam', 'early_modern')
+MAGIC_TIERS = ('none', 'rare', 'common', 'abundant')
 
 # 有限上限：任何一项超限都整批拒绝，不做截断（截断会静默损坏原始资料）。
 MAX_DOCUMENT_BYTES = 32 * 1024 * 1024
@@ -444,6 +449,33 @@ def _prepare_element(raw, legacy, adapter):
     # 标签：新 schema 自带 tags（原样保留）；两组都追加命名空间化的 category:/genre:。
     raw_tags = _str_list(raw.get('tags'), '元素 %s 的 tags' % element_id, MAX_TAGS) if not legacy else []
     tags = list(raw_tags)
+    # 主标签与证据等级：和 category 一样由字段派生，旧 schema（原生 tags 被丢弃）也能拿到。
+    # 主标签每个元素至多一个，只能经 primary 字段给出，不许在 tags 里手写 primary:。
+    if any(tag.startswith(('primary:', 'evidence:')) for tag in raw_tags):
+        raise InvalidDocument('元素 %s 的 primary:/evidence: 标签必须经 primary / evidence_grade 字段给出'
+                              % element_id)
+    primary = raw.get('primary')
+    if primary is not None:
+        tags.append('primary:' + _check_tag(_check_text(primary, '元素 %s 的 primary' % element_id,
+                                                        MAX_TAG_CHARS)))
+    evidence_grade = raw.get('evidence_grade')
+    if evidence_grade is not None:
+        if evidence_grade not in EVIDENCE_GRADES:
+            raise InvalidDocument('元素 %s 的 evidence_grade 非法：%r' % (element_id, evidence_grade))
+        tags.append('evidence:' + evidence_grade)
+    # 档位：tech_tier / magic_tier 字段派生 tech:/magic: 标签（旧 schema 也生效）。
+    # 字段为 null 表示“已判定、不受该档位约束”。tags 里手写了同前缀标签时必须与字段一致。
+    for key, prefix, vocab in (('tech_tier', 'tech:', TECH_TIERS), ('magic_tier', 'magic:', MAGIC_TIERS)):
+        value = raw.get(key)
+        written = [tag for tag in raw_tags if tag.startswith(prefix)]
+        if value is None:
+            continue
+        if value not in vocab:
+            raise InvalidDocument('元素 %s 的 %s 非法：%r' % (element_id, key, value))
+        if written and written != [prefix + value]:
+            raise InvalidDocument('元素 %s 的 %s=%s 与 tags 里的 %s 不一致'
+                                  % (element_id, key, value, written))
+        tags.append(prefix + value)
     category = raw.get('category')
     if category is not None:
         tags.append('category:' + _check_tag(category))
@@ -1787,7 +1819,6 @@ def stats(db_path, *, namespace=None):
         scope = [namespace] if namespace else namespaces
         if namespace and namespace not in namespaces:
             raise NotFound('命名空间不存在：%s' % namespace)
-        mark = ','.join('?' * len(scope)) if scope else "''"
         groups = []
         for name in scope:
             row = conn.execute(

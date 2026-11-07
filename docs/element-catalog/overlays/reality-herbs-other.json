@@ -1,0 +1,475 @@
+{
+  "schema": "catalog_overlay_v1",
+  "group": "reality-herbs-other",
+  "entries": {
+    "herb_other_eucommia_bark": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_other_phellodendron_bark": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_other_moutan_bark": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_other_wolfberry_root_bark": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_other_mulberry_root_bark": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_other_melia_root_bark": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "inferred",
+      "note": "零来源",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_other_frankincense": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "mixed",
+      "note": "树脂，归 medicinal_herb",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_other_myrrh": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "mixed",
+      "note": "树脂，归 medicinal_herb",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_other_asafoetida": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "mixed",
+      "note": "树脂，归 medicinal_herb",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_other_dragons_blood": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "mixed",
+      "note": "树脂，归 medicinal_herb",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_other_pine_rosin": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "mixed",
+      "note": "树脂，归 medicinal_herb",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_other_ganoderma": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "mixed",
+      "note": "真菌，词表无菌类药材项，归 medicinal_herb",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_other_fuling": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "mixed",
+      "note": "真菌，归 medicinal_herb",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_other_zhuling": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "mixed",
+      "note": "真菌，归 medicinal_herb",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_other_ophiocordyceps": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "mixed",
+      "note": "虫菌复合体，归 medicinal_herb（亦可 medicinal_animal）",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_other_seaweed": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "mixed",
+      "note": "藻类，归 medicinal_herb",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_other_kelp": {
+      "primary": "medicinal_herb",
+      "evidence_grade": "mixed",
+      "note": "藻类，归 medicinal_herb",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_other_cinnabar": {
+      "primary": "medicinal_mineral",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_other_realgar": {
+      "primary": "medicinal_mineral",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_other_talc": {
+      "primary": "medicinal_mineral",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_other_oracle_bone": {
+      "primary": "medicinal_animal",
+      "evidence_grade": "mixed",
+      "note": "甲骨/龟甲类动物制品",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_other_pearl": {
+      "primary": "medicinal_animal",
+      "evidence_grade": "mixed",
+      "note": "珍珠为动物制品，归 medicinal_animal",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "western_fantasy",
+        "dark_fantasy",
+        "folk_horror",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_other_cicada_slough": {
+      "primary": "medicinal_animal",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_other_silkworm_white_stiff": {
+      "primary": "medicinal_animal",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_other_earthworm": {
+      "primary": "medicinal_animal",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_other_gecko": {
+      "primary": "medicinal_animal",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_other_deer_antler": {
+      "primary": "medicinal_animal",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_other_donkey_hide_gelatin": {
+      "primary": "medicinal_animal",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_other_pangolin_scale": {
+      "primary": "medicinal_animal",
+      "evidence_grade": "mixed",
+      "note": "仅存为制度条目，仍按动物制品归 medicinal_animal",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_other_bear_bile": {
+      "primary": "medicinal_animal",
+      "evidence_grade": "mixed",
+      "note": "仅存为制度条目，仍按动物制品归 medicinal_animal",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_other_tiger_bone": {
+      "primary": "medicinal_animal",
+      "evidence_grade": "mixed",
+      "note": "仅存为制度条目，仍按动物制品归 medicinal_animal",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    },
+    "herb_other_musk": {
+      "primary": "medicinal_animal",
+      "evidence_grade": "inferred",
+      "note": "零来源；仅存为制度条目",
+      "tech_tier": null,
+      "magic_tier": null,
+      "genres_add": [
+        "historical",
+        "eastern_fantasy",
+        "xianxia",
+        "steampunk",
+        "modern"
+      ]
+    }
+  }
+}

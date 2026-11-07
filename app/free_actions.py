@@ -380,6 +380,10 @@ def resolve_action(session, story, node, action_id, plans=None, characters=None)
         if plan.get('supported') and plan.get('action') \
                 and plan['action']['id'] == action_id:
             return plan['action']
+    # 交易动作（``trade:`` 前缀）：由商人配置重建；故事包没声明商人时返回 None。
+    if isinstance(action_id, str) and action_id.startswith('trade:'):
+        from . import trade
+        return trade.action_for(session, story, characters, action_id)
     # 兜底尝试（``fallback:`` 前缀）：按 id 重建，目标必须此刻仍可见。
     if isinstance(action_id, str) and action_id.startswith('fallback:'):
         from . import adventure_actions
@@ -426,6 +430,15 @@ def describe(session, story, node, action_id, plans=None, characters=None, push=
                  if int(((session.get('local') or {}).get('resources') or {})
                         .get(spec['id'], 0)) < spec['amount']]
         raise ValueError('资源不够，缺：' + '、'.join(short))
+    if action.get('trade'):
+        # 交易：预览由 trade 模块算（价格、数量、能不能做），凭据同一个 confirm_token。
+        from . import trade
+        if session.get('active'):
+            raise ValueError('当前有进行中的事件，先处理完再交易')
+        return {'action_id': action['id'], 'label': action['label'], 'costs': [],
+                'duration_hours': 0, 'check': None, 'ends_event': False, 'intent_aliases': [],
+                'trade': trade.preview(session, story, characters, action_id),
+                'confirm': confirm_token(session, node, action, story, push)}
     if action_id.startswith('fallback:'):
         from . import adventure_actions
         plan = adventure_actions.fallback_from_id(session, story, characters, action_id)

@@ -521,7 +521,7 @@ def _tax_basis(skeleton, gated):
 
 
 def _population(entry, skeleton):
-    seed, capacity = entry['seed'], skeleton['capacity']['population']
+    capacity = skeleton['capacity']['population']
     rows, weights = [], []
     rows.append({'id': 'g_core', 'label': entry['peoples'][0]['name'] + '居民', 'role': 'majority',
                  'note': '本地出生或长期定居；不表示单一职业或统一立场'})

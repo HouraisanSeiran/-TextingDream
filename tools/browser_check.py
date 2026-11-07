@@ -1,12 +1,43 @@
-"""Browser smoke test against an isolated temporary database."""
+"""Browser smoke test against an isolated temporary database.
+
+【状态：数据已过时，默认不运行】
+本脚本写于内置「玄陆」故事包时期，整条流程依赖现在已被删除的数据：
+  * 场景/地点名：「天朝都城 · 离乡前夜」「西行商路 · 关城见闻」「西行关城」「澄京转运埠」等；
+  * 角色/内容：pass_guard、「万言机」「能量体系」「水权」「澄京腹地与漕运」等；
+  * 下载文件名「玄陆_故事包.md」；
+  * 启动即有可玩的世界。现在 Runtime 不再自动导入任何预制世界，临时库是空的，
+    第一步「新建对话」就没有故事包可用。
+另外：
+  * 需要 Python 版 playwright（`pip install playwright`），当前 .venv 没装，本仓库也不要求安装；
+  * 页面结构已大改（对话栏 / 信息栏 / 侧栏分组等），这里的部分选择器也已过时。
+判断：改造量等同于重写（要先造 fixture 故事包，再逐段改断言），不在“补两三个名字”的范围内，
+所以只加这段说明和下面的前提检查，不动后面的步骤。
+
+当前的前端验收请用：
+  * tools/p1_ui_probe.cjs（Playwright for Node + 本机 Edge，用 fixture，覆盖对话栏 / 地图 / 存档管理 /
+    阅读设置 / 侧栏分组 / 世界设定等）；服务侧见 tools/p1_ui_check.py（空库）与
+    tools/p1_ui_serve_copy.py（存档库副本，可做重命名/删除）。
+
+要强行运行（自己准备好 playwright 与对应故事包后）：设环境变量 TD_BROWSER_CHECK_FORCE=1。
+"""
 from pathlib import Path
+import os
 import socket
 import sys
 import tempfile
 import threading
 import time
+
+if os.environ.get('TD_BROWSER_CHECK_FORCE') != '1':
+    print('browser_check.py 已过时，默认跳过（SKIP）。原因见文件头说明；'
+          '当前前端验收请用 tools/p1_ui_probe.cjs。设 TD_BROWSER_CHECK_FORCE=1 可强行运行。')
+    sys.exit(0)
+
 import uvicorn
-from playwright.sync_api import sync_playwright, expect
+try:
+    from playwright.sync_api import sync_playwright, expect
+except ImportError:
+    sys.exit('缺少 Python playwright（pip install playwright）。本脚本依赖已删除的玄陆数据，见文件头说明。')
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
@@ -34,6 +65,14 @@ with tempfile.TemporaryDirectory() as temporary:
             errors = []
             page.on('pageerror', lambda error: errors.append(str(error)))
             page.goto(url)
+            # 页面 CSP 不允许 wait_for_function 的 eval，这里用 evaluate 轮询
+            for _ in range(150):
+                if page.evaluate('() => !!window.TDConversationDrawer && !!window.__textileDreamToken'):
+                    break
+                time.sleep(.2)
+            # 新建对话只在对话栏里：存档栏顶部的「＋ 新建对话」
+            page.evaluate('() => window.TDConversationDrawer.open()')
+            page.locator('#play-left #journey-new').click()
             page.locator('#session-title').fill('浏览器测试旅程')
             page.locator('#new-form .primary').click()
             page.locator('#actions button').wait_for()
@@ -53,7 +92,9 @@ with tempfile.TemporaryDirectory() as temporary:
             page.locator('#pipeline-save').click()
             expect(page.locator('#pipeline-status')).to_contain_text('已保存：StoryPackage/',timeout=30000)
             page.locator('[data-page=surface]').click()
-            page.locator('#reply-direction-panel > summary').click()
+            page.evaluate('() => window.TDConversationDrawer.open()')
+            page.locator('#tool-draft').click()
+            expect(page.locator('#composer-pop #reply-direction-panel')).to_be_visible()
             page.locator('#reply-direction-options input[value="friendly"]').check()
             page.locator('#reply-direction-options input[value="clarify"]').check()
             turn_count=len(app.state.service.store.all('session')[0]['active']['turns'])
@@ -65,21 +106,17 @@ with tempfile.TemporaryDirectory() as temporary:
             expect(page.locator('#input-channel')).to_have_value('speech')
             assert page.locator('#message').input_value()
             page.locator('#message').fill('')
-            expect(page.locator('#surface-current-map')).to_be_hidden()
-            page.locator('#show-current-map').check()
-            expect(page.locator('#surface-current-map .atlas-svg')).to_be_visible()
-            expect(page.locator('#surface-current-map')).to_contain_text('当前位置：天朝都城')
-            expect(page.locator('#surface-current-map select[aria-label="地图样式"]')).to_have_value('terrain')
-            page.locator('#surface-current-map select[aria-label="地图样式"]').select_option('all')
-            expect(page.locator('#surface-current-map .terrain-legend')).to_be_hidden()
-            page.locator('#show-current-map').uncheck()
-            expect(page.locator('#surface #new-session')).to_be_visible()
-            expect(page.locator('#surface #sessions button')).to_be_visible()
-            expect(page.locator('.sidebar #sessions')).to_have_count(0)
-            expect(page.locator('.sidebar #conversations')).to_have_count(0)
+            # 旧图册已删除；地图入口是信息栏里的缩略图（标签显示当前位置）
+            expect(page.locator('#info-panel #mini-map')).to_be_visible()
+            expect(page.locator('#mini-map-label')).to_contain_text('天朝都城')
+            # 旅程存档与章节在对话栏左栏里，侧栏/旧功能层没有
+            expect(page.locator('#play-left #journey-new')).to_be_visible()
+            expect(page.locator('#play-left #journey-list button').first).to_be_visible()
+            expect(page.locator('#workspace-sidebar #journey-list, #workspace-sidebar .journey-item')).to_have_count(0)
+            expect(page.locator('.sidebar #sessions, .sidebar #conversations, #new-session')).to_have_count(0)
             page.locator('#actions button').first.click()
             page.get_by_text('本场景已完成，可前往下一主要场景。', exact=True).wait_for()
-            page.get_by_text('资源、时间与日程 · 本地运算',exact=True).click()
+            expect(page.locator('#info-local #local-state')).to_be_visible()
             count_before_wait=len(app.state.service.store.all('trace'))
             page.locator('#wait-local').click()
             page.get_by_text('时间已由本地推进，未调用模型',exact=True).wait_for()
@@ -89,13 +126,12 @@ with tempfile.TemporaryDirectory() as temporary:
             page.locator('#notebook-search').fill('完全不存在的词')
             expect(page.locator('#notebook-list')).to_contain_text('暂无匹配记录')
             page.locator('#notebook-search').fill('')
-            page.locator('[data-page=map]').click()
-            page.locator('#map-places button:enabled').first.click()
-            page.locator('[data-page=surface]').click()
+            # 旧图册（#map-places）已删除；移动改走 /move 接口（地图上的移动由 civ-atlas 探索面板负责）
+            page.evaluate("async () => { const p = current.places.find(x => x.can_move); current = await api('/sessions/' + current.id + '/move', 'POST', {location_id: p.id}); render(); }")
+            page.evaluate("showPage('surface')")
+            page.evaluate('() => window.TDConversationDrawer.open()')
             expect(page.locator('#event-title')).to_have_text('西行商路 · 关城见闻')
-            page.locator('#show-current-map').check()
-            expect(page.locator('#surface-current-map')).to_contain_text('当前位置：西行关城')
-            page.locator('#show-current-map').uncheck()
+            expect(page.locator('#mini-map-label')).to_contain_text('西行关城')
             page.locator('#message').fill('我观察守卫的态度。')
             page.locator('#input-channel').select_option('thought')
             page.locator('#chat-form button').click()
@@ -109,7 +145,7 @@ with tempfile.TemporaryDirectory() as temporary:
             assert len(app.state.service.store.all('trace')) == trace_count_before_switch
             print('Conversation navigation: 6 switches, 0 additional model calls', flush=True)
             page.locator('[data-page=inner]').click()
-            expect(page.locator('#surface-journeys')).to_be_hidden()
+            expect(page.locator('#journey-rail')).to_be_hidden()
             page.get_by_text('本地资源与日程规则 · 作者配置',exact=True).click()
             page.locator('#load-local-rules').click()
             expect(page.locator('#local-rules-json')).to_have_value(__import__('re').compile('.*turn_hours.*',__import__('re').S))
@@ -195,7 +231,7 @@ with tempfile.TemporaryDirectory() as temporary:
             page.screenshot(path=str(ROOT / 'artifacts/console.png'), full_page=True)
             page.reload()
             expect(page.locator('#event-title')).to_have_text('西行商路 · 关城见闻')
-            page.get_by_text('事件归档与回滚', exact=True).click()
+            page.locator('#info-journey > summary').click()
             page.locator('#archives > details > summary').first.click()
             page.once('dialog', lambda dialog: dialog.accept())
             page.locator('#archives button').first.click()
@@ -219,9 +255,6 @@ with tempfile.TemporaryDirectory() as temporary:
             page.locator('#trace-list button').first.click()
             expect(page.locator('#trace-input')).to_contain_text('offline')
             page.screenshot(path=str(ROOT / 'artifacts/traces.png'), full_page=True)
-            page.locator('[data-page=map]').click()
-            expect(page.locator('#layered-player-map .atlas-svg')).to_be_visible()
-            page.screenshot(path=str(ROOT / 'artifacts/map.png'), full_page=True)
             page.locator('[data-page=world-workshop]').click()
             expect(page.locator('[data-page=generator-worldview]')).to_have_count(0)
             expect(page.locator('[data-page=generator-world]')).to_have_count(0)
@@ -255,7 +288,8 @@ with tempfile.TemporaryDirectory() as temporary:
             expect(page.locator('#world-saved')).to_contain_text('StoryPackage/')
             page.locator('#generated-package-list > div').filter(has_text='浏览器架空世界').get_by_role('button',name='启用此故事包').click()
             page.locator('[data-page=surface]').click()
-            page.locator('#new-session').click()
+            page.evaluate('() => window.TDConversationDrawer.open()')
+            page.locator('#journey-new').click()
             page.locator('#session-title').fill('生成世界试玩')
             page.locator('#new-form .primary').click()
             expect(page.locator('#world-label')).to_have_text('浏览器架空世界')

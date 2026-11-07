@@ -1,0 +1,69 @@
+{
+  "schema": "catalog_overlay_v1",
+  "group": "names-european",
+  "entries": {
+    "names_europe_english": {
+      "primary": "name_pool",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "names_europe_french": {
+      "primary": "name_pool",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "names_europe_germanic": {
+      "primary": "name_pool",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "names_europe_italian": {
+      "primary": "name_pool",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "names_europe_iberian": {
+      "primary": "name_pool",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "names_europe_slavic": {
+      "primary": "name_pool",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "names_europe_greek": {
+      "primary": "name_pool",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "names_europe_celtic": {
+      "primary": "name_pool",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    },
+    "names_europe_nordic": {
+      "primary": "name_pool",
+      "evidence_grade": "mixed",
+      "note": "",
+      "tech_tier": null,
+      "magic_tier": null
+    }
+  }
+}

@@ -31,6 +31,7 @@ import { WorldMapCanvas, type Viewport } from './WorldMapCanvas';
 import { useNativeWorlds } from './useNativeWorlds';
 import { authorToken, errorMessage, postHost, record } from './hostApi';
 import { WorldGenerationForm } from './WorldGenerationForm';
+import { FloatingWindow } from './FloatingWindow';
 import styles from './host.module.css';
 import { BIOMES } from '../gen/biomes';
 import { pickMapPoint, selectCity, type MapSelection } from './mapPicking';
@@ -67,6 +68,7 @@ export function DreamMapHost({ mode = 'author' as BridgeMode } = {}): JSX.Elemen
   const { worlds, setWorlds, importId, setImportId, loaded, busy, error: loadError, retry } = useNativeWorlds(author);
   const [startCity, setStartCity] = useState('');
   const [starting, setStarting] = useState(false);
+  const [randomEvents, setRandomEvents] = useState(true);
   const [show, setShow] = useState<CivShow>(SHOW_CIV);
   const [selection, setSelection] = useState<MapSelection | null>(null);
   const visibleCityIds = useRef<ReadonlySet<number>>(new Set());
@@ -87,6 +89,7 @@ export function DreamMapHost({ mode = 'author' as BridgeMode } = {}): JSX.Elemen
         world_id: loaded.identity.worldId, base_year: loaded.civ!.endYear, branch: 'main',
         city_id: 'settlement:' + chosenCity.id, start_cell: chosenCity.cell,
         title, premise: '从城镇出发，沿道路探索周边聚落与街区。', exploration: true,
+        random_events: randomEvents,
       }});
       const draft = record(saved.draft);
       if (typeof draft.id !== 'string' || typeof draft.revision !== 'number') throw new Error('开局草稿响应不完整');
@@ -140,6 +143,7 @@ export function DreamMapHost({ mode = 'author' as BridgeMode } = {}): JSX.Elemen
   useEffect(() => {
     if (author && !busy && !loadError && !worlds.length) setShowCreate(true);
   }, [author, busy, loadError, worlds.length]);
+  const closeCreate = useCallback(() => setShowCreate(false), []);
 
   /** 2:1 地图框：canvas 与叠加层共用同一尺寸（不拉满舞台）。 */
   const box = useMemo(() => {
@@ -332,6 +336,11 @@ export function DreamMapHost({ mode = 'author' as BridgeMode } = {}): JSX.Elemen
           {!cities.length && <option value="">该年份没有城镇</option>}
           {cities.map(city => <option key={city.id} value={city.id}>{city.name}</option>)}
         </select>
+        <label className="dream-random-events" title="开局后会随机发生城镇与国家间的事件，可关闭">
+          <input type="checkbox" aria-label="随机事件" checked={randomEvents} disabled={starting}
+                 onChange={e => setRandomEvents(e.target.checked)} /> 随机事件
+          <small>开局后会随机发生城镇与国家间的事件，可关闭</small>
+        </label>
         <button type="button" onClick={locateCity} disabled={!chosenCity}>定位城镇</button>
         <button type="button" disabled={!author || !chosenCity || starting || busy || creating}
                 onClick={beginExploration}>{starting ? '准备旅程…' : '开始探索'}</button>
@@ -353,7 +362,7 @@ export function DreamMapHost({ mode = 'author' as BridgeMode } = {}): JSX.Elemen
           <div className="dream-toolbox-head"><span>世界编辑</span><small>仅作者可见</small></div>
           <button type="button" className="dream-create-toggle" disabled={creating}
                   onClick={() => setShowCreate((old) => !old)} aria-expanded={showCreate}>
-            <span>{showCreate ? '收起生成参数' : '生成一个新世界'}</span><span aria-hidden="true">{showCreate ? '−' : '＋'}</span>
+            <span>{showCreate ? '关闭生成窗口' : '生成一个新世界…'}</span><span aria-hidden="true">{showCreate ? '×' : '⧉'}</span>
           </button>
           {loaded && <button type="button" className="dream-plan-zoom" onClick={zoomToPlan}
             title="将当前视口放大到圈地尺度；地形数据精度仍取决于原件">
@@ -368,9 +377,13 @@ export function DreamMapHost({ mode = 'author' as BridgeMode } = {}): JSX.Elemen
       {error ? <p role="alert" className="dream-host-error">{error}</p> : null}
       {notice ? <p className="dream-host-notice">{notice}</p> : null}
 
-      {author && showCreate && (toolbox ? createPortal(
-        <WorldGenerationForm params={params} setParams={setParams} creating={creating} progress={progress} onGenerate={createWorld} />, toolbox
-      ) : <WorldGenerationForm params={params} setParams={setParams} creating={creating} progress={progress} onGenerate={createWorld} />)}
+      {/* 生成参数在独立浮动窗口里配置：不再挤在侧栏里，生成中禁止关闭以免丢进度显示。 */}
+      {author && showCreate && (
+        <FloatingWindow title="生成新世界" subtitle="世界参数" closeDisabled={creating}
+                        onClose={closeCreate}>
+          <WorldGenerationForm params={params} setParams={setParams} creating={creating} progress={progress} onGenerate={createWorld} />
+        </FloatingWindow>
+      )}
 
       <div ref={stageRef} className={`dream-host-stage dream-atlas-stage ${styles.stage}`}
            role="region" aria-label="世界地图，可用方向键平移，加减键缩放，0 键复位" tabIndex={0}
@@ -388,7 +401,7 @@ export function DreamMapHost({ mode = 'author' as BridgeMode } = {}): JSX.Elemen
                       margin: 0, textAlign: 'center', padding: 24 }}>
             {!author ? '玩家模式原生地图未接（not_ready）。'
               : creating ? '正在生成世界…'
-              : showCreate ? '到左侧「地图与圈地工具」设置参数，再生成世界。'
+              : showCreate ? '在「生成新世界」窗口里设置参数，再生成世界。'
               : '还没有可用的世界。到左侧「新建世界」开始。'}
           </p>
         ) : null}

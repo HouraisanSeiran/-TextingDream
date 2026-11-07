@@ -1,0 +1,3140 @@
+{
+  "schema_version": 1,
+  "status": "candidate",
+  "group": "cuisine-european",
+  "genres": [
+    "real_world"
+  ],
+  "compiled_note": "欧陆西餐（意大利、西班牙与葡萄牙、德语区、低地国家、北欧、东欧与巴尔干、希腊）候选资料（元素库·现实基础侧）。不是完整食谱集，不是数据库记录，也没有被任何故事包采纳为正典。取舍标准：只收有实际读到的来源页支撑、能用于中世纪至近代奇幻酒馆与市集场景的成品菜、面包、甜点、腌制品与饮食制度，平民菜占一半以上；宁缺勿凑，没有读到正文的菜（黑森林蛋糕、瑞典肉丸、开放三明治等）不立条。**食材级条目不在此重复**：小麦、黑麦、玉米、马铃薯、橄榄、甘蓝、洋葱、大蒜、番茄、甜菜、乳、黄油、奶酪、蛋、猪肉、牛肉、羊肉、香肠、火腿、鳕、鲱、盐、醋、芥末、胡椒、葡萄酒、啤酒、蒸馏酒、蔗糖等均已在 staples / produce / flavors / animal-foods / food-supplement / materials / tools 各组立条，本组只写菜品如何依赖它们，并以 related_catalog_ids 指向。做法只写到技法与工序顺序，不给克数配比、不写成可执行食谱，也不写精确温度与时长。菜名与做法的存在不等于当前世界存在，也不自动生成配方、库存或市场价格。价格以便士计（12 便士 = 1 先令），锚点为一杯麦酒 2 便士、半日短工 6–12 便士，属本项目设计值，不是历史物价。全部条目 review_status=needs_review、detail_status=needs_detail。证据分层：来源页只支撑 details 中标明“来源支持”的部分；“故事用途”与“设计归纳”均为本项目推演。",
+  "distinct_from": {
+    "docs/human-encyclopedia/cuisine.json": "24 条世界菜中，披萨（cuisine_pizza）、炖饭（cuisine_risotto）、西班牙海鲜饭（cuisine_paella）本组一律不立条；饺子（cuisine_dumpling）与本组 cuisine_eu_pierogi 的区分见该条 exceptions；其余无同菜。",
+    "docs/element-catalog/cuisine-french.json": "33 条法餐。酸菜炖肉整道菜归 cuisine_fr_choucroute，本组只立酸菜这种腌制品 cuisine_eu_sauerkraut；里昂猪肉冷盘体系 cuisine_fr_charcuterie_lyon 与本组意式腌肉、香肠体系并行，不合并。",
+    "docs/element-catalog/cuisine-british.json": "16 条英国菜。本组发酵鲱鱼 cuisine_eu_surstromming 与英国熏鲱 cuisine_uk_kippers 是不同处理；酒馆小碟 tapas 与 cuisine_uk_pub_counter_snack 只作呼应。"
+  },
+  "sources": [
+    {
+      "id": "cuisine_eu_src_01",
+      "title": "Pasta — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/pasta",
+      "access": "read",
+      "supports": "硬粒小麦粗粉加温水揉成硬面团，经带孔模板挤压成空心管、细条、扁带或特形；干燥须受控，过快开裂，过慢则拉伸、发霉或发酸；家制面常加蛋，可用菠菜或甜菜汁着色；煮到有嚼劲或较软。",
+      "rights_note": "Britannica 条目，商业百科；仅事实核对与自行转述，不复制原文段落；对外分发需另行处理授权。"
+    },
+    {
+      "id": "cuisine_eu_src_02",
+      "title": "Lasagna — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/lasagna",
+      "access": "read",
+      "supports": "千层面为宽面片与酱交替叠放烘烤；名称或出拉丁语 lasanum 或希腊语 laganon；现代形态为肉酱加白酱，一般认为起源于艾米利亚-罗马涅；那不勒斯版有小肉丸、里考塔、马苏里拉与熟蛋，热那亚版用罗勒酱；至少三层面片；见于中世纪文献。",
+      "rights_note": "Britannica 条目，商业百科；仅事实核对与自行转述，不复制原文段落；对外分发需另行处理授权。"
+    },
+    {
+      "id": "cuisine_eu_src_03",
+      "title": "Gnocchi — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/gnocchi",
+      "access": "read",
+      "supports": "意大利团子，起源于东北意（威尼托）；gnocco 意为指节，借自德语 Knöchel，或经蒂罗尔；蒸熟的粉质马铃薯压泥，加面粉、蛋、盐揉团切段，入沸盐水，浮起即捞；有罗马式、核桃酱式、的里雅斯特式等变体。",
+      "rights_note": "Britannica 条目，商业百科；仅事实核对与自行转述，不复制原文段落；对外分发需另行处理授权。"
+    },
+    {
+      "id": "cuisine_eu_src_04",
+      "title": "Polenta — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/polenta",
+      "access": "read",
+      "supports": "玉米粥，见于北意皮埃蒙特，科西嘉以栗粉代之；冷却后可切块烤或炸。",
+      "rights_note": "Britannica 条目，商业百科；仅事实核对与自行转述，不复制原文段落；对外分发需另行处理授权。"
+    },
+    {
+      "id": "cuisine_eu_src_05",
+      "title": "Prosciutto — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/prosciutto-ham",
+      "access": "read",
+      "supports": "生火腿基本只有猪后腿与盐，加空气与时间（数月至三年）；盐渍风干并控制温度湿度与气流；帕尔马法定至少 400 天，圣丹尼尔用海盐至少 13 个月，托斯卡纳加胡椒香料，各地均有 DOP 标志；常入前菜拼盘。",
+      "rights_note": "Britannica 条目，商业百科；仅事实核对与自行转述，不复制原文段落；对外分发需另行处理授权。"
+    },
+    {
+      "id": "cuisine_eu_src_06",
+      "title": "Pancetta — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/pancetta",
+      "access": "read",
+      "supports": "意大利盐腌猪腩，盐腌约 8–15 天，常加黑胡椒及丁香、肉豆蔻、杜松、肉桂等香料，可卷可熏；皮亚琴察与卡拉布里亚版为 DOP；用于卡尔博纳拉、阿马特里恰纳与 soffritto。",
+      "rights_note": "Britannica 条目，商业百科；仅事实核对与自行转述，不复制原文段落；对外分发需另行处理授权。"
+    },
+    {
+      "id": "cuisine_eu_src_07",
+      "title": "Salami — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/salami",
+      "access": "read",
+      "supports": "盐腌风干发酵香肠，词源 salare（加盐），可追溯到古罗马；意大利有 150 多种；瘦肉与肥肉绞碎灌肠衣，风干数周至数月；有熏与煮熟（cotto）版本。",
+      "rights_note": "Britannica 条目，商业百科；仅事实核对与自行转述，不复制原文段落；对外分发需另行处理授权。"
+    },
+    {
+      "id": "cuisine_eu_src_08",
+      "title": "Focaccia — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/focaccia",
+      "access": "read",
+      "supports": "意大利扁面包，伊特鲁里亚起源，原为灰烬中烤的无酵饼 panis focacius（炉床面包）；热那亚、博洛尼亚、托斯卡纳各有变体。",
+      "rights_note": "Britannica 条目，商业百科；仅事实核对与自行转述，不复制原文段落；对外分发需另行处理授权。"
+    },
+    {
+      "id": "cuisine_eu_src_09",
+      "title": "Panettone — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/panettone",
+      "access": "read",
+      "supports": "圣诞与新年蛋糕，天然酵种发酵，倒挂冷却；法定含 20% 水果和 16% 黄油；起源不明，多说 15 世纪米兰；该词 1839 年才入词典。",
+      "rights_note": "Britannica 条目，商业百科；仅事实核对与自行转述，不复制原文段落；对外分发需另行处理授权。"
+    },
+    {
+      "id": "cuisine_eu_src_10",
+      "title": "Tiramisu — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/tiramisu",
+      "access": "read",
+      "supports": "意为“拉我起来”；多认为源自东北意；妓院与锡耶纳公爵等说法“可能是假的”；1959 年 Tolmezzo 食谱早于 Treviso 的 1969 年前后说法；PAT 认定给弗留利-威尼斯朱利亚；至少 200 种变体，1980 年代起普及。",
+      "rights_note": "Britannica 条目，商业百科；仅事实核对与自行转述，不复制原文段落；对外分发需另行处理授权。"
+    },
+    {
+      "id": "cuisine_eu_src_11",
+      "title": "Italian cuisine — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/Italian-cuisine",
+      "access": "read",
+      "supports": "意大利菜以淀粉为餐的中心（面、炖饭、玉米糊），常配红白葡萄酒；伊特鲁里亚人以谷物、豆类为主食；Apicius；威尼斯、热那亚商贸；14 世纪面与奶酪已成熟；哥伦布大交换后传入番茄等。",
+      "rights_note": "Britannica 条目，商业百科；仅事实核对与自行转述，不复制原文段落；对外分发需另行处理授权。"
+    },
+    {
+      "id": "cuisine_eu_src_12",
+      "title": "Mediterranean diet — UNESCO 非物质文化遗产名录",
+      "url": "https://ich.unesco.org/en/RL/mediterranean-diet-00884",
+      "access": "read",
+      "supports": "2013 年列入代表作名录，涉及塞浦路斯、克罗地亚、西班牙、希腊、意大利、摩洛哥、葡萄牙；强调共餐、款待、节庆、集市、陶器制作，由家庭尤其女性传承。",
+      "rights_note": "UNESCO 名录官方页面；仅事实核对与自行转述，不复制原文段落；引用应以“UNESCO 名录条目”而非“法规”方式表述。"
+    },
+    {
+      "id": "cuisine_eu_src_13",
+      "title": "Gazpacho — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/gazpacho",
+      "access": "read",
+      "supports": "安达卢西亚冷汤，古希腊罗马文献已提及；番茄与青椒 16 世纪才自新大陆传入；面包屑增稠；词源为阿拉伯语“泡软的面包”；马拉加版用杏仁和葡萄；西班牙食谱书归入沙拉类。",
+      "rights_note": "Britannica 条目，商业百科；仅事实核对与自行转述，不复制原文段落；对外分发需另行处理授权。"
+    },
+    {
+      "id": "cuisine_eu_src_14",
+      "title": "Pretzel — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/pretzel",
+      "access": "read",
+      "supports": "源于德国或阿尔萨斯的打结咸面包：面绳打结，短暂水煮后刷蛋液、撒盐、烘烤；配啤酒，街头小贩出售。",
+      "rights_note": "Britannica 条目，商业百科；仅事实核对与自行转述，不复制原文段落；对外分发需另行处理授权。"
+    },
+    {
+      "id": "cuisine_eu_src_15",
+      "title": "Wiener schnitzel — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/Wiener-schnitzel",
+      "access": "read",
+      "supports": "去骨薄肉捶薄，裹粉、蛋液、面包屑，黄油或油煎；Wiener Schnitzel 在德奥受法律保护，限小牛肉；配柠檬、薯、Spätzle，瑞士配 Rösti；与米兰式炸肉排的关系有争议。",
+      "rights_note": "Britannica 条目，商业百科；仅事实核对与自行转述，不复制原文段落；对外分发需另行处理授权。"
+    },
+    {
+      "id": "cuisine_eu_src_16",
+      "title": "Sauerkraut — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/sauerkraut",
+      "access": "read",
+      "supports": "细切白甘蓝与盐分层于陶缸或木桶，压重盖，15.5°C 以下发酵至少一个月；罗马人已知、后失传，13 世纪据说由鞑靼人自中国再传入；与烟熏肉、香肠同食于 choucroute garnie 与 Berner Platte。",
+      "rights_note": "Britannica 条目，商业百科；仅事实核对与自行转述，不复制原文段落；对外分发需另行处理授权。"
+    },
+    {
+      "id": "cuisine_eu_src_17",
+      "title": "Sausage — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/sausage",
+      "access": "read",
+      "supports": "词源拉丁语 salsus；古巴比伦、希腊、罗马已有香肠；中世纪起欧洲城市出现以城名命名的名肠（frankfurter、bologna、romano）；干香肠多起于暖地，鲜肠与熟肠多起于冷地。",
+      "rights_note": "Britannica 条目，商业百科；仅事实核对与自行转述，不复制原文段落；对外分发需另行处理授权。"
+    },
+    {
+      "id": "cuisine_eu_src_18",
+      "title": "Kielbasa — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/kielbasa",
+      "access": "read",
+      "supports": "波兰香肠，猪肉、蒜、马郁兰调味；myśliwska（狩猎版）加杜松子；weselna 为婚礼香肠；常配酸菜或炸洋葱。",
+      "rights_note": "Britannica 条目，商业百科；仅事实核对与自行转述，不复制原文段落；对外分发需另行处理授权。"
+    },
+    {
+      "id": "cuisine_eu_src_19",
+      "title": "Waffle — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/waffle",
+      "access": "read",
+      "supports": "华夫烤盘夹烤面糊；比利时和法国用酵母；12 世纪法语诗中已提及，在集市和宗教节庆当街头食品出售。",
+      "rights_note": "Britannica 条目，商业百科；仅事实核对与自行转述，不复制原文段落；对外分发需另行处理授权。"
+    },
+    {
+      "id": "cuisine_eu_src_20",
+      "title": "Stroopwafel — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/stroopwafel",
+      "access": "read",
+      "supports": "荷兰高达所出，可能起于 18 世纪末；两片薄华夫夹糖浆，街头食品。",
+      "rights_note": "Britannica 条目，商业百科；仅事实核对与自行转述，不复制原文段落；对外分发需另行处理授权。"
+    },
+    {
+      "id": "cuisine_eu_src_21",
+      "title": "Gouda cheese — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/Gouda-cheese",
+      "access": "read",
+      "supports": "荷兰半硬牛奶奶酪，可能起于 12 世纪；扁轮，黄色石蜡涂层，“Holland”印章，农场版 Boerenkaas。",
+      "rights_note": "Britannica 条目，商业百科；仅事实核对与自行转述，不复制原文段落；对外分发需另行处理授权。"
+    },
+    {
+      "id": "cuisine_eu_src_22",
+      "title": "Smorgasbord — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/smorgasbord",
+      "access": "read",
+      "supports": "瑞典自助餐桌，源自乡村宴会各人带一份；18 世纪起正餐前有 bannvinsbord（烈酒与鲱鱼）；含 gravlax、肉丸、Jansson 的诱惑；二战后 Operakallaren 重新推广。",
+      "rights_note": "Britannica 条目，商业百科；仅事实核对与自行转述，不复制原文段落；对外分发需另行处理授权。"
+    },
+    {
+      "id": "cuisine_eu_src_23",
+      "title": "Surströmming — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/surstromming",
+      "access": "read",
+      "supports": "瑞典发酵波罗的海鲱：春季捕捞，盐水浸约两个月后装罐继续发酵；八月第三个星期四开卖，曾由王室诏令规定；配杏仁薯、洋葱与薄饼 tunnbröd。",
+      "rights_note": "Britannica 条目，商业百科；仅事实核对与自行转述，不复制原文段落；对外分发需另行处理授权。"
+    },
+    {
+      "id": "cuisine_eu_src_24",
+      "title": "Borscht — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/borscht",
+      "access": "read",
+      "supports": "斯拉夫甜菜汤，常说起源于乌克兰；名称可能出自牛防风；可冷可热；常用 kvass、醋或柠檬中和甜味；乌克兰版牛肉加根菜与甘蓝，配酸奶油与 pirozhki；波兰素版用林蘑菇汤配 uszka。",
+      "rights_note": "Britannica 条目，商业百科；仅事实核对与自行转述，不复制原文段落；对外分发需另行处理授权。"
+    },
+    {
+      "id": "cuisine_eu_src_25",
+      "title": "Goulash — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/goulash",
+      "access": "read",
+      "supports": "匈牙利炖菜；追溯到 9 世纪马扎尔牧人，把炖肉晒干装羊胃袋、加水复原；红椒粉 18 世纪才加入；经典做法为牛肉或羊肉与洋葱用猪油煎，加蒜、葛缕子、番茄、青椒、马铃薯；塞凯伊版为猪肉酸菜。",
+      "rights_note": "Britannica 条目，商业百科；仅事实核对与自行转述，不复制原文段落；对外分发需另行处理授权。"
+    },
+    {
+      "id": "cuisine_eu_src_26",
+      "title": "Pierogi — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/pierogi",
+      "access": "read",
+      "supports": "波兰起源；传说由多明我会 St. Hyacinth 自基辅带回；也可能经丝路自中亚传入；17 世纪末始见印刷；未发酵面皮包馅、半月形捏边，水煮或再煎。",
+      "rights_note": "Britannica 条目，商业百科；仅事实核对与自行转述，不复制原文段落；对外分发需另行处理授权。"
+    },
+    {
+      "id": "cuisine_eu_src_27",
+      "title": "Moussaka — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/moussaka",
+      "access": "read",
+      "supports": "巴尔干与中东菜，希腊土耳其为代表；希腊版为茄片油煎、羊肉番茄酱与奶酪白酱分层烤；可垫马铃薯或换西葫芦；阿拉伯 musakkʾa 为素的茄子鹰嘴豆炖菜。",
+      "rights_note": "Britannica 条目，商业百科；仅事实核对与自行转述，不复制原文段落；对外分发需另行处理授权。"
+    },
+    {
+      "id": "cuisine_eu_src_28",
+      "title": "Feta — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/feta",
+      "access": "read",
+      "supports": "希腊盐水渍白软奶酪，羊奶或山羊奶；《奥德赛》中波吕斐摩斯的羊奶奶酪或为前身；盐水中可存数月；用于 spanakopita 与希腊沙拉。",
+      "rights_note": "Britannica 条目，商业百科；仅事实核对与自行转述，不复制原文段落；对外分发需另行处理授权。"
+    },
+    {
+      "id": "cuisine_eu_src_29",
+      "title": "Baklava — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/baklava",
+      "access": "read",
+      "supports": "30–40 层薄脆面皮（phyllo）刷黄油夹坚果，烤后浇蜂蜜柠檬糖浆；土耳其、希腊、巴尔干的节庆甜食。",
+      "rights_note": "Britannica 条目，商业百科；仅事实核对与自行转述，不复制原文段落；对外分发需另行处理授权。"
+    },
+    {
+      "id": "cuisine_eu_src_30",
+      "title": "Kvass — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/kvass",
+      "access": "read",
+      "supports": "黑麦面包加麦芽发酵的低度饮料，俄国 16–19 世纪常见，农民饮品；okroshka 冷汤的基底，也可加入罗宋汤。",
+      "rights_note": "Britannica 条目，商业百科；仅事实核对与自行转述，不复制原文段落；对外分发需另行处理授权。"
+    },
+    {
+      "id": "cuisine_eu_src_31",
+      "title": "Sweden: Daily life and social customs — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/place/Sweden/Daily-life-and-social-customs",
+      "access": "read",
+      "supports": "引 Cajsa Warg“你得到什么就吃什么”；冬储逻辑；lutefisk、腌鲱、越橘、knäckebröd、发酵乳制品；圣诞火腿。",
+      "rights_note": "Britannica 条目，商业百科；仅事实核对与自行转述，不复制原文段落；对外分发需另行处理授权。"
+    },
+    {
+      "id": "cuisine_eu_src_32",
+      "title": "Belgian beer culture — UNESCO 非物质文化遗产名录",
+      "url": "https://ich.unesco.org/en/RL/belgian-beer-culture-01062",
+      "access": "read",
+      "supports": "2016 年列入；比利时约 1500 种啤酒，含 Trappist；啤酒入菜与配餐；社区传承方式。",
+      "rights_note": "UNESCO 名录官方页面；仅事实核对与自行转述，不复制原文段落。"
+    },
+    {
+      "id": "cuisine_eu_src_33",
+      "title": "Lutefisk — Encyclopaedia Britannica（摘录页）",
+      "url": "https://www.britannica.com/topic/lutefisk",
+      "access": "read",
+      "supports": "摘录页：干鳕鱼以水和碱液泡发后膨胀，瑞典与挪威传统。该页只有摘要，仅作旁证。",
+      "rights_note": "Britannica 条目，商业百科；仅事实核对与自行转述，不复制原文段落；对外分发需另行处理授权。 本页只有摘要，作旁证用。"
+    },
+    {
+      "id": "cuisine_eu_src_34",
+      "title": "Iberian ham from Spain — spain.info（西班牙旅游局）",
+      "url": "https://www.spain.info/en/discover-spain/jamon-iberico/",
+      "access": "read",
+      "supports": "伊比利亚火腿原产于西部 dehesa，从萨拉曼卡到韦尔瓦；montanera 季（10–2 月）猪半放养吃橡果，体重可翻倍；火腿在窖中熟成数年；四条长途火腿路线对应四个原产地保护区，Guijuelo 可能最早设立。",
+      "rights_note": "官方旅游局页面；仅事实核对与自行转述；带推广性质，不作历史定论。"
+    },
+    {
+      "id": "cuisine_eu_src_35",
+      "title": "The most popular gastronomic routes and tapas in Spain — spain.info",
+      "url": "https://www.spain.info/en/top/art-of-tapas-spain/",
+      "access": "read",
+      "supports": "tapas 起源有争议：有史家称 19 世纪安达卢西亚，有的追到 13 世纪阿方索十世；全国通行，有些地方随饮品免费；北方有 pintxos，阿维拉有 patatas revolconas 等。",
+      "rights_note": "官方旅游局页面；仅事实核对与自行转述；带推广性质。"
+    },
+    {
+      "id": "cuisine_eu_src_36",
+      "title": "From Monastery to Mainstream: The Story Behind Portugal’s Iconic Custard Tart — Baking Heritage",
+      "url": "https://bakingheritage.com/history/from-monastery-to-mainstream-the-story-behind-portugals-iconic-custard-tart",
+      "access": "read",
+      "supports": "18 世纪热罗尼莫斯修道院修士用蛋清浆衣、剩蛋黄做甜点（传说性叙述）；1820 年代修道院解散，配方卖给糖厂，1837 年开 Fábrica de Pastéis de Belém；配方保密；传至澳门与巴西；配 bica 与肉桂。",
+      "rights_note": "商业烘焙网站，非学术来源；仅事实核对与自行转述；起源叙述按传说处理。"
+    },
+    {
+      "id": "cuisine_eu_src_37",
+      "title": "Cod is king in Portugal at Christmas — France 24 / AFP",
+      "url": "https://www.france24.com/en/live-news/20241220-cod-is-king-in-portugal-at-christmas",
+      "access": "read",
+      "supports": "盐鳕长期是葡萄牙的国民主食，食谱据说一年每天一种；葡萄牙为全球最大消费国，圣诞席核心；最传统的做法为烤后配煮薯，亦可烤架、炸饼或代肉做千层面。",
+      "rights_note": "新闻稿（AFP）；仅事实核对与自行转述。"
+    },
+    {
+      "id": "cuisine_eu_src_38",
+      "title": "Geographical indications and quality schemes explained — European Commission, Agriculture",
+      "url": "https://agriculture.ec.europa.eu/farming/geographical-indications-and-quality-schemes/geographical-indications-and-quality-schemes-explained_en",
+      "access": "read",
+      "supports": "PDO 要求整个生产过程在产地（例：卡拉马塔橄榄油）；PGI 至少一个阶段在产地（例：威斯特法伦骨火腿）；烈酒有 GI；TSG 保护做法（例：Gueuze）；2024 年 5 月 13 日新条例生效。",
+      "rights_note": "欧盟委员会官方页面；仅事实核对与自行转述。"
+    },
+    {
+      "id": "cuisine_eu_src_39",
+      "title": "Paprika — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/paprika",
+      "access": "read",
+      "supports": "红椒粉出自美洲传来的辣椒属，匈牙利玫瑰红椒最佳；匈牙利菜 gulyás、pörkölt、paprikás 都用它。",
+      "rights_note": "Britannica 条目，商业百科；仅事实核对与自行转述，不复制原文段落；对外分发需另行处理授权。"
+    },
+    {
+      "id": "cuisine_eu_src_un_01",
+      "title": "Pastel de nata — Wikipedia（英文版）",
+      "url": "https://en.wikipedia.org/wiki/Pastel_de_nata",
+      "access": "unavailable",
+      "supports": "连接超时，对端未响应；同页的 en.m 与 wikiwand 镜像亦失败。未取得正文。",
+      "rights_note": "失败如实登记；零引用。"
+    },
+    {
+      "id": "cuisine_eu_src_un_02",
+      "title": "Bacalhau — Wikipedia（英文版）",
+      "url": "https://en.wikipedia.org/wiki/Bacalhau",
+      "access": "unavailable",
+      "supports": "连接超时，wikiwand 镜像亦失败。未取得正文。",
+      "rights_note": "失败如实登记；零引用。"
+    },
+    {
+      "id": "cuisine_eu_src_un_03",
+      "title": "Tapas — Wikipedia（英文版）",
+      "url": "https://en.wikipedia.org/wiki/Tapas",
+      "access": "unavailable",
+      "supports": "连接超时，wikiwand 镜像亦失败。未取得正文。",
+      "rights_note": "失败如实登记；零引用。"
+    },
+    {
+      "id": "cuisine_eu_src_un_04",
+      "title": "Jamón ibérico — Wikipedia（英文版）",
+      "url": "https://en.wikipedia.org/wiki/Jam%C3%B3n_ib%C3%A9rico",
+      "access": "unavailable",
+      "supports": "连接超时。未取得正文。",
+      "rights_note": "失败如实登记；零引用。"
+    },
+    {
+      "id": "cuisine_eu_src_un_05",
+      "title": "Bratwurst — Wikipedia（英文版）",
+      "url": "https://en.wikipedia.org/wiki/Bratwurst",
+      "access": "unavailable",
+      "supports": "连接超时。未取得正文。",
+      "rights_note": "失败如实登记；零引用。"
+    },
+    {
+      "id": "cuisine_eu_src_un_06",
+      "title": "Black Forest gateau — Wikipedia（英文版）",
+      "url": "https://en.wikipedia.org/wiki/Black_Forest_gateau",
+      "access": "unavailable",
+      "supports": "连接超时。未取得正文；因此黑森林蛋糕未立条。",
+      "rights_note": "失败如实登记；零引用。"
+    },
+    {
+      "id": "cuisine_eu_src_un_07",
+      "title": "Swedish meatballs — Wikipedia（英文版）",
+      "url": "https://en.wikipedia.org/wiki/Swedish_meatballs",
+      "access": "unavailable",
+      "supports": "连接超时。未取得正文；因此瑞典肉丸未立条。",
+      "rights_note": "失败如实登记；零引用。"
+    },
+    {
+      "id": "cuisine_eu_src_un_08",
+      "title": "Smørrebrød — Wikipedia（英文版）",
+      "url": "https://en.wikipedia.org/wiki/Sm%C3%B8rrebr%C3%B8d",
+      "access": "unavailable",
+      "supports": "连接超时，wikiwand 镜像亦失败。未取得正文；因此开放三明治未立条。",
+      "rights_note": "失败如实登记；零引用。"
+    },
+    {
+      "id": "cuisine_eu_src_un_09",
+      "title": "Gravlax — Wikipedia（英文版）",
+      "url": "https://en.wikipedia.org/wiki/Gravlax",
+      "access": "unavailable",
+      "supports": "连接超时。未取得正文。",
+      "rights_note": "失败如实登记；零引用。"
+    },
+    {
+      "id": "cuisine_eu_src_un_10",
+      "title": "Stroopwafel — Wikipedia（英文版）",
+      "url": "https://en.wikipedia.org/wiki/Stroopwafel",
+      "access": "unavailable",
+      "supports": "连接超时。未取得正文（荷兰糖浆华夫改用 Britannica）。",
+      "rights_note": "失败如实登记；零引用。"
+    }
+  ],
+  "elements": [
+    {
+      "id": "cuisine_eu_dried_pasta",
+      "name": "干面（pasta secca：硬粒小麦粗粉挤压干燥成型的面食）",
+      "aliases": [
+        "pasta",
+        "dried pasta",
+        "pasta secca",
+        "semolina pasta",
+        "意大利面",
+        "干面",
+        "通心粉",
+        "细面条"
+      ],
+      "category": "item",
+      "tags": [
+        "kind:dish",
+        "tradition:western",
+        "cuisine:italian",
+        "region:italy",
+        "course:first",
+        "technique:extrude",
+        "technique:dry",
+        "technique:boil",
+        "occasion:daily",
+        "class_marker:common",
+        "role:storable_staple",
+        "price:penny",
+        "terrain:workshop",
+        "terrain:farmland",
+        "season:all_year",
+        "sold_by:market",
+        "sold_by:grocer",
+        "sold_by:tavern"
+      ],
+      "summary": "以硬粒小麦胚乳磨成的粗粉加温水揉成硬面团，挤过模孔成型再干燥的面食。形状最初都是为保温或挂酱设计的，干燥后能远运与仓储，所以它既是平民口粮，也是商船和军队的储备粮。",
+      "details": {
+        "definition": "干面是以硬粒小麦（durum）胚乳磨成的粗粒粉（semolina）与温水揉成硬面团，再挤出、成型、干燥的一类淀粉食品，常与意大利菜相连。它含大量面筋蛋白，可成绳状、管状、带状和各种特形，每种形状最初都为某种特性而设计，如保温或挂酱（cuisine_eu_src_01）。意大利菜的正餐常以一种淀粉为中心，面、炖饭和玉米糊都属此类（cuisine_eu_src_11）。",
+        "mechanism": "工序是：粗粉与温水揉成硬面团，一边推进一边压实混匀，被迫通过带孔的模板（模）成型。孔内有钉则成空心管，无钉小孔成细条，缝形孔成扁带，特殊模或旋转刀可切出贝壳等小形。成型后的湿面要干燥到含水量很低，干燥必须受控：过快会开裂，过慢会拉伸，还会长霉或发酸。食用时沸水煮，可煮到有嚼劲（al dente）或更软（cuisine_eu_src_01）。",
+        "conditions": "要有硬粒小麦及其磨粉、能把硬面团压过模板的挤压装置、可控的干燥场所和沸水。干燥是保存的前提，使它成为能入仓、能装船、能记账的口粮。手工小批量时，模板可以是铜或金属件，也可以只用手切；大批量则依赖挤压机械与水力或畜力，这一点属本项目的推断，已读来源只讲现代商业加工。",
+        "exceptions": "①鲜制的家用蛋面不是干面：家制面常加蛋，彩色面用菠菜汁或甜菜汁着色（cuisine_eu_src_01）。②千层面和马铃薯团子另立条，不并入本条。③不要把「面起源于某地某人」写成定论：已读来源没有给出起源与传入路径的结论。④干面不等于一定是意大利的：德国和中东也有自己的面食，本条只写意大利传统。⑤番茄酱配面是美洲作物传入之后的事，不能放进更早的时代背景。",
+        "story_uses": "①粮仓与商路：干面是能记数、能扛上船的口粮，可写面坊行会、粗粉价格和饥荒时的囤积。②军队和围城：耐存放的碳水适合当军粮。③阶层与口味：「煮到有嚼劲」还是「煮烂」可作地域或阶层的口味标记。④旅店：一锅面加一点腌肉和奶酪，是酒馆里最便宜的一餐。",
+        "historical_scope": "本条写硬粒小麦粗粉挤压干燥的成型原理，地域为意大利及受其影响之处。已读来源只给现代商业加工流程与形状名称，没有给出干面的定型年代。架空世界使用时需要硬粒小麦、挤压成型的模具和干燥场地三项条件，缺一就应改写为手切鲜面。",
+        "evidence_and_uncertainty": "来源支持：干面由硬粒小麦粗粉制成、含大量面筋、可成绳管带和特形、商业加工为温水揉面后挤出、成型后干燥、干得太快开裂太慢会拉伸霉变或发酸、家制面常加蛋、可用菠菜或甜菜汁着色、煮到有嚼劲或更软（cuisine_eu_src_01）；意大利正餐常以面、炖饭或玉米糊为中心（cuisine_eu_src_11）。缺口：定型年代、起源与传入路径、历史上的价格均未取得来源。「便宜的平民一餐」「商船储备」属本项目的设计归纳。review_status 保持 needs_review。"
+      },
+      "source_ids": [
+        "cuisine_eu_src_01",
+        "cuisine_eu_src_11"
+      ],
+      "related_catalog_ids": [
+        "staples_wheat",
+        "materials_salt",
+        "animal_food_egg",
+        "animal_food_cheese",
+        "tools_pottery_cooking_pot",
+        "tools_granary"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "game": {
+        "schema": "game_fields_v1",
+        "price": {
+          "min": 1,
+          "max": 3,
+          "per": "一碗",
+          "tier": "penny"
+        },
+        "terrains": [
+          "workshop",
+          "farmland"
+        ],
+        "seasons": [
+          "all_year"
+        ],
+        "keeps": "months",
+        "sold_by": [
+          "market",
+          "grocer",
+          "tavern"
+        ],
+        "note": "平民碗面几便士；干面作为商品按碗折算，生面粉另计。"
+      },
+      "primary": "noodle",
+      "evidence_grade": "mixed"
+    },
+    {
+      "id": "cuisine_eu_lasagne",
+      "name": "千层面（lasagne：面片与酱料分层烤成的砂锅面）",
+      "aliases": [
+        "lasagna",
+        "lasagne",
+        "lasagne al forno",
+        "千层面",
+        "烤宽面"
+      ],
+      "category": "item",
+      "tags": [
+        "kind:dish",
+        "tradition:western",
+        "cuisine:italian",
+        "region:emilia_romagna",
+        "course:first",
+        "technique:layer",
+        "technique:bake",
+        "occasion:festival",
+        "occasion:tavern",
+        "class_marker:common",
+        "price:groat",
+        "terrain:workshop",
+        "terrain:farmland",
+        "terrain:pasture",
+        "season:all_year",
+        "sold_by:tavern",
+        "sold_by:inn_kitchen"
+      ],
+      "summary": "宽面片与酱料交替叠放再烘烤的意大利面食。艾米利亚-罗马涅的肉酱加白酱版本是现代形态，那不勒斯和热那亚各有自己的馅和酱，名称本身就带着地域差异。",
+      "details": {
+        "definition": "千层面是一道意大利面食，用宽面片（常带波浪边）和番茄酱或白酱交替叠放烘烤而成。单数 lasagna 是南意变体，北意称复数 lasagne。现代形态是肉酱（近似博洛尼亚肉酱）与面片、白酱（besciamella/balsamella）分层，一般认为起源于艾米利亚-罗马涅省（cuisine_eu_src_02）。",
+        "mechanism": "工序顺序：面片先煮到有嚼劲，沥干冷却到能拿得住；在耐火的盘里先放酱，再覆一层面片，再加肉酱、奶酪、白酱等，如此反复，最后烘烤。意大利厨师认为至少要有三层面片，四层更常见。覆盖保湿可避免烤干。核心判断是水分平衡：面片靠酱吸水变软，酱太稀会糊，太稠会干（cuisine_eu_src_02）。",
+        "conditions": "要有面片（干面或鲜面）、酱、奶酪、耐火的烤盘，以及能整盘加热的炉灶或烤炉。它比大多数面食费工得多，所以是节庆和家宴菜。白酱要靠面糊增稠，肉酱要靠长时间炖煮。",
+        "exceptions": "①南北意大利版本不同：那不勒斯版常有小肉丸、里考塔与马苏里拉奶酪和切片熟蛋，热那亚版以罗勒酱为酱，不能只写一种（cuisine_eu_src_02）。②素食版可用菠菜和蔬菜代替肉；绿色千层面片（lasagne verdi）用菠菜制成（cuisine_eu_src_02）。③名称来源有争议：可能出自拉丁语 lasanum（炊具），也可能出自希腊语 laganon（平饼），已读来源只写「被认为」（cuisine_eu_src_02）。④番茄酱是美洲作物传入之后的事，更早的千层面不会有番茄。",
+        "story_uses": "①节庆和主妇的拿手菜：一整盘分给全家，可写继承配方和邻里比较。②地域身份：南北千层面不同，可写移民把家乡版本带到别处后变形。③旅店：整盘烤好后切块出售，酒馆用它当较体面的热菜。④阶层：多层肉酱和奶酪意味着富余，穷人家用蔬菜片和少量奶酪撑场面。",
+        "historical_scope": "本条写意大利（以艾米利亚-罗马涅为现代形态的发源）的千层面，已读来源称它是意大利菜里最古老的面食之一，并见于中世纪文献。「马可·波罗」只在来源里作为文献时间参照出现，不要写成传入证据。架空世界使用需要面片、酱、奶酪和整盘烘烤的炉。",
+        "evidence_and_uncertainty": "来源支持：千层面是意大利面食、用宽面片和番茄酱或白酱制成、单数南意复数北意、名称可能出自 lasanum 或 laganon、现代形态为肉酱加白酱分层且被认为起源于艾米利亚-罗马涅、那不勒斯与热那亚版本不同、至少三层面片、被视为意大利菜最古老的面食之一并见于中世纪文献（cuisine_eu_src_02）。缺口：具体年代、各版本的定型时间、历史价格均未取得来源。「节庆家宴菜」「旅店出售整盘」属本项目的设计归纳。review_status 保持 needs_review。"
+      },
+      "source_ids": [
+        "cuisine_eu_src_02",
+        "cuisine_eu_src_01"
+      ],
+      "related_ids": [
+        "cuisine_eu_dried_pasta",
+        "cuisine_fr_roux_white_sauce"
+      ],
+      "related_catalog_ids": [
+        "staples_wheat",
+        "animal_food_beef",
+        "animal_food_pork",
+        "animal_food_milk",
+        "animal_food_butter",
+        "animal_food_cheese",
+        "animal_food_egg",
+        "produce_tomato",
+        "produce_spinach"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "game": {
+        "schema": "game_fields_v1",
+        "price": {
+          "min": 3,
+          "max": 6,
+          "per": "一份",
+          "tier": "groat"
+        },
+        "terrains": [
+          "workshop",
+          "farmland",
+          "pasture"
+        ],
+        "seasons": [
+          "all_year"
+        ],
+        "keeps": "days",
+        "sold_by": [
+          "tavern",
+          "inn_kitchen"
+        ],
+        "note": "多层肉酱加奶酪的热菜，比一碗面贵一档。"
+      },
+      "primary": "dish",
+      "evidence_grade": "sourced"
+    },
+    {
+      "id": "cuisine_eu_gnocchi",
+      "name": "马铃薯团子（gnocchi：薯泥与面粉揉成的小团煮食）",
+      "aliases": [
+        "gnocchi",
+        "potato gnocchi",
+        "尼奥基",
+        "意式薯团",
+        "马铃薯团子"
+      ],
+      "category": "item",
+      "tags": [
+        "kind:dish",
+        "tradition:western",
+        "cuisine:italian",
+        "region:veneto",
+        "course:first",
+        "technique:steam",
+        "technique:boil",
+        "occasion:daily",
+        "class_marker:common",
+        "role:potato_staple",
+        "price:penny",
+        "terrain:workshop",
+        "terrain:farmland",
+        "season:autumn",
+        "season:winter",
+        "sold_by:tavern",
+        "sold_by:inn_kitchen"
+      ],
+      "summary": "以蒸熟的马铃薯泥加面粉、蛋和盐揉成团，切段煮到浮起的意大利北部小团。它是「新作物进入旧菜」的例子：在凉爽的威尼托能种马铃薯，才有这道用薯代面的第一道菜。",
+      "details": {
+        "definition": "gnocchi 是东北意大利起源的马铃薯团子，有几十种变体，常像面食一样配番茄酱或罗勒酱。通常作为第一道菜（primo piatto），也足以当主菜。名字来自威尼斯方言 gnocco（指关节），借自德语 Knöchel，可能经由蒂罗尔，形状像动物的指关节（cuisine_eu_src_03）。",
+        "mechanism": "工序：将粉质马铃薯蒸熟（不煮，煮会发湿），趁热捣碎，拌入面粉、蛋和盐，揉成软面团，搓成长条再切段，入沸腾的盐水，浮起即捞出，立刻上桌。核心是薯与面粉的比例：面粉过多团子发硬，薯过多下锅散开（cuisine_eu_src_03）。",
+        "conditions": "要有马铃薯，也就要有能种马铃薯的凉爽气候（来源提到威尼托天气凉爽，可种马铃薯）、面粉、蛋和盐，以及沸水。因为用薯代部分面粉，所以在麦粉贵、薯便宜的地方更合算（后半句是本项目推断）。",
+        "exceptions": "①配法各地不同：罗马式（gnocchi alla romana）配黄油和奶酪酱，gnocchi alle noci 配核桃碎和黄油，的里雅斯特式配梅干、糖与肉桂（cuisine_eu_src_03）。②本条写的是马铃薯团子，不是所有 gnocchi：罗马式在许多资料里是粗粒粉做的，已读来源只写配酱，不展开主料，不要混写。③不要写成中世纪的菜：马铃薯是美洲作物，传入欧洲并成为日常食物是近代的事。④团子用手工的手法耗时，成败取决于经验。",
+        "story_uses": "①作物传入与饥荒：薯进入餐桌可写成「新作物救了穷人」或「地主逼迫改种」。②边境与方言：名字从德语借入，可写威尼托与蒂罗尔的贸易与混居。③酒馆：廉价、顶饱、一份一盘，适合旅人。④阶层：配核桃黄油或梅干糖的版本面向有钱人。",
+        "historical_scope": "本条限东北意大利（威尼托），时间在马铃薯引入欧洲之后；已读来源没有给出定型年代。若在更早的架空背景使用，需要用别的淀粉（如粗粉、栗粉）代薯，那就不是本条原型。",
+        "evidence_and_uncertainty": "来源支持：gnocchi 是东北意大利威尼托的马铃薯团子、有几十种变体、名字出自 gnocco（指关节）借自德语 Knöchel 可能经蒂罗尔、通常作第一道菜、罗马式配黄油奶酪与核桃式及的里雅斯特式配梅干糖肉桂的变体、蒸马铃薯后捣碎拌面粉蛋盐、比例失当会发硬或散开、煮到浮起即食（cuisine_eu_src_03）。缺口：马铃薯何时进入该菜、历史价格未取得来源。「麦粉贵时更合算」属设计归纳。review_status 保持 needs_review。"
+      },
+      "source_ids": [
+        "cuisine_eu_src_03"
+      ],
+      "related_ids": [
+        "cuisine_eu_dried_pasta"
+      ],
+      "related_catalog_ids": [
+        "staples_potato",
+        "staples_wheat",
+        "animal_food_egg",
+        "materials_salt",
+        "animal_food_butter",
+        "animal_food_cheese",
+        "produce_walnut"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "game": {
+        "schema": "game_fields_v1",
+        "price": {
+          "min": 1,
+          "max": 3,
+          "per": "一盘",
+          "tier": "penny"
+        },
+        "terrains": [
+          "workshop",
+          "farmland"
+        ],
+        "seasons": [
+          "autumn",
+          "winter"
+        ],
+        "keeps": "days",
+        "sold_by": [
+          "tavern",
+          "inn_kitchen"
+        ],
+        "note": "用薯代部分面粉的廉价顶饱菜；马铃薯收获后的秋冬最常见。"
+      },
+      "primary": "dish",
+      "evidence_grade": "mixed"
+    },
+    {
+      "id": "cuisine_eu_polenta",
+      "name": "玉米糊（polenta：谷粉粥冷却后可切煎的意大利北部主食）",
+      "aliases": [
+        "polenta",
+        "玉米糊",
+        "玉米粥",
+        "栗粉糊",
+        "polenta di castagne"
+      ],
+      "category": "item",
+      "tags": [
+        "kind:dish",
+        "tradition:western",
+        "cuisine:italian",
+        "region:northern_italy",
+        "course:first",
+        "course:side",
+        "technique:porridge",
+        "technique:fry",
+        "occasion:daily",
+        "class_marker:common",
+        "role:poor_staple",
+        "price:penny",
+        "terrain:farmland",
+        "terrain:mountain",
+        "terrain:workshop",
+        "season:all_year",
+        "sold_by:farmer",
+        "sold_by:tavern",
+        "sold_by:street_vendor"
+      ],
+      "summary": "把谷粉在盐水里煮成稠粥，趁热吃或冷却后切块再烤、煎、炸。它是北意的穷人主食，也是「同一结构换主料」的例子：玉米、栗粉、大麦粉都能做。",
+      "details": {
+        "definition": "polenta 是一种粥或糊，通常用玉米粉在盐水里煮成，常加奶酪、黄油或油。可以趁热当粥吃，也可以冷却变硬、切形后烤、煎或炸。它是意大利北部（尤其皮埃蒙特）和科西嘉的传统食物，科西嘉用栗粉代替玉米粉，也有用大麦粉做的（cuisine_eu_src_04）。",
+        "mechanism": "原理是谷粉淀粉在热水中糊化成稠糊，冷却后凝固成型。工序：谷粉撒入沸腾的盐水，不停搅拌防结块，煮成稠粥；趁热盛出，或倒在案板上放凉定型，再切块烤或煎。成败在搅拌与火候：粉下得太快会结块，火太猛会焦底（cuisine_eu_src_04）。",
+        "conditions": "要有谷粉（玉米、栗或大麦）、盐、水、可持续加热的灶和一口厚底锅。粥本身极便宜，因此是穷人的主食，意大利传统中以谷物粥、汤和面包为主的饮食早在伊特鲁里亚人时代就有（cuisine_eu_src_11）。玉米是美洲作物，传入之后才有玉米版。",
+        "exceptions": "①不要把 polenta 写成只有玉米：科西嘉用栗粉，也有大麦粉（cuisine_eu_src_04）。②「玉米糊」是现代常用译法，更早的同类是别的谷粥，不是同一原料。③缺少多样食物的人群里，以玉米为主食可能导致营养缺乏，这属常识，本条已读来源未写，需核后再用。④冷却后的硬块不是另一道菜，是同一糊的二次加工。",
+        "story_uses": "①贫困与主食：一锅糊配一点奶酪，就是整家人的一餐，可写山区佃农和工人。②共食：把糊倒在木板上，大家围着切着吃，是写家庭和农忙场景的好道具。③旅途：冷却后的硬块可带在身上，路上再烤。④作物变迁：玉米传入使山村的粥换了原料，可写旧粥与新粥的冲突。",
+        "historical_scope": "本条限意大利北部与科西嘉，时间在谷粥传统（古代已有）之上叠加美洲玉米传入之后的玉米糊。已读来源没有给出玉米糊的定型年代。架空世界使用时需要至少一种能磨粉的谷物或栗，缺玉米就改用栗粉或大麦粉。",
+        "evidence_and_uncertainty": "来源支持：polenta 是通常以玉米粉在盐水中煮成的粥或糊、常加奶酪与黄油或油、可热食或冷却后切块烤煎炸、是意大利北部尤其皮埃蒙特和科西嘉的传统食物、科西嘉用栗粉、有时用大麦粉（cuisine_eu_src_04）；伊特鲁里亚人以谷物制成面包、汤和粥为主食（cuisine_eu_src_11）。缺口：玉米糊的定型年代、历史价格、营养问题均未取得来源。「穷人主食」「共食场景」属本项目的设计归纳。review_status 保持 needs_review。"
+      },
+      "source_ids": [
+        "cuisine_eu_src_04",
+        "cuisine_eu_src_11"
+      ],
+      "related_catalog_ids": [
+        "staples_maize",
+        "staples_barley",
+        "produce_chestnut",
+        "materials_salt",
+        "animal_food_cheese",
+        "animal_food_butter",
+        "tools_pottery_cooking_pot"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "game": {
+        "schema": "game_fields_v1",
+        "price": {
+          "min": 0,
+          "max": 1,
+          "per": "一碗",
+          "tier": "penny"
+        },
+        "terrains": [
+          "farmland",
+          "mountain",
+          "workshop"
+        ],
+        "seasons": [
+          "all_year"
+        ],
+        "keeps": "days",
+        "sold_by": [
+          "farmer",
+          "tavern",
+          "street_vendor"
+        ],
+        "note": "最便宜的一类热食，一碗不到一便士；farthing 上限为 0，故按 min 0、max 1 记。"
+      },
+      "primary": "dish",
+      "evidence_grade": "mixed"
+    },
+    {
+      "id": "cuisine_eu_italian_salumi",
+      "name": "意式腌肉（salumi：生火腿、腌猪腩与风干香肠）",
+      "aliases": [
+        "prosciutto",
+        "prosciutto crudo",
+        "pancetta",
+        "salami",
+        "salumi",
+        "意式生火腿",
+        "帕尔马火腿",
+        "意式培根",
+        "萨拉米"
+      ],
+      "category": "item",
+      "tags": [
+        "kind:preserved",
+        "tradition:western",
+        "cuisine:italian",
+        "region:northern_italy",
+        "course:antipasto",
+        "technique:dry_cure",
+        "technique:salt",
+        "occasion:festival",
+        "occasion:tavern",
+        "class_marker:prized",
+        "role:preservation",
+        "trade:butcher",
+        "price:shilling",
+        "terrain:workshop",
+        "terrain:pasture",
+        "season:all_year",
+        "sold_by:butcher",
+        "sold_by:grocer",
+        "sold_by:noble_kitchen"
+      ],
+      "summary": "用盐和空气把猪肉变成能放几个月到几年的肉：整腿生火腿、腌猪腩 pancetta 和风干发酵的萨拉米。它们是意大利的冷盘主角，也是做汤底和面酱的调味肉，产地命名受原产地保护。",
+      "details": {
+        "definition": "salumi 在本条指三类意大利腌肉。①生火腿（prosciutto）：基本只有猪后腿和盐，加上空气和时间，空气传统上是意大利中北部的温润空气，时间由几个月到三年不等（cuisine_eu_src_05）。②pancetta：用盐腌过再静置的猪腩，常加黑胡椒和丁香、肉豆蔻、杜松、肉桂等香料，可卷成筒，也有熏的（cuisine_eu_src_06）。③萨拉米（salami）：以盐腌、风干的香肠，名字来自意大利语 salare（加盐），可追到古罗马时代（cuisine_eu_src_07）。",
+        "mechanism": "共同原理是盐和风干使水分降低、抑制腐败。生火腿的工序：取猪后腿，缓慢细致地盐渍、风干，并严格控制温度、湿度与气流，直至风味、质地和颜色成熟，最后检查出售（cuisine_eu_src_05）。pancetta：猪腩盐渍后静置，期间按类型不同时长不一，调料随盐涂上（cuisine_eu_src_06）。萨拉米：瘦肉和肥肉绞碎、塞入肠衣，通常风干数周到数月，期间发酵并产生乳酸，有些再熏或煮熟（cotto）（cuisine_eu_src_07）。",
+        "conditions": "要有养猪的牧场和屠宰的冷季、盐的稳定供应、一个气候干燥而凉爽的风干场所。盐是硬条件，所以盐税、盐路与盐场会直接决定腌肉的价格。产地命名（如帕尔马、圣丹尼尔）说明气候和猪种对成品的影响很大（cuisine_eu_src_05）。",
+        "exceptions": "①三类不能混写：生火腿是整块肉，pancetta 是腩，萨拉米是绞肉制品。②生火腿的法定最短熟成期因产地而异，帕尔马、圣丹尼尔、托斯卡纳和摩德纳各不相同（cuisine_eu_src_05）。③pancetta 在不同地方可卷可平、可熏可不熏，皮亚琴察和卡拉布里亚的版本受原产地命名保护（cuisine_eu_src_06）。④来源称意大利仅萨拉米就有一百五十种以上的命名品种，德国、匈牙利、法国和西班牙另有大量品种（cuisine_eu_src_07）。⑤不要用此处的法国里昂冷盘体系替代：见关联条目。⑥西班牙火腿另立条。",
+        "story_uses": "①猪与屠宰季：冷天杀猪、腌肉、风干，一整年的节奏可由此展开。②产地命名与欺诈：「冒充某地火腿」是写行会与官府稽查的现成题材。③阶层：整腿火腿是节庆和礼物，碎肉和猪腩进了穷人的汤。④旅店：冷盘一碟配面包，是酒馆里体面的下酒菜。⑤盐路：盐被截断时，火腿的价格最先波动。",
+        "historical_scope": "本条限意大利，生火腿与萨拉米都被来源称为古老的传统，萨拉米可追到古罗马时代，确切起源不明（cuisine_eu_src_07）。已读来源没有给出 pancetta 的年代。具体熟成天数是现代法规，不适合直接搬进架空世界。",
+        "evidence_and_uncertainty": "来源支持：生火腿由猪后腿加盐加空气与时间制成、需控制温湿度与气流、帕尔马火腿受法律规定的最短熟成期、圣丹尼尔用海盐、其余产地各异、均有原产地保护标志（cuisine_eu_src_05）；pancetta 为盐腌猪腩、加香料、可卷可熏、用于面食与 soffritto 的调味（cuisine_eu_src_06）；萨拉米为盐腌风干香肠、可追到古罗马、意大利有一百五十种以上品种、发酵与风干、有熏与煮熟版本（cuisine_eu_src_07）。缺口：各类腌肉的历史价格和各地行会史均未取得来源。「盐路影响价格」「整腿作礼物」属本项目的设计归纳。review_status 保持 needs_review。"
+      },
+      "source_ids": [
+        "cuisine_eu_src_05",
+        "cuisine_eu_src_06",
+        "cuisine_eu_src_07"
+      ],
+      "related_ids": [
+        "cuisine_fr_charcuterie_lyon",
+        "cuisine_eu_wurst"
+      ],
+      "related_catalog_ids": [
+        "animal_food_pork",
+        "animal_food_ham_bacon",
+        "animal_food_sausage",
+        "animal_food_pig",
+        "materials_salt",
+        "flavors_black_pepper",
+        "flavors_clove",
+        "flavors_nutmeg_mace"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "game": {
+        "schema": "game_fields_v1",
+        "price": {
+          "min": 6,
+          "max": 18,
+          "per": "一磅",
+          "tier": "shilling"
+        },
+        "terrains": [
+          "workshop",
+          "pasture"
+        ],
+        "seasons": [
+          "all_year"
+        ],
+        "keeps": "months",
+        "sold_by": [
+          "butcher",
+          "grocer",
+          "noble_kitchen"
+        ],
+        "note": "整腿与上等腌肉按磅卖，贵于鲜肉；碎肉和腩便宜。全年可买，宰杀在冷季。"
+      },
+      "primary": "preserved_food",
+      "evidence_grade": "sourced"
+    },
+    {
+      "id": "cuisine_eu_focaccia",
+      "name": "佛卡夏（focaccia：灰烬里烤的炉床面饼，今多加橄榄油）",
+      "aliases": [
+        "focaccia",
+        "schiacciata",
+        "crescentina",
+        "pizza genovese",
+        "佛卡夏",
+        "炉床面包"
+      ],
+      "category": "item",
+      "tags": [
+        "kind:bread",
+        "tradition:western",
+        "cuisine:italian",
+        "region:liguria",
+        "course:bread",
+        "technique:bake",
+        "technique:flatbread",
+        "occasion:daily",
+        "class_marker:common",
+        "trade:baker",
+        "price:penny",
+        "terrain:workshop",
+        "terrain:orchard",
+        "season:all_year",
+        "sold_by:baker",
+        "sold_by:street_vendor",
+        "sold_by:market"
+      ],
+      "summary": "意大利最古老的面包之一，最早是压平在石板上、埋在炉火余烬下烤的无酵饼。现在的做法加酵母和橄榄油，表面有凹点和盐粒，各地叫法不同。",
+      "details": {
+        "definition": "focaccia 是意大利的传统面包，被视为披萨的前身，据说起源于伊特鲁里亚人。最早是用面粉、水和盐做的无酵饼，在灶火余烬下烤成，拉丁名 panis focacius 意为「炉床面包」。现在通常加酵母，面团含橄榄油，常烤上香草、培根、奶酪等（cuisine_eu_src_08）。",
+        "mechanism": "工序：面团压平铺在石板上，用任何手边的热源烤，传统是埋在炉灶的热灰下。如今是面团发酵后压出凹点，淋上油和盐烘烤，得到金黄凹点、微咸的外壳和松软的内芯（cuisine_eu_src_08）。成败在面团的水分与火候：太干像饼干，太湿塌软。",
+        "conditions": "要有面粉、水、盐和任何一种热源，所以它是最容易在家里、路边炉或面包房里完成的面包。橄榄油版本需要橄榄产区的油（利古里亚、托斯卡纳一带）。因为不需要复杂的炉，它常是面包房的副产品或街头小吃。",
+        "exceptions": "①不同地区名称与做法不同：热那亚称 pizza genovese，上面铺薄切洋葱和香草；博洛尼亚一带叫 crescentina；托斯卡纳和意大利中部部分地区变成 schiacciata（cuisine_eu_src_08）。②最古老的形态是无酵饼，现在的发酵、加油版本是后来的发展，不要混为同一年代。③「伊特鲁里亚起源」来源只写「被认为」，是推断不是定论。",
+        "story_uses": "①炉火与余烬：灶火熄灭前顺手烤一块，是写农家和旅店深夜的细节。②面包房副产品：卖不完的面团压成饼，是穷人的早餐。③地方命名：同一种饼在相邻城市叫不同名字，可作方言和身份的小标记。④街头：切成方块在摊上热卖，配一杯酒。",
+        "historical_scope": "本条限意大利，古代无酵饼与现代发酵加油版本是同一谱系的不同阶段。已读来源给出伊特鲁里亚起源的推断和拉丁名，没有给出各地版本的定型年代。",
+        "evidence_and_uncertainty": "来源支持：focaccia 是意大利传统面包、披萨的前身、被认为起源于伊特鲁里亚人、最早为面粉水盐的无酵饼、在炉火余烬下烤、拉丁名 panis focacius（炉床面包）、今多加酵母和橄榄油、热那亚称 pizza genovese 配洋葱香草、博洛尼亚称 crescentina、托斯卡纳称 schiacciata（cuisine_eu_src_08）。缺口：各地版本的定型年代、历史价格未取得来源。「面包房副产品」「街头方块」属本项目的设计归纳。review_status 保持 needs_review。"
+      },
+      "source_ids": [
+        "cuisine_eu_src_08"
+      ],
+      "related_ids": [
+        "cuisine_pizza"
+      ],
+      "related_catalog_ids": [
+        "staples_wheat",
+        "staples_olive",
+        "materials_salt",
+        "produce_onion",
+        "animal_food_cheese",
+        "animal_food_ham_bacon"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "game": {
+        "schema": "game_fields_v1",
+        "price": {
+          "min": 1,
+          "max": 2,
+          "per": "一块",
+          "tier": "penny"
+        },
+        "terrains": [
+          "workshop",
+          "orchard"
+        ],
+        "seasons": [
+          "all_year"
+        ],
+        "keeps": "days",
+        "sold_by": [
+          "baker",
+          "street_vendor",
+          "market"
+        ],
+        "note": "面包房和摊上的廉价面饼；加奶酪或腌肉的另计。"
+      },
+      "primary": "bread",
+      "evidence_grade": "mixed"
+    },
+    {
+      "id": "cuisine_eu_panettone",
+      "name": "潘娜托尼（panettone：米兰圣诞发酵蛋糕面包）",
+      "aliases": [
+        "panettone",
+        "潘娜托尼",
+        "圣诞面包",
+        "米兰圣诞蛋糕"
+      ],
+      "category": "item",
+      "tags": [
+        "kind:pastry",
+        "tradition:western",
+        "cuisine:italian",
+        "region:lombardy",
+        "course:dessert",
+        "technique:ferment",
+        "technique:bake",
+        "occasion:christmas",
+        "occasion:festival",
+        "class_marker:prized",
+        "trade:baker",
+        "price:shilling",
+        "terrain:workshop",
+        "terrain:orchard",
+        "terrain:pasture",
+        "season:winter",
+        "sold_by:baker",
+        "sold_by:noble_kitchen",
+        "sold_by:market"
+      ],
+      "summary": "用发酵面种发起来的富化面包，含黄油、蛋、糖、葡萄干、糖渍果和柑橘皮，是意大利圣诞和新年的节令糕点。它的圆顶靠倒挂冷却而成，现代法律规定了果料和黄油的最低占比。",
+      "details": {
+        "definition": "panettone 是起源于意大利的蛋糕，传统上与圣诞和新年相连。面团用黄油、蛋、糖、葡萄干、糖渍水果和柠檬或橙皮丰富，实质是意大利的圣诞蛋糕。它像面包一样用发酵面种发起来，圆顶形是倒挂冷却时形成的，外壳稍硬，里面柔软多黄油，夹着水果（cuisine_eu_src_09）。",
+        "mechanism": "工序：用发酵面种把加了大量脂肪、蛋和糖的面团发起来（糖和脂肪抑制发酵，所以要靠面种慢慢养），拌入果料，入模烘烤，出炉后倒挂冷却使圆顶不塌。成败在发酵的耐心：糖脂太多，发酵慢而易失败（后半句是本项目归纳）。法律规定正宗产品必须含重量 20% 的果料和 16% 的黄油（cuisine_eu_src_09）。",
+        "conditions": "要有精白面粉、黄油、蛋、糖（蔗糖在中世纪是昂贵的进口品）、葡萄干和糖渍果、柑橘皮，以及能稳定发酵和烘烤的面包房。因为原料昂贵，它天然是节庆品，而不是日常食物。",
+        "exceptions": "①起源不明：多数人认为它最早在米兰，最早可追到 15 世纪，也许在米兰公爵卢多维科·斯福尔扎的厨房，但这只是「被认为」（cuisine_eu_src_09）。②名字 panettone 意为「大面包」，但这个词到 1839 年才进入意大利语词典（cuisine_eu_src_09）。③果料与黄油的最低占比是现代法律，不要往中世纪搬。④它属于蛋糕还是面包有争议，来源称它「像面包一样制作」。",
+        "story_uses": "①节令与礼物：圣诞前后的赠礼，可写商人给官员送礼、行会给领主进贡。②面包房的利润：节令糕点是面包房全年最大的一笔收入。③阶层：糖渍果和葡萄干是昂贵的，穷人家只能得到一块切片。④商路：糖、葡萄干、糖渍果都要靠商路进来，一场海盗或封锁会让节日糕点变得稀缺。",
+        "historical_scope": "本条限意大利（以米兰传统为主），15 世纪起源是推断，词典年代 1839 是文献下限。架空世界使用时需要蔗糖或蜂蜜、果干、黄油和发酵面种，若缺糖就改成蜂蜜版本。",
+        "evidence_and_uncertainty": "来源支持：panettone 是意大利起源的蛋糕、与圣诞新年相连、含黄油蛋糖葡萄干糖渍果与柑橘皮、用发酵面种像面包一样制作、倒挂冷却成圆顶、外硬内软、法律规定果料 20% 与黄油 16%、起源不明、被认为最早 15 世纪在米兰甚至斯福尔扎公爵厨房、名字 1839 年才入词典（cuisine_eu_src_09）。缺口：历史价格与行会史未取得来源。「节庆礼物」「面包房最大收入」属本项目的设计归纳。review_status 保持 needs_review。"
+      },
+      "source_ids": [
+        "cuisine_eu_src_09"
+      ],
+      "related_ids": [
+        "cuisine_fr_brioche"
+      ],
+      "related_catalog_ids": [
+        "staples_wheat",
+        "animal_food_butter",
+        "animal_food_egg",
+        "flavors_cane_sugar",
+        "produce_grape",
+        "produce_citrus_orange"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "game": {
+        "schema": "game_fields_v1",
+        "price": {
+          "min": 8,
+          "max": 24,
+          "per": "一只",
+          "tier": "shilling"
+        },
+        "terrains": [
+          "workshop",
+          "orchard",
+          "pasture"
+        ],
+        "seasons": [
+          "winter"
+        ],
+        "keeps": "weeks",
+        "sold_by": [
+          "baker",
+          "noble_kitchen",
+          "market"
+        ],
+        "note": "糖、黄油、果干都贵，整只算节令礼品；按先令计。"
+      },
+      "primary": "pastry",
+      "evidence_grade": "mixed"
+    },
+    {
+      "id": "cuisine_eu_tiramisu",
+      "name": "提拉米苏（tiramisu：咖啡手指饼配马斯卡彭的近现代甜点）",
+      "aliases": [
+        "tiramisu",
+        "tiramisù",
+        "tiremesù",
+        "提拉米苏",
+        "提拉米酥"
+      ],
+      "category": "item",
+      "tags": [
+        "kind:pastry",
+        "tradition:western",
+        "cuisine:italian",
+        "region:veneto_friuli",
+        "course:dessert",
+        "technique:layer",
+        "technique:chill",
+        "occasion:tavern",
+        "class_marker:prized",
+        "era:modern",
+        "price:shilling",
+        "terrain:workshop",
+        "terrain:pasture",
+        "terrain:import",
+        "season:all_year",
+        "sold_by:tavern",
+        "sold_by:baker"
+      ],
+      "summary": "浸过浓咖啡和酒的海绵手指饼，与马斯卡彭奶酪夹层，面上撒可可粉。它是近现代才出现的甜点，起源地存在争议，放进中世纪或近代早期的酒馆会露馅。",
+      "details": {
+        "definition": "tiramisu 是意大利起源的甜点，在浸了浓缩咖啡与酒的海绵蛋糕之间夹马斯卡彭奶酪馅，面上撒可可粉。名字 tira mi sù 的意思是「拉我起来」（提神），威尼斯方言作 tireme sù（cuisine_eu_src_10）。",
+        "mechanism": "工序：手指饼（savoiardi）蘸咖啡，与奶酪馅分层叠放，冷藏定型，撒可可。它不需要烘烤，靠冷却让奶酪馅与浸湿的饼体结合。馅的稳定靠蛋黄和马斯卡彭（来源记载 Pielli 版本用马斯卡彭，Le Beccherie 版本只用蛋黄）；是否加酒各家不同，威尼托的传统竞赛禁用酒（cuisine_eu_src_10）。",
+        "conditions": "要有咖啡（进口品）、可可、糖、蛋、马斯卡彭奶酪（高脂乳制品）、海绵手指饼和冷藏的地方。在没有冷藏的年代难以定型，所以它是近现代的产物。",
+        "exceptions": "①起源有争议：多数资料认为它是东北意大利 sbatudin（蛋黄加糖打发配手指饼）的变体；一个传说说它出自特雷维索的妓院，另一个说出自锡耶纳公爵厨房，来源称这些「可能是编造」。较近的来源指向 1959 年的食谱，来自弗留利的托尔梅佐，当地餐馆老板娘 Norma Pielli 创制；另一说是特雷维索的 Le Beccherie 餐厅 Roberto Linguanotto 在更晚发明。农业部给了弗留利-威尼斯朱利亚 PAT 认证，特雷维索一方不承认（cuisine_eu_src_10）。②咖啡和可可是外来品，因此不适合古代或中世纪。③至少有两百种变体（cuisine_eu_src_10）。",
+        "story_uses": "①起源之争：两个城市争一道甜点，是写地方荣誉和官僚认证的现成喜剧。②咖啡馆文化：近代咖啡馆里的甜点，适合写蒸汽朋克或近现代背景。③警告用途：它在这个分区里的价值之一，就是告诉作者「这道菜不属于中世纪」。",
+        "historical_scope": "本条限意大利，年代为二十世纪中后期（来源指向 1959 年和更晚的发明），1980 年代起风靡。不适合中世纪或近代早期奇幻酒馆，只能用于近现代或蒸汽朋克类设定。",
+        "evidence_and_uncertainty": "来源支持：tiramisu 是意大利起源、咖啡酒浸海绵蛋糕加马斯卡彭馅撒可可、名字意为「拉我起来」、是 sbatudin 的变体、妓院与锡耶纳说法被认为可能是编造、1959 年 Pielli 食谱指向弗留利托尔梅佐、Linguanotto 说法更晚、PAT 认证给弗留利而威尼托不认、两家做法在酒与奶酪上不同、至少两百种变体、1980 年代起风靡（cuisine_eu_src_10）。缺口：历史价格、咖啡进入意大利甜点的时间点未取得来源。「近现代专用」是本项目基于来源给出的使用建议。review_status 保持 needs_review。"
+      },
+      "source_ids": [
+        "cuisine_eu_src_10"
+      ],
+      "related_catalog_ids": [
+        "flavors_coffee",
+        "flavors_cocoa",
+        "animal_food_egg",
+        "flavors_cane_sugar",
+        "animal_food_cheese",
+        "flavors_distilled_spirit"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "game": {
+        "schema": "game_fields_v1",
+        "price": {
+          "min": 8,
+          "max": 12,
+          "per": "一份",
+          "tier": "shilling"
+        },
+        "terrains": [
+          "workshop",
+          "pasture",
+          "import"
+        ],
+        "seasons": [
+          "all_year"
+        ],
+        "keeps": "days",
+        "sold_by": [
+          "tavern",
+          "baker"
+        ],
+        "note": "咖啡、可可、糖都靠进口，近现代甜点；古代设定里应不存在。"
+      },
+      "primary": "pastry",
+      "evidence_grade": "sourced"
+    },
+    {
+      "id": "cuisine_eu_gazpacho",
+      "name": "冷汤（gazpacho：安达卢西亚生蔬菜面包冷汤）",
+      "aliases": [
+        "gazpacho",
+        "gazpacho andaluz",
+        "ajo blanco",
+        "西班牙冷汤",
+        "番茄冷汤"
+      ],
+      "category": "item",
+      "tags": [
+        "kind:dish",
+        "tradition:western",
+        "cuisine:spanish",
+        "region:andalusia",
+        "course:starter",
+        "technique:raw",
+        "technique:blend",
+        "occasion:summer",
+        "class_marker:common",
+        "trade:farmer",
+        "price:penny",
+        "terrain:orchard",
+        "terrain:farmland",
+        "terrain:workshop",
+        "season:summer",
+        "sold_by:tavern",
+        "sold_by:street_vendor",
+        "sold_by:farmer"
+      ],
+      "summary": "用面包屑、油、醋和生蔬菜拌成的冷汤，原是干活人在热天里补水补盐的食物。番茄和青椒是美洲传入后才进入现代配方，更早的版本用面包、蒜和杏仁。",
+      "details": {
+        "definition": "gazpacho 是西班牙菜里的冷汤，尤其属于安达卢西亚。来源称它是古老的菜，在希腊和罗马文献里已有提及，但现代配方里的番茄和青椒是 16 世纪才从新大陆传入的。最常见的是不加热的混合物：番茄、蒜、橄榄油、水、醋、洋葱、黄瓜、青椒，用面包屑增稠。西班牙食谱把它归在沙拉类里（cuisine_eu_src_13）。",
+        "mechanism": "工序：蔬菜、面包屑、蒜、油和醋在容器里捣碎或搅拌，与水混合成稠度合适的汤，冷却后食用，可另配面包丁、蔬菜碎和切碎的蛋，由食客自己加。关键是面包屑把油和水乳化成稠汤，酸与油平衡了生蔬菜的口感（cuisine_eu_src_13）。",
+        "conditions": "要有夏季的新鲜蔬菜、橄榄油、醋、面包（硬面包也行）、蒜，以及一个凉的地方放汤。因为不需要火，所以它适合收割季和热天在田里吃。词源是阿拉伯语的「泡过的面包」，指向中世纪伊比利亚的阿拉伯影响（cuisine_eu_src_13）。",
+        "exceptions": "①马拉加省的版本以杏仁为底并含葡萄，不是番茄版（cuisine_eu_src_13），可以看作番茄传入前形态的线索（后半是本项目推断）。②不要把它写成加热的蔬菜汤：它是生食。③番茄版不能出现在 16 世纪以前的背景里。④商业瓶装和冷链改变了它的季节性。",
+        "story_uses": "①农忙与盐：收割季节的午餐，面包、油、醋放进木盆里调，大家一起舀着吃。②阿拉伯影响：词源与杏仁版本可用来写多族群共存与文化层叠。③商路与作物：番茄青椒的进入可写成物种交换的冲击。④酒馆：热天里最便宜的一碗冷汤。",
+        "historical_scope": "本条限西班牙安达卢西亚，古代已有面包汤，16 世纪后加入番茄与青椒。已读来源没有给出各代配方的细节。架空世界使用时需要面包、油、醋和蒜，没有美洲作物就改为杏仁蒜汤型。",
+        "evidence_and_uncertainty": "来源支持：gazpacho 是西班牙尤其是安达卢西亚的冷汤、在希腊罗马文献里被提及、番茄青椒 16 世纪自新大陆传入、最常见配方为番茄蒜橄榄油水醋洋葱黄瓜青椒加面包屑增稠、词源为阿拉伯语「泡过的面包」、可配面包丁蔬菜与切碎的蛋、马拉加版以杏仁为底含葡萄、西班牙食谱归为沙拉（cuisine_eu_src_13）。缺口：中世纪配方的细节、价格未取得来源。「田间午餐」「番茄前形态」属本项目的设计归纳。review_status 保持 needs_review。"
+      },
+      "source_ids": [
+        "cuisine_eu_src_13",
+        "cuisine_eu_src_12"
+      ],
+      "related_ids": [
+        "cuisine_fr_ratatouille"
+      ],
+      "related_catalog_ids": [
+        "produce_tomato",
+        "produce_garlic",
+        "staples_olive",
+        "flavors_vinegar",
+        "produce_onion",
+        "produce_cucumber",
+        "staples_wheat",
+        "produce_almond",
+        "produce_grape"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "game": {
+        "schema": "game_fields_v1",
+        "price": {
+          "min": 1,
+          "max": 2,
+          "per": "一碗",
+          "tier": "penny"
+        },
+        "terrains": [
+          "orchard",
+          "farmland",
+          "workshop"
+        ],
+        "seasons": [
+          "summer"
+        ],
+        "keeps": "hours",
+        "sold_by": [
+          "tavern",
+          "street_vendor",
+          "farmer"
+        ],
+        "note": "夏季蔬菜加硬面包，几乎不花钱；不加热，隔日即酸。"
+      },
+      "primary": "dish",
+      "evidence_grade": "mixed"
+    },
+    {
+      "id": "cuisine_eu_bacalhau",
+      "name": "腌鳕鱼（bacalhau / bacalao：盐渍晒干后复水的伊比利亚鳕鱼菜）",
+      "aliases": [
+        "bacalhau",
+        "bacalao",
+        "salt cod",
+        "baccalà",
+        "腌鳕鱼",
+        "盐鳕",
+        "咸鳕鱼"
+      ],
+      "category": "item",
+      "tags": [
+        "kind:preserved",
+        "tradition:western",
+        "cuisine:portuguese",
+        "region:iberia",
+        "course:main",
+        "technique:salt",
+        "technique:dry",
+        "technique:soak",
+        "occasion:fasting",
+        "class_marker:common",
+        "role:preservation",
+        "trade:fishmonger",
+        "price:groat",
+        "terrain:ocean",
+        "terrain:coast",
+        "terrain:workshop",
+        "season:all_year",
+        "sold_by:fishmonger",
+        "sold_by:market",
+        "sold_by:grocer"
+      ],
+      "summary": "把北大西洋的鳕鱼盐渍晒干，用时反复泡水去盐再烹饪。它是葡萄牙和西班牙的斋日主菜，也是远洋渔业与海外贸易把北海的鱼送到南欧餐桌的证据。",
+      "details": {
+        "definition": "bacalhau（葡）、bacalao（西）指盐渍晒干的鳕鱼，用前须浸泡去盐，再烤、煮、煎或做成炸饼。来源（2024 年 AFP 新闻稿）称盐鳕长期是葡萄牙的国民主食，据说食谱多到一年每天一种；葡萄牙是世界上最大的消费国，圣诞席上盐鳕的地位如同美国感恩节的火鸡；最传统的做法是烤后配煮薯，也可烤架、炸饼，甚至代替肉做千层面（cuisine_eu_src_37）。",
+        "mechanism": "原理是盐和干燥使鱼肉失水、抑制腐败。工序：鳕鱼剖开、盐渍、晒干或风干，成为硬板；使用时反复换水浸泡，去掉盐并使鱼肉回软，再按各家做法煮、烤、煎或碎拌薯和蛋。浸泡是必需的一步，省略则咸到不能入口。",
+        "conditions": "要有盐、冷凉而有风的晒场（北欧或大西洋沿岸）、远洋渔业的船队，以及把干鱼送到南方的商路。伊比利亚本身不是鳕鱼产区，所以它依赖贸易或远航（后半句为通行知识，待核）。",
+        "exceptions": "①干鱼和碱液泡发的 lutefisk 是不同的处理，不要混写：lutefisk 是干鳕鱼泡水和碱液后膨胀，属瑞典与挪威的传统（cuisine_eu_src_33）。②盐渍鳕鱼的不同产区做法差异很大，本条不展开单一地方的菜名。③不要把它写成只有穷人吃：高等餐桌上也有精致的盐鳕菜（待核）。",
+        "story_uses": "①斋日与教会：不吃肉的日子里，盐鳕是最容易买到的蛋白。②航海与贸易：鳕鱼来自远海，一次沉船会让一整个季节的鱼价上涨。③家庭经济：整块干鱼放得久，是一户人家冬储的一部分。④港口：晒场、盐仓和鱼市构成一整条产业链。",
+        "historical_scope": "本条限葡萄牙与西班牙，现代葡萄牙的圣诞消费见于新闻报道（cuisine_eu_src_37）；盐鳕贸易的起讫年代与西班牙一侧未取得来源。架空世界使用需要海、盐、晒场和商路，缺其一则退为本地腌鱼。",
+        "evidence_and_uncertainty": "来源支持：盐鳕是葡萄牙的国民主食、食谱繁多、葡萄牙为最大消费国、圣诞席核心、烤后配煮薯、烤架炸饼与代肉做法（cuisine_eu_src_37，新闻稿）；干鳕鱼碱液泡发的斯堪的纳维亚做法属另一处理（cuisine_eu_src_33，摘录页）。缺口：西班牙一侧、历史起讫、渔业与商路均未取得来源（维基百科无法连通）；「斋日主菜」「远洋渔业与贸易」是通行知识加本项目归纳，待核。review_status 保持 needs_review。"
+      },
+      "source_ids": [
+        "cuisine_eu_src_37",
+        "cuisine_eu_src_33"
+      ],
+      "related_ids": [
+        "cuisine_uk_kippers"
+      ],
+      "related_catalog_ids": [
+        "animal_food_cod",
+        "animal_food_dried_salted_fish",
+        "materials_salt",
+        "staples_potato",
+        "animal_food_egg",
+        "staples_olive"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "game": {
+        "schema": "game_fields_v1",
+        "price": {
+          "min": 4,
+          "max": 8,
+          "per": "一磅",
+          "tier": "groat"
+        },
+        "terrains": [
+          "ocean",
+          "coast",
+          "workshop"
+        ],
+        "seasons": [
+          "all_year"
+        ],
+        "keeps": "months",
+        "sold_by": [
+          "fishmonger",
+          "market",
+          "grocer"
+        ],
+        "note": "远洋干鱼，价格高于本地鲜鱼；成菜一份另算，几便士。"
+      },
+      "primary": "preserved_food",
+      "evidence_grade": "mixed"
+    },
+    {
+      "id": "cuisine_eu_pastel_de_nata",
+      "name": "葡式蛋挞（pastel de nata：修道院传说中的奶蛋羹酥塔）",
+      "aliases": [
+        "pastel de nata",
+        "pastéis de Belém",
+        "Portuguese custard tart",
+        "葡式蛋挞",
+        "葡挞",
+        "蛋挞"
+      ],
+      "category": "item",
+      "tags": [
+        "kind:pastry",
+        "tradition:western",
+        "cuisine:portuguese",
+        "region:lisbon",
+        "course:dessert",
+        "technique:laminate",
+        "technique:bake",
+        "technique:set_custard",
+        "occasion:street",
+        "class_marker:common",
+        "trade:baker",
+        "price:penny",
+        "terrain:workshop",
+        "terrain:pasture",
+        "season:all_year",
+        "sold_by:baker",
+        "sold_by:street_vendor"
+      ],
+      "summary": "酥皮塔壳里烤凝的奶蛋羹，表面带焦斑。传说它由里斯本贝伦热罗尼莫斯修道院的修士创制，用多余的蛋黄做成，修道院关闭后配方流入民间面包坊。",
+      "details": {
+        "definition": "pastel de nata 是葡萄牙的奶油蛋羹酥塔：多层酥皮壳里灌入蛋羹，高温烘烤到表面起焦斑。来源称它在里斯本几乎每家咖啡馆和面包坊都有，温热上桌，撒肉桂或糖粉，常在上午或下午配浓缩咖啡吃（cuisine_eu_src_36）。",
+        "mechanism": "工序：多层酥皮压入小模，灌入糖、蛋黄与乳煮成的稠糊，高温短时烘烤，使蛋糊凝固而表面焦化。核心是酥皮的层次与蛋糊的凝固点：太久则蛋糊蜂窝化，不足则中心流动（凝固原理与蛋奶糊同类，属本项目归纳）。",
+        "conditions": "要有面粉、脂肪（制酥皮）、蛋黄、乳、糖和强火炉。蛋黄用量大，说明有蛋白的其他用途时它更合理，这与传说的「修道院用蛋清浆衣」一致，但那是传说。糖在当时是进口品，所以它从一开始就偏贵。",
+        "exceptions": "①起源说法属传说性质：来源称 18 世纪里斯本贝伦的热罗尼莫斯修道院的修士用蛋清给修士袍上浆，剩下大量蛋黄，于是做成蛋黄甜点；修道院在 1820 年代因修道院解散而关闭，修士把配方卖给附近的糖厂，业主在 1837 年开设 Fábrica de Pastéis de Belém，配方至今保密（cuisine_eu_src_36）。这是单一商业网页的叙述，没有读到修道院档案，按传说处理。②Pastéis de Belém 是该店的名牌，pastéis de nata 是更广的泛称，来源这样区分（cuisine_eu_src_36）。③澳门的葡式蛋挞是在殖民传播中加入粤式变化的分支（cuisine_eu_src_36）。④不要与法式蛋奶糊塔 cuisine_fr_quiche_lorraine 或英式蛋挞合并。",
+        "story_uses": "①修道院经济：修道院关闭后修士流入街头，是写世俗化与教产被没收的细节。②独家配方：一家老店守着不外传的配方，是写行会与家族秘密的好道具。③旅游目的地：每天一队人排队买蛋挞，适合写港口城市。④节日：街头小吃，配咖啡或酒。",
+        "historical_scope": "本条限葡萄牙（里斯本贝伦为传说起点），传说中的创制在 18 世纪，修道院关闭在 1820 年代，商业化自 1837 年，均出自单一商业来源（cuisine_eu_src_36）。后传至澳门和巴西（cuisine_eu_src_36）。架空世界使用需要酥皮、糖、蛋黄和强火炉；糖贵，所以它偏贵。",
+        "evidence_and_uncertainty": "来源支持：修道院传说（蛋清上浆、蛋黄剩余）、1820 年代关闭、卖配方给糖厂、1837 年开店、配方保密、里斯本普及、配咖啡与肉桂、澳门和巴西的传播（cuisine_eu_src_36，单一商业网页）。缺口：未见修道院档案或学术来源；英文维基百科无法连通（见来源登记）；搜索结果里不同网页对创制年代说法不一（有「18 世纪以前」，也有「17 世纪」），本条用「传说，约在 18 世纪」。酥皮与蛋羹凝固的原理为本项目归纳。review_status 保持 needs_review。"
+      },
+      "source_ids": [
+        "cuisine_eu_src_36"
+      ],
+      "related_ids": [
+        "cuisine_fr_puff_pastry",
+        "cuisine_fr_quiche_lorraine",
+        "cuisine_fr_creme_caramel_brulee"
+      ],
+      "related_catalog_ids": [
+        "staples_wheat",
+        "animal_food_egg",
+        "animal_food_milk",
+        "flavors_cane_sugar",
+        "flavors_cinnamon",
+        "animal_food_rendered_fat"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "game": {
+        "schema": "game_fields_v1",
+        "price": {
+          "min": 1,
+          "max": 3,
+          "per": "一只",
+          "tier": "penny"
+        },
+        "terrains": [
+          "workshop",
+          "pasture"
+        ],
+        "seasons": [
+          "all_year"
+        ],
+        "keeps": "days",
+        "sold_by": [
+          "baker",
+          "street_vendor"
+        ],
+        "note": "蛋黄和糖做的小塔，现烤现卖；糖贵所以略高于普通面饼。"
+      },
+      "primary": "pastry",
+      "evidence_grade": "mixed"
+    },
+    {
+      "id": "cuisine_eu_tapas",
+      "name": "塔帕斯（tapas：酒馆里与酒同上的小碟下酒食）",
+      "aliases": [
+        "tapas",
+        "tapa",
+        "pintxos",
+        "塔帕斯",
+        "西班牙小吃",
+        "下酒小碟"
+      ],
+      "category": "institution",
+      "tags": [
+        "kind:custom",
+        "tradition:western",
+        "cuisine:spanish",
+        "region:spain",
+        "course:bar_snack",
+        "technique:assemble",
+        "occasion:tavern",
+        "class_marker:common",
+        "role:drinking_custom",
+        "price:penny",
+        "terrain:workshop",
+        "terrain:coast",
+        "terrain:orchard",
+        "season:all_year",
+        "sold_by:tavern"
+      ],
+      "summary": "在酒馆里随酒一起上的小份食物，一碟接一碟，不成正餐。名字意为「盖子」，常见传说是一片面包或火腿盖住酒杯防虫尘，后来演变成一整套站着喝酒、边吃边聊的社交方式。",
+      "details": {
+        "definition": "tapas（单数 tapa）是西班牙酒吧里随饮品上的小份食物，可作正餐前的开胃菜，也可一连吃几样当作一餐。来源举例有 patatas bravas、伊比利亚火腿；北方的 pintxos（如鸡蛋配 chistorra 香肠、酿皮基略辣椒、小砂锅鳕鱼）；阿维拉的 patatas revolconas（捣薯加红椒粉和炸猪皮）等（cuisine_eu_src_35）。它是一种饮食方式，而不是某一道菜。",
+        "mechanism": "运作方式：酒保或老板娘把几样现成的、能快速上桌的小菜摆在柜台上，客人点酒时随酒送上或加点，一份很小，价格低，客人不断换小碟、换酒。核心是「用小而多的菜把饮酒时间拉长」，菜要能提前做好、冷热皆宜，以便一个人同时服务整个柜台。",
+        "conditions": "要有常备的腌制品和熟食（橄榄、火腿、奶酪、腌鱼）、小碟小盘、一排可站着的柜台和对酒馆文化的接受度。它依赖的是酒和食物的搭配习俗，这与地中海饮食对「共食」和市场交流的强调相通（cuisine_eu_src_12）。",
+        "exceptions": "①起源有争议：来源称有的史家认为在 19 世纪的安达卢西亚，有的追到 13 世纪卡斯蒂利亚的阿方索十世，所以不能写成定论（cuisine_eu_src_35）；「盖子」之说是常见的词源传说，按传说处理。②tapas 与北方的 pintxos 叫法和做法有地域差别，来源把 pintxos 归在北部（cuisine_eu_src_35）。③有些地方随饮品免费送，来源写的是「有些地方」，不是通则（cuisine_eu_src_35）。④它不是固定菜单，各城各区有自己的招牌。",
+        "story_uses": "①酒馆：一个柜台就能写情报交换、赌局、婚约谈判。②阶层：贵族有私宴，平民靠柜台上的小碟打发晚饭。③地方特色：每个城市、每家酒馆的招牌小碟不同，可用来区分地域。④经济：用小碟留住客人、多卖一轮酒，是酒馆生意的核心套路。",
+        "historical_scope": "本条限西班牙，起源按来源是 19 世纪安达卢西亚或 13 世纪阿方索十世两说，未定（cuisine_eu_src_35）。架空世界使用只需要酒馆、几样常备腌制品和柜台。",
+        "evidence_and_uncertainty": "来源支持：西班牙旅游局网页给出的起源争议两说、各区域做法与例子、有些地方免费送（cuisine_eu_src_35）；地中海饮食非遗强调共享饮食、市场作为交流空间和款待（cuisine_eu_src_12）。缺口：词源、制度形成年代；英文维基百科无法连通，Britannica 的同名页面讲的是印度宗教概念，不引用。「柜台运作」「酒馆生意套路」是本项目归纳。review_status 保持 needs_review。"
+      },
+      "source_ids": [
+        "cuisine_eu_src_35",
+        "cuisine_eu_src_12"
+      ],
+      "related_ids": [
+        "cuisine_uk_pub_counter_snack"
+      ],
+      "related_catalog_ids": [
+        "staples_olive",
+        "animal_food_ham_bacon",
+        "animal_food_cheese",
+        "animal_food_dried_salted_fish",
+        "flavors_wine",
+        "flavors_vinegar"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "game": {
+        "schema": "game_fields_v1",
+        "price": {
+          "min": 1,
+          "max": 3,
+          "per": "一小碟",
+          "tier": "penny"
+        },
+        "terrains": [
+          "workshop",
+          "coast",
+          "orchard"
+        ],
+        "seasons": [
+          "all_year"
+        ],
+        "keeps": "days",
+        "sold_by": [
+          "tavern"
+        ],
+        "note": "一碟小食，随酒送上或加点；比酒略便宜。"
+      },
+      "primary": "institution",
+      "evidence_grade": "mixed"
+    },
+    {
+      "id": "cuisine_eu_jamon_iberico",
+      "name": "西班牙火腿（jamón ibérico / serrano：橡果养猪与长期风干的火腿）",
+      "aliases": [
+        "jamón ibérico",
+        "jamon iberico",
+        "jamón serrano",
+        "jamón de bellota",
+        "Iberian ham",
+        "西班牙火腿",
+        "伊比利亚火腿",
+        "黑蹄火腿"
+      ],
+      "category": "item",
+      "tags": [
+        "kind:preserved",
+        "tradition:western",
+        "cuisine:spanish",
+        "region:iberia",
+        "course:antipasto",
+        "technique:dry_cure",
+        "technique:salt",
+        "occasion:festival",
+        "class_marker:prized",
+        "role:preservation",
+        "trade:butcher",
+        "price:shilling",
+        "terrain:workshop",
+        "terrain:pasture",
+        "terrain:temperate_forest",
+        "season:all_year",
+        "sold_by:butcher",
+        "sold_by:noble_kitchen",
+        "sold_by:grocer"
+      ],
+      "summary": "西班牙的整腿风干火腿，高等级的来自在栎林牧场（dehesa）吃橡果的黑蹄猪。它与意大利生火腿同属盐腌风干，区别在猪种、饲养和更长的熟成。",
+      "details": {
+        "definition": "jamón 指整只猪后腿经盐渍和长期风干的火腿。来源（西班牙旅游局）称伊比利亚火腿是西班牙菜与地中海饮食的标志之一，原产于西部的 dehesa（栎林牧场），分布从萨拉曼卡省到韦尔瓦省；猪在 montanera 季（十月到二月）半放养，几乎只吃冬青栎和软木栎落下的橡果，期间体重可翻倍；火腿在窖里熟成数年，产地和切法都影响风味（cuisine_eu_src_34）。同属盐腌风干的意大利生火腿原理见 cuisine_eu_italian_salumi（cuisine_eu_src_05）。",
+        "mechanism": "原理与生火腿相同：盐渍使水分析出，其后长时间风干，在温度和湿度逐步变化的窖里成熟。西班牙火腿的特点来自饲养：橡果里的脂肪使猪脂柔软易化，成品脂肪分布成大理石纹（通行知识，待核）。工序只写顺序：宰杀后修形、盐渍、静置、风干、窖藏。",
+        "conditions": "要有橡树林牧场和适合的猪种、盐、能长期风干的山地或窖。橡果有季节，育肥期只在秋冬。熟成要几年，因此资本被长期占住，是有产业的家族或庄园的生意。",
+        "exceptions": "①serrano 火腿与 ibérico 的区别（猪种、饲养）已读来源没有写，按通行知识处理，待核。②来源称有四条长途火腿路线，对应四个原产地保护区，其中 Guijuelo（萨拉曼卡省东南）是最著名的之一，可能因最早设立（cuisine_eu_src_34）；其余三处名称不在已读正文中。③橡果育肥是一种饲养方式，不等于产地。④火腿切片极薄是吃法特征，不是菜名。",
+        "story_uses": "①庄园经济：橡果林、猪群、风干窖，是写封建庄园和山地牧场的好材料。②礼物与身份：整腿悬挂在酒馆梁上，既是招牌也是财富展示。③季节：橡果季的猪群迁徙，可写牧民与领主的权利之争。④走私与伪造：假冒高等级火腿是行会稽查的典型案件。",
+        "historical_scope": "本条限西班牙西部（萨拉曼卡至韦尔瓦），橡果季为十月到二月（cuisine_eu_src_34）。历史年代未取得来源。架空世界使用需要栎林牧场和长期风干的条件，无橡果就改写成普通风干火腿。",
+        "evidence_and_uncertainty": "来源支持：dehesa 的分布、montanera 的季节与橡果饲养、体重可翻倍、熟成数年、四条火腿路线与原产地保护、Guijuelo 的位置（cuisine_eu_src_34）；欧盟地理标志制度的框架（cuisine_eu_src_38）；生火腿的盐腌风干原理（cuisine_eu_src_05）。缺口：猪种名称细节、serrano 的区分、历史均未取得来源；英文维基百科无法连通。review_status 保持 needs_review。"
+      },
+      "source_ids": [
+        "cuisine_eu_src_34",
+        "cuisine_eu_src_05",
+        "cuisine_eu_src_38"
+      ],
+      "related_ids": [
+        "cuisine_eu_italian_salumi",
+        "cuisine_fr_charcuterie_lyon"
+      ],
+      "related_catalog_ids": [
+        "animal_food_pork",
+        "animal_food_ham_bacon",
+        "animal_food_pig",
+        "materials_salt"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "game": {
+        "schema": "game_fields_v1",
+        "price": {
+          "min": 12,
+          "max": 36,
+          "per": "一磅",
+          "tier": "shilling"
+        },
+        "terrains": [
+          "workshop",
+          "pasture",
+          "temperate_forest"
+        ],
+        "seasons": [
+          "all_year"
+        ],
+        "keeps": "years",
+        "sold_by": [
+          "butcher",
+          "noble_kitchen",
+          "grocer"
+        ],
+        "note": "橡果猪火腿熟成数年，价格偏贵；普通白猪火腿便宜一半以上。"
+      },
+      "primary": "preserved_food",
+      "evidence_grade": "mixed"
+    },
+    {
+      "id": "cuisine_eu_wurst",
+      "name": "香肠体系（Wurst / kiełbasa：中欧的鲜、熟、干香肠）",
+      "aliases": [
+        "Wurst",
+        "sausage",
+        "bratwurst",
+        "kielbasa",
+        "kiełbasa",
+        "香肠",
+        "德式香肠",
+        "波兰香肠"
+      ],
+      "category": "item",
+      "tags": [
+        "kind:preserved",
+        "tradition:western",
+        "cuisine:german",
+        "region:central_europe",
+        "course:main",
+        "technique:grind",
+        "technique:stuff",
+        "technique:smoke",
+        "occasion:tavern",
+        "occasion:wedding",
+        "class_marker:common",
+        "role:preservation",
+        "trade:butcher",
+        "price:groat",
+        "terrain:workshop",
+        "terrain:pasture",
+        "terrain:farmland",
+        "season:all_year",
+        "sold_by:butcher",
+        "sold_by:street_vendor",
+        "sold_by:tavern"
+      ],
+      "summary": "把绞碎的肉、盐和香料灌进肠衣的一大类食品。中欧城市和乡村各有名品，有的鲜煎，有的煮熟，有的风干，是屠宰季之后把零碎肉变成可存可卖的口粮的办法。",
+      "details": {
+        "definition": "香肠（sausage）指把盐腌调味的碎肉装入肠衣的食品，英文词源出自拉丁语 salsus（加了盐的）。来源称古巴比伦、希腊和罗马都有香肠，中世纪起欧洲城市出现以城名为名的香肠，如 frankfurter、bologna、romano（cuisine_eu_src_17）。本条以德语区与波兰的鲜肠、煮肠、熏肠为主；干腌肠的原理另见 cuisine_eu_italian_salumi。波兰香肠 kiełbasa 以猪肉、蒜和马郁兰调味（cuisine_eu_src_18）。",
+        "mechanism": "工序顺序：取猪肉和肥肉切碎或绞碎，加盐与香料拌匀，灌入肠衣，随后按类型分流：鲜肠直接煎烤，煮肠煮熟，熏肠挂入烟中，干肠悬挂风干。盐与干燥或烟熏降低水分、抑制腐败；肥肉让口感湿润。来源给出一条地理规律：干香肠多起于暖地，鲜肠和熟肠多起于冷地（cuisine_eu_src_17）。",
+        "conditions": "要有屠宰季的猪肉与肥肉、盐、肠衣和调味料（蒜、马郁兰、杜松子等），以及煮锅或烟房。冷地冷季易保鲜，所以鲜肠与熟肠可以当季卖；干肠需要稳定的盐供应与风干场所。",
+        "exceptions": "①波兰香肠有狩猎版 myśliwska（加杜松子）和婚礼版 weselna，不是同一配方（cuisine_eu_src_18）。②德国各城的名肠（如 Nürnberger、Thüringer 的 bratwurst）没有读到专门来源，本条不写其配方细节。③「香肠」不等于意大利萨拉米：后者是发酵风干肠，见关联条目。④与法国里昂的猪肉制品体系并行，不要合并。",
+        "story_uses": "①酒馆与集市：一根煎肠配面包、芥末或酸菜，是最便宜的热食。②婚宴：婚礼香肠可写成宴席的必备项。③屠宰季：冬初杀猪灌肠，是乡村一年中少有的肉食日。④城市名肠：以城名命名的香肠可以写成行会垄断和产地冒牌的素材。",
+        "historical_scope": "本条写中欧（德语区与波兰），古代香肠已见于巴比伦、希腊、罗马，中世纪城市名肠成型（cuisine_eu_src_17）。各品种的定型年代未取得来源。架空世界使用只需要屠宰、盐、肠衣和煮锅，不必照搬德国城市名。",
+        "evidence_and_uncertainty": "来源支持：词源 salsus、古代已有香肠、中世纪名城香肠、暖地多干肠冷地多鲜熟肠（cuisine_eu_src_17）；波兰香肠的猪肉、蒜、马郁兰调味及狩猎版、婚礼版（cuisine_eu_src_18）。缺口：德国香肠各品种、鲜肠煮肠熏肠的细节均未读到专门来源（维基百科 Bratwurst 无法连通）；「冬初杀猪」「配酸菜」中的前者属本项目归纳，后者见酸菜条目。review_status 保持 needs_review。"
+      },
+      "source_ids": [
+        "cuisine_eu_src_17",
+        "cuisine_eu_src_18"
+      ],
+      "related_ids": [
+        "cuisine_eu_italian_salumi",
+        "cuisine_eu_sauerkraut",
+        "cuisine_fr_charcuterie_lyon"
+      ],
+      "related_catalog_ids": [
+        "animal_food_sausage",
+        "animal_food_pork",
+        "animal_food_pig",
+        "materials_salt",
+        "flavors_mustard",
+        "flavors_black_pepper",
+        "produce_garlic"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "game": {
+        "schema": "game_fields_v1",
+        "price": {
+          "min": 2,
+          "max": 6,
+          "per": "一根",
+          "tier": "groat"
+        },
+        "terrains": [
+          "workshop",
+          "pasture",
+          "farmland"
+        ],
+        "seasons": [
+          "all_year"
+        ],
+        "keeps": "weeks",
+        "sold_by": [
+          "butcher",
+          "street_vendor",
+          "tavern"
+        ],
+        "note": "一根煎肠几便士；熏肠和干肠耐存，按根或按磅卖。"
+      },
+      "primary": "preserved_food",
+      "evidence_grade": "mixed"
+    },
+    {
+      "id": "cuisine_eu_pretzel",
+      "name": "椒盐卷饼（Brezel / pretzel：打结后短暂水煮再烘烤的咸面包）",
+      "aliases": [
+        "Brezel",
+        "Breze",
+        "pretzel",
+        "bretzel",
+        "椒盐卷饼",
+        "碱水结",
+        "扭结饼"
+      ],
+      "category": "item",
+      "tags": [
+        "kind:bread",
+        "tradition:western",
+        "cuisine:german",
+        "region:southern_germany",
+        "course:snack",
+        "technique:knot",
+        "technique:parboil",
+        "technique:bake",
+        "occasion:street",
+        "occasion:tavern",
+        "class_marker:common",
+        "trade:baker",
+        "price:penny",
+        "terrain:workshop",
+        "terrain:farmland",
+        "season:all_year",
+        "sold_by:baker",
+        "sold_by:street_vendor",
+        "sold_by:tavern"
+      ],
+      "summary": "把面绳折成结，先在水中短暂煮一下，刷蛋液撒盐后烤成的咸面包。外皮紧实带光泽，是啤酒馆和街头小贩的常备食物。",
+      "details": {
+        "definition": "pretzel 是一种打成结的咸面包，来源称起源于德国或阿尔萨斯。面团搓成绳后折成特有的结，短暂水煮后上蛋液、撒盐，再烘烤，常与啤酒同吃，由街头小贩出售（cuisine_eu_src_14）。",
+        "mechanism": "工序顺序：面团搓成长绳，折成结；入水短暂煮过，使表面淀粉糊化定型；刷蛋液、撒粗盐；最后烘烤。水煮这一步决定了外皮的紧实光泽和嚼劲，是它和普通烤面包的区别（水煮的原理是本项目归纳，来源只写了工序）。",
+        "conditions": "要有面粉、盐、煮锅和烤炉，以及固定的消费场景：啤酒馆、集市、街头。咸味让人多喝酒，这是酒馆生意上的关联，属本项目归纳。",
+        "exceptions": "①起源地有德国与阿尔萨斯两说，来源不下结论（cuisine_eu_src_14）。②不要把它写成甜点；本条是咸面包。③现代常见的碱液处理没有在已读来源中出现，本条不写。④与法国的 bretzel 属同一系统，不另立条。",
+        "story_uses": "①酒馆桌上的免费或廉价小食，配啤酒。②街头小贩挎篮叫卖，可写城市的早晨。③节庆与行会：面包师行会常以此物为徽记，这一点没有来源，属可选的虚构设定。④旅途干粮：硬实耐放。",
+        "historical_scope": "本条限德语区及阿尔萨斯，起源年代与传说均未取得来源。架空世界使用只要有面粉、盐、水煮和烘烤的炉。",
+        "evidence_and_uncertainty": "来源支持：起源于德国或阿尔萨斯、面绳打结、短暂水煮、蛋液与盐、烘烤、配啤酒、街头小贩出售（cuisine_eu_src_14）。缺口：历史年代、象征意义、行会关系均未取得来源。「酒馆关联」「行会徽记」是设计归纳。review_status 保持 needs_review。"
+      },
+      "source_ids": [
+        "cuisine_eu_src_14"
+      ],
+      "related_ids": [
+        "cuisine_fr_baguette"
+      ],
+      "related_catalog_ids": [
+        "staples_wheat",
+        "staples_rye",
+        "materials_salt",
+        "animal_food_egg",
+        "flavors_beer"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "game": {
+        "schema": "game_fields_v1",
+        "price": {
+          "min": 1,
+          "max": 2,
+          "per": "一只",
+          "tier": "penny"
+        },
+        "terrains": [
+          "workshop",
+          "farmland"
+        ],
+        "seasons": [
+          "all_year"
+        ],
+        "keeps": "days",
+        "sold_by": [
+          "baker",
+          "street_vendor",
+          "tavern"
+        ],
+        "note": "几乎不要钱的咸面包，酒馆桌上常作配酒小食。"
+      },
+      "primary": "bread",
+      "evidence_grade": "mixed"
+    },
+    {
+      "id": "cuisine_eu_wiener_schnitzel",
+      "name": "炸肉排（Schnitzel / Wiener Schnitzel：捶薄裹粉煎炸的肉排）",
+      "aliases": [
+        "Wiener Schnitzel",
+        "Schnitzel",
+        "schnitzel",
+        "维也纳炸肉排",
+        "炸猪排",
+        "炸小牛排"
+      ],
+      "category": "item",
+      "tags": [
+        "kind:dish",
+        "tradition:western",
+        "cuisine:austrian",
+        "region:austria_germany",
+        "course:main",
+        "technique:pound",
+        "technique:bread",
+        "technique:pan_fry",
+        "occasion:tavern",
+        "class_marker:middle",
+        "price:shilling",
+        "terrain:workshop",
+        "terrain:pasture",
+        "terrain:farmland",
+        "season:all_year",
+        "sold_by:tavern",
+        "sold_by:inn_kitchen"
+      ],
+      "summary": "把去骨的薄肉片捶薄，裹粉、蛋液和面包屑，用黄油或油煎成金黄的肉排。严格意义的维也纳炸肉排在德奥受法律保护，必须用小牛肉，其他肉要另标。",
+      "details": {
+        "definition": "Schnitzel 是去骨薄切肉捶薄后裹面包屑煎炸的菜。Wiener Schnitzel（维也纳炸肉排）在德国和奥地利受法律保护，只能用小牛肉，其他肉做的须标明肉种。常配柠檬、薯类、Spätzle，瑞士则配 Rösti（cuisine_eu_src_15）。",
+        "mechanism": "工序顺序：肉去骨切片，捶薄使厚度均匀、纤维松开；依次裹粉、蛋液、面包屑；在黄油或油中煎炸至金黄；上桌时配柠檬。捶薄使肉很快熟透，面包屑壳锁住汁水（后一半是本项目归纳）。",
+        "conditions": "要有去骨的肉（小牛肉成本较高）、面粉与面包屑、蛋、黄油或油，以及一口平底锅。肉质越细嫩，越适合只用快煎。",
+        "exceptions": "①Wiener Schnitzel 限小牛肉；猪肉版常叫 Schnitzel Wiener Art，是常见的平民替代（猪肉版名称出自本项目归纳，来源只说其他肉须标明）。②与米兰式炸肉排（alla milanese）的关系有争议，来源不下结论，不要写成传入证据（cuisine_eu_src_15）。③不要和英式炸鱼或法国的 escalope 合并。",
+        "story_uses": "①中产酒馆的招牌热菜，一块比盘子还大的肉排是体面感的来源。②法定名称与产地欺诈：用猪肉冒充小牛肉可以写成稽查案件。③家庭主妇的拿手菜：捶肉声是邻里能听到的日常。④旅途中，一块冷肉排夹面包是常见干粮。",
+        "historical_scope": "本条限奥地利与德国，及其影响下的瑞士、中欧。起源年代与传说均未取得来源；「法律保护」属现代规定，不宜搬进古代背景。",
+        "evidence_and_uncertainty": "来源支持：去骨薄肉捶薄、裹面包屑蛋液、黄油或油煎、Wiener Schnitzel 受德奥法律保护且限小牛肉、配柠檬薯 Spätzle 或 Rösti、与米兰式的关系有争议（cuisine_eu_src_15）。缺口：历史与价格未取得来源。review_status 保持 needs_review。"
+      },
+      "source_ids": [
+        "cuisine_eu_src_15"
+      ],
+      "related_ids": [
+        "cuisine_fr_baguette"
+      ],
+      "related_catalog_ids": [
+        "animal_food_cattle",
+        "animal_food_pork",
+        "staples_wheat",
+        "animal_food_egg",
+        "animal_food_butter",
+        "animal_food_rendered_fat",
+        "produce_lemon_lime",
+        "staples_potato"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "game": {
+        "schema": "game_fields_v1",
+        "price": {
+          "min": 6,
+          "max": 12,
+          "per": "一份",
+          "tier": "shilling"
+        },
+        "terrains": [
+          "workshop",
+          "pasture",
+          "farmland"
+        ],
+        "seasons": [
+          "all_year"
+        ],
+        "keeps": "hours",
+        "sold_by": [
+          "tavern",
+          "inn_kitchen"
+        ],
+        "note": "小牛肉贵，一份约半日工钱；猪肉版便宜一半。"
+      },
+      "primary": "dish",
+      "evidence_grade": "mixed"
+    },
+    {
+      "id": "cuisine_eu_sauerkraut",
+      "name": "酸菜（Sauerkraut：盐渍发酵的白甘蓝）",
+      "aliases": [
+        "Sauerkraut",
+        "sauerkraut",
+        "德式酸菜",
+        "酸白菜",
+        "腌甘蓝"
+      ],
+      "category": "item",
+      "tags": [
+        "kind:preserved",
+        "tradition:western",
+        "cuisine:german",
+        "region:central_europe",
+        "course:side",
+        "technique:ferment",
+        "technique:salt",
+        "occasion:winter",
+        "class_marker:common",
+        "role:preservation",
+        "price:penny",
+        "terrain:farmland",
+        "terrain:workshop",
+        "season:autumn",
+        "season:winter",
+        "sold_by:market",
+        "sold_by:grocer",
+        "sold_by:tavern"
+      ],
+      "summary": "把切细的白甘蓝与盐分层压进陶缸或木桶，压重物发酵而成的酸菜。它是中欧冬季储存蔬菜的办法，常与烟熏肉和香肠一起上桌。",
+      "details": {
+        "definition": "sauerkraut 是切细的白甘蓝，加盐发酵成的酸菜，与烟熏肉和香肠同食于 choucroute garnie 和瑞士的 Berner Platte（cuisine_eu_src_16）。它是配菜与储备蔬菜，不是完整的一道菜。",
+        "mechanism": "工序顺序：甘蓝切细，与盐分层放进陶缸或木桶，压上重盖；在低温环境中发酵，时间较长。盐使菜出水并抑制杂菌，乳酸菌把糖转成酸，所以成品能放过冬（发酵机理是本项目归纳；来源写的是盐、陶缸或木桶、重盖、低温和较长发酵）。",
+        "conditions": "要有秋收的甘蓝、盐、陶缸或木桶、可压的重物和凉爽的地方。没有稳定的盐供应就做不成；温度过高会腐败而不是变酸。",
+        "exceptions": "①来源称罗马人已知此物，后来失传，13 世纪由鞑靼人自中国再次传入欧洲，这是来源引用的说法，不宜当作确定的传播路径（cuisine_eu_src_16）。②与法餐 cuisine_fr_choucroute 的区别：本条是酸菜这种腌制品本身，法餐条目是酸菜加肉的整道菜。酸菜猪肘等配肉菜本质属于后者，不另立条。③不要与韩式泡菜混写，后者已在 cuisine_kimchi。",
+        "story_uses": "①冬储：一缸酸菜是一户人家过冬的维生素，可写缸被偷或结冰的危机。②海员防坏血病的联想：来源没有写，属可选的设定。③酒馆：一盘酸菜配熏肠，是冷天里最便宜的热食。④粮仓与行会：酸菜商人可以和盐商打交道。",
+        "historical_scope": "本条限中欧（德语区、阿尔萨斯、东欧一带），古罗马有记载，13 世纪经由所谓鞑靼人路径传回（cuisine_eu_src_16）。具体年代与配方细节未再取得来源。",
+        "evidence_and_uncertainty": "来源支持：切细白甘蓝与盐分层于陶缸或木桶并压重、低温下发酵较长时间、罗马人已知且曾失传、13 世纪经鞑靼人自中国传入的说法、与烟熏肉和香肠同食于 choucroute garnie 与 Berner Platte（cuisine_eu_src_16）。缺口：德国猪肘菜（Schweinshaxe）没有读到专门来源。review_status 保持 needs_review。"
+      },
+      "source_ids": [
+        "cuisine_eu_src_16"
+      ],
+      "related_ids": [
+        "cuisine_fr_choucroute",
+        "cuisine_kimchi",
+        "cuisine_eu_wurst"
+      ],
+      "related_catalog_ids": [
+        "produce_cabbage",
+        "materials_salt",
+        "materials_clay",
+        "tools_storage_jar",
+        "animal_food_sausage",
+        "animal_food_pork"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "game": {
+        "schema": "game_fields_v1",
+        "price": {
+          "min": 1,
+          "max": 2,
+          "per": "一碗",
+          "tier": "penny"
+        },
+        "terrains": [
+          "farmland",
+          "workshop"
+        ],
+        "seasons": [
+          "autumn",
+          "winter"
+        ],
+        "keeps": "months",
+        "sold_by": [
+          "market",
+          "grocer",
+          "tavern"
+        ],
+        "note": "秋收后腌，整个冬天吃；几乎不花钱。"
+      },
+      "primary": "preserved_food",
+      "evidence_grade": "mixed"
+    },
+    {
+      "id": "cuisine_eu_waffle",
+      "name": "华夫饼（Waffle / gaufre / wafel：夹在烤盘里的格纹面饼）",
+      "aliases": [
+        "waffle",
+        "gaufre",
+        "wafel",
+        "Belgian waffle",
+        "华夫饼",
+        "格子饼",
+        "烤饼"
+      ],
+      "category": "item",
+      "tags": [
+        "kind:pastry",
+        "tradition:western",
+        "cuisine:belgian",
+        "region:low_countries",
+        "course:dessert",
+        "technique:batter",
+        "technique:iron_bake",
+        "occasion:fair",
+        "occasion:street",
+        "class_marker:common",
+        "trade:street_vendor",
+        "price:penny",
+        "terrain:workshop",
+        "terrain:farmland",
+        "terrain:pasture",
+        "season:all_year",
+        "sold_by:street_vendor",
+        "sold_by:baker",
+        "sold_by:market"
+      ],
+      "summary": "面糊倒进有格纹的双面铁盘里烤成的饼。比利时与法国的做法加酵母。来源提到 12 世纪的法语诗里已有，它长期是集市和教会节日上的街头小吃。",
+      "details": {
+        "definition": "waffle 是用华夫烤盘（有凸格的双面铁模）夹烤面糊制成的饼。比利时和法国的版本用酵母发酵（cuisine_eu_src_19）。12 世纪的法语诗歌中已提到它，在集市和宗教节庆上当街头食品出售（cuisine_eu_src_19）。",
+        "mechanism": "工序顺序：面糊发酵后倒进预热的烤盘，合盘加热，两面同时受热，面糊在格纹中定型，开盘取出。酵母版需要发酵时间，口感更松软。烤盘是关键工具：铁模、长柄、炉火，缺一就做不成。",
+        "conditions": "要有面粉、乳或水、酵母、糖或盐，以及一副铁烤盘和稳定的炉火。铁模需要铁匠制作，所以早期的华夫饼与铁匠、教堂节日有关（后半句是本项目归纳）。",
+        "exceptions": "①比利时有多种华夫饼，来源只提到酵母版，没有读到列日、布鲁塞尔的区分，本条不写。②与薄脆的圣餐饼（wafer）有渊源，但来源没有写，不要当作定论。③荷兰糖浆华夫另立条。",
+        "story_uses": "①集市和朝圣路上，一个炉子一副铁模就是一个摊位。②节日：宗教节庆上的小饼，可与教会的收入联系。③铁匠与家族：一副刻有家徽的铁模可以传家。④甜品的初始形态：加糖、蜂蜜或果酱就是甜点。",
+        "historical_scope": "本条限低地国家与北法，12 世纪已有文字记载（cuisine_eu_src_19），具体起源和形状演变未取得来源。",
+        "evidence_and_uncertainty": "来源支持：华夫烤盘、比利时与法国用酵母、12 世纪法语诗歌已提及、街头食品、集市和宗教节庆（cuisine_eu_src_19）。缺口：列日与布鲁塞尔版本区分、配料、价格。「铁匠制作」「家徽铁模」属设计归纳。review_status 保持 needs_review。"
+      },
+      "source_ids": [
+        "cuisine_eu_src_19"
+      ],
+      "related_ids": [
+        "cuisine_eu_stroopwafel"
+      ],
+      "related_catalog_ids": [
+        "staples_wheat",
+        "animal_food_milk",
+        "animal_food_egg",
+        "animal_food_butter",
+        "flavors_honey",
+        "flavors_cane_sugar"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "game": {
+        "schema": "game_fields_v1",
+        "price": {
+          "min": 1,
+          "max": 3,
+          "per": "一块",
+          "tier": "penny"
+        },
+        "terrains": [
+          "workshop",
+          "farmland",
+          "pasture"
+        ],
+        "seasons": [
+          "all_year"
+        ],
+        "keeps": "days",
+        "sold_by": [
+          "street_vendor",
+          "baker",
+          "market"
+        ],
+        "note": "集市摊位上现烤，加糖或蜂蜜的略贵。"
+      },
+      "primary": "pastry",
+      "evidence_grade": "mixed"
+    },
+    {
+      "id": "cuisine_eu_stroopwafel",
+      "name": "糖浆华夫（stroopwafel：两片薄华夫夹糖浆的荷兰点心）",
+      "aliases": [
+        "stroopwafel",
+        "syrup waffle",
+        "糖浆华夫",
+        "焦糖煎饼",
+        "荷兰糖浆饼"
+      ],
+      "category": "item",
+      "tags": [
+        "kind:pastry",
+        "tradition:western",
+        "cuisine:dutch",
+        "region:gouda",
+        "course:snack",
+        "technique:iron_bake",
+        "technique:sandwich",
+        "occasion:street",
+        "class_marker:common",
+        "trade:baker",
+        "price:penny",
+        "terrain:workshop",
+        "terrain:import",
+        "season:all_year",
+        "sold_by:street_vendor",
+        "sold_by:baker"
+      ],
+      "summary": "把两片薄华夫饼夹上糖浆做成的点心，来源称起于荷兰高达，可能在 18 世纪末出现。它用的是边角料般的原料，是荷兰街头小吃。",
+      "details": {
+        "definition": "stroopwafel 是荷兰点心，两片薄华夫夹糖浆，来源称起源于高达（Gouda），可能始于 18 世纪末，是街头食品（cuisine_eu_src_20）。",
+        "mechanism": "工序顺序：薄面糊在华夫烤盘里烤成圆饼，趁热切成两片，中间涂糖浆合上。热气使糖浆软化，冷却后粘住。重点是片要薄、糖浆要有黏性。",
+        "conditions": "要有铁烤盘、面粉、糖浆（糖或蜜熬成）。糖是进口货，所以它比普通华夫略贵。",
+        "exceptions": "①起源地与年代来源只说「起源于高达」「可能 18 世纪末」，不是定论（cuisine_eu_src_20）。②与普通华夫饼不同：它是夹层。③糖浆的原料（甘蔗糖还是甜菜糖）没有读到来源，不写。",
+        "story_uses": "①街头摊上的小零食，一枚硬币可买一块。②面包房的剩料再利用：边角料制成点心，属本项目归纳的合理推测。③糖的进口：糖浆来自海外，与荷兰商路关联。",
+        "historical_scope": "本条限荷兰（高达），可能 18 世纪末，属近代而非中世纪（cuisine_eu_src_20）。奇幻设定中应放在近代，或须解决糖的来源。",
+        "evidence_and_uncertainty": "来源支持：两片薄华夫夹糖浆、起源于高达、可能 18 世纪末、街头食品（cuisine_eu_src_20）。缺口：具体配方、价格、历史。review_status 保持 needs_review。"
+      },
+      "source_ids": [
+        "cuisine_eu_src_20"
+      ],
+      "related_ids": [
+        "cuisine_eu_waffle"
+      ],
+      "related_catalog_ids": [
+        "staples_wheat",
+        "flavors_cane_sugar",
+        "animal_food_butter",
+        "flavors_cinnamon"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "game": {
+        "schema": "game_fields_v1",
+        "price": {
+          "min": 1,
+          "max": 3,
+          "per": "一块",
+          "tier": "penny"
+        },
+        "terrains": [
+          "workshop",
+          "import"
+        ],
+        "seasons": [
+          "all_year"
+        ],
+        "keeps": "weeks",
+        "sold_by": [
+          "street_vendor",
+          "baker"
+        ],
+        "note": "糖浆来自进口糖，所以比一般面饼略贵；近代小吃。"
+      },
+      "primary": "pastry",
+      "evidence_grade": "mixed"
+    },
+    {
+      "id": "cuisine_eu_gouda",
+      "name": "高达奶酪（Gouda：荷兰半硬质牛奶奶酪）",
+      "aliases": [
+        "Gouda",
+        "Gouda cheese",
+        "Boerenkaas",
+        "高达奶酪",
+        "荷兰奶酪",
+        "豪达干酪"
+      ],
+      "category": "item",
+      "tags": [
+        "kind:preserved",
+        "tradition:western",
+        "cuisine:dutch",
+        "region:gouda",
+        "course:antipasto",
+        "technique:curd",
+        "technique:press",
+        "technique:age",
+        "occasion:market",
+        "class_marker:common",
+        "role:trade_good",
+        "trade:dairy",
+        "price:shilling",
+        "terrain:pasture",
+        "terrain:workshop",
+        "season:all_year",
+        "sold_by:dairy",
+        "sold_by:market",
+        "sold_by:grocer"
+      ],
+      "summary": "荷兰高达一带的半硬质牛奶奶酪，来源称可能始于 12 世纪。扁圆轮形便于码放和运输，表面涂黄色蜡层，市集上以轮计价，是荷兰奶酪贸易的象征。",
+      "details": {
+        "definition": "Gouda 是荷兰的半硬质牛奶奶酪，来源称可能起源于 12 世纪，成扁圆轮形，重约十到十二磅，外表涂黄色石蜡层，盖有「Holland」印章；农场自制的版本叫 Boerenkaas（cuisine_eu_src_21）。",
+        "mechanism": "原理：牛奶凝结成凝乳，切碎、沥乳清、入模压紧，盐渍，再放入凉处熟成；时间越长越干硬。涂蜡保湿并防霉。轮形便于滚动运输和码垛（工序细节为通行知识，来源只写了成品形态与标志）。",
+        "conditions": "要有奶牛、牧场、盐、凝乳酶、压模和熟成的窖。大宗交易靠市集和称量所（本项目归纳）。",
+        "exceptions": "①Gouda 是奶酪类型，而不仅是高达的产品：来源说明外形和印章规范，而「农场版」与「工厂版」不同（cuisine_eu_src_21）。②不要混写其他荷兰奶酪（如 Edam），来源没有写。③熟成时间不同口感差异大，来源未写具体划分。",
+        "story_uses": "①奶酪市集：成排的黄色奶酪轮和称重人，是荷兰城镇的标志场景。②税与度量衡：奶酪轮的称量可以写成城市权力来源。③农场与工厂：农民自制与商人收购的冲突。④船上储备：耐存放的蛋白。",
+        "historical_scope": "本条限荷兰，可能始于 12 世纪（cuisine_eu_src_21）。「Holland」印章与规格化属较晚的商业规范，年代未取得来源。",
+        "evidence_and_uncertainty": "来源支持：半硬质牛奶奶酪、可能 12 世纪、扁圆轮形十到十二磅、黄色石蜡涂层、Holland 印章、农场版 Boerenkaas（cuisine_eu_src_21）。缺口：工序细节、价格、市集制度。review_status 保持 needs_review。"
+      },
+      "source_ids": [
+        "cuisine_eu_src_21"
+      ],
+      "related_catalog_ids": [
+        "animal_food_cheese",
+        "animal_food_milk",
+        "animal_food_cattle",
+        "materials_salt"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "game": {
+        "schema": "game_fields_v1",
+        "price": {
+          "min": 8,
+          "max": 24,
+          "per": "一磅",
+          "tier": "shilling"
+        },
+        "terrains": [
+          "pasture",
+          "workshop"
+        ],
+        "seasons": [
+          "all_year"
+        ],
+        "keeps": "months",
+        "sold_by": [
+          "dairy",
+          "market",
+          "grocer"
+        ],
+        "note": "整轮按磅称，贵于面包与鱼，普通人家一次只买一小块。"
+      },
+      "primary": "preserved_food",
+      "evidence_grade": "mixed"
+    },
+    {
+      "id": "cuisine_eu_smorgasbord",
+      "name": "自助冷餐（smörgåsbord：北欧各人带一份的宴会式冷热餐桌）",
+      "aliases": [
+        "smörgåsbord",
+        "smorgasbord",
+        "bannvinsbord",
+        "北欧自助餐",
+        "瑞典自助餐"
+      ],
+      "category": "institution",
+      "tags": [
+        "kind:custom",
+        "tradition:western",
+        "cuisine:swedish",
+        "region:sweden",
+        "course:buffet",
+        "technique:assemble",
+        "occasion:feast",
+        "occasion:festival",
+        "class_marker:festive",
+        "role:service_style",
+        "price:shilling",
+        "terrain:coast",
+        "terrain:workshop",
+        "terrain:farmland",
+        "season:all_year",
+        "sold_by:inn_kitchen",
+        "sold_by:noble_kitchen"
+      ],
+      "summary": "瑞典的自助式宴席：许多冷热小菜摆在一张桌上，客人自取。它源自乡村宴会里每位客人带一份菜的习惯，18 世纪起正餐前有配烈酒和鲱鱼的前菜桌。",
+      "details": {
+        "definition": "smörgåsbord 是瑞典的自助式餐桌，含 gravlax（盐渍鲑鱼）、肉丸、Jansson 的诱惑（一种焗薯菜）等许多菜。它源自乡村宴会，每位客人带一份菜；18 世纪起正餐之前设有酒前桌 bannvinsbord，上烈酒（aquavit）和鲱鱼（cuisine_eu_src_22）。",
+        "mechanism": "运作方式：一张长桌摆上冷盘、热菜、面包，客人分几轮取用，通常先冷后热。凑份子使宴会成本分摊给多个家庭，每份菜都是一个家庭的名片。来源还提到二战后歌剧院餐厅（Operakallaren）重新推广这种形式（cuisine_eu_src_22）。",
+        "conditions": "要有足够的菜、桌子和场地，以及愿意各带一份的客人。冬储食物（腌鱼、熏肉、面包）使冷盘在冬季也能摆满，这一点参见瑞典日常生活条目中的冬储逻辑（cuisine_eu_src_31）。",
+        "exceptions": "①不要把它写成只有富人才有：来源强调它源于乡村各家带菜的宴会（cuisine_eu_src_22）。②现代酒店自助餐是后来的商业化形式，与乡村形式不同。③具体菜单依节令与地域，来源只举例。",
+        "story_uses": "①节庆与婚丧：每家带一道菜，菜的好坏就是家庭的体面，可写邻里比较。②酒前桌：士兵和官员站着喝烈酒、吃鲱鱼，是一种阶层之外的社交。③冬储：腌鱼与熏肉是主角，写冬天的村庄。④酒馆：把各种小菜按人头收费，是旅店的招牌。",
+        "historical_scope": "本条限瑞典与北欧，宴会习俗早于 18 世纪，酒前桌自 18 世纪（cuisine_eu_src_22）；二战后重新推广。架空世界使用只需要共享菜品、烈酒和腌鱼。",
+        "evidence_and_uncertainty": "来源支持：自助式餐桌、含 gravlax、肉丸、Jansson 的诱惑、乡村宴会各带一份、18 世纪起的 bannvinsbord、烈酒与鲱鱼、二战后的重建（cuisine_eu_src_22）；瑞典的冬储逻辑（cuisine_eu_src_31）。缺口：价格、具体菜单与历史细节。review_status 保持 needs_review。"
+      },
+      "source_ids": [
+        "cuisine_eu_src_22",
+        "cuisine_eu_src_31"
+      ],
+      "related_ids": [
+        "cuisine_eu_surstromming"
+      ],
+      "related_catalog_ids": [
+        "animal_food_herring",
+        "animal_food_salmon",
+        "staples_rye",
+        "staples_potato",
+        "flavors_distilled_spirit",
+        "materials_salt"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "game": {
+        "schema": "game_fields_v1",
+        "price": {
+          "min": 12,
+          "max": 36,
+          "per": "一席",
+          "tier": "shilling"
+        },
+        "terrains": [
+          "coast",
+          "workshop",
+          "farmland"
+        ],
+        "seasons": [
+          "all_year"
+        ],
+        "keeps": "hours",
+        "sold_by": [
+          "inn_kitchen",
+          "noble_kitchen"
+        ],
+        "note": "多种菜一起，按席计价，以先令计；乡村宴会则由各家分摊。"
+      },
+      "primary": "institution",
+      "evidence_grade": "mixed"
+    },
+    {
+      "id": "cuisine_eu_surstromming",
+      "name": "发酵鲱鱼（surströmming：瑞典罐装发酵波罗的海鲱）",
+      "aliases": [
+        "surströmming",
+        "surstromming",
+        "fermented herring",
+        "发酵鲱鱼",
+        "瑞典鲱鱼罐头",
+        "酸鲱鱼"
+      ],
+      "category": "item",
+      "tags": [
+        "kind:preserved",
+        "tradition:western",
+        "cuisine:swedish",
+        "region:northern_sweden",
+        "course:main",
+        "technique:salt",
+        "technique:ferment",
+        "occasion:festival",
+        "class_marker:common",
+        "role:preservation",
+        "trade:fishmonger",
+        "price:groat",
+        "terrain:ocean",
+        "terrain:coast",
+        "terrain:workshop",
+        "season:summer",
+        "season:autumn",
+        "sold_by:fishmonger",
+        "sold_by:market"
+      ],
+      "summary": "波罗的海鲱春季捕捞后盐渍两个月，再装罐继续发酵的瑞典食品。气味强烈，传统上在八月第三个星期四开卖，配杏仁薯、洋葱和薄饼。",
+      "details": {
+        "definition": "surströmming 是瑞典的发酵波罗的海鲱鱼。来源称春季捕鱼，盐水浸渍约两个月，然后装罐继续发酵；开卖日（premiere day）是八月第三个星期四，曾由王室诏令规定；常配杏仁薯、洋葱和 tunnbröd（薄饼）（cuisine_eu_src_23）。",
+        "mechanism": "原理：用盐控制发酵，让鱼在低盐环境中缓慢变酸而不完全腐败。工序顺序：春季捕鱼，盐渍，装罐，罐内继续发酵，夏末开罐。吃法：把鱼肉从骨上剔下，卷入薄饼，配薯和洋葱。",
+        "conditions": "要有春季鲱鱼渔获、盐、容器（木桶或罐）和较凉的发酵环境。北欧冬储传统使这类食物成为生活的一部分（cuisine_eu_src_31）。",
+        "exceptions": "①不要与普通的腌鲱鱼混写：前者是发酵的罐头，后者是盐腌（已读来源没有腌鲱鱼的专门页面）。②罐头是较晚的技术，来源没有给出历史年代，不要把罐头放在中世纪。③不要与英国的熏鲱 cuisine_uk_kippers 混写。",
+        "story_uses": "①开罐日：全村在户外开罐的仪式，邻居抱怨气味。②冬储：盐渍与发酵是北方人防备饥荒的办法。③王室诏令：开卖日由国王规定，写成官府对集市的管控。④试胆：外乡人被怂恿吃第一口，是酒馆里的恶作剧。",
+        "historical_scope": "本条限瑞典（波罗的海沿岸），开卖日曾由王室诏令规定（cuisine_eu_src_23），具体年代未取得来源。",
+        "evidence_and_uncertainty": "来源支持：发酵的波罗的海鲱、春季捕鱼、盐水两个月再装罐发酵、开卖日在八月第三个星期四、曾由王室诏令规定、配杏仁薯洋葱与薄饼（cuisine_eu_src_23）；北欧冬储逻辑（cuisine_eu_src_31）。缺口：历史起源、价格。「全村开罐仪式」「试胆」属设计归纳。review_status 保持 needs_review。"
+      },
+      "source_ids": [
+        "cuisine_eu_src_23",
+        "cuisine_eu_src_31"
+      ],
+      "related_ids": [
+        "cuisine_uk_kippers",
+        "cuisine_eu_smorgasbord"
+      ],
+      "related_catalog_ids": [
+        "animal_food_herring",
+        "materials_salt",
+        "staples_potato",
+        "produce_onion",
+        "animal_food_dried_salted_fish"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "game": {
+        "schema": "game_fields_v1",
+        "price": {
+          "min": 2,
+          "max": 6,
+          "per": "一份",
+          "tier": "groat"
+        },
+        "terrains": [
+          "ocean",
+          "coast",
+          "workshop"
+        ],
+        "seasons": [
+          "summer",
+          "autumn"
+        ],
+        "keeps": "months",
+        "sold_by": [
+          "fishmonger",
+          "market"
+        ],
+        "note": "便宜的鲱鱼；发酵后夏末开罐，气味重，爱好者才买。"
+      },
+      "primary": "preserved_food",
+      "evidence_grade": "mixed"
+    },
+    {
+      "id": "cuisine_eu_borscht",
+      "name": "罗宋汤（borscht：斯拉夫的甜菜酸汤）",
+      "aliases": [
+        "borscht",
+        "borsch",
+        "barszcz",
+        "罗宋汤",
+        "红菜汤",
+        "甜菜汤"
+      ],
+      "category": "item",
+      "tags": [
+        "kind:soup",
+        "tradition:western",
+        "cuisine:ukrainian",
+        "region:eastern_europe",
+        "course:soup",
+        "technique:simmer",
+        "technique:acidify",
+        "occasion:daily",
+        "occasion:fasting",
+        "class_marker:common",
+        "role:one_pot_staple",
+        "price:penny",
+        "terrain:farmland",
+        "terrain:workshop",
+        "terrain:temperate_forest",
+        "season:autumn",
+        "season:winter",
+        "sold_by:tavern",
+        "sold_by:inn_kitchen",
+        "sold_by:farmer"
+      ],
+      "summary": "以甜菜为主料的斯拉夫汤，常说起源于乌克兰。可热可冷，用酸味压住甜菜的甜，配酸奶油和小馅饼，是东欧农家和旅店里最典型的一锅根菜汤。",
+      "details": {
+        "definition": "borscht 是斯拉夫地区的甜菜汤，常被说成乌克兰的菜。名称可能出自一种叫牛防风的植物，这是来源给的推测。汤可以热吃，也可以冷吃。乌克兰版常用牛肉加根菜和甘蓝，配酸奶油与 pirozhki（小馅饼）；波兰有素食版，用林中蘑菇熬汤，配 uszka（小饺子）（cuisine_eu_src_24）。",
+        "mechanism": "工序顺序：先熬出肉汤或蘑菇汤作底，再放入甜菜、甘蓝和其他根菜煮软，最后用酸味调整，常用的酸味来源有 kvass、醋或柠檬，用来中和甜菜的甜（cuisine_eu_src_24）。上桌时再加酸奶油。核心是用酸平衡甜、用乳制品收口；根菜耐存放，使这锅汤在冬储季也能做。",
+        "conditions": "要有甜菜和其他耐存放的根菜、甘蓝、一口大锅，以及肉汤或菌汤；酸味来源是发酵饮料或醋。甜菜和甘蓝都是冷地作物，能入冬窖，所以这道汤的分布与冷地农业一致。",
+        "exceptions": "①热汤与冷汤不能混为一种：冷版是夏季吃法（cuisine_eu_src_24）。②肉版和素版不同，波兰素版用林蘑菇汤配小饺子，不要把肉写进去（cuisine_eu_src_24）。③「起源于乌克兰」是常见说法，来源用「常被说」，不要当成定论。④kvass 可以是它的酸味来源，另见 cuisine_eu_kvass。⑤不要与法式的 pot-au-feu 合并：那是整块肉加整块蔬菜、汤肉分食的体系。",
+        "story_uses": "①农家与旅店：冬天一锅汤配黑面包，是最实在的一餐。②斋日：素版汤让守斋的人也有热汤。③阶层：肉越多越体面，穷人家用菜根和一点油撑场面。④边境与迁徙：不同民族都说这锅汤是自己的，可写成边境小镇上的争吵。⑤冷汤：夏天在田间或河边吃的凉版，适合写收割季。",
+        "historical_scope": "本条限东欧（乌克兰、波兰一带），年代未取得来源。来源不给出起源时间；名称词源为推测。架空世界使用只需要甜菜类根菜、甘蓝、酸味来源和乳制品，不必照搬国名。",
+        "evidence_and_uncertainty": "来源支持：斯拉夫甜菜汤、常说起源于乌克兰、名称可能出自牛防风、可冷可热、用 kvass 或醋或柠檬中和甜味、乌克兰牛肉加根菜与甘蓝配酸奶油与 pirozhki、波兰素版用林蘑菇汤配 uszka（cuisine_eu_src_24）。缺口：历史年代、价格、各家工序细节未取得来源。「冬储」「斋日」「边境争吵」属本项目归纳。review_status 保持 needs_review。"
+      },
+      "source_ids": [
+        "cuisine_eu_src_24",
+        "cuisine_eu_src_30"
+      ],
+      "related_ids": [
+        "cuisine_eu_kvass",
+        "cuisine_fr_pot_au_feu"
+      ],
+      "related_catalog_ids": [
+        "food_supp_table_beet",
+        "produce_cabbage",
+        "produce_carrot",
+        "produce_onion",
+        "animal_food_beef",
+        "flavors_vinegar",
+        "animal_food_milk",
+        "tools_pottery_cooking_pot"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "game": {
+        "schema": "game_fields_v1",
+        "price": {
+          "min": 1,
+          "max": 3,
+          "per": "一碗",
+          "tier": "penny"
+        },
+        "terrains": [
+          "farmland",
+          "workshop",
+          "temperate_forest"
+        ],
+        "seasons": [
+          "autumn",
+          "winter"
+        ],
+        "keeps": "days",
+        "sold_by": [
+          "tavern",
+          "inn_kitchen",
+          "farmer"
+        ],
+        "note": "根菜汤配黑面包，几便士一碗；加肉的略贵。根菜入窖后秋冬最常见。"
+      },
+      "primary": "soup",
+      "evidence_grade": "mixed"
+    },
+    {
+      "id": "cuisine_eu_goulash",
+      "name": "匈牙利牛肉汤（gulyás / goulash：牧人锅炖与红椒粉）",
+      "aliases": [
+        "goulash",
+        "gulyás",
+        "gulyas",
+        "pörkölt",
+        "paprikás",
+        "古拉希",
+        "匈牙利炖牛肉",
+        "匈牙利牛肉汤"
+      ],
+      "category": "item",
+      "tags": [
+        "kind:stew",
+        "tradition:western",
+        "cuisine:hungarian",
+        "region:carpathian_basin",
+        "course:main",
+        "technique:brown",
+        "technique:stew",
+        "occasion:daily",
+        "occasion:outdoor",
+        "class_marker:common",
+        "trade:herder",
+        "price:groat",
+        "terrain:pasture",
+        "terrain:farmland",
+        "terrain:workshop",
+        "season:all_year",
+        "sold_by:tavern",
+        "sold_by:inn_kitchen"
+      ],
+      "summary": "匈牙利的锅炖肉菜，经典做法是牛肉或羊肉块与洋葱一起在猪油里煎，再加红椒粉和水炖。传说中它源于牧人，但红椒粉是 18 世纪才加入的，所以早期版本没有红色。",
+      "details": {
+        "definition": "goulash（匈牙利语 gulyás）是匈牙利的炖菜。来源称它可追溯到 9 世纪马扎尔牧人，把炖肉晒干后装进羊胃袋，用时加水复原；红椒粉到 18 世纪才加入。经典的锅炖用牛肉或羊肉块，与洋葱一起用猪油煎，再放蒜、葛缕子、番茄、青椒和马铃薯；塞凯伊（Székely）版用猪肉和酸菜（cuisine_eu_src_25）。红椒粉由美洲传来的辣椒属植物制成，匈牙利玫瑰红椒最受推崇，匈牙利菜中的 gulyás、pörkölt、paprikás 都用它（cuisine_eu_src_39）。",
+        "mechanism": "工序顺序：猪油煎洋葱，放入肉块煎上色，加红椒粉和香料，加水炖到肉软，视版本加入马铃薯和青椒。原理是洋葱和猪油打底、红椒粉入油后香味溶开，肉在长时间小火中变软，汤自然变稠。便于野外：用一口锅挂在火上就能完成。",
+        "conditions": "要有牛羊肉（牧区）、猪油、洋葱、红椒粉（需先有辣椒属作物）、一口大锅和火。没有红椒粉就退化成普通的肉炖洋葱。",
+        "exceptions": "①红椒粉晚于 9 世纪的牧人干炖肉，来源明确是 18 世纪（cuisine_eu_src_25）。②gulyás 是汤样的炖菜，pörkölt 和 paprikás 同样用红椒粉但汤更少或加乳制品，来源只是并列提到名称，不展开区别（cuisine_eu_src_39）。③塞凯伊版是猪肉加酸菜，不能与牛肉版混写（cuisine_eu_src_25）。④「9 世纪」是来源转述的追溯，按传说性质处理。⑤番茄、青椒、马铃薯都是美洲作物，更早的版本不会有。",
+        "story_uses": "①牧人与锅：在草原上挂锅煮肉，晚上围火吃，适合写骑马的游牧者与定居农民的冲突。②干粮：晒干炖肉装袋，用时加水，是行军的好设定。③红椒粉：从外来香料到民族标志，可写成物种引入改变一个民族的口味。④酒馆：一锅炖菜配面包和酒，旅店里的常备菜。",
+        "historical_scope": "本条限匈牙利与喀尔巴阡盆地，来源说法为 9 世纪起源于牧人，红椒粉 18 世纪加入（cuisine_eu_src_25）。9 世纪部分没有核实，按传说性质写；红椒粉时点是来源明确的。架空世界使用需要肉、洋葱、猪油和一种红色的辣味粉。",
+        "evidence_and_uncertainty": "来源支持：匈牙利炖菜、可追溯到 9 世纪牧人干炖肉、18 世纪加入红椒粉、经典做法的材料、塞凯伊猪肉酸菜版（cuisine_eu_src_25）；红椒粉的原料、玫瑰红椒、三种菜名（cuisine_eu_src_39）。缺口：9 世纪的证据、价格、地方版本的细节。「晒干炖肉作军粮」是本项目的延伸设计。review_status 保持 needs_review。"
+      },
+      "source_ids": [
+        "cuisine_eu_src_25",
+        "cuisine_eu_src_39"
+      ],
+      "related_ids": [
+        "cuisine_eu_sauerkraut",
+        "cuisine_fr_boeuf_bourguignon"
+      ],
+      "related_catalog_ids": [
+        "animal_food_beef",
+        "animal_food_mutton_lamb",
+        "animal_food_pork",
+        "animal_food_rendered_fat",
+        "produce_onion",
+        "produce_garlic",
+        "flavors_chili_pepper",
+        "produce_tomato",
+        "staples_potato",
+        "produce_cabbage"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "game": {
+        "schema": "game_fields_v1",
+        "price": {
+          "min": 2,
+          "max": 6,
+          "per": "一碗",
+          "tier": "groat"
+        },
+        "terrains": [
+          "pasture",
+          "farmland",
+          "workshop"
+        ],
+        "seasons": [
+          "all_year"
+        ],
+        "keeps": "days",
+        "sold_by": [
+          "tavern",
+          "inn_kitchen"
+        ],
+        "note": "大锅炖肉，一碗几便士；红椒粉为进口或外来作物，早期版本无红椒。"
+      },
+      "primary": "dish",
+      "evidence_grade": "mixed"
+    },
+    {
+      "id": "cuisine_eu_pierogi",
+      "name": "波兰饺子（pierogi：未发酵面皮包馅的半月形水煮饺）",
+      "aliases": [
+        "pierogi",
+        "pierogi ruskie",
+        "varenyky",
+        "波兰饺子",
+        "皮耶罗吉",
+        "半月饺"
+      ],
+      "category": "item",
+      "tags": [
+        "kind:dish",
+        "tradition:western",
+        "cuisine:polish",
+        "region:poland",
+        "course:main",
+        "technique:wrap",
+        "technique:boil",
+        "technique:fry",
+        "occasion:festival",
+        "occasion:daily",
+        "class_marker:common",
+        "price:penny",
+        "terrain:farmland",
+        "terrain:workshop",
+        "season:all_year",
+        "sold_by:tavern",
+        "sold_by:inn_kitchen",
+        "sold_by:street_vendor"
+      ],
+      "summary": "波兰的半月形馅饺：未发酵面皮包馅、捏边、水煮，吃时常再煎一下。传说由一位圣徒从基辅带回，也可能经丝路而来，它与中国饺子只是同类形态，不当作同一道菜。",
+      "details": {
+        "definition": "pierogi 是波兰的饺子，来源称是类似饺子或意大利 tortellini 的东西：用未发酵的面皮包馅，折成半圆并捏边，水煮，有时再煎（cuisine_eu_src_26）。本条只写波兰与东欧的 pierogi，与世界范围的饺子类 cuisine_dumpling 区分：后者是通称，本条是一个地方体系。",
+        "mechanism": "工序顺序：面团擀成薄片，切圆，放馅，对折捏紧边缘，入沸水煮到浮起，捞出，视吃法再入油煎。不发酵的面皮耐煮，捏边防止馅漏出；先煮后煎使表面带焦香。",
+        "conditions": "要有面粉、水、馅料、锅和沸水；馅可随季节和家境替换。一次能做很多，适合节庆和家人合作。",
+        "exceptions": "①起源有两种说法：波兰传说由多明我会的圣雅辛特（卒于 1257 年克拉科夫）从基辅带回；也可能经丝路自中亚或中东而来；词形可能与 börek 相关，或出自古教会斯拉夫语的「盛宴」，这些都是推测，来源没有定论（cuisine_eu_src_26）。②印刷物中首次出现在 17 世纪末，不是它的起源年代（cuisine_eu_src_26）。③与意大利 tortellini 和中国饺子同属包馅面食，但各有来历，不要写成互相衍生。④馅料来源没有列出，本条不写具体馅。",
+        "story_uses": "①节庆与斋日：全家围桌捏饺子，邻里互赠，可写家庭的节奏。②圣徒传说：多明我会修士从东方带回，适合作修道院商路的传说。③酒馆：煎饺是便宜的下酒菜。④迁徙：移民把饺子带到新地方后变形。",
+        "historical_scope": "本条限波兰及邻近东欧，传说年代在 13 世纪，印刷物记载在 17 世纪末（cuisine_eu_src_26）。起源传说按传说处理。架空世界使用只需要面粉、馅和沸水。",
+        "evidence_and_uncertainty": "来源支持：波兰起源之说、圣雅辛特传说、丝路可能、词形推测、17 世纪末首次见于印刷物、未发酵面皮包馅半圆捏边水煮或再煎、类似饺子和 tortellini（cuisine_eu_src_26）。缺口：馅料、价格、各地变体。与 cuisine_dumpling 的区分是本项目的归类，没有来源直接论述。review_status 保持 needs_review。"
+      },
+      "source_ids": [
+        "cuisine_eu_src_26"
+      ],
+      "related_ids": [
+        "cuisine_dumpling",
+        "cuisine_eu_gnocchi"
+      ],
+      "related_catalog_ids": [
+        "staples_wheat",
+        "animal_food_butter",
+        "animal_food_rendered_fat",
+        "materials_salt"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "game": {
+        "schema": "game_fields_v1",
+        "price": {
+          "min": 1,
+          "max": 3,
+          "per": "一盘",
+          "tier": "penny"
+        },
+        "terrains": [
+          "farmland",
+          "workshop"
+        ],
+        "seasons": [
+          "all_year"
+        ],
+        "keeps": "days",
+        "sold_by": [
+          "tavern",
+          "inn_kitchen",
+          "street_vendor"
+        ],
+        "note": "一盘几只，几便士；节庆时全家自己做。"
+      },
+      "primary": "dish",
+      "evidence_grade": "mixed"
+    },
+    {
+      "id": "cuisine_eu_moussaka",
+      "name": "穆萨卡（moussaka：茄片、肉酱与白酱烤成的巴尔干砂锅菜）",
+      "aliases": [
+        "moussaka",
+        "musakka",
+        "musaqqa",
+        "穆萨卡",
+        "茄子肉酱千层",
+        "烤茄子肉酱"
+      ],
+      "category": "item",
+      "tags": [
+        "kind:dish",
+        "tradition:western",
+        "cuisine:greek",
+        "region:greece_balkans",
+        "course:main",
+        "technique:layer",
+        "technique:bake",
+        "occasion:festival",
+        "occasion:tavern",
+        "class_marker:common",
+        "price:groat",
+        "terrain:farmland",
+        "terrain:orchard",
+        "terrain:workshop",
+        "season:summer",
+        "season:autumn",
+        "sold_by:tavern",
+        "sold_by:inn_kitchen"
+      ],
+      "summary": "巴尔干和中东的茄子砂锅菜，希腊版把油煎茄片、羊肉番茄酱和奶酪白酱叠在一起烤熟。阿拉伯语里的 musakkʾa 则是一道不含肉的茄子鹰嘴豆炖菜，可见同名不同菜。",
+      "details": {
+        "definition": "moussaka 是巴尔干和中东的一道菜，以希腊和土耳其的版本最有名。希腊版：茄片先用橄榄油煎，与羊肉番茄酱、奶酪白酱分层，再烘烤；可垫一层马铃薯，也可改用西葫芦（cuisine_eu_src_27）。阿拉伯语的 musakkʾa 是素的茄子鹰嘴豆炖菜（cuisine_eu_src_27）。",
+        "mechanism": "工序顺序：茄片煎软，肉与番茄炖成酱，白酱用面糊和乳煮稠；盘中先放茄片，再放肉酱，最后盖奶酪白酱，入炉烤到表面焦黄。核心是茄片吸油后变软，肉酱提供汁，白酱封盖保湿并烤出外壳。",
+        "conditions": "要有茄子、橄榄油、羊肉、番茄、乳与奶酪、烤炉。番茄是美洲作物，更早的版本没有番茄酱。因为要烤整盘，它偏节庆和家宴，而不是日常快餐。",
+        "exceptions": "①希腊版与阿拉伯语 musakkʾa 是不同的菜：后者是不含肉的茄子鹰嘴豆炖菜（cuisine_eu_src_27）。②垫马铃薯和改用西葫芦是变体，不是错误（cuisine_eu_src_27）。③不要与千层面合并：moussaka 的主层是茄子，不是面片。④没有番茄的时代，这道菜只能是茄子配肉和白酱，不能出现红色酱。",
+        "story_uses": "①节庆家宴：一整盘切块分给多户人家。②商路与族群：同名异物的菜可以写成不同族群在市场上的误解。③酒馆：切块出售的热菜，一份顶一餐。④季节：茄子夏秋成熟，夏末是它的季节。",
+        "historical_scope": "本条限希腊、土耳其及巴尔干；来源称这一菜名分布广，希腊版的具体定型年代未取得来源（cuisine_eu_src_27）。架空世界使用需要茄类作物、炉、乳制品和肉。",
+        "evidence_and_uncertainty": "来源支持：巴尔干和中东菜、希腊和土耳其为代表、希腊版的分层与材料、垫马铃薯或改西葫芦的变体、阿拉伯语 musakkʾa 为素的茄子鹰嘴豆炖菜（cuisine_eu_src_27）。缺口：定型年代、价格、各地做法差异。「节庆家宴」「夏末季节」属本项目归纳。review_status 保持 needs_review。"
+      },
+      "source_ids": [
+        "cuisine_eu_src_27"
+      ],
+      "related_ids": [
+        "cuisine_eu_lasagne",
+        "cuisine_eu_feta"
+      ],
+      "related_catalog_ids": [
+        "produce_eggplant",
+        "staples_olive",
+        "animal_food_mutton_lamb",
+        "produce_tomato",
+        "animal_food_milk",
+        "animal_food_cheese",
+        "staples_wheat",
+        "staples_potato",
+        "animal_food_butter"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "game": {
+        "schema": "game_fields_v1",
+        "price": {
+          "min": 3,
+          "max": 8,
+          "per": "一份",
+          "tier": "groat"
+        },
+        "terrains": [
+          "farmland",
+          "orchard",
+          "workshop"
+        ],
+        "seasons": [
+          "summer",
+          "autumn"
+        ],
+        "keeps": "days",
+        "sold_by": [
+          "tavern",
+          "inn_kitchen"
+        ],
+        "note": "整盘烤制，切块卖；肉与奶酪使它高于普通蔬菜菜。"
+      },
+      "primary": "dish",
+      "evidence_grade": "mixed"
+    },
+    {
+      "id": "cuisine_eu_feta",
+      "name": "菲达奶酪（feta：希腊盐水渍白软奶酪）",
+      "aliases": [
+        "feta",
+        "féta",
+        "菲达",
+        "费塔奶酪",
+        "希腊白奶酪"
+      ],
+      "category": "item",
+      "tags": [
+        "kind:cheese",
+        "tradition:western",
+        "cuisine:greek",
+        "region:greece",
+        "course:side",
+        "technique:brine",
+        "technique:curdle",
+        "occasion:daily",
+        "class_marker:common",
+        "role:preservation",
+        "trade:herder",
+        "price:groat",
+        "terrain:pasture",
+        "terrain:mountain",
+        "terrain:workshop",
+        "season:all_year",
+        "sold_by:dairy",
+        "sold_by:market",
+        "sold_by:grocer"
+      ],
+      "summary": "希腊用羊奶或山羊奶做的白软奶酪，泡在盐水里存放。《奥德赛》里独眼巨人的羊奶奶酪可能是它的前身；今天它入菠菜酥派和希腊沙拉。",
+      "details": {
+        "definition": "feta 是希腊的盐水渍白软奶酪，用羊奶或山羊奶制成。来源称荷马《奥德赛》里独眼巨人波吕斐摩斯做的羊奶奶酪可能是它的前身；成品泡在盐水中可存放数月；用于菠菜酥派（spanakopita）和希腊沙拉（cuisine_eu_src_28）。",
+        "mechanism": "原理：奶凝成块，取出沥水，浸入盐水中保存。盐水既调味又抑制腐败，使本来很快变坏的软奶酪能放几个月。工序顺序：加凝乳剂使奶凝固、切块沥水、盐渍入桶、桶内成熟。",
+        "conditions": "要有羊或山羊群与牧场、盐、能装盐水的桶或罐，以及凉处。山地牧区适合：奶集中在春夏，奶酪用盐保存到冬季。",
+        "exceptions": "①feta 是盐水渍白软奶酪，不是硬奶酪，不要与可以长期风干的硬质奶酪混写。②「前身是《奥德赛》的奶酪」是来源的推测，按传说和推测写（cuisine_eu_src_28）。③名称的原产地保护属现代制度，见 cuisine_eu_geographical_indication，不是古代规则。④用牛奶仿制的白奶酪不属于本条。",
+        "story_uses": "①牧人：春夏产奶、秋冬吃奶酪，是山地牧民一年的节奏。②旅店：一块白奶酪加橄榄和面包，是最便宜的一餐。③派与沙拉：搭配菠菜或蔬菜，可写斋日的菜单。④商路：盐水桶可以装船运出，是港口贸易的小宗货物。",
+        "historical_scope": "本条限希腊，古代的前身为荷马史诗中的羊奶奶酪（推测）；现代名称受欧盟制度保护。具体定型年代未取得来源（cuisine_eu_src_28）。",
+        "evidence_and_uncertainty": "来源支持：希腊盐水渍白软奶酪、羊奶或山羊奶、《奥德赛》波吕斐摩斯奶酪可能是前身、盐水中可存数月、用于 spanakopita 与希腊沙拉（cuisine_eu_src_28）。缺口：具体工序细节、价格、历史。「春夏产奶秋冬吃」「港口小宗货物」属本项目归纳。review_status 保持 needs_review。"
+      },
+      "source_ids": [
+        "cuisine_eu_src_28"
+      ],
+      "related_ids": [
+        "cuisine_eu_moussaka",
+        "cuisine_eu_geographical_indication"
+      ],
+      "related_catalog_ids": [
+        "animal_food_sheep",
+        "animal_food_goat",
+        "animal_food_milk",
+        "animal_food_cheese",
+        "materials_salt",
+        "staples_olive"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "game": {
+        "schema": "game_fields_v1",
+        "price": {
+          "min": 2,
+          "max": 6,
+          "per": "一块",
+          "tier": "groat"
+        },
+        "terrains": [
+          "pasture",
+          "mountain",
+          "workshop"
+        ],
+        "seasons": [
+          "all_year"
+        ],
+        "keeps": "months",
+        "sold_by": [
+          "dairy",
+          "market",
+          "grocer"
+        ],
+        "note": "盐水渍的羊奶奶酪，泡在桶里能卖整个冬天。"
+      },
+      "primary": "dairy",
+      "evidence_grade": "mixed"
+    },
+    {
+      "id": "cuisine_eu_baklava",
+      "name": "果仁蜜饼（baklava：薄脆面皮夹坚果浇糖浆的节庆甜点）",
+      "aliases": [
+        "baklava",
+        "baklawa",
+        "巴克拉瓦",
+        "果仁蜜饼",
+        "蜜糖千层酥"
+      ],
+      "category": "item",
+      "tags": [
+        "kind:pastry",
+        "tradition:western",
+        "cuisine:greek",
+        "region:eastern_mediterranean",
+        "course:dessert",
+        "technique:laminate",
+        "technique:bake",
+        "technique:syrup",
+        "occasion:festival",
+        "class_marker:festive",
+        "trade:baker",
+        "price:shilling",
+        "terrain:workshop",
+        "terrain:orchard",
+        "terrain:pasture",
+        "season:winter",
+        "sold_by:baker",
+        "sold_by:market",
+        "sold_by:noble_kitchen"
+      ],
+      "summary": "薄如纸的面皮一层层刷黄油，夹坚果碎，烤脆后浇上蜜和柠檬糖浆。土耳其、希腊和巴尔干都有，是节庆才摆出来的甜点。",
+      "details": {
+        "definition": "baklava 是用薄脆面皮（phyllo）叠三四十层、每层刷黄油、夹坚果的甜点，烤好后趁热浇上蜂蜜与柠檬糖浆。它是土耳其、希腊和巴尔干的节庆甜食（cuisine_eu_src_29）。",
+        "mechanism": "工序顺序：把极薄的面皮一层层铺开，每层刷黄油，中间撒入坚果碎，再盖上面皮，切块，入炉烤脆，出炉后立刻浇糖浆。原理：层与层之间的黄油受热起酥，糖浆浸入后使脆层半软，既甜又脆。糖浆与脆皮必须一冷一热，才不会泡软。",
+        "conditions": "要有极薄面皮的手艺、大量黄油、坚果、蜂蜜或糖、强火炉。材料昂贵，工序费工，所以只做节庆和礼品。",
+        "exceptions": "①它是一类，不是某一国的专利：土耳其、希腊和巴尔干都有自己的版本，来源只写区域，没有分国证据（cuisine_eu_src_29）。②坚果种类和糖浆调味因地而异，本条不展开。③蜂蜜糖浆是后浇的，不要写成拌进面皮里。",
+        "story_uses": "①节庆：开斋、圣诞、婚礼上整盘端出，是一家人手艺的展示。②礼物：整盘互赠，送给领主或邻居。③行会：能把面皮擀到透光的师傅，是面点行会的门面。④商路：蜂蜜与坚果是进口品时，价格相当高。",
+        "historical_scope": "本条限东地中海与巴尔干（土耳其、希腊），年代未取得来源（cuisine_eu_src_29）。架空世界使用需要极薄面皮的手艺、黄油、坚果和蜜。",
+        "evidence_and_uncertainty": "来源支持：薄脆面皮、三四十层、刷黄油、夹坚果、烘烤后浇蜂蜜柠檬糖浆、土耳其希腊巴尔干的节庆甜食（cuisine_eu_src_29）。缺口：起源、价格、各国版本的区别。「面点行会的门面」「作为礼物」属本项目归纳。review_status 保持 needs_review。"
+      },
+      "source_ids": [
+        "cuisine_eu_src_29"
+      ],
+      "related_ids": [
+        "cuisine_eu_feta"
+      ],
+      "related_catalog_ids": [
+        "staples_wheat",
+        "animal_food_butter",
+        "produce_walnut",
+        "produce_pistachio",
+        "produce_almond",
+        "flavors_honey",
+        "flavors_cane_sugar",
+        "produce_lemon_lime"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "game": {
+        "schema": "game_fields_v1",
+        "price": {
+          "min": 4,
+          "max": 12,
+          "per": "一块",
+          "tier": "shilling"
+        },
+        "terrains": [
+          "workshop",
+          "orchard",
+          "pasture"
+        ],
+        "seasons": [
+          "winter"
+        ],
+        "keeps": "weeks",
+        "sold_by": [
+          "baker",
+          "market",
+          "noble_kitchen"
+        ],
+        "note": "黄油、坚果、蜜都贵，一块的价钱接近半日工的零头；节庆时才大量做。"
+      },
+      "primary": "pastry",
+      "evidence_grade": "mixed"
+    },
+    {
+      "id": "cuisine_eu_kvass",
+      "name": "卡瓦斯（kvass：黑麦面包发酵的低度饮品）",
+      "aliases": [
+        "kvass",
+        "kvas",
+        "квас",
+        "卡瓦斯",
+        "面包酒",
+        "黑麦发酵饮料"
+      ],
+      "category": "item",
+      "tags": [
+        "kind:drink",
+        "tradition:western",
+        "cuisine:russian",
+        "region:russia",
+        "course:drink",
+        "technique:ferment",
+        "occasion:daily",
+        "occasion:summer",
+        "class_marker:common",
+        "role:cold_soup_base",
+        "price:penny",
+        "terrain:farmland",
+        "terrain:workshop",
+        "terrain:taiga",
+        "season:summer",
+        "sold_by:street_vendor",
+        "sold_by:tavern",
+        "sold_by:farmer"
+      ],
+      "summary": "用黑麦面包和麦芽发酵出的低度饮料。16 到 19 世纪的俄国很常见，是农民的日常饮品，也是 okroshka 冷汤的底汤，还能当罗宋汤的酸味来源。",
+      "details": {
+        "definition": "kvass 是以黑麦面包和麦芽发酵出的饮料。来源称它在 16 至 19 世纪的俄国非常普遍，是农民的饮品，可作为 okroshka 冷汤的基底，也可加进罗宋汤（cuisine_eu_src_30）。",
+        "mechanism": "原理：面包与麦芽中的淀粉和糖被发酵成带酸味的低度饮料，旧面包和剩余粮食因此有了用处。工序只写顺序：面包或麦芽泡水、发酵、滤清、装瓶或桶。它的酸味可当调料，所以也能进汤。",
+        "conditions": "要有黑麦面包或黑麦粉、麦芽、水、发酵用的容器和一段温暖的时间。它用的是日常粮食和剩余面包，所以不需要额外的贵重材料。",
+        "exceptions": "①kvass 不是啤酒，也不是蒸馏酒，它是低度发酵饮品，来源把它作为日常饮料而非酒（cuisine_eu_src_30）。②作为汤底（okroshka）时的 kvass 是调味，不要写成主料。③不同时代和地区的配方差异来源没有展开。",
+        "story_uses": "①夏天：街头小贩推车卖冰凉的 kvass，田里收割的人喝一桶。②旧面包的归宿：面包坊把剩面包卖给酿 kvass 的人。③汤：用它调酸味的冷汤和罗宋汤，是俄国餐桌的底色。④阶层：穷人的饮料，贵族餐桌也用它来做冷汤。",
+        "historical_scope": "本条限俄国，来源描述的是 16 至 19 世纪的常见状态（cuisine_eu_src_30）。更早的年代未取得来源。架空世界使用需要谷物、麦芽和一点酵。",
+        "evidence_and_uncertainty": "来源支持：黑麦面包与麦芽发酵、16 至 19 世纪的俄国常见、农民饮品、okroshka 基底、可加入罗宋汤（cuisine_eu_src_30）。缺口：具体工序、酒精度、起源。「街头推车」「旧面包归宿」属本项目归纳。review_status 保持 needs_review。"
+      },
+      "source_ids": [
+        "cuisine_eu_src_30",
+        "cuisine_eu_src_24"
+      ],
+      "related_ids": [
+        "cuisine_eu_borscht"
+      ],
+      "related_catalog_ids": [
+        "staples_rye",
+        "staples_barley",
+        "flavors_beer",
+        "tools_storage_jar"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "game": {
+        "schema": "game_fields_v1",
+        "price": {
+          "min": 0,
+          "max": 1,
+          "per": "一杯",
+          "tier": "penny"
+        },
+        "terrains": [
+          "farmland",
+          "workshop",
+          "taiga"
+        ],
+        "seasons": [
+          "summer"
+        ],
+        "keeps": "days",
+        "sold_by": [
+          "street_vendor",
+          "tavern",
+          "farmer"
+        ],
+        "note": "用旧面包发酵的低度饮料，一杯不到一便士，夏天最好卖。"
+      },
+      "primary": "beverage",
+      "evidence_grade": "mixed"
+    },
+    {
+      "id": "cuisine_eu_mediterranean_diet",
+      "name": "地中海饮食（Mediterranean diet：作为共享生活方式的饮食制度）",
+      "aliases": [
+        "Mediterranean diet",
+        "dieta mediterránea",
+        "地中海饮食",
+        "地中海饮食遗产"
+      ],
+      "category": "institution",
+      "tags": [
+        "kind:system",
+        "tradition:western",
+        "cuisine:mediterranean",
+        "region:mediterranean",
+        "course:system",
+        "occasion:feast",
+        "occasion:market",
+        "occasion:festival",
+        "class_marker:shared",
+        "role:heritage_institution",
+        "price:not_for_sale",
+        "terrain:coast",
+        "terrain:farmland",
+        "terrain:orchard",
+        "season:all_year",
+        "sold_by:none"
+      ],
+      "summary": "联合国教科文组织把地中海饮食列为非物质文化遗产，强调的不是一张菜单，而是围绕共餐、款待、节庆、集市和手艺传承形成的一套社会习惯。",
+      "details": {
+        "definition": "地中海饮食在教科文组织的名录中不是营养学意义上的食谱，而是一套技能、知识、仪式、符号与传统的总和。它于 2013 年列入人类非物质文化遗产代表作名录，涉及塞浦路斯、克罗地亚、西班牙、希腊、意大利、摩洛哥和葡萄牙（cuisine_eu_src_12）。",
+        "mechanism": "运作方式：围绕共餐展开：一起准备、一起吃，款待客人，在节庆里共同烹饪，在集市里交换食物与消息，包括陶器制作等相关手艺，由家庭特别是女性在日常生活里传下去（cuisine_eu_src_12）。它靠社群的重复实践，而不是靠某本书。",
+        "conditions": "要有稳定的季节性农产品、集市、家庭与社群的共餐习惯和传承者。它的成立依赖共同体，不依赖单一食材。",
+        "exceptions": "①不要把它简化成「橄榄油加蔬菜」：来源强调的是社会实践（cuisine_eu_src_12）。②七个国家的做法不相同，名录写的是共同的特征。③它是现代的遗产认定，不是古代制度。④本项目把它放在饮食制度，不当作菜名。",
+        "story_uses": "①款待：陌生旅人被请进家门共餐，是旅店之外的另一条路。②集市：集市是交换食物与消息的地方。③女性传承：厨房里代代相传的手艺。④节庆：全村共同烹饪的大锅饭。⑤陶器：做罐和做菜是连着的手艺。",
+        "historical_scope": "本条限地中海七国，认定年代 2013 年（cuisine_eu_src_12）；实践本身的起讫未取得来源。架空世界使用只需共餐、集市、款待三项习惯。",
+        "evidence_and_uncertainty": "来源支持：2013 年列入、七个国家、共餐、款待、节庆、集市、陶器制作、女性传承（cuisine_eu_src_12）。缺口：营养结构、历史。「旅人共餐」「大锅饭」属本项目归纳。review_status 保持 needs_review。"
+      },
+      "source_ids": [
+        "cuisine_eu_src_12"
+      ],
+      "related_ids": [
+        "cuisine_eu_tapas",
+        "cuisine_eu_italian_salumi"
+      ],
+      "related_catalog_ids": [
+        "staples_olive",
+        "staples_wheat",
+        "flavors_wine",
+        "produce_grape",
+        "tools_pottery_cooking_pot",
+        "tools_storage_jar"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "game": {
+        "schema": "game_fields_v1",
+        "price": {
+          "min": null,
+          "max": null,
+          "per": "不可购买",
+          "tier": "not_for_sale"
+        },
+        "terrains": [
+          "coast",
+          "farmland",
+          "orchard"
+        ],
+        "seasons": [
+          "all_year"
+        ],
+        "keeps": "years",
+        "sold_by": [
+          "none"
+        ],
+        "note": "是一套共餐习惯，不是商品；可作为设定背景使用。"
+      },
+      "primary": "institution",
+      "evidence_grade": "sourced"
+    },
+    {
+      "id": "cuisine_eu_geographical_indication",
+      "name": "产地名称保护（PDO / PGI / TSG：欧盟的地理标志制度）",
+      "aliases": [
+        "PDO",
+        "PGI",
+        "TSG",
+        "GI",
+        "地理标志",
+        "原产地保护",
+        "受保护的原产地名称"
+      ],
+      "category": "institution",
+      "tags": [
+        "kind:system",
+        "tradition:western",
+        "cuisine:european_union",
+        "region:european_union",
+        "course:system",
+        "occasion:market",
+        "class_marker:regulated",
+        "role:name_protection",
+        "trade:guild",
+        "price:not_for_sale",
+        "terrain:workshop",
+        "terrain:farmland",
+        "terrain:pasture",
+        "season:all_year",
+        "sold_by:none"
+      ],
+      "summary": "欧盟用法律保护产品名称：受保护的原产地名称（PDO）要求整个生产过程都在产地，受保护的地理标志（PGI）只要求至少一个阶段在产地，传统特色保证（TSG）保护做法而不绑定地点。这是现代制度，与中世纪行会的名号垄断可类比。",
+      "details": {
+        "definition": "欧盟的地理标志制度保护名称与产地、传统知识的联系。PDO（食品与葡萄酒）要求整个生产、加工、制作过程都在特定地区；PGI 要求至少一个阶段在产地；烈酒有自己的 GI；TSG 保护做法或成分，不绑定地点。来源举的例子有：卡拉马塔橄榄油（PDO，希腊）、威斯特法伦骨火腿（PGI，德国）、Gueuze 啤酒（TSG，比利时布鲁塞尔一带）。2024 年 5 月 13 日起新条例生效，合并食品、葡萄酒和烈酒的程序（cuisine_eu_src_38）。",
+        "mechanism": "运作方式：生产者提出申请，名称登记入欧盟注册册，由各国主管部门在本国范围内防止仿冒和滥用，未经登记地区的产品不得使用该名称。PDO 与 PGI 的区别主要在原料有多少必须来自产地、生产有多少必须在产地发生。TSG 的名称受保护，但做法可以在别处进行（cuisine_eu_src_38）。",
+        "conditions": "要有一个能执行法律的政府或联盟、一个产地边界、生产规范文件，以及愿意共同遵守规范的生产者群体。没有这些，就只能退化为行会内部的惯例。",
+        "exceptions": "①PDO、PGI、TSG 不是同一回事：TSG 不绑定地点，所以 Gueuze 理论上可以在别处生产（cuisine_eu_src_38）。②这是现代制度，不能放进中世纪背景，只能作为类比。③在本组的食物条目里，prosciutto、gouda、feta 等是否登记不是由本条规定，各条没有读到登记状态，不要据此推断。④烈酒另有 GI，与食品的 PDO/PGI 并列（cuisine_eu_src_38）。",
+        "story_uses": "①行会与领主：给某地的产品垄断名号，是城市权力的来源，可借用为架空世界的「名号特许」。②稽查：冒牌者被抓、产品被没收，是市场官员的日常。③联盟条约：两个国家互认名号，可写成贸易协定的一部分（cuisine_eu_src_38 提到与第三国的协议）。④生产者团体：有资格管理自己名称的同业团体，类似行会。",
+        "historical_scope": "本条写现代欧盟制度；来源给出的时点是 2024 年 5 月 13 日的新条例生效（cuisine_eu_src_38）。更早的名称保护制度未取得来源。架空世界使用时应换成「特许状」「行会章程」。",
+        "evidence_and_uncertainty": "来源支持：PDO、PGI、烈酒 GI、TSG 的定义与例子、2024 年 5 月 13 日新条例生效、成员国主管部门负责保护、与第三国协议互认（cuisine_eu_src_38）。缺口：历史演变、个别产品的登记状态。「与行会可类比」是本项目归纳。review_status 保持 needs_review。"
+      },
+      "source_ids": [
+        "cuisine_eu_src_38"
+      ],
+      "related_ids": [
+        "cuisine_eu_italian_salumi",
+        "cuisine_eu_gouda",
+        "cuisine_eu_feta",
+        "cuisine_eu_jamon_iberico"
+      ],
+      "related_catalog_ids": [
+        "society_craft_guild",
+        "society_merchant_guild",
+        "staples_olive",
+        "animal_food_ham_bacon",
+        "flavors_beer"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "game": {
+        "schema": "game_fields_v1",
+        "price": {
+          "min": null,
+          "max": null,
+          "per": "不可购买",
+          "tier": "not_for_sale"
+        },
+        "terrains": [
+          "workshop",
+          "farmland",
+          "pasture"
+        ],
+        "seasons": [
+          "all_year"
+        ],
+        "keeps": "years",
+        "sold_by": [
+          "none"
+        ],
+        "note": "是一套名号保护的制度，不是商品；古代背景请换成行会特许状。"
+      },
+      "primary": "institution",
+      "evidence_grade": "sourced"
+    },
+    {
+      "id": "cuisine_eu_belgian_beer_culture",
+      "name": "比利时啤酒文化（Belgian beer culture：酿造、配餐与入菜的社区传统）",
+      "aliases": [
+        "Belgian beer culture",
+        "Belgian beer",
+        "Trappist beer",
+        "比利时啤酒",
+        "修道院啤酒",
+        "比利时啤酒文化"
+      ],
+      "category": "institution",
+      "tags": [
+        "kind:system",
+        "tradition:western",
+        "cuisine:belgian",
+        "region:belgium",
+        "course:drink",
+        "technique:brew",
+        "technique:cook_with_beer",
+        "occasion:tavern",
+        "occasion:festival",
+        "class_marker:common",
+        "role:heritage_institution",
+        "price:groat",
+        "terrain:farmland",
+        "terrain:workshop",
+        "season:all_year",
+        "sold_by:tavern",
+        "sold_by:inn_kitchen"
+      ],
+      "summary": "教科文组织在 2016 年把比利时啤酒文化列入非遗名录。比利时约有一千五百种啤酒，包括特拉普派修道院啤酒；啤酒不仅用来喝，也用来配餐和入菜，酿造与品饮的知识由社区传承。",
+      "details": {
+        "definition": "比利时啤酒文化是 2016 年列入教科文组织人类非物质文化遗产代表作名录的项目。来源称比利时有约 1500 种啤酒，包括特拉普（Trappist）修道院啤酒，啤酒既用来喝，也用来配餐和入菜，酿造与品饮的知识由社区传承（cuisine_eu_src_32）。",
+        "mechanism": "运作方式：酿造者、酒馆、修道院、爱好者协会各自保存知识，通过师徒、家庭与社团传下去；品饮时按酒种选杯、选菜；厨房里用啤酒炖肉、调酱。这是一套社会习惯，而不是单一酿法。",
+        "conditions": "要有大麦与麦芽、酿造场地和酵母、可持续的酒馆或社群、愿意传承的人。多样性来自众多小酿造者，一个垄断者做不出一千种啤酒。",
+        "exceptions": "①Gueuze 之类的自然发酵啤酒是欧盟的 TSG，属另一制度，见 cuisine_eu_geographical_indication（cuisine_eu_src_38）。②一千五百种是来源给出的概数，不是某年登记的精确数字。③修道院啤酒只是其中一类，不能代表全部。④本项目放在饮食制度，不当作菜名。",
+        "story_uses": "①酒馆：同一个酒馆里有几十种酒，酒保能按菜推荐，是写手艺与口碑的好材料。②修道院：修士酿酒贴补修道院的经费，是教会经济的一个侧面。③菜与酒：用啤酒炖肉的馆子。④社团：同好者聚会品酒，传承技术。",
+        "historical_scope": "本条限比利时，认定年份为 2016 年（cuisine_eu_src_32）。具体酿造史没有取得来源。架空世界使用只需要麦芽、酿造者和酒馆三项。",
+        "evidence_and_uncertainty": "来源支持：2016 年列入、约 1500 种啤酒、特拉普修道院啤酒、配餐与入菜、社区传承（cuisine_eu_src_32）。缺口：酿造史、价格。「修道院经济」「按菜推荐」属本项目归纳。review_status 保持 needs_review。"
+      },
+      "source_ids": [
+        "cuisine_eu_src_32",
+        "cuisine_eu_src_38"
+      ],
+      "related_ids": [
+        "cuisine_eu_geographical_indication",
+        "cuisine_uk_pub_counter_snack"
+      ],
+      "related_catalog_ids": [
+        "flavors_beer",
+        "staples_barley",
+        "tools_storage_jar"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail",
+      "game": {
+        "schema": "game_fields_v1",
+        "price": {
+          "min": 2,
+          "max": 6,
+          "per": "一杯",
+          "tier": "groat"
+        },
+        "terrains": [
+          "farmland",
+          "workshop"
+        ],
+        "seasons": [
+          "all_year"
+        ],
+        "keeps": "months",
+        "sold_by": [
+          "tavern",
+          "inn_kitchen"
+        ],
+        "note": "普通麦酒一杯 2 便士；修道院特酿略贵。"
+      },
+      "primary": "institution",
+      "evidence_grade": "mixed"
+    }
+  ]
+}

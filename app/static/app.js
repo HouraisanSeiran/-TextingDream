@@ -1,6 +1,6 @@
 'use strict';
 const $=id=>document.getElementById(id);
-let token='',current=null,draftId=null,page='surface',zoom=1,apiConfig={},drafts=[];
+let token='',current=null,draftId=null,page='surface',apiConfig={},drafts=[];
 let selectedConversation=null, selectedTrace=null, traceRecord=null;
 
 /* ---------------------------------------------------------------- 导航（唯一入口）
@@ -41,7 +41,7 @@ const TDNav=(function(){
  return {register,alias,show,resolve,pages:()=>Object.keys(pages)};
 })();
 window.TDNav=TDNav;
-const PAGE_TITLES={surface:'表层对话',inner:'里层创作',notebook:'知识点记录簿',map:'旅程地图 · 旧图册','map-tools':'世界地图工具','world-workshop':'世界创作',towns:'城镇创作',elements:'元素装配',api:'API 配置',settings:'设置',traces:'模型输入输出'};
+const PAGE_TITLES={surface:'表层对话',inner:'里层创作',notebook:'知识点记录簿','map-tools':'世界地图工具','world-workshop':'世界创作',towns:'城镇创作',elements:'元素装配',api:'API 配置',settings:'设置',traces:'模型输入输出'};
 for(const [id,title]of Object.entries(PAGE_TITLES))TDNav.register(id,{title,play:id==='surface'});
 const tracePage=document.createElement('section');tracePage.id='traces';tracePage.className='page';tracePage.hidden=true;
 tracePage.innerHTML=`<div class="intro"><h2>模型输入输出</h2><p>实际模型请求与响应正文（密钥已隐藏）。包含里层隐藏设定，仅供作者调试。调试正文保留最近 200 次调用，用量统计独立保留 90 天。</p></div><div class="toolbar"><button id="refresh-traces">刷新</button><label><input id="auto-traces" type="checkbox" checked>自动刷新</label><select id="trace-filter"><option value="all">全部调用</option><option value="surface">表层</option><option value="inner">里层</option><option value="connection_test">连接测试</option><option value="polish">润色</option></select><label>统计窗口<select id="usage-window"><option value="1">1 小时</option><option value="24" selected>24 小时</option><option value="168">7 天</option></select></label><button id="export-trace">导出当前记录</button><button id="clear-traces">清空调试记录</button></div><div id="token-usage-summary" class="card muted">读取 token 统计中…</div><div class="two-col"><div id="trace-list"></div><div><p id="trace-meta" class="muted">选择一次调用。旧调用无法追溯，更新后的调用将自动记录。</p><h3>源输入 · 请求 JSON</h3><pre id="trace-input" class="card"></pre><h3>源输出 · 响应正文</h3><pre id="trace-output" class="card"></pre><h3>用量 / 错误 / 前缀指纹</h3><pre id="trace-details" class="card"></pre></div></div>`;
@@ -108,7 +108,7 @@ function renderNotesSync(){
  retry.type='button';
  box.replaceChildren(el('span',current.notes_sync.message||'旅程已保存，笔记待同步'),retry);
 }
-function render(){if(!current)return;renderNotesSync();syncJourneyState();$('world-label').textContent=current.world;$('event-title').textContent=current.event?.title||'这一章已告一段落';$('event-goal').textContent=current.event?.goal||'可以查看归档，或打开地图继续前往其他地点。';$('status-line').replaceChildren(...[current.status].filter(Boolean).map(s=>el('span',s)));const turns=current.turns.length?current.turns:current.archives.at(-1)?.turns||[];$('story-text').replaceChildren(...turns.map(t=>{const d=el('article',undefined,'turn');d.append(el('div',t.input,'input'),el('div',t.reply,'prose'));return d}));$('actions').replaceChildren(...current.actions.map(a=>button(a.label,()=>send(a.label,a.id))));$('close-event').disabled=!current.event||!current.turns.length;$('archives').replaceChildren(...current.archives.map(a=>{const d=el('details');d.append(el('summary',a.title),el('div',a.turns.map(t=>t.reply).join('\n\n'),'prose'),button('回到本事件起点',async()=>{if(!confirm('恢复到该事件起点，并移除其后的进度？'))return;current=await api('/sessions/'+current.id+'/rollback/'+a.id,'POST');render();notice('已恢复事件起点')}));return d}));drawMap();if(!current.archives.length)$('archives').append(el('p','还没有已归档的事件。','muted'));if(typeof window.TDWorkspaceSyncCurrent==='function')window.TDWorkspaceSyncCurrent(current)}
+function render(){if(!current)return;renderNotesSync();syncJourneyState();$('world-label').textContent=current.world;$('event-title').textContent=current.event?.title||'这一章已告一段落';$('event-goal').textContent=current.event?.goal||'可以查看归档，或打开地图继续前往其他地点。';$('status-line').replaceChildren(...[current.status].filter(Boolean).map(s=>el('span',s)));const turns=current.turns.length?current.turns:current.archives.at(-1)?.turns||[];$('story-text').replaceChildren(...turns.map(t=>{const d=el('article',undefined,'turn');d.append(el('div',t.input,'input'),el('div',t.reply,'prose'));return d}));$('actions').replaceChildren(...current.actions.map(a=>button(a.label,()=>send(a.label,a.id))));$('close-event').disabled=!current.event||!current.turns.length;$('archives').replaceChildren(...current.archives.map(a=>{const d=el('details');d.append(el('summary',a.title),el('div',a.turns.map(t=>t.reply).join('\n\n'),'prose'),button('回到本事件起点',async()=>{if(!confirm('恢复到该事件起点，并移除其后的进度？'))return;current=await api('/sessions/'+current.id+'/rollback/'+a.id,'POST');render();notice('已恢复事件起点')}));return d}));if(!current.archives.length)$('archives').append(el('p','还没有已归档的事件。','muted'));if(typeof window.TDWorkspaceSyncCurrent==='function')window.TDWorkspaceSyncCurrent(current)}
 let sending=false;
 async function send(message,action_id=null){if(!current)throw Error('请先新建或选择旅程');if(sending)return;sending=true;const buttons=[...document.querySelectorAll('#actions button,#chat-form button')];buttons.forEach(b=>b.disabled=true);$('play-left').classList.add('is-sending');try{current=await api('/sessions/'+current.id+'/chat','POST',{message,action_id,channel:action_id?'action':$('input-channel').value});$('message').value='';$('message').dispatchEvent(new Event('input'));render();window.TDScrollStory?.(true)}finally{sending=false;$('play-left').classList.remove('is-sending');buttons.forEach(b=>b.disabled=false)}}
 async function showPage(id){
@@ -118,7 +118,6 @@ async function showPage(id){
  if(hit.id==='traces')await refreshTraces();
  if(hit.id==='api'){apiConfig=await api('/settings/api');fillApi()}
  if(hit.id==='settings')$('corpus').value=(await api('/inner/corpus')).text;
- if(hit.id==='map')drawMap();
  return TDNav.show(id);
 }
 function fillApi(){resetModelPicker(apiConfig.model);$('api-url').value=apiConfig.base_url;$('api-protocol').value=apiConfig.protocol||'openai';const key=$('api-key');key.value='';key.placeholder=apiConfig.has_key?'留空保留此服务的密钥':'填写 API Key';key.title='更换服务时请填写对应的密钥';$('key-status').textContent=apiConfig.has_key?'密钥已配置；留空保留此服务的密钥。':'尚未配置密钥，本地免密服务可留空。'}
@@ -133,7 +132,6 @@ async function readPackage(revision){const p=await api('/inner/package'+(revisio
 packageReader.querySelector('.toolbar').append(button('从文件夹重新读取',async()=>{const r=await api('/inner/package/reload','POST');await refreshInner();await readPackage();notice('已读取 StoryPackage 文档 · '+r.revision+'；已有旅程保留原版')}),button('下载故事包文档',async()=>{const d=await api('/inner/package/document');textDownload(d.text,'玄陆_故事包.md')}));
 let notebookRecords=[];
 function drawNotebook(){const q=$('notebook-search').value.trim().toLowerCase();const notes=notebookRecords.filter(n=>JSON.stringify(n).toLowerCase().includes(q));$('notebook-list').replaceChildren(...notes.map(n=>{const d=el('article',undefined,'card');d.append(el('h3',n.title),el('p',n.summary,'prose'),el('p',n.status+' · '+n.source.event,'muted'));const evidence=el('details');evidence.append(el('summary','查看对话原文'),el('div',n.content,'prose'));d.append(evidence);if(n.source.conversation)d.append(button('回看所在场景',async()=>{selectedConversation=n.source.conversation;render();await showPage('surface')}));return d}));if(!notes.length)$('notebook-list').append(el('p',current?'暂无匹配记录；表层对话产生后会自动记录。':'请先选择旅程。','muted'))}
-function drawMap(){const overlay=$('map-overlay');overlay.replaceChildren();const places=current?.places||[];if($('show-fog').checked&&current){const defs=svg('defs',{}),mask=svg('mask',{id:'fog'});mask.append(svg('rect',{width:1440,height:720,fill:'white'}));for(const l of places){const [lon,lat]=l.coordinates;mask.append(svg('circle',{cx:(lon+180)*4,cy:(90-lat)*4,r:l.explored?86:26,fill:'black'}))}defs.append(mask);overlay.append(defs,svg('rect',{width:1440,height:720,fill:'#101318',opacity:.86,mask:'url(#fog)'}))}for(const l of places){const [lon,lat]=l.coordinates,x=(lon+180)*4,y=(90-lat)*4;const group=svg('g',{});group.append(svg('circle',{cx:x,cy:y,r:l.current?7:5,fill:l.current?'#e7c986':'#fff'}));const t=svg('text',{x:x+10,y:y-8});t.textContent=l.name;group.append(t);overlay.append(group)}$('map-places').replaceChildren(...places.map(l=>{const b=button(l.name,async()=>{current=await api('/sessions/'+current.id+'/move','POST',{location_id:l.id});render();notice('已到达 '+current.location)});b.append(el('small',l.current?'当前位置':l.explored?'已探索':'可见地点'));b.disabled=!l.can_move;return b}));$('map-canvas').style.width=(zoom*100)+'%'}
 async function refreshNotebook(){notebookRecords=current?await api('/sessions/'+current.id+'/notebook'):[];drawNotebook()}
 $('notebook-search').oninput=drawNotebook;$('refresh-notebook').onclick=()=>safe(refreshNotebook);
 function formatReader(parent,value){if(value===undefined){parent.append(el('p','未设置','muted'));return}if(value===null||typeof value!=='object'){parent.append(el('p',String(value)));return}if(Array.isArray(value)){for(const entry of value){const d=el('div',undefined,'reader-entry');formatReader(d,entry);parent.append(d)}return}const labels={premise:'总纲',laws:'世界硬规则',source_notes:'来源、补充草案与待定项',confirmed:'原文确认',provisional:'补充草案',open_questions:'待定',geopolitics:'政治与文明',belief_systems:'架空信仰',energy_system:'能量体系',travel_and_language:'旅行与语言',information_protocol:'信息可靠性',public_lore:'公开常识',title:'名称',name:'名称',description:'说明',information_scope:'内容范围',expected_turns:'预计轮次',kind:'类型'};for(const [key,v] of Object.entries(value)){parent.append(el('strong',labels[key]||key));const block=el('div',undefined,'reader-value');formatReader(block,v);parent.append(block)}}
@@ -195,4 +193,98 @@ $('settings-form').onsubmit=e=>{e.preventDefault();safe(async()=>{const p=await 
 $('save-corpus').onclick=()=>safe(async()=>{await api('/inner/corpus','PUT',{text:$('corpus').value});notice('通用语料已保存')});
 window.addEventListener('DOMContentLoaded',()=>safe(async()=>{await bootstrap();setNativeMode('author');syncJourneyState();$('workspace-author-map').classList.add('selected');$('chat-form').hidden=true;}));
 
-$('zoom-in').onclick=()=>{zoom=Math.min(3,zoom+.25);drawMap()};$('zoom-out').onclick=()=>{zoom=Math.max(1,zoom-.25);drawMap()};$('reset-map').onclick=()=>{zoom=1;drawMap()};$('show-fog').onchange=drawMap;
+/* ---- 旅程存档管理：每条存档右侧的「⋯」菜单（重命名 / 删除）----
+ * 列表由 play-ui.js 的 TDWorkspaceSync 整体重绘；这里用 MutationObserver 在每次重绘后
+ * 给每条存档补一个行容器和「⋯」按钮，不改动列表渲染代码。标题一律走 textContent。 */
+(function(){
+ const list=$('journey-list');if(!list)return;
+ let menu=null,opener=null,dlg=null,dlgForm=null,dlgInput=null,dlgError=null,dlgOk=null,dlgId=null;
+ const sessionUrl=id=>'/sessions/'+encodeURIComponent(id);
+ function closeMenu(restoreFocus){
+  if(!menu)return;menu.remove();menu=null;
+  if(opener){opener.setAttribute('aria-expanded','false');if(restoreFocus)opener.focus();opener=null}
+ }
+ function openMenu(button,id,title){
+  closeMenu(false);
+  opener=button;button.setAttribute('aria-expanded','true');
+  menu=el('div',undefined,'journey-menu');menu.setAttribute('role','menu');
+  const rename=el('button','重命名');const remove=el('button','删除','danger');
+  for(const b of [rename,remove]){b.type='button';b.setAttribute('role','menuitem')}
+  rename.onclick=()=>{closeMenu(false);openRename(id,title)};
+  remove.onclick=()=>{closeMenu(false);safe(()=>removeSession(id,title))};
+  menu.append(rename,remove);
+  menu.addEventListener('keydown',e=>{
+   if(e.key==='Tab'){closeMenu(true);return}
+   if(e.key!=='ArrowDown'&&e.key!=='ArrowUp')return;
+   e.preventDefault();const items=[rename,remove];const i=items.indexOf(document.activeElement);
+   items[(i+(e.key==='ArrowDown'?1:items.length-1))%items.length].focus();
+  });
+  ($('play-left')||document.body).append(menu);
+  const r=button.getBoundingClientRect();
+  menu.style.top=Math.min(r.bottom+4,window.innerHeight-menu.offsetHeight-8)+'px';
+  menu.style.left=Math.max(8,Math.min(r.right-menu.offsetWidth,window.innerWidth-menu.offsetWidth-8))+'px';
+  rename.focus();
+ }
+ document.addEventListener('mousedown',e=>{if(menu&&!menu.contains(e.target)&&e.target!==opener)closeMenu(false)});
+ /* Esc 只关菜单：先于对话抽屉的 Esc 处理（play-ui.js 稍后注册）拦下，避免抽屉一并折叠。 */
+ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&menu){e.preventDefault();e.stopImmediatePropagation();closeMenu(true)}});
+ window.addEventListener('resize',()=>closeMenu(false));
+ window.addEventListener('scroll',()=>closeMenu(false),true);
+
+ function ensureDialog(){
+  if(dlg)return dlg;
+  dlg=document.createElement('dialog');dlg.id='rename-dialog';
+  dlgForm=document.createElement('form');
+  const label=el('label','存档名称');dlgInput=document.createElement('input');dlgInput.type='text';dlgInput.maxLength=80;dlgInput.required=true;label.append(dlgInput);
+  dlgError=el('p','','muted');dlgError.setAttribute('role','alert');
+  const bar=el('div',undefined,'toolbar');
+  const cancel=el('button','取消');cancel.type='button';cancel.onclick=()=>dlg.close();
+  dlgOk=el('button','保存','primary');dlgOk.type='submit';
+  bar.append(cancel,dlgOk);
+  dlgForm.append(el('h2','重命名存档'),label,dlgError,bar);
+  dlgForm.onsubmit=async e=>{
+   e.preventDefault();const title=dlgInput.value.trim();
+   if(!title||title.length>80){dlgError.textContent='名称需要 1 到 80 个字';return}
+   dlgOk.disabled=true;dlgError.textContent='';
+   try{await renameSession(dlgId,title);dlg.close()}
+   catch(error){dlgError.textContent=error.message}
+   finally{dlgOk.disabled=false}
+  };
+  dlg.append(dlgForm);document.body.append(dlg);return dlg;
+ }
+ function openRename(id,title){
+  ensureDialog();dlgId=id;dlgInput.value=title;dlgError.textContent='';
+  dlg.showModal();dlgInput.focus();dlgInput.select();
+ }
+ async function renameSession(id,title){
+  await api(sessionUrl(id),'PATCH',{title});
+  if(current&&current.id===id){current.title=title;const badge=$('play-badge');if(badge)badge.textContent=title}
+  await bootstrap();notice('已重命名');
+ }
+ async function removeSession(id,title){
+  if(!confirm('删除存档「'+title+'」？\n\n该存档的对话、进度与相关记忆将被永久删除，不可恢复。故事包本身不受影响。'))return;
+  await api(sessionUrl(id),'DELETE');
+  // 先把这一行从列表里拿掉，避免切回空态、等 bootstrap 重绘的那半秒里还看得到已删除的存档。
+  for(const b of list.querySelectorAll('button[data-session-id]'))if(b.dataset.sessionId===id)(b.closest('.journey-row')||b).remove();
+  if(current&&current.id===id)await window.TDEnterAuthorMode();
+  try{if(localStorage.getItem('textiledream-session')===id)localStorage.removeItem('textiledream-session')}catch(e){}
+  await bootstrap();notice('已删除存档');
+ }
+
+ function decorate(){
+  for(const item of Array.from(list.children)){
+   if(item.tagName!=='BUTTON'||!item.dataset.sessionId)continue;
+   const id=item.dataset.sessionId;
+   const title=item.querySelector('.journey-title')?.textContent||item.title||'未命名旅程';
+   const row=el('div',undefined,'journey-row');
+   list.replaceChild(row,item);row.append(item);
+   const more=el('button','⋯','journey-more');more.type='button';
+   more.setAttribute('aria-haspopup','menu');more.setAttribute('aria-expanded','false');
+   more.setAttribute('aria-label','存档操作：'+title);more.title='重命名或删除';
+   more.onclick=e=>{e.stopPropagation();if(menu&&opener===more)closeMenu(false);else openMenu(more,id,title)};
+   row.append(more);
+  }
+ }
+ new MutationObserver(decorate).observe(list,{childList:true});
+ decorate();
+})();

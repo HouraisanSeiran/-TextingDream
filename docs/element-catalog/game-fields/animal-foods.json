@@ -1,0 +1,586 @@
+{
+  "schema": "game_fields_v1",
+  "group": "animal-foods",
+  "entries": {
+    "animal_food_cattle": {
+      "price": {
+        "min": 480,
+        "max": 1200,
+        "per": "一头",
+        "tier": "pound"
+      },
+      "terrains": [
+        "pasture",
+        "farmland"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "farmer",
+        "market"
+      ],
+      "note": "按活牲畜行情估计，一头成牛相当于几十至一百来个先令级的家当。"
+    },
+    "animal_food_water_buffalo": {
+      "price": {
+        "min": 600,
+        "max": 1500,
+        "per": "一头",
+        "tier": "pound"
+      },
+      "terrains": [
+        "wetland",
+        "farmland"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "farmer",
+        "market"
+      ],
+      "note": "水田地区的役用和乳用牲畜，按活畜行情，略高于普通牛。"
+    },
+    "animal_food_sheep": {
+      "price": {
+        "min": 36,
+        "max": 96,
+        "per": "一只",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "pasture",
+        "mountain"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "farmer",
+        "market"
+      ],
+      "note": "按活畜行情，一只成羊约为几天到十几天的短工收入。"
+    },
+    "animal_food_goat": {
+      "price": {
+        "min": 30,
+        "max": 72,
+        "per": "一只",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "mountain",
+        "pasture"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "farmer",
+        "market"
+      ],
+      "note": "山区常见小畜，按活畜行情，略低于绵羊。"
+    },
+    "animal_food_pig": {
+      "price": {
+        "min": 48,
+        "max": 120,
+        "per": "一头",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "farmland",
+        "temperate_forest"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "farmer",
+        "market"
+      ],
+      "note": "按活畜行情，一头肥猪约为几十个先令级的家当。"
+    },
+    "animal_food_chicken": {
+      "price": {
+        "min": 3,
+        "max": 8,
+        "per": "一只",
+        "tier": "groat"
+      },
+      "terrains": [
+        "farmland"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "farmer",
+        "market"
+      ],
+      "note": "按活禽行情，一只鸡约合一两天的口粮。"
+    },
+    "animal_food_duck": {
+      "price": {
+        "min": 4,
+        "max": 10,
+        "per": "一只",
+        "tier": "groat"
+      },
+      "terrains": [
+        "river",
+        "farmland"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "farmer",
+        "market"
+      ],
+      "note": "按活禽行情，略高于鸡。"
+    },
+    "animal_food_goose": {
+      "price": {
+        "min": 8,
+        "max": 20,
+        "per": "一只",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "farmland",
+        "wetland"
+      ],
+      "seasons": [
+        "autumn"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "farmer",
+        "market"
+      ],
+      "note": "秋季上市的肥鹅，按活禽行情，是乡间节日的大宗肉禽。"
+    },
+    "animal_food_turkey": {
+      "price": {
+        "min": 24,
+        "max": 60,
+        "per": "一只",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "farmland"
+      ],
+      "seasons": [
+        "autumn"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "farmer",
+        "market"
+      ],
+      "note": "个头大、饲养期长，按活禽行情，只在秋冬节庆时多见。"
+    },
+    "animal_food_cod": {
+      "price": {
+        "min": 3,
+        "max": 10,
+        "per": "一条",
+        "tier": "groat"
+      },
+      "terrains": [
+        "ocean",
+        "coast"
+      ],
+      "seasons": [
+        "winter"
+      ],
+      "keeps": "days",
+      "sold_by": [
+        "fishmonger"
+      ],
+      "note": "冬季近海捕获的大型白鱼，按条零卖，鲜鱼不耐放。"
+    },
+    "animal_food_herring": {
+      "price": {
+        "min": 2,
+        "max": 6,
+        "per": "一串",
+        "tier": "groat"
+      },
+      "terrains": [
+        "ocean",
+        "coast"
+      ],
+      "seasons": [
+        "autumn"
+      ],
+      "keeps": "days",
+      "sold_by": [
+        "fishmonger",
+        "street_vendor"
+      ],
+      "note": "秋季成群捕获的小鱼，按串零卖，是最便宜的鱼货之一。"
+    },
+    "animal_food_salmon": {
+      "price": {
+        "min": 12,
+        "max": 48,
+        "per": "一条",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "river",
+        "ocean"
+      ],
+      "seasons": [
+        "summer",
+        "autumn"
+      ],
+      "keeps": "days",
+      "sold_by": [
+        "fishmonger"
+      ],
+      "note": "洄游季节捕获的大鱼，按条零卖，价位高于白鱼。"
+    },
+    "animal_food_oyster": {
+      "price": {
+        "min": 2,
+        "max": 6,
+        "per": "一打",
+        "tier": "groat"
+      },
+      "terrains": [
+        "coast"
+      ],
+      "seasons": [
+        "autumn",
+        "winter",
+        "spring"
+      ],
+      "keeps": "days",
+      "sold_by": [
+        "fishmonger",
+        "street_vendor"
+      ],
+      "note": "凉季上市的贝类，按打零卖，沿海街头常见。"
+    },
+    "animal_food_clam": {
+      "price": {
+        "min": 2,
+        "max": 6,
+        "per": "一小篮",
+        "tier": "groat"
+      },
+      "terrains": [
+        "coast",
+        "ocean"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "days",
+      "sold_by": [
+        "fishmonger",
+        "street_vendor"
+      ],
+      "note": "滩涂常年可采，按小篮零卖，价低。"
+    },
+    "animal_food_shrimp_prawn": {
+      "price": {
+        "min": 3,
+        "max": 9,
+        "per": "一小碗",
+        "tier": "groat"
+      },
+      "terrains": [
+        "coast"
+      ],
+      "seasons": [
+        "summer"
+      ],
+      "keeps": "days",
+      "sold_by": [
+        "fishmonger",
+        "street_vendor"
+      ],
+      "note": "夏季近岸捕获，按小碗零卖，不耐放。"
+    },
+    "animal_food_milk": {
+      "price": {
+        "min": 1,
+        "max": 2,
+        "per": "一夸脱",
+        "tier": "penny"
+      },
+      "terrains": [
+        "pasture"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "hours",
+      "sold_by": [
+        "dairy",
+        "farmer"
+      ],
+      "note": "产后即售的鲜乳，按夸脱零卖，当日变质。"
+    },
+    "animal_food_egg": {
+      "price": {
+        "min": 3,
+        "max": 8,
+        "per": "一打",
+        "tier": "groat"
+      },
+      "terrains": [
+        "farmland"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "weeks",
+      "sold_by": [
+        "farmer",
+        "market"
+      ],
+      "note": "散养鸡蛋按打计，春夏产量多，其余季节略贵。"
+    },
+    "animal_food_beef": {
+      "price": {
+        "min": 3,
+        "max": 6,
+        "per": "一磅",
+        "tier": "groat"
+      },
+      "terrains": [
+        "pasture"
+      ],
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "keeps": "days",
+      "sold_by": [
+        "butcher"
+      ],
+      "note": "秋冬屠宰季上市的鲜肉，按磅零卖，是肉类里的中档。"
+    },
+    "animal_food_pork": {
+      "price": {
+        "min": 2,
+        "max": 5,
+        "per": "一磅",
+        "tier": "groat"
+      },
+      "terrains": [
+        "farmland",
+        "temperate_forest"
+      ],
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "keeps": "days",
+      "sold_by": [
+        "butcher"
+      ],
+      "note": "秋冬屠宰季上市，按磅零卖，价位略低于牛肉。"
+    },
+    "animal_food_mutton_lamb": {
+      "price": {
+        "min": 2,
+        "max": 5,
+        "per": "一磅",
+        "tier": "groat"
+      },
+      "terrains": [
+        "pasture",
+        "mountain"
+      ],
+      "seasons": [
+        "spring",
+        "autumn"
+      ],
+      "keeps": "days",
+      "sold_by": [
+        "butcher"
+      ],
+      "note": "春羔与秋羊两段上市，按磅零卖。"
+    },
+    "animal_food_cheese": {
+      "price": {
+        "min": 4,
+        "max": 10,
+        "per": "一磅",
+        "tier": "groat"
+      },
+      "terrains": [
+        "pasture"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "dairy",
+        "market"
+      ],
+      "note": "硬质奶酪可存放，按磅零卖，价位随熟成时间上浮。"
+    },
+    "animal_food_butter": {
+      "price": {
+        "min": 3,
+        "max": 8,
+        "per": "一磅",
+        "tier": "groat"
+      },
+      "terrains": [
+        "pasture"
+      ],
+      "seasons": [
+        "spring",
+        "summer"
+      ],
+      "keeps": "weeks",
+      "sold_by": [
+        "dairy",
+        "market"
+      ],
+      "note": "春夏牧草旺季产得多，按磅零卖，盐渍后可延长保存。"
+    },
+    "animal_food_yogurt": {
+      "price": {
+        "min": 1,
+        "max": 3,
+        "per": "一碗",
+        "tier": "penny"
+      },
+      "terrains": [
+        "pasture"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "days",
+      "sold_by": [
+        "dairy",
+        "market"
+      ],
+      "note": "鲜乳发酵所得，按碗零卖，保存期比鲜乳略长。"
+    },
+    "animal_food_ham_bacon": {
+      "price": {
+        "min": 4,
+        "max": 11,
+        "per": "一磅",
+        "tier": "groat"
+      },
+      "terrains": [
+        "pasture",
+        "workshop"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "butcher",
+        "grocer"
+      ],
+      "note": "秋冬腌制熏晒后全年有售，按磅零卖。"
+    },
+    "animal_food_sausage": {
+      "price": {
+        "min": 1,
+        "max": 3,
+        "per": "一条",
+        "tier": "penny"
+      },
+      "terrains": [
+        "workshop",
+        "pasture"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "weeks",
+      "sold_by": [
+        "butcher",
+        "street_vendor"
+      ],
+      "note": "边角肉灌制，按条零卖，街头最便宜的肉食之一。"
+    },
+    "animal_food_rendered_fat": {
+      "price": {
+        "min": 2,
+        "max": 5,
+        "per": "一磅",
+        "tier": "groat"
+      },
+      "terrains": [
+        "workshop",
+        "pasture"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "butcher",
+        "grocer"
+      ],
+      "note": "屠宰副产品熬炼，按磅零卖，是日常厨房油脂。"
+    },
+    "animal_food_dried_salted_fish": {
+      "price": {
+        "min": 3,
+        "max": 9,
+        "per": "一条",
+        "tier": "groat"
+      },
+      "terrains": [
+        "coast",
+        "workshop"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "fishmonger",
+        "grocer"
+      ],
+      "note": "盐渍晾干后可远运，按条零卖，是内陆常见的鱼食。"
+    },
+    "animal_food_condensed_dried_milk": {
+      "price": {
+        "min": 6,
+        "max": 18,
+        "per": "一罐",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "workshop",
+        "pasture"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "grocer",
+        "dairy"
+      ],
+      "note": "浓缩或干燥后可长期保存，按罐零卖，视作较新式的加工品。"
+    }
+  }
+}

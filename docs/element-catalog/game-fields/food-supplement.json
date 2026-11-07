@@ -1,0 +1,496 @@
+{
+  "schema": "game_fields_v1",
+  "group": "food-supplement",
+  "entries": {
+    "food_supp_proso_millet": {
+      "price": {
+        "min": 4,
+        "max": 8,
+        "per": "一袋",
+        "tier": "groat"
+      },
+      "terrains": [
+        "farmland",
+        "steppe"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "market",
+        "farmer",
+        "grocer"
+      ],
+      "note": "按旱地小粒谷物估价。"
+    },
+    "food_supp_finger_millet": {
+      "price": {
+        "min": 4,
+        "max": 8,
+        "per": "一袋",
+        "tier": "groat"
+      },
+      "terrains": [
+        "savanna",
+        "farmland"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "market",
+        "farmer"
+      ],
+      "note": "按旱地粗粮估价。"
+    },
+    "food_supp_turnip": {
+      "price": {
+        "min": 1,
+        "max": 2,
+        "per": "一个",
+        "tier": "penny"
+      },
+      "terrains": [
+        "farmland",
+        "orchard"
+      ],
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "market",
+        "farmer"
+      ],
+      "note": "按廉价根菜估价，窖藏耐存。"
+    },
+    "food_supp_radish": {
+      "price": {
+        "min": 1,
+        "max": 2,
+        "per": "一把",
+        "tier": "penny"
+      },
+      "terrains": [
+        "orchard",
+        "farmland"
+      ],
+      "seasons": [
+        "spring",
+        "autumn"
+      ],
+      "keeps": "weeks",
+      "sold_by": [
+        "market",
+        "farmer",
+        "street_vendor"
+      ],
+      "note": "按一把估价。"
+    },
+    "food_supp_leek": {
+      "price": {
+        "min": 1,
+        "max": 3,
+        "per": "一把",
+        "tier": "penny"
+      },
+      "terrains": [
+        "orchard"
+      ],
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "keeps": "weeks",
+      "sold_by": [
+        "market",
+        "farmer"
+      ],
+      "note": "按一把估价。"
+    },
+    "food_supp_celery": {
+      "price": {
+        "min": 1,
+        "max": 3,
+        "per": "一把",
+        "tier": "penny"
+      },
+      "terrains": [
+        "orchard",
+        "wetland"
+      ],
+      "seasons": [
+        "autumn"
+      ],
+      "keeps": "weeks",
+      "sold_by": [
+        "market",
+        "farmer"
+      ],
+      "note": "按一把估价。"
+    },
+    "food_supp_breadfruit": {
+      "price": {
+        "min": 6,
+        "max": 12,
+        "per": "一个",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "rainforest",
+        "coast"
+      ],
+      "seasons": [
+        "summer",
+        "autumn"
+      ],
+      "keeps": "days",
+      "sold_by": [
+        "market",
+        "street_vendor"
+      ],
+      "note": "热带主食果，温带难买到，按一个估价。"
+    },
+    "food_supp_jackfruit": {
+      "price": {
+        "min": 18,
+        "max": 48,
+        "per": "一个",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "rainforest",
+        "tropical_dry_forest"
+      ],
+      "seasons": [
+        "summer"
+      ],
+      "keeps": "days",
+      "sold_by": [
+        "market"
+      ],
+      "note": "个大难运，按一个整果估价。"
+    },
+    "food_supp_persimmon": {
+      "price": {
+        "min": 3,
+        "max": 6,
+        "per": "一磅",
+        "tier": "groat"
+      },
+      "terrains": [
+        "orchard"
+      ],
+      "seasons": [
+        "autumn"
+      ],
+      "keeps": "weeks",
+      "sold_by": [
+        "market",
+        "farmer"
+      ],
+      "note": "按一磅估价。"
+    },
+    "food_supp_cherry": {
+      "price": {
+        "min": 6,
+        "max": 12,
+        "per": "一磅",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "orchard"
+      ],
+      "seasons": [
+        "summer"
+      ],
+      "keeps": "days",
+      "sold_by": [
+        "market",
+        "farmer",
+        "noble_kitchen"
+      ],
+      "note": "季短易坏，按一磅估价。"
+    },
+    "food_supp_apricot": {
+      "price": {
+        "min": 4,
+        "max": 8,
+        "per": "一磅",
+        "tier": "groat"
+      },
+      "terrains": [
+        "orchard",
+        "mountain"
+      ],
+      "seasons": [
+        "summer"
+      ],
+      "keeps": "days",
+      "sold_by": [
+        "market",
+        "farmer"
+      ],
+      "note": "按一磅鲜杏估价。"
+    },
+    "food_supp_avocado": {
+      "price": {
+        "min": 6,
+        "max": 12,
+        "per": "一个",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "tropical_dry_forest",
+        "import"
+      ],
+      "seasons": [
+        "spring",
+        "summer"
+      ],
+      "keeps": "days",
+      "sold_by": [
+        "market",
+        "noble_kitchen"
+      ],
+      "note": "温带只能输入，按一个果估价。"
+    },
+    "food_supp_papaya": {
+      "price": {
+        "min": 6,
+        "max": 12,
+        "per": "一个",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "rainforest",
+        "import"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "days",
+      "sold_by": [
+        "market",
+        "street_vendor"
+      ],
+      "note": "热带水果，温带靠输入，按一个果估价。"
+    },
+    "food_supp_mung_bean": {
+      "price": {
+        "min": 8,
+        "max": 14,
+        "per": "一袋",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "farmland",
+        "savanna"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "market",
+        "grocer"
+      ],
+      "note": "按较贵的干豆估价。"
+    },
+    "food_supp_sago": {
+      "price": {
+        "min": 4,
+        "max": 8,
+        "per": "一磅",
+        "tier": "groat"
+      },
+      "terrains": [
+        "rainforest",
+        "wetland"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "grocer",
+        "spice_merchant",
+        "market"
+      ],
+      "note": "按一磅淀粉估价，远处靠输入。"
+    },
+    "food_supp_strawberry": {
+      "price": {
+        "min": 6,
+        "max": 12,
+        "per": "一小篮",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "orchard",
+        "temperate_forest"
+      ],
+      "seasons": [
+        "spring",
+        "summer"
+      ],
+      "keeps": "days",
+      "sold_by": [
+        "market",
+        "farmer",
+        "noble_kitchen"
+      ],
+      "note": "季短极易坏，按一小篮估价。"
+    },
+    "food_supp_quince": {
+      "price": {
+        "min": 2,
+        "max": 4,
+        "per": "一个",
+        "tier": "groat"
+      },
+      "terrains": [
+        "orchard"
+      ],
+      "seasons": [
+        "autumn"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "market",
+        "farmer"
+      ],
+      "note": "按一个果估价，多做蜜饯。"
+    },
+    "food_supp_cultivated_mushroom": {
+      "price": {
+        "min": 4,
+        "max": 8,
+        "per": "一磅",
+        "tier": "groat"
+      },
+      "terrains": [
+        "temperate_forest",
+        "workshop"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "days",
+      "sold_by": [
+        "market",
+        "grocer"
+      ],
+      "note": "按一磅鲜菇估价，人工菇棚全年有产。"
+    },
+    "food_supp_grain_amaranth": {
+      "price": {
+        "min": 12,
+        "max": 24,
+        "per": "一袋",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "mountain",
+        "farmland"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "years",
+      "sold_by": [
+        "market",
+        "grocer"
+      ],
+      "note": "小粒杂粮，产区偏，按小麦一两倍估价。"
+    },
+    "food_supp_water_chestnut": {
+      "price": {
+        "min": 2,
+        "max": 4,
+        "per": "一把",
+        "tier": "groat"
+      },
+      "terrains": [
+        "wetland",
+        "lake"
+      ],
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "keeps": "weeks",
+      "sold_by": [
+        "market",
+        "street_vendor"
+      ],
+      "note": "按一把水生块茎估价。"
+    },
+    "food_supp_lotus": {
+      "price": {
+        "min": 3,
+        "max": 6,
+        "per": "一节",
+        "tier": "groat"
+      },
+      "terrains": [
+        "wetland",
+        "lake"
+      ],
+      "seasons": [
+        "autumn"
+      ],
+      "keeps": "weeks",
+      "sold_by": [
+        "market",
+        "street_vendor"
+      ],
+      "note": "按一节藕估价，莲子另算。"
+    },
+    "food_supp_table_beet": {
+      "price": {
+        "min": 1,
+        "max": 3,
+        "per": "一把",
+        "tier": "penny"
+      },
+      "terrains": [
+        "farmland",
+        "orchard"
+      ],
+      "seasons": [
+        "autumn"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "market",
+        "farmer"
+      ],
+      "note": "按一把根菜估价。"
+    },
+    "food_supp_cashew": {
+      "price": {
+        "min": 18,
+        "max": 36,
+        "per": "一磅",
+        "tier": "shilling"
+      },
+      "terrains": [
+        "tropical_dry_forest",
+        "import"
+      ],
+      "seasons": [
+        "all_year"
+      ],
+      "keeps": "months",
+      "sold_by": [
+        "spice_merchant",
+        "noble_kitchen"
+      ],
+      "note": "按一磅干果估价，产地偏远，属稀罕零嘴。"
+    }
+  }
+}

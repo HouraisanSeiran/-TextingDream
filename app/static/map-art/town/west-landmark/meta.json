@@ -1,0 +1,629 @@
+[
+  {
+    "id": "west-common-cathedral-01",
+    "style": "west",
+    "race": "common",
+    "category": "landmark",
+    "kind": "cathedral",
+    "facility": "temple",
+    "culture": "gothic",
+    "variant": 1,
+    "footprint": [
+      5,
+      5
+    ],
+    "height_px": 240,
+    "anchor": [
+      120,
+      480
+    ],
+    "viewBox": [
+      0,
+      0,
+      240,
+      480
+    ],
+    "tags": [
+      "twin_towers",
+      "rose_window",
+      "flying_buttress",
+      "spire",
+      "transept",
+      "gothic",
+      "important"
+    ],
+    "roof": "steep_slate",
+    "name_zh": "哥特大教堂",
+    "note": "西立面朝前：两座三段式方塔顶着带卷叶饰与镂空的石尖塔，中间山墙下是退进三层的尖拱大门、尖顶山花与大玫瑰窗；中殿高耸，两侧侧廊单坡顶上跨着三对飞扶壁；十字交叉部骑一座铅皮小尖塔（flèche），后端半圆后殿带一圈小尖塔"
+  },
+  {
+    "id": "west-common-abbey-01",
+    "style": "west",
+    "race": "common",
+    "category": "landmark",
+    "kind": "abbey",
+    "facility": "temple",
+    "culture": "romanesque",
+    "variant": 1,
+    "footprint": [
+      6,
+      5
+    ],
+    "height_px": 170,
+    "anchor": [
+      144,
+      410
+    ],
+    "viewBox": [
+      0,
+      0,
+      288,
+      410
+    ],
+    "tags": [
+      "cloister",
+      "bell_tower",
+      "apse",
+      "dormitory",
+      "refectory",
+      "kitchen_garden",
+      "orchard",
+      "romanesque",
+      "important"
+    ],
+    "roof": "gable_tile",
+    "name_zh": "罗曼式修道院",
+    "note": "平地修道院：后排是长边朝前的罗曼式教堂（壁柱、半圆拱窗、伦巴第小拱带、东端半圆后殿、交叉部八角小塔），西端高大方钟楼带双联拱钟室；教堂南侧方形回廊庭院（拱廊、中央泉亭），左翼两层修士宿舍，右翼食堂与厨房烟囱；前排菜园、果树与碎石前院"
+  },
+  {
+    "id": "west-common-abbey-02",
+    "style": "west",
+    "race": "common",
+    "category": "landmark",
+    "kind": "abbey",
+    "facility": "temple",
+    "culture": "gothic",
+    "variant": 2,
+    "footprint": [
+      6,
+      6
+    ],
+    "height_px": 240,
+    "anchor": [
+      144,
+      528
+    ],
+    "viewBox": [
+      0,
+      0,
+      288,
+      528
+    ],
+    "tags": [
+      "island",
+      "hilltop",
+      "crag",
+      "spire",
+      "ramparts",
+      "village",
+      "pilgrimage",
+      "tidal_flat",
+      "gothic",
+      "important"
+    ],
+    "roof": "steep_slate",
+    "name_zh": "山顶岛式修道院",
+    "note": "潮间沙洲上的岩石孤山：山脚一圈带圆塔与门楼的城墙，墙内民居沿山坡层层叠起，左坡有一座带小尖塔的教区小教堂；山顶是筑在高大基台上的哥特修道院教堂，右侧悬崖上贴着一座带扶壁的高楼（修院主楼），交叉部方塔顶着铅皮尖塔与金色天使像。整座占地即岛体，民居是画在 symbol 里的，不另占格"
+  },
+  {
+    "id": "west-common-castle-hill-01",
+    "style": "west",
+    "race": "common",
+    "category": "landmark",
+    "kind": "castle_hill",
+    "facility": "lord_hall",
+    "culture": "romantic",
+    "variant": 1,
+    "footprint": [
+      6,
+      6
+    ],
+    "height_px": 240,
+    "anchor": [
+      144,
+      528
+    ],
+    "viewBox": [
+      0,
+      0,
+      288,
+      528
+    ],
+    "tags": [
+      "hilltop",
+      "crag",
+      "fairytale",
+      "white_walls",
+      "slender_towers",
+      "cone_spires",
+      "gatehouse",
+      "terrace",
+      "important"
+    ],
+    "roof": "steep_slate",
+    "name_zh": "白墙童话城堡",
+    "note": "岩石山顶的浪漫主义城堡：白灰泥墙、青石板陡顶；四层主楼正中一座凸出的阶梯山墙翼与阳台，楼后一高一矮两座细圆塔（顶部挑廊 + 尖锥 + 旗），左前高瘦圆塔、右前方形主塔（四角悬挑小角楼 + 尖顶）；山顶一圈带垛口的胸墙，下层台地上是暖石门楼与两座小圆塔，之字形步道下山"
+  },
+  {
+    "id": "west-common-castle-hill-02",
+    "style": "west",
+    "race": "common",
+    "category": "landmark",
+    "kind": "castle_hill",
+    "facility": "lord_hall",
+    "culture": "gothic",
+    "variant": 2,
+    "footprint": [
+      6,
+      6
+    ],
+    "height_px": 240,
+    "anchor": [
+      144,
+      528
+    ],
+    "viewBox": [
+      0,
+      0,
+      288,
+      528
+    ],
+    "tags": [
+      "hilltop",
+      "crag",
+      "fairytale",
+      "warm_stone",
+      "many_spires",
+      "terraces",
+      "bastions",
+      "chapel",
+      "gatehouse",
+      "important"
+    ],
+    "roof": "steep_slate",
+    "name_zh": "暖石多塔山城",
+    "note": "山脊上的哥特复兴式城堡：暖黄砂岩墙、青石板尖顶；山坡上三道带垛口的台地城墙层层退进，最外一道有两座圆炮台与门楼；山顶主楼两翼高低错落，后排一座最高的八角主塔（尖顶 + 旗），左侧方塔四角小尖塔，右侧城堡礼拜堂（尖拱长窗 + 玫瑰窗 + 小尖塔），另有三座细圆塔顶着尖锥"
+  },
+  {
+    "id": "west-common-amphitheatre-01",
+    "style": "west",
+    "race": "common",
+    "category": "landmark",
+    "kind": "amphitheatre",
+    "facility": null,
+    "culture": "roman",
+    "variant": 1,
+    "footprint": [
+      6,
+      5
+    ],
+    "height_px": 112,
+    "anchor": [
+      144,
+      352
+    ],
+    "viewBox": [
+      0,
+      0,
+      288,
+      352
+    ],
+    "tags": [
+      "amphitheatre",
+      "arena",
+      "arcade",
+      "ellipse",
+      "four_storeys",
+      "velarium",
+      "roman",
+      "important"
+    ],
+    "roof": "none",
+    "name_zh": "圆形斗兽场",
+    "note": "椭圆形四层外墙：下三层是连续拱券（每层拱间立半壁柱、层间檐口），第四层是开小方窗的实墙阁楼，檐上一圈遮阳篷桅杆；从上方能看到内部一圈圈下降的看台与中央沙地竞技场，正中一道大拱门。FacilityKind 里没有剧场 / 竞技场，填 null"
+  },
+  {
+    "id": "west-common-roman-temple-01",
+    "style": "west",
+    "race": "common",
+    "category": "landmark",
+    "kind": "roman_temple",
+    "facility": "temple",
+    "culture": "roman",
+    "variant": 1,
+    "footprint": [
+      3,
+      3
+    ],
+    "height_px": 104,
+    "anchor": [
+      72,
+      248
+    ],
+    "viewBox": [
+      0,
+      0,
+      144,
+      248
+    ],
+    "tags": [
+      "podium",
+      "hexastyle",
+      "portico",
+      "pediment",
+      "corinthian",
+      "inscription",
+      "roman",
+      "important"
+    ],
+    "roof": "gable_tile",
+    "name_zh": "罗马神庙",
+    "note": "前廊式罗马神庙：高台基正面一道通宽台阶，两侧挡墙上各一座祭坛；六根科林斯柱撑起刻铭文的额枋与带浮雕的三角山花，山花顶与两角立雕像；柱廊后是内殿墙与青铜大门，红瓦两坡顶顺进深伸向后方"
+  },
+  {
+    "id": "west-common-aqueduct-ew-01",
+    "style": "west",
+    "race": "common",
+    "category": "landmark",
+    "kind": "aqueduct",
+    "facility": null,
+    "culture": "roman",
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 124,
+    "anchor": [
+      24,
+      172
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      172
+    ],
+    "tags": [
+      "aqueduct",
+      "tileable",
+      "axis_ew",
+      "three_tier_arcade",
+      "roman"
+    ],
+    "roof": "none",
+    "name_zh": "引水渠·东西段",
+    "note": "东西走向的一跨（48 px），三层拱券（底层大拱、中层拱、顶层三联小拱）+ 渠顶盖板；拱墩中心落在格的左右边，石缝 12 px 周期，任意多格沿一行拼接无缝。FacilityKind 没有引水渠（cistern 是蓄水池），填 null"
+  },
+  {
+    "id": "west-common-aqueduct-end-w-01",
+    "style": "west",
+    "race": "common",
+    "category": "landmark",
+    "kind": "aqueduct",
+    "facility": null,
+    "culture": "roman",
+    "variant": 2,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 124,
+    "anchor": [
+      24,
+      172
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      172
+    ],
+    "tags": [
+      "aqueduct",
+      "end",
+      "end_w",
+      "roman"
+    ],
+    "roof": "none",
+    "name_zh": "引水渠·西端头",
+    "note": "东西段的西端：渠身接进左侧山坡（土石坡），右边与 aqueduct-ew-01 拼接。FacilityKind 没有对应项，填 null"
+  },
+  {
+    "id": "west-common-aqueduct-end-e-01",
+    "style": "west",
+    "race": "common",
+    "category": "landmark",
+    "kind": "aqueduct",
+    "facility": null,
+    "culture": "roman",
+    "variant": 3,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 124,
+    "anchor": [
+      24,
+      172
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      172
+    ],
+    "tags": [
+      "aqueduct",
+      "end",
+      "end_e",
+      "roman"
+    ],
+    "roof": "none",
+    "name_zh": "引水渠·东端头",
+    "note": "东西段的东端：渠身接进右侧山坡，左边与 aqueduct-ew-01 拼接。FacilityKind 没有对应项，填 null"
+  },
+  {
+    "id": "west-common-aqueduct-ns-01",
+    "style": "west",
+    "race": "common",
+    "category": "landmark",
+    "kind": "aqueduct",
+    "facility": null,
+    "culture": "roman",
+    "variant": 4,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 124,
+    "anchor": [
+      24,
+      172
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      172
+    ],
+    "tags": [
+      "aqueduct",
+      "tileable",
+      "axis_ns",
+      "roman"
+    ],
+    "roof": "none",
+    "name_zh": "引水渠·南北段",
+    "note": "南北走向的一格：渠身在格中线（x 19..29，与东西段同厚同高）。斜俯视下侧面几乎侧对视线，只露渠顶水槽、受光西侧窄条（顶层、中层拱缝）与东侧地面上被拱洞打断的投影；南边一格后画，会盖住本格的南端面，所以一列格子自然连成一道。最南一格请用 aqueduct-end-s-01 收出拱墩面。FacilityKind 没有对应项，填 null"
+  },
+  {
+    "id": "west-common-aqueduct-end-n-01",
+    "style": "west",
+    "race": "common",
+    "category": "landmark",
+    "kind": "aqueduct",
+    "facility": null,
+    "culture": "roman",
+    "variant": 5,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 124,
+    "anchor": [
+      24,
+      172
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      172
+    ],
+    "tags": [
+      "aqueduct",
+      "end",
+      "end_n",
+      "roman"
+    ],
+    "roof": "none",
+    "name_zh": "引水渠·北端头",
+    "note": "南北段的北端：渠身从后方山坡（土石坡 + 灌木）里伸出，南边接 aqueduct-ns-01。FacilityKind 没有对应项，填 null"
+  },
+  {
+    "id": "west-common-aqueduct-end-s-01",
+    "style": "west",
+    "race": "common",
+    "category": "landmark",
+    "kind": "aqueduct",
+    "facility": null,
+    "culture": "roman",
+    "variant": 6,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 124,
+    "anchor": [
+      24,
+      172
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      172
+    ],
+    "tags": [
+      "aqueduct",
+      "end",
+      "end_s",
+      "castellum",
+      "roman"
+    ],
+    "roof": "none",
+    "name_zh": "引水渠·南端头",
+    "note": "南北段的南端：渠身止于一座方形分水塔（castellum），塔身拱门、顶上四角坡顶，北边接 aqueduct-ns-01。FacilityKind 没有对应项，填 null"
+  },
+  {
+    "id": "west-common-thermae-01",
+    "style": "west",
+    "race": "common",
+    "category": "landmark",
+    "kind": "thermae",
+    "facility": "cistern",
+    "culture": "roman",
+    "variant": 1,
+    "footprint": [
+      4,
+      3
+    ],
+    "height_px": 110,
+    "anchor": [
+      96,
+      254
+    ],
+    "viewBox": [
+      0,
+      0,
+      192,
+      254
+    ],
+    "tags": [
+      "bath",
+      "dome",
+      "thermal_window",
+      "natatio",
+      "hypocaust",
+      "roman",
+      "important"
+    ],
+    "roof": "hip_tile",
+    "name_zh": "公共浴场",
+    "note": "罗马公共浴场：后排是铅皮半球穹顶的热水厅（鼓座开拱窗，顶部采光亭），中间是长边朝前的温水 / 冷水大厅（三扇半圆浴场窗、下层拱廊），两端四坡顶的更衣翼；前院石板地中一方露天泳池（natatio）带台阶；后面锅炉房冒烟（地暖 hypocaust）。FacilityKind 无浴场，取最接近的 cistern（蓄水用水设施）"
+  },
+  {
+    "id": "west-common-triumphal-arch-01",
+    "style": "west",
+    "race": "common",
+    "category": "landmark",
+    "kind": "triumphal_arch",
+    "facility": null,
+    "culture": "roman",
+    "variant": 1,
+    "footprint": [
+      3,
+      1
+    ],
+    "height_px": 120,
+    "anchor": [
+      72,
+      168
+    ],
+    "viewBox": [
+      0,
+      0,
+      144,
+      168
+    ],
+    "tags": [
+      "arch",
+      "triple_arch",
+      "attic",
+      "inscription",
+      "quadriga",
+      "relief",
+      "roman",
+      "gate_like"
+    ],
+    "roof": "none",
+    "name_zh": "凯旋门",
+    "note": "三拱凯旋门：中间大拱、两侧小拱，四根附墙科林斯柱立在高柱础上，小拱上方嵌浮雕圆盘；顶部铭文阁楼，阁楼上青铜四马战车。可横跨在道路上（道路从大拱穿过），但不是城门，FacilityKind 无对应，填 null"
+  },
+  {
+    "id": "west-common-forum-01",
+    "style": "west",
+    "race": "common",
+    "category": "landmark",
+    "kind": "forum",
+    "facility": "market_hall",
+    "culture": "roman",
+    "variant": 1,
+    "footprint": [
+      5,
+      4
+    ],
+    "height_px": 96,
+    "anchor": [
+      120,
+      288
+    ],
+    "viewBox": [
+      0,
+      0,
+      240,
+      288
+    ],
+    "tags": [
+      "forum",
+      "colonnade",
+      "basilica",
+      "honorary_column",
+      "rostra",
+      "plaza",
+      "shops",
+      "roman",
+      "important"
+    ],
+    "roof": "gable_tile",
+    "name_zh": "广场柱廊",
+    "note": "罗马广场：后排长边朝前的会堂（basilica，高侧窗 + 下层拱廊），左右两翼单坡顶柱廊（柱后是一间间店铺门洞），中间大石板广场，正中一根带螺旋浮雕的纪功柱（柱顶雕像），前方演讲台（rostra）与两座骑马像底座；前沿敞开。FacilityKind 取 market_hall（广场兼集市）"
+  },
+  {
+    "id": "west-common-campanile-01",
+    "style": "west",
+    "race": "common",
+    "category": "landmark",
+    "kind": "campanile",
+    "facility": "temple",
+    "culture": "romanesque",
+    "variant": 1,
+    "footprint": [
+      1,
+      1
+    ],
+    "height_px": 200,
+    "anchor": [
+      24,
+      248
+    ],
+    "viewBox": [
+      0,
+      0,
+      48,
+      248
+    ],
+    "tags": [
+      "campanile",
+      "bell_tower",
+      "freestanding",
+      "lombard_band",
+      "romanesque",
+      "important"
+    ],
+    "roof": "steep_slate",
+    "name_zh": "意大利式独立钟楼",
+    "note": "与教堂分开独立的方形砖石钟楼：通高壁柱分格，每层檐下伦巴第小拱带，窗洞自下而上由单拱→双联→三联逐层放大；顶层钟室挂钟，红瓦四角攒尖顶与十字。占地 1×1，可放在教堂或广场旁。facility 归 temple（教堂附属）"
+  }
+]

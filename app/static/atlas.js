@@ -38,20 +38,3 @@ function atlasViewer(host){
  let signature='';
  return {update(atlas,locations=[]){data=atlas||{features:[]};places=locations;const next=JSON.stringify([data.title,data.features.map(f=>[f.id,f.coordinates]),places.map(p=>[p.id,p.current])]);if(next!==signature){signature=next;search.value='';const coords=places.length?places.map(p=>p.coordinates):data.features.flatMap(f=>f.coordinates);if(coords.length)focus(coords);else{box=[0,0,1440,720];view()}}info.replaceChildren(el('p','点击标记、道路或区域，阅读关联资料。','muted'));draw()},focus};
 }
-const mapHost=el('div');mapHost.id='layered-player-map';$('map').querySelector('.map-viewport').hidden=true;$('map').querySelector('.toolbar').hidden=true;$('map').querySelector('.map-viewport').after(mapHost);
-const playerAtlas=atlasViewer(mapHost),oldDrawMap=drawMap;
-drawMap=function(){oldDrawMap();playerAtlas.update(current?.atlas,current?.places||[])};
-$('map').querySelector('.intro p').textContent='地形、水系、政区、文化、商路与地点 · 点击标记阅读资料；这里是旧图册兼容，游玩地图在右栏（服务器掩膜）';
-
-// 旧图册在「其他 → 旅程地图 · 旧图册」里保留（它的 DOM id 与渲染都不变），但不再
-// 在游玩左栏挂第二张常驻地图：右栏只有一张 civ-atlas 掩膜底图。这里只留一行文字兼容，
-// 告诉玩家去哪看旧设定里的示意坐标。
-const surfaceMapPanel=el('div');surfaceMapPanel.id='surface-map-panel';
-const surfaceMapBody=el('div');surfaceMapBody.id='surface-current-map';
-const surfaceMapTitle=el('p',undefined,'muted'),surfaceMapView=el('div');
-surfaceMapBody.append(surfaceMapTitle);surfaceMapPanel.append(surfaceMapBody);
-$('panel-other').append(surfaceMapPanel);
-function updateConversationMap(){surfaceMapTitle.textContent=current
- ? '旧图册：'+current.world+' · 当前位置：'+current.location+' · 旅程版本 '+current.revision+' · 在「旅程地图 · 旧图册」里看示意坐标'
- : '旧图册：选择旅程后显示。'}
-const renderBeforeMap=render;render=function(){renderBeforeMap();updateConversationMap()};
