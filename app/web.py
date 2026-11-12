@@ -25,13 +25,12 @@ from .knowledge import notebook
 from .world_generator import GenerateWorldRequest, GeneratorEdit
 from .reply_direction import ReplyDirectionRequest, DIRECTIONS, draft_reply
 from .world_pipeline import WorldPipeline, PipelineRequest, StageEdit
-from . import civ_atlas_snapshot, map_import, towns, play_map, map_clues
+from . import map_import, towns, play_map, map_clues, map_policy
 from . import spatial_draft
-from . import native_worlds
-from . import native_starts
 from . import npc_cards
 from . import ai_drafts
 from . import world_package_pipeline
+from .map_policy import CivAtlasDisabled
 
 from .town_schema import (AdoptRequest, AdvanceRequest, PresetRequest, PublishRequest,
                           StageEditRequest, STAGE_NAMES,
@@ -107,6 +106,19 @@ class HistoryPreviewRequest(_Strict):
     max_entities: int | None = Field(default=None, ge=1, le=4000, strict=True)
 
 
+class CivSimHistoryPreviewRequest(_Strict):
+    """Start an author history draft from a finished ``civ_sim`` run directory.
+
+    ``run_dir`` must resolve under ``artifacts/civ-sim/`` (relative to the repo root).
+    """
+    run_dir: str = Field(min_length=3, max_length=260)
+    base_year: int = Field(ge=0, le=200000, strict=True)
+    branch: str | None = Field(default='main', max_length=120)
+    window_years: int = Field(default=150, ge=0, le=2000, strict=True)
+    max_events: int | None = Field(default=None, ge=1, le=4000, strict=True)
+    max_entities: int | None = Field(default=None, ge=1, le=4000, strict=True)
+
+
 class HistoryReviewRequest(_Strict):
     entries: list[dict] = Field(min_length=1, max_length=2000)
     disclosure: dict | None = Field(default=None, max_length=8)
@@ -134,6 +146,15 @@ class HistoryMapLinkRequest(_Strict):
     """
     import_id: str = Field(min_length=3, max_length=64,
                            pattern=r'^(?:sn|mi)_[0-9a-f]{6,32}$')
+    expected_story_revision: str = Field(min_length=1, max_length=64)
+    fog_radius_km: float = Field(default=300.0, ge=10.0, le=2000.0, strict=True,
+                                 allow_inf_nan=False)
+    note: str = Field(default='', max_length=400)
+
+
+class WorldGenMapLinkRequest(_Strict):
+    """Bind a succeeded author worldgen job's fast layer as the package starting map."""
+    job_id: str = Field(min_length=8, max_length=64, pattern=r'^\d{8}-\d{6}-[0-9a-f]{4}$')
     expected_story_revision: str = Field(min_length=1, max_length=64)
     fog_radius_km: float = Field(default=300.0, ge=10.0, le=2000.0, strict=True,
                                  allow_inf_nan=False)
@@ -199,26 +220,32 @@ def create_app(db_path=None):
     # ---- 原生宿主（civ-atlas）前端产物 ---------------------------------
     # 独立前缀 /native-map：绝对不能挂到 /static 下面，那里已经被上面的旧壳抢占了。
     # 产物是本地构建的 external/civ-atlas/dist-dream（不入源码仓）。缺构建不是启动崩溃，
-    # 而是一个可操作的 503；这里不装依赖、不启 Vite。
+    # 而是一个可操作的 503；这里不装依赖、不启 Vite。civ-atlas 默认关闭时整条前缀 503。
     native_map_dir = ROOT / 'external' / 'civ-atlas' / 'dist-dream'
 
     def _native_map_missing():
+        if not map_policy.civ_atlas_enabled():
+            return JSONResponse({'detail': str(CivAtlasDisabled('原生地图前端'))},
+                                status_code=503)
         return JSONResponse({'detail': '原生地图前端还没有构建：请在 external/civ-atlas '
                                        '运行前端构建，产出 dist-dream/ 后再访问；'
                                        '服务不会自动安装依赖或启动构建进程'},
                             status_code=503)
 
-    if (native_map_dir / 'dream-host.js').is_file():
+    if map_policy.civ_atlas_enabled() and (native_map_dir / 'dream-host.js').is_file():
         app.mount('/native-map', StaticFiles(directory=native_map_dir, html=True),
                   name='native-map')
     else:
-        # 只注册入口路径，让缺构建的情况给出明确说明（而不是 404/启动失败）。
+        # 只注册入口路径，让缺构建 / 后端关闭的情况给出明确说明（而不是 404/启动失败）。
         @app.get('/native-map/dream-host.js')
         @app.get('/native-map/dream-host.css')
         @app.get('/native-map')
         @app.get('/native-map/')
         def native_map_unbuilt():
             return _native_map_missing()
+
+    def _require_civ_atlas(detail=''):
+        map_policy.require_civ_atlas(detail)
 
     @app.middleware('http')
     async def guard(request: Request, call_next):
@@ -254,6 +281,11 @@ def create_app(db_path=None):
     async def value_error(request, error):
         return JSONResponse({'detail': str(error)}, status_code=400)
 
+    @app.exception_handler(CivAtlasDisabled)
+    async def civ_atlas_disabled(request, error):
+        return JSONResponse({'detail': str(error), 'map_policy': map_policy.status()},
+                            status_code=503)
+
     @app.exception_handler(ValidationError)
     async def validation_error(request, error):
         return JSONResponse({'detail': '结构校验失败：' + str(error)}, status_code=422)
@@ -273,7 +305,8 @@ def create_app(db_path=None):
                 'preferences': service.preferences(),
                 'api': service.provider.public_config(),
                 'world': empty['world'], 'packages': empty['packages'],
-                'can_start': empty['can_start'], 'world_reason': empty['reason']}
+                'can_start': empty['can_start'], 'world_reason': empty['reason'],
+                'map_policy': map_policy.status(ROOT)}
 
     @app.post('/api/sessions')
     async def new_session(req: NewSession):
@@ -411,7 +444,8 @@ def create_app(db_path=None):
     def _play_map_context(session_id):
         s = service.store.session(session_id)
         story = service.runtime.package(s['revision'])['story']
-        status, context = play_map.resolve(service.store, _import_root(), story)
+        status, context = play_map.resolve(
+            service.store, _import_root(), story, repo_root=ROOT)
         return s, story, status, context
 
     @app.get('/api/sessions/{id}/play-map')
@@ -651,6 +685,22 @@ def create_app(db_path=None):
             window=tuple(req.window) if req.window else None,
             max_events=req.max_events, max_entities=req.max_entities)
 
+    @app.post('/api/inner/history/civ-sim/previews')
+    async def history_civ_sim_preview(req: CivSimHistoryPreviewRequest):
+        """Author draft from ``artifacts/civ-sim/<run>/`` (not a civ-atlas import)."""
+        from pathlib import Path as _Path
+        root = _Path(__file__).resolve().parents[1]
+        allowed = (root / 'artifacts' / 'civ-sim').resolve()
+        target = (_Path(req.run_dir) if _Path(req.run_dir).is_absolute()
+                  else (root / req.run_dir)).resolve()
+        if allowed != target and allowed not in target.parents:
+            raise ValueError('run_dir 必须落在 artifacts/civ-sim/ 下')
+        return await run_in_threadpool(
+            service.history.preview_civ_sim, str(target),
+            base_year=req.base_year, branch=req.branch,
+            window_years=req.window_years,
+            max_events=req.max_events, max_entities=req.max_entities)
+
     @app.get('/api/inner/history/previews/{preview_id}')
     def history_preview_get(preview_id: str):
         return service.history.get_preview(preview_id)
@@ -694,6 +744,15 @@ def create_app(db_path=None):
                 req.expected_story_revision, fog_radius_km=req.fog_radius_km,
                 note=req.note)
 
+    @app.post('/api/inner/history/worldgen-map-link')
+    async def history_worldgen_map_link(request: Request, req: WorldGenMapLinkRequest):
+        """Bind a succeeded worldgen fast product as ``mechanics.map`` (world_map_product)."""
+        async with service.lock:
+            return await run_in_threadpool(
+                service.history.link_worldgen_map, req.job_id,
+                req.expected_story_revision, request.app.state.worldgen,
+                fog_radius_km=req.fog_radius_km, note=req.note)
+
     # ---- civ-atlas data imports: author side (token protected). No model is called. ----
     # Two accepted shapes, both exported by the author themselves: a 16-bit heightmap PNG
     # (elevation + sea/land only) and a .civsnap written by tools/civ_atlas_export.js
@@ -705,6 +764,7 @@ def create_app(db_path=None):
         # Same data root as the import that produced this record: a store built on a
         # temporary database must read its payloads from beside that database, not from
         # the repository's saves/ directory.
+        from . import civ_atlas_snapshot
         root = _import_root()
         if record.get('format') == civ_atlas_snapshot.FORMAT:
             world = civ_atlas_snapshot.load_world(root, record)
@@ -714,6 +774,7 @@ def create_app(db_path=None):
 
     @app.get('/api/inner/map-imports')
     def map_import_list():
+        _require_civ_atlas('地图导入列表')
         return [map_import.summary(row) for row in map_import.list_imports(service.store)]
 
     # ---- 原生宿主数据桥：只读，只给作者填 -----------------------------
@@ -721,14 +782,20 @@ def create_app(db_path=None):
     # 字节路径与哈希校验都在 ``native_worlds`` 里，web 只负责权限与响应头。
     @app.get('/api/inner/native-worlds')
     def native_world_list():
+        _require_civ_atlas('原生世界列表')
+        from . import native_worlds
         return native_worlds.listing(service.store)
 
     @app.get('/api/inner/native-worlds/{import_id}')
     def native_world_detail(import_id: str):
+        _require_civ_atlas('原生世界详情')
+        from . import native_worlds
         return native_worlds.detail(service.store, service.runtime, import_id)
 
     @app.get('/api/inner/native-worlds/{import_id}/snapshot')
     def native_world_snapshot(import_id: str):
+        _require_civ_atlas('原生世界快照')
+        from . import native_worlds
         data, record = native_worlds.snapshot_bytes(
             service.store, Path(service.store.path).resolve().parent, import_id)
         # 只给原件字节；文件名来自服务端生成的内容哈希，不接客户端任何输入。
@@ -740,23 +807,33 @@ def create_app(db_path=None):
     # 候选阶段不建 package / pointer / session；只有显式 confirm 才走既有事务建包。
     @app.get('/api/inner/native-starts/{import_id}/preview')
     def native_start_preview(import_id: str, base_year: float, branch: str = 'main'):
+        _require_civ_atlas('从 civ 开局预览')
+        from . import native_starts
         return native_starts.preview(service.store, import_id, base_year=base_year,
                                      branch=branch)
 
     @app.get('/api/inner/native-starts')
     def native_start_list():
+        _require_civ_atlas('开局候选列表')
+        from . import native_starts
         return native_starts.list_all(service.store)
 
     @app.get('/api/inner/native-starts/{draft_id}')
     def native_start_detail(draft_id: str):
+        _require_civ_atlas('开局候选详情')
+        from . import native_starts
         return native_starts.get(service.store, draft_id)
 
     @app.post('/api/inner/native-starts')
     def native_start_create(req: NativeStartBody):
+        _require_civ_atlas('保存开局候选')
+        from . import native_starts
         return native_starts.save(service.store, req.draft)
 
     @app.post('/api/inner/native-starts/{draft_id}/confirm')
     def native_start_confirm(draft_id: str, req: NativeStartConfirm):
+        _require_civ_atlas('确认从 civ 开局')
+        from . import native_starts
         return native_starts.confirm(service.runtime, service.store, draft_id,
                                      expected_revision=req.expected_revision)
 
@@ -768,6 +845,8 @@ def create_app(db_path=None):
 
     @app.post('/api/inner/map-imports')
     async def map_import_create(request: Request, body: MapImportDeclared = Depends()):
+        _require_civ_atlas('创建地图导入')
+        from . import civ_atlas_snapshot
         limit = civ_atlas_snapshot.MAX_CONTAINER_BYTES
         declared = request.headers.get('content-length')
         if declared and declared.isdigit() and int(declared) > limit:
@@ -816,10 +895,13 @@ def create_app(db_path=None):
 
     @app.get('/api/inner/map-imports/{import_id}')
     def map_import_detail(import_id: str):
+        _require_civ_atlas('地图导入详情')
         return map_import.get_import(service.store, import_id)
 
     @app.get('/api/inner/map-imports/{import_id}/preview.png')
     def map_import_preview(import_id: str, layer: str = 'elevation'):
+        _require_civ_atlas('地图导入预览')
+        from . import civ_atlas_snapshot
         record = map_import.get_import(service.store, import_id)
         import_root = _import_root()
         if record.get('format') == civ_atlas_snapshot.FORMAT:
@@ -840,6 +922,7 @@ def create_app(db_path=None):
 
     @app.post('/api/inner/map-imports/{import_id}/sample')
     async def map_import_sample(import_id: str, payload: MapSampleRequest):
+        _require_civ_atlas('地图采样')
         record = map_import.get_import(service.store, import_id)
         async with sample_limit:
             return await run_in_threadpool(_sample_record, record, payload.lon, payload.lat, payload.window_px,
@@ -847,6 +930,7 @@ def create_app(db_path=None):
 
     @app.post('/api/inner/map-imports/{import_id}/town-input')
     async def map_import_town_input(import_id: str, payload: MapTownInputRequest):
+        _require_civ_atlas('地图转城镇输入')
         record = map_import.get_import(service.store, import_id)
         author = payload.author
         # The sample is always recomputed here: a client-sent sample is never trusted.
@@ -983,11 +1067,14 @@ def create_app(db_path=None):
     # 草稿阶段不写故事包；只有 confirm 才编译并落盘。来源只接受已登记的 .civsnap，
     # 客户端不能传文件路径或任意 source 身份。
     def _world_package_source(import_id=''):
+        _require_civ_atlas('世界包流水线')
         from .world_source_civ_atlas import CivAtlasSource
         return CivAtlasSource.from_store(service.store, _import_root(), import_id or None)
 
     @app.get('/api/inner/world-package/imports')
     def world_package_imports():
+        _require_civ_atlas('世界包导入列表')
+        from . import civ_atlas_snapshot
         rows = [map_import.summary(row) for row in map_import.list_imports(service.store)
                 if row.get('format') == civ_atlas_snapshot.FORMAT]
         return {'imports': rows}
@@ -1581,4 +1668,6 @@ def create_app(db_path=None):
     app.state.worldgen = worldgen_jobs.WorldGenManager(ROOT)
     worldgen_routes.install(app)
 
+    from . import map_bundle_routes
+    map_bundle_routes.install(app, ROOT)
     return app

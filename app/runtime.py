@@ -33,7 +33,6 @@ from . import quests
 from . import events as events_pool
 from . import scene_judgment
 from . import npc_cards
-from . import civ_exploration
 from . import adventure_actions
 from .state_anchor import state_anchor
 from .atlas import validate_atlas, project_atlas
@@ -1976,6 +1975,9 @@ class Runtime:
         if scene_judgment.enabled(p['story']):
             surface['short_scene'] = {'description': current.get('description', ''),
                                       'travel_hours': local_rules.rules(p['story']).travel_hours}
+        # Exploration surface only reads already-compiled package data (roads/towns).
+        # Compiling new civ-atlas journeys is gated elsewhere; display stays available.
+        from . import civ_exploration
         exploration = civ_exploration.surface(s, p['story'], adventure)
         if exploration is not None:
             surface['exploration'] = exploration

@@ -15,10 +15,13 @@ from fastapi import Request
 from fastapi.responses import FileResponse, JSONResponse
 from starlette.concurrency import run_in_threadpool
 
-from .web_jobs import WorldGenRefused, WorldGenRequest
+from .web_jobs import WorldGenRefused, WorldGenRequest, WorldGenUpgradeRequest
 
 
 def install(app):
+    from . import world_climate_routes
+    world_climate_routes.install(app)
+
     def mgr(request):
         return request.app.state.worldgen
 
@@ -49,6 +52,10 @@ def install(app):
     @app.post('/api/inner/worldgen/jobs/{job_id}/continue')
     async def worldgen_continue(request: Request, job_id: str):
         return await run_in_threadpool(mgr(request).continue_job, job_id)
+
+    @app.post('/api/inner/worldgen/jobs/{job_id}/upgrade')
+    async def worldgen_upgrade(request: Request, job_id: str, req: WorldGenUpgradeRequest):
+        return await run_in_threadpool(mgr(request).upgrade, job_id, req)
 
     @app.get('/api/inner/worldgen/jobs/{job_id}/preview/{name}')
     def worldgen_preview(request: Request, job_id: str, name: str):

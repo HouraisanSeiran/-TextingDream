@@ -9,6 +9,48 @@ import numpy as np
 
 from . import graph_hydro as gh
 
+ENVIRONMENT_LAYERS = dict(groundwater_storage_m3='m3',groundwater_head_m='m',
+    groundwater_recharge_m3='m3',groundwater_baseflow_m3='m3',ground_ice_m='m',
+    soil_temperature_c='degC',infiltration_factor='1',absorbed_shortwave_j_m2='J/m2',
+    geothermal_input_j_m2='J/m2',actual_et_energy_j_m2='J/m2',biomass_carbon_kg='kg',
+    soil_salt_kg='kg',soil_nutrient_kg='kg',soil_organic_carbon_kg='kg',
+    root_cohesion_pa='Pa',manning_n='s/m^(1/3)',plant_stress_factor='1',
+    habitat_suitability='1',habitat_population_individuals='individuals',
+    soil_salinity_kg_m3='kg/m3',geothermal_heat_w_m2='W/m2',
+    sea_temperature_c='degC',sea_air_temperature_feedback_c='degC',
+    native_committed_bed_change_m='m',glacier_ice_volume_m3='m3',glacier_coverage_fraction='1',
+    glacier_ice_thickness_m='m',glacier_ice_surface_m='m',coastal_water_volume_m3='m3',
+    coastal_salt_kg='kg',coastal_salinity_kg_m3='kg/m3')
+
+
+def new_task_config(config=None):
+    """New tasks opt in; explicit legacy requests and saved products stay legacy."""
+    result=dict({'integrated_environment':True}, **(config or {}))
+    if result['integrated_environment']:
+        native=dict(result.get('native_environment',{}))
+        native.setdefault('coast_backend','regional-existing-delta-v1')
+        result['native_environment']=native
+    return result
+
+
+def numerical_config(config):
+    """Operational pause budgets do not identify the numerical product."""
+    return {k: v for k, v in config.items() if k not in ('pause_after_round', 'wallclock_budget_seconds')}
+
+
+def environment_status(metadata):
+    """Aggregate saved causal statuses without changing a published product."""
+    seasonal = metadata.get('environment') or {}
+    processes = seasonal.get('processes') or {}
+    pending = {name: row for name, row in processes.items()
+               if row.get('status') not in ('computed', 'complete', 'not-triggered')}
+    generation = metadata.get('generation_environment') or {}
+    generation_status = generation.get('status', 'pending-input')
+    if generation_status not in ('complete', 'computed'):
+        pending['generation'] = generation
+    return dict(status='partial-or-pending' if pending else 'complete', pending_processes=pending,
+                seasonal_processes=processes, generation_status=generation_status)
+
 
 def load_history(sk, config=None):
     """Require saved initial states; never infer old geology from final plates."""
@@ -52,6 +94,7 @@ def load_history(sk, config=None):
 
 
 def compute(sk, elevation, ocean, mesh, outlets, first, spacing, *, lagoon=None, protected=None, config=None, out_dir=None):
+    config = new_task_config(config)
     gh.load_terragenesis()
     from terrain_pipeline import drainage, world_processes
     from terrain_pipeline.common_infra import identity
@@ -77,17 +120,19 @@ def compute(sk, elevation, ocean, mesh, outlets, first, spacing, *, lagoon=None,
         result = world_processes.query(root)
         if result['metadata']['source_identity'] != source['source_identity']:
             raise ValueError('saved world processes belong to another initial bed')
+        requested = world_processes.plan(source, config)['config']
+        if numerical_config(requested) != numerical_config(result['metadata']['config']):
+            raise ValueError('saved world processes numerical configuration differs')
         return result
     if (root/'checkpoint.json').exists():
         checkpoint = json.loads((root/'checkpoint.json').read_text(encoding='utf-8'))
         if checkpoint['source']['source_identity'] != source['source_identity']:
             raise ValueError('saved checkpoint belongs to another initial world bed')
         requested = world_processes.plan(source, config)['config']
-        operational = {'pause_after_round', 'wallclock_budget_seconds'}
-        if {k: v for k, v in requested.items() if k not in operational} != {
-                k: v for k, v in checkpoint['config'].items() if k not in operational}:
+        if numerical_config(requested) != numerical_config(checkpoint['config']):
             raise ValueError('saved checkpoint numerical configuration differs')
-        manifest = world_processes.resume(root/'checkpoint.json')
+        operational = {k: v for k, v in (config or {}).items() if k in ('pause_after_round', 'wallclock_budget_seconds')}
+        manifest = world_processes.resume(root/'checkpoint.json', config=operational)
     else:
         manifest = world_processes.prepare(source, root, config)
     if manifest.get('status') == 'paused':
@@ -106,7 +151,15 @@ def publish(result, out_dir):
     from terrain_pipeline import world_processes
     root = Path(out_dir)
     if (root/'manifest.json').exists():
-        return world_processes.query(root)
+        saved = world_processes.query(root)
+        from terrain_pipeline.common_infra import identity
+        metadata = dict(result['metadata'])
+        metadata.pop('cpu_seconds', None)
+        metadata['config'] = numerical_config(metadata['config'])
+        expected = identity(result['arrays'], metadata)
+        if saved['identity'] != expected:
+            raise ValueError('published world processes differ from requested result')
+        return saved
     return world_processes.save_product(result, root)
 
 

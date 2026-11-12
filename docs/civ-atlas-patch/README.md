@@ -1,5 +1,7 @@
 # civ-atlas 本工程改动补丁（可重建）
 
+> **上游补丁清单（2026-11-08 整理）**：这里记录怎样重建对 civ-atlas 的改动。玩家地图是否只读 civ-atlas，见 [../现状.md](../现状.md)，不要把补丁验收当成旅程完成度。
+
 基线：`https://github.com/guaner-334/civ-atlas` @ `0939c5f1622a5e45cfc16f645ea3845993ab3985`（v1.3.0，AGPL-3.0-only）
 源码包：`codeload.github.com/guaner-334/civ-atlas/tar.gz/0939c5f1622a5e45cfc16f645ea3845993ab3985`
 包 SHA-256：`8FE4F3CB16CD81AEAC393789FFA5EF30093AA1245A561A456684E6CA7CDFEEBC`（30 256 136 字节）

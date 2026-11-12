@@ -1,7 +1,8 @@
 """New tectonic skeleton generation for the world presets (CPU only, imports Terragenesis read-only).
 
-Imports `terrain_pipeline.tectonic_evolution` / `tectonic_product` from the Terragenesis workspace; none of
-its files are modified. `plan_skeleton` is the resource pre-check (no generation). `generate_skeleton` is
+Imports `terrain_pipeline.tectonic` from the Terragenesis workspace (evolve / freeze / save_product);
+none of its files are modified. Legacy module names `tectonic_evolution` / `tectonic_product` are gone.
+`plan_skeleton` is the resource pre-check (no generation). `generate_skeleton` is
 explicit and refuses to run without enough free memory.
 
 The starting continent mask is replaced through `evolve(config, initial_state)` (an official injection point)
@@ -200,6 +201,9 @@ def generate_skeleton(cfg, out_dir, *, max_iterations=5, ocean_tol=0.02, mountai
     speed = min(2000.0, cell * 0.2)
     shape = (int(round(w['height_km'] / sk['cell_size_km'])), int(round(w['width_km'] / sk['cell_size_km'])))
     field = land_field(w['type'], shape, cfg['world_seed'])
+    if cfg.get('geography_features'):
+        from .geography import bias_land_field
+        field = bias_land_field(field, cfg)
     quantile = w['ocean_fraction']
     target_m = w['mountain_target_land_fraction']
     history, best = [], None
@@ -351,6 +355,9 @@ def generate_skeleton(cfg, out_dir, *, max_iterations=5, ocean_tol=0.02, mountai
         manifest['targets']['ocean_tolerance_abs'] = 0.015
         manifest['actual']['mountain_within_tolerance'] = abs(manifest['actual']['mountain_deviation']) <= 0.02
         manifest['actual']['ocean_within_tolerance'] = abs(manifest['actual']['ocean_deviation']) <= 0.015
+    if cfg.get('geography_features'):
+        from .geography import result_record
+        manifest['geography'] = result_record(cfg, fin['elevation_m'])
     manifest['identity'] = sha256_json({k: v for k, v in manifest.items() if k not in ('seconds', 'peak_rss_bytes')})
     (out_dir / 'skeleton-run.json').write_text(json.dumps(manifest, indent=2, ensure_ascii=False), encoding='utf-8')
     return manifest
@@ -404,6 +411,9 @@ def write_plate_npz(path, tc, fields, velocities, smoothing, cfg, tp, extra_arra
                             for k, v in arrays.items()})
     if extra_manifest:
         manifest.update(extra_manifest)
+    if cfg.get('geography_features'):
+        from .geography import result_record
+        manifest['geography'] = result_record(cfg, arrays['final/elevation_m'])
     manifest['identity'] = hashlib.sha256(json.dumps(manifest, sort_keys=True, separators=(',', ':'), allow_nan=False).encode()).hexdigest()
     np.savez_compressed(path, manifest_json=np.array(json.dumps(manifest, sort_keys=True)), **{k: v for k, v in arrays.items()})
     return manifest['identity']

@@ -1,27 +1,130 @@
-/* world generation page (app/static/worldgen.js) */
-.worldgen-form { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: .75rem 1.25rem; align-items: end; }
-.worldgen-form label { display: flex; flex-direction: column; gap: .3rem; }
-.worldgen-form output { font-variant-numeric: tabular-nums; opacity: .8; }
-.worldgen-form .worldgen-check { flex-direction: row; align-items: center; gap: .4rem; grid-column: 1 / -1; }
-.worldgen-form .worldgen-check.disabled { opacity: .5; }
-.worldgen-gpu-note, .worldgen-estimate { grid-column: 1 / -1; margin: 0; }
-.worldgen-estimate table { border-collapse: collapse; width: 100%; font-size: .9em; }
-.worldgen-estimate th, .worldgen-estimate td { text-align: left; padding: .2rem .6rem; border-bottom: 1px solid rgba(127, 127, 127, .25); }
+/* world generation page — shares the unified workbench shell */
+.worldgen-tabs {
+  display: flex;
+  gap: .4rem;
+  margin: 0 0 1rem;
+  padding: .25rem;
+  border: 1px solid #d1d9ca;
+  border-radius: 6px;
+  background: #f0f3ea;
+  width: fit-content;
+  max-width: 100%;
+}
+.worldgen-tab {
+  border: 1px solid transparent;
+  background: transparent;
+  color: #3e5648;
+  border-radius: 4px;
+  padding: 7px 14px;
+  font-size: 13px;
+}
+.worldgen-tab:hover { background: #e4ebe0; }
+.worldgen-tab.selected {
+  background: #fff;
+  border-color: #bfcfba;
+  color: var(--forest-deep, #1b382f);
+  font-weight: 600;
+}
+.worldgen-panel { min-width: 0; }
+.worldgen-panel > .page { margin: 0; padding: 0; max-width: none; }
+.worldgen-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: .85rem 1.1rem;
+  align-items: end;
+}
+.worldgen-form label { display: flex; flex-direction: column; gap: .35rem; margin: 0; }
+.worldgen-form output { font-variant-numeric: tabular-nums; color: #6f8274; font-size: 12px; }
+.worldgen-form .worldgen-check {
+  flex-direction: row;
+  align-items: center;
+  gap: .45rem;
+  grid-column: 1 / -1;
+  margin: 0;
+}
+.worldgen-form .worldgen-check.disabled { opacity: .55; }
+.worldgen-gpu-note,
+.worldgen-estimate { grid-column: 1 / -1; margin: 0; }
+.worldgen-estimate h3 { margin: 0 0 .5rem; font-size: 14px; }
+.worldgen-estimate table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 12px;
+  background: #fff;
+  border: 1px solid #d1d9ca;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.worldgen-estimate th,
+.worldgen-estimate td {
+  text-align: left;
+  padding: .35rem .65rem;
+  border-bottom: 1px solid #e4ebe0;
+}
+.worldgen-estimate tr:last-child td { border-bottom: 0; }
+.worldgen-estimate th { background: #f0f3ea; color: #3e5648; font-weight: 600; }
 .worldgen .ok { color: #3a8a4a; }
 .worldgen .warn { color: #b9652a; }
-.worldgen-form button[type=submit] { grid-column: 1 / -1; justify-self: start; }
+.worldgen-form button[type=submit] { grid-column: 1 / -1; justify-self: start; padding: 8px 16px; }
 .worldgen-job { margin-top: 1rem; }
-.worldgen-status { padding: .1rem .5rem; border-radius: .6rem; background: rgba(127, 127, 127, .18); }
-.worldgen-status.succeeded { background: rgba(58, 138, 74, .25); }
-.worldgen-status.failed, .worldgen-status.interrupted { background: rgba(185, 60, 42, .25); }
+.worldgen-status {
+  display: inline-block;
+  padding: .15rem .55rem;
+  border-radius: 999px;
+  background: rgba(127, 127, 127, .16);
+  font-size: 12px;
+}
+.worldgen-status.succeeded { background: rgba(58, 138, 74, .22); color: #2f6b3a; }
+.worldgen-status.failed,
+.worldgen-status.interrupted { background: rgba(185, 60, 42, .2); color: #8a3228; }
+.worldgen-stages { margin: .6rem 0; padding-left: 1.1rem; }
 .worldgen-stages li.running { font-weight: 600; }
-.worldgen-stages li.skipped, .worldgen-stages li.pending { opacity: .6; }
-.worldgen-log { max-height: 16rem; overflow: auto; font-size: .8em; white-space: pre-wrap; }
-.worldgen-previews { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1rem; }
-.worldgen-previews img { width: 100%; height: auto; border-radius: .3rem; }
+.worldgen-stages li.skipped,
+.worldgen-stages li.pending { opacity: .6; }
+.worldgen-log {
+  max-height: 16rem;
+  overflow: auto;
+  font-size: 12px;
+  white-space: pre-wrap;
+  background: #fff;
+  border: 1px solid #d1d9ca;
+  border-radius: 4px;
+  padding: .6rem .75rem;
+}
+.worldgen-previews {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+}
+.worldgen-previews img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  border: 1px solid #d1d9ca;
+  background: #fff;
+}
 .worldgen-previews figure { margin: 0; }
-.worldgen-kv { display: grid; grid-template-columns: max-content 1fr; gap: .25rem 1rem; font-size: .92em; }
-.worldgen-kv dt { opacity: .7; }
+.worldgen-previews figcaption { margin-top: .35rem; font-size: 12px; color: #6f8274; }
+.worldgen-kv {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: .3rem 1rem;
+  font-size: 13px;
+}
+.worldgen-kv dt { color: #6f8274; }
 .worldgen-kv dd { margin: 0; word-break: break-all; }
-.worldgen-history { display: flex; flex-direction: column; align-items: flex-start; gap: .3rem; }
-.worldgen-history-item { font-size: .88em; }
+.worldgen-history {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: .35rem;
+}
+.worldgen-history-item {
+  text-align: left;
+  font-size: 12px;
+  padding: 8px 10px;
+  border: 1px solid #d1d9ca;
+  border-radius: 4px;
+  background: #fff;
+}
+.worldgen-history-item:hover { background: #eef3ea; }

@@ -1,0 +1,675 @@
+{
+  "schema": "dream-map-bundles-1",
+  "bundles": [
+    {
+      "id": "terragenesis-world-20261111",
+      "title": "Terragenesis · 2026-11-11 同源世界地图",
+      "status": "current-registered-finite-year",
+      "sources": {
+        "terrain": {
+          "path": "artifacts/mountain-glacier-hydrology-20261111/world",
+          "identity": "6d99aafd0b11d83e6af1358195dcab5b3c437771e9f5466fa7ceb7eb8dd514e4",
+          "manifest_sha256": "dbb5f8d460b93b7d6868d3c86fff8aabe4513346cb56fa9fca0d669470c9fa21"
+        },
+        "environment": {
+          "path": "artifacts/world-climate-integration-20261111/environment-world",
+          "identity": "9fda7cc802e509c154662edcfc2e6f8c5dc4dd135d9d052527f87681cbbef0c1",
+          "manifest_sha256": "8e7162be46fda842f66f2db302b477ed03ef93925963d295180fe3fc40147113"
+        },
+        "climate": {
+          "path": "artifacts/world-climate-integration-20261111/climate-dry-continuous-year",
+          "identity": "70d36369e89eaef26b79ac19c250fff164df022f3268844b731c5325d412ae4c",
+          "manifest_sha256": "ebe45e01833e0a276827878d6dd2251d3cf3ab80b31f978bfd477297929f571e"
+        },
+        "hydrology": {
+          "path": "artifacts/world-climate-integration-20261111/hydrology-dry-continuous-year",
+          "identity": "61783b0ada6bcb1f4d513e46fe320288cbf62355331d20ff88a4b091d1c3e129",
+          "manifest_sha256": "9108affe9ba09fb07e6276d2f3b9ad40c1a150fd273922c42e53d723aa05dd25"
+        },
+        "ocean": {
+          "path": "artifacts/ocean-current-overlay-20261111",
+          "identity": null,
+          "manifest_sha256": "abf72e6a825ce2b1d8270e854ba65fbdbd28cbfddd76ae66ebfd40123efc0f2c",
+          "forcing_identity": "5bc80559d2a97d878fbafb229e354f19ad575f882fbb4cf1762a23140f414bba",
+          "status": "finite-year-candidate",
+          "fields": {
+            "ocean_mask": {
+              "file": "ocean_mask.npy",
+              "sha256": "0ca2bda0af008f56d2b139548732975cf02a2c2b94d26b50dd0ab403a3fad574",
+              "shape": [
+                200,
+                250
+              ],
+              "dtype": "bool",
+              "unit": "1",
+              "nodata": null,
+              "meaning": "Saved independent ocean support / monthly upper-layer diagnostic; warm/cold uses SST anomaly, not absolute temperature"
+            },
+            "basin_id": {
+              "file": "basin_id.npy",
+              "sha256": "b5557dc69db85493300e3d33582748e52f16b3fc2580a0641c636e475f5fa571",
+              "shape": [
+                200,
+                250
+              ],
+              "dtype": "int32",
+              "unit": "1",
+              "nodata": null,
+              "meaning": "Saved independent ocean support / monthly upper-layer diagnostic; warm/cold uses SST anomaly, not absolute temperature"
+            },
+            "face_open_x": {
+              "file": "face_open_x.npy",
+              "sha256": "5c107df5b5dbbf9bfc03e0e24c00ba9de4c6435fa570f2fbadfafbc30bcf51a2",
+              "shape": [
+                200,
+                249
+              ],
+              "dtype": "bool",
+              "unit": "1",
+              "nodata": null,
+              "meaning": "Saved independent ocean support / monthly upper-layer diagnostic; warm/cold uses SST anomaly, not absolute temperature"
+            },
+            "face_open_z": {
+              "file": "face_open_z.npy",
+              "sha256": "9e998b1fa453271cda739c5f301a0bc77ecfe75784b5a3857a670f07e1f22617",
+              "shape": [
+                199,
+                250
+              ],
+              "dtype": "bool",
+              "unit": "1",
+              "nodata": null,
+              "meaning": "Saved independent ocean support / monthly upper-layer diagnostic; warm/cold uses SST anomaly, not absolute temperature"
+            },
+            "wet_area_fraction": {
+              "file": "wet_area_fraction.npy",
+              "sha256": "0c1310574f94c8573cd89bfcdf7ae0d4671ac99b69c2ae211dce39af6b882dad",
+              "shape": [
+                200,
+                250
+              ],
+              "dtype": "float64",
+              "unit": "1",
+              "nodata": null,
+              "meaning": "Saved independent ocean support / monthly upper-layer diagnostic; warm/cold uses SST anomaly, not absolute temperature"
+            },
+            "monthly_current_x_m_s": {
+              "file": "monthly_current_x_m_s.npy",
+              "sha256": "12d3cff42c746ab1b31e2c73b3f548fdb0fddb7bde07bac3f583cdbd7a346794",
+              "shape": [
+                12,
+                200,
+                250
+              ],
+              "dtype": "float64",
+              "unit": "m/s",
+              "nodata": null,
+              "meaning": "Saved independent ocean support / monthly upper-layer diagnostic; warm/cold uses SST anomaly, not absolute temperature"
+            },
+            "monthly_current_z_m_s": {
+              "file": "monthly_current_z_m_s.npy",
+              "sha256": "3734bef4a4bf17b98a0115efa0a03f8701a43df0ebfa4abd9a9d3332bbc6f06d",
+              "shape": [
+                12,
+                200,
+                250
+              ],
+              "dtype": "float64",
+              "unit": "m/s",
+              "nodata": null,
+              "meaning": "Saved independent ocean support / monthly upper-layer diagnostic; warm/cold uses SST anomaly, not absolute temperature"
+            },
+            "monthly_sea_temperature_c": {
+              "file": "monthly_sea_temperature_c.npy",
+              "sha256": "95e34184be4b69146a5fc7d2359834a9c64c8edba67484584f80f6ca4c08d0cd",
+              "shape": [
+                12,
+                200,
+                250
+              ],
+              "dtype": "float64",
+              "unit": "degC",
+              "nodata": null,
+              "meaning": "Saved independent ocean support / monthly upper-layer diagnostic; warm/cold uses SST anomaly, not absolute temperature"
+            },
+            "monthly_reference_sst_c": {
+              "file": "monthly_reference_sst_c.npy",
+              "sha256": "47c376fe9f8c6ec5135999a8b527d5134a29aaad94d017dc395d7135fdbfcea0",
+              "shape": [
+                12,
+                200,
+                250
+              ],
+              "dtype": "float64",
+              "unit": "degC",
+              "nodata": null,
+              "meaning": "Saved independent ocean support / monthly upper-layer diagnostic; warm/cold uses SST anomaly, not absolute temperature"
+            },
+            "monthly_sst_anomaly_c": {
+              "file": "monthly_sst_anomaly_c.npy",
+              "sha256": "acf6437495115fbd3a5950a8c9efbd57abff6fcbd2bf9111c6819763bee5fbb0",
+              "shape": [
+                12,
+                200,
+                250
+              ],
+              "dtype": "float64",
+              "unit": "degC",
+              "nodata": null,
+              "meaning": "Saved independent ocean support / monthly upper-layer diagnostic; warm/cold uses SST anomaly, not absolute temperature"
+            }
+          },
+          "routes": {
+            "path": "artifacts/ocean-current-overlay-20261111/routes.json",
+            "sha256": "5101ec4197d90c8cfbdf78ff9a761eff56cc0f0f78d9f9b5912d1e17ff55648a"
+          }
+        },
+        "surface_water": {
+          "path": "artifacts/climate-lakes-rivers-20261112/surface-water-csr-year",
+          "identity": "7c4da2ca737de3baa0b30c576af7adfca08e268b69cd9dc9dc243e33ca7be0a8",
+          "manifest_sha256": "ab49439f4a93680f65b58470b41da771785ddb1dd9e7ac2cfd047a7e919f31f4"
+        }
+      },
+      "previews": [
+        {
+          "key": "atlas",
+          "title": "实际月湖河 · 有限首年",
+          "months": [
+            1,
+            7,
+            12
+          ],
+          "georeferenced": true,
+          "files": {
+            "1": {
+              "path": "artifacts/climate-lakes-rivers-20261112/atlas-monthly-final/month-01.png",
+              "sha256": "fb006405e79236c55237ff27ba039f6662ef7a468736637adfb909ac1ccc7020"
+            },
+            "7": {
+              "path": "artifacts/climate-lakes-rivers-20261112/atlas-monthly-final/month-07.png",
+              "sha256": "5c37b060ea0d7c3b64cdbcfd8c24a6e88a3e2948526af2e8121e1c6ac6589ea9"
+            },
+            "12": {
+              "path": "artifacts/climate-lakes-rivers-20261112/atlas-monthly-final/month-12.png",
+              "sha256": "39d6c0b672121da3cbeaccdc3785c015298d1efb20188a7c5d4d87ec7644663e"
+            }
+          },
+          "image_size": [
+            1962,
+            1727
+          ],
+          "map_rect": {
+            "x": 81,
+            "y": 81,
+            "width": 1800,
+            "height": 1440
+          },
+          "world_extent_m": [
+            -5000000.0,
+            -4000000.0,
+            5000000.0,
+            4000000.0
+          ],
+          "surface_water_identity": "7c4da2ca737de3baa0b30c576af7adfca08e268b69cd9dc9dc243e33ca7be0a8",
+          "coordinate_note": "Only renderer-provenance map_rect maps to metric world coordinates"
+        },
+        {
+          "key": "atlas-history",
+          "title": "Year-1 environment atlas · 历史潜在湖 / 无湖水账",
+          "months": [],
+          "georeferenced": true,
+          "image_size": [
+            1962,
+            1727
+          ],
+          "map_rect": {
+            "x": 81,
+            "y": 81,
+            "width": 1800,
+            "height": 1440
+          },
+          "world_extent_m": [
+            -5000000.0,
+            -4000000.0,
+            5000000.0,
+            4000000.0
+          ],
+          "files": {
+            "static": {
+              "path": "artifacts/world-climate-integration-20261111/atlas-final/simple-atlas.png",
+              "sha256": "923d31d0bab02cfeb992198d7770f352bfb8a1e0968625e1142decf6fcb97d17"
+            }
+          },
+          "coordinate_note": "Only map_rect has coordinate meaning; exclude margins/decorations",
+          "status": "history-reference-only"
+        },
+        {
+          "key": "relief",
+          "title": "Relief only",
+          "months": [],
+          "georeferenced": true,
+          "image_size": [
+            1962,
+            1602
+          ],
+          "map_rect": {
+            "x": 81,
+            "y": 81,
+            "width": 1800,
+            "height": 1440
+          },
+          "world_extent_m": [
+            -5000000.0,
+            -4000000.0,
+            5000000.0,
+            4000000.0
+          ],
+          "files": {
+            "static": {
+              "path": "artifacts/world-climate-integration-20261111/atlas-final/relief-only.png",
+              "sha256": "f3e7313ba7057b1f9d0f55552d1d36cc803719460bda2844873e25e29069a6df"
+            }
+          },
+          "coordinate_note": "Only map_rect has coordinate meaning; exclude margins/decorations"
+        },
+        {
+          "key": "climate-topics",
+          "title": "Climate diagnostic panels",
+          "months": [],
+          "georeferenced": false,
+          "image_size": [
+            2520,
+            1540
+          ],
+          "map_rect": null,
+          "world_extent_m": null,
+          "files": {
+            "static": {
+              "path": "artifacts/world-climate-integration-20261111/topics/climate-topics.png",
+              "sha256": "1c1ec774061fcd851ce1b7913b130eb49d16a30cc9aecdf77b21375c599fd06a"
+            }
+          },
+          "coordinate_note": "Diagnostic panel; clicking cannot query a world coordinate"
+        },
+        {
+          "key": "water-snow-topics",
+          "title": "Water and snow diagnostic panels · 历史潜在湖 / 无湖水账",
+          "months": [],
+          "georeferenced": false,
+          "image_size": [
+            2520,
+            1540
+          ],
+          "map_rect": null,
+          "world_extent_m": null,
+          "files": {
+            "static": {
+              "path": "artifacts/world-climate-integration-20261111/topics/water-snow-topics.png",
+              "sha256": "f59a510ef42c81d035e0941543f233e11b3d5b5e5f00ae62a23be0a849fb913b"
+            }
+          },
+          "coordinate_note": "Diagnostic panel; clicking cannot query a world coordinate",
+          "status": "history-reference-only"
+        },
+        {
+          "key": "glacier-year-comparison",
+          "title": "Old H20 / current H1 comparison (history only)",
+          "months": [],
+          "georeferenced": false,
+          "image_size": [
+            2520,
+            1260
+          ],
+          "map_rect": null,
+          "world_extent_m": null,
+          "files": {
+            "static": {
+              "path": "artifacts/world-climate-integration-20261111/topics/glacier-year-comparison.png",
+              "sha256": "ec25450c9186252a328dd0304af447ccba995a3333075aa23d6fdd71014b162d"
+            }
+          },
+          "coordinate_note": "Diagnostic panel; clicking cannot query a world coordinate"
+        },
+        {
+          "key": "ocean-overlay",
+          "title": "ocean-overlay",
+          "months": [
+            1,
+            7
+          ],
+          "georeferenced": true,
+          "image_size": [
+            1962,
+            1727
+          ],
+          "map_rect": {
+            "x": 81,
+            "y": 81,
+            "width": 1800,
+            "height": 1440
+          },
+          "world_extent_m": [
+            -5000000.0,
+            -4000000.0,
+            5000000.0,
+            4000000.0
+          ],
+          "files": {
+            "1": {
+              "path": "artifacts/ocean-current-overlay-20261111/overlay-month-01.png",
+              "sha256": "eac3ac4c35682cbe316cb858e7b467e16155f6815f4fa6fa0b35d3baa9200f1e"
+            },
+            "7": {
+              "path": "artifacts/ocean-current-overlay-20261111/overlay-month-07.png",
+              "sha256": "23bac50aadd8f3acced55d1a8ee6289dd6b560339353293610414f96485907a3"
+            }
+          },
+          "coordinate_note": "Only map_rect has coordinate meaning; exclude margins/decorations"
+        },
+        {
+          "key": "ocean-composite",
+          "title": "ocean-composite · 历史潜在湖 / 无湖水账",
+          "months": [
+            1,
+            7
+          ],
+          "georeferenced": true,
+          "image_size": [
+            1962,
+            1727
+          ],
+          "map_rect": {
+            "x": 81,
+            "y": 81,
+            "width": 1800,
+            "height": 1440
+          },
+          "world_extent_m": [
+            -5000000.0,
+            -4000000.0,
+            5000000.0,
+            4000000.0
+          ],
+          "files": {
+            "1": {
+              "path": "artifacts/ocean-current-overlay-20261111/natural-map-month-01.png",
+              "sha256": "b55c7110a00828c3aebde1d2bfcb8571ff3fc69028cbc3d4c3318c15c47d9d37"
+            },
+            "7": {
+              "path": "artifacts/ocean-current-overlay-20261111/natural-map-month-07.png",
+              "sha256": "62941a65a2c12f198acda69be233680982856c16bbabe844166eb6dde327945d"
+            }
+          },
+          "coordinate_note": "Only map_rect has coordinate meaning; exclude margins/decorations",
+          "status": "history-reference-only"
+        },
+        {
+          "key": "ocean-theme",
+          "title": "ocean-theme",
+          "months": [
+            1,
+            7
+          ],
+          "georeferenced": true,
+          "image_size": [
+            1962,
+            1727
+          ],
+          "map_rect": {
+            "x": 81,
+            "y": 81,
+            "width": 1800,
+            "height": 1440
+          },
+          "world_extent_m": [
+            -5000000.0,
+            -4000000.0,
+            5000000.0,
+            4000000.0
+          ],
+          "files": {
+            "1": {
+              "path": "artifacts/ocean-current-overlay-20261111/ocean-theme-month-01.png",
+              "sha256": "dd4471dc31fb3c362305fd8aa895f719bc2d32275935e44952b12769157fd083"
+            },
+            "7": {
+              "path": "artifacts/ocean-current-overlay-20261111/ocean-theme-month-07.png",
+              "sha256": "82309415b7ebd5422ab1badd5d1b7ef71abeefb8dc8dcb779a678f7dee0d7e68"
+            }
+          },
+          "coordinate_note": "Only map_rect has coordinate meaning; exclude margins/decorations"
+        }
+      ],
+      "preview_metadata": [
+        {
+          "path": "artifacts/world-climate-integration-20261111/atlas-final/atlas-source.json",
+          "sha256": "2cdf34956052f694bfc5d31e4b61653c34e7d4b18d7017a1fdbf116b8a17a985"
+        },
+        {
+          "path": "artifacts/climate-lakes-rivers-20261112/atlas-monthly-final/surface-water-source.json",
+          "sha256": "4e0dae638d332aa19ee5ff7367cdb05dc31ec7d2bf0349799c4072142d2d7089"
+        }
+      ],
+      "warnings": [
+        "Lake geometry is potential/unvalidated, not permanent water: 31356 potential cells (9.6125% of land) in this registered world; no lake storage or water balance.",
+        "Finite diagnostic noleap365 year 1; potential biome is not realized ecology. No resources, civilizations or available-water inventory are inferred.",
+        "Current glacier H is year-1 end and only known in selected dynamic regions. Outside support is unknown, not zero ice. Snow SWE is seasonal stock.",
+        "Routing bed/surface, receiver, rivers and potential lakes retain the original frozen topology, not new-year ice geometry. Old cumulative melt is history only and is NOT an input to year 1.",
+        "Ocean is a separate 40 km finite-year unconverged candidate; nearest wet-supported sample only, no climate feedback or calibrated navigation claim.",
+        "Current surface_water is one finite empty-stock year. Hillslope Q excludes lake interior; spill routes are net schematic transfers, not full hydraulic Q.",
+        "Old terrain lakes/rivers, hydrology Q and ocean-composite retain historical potential/no-lake geometry; old environment identity is unchanged."
+      ],
+      "history": [
+        {
+          "kind": "glacier-H20",
+          "status": "history-reference-only",
+          "source_identity": "6d99aafd0b11d83e6af1358195dcab5b3c437771e9f5466fa7ceb7eb8dd514e4",
+          "regions": [
+            {
+              "identity": "d16c52cde11999c92e1ecec81c7200ad6124088e5e8d9e36b69b2d4a2a5d0aa4",
+              "window_zx": [
+                158,
+                483,
+                239,
+                564
+              ],
+              "files": {
+                "state.npz": "e564013f7d01a03c7000aec78da3ed8e527be8d4e0b13f787be6c32799b60ffb",
+                "arrays.npz": "61dfcd7eefbf1bb1364a4b5463b548fac9f86321e8ac0bdda83a113d622f9ceb",
+                "metadata.json": "2884a907dcfa055a6b95bd40c1577c41dedefc1a63956183249d9344d1b457c9",
+                "ledger.json": "b9266d9a9d9d5fafb6db1d3f0753513e1544b618f117c8d3b79d056b24fe2072"
+              },
+              "terrain_identity": "814fb13e3f8d97370052a8ac27c257d6804f7ce27f88431ac44ce7ee9b7a1fc0",
+              "source_identity": "df03ea1fdd72c2bb34fabeaa4c6b9c5759a6189a3aea98e6135bb08c2a323331",
+              "model_identity": "080c6ef4e57c2080c2d1abdaed2cb503f6bab22be0fbed216451d3ac0b4f824b",
+              "forcing_identity": "7794493ed5ad24a885fb0312198cc24080adddcbebc9f8db690b7b1938d89a27",
+              "geometry_identity": "de3c781fa4aeeadc5759fb3d567f00fbe7d81ba31222b4561593cda29d11893a",
+              "target_years": 20,
+              "completed_years": 20,
+              "physical_start_s": 0.0,
+              "physical_end_s": 631152000.0,
+              "elapsed_physical_seconds": 631152000.0,
+              "edge_ice": {
+                "threshold_m": 1.0,
+                "max_thickness_m": 0.0,
+                "positive_cells": 0,
+                "above_threshold_cells": 0,
+                "side_max_thickness_m": {
+                  "west": 0.0,
+                  "east": 0.0,
+                  "north": 0.0,
+                  "south": 0.0
+                },
+                "exported_ice_m3": 0.0,
+                "exported_ice_water_equivalent_m3": 0.0,
+                "closed_edge_zero": true,
+                "composition_status": "closed-edge-zero"
+              },
+              "boundary": "closed",
+              "elevation_parameters": {
+                "accumulation_gradient_mwe_per_year_per_m": 0.004,
+                "max_accumulation_mwe_per_year": 2.0,
+                "ablation_gradient_mwe_per_year_per_m": 0.006,
+                "max_ablation_mwe_per_year": 6.0,
+                "sea_level_m": 0.0,
+                "generation_height_m": 3100.0
+              },
+              "parameters": {
+                "ice_density_kg_m3": 917.0,
+                "creep_parameter_pa_n_s": 2.4e-24,
+                "glen_exponent": 3,
+                "min_flow_thickness_m": 0.0,
+                "max_thickness_m": 500.0,
+                "erosion_proxy_coefficient": 0.001,
+                "formula_source": "shallow ice approximation, deformation (creep) only, Glen flow law with exponent n; the flux form q = W (2A/(n+2)) (rho g)^n H^(n+2) |ds/dx|^(n-1) (-ds/dx) is the standard 1-D SIA discretisation on cell centres with mean face thickness and central surface slope. No basal sliding law is implemented, so no velocity here is a sliding velocity.",
+                "densification": 1.0905125408942202,
+                "creep_parameter_unit": "Pa^-n s^-1",
+                "creep_parameter_semantics": "dimensional Glen creep parameter of the flow law; it is NOT a dimensionless lumped coefficient. A caller that wants a lumped coefficient must carry its own dimensions instead",
+                "glacier_existence_criterion": "not_decided_here: a multi-year net balance (positive or negative) is not a glacier-existence criterion; this bounded store reports mass and flux only"
+              },
+              "operational_config": {
+                "max_total_wall_s": 30.0,
+                "max_total_substeps": 200000,
+                "max_memory_bytes": 268435456,
+                "outflow_sides": [],
+                "effective_sliding_speed_m_per_year": 0.0
+              },
+              "reused": {
+                "world_glacier.py": "138e4bc8fdf59d3d64289b387d9496197b4aaef814c25adc4aed4ca6bc21ceb2",
+                "environment_processes.py": "0416e901b8c2a51a4934b64cfd66521a69f08cfcf08bbffa95a8ef0c532043d6",
+                "common_infra.py": "c9a342c18ae10960d8a048a6b0ca79f3997ab3d1b5c52779633c24939b261d39"
+              },
+              "units": "bed/H/surface: m; annual forcing: m water/year; water sums/residual: m3 water; faces/cell residual: m3 ice; physical_time_s: SI seconds",
+              "melt_handoff_contract": {
+                "component_array": "cumulative_melt_water_m3",
+                "units": "m3 water per cell",
+                "time_window": "experiment physical_start_s=0 to physical_end_s; includes saved continuation",
+                "pending_array": "pending_melt_water_m3",
+                "accounting": "cumulative generated melt and retained pending stock are the same water; NEVER add both; no handoff/debit yet",
+                "interpretation": "cumulative melt only, not total runoff; dividing by elapsed seconds gives only this window mean melt component; zero elapsed has no rate"
+              },
+              "cumulative_melt_water_m3": 429.22898124004155
+            },
+            {
+              "identity": "002c8ca41146132463e09ce01307d7777187e453cae5fbf25ea48100def7a5dc",
+              "window_zx": [
+                336,
+                407,
+                389,
+                460
+              ],
+              "files": {
+                "state.npz": "870246d3b9a0ef468dec2c2635c626fe7b8cceb4df6aac488966c10499a68b9c",
+                "arrays.npz": "b5dfc3ec3af3a4fc9a1da1fe85472b16dc9dd8aa9f75120a9e81d541671af071",
+                "metadata.json": "93a826c96157ef673f1758d895537cd184a54955534410e69717f8e5febbcd39",
+                "ledger.json": "53567a97b1e7bec37a5acf5040f642e8e30fada39aab874a2086f7c94f232d95"
+              },
+              "terrain_identity": "814fb13e3f8d97370052a8ac27c257d6804f7ce27f88431ac44ce7ee9b7a1fc0",
+              "source_identity": "df03ea1fdd72c2bb34fabeaa4c6b9c5759a6189a3aea98e6135bb08c2a323331",
+              "model_identity": "641ac6f4663e150dd614d6384ce3cf09d5417b2e8f75094121782e3794878f41",
+              "forcing_identity": "cc583d5d85674e26a7ff28dda2eb39f673efc6747fa84d049cf48cc38a423d12",
+              "geometry_identity": "667ef1bb5623f3453154e185bbef5e368139eba6a74a9375b5a7ff50fc82f4de",
+              "target_years": 20,
+              "completed_years": 20,
+              "physical_start_s": 0.0,
+              "physical_end_s": 631152000.0,
+              "elapsed_physical_seconds": 631152000.0,
+              "edge_ice": {
+                "threshold_m": 1.0,
+                "max_thickness_m": 0.0,
+                "positive_cells": 0,
+                "above_threshold_cells": 0,
+                "side_max_thickness_m": {
+                  "west": 0.0,
+                  "east": 0.0,
+                  "north": 0.0,
+                  "south": 0.0
+                },
+                "exported_ice_m3": 0.0,
+                "exported_ice_water_equivalent_m3": 0.0,
+                "closed_edge_zero": true,
+                "composition_status": "closed-edge-zero"
+              },
+              "boundary": "closed",
+              "elevation_parameters": {
+                "accumulation_gradient_mwe_per_year_per_m": 0.004,
+                "max_accumulation_mwe_per_year": 2.0,
+                "ablation_gradient_mwe_per_year_per_m": 0.006,
+                "max_ablation_mwe_per_year": 6.0,
+                "sea_level_m": 0.0,
+                "generation_height_m": 3100.0
+              },
+              "parameters": {
+                "ice_density_kg_m3": 917.0,
+                "creep_parameter_pa_n_s": 2.4e-24,
+                "glen_exponent": 3,
+                "min_flow_thickness_m": 0.0,
+                "max_thickness_m": 500.0,
+                "erosion_proxy_coefficient": 0.001,
+                "formula_source": "shallow ice approximation, deformation (creep) only, Glen flow law with exponent n; the flux form q = W (2A/(n+2)) (rho g)^n H^(n+2) |ds/dx|^(n-1) (-ds/dx) is the standard 1-D SIA discretisation on cell centres with mean face thickness and central surface slope. No basal sliding law is implemented, so no velocity here is a sliding velocity.",
+                "densification": 1.0905125408942202,
+                "creep_parameter_unit": "Pa^-n s^-1",
+                "creep_parameter_semantics": "dimensional Glen creep parameter of the flow law; it is NOT a dimensionless lumped coefficient. A caller that wants a lumped coefficient must carry its own dimensions instead",
+                "glacier_existence_criterion": "not_decided_here: a multi-year net balance (positive or negative) is not a glacier-existence criterion; this bounded store reports mass and flux only"
+              },
+              "operational_config": {
+                "max_total_wall_s": 30.0,
+                "max_total_substeps": 200000,
+                "max_memory_bytes": 268435456,
+                "outflow_sides": [],
+                "effective_sliding_speed_m_per_year": 0.0
+              },
+              "reused": {
+                "world_glacier.py": "138e4bc8fdf59d3d64289b387d9496197b4aaef814c25adc4aed4ca6bc21ceb2",
+                "environment_processes.py": "0416e901b8c2a51a4934b64cfd66521a69f08cfcf08bbffa95a8ef0c532043d6",
+                "common_infra.py": "c9a342c18ae10960d8a048a6b0ca79f3997ab3d1b5c52779633c24939b261d39"
+              },
+              "units": "bed/H/surface: m; annual forcing: m water/year; water sums/residual: m3 water; faces/cell residual: m3 ice; physical_time_s: SI seconds",
+              "melt_handoff_contract": {
+                "component_array": "cumulative_melt_water_m3",
+                "units": "m3 water per cell",
+                "time_window": "experiment physical_start_s=0 to physical_end_s; includes saved continuation",
+                "pending_array": "pending_melt_water_m3",
+                "accounting": "cumulative generated melt and retained pending stock are the same water; NEVER add both; no handoff/debit yet",
+                "interpretation": "cumulative melt only, not total runoff; dividing by elapsed seconds gives only this window mean melt component; zero elapsed has no rate"
+              },
+              "cumulative_melt_water_m3": 165.2072447099567
+            }
+          ],
+          "warning": "Old H20 and cumulative melt do not supply year-1 melt/water; original routing geometry retained"
+        },
+        {
+          "path": "artifacts/world-climate-integration-20261111/climate-liquid-year",
+          "identity": "afac74ce377105a6e3a0d1b1c74cffb582d57a18c0d1a3c4cbd53438f09ac8d4",
+          "status": "history-reference-only",
+          "source_status": "complete",
+          "selectable": false
+        },
+        {
+          "path": "artifacts/world-climate-integration-20261111/probe",
+          "identity": "6be3489102e08e899646566f20e060da89a3f49d97b23df36a4482a308af7dcd",
+          "status": "history-reference-only",
+          "source_status": "complete",
+          "selectable": false
+        },
+        {
+          "kind": "preview",
+          "key": "atlas",
+          "status": "history-reference-only"
+        },
+        {
+          "kind": "preview",
+          "key": "water-snow-topics",
+          "status": "history-reference-only"
+        },
+        {
+          "kind": "preview",
+          "key": "ocean-composite",
+          "status": "history-reference-only"
+        }
+      ],
+      "producer": "Terragenesis",
+      "default_story_publication": false
+    }
+  ]
+}

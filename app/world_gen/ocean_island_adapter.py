@@ -15,6 +15,84 @@ from .config import sha256_json
 CONDITION_POLICY = 'frozen-islands-metric-periodic-condition-v1'
 SURFACE_POLICY = 'frozen-islands-before-after-erosion-v1'
 
+# Audited frozen producers -> current reader with old paths retained. The
+# complete stack is registered, so an unrelated live code change fails closed.
+FROZEN_V3_STACK = {
+    'terrain_pipeline/ocean_islands.py': '1c683938cf9d280b662c5cc1a29aa46f200dcfb3c03e5d09761df375e4a1d8ca',
+    'terrain_pipeline/ocean_island_consumers.py': '0b80d6973286dd77bab6ad8eb4dc5ae17965a6584b0f5b706f39465fa371a4b5',
+}
+FROZEN_V4_STACK = dict(FROZEN_V3_STACK, **{
+    'terrain_pipeline/ocean_islands.py': 'e6416975d97b494b3b6093e5eb180769e6870d9aae96ae72b62b8226223a9f78',
+    'terrain_pipeline/island_volcanoes.py': 'fc9be55a1ec83bf8c84c08f6facc7ed12527e85e3f56b275214c39edfa6a848a',
+})
+FROZEN_V3_READER_STACK = dict(FROZEN_V4_STACK, **{
+    'terrain_pipeline/ocean_islands.py': '81a4a36ba84d59817d84ce94e88e387f18a80dc1c75eaec06f2e90b612c3a34b',
+    'terrain_pipeline/island_volcanoes.py': '07605199ac400516f1519a2d2f3428a9ad71a90736d7bc578b0f1539cc66c7ef',
+    'terrain_pipeline/island_volcanoes_v4.py': 'fc9be55a1ec83bf8c84c08f6facc7ed12527e85e3f56b275214c39edfa6a848a',
+})
+# Current producer for ocean-islands-volcanic-edifices-v5 (audited 2026-11-08 against live TG).
+# Same file digests as FROZEN_V3_READER_STACK today; kept as a named generation so later
+# TG edits register a new stack instead of silently breaking v5 worlds.
+FROZEN_V5_READER_STACK = dict(FROZEN_V3_READER_STACK)
+_V5_ALGORITHM = 'ocean-islands-volcanic-edifices-v5'
+_COMPATIBLE_READERS = (FROZEN_V3_READER_STACK, FROZEN_V5_READER_STACK)
+# Audited 2026-11-10: the saved 10000x8000 v5 product cold-reads with the
+# same full manifest, identity and every sampled query array bit-for-bit.
+# Evidence: artifacts/island-cluster-improvement-20261110/legacy-reader-verification.json.
+# Only this exact old -> new stack is admitted; unrelated source changes fail closed.
+FROZEN_CLUSTERED_READER_STACK = dict(FROZEN_V5_READER_STACK, **{
+    'terrain_pipeline/ocean_islands.py': 'f5d390920b3cce257b96f572965d19549de12cb9f9209c2052efda2ef1c2f517',
+})
+FROZEN_V5_TO_CLUSTERED_READER = {
+    'saved': FROZEN_V5_READER_STACK,
+    'current': FROZEN_CLUSTERED_READER_STACK,
+}
+
+
+def _audited_clustered_reader_transition(saved, current):
+    """True only for the registered exact pair of reader stacks for the clustered layout.
+
+    The clustered-provinces preset keeps v5 geometry for the old configuration (the layout
+    selector defaults to 'absolute-slots-v1'), so an old sidecar can be read by the new
+    reader; that is still a digest change and is allowed only for this measured pair.
+    """
+    registered = FROZEN_V5_TO_CLUSTERED_READER
+    if not isinstance(registered, dict):
+        return False
+    return saved == registered.get('saved') and current == registered.get('current')
+
+
+def validate_saved_binding(recorded, current):
+    """Compare all data bindings; permit only registered frozen reader stacks."""
+    for row in (recorded, current):
+        if row.get('identity') != sha256_json({k: v for k, v in row.items() if k != 'identity'}):
+            raise ValueError('ocean island binding identity mismatch')
+    data = lambda row: {k: v for k, v in row.items() if k not in ('identity', 'imported_sha256')}
+    if data(recorded) != data(current):
+        raise ValueError('world mountain source/island/run binding differs')
+    old, new = recorded.get('imported_sha256'), current.get('imported_sha256')
+    algo = recorded.get('island_algorithm')
+    if old == new:
+        policy = 'identical-producer-stack'
+    elif (algo == 'ocean-islands-metric-detail-smooth-seabed-v3' and
+          ((old == FROZEN_V3_STACK and new in (FROZEN_V4_STACK, *_COMPATIBLE_READERS)) or
+           (old == FROZEN_V4_STACK and new in _COMPATIBLE_READERS))):
+        policy = 'audited-frozen-v3-reader-stack'
+    elif (algo == 'ocean-islands-volcanic-stages-v4' and
+          old == FROZEN_V4_STACK and new in _COMPATIBLE_READERS):
+        policy = 'audited-frozen-v4-reader-stack'
+    elif (algo == _V5_ALGORITHM and
+          old in _COMPATIBLE_READERS and new in _COMPATIBLE_READERS):
+        policy = 'audited-frozen-v5-reader-stack'
+    elif (algo == _V5_ALGORITHM and _audited_clustered_reader_transition(old, new)):
+        # Only the single registered old-v5 -> clustered-reader pair, and only while that
+        # declared reader is byte-identical to the one an old v5 world was frozen against.
+        policy = 'audited-v5-old-to-clustered-reader'
+    else:
+        raise ValueError('world mountain island producer stack changed without compatible frozen reader')
+    return dict(policy=policy, saved_binding_identity=recorded['identity'],
+                consumer_binding_identity=current['identity'], consumer_imported_sha256=new)
+
 
 def _public_api():
     root = Path(__file__).resolve().parents[3] / '山川形意Terragenesis'
@@ -85,7 +163,7 @@ def load_binding(source_path, island_product_path, expected_identity, skeleton_r
                   coordinates='absolute X east/Z south metres; finite source; cell-centre raster',
                   ocean_quota=quota, surface_policy=SURFACE_POLICY, condition_policy=CONDITION_POLICY,
                   condition_limitations='Finite product explicitly repeated for TD boundary sampling; periodic seams and TD model response are not verified.',
-                  imported_sha256={rel:file_sha(root/rel) for rel in ('terrain_pipeline/ocean_islands.py','terrain_pipeline/ocean_island_consumers.py','terrain_pipeline/island_volcanoes.py')})
+                  imported_sha256={rel:file_sha(root/rel) for rel in ('terrain_pipeline/ocean_islands.py','terrain_pipeline/ocean_island_consumers.py','terrain_pipeline/island_volcanoes.py','terrain_pipeline/island_volcanoes_v4.py')})
     if file_sha(source_path)!=source_sha or file_sha(island_path)!=island_sha:
         raise ValueError('source or island product changed while loading')
     record['identity'] = sha256_json(record)

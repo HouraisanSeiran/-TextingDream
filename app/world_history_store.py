@@ -64,6 +64,8 @@ PUBLIC_ENTRY_FIELDS = {
     'polities': ('ref', 'display_name', 'founded'),
     'settlements': ('ref', 'display_name', 'founded', 'region', 'location_id'),
     'people': ('ref', 'display_name', 'role'),
+    'dynasties': ('ref', 'display_name', 'founded'),
+    'religion': ('ref', 'display_name', 'founded'),
 }
 
 #: Categories a preview can carry; also the keys ``public_view`` understands.
@@ -335,6 +337,96 @@ class WorldHistoryService:
         self.store.put(PREVIEW_KIND, preview_id, draft)
         return {'preview': draft, 'reused': False, 'document': document}
 
+    def preview_civ_sim(self, run_dir, *, base_year, branch=None, window_years=150,
+                        max_events=None, max_entities=None, start_key=None):
+        """Author draft from a ``civ_sim`` run directory (manifest + chronicle).
+
+        Same store kind as civ-atlas previews (``history_preview``), but
+        ``source_kind='civ_sim'`` and the document ``kind`` is
+        ``zhimeng_civ_sim_history_candidate``. Does not open Terragenesis products
+        and does not claim to be a civ-atlas replay.
+        """
+        from . import civ_sim
+        try:
+            loaded = civ_sim.load_chronicle_run(run_dir)
+        except Exception as error:
+            raise HistoryError('读文明模拟产物失败：%s' % error) from error
+        chronicle = loaded['chronicle']
+        digest = loaded['digest']
+        year = world_basis._history_year(base_year)
+        if type(year) is float and year != int(year):
+            raise HistoryError('civ_sim 基准年必须是整数年')
+        year = int(year)
+        limit_events = 400 if max_events is None else max_events
+        limit_entities = 200 if max_entities is None else max_entities
+        if not isinstance(limit_events, int) or limit_events <= 0:
+            raise HistoryError('max_events 必须是正整数')
+        if not isinstance(limit_entities, int) or limit_entities <= 0:
+            raise HistoryError('max_entities 必须是正整数')
+        if not isinstance(window_years, int) or window_years < 0:
+            raise HistoryError('window_years 必须是非负整数')
+        try:
+            document = civ_sim.to_history_candidate(
+                chronicle, base_year=year, window_years=window_years, branch=branch,
+                max_events=limit_events, max_entities=limit_entities,
+                chronicle_digest=digest,
+            )
+        except Exception as error:
+            raise HistoryError(str(error)) from error
+        document['store_bridge']['preview_written'] = True
+        run_id = document['identity']['import_id']
+        story_id, base_revision = self._story_pin(start_key)
+        preview_id = 'hp_' + _digest({
+            'story': story_id, 'source_kind': 'civ_sim', 'sha': digest,
+            'branch': branch or 'main', 'year': year, 'window_years': window_years,
+            'events': limit_events, 'entities': limit_entities, 'run': str(loaded['root']),
+        })[:16]
+        existing = self.store.get(PREVIEW_KIND, preview_id)
+        if existing is not None:
+            return {'preview': existing, 'reused': True, 'document': None}
+        draft = {
+            'id': preview_id,
+            'created': _now(),
+            'status': STATUS_DRAFT,
+            'revision': 0,
+            'base_story_id': story_id,
+            'base_story_revision': base_revision,
+            'import_id': run_id,
+            'source_kind': 'civ_sim',
+            'source_sha256': digest,
+            'source': {
+                'kind': 'civ_sim',
+                'world_id': document['identity'].get('world_id'),
+                'map_identity': chronicle['map_identity'],
+                'generator_version': chronicle.get('algorithm'),
+                'civ_seed': chronicle['seed'],
+                'run_dir': str(loaded['root']),
+            },
+            'parts': [],
+            'branch': branch or 'main',
+            'base_year': year,
+            'window': document['selection']['window'],
+            'limits': {'max_events': limit_events, 'max_entities': limit_entities,
+                       'window_years': window_years},
+            'document': document,
+            'reviewed': False,
+            'terrain': document.get('terrain'),
+            'counts': {
+                'annals': document['annals']['counts']['returned'],
+                'polities': document['polities']['returned'],
+                'settlements': document['settlements']['returned'],
+            },
+            'note': ('这是作者侧 civ_sim 历史草稿：不改故事包、不改会话、不进玩家侧；'
+                     '审阅后才可固定成快照；定在本故事包（%s）上；'
+                     '不是 civ-atlas 回放' % story_id),
+        }
+        blob = _canonical(draft)
+        if len(blob.encode('utf-8')) > MAX_PREVIEW_JSON:
+            raise HistoryError('回放草稿超过 %d 字节上限；请缩短年窗或调小预算'
+                               % MAX_PREVIEW_JSON)
+        self.store.put(PREVIEW_KIND, preview_id, draft)
+        return {'preview': draft, 'reused': False, 'document': document}
+
     def get_preview(self, preview_id):
         if not isinstance(preview_id, str) or not preview_id.startswith('hp_'):
             raise HistoryError('回放草稿编号格式不对')
@@ -465,16 +557,28 @@ class WorldHistoryService:
         if len(picked) > limit:
             raise HistoryError('选中的历史条目 %d 条超过上限 %d；请分页选取'
                                % (len(picked), limit))
-        basis = world_basis.build_from_history(
-            {'sha256': draft['source_sha256'], 'id': draft['import_id'],
-             'source': draft.get('source') or {}, 'parts': draft.get('parts') or []},
-            draft['document'], base_year=draft['base_year'], branch=draft['branch'])
+        source_kind = draft.get('source_kind') or 'civ_atlas'
+        document = draft['document']
+        if source_kind == 'civ_sim':
+            basis = _basis_from_civ_sim(draft, document)
+            snapshot_kind = 'zhimeng_civ_sim_history_snapshot'
+            note = ('这份快照是作者批准的 civ_sim 历史背景；床面仍在 world_map_product；'
+                    '不是 civ-atlas 导出回放')
+        else:
+            basis = world_basis.build_from_history(
+                {'sha256': draft['source_sha256'], 'id': draft['import_id'],
+                 'source': draft.get('source') or {}, 'parts': draft.get('parts') or []},
+                document, base_year=draft['base_year'], branch=draft['branch'])
+            snapshot_kind = 'civ_atlas_history_snapshot'
+            note = ('这份快照是作者批准的历史背景；不自带地图底图数据，'
+                    '也不把未披露的条目交给玩家')
         body = {
             'schema': MECHANICS_SCHEMA,
-            'kind': 'civ_atlas_history_snapshot',
+            'kind': snapshot_kind,
             'created': _now(),
             'import_id': draft['import_id'],
             'preview_id': preview_id,
+            'source_kind': source_kind,
             'branch': draft['branch'],
             'base_year': draft['base_year'],
             'window': draft['window'],
@@ -482,16 +586,19 @@ class WorldHistoryService:
                       'base_story_revision': draft.get('base_story_revision'),
                       'reviewed_revision': draft.get('revision')},
             'world_basis': {'id': basis['id'], 'digest': basis['digest'],
-                            'world_id': basis['world']['source_world_id'],
-                            'civ_seed': basis['world']['civ_seed'],
-                            'civ_seed_source': basis['world'].get('civ_seed_source')},
+                            'world_id': basis['world'].get('source_world_id'),
+                            'civ_seed': basis['world'].get('civ_seed'),
+                            'civ_seed_source': basis['world'].get('civ_seed_source'),
+                            'map_identity': (basis.get('world') or {}).get('map_identity')
+                            or (document.get('identity') or {}).get('map_identity')},
             'source': {'content_sha256': draft['source_sha256'],
-                       'spec_commit': (draft['document'].get('provenance') or {})
-                       .get('spec_commit'),
-                       'reader': (draft['document'].get('provenance') or {}).get('reader'),
-                       'parts': draft.get('parts') or []},
-            'field_status': draft['document']['field_status'],
-            'terrain': draft['document']['terrain'],
+                       'spec_commit': (document.get('provenance') or {}).get('spec_commit'),
+                       'reader': (document.get('provenance') or {}).get('reader'),
+                       'parts': draft.get('parts') or [],
+                       'map_identity': (document.get('identity') or {}).get('map_identity'),
+                       'kind': source_kind},
+            'field_status': document['field_status'],
+            'terrain': document['terrain'],
             'entries': picked,
             'disclosure': selection['disclosure'],
             'local_links': selection['local_links'],
@@ -499,8 +606,7 @@ class WorldHistoryService:
             'what_changed': str(what_changed or '')[:400],
             'for_author_review': True,
             'auto_canonical': False,
-            'note': ('这份快照是作者批准的历史背景；不自带地图底图数据，'
-                     '也不把未披露的条目交给玩家'),
+            'note': note,
         }
         digest = content_hash(body)
         snapshot_id = 'hs_' + digest[:16]
@@ -631,6 +737,11 @@ class WorldHistoryService:
         """
         if not isinstance(import_id, str) or not import_id:
             raise HistoryError('需要一份已导入的地图')
+        from . import map_policy
+        try:
+            map_policy.require_civ_atlas('关联 civ-atlas 开局地图')
+        except map_policy.CivAtlasDisabled as exc:
+            raise HistoryError(str(exc)) from exc
         runtime = self.runtime
         runtime.reload_documents()
         current = runtime.package()
@@ -661,6 +772,60 @@ class WorldHistoryService:
         revision = runtime.commit_package(story, copy.deepcopy(current['characters']),
                                          '关联开局地图 ' + import_id
                                          + (('：' + note[:120]) if note else ''))
+        return {'revision': revision, 'link': link, 'reused': False, 'note': note}
+
+    def link_worldgen_map(self, job_id, expected_story_revision, worldgen_manager, *,
+                          fog_radius_km=300.0, note=''):
+        """Author action: bind a succeeded worldgen job's fast layer as the starting map."""
+        import json
+        from pathlib import Path
+        from . import play_map
+        from .world_gen.web_jobs import ROOT as WG_ROOT
+
+        if not isinstance(job_id, str) or not job_id:
+            raise HistoryError('需要已成功的世界生成任务号')
+        runtime = self.runtime
+        runtime.reload_documents()
+        current = runtime.package()
+        if current['id'] != expected_story_revision:
+            raise HistoryError('故事包已变化（当前 %s，本次基于 %s）；请刷新后重试'
+                               % (current['id'], expected_story_revision))
+        try:
+            job = worldgen_manager.view(job_id)
+        except Exception as exc:
+            detail = getattr(exc, 'detail', None) or str(exc)
+            raise HistoryError('找不到世界生成任务 %s（%s）' % (job_id, detail)) from exc
+        if job.get('status') != 'succeeded':
+            raise HistoryError('只能关联已成功的世界生成任务（当前 %s）' % job.get('status'))
+        fast_dir = Path(job['paths']['fast_dir'])
+        manifest_path = fast_dir / 'manifest.json'
+        if not manifest_path.is_file():
+            raise HistoryError('该任务没有 fast 层产物')
+        manifest = json.loads(manifest_path.read_text(encoding='utf-8'))
+        identity = manifest.get('identity')
+        if not isinstance(identity, str) or len(identity) < 16:
+            raise HistoryError('fast 层缺少有效 identity')
+        try:
+            rel = fast_dir.resolve().relative_to(Path(WG_ROOT).resolve()).as_posix()
+        except ValueError as exc:
+            raise HistoryError('fast 产物不在仓库内，拒绝关联') from exc
+        spacing = float(manifest.get('grid', {}).get('spacing_m')
+                        or manifest.get('parameters', {}).get('spacing_m')
+                        or job.get('params', {}).get('spacing_m') or 2000.0)
+        link = {'kind': play_map.LINK_KIND_WORLD, 'product_path': rel,
+                'product_identity': identity, 'spacing_m': spacing,
+                'worldgen_job_id': job_id,
+                'fog': {'reveal_radius_km': float(fog_radius_km)}}
+        story = copy.deepcopy(current['story'])
+        mechanics = story.setdefault('mechanics', {})
+        if mechanics.get('map') == link:
+            return {'revision': current['id'], 'link': link, 'reused': True,
+                    'note': '这份世界层已经是当前故事包的开局地图'}
+        mechanics['map'] = link
+        play_map.validate_story_map(story)
+        revision = runtime.commit_package(
+            story, copy.deepcopy(current['characters']),
+            '关联世界生成地图 ' + job_id + (('：' + note[:120]) if note else ''))
         return {'revision': revision, 'link': link, 'reused': False, 'note': note}
 
     # --------------------------------------------------------------- projections
@@ -937,6 +1102,68 @@ def _reveal_allows(item, session):
     return True
 
 
+def _basis_from_civ_sim(draft, document):
+    """Minimal world-basis pin for a civ_sim preview (not a civ-atlas replay)."""
+    identity = document.get('identity') or {}
+    provenance = document.get('provenance') or {}
+    year = draft['base_year']
+    basis = {
+        'schema': world_basis.SCHEMA,
+        'kind': 'world_basis',
+        'created': _now(),
+        'world': {
+            'source_world_id': identity.get('world_id'),
+            'map_identity': identity.get('map_identity'),
+            'generator': identity.get('generator') or provenance.get('algorithm'),
+            'snapshot_format': None,
+            'import_id': draft.get('import_id'),
+            'terrain_seed': provenance.get('world_seed'),
+            'civ_seed': identity.get('civ_seed'),
+            'civ_seed_source': identity.get('civ_seed_source'),
+            'seed_note': '文明种子来自 civ_sim 配置；地形种子来自 world_map_product',
+        },
+        'source': {
+            'repo': None,
+            'kind': 'civ_sim',
+            'content_sha256': draft['source_sha256'],
+            'parts': [],
+            'license_note': provenance.get('license_note'),
+            'run_dir': (draft.get('source') or {}).get('run_dir'),
+        },
+        'selection': {
+            'branch': draft.get('branch') or 'main',
+            'base_year': year,
+            'branch_known': True,
+        },
+        'capability': {
+            'annals': world_basis.EXACT,
+            'polity_founded': world_basis.EXACT,
+            'region_polity': world_basis.INTERVAL,
+            'routes': world_basis.INTERVAL,
+            'settlement_lifespan': world_basis.INTERVAL,
+            'population': world_basis.UNKNOWN,
+            'resources': world_basis.UNKNOWN,
+            'terrain': world_basis.UNKNOWN,
+            'people_lifespan': world_basis.UNKNOWN,
+            'religion_events': world_basis.UNKNOWN,
+            'region_culture': world_basis.UNKNOWN,
+            'polity_capital_spans': world_basis.UNKNOWN,
+            'settlement_capital_spans': world_basis.UNKNOWN,
+        },
+        'history': {
+            'state': world_basis.STATE_REPLAYED,
+            'replayed_fields': sorted(
+                key for key, row in (document.get('field_status') or {}).items()
+                if isinstance(row, dict) and row.get('status') != world_basis.UNKNOWN),
+            'note': '来自织梦 civ_sim 编年史候选，不是 civ-atlas 回放',
+        },
+        'field_status': document.get('field_status') or {},
+    }
+    basis['id'] = world_basis.basis_id(basis)
+    basis['digest'] = world_basis.digest_of(basis)
+    return basis
+
+
 def _check_adoptable(story, snapshot):
     """Refuse an adoption that would mix two worlds or point at a place that is not here.
 
@@ -946,6 +1173,7 @@ def _check_adoptable(story, snapshot):
       from *different bytes*, the world the players stand in and the history they are given
       would be two different worlds. That is refused: the author must re-replay against the
       linked import (no silent rebind, no map change here).
+    * For ``world_map_product``, ``product_identity`` must match the civ_sim map identity.
     * A disclosed settlement carries a ``location_id``. If that place does not exist in the
       package, the projection would dangle, so it is refused. Nothing is matched by name.
     """
@@ -958,6 +1186,14 @@ def _check_adoptable(story, snapshot):
                 '这份故事包的地图来自导入 %s，而历史快照来自 %s：不能把两个世界的'
                 '历史与地图混在一起；请对已关联的导入重新回放，不会在这里悄悄改地图'
                 % (linked_import, snapshot.get('import_id')))
+        product_identity = link.get('product_identity')
+        snap_map = ((snapshot.get('source') or {}).get('map_identity')
+                    or (snapshot.get('world_basis') or {}).get('map_identity'))
+        if product_identity and snap_map and product_identity != snap_map:
+            raise HistoryError(
+                '故事包世界层 identity 为 %s，历史快照地图 identity 为 %s：'
+                '不能把不同世界层的历史挂到这张地图上'
+                % (product_identity[:16], str(snap_map)[:16]))
     places = {item.get('id') for item in story.get('locations') or ()
               if isinstance(item, dict)}
     links = snapshot.get('local_links') or {}

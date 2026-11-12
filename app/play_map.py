@@ -15,19 +15,22 @@ Four rules this module exists to enforce:
    one that id names (``sn_``/``mi_`` + content hash prefix) and the file on disk is
    re-hashed on every read. A swapped record with the same key is refused, not displayed.
 4. **Nothing is invented.** An unlinked journey says so; a declared but unreadable import
-   says so; a place without recorded ``coordinates`` gets ``lon/lat = null``. There is no
-   fallback basemap and no second map engine — per-cell data still comes from
-   :mod:`civ_atlas_snapshot` / :mod:`map_import`.
+   says so; a place without recorded ``coordinates`` gets ``lon/lat = null``. When the
+   package declares no map, the server may apply the Terragenesis default product from
+   :mod:`app.map_policy` (still a real on-disk product — never a synthetic terrain).
 
 Read-only: ``projection()`` and ``basemap_png()`` never write a session, so a GET cannot
 move ``state_version``. The only state kept by this module is a bounded in-memory cache of
 encoded crop images, keyed by content hash.
+
+civ-atlas code lives in :mod:`app.civ_atlas` and is **off by default** (``TEXTILE_CIV_ATLAS=1``
+to enable). Player journeys prefer ``world_map_product``.
 """
 import hashlib
 import math
 import re
 
-from . import civ_atlas_snapshot, fog_art, map_import
+from . import fog_art, map_import
 
 #: Sphere radius, used only to turn the gameplay reveal radius (km) into degrees.
 EARTH_RADIUS_KM = 6371.0088
@@ -59,7 +62,8 @@ _CACHE = {}
 _IMPORT_ID = re.compile(r'^(?:sn|mi)_[0-9a-f]{6,32}$')
 _BASIS_ID = re.compile(r'^wb_[0-9a-f]{8,32}$')
 
-LINK_KIND = 'civ_atlas'
+LINK_KIND = 'civ_atlas'                 # opt-in backend; default player path is world_map_product
+LINK_KIND_WORLD = 'world_map_product'
 _LINK_KEYS = {'kind', 'import_id', 'world_basis_id', 'fog'}
 _FOG_KEYS = {'reveal_radius_km'}
 
@@ -68,12 +72,14 @@ STATUS_NOT_LINKED = 'not_linked'
 STATUS_MISSING = 'import_missing'
 STATUS_UNREADABLE = 'import_unreadable'
 STATUS_MISMATCH = 'import_mismatch'
+STATUS_BACKEND_OFF = 'backend_disabled'
 
 STATUS_TEXT = {
-    STATUS_NOT_LINKED: '这段旅程还没有关联 civ-atlas 地图',
-    STATUS_MISSING: '关联的 civ-atlas 导入记录已不在（可能被清理了）',
-    STATUS_UNREADABLE: '关联的 civ-atlas 原件读不出来（文件缺失或校验失败）',
+    STATUS_NOT_LINKED: '这段旅程还没有关联地图',
+    STATUS_MISSING: '关联的地图导入记录已不在（可能被清理了）',
+    STATUS_UNREADABLE: '关联的地图原件读不出来（文件缺失或校验失败）',
     STATUS_MISMATCH: '关联的导入记录与它自己声明的内容哈希不一致，拒绝使用',
+    STATUS_BACKEND_OFF: 'civ-atlas 地图后端当前已禁用（TEXTILE_CIV_ATLAS=1 可开启）',
 }
 
 
@@ -90,25 +96,40 @@ def _finite(value, label):
 
 
 # --------------------------------------------------------------- the story link
-def parse_link(story):
-    """Normalise ``story.mechanics.map``, or ``None`` when the package declares none.
-
-    Unknown keys are refused rather than ignored, so a typo cannot silently become "use
-    the default", and a boolean or a string can never stand in for the radius. Only
-    civ-atlas is accepted: this project has exactly one map basis.
-    """
+def _map_raw(story, *, apply_default=False, repo_root=None):
+    """Story ``mechanics.map``, optionally falling back to the Terragenesis default product."""
     mechanics = story.get('mechanics') or {}
     raw = mechanics.get('map')
+    if raw is not None:
+        return raw
+    if not apply_default:
+        return None
+    from . import map_policy
+    return map_policy.default_player_map_raw(repo_root)
+
+
+def parse_link(story, *, apply_default=False, repo_root=None):
+    """Normalise ``story.mechanics.map``, or ``None`` when the package declares none.
+
+    Unknown keys are refused rather than ignored. Accepted kinds: ``civ_atlas`` (opt-in)
+    and ``world_map_product`` (default player path). When ``apply_default`` is true and the
+    package has no map, the Terragenesis product from :mod:`app.map_policy` is used if present.
+    """
+    raw = _map_raw(story, apply_default=apply_default, repo_root=repo_root)
     if raw is None:
         return None
     if not isinstance(raw, dict):
         raise ValueError('mechanics.map 必须是对象')
+    kind = raw.get('kind')
+    if kind == LINK_KIND_WORLD:
+        from . import play_map_world as pmw
+        return pmw.parse_world_link(raw)
     extra = set(raw) - _LINK_KEYS
     if extra:
         raise ValueError('mechanics.map 有未知字段：%s' % '、'.join(sorted(extra)))
-    kind = raw.get('kind')
     if kind != LINK_KIND:
-        raise ValueError('mechanics.map.kind 只支持 %r（收到 %r）' % (LINK_KIND, kind))
+        raise ValueError('mechanics.map.kind 只支持 %r 或 %r（收到 %r）'
+                         % (LINK_KIND, LINK_KIND_WORLD, kind))
     import_id = raw.get('import_id')
     if not isinstance(import_id, str) or not _IMPORT_ID.fullmatch(import_id):
         raise ValueError('mechanics.map.import_id 必须是 mi_/sn_ 开头的导入编号')
@@ -131,12 +152,11 @@ def parse_link(story):
             'reveal_radius_km': radius}
 
 
-def location_coordinates(place):
-    """``(lon, lat)`` in [-180, 180) × [-90, 90], or ``None`` when not recorded.
-
-    Longitude is normalised once here, so a place at 179.9 and one at −179.9 both land on
-    the same frame the equirectangular basemap uses. Nothing is clamped or guessed.
-    """
+def location_coordinates(place, *, planar=False):
+    """Coordinates for markers. Equirectangular: lon/lat. Planar: metres in the same slots."""
+    if planar:
+        from . import play_map_world as pmw
+        return pmw.location_xz(place)
     coords = place.get('coordinates')
     if coords is None:
         return None
@@ -163,11 +183,12 @@ def validate_story_map(story):
     not project. A package that declares neither stays untouched.
     """
     link = parse_link(story)
+    planar = bool(link and link.get('kind') == LINK_KIND_WORLD)
     for place in story.get('locations') or []:
         if place.get('coordinates') is None:
             continue
-        if location_coordinates(place) is None:
-            raise ValueError('地点 %r 的 coordinates 不是合法的 [经度, 纬度]'
+        if location_coordinates(place, planar=planar) is None:
+            raise ValueError('地点 %r 的 coordinates 不是合法的坐标对'
                              % place.get('id'))
     return link
 
@@ -222,7 +243,8 @@ def visible_places(session, story):
             continue
         if _place_withheld(place, session):
             continue
-        coords = location_coordinates(place)
+        planar = ((story.get('mechanics') or {}).get('map') or {}).get('kind') == LINK_KIND_WORLD
+        coords = location_coordinates(place, planar=planar)
         rows.append({'id': pid, 'name': place.get('name') or pid, 'state': state,
                      'lon': coords[0] if coords else None,
                      'lat': coords[1] if coords else None})
@@ -290,15 +312,33 @@ def _record_pinned(record):
     return False
 
 
-def resolve(store, root, story):
+def resolve(store, root, story, *, repo_root=None):
     """Follow the link to the parsed world. Returns ``(status, context)``.
 
     ``context`` never carries the per-cell arrays to the caller of :func:`projection`:
     only :func:`basemap_png` reads them, and only inside the crop it is drawing.
+    ``repo_root`` is the weave-dream repository root (for ``world_map_product`` paths).
+    Packages without ``mechanics.map`` fall back to the Terragenesis default product when
+    it is present on disk.
     """
-    link = parse_link(story)
+    link = parse_link(story, apply_default=True, repo_root=repo_root or root)
     if link is None:
         return STATUS_NOT_LINKED, {'reason': STATUS_TEXT[STATUS_NOT_LINKED], 'link': None}
+    if link.get('kind') == LINK_KIND_WORLD:
+        from . import play_map_world as pmw
+        try:
+            source, path = pmw.resolve_product(repo_root or root, link)
+            return STATUS_OK, {'link': link, 'record': None, 'world': None, 'heightmap': None,
+                               'map_source': source, 'product_path': str(path)}
+        except FileNotFoundError:
+            return STATUS_MISSING, {'reason': STATUS_TEXT[STATUS_MISSING], 'link': link}
+        except (ValueError, OSError) as error:
+            return STATUS_UNREADABLE, {'reason': STATUS_TEXT[STATUS_UNREADABLE],
+                                       'detail': type(error).__name__, 'link': link}
+    from . import map_policy
+    if not map_policy.civ_atlas_enabled():
+        return STATUS_BACKEND_OFF, {'reason': STATUS_TEXT[STATUS_BACKEND_OFF], 'link': link}
+    from . import civ_atlas_snapshot
     record = store.get('map_import', link['import_id'])
     if not record:
         return STATUS_MISSING, {'reason': STATUS_TEXT[STATUS_MISSING], 'link': link}
@@ -328,6 +368,7 @@ def _source_summary(record, story):
     projection the drawing uses. The hash prefix is the same one embedded in that id, so
     it reveals nothing the record id did not already encode.
     """
+    from . import civ_atlas_snapshot
     digest = str(record.get('sha256') or '')
     return {
         'map': 'civ_atlas',
@@ -344,40 +385,62 @@ def _source_summary(record, story):
 def projection(session, story, *, status, context, session_id):
     """The one JSON document the player map page reads."""
     from . import map_clues            # local: map_clues imports this module
+    from . import play_map_world as pmw
     places = visible_places(session, story)
     clues = map_clues.projection(session, story)
-    link = context.get('link') or parse_link(story)
+    link = context.get('link') or parse_link(story, apply_default=True)
+    planar = bool(link and link.get('kind') == LINK_KIND_WORLD)
     radius = (link or {}).get('reveal_radius_km', DEFAULT_REVEAL_KM)
     circles = reveal_circles(places, link)
-    box = (bbox_for_circles(circles + map_clues.frame_circles(clues))
-           if status == STATUS_OK else None)
+    if status == STATUS_OK:
+        if planar:
+            box = pmw.bbox_planar(circles + map_clues.frame_circles(clues))
+        else:
+            box = bbox_for_circles(circles + map_clues.frame_circles(clues))
+    else:
+        box = None
     bbox, clipped = box if box else (None, False)
     player = next((row for row in places if row['state'] == 'current'), None)
-    payload = {
-        'status': status,
-        'session': {'id': session_id, 'revision': session.get('revision')},
-        'source': _source_summary(context['record'], story) if context.get('record') else None,
-        'projection': {
+    if planar and context.get('map_source') is not None:
+        source_info = pmw.source_summary(link, story, context['map_source'])
+        proj = {
+            'scheme': pmw.SCHEME,
+            'x': 'metres east (stored in lon slot)', 'y': 'metres south (stored in lat slot)',
+            'note': '平面米制世界层：标记与底图 bbox 同一线性帧；装饰雾由服务器 PNG 完成。',
+        }
+        fog_reveal = []   # browser spherical fog skipped; PNG already fogged
+        cloud = None
+        basemap_note = ('底图只覆盖已知位置周围的裁切框；框外是雾，没有数据。'
+                        if bbox else '还没有任何带米制坐标的已知位置，所以没有底图可给')
+    else:
+        source_info = _source_summary(context['record'], story) if context.get('record') else None
+        proj = {
             'scheme': 'equirectangular',
             'lon_range': [-180, 180], 'lat_range': [-90, 90],
             'x': '(lon + 180) / 360', 'y': '(90 - lat) / 180',
             'note': ('与 civ-atlas 逐格经纬度同一帧：倒三角与地标用同一公式定位。'
                      '经度已归一化到 [−180,180)，跨日界的地点只画一个点、不做对侧复制。'),
-        },
+        }
+        fog_reveal = fog_art.reveal_shapes(circles) if status == STATUS_OK else []
+        cloud = fog_art.cloud_deg(circles, EARTH_RADIUS_KM) if status == STATUS_OK else None
+        basemap_note = ('底图只覆盖已知位置周围的裁切框；框外是雾，没有数据。'
+                        if bbox else '还没有任何带经纬度的已知位置，所以没有底图可给')
+    payload = {
+        'status': status,
+        'session': {'id': session_id, 'revision': session.get('revision')},
+        'source': source_info,
+        'projection': proj,
         'player': ({'location_id': player['id'], 'name': player['name'],
                     'lon': player['lon'], 'lat': player['lat']} if player else None),
         'places': places,
-        # 大致位置线索：只给偏移后的圆，真实坐标与被保留地点的 id 不在这里。
-        'clues': clues,
+        'clues': clues if not planar else [],
         'fog': {
             'basis': 'gameplay_travel_reach',
             'reveal_radius_km': radius,
             'known_radius_km': known_radius_km(link),
             'masked_by': 'server',
-            # 粗糙圆的形状（圆心、半径、各方位的收缩比例）：前端按它画装饰雾，
-            # 透明区不超过服务端揭示区。圆心就是上面 places 里已给出的坐标，不多泄露。
-            'reveal': fog_art.reveal_shapes(circles) if status == STATUS_OK else [],
-            'cloud_deg': fog_art.cloud_deg(circles, EARTH_RADIUS_KM),
+            'reveal': fog_reveal,
+            'cloud_deg': cloud,
             'note': ('可见范围是按玩法设定定的可达距离，不是真实视线，也不含地形遮蔽；'
                      '范围外的格子由服务器画成雾色，客户端拿不到那里的地形。'),
         },
@@ -386,23 +449,34 @@ def projection(session, story, *, status, context, session_id):
             'url': ('/api/sessions/%s/play-map/basemap.png' % session_id) if bbox else None,
             'bbox': list(bbox) if bbox else None,
             'clipped_at_dateline': clipped,
-            'note': ('底图只覆盖已知位置周围的裁切框；框外是雾，没有数据。'
-                     if bbox else '还没有任何带经纬度的已知位置，所以没有底图可给'),
+            'note': basemap_note,
         },
         'notes': [],
     }
     if status != STATUS_OK:
         payload['reason'] = context.get('reason') or '地图不可用'
-        payload['author_entry'] = {'page': 'map-tools',
-                                   'label': '去世界地图工具关联 civ-atlas 数据'}
-        payload['basemap']['note'] = '未关联 civ-atlas 数据时不提供底图，也不会自动接一张无关的地图'
+        prefer_worldgen = planar or status == STATUS_BACKEND_OFF or link is None
+        payload['author_entry'] = {
+            'page': 'worldgen' if prefer_worldgen else 'map-tools',
+            'label': ('去世界生成关联快速世界层' if prefer_worldgen
+                      else '去世界地图工具关联 civ-atlas 数据'),
+        }
+        payload['basemap']['note'] = '未关联地图数据时不提供底图，也不会自动接一张无关的地图'
+        from . import map_policy as _map_policy
+        payload['map_policy'] = _map_policy.status()
     if status == STATUS_OK:
         if any(row['lon'] is None for row in places):
-            payload['notes'].append('有地点没有记录经纬度，只列名字、不画标记（不伪造位置）')
+            payload['notes'].append(
+                '有地点没有记录米制坐标，只列名字、不画标记（不伪造位置）' if planar
+                else '有地点没有记录经纬度，只列名字、不画标记（不伪造位置）')
         if not circles:
-            payload['notes'].append('当前没有任何带经纬度的已知地点，底图暂不可用')
-        if clipped:
+            payload['notes'].append(
+                '当前没有任何带米制坐标的已知地点，底图暂不可用' if planar
+                else '当前没有任何带经纬度的已知地点，底图暂不可用')
+        if clipped and not planar:
             payload['notes'].append('已知位置靠近日界：只绘制了同侧范围，另一侧显示为雾')
+        from . import map_policy as _map_policy
+        payload['map_policy'] = _map_policy.status()
     return payload
 
 
@@ -580,6 +654,13 @@ def basemap_png(context, places, link, clues=None):
     are drawn by the browser on top, at screen resolution.
     """
     from . import map_clues            # local: map_clues imports this module
+    if context.get('map_source') is not None:
+        from . import play_map_world as pmw
+        return pmw.basemap_png(context['map_source'], places, link, clues,
+                               cache=_CACHE, cache_put=_cache_put, crop_dimensions=_crop_dimensions)
+    from . import map_policy
+    map_policy.require_civ_atlas('玩家底图 civ-atlas 路径')
+    from . import civ_atlas_snapshot
     circles = reveal_circles(places, link)
     boxed = bbox_for_circles(circles + map_clues.frame_circles(clues or []))
     if not boxed:

@@ -106,12 +106,8 @@ html[data-ui-theme="medieval"] #legacy .sidebar {
   border-right: 1px solid var(--rt-ink-soft);
   box-shadow: inset -6px 0 10px -6px rgba(46,29,18,.35);
 }
-html[data-ui-theme="medieval"] #workspace-sidebar .workspace-label::before { content: '✦ '; color: var(--rt-mustard); }
 html[data-ui-theme="medieval"] #workspace-sidebar .workspace-featured { border: 1px solid var(--rt-mustard); }
-html[data-ui-theme="medieval"] #workspace-sidebar .workspace-action span,
-html[data-ui-theme="medieval"] #workspace-sidebar .workspace-link > span:first-child { color: var(--rt-orange); }
-html[data-ui-theme="medieval"] .workspace-intro { border-bottom: 1px solid var(--rt-line); position: relative; }
-html[data-ui-theme="medieval"] .workspace-intro::after { content: '❦'; position: absolute; left: 50%; bottom: -9px; transform: translateX(-50%); padding: 0 6px; background: var(--rt-paper-2); color: var(--rt-mustard); font-size: 13px; line-height: 16px; }
+html[data-ui-theme="medieval"] .workspace-intro { border-bottom: 1px solid var(--rt-line); }
 
 /* 地图外壳 */
 html[data-ui-theme="medieval"] #play-right .dream-atlas-compass { border-radius: 50%; background: radial-gradient(circle, var(--rt-cream), var(--rt-paper-2)); border: 1px solid var(--rt-ink-soft); outline: 1px solid var(--rt-mustard); outline-offset: 2px; color: var(--rt-orange); }

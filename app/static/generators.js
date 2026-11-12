@@ -20,8 +20,8 @@ for(const [kind,title] of Object.entries(generatorKinds)){
   $(kind+'-validate').onclick=()=>safe(async()=>{await saveGenerationEdit(kind);notice('结构校验通过，草稿已保存')});
   $(kind+'-publish').onclick=()=>safe(async()=>{const b=$(kind+'-publish');b.disabled=true;try{const d=await saveGenerationEdit(kind);const saved=await api('/inner/generators/'+d.id+'/save','POST');await refreshGenerators();selectGeneration(saved);notice('已保存到 StoryPackage/'+saved.folder)}finally{b.disabled=activeGenerations[kind]?.status==='saved'}});
 }
-TDNav.alias('generator-world',id=>({page:'world-workshop',before:()=>{$('advanced-world').open=true}}));
-TDNav.alias('generator-worldview',id=>({page:'world-workshop',before:()=>{$('advanced-worldview').open=true}}));
+TDNav.alias('generator-world',id=>({page:'worldgen',before:()=>{if(window.__worldgenOpenLore)window.__worldgenOpenLore();const d=$('advanced-world');if(d)d.open=true}}));
+TDNav.alias('generator-worldview',id=>({page:'worldgen',before:()=>{if(window.__worldgenOpenLore)window.__worldgenOpenLore();const d=$('advanced-worldview');if(d)d.open=true}}));
 for(const kind of ['worldview','world']){$(kind+'-editor').style.font='12px/1.6 Consolas, monospace';const option=el('option',generatorKinds[kind]);option.value='generator_'+kind;$('trace-filter').append(option)}
 async function refreshGenerators(){
   generationDrafts=await api('/inner/generators');

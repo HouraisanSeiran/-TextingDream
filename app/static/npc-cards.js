@@ -40,7 +40,9 @@
   pageNode.append(toolbar, mode, form, state);
   document.querySelector('main').append(pageNode);
   const nav = button('NPC 角色卡', () => TDNav.show('npc-cards'), 'workspace-link');
-  nav.id = 'workspace-npc-cards'; $('workspace-elements').after(nav);
+  nav.id = 'workspace-npc-cards';
+  nav.dataset.nav = 'npc-cards';
+  $('workspace-elements').after(nav);
   const legacyNav = button('NPC 角色卡', () => TDNav.show('npc-cards'));
   legacyNav.dataset.page = 'npc-cards';
   document.querySelector('#legacy nav').append(legacyNav);

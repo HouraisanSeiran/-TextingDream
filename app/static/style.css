@@ -221,8 +221,7 @@ button:hover, .map-btn:hover, .tb-btn:hover, .other-row:hover, .start-profile:ho
 #api-pop input, #api-pop textarea, #api-pop select { background: #151a21; color: #e6e8eb; border-color: #3b4552; }
 @media (max-width: 720px) {
   #workspace-sidebar { flex-basis: 56px; width: 56px; padding: 10px 6px; }
-  #workspace-sidebar .workspace-action, #workspace-sidebar .workspace-link { overflow: hidden; white-space: nowrap; font-size: 0; padding: 9px 12px; }
-  #workspace-sidebar .workspace-api::first-letter, #workspace-sidebar .workspace-action::first-letter, #workspace-sidebar .workspace-link::first-letter { font-size: 17px; }
+  #workspace-sidebar .workspace-action, #workspace-sidebar .workspace-link { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
   #workspace-sidebar .workspace-rule { margin: 4px 3px 6px; }
   #workspace-sidebar .workspace-label, #workspace-sidebar .workspace-footer { display: none; }
   .map-player-legend { right: 10px; bottom: 70px; }

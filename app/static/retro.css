@@ -128,16 +128,13 @@ dialog h2 { border-bottom: 2px solid var(--rt-ink); padding-bottom: 8px; }
 .workspace-intro strong { color: var(--rt-ink); font-family: var(--rt-serif); }
 .workspace-subtitle { color: var(--rt-muted); }
 #workspace-sidebar .workspace-label { font-family: var(--rt-mono); color: var(--rt-teal); text-transform: uppercase; letter-spacing: .14em; }
-#workspace-sidebar .workspace-label::before { content: '■ '; color: var(--rt-orange); }
 #workspace-sidebar .workspace-action, #workspace-sidebar .workspace-link { color: var(--rt-ink); border-radius: var(--rt-r-sm); border: 1.5px solid transparent; }
 #workspace-sidebar .workspace-action:hover, #workspace-sidebar .workspace-link:hover, #workspace-sidebar .workspace-link.selected {
   background: var(--rt-cream); color: var(--rt-ink); border-color: var(--rt-ink);
 }
-#workspace-sidebar .workspace-action span, #workspace-sidebar .workspace-link > span:first-child { color: var(--rt-orange); }
 #workspace-sidebar .workspace-featured {
   background: var(--rt-teal); color: var(--rt-cream); border: 2px solid var(--rt-ink); box-shadow: var(--rt-shadow-sm);
 }
-#workspace-sidebar .workspace-featured span { color: var(--rt-mustard); }
 #workspace-sidebar .workspace-featured:hover { background: var(--rt-teal-d); color: var(--rt-cream); border-color: var(--rt-ink); }
 #workspace-sidebar .workspace-api-entry { background: var(--rt-cream); border: 1.5px solid var(--rt-ink); }
 #workspace-sidebar .workspace-api-entry:hover { background: var(--rt-white); border-color: var(--rt-ink); }

@@ -17,23 +17,55 @@ const TDNav=(function(){
  function resolve(id){const seen=new Set();let next=id,before=null;
   while(aliases[next]&&!seen.has(next)){seen.add(next);const r=aliases[next](next);next=r&&r.page?r.page:r;before=(r&&r.before)||before}
   return {id:next,before}}
+ function adoptPages(){
+  const host=$('workbench-pages');
+  if(!host)return;
+  document.querySelectorAll('#legacy main > .page, #legacy .page').forEach(p=>{
+   if(p.parentElement!==host)host.appendChild(p);
+  });
+ }
+ function syncWorkspaceNav(id){
+  const links=[...document.querySelectorAll('#workspace-sidebar .workspace-link[data-nav]')];
+  let matched=false;
+  for(const b of links){
+   const on=b.dataset.nav===id;
+   b.classList.toggle('selected',on);
+   if(on)matched=true;
+  }
+  const other=$('workspace-other'),menu=$('workspace-other-menu');
+  if(other&&menu){
+   const sub=[...menu.querySelectorAll('[data-nav]')].some(b=>b.dataset.nav===id);
+   other.classList.toggle('selected',sub&&!matched);
+   if(sub){menu.hidden=false;other.setAttribute('aria-expanded','true')}
+  }
+  if(id==='surface'){
+   // 作者地图入口由 TDEnterAuthorMode / loadSession 单独点亮，这里不抢。
+  }
+ }
  function show(id){
   const hit=resolve(id);
   if(hit.before)hit.before();
   const spec=pages[hit.id]||{title:hit.id,play:false};
   page=hit.id;
-  const playBox=$('play'),legacy=$('legacy');
+  const playBox=$('play'),legacy=$('legacy'),wb=$('workbench-host');
+  // 始终留在统一工作台壳（#play）；旧 #legacy 侧栏不再切换整页皮肤。
+  if(playBox)playBox.hidden=false;
+  if(legacy)legacy.hidden=true;
+  adoptPages();
+  const title=spec.title||'工作台';
   if(spec.play){
-   if(legacy)legacy.hidden=true;
-   if(playBox)playBox.hidden=false;
-   document.querySelectorAll('#play > .page, #play-body .page, #play-left .page').forEach(p=>p.hidden=p.id!==hit.id);
+   document.body.classList.remove('workbench-open');
+   if(wb)wb.hidden=true;
+   document.querySelectorAll('#play-left .page').forEach(p=>p.hidden=p.id!==hit.id);
   }else{
-   if(playBox)playBox.hidden=true;
-   if(legacy)legacy.hidden=false;
-   document.querySelectorAll('#legacy .page').forEach(p=>p.hidden=p.id!==hit.id);
+   document.body.classList.add('workbench-open');
+   if(wb)wb.hidden=false;
+   document.querySelectorAll('#workbench-pages .page').forEach(p=>p.hidden=p.id!==hit.id);
+   if($('workbench-title'))$('workbench-title').textContent=title;
+   if($('workbench-crumb'))$('workbench-crumb').textContent='工作台 / '+title;
   }
   document.querySelectorAll('#legacy nav button').forEach(b=>b.classList.toggle('selected',b.dataset.page===hit.id));
-  const title=spec.title||'工作台';
+  syncWorkspaceNav(hit.id);
   if($('page-title'))$('page-title').textContent=title;
   if($('breadcrumb'))$('breadcrumb').textContent='工作空间 / '+title;
   if(spec.enter)return spec.enter(hit.id);
@@ -56,7 +88,7 @@ function jsonDownload(data,name){const url=URL.createObjectURL(new Blob([JSON.st
 function textDownload(text,name){const url=URL.createObjectURL(new Blob([text],{type:'text/markdown;charset=utf-8'}));const a=el('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)}
 const conversationOptions=el('div');conversationOptions.innerHTML='<label>对话分章<select id="conversation-mode"><option value="chapter">长篇连续（减少新建）</option><option value="scene">每个主要场景新建</option></select></label><label>至少多少轮后允许换场景分章<input id="chapter-turns" type="number" min="12" max="200" value="40"></label><label><input id="surface-thinking" type="checkbox"> 表层启用 DeepSeek 推理（默认开启，仍需检查生成质量）</label><small>默认延续当前对话，达到轮数后在下次换场景分章；后台发送最近历史和相关知识，完整原文保留。推理开关仅适用于官方 V4 / Flash。</small>';$('settings-form').prepend(conversationOptions);
 function prefs(p){fillStageSettings(p);$('recall-enabled').checked=p.recall_enabled!==false;$('recall-threshold').value=p.recall_threshold??0.12;document.body.classList.toggle('light',p.theme==='light');document.documentElement.style.setProperty('--read-size',p.font_size+'px');for(const [id,key] of [['theme','theme'],['font-size','font_size'],['memory-k','memory_k'],['history-turns','history_turns'],['context-chars','context_chars']])$(id).value=p[key];$('conversation-mode').value=p.conversation_mode||'chapter';$('chapter-turns').value=p.chapter_turns||40;$('surface-thinking').checked=!!p.surface_thinking}
-async function bootstrap(){const b=await api('/bootstrap');token=b.token;window.__textileDreamToken=token;apiConfig=b.api;prefs(b.preferences);$('mode-label').textContent=b.api.offline?'离线测试':'已选择 '+b.api.model;if(typeof window.TDWorkspaceSync==='function')window.TDWorkspaceSync(b.sessions,b.api);return b}
+async function bootstrap(){const b=await api('/bootstrap');token=b.token;window.__textileDreamToken=token;apiConfig=b.api;prefs(b.preferences);window.__tdMapPolicy=b.map_policy||{civ_atlas_enabled:false,default_map_kind:'world_map_product'};$('mode-label').textContent=b.api.offline?'离线测试':'已选择 '+b.api.model;if(typeof window.TDWorkspaceSync==='function')window.TDWorkspaceSync(b.sessions,b.api);return b}
 // 空态（没有选中旅程）与有旅程时的正文区互斥：空态不显示任何只对旅程有意义的按钮。
 function syncJourneyState(){const has=!!current;$('play-left').classList.toggle('has-journey',has);$('journey-empty').hidden=has}
 function openNewDialog(){$('new-dialog').showModal()}

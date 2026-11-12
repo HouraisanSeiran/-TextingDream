@@ -64,6 +64,7 @@ if str(ROOT) not in sys.path:
 from app import encyclopedia as enc  # noqa: E402
 from tools import game_fields  # noqa: E402
 from tools import catalog_overlay  # noqa: E402
+from tools import affix_fields  # noqa: E402
 
 EXIT_OK = 0
 EXIT_ERROR = 1
@@ -185,6 +186,17 @@ PROFESSION_GROUPS = (
     'docs/element-catalog/professions.json',
     'docs/element-catalog/professions-fantasy.json',
 )
+# 文明模拟用的王朝风格 / 人名用字：只有 ``--with-civ-lore`` 才构入。
+# 宗教本体仍走 ``--with-culture`` 里的 religions.json；本组不重复教义条目。
+CIV_LORE_GROUPS = (
+    'docs/human-encyclopedia/civ-dynasty-styles.json',
+    'docs/human-encyclopedia/civ-given-names.json',
+)
+# 词条分区（西幻 / 游戏常见的人物与物品词条，affix_fields_v1）：只有 ``--with-affixes`` 才构入。
+# 与 character-traits（行为特质、不承担数值）是两回事，详见 docs/element-catalog/affixes-spec.md。
+AFFIX_GROUPS = (
+    'docs/element-catalog/fantasy-affixes.json',
+)
 # 带特质的历史基线（旧交付口径）；不带任何开关时仍是 ``GROUPS``。
 LATEST_GROUPS = GROUPS + TRAIT_GROUPS
 
@@ -193,7 +205,7 @@ def groups_for(with_traits=False, with_cuisine=False, with_attributes=False, wit
                with_fantasy_biology=False, with_alchemy=False, with_reality_herbs=False,
                with_formulae=False, with_cuisine_western=False, with_world_setting=False,
                with_cuisine_world=False, with_shops=False, with_town_buildings=False,
-               with_professions=False):
+               with_professions=False, with_civ_lore=False, with_affixes=False):
     """要构库的显式名单。
 
     不给开关 = 历史 14 组。with_attributes 显式追加现有六项属性资料。
@@ -230,6 +242,10 @@ def groups_for(with_traits=False, with_cuisine=False, with_attributes=False, wit
         groups = groups + TOWN_BUILDING_GROUPS
     if with_professions:
         groups = groups + PROFESSION_GROUPS
+    if with_civ_lore:
+        groups = groups + CIV_LORE_GROUPS
+    if with_affixes:
+        groups = groups + AFFIX_GROUPS
     return groups
 
 
@@ -238,7 +254,7 @@ ALL_FLAGS = {name: True for name in (
     'with_traits', 'with_cuisine', 'with_attributes', 'with_culture', 'with_fantasy_biology',
     'with_alchemy', 'with_reality_herbs', 'with_formulae', 'with_cuisine_western',
     'with_world_setting', 'with_cuisine_world', 'with_shops', 'with_town_buildings',
-    'with_professions')}
+    'with_professions', 'with_civ_lore', 'with_affixes')}
 
 
 def _emit(payload, as_json):
@@ -278,6 +294,8 @@ def build(out_path, as_json=False, groups=None):
         document = game_fields.overlay(enc.loads_json(text))
         # 再叠加主标签 / 证据等级 / 补充关联（docs/element-catalog/overlays/<group>.json）；同样只在内存。
         document = catalog_overlay.overlay(document)
+        # 词条字段（affix_fields_v1）：字段不合规、或 affix: 标签与对象不一致，整批拒绝。
+        affix_fields.check_document(document)
         result = enc.import_document(out, document)
         results.append(result.as_dict())
     stats = enc.stats(out)
@@ -377,6 +395,12 @@ def build_parser():
                         help='追加城镇建筑美术候选分区；先运行 python -m tools.town_art_elements；与其他开关独立')
     parser.add_argument('--with-professions', action='store_true', dest='with_professions',
                         help='追加职业分区（现实与历史职业 / 奇幻职业，2 个显式分区）')
+    parser.add_argument('--with-civ-lore', action='store_true', dest='with_civ_lore',
+                        help='追加文明模拟用王朝命名风格与人名用字（2 个显式分区）；'
+                             '宗教本体仍用 --with-culture 中的 religions')
+    parser.add_argument('--with-affixes', action='store_true', dest='with_affixes',
+                        help='追加词条分区（西幻 / 游戏常见的人物与物品词条，affix_fields_v1）；'
+                             '数值是候选设计口径，不改角色属性、不改奖励配置')
     return parser
 
 
@@ -386,7 +410,7 @@ def main(argv=None):
                         args.with_fantasy_biology, args.with_alchemy, args.with_reality_herbs,
                         args.with_formulae, args.with_cuisine_western, args.with_world_setting,
                         args.with_cuisine_world, args.with_shops, args.with_town_buildings,
-                        args.with_professions)
+                        args.with_professions, args.with_civ_lore, args.with_affixes)
     try:
         if args.check:
             return check(args.out, args.json, groups)

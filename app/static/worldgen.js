@@ -6,11 +6,24 @@
   const BASIS = {measured: '实测', extrapolated: '推算'};
   const pageNode = el('section', undefined, 'page worldgen');
   pageNode.id = 'worldgen'; pageNode.hidden = true;
-  pageNode.append(el('h2', '世界生成'),
-    el('p', '调参数后在后台依次生成：板块骨架（造山带）→ 快速世界层 2 km（CPU，不规则网格汇流，无 D8）→（勾选显卡时）TD 粗模型山脉走向与对比 → 成图。产物写入新的 web-<任务号> 目录，不覆盖已有产物。', 'muted'));
+  const intro = el('div', undefined, 'intro');
+  intro.append(
+    el('h2', '世界生成'),
+    el('p', '新建世界从这里开始：先生成 Terragenesis 地形床面，再补设定与故事包。同一种子可稍后提高精度；产物不覆盖旧档。', 'muted'),
+  );
+
+  const tabs = el('div', undefined, 'worldgen-tabs');
+  const tabTerrain = el('button', '地形床面', 'worldgen-tab selected');
+  const tabLore = el('button', '设定与故事包', 'worldgen-tab');
+  tabTerrain.type = 'button'; tabLore.type = 'button';
+  tabs.append(tabTerrain, tabLore);
+
+  const panelTerrain = el('div', undefined, 'worldgen-panel');
+  const panelLore = el('div', undefined, 'worldgen-panel');
+  panelLore.hidden = true;
 
   const form = el('form', undefined, 'card worldgen-form');
-  const typeSel = el('select'), sizeSel = el('select');
+  const typeSel = el('select'), sizeSel = el('select'), qualitySel = el('select'), pipelineSel = el('select');
   const ocean = el('input'), oceanOut = el('output');
   const mount = el('input'), mountOut = el('output');
   const seed = el('input');
@@ -20,21 +33,65 @@
   seed.type = 'number'; seed.min = '0'; seed.step = '1'; seed.required = true;
   gpu.type = 'checkbox'; gpu.disabled = true;
   function field(label, ...nodes) { const l = el('label', label); l.append(...nodes); return l; }
-  const gpuLabel = el('label', undefined, 'worldgen-check'); gpuLabel.append(gpu, document.createTextNode(' 使用显卡（只用于 TD 粗模型山脉走向验证 / 对比）'));
+  const gpuLabel = el('label', undefined, 'worldgen-check'); gpuLabel.append(gpu, document.createTextNode(' 使用显卡（完整链的 TD 对比；游玩草稿仅岛山可用）'));
   const estimateBox = el('div', undefined, 'worldgen-estimate');
-  const submit = el('button', '开始生成', 'primary'); submit.type = 'submit';
+  const submit = el('button', '开始生成地形', 'primary'); submit.type = 'submit';
   const refreshGpu = button('重新检测显卡', () => loadOptions(true)); refreshGpu.type = 'button';
-  form.append(field('世界类型', typeSel), field('世界大小', sizeSel), field('海洋比例 ', oceanOut, ocean),
-    field('山地覆盖（占陆地） ', mountOut, mount), field('种子', seed), gpuLabel, gpuNote, refreshGpu, estimateBox, submit);
+  form.append(field('世界类型', typeSel), field('世界大小', sizeSel),
+    field('流水线', pipelineSel), field('精度（速度 / 均衡 / 精细）', qualitySel),
+    field('海洋比例 ', oceanOut, ocean), field('山地覆盖（占陆地） ', mountOut, mount), field('种子', seed),
+    gpuLabel, gpuNote, refreshGpu, estimateBox, submit);
 
   const jobBox = el('div', undefined, 'card worldgen-job'); jobBox.hidden = true;
   const historyBox = el('div', undefined, 'worldgen-history');
-  pageNode.append(form, jobBox, el('h3', '最近的任务'), historyBox);
+  panelTerrain.append(
+    el('p', '默认「游玩草稿」：骨架 → 岛链 → 快速世界层 → 预览成图，完成后可导入游玩世界地图。作者完整链另含水沙环境、细节续算与双份成图。', 'muted'),
+    form, jobBox, el('h3', '最近的任务'), historyBox,
+  );
+  panelLore.append(el('p', '沿用可用的设定生成能力：补充当前世界、完整故事包草稿、分步世界观/城市，以及作者图册。地形仍以左侧「地形床面」为准。', 'muted'));
+
+  pageNode.append(intro, tabs, panelTerrain, panelLore);
   document.querySelector('main').append(pageNode);
+
+  let loreAdopted = false;
+  function adoptLore() {
+    const ws = $('world-workshop');
+    if (!ws) return;
+    if (!loreAdopted) {
+      loreAdopted = true;
+      ws.hidden = false;
+      ws.classList.remove('page');
+      const h2 = ws.querySelector('.intro h2');
+      if (h2) h2.textContent = '设定与故事包';
+      const p = ws.querySelector('.intro p');
+      if (p) p.textContent = '在地形床面之上写设定：可补充现有世界，或生成完整故事包草稿；分步世界观/城市与作者图册也在这里。';
+      const resources = ws.querySelector('.resource-table')?.closest('details');
+      if (resources) resources.remove();
+      panelLore.append(ws);
+    }
+    safe(async () => {
+      if (typeof refreshGenerators === 'function') await refreshGenerators();
+      if (typeof refreshCreationList === 'function') refreshCreationList();
+      if (typeof loadCurrentAtlas === 'function') await loadCurrentAtlas();
+    });
+  }
+  function showPanel(which) {
+    const lore = which === 'lore';
+    panelTerrain.hidden = lore;
+    panelLore.hidden = !lore;
+    tabTerrain.classList.toggle('selected', !lore);
+    tabLore.classList.toggle('selected', lore);
+    if (lore) adoptLore();
+  }
+  tabTerrain.onclick = () => showPanel('terrain');
+  tabLore.onclick = () => showPanel('lore');
+  window.__worldgenOpenLore = () => showPanel('lore');
+  window.__worldgenOpenTerrain = () => showPanel('terrain');
 
   const anchor = $('workspace-ai-drafts') || $('workspace-npc-cards') || $('workspace-elements');
   const nav = button('世界生成', () => TDNav.show('worldgen'), 'workspace-link');
   nav.id = 'workspace-worldgen';
+  nav.dataset.nav = 'worldgen';
   if (anchor) anchor.after(nav);
   const legacy = document.querySelector('#legacy nav');
   if (legacy) { const b = button('世界生成', () => TDNav.show('worldgen')); b.dataset.page = 'worldgen'; legacy.append(b); }
@@ -51,14 +108,29 @@
     return (s / 3600).toFixed(1) + ' 小时';
   }
   const range = a => (Math.abs(a[0] - a[1]) < 1) ? dur(a[0]) : dur(a[0]) + ' – ' + dur(a[1]);
+  function fmtBytes(n) {
+    if (n === null || n === undefined) return '未知';
+    const u = ['B', 'KB', 'MB', 'GB', 'TB'];
+    let i = 0, x = Number(n);
+    while (x >= 1024 && i < u.length - 1) { x /= 1024; i++; }
+    return (i ? x.toFixed(1) : String(Math.round(x))) + ' ' + u[i];
+  }
 
   function fill(o) {
     opts = o;
     if (!typeSel.options.length) {
       for (const t of o.world_types) { const x = el('option', t.label); x.value = t.id; typeSel.append(x); }
       for (const s of o.sizes) { const x = el('option', s.label); x.value = String(s.km); sizeSel.append(x); }
+      for (const q of (o.qualities || [])) {
+        const sp = q.spacings_m || {};
+        const x = el('option', `${q.label}（1600→${sp['1600']/1000}km）`); x.value = q.id; qualitySel.append(x);
+      }
+      for (const p of (o.pipelines || [{id: 'playable', label: '游玩草稿（默认·更快）'}, {id: 'full', label: '作者完整链'}])) {
+        const x = el('option', p.label); x.value = p.id; pipelineSel.append(x);
+      }
       const d = o.defaults;
-      typeSel.value = d.world_type; sizeSel.value = String(d.size_km);
+      typeSel.value = d.world_type; sizeSel.value = String(d.size_km); qualitySel.value = d.quality || 'speed';
+      pipelineSel.value = d.pipeline || 'playable';
       ocean.min = o.ranges.ocean_fraction[0]; ocean.max = o.ranges.ocean_fraction[1]; ocean.value = d.ocean_fraction;
       mount.min = o.ranges.mountain_area[0]; mount.max = o.ranges.mountain_area[1]; mount.value = d.mountain_area;
       seed.value = d.seed;
@@ -77,26 +149,42 @@
   function renderEstimate() {
     if (!opts) return;
     oceanOut.textContent = pct(Number(ocean.value)); mountOut.textContent = pct(Number(mount.value));
-    const size = sizeSel.value, e = opts.estimates[size][gpu.checked ? 'gpu' : 'cpu'];
+    const size = sizeSel.value, quality = qualitySel.value || 'speed';
+    const pipeline = pipelineSel.value || 'playable';
+    const bucket = opts.estimates[size][quality] || opts.estimates[size];
+    const pipeBucket = (bucket.pipelines && bucket.pipelines[pipeline]) || bucket;
+    const e = pipeBucket[gpu.checked ? 'gpu' : 'cpu'] || pipeBucket;
+    const spacingM = bucket.spacing_m || (e && e.spacing_m);
     const rows = e.stages.map(s => { const r = el('tr');
       r.append(el('td', s.label), el('td', range(s.seconds)), el('td', s.peak_mb ? Math.round(s.peak_mb) + ' MB' : ''), el('td', BASIS[s.basis] || s.basis, s.basis === 'measured' ? 'ok' : 'warn'));
       return r; });
     const t = el('table'); const head = el('tr');
     head.append(el('th', '阶段'), el('th', '预计耗时'), el('th', '内存峰值'), el('th', '依据'));
     t.append(head, ...rows);
-    const avail = opts.memory.available_bytes, need = opts.memory.min_free_bytes[size];
-    const memLine = el('p', `合计约 ${range(e.total_seconds)}；内存峰值约 ${Math.round(e.peak_mb)} MB。启动门槛：可用内存 ≥ ${(need / 2 ** 30).toFixed(1)} GiB，当前可用 ${avail ? (avail / 2 ** 30).toFixed(2) + ' GiB' : '未知'}。`,
-      avail !== null && avail < need ? 'warn' : 'muted');
+    const avail = opts.memory.available_bytes;
+    const need = ((opts.memory.recommended_bytes || opts.memory.min_free_bytes || {})[size] || {})[quality]
+      || (opts.memory.min_free_bytes || {})[size];
+    const advice = ((opts.memory.advice || {})[size] || {})[quality] || {};
+    const tight = avail !== null && avail !== undefined && need && avail < need;
+    const memLine = el('p', `流水线 ${pipeline}；格距 ${spacingM ? (spacingM/1000) + ' km' : '—'}；合计约 ${range(e.total_seconds)}；内存峰值约 ${Math.round(e.peak_mb)} MB。建议可用内存 ≥ ${(need / 2 ** 30).toFixed(1)} GiB，当前 ${avail != null ? (avail / 2 ** 30).toFixed(2) + ' GiB' : '未知'}（软建议，不硬拦）。`,
+      tight ? 'warn' : 'muted');
+    const diskBytes = (e && e.disk_bytes) || pipeBucket.disk_bytes || bucket.disk_bytes;
+    const freeDisk = opts.disk && opts.disk.free_bytes;
+    const diskTight = freeDisk != null && diskBytes != null && freeDisk < diskBytes;
+    const diskLine = el('p', `磁盘占用推算约 ${fmtBytes(diskBytes)}；当前可用磁盘 ${fmtBytes(freeDisk)}。`,
+      diskTight ? 'warn' : 'muted');
     const extra = [];
-    if (size === '10000') extra.push(el('p', '万公里世界需要显卡且很慢：骨架与快速层的时间、内存都是从 1600 / 5000 km 实测推算的，可能超出本机内存。', 'warn'));
-    if (!gpu.checked && opts.estimates[size].gpu) {
-      const td = opts.estimates[size].gpu.stages.find(s => s.stage === 'td');
-      if (td) extra.push(el('p', `勾选显卡会多跑一步 TD 粗模型（推算 ${range(td.seconds)}，约 ${td.tiles[0] === td.tiles[1] ? td.tiles[0] : td.tiles.join('–')} 块，跳过离陆地 ${opts.td.skip_ocean_km} km 外深海、${opts.td.steps} 步）。`, 'muted'));
+    if (pipeline === 'playable') extra.push(el('p', '游玩草稿跳过世界水沙、细节续算与双份成图；玩家底图只需要 fast 层。', 'muted'));
+    if (tight) extra.push(el('p', advice.note || '内存偏紧时会限线程、拉长等待并放慢生成，仍可提交。', 'warn'));
+    if (size === '10000' && quality === 'precise') extra.push(el('p', '万公里精细档节点很多，时间和内存是推算值，可能超出本机。', 'warn'));
+    if (pipeline === 'full' && !gpu.checked && pipeBucket.gpu) {
+      const td = pipeBucket.gpu.stages.find(s => s.stage === 'td');
+      if (td) extra.push(el('p', `勾选显卡会多跑一步 TD 粗模型（推算 ${range(td.seconds)}）。`, 'muted'));
     }
-    estimateBox.replaceChildren(el('h3', '提交前估算'), t, memLine, ...extra,
-      el('p', '“实测”来自本机已跑过的同尺寸任务；“推算”按块数 × 每块耗时或尺寸外推，未在本机实测。', 'muted'));
+    estimateBox.replaceChildren(el('h3', '提交前估算'), t, memLine, diskLine, ...extra,
+      el('p', '默认粗格距 + 游玩草稿。精度档只改采样格距；完成后可导入游玩世界地图，或升级到更细档。', 'muted'));
   }
-  for (const x of [ocean, mount, sizeSel, gpu, typeSel]) x.addEventListener('input', renderEstimate);
+  for (const x of [ocean, mount, sizeSel, qualitySel, pipelineSel, gpu, typeSel]) x.addEventListener('input', renderEstimate);
 
   async function loadOptions(refresh) {
     fill(await api('/inner/worldgen/options' + (refresh ? '?refresh_gpu=1' : '')));
@@ -108,7 +196,9 @@
     const jobs = await api('/inner/worldgen/jobs');
     historyBox.replaceChildren(...(jobs.length ? jobs.slice(0, 12).map(j => {
       const p = j.params;
-      return button(`${j.id} · ${STATUS[j.status] || j.status} · ${p.size_km} km ${p.world_type}${p.use_gpu ? ' · 显卡' : ''}${j.seconds_total ? ' · ' + dur(j.seconds_total) : ''}`, () => watch(j.id), 'worldgen-history-item');
+      const q = p.quality || 'speed';
+      const pipe = p.pipeline || 'playable';
+      return button(`${j.id} · ${STATUS[j.status] || j.status} · ${p.size_km} km ${p.world_type} · ${pipe}/${q}${p.use_gpu ? ' · 显卡' : ''}${j.seconds_total ? ' · ' + dur(j.seconds_total) : ''}`, () => watch(j.id), 'worldgen-history-item');
     }) : [el('p', '还没有生成任务。', 'muted')]));
   }
 
@@ -116,7 +206,8 @@
     ev.preventDefault();
     safe(async () => {
       const body = {world_type: typeSel.value, size_km: Number(sizeSel.value), ocean_fraction: Number(ocean.value),
-        mountain_area: Number(mount.value), seed: Number(seed.value), use_gpu: gpu.checked};
+        mountain_area: Number(mount.value), seed: Number(seed.value), use_gpu: gpu.checked,
+        quality: qualitySel.value || 'speed', pipeline: pipelineSel.value || 'playable'};
       if (!Number.isSafeInteger(body.seed) || body.seed < 0) throw Error('种子必须是非负整数');
       submit.disabled = true;
       try { const j = await api('/inner/worldgen/jobs', 'POST', body); notice('已开始生成：' + j.id); watch(j.id); await loadHistory(); }
@@ -156,9 +247,34 @@
     const done = ['succeeded', 'failed', 'cancelled', 'interrupted'].includes(j.status);
     const p = j.params;
     const head = el('div', undefined, 'toolbar');
+    const qLabel = p.quality || 'speed';
+    const pipeLabel = p.pipeline || 'playable';
+    const sp = p.spacing_m ? (p.spacing_m / 1000) + ' km' : '—';
     head.append(el('strong', `任务 ${j.id}`), el('span', STATUS[j.status] || j.status, 'worldgen-status ' + j.status),
-      el('span', `${p.size_km} km · ${p.world_type} · 海洋 ${pct(p.ocean_fraction)} · 山地 ${pct(p.mountain_area)} · 种子 ${p.seed}${p.use_gpu ? ' · 显卡' : ''}`, 'muted'));
+      el('span', `${p.size_km} km · ${p.world_type} · ${pipeLabel}/${qLabel}/${sp} · 海洋 ${pct(p.ocean_fraction)} · 山地 ${pct(p.mountain_area)} · 种子 ${p.seed}${p.use_gpu ? ' · 显卡' : ''}${p.upgrade_of ? ' · 升级自 ' + p.upgrade_of : ''}`, 'muted'));
     if (!done) head.append(button('取消任务', async () => { await api(`/inner/worldgen/jobs/${encodeURIComponent(j.id)}/cancel`, 'POST'); notice('已请求取消'); }));
+    if (done && j.status === 'succeeded') {
+      head.append(button('提高精度', async () => {
+        const target = prompt('目标精度：speed / balanced / precise', 'precise');
+        if (!target) return;
+        const nj = await api(`/inner/worldgen/jobs/${encodeURIComponent(j.id)}/upgrade`, 'POST', {quality: target});
+        notice('已开始升级任务：' + nj.id); watch(nj.id); await loadHistory();
+      }));
+      head.append(button('导入到游玩世界地图', async () => {
+        const pkg = await api('/inner/package');
+        const rev = pkg && pkg.id;
+        if (!rev) throw Error('还没有故事包：请先到「设定与故事包」新建或打开一个故事包，再导入地图');
+        const r = await api('/inner/history/worldgen-map-link', 'POST',
+          {job_id: j.id, expected_story_revision: rev, fog_radius_km: 300});
+        notice('已写入故事包地图（world_map_product），revision ' + r.revision + '。打开一段旅程即可在游玩世界地图中查看。');
+        if (typeof current !== 'undefined' && current && current.id && typeof loadSession === 'function') {
+          await loadSession(current.id, true);
+        } else if (typeof showPage === 'function') {
+          await showPage('surface');
+        }
+      }));
+      head.append(button('继续写设定', () => showPanel('lore')));
+    }
     const stages = el('ol', undefined, 'worldgen-stages');
     for (const s of j.stages || []) {
       const mon = s.gpu_monitor ? ` · 显存峰值 ${s.gpu_monitor.peak_mib} MiB（整卡）` : '';
@@ -205,7 +321,14 @@
     return out;
   }
 
-  TDNav.register('worldgen', {title: '世界生成', enter: () => safe(() => loadOptions(false))});
+  TDNav.register('worldgen', {
+    title: '世界生成', play: false,
+    enter: () => safe(async () => {
+      showPanel(panelLore.hidden === false ? 'lore' : 'terrain');
+      await loadOptions(false);
+    }),
+  });
+  TDNav.alias('world-workshop', () => ({page: 'worldgen', before: () => showPanel('lore')}));
 
   // Deep link: /#worldgen or /#worldgen=<job id> opens this page (and that job) once bootstrap has the token.
   const deep = /^#worldgen(?:=([0-9a-f-]{20}))?$/.exec(location.hash);

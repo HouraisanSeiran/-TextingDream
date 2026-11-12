@@ -1,14 +1,14 @@
-/* 主入口 → 原生 civ-atlas 地图的**唯一挂载点**，按模式严格分离作者与玩家。
+/* 世界地图唯一挂载点，按模式严格分离作者与玩家。
  *
- * 这个文件是本工程自己写的静态集成（MIT），**不 import 上游任何模块**：它只按 URL
- * 动态加载 AGPL 构建产物 `/native-map/dream-host.js`。
+ * 这个文件是本工程自己写的静态集成（MIT），默认显示 Terragenesis 存图层。
+ * 只有显式选择可选旧来源时才动态加载 AGPL `/native-map/dream-host.js`。
  *
  * 模式来源与边界：
  *   app.js 在确定“有没有旅程”后调 `setNativeMode('author'|'player')`，并派发
  *   `td-native-mode` 事件（window.__tdNativeMode 是同步可读的副本）。本文件只认这个事件，
  *   **不自己 bootstrap、不轮询**。
  *
- *   author  = 空态，作者在准备世界 → 挂载宿主（mode:'author'，请求 native-worlds）
+ *   author  = 空态，作者在准备世界 → 世界地图；civ-atlas 仅显式 opt-in
  *   player  = 已在某段旅程里 → **完全卸下作者宿主**，只显示独立的
  *             /api/sessions/{id}/play-map 服务端掩膜底图与玩家位置；不请求作者全图。
  *             这是“这幅图属于谁”的契约，不是权限开关：token 不是看全图的理由。
@@ -23,7 +23,7 @@
   if (!host) return;
 
   const BASE = '/native-map/';
-  let root = null;            // mountDreamHost 返回的 React root
+  let root = null;            // bundle 或 mountDreamHost，统一 unmount
   let module = null;          // 已加载的宿主模块（只加载一次）
   let mode = null;            // 当前已挂载的模式
   let applySerial = 0;     // 同模式重试也使先前的异步加载失效
@@ -126,26 +126,64 @@
     }
 
     mode = next;
-    note('正在加载原生地图…');
-    let loaded;
-    try {
-      loaded = await load();
-    } catch (error) {
-      if (serial === applySerial) fail('原生地图不可用', error.message || String(error));
-      return;
+    host.replaceChildren();
+    const sources = document.createElement('div');
+    sources.className = 'map-bundle-sources';
+    sources.hidden = !window.__tdMapPolicy?.civ_atlas_enabled;
+    sources.setAttribute('aria-label', '作者地图来源');
+    const content = document.createElement('div');
+    content.className = 'native-map-mount';
+    const current = document.createElement('button');
+    current.type = 'button';
+    current.textContent = '世界地图';
+    const legacy = document.createElement('button');
+    legacy.type = 'button';
+    legacy.textContent = 'civ-atlas · 可选旧来源';
+    legacy.disabled = !window.__tdMapPolicy?.civ_atlas_enabled;
+    legacy.title = legacy.disabled ? '旧来源未启用；不会加载 civ-atlas 宿主' : '仅在明确选择后加载旧宿主';
+    sources.append(current);
+    if (window.__tdMapPolicy?.civ_atlas_enabled) sources.append(legacy);
+    host.append(sources, content);
+    let sourceSerial = 0;
+    async function chooseSource(kind) {
+      const selected = ++sourceSerial;
+      if (root) { root.unmount(); root = null; }
+      window.__nativeMapRoot = null;
+      content.replaceChildren();
+      current.setAttribute('aria-pressed', String(kind === 'bundle'));
+      legacy.setAttribute('aria-pressed', String(kind === 'legacy'));
+      if (kind === 'bundle') {
+        if (!window.TDMapBundle) {
+          content.textContent = '世界地图组件不可用，请刷新页面重试。';
+          return;
+        }
+        root = window.TDMapBundle.mount(content);
+        window.__nativeMapRoot = root;
+        return;
+      }
+      if (!window.__tdMapPolicy?.civ_atlas_enabled) return;
+      content.textContent = '正在加载可选旧来源…';
+      try {
+        const loaded = await load();
+        // 源/模式切换后的迟到模块，不得挂回作者资产。
+        if (serial !== applySerial || selected !== sourceSerial || mode !== 'author') return;
+        content.replaceChildren();
+        root = loaded.mountDreamHost(content, { mode: 'author' });
+        window.__nativeMapRoot = root;
+      } catch (error) {
+        if (serial === applySerial && selected === sourceSerial && mode === 'author') {
+          content.textContent = error.message || String(error);
+          const again = document.createElement('button');
+          again.type = 'button';
+          again.textContent = '重试旧来源';
+          again.onclick = () => { void chooseSource('legacy'); };
+          content.append(again);
+        }
+      }
     }
-    // 加载期间模式又变了，或同模式重新加载了：迟到的结果不能覆盖新宿主。
-    if (serial !== applySerial || mode !== 'author') return;
-    try {
-      host.replaceChildren();
-      const mount = document.createElement('div');
-      mount.className = 'native-map-mount';
-      host.append(mount);
-      root = loaded.mountDreamHost(mount, { mode: 'author' });
-      window.__nativeMapRoot = root;
-    } catch (error) {
-      fail('原生地图挂载失败', (error && error.message ? error.message : String(error)));
-    }
+    current.onclick = () => { void chooseSource('bundle'); };
+    legacy.onclick = () => { void chooseSource('legacy'); };
+    void chooseSource('bundle');
   }
 
   // 模式只从这个显式事件来（app.js: setNativeMode）。事件到之前先不挂任何东西。

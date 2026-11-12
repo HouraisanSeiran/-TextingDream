@@ -36,7 +36,7 @@ CPU回归入口：
 python -m pytest tests/test_ocean_island_integration.py tests/test_fast_relief.py tests/test_world_gen_tiles.py
 ```
 
-旧 `test_world_gen_pipeline.py` 的新骨架生成fixture仍调用重构前 `tectonic_evolution/tectonic_product`，属于已知上游导入断链，本集成没有改骨架求解器，也不将该套件记录为通过。世界层所需 `graph_hydro` 已仅迁移到重构后的公开 `terrain_pipeline.drainage`，数值算法保持原样。
+骨架现行入口是 `terrain_pipeline.tectonic`（`evolve` / `freeze` / `save_product`）。旧名 `tectonic_evolution` / `tectonic_product` 已不存在；`tests/test_world_gen_pipeline.py` 若仍写旧路径须改走 `generate_skeleton` / `tectonic` 或显式 skip。世界层水文经公开 `terrain_pipeline.drainage`。总台账见 [terrain-algorithm-map.md](terrain-algorithm-map.md)。
 
 2026-11-06 本地回归为30项通过（集成8、原fast14、tiles8，1项既有插件警告）。另完成真实1600km、800²、2km全域CPU运行，42.35秒、采样RSS峰值464,023,552字节；真实TD raw条件进入同一岛产品，但未启动模型推理。原v2真实产物身份 `fae4a40cb1d9aa3a1a4f226b978c446275f06e37da3e44edf0d0063d75b49f4a` 保留为中间版本：事后发现旧侵蚀夹高使2218个岛保护域外负床变陆，共8872km²；这不是岛链新增陆地面积。该产物没有被修复后的源码覆盖，不能作最终通过。修复仅经小CPU反例/回归及加强的只读审计验证；下一次真实全域运行与核心v3产品一起执行。
 

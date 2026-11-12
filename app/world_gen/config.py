@@ -54,15 +54,49 @@ def _num(value, field, lo=None, hi=None):
 
 
 def skeleton_cell_km(width_km, height_km):
-    """Skeleton cell size: 10 km up to 2000 km, 20 km up to 6000 km, 25 km above (400 x 400 at 10000 km)."""
+    """Skeleton cell size: 10 km ≤2000, 20 km ≤6000, 40 km above (must be a multiple of 2 km).
+
+    10000 km → 250×250 cells (same count as measured 5000 km @ 20 km). Play-start areas can
+    later use a finer local skeleton without regenerating the whole world.
+    """
     longest = max(width_km, height_km)
-    return 10 if longest <= 2000 else 20 if longest <= 6000 else 25
+    return 10 if longest <= 2000 else 20 if longest <= 6000 else 40
+
+
+def normalize_geography_features(features, world, cell_size_km, *, source='new'):
+    """Validate author intent without running or importing any terrain algorithms."""
+    field = 'geography_features'
+    _need(isinstance(features, list) and len(features) <= 32, field, 'list of at most 32 features required')
+    _need(not features or source == 'new', field, 'requires a new skeleton')
+    seen, out = set(), []
+    allowed = {'id', 'center_x_m', 'center_z_m', 'radius_m', 'strength', 'aspect', 'bearing_deg'}
+    ox, oz = [v * 1000 for v in world['origin_km']]
+    width, height = world['width_km'] * 1000, world['height_km'] * 1000
+    for i, feature in enumerate(features):
+        f = f'{field}[{i}]'
+        _need(isinstance(feature, dict), f, 'object required')
+        _need(not set(feature) - allowed, f, 'unknown feature keys')
+        sid = feature.get('id')
+        _need(isinstance(sid, str) and sid.strip() and len(sid) <= 64, f + '.id', 'non-empty id up to 64 characters')
+        sid = sid.strip()
+        _need(sid not in seen, f + '.id', 'unique id required')
+        seen.add(sid)
+        x = _num(feature.get('center_x_m'), f + '.center_x_m', ox)
+        z = _num(feature.get('center_z_m'), f + '.center_z_m', oz)
+        _need(x < ox + width and z < oz + height, f, 'centre must be inside the finite world')
+        radius = _num(feature.get('radius_m'), f + '.radius_m', cell_size_km * 1000, max(width, height))
+        strength = _num(feature.get('strength'), f + '.strength', -4, 4)
+        aspect = _num(feature.get('aspect', 1), f + '.aspect', 1, 10)
+        bearing = _num(feature.get('bearing_deg', 0), f + '.bearing_deg', 0, 360)
+        out.append(dict(id=sid, center_x_m=float(x), center_z_m=float(z), radius_m=float(radius),
+                        strength=float(strength), aspect=float(aspect), bearing_deg=float(bearing % 360)))
+    return sorted(out, key=lambda row: row['id'])
 
 
 def normalize(raw):
     """Validate a raw dict and return a fully defaulted copy. Unknown top-level keys are rejected."""
     _need(isinstance(raw, dict), 'config', 'JSON object required')
-    allowed = {'schema', 'world_name', 'world_seed', 'world', 'world_layer', 'skeleton', 'local_sites', 'map_style', 'notes'}
+    allowed = {'schema', 'world_name', 'world_seed', 'world', 'world_layer', 'skeleton', 'local_sites', 'map_style', 'notes', 'geography_features'}
     unknown = sorted(set(raw) - allowed)
     _need(not unknown, 'config', f'unknown keys {unknown}')
     _need(raw.get('schema', SCHEMA) == SCHEMA, 'schema', f'must be {SCHEMA!r}')
@@ -127,6 +161,11 @@ def normalize(raw):
         cfg['skeleton'] = dict(source='new', plates=plates, cell_size_km=cell, steps=steps,
                                microcells_per_plate=int(sk.get('microcells_per_plate', 64)),
                                min_plate_cells=int(sk.get('min_plate_cells', 4)))
+
+    features = normalize_geography_features(raw.get('geography_features', []), cfg['world'],
+        cfg['skeleton'].get('cell_size_km', skeleton_cell_km(width, height)), source=source)
+    if features:
+        cfg['geography_features'] = features
 
     sites = raw.get('local_sites', [])
     _need(isinstance(sites, list) and len(sites) <= MAX_LOCAL_SITES, 'local_sites', f'list of at most {MAX_LOCAL_SITES}')

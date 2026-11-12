@@ -1,5 +1,7 @@
 # 经济系统：中间档的商人与集市
 
+> **规则规格（2026-11-08 整理）**：结算规则仍以本文和代码为准。展示货币以 [units.md](units.md) 的整数铜币为准；正文里的便士是遗留示例。接入范围见 [现状.md](现状.md)。
+
 范围：比「只给提示词一份规矩」多一层，但不做完整经济模拟。引擎负责价格和结算，模型只负责演。
 实现见 `app/economy.py`（规则与价格）、`app/trade.py`（结算），测试见 `tests/test_economy.py`、`tests/test_trade.py`。
 示例见 `docs/examples/economy-demo.story-fragment.json` 与 `docs/examples/economy-使用说明.md`。

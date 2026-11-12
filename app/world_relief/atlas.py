@@ -29,9 +29,54 @@ RIVER_SCHEMA = "coordinate-river-segments-v1"
 SOURCE_KIND = "world-relief-pilot"
 LAYERS = ("status", "elevation_m", "water_surface_m", "drainage_area_m2")
 CONSUMED_LAYERS = LAYERS + ("vectors:rivers",)
+GLACIER_LAYERS = ("glacier_ice_thickness_m", "glacier_ice_surface_m",
+                  "glacier_coverage_fraction", "glacier_simulated_fraction")
+GLACIER_HEX = "#c8dce5"  # saved physical ice, separate from approximate cream snow
 CONIFERS = ("tree-fir", "tree-spruce", "tree-pine")
 BROADLEAVES = ("tree-oak", "tree-beech", "tree-birch")
 TERRAIN_IDS = ("terrain-mountain", "terrain-snowpeak", "terrain-hill")
+FOREST_BROADLEAF_HEX = "#79a04f"   # 大尺度总览的面状林色：阔叶
+FOREST_CONIFER_HEX = "#486b52"     # 同页：针叶（更暗、偏青）
+# Approximate display biomes (ids 1..9; 0 = sea / lake). Map colour only, NOT climate or precipitation data.
+BIOMES = (
+    ("tundra", "苔原", "#afb3a2"),
+    ("boreal", "寒温", "#899b86"),
+    ("temperate_humid", "温湿", "#9aa885"),
+    ("steppe", "草原", "#b7b28c"),
+    ("cold_desert", "冷漠", "#c7bda2"),
+    ("tropical_humid", "热湿", "#839c79"),
+    ("savanna", "稀树", "#b4ac80"),
+    ("hot_desert", "热漠", "#d0bc96"),
+    ("alpine", "高山", "#aaa99d"),
+)
+# Saved TG stable classification IDs are NOT the legacy display IDs 1..9.
+SAVED_BIOMES = {
+    0: ('ocean', '海洋', '#9aafb2'),
+    1: ('tropical_rainforest', '雨林', '#728d76'),
+    2: ('tropical_seasonal_woodland', '季林', '#909d79'),
+    3: ('savanna_and_seasonal_grassland', '稀树', '#b3ad86'),
+    4: ('arid_sparse_vegetation', '干荒', '#c7b997'),
+    5: ('steppe_and_semi_desert', '旱原', '#b7b18f'),
+    6: ('summer_dry_scrub_and_woodland', '夏干', '#a5a080'),
+    7: ('warm_humid_seasonal_forest', '暖林', '#929f7d'),
+    8: ('cool_maritime_woodland_and_meadow', '凉林', '#96a18d'),
+    9: ('cold_temperate_mixed_forest', '混林', '#82927f'),
+    10: ('boreal_woodland', '寒林', '#7c8d80'),
+    11: ('tundra_low_vegetation', '苔原', '#afb3a2'),
+    12: ('potential_ice_and_periglacial_rock', '冰岩', '#bfc4bd'),
+    65535: ('unknown', '未知', '#b6b1a7'),
+}
+ENVIRONMENT_LAYERS = ('biome', 'temperature_c', 'precipitation_mm_yr', 'discharge_m3_s', 'snow_swe_mm')
+
+# Natural-surface forest palette, separate from the legacy small-page tint.
+FOREST_TYPES = (
+    ("broadleaf", "温带阔叶", "#647f5b"),
+    ("conifer", "针叶", "#4e695d"),
+    ("tropical", "热带雨林", "#4c7058"),
+    ("dry", "疏林", "#929773"),
+)
+FOREST_LIGHT_HEX = "#a5ab87"      # muted canopy highlight, not a new vegetation class
+MOUNT_TONE_HEX = "#5b544a"        # 自然图山域压暗时掺的一点深灰褐（显示色，不是岩性/土壤数据）
 DECO_IDS = ("deco-compass", "deco-scale", "deco-cartouche")
 SHIP_ID = "deco-carrack"
 SHIP_SPRITE = "map-art-medieval-deco.svg"
@@ -52,6 +97,16 @@ class Product:
     rivers: list
     river_threshold_km2: float
     cache: dict = field(default_factory=dict, repr=False)
+    ice_thickness: object = None
+    simulated_mask: object = None  # saved simulated fraction, not a whole-world ice-free claim
+    ice_coverage: object = None
+    ice_surface: object = None
+    saved_biome: object = None
+    saved_temperature: object = None
+    saved_precipitation: object = None
+    saved_discharge: object = None
+    saved_snow_swe: object = None
+    environment_metadata: object = None
 
     @property
     def info(self):
@@ -88,6 +143,31 @@ class Product:
                     axes=getattr(i, "grid_semantics", None), limitations=list(i.limitations or ()))
 
 
+def _environment_metadata(src, path):
+    """Read only identity-bound publication metadata, never terrain files directly."""
+    if path is None or not (Path(path) / 'manifest.json').is_file():
+        return None
+    from app.terrain_source import _identity
+    m = json.loads((Path(path) / 'manifest.json').read_text(encoding='utf-8'))
+    env = m.get('climate_environment')
+    if env is None:
+        return None  # legacy adapters keep their own original schema/hash policy
+    _identity(m, {'identity', 'source_path'}, src.info.identity)
+    if (env.get('schema') != 'dream-climate-environment-publication-1'
+            or not env.get('source_identity') or not env.get('climate_identity')
+            or not env.get('hydrology_identity') or env.get('year') != 1
+            or env.get('calendar') != 'noleap365'
+            or not set(ENVIRONMENT_LAYERS) <= set(src.info.layers)):
+        raise ValueError('Incomplete saved climate environment publication')
+    names = {int(k):v for k,v in m.get('stable_biome_ids', {}).items()}
+    if names != {k:v[0] for k,v in SAVED_BIOMES.items()}:
+        raise ValueError('Unsupported saved climate stable biome id/name table')
+    return dict(env, stable_biome_ids=names,
+        scenario='user-accepted extreme-arid engineering scenario; closed moisture boundaries, k=1e-5',
+        vegetation='saved climate potential biomes, not realized forest/ecology',
+        snow_time='new noleap365 year-end SWE; seasonal stock, not permanent glacier')
+
+
 def product_from_source(src, path=None, rows=32):
     """Rebuild the display arrays from GridSource.sample at every cell centre (row blocks), plus the river vectors."""
     info = src.info
@@ -100,10 +180,25 @@ def product_from_source(src, path=None, rows=32):
     closed = np.empty((nz, nx), bool)
     lake = np.empty((nz, nx), np.float32)
     area = np.empty((nz, nx), np.float32)
+    optional = tuple(k for k in GLACIER_LAYERS if k in getattr(info, "layers", ())
+                     and "glacier_ice_thickness_m" in getattr(info, "layers", ()))
+    ice = {k: np.empty((nz, nx), np.float32) for k in optional}
+    environment_metadata = _environment_metadata(src, path)
+    environment = ({k:np.empty((nz,nx),np.uint16 if k == 'biome' else np.float64)
+                    for k in ENVIRONMENT_LAYERS} if environment_metadata is not None else {})
     for r0 in range(0, nz, rows):
         r1 = min(nz, r0 + rows)
         X, Z = np.meshgrid(xs, fz + np.arange(r0, r1) * sp)
-        r = src.sample(X, Z, LAYERS)
+        r = src.sample(X, Z, LAYERS + optional + tuple(environment))
+        for name in environment:
+            values = r[name]
+            if (not np.isfinite(values).all() or (name != 'temperature_c' and np.any(values < 0))
+                    or (name == 'biome' and (not np.isin(values,list(SAVED_BIOMES)).all()
+                        or np.any(values != np.floor(values))))):
+                raise ValueError('Invalid saved environment field: '+name)
+            environment[name][r0:r1] = values
+        for name in optional:
+            ice[name][r0:r1] = r[name]  # preserve NaN/unmodelled and fractional coverage
         e = r["elevation_m"]
         ws = r["water_surface_m"]
         elevation[r0:r1] = e
@@ -123,7 +218,12 @@ def product_from_source(src, path=None, rows=32):
     rivers.sort(key=lambda l: l["id"])
     threshold = math.floor(min(l["head_area_km2"] for l in rivers) / 10.0 + 1e-9) * 10.0 if rivers else 0.0
     return Product(path=Path(path) if path is not None else Path("."), source=src, elevation=elevation, ocean=ocean,
-                   closed=closed, lake_surface=lake, area_m2=area, rivers=rivers, river_threshold_km2=float(threshold))
+                   closed=closed, lake_surface=lake, area_m2=area, rivers=rivers, river_threshold_km2=float(threshold),
+                   ice_thickness=ice.get("glacier_ice_thickness_m"), simulated_mask=ice.get("glacier_simulated_fraction"),
+                   ice_coverage=ice.get("glacier_coverage_fraction"), ice_surface=ice.get("glacier_ice_surface_m"),
+                   saved_biome=environment.get('biome'), saved_temperature=environment.get('temperature_c'),
+                   saved_precipitation=environment.get('precipitation_mm_yr'), saved_discharge=environment.get('discharge_m3_s'),
+                   saved_snow_swe=environment.get('snow_swe_mm'), environment_metadata=environment_metadata)
 
 
 def load_product(path, **kwargs):
@@ -174,8 +274,18 @@ class AtlasParams:
     snow_aspect_m: float = 600.0
     snow_transition_m: float = 800.0
     snow_max_alpha: float = 0.5
+    glacier_display: bool = True  # saved ice overlay only; no physical data changes
     coast_shade_km: float = 14.0
     coast_shade_cut: float = 0.55
+    # Very coarse overview (view.mpp >= coast_deco_mpp): sea-side second line and ripples are
+    # suppressed next to land components that cover fewer than this many output pixels, so a
+    # tiny island keeps only its ink outline and land colour instead of a 12-px decoration
+    # halo much larger than the island. Pixel-area gate, not a fixed physical land area.
+    coast_deco_mpp: float = 2000.0
+    coast_deco_min_land_px: float = 36.0
+    # 海侧装饰环纹（第二道岸线 + 一圈圈波纹）默认关闭：自然图只留一条海陆墨线，不成等高线状
+    # 环纹。置 True 恢复旧画法（仍受上面的 coast_deco_gate 门控），只为兼容旧页与旧测试。
+    coast_ripples: bool = False
     snow_noise_m: float = 120.0
     shade_azimuth_deg: float = 315.0
     shade_altitude_deg: float = 42.0
@@ -208,6 +318,15 @@ class AtlasParams:
     river_w0_px: float = 0.7
     river_wk_px: float = 0.45
     river_wmax_px: float = 3.6
+    # Coarse overview only: more fine tributaries, with symbol widths anchored independently
+    # of the screen filter. These are display pixels, NOT physical river widths or discharge.
+    river_overview: bool = True
+    river_overview_mpp: float = 2000.0
+    river_overview_spacing_px: float = 24.0
+    river_overview_anchor_km2: float = 40000.0
+    river_overview_w0_px: float = 0.55
+    river_overview_wk_px: float = 0.5
+    river_overview_wmax_px: float = 3.4
     river_pad_px: float = 3.0
     river_chaikin: int = 3
     river_smooth_km: float = 5.0
@@ -235,6 +354,9 @@ class AtlasParams:
     river_merge_frac: float = 0.7
     river_protect_amin: float = 10.0   # 汇水面积 >= 该倍数 x 屏幕门槛的河（干流）不被合并删除
     mount_tint_alpha: float = 0.34
+    # 自然图山域加深：按平滑后的 df["mount"] 温和乘性压暗（雪面按覆盖度收力），只影响 biome 页陆地;
+    # 0 = 关闭（旧自然图逐字节不变）。不新增高程、岩性或山地判定数据。
+    mount_tone_alpha: float = 0.18
     # forest mixed planting (px values are at the 2048-px-wide reference where s = 1; tree_px is the plain pixel width)
     tree_gap: float = 1.05
     tree_keep: float = 0.80
@@ -259,6 +381,65 @@ class AtlasParams:
     reed_step: float = 0.6
     reed_ring_px: float = 6.0
     reed_density: float = 0.6
+    # large-extent overview (view.mpp >= forest_area_mpp): the existing approximate `forest` mask is painted as clear
+    # blocks of colour plus a light canopy texture, and trees shrink to accents so they do not speckle the blocks.
+    # Display only, no new physical data; below the threshold the old single-tint / full-tree look is unchanged.
+    forest_area_mpp: float = 2000.0        # 触发面状林色的每像素米数门槛（现有总览最大 1333 m/px，不受影响）
+    forest_area_alpha: float = 0.80        # 面状林色最大不透明度
+    forest_area_ramp_lo: float = 0.35      # 掩码覆盖率 → 色块边缘的软过渡区间
+    forest_area_ramp_hi: float = 0.75
+    forest_area_smooth_px: float = 1.6     # 像素空间模糊（s = width / 2048 归一）
+    forest_canopy_wavelength_m: float = 62000.0   # 冠层纹理：坐标噪声波长（米，世界坐标寻址）
+    forest_canopy_fine_m: float = 17000.0
+    forest_canopy_contrast: float = 0.19   # 冠层明暗强度（±19%）
+    forest_area_tree_scale: float = 0.55   # 超大总览的树 / 石 / 草符号宽度倍数（树只作点缀）
+    forest_area_tree_keep: float = 0.55    # 超大总览的树候选保留倍数
+    forest_area_ground_keep: float = 0.35  # 超大总览的草 / 芦苇 / 石候选保留倍数（不让草搶过林色块）
+    # approximate display biomes on very coarse overviews (view.mpp >= biome_mpp); colour only, NOT climate data.
+    # Temperature proxy: north-south position (north cold, same convention as the conifer rule) minus elevation;
+    # moisture proxy: distance to sea plus coordinate noise. Below the threshold every page renders as before.
+    biome_mpp: float = 2000.0
+    biome_alpha: float = 0.92              # 自然图以低饱和群系色为主，不让高程棕色盖掉植被
+    biome_fade_start_m: float = 1200.0     # 可选的旧高地褪色参数；自然图默认不褪群系色
+    biome_fade_span_m: float = 1800.0
+    biome_fade_max: float = 0.0
+    natural_rock_slope_lo: float = 0.045   # 10 km粗DEM的显示坡度代理，不冒充真实岩石覆盖
+    natural_rock_slope_hi: float = 0.16
+    natural_rock_alpha: float = 0.50
+    natural_forest_extra: bool = True     # 仅自然图：在适宜的近似群系内补显示林区
+    natural_forest_score: float = 0.53
+    biome_lapse_m: float = 6000.0          # 温度代理：每升高这么多米，下降一个整带
+    biome_moist_km: float = 600.0          # 湿度代理：离海距离衰减尺度
+    biome_moisture_wavelength_m: float = 450000.0
+    biome_tundra_t: float = 0.12
+    biome_boreal_t: float = 0.32
+    biome_tropic_t: float = 0.66
+    biome_humid_m: float = 0.45
+    biome_dry_m: float = 0.22
+    biome_smooth_m: float = 25000.0
+    forest_hue_jitter: float = 0.10        # 林色小幅起伏；林型差异主要由色相与冠层尺度表现
+    # 自然图真实 DEM 细节晕渲（display only）：沿用 10 km 粗 DEM，用较轻的低通重新取一张 detail 面，
+    # 在「连续崎岖权重」内按较低太阳高度（约 32°）、显示 z 约 4、315° 主光＋邻向多光重新打光，
+    # 使真实山体的坡面明暗与沟壑比旧 shade_h 更明显。natural_relief_strength = 0 时逐像素退回旧自然图。
+    # 平地权重恒为 0（乘子恰为 1.0）→ 平地/海/湖逐字节不变；不新增高程、不画随机沟纹、不画等高线。
+    natural_relief_strength: float = 0.60
+    natural_relief_altitude_deg: float = 32.0
+    natural_relief_z_factor: float = 4.0
+    natural_relief_extra_azimuths: tuple = (225.0, 270.0, 360.0)
+    natural_relief_gain: float = 2.2          # lum 偏差先放大再夹到 ±1，好让真实坡面差异读得出
+    natural_relief_amplitude: float = 0.20    # × gain 后的最大乘子偏移（强度 0.6 时约 ±0.12）
+    natural_relief_factor_min: float = 0.70   # 乘子下限：不压成墨黑
+    natural_relief_factor_max: float = 1.18   # 乘子上限：不烧白
+    natural_relief_detail_cells: float = 0.45  # detail 面的低通（以产品格距计，比 shade_smooth_cells 轻）
+    natural_relief_antialias: float = 0.40     # 每像素跨 mpp/sp 格时，低通不小于该比例，避免屏幕抗混叠
+    natural_relief_relief_lo_m: float = 150.0  # 崎岖权重：15 km 窗局部起伏的下/上饱和点
+    natural_relief_relief_hi_m: float = 800.0
+    natural_relief_slope_lo: float = 0.004     # 崎岖权重：真实坡度下/上饱和点
+    natural_relief_slope_hi: float = 0.030
+    natural_relief_coast_km: float = 60.0      # 距海衰减尺度（岸线附近权重小，避免把岸段压暗）
+    natural_relief_tpi_km: float = 30.0        # 局部相对高程：30 km 高斯均值差（只用非湖陆地归一）
+    natural_relief_tpi_m: float = 400.0        # 相对高程归一到 ±1 的高差尺度
+    natural_relief_tpi_strength: float = 0.12  # 相对高程乘子最多约 ±0.12（峰略提亮、谷略压暗）
 
 
 @dataclass(frozen=True)
@@ -377,12 +558,145 @@ def analyse(p, params):
     nb = spatial_noise(p.shape, p.first, sp, seeds["tree-block"], params.block_km * 1000.0)
     qs = np.quantile(nb, np.linspace(0, 1, 7)[1:-1])
     block_bin = np.searchsorted(qs, nb).astype(np.int8)
+    dry_land = land & ~lake
+    if p.saved_biome is not None:
+        # IDs and potential woody membership come solely from saved classification.
+        biome = p.saved_biome.copy()
+        palette = np.empty((*p.shape,3),np.float64)
+        for identifier,(_,_,colour) in SAVED_BIOMES.items():
+            palette[biome == identifier] = hex_rgb(colour)
+        biome_rgb = _masked_smooth(palette, dry_land, params.biome_smooth_m/sp, hex_rgb('#b6b1a7'))
+        forest = dry_land & np.isin(biome,(1,2,3,6,7,8,9,10)) & (slope < params.forest_max_slope)
+        conifer = forest & (biome == 10)
+        forest_type = np.zeros(p.shape,np.int8)
+        forest_type[forest & np.isin(biome,(7,8,9))] = 1
+        forest_type[conifer] = 2
+        forest_type[forest & np.isin(biome,(1,2))] = 3
+        forest_type[forest & np.isin(biome,(3,6))] = 4
+        natural_forest,natural_conifer,natural_type = forest,conifer,forest_type
+    else:
+        # Legacy sources retain the original display proxies exactly.
+        nm = spatial_noise(p.shape, p.first, sp, atlas_seed(p.world_seed, "biome-moisture"), params.biome_moisture_wavelength_m)
+        temp = (1.0 - north) - h0 / params.biome_lapse_m + 0.06 * n1
+        moist = np.exp(-dist_sea_km / params.biome_moist_km) + 0.22 * nm + 0.08 * n1
+        biome = classify_display_biome(dry_land, h0, temp, moist, treeline, params)
+        bpal = np.stack([np.asarray(hex_rgb(c), np.float64) for _, _, c in BIOMES])
+        biome_rgb = _masked_smooth(bpal[np.maximum(biome, 1) - 1], biome > 0, params.biome_smooth_m / sp, bpal.mean(axis=0))
+        forest_type = classify_forest_type(forest, conifer, biome)
+        woody = np.isin(biome, (2, 3, 6)) & (moist >= params.biome_humid_m)
+        suitable = dry_land & (h0 > params.forest_min_m) & (h0 < treeline) & (slope < params.forest_max_slope)
+        woodland_score = 0.72 * moist + 0.15 * n1 + 0.08 * n2 + 0.18
+        extra = suitable & woody & (woodland_score > params.natural_forest_score)
+        extra = _drop_small(nd.binary_opening(extra), 20) if params.natural_forest_extra else np.zeros(p.shape, bool)
+        natural_forest = forest | extra
+        natural_conifer = natural_forest & ((h0 > params.conifer_m + 300.0 * n2) | (north + 0.25 * n1 > 0.72))
+        natural_type = classify_forest_type(natural_forest, natural_conifer, biome)
+    fpal = np.stack([np.asarray(hex_rgb(c), np.float64) for _, _, c in FOREST_TYPES])
+    fbase = fpal[np.maximum(forest_type, 1) - 1]
+    light = np.asarray(hex_rgb(FOREST_LIGHT_HEX), np.float64)
+    jit = np.clip(nb / max(float(np.abs(nb).max()), 1e-9), -1.0, 1.0)[..., None]
+    fcol = fbase * (1.0 + 0.05 * jit) + params.forest_hue_jitter * np.clip(jit, 0.0, None) * (light - fbase)
+    forest_rgb = _masked_smooth(fcol, forest_type > 0, 1.0, fpal[0])
+    natural_base = fpal[np.maximum(natural_type, 1) - 1]
+    natural_col = natural_base * (1.0 + 0.04 * jit) + params.forest_hue_jitter * np.clip(jit, 0.0, None) * (light - natural_base)
+    natural_rgb = _masked_smooth(natural_col, natural_forest, 1.0, fpal[0])
     out = dict(land=land, h0=h0, slope=slope, relief=relief, rel=rel, ridge=ridge, mountain=mountain, hill=hill,
                crest=crest, hpeak=hpeak, lake=lake, lake_depth=lake_depth, ecol=ecol, forest=forest,
                conifer=conifer, seeds=seeds, patch_label=patch_label, patches=patches, north_z=north[:, 0].copy(),
-               dist_sea_km=dist_sea_km, block_bin=block_bin)
+               dist_sea_km=dist_sea_km, block_bin=block_bin, biome=biome, biome_rgb=biome_rgb,
+               forest_type=forest_type, forest_rgb=forest_rgb, natural_forest=natural_forest,
+               natural_conifer=natural_conifer, natural_type=natural_type, natural_rgb=natural_rgb)
     p.cache[key] = out
     return out
+
+
+def classify_display_biome(land, h0, temp, moist, treeline, params):
+    """Approximate display biome id per cell (0 off land, 1..9 = BIOMES order). Proxies only, NOT climate data."""
+    b = np.zeros(land.shape, np.int8)
+    cold = temp < params.biome_tundra_t
+    cool = (temp < params.biome_boreal_t) & ~cold
+    warm = temp >= params.biome_tropic_t
+    mid = ~cold & ~cool & ~warm
+    wet, dry = params.biome_humid_m, params.biome_dry_m
+    b[land & cold] = 1
+    b[land & cool] = 2
+    b[land & mid & (moist >= wet)] = 3
+    b[land & mid & (moist < wet) & (moist >= dry)] = 4
+    b[land & mid & (moist < dry)] = 5
+    b[land & warm & (moist >= wet + 0.05)] = 6
+    b[land & warm & (moist < wet + 0.05) & (moist >= dry + 0.03)] = 7
+    b[land & warm & (moist < dry + 0.03)] = 8
+    b[land & (h0 >= treeline)] = 9
+    return b
+
+
+def classify_forest_type(forest, conifer, biome):
+    """Forest type id inside the unchanged forest mask (0 none, 1..4 = FOREST_TYPES order)."""
+    t = np.zeros(forest.shape, np.int8)
+    t[forest] = 1
+    t[forest & np.isin(biome, (4, 5, 7, 8))] = 4
+    t[forest & (biome == 6)] = 3
+    t[forest & (conifer | np.isin(biome, (1, 2, 9)))] = 2
+    return t
+
+
+def _masked_smooth(rgb, mask, sigma, fill):
+    """Gaussian-smooth an RGB field using only `mask` cells (normalised convolution); far from the mask -> fill."""
+    w = mask.astype(np.float64)
+    if sigma <= 0 or not mask.any():
+        return np.where(mask[..., None], rgb, np.asarray(fill, np.float64))
+    den = nd.gaussian_filter(w, sigma)
+    out = np.stack([nd.gaussian_filter(rgb[..., c] * w, sigma) for c in range(3)], axis=-1) / np.maximum(den, 1e-9)[..., None]
+    return np.where((den > 1e-4)[..., None], out, np.asarray(fill, np.float64))
+
+
+def biome_mode(view, params):
+    """True on very coarse overviews (m/px >= params.biome_mpp): land gets approximate biome colours."""
+    return float(view.mpp) >= float(params.biome_mpp)
+
+
+def _smooth_land(z, keep, sigma):
+    """Gaussian mean of `z` over `keep` cells only (normalised convolution; sea / lake zeros never bleed in).
+
+    Lakes and sea carry h = 0 in this pipeline, so a plain Gaussian over h0 would draw a fake cliff along
+    every shore. Normalising by the kernel's own land coverage fills those holes with the nearest land
+    values instead, so the detail surface stays a smooth extension of the land rather than a wall.
+    """
+    k = np.asarray(keep, np.float64)
+    z = np.asarray(z, np.float64)
+    if sigma <= 0 or not k.any():
+        return z
+    den = nd.gaussian_filter(k, sigma)
+    num = nd.gaussian_filter(z * k, sigma)
+    return np.where(den > 1e-4, num / np.maximum(den, 1e-9), z)
+
+
+def _natural_relief_source(p, a, params):
+    """Source-cell rugged weight and local relative height for the natural-page detail shading.
+
+    Both are DISPLAY weights derived from the frozen elevation product: no new elevation, no rills, no
+    contour lines. ``rugged`` is a smooth product of the 15 km local relief and the real slope, damped
+    away from the shore, and is exactly 0 on flat ground, sea and lakes. ``tpi`` is the difference from a
+    ~30 km land-only mean height, normalised and clamped, used only where ``rugged`` > 0.
+    """
+    keep = a["land"] & ~a["lake"]
+    lo, hi = params.natural_relief_relief_lo_m, params.natural_relief_relief_hi_m
+    rn = np.clip((np.asarray(a["relief"], np.float64) - lo) / max(hi - lo, 1e-6), 0.0, 1.0)
+    slo, shi = params.natural_relief_slope_lo, params.natural_relief_slope_hi
+    sn = np.clip((np.asarray(a["slope"], np.float64) - slo) / max(shi - slo, 1e-6), 0.0, 1.0)
+    # geometric mean: both real relief and real steepness have to be there, a high plateau alone is not enough
+    w = np.sqrt(rn * sn)
+    # shore damping: weight ramps up inland over natural_relief_coast_km, so the coastal belt
+    # (where the product has D8 comb artefacts) keeps the old look
+    w = w * np.clip(np.asarray(a["dist_sea_km"], np.float64) / max(params.natural_relief_coast_km, 1e-6), 0.0, 1.0)
+    w = np.where(keep, w, 0.0)
+    rugged = nd.gaussian_filter(w, 0.8)
+    # re-zero after the light smoothing: sea / lake cells stay exactly 0 (factor exactly 1.0 there)
+    rugged = np.where(keep & (rn > 0.0) & (sn > 0.0), np.clip(rugged, 0.0, 1.0), 0.0)
+    mean_far = _smooth_land(a["h0"], keep, max(params.natural_relief_tpi_km * 1000.0 / p.spacing, 1.0))
+    tpi = np.clip((np.asarray(a["h0"], np.float64) - mean_far) / max(params.natural_relief_tpi_m, 1e-6), -1.0, 1.0)
+    tpi = np.where(keep, tpi, 0.0)
+    return rugged, tpi
 
 
 # ---------------------------------------------------------------- display fields and painting
@@ -399,7 +713,7 @@ def display_fields(p, a, view, params):
 
     land = a["land"]
     ocean_depth = np.where(p.ocean, -p.elevation.astype(np.float64), 0.0)
-    return dict(
+    out = dict(
         shade_h=S(nd.gaussian_filter(a["h0"], params.shade_smooth_cells), 3),
         ecol=S(a["ecol"]),
         coast=S(nd.gaussian_filter(land * 2.0 - 1.0, params.coast_smooth_cells)),
@@ -409,7 +723,48 @@ def display_fields(p, a, view, params):
         conifer=S(nd.gaussian_filter(a["conifer"].astype(np.float64), 1.2)),
         mount=S(nd.gaussian_filter(a["mountain"].astype(np.float64), 1.0)),
     )
-
+    if p.saved_biome is not None or biome_mode(view, params):
+        out["biome_rgb"] = np.stack([S(a["biome_rgb"][..., c]) for c in range(3)], axis=-1)
+        out["forest_rgb"] = np.stack([S(a["natural_rgb"][..., c]) for c in range(3)], axis=-1)
+        out["forest"] = S(nd.gaussian_filter(a["natural_forest"].astype(np.float64), 1.0))
+        out["conifer"] = S(nd.gaussian_filter(a["natural_conifer"].astype(np.float64), 1.2))
+        out["forest_type"] = S(a["natural_type"], order=0).astype(np.int8)
+        out["slope"] = S(a["slope"])
+        if params.natural_relief_strength > 0.0:
+            # Real-DEM detail surface for the sharper natural-page shading: a much lighter low-pass than
+            # shade_h, but never finer than the screen can show (one output pixel spans mpp/sp cells).
+            sigma = max(params.natural_relief_detail_cells,
+                        params.natural_relief_antialias * max(mpp / sp, 1.0))
+            keep = a["land"] & ~a["lake"]
+            out["detail_h"] = S(_smooth_land(a["h0"], keep, sigma), 3)
+            rugged, tpi = _natural_relief_source(p, a, params)
+            out["rugged"] = S(rugged)
+            out["rel_ref"] = S(tpi)
+    if p.saved_biome is not None:
+        out['forest_type'] = S(a['natural_type'],order=0).astype(np.int8)
+        out['biome_id'] = S(p.saved_biome, order=0).astype(np.uint16)
+        out['saved_environment'] = True
+        out['forest'] = S(a['natural_forest'],order=0)
+        out['conifer'] = S(a['natural_conifer'],order=0)
+        out['snow_swe_mm'] = S(p.saved_snow_swe,order=0)
+        out['saved_snow_alpha'] = 1.-np.exp(-np.maximum(out['snow_swe_mm'],0.)/20.)
+    if params.glacier_display and p.ice_thickness is not None:
+        # Nearest saved cell: never interpolate across unmodelled-domain borders.
+        h = S(p.ice_thickness, order=0)
+        simulated = S(p.simulated_mask, order=0) if p.simulated_mask is not None else np.where(np.isfinite(h), 1., np.nan)
+        valid = np.isfinite(h) & np.isfinite(simulated) & (simulated > 0)
+        out["ice_thickness_m"] = h
+        out["glacier_simulated_fraction"] = simulated
+        out["glacier_valid"] = valid
+        out["glacier_mask"] = valid & (h > 0)
+        coverage = S(p.ice_coverage, order=0) if p.ice_coverage is not None else (h > 0).astype(float)
+        out["glacier_coverage_fraction"] = coverage
+        strength = 1.0 - np.exp(-np.maximum(np.where(valid, h, 0.), 0.) / 4.0)
+        out["glacier_alpha"] = np.where(valid & np.isfinite(coverage),
+                                         strength * np.clip(coverage, 0., 1.), 0.)
+        if p.ice_surface is not None:
+            out["ice_surface_m"] = S(p.ice_surface, order=0)
+    return out
 
 def _coverage(g):
     """Anti-aliased coverage of {g > 0} and signed pixel distance (positive inside)."""
@@ -434,12 +789,135 @@ def _blend(rgb, color, alpha):
     rgb += a * color
 
 
+def coast_deco_gate(df, view, params):
+    """Per-output-pixel mask: keep the sea-side coast decoration here.
+
+    On very coarse overviews a real island can be a handful of pixels wide while the second
+    line and ripple rings sit tens of pixels out to sea, so the decoration looks like a big
+    ghost halo around nothing. The gate is purely geometric and display-only: the land/sea
+    coverage itself, the ink outline and every land colour stay exactly as before.
+
+    The size test is the land component's area **in output pixels**, not a physical area: a
+    threshold in km² would silently mark different islands depending on the page scale.
+    ``distance_transform_edt(..., return_indices=True)`` attributes each sea pixel to its
+    nearest land component, so a single island only switches off the decoration that belongs
+    to its own shore.
+    """
+    H, W = view.height, view.width
+    if float(view.mpp) < float(params.coast_deco_mpp):
+        return np.ones((H, W), bool)
+    land = df["coast"] > 0
+    if not land.any() or land.all():
+        # empty ocean or all land: no coast decoration to gate either way
+        return np.ones((H, W), bool)
+    labels, count = nd.label(land)
+    sizes = np.bincount(labels.ravel())
+    small = np.zeros(count + 1, bool)
+    if count:
+        small[1:] = sizes[1:] < float(params.coast_deco_min_land_px)
+    _, (iz, ix) = nd.distance_transform_edt(~land, return_indices=True)
+    return ~small[labels[iz, ix]]
+
+
+def forest_area_mode(view, params):
+    """True when the page is so coarse (m/px ≥ params.forest_area_mpp) that tree symbols turn into speckle.
+
+    Only then is the existing approximate `forest` mask painted as clear blocks of colour plus a light canopy
+    texture, and only then do the forest symbols shrink. Below the threshold every old page renders as before.
+    """
+    return float(view.mpp) >= float(params.forest_area_mpp)
+
+
+def forest_canopy_texture(p, view, params, shape=None):
+    """Deterministic canopy mottling in [-1, 1] addressed in world metres (no RNG state, no order dependence).
+
+    Display only: two coordinate-noise octaves from atlas/forest-canopy-* subseeds; nothing is added to the data.
+    Each wavelength is clamped to a few output pixels so an extremely coarse page samples a smooth mottle
+    instead of aliasing the lattice noise into grain.
+    """
+    H, W = shape or (view.height, view.width)
+    mpp, sp = view.mpp, p.spacing
+    ex = p.first[0] - sp / 2 + view.x0 * sp
+    ez = p.first[1] - sp / 2 + view.z0 * sp
+    first = (ex + 0.5 * mpp, ez + 0.5 * mpp)
+    wl_coarse = max(params.forest_canopy_wavelength_m, 6.0 * mpp)
+    wl_fine = max(params.forest_canopy_fine_m, 3.5 * mpp)
+    coarse = spatial_noise((H, W), first, mpp, atlas_seed(p.world_seed, "forest-canopy-coarse"), wl_coarse)
+    fine = spatial_noise((H, W), first, mpp, atlas_seed(p.world_seed, "forest-canopy-fine"), wl_fine)
+    return 0.68 * coarse + 0.32 * fine
+
+
+def natural_forest_texture(p, view, params, forest_type):
+    """Display-only canopy by forest type; world-addressed and anti-aliased at the output scale."""
+    H, W = forest_type.shape
+    first = (p.first[0] + view.x0 * p.spacing + (view.mpp - p.spacing) / 2,
+             p.first[1] + view.z0 * p.spacing + (view.mpp - p.spacing) / 2)
+    out = np.zeros((H, W), np.float64)
+    # broadleaf / conifer / rainforest / open woodland: wavelength, detail, contrast.
+    for k, (wl, fine, gain) in enumerate(((70000, 26000, 0.65), (48000, 19000, 0.80),
+                                        (36000, 14000, 0.95), (115000, 42000, 0.40)), start=1):
+        mask = forest_type == k
+        if not mask.any():
+            continue
+        coarse = spatial_noise((H, W), first, view.mpp, atlas_seed(p.world_seed, "forest-canopy-coarse"), max(wl, 3.0 * view.mpp))
+        detail = spatial_noise((H, W), first, view.mpp, atlas_seed(p.world_seed, "forest-canopy-fine"), max(fine, 2.0 * view.mpp))
+        out[mask] = gain * (0.72 * coarse[mask] + 0.28 * detail[mask])
+    return out
+
+
 def _land_palette(style):
     bands = [b for b in style["land_bands"] if b["max_m"] is not None and b["max_m"] <= 3000]
     lows = [0.0] + [float(b["max_m"]) for b in bands[:-1]]
     centers = np.array([(lo + float(b["max_m"])) / 2 for lo, b in zip(lows, bands)])
     colors = np.stack([hex_rgb(b["color"]) for b in bands])
     return centers, colors
+
+
+def natural_relief_factor(df, view, params):
+    """Display-only lighting multiplier that makes real relief read more strongly on natural pages.
+
+    Returns (factor, lit) where ``factor`` is a pure multiplicative brightness in
+    [natural_relief_factor_min, natural_relief_factor_max] and ``lit`` is the multi-direction hillshade
+    luminance it came from. Works on the finer ``df['detail_h']`` surface with a low sun (~32 deg), a
+    vertical exaggeration of ~4 and 315 deg primary light plus neighbouring azimuths, then mixes primary
+    and multi-direction light. The whole effect is gated by the continuous ``df['rugged']`` weight (real
+    15 km relief x real slope, ramped up to full weight inland from the shore), so flat ground, sea and lakes get exactly
+    1.0 and are byte-identical to the old page. A separate small local-relative-height (TPI) term lifts
+    crests slightly brighter and drops troughs darker; it is only ever applied inside ``rugged``.
+
+    No elevation is created, nothing is drawn as rills or contour lines; a 10 km DEM cannot recover real
+    fine gullies, so this only re-lights slopes that the product already resolved.
+    """
+    strength = float(params.natural_relief_strength)
+    ones = np.ones((view.height, view.width), np.float64)
+    if strength <= 0.0 or "detail_h" not in df or "rugged" not in df:
+        return ones, ones
+    hz = np.asarray(df["detail_h"], np.float64)
+    mpp = float(view.mpp)
+    alt, zf = params.natural_relief_altitude_deg, params.natural_relief_z_factor
+    shade, lz = hillshade(hz, mpp, params.shade_azimuth_deg, alt, zf)
+    primary = shade / lz
+    lum = primary
+    n = 0
+    for az in params.natural_relief_extra_azimuths:
+        sh, _ = hillshade(hz, mpp, az, alt, zf)
+        lum = lum + sh / lz
+        n += 1
+    lum = lum / (1.0 + n)
+    # mix the primary light with the multi-direction average: primary keeps the NW read, the average
+    # keeps east-facing slopes from going flat black
+    lum = 0.55 * primary + 0.45 * lum
+    rugged = np.clip(np.asarray(df["rugged"], np.float64), 0.0, 1.0)
+    dev = np.clip((lum - 1.0) * params.natural_relief_gain, -1.0, 1.0) * rugged
+    factor = 1.0 + strength * params.natural_relief_amplitude * dev
+    if "rel_ref" in df and params.natural_relief_tpi_strength > 0.0:
+        # Local relative height: neutral luminance only; preserve the underlying biome hue.
+        factor = factor * (1.0 + strength * params.natural_relief_tpi_strength
+                           * np.clip(np.asarray(df["rel_ref"], np.float64), -1.0, 1.0) * rugged)
+    factor = np.clip(factor, params.natural_relief_factor_min, params.natural_relief_factor_max)
+    # where there is no rock at all the multiplier is exactly 1.0 (not "close to"): flat / sea / lake
+    factor = np.where(rugged > 0.0, factor, 1.0)
+    return factor, lum
 
 
 def paint_map(p, df, view, params, style, *, shade_reduce=None, forest=True):
@@ -449,11 +927,43 @@ def paint_map(p, df, view, params, style, *, shade_reduce=None, forest=True):
     seed_snow = atlas_seed(p.world_seed, "snow-noise")
     centers, colors = _land_palette(style)
     land_rgb = np.stack([np.interp(df["ecol"], centers, colors[:, c]) for c in range(3)], axis=-1)
+    natural = forest and "biome_rgb" in df
+    if natural:
+        # Low-saturation biome albedo dominates; relief is expressed by lighting, not blanket brown uplands.
+        fade = 1.0 - params.biome_fade_max * np.clip((df["ecol"] - params.biome_fade_start_m) / params.biome_fade_span_m, 0.0, 1.0)
+        _blend(land_rgb, df["biome_rgb"], params.biome_alpha * fade)
     if forest:
-        tint = np.clip((df["forest"] - 0.25) / 0.5, 0.0, 1.0) * params.forest_tint_alpha
-        _blend(land_rgb, hex_rgb("#8f9f62"), tint)
+        if forest_area_mode(view, params):
+            # coarse page: the same approximate forest mask becomes a clear block of forest colour with a light canopy
+            # mottle; edges ramp by mask coverage so the blocks stay readable instead of dithered tree speckle
+            lo, hi = params.forest_area_ramp_lo, params.forest_area_ramp_hi
+            cov = np.clip((df["forest"] - lo) / max(hi - lo, 1e-6), 0.0, 1.0)
+            if params.forest_area_smooth_px > 0:
+                cov = np.clip(nd.gaussian_filter(cov, params.forest_area_smooth_px * s), 0.0, 1.0)
+            canopy = (natural_forest_texture(p, view, params, df["forest_type"]) if natural
+                      else forest_canopy_texture(p, view, params, (H, W)))
+            if natural:
+                # Open woodland stays lighter, while humid forests form closed, readable stands.
+                cov *= np.take(np.array([0.0, 0.95, 0.90, 1.0, 0.55]), df["forest_type"])
+            if "forest_rgb" in df:
+                wood = df["forest_rgb"]
+            else:
+                wood = np.asarray(hex_rgb(FOREST_BROADLEAF_HEX))[None, None, :] * (1.0 - np.clip(df["conifer"], 0.0, 1.0)[..., None]) \
+                    + np.asarray(hex_rgb(FOREST_CONIFER_HEX))[None, None, :] * np.clip(df["conifer"], 0.0, 1.0)[..., None]
+            alpha = params.forest_area_alpha * cov * (1.0 + 0.12 * canopy)
+            _blend(land_rgb, wood, alpha)
+            land_rgb *= (1.0 + params.forest_canopy_contrast * canopy * cov)[..., None]
+        else:
+            tint = np.clip((df["forest"] - 0.25) / 0.5, 0.0, 1.0) * params.forest_tint_alpha
+            _blend(land_rgb, hex_rgb("#8f9f62"), tint)
     mount = np.clip(df["mount"], 0.0, 1.0)
-    _blend(land_rgb, hex_rgb("#a38c6a"), mount * params.mount_tint_alpha)  # mountain range extent shown by colour
+    if natural:
+        rock = np.clip((df["slope"] - params.natural_rock_slope_lo) /
+                       max(params.natural_rock_slope_hi - params.natural_rock_slope_lo, 1e-6), 0.0, 1.0)
+        # Coarse-DEM slope is just an exposed-rock display proxy; forested gentle uplands keep their hue.
+        _blend(land_rgb, hex_rgb("#99938a"), rock * params.natural_rock_alpha * (1.0 - 0.7 * df["forest"]))
+    else:
+        _blend(land_rgb, hex_rgb("#a38c6a"), mount * params.mount_tint_alpha)  # legacy relief-only / small page
     # snow: elevation + aspect gradient (sun from the south assumed; display only, not snow data)
     hz = df["shade_h"]
     gz, gx = np.gradient(hz, mpp)
@@ -468,6 +978,21 @@ def paint_map(p, df, view, params, style, *, shade_reduce=None, forest=True):
     pre_shade, pre_lz = hillshade(hz, mpp, params.shade_azimuth_deg, params.shade_altitude_deg, params.shade_z_factor)
     lee = np.clip(1.0 - pre_shade / pre_lz, 0.0, 1.0)
     snow = np.clip(snow * (0.45 + 0.9 * lee), 0.0, 1.0)
+    if p.saved_snow_swe is not None:
+        snow = df['saved_snow_alpha']  # year-end seasonal SWE, never elevation/aspect snow
+    if natural and params.mount_tone_alpha > 0.0:
+        # Mountain membership alone deepens the hue a little, smoothly with the same smoothed mount field;
+        # eased out under snow cover and weakened over forest, so stands and snowfields stay readable.
+        # Purely multiplicative (every channel is scaled by <= 1) towards MOUNT_TONE_HEX, so a mountain
+        # pixel can only get darker and warmer, never brighter. No elevation / rock / mountain-detection
+        # data is read or changed.
+        tint = hex_rgb(MOUNT_TONE_HEX)
+        # Attenuate blue slightly more than red for a warm-grey deepening, not its cyan complement.
+        tint = float(tint.mean()) / np.maximum(tint, 1e-6)
+        tint /= float(tint.mean())
+        tone = params.mount_tone_alpha * mount * np.clip(1.0 - snow, 0.0, 1.0) \
+            * (1.0 - 0.45 * np.clip(df["forest"], 0.0, 1.0))
+        land_rgb *= np.clip(1.0 - tone[..., None] * tint[None, None, :], 0.0, 1.0)
     _blend(land_rgb, hex_rgb("#f3efe6"), snow * params.snow_max_alpha)
     # hillshade (multiply), weakened under placed mountain symbols
     cfg = style["hillshade"]
@@ -486,6 +1011,11 @@ def paint_map(p, df, view, params, style, *, shade_reduce=None, forest=True):
     floor = 0.28 + params.shade_floor_mount * mount
     factor = np.clip(1.0 + strength * (lum - 1.0), floor, 1.0 + cfg.get("highlight", 0.1))
     land_rgb *= factor[..., None]
+    if natural:
+        # Real-DEM detail re-lighting (opt-in via natural_relief_strength): only the rugged weight is
+        # lit, so flat ground / sea / lakes keep the old pixels exactly. Purely multiplicative.
+        detail, _ = natural_relief_factor(df, view, params)
+        land_rgb *= detail[..., None]
     # sea by depth band, softened
     oc = style["ocean_bands"]
     th = np.array([b["max_depth_m"] for b in oc[:-1]], np.float64)
@@ -501,7 +1031,9 @@ def paint_map(p, df, view, params, style, *, shade_reduce=None, forest=True):
     if la.any():
         _blend(rgb, hex_rgb(oc[1]["color"]), la)
         _blend(rgb, hex_rgb(style["coast"]["ink"]), np.clip(0.9 * s + 0.5 - lsd, 0, 1) * np.clip(lsd + 0.5, 0, 1) * alpha * 0.8)
-    # coast: ink line + second line + fading ripples, all on the sea side
+    # coast: one ink line by default. The sea-side second line and the ripple rings are opt-in
+    # (params.coast_ripples) because on a natural page they read as contour decoration drawn in
+    # the water. Sea/land coverage, elevation, depth, rivers and lakes are untouched either way.
     co = style["coast"]
     ink = hex_rgb(co["ink"])
     sea = df["coast"] < 0
@@ -509,14 +1041,19 @@ def paint_map(p, df, view, params, style, *, shade_reduce=None, forest=True):
     d = np.where(sd > -3.0, -sd, edt)
     lw = co["line_px"] * s
     _blend(rgb, ink, np.clip(lw + 0.5 - d, 0, 1) * np.clip(d + 0.5, 0, 1))
-    d2 = np.abs(d - co["second_line_at_px"] * s)
-    _blend(rgb, ink, np.clip(co["second_line_px"] * s / 2 + 0.5 - d2, 0, 1) * co["second_alpha"] * (d > 0))
-    step = co["ripple_step_px"] * s
-    k = np.round((d - co["ripple_start_px"] * s) / step)
-    valid = (k >= 0) & (k < co["ripple_count"]) & (d > lw + 1)
-    rd = np.abs(d - (co["ripple_start_px"] * s + k * step))
-    fade = 1.0 - np.clip(k, 0, None) / co["ripple_count"]
-    _blend(rgb, hex_rgb(co["ripple_color"]), np.clip(co["ripple_px"] * s / 2 + 0.5 - rd, 0, 1) * fade * co["ripple_alpha"] * valid)
+    if params.coast_ripples:
+        deco = coast_deco_gate(df, view, params)
+        d2 = np.abs(d - co["second_line_at_px"] * s)
+        _blend(rgb, ink, np.clip(co["second_line_px"] * s / 2 + 0.5 - d2, 0, 1) * co["second_alpha"] * (d > 0) * deco)
+        step = co["ripple_step_px"] * s
+        k = np.round((d - co["ripple_start_px"] * s) / step)
+        valid = (k >= 0) & (k < co["ripple_count"]) & (d > lw + 1) & deco
+        rd = np.abs(d - (co["ripple_start_px"] * s + k * step))
+        fade = 1.0 - np.clip(k, 0, None) / co["ripple_count"]
+        _blend(rgb, hex_rgb(co["ripple_color"]), np.clip(co["ripple_px"] * s / 2 + 0.5 - rd, 0, 1) * fade * co["ripple_alpha"] * valid)
+    if params.glacier_display and "glacier_alpha" in df:
+        # Actual saved ice covers approximate land/snow/forest colours last.
+        _blend(rgb, hex_rgb(GLACIER_HEX), df["glacier_alpha"] * alpha)
     return rgb
 
 
@@ -566,8 +1103,13 @@ def chaikin(points, iterations=2):
     return pts
 
 
+def river_overview_mode(view, params):
+    return params.river_overview and view.mpp >= params.river_overview_mpp
+
+
 def river_min_area_km2(p, view, params):
-    return max(p.river_threshold_km2, (params.river_spacing_px * view.mpp / 1000.0) ** 2)
+    spacing = params.river_overview_spacing_px if river_overview_mode(view, params) else params.river_spacing_px
+    return max(p.river_threshold_km2, (spacing * view.mpp / 1000.0) ** 2)
 
 
 def river_polylines(p, a, view, params):
@@ -601,7 +1143,11 @@ def river_polylines(p, a, view, params):
         if px.max() < -10 or py.max() < -10 or px.min() > W + 10 or py.min() > H + 10:
             continue
         dry = ~a["lake"][iz, ix]
-        widths = np.clip(params.river_w0_px + params.river_wk_px * np.log2(area / amin), params.river_w0_px, params.river_wmax_px)
+        if river_overview_mode(view, params):
+            widths = np.clip(params.river_overview_w0_px + params.river_overview_wk_px * np.log2(area / params.river_overview_anchor_km2),
+                             params.river_overview_w0_px, params.river_overview_wmax_px)
+        else:
+            widths = np.clip(params.river_w0_px + params.river_wk_px * np.log2(area / amin), params.river_w0_px, params.river_wmax_px)
         runs, start = [], None
         for i, ok in enumerate(dry):
             if ok and start is None:
@@ -755,10 +1301,12 @@ def _cell_px(view, iz, ix):
 
 
 def forbidden_mask(df, rmask, view):
-    """Where no symbol may sit: sea, lakes (both slightly dilated) and the buffered displayed river lines."""
+    """Symbol-only exclusions: water, rivers and source-backed ice; no travel-rule changes."""
     water = (df["coast"] < 0) | (df["lake"] > -0.2)
     water = nd.binary_dilation(water, iterations=max(1, int(round(2 * view.s))))
-    return water | rmask
+    # Ice prohibition is symbol placement only, not a water/travel rule.
+    ice = df.get("glacier_mask", np.zeros(water.shape, dtype=bool))
+    return water | rmask | ice
 
 
 # ---------------------------------------------------------------- art catalogue (read from the sprite files at run time)
@@ -868,7 +1416,8 @@ def place_mountains(p, a, df, view, params, board):
             if not board.free(box):
                 continue
             board.take(box)
-            snow = bool(h0[iz, ix] >= params.snowpeak_m)
+            snow = (bool(p.saved_snow_swe[iz,ix] > 0) if p.saved_snow_swe is not None
+                else bool(h0[iz, ix] >= params.snowpeak_m))
             sid = "terrain-snowpeak" if snow else "terrain-mountain"
             symbols.append(dict(kind="snowpeak" if snow else "mountain", id=sid, tier="peak", x=x, y=y, w=w, h=h, box=box,
                                 draw=box, mirror=False, cell_zx=(iz, ix), patch=int(patch["label"])))
@@ -898,7 +1447,8 @@ class _Feat:
         return dict(cov=df["forest"][yi, xi], con=df["conifer"][yi, xi], h=df["shade_h"][yi, xi], mount=df["mount"][yi, xi],
                     dedge=self.ctx["dedge"][yi, xi], dwater=self.ctx["dwater"][yi, xi], xi=xi, yi=yi,
                     slope=a["slope"][iz, ix], north=a["north_z"][iz], dsea=a["dist_sea_km"][iz, ix],
-                    bin=a["block_bin"][iz, ix])
+                    bin=a["block_bin"][iz, ix],
+                    **({'saved_biome':p.saved_biome[iz,ix]} if p.saved_biome is not None else {}))
 
 
 def _tree_weights(names, f, params, s):
@@ -910,6 +1460,18 @@ def _tree_weights(names, f, params, s):
         if name in col:
             W[:, col[name]] += w
 
+    if 'saved_biome' in f:
+        b = f['saved_biome']
+        # Art species only: potential biome chooses families, not north/coast proxies.
+        for name in ('fir','spruce','pine','larch'):
+            add(name, np.isin(b,(9,10)).astype(float))
+        for name in ('oak','beech','birch','maple'):
+            add(name, np.isin(b,(7,8,9)).astype(float))
+        for name in ('teak','kapok','bamboo','palm'):
+            add(name, np.isin(b,(1,2)).astype(float))
+        for name in ('acacia','olive','pine'):
+            add(name, np.isin(b,(3,6)).astype(float))
+        return W
     con = (f["con"] >= 0.5).astype(np.float64)
     br = 1.0 - con
     h, north, dsea = f["h"], f["north"], f["dsea"]
@@ -945,12 +1507,20 @@ def _tree_weights(names, f, params, s):
 def place_forest_symbols(p, a, df, view, params, board, ctx, *, fantasy=None, art=None):
     """Mixed planting inside the approximate forest: trees (varied species / variant / size / mirror), rocks in the
     gaps, grass (forest floor, forest edge, dry south) and shore reeds. Random numbers come from fixed-shape grids,
-    so rejected candidates never shift later draws."""
+    so rejected candidates never shift later draws.
+
+    On a coarse page (forest_area_mode) the same masks are used, but the candidate lattices keep their old spacing
+    while the drawn symbols shrink and thin out, so trees / grass / reeds become accents on the forest colour blocks
+    instead of speckle competing with them."""
     art = art or load_art()
     s, mpp = view.s, view.mpp
     H, W = view.height, view.width
     overview = mpp > params.overview_mpp
-    wd = params.tree_px
+    area = forest_area_mode(view, params)
+    grid_px = params.tree_px                                   # candidate lattice: unchanged by the coarse-page mode
+    wd = params.tree_px * (params.forest_area_tree_scale if area else 1.0)   # drawn symbol width
+    keep_tree = params.forest_area_tree_keep if area else 1.0
+    keep_ground = params.forest_area_ground_keep if area else 1.0
     feat = _Feat(p, a, df, view, ctx)
     seeds = {k: atlas_seed(p.world_seed, k) for k in ("tree-placement", "tree-species", "rock-placement", "grass-placement", "reed-placement")}
     out = []
@@ -963,8 +1533,8 @@ def place_forest_symbols(p, a, df, view, params, board, ctx, *, fantasy=None, ar
     # ---- trees
     names = list(art["trees"])
     rng = np.random.default_rng(seeds["tree-placement"])
-    cx = params.tree_gap * wd
-    cy = params.tree_gap * wd
+    cx = params.tree_gap * grid_px
+    cy = params.tree_gap * grid_px
     nxg, nyg = int(W / cx) + 2, int(H / cy) + 2
     gj, gi = np.mgrid[0:nyg, 0:nxg]
     u = rng.random((10,) + gi.shape)
@@ -974,7 +1544,7 @@ def place_forest_symbols(p, a, df, view, params, board, ctx, *, fantasy=None, ar
     inside = (x > 0) & (x < W) & (y > 0) & (y < H)
     f = feat.at(x, y)
     pk = params.tree_keep_edge + (params.tree_keep - params.tree_keep_edge) * np.clip(f["dedge"] / (params.tree_edge_px * s), 0.0, 1.0)
-    cand = np.nonzero(inside & (f["cov"] >= 0.5) & (u[2] < pk))[0]
+    cand = np.nonzero(inside & (f["cov"] >= 0.5) & (u[2] < pk * keep_tree))[0]
     cand = cand[np.argsort(u[7][cand], kind="stable")]
     fc = {k: v[cand] for k, v in f.items()}
     Wt = _tree_weights(names, fc, params, s)
@@ -1022,7 +1592,7 @@ def place_forest_symbols(p, a, df, view, params, board, ctx, *, fantasy=None, ar
     tree_w = wd
     # ---- rocks (in the gaps between trees): conifer / broadleaf / treeline / alpine scenes, denser at foot of ranges
     rng = np.random.default_rng(seeds["rock-placement"])
-    rs = params.rock_step * wd
+    rs = params.rock_step * grid_px
     nxg, nyg = int(W / rs) + 2, int(H / rs) + 2
     gj, gi = np.mgrid[0:nyg, 0:nxg]
     u = rng.random((8,) + gi.shape).reshape(8, -1)
@@ -1037,7 +1607,7 @@ def place_forest_symbols(p, a, df, view, params, board, ctx, *, fantasy=None, ar
     prob = prob * np.where((f["h"] < 150.0) & (f["slope"] < 0.02), params.rock_plain_factor, 1.0)
     prob = prob * np.where(f["dedge"] <= 3.0 * wd, 1.6, 1.0)
     zone = (f["cov"] >= 0.35) | (f["mount"] > 0.15)
-    cand = np.nonzero(inside & zone & (u[2] < prob))[0]
+    cand = np.nonzero(inside & zone & (u[2] < prob * keep_ground))[0]
     cand = cand[np.argsort(u[7][cand], kind="stable")]
     scenes = ("conifer", "broadleaf", "treeline", "alpine")
     pools = []
@@ -1069,7 +1639,7 @@ def place_forest_symbols(p, a, df, view, params, board, ctx, *, fantasy=None, ar
         sel = [g for g in gsyms if (g.get("scene_weights") or {}).get(sc, 0.0) > 0 and (sc == "riparian" or g["kind"] != "reed")]
         gpool[sc] = (sel, [float(g["scene_weights"][sc]) for g in sel])
     kind_mult = {"shrub": params.grass_shrub_factor, "mushroom": params.grass_mushroom_factor}
-    gs = params.grass_step * wd
+    gs = params.grass_step * grid_px
     rng = np.random.default_rng(seeds["grass-placement"])
     nxg, nyg = int(W / gs) + 2, int(H / gs) + 2
     gj, gi = np.mgrid[0:nyg, 0:nxg]
@@ -1081,7 +1651,7 @@ def place_forest_symbols(p, a, df, view, params, board, ctx, *, fantasy=None, ar
     edge = f["dedge"] <= params.edge_px * s
     warm = f["north"] < params.warm_north
     gsc = np.where(edge, 2, np.where(warm, 3, np.where(f["dwater"] <= 30.0 * s, 4, np.where(f["con"] >= 0.5, 0, 1))))
-    cand = np.nonzero(inside & (f["cov"] >= 0.5) & (u[2] < params.grass_density))[0]
+    cand = np.nonzero(inside & (f["cov"] >= 0.5) & (u[2] < params.grass_density * keep_ground))[0]
     cand = cand[np.argsort(u[7][cand], kind="stable")]
 
     def put_grass(i, sc, mult=1.0):
@@ -1109,7 +1679,7 @@ def place_forest_symbols(p, a, df, view, params, board, ctx, *, fantasy=None, ar
         put_grass(i, scene_names[int(gsc[i])])
     # ---- shore reeds: only a thin ring right next to rivers / lakes, inside or at the edge of the forest
     rng = np.random.default_rng(seeds["reed-placement"])
-    rg = params.reed_step * wd
+    rg = params.reed_step * grid_px
     nxg, nyg = int(W / rg) + 2, int(H / rg) + 2
     gj, gi = np.mgrid[0:nyg, 0:nxg]
     u2 = rng.random((9,) + gi.shape).reshape(9, -1)
@@ -1118,7 +1688,7 @@ def place_forest_symbols(p, a, df, view, params, board, ctx, *, fantasy=None, ar
     f = feat.at(x, y)
     inside = (x > 0) & (x < W) & (y > 0) & (y < H)
     ring = (f["dwater"] > 1.0) & (f["dwater"] <= params.reed_ring_px * s) & (f["cov"] > 0.3)
-    cand = np.nonzero(inside & ring & (u2[2] < params.reed_density))[0]
+    cand = np.nonzero(inside & ring & (u2[2] < params.reed_density * keep_ground))[0]
     cand = cand[np.argsort(u2[7][cand], kind="stable")]
     u = u2
     for i in cand:
@@ -1198,6 +1768,10 @@ class AtlasLayers:
     title: str
     subtitle: str
     reserved: object = None    # bool raster of reserved clearings (None when not requested)
+    forest_paint: str = "tint" # "tint" (old single tint) or "blocks" (coarse page: forest colour blocks + canopy)
+    biome_paint: bool = False  # True on very coarse pages: approximate biome colours + typed forest colours
+    glacier_paint: bool = False  # source-backed ice overlay, not approximate snow tint
+    environment_metadata: object = None
 
 
 def build_atlas(p, params=None, view=None, *, deco_kind="overview", title="世 界 地 貌 试 点", subtitle=None,
@@ -1227,14 +1801,18 @@ def build_atlas(p, params=None, view=None, *, deco_kind="overview", title="世 �
     margin = int(round(params.margin_ref_px * view.s))
     H, W = view.height, view.width
     paper_seed = atlas_seed(p.world_seed, "paper")
+    footer = int(round(110 * view.s)) + 28 if p.saved_biome is not None or biome_mode(view, params) else 0
     paper = paper_texture((H + 2 * margin, W + 2 * margin), view.s, paper_seed, style["paper"])
+    if footer:
+        # Do not repeat the last noisy paper row: that would draw vertical stripes through the key.
+        paper = np.concatenate((paper, np.full((footer, paper.shape[1]), float(paper.mean()))), axis=0)
     inner = paper[margin:margin + H, margin:margin + W, None]
     relief = paint_map(p, df, view, params, style, shade_reduce=None, forest=False)
     relief_rgb = np.clip(relief * inner, 0, 255).round().astype(np.uint8)
     del relief
     rgb = paint_map(p, df, view, params, style, shade_reduce=None, forest=True)
     map_rgb = np.clip(rgb * inner, 0, 255).round().astype(np.uint8)
-    page = np.empty((H + 2 * margin, W + 2 * margin, 3))
+    page = np.empty((H + 2 * margin + footer, W + 2 * margin, 3))
     page[:] = hex_rgb(style["page"]["background"])
     page *= paper[..., None]
     page_rgb = np.clip(page, 0, 255).round().astype(np.uint8)
@@ -1243,6 +1821,13 @@ def build_atlas(p, params=None, view=None, *, deco_kind="overview", title="世 �
     seeds = dict(a["seeds"])
     seeds.update(fseeds)
     seeds.update({"paper": paper_seed, "snow-noise": atlas_seed(p.world_seed, "snow-noise")})
+    area_mode = forest_area_mode(view, params)
+    if area_mode:
+        seeds.update({"forest-canopy-coarse": atlas_seed(p.world_seed, "forest-canopy-coarse"),
+                      "forest-canopy-fine": atlas_seed(p.world_seed, "forest-canopy-fine")})
+    biomes_on = p.saved_biome is not None or biome_mode(view, params)
+    if biomes_on and p.saved_biome is None:
+        seeds["biome-moisture"] = atlas_seed(p.world_seed, "biome-moisture")
     sc = scale_bar(view.mpp, view.s)
     if subtitle is None:
         subtitle = "%d km 生成地表 · %s × %s km · 每像素 %s m" % (
@@ -1250,7 +1835,9 @@ def build_atlas(p, params=None, view=None, *, deco_kind="overview", title="世 �
     return AtlasLayers(view=view, params=params, map_rgb=map_rgb, page_rgb=page_rgb, relief_rgb=relief_rgb, margin=margin,
                        rivers=rivers, river_min_area_km2=amin, symbols=symbols, decorations=decorations,
                        skipped_decorations=skipped, scale=sc, forbidden=forbid, sea=df["coast"] < 0, seeds=seeds,
-                       title=title, subtitle=subtitle, reserved=res_mask)
+                       title=title, subtitle=subtitle, reserved=res_mask,
+                       forest_paint="blocks" if area_mode else "tint", biome_paint=biomes_on,
+                       glacier_paint="glacier_alpha" in df, environment_metadata=p.environment_metadata)
 
 
 def _num(v):
@@ -1310,6 +1897,27 @@ def _rivers_svg(rivers, color):
     return out
 
 
+FRAME_TICK_MIN_M = 5e3            # legacy lower end of the frame tick list (5 km)
+FRAME_TICK_MAX_PER_SIDE = 24.0    # at most this many ticks along the longer pixel side
+FRAME_TICK_MANTISSAS = (1.0, 2.0, 2.5, 5.0)
+
+
+def frame_tick_m(span_m):
+    """Frame coordinate tick in metres: the smallest 1 / 2 / 2.5 / 5 x 10^n step with span_m / step <= 24.
+
+    Yields exactly the former fixed numbers (5, 10, 20, 25, 50, 100, 200 km) on small spans, but the series
+    keeps growing by decade instead of stopping there, so a 10 000 km product gets 500 km ticks rather than
+    StopIteration. Callers pass the longer of the two pixel sides as the span, so a tall narrow page is not
+    ticked more densely than a wide one.
+    """
+    span_m = float(span_m)
+    if not math.isfinite(span_m) or span_m <= 0.0:
+        return FRAME_TICK_MIN_M
+    want = max(span_m / FRAME_TICK_MAX_PER_SIDE, FRAME_TICK_MIN_M)  # smallest acceptable step
+    decade = 10.0 ** math.floor(math.log10(want))
+    return next(m * decade for m in FRAME_TICK_MANTISSAS + (10.0,) if m * decade >= want)
+
+
 def _frame_svg(L, p, style):
     view, s = L.view, L.view.s
     W, H = view.width, view.height
@@ -1317,8 +1925,7 @@ def _frame_svg(L, p, style):
     mpp = view.mpp
     edge_x = p.first[0] - p.spacing / 2 + view.x0 * p.spacing
     edge_z = p.first[1] - p.spacing / 2 + view.z0 * p.spacing
-    span = W * mpp
-    tick = next(t for t in (5e3, 1e4, 2e4, 2.5e4, 5e4, 1e5, 2e5) if span / t <= 24)
+    tick = frame_tick_m(max(W, H) * mpp)
     label = tick * 2
     o, t = 6 * s, 7 * s
     q = ['<rect x="-0.5" y="-0.5" width="%s" height="%s" fill="none" stroke="%s" stroke-width="%s"/>' % (_f(W + 1), _f(H + 1), ink, _f(1.4 * s))]
@@ -1373,16 +1980,35 @@ def legend_rows(L):
     has = {sym["kind"] for sym in L.symbols}
     rows = [("river", None, "河流 · 产品河网，汇水 ≥ %s km²" % _num(L.river_min_area_km2)),
             ("lake", None, "湖面 · 填洼水面（无水量平衡）")]
+    if getattr(L, "glacier_paint", False):
+        rows.append(("glacier", None, "冰川 · 已存冰厚/覆盖，域外未模拟；非近似雪色"))
     if "mountain" in has:
         rows.append(("symbol", "terrain-mountain", "山脉 · 底色与阴影示范围，每片仅最高点一座"))
     if "snowpeak" in has:
-        rows.append(("symbol", "terrain-snowpeak", "高峰 · 附近海拔 ≥ %s m（显示阈值）" % _num(p.snowpeak_m)))
+        rows.append(("symbol", "terrain-snowpeak", '雪峰 · 已存年末积雪库存' if L.environment_metadata else
+                     "高峰 · 附近海拔 ≥ %s m（显示阈值）" % _num(p.snowpeak_m)))
+    biomes_on = getattr(L, "biome_paint", False)
     scenes = {sym.get("scene") for sym in L.symbols if sym["kind"] == "tree"}
-    if "conifer" in scenes:
-        rows.append(("symbol", "tree-larch", "针叶林 · 混排，近似，非气候数据"))
-    if "broadleaf" in scenes:
-        rows.append(("symbol", "tree-oak", "阔叶林 · 混排，近似，非气候数据"))
+    if not biomes_on:
+        # biome pages show forest types as colour swatches; tree symbols there are accents only
+        if "conifer" in scenes:
+            rows.append(("symbol", "tree-larch", "针叶林 · 混排，近似，非气候数据"))
+        if "broadleaf" in scenes:
+            rows.append(("symbol", "tree-oak", "阔叶林 · 混排，近似，非气候数据"))
+    if biomes_on:
+        rows.append(("biome", None, '保存气候潜在群系 · 非已实现森林' if L.environment_metadata else
+                     "自然地表 · 低饱和近似群系底色，非气候数据"))
+    if getattr(L, "forest_paint", "tint") == "blocks":
+        label = ("林区 · 阔叶 / 针叶 / 雨林 / 疏林，分型冠层纹理与近似补林，非气候数据" if biomes_on
+                 else "林区 · 掩码色块 + 轻冠层纹理（超大尺度），近似林相，非气候数据")
+        if L.environment_metadata:
+            label = '林型 · 保存潜在群系派生美术；无噪声补林、非实测覆盖'
+        rows.append(("forest_area", None, label))
     return rows
+
+
+def _legend_row_height(kind, s):
+    return (68 if kind == "biome" else 34) * s
 
 
 def _legend_svg(d, L, style, rcolor):
@@ -1407,7 +2033,8 @@ def _legend_svg(d, L, style, rcolor):
     for i, b in enumerate(lands):
         if i % 2 == 1 or i == len(lands) - 1:
             q.append(_text(x + pad + (i + 1) * bw / n, by + 30 * s, "%d" % b["max_m"], "t-body", 12.5 * s))
-    q.append(_text(x + pad, by + 48 * s, "最右格：雪色，按海拔与坡向渐变（显示，非积雪数据）", "t-body", 12.5 * s, "start"))
+    q.append(_text(x + pad, by + 48 * s, '雪色：新年末积雪SWE库存，非永久冰川' if L.environment_metadata else
+                   "最右格：雪色，按海拔与坡向渐变（显示，非积雪数据）", "t-body", 12.5 * s, "start"))
     cy += 84 * s
     oc = style["ocean_bands"]
     q.append(_text(x + pad, cy + 10 * s, "水深（米）", "t-body", 15 * s, "start"))
@@ -1419,10 +2046,22 @@ def _legend_svg(d, L, style, rcolor):
     for i, b in enumerate(oc[:-1]):
         q.append(_text(x + pad + (i + 1) * bw / n, by + 30 * s, "%d" % b["max_depth_m"], "t-body", 12.5 * s))
     cy += 66 * s
-    row = 34 * s
     for kind, sid, label in legend_rows(L):
-        ry = cy + row / 2
+        row = _legend_row_height(kind, s)
+        ry = cy + 17 * s
         ix = x + pad + 22 * s
+        if kind == "biome":
+            # title line, then one swatch per biome with its short name underneath
+            q.append(_text(x + pad, ry + 5 * s, label, "t-body", 14.5 * s, "start"))
+            palette = tuple(v for k,v in SAVED_BIOMES.items() if k not in (0,65535)) if L.environment_metadata else BIOMES
+            n = len(palette)
+            cw = bw / n
+            for i, (_, name, col) in enumerate(palette):
+                q.append('<rect x="%s" y="%s" width="%s" height="%s" fill="%s" stroke="%s" stroke-width="%s"/>' % (
+                    _f(x + pad + i * cw + 1 * s), _f(ry + 14 * s), _f(cw - 2 * s), _f(14 * s), col, ink, _f(0.6 * s)))
+                q.append(_text(x + pad + (i + 0.5) * cw, ry + 42 * s, name, "t-body", 11.5 * s))
+            cy += row
+            continue
         if kind == "river":
             q.append('<path d="M%s %s C%s %s %s %s %s %s" fill="none" stroke="%s" stroke-width="%s" stroke-linecap="round"/>' % (
                 _f(ix - 20 * s), _f(ry + 5 * s), _f(ix - 6 * s), _f(ry - 8 * s), _f(ix + 6 * s), _f(ry + 8 * s), _f(ix + 20 * s), _f(ry - 4 * s),
@@ -1430,6 +2069,16 @@ def _legend_svg(d, L, style, rcolor):
         elif kind == "lake":
             q.append('<ellipse cx="%s" cy="%s" rx="%s" ry="%s" fill="%s" stroke="%s" stroke-width="%s"/>' % (
                 _f(ix), _f(ry), _f(18 * s), _f(9 * s), style["ocean_bands"][1]["color"], ink, _f(0.9 * s)))
+        elif kind == "glacier":
+            q.append('<rect x="%s" y="%s" width="%s" height="%s" fill="%s" stroke="%s"/>' % (
+                _f(ix - 20 * s), _f(ry - 9 * s), _f(40 * s), _f(18 * s), GLACIER_HEX, ink))
+        elif kind == "forest_area":
+            # swatch: the forest-colour blocks as on the map (two on plain block pages, four types on biome pages)
+            cols = [c for _, _, c in FOREST_TYPES] if getattr(L, "biome_paint", False) else [FOREST_BROADLEAF_HEX, FOREST_CONIFER_HEX]
+            sw = 40.0 / len(cols)
+            for i, col in enumerate(cols):
+                q.append('<rect x="%s" y="%s" width="%s" height="%s" rx="%s" fill="%s" stroke="%s" stroke-width="%s"/>' % (
+                    _f(ix - 20 * s + i * sw * s), _f(ry - 9 * s), _f((sw - 1) * s), _f(18 * s), _f(2 * s), col, ink, _f(0.7 * s)))
         else:
             vb = (24.0, 12.0) if sid == "terrain-hill" else (16.0, 20.0) if sid.startswith("tree-") else (24.0, 18.0)
             sw = (34 if not sid.startswith("tree-") else 16) * s
@@ -1450,7 +2099,7 @@ def _legend_svg(d, L, style, rcolor):
 
 def legend_height(L):
     s = L.view.s
-    return (64 + 84 + 66 + 34 * len(legend_rows(L)) + 10 + 40 + 24) * s
+    return (64 + 84 + 66 + 10 + 40 + 24) * s + sum(_legend_row_height(k, s) for k, _, _ in legend_rows(L))
 
 
 def compose_html(L, p, base_href, *, with_overlays=True):
@@ -1504,8 +2153,35 @@ def compose_html(L, p, base_href, *, with_overlays=True):
         if not any(d["kind"] == "scale" for d in L.decorations):  # zoom pages: scale bar in the bottom margin
             o += _scale_svg(dict(x=20.0 * s, y=H - 116 * s, w=480 * s, h=96 * s), L.scale, style, s)
     o += _frame_svg(L, p, style)
+    if with_overlays and getattr(L, "biome_paint", False):
+        o += _natural_legend_footer(L)
     o.append("</g></svg></body></html>")
     return "\n".join(o)
+
+
+def _natural_legend_footer(L):
+    """A compact key outside the map, visible even when no in-ocean legend box fits."""
+    W, H, m = L.view.width, L.view.height, L.margin
+    y = H + m + 10
+    palette = tuple(v for k,v in SAVED_BIOMES.items() if k not in (0,65535)) if L.environment_metadata else BIOMES
+    cw = W / len(palette)
+    fs = max(10.0, min(14.0, W / 100.0))
+    title = '保存气候潜在群系 · 接受的极干旱情景；非已实现森林' if L.environment_metadata else "自然地表 · 近似群系与补充林区（非气候或生态数据）"
+    q = [_text(0, y, title, "t-body", fs, "start")]
+    for i, (_, name, col) in enumerate(palette):
+        x = i * cw
+        q.append('<rect x="%s" y="%s" width="16" height="10" fill="%s"/>' % (_f(x), _f(y + 10), col))
+        q.append(_text(x + 21, y + 19, name, "t-body", fs, "start"))
+    y += 39
+    for i, (_, name, col) in enumerate(FOREST_TYPES):
+        x = i * W / 7
+        q.append('<rect x="%s" y="%s" width="16" height="10" fill="%s"/>' % (_f(x), _f(y - 8), col))
+        q.append(_text(x + 21, y + 1, name, "t-body", fs, "start"))
+    q.append(_text(W, y + 1, '雪色=年末SWE库存；非永久冰' if L.environment_metadata else "岩色与雪色为显示近似", "t-body", fs, "end"))
+    if getattr(L, "glacier_paint", False):
+        q.append('<rect x="0" y="%s" width="16" height="10" fill="%s"/>' % (_f(y + 14), GLACIER_HEX))
+        q.append(_text(21, y + 23, "冰川：已存冰厚/覆盖；冷浅蓝灰≠近似雪色；域外未模拟", "t-body", fs, "start"))
+    return q
 
 
 def page_size(L):
@@ -1527,7 +2203,19 @@ def summarize(L):
                 scale_bar=dict(metres=L.scale["meters"], length_px=L.scale["length_px"], segments=L.scale["segments"],
                                check_length_px_times_m_per_px=L.scale["length_px"] * L.view.mpp),
                 river_min_area_km2=L.river_min_area_km2, river_polylines=len(L.rivers),
-                symbols=kinds, mountain_tiers=tiers,
+                symbols=kinds, mountain_tiers=tiers, forest_paint=getattr(L, "forest_paint", "tint"),
+                biome_paint=bool(getattr(L, "biome_paint", False)),
+                climate_environment=getattr(L,'environment_metadata',None),
+                surface_style="natural-low-saturation" if getattr(L, "biome_paint", False) else "hypsometric",
+                relief_detail=(dict(enabled=True, strength=L.params.natural_relief_strength,
+                                    altitude_deg=L.params.natural_relief_altitude_deg,
+                                    z_factor=L.params.natural_relief_z_factor,
+                                    extra_azimuths=list(L.params.natural_relief_extra_azimuths),
+                                    detail_sigma_cells=L.params.natural_relief_detail_cells,
+                                    factor_range=[L.params.natural_relief_factor_min, L.params.natural_relief_factor_max])
+                              if getattr(L, "biome_paint", False) and L.params.natural_relief_strength > 0 else None),
+                supplemental_woodland=bool(getattr(L, "biome_paint", False) and L.params.natural_forest_extra
+                                          and not getattr(L,'environment_metadata',None)),
                 decorations=[dict(name=d["name"], kind=d["kind"], box_px=[round(v, 1) for v in d["box"]]) for d in L.decorations],
                 skipped_decorations=L.skipped_decorations)
 
@@ -1552,8 +2240,9 @@ def params_dict(params):
 def relief_page(L, p=None):
     """Same paper page and base raster, but no forest tint, rivers, symbols, decorations, frame or text."""
     from PIL import Image
-    page = L.page_rgb.copy()
     m, H, W = L.margin, L.view.height, L.view.width
+    # The natural-surface key belongs to the atlas, not the unchanged relief-only control.
+    page = L.page_rgb[:H + 2 * m].copy()
     page[m:m + H, m:m + W] = L.relief_rgb
     return Image.fromarray(page)
 
@@ -1561,14 +2250,42 @@ def relief_page(L, p=None):
 def provenance(p, L, params, files, product_path=None):
     """atlas-source.json body: product identity, scale, per-layer origin (data / approximate / decoration), omissions."""
     view = L.view
-    return dict(
+    vegetation = None
+    if L.biome_paint:
+        a = analyse(p, params)
+        dry = a["land"] & ~a["lake"]
+        nland = max(1, int(dry.sum()))
+        extra = a["natural_forest"] & ~a["forest"]
+        vegetation = dict(scope="whole source product, cell counts; display only, not measured vegetation",
+                          base_forest_cells=int(a["forest"].sum()), supplemental_cells=int(extra.sum()),
+                          natural_forest_cells=int(a["natural_forest"].sum()), nonlake_land_cells=int(dry.sum()),
+                          base_land_fraction=float(a["forest"].sum() / nland),
+                          natural_land_fraction=float(a["natural_forest"].sum() / nland),
+                          forest_type_cells={name: int((a["natural_type"] == i).sum())
+                                             for i, (name, _, _) in enumerate(FOREST_TYPES, start=1)})
+    glacier_layers = [name for name, value in zip(GLACIER_LAYERS,
+                       (p.ice_thickness, p.ice_surface, p.ice_coverage, p.simulated_mask)) if value is not None]
+    result = dict(
         schema=SCHEMA,
+        climate_environment=p.environment_metadata,
+        glacier_display=(dict(enabled=bool(params.glacier_display), colour=GLACIER_HEX,
+                              source="saved glacier_ice_thickness_m and optional coverage, not elevation snow proxy",
+                              known_domain="glacier_simulated_fraction > 0 and finite H; missing is unmodelled, not verified zero ice",
+                              sampling="nearest source cell; ice_surface read but elevation/shading unchanged",
+                              symbols="ice pixels forbid terrain/forest symbols; display only, not travel/water rules",
+                              layer_metadata={k: p.info.layer_metadata.get(k, {}) for k in glacier_layers})
+                         if glacier_layers else None),
+        vegetation_display=vegetation,
+        river_display=dict(overview=bool(river_overview_mode(view, params)), min_area_km2=L.river_min_area_km2,
+                           width_anchor_km2=(params.river_overview_anchor_km2 if river_overview_mode(view, params)
+                                             else L.river_min_area_km2),
+                           width_semantics="display symbol pixels only, not physical river width or discharge; source river network unchanged"),
         product=dict(path=str(product_path or p.path), kind=p.info.kind, identity=p.identity, schema=p.manifest.get("schema"),
                      source_identity=p.manifest.get("source_identity"), world_seed=p.world_seed,
                      source_world_seed=p.manifest.get("source_world_seed"), shape_zx=list(p.shape),
                      first_sample_xz_m=list(p.first), spacing_m=p.spacing, axes=p.manifest.get("axes"),
                      interface="app.map_source (load_source / MapCatalog.from_config); GridSource.sample at every cell centre + vectors('rivers')",
-                     consumed_layers=list(CONSUMED_LAYERS),
+                     consumed_layers=list(CONSUMED_LAYERS) + glacier_layers,
                      verification="identity / file hashes / manifest shape are verified by the app.map_source adapter before any data is returned; this module never opens .npy or rivers.json",
                      limitations=p.manifest.get("limitations", [])),
         coast_elevation_check=coast_elevation_medians(p),
@@ -1579,11 +2296,12 @@ def provenance(p, L, params, files, product_path=None):
         layers=dict(
             data=[
                 "海陆：ocean_mask 原样（显示海岸为 σ=%s 格高斯平滑的海陆指示零值线，只消除格子台阶，逐格一致率见 display_coast_agreement）" % params.coast_smooth_cells,
-                "陆地分层设色：elevation_m；styles.json simple 色板，平原段（局部起伏 < %d m）在 %d m 尺度上平滑过渡，不画等色带边线" % (params.plain_relief_m, params.plain_smooth_m),
+                ("自然地表高程辅助：elevation_m 提供阴影、坡度及少量高程色；主底色来自下述近似群系，非实测地表覆盖" if L.biome_paint else
+                 "陆地分层设色：elevation_m；styles.json simple 色板，平原段（局部起伏 < %d m）在 %d m 尺度上平滑过渡，不画等色带边线" % (params.plain_relief_m, params.plain_smooth_m)),
                 "海洋分档：elevation_m 水深，styles.json simple ocean_bands",
                 "山体阴影：elevation_m，方位 %s°、高度角 %s°、z×%s；山脉范围内阴影加强 %d%%（山体范围见下）" % (params.shade_azimuth_deg, params.shade_altitude_deg, params.shade_z_factor, round(params.mount_shade_boost * 100)),
                 "湖泊：lake_surface_m − elevation_m ≥ %s m 且连片 ≥ %d 格的填洼水面（产品无湖泊水量平衡）" % (params.lake_min_depth_m, params.lake_min_cells),
-                "河流：经 app.map_source vectors('rivers') 读取的折线原样；只画汇水面积 ≥ %.0f km² 的部分（屏幕门槛），线宽随 log2(汇水面积) 加粗；Chaikin %d 次平滑，端点/汇流点/入海点不动" % (L.river_min_area_km2, params.river_chaikin),
+                "河流：经 app.map_source vectors('rivers') 读取的折线原样；只画汇水面积 ≥ %.0f km² 的部分（屏幕门槛），线宽随 log2(汇水面积) 加粗，仅为显示符号宽，非真实河宽或流量；粗总览采用独立面积锚点，湖岸分段且不画跨湖直线，不新增河线；Chaikin %d 次平滑，端点/汇流点/入海点不动" % (L.river_min_area_km2, params.river_chaikin),
                 "山地识别：elevation_m 的局部起伏（%d km 窗）、相对基面高度（%d km 窗）与坡度；每片 8 连通山地只在其最高点画一座山峰符号（丘陵不画符号），山脉范围由底图山地色调 + 加强阴影表现" % (params.relief_window_m / 1000, params.base_window_m / 1000),
             ],
             approximate=[
@@ -1591,7 +2309,29 @@ def provenance(p, L, params, files, product_path=None):
                 "雪峰符号：符号所在山峰高程 ≥ %d m（显示参数），不是积雪数据" % params.snowpeak_m,
                 "森林与植被：按高程、坡度、离海距离与南北位置粗分（针叶 ≥ %d m 或偏北，阔叶其余），近似，非气候数据" % params.conifer_m,
                 "林区混排：树（运行时从 map-art-trees-a/-b.svg 解析的 symbol，按高程/南北/离海/坡度/坐标噪声区块给树种比例，变种/缩放/镜像随机，间距约 %.2f 树宽）+ 石头（ground-rocks）+ 草（ground-grass，水边芦苇仅紧邻河湖）；奇幻树种默认不用" % params.tree_gap,
-            ],
+            ] + ([
+                "大面积林相（超大总览：每像素 ≥ %s m 时启用）：沿用 analyse 的同一近似 forest 掩码（高程 / 坡度 / 离海 / 坐标噪声，非气候、非生态），把林区画成清晰色块（阔叶 %s / 针叶 %s 按 conifer 混色，最大不透明度 %s）+ 轻冠层纹理（世界坐标噪声，波长 %s / %s m，±%d%% 明暗）；掩码公式、阈值与林区面积不变，只是显示层换画法；同页树 / 石 / 草符号缩小到 %s 倍、候选保留树 %s / 地面 %s，作点缀而不抢色块"
+                 % (_num(params.forest_area_mpp), FOREST_BROADLEAF_HEX, FOREST_CONIFER_HEX, params.forest_area_alpha, _num(params.forest_canopy_wavelength_m), _num(params.forest_canopy_fine_m),
+                    round(params.forest_canopy_contrast * 100), params.forest_area_tree_scale, params.forest_area_tree_keep, params.forest_area_ground_keep)
+                ] if getattr(L, "forest_paint", "tint") == "blocks" and not L.biome_paint else []) + ([
+                "近似群系 / 自然地表（超大总览：每像素 ≥ %s m 时启用）：温度代理 = 南北位置（北冷，非纬度）− 海拔/%s m，湿度代理 = exp(−离海距离/%s km) + 坐标噪声（波长 %s m）；分 %s 九类，%s km 尺度柔化；低饱和群系底色权重 %s，默认不随海拔褪成棕色；只是地图配色，不是气候、降水或生态模拟"
+                 % (_num(params.biome_mpp), _num(params.biome_lapse_m), _num(params.biome_moist_km), _num(params.biome_moisture_wavelength_m),
+                    "/".join(name for _, name, _ in BIOMES), _num(params.biome_smooth_m / 1000), params.biome_alpha),
+                "林型分色（同页）：保留原 forest 分析，另设 natural_forest 显示掩码；给 %s 四种低饱和林色（%s），小幅色彩起伏参数 %d%%；阔叶 / 针叶 / 雨林 / 疏林使用不同波长与对比度的世界坐标冠层纹理，疏林覆盖更轻"
+                 % ("/".join(name for _, name, _ in FOREST_TYPES), "/".join(c for _, _, c in FOREST_TYPES), round(params.forest_hue_jitter * 100)),
+                "近似补林：仅 natural_forest_extra 开启时，在非湖陆地、林线以下、适宜坡度的寒温 / 温湿 / 热湿近似群系内，按同一湿度代理和坐标噪声补显示林区；不填荒漠、苔原、高山或湖海，不新增真实生态数据或NPP",
+                "自然岩色：按粗DEM坡度渐入灰色裸岩，林内减弱；不是实际岩石覆盖。快速总览在图外附群系与林型色键",
+                "山域加深（显示近似）：在 analyse 给出的 mountain 掩码（%d km / %d km 窗起伏 + 坡度）上，按平滑后的 mount 覆盖度小幅乘性压暗，通道衰减比例参照深灰褐 %s（参数 mount_tone_alpha = %s）；雪面按雪覆盖度退让、林内减力，不改高程、不改山地判定、不新增岩性或土壤数据"
+                 % (params.relief_window_m / 1000, params.base_window_m / 1000, MOUNT_TONE_HEX, params.mount_tone_alpha),
+                "海岸线（同页）：只画一条海陆墨线。styles.json 的海侧第二道岸线与一圈圈波纹环纹默认不画（coast_ripples = %s），因为它们在大尺度读起来像水里的等高线；海陆覆盖、高程、海深与河湖均未变" % params.coast_ripples,
+                "山体细节晕渲（显示近似，仅自然图）：在原有 shade_h（%s 格低通）之外，用较少平滑的 detail_h（%s 格、不小于屏幕抗混叠所需的 %s×每像素格数）重新打光；太阳高度角 %s°、显示 z ×%s、方位 %s° 主光加 %s 多光，再与主光混合；只在真实崎岖权重内生效（15 km 窗起伏 %s–%s m 与真实坡度 %s–%s 平滑映射，距海 %s km 衰减）；强度开关 natural_relief_strength = %s，为 0 时逐像素退回旧自然图；平地 / 海 / 湖乘子恒为 1，不改高程、不画随机沟纹或等高线；10 km 产品无法恢复真实细沟，这只是把已有坡面重新打光"
+                 % (params.shade_smooth_cells, params.natural_relief_detail_cells, params.natural_relief_antialias,
+                    params.natural_relief_altitude_deg, params.natural_relief_z_factor, params.shade_azimuth_deg,
+                    "/".join(_num(v) for v in params.natural_relief_extra_azimuths),
+                    _num(params.natural_relief_relief_lo_m), _num(params.natural_relief_relief_hi_m),
+                    params.natural_relief_slope_lo, params.natural_relief_slope_hi, _num(params.natural_relief_coast_km),
+                    params.natural_relief_strength),
+                 ] if getattr(L, "biome_paint", False) else []),
             decoration=["纸纹（种子 atlas/paper）", "标题框 deco-cartouche、罗盘 deco-compass（map-art.svg）",
                         "帆船 deco-carrack（map-art-medieval-deco.svg），只放开阔海面，不表示航线或数据",
                         "比例尺：长度 px × 每像素米数 = 标注米数"],
@@ -1608,3 +2348,24 @@ def provenance(p, L, params, files, product_path=None):
         parameters=params_dict(params),
         files=files,
     )
+    if p.environment_metadata is not None:
+        result['product']['consumed_layers'] += list(ENVIRONMENT_LAYERS)
+        result['product']['verification'] += '; raw manifest opened only for identity-bound stable ID/environment metadata'
+        if result['vegetation_display'] is None:
+            result['vegetation_display'] = {}
+        result['vegetation_display']['scope'] = 'saved climate potential biome-derived art support, not realized forest'
+        result['layers']['data'] += [
+            '真实保存潜在群系：biome原始ID最近邻；温雨来自绑定气候产品，未按南北/离海/噪声重分类',
+            '雪面：snow_swe_mm新年末库存，非永久雪线；冰川：仅新年末显式二维选区H，未沿用旧20年H',
+            '年均Q：绑定侧车全年路由体积/365日；仅栅格读取，河线仍按面积符号宽，未猜矢量锚点']
+        result['layers']['data'] = [s.replace('主底色来自下述近似群系，非实测地表覆盖','主底色来自真实保存气候潜在群系，非实测地表覆盖') for s in result['layers']['data']]
+        result['layers']['approximate'] = [
+            '接受的极干旱工程情景；降雨非观测标定，不因图美化修改数据',
+            '潜在群系ID不插值；低饱和RGB可显示柔化，不生成新类别',
+            '树型/潜在林区只由真实群系派生；树种/冠层纹理是美术，非已实现森林',
+            '粗DEM岩色、山形晕渲、纸纹与符号为显示，不重算气候或生态']
+        result['layers']['not_drawn'] = [s for s in result['layers']['not_drawn'] if s != '气候/降水']
+        result['layers']['display_workarounds_for_data_defects'] = [s for s in result['layers']['display_workarounds_for_data_defects'] if not s.startswith('雪线偏硬')]
+        if result['glacier_display']:
+            result['glacier_display']['time'] = 'new year-end selected dynamic H only; original 20-year H not displayed'
+    return result

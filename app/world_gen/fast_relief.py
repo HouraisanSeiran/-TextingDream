@@ -48,7 +48,7 @@ DEFAULTS = dict(
     ridge_amp=0.30, ridge_wavelengths_km=(46.0, 19.0), ridge_weights=(0.65, 0.35), ridge_centre=0.55,
     warp_wavelength_km=70.0, warp_amp_km=14.0,
     coast_ramp_km=120.0, lowland_amp_m=60.0, lowland_wavelengths_km=(70.0, 28.0),
-    land_min_m=2.0, ocean_max_m=-5.0, ocean_speck_nodes=30,
+    land_min_m=2.0, ocean_max_m=-5.0, ocean_speck_nodes=30, land_speck_nodes=3,
     erosion_iterations=3, erosion_k=1.5e-3, erosion_area_exp=0.5, erosion_max_f=3.0, diffusion=0.4, diffusion_sigma=0.8,
     river_lo_km2=400.0, river_hi_km2=1200.0, slope_split=0.008, depth_min_m=60.0, lake_area_min_km2=300.0, breach_passes=4,
     smooth_rivers=True,
@@ -239,23 +239,32 @@ def upsample_limited(a, shape, spacing, cell, rows=128):
     return np.clip(out, lo, hi).astype(np.float32)
 
 
+def _speck_node_threshold(spacing_m, anchor_nodes, anchor_spacing_m=SPACING_M):
+    """Convert an area cutoff (nodes at the 2 km anchor) into a node count at ``spacing_m``."""
+    import math
+    area = float(anchor_nodes) * float(anchor_spacing_m) ** 2
+    return max(1, int(math.ceil(area / (float(spacing_m) ** 2))))
+
+
 def _coast(su, oc_up, shape, first, S, p, seeds):
     wl = [v * 1000.0 for v in p['coast_wavelengths_km']]
     coast = blocked_grid(shape, first, S, lambda x, z: p['coast_noise_amp_m'] * fbm_xz(x, z, seeds['fast-relief/coast'], wl, p['coast_weights']))
     land = (su + coast) > 0
     land |= (su <= 0) & ~oc_up
+    ocean_cut = _speck_node_threshold(S, int(p['ocean_speck_nodes']))
+    land_cut = _speck_node_threshold(S, int(p.get('land_speck_nodes', 3)))
     lab, n = nd.label(~land)
     if n:
         sizes = np.bincount(lab.ravel())
         rim = np.unique(np.concatenate([lab[0], lab[-1], lab[:, 0], lab[:, -1]]))
-        small = sizes < int(p['ocean_speck_nodes']); small[0] = False
+        small = sizes < ocean_cut; small[0] = False
         small[rim] = False
         land |= small[lab]
     del lab
     lab, n = nd.label(land)
     if n:
         sizes = np.bincount(lab.ravel())
-        land &= ~(sizes < 3)[lab]
+        land &= ~(sizes < land_cut)[lab]
     return land
 
 
@@ -416,19 +425,21 @@ def build_terrain(sk, params=None, log=None):
     coast = blocked_grid(shape, first, S, lambda x, z: p['coast_noise_amp_m'] * fbm_xz(x, z, seeds['fast-relief/coast'], wl, p['coast_weights']))
     land = (su + coast) > 0
     land |= (su <= 0) & ~oc_up                       # skeleton inland basins stay land (hydrology decides lakes)
-    # ocean specks (not touching the domain rim) become land; one-node land specks vanish
+    # ocean/land speck cleanup uses physical area anchored at the 2 km defaults
+    ocean_cut = _speck_node_threshold(S, int(p['ocean_speck_nodes']))
+    land_cut = _speck_node_threshold(S, int(p.get('land_speck_nodes', 3)))
     lab, n = nd.label(~land)
     if n:
         sizes = np.bincount(lab.ravel())
         rim = np.unique(np.concatenate([lab[0], lab[-1], lab[:, 0], lab[:, -1]]))
-        small = sizes < int(p['ocean_speck_nodes']); small[0] = False
+        small = sizes < ocean_cut; small[0] = False
         small[rim] = False
         land |= small[lab]
     del lab
     lab, n = nd.label(land)
     if n:
         sizes = np.bincount(lab.ravel())
-        land &= ~(sizes < 3)[lab]
+        land &= ~(sizes < land_cut)[lab]
     del lab
     ocean = ~land
     t_coast = time.perf_counter() - t0
@@ -538,9 +549,14 @@ def compute(sk, params=None, erosion=True, log=None, relief='skeleton', *, islan
     if relief not in RELIEF_MODES:
         raise ValueError('unknown relief mode %r' % (relief,))
     binding = None
+    # Island stage wall-clock is reported in runtime-stats.json only: it never enters the
+    # manifest, an identity or any geometry, and every island step below stays byte-identical.
+    island_timing = {}
     if island_product_path is not None:
         from . import ocean_island_adapter as islands
+        t_island = time.perf_counter()
         binding = islands.load_binding(sk['path'],island_product_path,expected_island_identity,skeleton_run_path)
+        island_timing['island_binding_s'] = time.perf_counter() - t_island
         if binding.product.source.identity != sk['identity']:
             raise ValueError('island product differs from the loaded skeleton')
     elif expected_island_identity is not None or skeleton_run_path is not None:
@@ -556,11 +572,17 @@ def compute(sk, params=None, erosion=True, log=None, relief='skeleton', *, islan
     before_islands = T['elevation'].copy() if binding is not None else None
     island_fields = fractions = None
     if binding is not None:
+        t_island = time.perf_counter()
         island_fields, fractions = islands.compose_world(binding,T['elevation'],first,S)
+        island_timing['island_compose_s'] = time.perf_counter() - t_island
         if mountain_input_path is not None:
             from .web_island_stage import apply_to_fields
+            t_island = time.perf_counter()
             island_fields, mountain_data = apply_to_fields(mountain_input_path,binding,island_fields,first,S)
+            island_timing['island_correction_s'] = time.perf_counter() - t_island
+        t_island = time.perf_counter()
         T['elevation'], ocean, lagoon = islands.restore_after_erosion(island_fields,island_fields['elevation_m'])
+        island_timing['island_restore_s'] = time.perf_counter() - t_island
         T['ocean'] = ocean
     t0 = time.perf_counter()
     mesh_seed = T['seeds']['fast-relief/mesh']
@@ -578,13 +600,16 @@ def compute(sk, params=None, erosion=True, log=None, relief='skeleton', *, islan
         process = world_process_adapter.compute(sk, elevation, ocean, mesh, outlets, first, S,
                     lagoon=lagoon if binding is not None else None, config=process_config, out_dir=process_out)
         elevation = np.asarray(process['arrays']['elevation_m'], np.float64)
+        ocean = np.asarray(process['arrays']['ocean_mask'], bool)
     elif erosion and int(p['erosion_iterations']) > 0:
         # The erosion land clamp must preserve every initial negative bed,
         # including closed basins. This is not the hydrology external-ocean mask.
         erosion_fixed_water = ocean if binding is None else ocean | (elevation < 0)
         elevation, incised = erode(elevation, erosion_fixed_water, mesh, outlets, p, log)
     if binding is not None and process is None:
+        t_island = time.perf_counter()
         elevation, ocean, lagoon = islands.restore_after_erosion(island_fields,elevation)
+        island_timing['island_restore_s'] += time.perf_counter() - t_island
         outlets = ocean.copy()
         outlets |= lagoon
         outlets[0] = True; outlets[-1] = True; outlets[:,0] = True; outlets[:,-1] = True
@@ -633,14 +658,18 @@ def compute(sk, params=None, erosion=True, log=None, relief='skeleton', *, islan
         _, rivers0 = gh.standard_lines(lines, sx, sz, shape, ocean, wet)
         rivers, tl = gh.through_lake_lines(rivers0, lake_id, first, S)
     t_riv = time.perf_counter() - t0
+    if binding is not None:
+        t_island = time.perf_counter()
+        quota = islands.quota_statistics(binding,before_islands,elevation)
+        island_timing['island_quota_s'] = time.perf_counter() - t_island
     result = dict(terrain=T, elevation=elevation, ocean=ocean, mesh_seed=int(mesh_seed), hyd=hyd, wet=wet, lake_id=lake_id,
                 active=active, rivers=rivers, through_lake=tl, lake_links=lake_links, smooth_reverted_nodes=int(reverted), incised=incised,
-                timing=dict(**T['timing'], mesh_s=t_mesh, erosion_s=t_erode, hydrology_s=t_hyd, rivers_s=t_riv))
+                timing=dict(**T['timing'], mesh_s=t_mesh, erosion_s=t_erode, hydrology_s=t_hyd, rivers_s=t_riv,
+                            **island_timing))
     if process is not None:
         result['world_processes'] = process
     if binding is not None:
-        result['ocean_islands'] = dict(binding=binding,fields=island_fields,fractions=fractions,lagoon=lagoon,
-                                      quota=islands.quota_statistics(binding,before_islands,elevation))
+        result['ocean_islands'] = dict(binding=binding,fields=island_fields,fractions=fractions,lagoon=lagoon,quota=quota)
     if mountain_data is not None:
         if process is not None:
             mountain_data['process_peak_reports'] = world_process_adapter.island_peak_reports(
@@ -653,6 +682,8 @@ def compute(sk, params=None, erosion=True, log=None, relief='skeleton', *, islan
 def freeze(skeleton_path, out_dir, params=None, erosion=True, expected_identity=None, min_free_bytes=MIN_FREE_BYTES, log=print,
            relief='skeleton', *, island_product_path=None, expected_island_identity=None, skeleton_run_path=None, mountain_input_path=None,
            process_config=None):
+    if (Path(out_dir)/'manifest.json').exists():
+        raise FileExistsError('published world maps are immutable; read the existing product or prepare a new revision')
     started = time.perf_counter()
     avail = memory_guard(min_free_bytes)
     sk = load_skeleton(skeleton_path, expected_identity)
@@ -664,6 +695,7 @@ def freeze(skeleton_path, out_dir, params=None, erosion=True, expected_identity=
     T = res['terrain']; p = T['params']; S = float(p['spacing_m']); shape = T['shape']; first = list(T['first'])
     hyd = res['hyd']; ocean = res['ocean']; wet = res['wet']; elevation = res['elevation']
     out = Path(out_dir); out.mkdir(parents=True, exist_ok=True); (out / 'vectors').mkdir(exist_ok=True)
+    t_write = time.perf_counter()
     filled = hyd['filled'].astype(np.float32)
     status = np.where(ocean, 3, 5).astype(np.uint8)
     if 'ocean_islands' in res:
@@ -680,9 +712,10 @@ def freeze(skeleton_path, out_dir, params=None, erosion=True, expected_identity=
     process_layers = {}
     if 'world_processes' in res:
         process_arrays = res['world_processes']['arrays']
+        from .world_process_adapter import ENVIRONMENT_LAYERS
         for name, unit in dict(discharge_m3_s='m3/s', temperature_c='degC', precipitation_mm_yr='mm/yr',
                               rock_index='1', bed_hardness='1', permeability_m2='m2', erosion_m='m', deposition_m='m',
-                              soil_water_mm='mm', snow_swe_mm='mm', cover_fraction='1').items():
+                              soil_water_mm='mm', snow_swe_mm='mm', cover_fraction='1', **ENVIRONMENT_LAYERS).items():
             if name in process_arrays and np.asarray(process_arrays[name]).shape == tuple(shape):
                 arrays[name] = np.asarray(process_arrays[name])
                 process_layers[name] = unit
@@ -823,10 +856,15 @@ def freeze(skeleton_path, out_dir, params=None, erosion=True, expected_identity=
         manifest['reused_code']['local_sha256']['web_island_stage.py'] = file_sha(Path(__file__).with_name('web_island_stage.py'))
     if 'world_processes' in res:
         from . import world_process_adapter
-        world_process_adapter.publish(res['world_processes'], out/'world-processes')
+        published_process = world_process_adapter.publish(res['world_processes'], out/'world-processes')
         process_manifest = out/'world-processes'/'manifest.json'
         manifest['world_processes'] = dict(file='world-processes/manifest.json', sha256=file_sha(process_manifest),
-                                           metadata=res['world_processes']['metadata'])
+                                           metadata=res['world_processes']['metadata'],
+                                           environment_status=world_process_adapter.environment_status(res['world_processes']['metadata']))
+        for name in world_process_adapter.ENVIRONMENT_LAYERS:
+            if name in manifest['layers']:
+                manifest['layers'][name].update(source='world-processes/manifest.json',
+                    process_identity=published_process['identity'])
         manifest['reused_code']['terragenesis_sha256'].update({
             'terrain_pipeline/' + name: file_sha(tg_root/'terrain_pipeline'/name)
             for name in ('world_processes.py', 'world_process_hydrology.py', 'world_process_detail.py',
@@ -848,6 +886,7 @@ def freeze(skeleton_path, out_dir, params=None, erosion=True, expected_identity=
     write_json(out / 'manifest.json', manifest)
     write_json(out / 'runtime-stats.json', dict(
         note='run-time fields, deliberately outside manifest/identity', total_seconds=time.perf_counter() - started,
+        freeze_write_s=time.perf_counter() - t_write,
         **res['timing'], peak_working_set_mb=peak_memory_mb(), available_gib_at_start=avail / 2 ** 30, python=sys.version.split()[0],
         numpy=np.__version__, scipy=__import__('scipy').__version__, numba=__import__('numba').__version__, nodes=int(np.prod(shape))))
     log('FROZEN ' + manifest['identity'])

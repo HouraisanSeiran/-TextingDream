@@ -1,4 +1,8 @@
-"""Small CPU-only pipeline checks: new skeleton -> TD-readable plate -> world_plan page list -> local30 tile -> map_source."""
+"""Small CPU-only pipeline checks: new skeleton -> TD-readable plate -> world_plan page list -> local30 tile -> map_source.
+
+Skeleton generation imports Terragenesis ``terrain_pipeline.tectonic`` (needs ``psutil``). Run under the Dream
+``.venv`` for local30/planner-only tests; under Terragenesis ``runtime/venv`` for the full module fixture.
+"""
 import json
 from pathlib import Path
 
@@ -11,6 +15,10 @@ from app.world_gen import config as wc, local30, planner, skeleton as sk, tiles 
 
 @pytest.fixture(scope='module')
 def small_world(tmp_path_factory):
+    pytest.importorskip(
+        'psutil',
+        reason='skeleton tectonic needs Terragenesis runtime/venv (psutil); Dream .venv skips this fixture',
+    )
     root = tmp_path_factory.mktemp('worlds')
     cfg = wc.normalize({'world_name': 'small', 'world': {'type': 'archipelago', 'size_km': 400, 'ocean_fraction': 0.6}})
     manifest = sk.generate_skeleton(cfg, root / 'small', max_iterations=2)

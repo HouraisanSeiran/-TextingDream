@@ -39,4 +39,4 @@
 | `gold` | 100 及以上 | shilling 的高段 + pound |
 | `not_for_sale` / `priceless` | 不变 | 不变 |
 
-档位名的改动属于元素库与 `tools/game_fields.py`，由负责元素库的 AI 执行，见 `docs/units-handoff.md`。
+档位名的改动属于元素库与 `tools/game_fields.py`，由负责元素库的智能体执行；旧交接见 [units-handoff.md](archive/handoffs/units-handoff.md)，新批次按 [资料采集交接](element-database/agent-handoff.md) 明确受领范围。

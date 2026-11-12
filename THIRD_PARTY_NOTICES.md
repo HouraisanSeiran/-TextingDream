@@ -47,7 +47,8 @@
 
 1. **Python 服务（`app/`）↔ civ-atlas：不 import，只走文件。**
    `app/` 与上游不互相 import，只通过**文件**交换数据（导出的 `.civsnap`）。
-   本工程自己写的解析器（`app/civ_atlas_snapshot.py`）只读写这些文件，不复制、不 vendor、不 fork 上游源码。
+   本工程自己写的解析器（`app/civ_atlas_snapshot.py`、`app/civ_atlas_history.py`）只读写这些文件。
+   `app/civ_sim/` 是另一套自有步进器，只借鉴编年史的年份 / 政体 / 事件种类这层语义，不复制、不 vendor、不 fork 上游源码。
 2. **原生地图宿主（`src/dream/*`）：直接 import 上游模块。**
    `bridge.ts` import `gen/snapshot`、`gen/raster`；`host.tsx` import `render/export`；
    `landOverlay.tsx` import `ui/mapWrap`、`render/globe`。它跑在**浏览器里**、用上游自己

@@ -1,5 +1,7 @@
 # 由地理 + 百科生成故事包的流程（引擎无关设计）
 
+**2026-11-12 定义更新**：故事包与城镇生成的目标职责以 [故事包定义与层级](story-package-definition.md) 为准。本文保留现有单地区流水线的设计与实现记录；其中城市计划和事件编译仍与背景装配耦合，尚未按新层级拆分。
+
 状态：首轮单地区版本**已实现**（2026-11-05；作者 HTTP 于 2026-11-08 接入，前端面板未接，用法见 `docs/world-package-pipeline-使用说明.md`）。已实现：WorldSource 协议与 RegionSnapshot（`app/world_source.py`）、civ-atlas 适配器（`app/world_source_civ_atlas.py`）、引擎无关流程（挑元素 / 写历史 / 定政治 / 写设定与知识点 / 校验 / 草稿 / 过期判定 / 确认编译，`app/world_package_pipeline.py`）、作者 API（`app/web.py`）、测试 `tests/test_world_package_pipeline.py` 与 `tests/test_world_package_http.py`。未实现：前端面板、多地区、Terragenesis 适配器、河网到地块映射、聚落等级推断。用户决定：
 - 先用 civ-atlas 世界做**单一地区**测试；地图引擎以后要换源（见 `docs/terrain-source-adapter.md`，Terragenesis 冻结产品将替代 civ-atlas），所以流程不能绑死 civ-atlas。
 - 历史**严格跟模拟走**：AI 只把模拟事件写成叙述，不新增事件、王朝或战争。

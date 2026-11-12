@@ -1,8 +1,8 @@
 # 显式大型岛 TD 山系任务
 
-> **2026-11-07：当前规则已升级。** 默认实际露海面积严格>100km²，峰海拔随面积变化，300–3000m、确定性±10%波动均可配置；整岛共用两遍高度标定，缺块保持pending。已接入普通世界生成的 islands → island-mountains → fast 阶段。当前接口与验证边界见相邻Terragenesis工程 `docs/island-mountains-current.md`；下文保留首版2000km²及旧混合政策的历史说明。
+> **现行口径（2026-11-08 对齐 TG `docs/island-mountains-current.md`）**：默认实际露海连通岛面积严格 **>25 km²** 即可准备山系（`IslandMountainConfig.min_area_km2=25`）；无默认腹地宽度门槛。峰高曲线锚点仍约 **100 km²**（与资格门槛分开）：25–100 km² 岛 requested 峰高约 300 m±10%，更大岛沿 300–3000 m 面积曲线。整岛共用两遍高度标定，缺块保持 pending。已接入普通世界生成的 islands → island-mountains → fast。下文 2000 km² / 旧宽度门槛 /「不改默认世界生成」是首版历史。
 
-资格分析、计划与混合算法归Terragenesis公共模块，详见相邻工程 `docs/island-mountains.md`。织梦新增 `app/world_gen/island_mountains.py` 薄适配器和 `tools/prepare_island_mountains.py` 显式调度工具，不修改默认世界生成。计划默认1km格、面积2000km²、岸线3km缓冲后连续腹地最大内接圆直径20km；不是整岛精确短轴。原海峡/近岸/潟湖/环礁不放山。
+资格分析、计划与混合算法归 Terragenesis 公共模块。织梦侧适配器是 `app/world_gen/island_mountains.py` 与 `tools/prepare_island_mountains.py`。原海峡/近岸/潟湖/环礁与特殊火山锥连通岛不套普通 TD 峰高。总台账见 [terrain-algorithm-map.md](terrain-algorithm-map.md)。
 
 ```powershell
 python tools/prepare_island_mountains.py --skeleton <skeleton.npz> --island-product-path <islands.npz> --expected-island-identity <岛身份> --plan <plan.npz> --expected-plan-identity <计划身份> --out-root <新任务根> --reason <明确理由> --skeleton-run <同骨架run.json> --dry-run --report <新报告.json>

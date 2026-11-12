@@ -35,6 +35,11 @@ def test_forward_world_processes_publish_readable_same_source_layers(tmp_path, m
     assert saved['metadata']['shaping']['old_unbudgeted_erosion_replaced']
     assert (out/'world-processes/checkpoint.json').is_file()
     assert saved['metadata']['geology']['stages'] == 50
+    np.testing.assert_array_equal(np.load(out/'status.npy') == 3, np.load(out/'world-processes/ocean_mask.npy'))
+    assert manifest['world_processes']['environment_status']['status'] == 'partial-or-pending'
+    import pytest
+    with pytest.raises(FileExistsError, match='immutable'):
+        fast_relief.freeze(source/'skeleton.npz', out, process_config=dict(shaping_rounds=2))
     preview_bytes = (out/'manifest.json').read_bytes()
     revision = tmp_path/'revision'
     delivery = world_process_details.continue_world(out, revision, use_gpu=False, memory_wait_s=0.)
@@ -47,3 +52,19 @@ def test_forward_world_processes_publish_readable_same_source_layers(tmp_path, m
     assert (out/'manifest.json').read_bytes() == preview_bytes
     np.testing.assert_array_equal(np.load(revision/'elevation_m.npy'), coarse)
     assert world_process_details.continue_world(out, revision, use_gpu=False, memory_wait_s=0.) == delivery
+    # Waiting policy is operational and may change during recovery, including
+    # recovery of an early preparation marker without terrain_roots.
+    marker = json.loads((revision/'preparation.json').read_text())
+    marker.pop('terrain_roots', None)
+    (revision/'preparation.json').write_text(json.dumps(marker), encoding='utf-8')
+    assert world_process_details.continue_world(out, revision, use_gpu=False, memory_wait_s=10., memory_poll_s=1.) == delivery
+    assert final_manifest['world_processes']['environment_status']['status'] == 'partial-or-pending'
+    # Public map loading verifies the process binding without importing its
+    # solver or generating any missing data.
+    process_manifest = revision/'world-processes/manifest.json'
+    original = process_manifest.read_bytes()
+    process_manifest.write_bytes(original + b' ')
+    from app.map_source import MapSourceError
+    with pytest.raises(MapSourceError, match='SHA|sha|hash'):
+        load_source('world-map-product', revision, expected_identity=final_manifest['identity'])
+    process_manifest.write_bytes(original)

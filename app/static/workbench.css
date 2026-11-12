@@ -1,0 +1,150 @@
+/* Unified author workbench inside #play (same shell as the map). */
+
+#workbench-host {
+  position: absolute;
+  inset: 0;
+  z-index: 18;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+  background: var(--paper, #f4f1e7);
+  color: var(--ink, #263730);
+  font-family: 'Segoe UI', 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif;
+}
+#workbench-host[hidden] { display: none !important; }
+
+.workbench-bar {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 22px;
+  border-bottom: 1px solid #cdd7c9;
+  background: #f7f8f2;
+}
+.workbench-bar-text { min-width: 0; }
+.workbench-crumb {
+  display: block;
+  font-size: 11px;
+  color: #71887a;
+  letter-spacing: .04em;
+}
+.workbench-bar h1 {
+  margin: 2px 0 0;
+  font: 600 18px/1.25 'Segoe UI', 'Microsoft YaHei', sans-serif;
+  color: var(--forest-deep, #1b382f);
+  letter-spacing: 0;
+}
+.workbench-bar .tb-btn {
+  flex: none;
+  border: 1px solid #bfcfba;
+  background: #fff;
+  color: var(--forest-deep, #1b382f);
+  border-radius: 4px;
+  padding: 7px 12px;
+  font-size: 12px;
+}
+.workbench-bar .tb-btn:hover { background: #e6eee2; }
+
+.workbench-pages {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  padding: 18px 22px 36px;
+  scrollbar-width: thin;
+}
+.workbench-pages > .page {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0;
+  overflow-wrap: anywhere;
+  font: inherit;
+  color: inherit;
+}
+.workbench-pages > .page[hidden] { display: none !important; }
+.workbench-pages h2,
+.workbench-pages h3,
+.workbench-pages h4 {
+  color: var(--forest-deep, #1b382f);
+  font-family: inherit;
+  font-weight: 600;
+}
+.workbench-pages .intro { margin: 0 0 1rem; }
+.workbench-pages .intro h2 { margin: 0 0 .35rem; font-size: 1.25rem; }
+.workbench-pages .intro p,
+.workbench-pages .muted { color: #6f8274; }
+.workbench-pages .card,
+.workbench-pages details {
+  margin: 14px 0;
+  padding: 14px 16px;
+  border: 1px solid #d1d9ca;
+  border-radius: 6px;
+  background: #fbfbf6;
+  box-shadow: none;
+}
+.workbench-pages details > summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--forest-deep, #1b382f);
+}
+.workbench-pages label {
+  display: flex;
+  flex-direction: column;
+  gap: .3rem;
+  margin: .4rem 0;
+  font-size: 13px;
+  color: #3e5648;
+}
+.workbench-pages input,
+.workbench-pages select,
+.workbench-pages textarea {
+  font: inherit;
+  color: inherit;
+  border: 1px solid #c5d0bf;
+  border-radius: 4px;
+  background: #fff;
+  padding: 7px 9px;
+}
+.workbench-pages .toolbar { gap: 8px; }
+.workbench-pages .primary {
+  background: var(--forest, #25483e);
+  border: 1px solid var(--forest, #25483e);
+  color: #fff;
+}
+.workbench-pages .primary:hover {
+  background: #366254;
+  border-color: #366254;
+  color: #fff;
+}
+
+/* Keep map/drawer under the workbench without tearing down the shell. */
+body.workbench-open #play-right,
+body.workbench-open #play-left {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* Sidebar links: no leading glyph column. */
+#workspace-sidebar .workspace-link > span.workspace-chevron {
+  float: right;
+  width: auto;
+  font-size: 13px;
+  color: #869d8d;
+}
+#workspace-sidebar .workspace-sub-link {
+  width: 100%;
+  text-align: left;
+  padding: 7px 10px 7px 14px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background: transparent;
+  color: #3e5648;
+  font-size: 12px;
+}
+#workspace-sidebar .workspace-sub-link:hover,
+#workspace-sidebar .workspace-sub-link.selected {
+  background: #dfe7da;
+  color: var(--forest-deep, #1b382f);
+}

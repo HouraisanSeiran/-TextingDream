@@ -12,6 +12,7 @@ SUPPORTED_SCHEMAS = {
     "tectonic-macro-v2": ("tectonic-frozen-product-v2", "tectonic-frozen-product-v1"),
     "world-relief-pilot": ("world-relief-pilot-1.0", "world-relief-pilot-2.0"),
     "world-map-product": ("world-map-product-v1", "td-world-960m-v1", "td-world-960m-v2", "td-world-960m-v3", "td-world-960m-v4", "td-world-960m-v5", "td-world-960m-v6", "terragenesis-fast-relief-v1"),
+    "terragenesis-regional-climate": ("terragenesis-regional-climate-v1",),
 }
 
 
@@ -28,6 +29,7 @@ for _kind, _loader in (("native-terrain-v3", adapters.load_native), ("tectonic-m
         register_adapter(_kind, _schema, adapters.load_td_world if _schema in ("td-world-960m-v1", "td-world-960m-v2", "td-world-960m-v3", "td-world-960m-v4", "td-world-960m-v5", "td-world-960m-v6", "terragenesis-fast-relief-v1") else _loader)
 
 register_adapter(adapters.LOCAL30_KIND, adapters.LOCAL30_SCHEMA, adapters.load_local30)
+register_adapter(adapters.CLIMATE_KIND, adapters.CLIMATE_SCHEMA, adapters.load_regional_climate)
 
 # The frozen atlas renderer asks for kind "world-relief-pilot" (same arrays + rivers). This alias lets it read the TD
 # world product through the unified interface without touching atlas.py. It is deliberately NOT listed in

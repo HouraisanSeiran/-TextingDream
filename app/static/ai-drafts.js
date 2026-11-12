@@ -54,6 +54,7 @@
   const anchor = $('workspace-npc-cards') || $('workspace-elements');
   const nav = button('AI 草稿', () => TDNav.show('ai-drafts'), 'workspace-link');
   nav.id = 'workspace-ai-drafts';
+  nav.dataset.nav = 'ai-drafts';
   if (anchor) anchor.after(nav);
   const legacy = document.querySelector('#legacy nav');
   if (legacy) {

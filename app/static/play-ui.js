@@ -174,10 +174,11 @@
     note.hidden = !show;
     note.title = show && reason ? String(reason) : '';
   }
-  // 与旅程地图空态里的「去世界地图工具关联」是同一个跳转，只写这一处。
+  // 与旅程地图空态「关联地图」同一跳转：默认进世界生成；仅开启 civ-atlas 时进旧地图工具。
   function openMapToolsForLink() {
     setDrawerOpen(false);
-    return safe(() => showPage('map-tools'));
+    const civ = window.__tdMapPolicy && window.__tdMapPolicy.civ_atlas_enabled;
+    return safe(() => showPage(civ ? 'map-tools' : 'worldgen'));
   }
 
   // ------------------------------------------------------------- 顶部 API 弹层
@@ -316,8 +317,10 @@
   function scheduleFog(rect) {
     const canvas = byId('play-map-fog'), wrap = byId('play-map-wrap'), img = byId('play-map-img');
     const payload = mapState.payload;
+    const planar = payload && payload.projection && payload.projection.scheme === 'planar_metres';
     const ok = canvas && wrap && img && !img.hidden && rect && window.TDMapFog && payload
-      && payload.basemap && payload.basemap.bbox && payload.fog && Array.isArray(payload.fog.reveal);
+      && payload.basemap && payload.basemap.bbox && payload.fog && Array.isArray(payload.fog.reveal)
+      && payload.fog.reveal.length && !planar;
     if (!ok) { if (canvas) canvas.hidden = true; fogPainted = null; return; }
     if (fogPainted && fogPainted.cw === wrap.clientWidth && fogPainted.ch === wrap.clientHeight) {
       const k = rect.width / fogPainted.rect.width;
@@ -475,9 +478,16 @@
     box.hidden = false;
     box.append(el('p', text));
     if (canAuthor) {
-      const go = el('button', '去世界地图工具关联 civ-atlas 数据', 'tb-btn');
+      const label = (window.__tdMapPolicy && window.__tdMapPolicy.civ_atlas_enabled)
+        ? '去世界地图工具关联 civ-atlas 数据'
+        : '去世界生成；完成后点「导入到游玩世界地图」';
+      const go = el('button', label, 'tb-btn');
       go.type = 'button';
-      go.onclick = () => openMapToolsForLink();
+      go.onclick = () => {
+        if (window.__tdMapPolicy && window.__tdMapPolicy.civ_atlas_enabled) openMapToolsForLink();
+        else if (window.TDNav && typeof window.TDNav.show === 'function') window.TDNav.show('worldgen');
+        else openMapToolsForLink();
+      };
       box.append(go);
     }
   }
@@ -692,39 +702,6 @@
       const button = byId(id);
       if (button) button.onclick = openNew;
     }
-    const newWorld = byId('workspace-new-world');
-    if (newWorld) newWorld.onclick = () => safe(async () => {
-      if (window.__tdNativeMode !== 'author') await window.TDEnterAuthorMode();
-      if (typeof window.TDOpenMapTools === 'function') window.TDOpenMapTools();
-      const toolbox = byId('native-map-toolbox');
-      // 宿主异步挂载，等其门户到位再展开参数；没有就保留工具打开态。
-      const expand = () => {
-        const toggle = toolbox?.querySelector('.dream-create-toggle');
-        if (toggle && toggle.getAttribute('aria-expanded') !== 'true') toggle.click();
-        return !!toggle;
-      };
-      if (!expand() && toolbox) {
-        const observer = new MutationObserver(() => { if (expand()) observer.disconnect(); });
-        observer.observe(toolbox, { childList: true, subtree: true });
-        setTimeout(() => observer.disconnect(), 8000);
-      }
-    });
-    const mapTools = byId('workspace-map-tools');
-    const toolbox = byId('native-map-toolbox');
-    if (mapTools && toolbox) {
-      mapTools.title = '在作者地图中查看和编辑圈地草稿';
-      const setToolsOpen = (open) => {
-        toolbox.hidden = !open;
-        mapTools.setAttribute('aria-expanded', String(open));
-        mapTools.classList.toggle('selected', open);
-      };
-      mapTools.onclick = () => {
-        if (window.__tdNativeMode !== 'author') {
-          void safe(async () => { await window.TDEnterAuthorMode(); setToolsOpen(true); });
-        } else setToolsOpen(toolbox.hidden);
-      };
-      window.TDOpenMapTools = () => setToolsOpen(true);
-    }
     const workspaceApi = byId('workspace-api');
     if (workspaceApi) workspaceApi.onclick = () => byId('api-toggle')?.click();
     const back = byId('back-to-play');
@@ -737,18 +714,11 @@
     window.TDConversationDrawer = { open: () => setDrawerOpen(true), close: () => setDrawerOpen(false), toggle: () => setDrawerOpen(!drawer?.classList.contains('is-expanded')) };
     const otherButton = byId('workspace-other'), otherMenu = byId('workspace-other-menu');
     if (otherButton && otherMenu) {
-      const menuEntries = [
-        ['world-workshop', '世界创作'], ['notebook', '知识点记录簿'],
-        ['towns', '城镇创作'], ['map-tools', '世界地图工具'],
-        ['inner', '里层创作'], ['traces', '模型输入输出'],
-        ['settings', '设置'],
-      ];
-      for (const [target, title] of menuEntries) {
-        const item = el('button', title, 'workspace-sub-link');
-        item.type = 'button';
-        item.onclick = () => safe(() => showPage(target));
-        otherMenu.append(item);
-      }
+      const settingsItem = el('button', '设置', 'workspace-sub-link');
+      settingsItem.type = 'button';
+      settingsItem.dataset.nav = 'settings';
+      settingsItem.onclick = () => safe(() => showPage('settings'));
+      otherMenu.append(settingsItem);
       // 地图美术资产预览是独立页面（新标签打开），不进旧功能层的页面路由。
       const artLink = el('button', '地图美术资产', 'workspace-sub-link');
       artLink.type = 'button';
@@ -873,6 +843,13 @@
     }
     const link = byId('mini-map-link');
     if (link) link.onclick = () => openMapToolsForLink();
+    const wbBack = byId('workbench-back-map');
+    if (wbBack) {
+      wbBack.onclick = () => safe(async () => {
+        if (typeof window.TDEnterAuthorMode === 'function') await window.TDEnterAuthorMode();
+        else await showPage('surface');
+      });
+    }
   }
 
   window.addEventListener('DOMContentLoaded', () => {
@@ -882,7 +859,7 @@
       installPlayChrome();
       installComposer();
       installApiPopover();
-      // 从「其他 → API 配置」进来时先关掉弹层，让表单又回到旧页里（同一份 DOM）。
+      // 从「其他 → API 配置」进来时先关掉弹层，在同一工作台壳里打开表单页。
       TDNav.register('api', {
         title: 'API 配置',
         enter: async () => {

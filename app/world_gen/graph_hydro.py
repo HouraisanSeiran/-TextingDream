@@ -1,9 +1,8 @@
 """Irregular-graph hydrology for the fast world layer (no D8, no 8-neighbour direction set).
 
-Extracted from ``app/world_relief/td_freeze_v6.py`` / ``td_hydro.py`` so the fast world layer does not import any D8 module
-(``td_hydro`` imports ``drainage``, the deprecated D8 router). Routing and accumulation are Terragenesis functions
-(``terrain_pipeline.irregular_grid.grid_mesh``, ``irregular_drainage.route_graph`` / ``accumulate_graph``), imported read-only.
-Needs numba: run with the Terragenesis venv.
+Extracted from ``app/world_relief/td_freeze_v6.py`` / ``td_hydro.py`` so the fast world layer does not import any D8 module.
+Routing and accumulation are Terragenesis ``terrain_pipeline.drainage`` (``grid_mesh``, ``route_graph``,
+``accumulate_graph``), imported read-only. Needs numba: run with the Terragenesis venv.
 
 Coarse-scale changes against v6: the breach-then-lake loop has a small ``max_passes`` (default 4: later passes only lower a few
 shallow pits), thresholds are given by the caller in m2 and scale with the grid spacing.

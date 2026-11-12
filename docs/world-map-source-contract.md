@@ -1,6 +1,6 @@
 # 世界地图数据源契约（dream-map-source v1）
 
-日期：2026-11-04。状态：草案，随适配层实现同步定稿。代码入口：`app/map_source/`（实现中）。
+首版：2026-11-04；现状更新：2026-11-11。`app/map_source/` 已实现，玩家默认支持 `world_map_product`、civ-atlas 为 opt-in 旧来源。当前同源地形/环境/月气候/雪冰水文/独立洋流已接**现有作者世界地图**，接手入口见 [现世界地图接入交接](world-map-integration-handoff-20261111.md)。月数组登记读取由 `app/map_bundle.py` 单独负责，不塞入二维 MapCatalog，也不自动换玩家默认/故事/saves。
 
 ## 1. 目的
 
@@ -138,13 +138,12 @@ Terragenesis 以后发布世界级或区域级地图产品时，建议直接输�
 
 - `app/terrain_source.py` 的公开函数与状态码保留，现有调用方（`map_render.py`、样图 CLI、测试）不需改动；新接口内部复用它的加载与校验代码。
 - `app/world_relief/atlas.py` 目前自带产品加载函数，成图交付后迁移到 `MapCatalog`。
-- `app/play_map.py` 等运行地图仍只接 civ-atlas；接入 `MapCatalog` 属于下一步，civ-atlas 接口保留为可选旧来源。
+- 玩家运行地图已默认支持 `world_map_product`（`map_policy.py/play_map_world.py`），civ-atlas 接口保留为 opt-in 旧来源。2026-11-11 同源登记链只改作者现世界地图，玩家依原 play-map 与服务端 fog，不自动迁移默认或存档。
 
 ## 9. 未决事项
 
-- Terragenesis 尚无世界级地图产品；第 6 节为建议格式，需对方确认后定稿。
-- 基于 Terrain Diffusion 的世界地形方案（S0–S3）待用户确认，其产物将按第 6 节格式在织梦侧冻结。
-- 气候、群系图层词表的具体字段待有产品后补充。
+- 原首版“尚无世界产品 / TD方案待确认 / 气候词表待产品”的状态已被实际冻结产品取代，见第11–13节；第6节保留格式契约。
+- 待办仍包括潜在湖的常年水量验证、全域动态冰川/长期自然气候与海洋收敛、天气/旅行/文明的显式消费，不从读取接通推断它们已完成。
 
 ## 10. 实现状态
 
@@ -179,3 +178,34 @@ $env:DREAM_TERRAIN_V3_FIXTURE = 'D:\codexwork\山川形意Terragenesis\.scratch\
 - 试点河线保留原始稳定 ID、坐标、上下游关系；`outlet_area_km2 * 1e6` 为 `drainage_area_m2`，另保留 `head_drainage_area_m2`。终端点依海洋掩膜、边界、潜在湖面、内部闭合判断 ocean/edge/lake/closed，并向上游传播；不据此声称真实流量或永久湖出口。
 - 通用格式目前只有合成夹具。`status_codes` 采用源整数编码字符串到标准整数编码的字典，仍要求 `layers.status` 指定分类数组文件；仅映射而无数组位置不足以加载。标准直存 status 必须 uint8；高程和其他连续图层为浮点，biome 为整数分类。单位字符串采用 `STANDARD_LAYERS` 的 `m`、`m2`、`m3/s`、`degC`、`mm/yr`、`1`，不隐式换算。流量要求图层 metadata 的 scenario；气候/群系要求 source 与 approximation。未知新增字段/图层不暴露为标准图层，不影响已登记字段读取。
 - 加载只校验实际消费文件；试点 PNG、初始高程、receiver 等不读取也不宣称已校验。未 import Terragenesis 代码。来源自身的 declared_generated/limitations 原样透传，适配派生规则另列在 SourceInfo.derivations。
+
+## 11. 山地、原生冰川与地表排水派生产品（2026-11-11）
+
+通用格式已存在实际冻结产品，不再仅限合成夹具：`artifacts/mountain-glacier-hydrology-20261111/world/`，身份见其manifest。本次原生冰川字段沿用 `glacier_ice_thickness_m`（m）、`glacier_ice_surface_m`（m）、`glacier_ice_volume_m3`（m3 ice）、`glacier_coverage_fraction`（1）。新增标准词 `glacier_simulated_fraction`（1）：0为未模拟、不是确认无冰；域外H/surface/volume/coverage为NaN。
+
+`elevation_m`保持地形床；额外`routing_surface_m`为床+原生H（模拟区内）/床（域外），`hydro_bed_m`仅几何排水切槽，不回写地形与冰库存。新增 `glacier_melt_mean_m3_s`（m3/s）只表示所有声明区域共同物理时窗的累计融水沿最终receiver累积后的平均分量，不是总径流或某年流量。源时间和未模拟区限制须随metadata透传；pending与累计融水不可相加，诊断图层不执行native库存交接扣账。
+
+原生冰川为工程生成线供雪的固定床有界2D SIA，不冒称实际气候/冰蚀/冰下排水。新water_surface仅发布原始排水表面可容水的同水位连通子域，湖位仍潜在填洼面、非永久湖。通用适配器加载身份/图层/矢量，忽略的非标准receiver等额外层不据此自动宣称已验证；本次发布与独立验收另行核对80万receiver无环与湖面不埋床。
+
+玩家现已默认支持world_map_product（app/map_policy.py与play_map_world.py），本文旧章节中“仅civ-atlas”的历史状态不能用来否认当前接线；本次新产品只做独立读取/裁片/底图试读，不自动改故事包或默认。
+
+## 12. 独立气候年与环境派生读取（2026-11-11）
+
+本批真实链另存 `artifacts/world-climate-integration-20261111/`，不改原 `mountain-glacier-hydrology-20261111/world/`：已选 `climate-dry-continuous-year` → `hydrology-dry-continuous-year` → `environment-world`，身份分别 `70d36369…ae4c`、`61783b0a…e129`、`9fda7cc8…f0c1`，全身份见各manifest与本批README。用户20:52接受的是连续纬度季节项+原k=1e-5的极干旱工程情景，不是气候自然度标定或完整TG二阶段认证。
+
+- `SavedClimateMap(source_map, climate_product, expected_source_identity=…, expected_climate_identity=…)` 校验同源床面/海陆/receiver/order/格网/seed/config/reference与产品身份，支持只读 `query(fields, months=…, window=…)` 与 `point`；月为1–12，窗口为半开 `[z0,x0,z1,x1]`。`SavedClimateHydrology` 另绑定水文身份并提供同样的月/窗口读取，不隐式重算缺失月。
+- 气候由200×250/40km共同母场映射到800×1000/10km产品；这是粗气候强迫映射，不是10km独立大气求解或TD30m产品。日历noleap365，月深mm/month、月路由体积m3/month、月Q m3/s；年Q严格以月体积和除365日秒数。
+- 两有限冰区本年动态H实际求解，旧H仅初值；逐月雨/融雪/融冰m3水换为mm后**替换**当地液水入口，不能再加P、旧累计融水或pending。区外雪冰是逐格非动态诊断。旧20年高度供雪与本次气候年为不同情景，不伪装旧native时间续算。
+- `environment-world`仍为`world-map-product-v1`。`temperature_c/precipitation_mm_yr/biome`来自已存气候，biome保留原生整数ID；`discharge_m3_s`为本年体积积分栅格Q。末态`soil_water_mm/snow_swe_mm/year_end_ice_swe_mm`不是月通量；本批末态词 `soil_water_mm`（mm）、`snow_swe_mm`（mm）、`year_end_ice_swe_mm`（mm）及保留冰体积词 `glacier_ice_volume_m3`（m3）均按实际manifest声明，不能混为库存新增或月通量。`year_end_ice_swe_mm`区外可含逐格非动态冰库存，不能转换成全域动态冰川H；`glacier_simulated_fraction=0`为未动态模拟而非无冰，动态H域外NaN。
+- 原床/status/saved receiver及河湖矢量字节不变，`routing_surface_m/hydro_bed_m`继承旧几何，非本年冰面；潜在湖没有蓄水/调洪/延迟动力。栅格Q未绑定每条河矢量，现有矢量显示仍是面积符号宽，不推断物理河宽。潜在群系不是真实森林库存。
+- `climate_world_stage.prepare(..., recover=True)`仅已完成品只读恢复，不能称中断月续算/多年耦合restart；本批未接故事默认、saves或正式restart链，未提交。真实独立读取/发布通过不等于atlas最终出图或玩家默认已经采用。
+
+实际年链的同源身份、月窗口逐位、年Q积分、原生biome ID、床/receiver/矢量不变见 `environment-validation.json`。闭边水汽/单格迎风集中和未标定强迫限制须随来源保留；历史候选目录与源码批准修订不得覆盖。最终自然图`atlas-final/simple-atlas.png`与`topics/`三专题已实际出图并主看图；atlas实际保存群系/年末雪/新动态H逐格消费核对通过，分类最近邻、RGB柔化仅显示。身份与时间见atlas-source.json/topic-source.json，联合验收见joint-acceptance.json，不等于玩家默认或天气玩法自动改接。
+
+## 13. 现世界地图同源登记读取（2026-11-11）
+
+现有作者 `native-map-host` 已通过 `app/map_bundle.py` + `map_bundle_routes.py` 读取 `config/map-bundles.json` 中 `terragenesis-world-20261111`；不新增页面或多包浏览入口。地形/环境/气候/水文10km产品与独立40km海洋，暴露 detail、米制point、格索引半开window、全12月数组、已存preview及分页vectors；`order`与海洋face拓扑形状非格中心场，登记为descriptor-only不可query。点检最近保存格无插值，不改变本文底层MapSource原有采样契约。完整路径/身份/字段/时间/API/维护/验收见 [接入交接](world-map-integration-handoff-20261111.md)。
+
+线上只读已冻结源并核身份/格网/receiver/时间/文件变化，不触发生成、numba planner或TG子进程。历史H20不混入当前月水文，route geometry仍旧冻结几何；湖为potential/unvalidated而非permanent，约9.6%陆地潜在面问题尚未修复；气候仍极干工程年、洋流为未长期收敛首年且1月带初始化。PNG地理框可点，三专题panel不可点，洋流图/路线仅1/7月，其余月不伪造。
+
+本次只改变作者世界地图消费；player卸载作者全图，继续原play-map/fog，未改默认故事、saves或restart，也未自动接天气/道路/文明。Node UI、真实HTTP/Edge及主31项新旧地图回归已过；5组字段/8类图、点窗月查询、透明配准和player隔离证据在artifacts/map-integration-20261111/，详情见交接第8节。不以旧生成验证代替前端验收；用户在用服务未重启，新后端需下一次正常启动加载。

@@ -154,7 +154,8 @@ class MapFixture(unittest.TestCase):
 
     def projection(self, session):
         story = self.story_of(session)
-        status, context = play_map.resolve(self.svc.store, self.import_root, story)
+        status, context = play_map.resolve(
+            self.svc.store, self.import_root, story, repo_root=ROOT)
         return play_map.projection(session, story, status=status, context=context,
                                    session_id=session['id']), status, context, story
 
@@ -172,19 +173,23 @@ class MapFixture(unittest.TestCase):
 
 # --------------------------------------------------------------------- linkage
 class LinkTests(MapFixture):
-    def test_old_journey_is_not_linked_and_gets_no_map(self):
+    def test_old_journey_without_map_falls_back_to_default_tg(self):
+        """Packages with no mechanics.map use the Terragenesis default product when present."""
+        from app import map_policy
+        from app.paths import ROOT as REPO
         story, characters = self.package()
         story['mechanics'].pop('map', None)
         self.commit(story, characters)
         session = self.svc.store.session(self.svc.runtime.new_session('旧旅程', 'protagonist')['id'])
-        payload, status, _context, _story = self.projection(session)
-        self.assertEqual(status, play_map.STATUS_NOT_LINKED)
-        self.assertFalse(payload['basemap']['available'])
-        self.assertIsNone(payload['basemap']['url'])
-        self.assertIn('author_entry', payload)
-        self.assertEqual(payload['author_entry']['page'], 'map-tools')
-        png, _ = self.basemap(session)
-        self.assertIsNone(png, '未关联时不得有任何底图（不回退到无关地图）')
+        payload, status, context, _story = self.projection(session)
+        if map_policy.default_product_exists(REPO):
+            self.assertEqual(status, play_map.STATUS_OK)
+            self.assertEqual(context['link']['kind'], play_map.LINK_KIND_WORLD)
+            self.assertEqual(payload['source']['map'], 'world_map_product')
+            self.assertNotEqual(payload['source'].get('map'), 'civ_atlas')
+        else:
+            self.assertEqual(status, play_map.STATUS_NOT_LINKED)
+            self.assertEqual(payload['author_entry']['page'], 'worldgen')
 
     def test_missing_import_is_reported_not_substituted(self):
         session = self.journey(link={'kind': 'civ_atlas', 'import_id': 'sn_' + '0' * 12})
@@ -504,17 +509,25 @@ class SessionIsolationTests(MapFixture):
                 self.assertEqual(client.get('/api/sessions/%s/play-map%s'
                                             % (journey['id'], query)).json(), body, query)
             self.assertEqual(svc.store.session(journey['id'])['state_version'], version)
-            # A journey with no link answers 404 for the image and says why in the JSON.
+            # No mechanics.map → Terragenesis default when the product exists.
             plain_story = copy.deepcopy(self.base['story'])
             plain_story.setdefault('mechanics', {}).pop('map', None)
             svc.runtime.commit_package(plain_story, copy.deepcopy(self.base['characters']),
                                        '无地图')
             plain = svc.runtime.new_session('无图旅程', 'protagonist')
-            self.assertEqual(client.get('/api/sessions/%s/play-map/basemap.png'
-                                        % plain['id']).status_code, 404)
+            image_status = client.get('/api/sessions/%s/play-map/basemap.png'
+                                      % plain['id']).status_code
             plain_body = client.get('/api/sessions/%s/play-map' % plain['id']).json()
-            self.assertEqual(plain_body['status'], play_map.STATUS_NOT_LINKED)
-            self.assertIsNone(plain_body['basemap']['url'])
+            from app import map_policy
+            from app.paths import ROOT as REPO
+            if map_policy.default_product_exists(REPO):
+                self.assertEqual(plain_body['status'], play_map.STATUS_OK)
+                self.assertEqual(plain_body['source']['map'], 'world_map_product')
+                self.assertIn(image_status, (200, 404))
+            else:
+                self.assertEqual(plain_body['status'], play_map.STATUS_NOT_LINKED)
+                self.assertEqual(image_status, 404)
+                self.assertIsNone(plain_body['basemap']['url'])
 
     def test_client_cannot_reach_the_map_import_routes(self):
         app = create_app(self.root / 'guard.sqlite3')

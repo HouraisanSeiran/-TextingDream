@@ -14,14 +14,14 @@
 |---|---|---|
 | 首次安装并启动 | `新安装并启动.cmd` | `python tools/bootstrap.py install` 然后 `start` |
 | 以后启动 | `启动.cmd` | `python tools/bootstrap.py start` |
+| 兼容旧启动文件名 | `start_zhiyem.bat` | `python tools/bootstrap.py start` |
 | 停止本项目启动的服务 | `停止服务.cmd` | `python tools/bootstrap.py stop` |
 | 只查看环境（不改任何东西） | — | `python tools/bootstrap.py check` |
 
 `.cmd` 文件正文是纯 ASCII，任何控制台代码页都能跑；中文只出现在文件名里。
 所有逻辑都在 `tools/bootstrap.py` / `tools/launcher/core.py`，`.cmd` 只是转发。
 
-已有的 `launch.py` 与 `启动织梦.cmd` **没有被覆盖**：前者仍可直接
-`python launch.py`，后者保留原来写死解释器的行为。
+`launch.py` 仍可直接运行 `python launch.py`。`start_zhiyem.bat` 自 2026-11-12 起复用 bootstrap 启动流程，自动探测 Python，不再绑定 Anaconda 绝对路径；额外参数会转发给 `start` 子命令。
 
 ## 2. 首次安装会做什么
 

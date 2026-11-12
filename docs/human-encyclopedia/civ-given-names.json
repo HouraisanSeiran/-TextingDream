@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "group": "civ-given-names",
+  "status": "candidate",
+  "note": "文明模拟用的人名用字/名池。与 names-asian / names-european 互补：那边偏姓氏与混合示例，这边偏可作「名」的短词。全部 needs_review；库里有 ≠ 世界正典。",
+  "sources": [
+    {
+      "id": "given_src_behind",
+      "title": "Behind the Name — name usage overview",
+      "url": "https://www.behindthename.com/",
+      "access": "read",
+      "supports": "个人名在语言与地区间有不同组合习惯；示例名不能当人口统计。",
+      "rights_note": "仅做范围核对；条目为自行转述的待审候选，不复制原文。"
+    },
+    {
+      "id": "given_src_cn",
+      "title": "Chinese personal names — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/name-linguistics",
+      "access": "read",
+      "supports": "姓名结构因文化而异；汉字名常为单字或双字。",
+      "rights_note": "仅做范围核对；条目为自行转述的待审候选，不复制原文。"
+    }
+  ],
+  "elements": [
+    {
+      "id": "given_sinitic",
+      "name": "汉字名用字池",
+      "aliases": ["明", "德", "文", "武", "安", "宁", "远", "清", "正", "和", "嘉", "永", "启", "元", "成", "昌", "景", "昭", "睿", "哲", "澜", "川", "柏", "竹", "兰", "荷", "霜", "雪", "秋", "春"],
+      "tags": ["civ_sim", "names", "given", "sinitic"],
+      "summary": "适合作为汉字单名或双名构件的创作用字。",
+      "details": {
+        "definition": "名用字池，可与姓氏池组合为人物名。",
+        "mechanism": "模拟器抽 1–2 字作名。",
+        "conditions": "需百科可读。",
+        "exceptions": "用字不决定阶层或性格。",
+        "story_uses": "君主、大臣、将领姓名。",
+        "historical_scope": "创作参考。",
+        "evidence_and_uncertainty": "示例用字，非避讳表或年号表。"
+      },
+      "source_ids": ["given_src_cn", "given_src_behind"],
+      "related_ids": [],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "given_european",
+      "name": "欧洲式名池",
+      "aliases": ["亚历山大", "艾莲娜", "马可", "索菲亚", "亨利", "伊莎贝拉", "奥托", "凯瑟琳", "路易", "安娜", "弗雷德里克", "玛丽亚", "乔瓦尼", "海伦", "爱德华", "克拉拉"],
+      "tags": ["civ_sim", "names", "given", "european"],
+      "summary": "欧洲语言感的个人名创作示例。",
+      "details": {
+        "definition": "个人名示例池。",
+        "mechanism": "与家族王朝名或姓氏池组合。",
+        "conditions": "需百科可读。",
+        "exceptions": "不等于该人物的真实历史身份。",
+        "story_uses": "君主与廷臣姓名。",
+        "historical_scope": "创作参考。",
+        "evidence_and_uncertainty": "跨语言转写不统一。"
+      },
+      "source_ids": ["given_src_behind"],
+      "related_ids": [],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "given_roles",
+      "name": "宫廷角色标签",
+      "aliases": ["君主", "储君", "摄政", "宰相", "将军", "祭司", "大祭司", "史官", "使节"],
+      "tags": ["civ_sim", "roles", "court"],
+      "summary": "人物职务标签，用于编年史角色字段。",
+      "details": {
+        "definition": "职务是叙事标签，不自动生成完整官僚制度。",
+        "mechanism": "立国产生君主；继位产生储君升格；偶发任命将/相/祭司。",
+        "conditions": "文明模拟人物模块开启。",
+        "exceptions": "标签不绑定具体宗教教义真实性。",
+        "story_uses": "people.role、编年记事。",
+        "historical_scope": "多文化对照词。",
+        "evidence_and_uncertainty": "制度细节需世界包另行限定。"
+      },
+      "source_ids": ["given_src_cn", "given_src_behind"],
+      "related_ids": [],
+      "review_status": "needs_review"
+    }
+  ]
+}

@@ -5,6 +5,11 @@
 
 --dry-run only reports tiles, memory and GPU gates. Without it, the two-stage memory check and the GPU gate
 run first; when either blocks, the command stops with an error (thresholds are never lowered).
+
+Every tile of one run shares a single lazily started GPU worker (`shared_worker`, same policy as
+`world_process_details`). A frozen tile whose cache matches is returned before the generator is called, so a run
+whose tiles are all prepared never loads the model; the worker-start memory gate and the GPU gate run once, at the
+first real generation, and keep their thresholds (each tile still pays the per-window stage).
 """
 import argparse
 import json
@@ -17,6 +22,31 @@ sys.path.insert(0, str(ROOT))
 from app.world_gen import config as wc, local30, tiles as T  # noqa: E402
 
 TERRAGENESIS = ROOT.parent / '山川形意Terragenesis'
+
+
+def shared_worker(plate_path, terragenesis_root, *, island_product_path=None, expected_island_identity=None,
+                  skeleton_run_path=None):
+    """One lazily started generator for the whole run; the model is loaded at the first real window.
+
+    `prepare_tile` returns a matching cache entry before it touches the generator, so prepared tiles never start
+    the model. The worker-start memory gate and the GPU gate keep their original thresholds and run once; every
+    tile afterwards only pays the cheaper per-window admission inside `prepare_tile`. Errors from the gates or the
+    generator propagate unchanged. The name makes `prepare_tile` record the real generator kind.
+    """
+    producer = None
+
+    def generate(origin, side):
+        nonlocal producer
+        if producer is None:
+            local30.await_memory_gate(starting_worker=True)
+            local30.gpu_gate()
+            producer = local30._default_generator(
+                plate_path, terragenesis_root, island_product_path=island_product_path,
+                expected_island_identity=expected_island_identity, skeleton_run_path=skeleton_run_path)
+        return producer(origin, side)
+
+    generate.__name__ = '_gpu_generate'
+    return generate
 
 
 def main(argv=None):
@@ -89,12 +119,14 @@ def main(argv=None):
     if 'blocked' in report['memory_gate'] or 'blocked' in report['gpu_gate']:
         print('blocked: not starting generation', file=sys.stderr)
         return 2
+    generator = shared_worker(plate, TERRAGENESIS, island_product_path=a.island_product_path,
+                             expected_island_identity=a.expected_island_identity, skeleton_run_path=a.skeleton_run)
     for ix, iz in todo:
         cells = local30.world_cells_from_pages(a.td_dir, ix, iz)
         m = local30.prepare_tile(world_root, ix, iz, purpose='local-30m', reason=reason, plate_path=plate, world_cells=cells,
                                  world_layer_identity=a.world_layer_identity,terragenesis_root=TERRAGENESIS, reuse=not a.regenerate_stale,
                                  island_product_path=a.island_product_path,expected_island_identity=a.expected_island_identity,
-                                 skeleton_run_path=a.skeleton_run)
+                                 skeleton_run_path=a.skeleton_run, generator=generator)
         print(T.tile_id(ix, iz), 'identity', m['identity'], 'consistency', m['consistency'].get('mae_m'))
     return 0
 

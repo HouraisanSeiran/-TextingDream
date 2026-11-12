@@ -51,6 +51,7 @@ def test_real_prepare_cpu_pending_and_no_gpu(frozen,tmp_path,monkeypatch):
 
 
 def test_saved_td_changes_final_world_and_map_consumer(frozen,tmp_path,monkeypatch):
+    pytest.importorskip('numba', reason='final-world fast_relief needs Terragenesis runtime/venv (numba)')
     plan=frozen_input(frozen,tmp_path)
     tiles,_=mountains.scheduled_tiles(plan)
     # Explicit bounded one-tile CPU injection exercises the actual raw and derived publishers.

@@ -33,9 +33,7 @@ button:hover { background:#ece9df; }
 #workspace-sidebar .workspace-label { margin:19px 10px 6px; font-size:10px; color:#778b7b; letter-spacing:.12em; font-weight:600; }
 #workspace-sidebar .workspace-action,#workspace-sidebar .workspace-link { flex:none; width:100%; text-align:left; padding:9px 10px; border:1px solid transparent; border-radius:4px; background:transparent; color:#3e5648; font-size:12px; line-height:1.35; }
 #workspace-sidebar .workspace-action:hover,#workspace-sidebar .workspace-link:hover,#workspace-sidebar .workspace-link.selected { background:#dfe7da; color:var(--forest-deep); }
-#workspace-sidebar .workspace-action span,#workspace-sidebar .workspace-link > span:first-child { display:inline-block; width:21px; color:#869d8d; font-size:15px; }
 #workspace-sidebar .workspace-featured { margin:2px 0; border-color:#bfcfba; background:#f7f8f2; color:var(--forest-deep); font-weight:600; }
-#workspace-sidebar .workspace-featured span { color:var(--forest); }
 #workspace-sidebar .workspace-api-entry { margin:12px 0 0; border:1px solid #d4decf; background:#f5f6ef; }
 #workspace-sidebar .workspace-api-entry:hover { background:#e6eee2; border-color:#bfcdbb; }
 #workspace-sidebar .workspace-api-entry small { float:right; font-size:10px; color:#8b9a8a; }
@@ -296,13 +294,14 @@ button:hover { background:#ece9df; }
   .native-map-host .dream-host-bar .dream-bar-spacer { display:none; }
 }
 @media (max-width:620px) {
-  #workspace-sidebar { flex-basis:56px; width:56px; padding:0 5px 8px; }
-  .workspace-intro { padding:12px 5px; }
-  .workspace-intro strong { font-size:18px; }
-  .workspace-kicker,.workspace-subtitle,#workspace-sidebar .workspace-label,#workspace-sidebar .workspace-footer,#workspace-sidebar .workspace-api-entry small,#workspace-sidebar .workspace-chevron,.workspace-other-menu { display:none; }
-  #workspace-sidebar .workspace-action,#workspace-sidebar .workspace-link { overflow:hidden; white-space:nowrap; font-size:0; padding:9px; min-height:42px; }
-  #workspace-sidebar .workspace-action span,#workspace-sidebar .workspace-link > span:first-child { font-size:18px; width:26px; }
-  #workspace-sidebar .native-map-toolbox { position:absolute; left:54px; top:56px; z-index:18; width:min(265px,calc(100vw - 72px)); max-height:70vh; overflow:auto; }
+  #workspace-sidebar { flex-basis:148px; width:148px; padding:0 8px 8px; }
+  .workspace-intro { padding:12px 8px; }
+  .workspace-intro strong { font-size:16px; }
+  .workspace-kicker,.workspace-subtitle,#workspace-sidebar .workspace-footer,#workspace-sidebar .workspace-api-entry small { display:none; }
+  #workspace-sidebar .workspace-action,#workspace-sidebar .workspace-link {
+    overflow:hidden; white-space:nowrap; text-overflow:ellipsis; font-size:11px; padding:8px; min-height:36px;
+  }
+  #workspace-sidebar .native-map-toolbox { position:absolute; left:148px; top:56px; z-index:18; width:min(265px,calc(100vw - 160px)); max-height:70vh; overflow:auto; }
   #play-left .conversation-handle { padding:0 12px; gap:9px; }
   #play-left .handle-title { font-size:16px; }
   #play-left #surface > .reading { padding:18px 16px 12px; }

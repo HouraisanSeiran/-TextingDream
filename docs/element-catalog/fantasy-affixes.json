@@ -1,0 +1,4285 @@
+{
+  "schema_version": 1,
+  "status": "candidate",
+  "group": "fantasy-affixes",
+  "genres": [
+    "western_fantasy",
+    "dark_fantasy",
+    "eastern_fantasy",
+    "steampunk"
+  ],
+  "compiled_note": "人物与物品的【词条】分区（元素库·词条侧），字段口径见 docs/element-catalog/affixes-spec.md（affix_fields_v1）。共 57 条：人物 36、天赋 3、物品 18。2026-11-12 修订：稳手→手稳、听得进→善听、名匠印→名匠之印、引动过深→灵力透支（按既有命名风格，旧名留作别名）；目盲、声名在外 的 polarity 与数值对齐；体魄坚韧、诅咒烙印、虚弱 取消「韧性加值 + 公式外血量」的重复计算；惜身 改 public；失声、时运不济、惜身 的 domain 标签按实际效果校正；惊惶、被标记之人 补使用口径；补 4 条人物减益（力弱 / 僵硬 / 健忘 / 气短）与 4 条物品词条（削铁如泥 / 沉重 / 虫蛀 / 赝品）。",
+  "sources": [
+    {
+      "id": "affix_src_spec",
+      "title": "词条分区规范 fantasy-affixes（本项目设计文档）",
+      "url": "docs/element-catalog/affixes-spec.md",
+      "access": "read",
+      "supports": "本分区定位、affix_fields_v1 字段与词表、正负号口径、按 grade 的幅度上限、affix: 标签派生规则、与 character-attributes / character-traits / rewards 的分工边界",
+      "rights_note": "本项目原创设计文档，随仓库分发；非第三方资料，非论文"
+    },
+    {
+      "id": "affix_src_attributes",
+      "title": "六项属性定义与检定（本项目实现）",
+      "url": "app/attributes.py",
+      "access": "read",
+      "supports": "属性 ID 与显示名（talent/strength/agility/wisdom/social/resilience，0–100）、低中高三档阈值、血量公式 50+2×韧性；因此词条只在这六项上做加减",
+      "rights_note": "本项目游戏规则实现，代码即来源"
+    },
+    {
+      "id": "affix_src_checks",
+      "title": "角色属性资料分区说明（本项目文档）",
+      "url": "docs/playable-demo/character-attributes.md",
+      "access": "read",
+      "supports": "现有判定的既有边界：ability=属性/100、成功率公式、低档<35 中档35–70 高档≥70、最大血量 round(50+2×韧性)；能力不是性格或道德",
+      "rights_note": "本项目原创工程文档，随仓库分发"
+    },
+    {
+      "id": "affix_src_rewards",
+      "title": "奖励与物品派生（本项目实现）",
+      "url": "app/rewards.py",
+      "access": "read",
+      "supports": "物品派生只走白名单整数运算（base*percent//100 与加法），字段量程：damage_bonus −50..50、value_percent 10..1000、weight_percent 10..1000、durability_percent 25..500、max_level 1..5；隐藏附魔不参与玩家可见数值",
+      "rights_note": "本项目游戏规则实现，代码即来源"
+    },
+    {
+      "id": "affix_src_traits",
+      "title": "角色特质模板分区（本项目设计文档）",
+      "url": "docs/playable-demo-design.md",
+      "access": "read",
+      "supports": "character-traits 分区的边界：只写可观察的行为倾向，不产出倾向分值、不承担能力数值；因此词条（数值侧）必须与它分开，不合并进 mechanics.traits",
+      "rights_note": "本项目原创设计文档，随仓库分发"
+    },
+    {
+      "id": "affix_src_check_system",
+      "title": "检定系统 v2（本项目工程文档）",
+      "url": "docs/check-system-v2.md",
+      "access": "read",
+      "supports": "现有检定链的因子与口径（属性修正、疲劳、情境因子、加码、DC 与 margin）；词条若要影响检定，必须由作者在故事包的 check 配置里显式表达，而非由本分区自动改数",
+      "rights_note": "本项目原创工程文档，随仓库分发"
+    }
+  ],
+  "elements": [
+    {
+      "id": "affix_strong",
+      "name": "强壮",
+      "aliases": [
+        "力大",
+        "筋骨粗壮",
+        "魁梧"
+      ],
+      "tags": [
+        "kind:affix",
+        "tradition:western",
+        "domain:body",
+        "affix:character",
+        "affix:boon",
+        "affix:grade:common",
+        "affix:attr:strength"
+      ],
+      "genres": [
+        "western_fantasy",
+        "dark_fantasy",
+        "steampunk"
+      ],
+      "category": "power",
+      "primary": "affix",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": null,
+      "affix": {
+        "schema": "affix_fields_v1",
+        "applies_to": [
+          "character"
+        ],
+        "polarity": "boon",
+        "grade": "common",
+        "stacking": "unique",
+        "visibility": "public",
+        "attribute_mods": {
+          "strength": 6
+        },
+        "note": "常见级单轴 +6：约一格半的修正（属性每 10 点约一格），不改变档位跨线时仍按 35/70 判。"
+      },
+      "summary": "把力气往上抬一档的词条：搬扛、破门、撑住重物的场合更从容。它只改力量轴，不改体格观感以外的任何社会判断。",
+      "details": {
+        "definition": "指身体在发力上被强化的一类词条，表现为举、拖、推、撑这类动作的余量更大，不易在用力时立刻脱手。它描述的是能力余量，不是外观：写「魁梧」是叙述，写 +力量才是这个词条。",
+        "mechanism": "在角色属性上给 strength 一个固定加值。因为现有检定用 ability=属性/100，加 6 点约等于成功率上移 6 个百分点；血量公式 50+2×韧性 不含力量，所以这个词条不自动加血。它不生成新的动作，也不让「不可能」的尝试变得可行。",
+        "conditions": "只在确有发力需求的场合显效：搬抬、攀爬、破拆、把人从水里拖上来、长时间持械。坐下来谈判或辨认药草时它什么也不做。若世界规则要求工具或支点（撬棍、绳索），缺工具仍然做不成。",
+        "exceptions": "不能推出角色更耐打（那是韧性与血量）、更快（敏捷）、更可信或更可畏（社交）；也不能推出他敢动手或用暴力解决问题——选择仍由性格与处境决定。强壮不等于无疲劳：长时间负重仍应计入疲劳。",
+        "story_uses": "适合做「差一点就搬开」的门闸、塌方与洪水场景：给一个明确的体力门槛，让玩家决定要不要换成别的办法。也可用于反差：一个强壮却始终不肯用暴力的人。",
+        "historical_scope": "架空故事里的设计文字。不对任何真实人群的体格做概括，也不是生理测量标准；本分区不做跨文化或年代断言。",
+        "evidence_and_uncertainty": "无测量、无样本、无量表。数值上限（common ≤6）是本项目为「同一量程下的可能性」定下的设计口径，未经平衡实测。"
+      },
+      "source_ids": [
+        "affix_src_spec",
+        "affix_src_attributes",
+        "affix_src_checks"
+      ],
+      "related_ids": [
+        "affix_tough",
+        "affix_swift"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "affix_tough",
+      "name": "体魄坚韧",
+      "aliases": [
+        "耐打",
+        "皮糙肉厚",
+        "扛揍"
+      ],
+      "tags": [
+        "kind:affix",
+        "tradition:western",
+        "domain:body",
+        "affix:character",
+        "affix:boon",
+        "affix:grade:common",
+        "affix:hp"
+      ],
+      "genres": [
+        "western_fantasy",
+        "dark_fantasy"
+      ],
+      "category": "power",
+      "primary": "affix",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": null,
+      "affix": {
+        "schema": "affix_fields_v1",
+        "applies_to": [
+          "character"
+        ],
+        "polarity": "boon",
+        "grade": "common",
+        "stacking": "unique",
+        "visibility": "public",
+        "hp_mod": 10,
+        "note": "只走公式外血量 +10（common 血量上限），不再叠韧性：避免「韧性加值自动抬血量」与「公式外加血」重复计算。"
+      },
+      "summary": "血量更厚的词条：同样的伤落在身上，离倒下更远一步。它不减少伤害来源，也不让角色不痛。",
+      "details": {
+        "definition": "指身体对损耗的承受力被强化的一类词条，表现为流血、受寒、缺食、赶路之后仍能继续做事。它描述承受与恢复，不描述勇敢：怕死的人也可以很耐打。",
+        "mechanism": "只给一个公式外的血量加值（+10）；韧性本身不变，因此不牵动 50+2×韧性 公式。它是静态数值：没有减伤、没有再生，也没有「扛住致命一击」这类特殊判定。",
+        "conditions": "在持续消耗的场景里显效：长途跋涉、负重行军、受伤后继续行动、恶劣天气里守夜。单次被重击的判定仍按原规则掷骰，这个词条不替它保驾。",
+        "exceptions": "不能推出角色不会残废、不会感染、不会疲劳——那需要世界规则另行声明；也不能推出他忍受痛苦时不喊叫（那是表达与性格）。血量增加不等于刀枪不入。",
+        "story_uses": "适合撑长时间任务与「受伤后还能不能走到下一个据点」这类节点；也让作者敢于安排更长的消耗段落而不必立刻收场。",
+        "historical_scope": "架空故事里的设计文字。不是医学或体能指标，不用于评估真实个体。",
+        "evidence_and_uncertainty": "无测量、无样本。血量增减是纯游戏机制，与现实耐受力无关；血量公式见 app/attributes.py 与 docs/playable-demo/character-attributes.md。"
+      },
+      "source_ids": [
+        "affix_src_spec",
+        "affix_src_attributes",
+        "affix_src_checks"
+      ],
+      "related_ids": [
+        "affix_strong",
+        "affix_frail"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "affix_swift",
+      "name": "迅捷",
+      "aliases": [
+        "身法快",
+        "脚步轻",
+        "反应快"
+      ],
+      "tags": [
+        "kind:affix",
+        "tradition:western",
+        "affix:character",
+        "affix:boon",
+        "affix:grade:uncommon",
+        "affix:attr:agility",
+        "domain:body"
+      ],
+      "genres": [
+        "western_fantasy",
+        "dark_fantasy",
+        "steampunk"
+      ],
+      "category": "power",
+      "primary": "affix",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": null,
+      "affix": {
+        "schema": "affix_fields_v1",
+        "applies_to": [
+          "character"
+        ],
+        "polarity": "boon",
+        "grade": "uncommon",
+        "stacking": "unique",
+        "visibility": "public",
+        "attribute_mods": {
+          "agility": 9
+        },
+        "narrative": [
+          "动作比旁人快半拍，常被认为「没看清他就过去了」"
+        ],
+        "note": "罕见级单轴 +9。定格在 uncommon 而不给 rare，是因为它不附带任何额外判定（无额外行动、无抢先权）。"
+      },
+      "summary": "把闪避与精细动作抬高一档的词条：躲、跳、脱身、顺手取物的把握更大。它不给额外的行动次数。",
+      "details": {
+        "definition": "指身法与手速被强化的一类词条，表现为提前半步作出反应、在狭窄处少碰倒东西。它与「快跑」不同：耐力仍看韧性。",
+        "mechanism": "给 agility 一个固定加值，从而抬高闪避、平衡、陷阱与精细动作类检定的成功率。它不改变行动顺序、不产生额外回合，也不让角色在无人目击时自动成功——目击与否仍是世界状态（checks 里的 observers）。",
+        "conditions": "在需要即时反应与协调动作的场合显效：闪避、攀爬、走险地、解绳结、快速撤离。在需要长时间稳定出力（拉纤、凿石）时几乎无感。",
+        "exceptions": "不能推出角色善于察觉（智慧）、不怕受伤（韧性）或擅长说谎（社交）；也不能推出他能无声无息溜过守卫——隐蔽需要环境与判定，敏捷只是成功率的一部分。",
+        "story_uses": "适合脱身、追人与逃命段落；也可作为反差：全场最快的人被一句话钉在原地。若作者想表达「根本躲不开」，应提高 difficulty 而不是调低这个词条。",
+        "historical_scope": "架空故事里的设计文字，不做跨文化断言。",
+        "evidence_and_uncertainty": "无测量、无样本；+9 为设计口径，未经平衡实测。"
+      },
+      "source_ids": [
+        "affix_src_spec",
+        "affix_src_attributes",
+        "affix_src_check_system"
+      ],
+      "related_ids": [
+        "affix_strong",
+        "affix_clumsy"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "affix_iron_gut",
+      "name": "铁胃",
+      "aliases": [
+        "肠胃结实",
+        "什么都吃得下"
+      ],
+      "tags": [
+        "kind:affix",
+        "tradition:western",
+        "affix:character",
+        "affix:boon",
+        "affix:grade:common",
+        "affix:attr:resilience",
+        "domain:body"
+      ],
+      "genres": [
+        "western_fantasy",
+        "steampunk"
+      ],
+      "category": "power",
+      "primary": "affix",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": null,
+      "affix": {
+        "schema": "affix_fields_v1",
+        "applies_to": [
+          "character"
+        ],
+        "polarity": "boon",
+        "grade": "common",
+        "stacking": "unique",
+        "visibility": "public",
+        "attribute_mods": {
+          "resilience": 4
+        },
+        "narrative": [
+          "能吃下腐败、难吃或来路不明的东西而不至于当场倒下",
+          "同行的人会盯着他试第一口"
+        ],
+        "note": "只加韧性不加血量：它管的是「消耗与不适」，不是「挨打」。"
+      },
+      "summary": "对饮食与旅途消耗更抗造的词条：可疑的汤、变味的水、连日的粗粮都不至于让他当场垮掉。它不解决饥饿本身。",
+      "details": {
+        "definition": "指消化系统与体质对劣质饮食的容忍度较高的一类词条，表现为不挑食、少有水土不服。它是耐受，不是免疫。",
+        "mechanism": "给 resilience 一个加值（不叠加公式外血量），因此与饮食、赶路、疲劳相关的检定更有利。它不产生新能力：辨认毒物仍看智慧，解毒仍看世界是否给了手段。",
+        "conditions": "在补给不可靠的段落显效：长途行商、围城、灾年、荒野外采食。饮食充足且稳定时几乎看不出来。",
+        "exceptions": "不能推出他尝得出毒（那是知识与判定）、不能推出他不会中毒，也不能推出他喜欢难吃的东西。更不要把「铁胃」当成能随便试陌生食物的许可——现实与设定里，尝错东西依然会死。",
+        "story_uses": "适合把「这锅汤是不是能喝」变成一个可表演的选择；也可以做成社交细节：同伴默认让他先尝，他默认接受，直到某次他不肯。",
+        "historical_scope": "架空故事里的设计文字，不构成任何饮食或医疗建议。",
+        "evidence_and_uncertainty": "无测量、无样本；本条不写任何具体毒物、剂量或救治手段。"
+      },
+      "source_ids": [
+        "affix_src_spec",
+        "affix_src_attributes"
+      ],
+      "related_ids": [
+        "affix_tough",
+        "affix_iron_stomach_item"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "affix_giant_blood",
+      "name": "巨人血脉",
+      "aliases": [
+        "巨裔",
+        "祖上有巨人"
+      ],
+      "tags": [
+        "kind:affix",
+        "tradition:western",
+        "affix:character",
+        "affix:boon",
+        "affix:grade:rare",
+        "affix:attr:strength",
+        "affix:attr:resilience",
+        "affix:hp",
+        "domain:fate"
+      ],
+      "genres": [
+        "western_fantasy"
+      ],
+      "category": "life",
+      "primary": "affix",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": "rare",
+      "affix": {
+        "schema": "affix_fields_v1",
+        "applies_to": [
+          "character"
+        ],
+        "polarity": "boon",
+        "grade": "rare",
+        "stacking": "unique",
+        "visibility": "public",
+        "attribute_mods": {
+          "strength": 10,
+          "resilience": 6
+        },
+        "note": "刻意叠加：韧性 +6 已抬血量公式，另加公式外 +16。比同档只加韧性更厚，作者接受这一档差。合计属性 16，血量 16，均在 rare 上限内。",
+        "hp_mod": 16
+      },
+      "summary": "祖上据说是巨人留下的血脉：力气与身板都超出常人一头，代价是社会关系上一辈子被当成「那一类人」。",
+      "details": {
+        "definition": "指带有非人血统、以体格为外在表现的词条。它描述身体，不描述立场：巨人血脉不会让人天然粗鲁或善良。",
+        "mechanism": "给力量与韧性加值并提高血量上限。它不产生「巨人之力」这类特殊动作，也不自动让人懂得巨人语或巨人的规矩——那属于世界设定与角色背景。",
+        "conditions": "在需要出力与承伤的场合显效；在社交场合，它往往先把话头引到出身上。若世界里的巨人被当作异类，这个词条会被 NPC 主动提起，而不是由引擎推断敌意。",
+        "exceptions": "不能推出他受族人欢迎、不能推出他被巨人社会承认（血统是出身，不是会员卡）；也不能推出他体形必然夸张——可以只比常人高半头。更不得由血脉推出性格、智力或道德。",
+        "story_uses": "常见的三种用法：被当作怪物的人；被当作劳力的人；被当作证明的人（族谱、继承、纹章）。适合与族群相关的社会冲突，而不是单纯的战斗加成。",
+        "historical_scope": "架空故事里的设定文字。民俗传说中的巨人谱系只作类型惯例借形，不作史实；本分区不断言任何真实族群的血统。",
+        "evidence_and_uncertainty": "本分区原创；巨人形象的类型性参照见同库 fantasy-races 分区（另有来源与不确定性的独立记载），本条不重复其证据。"
+      },
+      "source_ids": [
+        "affix_src_spec",
+        "affix_src_attributes"
+      ],
+      "related_ids": [
+        "affix_strong",
+        "affix_tough",
+        "affix_marked"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "affix_keen_eye",
+      "name": "锐目",
+      "aliases": [
+        "眼力好",
+        "夜里也看得清"
+      ],
+      "tags": [
+        "kind:affix",
+        "tradition:western",
+        "affix:character",
+        "affix:boon",
+        "affix:grade:common",
+        "affix:attr:wisdom",
+        "domain:mind"
+      ],
+      "genres": [
+        "western_fantasy",
+        "dark_fantasy"
+      ],
+      "category": "power",
+      "primary": "affix",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": null,
+      "affix": {
+        "schema": "affix_fields_v1",
+        "applies_to": [
+          "character"
+        ],
+        "polarity": "boon",
+        "grade": "common",
+        "stacking": "unique",
+        "visibility": "public",
+        "attribute_mods": {
+          "wisdom": 5
+        },
+        "narrative": [
+          "先注意到别人没看见的东西，也常先注意到不该看的东西"
+        ],
+        "note": "只加智慧不加天赋：看见 ≠ 看懂，也 ≠ 会用法术。"
+      },
+      "summary": "观察力被强化的词条：更容易在杂乱里发现细节。它不揭示真相，也不让角色看到未被设定存在的线索。",
+      "details": {
+        "definition": "指视觉与注意力更敏锐的一类词条，表现为先发现痕迹、小字、异样。它描述感知与线索比较，不描述判断力高低。",
+        "mechanism": "给 wisdom 一个加值，抬高「仔细查看」一类检定的成功率。它不新增事实：若世界里没有这条线索，掷得再好也不会长出来（现有限制见 checks 的难度与前提判定）。",
+        "conditions": "在光线或杂乱条件尚可、且确有可看之物时显效。全黑环境、隔着墙、被明确遮蔽的东西，仍需要别的手段。",
+        "exceptions": "不能推出角色聪明、识破谎言或看穿伪装——判断仍看具体证据与检定；也不能推出他一定注意到所有人想藏的事：注意力有方向，作者应明写他当时在看哪里。",
+        "story_uses": "适合把「这里有点不对」交到玩家手里：让他先看到，再由玩家决定要不要声张。也能做副作用：看到太多的人被迫承担义务。",
+        "historical_scope": "架空故事里的设计文字，不是视力标准，不用于评估真实个体。",
+        "evidence_and_uncertainty": "无测量、无样本；也不声称与任何知觉研究一致。"
+      },
+      "source_ids": [
+        "affix_src_spec",
+        "affix_src_attributes",
+        "affix_src_check_system"
+      ],
+      "related_ids": [
+        "affix_iron_will",
+        "affix_blind"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "affix_iron_will",
+      "name": "铁意志",
+      "aliases": [
+        "心志如铁",
+        "不受动摇"
+      ],
+      "tags": [
+        "kind:affix",
+        "tradition:western",
+        "affix:character",
+        "affix:boon",
+        "affix:grade:uncommon",
+        "affix:attr:resilience",
+        "affix:hidden",
+        "domain:mind"
+      ],
+      "genres": [
+        "western_fantasy",
+        "dark_fantasy",
+        "steampunk"
+      ],
+      "category": "power",
+      "primary": "affix",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": null,
+      "affix": {
+        "schema": "affix_fields_v1",
+        "applies_to": [
+          "character"
+        ],
+        "polarity": "boon",
+        "grade": "uncommon",
+        "stacking": "unique",
+        "visibility": "hidden",
+        "attribute_mods": {
+          "resilience": 7
+        },
+        "narrative": [
+          "不会因为一句威胁就改口，但也因此不肯承认自己已经输了"
+        ],
+        "note": "hidden：决心是看不见的，旁人只能从「他没退」去猜。韧性 +7，在 uncommon 上限内。"
+      },
+      "summary": "抗压与自我控制被强化的词条：恐吓、长时间审讯、要在压力下做判断时更稳。它是隐藏词条——旁人看不到，只能从行为推。",
+      "details": {
+        "definition": "指意志层面的耐受被强化的一类词条，表现为被威胁、被孤立、被拖着熬夜时仍能维持自己的判断顺序。它描述过程，不描述对错。",
+        "mechanism": "给韧性一个加值，作用于抵抗压力、维持行动的一类检定。它不让角色免疫恐惧，也不改写他的立场——他仍可能因为别的理由让步。",
+        "conditions": "在压力、恐吓、长时间消耗与需要稳定决定的场合显效。独自面对已有结论时可能完全看不出来。",
+        "exceptions": "绝不能推出他说的就是真话、更聪明、更正义或不会被收买（收买看筹码）；也不能推出他不会被感情打动——意志强的人往往只是更慢地被打动。隐藏词条同样不得让引擎替他下结论。",
+        "story_uses": "适合审讯、对峙、谈判桌上的沉默；因为它是隐藏的，玩家只能看到他一次都没改口。可以作为「猜不透这个人」的机制来源。",
+        "historical_scope": "架空故事里的设计文字，不是心理韧性量表，也不预测真实行为。",
+        "evidence_and_uncertainty": "无测量、无样本；隐藏可见性只是信息边界，不代表该词条更「真实」。"
+      },
+      "source_ids": [
+        "affix_src_spec",
+        "affix_src_attributes",
+        "affix_src_traits"
+      ],
+      "related_ids": [
+        "affix_keen_eye",
+        "affix_coward"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "affix_quick_study",
+      "name": "过目成诵",
+      "aliases": [
+        "记性好",
+        "一学就会"
+      ],
+      "tags": [
+        "kind:affix",
+        "tradition:western",
+        "affix:character",
+        "affix:boon",
+        "affix:grade:uncommon",
+        "affix:attr:wisdom",
+        "domain:mind"
+      ],
+      "genres": [
+        "western_fantasy",
+        "steampunk"
+      ],
+      "category": "power",
+      "primary": "affix",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": null,
+      "affix": {
+        "schema": "affix_fields_v1",
+        "applies_to": [
+          "character"
+        ],
+        "polarity": "boon",
+        "grade": "uncommon",
+        "stacking": "unique",
+        "visibility": "public",
+        "attribute_mods": {
+          "wisdom": 8
+        },
+        "narrative": [
+          "记性太好，也记得住不想记的事"
+        ],
+        "note": "只加智慧。学识仍须在世界里学到：这条不凭空生成知识。"
+      },
+      "summary": "学习与记忆被强化的词条：听过一遍的规矩、看过的字、背下来的祷文更牢。它不代替见过的东西。",
+      "details": {
+        "definition": "指记忆与模仿学习更快的一类词条，表现为复述准确、上手快、少忘细节。它描述学习速度，不描述学得多深。",
+        "mechanism": "给 wisdom 加值，作用于理解、记忆与线索比对类检定。它不产生事实与技能：角色不知道的事仍然不知道，除非世界安排他学到（知识由 knowledge 与角色卡承载，不由词条生成）。",
+        "conditions": "在能接触教材、口授、碑文的场合显效。缺少可学之物时无用；极度疲劳下也应按世界规则打折。",
+        "exceptions": "不能推出他善于传授（那是表达与耐心）、不能推出他懂文字背后的意思、也不能推出他不会被假信息骗——记得牢与判断对是两回事。",
+        "story_uses": "适合把「他复述的到底对不对」变成冲突：旁人相信他的记性，而他这次记错了。也可用于撑起考据、抄录、口传一类桥段。",
+        "historical_scope": "架空故事里的设计文字，不是记忆测量结论。",
+        "evidence_and_uncertainty": "无测量、无样本；与本项目的知识系统（app/knowledge.py 侧）没有自动接线。"
+      },
+      "source_ids": [
+        "affix_src_spec",
+        "affix_src_attributes"
+      ],
+      "related_ids": [
+        "affix_keen_eye",
+        "affix_oathbreaker"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "affix_calm",
+      "name": "临危不乱",
+      "aliases": [
+        "沉得住气",
+        "手不抖"
+      ],
+      "tags": [
+        "kind:affix",
+        "tradition:western",
+        "affix:character",
+        "affix:boon",
+        "affix:grade:common",
+        "affix:attr:wisdom",
+        "affix:attr:resilience",
+        "domain:mind"
+      ],
+      "genres": [
+        "western_fantasy",
+        "dark_fantasy",
+        "steampunk"
+      ],
+      "category": "power",
+      "primary": "affix",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": null,
+      "affix": {
+        "schema": "affix_fields_v1",
+        "applies_to": [
+          "character"
+        ],
+        "polarity": "boon",
+        "grade": "common",
+        "stacking": "unique",
+        "visibility": "public",
+        "attribute_mods": {
+          "wisdom": 3,
+          "resilience": 3
+        },
+        "note": "双轴各 +3，合计 6：常见级里刻意做小，因为它常常整局都在用。"
+      },
+      "summary": "在出事的那一刻不慌的词条：判断与手上的活儿都能维持住。它不减少危险，也不等于不害怕。",
+      "details": {
+        "definition": "指突发状况下的稳定性被强化的一类词条，表现为火起、船漏、有人倒下时先做对顺序上的一件事。它是稳定，不是无畏。",
+        "mechanism": "小幅同时给智慧与韧性，作用于应急判断与维持动作的检定。它不增加信息、不提高力量，也不产生「看穿阴谋」这类效果。",
+        "conditions": "在突发、有人受伤、时间紧迫的场合显效。清早的日常琐事里完全看不出来——所以「他忽然不慌」本身可以是剧情信号。",
+        "exceptions": "不能推出他不在乎、不害怕、不会事后崩溃；也不能推出他在危机里一定做对——只是比别人更少受慌乱扣减。周围的人慌乱到推搡起来时，他仍可能被撞倒。",
+        "story_uses": "适合作为「队伍里那个还在数人头的人」；也可以用来制造冷感：他的镇定被旁人解读为无情。",
+        "historical_scope": "架空故事里的设计文字，不做心理学断言。",
+        "evidence_and_uncertainty": "无测量、无样本；数值为设计口径。"
+      },
+      "source_ids": [
+        "affix_src_spec",
+        "affix_src_attributes",
+        "affix_src_check_system"
+      ],
+      "related_ids": [
+        "affix_iron_will",
+        "affix_panicked"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "affix_dulled_senses",
+      "name": "迟钝",
+      "aliases": [
+        "反应慢",
+        "感官发木"
+      ],
+      "tags": [
+        "kind:affix",
+        "tradition:western",
+        "affix:character",
+        "affix:bane",
+        "affix:grade:common",
+        "affix:attr:wisdom",
+        "affix:hidden",
+        "domain:mind"
+      ],
+      "genres": [
+        "western_fantasy",
+        "dark_fantasy"
+      ],
+      "category": "conflict",
+      "primary": "affix",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": null,
+      "affix": {
+        "schema": "affix_fields_v1",
+        "applies_to": [
+          "character"
+        ],
+        "polarity": "bane",
+        "grade": "common",
+        "stacking": "unique",
+        "visibility": "hidden",
+        "attribute_mods": {
+          "wisdom": -4
+        },
+        "narrative": [
+          "常在被提醒之后才明白刚才发生了什么"
+        ],
+        "note": "隐藏减益：当事人未必知道自己「慢」。写 -4 而已，不做「一定看漏」的硬判定。"
+      },
+      "summary": "感知与反应被削弱的减益词条：更容易漏掉细节、接不住话里的暗示。它是隐藏的，角色自己也未必知道。",
+      "details": {
+        "definition": "指感官或注意处理被削弱的一类减益词条，表现为被提醒后才恍然。它描述处理速度，不描述智力或人品。",
+        "mechanism": "给 wisdom 一个负值，降低线索发现类检定的成功率。它不制造虚假线索、不改写角色已知的信息，也不会让引擎替他忽略玩家明确注意到的内容。",
+        "conditions": "在嘈杂、昏暗或信息密集的场合更明显；安静、一对一、有足够时间时影响小。长期疲劳或伤病可以叠加，但应由世界规则声明。",
+        "exceptions": "不能推出他笨、记不住、分不清善恶或不可靠作证（证词效力是制度问题，不是属性问题）；也不能推出他必然被欺骗——被慢一拍影响的是「先注意到」，不是最终判断。",
+        "story_uses": "适合做伏笔：读者比他先看到。也可用于「他事后才意识到谁当时站在哪里」这类迟来的发现。隐藏词条不得由引擎替角色下结论。",
+        "historical_scope": "架空故事里的设计文字，不指任何真实病症或人群。",
+        "evidence_and_uncertainty": "无测量、无样本；不构成任何诊断或评价标准。"
+      },
+      "source_ids": [
+        "affix_src_spec",
+        "affix_src_attributes",
+        "affix_src_traits"
+      ],
+      "related_ids": [
+        "affix_keen_eye",
+        "affix_calm"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "affix_silver_tongue",
+      "name": "巧舌",
+      "aliases": [
+        "能说会道",
+        "口才好"
+      ],
+      "tags": [
+        "kind:affix",
+        "tradition:western",
+        "affix:character",
+        "affix:boon",
+        "affix:grade:uncommon",
+        "affix:attr:social",
+        "domain:social"
+      ],
+      "genres": [
+        "western_fantasy",
+        "dark_fantasy",
+        "steampunk"
+      ],
+      "category": "power",
+      "primary": "affix",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": null,
+      "affix": {
+        "schema": "affix_fields_v1",
+        "applies_to": [
+          "character"
+        ],
+        "polarity": "boon",
+        "grade": "uncommon",
+        "stacking": "unique",
+        "visibility": "public",
+        "attribute_mods": {
+          "social": 9
+        },
+        "narrative": [
+          "说话好听这件事，时常先于他说得对而被人记住"
+        ],
+        "note": "只给社交轴，不给任何「说服必然成功」的效果。拒绝与怀疑仍由 NPC 的已知信息与关系决定。"
+      },
+      "summary": "措辞与谈判被强化的词条：更容易把话说圆、把价压下来。它不改变对方的已知信息，也不让谎言自动成立。",
+      "details": {
+        "definition": "指表达与协商能力被强化的一类词条，表现为接得住话、能换个说法再试一次。它描述手段，不描述动机——巧舌的人可以一辈子说真话。",
+        "mechanism": "给 social 加值，抬高交谈、试探、协商一类检定的成功率。现有限制不变：高社交不能控制 NPC，也不改写对方记得什么（见 checks 的社交相关判定与 NPC 已知信息）。",
+        "conditions": "在对方愿意听、且至少有交易或商量余地时显效。对已经决定动手的人、对听不懂语言的对方，效果有限。",
+        "exceptions": "不能推出角色诚实或可靠（反而常见误读：能说 = 会骗）；也不能推出他能骗过所有人——谎言成立需要对方缺乏比对信息，仍由世界状态决定。",
+        "story_uses": "适合砍价、脱身、拖延时间；更值得写的是它的反噬：人们开始不信他的真话。",
+        "historical_scope": "架空故事里的设计文字。不同社会里「能说」的评价差异本分区不断言。",
+        "evidence_and_uncertainty": "无测量、无样本；不声称预测真实沟通结果。"
+      },
+      "source_ids": [
+        "affix_src_spec",
+        "affix_src_attributes",
+        "affix_src_checks"
+      ],
+      "related_ids": [
+        "affix_commanding",
+        "affix_mutism"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "affix_commanding",
+      "name": "威仪",
+      "aliases": [
+        "气场强",
+        "令人生畏"
+      ],
+      "tags": [
+        "kind:affix",
+        "tradition:western",
+        "affix:character",
+        "affix:boon",
+        "affix:grade:uncommon",
+        "affix:attr:social",
+        "domain:social"
+      ],
+      "genres": [
+        "western_fantasy",
+        "dark_fantasy"
+      ],
+      "category": "power",
+      "primary": "affix",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": null,
+      "affix": {
+        "schema": "affix_fields_v1",
+        "applies_to": [
+          "character"
+        ],
+        "polarity": "boon",
+        "grade": "uncommon",
+        "stacking": "unique",
+        "visibility": "public",
+        "attribute_mods": {
+          "social": 7
+        },
+        "narrative": [
+          "陌生人更倾向于先听他说完",
+          "也同样更容易被当作领头的人问责"
+        ],
+        "note": "只加社交。是否被当成首领属于叙事与关系状态，不由属性决定。"
+      },
+      "summary": "在人前更有分量的词条：让场面安静下来、让人愿意先听完。它不发号施令，也不让人服从。",
+      "details": {
+        "definition": "指在群体面前的可信感与压迫感被强化的一类词条。表现为说话时别人更容易停下来听。它是场面效果，不是权力。",
+        "mechanism": "给 social 加值，作用于当众交涉、镇场面一类检定。它不产生命令效果：NPC 是否照办仍取决于关系、利益与已知信息，引擎不会因为高社交就替 NPC 决定。",
+        "conditions": "在有他人在场、且对方尚未形成敌意时显效。一对一密谈、混在人群里无人注意时影响较弱。",
+        "exceptions": "不能推出他真有头衔（身份由世界设定与角色卡承载）、不能推出他说的对、也不能推出别人不会背后反对。威仪常被误当成权力，这是很好的冲突点。",
+        "story_uses": "适合「一句话让大厅安静」的场景；更适合写它的代价：所有人都以为该由他负责。",
+        "historical_scope": "架空故事里的设计文字，不做礼制或权力研究断言。",
+        "evidence_and_uncertainty": "无测量、无样本；不声称预测真实领导力。"
+      },
+      "source_ids": [
+        "affix_src_spec",
+        "affix_src_attributes"
+      ],
+      "related_ids": [
+        "affix_silver_tongue",
+        "affix_notorious"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "affix_notorious",
+      "name": "声名在外",
+      "aliases": [
+        "恶名昭著",
+        "名声大"
+      ],
+      "tags": [
+        "kind:affix",
+        "tradition:western",
+        "affix:character",
+        "affix:boon",
+        "affix:grade:uncommon",
+        "affix:attr:social",
+        "domain:social"
+      ],
+      "genres": [
+        "western_fantasy",
+        "dark_fantasy"
+      ],
+      "category": "conflict",
+      "primary": "affix",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": null,
+      "affix": {
+        "schema": "affix_fields_v1",
+        "applies_to": [
+          "character"
+        ],
+        "polarity": "boon",
+        "grade": "uncommon",
+        "stacking": "unique",
+        "visibility": "public",
+        "attribute_mods": {
+          "social": 6
+        },
+        "narrative": [
+          "有人因此先给他让路，也有人因此先去报官",
+          "名声未必是真的，但会先到"
+        ],
+        "note": "boon 的正项是社交（+6）；被防备、被问责、被冒名只在叙事里，不改数值——要数值化的代价，请另立减益词条。"
+      },
+      "summary": "名号先于本人到达的词条：说话更有分量，也更容易被当成威胁或替罪羊。",
+      "details": {
+        "definition": "指携带一个已被传播的名号，从而改变他人初始态度的词条。它描述的是别人听说了什么，不是他做过什么。",
+        "mechanism": "给 social 一个加值（场面更容易被压住），同时通过叙事改变初始关系：陌生人可能先退一步，也可能先去叫守夜人。方向由世界设定与地方规则决定，不由引擎自动选。",
+        "conditions": "在有人听说过这个名字的地方显效。换个地区、换个行当、改名之后可能完全失效——名声的传播范围必须由作者明写，不能假定全球通用。",
+        "exceptions": "不能推出名号属实（冤名、顶替、误传都很常见）、不能推出他危险、也不能推出所有人都怕他。被冒名者另有一整套麻烦，那些属于剧情而非词条效果。",
+        "story_uses": "适合开局就制造压力：他还没进城，城门已经在议论他。也可用于身份错认、顶替与洗清。",
+        "historical_scope": "架空故事里的设计文字，不做名誉制度或舆论史断言。",
+        "evidence_and_uncertainty": "无测量、无样本；名声的范围与真假必须由作者在世界里交代。"
+      },
+      "source_ids": [
+        "affix_src_spec",
+        "affix_src_attributes"
+      ],
+      "related_ids": [
+        "affix_commanding",
+        "affix_marked"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "affix_misfortune",
+      "name": "时运不济",
+      "aliases": [
+        "霉运",
+        "背"
+      ],
+      "tags": [
+        "kind:affix",
+        "tradition:western",
+        "affix:character",
+        "affix:bane",
+        "affix:grade:common",
+        "affix:attr:social",
+        "domain:social"
+      ],
+      "genres": [
+        "western_fantasy",
+        "dark_fantasy",
+        "steampunk"
+      ],
+      "category": "conflict",
+      "primary": "affix",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": null,
+      "affix": {
+        "schema": "affix_fields_v1",
+        "applies_to": [
+          "character"
+        ],
+        "polarity": "bane",
+        "grade": "common",
+        "stacking": "unique",
+        "visibility": "public",
+        "attribute_mods": {
+          "social": -3
+        },
+        "narrative": [
+          "坏运气总在关键时刻来，同行的人开始把他留在岸上",
+          "这未必是真的诅咒，但足以改变别人怎么安排他"
+        ],
+        "note": "负项用社交（别人开始避着他），不发明「掷骰必定更差」的机制——那会与既有种子掷骰冲突。"
+      },
+      "summary": "被周围人认作运气不好的词条：不是真被诅咒，而是别人开始不把他安排在要紧位置上——这本身就会让坏事更容易落在他头上。",
+      "details": {
+        "definition": "指被贴上「运气差」标签的一类减益词条。它描述的是社会后果与自我预期，不是超自然因果。要写真实的诅咒，请用「诅咒烙印」并写明世界规则。",
+        "mechanism": "给 social 一个负值（别人对他的安排与信任下降），并通过叙事把事故、倒霉的巧合往他身上带。它不改动掷骰种子，也不让检定无条件失败——那个 5% 下限仍照旧。",
+        "conditions": "在需要别人押注、结伴、分派位置的场合显效。独自行动、无人知晓他名声时影响很小。",
+        "exceptions": "不能推出坏事真的是他带来的（统计上可能只是巧合与自我实现）、不能推出他愚蠢或粗心，也不能推出他活该。把「时运不济」写成因果报应是叙述选择，不是机制结论。",
+        "story_uses": "适合低度不安的氛围与替罪羊桥段；也能做成转折：某次唯一没出事的人是他。",
+        "historical_scope": "架空故事里的设计文字；民间对运气的说法只作类型惯例借形，不做真实因果断言。",
+        "evidence_and_uncertainty": "无测量、无样本；不声称运气可测。"
+      },
+      "source_ids": [
+        "affix_src_spec",
+        "affix_src_attributes"
+      ],
+      "related_ids": [
+        "affix_cursed_brand",
+        "affix_notorious"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "affix_divine_favor",
+      "name": "神恩眷顾",
+      "aliases": [
+        "受神宠爱",
+        "蒙福"
+      ],
+      "tags": [
+        "kind:affix",
+        "tradition:western",
+        "affix:character",
+        "affix:boon",
+        "affix:grade:rare",
+        "affix:attr:talent",
+        "affix:attr:wisdom",
+        "affix:hidden",
+        "domain:fate"
+      ],
+      "genres": [
+        "western_fantasy",
+        "dark_fantasy"
+      ],
+      "category": "power",
+      "primary": "affix",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": "rare",
+      "affix": {
+        "schema": "affix_fields_v1",
+        "applies_to": [
+          "character"
+        ],
+        "polarity": "boon",
+        "grade": "rare",
+        "stacking": "exclusive",
+        "exclusive_group": "affix.favor",
+        "visibility": "hidden",
+        "attribute_mods": {
+          "talent": 6,
+          "wisdom": 4
+        },
+        "narrative": [
+          "在关键时刻恰到好处地赶到，旁人称之为「好运」",
+          "教团若知道会来称量他"
+        ],
+        "note": "与 affix_abyssal_gaze 互斥（affix.favor 组）：同一个角色不能同时被两边眷顾——神明是否愿意共处由世界设定决定。"
+      },
+      "summary": "与某位神祇存在特殊关联的词条：感应更利、判断更稳，且总在关键时刻赶上。它是隐藏的——旁人只能从结果去猜。",
+      "details": {
+        "definition": "指被某位神祇格外关注的一类词条。它描述的是关联，不是职位：受眷顾的人未必是祭司，也不一定信神。",
+        "mechanism": "给天赋与智慧小幅加值，并通过叙事安排「恰好赶到」这类巧合。它不生成神术、不自动回应祈祷，也不让角色洞见神的意图——神术与神迹属于世界设定与故事包（见同库 western 分区的相关条目）。",
+        "conditions": "在世界里确有该神祇、且该神祇的注意力可及之处成立。跨神域、无神的世界必须显式声明，否则不成立。",
+        "exceptions": "不能推出神永远站在他这边（眷顾可以是考验，也可以随时撤销）、不能推出他道德高尚、也不能推出他因此更被信任——反而常被怀疑、被试探、被要求证明。且不得由词条推出神迹必然发生。",
+        "story_uses": "适合做被追着解释的巧合：教团来称量他，旁人求他代祷，而他自己并不知道该求什么。与「邪神眷顾」互斥这一点本身就是剧情燃料。",
+        "historical_scope": "架空故事里的设定文字。现实宗教的神圣体验不可由此推论，本分区不作神学或史学断言。",
+        "evidence_and_uncertainty": "本项目原创设计；神的属性、教义与仪轨必须由作者的世界设定给出，本条不提供任何现实宗教内容。"
+      },
+      "source_ids": [
+        "affix_src_spec",
+        "affix_src_attributes"
+      ],
+      "related_ids": [
+        "affix_abyssal_gaze",
+        "affix_cursed_brand"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "affix_abyssal_gaze",
+      "name": "邪神眷顾",
+      "aliases": [
+        "深渊注视",
+        "被邪物看上",
+        "邪神垂青"
+      ],
+      "tags": [
+        "kind:affix",
+        "tradition:western",
+        "affix:character",
+        "affix:mixed",
+        "affix:grade:rare",
+        "affix:attr:talent",
+        "affix:attr:social",
+        "affix:hidden",
+        "domain:fate"
+      ],
+      "genres": [
+        "western_fantasy",
+        "dark_fantasy"
+      ],
+      "category": "power",
+      "primary": "affix",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": "rare",
+      "affix": {
+        "schema": "affix_fields_v1",
+        "applies_to": [
+          "character"
+        ],
+        "polarity": "mixed",
+        "grade": "rare",
+        "stacking": "exclusive",
+        "exclusive_group": "affix.favor",
+        "visibility": "hidden",
+        "attribute_mods": {
+          "talent": 12,
+          "social": -7
+        },
+        "narrative": [
+          "能听见不该听的，也让人本能地不想靠近他",
+          "有人会在梦里被告知他还活着"
+        ],
+        "note": "与 affix_divine_favor 互斥；正项天赋 12、负项社交 7，是「交换型」词条的样板。"
+      },
+      "summary": "被某个不该被注意的存在看上的词条：超凡感知明显上涨，人际信任明显下降。它不是祝福，也不是纯粹的诅咒。",
+      "details": {
+        "definition": "指与某种不祥存在建立了关联的一类词条，表现为直觉与感应异常敏锐，同时让人本能不安。它是交换，不是奖励。",
+        "mechanism": "给天赋大幅加值（感应类检定更有利）、给社交负值（陌生人更难放下戒备），并通过叙事安排他听见、梦到、被提醒不该知道的事。它不自动提供敌人、不自动获得力量，也不让角色知道自己在与什么打交道。",
+        "conditions": "在世界里确有这类存在、且关联已经建立时成立；建立过程应由作者的剧情交代（触碰、缔约、继承、被标记），不要无来源地直接挂上。",
+        "exceptions": "不得推出他邪恶、疯狂或必然堕落（关联不等于立场）；也不得推出他获得法术或力量——他只听得更清楚。教团、猎魔人与教会若发现，反应由世界规则与角色态度决定，不由词条自动生成追捕。",
+        "story_uses": "适合做长期暗线：他每次说准了不该知道的事，周围的人就更远一点。也可以做成救援者与嫌疑人的双重身份。",
+        "historical_scope": "架空故事里的设定文字；不映射任何真实信仰或仪式，也不含任何可操作的做法。",
+        "evidence_and_uncertainty": "本项目原创设计；来源只登记本项目自己的文件，不引任何外部或现实神秘学材料。"
+      },
+      "source_ids": [
+        "affix_src_spec",
+        "affix_src_attributes",
+        "affix_src_check_system"
+      ],
+      "related_ids": [
+        "affix_divine_favor",
+        "affix_cursed_brand",
+        "affix_marked"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "affix_cursed_brand",
+      "name": "诅咒烙印",
+      "aliases": [
+        "被诅咒",
+        "烙印",
+        "克星"
+      ],
+      "tags": [
+        "kind:affix",
+        "tradition:western",
+        "affix:character",
+        "affix:mixed",
+        "affix:grade:rare",
+        "affix:attr:resilience",
+        "affix:attr:talent",
+        "affix:hidden",
+        "domain:fate"
+      ],
+      "genres": [
+        "western_fantasy",
+        "dark_fantasy"
+      ],
+      "category": "conflict",
+      "primary": "affix",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": "rare",
+      "affix": {
+        "schema": "affix_fields_v1",
+        "applies_to": [
+          "character"
+        ],
+        "polarity": "mixed",
+        "grade": "rare",
+        "stacking": "exclusive",
+        "exclusive_group": "affix.curse",
+        "visibility": "hidden",
+        "attribute_mods": {
+          "resilience": -10,
+          "talent": 5
+        },
+        "narrative": [
+          "夜里能感到它在动，白天看不见任何痕迹",
+          "有人认出印记并因此拒绝与他同行"
+        ],
+        "note": "mixed：感应力升（+5 天赋）、韧性降（-10，血量公式内再 -20）。属性合计 15，在 rare 上限 26 内；不再额外写公式外血量。"
+      },
+      "summary": "被烙上印记的词条：身体更脆弱、血量上限更低，但感应力反而增强。它隐蔽，且知道自己身上有什么的旁人会立刻改变态度。",
+      "details": {
+        "definition": "指带有某种持续生效的负面标记的一类词条。它描述状态，不描述善恶：被诅咒的人可以是任何立场。",
+        "mechanism": "降低韧性（血量公式 50+2×韧性 因此随之下降 20）、小幅提高天赋，并通过叙事带来认得出印记的人的反应。它不自动触发定时厄运、不写死亡倒计时——要那种压力请用 pressure 的显式阶段。",
+        "conditions": "在诅咒已经明确建立之后成立；建立与解除都应由作者在世界里写明来源与手段（谁施的、什么条件可解）。解除之后应当移除该词条，而不是留着当装饰。",
+        "exceptions": "不能推出他会变成怪物、会害身边人（这是叙述选择）、也不能推出他应被驱逐——那取决于当地规则与人的态度，引擎不会自动生成敌意。也不得由它推出任何道德评价。",
+        "story_uses": "适合「带着一个不能说的问题上路」：同伴何时会发现、发现后留不留。也可以做成谈判筹码：他愿意为了解除它去做什么。",
+        "historical_scope": "架空故事里的设定文字，不映射任何真实信仰、诅咒或仪式做法。",
+        "evidence_and_uncertainty": "本项目原创设计；不含任何现实可操作内容。"
+      },
+      "source_ids": [
+        "affix_src_spec",
+        "affix_src_attributes"
+      ],
+      "related_ids": [
+        "affix_abyssal_gaze",
+        "affix_frail"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "affix_frail",
+      "name": "虚弱",
+      "aliases": [
+        "体弱",
+        "病秧子"
+      ],
+      "tags": [
+        "kind:affix",
+        "tradition:western",
+        "affix:character",
+        "affix:bane",
+        "affix:grade:common",
+        "affix:attr:strength",
+        "affix:attr:resilience",
+        "affix:attr:agility",
+        "affix:hidden",
+        "domain:body"
+      ],
+      "genres": [
+        "western_fantasy",
+        "steampunk",
+        "dark_fantasy"
+      ],
+      "category": "conflict",
+      "primary": "affix",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": null,
+      "affix": {
+        "schema": "affix_fields_v1",
+        "applies_to": [
+          "character"
+        ],
+        "polarity": "bane",
+        "grade": "common",
+        "stacking": "unique",
+        "visibility": "hidden",
+        "attribute_mods": {
+          "strength": -4,
+          "agility": -3,
+          "resilience": -3
+        },
+        "note": "合计 10 点属性，常见级的满配减益，用于「从小体弱」这类背景；血量由韧性公式给出（-6），不另写公式外扣血。"
+      },
+      "summary": "力量、体力与耐久同时偏低的减益词条：重活干不了，损耗也吃不住。它是隐藏的——旁人只看到「他做不动」。",
+      "details": {
+        "definition": "指体格发展受限的一类减益词条，表现为出力与恢复都慢半拍。它是能力事实，不是评价：体弱的人可以在别的轴上很强。",
+        "mechanism": "在三条轴上下调，血量随 50+2×韧性 公式下降，因此体力类检定更吃亏、可承受的损耗更少。它不改智慧与社交，也不产生疾病症状——要写病症请由世界规则另行声明。",
+        "conditions": "在需要长时间出力、负重、挨打的场合显效。坐着写字的场合完全看不出来，所以常被人低估。",
+        "exceptions": "不能推出他笨、胆小、不坚定或需要被怜悯；也不能推出他活不长（寿命是世界设定）。隐藏词条不得由引擎替角色下结论。",
+        "story_uses": "适合做「谁都以为他撑不下来」的角色；也可以是很好的社会观察点：别人替他决定的那些事。",
+        "historical_scope": "架空故事里的设计文字，不指向任何真实病症、残障或人群，也不构成医学描述。",
+        "evidence_and_uncertainty": "无测量、无样本；不使用任何真实医学指标或诊断名称。"
+      },
+      "source_ids": [
+        "affix_src_spec",
+        "affix_src_attributes"
+      ],
+      "related_ids": [
+        "affix_tough",
+        "affix_cursed_brand"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "affix_clumsy",
+      "name": "笨拙",
+      "aliases": [
+        "手脚不利索",
+        "毛手毛脚"
+      ],
+      "tags": [
+        "kind:affix",
+        "tradition:western",
+        "affix:character",
+        "affix:bane",
+        "affix:grade:common",
+        "affix:attr:agility",
+        "domain:body"
+      ],
+      "genres": [
+        "western_fantasy",
+        "steampunk"
+      ],
+      "category": "conflict",
+      "primary": "affix",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": null,
+      "affix": {
+        "schema": "affix_fields_v1",
+        "applies_to": [
+          "character"
+        ],
+        "polarity": "bane",
+        "grade": "common",
+        "stacking": "unique",
+        "visibility": "public",
+        "attribute_mods": {
+          "agility": -5
+        },
+        "narrative": [
+          "安静的行动总是差一点才安静"
+        ],
+        "note": "公开的减益：旁人看得出，因此也可以被善意地提前避让。"
+      },
+      "summary": "协调动作被削弱的减益词条：闪避、平衡与细活都更差，悄悄行动尤其容易出错。",
+      "details": {
+        "definition": "指精细动作与平衡被削弱的一类减益词条，表现为碰倒东西、踩到响板、结扣打不紧。它是公开的，周围人看得出来。",
+        "mechanism": "给 agility 一个负值，降低闪避、平衡与精细动作类检定的成功率。它不制造额外事故，也不让角色必然被发现——目击与否仍由世界的 observers 决定。",
+        "conditions": "在需要控制手指与脚步的场合显效：潜行、走窄桥、解绳、上锁、给伤员包扎。站着说话时无感。",
+        "exceptions": "不能推出他反应慢（那是智慧相关的察觉）、不能推出他力气小，也不能推出他一定搞砸重要的事——掷骰与情境仍起作用。",
+        "story_uses": "适合把潜行变成真正的风险；也可以做温情的用法：同伴先替他把桌上的杯子挪开。",
+        "historical_scope": "架空故事里的设计文字，不指向任何真实病症或人群。",
+        "evidence_and_uncertainty": "无测量、无样本；不构成任何诊断或评价标准。"
+      },
+      "source_ids": [
+        "affix_src_spec",
+        "affix_src_attributes"
+      ],
+      "related_ids": [
+        "affix_swift",
+        "affix_dulled_senses"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "affix_oathbreaker",
+      "name": "失约之人",
+      "aliases": [
+        "背誓",
+        "毁约者"
+      ],
+      "tags": [
+        "kind:affix",
+        "tradition:western",
+        "affix:character",
+        "affix:bane",
+        "affix:grade:uncommon",
+        "affix:attr:social",
+        "domain:social"
+      ],
+      "genres": [
+        "western_fantasy",
+        "dark_fantasy",
+        "steampunk"
+      ],
+      "category": "conflict",
+      "primary": "affix",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": null,
+      "affix": {
+        "schema": "affix_fields_v1",
+        "applies_to": [
+          "character"
+        ],
+        "polarity": "bane",
+        "grade": "uncommon",
+        "stacking": "unique",
+        "visibility": "public",
+        "attribute_mods": {
+          "social": -8
+        },
+        "narrative": [
+          "立过的誓别人不太当回事，他自己也渐渐不当回事",
+          "契约者与担保人会先问清楚他要拿什么保证"
+        ],
+        "note": "负项是「别人不再采信」，不改他说服的能力；区别于 affix_mutism 的「说不出」。"
+      },
+      "summary": "曾毁约并被记住的词条：谈判时对方会先要担保，开口的说服力大打折扣。它不禁止他说真话。",
+      "details": {
+        "definition": "指一段已被知道并留下记录的毁约经历所带来的社会性减益。它描述别人对他的预设，不描述他当前的想法。",
+        "mechanism": "给 social 一个负值，主要作用在需要信任的场合（立契、担保、托付、求情）。它不自动让 NPC 仇视他：敌对仍由关系与世界规则决定，本条只是把起点压得更低。",
+        "conditions": "在知道他这段经历的人面前显效。换一个地区、换一层身份，可能完全没人听过——名声范围須由作者交代。",
+        "exceptions": "不能推出他就是坏人、以后还会毁约；也不能推出他被所有神祇追究（超自然的背誓惩罚属于世界设定，须另行声明，本条不发）。",
+        "story_uses": "适合「用行动把信誉赚回来」的长线：每一次守约都在改这个负值的前提。也适合被冤枉的版本——他没毁过约，但被这么传。",
+        "historical_scope": "架空故事里的设计文字，不做法律史或契约制度断言。",
+        "evidence_and_uncertainty": "无测量、无样本；社会后果的具体形式由世界与地方规则决定。"
+      },
+      "source_ids": [
+        "affix_src_spec",
+        "affix_src_attributes"
+      ],
+      "related_ids": [
+        "affix_silver_tongue",
+        "affix_marked"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "affix_marked",
+      "name": "被标记之人",
+      "aliases": [
+        "猎杀名单上",
+        "悬红",
+        "被盯上"
+      ],
+      "tags": [
+        "kind:affix",
+        "tradition:western",
+        "affix:character",
+        "affix:bane",
+        "affix:grade:rare",
+        "affix:attr:social",
+        "affix:hidden",
+        "domain:fate"
+      ],
+      "genres": [
+        "western_fantasy",
+        "dark_fantasy",
+        "steampunk"
+      ],
+      "category": "conflict",
+      "primary": "affix",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": null,
+      "affix": {
+        "schema": "affix_fields_v1",
+        "applies_to": [
+          "character"
+        ],
+        "polarity": "bane",
+        "grade": "rare",
+        "stacking": "exclusive",
+        "exclusive_group": "affix.hunted",
+        "visibility": "hidden",
+        "attribute_mods": {
+          "social": -6
+        },
+        "narrative": [
+          "总有人在他落单的时候出现",
+          "同行的客栈老板会更早关门"
+        ],
+        "note": "只要 -6 社交：真正追他的人由作者按事件与 NPC 安排，不由词条自动生成。affix.hunted 组目前只有本条，为后续追猎类词条预留。"
+      },
+      "summary": "已被某个势力列入处置名单的词条：陌生人更容易警觉，落脚处更难找。追兵要由作者安排，不由词条自动生成。",
+      "details": {
+        "definition": "指已被某个组织或个人确定为目标的一类减益词条。它描述外部安排，不描述他做了什么。",
+        "mechanism": "给 social 一个小幅负值（他更容易被防备、更少人愿意接待），其余后果由作者用事件、NPC 与压力模块实现。本词条本身不生成敌人、不安排伏击，也不追踪时间。",
+        "conditions": "在世界里确实有人发出了这个安排之后成立。若发出者被消灭、名单被撤销、身份被更换，应当移除或改写该词条。",
+        "exceptions": "不能推出所有地方都认识他（名单的传播范围须明写）、不能推出普通百姓会动手，也不能推出他必然被找到——躲藏仍按世界规则判定。",
+        "story_uses": "适合做长期压力源：每一次进镇都是一次选择。也适合反转：名单上的名字其实是别人，而他默默用了很久。",
+        "historical_scope": "架空故事里的设计文字，不做任何现实追捕或司法程序描述。",
+        "evidence_and_uncertainty": "本项目原创设计；追捕的组织、手段与后果必须由故事包显式给出。"
+      },
+      "source_ids": [
+        "affix_src_spec",
+        "affix_src_attributes"
+      ],
+      "related_ids": [
+        "affix_notorious",
+        "affix_abyssal_gaze"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "affix_edge_keened",
+      "name": "开刃如镜",
+      "aliases": [
+        "刃口锐利",
+        "磨得极好"
+      ],
+      "tags": [
+        "kind:affix",
+        "tradition:western",
+        "affix:item",
+        "affix:boon",
+        "affix:grade:common",
+        "domain:craft"
+      ],
+      "genres": [
+        "western_fantasy",
+        "steampunk"
+      ],
+      "category": "item",
+      "primary": "affix",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": null,
+      "affix": {
+        "schema": "affix_fields_v1",
+        "applies_to": [
+          "item"
+        ],
+        "polarity": "boon",
+        "grade": "common",
+        "stacking": "stack",
+        "visibility": "public",
+        "item_mods": {
+          "damage": 2,
+          "weight_percent": 95
+        },
+        "narrative": [
+          "刃面能照出人影，主人会不自觉地照它看"
+        ],
+        "note": "对照 rewards：材质的 damage_bonus 量程是 -50..50，common 级只给 +2，属于「打磨得好」而非附魔。"
+      },
+      "summary": "纯工艺带来的物品词条：刃口更利、分量略轻。它不含超自然效力，与附魔是两回事。",
+      "details": {
+        "definition": "指因材质与做工而在物理性能上更优的物品词条，表现为刃口锐、配重顺。它必须与附魔分开记载：打磨得好，不等于上面有魔法。",
+        "mechanism": "给出伤害加成与重量百分比（低于 100 表示更轻）。若作者要在旅程里真的生效，应把同样的数字写进故事包的 mechanics.rewards（材质的 damage_bonus 与 weight_percent），本词条不会自动接进去。",
+        "conditions": "只在物品状态良好时成立：卷刃、锈蚀、缺口都应当按世界规则削减或移除它。没有维护条件的武器不该长期保持这个词条。",
+        "exceptions": "不能推出它能砍断任何东西（对抗由世界与伤害规则决定）、不能推出它更值钱（价值是另一项 item_mods.value_percent）、也不能推出它永不损坏。",
+        "story_uses": "适合做「他舍不得用那把刀」的角色细节；也可用于维修与替换的日常张力。",
+        "historical_scope": "架空故事里的设计文字，不描述真实金属加工工艺。",
+        "evidence_and_uncertainty": "数值量程对齐 app/rewards.py 的白名单整数运算；本条不含任何附魔或超自然效力。"
+      },
+      "source_ids": [
+        "affix_src_spec",
+        "affix_src_rewards"
+      ],
+      "related_ids": [
+        "affix_wicked_butterfly",
+        "affix_hungry_blade"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "affix_oathbound_weapon",
+      "name": "誓言铸铁",
+      "aliases": [
+        "为誓而铸",
+        "契约兵器"
+      ],
+      "tags": [
+        "kind:affix",
+        "tradition:western",
+        "affix:item",
+        "affix:boon",
+        "affix:grade:rare",
+        "domain:craft"
+      ],
+      "genres": [
+        "western_fantasy",
+        "dark_fantasy"
+      ],
+      "category": "item",
+      "primary": "affix",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": "common",
+      "affix": {
+        "schema": "affix_fields_v1",
+        "applies_to": [
+          "item"
+        ],
+        "polarity": "boon",
+        "grade": "rare",
+        "stacking": "unique",
+        "visibility": "public",
+        "item_mods": {
+          "damage": 6,
+          "durability_percent": 140,
+          "value_percent": 180
+        },
+        "narrative": [
+          "铭文只在持有者履行誓言时才认得他的手",
+          "旁人说得出这把刀的来历"
+        ],
+        "note": "rare 级：伤害 +6（上限 10）、耐久 140%（偏移 40 ≤120）、价值 180%（偏移 80 ≤120）。"
+      },
+      "summary": "为履行某个誓言而铸成的器物：更耐用、更锋利，也值钱得多。条件的失效与解除必须由作者写明。",
+      "details": {
+        "definition": "指铸造动机本身就是一份誓约的物品词条。它描述器物的来历与条件，不描述持有者的立场：任何人拿在手里，铭文都还在。",
+        "mechanism": "给出伤害、耐久与价值的加成。条件的判定（谁算履行、何时失效）属于世界设定与作者安排的事件，本词条不自动检测、不自动报错。若要在旅程里生效，作者应把它写进 mechanics.rewards 的模板（并可用附魔或材质表达）。",
+        "conditions": "铸造与授受都应有场景支撑（谁铸的、为何铸）。器物易主、誓言被毁、铭文被磨去时，作者应当改写或移除这个词条。",
+        "exceptions": "不能推出它会自己指示方向、会说话或有独立的意志（那是另一类神通，须在世界里声明）；也不能推出持有者因此高贵——旁观者可能因为铭文而追问他是不是那个人。",
+        "story_uses": "适合做身份与承诺的实物凭据：拿着它的人被当成某个承诺的继承人，愿不愿意都很难推掉。",
+        "historical_scope": "架空故事里的设计文字，不描述任何真实铸剑或铭刻工艺。",
+        "evidence_and_uncertainty": "数值口径对齐 app/rewards.py；效力如要生效须由作者自行接入奖励配置。"
+      },
+      "source_ids": [
+        "affix_src_spec",
+        "affix_src_rewards"
+      ],
+      "related_ids": [
+        "affix_divine_favor",
+        "affix_edge_keened"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "affix_burden_of_the_fallen",
+      "name": "遗骸之重",
+      "aliases": [
+        "死者不许你丢下",
+        "背尸的剑"
+      ],
+      "tags": [
+        "kind:affix",
+        "tradition:western",
+        "affix:item",
+        "affix:mixed",
+        "affix:grade:rare",
+        "affix:hidden",
+        "domain:craft"
+      ],
+      "genres": [
+        "dark_fantasy",
+        "western_fantasy"
+      ],
+      "category": "item",
+      "primary": "affix",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": "rare",
+      "affix": {
+        "schema": "affix_fields_v1",
+        "applies_to": [
+          "item"
+        ],
+        "polarity": "mixed",
+        "grade": "rare",
+        "stacking": "unique",
+        "visibility": "hidden",
+        "item_mods": {
+          "damage": 7,
+          "weight_percent": 190,
+          "value_percent": 140
+        },
+        "narrative": [
+          "带着它的人夜里总梦见同一段路",
+          "抛下它之后，第二天它又出现在行囊里"
+        ],
+        "note": "mixed 的样板：伤害 +7（好），重量 190%（坏），价值 140%（好）。隐藏：看不出重量从何而来。"
+      },
+      "summary": "沉重却锋利的器物词条：打得重、甩不掉，价值也高。它是隐藏的——重量不合常理这件事，玩家事前看不出来。",
+      "details": {
+        "definition": "指带有不合常理的负担的物品词条，典型是被某人留下的兵器。它描述器物与持有者之间的关系，不描述器物的善恶。",
+        "mechanism": "同时给出伤害、重量与价值的加成，并通过叙事安排「回不去」的现象。它不改角色的负重量计算（本版没有负重系统），也不写任何追索或惩罚机制——那些属于世界规则。",
+        "conditions": "一旦入手就成立；丢弃是否有效、以什么方式回头，必须由作者在世界里交代，不要留给引擎猜。",
+        "exceptions": "不能推出持有者被附身、被控制或必须为死者报仇；也不能推出它只能由特定人使用。隐藏词条不得进入玩家可见的伤害与价值估算。",
+        "story_uses": "适合「带走一件不属于自己的东西」：它有用，且不断提醒你把它带回去。",
+        "historical_scope": "架空故事里的设定文字，不映射任何真实丧葬或遗物习俗。",
+        "evidence_and_uncertainty": "重量与伤害为设计口径；本版无负重与损耗系统，数值仅供叙述与作者配置。"
+      },
+      "source_ids": [
+        "affix_src_spec",
+        "affix_src_rewards"
+      ],
+      "related_ids": [
+        "affix_hungry_blade",
+        "affix_cursed_brand"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "affix_iron_stomach_item",
+      "name": "草木不侵",
+      "aliases": [
+        "防腐裘",
+        "不霉不蛀"
+      ],
+      "tags": [
+        "kind:affix",
+        "tradition:western",
+        "affix:item",
+        "affix:boon",
+        "affix:grade:common",
+        "domain:craft"
+      ],
+      "genres": [
+        "western_fantasy",
+        "steampunk"
+      ],
+      "category": "item",
+      "primary": "affix",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": null,
+      "affix": {
+        "schema": "affix_fields_v1",
+        "applies_to": [
+          "item"
+        ],
+        "polarity": "boon",
+        "grade": "common",
+        "stacking": "stack",
+        "visibility": "public",
+        "item_mods": {
+          "durability_percent": 130,
+          "weight_percent": 95
+        },
+        "narrative": [
+          "虫子绕开它，霉斑绕着它长",
+          "比看上去轻，叠在身上不累"
+        ],
+        "note": "耐久 130%（+30）、重量 95%（更轻，+5）：两项均有利，偏移都在 common 的 30 内。"
+      },
+      "summary": "不腐不蛀的布料或皮甲词条：更耐久，也略厚重。它不防水、不防火，也不含任何附魔。",
+      "details": {
+        "definition": "指因材料处理或保存条件而在耐久上明显占优的日用物品词条。与「干燥、避光、通风」这类现实条件相容，因此常被当成理所当然。",
+        "mechanism": "给出耐久与重量的数值。若要在旅程里生效，作者应把同样数字写进 mechanics.rewards 的材质字段（durability_percent / weight_percent）。",
+        "conditions": "在潮湿、虫多、长期存放的环境里显效。被刀砍、被火烧时仍按常规损耗处理，本词条不减免。",
+        "exceptions": "不能推出它更值钱（价值是另一项）、不能推出它不脏，也不能推出穿它的人更耐打——那是角色词条的事。",
+        "story_uses": "适合「这件衣服传了三代」这类细节；也能做成意外的证物：只有它还完好。",
+        "historical_scope": "架空故事里的设计文字，不描述真实鞣制或染整工艺。",
+        "evidence_and_uncertainty": "数值量程对齐 app/rewards.py；不含超自然效力。"
+      },
+      "source_ids": [
+        "affix_src_spec",
+        "affix_src_rewards"
+      ],
+      "related_ids": [
+        "affix_oathbound_weapon",
+        "affix_iron_gut"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "affix_blighted",
+      "name": "锈蚀残破",
+      "aliases": [
+        "锈了",
+        "不堪用",
+        "残次"
+      ],
+      "tags": [
+        "kind:affix",
+        "tradition:western",
+        "affix:item",
+        "affix:bane",
+        "affix:grade:uncommon",
+        "domain:craft"
+      ],
+      "genres": [
+        "western_fantasy",
+        "dark_fantasy",
+        "steampunk"
+      ],
+      "category": "item",
+      "primary": "affix",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": null,
+      "affix": {
+        "schema": "affix_fields_v1",
+        "applies_to": [
+          "item"
+        ],
+        "polarity": "bane",
+        "grade": "uncommon",
+        "stacking": "stack",
+        "visibility": "public",
+        "item_mods": {
+          "damage": -2,
+          "durability_percent": 55,
+          "value_percent": 45
+        },
+        "narrative": [
+          "握柄开裂，用之前得先缠一圈布"
+        ],
+        "note": "耐久 55%（-45）、价值 45%（-55）：uncommon 的 60 偏移上限内；毁得太彻底就应直接判为不能用（世界规则），不靠词条。"
+      },
+      "summary": "锈蚀、开裂、不堪用的物品减益词条：伤害更低、更易损、几乎不值钱。它公开可见——用之前就该先掂量。",
+      "details": {
+        "definition": "指因锈蚀、开裂、缺件而性能下降的物品词条。它描述现状，不描述来历：可以是用了三十年，也可以是昨天从水里捞的。",
+        "mechanism": "下调伤害、耐久与价值。它不自动在检定中失败，也不隐藏——目视即可评估。",
+        "conditions": "在被实际使用时显效。摆着不用时只影响估价；维修或替换之后应当移除该词条，不要留着当永久标签。",
+        "exceptions": "不能推出它一定会在关键时刻断裂（那是世界规则与事件安排）、不能推出持有者穷或邋遢，也不能推出它不能再用——很多人一辈子在用这种刀。",
+        "story_uses": "适合作为「凑合用」的处境描写；也可能是线索：锈迹说明它经历过什么。",
+        "historical_scope": "架空故事里的设计文字，不描述真实腐蚀机理。",
+        "evidence_and_uncertainty": "数值口径对齐 app/rewards.py（本版耐久是静态值，没有损耗与修理系统）。"
+      },
+      "source_ids": [
+        "affix_src_spec",
+        "affix_src_rewards"
+      ],
+      "related_ids": [
+        "affix_edge_keened",
+        "affix_misfortune"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "affix_wicked_butterfly",
+      "name": "恶名之刃",
+      "aliases": [
+        "凶器",
+        "带血的名声",
+        "杀过人的刀"
+      ],
+      "tags": [
+        "kind:affix",
+        "tradition:western",
+        "affix:item",
+        "affix:mixed",
+        "affix:grade:uncommon",
+        "domain:craft"
+      ],
+      "genres": [
+        "dark_fantasy",
+        "western_fantasy"
+      ],
+      "category": "item",
+      "primary": "affix",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": null,
+      "affix": {
+        "schema": "affix_fields_v1",
+        "applies_to": [
+          "item"
+        ],
+        "polarity": "mixed",
+        "grade": "uncommon",
+        "stacking": "unique",
+        "visibility": "public",
+        "item_mods": {
+          "damage": 3,
+          "value_percent": 45
+        },
+        "narrative": [
+          "认得这把刀的人也认得它的主人做过什么",
+          "持它的人被默认是那件事的当事人"
+        ],
+        "note": "mixed：伤害 +3（好），价值 45%（坏，折价出手）。真正的负项在社会反应上，由剧情承担。"
+      },
+      "summary": "一件用过且被记住的物品词条：性能仍在，价钱大跌，且会替持有者讲述一段他没做过的事。",
+      "details": {
+        "definition": "指因为与某件事件关联而在评价上被改变的物品词条。它描述社会评价与流通性，不描述器物的物理性能变化。",
+        "mechanism": "小幅提高伤害、大幅下调价值（不好出手），并通过叙事把这件事带到持有者面前。它不生成追查或指控——那由世界与 NPC 决定。",
+        "conditions": "在认得它的地方与人群中显效。换个地区出手可能全无影响；抹去刻记、重新开刃也可能改变情形。",
+        "exceptions": "不能推出持有者就是凶手（买卖、继承、捡拾都很常见）、不能推出它被诅咒，也不能推出价格下降是因为质量差——它是「不好卖」，不是「不好用」。",
+        "story_uses": "适合被误认的角色：他必须反复解释自己不是那个人，而人们更愿意相信刀。",
+        "historical_scope": "架空故事里的设计文字，不描述任何真实物证或司法实践。",
+        "evidence_and_uncertainty": "数值为设计口径；社会后果由作者在世界里安排。"
+      },
+      "source_ids": [
+        "affix_src_spec",
+        "affix_src_rewards"
+      ],
+      "related_ids": [
+        "affix_notorious",
+        "affix_edge_keened"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "affix_hexed_relic",
+      "name": "诅咒之物",
+      "aliases": [
+        "邪物",
+        "带诅咒的器物"
+      ],
+      "tags": [
+        "kind:affix",
+        "tradition:western",
+        "affix:item",
+        "affix:mixed",
+        "affix:grade:rare",
+        "affix:hidden",
+        "domain:craft"
+      ],
+      "genres": [
+        "dark_fantasy"
+      ],
+      "category": "item",
+      "primary": "affix",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": "rare",
+      "affix": {
+        "schema": "affix_fields_v1",
+        "applies_to": [
+          "item"
+        ],
+        "polarity": "mixed",
+        "grade": "rare",
+        "stacking": "unique",
+        "visibility": "hidden",
+        "item_mods": {
+          "damage": -5,
+          "durability_percent": 70,
+          "value_percent": 220
+        },
+        "narrative": [
+          "收藏家愿出高价，但没人愿意把它放在家里过夜",
+          "带着它的人总在同一个地方摔倒"
+        ],
+        "note": "mixed：伤害 -5（坏）、耐久 70%（-30，坏）、价值 220%（+120，好，但属于「坏东西卖得贵」——见规范 §4 的百分比方向约定）。"
+      },
+      "summary": "不受欢迎却值钱的物品减益词条：不好用、不结实、声名可怖。懂得它来历的人会出高价收，同时不愿碰它。",
+      "details": {
+        "definition": "指带有负面评价与代价的物品词条。它描述物与人的关系，不描述里面住着什么——那需要世界规则另行声明。",
+        "mechanism": "下调伤害与耐久、抬高收藏价值，并通过叙事安排代价（梦、失手、被认出）。它不制造事件、不写死亡倒计时，也不改变任何角色属性。",
+        "conditions": "在世界里有这套禁忌、且有人认得出它时成立。无人认识它的边远地区，它只是一件不好用的旧东西。",
+        "exceptions": "不能推出它必然害人（代价多由故事承担）、不能推出持有者已被污染，也不能推出必须销毁——卖、埋、送回原处都是正当选择。",
+        "story_uses": "适合做「该不该出手」的道德与经济两难：钱来得快，麻烦也来得快。",
+        "historical_scope": "架空故事里的设定文字，不映射任何真实遗物、民俗禁忌或可操作的仪式。",
+        "evidence_and_uncertainty": "本项目原创设计；不含任何现实可操作做法。"
+      },
+      "source_ids": [
+        "affix_src_spec",
+        "affix_src_rewards"
+      ],
+      "related_ids": [
+        "affix_burden_of_the_fallen",
+        "affix_cursed_brand"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "affix_hungry_blade",
+      "name": "渴血之刃",
+      "aliases": [
+        "饮血",
+        "贪刀的刀"
+      ],
+      "tags": [
+        "kind:affix",
+        "tradition:western",
+        "affix:item",
+        "affix:mixed",
+        "affix:grade:rare",
+        "domain:craft"
+      ],
+      "genres": [
+        "dark_fantasy",
+        "western_fantasy"
+      ],
+      "category": "item",
+      "primary": "affix",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": "common",
+      "affix": {
+        "schema": "affix_fields_v1",
+        "applies_to": [
+          "item"
+        ],
+        "polarity": "mixed",
+        "grade": "rare",
+        "stacking": "unique",
+        "visibility": "public",
+        "item_mods": {
+          "damage": 9,
+          "durability_percent": 70,
+          "value_percent": 160
+        },
+        "narrative": [
+          "出鞘之后总比主人先动一下",
+          "不用它的时候它显得比平时钝"
+        ],
+        "note": "rare 级：伤害 +9（上限 10）、耐久 70%（-30，相对自身其实是「更脆」，但它比普通兵器仍占优——这里是本词条当下的绝对口径）、价值 160%。"
+      },
+      "summary": "锋利却脆的器物词条：伤害明显更高，但更经不住硬碰。它公开可见——用过的人都知道它双面。",
+      "details": {
+        "definition": "指在攻击性上被强化的物品词条，代价落在结构强度上。它描述物理性能的两难，不描述器物的意志。要写「它会诱惑人」，请在世界设定里另立条目。",
+        "mechanism": "给出伤害与耐久上的相反改动，并通过叙事表现「急于见血」的观感。它不产生额外行动、不强迫持有者出手。",
+        "conditions": "在正面交锋与劈砍硬物时最能体现两面性：打得狠，也容易崩口。用于轻击与日常携带时几乎无感。",
+        "exceptions": "不能推出持有者会变得嗜血（那是性格与选择）、不能推出它自动回血或自修，也不能推出它永不折断——恰恰相反。",
+        "story_uses": "适合「手感极好的破刀」：玩家要在好用与耐用之间做取舍，而不是拿一把纯升级。",
+        "historical_scope": "架空故事里的设计文字，不描述真实锻打与热处理。",
+        "evidence_and_uncertainty": "数值口径对齐 app/rewards.py；本版耐久为静态值，没有磨损与修理系统。"
+      },
+      "source_ids": [
+        "affix_src_spec",
+        "affix_src_rewards"
+      ],
+      "related_ids": [
+        "affix_edge_keened",
+        "affix_burden_of_the_fallen"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "affix_unsleeping_item",
+      "name": "警醒之物",
+      "aliases": [
+        "会响的铃",
+        "护身符",
+        "醒着的东西"
+      ],
+      "tags": [
+        "kind:affix",
+        "tradition:western",
+        "affix:item",
+        "affix:boon",
+        "affix:grade:rare",
+        "domain:craft"
+      ],
+      "genres": [
+        "western_fantasy",
+        "dark_fantasy",
+        "steampunk"
+      ],
+      "category": "item",
+      "primary": "affix",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": "rare",
+      "affix": {
+        "schema": "affix_fields_v1",
+        "applies_to": [
+          "item"
+        ],
+        "polarity": "boon",
+        "grade": "rare",
+        "stacking": "unique",
+        "visibility": "public",
+        "item_mods": {
+          "value_percent": 200,
+          "weight_percent": 95
+        },
+        "narrative": [
+          "睡下之后它会响一次，主人若没醒，它就再响",
+          "带上它的人夜里睡得浅"
+        ],
+        "note": "rare：价值 200%（+100）、重量 95%（更轻，+5）：两项均有利，偏移在 rare 的 120 内。铃铛其貌不扬，贵在有人肯出价。"
+      },
+      "summary": "夜间报信的随身物：有人靠近时会响，代价是持有者睡得浅。它不判断来意，也不阻止任何人。",
+      "details": {
+        "definition": "指被赋予简单警示效用的物品词条，典型是铃、护符、警觉的机关小件。它描述器物能做什么，不描述它有没有意识。",
+        "mechanism": "给出价值与重量的改动，并通过叙事实现「响一次」。作为警示，它只能把「有人来了」提前告诉在场者；是否能因此脱身，仍由玩家决定与判定决定。",
+        "conditions": "在持有者入睡或失去注意时才有意义。白天、嘈杂环境、被布料塞住时可能完全不起作用——这些限制应由作者在世界里写明。",
+        "exceptions": "不能推出它能分辨敌友、能定位方向、能让持有者不睡也能保持体力；也不能推出它一定响（世界可以安排它这次没响，那是一件大事）。",
+        "story_uses": "适合把夜袭提前一拍交到玩家手里，也适合写它的失灵：那一晚它没有响。",
+        "historical_scope": "架空故事里的设定文字，不描述真实报警装置或民俗护符做法。",
+        "evidence_and_uncertainty": "效力为设定性描述，无现实依据；使用须由作者接入故事包。"
+      },
+      "source_ids": [
+        "affix_src_spec",
+        "affix_src_rewards"
+      ],
+      "related_ids": [
+        "affix_weeping_armor",
+        "affix_edge_keened"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "affix_weeping_armor",
+      "name": "低语的甲",
+      "aliases": [
+        "会出声的甲",
+        "不安静的护具"
+      ],
+      "tags": [
+        "kind:affix",
+        "tradition:western",
+        "affix:item",
+        "affix:mixed",
+        "affix:grade:uncommon",
+        "affix:hidden",
+        "domain:craft"
+      ],
+      "genres": [
+        "dark_fantasy",
+        "western_fantasy"
+      ],
+      "category": "item",
+      "primary": "affix",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": "rare",
+      "affix": {
+        "schema": "affix_fields_v1",
+        "applies_to": [
+          "item"
+        ],
+        "polarity": "mixed",
+        "grade": "uncommon",
+        "stacking": "unique",
+        "visibility": "hidden",
+        "item_mods": {
+          "durability_percent": 150,
+          "weight_percent": 130,
+          "value_percent": 130
+        },
+        "narrative": [
+          "穿戴者说它在夜里小声说话，说得像某个熟人",
+          "同行的人宁愿离他远一点睡"
+        ],
+        "note": "mixed：耐久 150%（+50）、重量 130%（+30，坏）、价值 130%（+30，好）。可见性 hidden。"
+      },
+      "summary": "更结实也更沉、还会出声的护具词条：防护更好，但同行的人开始睡得离它远一点。",
+      "details": {
+        "definition": "指带有持续但无明确敌意现象的物品词条：它出声、引人不安，却不主动伤人。它描述现象，不解释成因——成因属于世界设定。",
+        "mechanism": "给出耐久、重量与价值的改动，并通过叙事安排「夜里说话」。它不进入玩家可见的数值估算（隐藏），也不改变任何角色属性或精神状态。",
+        "conditions": "在安静、独处或长时间佩戴时更明显。白天人多时几乎无人提起。",
+        "exceptions": "不能推出它会蛊惑穿戴者、不会推出它知道什么、也不能推出穿它的人会因此变坏；同行者的疏远是叙述与人际反应，不是词条的自动效果。",
+        "story_uses": "适合做队伍内部的裂痕：没有人能证明什么，但所有人都在挪位置。",
+        "historical_scope": "架空故事里的设定文字，不映射任何真实灵异信仰或做法。",
+        "evidence_and_uncertainty": "本项目原创设计；不含任何现实可操作内容。"
+      },
+      "source_ids": [
+        "affix_src_spec",
+        "affix_src_rewards"
+      ],
+      "related_ids": [
+        "affix_unsleeping_item",
+        "affix_burden_of_the_fallen"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "affix_panicked",
+      "name": "惊惶",
+      "aliases": [
+        "慌了神",
+        "心乱"
+      ],
+      "tags": [
+        "kind:affix",
+        "tradition:western",
+        "affix:character",
+        "affix:bane",
+        "affix:grade:common",
+        "affix:attr:wisdom",
+        "affix:attr:social",
+        "domain:mind"
+      ],
+      "genres": [
+        "western_fantasy",
+        "dark_fantasy",
+        "steampunk"
+      ],
+      "category": "conflict",
+      "primary": "affix",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": null,
+      "affix": {
+        "schema": "affix_fields_v1",
+        "applies_to": [
+          "character"
+        ],
+        "polarity": "bane",
+        "grade": "common",
+        "stacking": "unique",
+        "visibility": "public",
+        "attribute_mods": {
+          "wisdom": -3,
+          "social": -2
+        },
+        "note": "临时性词条：短时情绪走 development.emotion（见 app/development.py），本条只用于「持续一段时间的惊惶期」；二选一，离场即删。"
+      },
+      "summary": "被惊吓或长期不安时挂上的减益词条：判断与措辞都更差。它是临时状态——解除时应直接移除，不要长期留着。",
+      "details": {
+        "definition": "指一段时期内维持的不安状态词条，表现为反复确认、说话变短、听不进解释。它描述当下的状态，不描述性格。",
+        "mechanism": "小幅下调智慧与社交，作用于应急判断与交涉检定。它不产生幻觉、不改写已知信息，也不让角色必然逃跑——逃跑仍由玩家与 NPC 的决定产生。",
+        "conditions": "在受惊、长时间高压、目睹惨状之后成立；随着时间、休息或他人安抚应当由作者移除。本项目的临时情绪机制另有一套（development.emotion + 到期回合），本条用于更长的段落。",
+        "exceptions": "不能推出他胆小、不能推出他说谎、更不能推出他不可信；也不能推出他会丧失行动能力——惊惶的人往往跑得比谁都快。",
+        "story_uses": "适合在事故之后写一段「谁都没说话」的场面；也给玩家一个可以安抚、也可以利用的对象。",
+        "historical_scope": "架空故事里的设计文字，不做心理学或医学断言。",
+        "evidence_and_uncertainty": "无测量、无样本；不与任何临床概念对应。"
+      },
+      "source_ids": [
+        "affix_src_spec",
+        "affix_src_attributes",
+        "affix_src_traits"
+      ],
+      "related_ids": [
+        "affix_calm",
+        "affix_dulled_senses"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "affix_coward",
+      "name": "惜身",
+      "aliases": [
+        "怕死",
+        "先保自己"
+      ],
+      "tags": [
+        "kind:affix",
+        "tradition:western",
+        "affix:character",
+        "affix:mixed",
+        "affix:grade:uncommon",
+        "affix:attr:agility",
+        "affix:attr:social",
+        "domain:body"
+      ],
+      "genres": [
+        "western_fantasy",
+        "dark_fantasy",
+        "steampunk"
+      ],
+      "category": "conflict",
+      "primary": "affix",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": null,
+      "affix": {
+        "schema": "affix_fields_v1",
+        "applies_to": [
+          "character"
+        ],
+        "polarity": "mixed",
+        "grade": "uncommon",
+        "stacking": "unique",
+        "visibility": "public",
+        "attribute_mods": {
+          "agility": 6,
+          "social": -5
+        },
+        "narrative": [
+          "跑得比谁都快，事后也没有人愿意再叫他一起"
+        ],
+        "note": "public：旁人看得出他优先保自己（跑得比谁都快），所以社交下降是可观察的；是选择还是本能仍然只能猜。"
+      },
+      "summary": "先保自己的本能被强化的词条：躲、撤、脱身更快，别人也更早放弃指望他。旁人看得出他优先保自己，但那是选择还是本能仍然只能猜。",
+      "details": {
+        "definition": "指在危险面前优先保全自身的一类词条。它描述处置顺序，不描述道德：判断与自保速度提升，社会评价下降。",
+        "mechanism": "给敏捷加值、给社交负值，并通过叙事影响他人对他的期待。它不禁止角色做出勇敢的选择——恰恰相反，这个设定最有意思的地方是「他明明怕，还是回去了」。",
+        "conditions": "在突发危险、需要即时撤离时显效。平日里几乎不影响任何事，也不影响他在乎的人。",
+        "exceptions": "绝不能推出他人品差、会出卖同伴、不会救人；也不能推出他必然逃跑——词条改的是速度与社会预期，不是决定。隐藏词条不得由引擎替角色下结论。",
+        "story_uses": "适合「被贴上标签的人」：所有人提前认定他会跑，于是那一晚他没有跑的时候，谁也没看见。",
+        "historical_scope": "架空故事里的设计文字，不做道德评价，也不与任何真实心理概念对应。",
+        "evidence_and_uncertainty": "无测量、无样本；不构成任何人格判断。"
+      },
+      "source_ids": [
+        "affix_src_spec",
+        "affix_src_attributes",
+        "affix_src_traits"
+      ],
+      "related_ids": [
+        "affix_iron_will",
+        "affix_panicked"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "affix_mutism",
+      "name": "失声",
+      "aliases": [
+        "说不出话",
+        "哑了"
+      ],
+      "tags": [
+        "kind:affix",
+        "tradition:western",
+        "affix:character",
+        "affix:bane",
+        "affix:grade:rare",
+        "affix:attr:social",
+        "domain:social"
+      ],
+      "genres": [
+        "western_fantasy",
+        "dark_fantasy"
+      ],
+      "category": "conflict",
+      "primary": "affix",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": "rare",
+      "affix": {
+        "schema": "affix_fields_v1",
+        "applies_to": [
+          "character"
+        ],
+        "polarity": "bane",
+        "grade": "rare",
+        "stacking": "unique",
+        "visibility": "public",
+        "attribute_mods": {
+          "social": -12
+        },
+        "narrative": [
+          "写得一手好字，前提是身边有纸和认得字的人",
+          "在夜里没人看得见他的手"
+        ],
+        "note": "不封死社交：谈判仍可用书写、手势、第三人代言，所以只给 -12，而不写成「社交检定不可进行」。"
+      },
+      "summary": "无法出声的词条：交涉、求援与当众陈词都受限，写字与手势可以部分替代。它是公开的，也是可以被误解的。",
+      "details": {
+        "definition": "指发声能力受损的一类减益词条，成因可以是天生的、外伤的、也可以是誓约或诅咒。它描述能力限制，不描述智力或听力。",
+        "mechanism": "大幅下调社交，作用于口头交涉类检定。它不禁止玩家用别的途径推进：书写、示意、旁人代言都应由世界按其条件裁定。",
+        "conditions": "在任何依赖出声的场合显效：呼救、当众陈词、喊停、念咒。纸笔齐备、有懂手语的人时影响显著缩小。",
+        "exceptions": "不能推出他听不见、不会思考、不识字；也不能推出他无用——能读会写的人常常是最合适的传信者与记录者。",
+        "story_uses": "适合把玩家的表达能力变成资源问题：想说话，先找纸、找见证人、找一个愿意代传的人。",
+        "historical_scope": "架空故事里的设计文字，不指向任何真实病症或人群，也不构成医学描述。",
+        "evidence_and_uncertainty": "无测量、无样本；不描述成因机制，不提供任何治愈手段。"
+      },
+      "source_ids": [
+        "affix_src_spec",
+        "affix_src_attributes"
+      ],
+      "related_ids": [
+        "affix_dulled_senses",
+        "affix_marked"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "affix_blind",
+      "name": "目盲",
+      "aliases": [
+        "瞎了",
+        "看不见"
+      ],
+      "tags": [
+        "kind:affix",
+        "tradition:western",
+        "affix:character",
+        "affix:bane",
+        "affix:grade:rare",
+        "affix:attr:wisdom",
+        "domain:body"
+      ],
+      "genres": [
+        "western_fantasy",
+        "dark_fantasy"
+      ],
+      "category": "conflict",
+      "primary": "affix",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": "rare",
+      "affix": {
+        "schema": "affix_fields_v1",
+        "applies_to": [
+          "character"
+        ],
+        "polarity": "bane",
+        "grade": "rare",
+        "stacking": "unique",
+        "visibility": "public",
+        "attribute_mods": {
+          "wisdom": -8
+        },
+        "narrative": [
+          "耳朵与手指补上了一些位置",
+          "识路靠记，读字靠别人"
+        ],
+        "note": "rare 级：只写减项——智慧 -8（视觉类线索吃亏）。若世界要给正向补偿（如听觉更利），应在世界设定里另立条目，不要默认它自带。"
+      },
+      "summary": "失去视觉的词条：看得见的线索多半拿不到，识路、读字、认人全要靠别的办法。它是公开的。",
+      "details": {
+        "definition": "指视觉缺失的一类减益词条。它描述能力受限，不描述人格，也不解释成因；成因属世界设定与角色背景。",
+        "mechanism": "下调智慧（视觉类侦查与线索发现吃亏），并把「能看见」的前提交给世界去判定：需要看见的门、字、手势、旗号，都应当由作者写明替代途径。",
+        "conditions": "在任何依赖视觉的场合显效。熟悉的环境与同伴的引导能显著缩小影响：这是世界与玩家可以主动利用的空间。",
+        "exceptions": "不能推出他不能冒险、不能担当、不能带路（熟人熟路完全可以）；也不能推出他因此听觉异常发达——若世界要这么设定，请显式写成另一条词条，不要默认。",
+        "story_uses": "适合把「看到的线索」换成「听来的线索」：同一件事，队伍里只有一个人无法确认。",
+        "historical_scope": "架空故事里的设计文字，不指向任何真实病症或人群。",
+        "evidence_and_uncertainty": "无测量、无样本；不使用任何真实医学分类或描述。"
+      },
+      "source_ids": [
+        "affix_src_spec",
+        "affix_src_attributes"
+      ],
+      "related_ids": [
+        "affix_keen_eye",
+        "affix_dulled_senses"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "affix_worldly_wise",
+      "name": "见多识广",
+      "aliases": [
+        "走过很多地方",
+        "老江湖"
+      ],
+      "tags": [
+        "kind:affix",
+        "tradition:western",
+        "affix:character",
+        "affix:boon",
+        "affix:grade:common",
+        "affix:attr:wisdom",
+        "affix:attr:social",
+        "domain:social"
+      ],
+      "genres": [
+        "western_fantasy",
+        "steampunk",
+        "dark_fantasy"
+      ],
+      "category": "power",
+      "primary": "affix",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": null,
+      "affix": {
+        "schema": "affix_fields_v1",
+        "applies_to": [
+          "character"
+        ],
+        "polarity": "boon",
+        "grade": "common",
+        "stacking": "unique",
+        "visibility": "public",
+        "attribute_mods": {
+          "wisdom": 3,
+          "social": 3
+        },
+        "narrative": [
+          "知道哪个港口的秤不准",
+          "不轻易被「这是规矩」唬住"
+        ],
+        "note": "通用词条：既给判断也给场面，合计 6。它不生成具体知识，只提高用得上的把握。"
+      },
+      "summary": "经历较多带来的通用词条：判断与场面都稍占优。它不给具体情报，也不能替代真正去过。",
+      "details": {
+        "definition": "指因长期行旅与阅历而在判断与应酬上更从容的一类词条。它描述积累带来的余量，不描述见闻的具体内容。",
+        "mechanism": "小幅同时给智慧与社交。它不生成事实或门路：角色不知道的路线、人不认识的门房，仍要由世界安排他接触到。若要表达他确实知道某地，请写进角色的已知信息与背景。",
+        "conditions": "在打交道的场合显效：问路、估价、识破明显的话术、在陌生地方找到合适的人。对完全陌生的领域则无用——他没去过的地方就是没去过。",
+        "exceptions": "不能推出他比本地人更懂本地（这是常见的剧情错误）、不能推出他必然受尊敬，也不能推出他不被骗：走得多的人也有被骗得很惨的。",
+        "story_uses": "适合做队伍里的翻译与打点人；也适合被本地人反过来教育一次。",
+        "historical_scope": "架空故事里的设计文字，不做社会史或旅行史断言。",
+        "evidence_and_uncertainty": "无测量、无样本；数值为设计口径。"
+      },
+      "source_ids": [
+        "affix_src_spec",
+        "affix_src_attributes"
+      ],
+      "related_ids": [
+        "affix_quick_study",
+        "affix_silver_tongue"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "affix_ill_favored",
+      "name": "人缘不佳",
+      "aliases": [
+        "不受待见",
+        "惹人嫌"
+      ],
+      "tags": [
+        "kind:affix",
+        "tradition:western",
+        "affix:character",
+        "affix:bane",
+        "affix:grade:common",
+        "affix:attr:social",
+        "domain:social"
+      ],
+      "genres": [
+        "western_fantasy",
+        "steampunk",
+        "dark_fantasy"
+      ],
+      "category": "conflict",
+      "primary": "affix",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": null,
+      "affix": {
+        "schema": "affix_fields_v1",
+        "applies_to": [
+          "character"
+        ],
+        "polarity": "bane",
+        "grade": "common",
+        "stacking": "unique",
+        "visibility": "public",
+        "attribute_mods": {
+          "social": -5
+        },
+        "narrative": [
+          "说话总差一点分寸，说完自己也知道"
+        ],
+        "note": "只减社交，不减智慧；也不是「被所有人讨厌」——具体关系仍由世界与角色卡承载。"
+      },
+      "summary": "初始好感被压低的通用词条：问路、赊账、求宿都更难开口。它不是「全世界都恨他」。",
+      "details": {
+        "definition": "指在初次交往中更容易被冷落或误解的一类减益词条。它描述初始门槛，不描述既有关系。",
+        "mechanism": "给社交一个负值，抬高人际类检定的难度基线。它不改写已有关系与角色已知信息：老朋友仍然是老朋友。",
+        "conditions": "在与陌生人打交道时最明显。熟识之后影响迅速变小——据此可以鼓励玩家花时间建立关系。",
+        "exceptions": "不能推出他心术不正、不能推出同伴会背弃他，也不能推出他做不成交易：价钱够好，多数人还是会卖。",
+        "story_uses": "适合把「找个人带路」变成一段需要经营的过程；也适合与「声名在外」形成反差：没人喜欢他，但都怕他。",
+        "historical_scope": "架空故事里的设计文字，不做人际或社会评价断言。",
+        "evidence_and_uncertainty": "无测量、无样本；不构成对任何真实个体的评价。"
+      },
+      "source_ids": [
+        "affix_src_spec",
+        "affix_src_attributes"
+      ],
+      "related_ids": [
+        "affix_misfortune",
+        "affix_notorious"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "affix_steady_channel",
+      "name": "灵慧",
+      "aliases": [
+        "天赋稳",
+        "感应好"
+      ],
+      "tags": [
+        "kind:affix",
+        "tradition:western",
+        "domain:mind",
+        "affix:character",
+        "affix:boon",
+        "affix:grade:common",
+        "affix:attr:talent"
+      ],
+      "genres": [
+        "western_fantasy",
+        "eastern_fantasy",
+        "xianxia"
+      ],
+      "category": "power",
+      "primary": "affix",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": "common",
+      "affix": {
+        "schema": "affix_fields_v1",
+        "applies_to": [
+          "character"
+        ],
+        "polarity": "boon",
+        "grade": "common",
+        "stacking": "unique",
+        "visibility": "public",
+        "attribute_mods": {
+          "talent": 5
+        },
+        "narrative": [
+          "已学过的引导不容易中途散掉"
+        ],
+        "note": "只加天赋。不授予新法术；无魔法世界里这条没有可引导的对象。"
+      },
+      "summary": "显示名是灵慧。已学会的能量引导更稳，不给人新的法术，也没有魔法的世界里不会凭空生出灵力。",
+      "details": {
+        "definition": "指已经掌握的感应与引导更不容易中断的一类增益。它描述操作的稳定，不描述天赋的来源，也不描述性格。",
+        "mechanism": "给 talent 一个加值，只提高作者声明为天赋检定的那些行动的成功率。它不改已知法术清单，不生成新动作。",
+        "conditions": "世界允许能量引导，且角色已经学过要引导的东西。没有可引导对象时，加值无处落。",
+        "exceptions": "不能推出他会新法术、能看见别人的心思，或在禁魔之地仍能施法。高天赋仍然不自动授予法术。",
+        "story_uses": "适合把「练过的那一手」和「从没学过的那一手」分开。",
+        "historical_scope": "架空故事里的设计文字，不对应任何修行传统的实测。",
+        "evidence_and_uncertainty": "本项目原创。数值是设计起点，不是平衡实测。"
+      },
+      "source_ids": [
+        "affix_src_spec",
+        "affix_src_attributes"
+      ],
+      "related_ids": [
+        "affix_divine_favor",
+        "affix_thin_channel"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "affix_thin_channel",
+      "name": "愚笨",
+      "aliases": [
+        "天赋差",
+        "感应差"
+      ],
+      "tags": [
+        "kind:affix",
+        "tradition:western",
+        "domain:mind",
+        "affix:character",
+        "affix:bane",
+        "affix:grade:common",
+        "affix:attr:talent"
+      ],
+      "genres": [
+        "western_fantasy",
+        "eastern_fantasy",
+        "xianxia"
+      ],
+      "category": "conflict",
+      "primary": "affix",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": "common",
+      "affix": {
+        "schema": "affix_fields_v1",
+        "applies_to": [
+          "character"
+        ],
+        "polarity": "bane",
+        "grade": "common",
+        "stacking": "unique",
+        "visibility": "public",
+        "attribute_mods": {
+          "talent": -5
+        },
+        "narrative": [
+          "导到一半就散，旁人看得到手势停住"
+        ],
+        "note": "显示名是愚笨，数值仍只扣天赋。迟钝扣智慧，笨拙扣敏捷。"
+      },
+      "summary": "天赋检定更差的减益，显示名是愚笨。判断、认路和手脚利索不靠这条。",
+      "details": {
+        "definition": "指能量感应与引导更差的一类减益。显示名用愚笨，数值只动天赋，不把人写成智力低下。",
+        "mechanism": "给 talent 一个负值，只压低天赋检定。智慧、社交与身体检定不改。",
+        "conditions": "在需要感应或引导的行动上显效。纯体力、纯口舌的场合无感。",
+        "exceptions": "不能推出他判断变差（那是迟钝），不能推出他手脚不利索（那是笨拙），也不能推出他没有学过。",
+        "story_uses": "适合「学过，但今天导不稳」；解除条件由作者写，本条不自动消退。",
+        "historical_scope": "架空故事里的设计文字。",
+        "evidence_and_uncertainty": "本项目原创。与迟钝、目盲是不同的轴。"
+      },
+      "source_ids": [
+        "affix_src_spec",
+        "affix_src_attributes"
+      ],
+      "related_ids": [
+        "affix_steady_channel",
+        "affix_dulled_senses"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "affix_overdrawn",
+      "name": "灵力透支",
+      "aliases": [
+        "引动过深",
+        "透支引导",
+        "灵力反噬的边缘"
+      ],
+      "tags": [
+        "kind:affix",
+        "tradition:western",
+        "domain:mind",
+        "affix:character",
+        "affix:mixed",
+        "affix:grade:uncommon",
+        "affix:attr:resilience",
+        "affix:attr:talent"
+      ],
+      "genres": [
+        "western_fantasy",
+        "eastern_fantasy",
+        "xianxia",
+        "dark_fantasy"
+      ],
+      "category": "power",
+      "primary": "affix",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": "rare",
+      "affix": {
+        "schema": "affix_fields_v1",
+        "applies_to": [
+          "character"
+        ],
+        "polarity": "mixed",
+        "grade": "uncommon",
+        "stacking": "unique",
+        "visibility": "public",
+        "attribute_mods": {
+          "talent": 8,
+          "resilience": -5
+        },
+        "narrative": [
+          "引导更顺，事后人先软下来"
+        ],
+        "note": "代价在韧性，不在社交。邪神眷顾是稀有且扣社交；诅咒烙印另扣血。"
+      },
+      "summary": "引导更深、身体更吃不消的词条。它不改名声，也不直接扣最大生命。",
+      "details": {
+        "definition": "指以身体承受换取更强引导的一类有得有失。它不是神恩，也不是诅咒。",
+        "mechanism": "天赋提高，韧性下降。血量只随韧性公式减少，本条不再另写 hp_mod。不生成法术，不安排反噬事件。",
+        "conditions": "世界允许能量引导时，天赋加值才有检定可落。韧性下降在赶路、负伤、缺眠时照常生效。",
+        "exceptions": "不能推出他被邪神盯上、不能推出旁人因此疏远他，也不能推出他每次引导都会受伤——那要另写事件。",
+        "story_uses": "适合「还能不能再导一次」的选择，而不是身份污点。",
+        "historical_scope": "架空故事里的设计文字。",
+        "evidence_and_uncertainty": "本项目原创。与 affix_abyssal_gaze、affix_cursed_brand 的代价不同。"
+      },
+      "source_ids": [
+        "affix_src_spec",
+        "affix_src_attributes"
+      ],
+      "related_ids": [
+        "affix_abyssal_gaze",
+        "affix_cursed_brand",
+        "affix_steady_channel"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "affix_steady_hands",
+      "name": "手稳",
+      "aliases": [
+        "稳手",
+        "细活干净"
+      ],
+      "tags": [
+        "kind:affix",
+        "tradition:western",
+        "domain:body",
+        "affix:character",
+        "affix:boon",
+        "affix:grade:common",
+        "affix:attr:agility"
+      ],
+      "genres": [
+        "western_fantasy",
+        "steampunk",
+        "historical"
+      ],
+      "category": "power",
+      "primary": "affix",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": null,
+      "affix": {
+        "schema": "affix_fields_v1",
+        "applies_to": [
+          "character"
+        ],
+        "polarity": "boon",
+        "grade": "common",
+        "stacking": "unique",
+        "visibility": "public",
+        "attribute_mods": {
+          "agility": 4
+        },
+        "narrative": [
+          "倒液、打结、上药时手不抖"
+        ],
+        "note": "只描述精细动作。迅捷是速度与闪避，数值更高，不是这一条。"
+      },
+      "summary": "精细动作更稳的词条：包扎、开锁、倒液、修小件。它不使人跑得更快。",
+      "details": {
+        "definition": "指手指与小幅度平衡更可靠的一类增益。它不是身法，也不是力气。",
+        "mechanism": "给 agility 一个小加值。作者若要把检定分成「细活」和「奔走」，应在动作上声明；本条不会自动只在细活上生效。",
+        "conditions": "在控制手指与近处平衡的场合最说得通。长距离追逐仍主要看作者怎么写那次检定。",
+        "exceptions": "不能推出他闪避出色、不能推出他力气大，也不能推出他一定打得开那把锁——锁和工具仍要另有。",
+        "story_uses": "适合工匠、医官、贼的手法差别，而不是追击戏。",
+        "historical_scope": "架空故事里的设计文字。",
+        "evidence_and_uncertainty": "本项目原创。与迅捷、笨拙同轴，幅度与用途不同。"
+      },
+      "source_ids": [
+        "affix_src_spec",
+        "affix_src_attributes"
+      ],
+      "related_ids": [
+        "affix_swift",
+        "affix_clumsy"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "affix_brute_force",
+      "name": "力大无巧",
+      "aliases": [
+        "有劲没手法",
+        "抡得开、收不住"
+      ],
+      "tags": [
+        "kind:affix",
+        "tradition:western",
+        "domain:body",
+        "affix:character",
+        "affix:mixed",
+        "affix:grade:uncommon",
+        "affix:attr:agility",
+        "affix:attr:strength"
+      ],
+      "genres": [
+        "western_fantasy",
+        "steampunk",
+        "historical"
+      ],
+      "category": "power",
+      "primary": "affix",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": null,
+      "affix": {
+        "schema": "affix_fields_v1",
+        "applies_to": [
+          "character"
+        ],
+        "polarity": "mixed",
+        "grade": "uncommon",
+        "stacking": "unique",
+        "visibility": "public",
+        "attribute_mods": {
+          "strength": 8,
+          "agility": -5
+        },
+        "narrative": [
+          "搬得动，细活容易过劲"
+        ],
+        "note": "虚弱是力量、敏捷、韧性一起降。这条用手法换力气。"
+      },
+      "summary": "力气明显更大、精细动作更差的词条。韧性与生命不因此变化。",
+      "details": {
+        "definition": "指力量与手法不对等的一类有得有失。它不描述是否粗鲁，只描述检定上的倾斜。",
+        "mechanism": "提高 strength，降低 agility。不改 resilience，不改 hp_mod。",
+        "conditions": "搬、抬、破门一类占便宜；开锁、潜行、包扎一类吃亏。站着交谈无感。",
+        "exceptions": "不能推出他伤不起，也不能推出他一定砸坏东西——那仍要掷骰和场景。",
+        "story_uses": "适合「请他抬，别请他修」的分工。",
+        "historical_scope": "架空故事里的设计文字。",
+        "evidence_and_uncertainty": "本项目原创。"
+      },
+      "source_ids": [
+        "affix_src_spec",
+        "affix_src_attributes"
+      ],
+      "related_ids": [
+        "affix_strong",
+        "affix_frail",
+        "affix_clumsy"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "affix_path_sense",
+      "name": "识途",
+      "aliases": [
+        "认得路",
+        "能估路程"
+      ],
+      "tags": [
+        "kind:affix",
+        "tradition:western",
+        "domain:mind",
+        "affix:character",
+        "affix:boon",
+        "affix:grade:common",
+        "affix:attr:wisdom"
+      ],
+      "genres": [
+        "western_fantasy",
+        "historical",
+        "steampunk"
+      ],
+      "category": "power",
+      "primary": "affix",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": null,
+      "affix": {
+        "schema": "affix_fields_v1",
+        "applies_to": [
+          "character"
+        ],
+        "polarity": "boon",
+        "grade": "common",
+        "stacking": "unique",
+        "visibility": "public",
+        "attribute_mods": {
+          "wisdom": 4
+        },
+        "narrative": [
+          "看日头和路口，能说出还要走多久"
+        ],
+        "note": "检定加值。行为特质「路在脑子里」仍不带数字，两者不要并成一条。"
+      },
+      "summary": "认路与估计路程更有把握的词条。它不提供地图上还没揭示的地点。",
+      "details": {
+        "definition": "指根据已见的路、天色和地形估计方向与耗时的一类增益。它是检定余量，不是一段记忆清单。",
+        "mechanism": "给 wisdom 一个加值。具体知道哪条路，仍靠角色已知信息与地图揭示；本条不写入新地点。",
+        "conditions": "在已有线索的赶路、辨向、估计到达时间时说得通。完全没有参照时，加值不能变出一条路。",
+        "exceptions": "不能推出他去过所有地方，不能推出迷雾下的地形对他可见，也不能代替特质分区里的行为习惯。",
+        "story_uses": "适合旅行日的「今天能不能赶到」。",
+        "historical_scope": "架空故事里的设计文字。",
+        "evidence_and_uncertainty": "本项目原创。锐目偏察觉，过目成诵偏记诵，这条偏路程判断。"
+      },
+      "source_ids": [
+        "affix_src_spec",
+        "affix_src_attributes"
+      ],
+      "related_ids": [
+        "affix_keen_eye",
+        "affix_worldly_wise"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "affix_hears_the_room",
+      "name": "善听",
+      "aliases": [
+        "听得进",
+        "听得懂场面",
+        "接得住话"
+      ],
+      "tags": [
+        "kind:affix",
+        "tradition:western",
+        "domain:social",
+        "affix:character",
+        "affix:boon",
+        "affix:grade:common",
+        "affix:attr:social",
+        "affix:attr:wisdom"
+      ],
+      "genres": [
+        "western_fantasy",
+        "steampunk",
+        "historical"
+      ],
+      "category": "power",
+      "primary": "affix",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": null,
+      "affix": {
+        "schema": "affix_fields_v1",
+        "applies_to": [
+          "character"
+        ],
+        "polarity": "boon",
+        "grade": "common",
+        "stacking": "unique",
+        "visibility": "public",
+        "attribute_mods": {
+          "wisdom": 2,
+          "social": 4
+        },
+        "narrative": [
+          "先听完对方要什么，再决定自己怎么说"
+        ],
+        "note": "见多识广是智慧+3、社交+3，偏阅历。这条社交+4、智慧+2，偏听场面。"
+      },
+      "summary": "听得懂对方立场的词条。它不提高口才，也不等于走过很多地方。",
+      "details": {
+        "definition": "指在交谈里先听清要求与让步空间的一类增益。它描述接收，不描述辞令。",
+        "mechanism": "社交加得多、智慧加得少。不生成情报，不改关系数值。巧舌仍是另一条，数值更高，管的是说。",
+        "conditions": "在谈判、问话、听出言外之意时说得通。独自赶路时几乎无感。",
+        "exceptions": "不能推出他说得动人，不能推出他知道对方的秘密，也不能推出对方因此信任他。",
+        "story_uses": "适合调停与问话，不适合演讲。",
+        "historical_scope": "架空故事里的设计文字。",
+        "evidence_and_uncertainty": "本项目原创。与见多识广的点数故意错开，避免两条完全相同。"
+      },
+      "source_ids": [
+        "affix_src_spec",
+        "affix_src_attributes"
+      ],
+      "related_ids": [
+        "affix_silver_tongue",
+        "affix_worldly_wise"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "affix_fated_frame",
+      "name": "天命所钟",
+      "aliases": [
+        "天命在身",
+        "被命运留住的身体"
+      ],
+      "tags": [
+        "kind:affix",
+        "tradition:western",
+        "domain:fate",
+        "affix:character",
+        "affix:boon",
+        "affix:grade:legendary",
+        "affix:attr:resilience",
+        "affix:attr:strength",
+        "affix:hp"
+      ],
+      "genres": [
+        "western_fantasy",
+        "eastern_fantasy"
+      ],
+      "category": "life",
+      "primary": "affix",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": "rare",
+      "affix": {
+        "schema": "affix_fields_v1",
+        "applies_to": [
+          "character"
+        ],
+        "polarity": "boon",
+        "grade": "legendary",
+        "stacking": "unique",
+        "visibility": "public",
+        "attribute_mods": {
+          "strength": 8,
+          "resilience": 10
+        },
+        "narrative": [
+          "伤得再重，人还站着，旁人说得出这不像寻常体格"
+        ],
+        "note": "刻意叠加：韧性 +10 已抬血量公式，另加公式外 +24。比只加韧性更厚，作者接受这一档差。与巨人血脉未互斥，可以并存。",
+        "hp_mod": 24
+      },
+      "summary": "身体被放在传说尺度上的词条：力量、韧性与公式外生命都高。它不指定天命的内容。",
+      "details": {
+        "definition": "指体格强到让旁人要给一个说法的一类增益。说法可以是血统、神意或灾星，本条不选定哪一种。",
+        "mechanism": "力量 +8，韧性 +10，另加公式外生命 +24。血量公式本身仍是 50+2×韧性。不生成预言，不安排追杀。",
+        "conditions": "挂上之后公开可见。作者若要它和巨人血脉互斥，须另改旧条的互斥组；本条自己只是 unique。",
+        "exceptions": "不能推出他不死、不能推出他有权统治，也不能推出伤病与疲劳规则因此失效。",
+        "story_uses": "适合一整段故事围绕「这具身体为什么这样」展开，不适合当普通雇工的底子。",
+        "historical_scope": "架空故事里的设计文字。",
+        "evidence_and_uncertainty": "本项目原创。幅度用传说档上限之内的数，不是平衡结论。"
+      },
+      "source_ids": [
+        "affix_src_spec",
+        "affix_src_attributes"
+      ],
+      "related_ids": [
+        "affix_giant_blood",
+        "affix_tough"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "affix_well_balanced_tool",
+      "name": "趁手",
+      "aliases": [
+        "配重顺",
+        "用着顺手"
+      ],
+      "tags": [
+        "kind:affix",
+        "tradition:western",
+        "domain:craft",
+        "affix:item",
+        "affix:boon",
+        "affix:grade:common"
+      ],
+      "genres": [
+        "western_fantasy",
+        "steampunk",
+        "historical"
+      ],
+      "category": "item",
+      "primary": "affix",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": null,
+      "affix": {
+        "schema": "affix_fields_v1",
+        "applies_to": [
+          "item"
+        ],
+        "polarity": "boon",
+        "grade": "common",
+        "stacking": "unique",
+        "visibility": "public",
+        "item_mods": {
+          "durability_percent": 120,
+          "weight_percent": 90
+        },
+        "narrative": [
+          "握惯之后不容易滑手"
+        ],
+        "note": "工具、绳索、容器。不写伤害。草木不侵是防蛀，不是配重。"
+      },
+      "summary": "做工让器物更耐用、也略轻的词条。它不含刃口，也不含魔力。",
+      "details": {
+        "definition": "指配重与握持合适的日用器物词条。对象是工具和装具，不是兵器的锋利。",
+        "mechanism": "耐久 120%，重量 90%。没有 damage。要在旅程里生效，作者须把同样的数字写入奖励配置的材质字段。",
+        "conditions": "器物完好时成立。断裂、缺零件后作者应移除或改写。",
+        "exceptions": "不能推出它更贵、不能推出它砍得动人，也不能推出使用者手法变好——那是人物词条。",
+        "story_uses": "适合旅人自己的锤、钳、壶，而不是宝库里的剑。",
+        "historical_scope": "架空故事里的设计文字，不描述真实度量衡。",
+        "evidence_and_uncertainty": "数值对齐 rewards 的耐久与重量百分比。本条不自动进奖励配置。"
+      },
+      "source_ids": [
+        "affix_src_spec",
+        "affix_src_rewards"
+      ],
+      "related_ids": [
+        "affix_iron_stomach_item",
+        "affix_edge_keened"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "affix_dulled_edge",
+      "name": "卷刃",
+      "aliases": [
+        "刃口钝了",
+        "缺口"
+      ],
+      "tags": [
+        "kind:affix",
+        "tradition:western",
+        "domain:craft",
+        "affix:item",
+        "affix:bane",
+        "affix:grade:common"
+      ],
+      "genres": [
+        "western_fantasy",
+        "steampunk",
+        "historical"
+      ],
+      "category": "item",
+      "primary": "affix",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": null,
+      "affix": {
+        "schema": "affix_fields_v1",
+        "applies_to": [
+          "item"
+        ],
+        "polarity": "bane",
+        "grade": "common",
+        "stacking": "unique",
+        "visibility": "public",
+        "item_mods": {
+          "damage": -2,
+          "durability_percent": 80
+        },
+        "narrative": [
+          "刃面有缺口，照不出完整的影子"
+        ],
+        "note": "开刃如镜的反面，只用于有刃口的器物。伤害 -2，耐久 80%。"
+      },
+      "summary": "刃口卷了、器物也更不经用的减益。磨回去之后作者应撤下这条。",
+      "details": {
+        "definition": "指刃口损伤带来的物品减益。它是损耗状态，不是诅咒。",
+        "mechanism": "伤害 -2，耐久 80%。不改重量与价值。生效仍要作者抄进奖励配置。",
+        "conditions": "只解释有刃口或同等「锋」的器物。锤子、绳子不要挂这条。",
+        "exceptions": "不能推出它不值钱到没人要，也不能推出持有者打架一定输。修好就不应继续留着。",
+        "story_uses": "适合维护与「这把刀今天不能倚仗」。",
+        "historical_scope": "架空故事里的设计文字。",
+        "evidence_and_uncertainty": "本项目原创。与锈蚀残破不是同一条：那条覆盖更广的破损。"
+      },
+      "source_ids": [
+        "affix_src_spec",
+        "affix_src_rewards"
+      ],
+      "related_ids": [
+        "affix_edge_keened",
+        "affix_blighted"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "affix_light_rig",
+      "name": "轻装",
+      "aliases": [
+        "行路装",
+        "不坠肩"
+      ],
+      "tags": [
+        "kind:affix",
+        "tradition:western",
+        "domain:craft",
+        "affix:item",
+        "affix:boon",
+        "affix:grade:common"
+      ],
+      "genres": [
+        "western_fantasy",
+        "historical",
+        "steampunk"
+      ],
+      "category": "item",
+      "primary": "affix",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": null,
+      "affix": {
+        "schema": "affix_fields_v1",
+        "applies_to": [
+          "item"
+        ],
+        "polarity": "boon",
+        "grade": "common",
+        "stacking": "unique",
+        "visibility": "public",
+        "item_mods": {
+          "weight_percent": 75,
+          "durability_percent": 115
+        },
+        "narrative": [
+          "背上一天，肩带不勒出深痕"
+        ],
+        "note": "甲、包、旅行装具。重量 75%（更轻），耐久 115%。没有伤害，也没有负重系统可接。"
+      },
+      "summary": "行路装具更轻、也还经用的词条。它不提高人的力气，也不提供护甲值。",
+      "details": {
+        "definition": "指为赶路减轻分量的衣甲或行囊词条。轻是器物的重量百分比，不是角色的力量。",
+        "mechanism": "重量 75%，耐久 115%。奖励配置若抄入，只改这件物品的这两项。当前没有负重规则，轻不自动提高移动速度。",
+        "conditions": "挂在甲、袍、包上说得通。兵器不要用这条代替开刃。",
+        "exceptions": "不能推出更防打、不能推出跑得更快，也不能推出它更贵。",
+        "story_uses": "适合长途和「这身衣服是赶路的，不是上阵的」。",
+        "historical_scope": "架空故事里的设计文字。",
+        "evidence_and_uncertainty": "本项目原创。护甲字段不存在，所以没有写防护。"
+      },
+      "source_ids": [
+        "affix_src_spec",
+        "affix_src_rewards"
+      ],
+      "related_ids": [
+        "affix_well_balanced_tool",
+        "affix_weeping_armor"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "affix_makers_mark",
+      "name": "名匠之印",
+      "aliases": [
+        "名匠印",
+        "匠记",
+        "铺号印"
+      ],
+      "tags": [
+        "kind:affix",
+        "tradition:western",
+        "domain:craft",
+        "affix:item",
+        "affix:boon",
+        "affix:grade:uncommon"
+      ],
+      "genres": [
+        "western_fantasy",
+        "steampunk",
+        "historical"
+      ],
+      "category": "item",
+      "primary": "affix",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": null,
+      "affix": {
+        "schema": "affix_fields_v1",
+        "applies_to": [
+          "item"
+        ],
+        "polarity": "boon",
+        "grade": "uncommon",
+        "stacking": "unique",
+        "visibility": "public",
+        "item_mods": {
+          "value_percent": 140,
+          "durability_percent": 130
+        },
+        "narrative": [
+          "印记还在，识货的人会先问是哪一铺"
+        ],
+        "note": "价值 140%，耐久 130%。不写伤害。誓言铸铁才带伤害和魔力。"
+      },
+      "summary": "有铺号、做得扎实也卖得更贵的词条。它不是魔法武器。",
+      "details": {
+        "definition": "指器物上可辨认的匠人印记及其带来的做工与市价。它描述来历的可见部分，不描述誓言。",
+        "mechanism": "价值 140%，耐久 130%。没有 damage，magic_tier 为空。市价仍是故事包里的游戏基准，这条只给作者一个可抄的百分比。",
+        "conditions": "印记清楚时成立。磨去印记、赝品被识破时作者应撤下或改写。",
+        "exceptions": "不能推出它更锋利，不能推出持有者因此有名，也不能推出任何城镇都认这个铺号。",
+        "story_uses": "适合当铺、继承和赝品。",
+        "historical_scope": "架空故事里的设计文字，不对应真实行会印记。",
+        "evidence_and_uncertainty": "本项目原创。与誓言铸铁的数值和魔力档都不同。"
+      },
+      "source_ids": [
+        "affix_src_spec",
+        "affix_src_rewards"
+      ],
+      "related_ids": [
+        "affix_oathbound_weapon",
+        "affix_edge_keened"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "affix_weakness",
+      "name": "力弱",
+      "aliases": [
+        "没劲",
+        "提不动"
+      ],
+      "tags": [
+        "kind:affix",
+        "tradition:western",
+        "domain:body",
+        "affix:character",
+        "affix:bane",
+        "affix:grade:common",
+        "affix:attr:strength"
+      ],
+      "genres": [
+        "western_fantasy",
+        "dark_fantasy",
+        "steampunk"
+      ],
+      "category": "conflict",
+      "primary": "affix",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": null,
+      "affix": {
+        "schema": "affix_fields_v1",
+        "applies_to": [
+          "character"
+        ],
+        "polarity": "bane",
+        "grade": "common",
+        "stacking": "unique",
+        "visibility": "public",
+        "attribute_mods": {
+          "strength": -5
+        },
+        "note": "common 单轴减益：力量 -5。与虚弱（三轴同降）分工，本条只管纯发力。"
+      },
+      "summary": "发力吃亏的减益词条：搬、扛、拖、撑都更早见底。它只改力量轴，不改体形与勇气。",
+      "details": {
+        "definition": "指发力能力偏低的一类减益词条，表现为搬抬、推撑、攀爬时余量很小。它描述能力，不描述外观：瘦的人未必力弱，壮的人也可能力弱。",
+        "mechanism": "给 strength 一个固定负值。检定按 ability=属性/100 计算，减 5 点约等于成功率下移 5 个百分点；血量公式 50+2×韧性 不含力量，所以它不影响血量。它不产生新的失败方式，只是让原本吃力的动作更容易失败。",
+        "conditions": "只在确有发力需求的场合显效：搬运、破拆、攀爬、长时间持械。坐下来谈话或在纸上推演时不起作用。",
+        "exceptions": "不能推出他胆小、怕痛或不肯出力，也不能推出他一定瘦弱；更不能推出他不能冒险——他只是更容易在纯体力上先耗尽。",
+        "story_uses": "适合做「搬不开那扇门」的分岔：让玩家改找工具、找人帮忙或换路。也可用于反差：一个力弱却总抢着扛东西的人。",
+        "historical_scope": "架空故事里的设计文字，不对任何真实人群的体格作概括。",
+        "evidence_and_uncertainty": "数值是本项目为 common 档定的设计口径（单轴 ≤6），未经平衡实测；与「虚弱」的区别是它只动力量一条轴。"
+      },
+      "source_ids": [
+        "affix_src_spec",
+        "affix_src_attributes"
+      ],
+      "related_ids": [
+        "affix_strong",
+        "affix_frail"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "affix_stiff",
+      "name": "僵硬",
+      "aliases": [
+        "身子发僵",
+        "弯不下腰"
+      ],
+      "tags": [
+        "kind:affix",
+        "tradition:western",
+        "domain:body",
+        "affix:character",
+        "affix:bane",
+        "affix:grade:uncommon",
+        "affix:attr:agility"
+      ],
+      "genres": [
+        "western_fantasy",
+        "dark_fantasy",
+        "steampunk"
+      ],
+      "category": "conflict",
+      "primary": "affix",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": null,
+      "affix": {
+        "schema": "affix_fields_v1",
+        "applies_to": [
+          "character"
+        ],
+        "polarity": "bane",
+        "grade": "uncommon",
+        "stacking": "unique",
+        "visibility": "public",
+        "attribute_mods": {
+          "agility": -7
+        },
+        "note": "uncommon 单轴减益：敏捷 -7。与笨拙同轴但高一档，写清是为了避免两条被当成同一条。"
+      },
+      "summary": "动作发僵的减益词条：躲、蹲、翻越都慢半拍。它不改判断，也不等于受伤。",
+      "details": {
+        "definition": "指关节与肌肉的灵活度下降的一类减益词条，表现为转身、下蹲、翻越时动作不够连贯。它描述动作，不描述年龄：年轻人也可能因旧伤或寒冷而僵硬。",
+        "mechanism": "给 agility 一个固定负值，作用于闪避、平衡与精细动作的检定。它不降低移动速度的上限，也不产生「动不了」的硬判定——那属于世界规则。",
+        "conditions": "在需要突然变向、下蹲、攀爬或长时间保持姿势的场合显效。原地说话、思考与决定不受影响。",
+        "exceptions": "不能推出他迟钝或反应慢（那是智慧），也不能推出他不能战斗；更不能推出僵硬一定有可见病因——成因属世界设定与角色背景。",
+        "story_uses": "适合做追逃、翻墙与狭窄地形的取舍：让玩家选择绕路、拆障碍或冒险一搏。也可用于旧伤复发的段落。",
+        "historical_scope": "架空故事里的设计文字，不是医学描述。",
+        "evidence_and_uncertainty": "uncommon 档单轴上限 10，本条取 -7；与「笨拙」（-5，常见）的区别是幅度与稀有度。"
+      },
+      "source_ids": [
+        "affix_src_spec",
+        "affix_src_attributes"
+      ],
+      "related_ids": [
+        "affix_swift",
+        "affix_clumsy"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "affix_forgetful",
+      "name": "健忘",
+      "aliases": [
+        "记不住",
+        "转头就忘"
+      ],
+      "tags": [
+        "kind:affix",
+        "tradition:western",
+        "domain:mind",
+        "affix:character",
+        "affix:bane",
+        "affix:grade:uncommon",
+        "affix:attr:wisdom"
+      ],
+      "genres": [
+        "western_fantasy",
+        "dark_fantasy",
+        "steampunk"
+      ],
+      "category": "conflict",
+      "primary": "affix",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": null,
+      "affix": {
+        "schema": "affix_fields_v1",
+        "applies_to": [
+          "character"
+        ],
+        "polarity": "bane",
+        "grade": "uncommon",
+        "stacking": "unique",
+        "visibility": "public",
+        "attribute_mods": {
+          "wisdom": -6
+        },
+        "note": "uncommon 单轴减益：智慧 -6。只管记忆与复述，不删已知事实。"
+      },
+      "summary": "记性差的减益词条：听过的规矩、看过的字、答应过的事都更容易漏。它只影响回忆，不改变已经知道的事实。",
+      "details": {
+        "definition": "指记忆与复述能力偏低的一类减益词条，表现为要人多说一遍、把细节记混。它描述回忆，不描述智力：健忘的人可以在别处很聪明。",
+        "mechanism": "给 wisdom 一个固定负值，作用于需要回忆、比对先前信息的检定。它不删除角色已经获得的事实，也不让世界改口；漏掉的是「他想不想得起来」，不是「这事发生过没有」。",
+        "conditions": "在需要复述、辨认、按记忆办事的场合显效。手边有记录、有人提醒时影响会小很多——这也是玩家可以主动利用的空间。",
+        "exceptions": "不能推出他笨、不认真或不可靠；也不能推出他连自己的名字都忘。更不得把它当作抹掉已知信息的许可。",
+        "story_uses": "适合做「他记得的版本和别人的不一样」这类张力；也可用于把一次口头交代变成可验证的承诺。",
+        "historical_scope": "架空故事里的设计文字，不是记忆测量。",
+        "evidence_and_uncertainty": "uncommon 档单轴上限 10，本条取 -6；与「过目成诵」（+8）互为反面，但两条不互斥。"
+      },
+      "source_ids": [
+        "affix_src_spec",
+        "affix_src_attributes"
+      ],
+      "related_ids": [
+        "affix_quick_study",
+        "affix_dulled_senses"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "affix_short_breath",
+      "name": "气短",
+      "aliases": [
+        "喘不上气",
+        "爬两层就歇"
+      ],
+      "tags": [
+        "kind:affix",
+        "tradition:western",
+        "domain:body",
+        "affix:character",
+        "affix:bane",
+        "affix:grade:uncommon",
+        "affix:attr:resilience"
+      ],
+      "genres": [
+        "western_fantasy",
+        "dark_fantasy",
+        "steampunk"
+      ],
+      "category": "conflict",
+      "primary": "affix",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": null,
+      "affix": {
+        "schema": "affix_fields_v1",
+        "applies_to": [
+          "character"
+        ],
+        "polarity": "bane",
+        "grade": "uncommon",
+        "stacking": "unique",
+        "visibility": "public",
+        "attribute_mods": {
+          "resilience": -6
+        },
+        "note": "uncommon 单轴减益：韧性 -6（血量公式内 -12）。与铁胃分工：那条管饮食耐受。"
+      },
+      "summary": "耐力不足的减益词条：长路、负重、熬夜都更早撑不住。它不产生具体病症，也不改意志。",
+      "details": {
+        "definition": "指持续消耗下的耐受偏低的一类减益词条，表现为走长路、爬坡、熬夜之后恢复慢。它描述耐力，不描述意志：气短的人可以很固执。",
+        "mechanism": "给 resilience 一个固定负值，血量公式 50+2×韧性 因此随之下调。它不产生哮喘之类的具体疾病——要写疾病，请由世界规则另立条目。",
+        "conditions": "在持续消耗的场合显效：长途、负重、守夜、伤后继续行动。短促的爆发动作主要由敏捷承担。",
+        "exceptions": "不能推出他胆小、不肯坚持或需要被照顾；也不能推出他会突然倒下——那属于世界规则与伤害结算。",
+        "story_uses": "适合做「还能不能再走一程」的取舍，或让队伍在赶路与休息之间做选择。",
+        "historical_scope": "架空故事里的设计文字。",
+        "evidence_and_uncertainty": "uncommon 档单轴上限 10，本条取 -6；血量随之 -12，仍在 rare 以下的常见范围内。"
+      },
+      "source_ids": [
+        "affix_src_spec",
+        "affix_src_attributes"
+      ],
+      "related_ids": [
+        "affix_tough",
+        "affix_frail"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "affix_razor_edge",
+      "name": "削铁如泥",
+      "aliases": [
+        "刃口极利",
+        "试刃不卷"
+      ],
+      "tags": [
+        "kind:affix",
+        "tradition:western",
+        "domain:craft",
+        "affix:item",
+        "affix:boon",
+        "affix:grade:uncommon"
+      ],
+      "genres": [
+        "western_fantasy",
+        "steampunk"
+      ],
+      "category": "item",
+      "primary": "affix",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": null,
+      "affix": {
+        "schema": "affix_fields_v1",
+        "applies_to": [
+          "item"
+        ],
+        "polarity": "boon",
+        "grade": "uncommon",
+        "stacking": "unique",
+        "visibility": "public",
+        "item_mods": {
+          "damage": 5
+        },
+        "note": "uncommon 工艺增益：伤害 +5，不动耐久与价值。与开刃如镜（common +2）同轴高一档。"
+      },
+      "summary": "刃口极利的物品增益：伤害更高，但仍是工艺水准，不是附魔。它不改变耐久，也不保证能砍断任何东西。",
+      "details": {
+        "definition": "指因锻打与开刃水准极高而得到的伤害增益。它是工艺词条，与附魔、材质加成分开记载。",
+        "mechanism": "给出固定的伤害加值。要让它生效，作者必须把同样的数字写进故事包的 mechanics.rewards（材质的 damage_bonus），本词条不会自动接进去。",
+        "conditions": "只在器物状态良好、且对手不是明显克制它的东西时成立；卷刃、缺口应按世界规则削减或撤下它。",
+        "exceptions": "不能推出它更耐用（耐久是另一项），也不能推出它更值钱（价值是另一项）；更不能推出它能破甲或砍断一切。",
+        "story_uses": "适合让玩家在一把好刀和一把趁手的旧刀之间做选择；也可作为工匠身份的凭证。",
+        "historical_scope": "架空故事里的设计文字，不描述真实锻造工艺。",
+        "evidence_and_uncertainty": "伤害量程对齐 app/rewards.py 的白名单；uncommon 档伤害上限 6，本条取 5。"
+      },
+      "source_ids": [
+        "affix_src_spec",
+        "affix_src_rewards"
+      ],
+      "related_ids": [
+        "affix_edge_keened",
+        "affix_hungry_blade"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "affix_heavy",
+      "name": "沉重",
+      "aliases": [
+        "压手",
+        "背久了累"
+      ],
+      "tags": [
+        "kind:affix",
+        "tradition:western",
+        "domain:craft",
+        "affix:item",
+        "affix:bane",
+        "affix:grade:common"
+      ],
+      "genres": [
+        "western_fantasy",
+        "steampunk"
+      ],
+      "category": "item",
+      "primary": "affix",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": null,
+      "affix": {
+        "schema": "affix_fields_v1",
+        "applies_to": [
+          "item"
+        ],
+        "polarity": "bane",
+        "grade": "common",
+        "stacking": "stack",
+        "visibility": "public",
+        "item_mods": {
+          "weight_percent": 130
+        },
+        "note": "common 减益：重量 130%。「轻装」的反面，只登记分量，不改伤害。"
+      },
+      "summary": "比同尺寸器物更压手的减益：携带与挥舞都更费劲。它不减少伤害，也不影响价值。",
+      "details": {
+        "definition": "指重量明显偏高的物品减益。它描述分量，不描述材质：木头可以比铁更沉，要看做工与含水。",
+        "mechanism": "给出高于 100 的重量百分比。负重、搬运与长途携带的相关判定由世界规则处理；本词条只登记这份重量。",
+        "conditions": "只在需要携带、长时间持握或快速挥动的场合显效。摆在架子上时几乎没有区别。",
+        "exceptions": "不能推出它更结实、更值钱或更难被抢走；也不能推出持有者一定被拖慢——那要看负重规则。",
+        "story_uses": "适合做「带上它就得多雇一匹马」的日常取舍。",
+        "historical_scope": "架空故事里的设计文字。",
+        "evidence_and_uncertainty": "重量百分比与 rewards 的 weight_percent 同量程；common 档偏移上限 30，本条取 30%。"
+      },
+      "source_ids": [
+        "affix_src_spec",
+        "affix_src_rewards"
+      ],
+      "related_ids": [
+        "affix_burden_of_the_fallen",
+        "affix_light_rig"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "affix_worm_eaten",
+      "name": "虫蛀",
+      "aliases": [
+        "被虫咬了",
+        "不结实"
+      ],
+      "tags": [
+        "kind:affix",
+        "tradition:western",
+        "domain:craft",
+        "affix:item",
+        "affix:bane",
+        "affix:grade:common"
+      ],
+      "genres": [
+        "western_fantasy",
+        "steampunk"
+      ],
+      "category": "item",
+      "primary": "affix",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": null,
+      "affix": {
+        "schema": "affix_fields_v1",
+        "applies_to": [
+          "item"
+        ],
+        "polarity": "bane",
+        "grade": "common",
+        "stacking": "stack",
+        "visibility": "public",
+        "item_mods": {
+          "durability_percent": 75
+        },
+        "note": "common 减益：耐久 75%。只给有机材质，不要挂在金属器物上。"
+      },
+      "summary": "被虫蛀过的物品减益：更容易坏。它只解释布料、皮革与木器，金属器物不应挂这条。",
+      "details": {
+        "definition": "指虫蛀造成的结构性损伤。它描述损耗，不是诅咒，也不传染给持有者。",
+        "mechanism": "给出低于 100 的耐久百分比。具体何时坏由世界规则与使用强度决定；本词条只登记更低的耐久起点。",
+        "conditions": "只用于有机材质的器物：布、皮、木、纸。金属、石头与玻璃不适用；干燥保存良好的物品也不该长期保留它。",
+        "exceptions": "不能推出它马上会破，也不能推出它不能修补；更不能推出它能传染疾病——那是医学与设定问题。",
+        "story_uses": "适合旅途中的装备维护，或让一件旧物在关键时刻出问题。",
+        "historical_scope": "架空故事里的设计文字。",
+        "evidence_and_uncertainty": "耐久偏移按 common 档上限 30，本条取 25%；与「锈蚀残破」（uncommon，全材质）分工，本条限定有机材质。"
+      },
+      "source_ids": [
+        "affix_src_spec",
+        "affix_src_rewards"
+      ],
+      "related_ids": [
+        "affix_blighted",
+        "affix_iron_stomach_item"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "affix_forgery",
+      "name": "赝品",
+      "aliases": [
+        "假货",
+        "仿的"
+      ],
+      "tags": [
+        "kind:affix",
+        "tradition:western",
+        "domain:craft",
+        "affix:item",
+        "affix:bane",
+        "affix:grade:uncommon"
+      ],
+      "genres": [
+        "western_fantasy",
+        "steampunk"
+      ],
+      "category": "item",
+      "primary": "affix",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": null,
+      "affix": {
+        "schema": "affix_fields_v1",
+        "applies_to": [
+          "item"
+        ],
+        "polarity": "bane",
+        "grade": "uncommon",
+        "stacking": "unique",
+        "visibility": "public",
+        "item_mods": {
+          "value_percent": 55
+        },
+        "note": "uncommon 减益：价值 55%。不改性能，只改行情；与名匠之印互为反面。"
+      },
+      "summary": "不值钱的物品减益：识货的人不会出价。它不改变性能，也不等于一眼就能看穿。",
+      "details": {
+        "definition": "指被仿制、来历不明或工艺不符而失去行情的物品减益。它描述市场评价，不描述它能不能用。",
+        "mechanism": "给出低于 100 的价值百分比。买卖与鉴定仍走既有经济规则；本词条只登记更低的估价起点。",
+        "conditions": "只在有人识货或要转手的场合显效。乡下集市与收藏家眼里的差别可能很大——鉴定口径由世界设定。",
+        "exceptions": "不能推出它性能差，也不能推出它一定是假的（可能是真货被误认）；更不能推出所有人都看得出来。",
+        "story_uses": "适合做买椟还珠式的误判，或让玩家在「便宜」和「来路」之间选。",
+        "historical_scope": "架空故事里的设计文字，不描述真实鉴定方法。",
+        "evidence_and_uncertainty": "价值百分比与 rewards 的 value_percent 同量程；uncommon 档偏移上限 60，本条取 45%。"
+      },
+      "source_ids": [
+        "affix_src_spec",
+        "affix_src_rewards"
+      ],
+      "related_ids": [
+        "affix_makers_mark",
+        "affix_wicked_butterfly"
+      ],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "affix_hardy",
+      "name": "耐劳",
+      "aliases": ["能熬", "脚程长"],
+      "tags": [
+        "kind:affix",
+        "tradition:western",
+        "domain:body",
+        "affix:character",
+        "affix:boon",
+        "affix:grade:common",
+        "affix:attr:resilience"
+      ],
+      "genres": ["western_fantasy", "historical", "steampunk"],
+      "category": "power",
+      "primary": "affix",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": null,
+      "affix": {
+        "schema": "affix_fields_v1",
+        "applies_to": ["character"],
+        "polarity": "boon",
+        "grade": "common",
+        "stacking": "unique",
+        "visibility": "public",
+        "attribute_mods": {"resilience": 5},
+        "note": "只加韧性 +5，血量随公式 +10。不写 hp_mod。体魄坚韧只加公式外血量，铁胃只管饮食。"
+      },
+      "summary": "长路和熬夜更扛得住的增益。血量只跟着韧性公式走，不再另加一截。",
+      "details": {
+        "definition": "指持续消耗下恢复较慢才见底的一类增益。它描述耐力，不描述血有多厚，也不描述胃口。",
+        "mechanism": "给 resilience +5。最大生命按 50+2×韧性 增加约 10，本条不写公式外 hp_mod，避免和体魄坚韧重复计算。",
+        "conditions": "在赶路、守夜、负重和带伤继续做事时显效。一顿饭吃不吃得下不靠这条。",
+        "exceptions": "不能推出他不累、不受伤，也不能推出他血量比只挂体魄坚韧的人更厚。",
+        "story_uses": "适合把一天的路程拉长，而不是把挨打的上限再抬一截。",
+        "historical_scope": "架空故事里的设计文字。",
+        "evidence_and_uncertainty": "本项目原创。common 单轴取 +5，低于上限 6。"
+      },
+      "source_ids": ["affix_src_spec", "affix_src_attributes"],
+      "related_ids": ["affix_short_breath", "affix_tough", "affix_iron_gut"],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "affix_thin_blood",
+      "name": "血薄",
+      "aliases": ["血量薄", "不经伤"],
+      "tags": [
+        "kind:affix",
+        "tradition:western",
+        "domain:body",
+        "affix:character",
+        "affix:bane",
+        "affix:grade:common",
+        "affix:hp"
+      ],
+      "genres": ["western_fantasy", "dark_fantasy", "historical"],
+      "category": "conflict",
+      "primary": "affix",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": null,
+      "affix": {
+        "schema": "affix_fields_v1",
+        "applies_to": ["character"],
+        "polarity": "bane",
+        "grade": "common",
+        "stacking": "unique",
+        "visibility": "public",
+        "hp_mod": -8,
+        "note": "只扣公式外血量 -8。不动韧性。气短才扣韧性。"
+      },
+      "summary": "最大生命更低的减益。耐力检定不因此变差。",
+      "details": {
+        "definition": "指伤血上限偏低的一类减益。它只改公式外的最大生命，不改韧性。",
+        "mechanism": "hp_mod 为 -8。50+2×韧性 不变。没有减伤，也没有流血事件。",
+        "conditions": "在计算还能承受多少伤害时显效。赶路会不会先喘，看的是韧性，不是这条。",
+        "exceptions": "不能推出他有病、不能推出他力气小，也不能和气短当成同一件事。",
+        "story_uses": "适合「这一下就够他躺下」，而不是「他走不远」。",
+        "historical_scope": "架空故事里的设计文字，不是医学描述。",
+        "evidence_and_uncertainty": "本项目原创。与体魄坚韧对称，一边只加血，一边只减血。"
+      },
+      "source_ids": ["affix_src_spec", "affix_src_attributes"],
+      "related_ids": ["affix_tough", "affix_short_breath"],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "affix_amiable",
+      "name": "和气",
+      "aliases": ["好说话", "不冲人"],
+      "tags": [
+        "kind:affix",
+        "tradition:western",
+        "domain:social",
+        "affix:character",
+        "affix:boon",
+        "affix:grade:common",
+        "affix:attr:social"
+      ],
+      "genres": ["western_fantasy", "historical", "steampunk"],
+      "category": "power",
+      "primary": "affix",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": null,
+      "affix": {
+        "schema": "affix_fields_v1",
+        "applies_to": ["character"],
+        "polarity": "boon",
+        "grade": "common",
+        "stacking": "unique",
+        "visibility": "public",
+        "attribute_mods": {"social": 4},
+        "note": "common 社交 +4。巧舌是 uncommon +9，管的是说动人；这条只是不惹人。"
+      },
+      "summary": "开口不冲、对方更愿意听完的增益。它不提高辩才。",
+      "details": {
+        "definition": "指初次交谈时态度和缓的一类增益。它描述场面，不描述是否能说服人。",
+        "mechanism": "给 social +4。不生成关系，不改已知事实。巧舌仍是更高一档的口才。",
+        "conditions": "在问路、赊账、求宿和把话说完时显效。已经结怨的人不会因这条原谅他。",
+        "exceptions": "不能推出他说得漂亮，不能推出他值得信任，也不能推出人缘不佳会被这条抵消。",
+        "story_uses": "适合把陌生人的第一句回答从关门改成还站着听。",
+        "historical_scope": "架空故事里的设计文字。",
+        "evidence_and_uncertainty": "本项目原创。common 单轴取 +4。"
+      },
+      "source_ids": ["affix_src_spec", "affix_src_attributes"],
+      "related_ids": ["affix_silver_tongue", "affix_ill_favored"],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "affix_spirit_sense",
+      "name": "通灵",
+      "aliases": ["感应强", "灵性高"],
+      "tags": [
+        "kind:affix",
+        "tradition:western",
+        "domain:mind",
+        "affix:character",
+        "affix:boon",
+        "affix:grade:rare",
+        "affix:attr:talent"
+      ],
+      "genres": ["western_fantasy", "eastern_fantasy", "xianxia"],
+      "category": "power",
+      "primary": "affix",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": "rare",
+      "affix": {
+        "schema": "affix_fields_v1",
+        "applies_to": ["character"],
+        "polarity": "boon",
+        "grade": "rare",
+        "stacking": "unique",
+        "visibility": "public",
+        "attribute_mods": {"talent": 12},
+        "note": "只加天赋 +12。不扣韧性、不扣社交。灵慧是 common +5；灵力透支和邪神眷顾都另有代价。"
+      },
+      "summary": "感应明显强于常人的增益。不授予新法术，也不附带身体或名声上的代价。",
+      "details": {
+        "definition": "指能量感应与引导明显高于同阶的一类增益。它描述已有途径上的把握，不描述神恩或邪约。",
+        "mechanism": "给 talent +12。不改其他属性，不写 hp_mod，不生成法术清单。",
+        "conditions": "世界允许能量引导，且检定声明用天赋时显效。没有魔法的世界里这条无处落。",
+        "exceptions": "不能推出他会新法术，不能推出他被神或邪神选中，也不能推出他身体因此变差。",
+        "story_uses": "适合一个没有契约、只是感应很强的人。",
+        "historical_scope": "架空故事里的设计文字。",
+        "evidence_and_uncertainty": "本项目原创。rare 单轴上限 15，本条取 +12。"
+      },
+      "source_ids": ["affix_src_spec", "affix_src_attributes"],
+      "related_ids": ["affix_steady_channel", "affix_overdrawn", "affix_abyssal_gaze"],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "affix_thick_armor",
+      "name": "厚甲",
+      "aliases": ["甲厚", "压肩"],
+      "tags": [
+        "kind:affix",
+        "tradition:western",
+        "domain:craft",
+        "affix:item",
+        "affix:mixed",
+        "affix:grade:uncommon"
+      ],
+      "genres": ["western_fantasy", "historical"],
+      "category": "item",
+      "primary": "affix",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": null,
+      "affix": {
+        "schema": "affix_fields_v1",
+        "applies_to": ["item"],
+        "polarity": "mixed",
+        "grade": "uncommon",
+        "stacking": "unique",
+        "visibility": "public",
+        "item_mods": {"durability_percent": 150, "weight_percent": 130},
+        "note": "有得有失：耐久 150%（更结实），重量 130%（更沉）。不写伤害。轻装是更轻。"
+      },
+      "summary": "甲或重装更经用、也更沉的词条。它不提高伤害，也没有护甲字段可写。",
+      "details": {
+        "definition": "指板甲、鳞甲一类装具又厚又重的物品词条。结实和分量同时存在。",
+        "mechanism": "耐久 150%，重量 130%。重量高于 100 算不利，所以是 mixed。要在旅程里生效，须抄进奖励配置。当前没有护甲值字段。",
+        "conditions": "挂在甲、胄、重盾上说得通。布衣和工具不要用这条。",
+        "exceptions": "不能推出穿着的人更耐打，不能推出它更能砍人，也不能推出它比轻装更适合赶路。",
+        "story_uses": "适合守城和「这身甲今天走不远」。",
+        "historical_scope": "架空故事里的设计文字。",
+        "evidence_and_uncertainty": "本项目原创。两项偏移都在 uncommon 的 60 以内。"
+      },
+      "source_ids": ["affix_src_spec", "affix_src_rewards"],
+      "related_ids": ["affix_light_rig", "affix_weeping_armor"],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "affix_cracked",
+      "name": "开裂",
+      "aliases": ["有裂纹", "将断"],
+      "tags": [
+        "kind:affix",
+        "tradition:western",
+        "domain:craft",
+        "affix:item",
+        "affix:bane",
+        "affix:grade:common"
+      ],
+      "genres": ["western_fantasy", "historical", "steampunk"],
+      "category": "item",
+      "primary": "affix",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": null,
+      "affix": {
+        "schema": "affix_fields_v1",
+        "applies_to": ["item"],
+        "polarity": "bane",
+        "grade": "common",
+        "stacking": "unique",
+        "visibility": "public",
+        "item_mods": {"durability_percent": 75},
+        "note": "只降耐久到 75%。不改伤害。卷刃才动刃口，虫蛀才是蛀蚀。"
+      },
+      "summary": "器物上有裂纹、更不经用的减益。它不改变锋利，也不等于被虫蛀。",
+      "details": {
+        "definition": "指结构开裂带来的物品减益。对象可以是陶器、木柄、甲片或刃身，不限于刀。",
+        "mechanism": "耐久 75%。不写 damage、价值或重量。修好或换件后作者应撤下。",
+        "conditions": "裂纹还在时成立。已经碎成无法使用的东西不必再挂词条，直接按世界规则报废。",
+        "exceptions": "不能推出它变钝，不能推出它一文不值，也不能推出下一击必然碎裂。",
+        "story_uses": "适合「还能用这一次」的选择。",
+        "historical_scope": "架空故事里的设计文字。",
+        "evidence_and_uncertainty": "本项目原创。相对 100 的偏移为 25，在 common 上限 30 内。"
+      },
+      "source_ids": ["affix_src_spec", "affix_src_rewards"],
+      "related_ids": ["affix_dulled_edge", "affix_blighted"],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "affix_mighty",
+      "name": "孔武",
+      "aliases": ["力气大", "臂力过人"],
+      "tags": ["kind:affix", "tradition:western", "domain:body", "affix:character", "affix:boon", "affix:grade:rare", "affix:attr:strength"],
+      "genres": ["western_fantasy", "historical"],
+      "category": "power",
+      "primary": "affix",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": null,
+      "affix": {
+        "schema": "affix_fields_v1",
+        "applies_to": ["character"],
+        "polarity": "boon",
+        "grade": "rare",
+        "stacking": "unique",
+        "visibility": "public",
+        "attribute_mods": {"strength": 12},
+        "note": "rare 单轴：力量 +12。不写韧性、不写 hp_mod。巨人血脉才同时加血。"
+      },
+      "summary": "发力明显高于同阶的增益。血量不因此变厚。",
+      "details": {
+        "definition": "指纯发力余量大的一类增益。它描述搬、扛、破拆，不描述身板能不能挨打。",
+        "mechanism": "给 strength +12。血量公式不含力量，本条也不写 hp_mod。",
+        "conditions": "在需要出力的检定上显效。谈话和识路不靠这条。",
+        "exceptions": "不能推出他更高、更耐打，也不能推出他动作笨。",
+        "story_uses": "适合一个人能搬开别人搬不动的东西，而不是一刀砍不死。",
+        "historical_scope": "架空故事里的设计文字。",
+        "evidence_and_uncertainty": "本项目原创。rare 单轴上限 15，本条取 +12。强壮是 common +6。"
+      },
+      "source_ids": ["affix_src_spec", "affix_src_attributes"],
+      "related_ids": ["affix_strong", "affix_weakness", "affix_giant_blood"],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "affix_nimble",
+      "name": "矫捷",
+      "aliases": ["身法好", "步子快"],
+      "tags": ["kind:affix", "tradition:western", "domain:body", "affix:character", "affix:boon", "affix:grade:rare", "affix:attr:agility"],
+      "genres": ["western_fantasy", "historical"],
+      "category": "power",
+      "primary": "affix",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": null,
+      "affix": {
+        "schema": "affix_fields_v1",
+        "applies_to": ["character"],
+        "polarity": "boon",
+        "grade": "rare",
+        "stacking": "unique",
+        "visibility": "public",
+        "attribute_mods": {"agility": 12},
+        "note": "rare 单轴：敏捷 +12。迅捷是 uncommon +9；手稳只加 +4，管手上功夫。"
+      },
+      "summary": "闪避、攀爬和变向都更从容的增益。它不提高手上的细活。",
+      "details": {
+        "definition": "指全身动作快而稳的一类增益。它描述步法和闪避，不描述雕刻或开锁。",
+        "mechanism": "给 agility +12。不改其他轴，不写伤害。",
+        "conditions": "在追逐、翻越、闪避时显效。坐着做精细活看的是手稳。",
+        "exceptions": "不能推出他一定赢格斗，也不能推出他手上更稳。",
+        "story_uses": "适合追逃和狭窄地形，不适合替代工匠词条。",
+        "historical_scope": "架空故事里的设计文字。",
+        "evidence_and_uncertainty": "本项目原创。rare 单轴取 +12，高于迅捷的 +9。"
+      },
+      "source_ids": ["affix_src_spec", "affix_src_attributes"],
+      "related_ids": ["affix_swift", "affix_steady_hands", "affix_clumsy"],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "affix_well_read",
+      "name": "博闻",
+      "aliases": ["见闻广", "知道得多"],
+      "tags": ["kind:affix", "tradition:western", "domain:mind", "affix:character", "affix:boon", "affix:grade:rare", "affix:attr:wisdom"],
+      "genres": ["western_fantasy", "historical", "steampunk"],
+      "category": "power",
+      "primary": "affix",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": null,
+      "affix": {
+        "schema": "affix_fields_v1",
+        "applies_to": ["character"],
+        "polarity": "boon",
+        "grade": "rare",
+        "stacking": "unique",
+        "visibility": "public",
+        "attribute_mods": {"wisdom": 12},
+        "note": "rare 单轴：智慧 +12。过目成诵是 uncommon +8。不改社交。"
+      },
+      "summary": "见闻和判断都高出一档的增益。它不让人更好说话。",
+      "details": {
+        "definition": "指已有知识用得上、比对得快的一类增益。它描述判断，不描述口才。",
+        "mechanism": "给 wisdom +12。不生成新事实，不改社交。",
+        "conditions": "在辨认、回忆和按已知规矩判断时显效。世界里没有的知识不会凭空出现。",
+        "exceptions": "不能推出他读过每一本书，不能推出他说得动人，也不能抹掉健忘。",
+        "story_uses": "适合让一个人对旧事给出更靠谱的判断。",
+        "historical_scope": "架空故事里的设计文字。",
+        "evidence_and_uncertainty": "本项目原创。rare 单轴取 +12。"
+      },
+      "source_ids": ["affix_src_spec", "affix_src_attributes"],
+      "related_ids": ["affix_quick_study", "affix_dulled_senses"],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "affix_iron_bone",
+      "name": "铁骨",
+      "aliases": ["筋骨硬", "熬得住"],
+      "tags": ["kind:affix", "tradition:western", "domain:body", "affix:character", "affix:boon", "affix:grade:rare", "affix:attr:resilience"],
+      "genres": ["western_fantasy", "historical"],
+      "category": "power",
+      "primary": "affix",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": null,
+      "affix": {
+        "schema": "affix_fields_v1",
+        "applies_to": ["character"],
+        "polarity": "boon",
+        "grade": "rare",
+        "stacking": "unique",
+        "visibility": "public",
+        "attribute_mods": {"resilience": 12},
+        "note": "只加韧性 +12，血量随公式约 +24。不写 hp_mod。血盛才只加公式外生命。"
+      },
+      "summary": "长耗和恢复都更强的增益。额外生命不再另写一截。",
+      "details": {
+        "definition": "指耐力明显高于同阶的一类增益。血量只跟着韧性公式走。",
+        "mechanism": "给 resilience +12。最大生命按 50+2×韧性 增加约 24。不写 hp_mod，避免和血盛、体魄坚韧叠成两套加血。",
+        "conditions": "在赶路、负伤继续做事、熬时间时显效。一击的伤害减免不由这条提供。",
+        "exceptions": "不能推出他刀枪不入，也不能再把他当成还要另加公式外生命的人。",
+        "story_uses": "适合把消耗段落拉长。若只要血池更厚，用血盛或体魄坚韧。",
+        "historical_scope": "架空故事里的设计文字。",
+        "evidence_and_uncertainty": "本项目原创。rare 单轴取 +12。铁意志是 uncommon +7。"
+      },
+      "source_ids": ["affix_src_spec", "affix_src_attributes"],
+      "related_ids": ["affix_iron_will", "affix_hardy", "affix_short_breath"],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "affix_ample_blood",
+      "name": "血盛",
+      "aliases": ["血量厚", "经得起伤"],
+      "tags": ["kind:affix", "tradition:western", "domain:body", "affix:character", "affix:boon", "affix:grade:rare", "affix:hp"],
+      "genres": ["western_fantasy", "dark_fantasy"],
+      "category": "power",
+      "primary": "affix",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": null,
+      "affix": {
+        "schema": "affix_fields_v1",
+        "applies_to": ["character"],
+        "polarity": "boon",
+        "grade": "rare",
+        "stacking": "unique",
+        "visibility": "public",
+        "hp_mod": 28,
+        "note": "只加公式外生命 +28。不动韧性。铁骨、耐劳才加韧性。"
+      },
+      "summary": "最大生命明显更高的增益。耐力检定不因此变好。",
+      "details": {
+        "definition": "指伤血上限偏高的一类增益。它只改公式外最大生命。",
+        "mechanism": "hp_mod 为 +28。50+2×韧性 不变。没有减伤。",
+        "conditions": "在计算还能承受多少伤害时显效。会不会先累倒，看韧性。",
+        "exceptions": "不能推出他更有力气，不能推出他不疲劳，也不能和铁骨当成同一件事。",
+        "story_uses": "适合「这一下还死不了」，而不是「他能走更远」。",
+        "historical_scope": "架空故事里的设计文字。",
+        "evidence_and_uncertainty": "本项目原创。rare 血量上限 35，本条取 +28。体魄坚韧是 common +10。"
+      },
+      "source_ids": ["affix_src_spec", "affix_src_attributes"],
+      "related_ids": ["affix_tough", "affix_thin_blood", "affix_iron_bone"],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "affix_refined",
+      "name": "精制",
+      "aliases": ["做得细", "工好"],
+      "tags": ["kind:affix", "tradition:western", "domain:craft", "affix:item", "affix:boon", "affix:grade:common"],
+      "genres": ["western_fantasy", "historical", "steampunk"],
+      "category": "item",
+      "primary": "affix",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": null,
+      "affix": {
+        "schema": "affix_fields_v1",
+        "applies_to": ["item"],
+        "polarity": "boon",
+        "grade": "common",
+        "stacking": "unique",
+        "visibility": "public",
+        "item_mods": {"value_percent": 120},
+        "note": "common 价值 120%。不改伤害、耐久、重量。名匠之印是 uncommon，还加耐久。"
+      },
+      "summary": "做工更细、行情更好的物品增益。它不让器物更锋利或更结实。",
+      "details": {
+        "definition": "指工艺整齐、识货的人愿意多出价的物品增益。它只改估价起点。",
+        "mechanism": "价值 120%。不写 damage、耐久或重量。买卖仍走既有经济规则。",
+        "conditions": "在有人识货或要转手时显效。不会用的人看不出差别。",
+        "exceptions": "不能推出它更耐用，不能推出它伤害更高，也不能推出人人都识货。",
+        "story_uses": "适合一件普通工具卖得比旁边的好，性能却一样。",
+        "historical_scope": "架空故事里的设计文字。",
+        "evidence_and_uncertainty": "本项目原创。相对 100 的偏移为 20，在 common 上限 30 内。"
+      },
+      "source_ids": ["affix_src_spec", "affix_src_rewards"],
+      "related_ids": ["affix_makers_mark", "affix_forgery"],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "affix_feeble",
+      "name": "乏力",
+      "aliases": ["使不上劲", "余力少"],
+      "tags": ["kind:affix", "tradition:western", "domain:body", "affix:character", "affix:bane", "affix:grade:uncommon", "affix:attr:strength"],
+      "genres": ["western_fantasy", "historical", "dark_fantasy"],
+      "category": "conflict",
+      "primary": "affix",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": null,
+      "affix": {
+        "schema": "affix_fields_v1",
+        "applies_to": ["character"],
+        "polarity": "bane",
+        "grade": "uncommon",
+        "stacking": "unique",
+        "visibility": "public",
+        "attribute_mods": {"strength": -8},
+        "note": "uncommon 力量 -8。力弱是 common -5。不改敏捷和韧性；虚弱才三轴同降。"
+      },
+      "summary": "发力明显不够的减益。动作灵活和耐力不因此下降。",
+      "details": {
+        "definition": "指出力余量偏低一档的减益。它只动力量。",
+        "mechanism": "给 strength -8。血量公式不含力量。不改敏捷、韧性。",
+        "conditions": "在搬运、破拆、攀爬和长时间持械时显效。",
+        "exceptions": "不能推出他动作僵、不能推出他走不远，也不能和虚弱并成一条。",
+        "story_uses": "适合「搬不动，但跑得动」。",
+        "historical_scope": "架空故事里的设计文字。",
+        "evidence_and_uncertainty": "本项目原创。uncommon 单轴上限 10，本条取 -8。"
+      },
+      "source_ids": ["affix_src_spec", "affix_src_attributes"],
+      "related_ids": ["affix_weakness", "affix_frail", "affix_strong"],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    },
+    {
+      "id": "affix_insensitive",
+      "name": "不敏",
+      "aliases": ["感应弱", "接不上"],
+      "tags": ["kind:affix", "tradition:western", "domain:mind", "affix:character", "affix:bane", "affix:grade:uncommon", "affix:attr:talent"],
+      "genres": ["western_fantasy", "eastern_fantasy", "xianxia"],
+      "category": "conflict",
+      "primary": "affix",
+      "evidence_grade": "inferred",
+      "tech_tier": null,
+      "magic_tier": null,
+      "affix": {
+        "schema": "affix_fields_v1",
+        "applies_to": ["character"],
+        "polarity": "bane",
+        "grade": "uncommon",
+        "stacking": "unique",
+        "visibility": "public",
+        "attribute_mods": {"talent": -8},
+        "note": "uncommon 天赋 -8。愚笨是 common -5。不改智慧：迟钝才扣智慧，笨拙才扣敏捷。"
+      },
+      "summary": "能量感应偏弱的减益。判断和手脚不因此变差。",
+      "details": {
+        "definition": "指对能量途径把握偏低的一类减益。它只动天赋。",
+        "mechanism": "给 talent -8。不改智慧、敏捷或其他轴，不写 hp_mod。",
+        "conditions": "世界允许能量引导，且检定声明用天赋时显效。没有魔法的世界里这条无处落。",
+        "exceptions": "不能推出他愚钝、不能推出他笨手笨脚，也不能推出他完全不能学习已有法术。",
+        "story_uses": "适合一个判断清楚、只是感应接不上的人。",
+        "historical_scope": "架空故事里的设计文字。",
+        "evidence_and_uncertainty": "本项目原创。uncommon 单轴取 -8。"
+      },
+      "source_ids": ["affix_src_spec", "affix_src_attributes"],
+      "related_ids": ["affix_thin_channel", "affix_steady_channel", "affix_dulled_senses"],
+      "review_status": "needs_review",
+      "detail_status": "needs_detail"
+    }
+  ]
+}

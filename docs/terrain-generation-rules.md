@@ -2,6 +2,8 @@
 
 日期：2026-11-04。状态：用户确认的长期规则。适用于织梦消费的全部地形产品（Terragenesis 产出或织梦内生成）。读取接口见 `docs/world-map-source-contract.md`。
 
+> 世界层以第 6 节为准（2026-11-05）：2 km 快速程序化生成，TD 只用于局部 30 m。第 1、2 节里「世界层以 TD 为主、约 1 km」不再作为世界层的现行要求。玩家旅程地图仍只读 civ-atlas，见 [现状.md](现状.md)。
+
 ## 0. 命名
 
 织梦当前使用的世界生成引擎统一称为 **Terragenesis**（用户 2026-11-05 确认），包括织梦内 `app/world_relief/` 下调用 TD 的世界层生成代码。文档、manifest 的 `producer` 字段与汇报中沿用此名，不另起名称。
@@ -56,6 +58,6 @@
 - **粗细衔接：** 局部 30 m 的河道、海岸与世界层对不上时**接受偏差**，在产品里注明，不强行约束。
 - **骨架山脉：** 允许在骨架阶段加强山脉（覆盖率接近目标、去掉沿格子的直角拐弯），优先复用 Terragenesis 已有地形算法（只 import 不改）。
 - **山脉结构在骨架层定（用户 2026-11-05）：** 主脊、支脉、山口、断开段以矢量山脊网存进骨架产品，骨架栅格高程由它派生，快速世界层与局部 TD 都以它为条件。山体剖面用分形/脊状多重分形，不用沿中心线的高斯截面，最终高程不做整体高斯模糊。验收改为与同一新骨架上的 TD 粗模型比山脉走向。
-- **深海岛屿与岛链（用户 2026-11-05，待 Terragenesis 解决）：** 热点岛链、岛弧、洋中脊岛、海山/环礁要在骨架层生成并带稳定 ID，快速世界层与局部 TD 继承；可配置密度档，默认随世界类型变化。需求详见 Terragenesis `docs/handovers/dream-world-terrain-requirements-20261103.md` 的 W7。在此之前织梦世界里远洋孤岛稀少属已知缺口，不在显示层伪造岛屿。
+- **深海岛屿与岛链：** Terragenesis 已提供冻结岛产品与普通世界生成接线（`ocean_islands` v5 等，见 [ocean-island-integration.md](ocean-island-integration.md)、[terrain-algorithm-map.md](terrain-algorithm-map.md)）。织梦作者链消费冻结侧车；查询不隐式生成。完整无限上游与全部 W7 形态验收仍属 TG 边界；有限域外不伪造岛屿。
 - **山地覆盖目标（用户 2026-11-05）：** 整片山地（含山前丘陵、山间盆地、高原）占陆地 20–30%；主造山带宽 150–400 km、次级山脉 40–120 km。高山区（>1500 m）占比照报，不再作为 12% 硬目标。
-- **河网算法复用（用户 2026-11-05）：** Terragenesis 正在代码重构；重构完成后再检查能否复用其已有河网算法。期间织梦继续用现有非规则图汇流，不复制 Terragenesis 代码；所 import 的 Terragenesis 文件以路径+SHA-256 记入产品 manifest，重构后若路径变动，按新位置重新核对再接。
+- **河网算法复用：** 世界层经 `terrain_pipeline.drainage`（不规则图汇流）只 import、不复制；路径+SHA-256 记入产品 manifest。旧 `tectonic_evolution` / `tectonic_product` 模块名已废弃，骨架统一走 `terrain_pipeline.tectonic`。

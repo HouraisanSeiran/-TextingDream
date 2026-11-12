@@ -97,8 +97,15 @@ def _validate_vectors(kind, items):
             ts._require(math.isfinite(item["surface_m"]), "Invalid lake surface")
     if kind == "rivers":
         by_id = {item["id"]: item for item in items}
+        # Build the reverse topology once instead of rescanning all rivers per edge.
+        # The same membership, reciprocity and cycle checks still apply.
+        upstream_by_id = {identifier: [] for identifier in by_id}
         for item in items:
-            expected = sorted(v["id"] for v in items if v["downstream_id"] == item["id"])
+            downstream = item["downstream_id"]
+            if downstream is not None:
+                upstream_by_id[downstream].append(item["id"])
+        for item in items:
+            expected = sorted(upstream_by_id[item["id"]])
             ts._require(sorted(item["upstream_ids"]) == expected, "Non-reciprocal river topology")
         done = set()
         for identifier in ids:
@@ -177,6 +184,14 @@ def load_world_map(path, *, expected_identity=None):
     path = Path(path)
     manifest = ts._json((path / "manifest.json").read_text(encoding="utf-8"))
     ts._identity(manifest, {"identity", "source_path"}, expected_identity)
+    process = manifest.get('world_processes')
+    if process is not None:
+        saved = ts._json(_file(path, process['file'], process['sha256']).read_text(encoding='utf-8'))
+        metadata = saved['metadata']
+        ts._require(metadata == process['metadata'], 'World process metadata binding differs')
+        ts._require(metadata['world_seed'] == manifest['world_seed'], 'World process seed binding differs')
+        ts._require(metadata['first_xz_m'] == manifest['grid']['first_sample_xz_m'] and
+                    metadata['spacing_m'] == manifest['grid']['spacing_m'], 'World process coordinate binding differs')
     ts._require(manifest["ready"] is True, "Product is not ready")
     for key in ("producer", "algorithm_version", "lineage", "world_seed", "subseed_method", "subseeds", "declared_generated", "limitations", "vectors"):
         ts._require(key in manifest, f"Missing manifest field: {key}")
@@ -195,6 +210,14 @@ def load_world_map(path, *, expected_identity=None):
             ts._require(key in spec, f"Missing {name} field: {key}")
         ts._require(spec["unit"] == STANDARD_LAYERS[name], f"Invalid unit for {name}")
         array = _array(path, spec["file"], spec["sha256"], shape, spec["dtype"])
+        if spec.get('process_identity') is not None:
+            ts._require(process is not None and spec['process_identity']==saved['identity'],
+                        'Environment layer belongs to another process revision')
+            ts._require(name in saved['arrays'],'Environment field missing from bound process')
+            p_spec=saved['arrays'][name]
+            p_value=np.load(_file((path/process['file']).parent,p_spec['file'],p_spec['sha256']),mmap_mode='r',allow_pickle=False)
+            ts._require(np.array_equal(array,np.asarray(p_value,dtype=array.dtype),equal_nan=True),
+                        'Environment field differs from bound process arrays')
         if name == "status":
             ts._require(array.dtype.kind in "ui", "Status must be integer")
             mapping = manifest.get("status_codes")
@@ -258,6 +281,8 @@ def load_td_world(path, *, expected_identity=None):
 
 LOCAL30_KIND = "terragenesis-local30"
 LOCAL30_SCHEMA = "terragenesis-local30-v1"
+CLIMATE_KIND = "terragenesis-regional-climate"
+CLIMATE_SCHEMA = "terragenesis-regional-climate-v1"
 
 
 def load_local30(path, *, expected_identity=None):
@@ -274,3 +299,65 @@ def load_local30(path, *, expected_identity=None):
     source._grid.kind = LOCAL30_KIND
     source.info = replace(source.info, kind=LOCAL30_KIND)
     return source
+
+
+def load_regional_climate(path, *, expected_identity=None):
+    """``terragenesis-regional-climate-v1``: annual climate on the parent world grid.
+
+    Validates through Terragenesis ``query_climate`` (converged only). ``elevation_m`` is a
+    zero placeholder for grid geometry; ``temperature_c`` is the annual mean. Monthly fields
+    stay on ``SavedClimateMap`` / climate HTTP routes.
+    """
+    from app.world_gen import terragenesis_bridge as bridge
+    bridge.ensure_path()
+    from terrain_pipeline import world_climate
+
+    root = Path(path).resolve()
+    manifest = ts._json((root / "manifest.json").read_text(encoding="utf-8"))
+    ts._require(manifest.get("schema") == CLIMATE_SCHEMA, "Not a regional climate manifest")
+    field_names = ["ocean_mask", "temperature_c"]
+    if "precipitation_mm_yr" in (manifest.get("fields") or {}):
+        field_names.append("precipitation_mm_yr")
+    loaded = world_climate.query_climate(root, fields=field_names, allow_candidate=False)
+    meta = loaded["metadata"]
+    if expected_identity is not None:
+        ts._require(meta.get("identity") == expected_identity, "Expected climate identity mismatch")
+    ocean = np.asarray(loaded["arrays"]["ocean_mask"])
+    temperature = np.asarray(loaded["arrays"]["temperature_c"], dtype=np.float32)
+    ts._require(ocean.shape == temperature.shape, "Climate field shape mismatch")
+    status = np.where(ocean, np.uint8(3), np.uint8(5))
+    elevation = np.zeros(temperature.shape, dtype=np.float32)
+    shape = tuple(int(v) for v in meta["shape_zx"])
+    first = tuple(float(v) for v in meta["first_xz_m"])
+    spacing = float(meta["spacing_m"])
+    seed = int(meta["world_seed"])
+    identity = meta["identity"]
+    ts._require(ts._hex(identity), "Invalid climate identity")
+    fake_manifest = dict(
+        schema=CLIMATE_SCHEMA, identity=identity, world_seed=seed,
+        producer="terragenesis/world_climate", algorithm_version=str(meta.get("algorithm", "")),
+        lineage=[meta.get("source_identity") or identity],
+        limitations=["elevation_m is a zero placeholder; bed lives on the parent world-map-product",
+                     "monthly climate fields are not exposed here; use SavedClimateMap"],
+        declared_generated=["regional climate annual fields"],
+    )
+    arrays = {"elevation_m": elevation, "status": status, "temperature_c": temperature}
+    if "precipitation_mm_yr" in loaded["arrays"]:
+        arrays["precipitation_mm_yr"] = np.asarray(loaded["arrays"]["precipitation_mm_yr"], dtype=np.float32)
+    grid = _grid(CLIMATE_KIND, fake_manifest, spacing, first, shape, arrays)
+    metadata = {
+        "elevation_m": {"unit": "m", "meaning": "placeholder zeros; not terrain bed"},
+        "temperature_c": {"unit": "degC", "source": "terragenesis-regional-climate",
+                          "approximation": "annual mean from monthly climate product"},
+    }
+    if "precipitation_mm_yr" in arrays:
+        metadata["precipitation_mm_yr"] = {
+            "unit": "mm/yr", "source": "terragenesis-regional-climate",
+            "approximation": "annual total from climate product",
+        }
+    info = _info(CLIMATE_KIND, fake_manifest, grid, tuple(arrays),
+                 elevation_meaning=metadata["elevation_m"]["meaning"],
+                 layer_metadata=metadata, grid_semantics="cell-centre",
+                 derivations=("status from climate ocean_mask; temperature nearest; no bed",))
+    extras = {k: v for k, v in arrays.items() if k not in ("status", "elevation_m")}
+    return GridSource(grid, info, extras)

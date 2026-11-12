@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "group": "civ-dynasty-styles",
+  "status": "candidate",
+  "note": "文明模拟用的王朝命名风格候选。示例国号用字、王朝后缀来自对现实命名习惯的转述，仅供创作抽签；库里有 ≠ 世界正典，也不等于真实历史王朝复刻。",
+  "sources": [
+    {
+      "id": "dyn_src_cn_era",
+      "title": "Chinese dynasty — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/dynasty",
+      "access": "read",
+      "supports": "王朝是家族统治的世系；东亚常见以单字国号或谥号体系标识政权更替。",
+      "rights_note": "仅做范围核对；条目为自行转述的待审候选，不复制原文。"
+    },
+    {
+      "id": "dyn_src_eu_house",
+      "title": "Dynasty / house naming in Europe — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/house-genealogy",
+      "access": "read",
+      "supports": "欧洲常见以家族姓氏、封地或联姻称呼王朝（如某某家族）。",
+      "rights_note": "仅做范围核对；条目为自行转述的待审候选，不复制原文。"
+    },
+    {
+      "id": "dyn_src_islamic",
+      "title": "Caliphate — Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/caliphate",
+      "access": "read",
+      "supports": "哈里发与王朝世系并存的命名与继承习惯，用于创作对照而非教义宣讲。",
+      "rights_note": "仅做范围核对；条目为自行转述的待审候选，不复制原文。"
+    }
+  ],
+  "elements": [
+    {
+      "id": "dyn_style_sinitic_era",
+      "name": "汉字国号风格",
+      "aliases": ["夏", "商", "周", "秦", "汉", "晋", "隋", "唐", "宋", "元", "明", "清", "魏", "梁", "齐", "楚", "燕", "赵", "韩", "吴", "蜀", "辽", "金", "西夏"],
+      "tags": ["civ_sim", "dynasty", "sinitic", "era_name"],
+      "summary": "单字或短国号风格的创作抽签池，参考东亚历史政权名号习惯。",
+      "details": {
+        "definition": "以单字国号标识一代政权；池内字词仅作命名素材。",
+        "mechanism": "模拟器在立国或改朝时从池中抽字组成国号，不复制真实年表。",
+        "conditions": "需要文明模拟显式读取百科；缺库时回退内置音节。",
+        "exceptions": "抽到的国号不代表该世界发生了对应真实朝代。",
+        "story_uses": "编年史王朝名、君主称号前缀。",
+        "historical_scope": "跨时期创作参考；具体世界包需自行限定时代感。",
+        "evidence_and_uncertainty": "来源只支撑「国号/王朝命名习惯存在」；池内容是示例不是人口或正统证明。"
+      },
+      "source_ids": ["dyn_src_cn_era"],
+      "related_ids": [],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "dyn_style_sinitic_suffix",
+      "name": "汉字王朝后缀",
+      "aliases": ["朝", "氏", "室", "家"],
+      "tags": ["civ_sim", "dynasty", "sinitic", "suffix"],
+      "summary": "接在国号或姓氏后的「朝/氏/室/家」等后缀。",
+      "details": {
+        "definition": "用于「某某朝」「某某氏」一类写法。",
+        "mechanism": "与国号字或统治者姓氏组合。",
+        "conditions": "与汉字国号风格配合使用。",
+        "exceptions": "后缀单独不成国名。",
+        "story_uses": "编年史显示名。",
+        "historical_scope": "创作参考。",
+        "evidence_and_uncertainty": "习惯性写法的转述，非语言学定论。"
+      },
+      "source_ids": ["dyn_src_cn_era"],
+      "related_ids": ["dyn_style_sinitic_era"],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "dyn_style_european_house",
+      "name": "欧洲式家族王朝名",
+      "aliases": ["卡佩", "哈布斯堡", "霍亨斯陶芬", "诺曼", "金雀花", "都铎", "瓦卢瓦", "罗曼诺夫", "奥斯曼", "美第奇", "波旁", "霍亨索伦"],
+      "tags": ["civ_sim", "dynasty", "european", "house"],
+      "summary": "以家族/封地感命名的王朝名池（创作示例）。",
+      "details": {
+        "definition": "用家族名指称统治世系。",
+        "mechanism": "立国时抽家族名，显示为「某某王朝」。",
+        "conditions": "可选与欧洲姓名池搭配。",
+        "exceptions": "不等于导入真实家谱。",
+        "story_uses": "王朝显示名、继承叙事。",
+        "historical_scope": "创作参考。",
+        "evidence_and_uncertainty": "示例名不是该世界的历史事实。"
+      },
+      "source_ids": ["dyn_src_eu_house", "dyn_src_islamic"],
+      "related_ids": [],
+      "review_status": "needs_review"
+    },
+    {
+      "id": "dyn_style_throne_titles",
+      "name": "君主称号词",
+      "aliases": ["王", "帝", "公", "汗", "苏丹", "大公", "女王", "皇帝"],
+      "tags": ["civ_sim", "dynasty", "title"],
+      "summary": "统治者称号词池，用于人物职务显示。",
+      "details": {
+        "definition": "称号是职位标签，不自动赋予神权或合法性证明。",
+        "mechanism": "立国君主与继位者挂一个称号词。",
+        "conditions": "文明模拟启用人物模块。",
+        "exceptions": "称号不决定游戏数值。",
+        "story_uses": "人物卡、编年史称呼。",
+        "historical_scope": "多文化对照示例。",
+        "evidence_and_uncertainty": "跨文化混用时仅作文案，不声称制度等价。"
+      },
+      "source_ids": ["dyn_src_cn_era", "dyn_src_eu_house", "dyn_src_islamic"],
+      "related_ids": [],
+      "review_status": "needs_review"
+    }
+  ]
+}

@@ -6,7 +6,6 @@
 ``http.server`` 线程验证，跑完就关。
 """
 import http.server
-import json
 import os
 import subprocess
 import sys
@@ -30,7 +29,10 @@ class TempRootCase(unittest.TestCase):
         self.root = Path(self.tmp.name)
         self.saved = {}
         for name in ('ROOT', 'STATE_DIR', 'STATE_FILE', 'LOG_DIR', 'VENV_DIR',
-                     'REQUIREMENTS', 'LAUNCH_SCRIPT', 'CIV_ATLAS_DIR', 'CIV_ATLAS_PATCH'):
+                     'REQUIREMENTS', 'LAUNCH_SCRIPT', 'CIV_ATLAS_DIR', 'CIV_ATLAS_PATCH',
+                     'find_base_python', 'ensure_venv', 'install_requirements',
+                     'deps_ready', 'process_alive', 'process_info',
+                     'terminate', 'node_version', 'ask'):
             self.saved[name] = getattr(core, name)
         core.ROOT = self.root
         core.STATE_DIR = self.root / 'logs'
@@ -48,6 +50,7 @@ class TempRootCase(unittest.TestCase):
         self._urlopen = core.urllib.request.urlopen
         self._copyfileobj = core.shutil.copyfileobj
         self._run = subprocess.run
+        self._browser_open = core.webbrowser.open
         self._port_reachable = core.port_reachable
         # wait_ready 也会被个别测试替换成固定值（重复启动那条），必须一起复原，
         # 否则后面的「连不上就不是就绪」会读到 True。
@@ -57,10 +60,38 @@ class TempRootCase(unittest.TestCase):
         core.urllib.request.urlopen = self._urlopen
         core.shutil.copyfileobj = self._copyfileobj
         core.subprocess.run = self._run
+        core.webbrowser.open = self._browser_open
         core.port_reachable = self._port_reachable
         core.wait_ready = self._wait_ready
         for name, value in self.saved.items():
             setattr(core, name, value)
+
+
+class FixtureIsolationTests(unittest.TestCase):
+    def test_helper_overrides_are_restored_after_each_case(self):
+        names = ('find_base_python', 'ensure_venv', 'install_requirements',
+                 'deps_ready', 'process_alive', 'process_info',
+                 'terminate', 'node_version', 'ask')
+        originals = {name: getattr(core, name) for name in names}
+        browser_open = core.webbrowser.open
+
+        class Overrides(TempRootCase):
+            def runTest(self):
+                for name in names:
+                    setattr(core, name, lambda *args, **kwargs: None)
+                core.webbrowser.open = lambda url: False
+
+        try:
+            result = unittest.TestResult()
+            Overrides().run(result)
+            self.assertTrue(result.wasSuccessful(), result.errors)
+            for name, original in originals.items():
+                self.assertIs(getattr(core, name), original, name)
+            self.assertIs(core.webbrowser.open, browser_open)
+        finally:
+            for name, original in originals.items():
+                setattr(core, name, original)
+            core.webbrowser.open = browser_open
 
 
 class FrontendPatchTests(TempRootCase):
@@ -206,9 +237,11 @@ class ProcessIdentityTests(TempRootCase):
 
 class DuplicateStartTests(TempRootCase):
     def test_second_start_reuses_ready_service(self):
+        created = '2026-01-01T00:00:00'
         core.write_state({'pid': os.getpid(), 'url': 'http://127.0.0.1:65500',
-                          'command': str(core.LAUNCH_SCRIPT)})
-        core.process_identity = lambda pid: True
+                          'command': str(core.LAUNCH_SCRIPT), 'created': created})
+        core.process_info = lambda pid: {'command': str(core.LAUNCH_SCRIPT),
+                                         'created': created}
         core.wait_ready = lambda url, timeout=90.0: True
         opened = {'n': 0}
         core.webbrowser.open = lambda url: opened.__setitem__('n', opened['n'] + 1)
@@ -224,6 +257,7 @@ class NoGlobalMutationTests(TempRootCase):
             seen.append(args if isinstance(args, list) else [args])
             return subprocess.CompletedProcess(args, 0, '', '')
 
+        core.find_base_python = lambda: (Path(sys.executable), sys.version_info[:3])
         core.subprocess.run = fake_run
         core.ensure_venv = lambda base, dry_run=False: (self.root / '.venv' /
                                                         'Scripts' / 'python.exe')

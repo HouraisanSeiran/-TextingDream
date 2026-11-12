@@ -1,5 +1,7 @@
 # 人类生产生活百科 · 人类美食（cuisine）
 
+> **分区采集说明（2026-11-08 整理）**：文末的「通过 / 入库」指那一次 JSON 与导入检查，不是事实审定。条目仍是待审候选。见 [../现状.md](../现状.md)。
+
 对应 [`cuisine.json`](cuisine.json)。状态：**候选资料**（`schema_version: 1`、`status: candidate`、`group: cuisine`），全部条目 `review_status: needs_review`。
 
 **这是一个独立增补分区**。原有食材与工艺分区不改写；本组通过 `--with-cuisine` 显式构入独立百科库，不写旅程 `data` 或 StoryPackage。正文以 JSON 为准，状态仍为候选资料。

@@ -92,6 +92,7 @@ def test_saved_targets_restore_erosion_without_recomposition_and_publish_dtype(f
 
 
 def test_real_fast_compute_and_freeze_keep_lagoons_status_and_fractions(frozen,tmp_path):
+    pytest.importorskip('numba', reason='fast_relief hydrology needs Terragenesis runtime/venv (numba)')
     before=bridge.file_sha(frozen.source_path)
     sk=fr.load_skeleton(frozen.source_path,frozen.source.identity)
     params=dict(spacing_m=4000.,erosion_iterations=1,smooth_rivers=False,breach_passes=1)
@@ -121,6 +122,7 @@ def test_real_fast_compute_and_freeze_keep_lagoons_status_and_fractions(frozen,t
 
 
 def test_optional_islands_preserve_closed_negative_bed_outside_support(frozen,tmp_path,monkeypatch):
+    pytest.importorskip('numba', reason='fast_relief hydrology needs Terragenesis runtime/venv (numba)')
     original=fr.build_terrain
     basin=np.zeros((40,40),bool);basin[18:22,18:22]=True
     def terrain(*args,**kwargs):
@@ -196,6 +198,7 @@ def test_local30_cpu_generator_freezes_island_lineage_and_rejects_changed_or_rem
 
 
 def test_actual_fast_cli_passes_optional_binding(frozen,tmp_path):
+    pytest.importorskip('numba', reason='fast_relief CLI hydrology needs Terragenesis runtime/venv (numba)')
     spec=importlib.util.spec_from_file_location('test_build_fast_tool',ROOT/'tools/build_fast_relief.py')
     module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
     out=tmp_path/'from-cli'

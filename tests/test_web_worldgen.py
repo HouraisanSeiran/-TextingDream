@@ -61,18 +61,37 @@ def test_options_defaults_and_gpu_reason(client, tmp_path):
     app.state.worldgen = make_mgr(tmp_path, gpu=GPU_NONE)
     o = c.get('/api/inner/worldgen/options').json()
     assert o['defaults'] == dict(world_type='multi-continent', size_km=1600, ocean_fraction=0.6, mountain_area=0.25,
-                                 seed=20260903, use_gpu=False)
+                                 seed=20260903, use_gpu=False, quality='speed', pipeline='playable')
     assert [s['km'] for s in o['sizes']] == [1600, 5000, 10000] and o['sizes'][2]['slow']
+    assert [q['id'] for q in o['qualities']] == ['speed', 'balanced', 'precise']
+    assert [p['id'] for p in o['pipelines']] == ['playable', 'full']
+    assert o['qualities'][0]['spacings_m']['10000'] == 12000.0
     assert o['ranges']['mountain_area'] == [0.2, 0.3]
     assert o['gpu']['usable'] is False and 'CUDA' in o['gpu']['reason']
-    e = o['estimates']['1600']
-    assert e['cpu']['basis'] == 'extrapolated' and e['gpu']['basis'] == 'extrapolated'
-    assert {s['stage'] for s in e['gpu']['stages']} >= {'skeleton', 'fast', 'td', 'render'}
+    e = o['estimates']['1600']['balanced']
+    # playable 1600/2km：骨架/fast/成图均可为实测；full 因 world-processes/TD 仍为推算。
+    assert e['cpu']['basis'] == 'measured' and e['gpu']['basis'] == 'measured'
+    assert e['spacing_m'] == 2000.0
+    assert e['disk_bytes'] > 0 and e['cpu']['disk_bytes'] == e['disk_bytes']
+    assert {s['stage'] for s in e['cpu']['stages']} >= {'skeleton', 'fast', 'render'}
+    assert 'details' not in {s['stage'] for s in e['cpu']['stages']}
+    assert 'td' not in {s['stage'] for s in e['gpu']['stages']}
+    full_gpu = e['pipelines']['full']['gpu']
+    assert full_gpu['basis'] == 'extrapolated'
+    assert {s['stage'] for s in full_gpu['stages']} >= {'skeleton', 'fast', 'td', 'render', 'world-processes', 'final-render'}
+    assert e['pipelines']['full']['disk_bytes'] > e['pipelines']['playable']['disk_bytes']
+    assert o['estimates']['10000']['speed']['spacing_m'] == 12000.0
+    assert o['estimates']['1600']['speed']['spacing_m'] == 4000.0
+    assert o['memory']['hard_limit'] is False
+    assert o['memory']['min_free_bytes']['1600']['balanced'] >= 3200 * 2 ** 20
+    assert o['memory']['recommended_bytes']['1600']['speed'] == o['memory']['min_free_bytes']['1600']['speed']
+    assert o['disk']['free_bytes'] is not None and o['disk']['free_bytes'] > 0
+    assert o['memory']['advice']['1600']['speed']['hard_limit'] is False
 
 
 @pytest.mark.parametrize('body', [
     dict(size_km=3000), dict(ocean_fraction=0.3), dict(ocean_fraction=0.9), dict(mountain_area=0.35), dict(mountain_area=0.1),
-    dict(seed=-1), dict(seed='1'), dict(world_type='flat'), dict(use_gpu='yes'), dict(extra=1)])
+    dict(seed=-1), dict(seed='1'), dict(world_type='flat'), dict(use_gpu='yes'), dict(pipeline='draft'), dict(extra=1)])
 def test_params_validated(client, tmp_path, body):
     app, c = client
     app.state.worldgen = make_mgr(tmp_path)
@@ -100,13 +119,21 @@ def test_gpu_unavailable_rejects_gpu_option(client, tmp_path):
     assert wait(c, r.json()['id'])['status'] == 'succeeded'
 
 
-def test_memory_gate(client, tmp_path):
+def test_memory_soft_schedule(client, tmp_path):
     app, c = client
     app.state.worldgen = make_mgr(tmp_path, memory=int(1.5 * GIB))
     r = c.post('/api/inner/worldgen/jobs', json={})
-    assert r.status_code == 409 and '可用内存' in r.json()['detail']
-    assert wj.WorldGenManager.memory_gate_bytes(1600) >= 3200 * 2 ** 20
-    assert wj.WorldGenManager.memory_gate_bytes(10000) > 2 * GIB
+    assert r.status_code == 200
+    j = r.json()
+    assert j['memory_check']['constrained'] is True
+    assert j['memory_check']['hard_limit'] is False
+    assert j['params']['memory_schedule']['thread_cap'] == 1
+    assert j['params']['quality'] == 'speed'
+    assert j['disk_check']['estimated_bytes'] > 0
+    assert wj.WorldGenManager.memory_gate_bytes(1600, quality='balanced') >= 3200 * 2 ** 20
+    assert wj.WorldGenManager.memory_gate_bytes(10000, quality='precise') > 2 * GIB
+    assert wj.WorldGenManager.memory_gate_bytes(10000, quality='speed') < wj.WorldGenManager.memory_gate_bytes(10000, quality='precise')
+    assert wait(c, j['id'])['status'] == 'succeeded'
 
 
 def test_single_job_and_cancel(client, tmp_path):
@@ -185,8 +212,17 @@ def test_restart_marks_unfinished_interrupted(tmp_path):
 
 def test_default_stages_commands(tmp_path):
     m = make_mgr(tmp_path)
+    playable = dict(name='web-x', params=dict(world_type='pangaea', size_km=5000, ocean_fraction=0.6, mountain_area=0.22, seed=7,
+                                              use_gpu=True, quality='speed', spacing_m=8000.0, pipeline='playable'),
+                    paths=m._paths('20261105-120000-abcd'))
+    pst = {s.name: s for s in m.default_stages(playable)}
+    assert list(pst) == ['skeleton', 'islands', 'island-mountains', 'fast', 'render', 'summary']
+    assert '--world-processes' not in pst['fast'].argv
+    assert 'details' not in pst and 'td' not in pst
+
     job = dict(name='web-x', params=dict(world_type='pangaea', size_km=5000, ocean_fraction=0.6, mountain_area=0.22, seed=7,
-                                         use_gpu=True), paths=m._paths('20261105-120000-abcd'))
+                                         use_gpu=True, quality='speed', spacing_m=8000.0, pipeline='full'),
+               paths=m._paths('20261105-120000-abcd'))
     st = {s.name: s for s in m.default_stages(job)}
     assert list(st) == ['skeleton', 'islands', 'island-mountains', 'fast', 'render', 'details', 'final-render', 'td', 'compare', 'summary']
     assert '--record-history' in st['skeleton'].argv
@@ -197,6 +233,7 @@ def test_default_stages_commands(tmp_path):
     assert sk[sk.index('--cell-km') + 1] == '20'
     fa = st['fast'].argv
     assert 'web_island_stage.py' in fa[1] and fa[2]=='fast'
+    assert fa[fa.index('--spacing-m') + 1] == '8000.0'
     assert '--input' in fa and st['island-mountains'].gpu
     assert '--use-gpu' in st['island-mountains'].argv
     td = st['td'].argv
@@ -204,13 +241,43 @@ def test_default_stages_commands(tmp_path):
     assert td[td.index('--skip-ocean-km') + 1] == '120' and td[td.index('--steps') + 1] == '15'
     assert not st['fast'].gpu and m._env(False)['CUDA_VISIBLE_DEVICES'] == '-1'
     assert all('d8' not in ' '.join(s.argv or []).lower() for s in st.values())
+    up = {s.name: s for s in m.upgrade_stages(job)}
+    assert 'skeleton' not in up and 'fast' in up and up['fast'].argv[up['fast'].argv.index('--spacing-m') + 1] == '8000.0'
+    assert '--world-processes' in up['fast'].argv and 'details' in up
+    up_play = {s.name: s for s in m.upgrade_stages(playable)}
+    assert '--world-processes' not in up_play['fast'].argv and 'details' not in up_play
 
 
 def test_estimates_marked():
     assert est.fast_layer(1600)['basis'] == 'measured' and est.fast_layer(1600)['nodes'] == 640000
     assert est.fast_layer(5000)['cpu_seconds'] == 960.0
+    assert est.fast_layer(10000, spacing_m=12000)['nodes'] == int(round(10000 * 1000 / 12000)) ** 2
+    assert est.fast_layer(1600, spacing_m=4000)['basis'] == 'extrapolated'
     assert est.td_coarse(5000, 'cuda')['basis'] == 'extrapolated'
-    assert est.skeleton_cell_km(10000) == 20
+    assert est.skeleton_cell_km(1600) == 10
+    assert est.skeleton_cell_km(5000) == 20
+    assert est.skeleton_cell_km(10000) == 40
+    assert est.skeleton(10000)['cells'] == 250 * 250
+    assert est.skeleton(10000)['seconds'] == 134.0  # same cell count as measured 5000 km @ 20 km
+    assert wj.spacing_m(1600, 'precise') == 1000.0
+    assert wj.spacing_m(10000, 'speed') == 12000.0
+
+
+def test_upgrade_rejects_same_spacing(client, tmp_path):
+    app, c = client
+    app.state.worldgen = make_mgr(tmp_path)
+    j = wait(c, c.post('/api/inner/worldgen/jobs', json=dict(quality='balanced')).json()['id'])
+    assert j['status'] == 'succeeded'
+    # fabricate a fast manifest so upgrade can read spacing
+    from pathlib import Path
+    import json
+    fdir = Path(j['paths']['fast_dir']); fdir.mkdir(parents=True, exist_ok=True)
+    (fdir / 'manifest.json').write_text(json.dumps(dict(identity='a'*64, grid=dict(spacing_m=2000.0))), encoding='utf-8')
+    mountains = Path(j['paths']['world_dir']) / 'island-mountains'
+    mountains.mkdir(parents=True, exist_ok=True)
+    (mountains / 'world-input.json').write_text('{}', encoding='utf-8')
+    r = c.post(f"/api/inner/worldgen/jobs/{j['id']}/upgrade", json=dict(quality='balanced'))
+    assert r.status_code == 409 and '相同' in r.json()['detail']
 
 
 def test_resume_reuses_completed_stages(client, tmp_path):

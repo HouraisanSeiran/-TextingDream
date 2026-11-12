@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>织梦 · TextingDream</title><link rel="stylesheet" href="/static/style.css"><link rel="stylesheet" href="/static/map-tools.css"><link rel="stylesheet" href="/static/narrative-workbench.css"><link rel="stylesheet" href="/static/atelier.css?v=13"><script defer src="/static/app.js?v=4"></script><script defer src="/static/workers.js?v=2"></script><script defer src="/static/atlas.js?v=2"></script><script defer src="/static/generators.js"></script><script defer src="/static/world-workshop.js"></script><script defer src="/static/development.js"></script><script defer src="/static/reply-direction.js?v=2"></script><script defer src="/static/towns.js"></script><script defer src="/static/town-plan-ui.js"></script><script defer src="/static/element-assembly.js"></script><script defer src="/static/world-setting.js?v=3"></script><script defer src="/static/dice.js"></script><script defer src="/static/playable-demo.js?v=3"></script><script defer src="/static/map-import.js"></script><script defer src="/static/world-history.js"></script><script defer src="/static/spatial-planner.js"></script><script defer src="/static/map-fog.js?v=1"></script><script defer src="/static/play-ui.js?v=5"></script><script defer src="/static/native-map.js"></script><link rel="stylesheet" href="/static/exploration.css"><link rel="stylesheet" href="/static/element-codex.css?v=1"><link rel="stylesheet" href="/static/world-setting.css?v=2"><link rel="stylesheet" href="/static/chat-polish.css?v=4"><link rel="stylesheet" href="/static/retro.css?v=3" data-theme-sheet="retro"><link rel="stylesheet" href="/static/medieval.css?v=2" data-theme-sheet="medieval"><script src="/static/theme.js?v=1"></script><script defer src="/static/exploration-ui.js?v=2"></script><script defer src="/static/npc-cards.js"></script><script defer src="/static/ai-drafts.js"></script><link rel="stylesheet" href="/static/worldgen.css?v=1"><script defer src="/static/worldgen.js?v=1"></script></head>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>织梦 · TextingDream</title><link rel="stylesheet" href="/static/style.css?v=2"><link rel="stylesheet" href="/static/map-tools.css"><link rel="stylesheet" href="/static/narrative-workbench.css"><link rel="stylesheet" href="/static/atelier.css?v=15"><link rel="stylesheet" href="/static/workbench.css?v=2"><script defer src="/static/app.js?v=5"></script><script defer src="/static/workers.js?v=2"></script><script defer src="/static/atlas.js?v=2"></script><script defer src="/static/generators.js"></script><script defer src="/static/world-workshop.js"></script><script defer src="/static/development.js"></script><script defer src="/static/reply-direction.js?v=2"></script><script defer src="/static/towns.js"></script><script defer src="/static/town-plan-ui.js"></script><script defer src="/static/element-assembly.js"></script><script defer src="/static/world-setting.js?v=3"></script><script defer src="/static/dice.js"></script><script defer src="/static/playable-demo.js?v=3"></script><script defer src="/static/map-import.js"></script><script defer src="/static/world-history.js"></script><script defer src="/static/spatial-planner.js"></script><script defer src="/static/map-fog.js?v=1"></script><script defer src="/static/play-ui.js?v=7"></script><link rel="stylesheet" href="/static/map-bundle.css"><script defer src="/static/map-bundle.js"></script><script defer src="/static/native-map.js?v=2"></script><link rel="stylesheet" href="/static/exploration.css"><link rel="stylesheet" href="/static/element-codex.css?v=1"><link rel="stylesheet" href="/static/world-setting.css?v=2"><link rel="stylesheet" href="/static/chat-polish.css?v=4"><link rel="stylesheet" href="/static/retro.css?v=4" data-theme-sheet="retro"><link rel="stylesheet" href="/static/medieval.css?v=3" data-theme-sheet="medieval"><script src="/static/theme.js?v=1"></script><script defer src="/static/exploration-ui.js?v=2"></script><script defer src="/static/npc-cards.js"></script><script defer src="/static/ai-drafts.js"></script><link rel="stylesheet" href="/static/worldgen.css?v=2"><script defer src="/static/worldgen.js?v=3"></script></head>
 <body>
 <div id="notice" role="status" hidden></div>
 <!-- ================= 主界面：工作区 / 世界地图 / 故事手记 ================= -->
@@ -14,25 +14,29 @@
  <div id="play-body">
   <aside id="workspace-sidebar" aria-label="工作区">
    <div class="workspace-intro"><span class="workspace-kicker">世界档案馆</span><strong id="world-label">织梦</strong><span class="workspace-subtitle">选择一个世界，继续书写它的故事。</span></div>
-   <button id="workspace-api" class="workspace-link workspace-api-entry" type="button"><span aria-hidden="true">⌁</span> API 配置 <small id="workspace-api-hint">连接模型</small></button>
+   <button id="workspace-api" class="workspace-link workspace-api-entry" type="button" data-nav="api">API 配置 <small id="workspace-api-hint">连接模型</small></button>
    <div class="workspace-group" id="workspace-group-play">
     <p class="workspace-label">游玩</p>
-    <button id="workspace-author-map" class="workspace-link" type="button"><span aria-hidden="true">◎</span> 世界地图</button>
+    <button id="workspace-author-map" class="workspace-link" type="button" data-nav="surface">世界地图</button>
    </div>
    <div class="workspace-group" id="workspace-group-author">
    <button id="workspace-author-toggle" class="workspace-label workspace-group-toggle" type="button" aria-expanded="true" aria-controls="workspace-author-group">作者工具 <span class="workspace-group-chevron" aria-hidden="true">⌄</span></button>
    <div id="workspace-author-group" class="workspace-group-body">
-   <button id="workspace-new-world" class="workspace-link" type="button"><span aria-hidden="true">✧</span> 新建世界</button>
-   <button id="workspace-elements" class="workspace-link" type="button"><span aria-hidden="true">▦</span> 元素数据库</button>
-   <button id="workspace-map-tools" class="workspace-link" type="button" aria-expanded="false" aria-controls="native-map-toolbox"><span aria-hidden="true">⌗</span> 地图与圈地工具</button>
-   <div id="native-map-toolbox" class="native-map-toolbox" hidden></div>
-   <button id="workspace-other" class="workspace-link" type="button" aria-expanded="false" aria-controls="workspace-other-menu"><span aria-hidden="true">☷</span> 其他 <span class="workspace-chevron" aria-hidden="true">⌄</span></button>
+   <button id="workspace-elements" class="workspace-link" type="button" data-nav="elements">元素数据库</button>
+   <button id="workspace-other" class="workspace-link" type="button" aria-expanded="false" aria-controls="workspace-other-menu">其他 <span class="workspace-chevron" aria-hidden="true">⌄</span></button>
    <div id="workspace-other-menu" class="workspace-other-menu" hidden></div>
    </div>
    </div>
    <div class="workspace-footer"><span class="dot"></span><span id="workspace-mode">本地工作空间</span></div>
   </aside>
   <section id="play-main" aria-label="地图与对话">
+   <section id="workbench-host" class="workbench-host" hidden aria-label="作者工作台">
+    <header class="workbench-bar">
+     <div class="workbench-bar-text"><span id="workbench-crumb" class="workbench-crumb">工作台</span><h1 id="workbench-title">工作台</h1></div>
+     <button id="workbench-back-map" class="tb-btn" type="button">回到地图</button>
+    </header>
+    <div id="workbench-pages" class="workbench-pages"></div>
+   </section>
    <section id="play-right" aria-label="世界地图">
     <div id="native-map-host" class="native-map-host"></div>
     <div id="player-map-host" class="player-map-host" hidden aria-label="旅程地图">

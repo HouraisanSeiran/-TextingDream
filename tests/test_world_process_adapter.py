@@ -8,6 +8,13 @@ import pytest
 from app.world_gen import config, fast_relief, skeleton, world_process_adapter
 
 
+def test_new_tasks_explicitly_select_integrated_and_cannot_reuse_legacy_config():
+    adapter=world_process_adapter
+    assert adapter.new_task_config({})['integrated_environment'] is True
+    assert adapter.new_task_config({'integrated_environment':False})['integrated_environment'] is False
+    assert adapter.numerical_config(adapter.new_task_config({}))!=adapter.numerical_config({})
+
+
 def test_new_skeleton_records_real_forward_states_and_history(tmp_path):
     cfg = config.normalize(dict(world_name='history-integration', world_seed=20260903,
         world=dict(type='archipelago', size_km=400, ocean_fraction=.6)))
@@ -32,7 +39,12 @@ def test_default_job_enables_forward_history_and_world_processes(tmp_path):
     pytest.importorskip('pydantic')
     from app.world_gen.web_jobs import WorldGenManager, WorldGenRequest
     manager = WorldGenManager(tmp_path)
-    job = dict(params=WorldGenRequest().model_dump(), paths=manager._paths('20261107-000000-aaaa'), name='test')
+    playable = dict(params=WorldGenRequest().model_dump(), paths=manager._paths('20261107-000000-aaaa'), name='test')
+    assert playable['params']['pipeline'] == 'playable'
+    play_stages = manager.default_stages(playable)
+    assert '--record-history' in next(s.argv for s in play_stages if s.name == 'skeleton')
+    assert '--world-processes' not in next(s.argv for s in play_stages if s.name == 'fast')
+    job = dict(params=WorldGenRequest(pipeline='full').model_dump(), paths=manager._paths('20261107-000000-bbbb'), name='test')
     stages = manager.default_stages(job)
     assert '--record-history' in next(s.argv for s in stages if s.name == 'skeleton')
     assert '--world-processes' in next(s.argv for s in stages if s.name == 'fast')

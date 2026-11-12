@@ -3,11 +3,15 @@
 用法：
   .venv\\Scripts\\python.exe tools/render_world_relief_atlas.py [--product artifacts/world-relief-pilot | --config catalog.json]
         [--out artifacts/world-relief-pilot/atlas] [--width 2400] [--reserved reserved.json] [--fantasy fantasy.json]
+        [--overview-only]
 数据一律经统一接口 app.map_source 读取（--config = MapCatalog.from_config，取其中 kind=world-relief-pilot 的源；
 --product = load_source("world-relief-pilot", path)）。
 产出 simple-atlas.png（河、山、林石草混排、装饰）、relief-only.png（无任何符号/装饰/河线的对照底图）、
 detail-*.png（局部放大）、reserved-demo.png（林区局部：圆形空地 + 道路带）、atlas-source.json（产品身份、尺度、各层来源、
 与旧版直读 npy/rivers.json 的一致性对比）。
+--overview-only：只出 simple-atlas.png / relief-only.png / atlas-source.json（快档，推荐配 --width 1200），
+跳过 detail-*.png / reserved-demo / reserved-compare 多页渲染与重复的 analyse，并跳过旧 PNG 像素对比的额外重建；
+不加该开关时仍是完整图册（行为不变）。atlas-source.json 记录 overview_only / width / elapsed_seconds。
 底图 numpy 绘制，符号/装饰/文字为 SVG（复用 map-art sprite），本机 Edge 无头截图成 PNG。
 """
 from __future__ import annotations
@@ -138,8 +142,10 @@ def product_dir_from_config(config):
     raise ValueError("config has no %s source" % atlas.SOURCE_KIND)
 
 
-def legacy_comparison(p, pdir, params, legacy_relief_png, L_relief_png_bytes=None):
-    """Compare what the unified interface returned with a direct read of the product files (comparison only)."""
+def legacy_comparison(p, pdir, params, legacy_relief_png, L_relief_png_bytes=None, rebuild_pixels=True):
+    """Compare what the unified interface returned with a direct read of the product files (comparison only).
+
+    rebuild_pixels=False skips the two extra full atlas builds used for the old-PNG pixel diff (fast path only)."""
     pdir = Path(pdir)
     out = dict(product_dir=str(pdir))
     arrs = {}
@@ -160,7 +166,9 @@ def legacy_comparison(p, pdir, params, legacy_relief_png, L_relief_png_bytes=Non
         out["rivers"] = dict(old_lines=len(lines), unified_lines=len(p.rivers), points_equal=bool(same_pts),
                              old_threshold_km2=float(old.get("threshold_km2", 0.0)), unified_threshold_km2=p.river_threshold_km2,
                              threshold_equal=bool(float(old.get("threshold_km2", -1)) == p.river_threshold_km2))
-    if legacy_relief_png is not None and Path(legacy_relief_png).exists():
+    if not rebuild_pixels:
+        out["relief_only_vs_old_png"] = "skipped with --overview-only (no extra atlas rebuild for the old-PNG pixel diff)"
+    elif legacy_relief_png is not None and Path(legacy_relief_png).exists():
         old_img = np.asarray(Image.open(legacy_relief_png).convert("RGB")).astype(int)
         legacy_params = dataclasses.replace(params, mount_tint_alpha=0.0, mount_shade_boost=0.0)
         Ll = atlas.build_atlas(p, legacy_params)
@@ -183,19 +191,78 @@ def _diff(a, b, note):
                 mean_abs_diff=float(np.abs(a - b).mean()), pixels_diff_gt_2=int((d > 2).sum()))
 
 
+def render_overview(p, params, out, edge, work, files, t0, reserved=None, fantasy=None):
+    """Simple atlas page + relief-only page (the only two PNGs needed by the quick path). Returns the layers."""
+    L = atlas.build_atlas(p, params, reserved=reserved, fantasy_regions=fantasy)
+    print("overview layers %.1fs" % (time.perf_counter() - t0), atlas.summarize(L)["symbols"], flush=True)
+    render_page(L, p, out / "simple-atlas.png", work, edge)
+    files["simple-atlas.png"] = dict(kind="atlas", summary=atlas.summarize(L))
+    atlas.relief_page(L, p).save(out / "relief-only.png")
+    files["relief-only.png"] = dict(kind="relief-only", note="same base raster, no forest tint, no rivers, no symbols, no decorations",
+                                    map_px=[L.view.width, L.view.height])
+    return L
+
+
+def render_details(p, params, out, edge, work, files, t0, detail_width, reserved=None, fantasy=None):
+    """Detail windows (mountain / river), forest reserved-demo page + comparison page (full atlas only)."""
+    a = atlas.analyse(p, params)
+    for name, view in detail_views(p, a, params, detail_width):
+        D = atlas.build_atlas(p, params, view, deco_kind="detail", title="局部 · " + ("山系" if name == "mountains" else "河网"),
+                              reserved=reserved, fantasy_regions=fantasy)
+        fn = "detail-%s.png" % name
+        render_page(D, p, out / fn, work, edge)
+        files[fn] = dict(kind="detail", summary=atlas.summarize(D))
+        print(fn, "%.1fs" % (time.perf_counter() - t0), flush=True)
+    fv = forest_view(p, a, detail_width)
+    items = reserved_demo_items(p, fv, a["forest"][fv.z0:fv.z0 + fv.nz, fv.x0:fv.x0 + fv.nx] > 0.5)
+    R0 = atlas.build_atlas(p, params, fv, deco_kind="detail", title="局部 · 林区（无预留）")
+    R = atlas.build_atlas(p, params, fv, deco_kind="detail", title="局部 · 预留空位演示", reserved=items)
+    render_page(R, p, out / "reserved-demo.png", work, edge)
+    render_page(R0, p, work / "reserved-none.png", work, edge)
+    rmask = R.reserved
+    left = outline_png(work / "reserved-none.png", rmask, R0.margin)
+    right = outline_png(out / "reserved-demo.png", rmask, R.margin)
+    cmp_img = Image.new("RGB", (left.width + right.width + 12, left.height), (255, 255, 255))
+    cmp_img.paste(left, (0, 0))
+    cmp_img.paste(right, (left.width + 12, 0))
+    cmp_img.save(out / "reserved-compare.png")
+    inside0 = int(sum(1 for q in R0.symbols if q["kind"] in ("tree", "rock", "grass")
+                      and rmask[max(0, min(R.view.height - 1, int(q["y"]))), max(0, min(R.view.width - 1, int(q["x"])))]))
+    inside = int(sum(1 for q in R.symbols if q["kind"] in ("tree", "rock", "grass")
+                     and R.reserved[max(0, min(R.view.height - 1, int(q["y"]))), max(0, min(R.view.width - 1, int(q["x"])))]))
+    files["reserved-demo.png"] = dict(kind="reserved-demo", reserved=items, window_cells_zx=[fv.z0, fv.x0, fv.nz, fv.nx],
+                                      summary=atlas.summarize(R), symbols_without_reserved=atlas.summarize(R0)["symbols"],
+                                       forest_symbols_with_anchor_inside_reserved=inside,
+                                       forest_symbols_inside_reserved_without_reserved=inside0,
+                                       compare_image="reserved-compare.png")
+    print("reserved-demo.png %.1fs" % (time.perf_counter() - t0), flush=True)
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--product", type=Path, default=None, help="产品目录（load_source('world-relief-pilot', path)）")
     ap.add_argument("--config", type=Path, default=None, help="MapCatalog 配置 JSON（取 kind=world-relief-pilot 的源）")
+    ap.add_argument("--source-kind", choices=("world-relief-pilot", "world-map-product"), default="world-relief-pilot")
+    ap.add_argument("--no-glacier-display", action="store_true", help="仅关闭已存冰体显示，不改冰物理或来源数据")
     ap.add_argument("--out", type=Path, default=None, help="默认 <product>/atlas")
     ap.add_argument("--width", type=int, default=2400)
     ap.add_argument("--detail-width", type=int, default=1600)
+    ap.add_argument("--overview-only", action="store_true",
+                    help="快档：只出 simple-atlas.png / relief-only.png / atlas-source.json，跳过局部页与预留演示页（推荐配 --width 1200）")
     ap.add_argument("--reserved", type=Path, default=None, help="预留空位 JSON 列表：circle / polyline / polygon（米制 X东 Z南）")
     ap.add_argument("--fantasy", type=Path, default=None, help="奇幻树种区域 JSON 列表（shape circle/polygon + species + share）")
     ap.add_argument("--legacy-relief", type=Path, default=None, help="旧 relief-only.png（对比像素差；默认读 <out>/relief-only.png 的现有版本）")
     args = ap.parse_args(argv)
     t0 = time.perf_counter()
-    if args.config is not None:
+    if args.source_kind == "world-map-product":
+        if args.config is not None:
+            raise ValueError("world-map-product requires explicit --product, not legacy --config")
+        if args.product is None:
+            raise ValueError("world-map-product requires explicit --product")
+        pdir = args.product
+        p = atlas.product_from_source(atlas.load_source(args.source_kind, pdir), pdir)
+        origin = "product:" + str(pdir)
+    elif args.config is not None:
         pdir = product_dir_from_config(args.config)
         p = atlas.load_config_product(args.config)
         origin = "config:" + str(args.config)
@@ -211,53 +278,25 @@ def main(argv=None):
     reserved = json.loads(args.reserved.read_text(encoding="utf-8")) if args.reserved else None
     fantasy = json.loads(args.fantasy.read_text(encoding="utf-8")) if args.fantasy else None
     params = atlas.AtlasParams(width_px=args.width)
+    if args.no_glacier_display:
+        params = dataclasses.replace(params, glacier_display=False)
     print("product", p.identity, p.shape, "spacing", p.spacing, origin, flush=True)
     edge = find_edge()
-    L = atlas.build_atlas(p, params, reserved=reserved, fantasy_regions=fantasy)
-    print("overview layers %.1fs" % (time.perf_counter() - t0), atlas.summarize(L)["symbols"], flush=True)
     files = {}
     with tempfile.TemporaryDirectory(prefix="world-atlas-") as tmp:
         work = Path(tmp)
-        render_page(L, p, out / "simple-atlas.png", work, edge)
-        files["simple-atlas.png"] = dict(kind="atlas", summary=atlas.summarize(L))
-        atlas.relief_page(L, p).save(out / "relief-only.png")
-        files["relief-only.png"] = dict(kind="relief-only", note="same base raster, no forest tint, no rivers, no symbols, no decorations",
-                                        map_px=[L.view.width, L.view.height])
-        a = atlas.analyse(p, params)
-        for name, view in detail_views(p, a, params, args.detail_width):
-            D = atlas.build_atlas(p, params, view, deco_kind="detail", title="局部 · " + ("山系" if name == "mountains" else "河网"),
-                                  reserved=reserved, fantasy_regions=fantasy)
-            fn = "detail-%s.png" % name
-            render_page(D, p, out / fn, work, edge)
-            files[fn] = dict(kind="detail", summary=atlas.summarize(D))
-            print(fn, "%.1fs" % (time.perf_counter() - t0), flush=True)
-        fv = forest_view(p, a, args.detail_width)
-        items = reserved_demo_items(p, fv, a["forest"][fv.z0:fv.z0 + fv.nz, fv.x0:fv.x0 + fv.nx] > 0.5)
-        R0 = atlas.build_atlas(p, params, fv, deco_kind="detail", title="局部 · 林区（无预留）")
-        R = atlas.build_atlas(p, params, fv, deco_kind="detail", title="局部 · 预留空位演示", reserved=items)
-        render_page(R, p, out / "reserved-demo.png", work, edge)
-        render_page(R0, p, work / "reserved-none.png", work, edge)
-        rmask = R.reserved
-        left = outline_png(work / "reserved-none.png", rmask, R0.margin)
-        right = outline_png(out / "reserved-demo.png", rmask, R.margin)
-        cmp_img = Image.new("RGB", (left.width + right.width + 12, left.height), (255, 255, 255))
-        cmp_img.paste(left, (0, 0))
-        cmp_img.paste(right, (left.width + 12, 0))
-        cmp_img.save(out / "reserved-compare.png")
-        inside0 = int(sum(1 for q in R0.symbols if q["kind"] in ("tree", "rock", "grass")
-                          and rmask[max(0, min(R.view.height - 1, int(q["y"]))), max(0, min(R.view.width - 1, int(q["x"])))]))
-        inside = int(sum(1 for q in R.symbols if q["kind"] in ("tree", "rock", "grass")
-                         and R.reserved[max(0, min(R.view.height - 1, int(q["y"]))), max(0, min(R.view.width - 1, int(q["x"])))]))
-        files["reserved-demo.png"] = dict(kind="reserved-demo", reserved=items, window_cells_zx=[fv.z0, fv.x0, fv.nz, fv.nx],
-                                          summary=atlas.summarize(R), symbols_without_reserved=atlas.summarize(R0)["symbols"],
-                                           forest_symbols_with_anchor_inside_reserved=inside,
-                                           forest_symbols_inside_reserved_without_reserved=inside0,
-                                           compare_image="reserved-compare.png")
-        print("reserved-demo.png %.1fs" % (time.perf_counter() - t0), flush=True)
+        L = render_overview(p, params, out, edge, work, files, t0, reserved=reserved, fantasy=fantasy)
+        if not args.overview_only:
+            render_details(p, params, out, edge, work, files, t0, args.detail_width, reserved=reserved, fantasy=fantasy)
     for fn in files:
         files[fn]["sha256"] = sha(out / fn)
     source = atlas.provenance(p, L, params, files, pdir)
-    source["unified_interface_check"] = dict(origin=origin, **legacy_comparison(p, pdir, params, Path(legacy_png) if legacy_bytes is not None else None))
+    source["unified_interface_check"] = dict(
+        origin=origin,
+        **legacy_comparison(p, pdir, params, Path(legacy_png) if legacy_bytes is not None else None,
+                            rebuild_pixels=not args.overview_only))
+    source["overview_only"] = bool(args.overview_only)
+    source["width"] = int(args.width)
     source["elapsed_seconds"] = round(time.perf_counter() - t0, 1)
     (out / "atlas-source.json").write_text(json.dumps(source, indent=2, ensure_ascii=False), encoding="utf-8")
     print("done %.1fs" % (time.perf_counter() - t0), flush=True)

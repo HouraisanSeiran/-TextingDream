@@ -1,12 +1,12 @@
 # TextingDream · 织梦
 
-> **2026-11-08 当前状态**：先读 [工程进度总览（2026-11-06）](工程进度总览_2026-11-06.md) 与 [工程交接与工作进度（2026-11-05）](工程交接与工作进度_2026-11-05.md)。README 只保留稳定入口与边界说明；逐项完成度、测试数字和已知缺口以上述进度文档及当前代码为准。以下历史进度表与旧故事入口不应直接当成当前验收结论。
+> **2026-11-12 当前状态**：先读 [docs/工程进度.md](docs/工程进度.md) 与 [docs/模块.md](docs/模块.md)。详细结构见 [工程结构报告](docs/工程结构详细报告_2026-11-12.md)，规格索引见 [docs/文档地图.md](docs/文档地图.md)。旧交接与评估在 [docs/archive/](docs/archive/README.md)，一般情况下不调用。
 
-中文跑团（TRPG 式）叙事工作台。本地运行：Python/FastAPI + SQLite 后端，浏览器前端；
-地图基础统一使用 [civ-atlas](https://github.com/guaner-334/civ-atlas)。
+文字驱动的开放世界探索游戏。本地运行：Python/FastAPI + SQLite 后端，浏览器前端。
+玩家旅程地图默认支持 Terragenesis 冻结产品 `world_map_product`；[civ-atlas](https://github.com/guaner-334/civ-atlas) 默认关闭，设置 `TEXTILE_CIV_ATLAS=1` 可开启。作者同源地图通过 `config/map-bundles.json` 单独登记，不自动切换玩家默认产品；见 [地图策略](docs/map-backends.md)。
 
 - 仓库：<https://github.com/HouraisanSeiran/-TextingDream.git>（仓库地址；本次是本地开发快照，**不承诺已经推送发布**）
-- 项目名：**TextingDream**（中文“织梦”；旧英文标识 TextileDream 作为兼容称呼保留）
+- 暂用项目名：**TextingDream**（中文“织梦”；旧英文标识 TextileDream 作兼容保留）。**工程名后续可能更换。**
 
 > ## ⚠ 这是开发快照，不是稳定发行
 >
@@ -16,6 +16,8 @@
 ---
 
 ## 1. 现在能做什么
+
+2026-11-12 补充：玩家地图已有默认 `world_map_product` 路径，作者地图已登记六组地形/环境/气候/水文/洋流/月湖河来源，文明历史已有候选到采纳链路。接入边界以 [工程进度](docs/工程进度.md) 为准；下表保留 2026-11-08 功能验收记录，不代表本轮重验。
 
 | 能力 | 状态 |
 |---|---|
@@ -68,11 +70,10 @@ python -m uvicorn app.main:app --host 127.0.0.1 --port 8000
 
 Windows 上另有 [启动.cmd](启动.cmd) / [新安装并启动.cmd](新安装并启动.cmd) / [start_zhiyem.bat](start_zhiyem.bat)：
 `启动.cmd` 与 `新安装并启动.cmd` 跑 `tools/bootstrap.py`，会自动探测 `python` / `py -3` 并挑端口；
-`start_zhiyem.bat` 仍写死开发机的 `D:\anaconda\python.exe`，换机器时请优先用前两个或上面的
-`python -m uvicorn`。本文出现的任何 `D:\...` 路径都只是开发机的历史记录，**不是唯一可行命令**。
+`start_zhiyem.bat` 作为兼容文件名使用相同的 bootstrap 启动流程，支持 `--port`、`--no-browser` 和 `--dry-run`。
+首次安装仍使用 `新安装并启动.cmd`，日常启动优先使用 `启动.cmd`。
 
-> **当前服务是关闭的**：仓库交付时不带任何常驻监听（8000 / 8897 / 8898 / 5188 均无监听）。
-> 需要看界面时请读者自己按上面命令启动，不要假设某台机器上已经在跑。
+> 仓库不自带常驻服务。需要看界面时按上面命令启动；实际端口与进程状态由本机启动器检查。
 
 ### 2.2 存档
 
@@ -99,7 +100,7 @@ Windows 上另有 [启动.cmd](启动.cmd) / [新安装并启动.cmd](新安装�
 ### 3.2 构建百科候选库
 
 ```bash
-# 最新交付口径：15 组 / 551 元素 / 505 来源（本机实测；默认 14 组为历史口径，供旧集回归）
+# 基础组 + 特质的选定范围：15 组 / 551 元素；不代表启用其他分区后的总库
 python -m tools.encyclopedia_build --with-traits
 # 只核对现有库与显式名单是否一致，不写库
 python -m tools.encyclopedia_build --check --with-traits
@@ -113,10 +114,10 @@ python -m tools.encyclopedia_build --check --with-traits
 
 ---
 
-## 4. civ-atlas 地图基础
+## 4. civ-atlas 可选地图后端
 
-本工程所有与地图关联的玩法（城镇/地点选址、稀疏用地、资源空间分布、势力领地、旅行路线、
-区域事件与历史地理）**默认以 civ-atlas 为地图基础**，不另建平行地图引擎。
+默认玩家地图使用 Terragenesis `world_map_product`，统一读取接口位于 `app/map_source/`。
+civ-atlas 保留快照导入、原生宿主和历史适配能力，需显式开启；下文为该后端的安装与历史验证记录。
 
 | 项 | 值 |
 |---|---|
@@ -139,7 +140,7 @@ python -m tools.encyclopedia_build --check --with-traits
 
 ---
 
-## 5. 进度表（本轮）
+## 5. 功能验收记录（2026-11-08）
 
 | 项 | 状态 | 证据 |
 |---|---|---|
@@ -150,7 +151,7 @@ python -m tools.encyclopedia_build --check --with-traits
 | 世界基础版本化 / 空间三层 / 取样语义 | 完成 | 交接文档记为 85 项全过（本轮未重跑） |
 | 空间草稿（作者 HTTP + 存储 + 转 TownInput） | 可用 | `app/spatial_draft.py`；`tests/test_spatial_draft.py` 等 |
 | 正式地图多边形圈选 / 按年历史回放 | **未完成** | `REPLAY_IMPLEMENTED` 全 `False` |
-| 新双栏 UI 前端 | **仅语法检查**（当前 325 个 JS 全部通过）；**未做真实浏览器布局验收** | §6 |
+| 新双栏 UI 前端 | **当时仅语法检查**（325 个 JS）；该批未做真实浏览器布局验收 | §6 |
 | 后端玩家地图投影 | 专项测试通过（只读 GET 不改 `state_version`） | §5.2 |
 | 计划中的四大优先功能 | **没有全部完成** | 逐项状态见 §5 与 §6 |
 
@@ -158,7 +159,8 @@ python -m tools.encyclopedia_build --check --with-traits
 
 历次验收跑的是**不同文件集**，数字**不能相加**，也不要按旧口径引用：
 
-- 2026-11-08 当前 `pytest --collect-only` 收集 **2208 项**（含参数化与子断言外的测试项）。
+- 2026-11-12 结构梳理执行 `pytest --collect-only -o addopts='' -q`，收集 **2938 项**；只收集，未执行全量测试。
+- 2026-11-08 的收集记录为 2208 项，是历史数量。
 - 早期全量、地图适配、世界基础、玩家投影等批次是不同文件集，不能相加；本 README 不再保留
   旧的“25 项 / 128 项”作为现行结论。
 - 2026-11-08 复查只跑到 38%（约 10 分钟）即停止，未完成全量，因此**不给出当前通过总数**。
@@ -185,17 +187,14 @@ python -m unittest tests.test_play_map tests.test_civ_atlas_import tests.test_wo
 1. **API 配置旧页表单被移走**：顶部「⌁ API 配置」弹层会把 `#api-form` 整个搬到弹层里，
    而旧页面 `#api` 里的表单因此**留下空壳**（只剩标题与说明文字）。这是已知待修项，
    **不是已修复**；旧页入口与弹层共用同一份表单，字段没有复制。
-2. **前端未做真实浏览器布局验收**：新双栏 UI（左对话/右地图）只做了 `node --check` 静态检查
-   （13 个 `app/static/*.js` 全部通过），**没有**真实浏览器下的布局、截屏或交互验收。
-   旧页面仍有历史截图，但**旧截图不代表当前布局**。
+2. **整体前端验收需按界面批次区分**：2026-11-08 新双栏 UI 的记录是语法检查（当时 325 个 JS、顶层 29 个）；后续作者地图有专项 HTTP/Edge 证据，见 [工程进度](docs/工程进度.md)。专项验收和旧截图不代表当前主站全部布局已验收。
 3. **「四大优先功能」没有全部完成**：正式地图多边形圈选、按年历史回放、服务端强制供给校验
-   仍在未完成清单里；空间草稿已有作者侧 API/存储，但未接入玩家地图交互（详见
-   [docs/handoff-spatial-and-world-basis.md](docs/handoff-spatial-and-world-basis.md) 第 4 节）。
-4. **地图尺度与城镇阈值存在结构性冲突**：单格 ≈ 14 959 km²，最小 3 格取样窗 ≈ 44 878 km²，
+   仍在未完成清单里；空间草稿已有作者侧 API/存储，但未接入玩家地图交互（见
+   [docs/工程进度.md](docs/工程进度.md)）。
+4. **civ-atlas 既有样例的地图尺度与城镇阈值存在冲突**：该样例单格 ≈ 14 959 km²，最小 3 格取样窗 ≈ 44 878 km²，
    而 `TownInput.terrain.area_km2` 上限是 20 000 km²。因此腹地必须由作者显式声明，
    不自动 clamp、不给默认值。
-5. **气候不能从高度图得到**：只在导入 `.civsnap` 时有实测值；16 位高度图没有气温/降水，
-   作者不填就拒绝生成，**不会「按纬度估一个」**。
+5. **气候不能从高度图得到**：16 位高度图本身没有气温/降水；civ-atlas 快照或已声明的 TG 气候/环境产品可分别提供相应数据。消费者按来源与图层读取，缺值不按纬度补猜；TG 月气候尚未自动接到旅程天气。
 6. **百科内容全部 `needs_review`**：候选素材，不是已认证事实。
 7. **手机端适配暂停**：桌面优先，`@media(max-width:800px)` 旧规则保留但不再作为验收标准。
 8. **`temp_dl/` 是本地下载临时目录**：未跟踪、不入库，也不属于本快照的交付产物。
@@ -235,12 +234,13 @@ external/       civ-atlas 本体（**被 .gitignore 忽略**，按 docs/civ-atla
 
 ## 9. 延伸阅读
 
-- [docs/civ-atlas-install.md](docs/civ-atlas-install.md) — civ-atlas 装什么、怎么装、怎么重建
-- [docs/weather.md](docs/weather.md) — 天气生成器、只读投影接口与美术素材边界
-- [docs/world-package-pipeline-使用说明.md](docs/world-package-pipeline-使用说明.md) — 地理 + 百科生成故事包的作者流程
-- [docs/civ-atlas-host.md](docs/civ-atlas-host.md) — **原生地图宿主**：数据桥、两种模式、居中/投影约束、怎么验
-- [docs/civ-atlas-integration.md](docs/civ-atlas-integration.md) — 适配器契约、缺失字段与诚实标记
-- [docs/play-ui-contract.md](docs/play-ui-contract.md) — 桌面 UI 与地图投影接口
-- [docs/playable-demo-design.md](docs/playable-demo-design.md) — Demo 六个模块及其边界
-- [docs/handoff-spatial-and-world-basis.md](docs/handoff-spatial-and-world-basis.md) — 交接：哪些做完、哪些没做
-- [docs/world-basis-and-history.md](docs/world-basis-and-history.md) — 世界基础与历史能恢复什么、不能恢复什么
+- [docs/工程进度.md](docs/工程进度.md) — 当前完成度
+- [docs/模块.md](docs/模块.md) — 代码模块与职责
+- [docs/文档地图.md](docs/文档地图.md) — 现行规格索引
+- [综合游玩建议](docs/综合游玩建议_2026-11-12.md) — 探索、人物、战斗、魔法和生活经营的连接，供负责人规划
+- [资料采集交接](docs/element-database/agent-handoff.md) — 向采集智能体分派专题、文件范围与交付要求
+- [docs/one-click-start.md](docs/one-click-start.md) — Windows 安装与启动
+- [docs/civ-atlas-install.md](docs/civ-atlas-install.md) — civ-atlas 安装与重建
+- [docs/weather.md](docs/weather.md) — 天气规则与只读投影
+- [docs/world-package-pipeline-使用说明.md](docs/world-package-pipeline-使用说明.md) — 地理 + 百科生成故事包
+- [docs/archive/README.md](docs/archive/README.md) — 旧交接与评估（默认不读）

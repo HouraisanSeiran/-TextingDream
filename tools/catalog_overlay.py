@@ -61,6 +61,7 @@ PRIMARY = {
     'belief_ritual': '信仰与仪式', 'economy_trade': '经济与贸易', 'conflict_event': '冲突与事件',
     'place': '地点与地貌', 'natural_phenomenon': '自然现象',
     'character_trait': '性格特质', 'character_attribute': '角色属性',
+    'affix': '词条（人物 / 物品的增益与减益）',
     'literature_form': '文学与叙事', 'name_pool': '姓名池',
     'shop': '店铺',
 }

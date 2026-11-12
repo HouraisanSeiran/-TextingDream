@@ -10,7 +10,9 @@ import pytest
 from app import map_source as ms
 
 WORLD_LAYOUT = ("world-map-product", "terragenesis-local30")  # same on-disk layout; local30 is a relabelled world-map product
-CASES = [(kind, schema) for kind, schemas in ms.SUPPORTED_SCHEMAS.items() for schema in schemas]
+# Climate uses TG query_climate + a different on-disk layout; covered in test_map_source_climate.py.
+CASES = [(kind, schema) for kind, schemas in ms.SUPPORTED_SCHEMAS.items()
+         for schema in schemas if kind != "terragenesis-regional-climate"]
 
 
 def digest(path):
@@ -91,6 +93,33 @@ class Fixture:
 
     def load(self, **kwargs):
         return ms.load_source(self.kind, self.path, **kwargs)
+
+
+def test_environment_layers_are_bound_to_same_saved_process_revision(tmp_path):
+    fixture=Fixture(tmp_path,'world-map-product','world-map-product-v1')
+    name='groundwater_storage_m3'
+    value=np.arange(20,dtype=np.float64).reshape(4,5)
+    process=fixture.path/'world-processes'
+    process.mkdir()
+    np.save(process/(name+'.npy'),value)
+    metadata=dict(world_seed=17,first_xz_m=[0,0],spacing_m=fixture.spacing)
+    saved=dict(identity='process-current',metadata=metadata,
+        arrays={name:dict(file=name+'.npy',sha256=digest(process/(name+'.npy')))})
+    (process/'manifest.json').write_text(json.dumps(saved),encoding='utf8')
+    fixture.manifest['world_processes']=dict(file='world-processes/manifest.json',
+        sha256=digest(process/'manifest.json'),metadata=metadata)
+    np.save(fixture.path/(name+'.npy'),value)
+    fixture.manifest['layers'][name]=dict(file=name+'.npy',sha256=digest(fixture.path/(name+'.npy')),
+        dtype='float64',unit='m3',meaning='actual retained finite owner',nodata=None,
+        process_identity='process-current')
+    fixture.save()
+    loaded=fixture.load()
+    assert name in loaded.info.layers
+    assert loaded.sample([0.],[0.],layers=[name])[name][0]==0.
+    fixture.manifest['layers'][name]['process_identity']='another-version'
+    fixture.save()
+    with pytest.raises(ms.MapSourceError,match='another process revision'):
+        fixture.load()
 
 
 @pytest.fixture(params=CASES, ids=[kind + ":" + schema for kind, schema in CASES])

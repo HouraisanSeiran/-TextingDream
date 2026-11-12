@@ -25,6 +25,12 @@ def _read(path):
     return json.loads(Path(path).read_text(encoding='utf-8'))
 
 
+def _preparation_identity(record):
+    result = {key: value for key, value in record.items() if key not in ('memory_wait_s', 'memory_poll_s')}
+    result.setdefault('terrain_roots', [])  # early preparations predate explicit cache roots
+    return result
+
+
 def _verified_entry(path, *, plate_identity):
     gh.load_terragenesis()
     from terrain_pipeline.world_process_detail import load_native_terrain
@@ -36,7 +42,33 @@ def _verified_entry(path, *, plate_identity):
     return entry
 
 
-def continue_world(preview, out, *, use_gpu=False, memory_wait_s=300., memory_poll_s=5., terrain_roots=()):
+def prepare_coast(preview):
+    """Return a public, source-derived regional recipe; do not generate terrain.
+
+    Pass the returned revision to continue_world(coast_preparation=...). Annual
+    graph work remains pending until a finite source-bound event is measured.
+    """
+    gh.load_terragenesis()
+    from terrain_pipeline import world_processes
+    from terrain_pipeline.common_infra import array_sha256
+    from terrain_pipeline.world_coast_reuse import preparation_revision
+    preview=Path(preview)
+    manifest=_read(preview/'manifest.json')
+    if identity_of(manifest)!=manifest['identity']:
+        raise ValueError('coarse world manifest identity mismatch')
+    spec=manifest['world_processes']
+    process_file=preview/spec['file']
+    if file_sha(process_file)!=spec['sha256']:
+        raise ValueError('coarse process manifest SHA mismatch')
+    process=world_processes.query(process_file.parent)
+    source=dict(process['metadata'],**process['arrays'])
+    source['parent_terrain_revision']=array_sha256(source['elevation_m'])
+    plate_path=manifest.get('island_mountains',{}).get('record',{}).get('source') or manifest['skeleton']['path']
+    return preparation_revision(source,process['metadata'].get('native_environment',{}).get('candidates',[]),
+        plate_path,process['metadata']['config'].get('native_environment',{}))
+
+
+def continue_world(preview, out, *, use_gpu=False, memory_wait_s=300., memory_poll_s=5., terrain_roots=(), coast_preparation=None):
     """Continue a published preview, keeping CPU requests free of model work.
 
     GPU preparation adapts without lowering memory gates: cached tiles are used
@@ -54,15 +86,24 @@ def continue_world(preview, out, *, use_gpu=False, memory_wait_s=300., memory_po
                    preview_path=str(preview.resolve()), use_gpu=bool(use_gpu),
                    memory_wait_s=float(memory_wait_s), memory_poll_s=float(memory_poll_s),
                    terrain_roots=[str(Path(root).resolve()) for root in terrain_roots])
+    if coast_preparation is not None:
+        binding['coast_preparation']=coast_preparation
     if out.exists():
-        if not marker.exists() or _read(marker) != binding:
+        if not marker.exists() or _preparation_identity(_read(marker)) != _preparation_identity(binding):
             raise FileExistsError('existing detailed directory is not this resumable preparation')
         if (out/'continuation.json').exists():
             published = _read(out/'manifest.json')
             if identity_of(published) != published['identity']:
                 raise ValueError('completed detailed map identity mismatch')
-            world_processes.query(out/'world-processes')
-            return _read(out/'continuation.json')
+            saved_process = world_processes.query(out/'world-processes')
+            delivery = _read(out/'continuation.json')
+            if (delivery['preview_identity'] != manifest['identity'] or
+                    delivery['process_identity'] != saved_process['identity'] or
+                    published.get('parent_preview_identity') != manifest['identity']):
+                raise ValueError('completed continuation belongs to another preview/process')
+            from app.map_source import load_source
+            load_source('world-map-product', out, expected_identity=published['identity'])
+            return delivery
     spec = manifest['world_processes']
     process_file = preview/spec['file']
     if file_sha(process_file) != spec['sha256']:
@@ -79,8 +120,26 @@ def continue_world(preview, out, *, use_gpu=False, memory_wait_s=300., memory_po
         path = Path(product['raw_manifest'])
         existing[product['tile']] = path
     entries, terrain_states = [], []
-    unique_tiles = sorted({tuple(row['native_td_tile_xz']) for row in process['details']})
-    if len(unique_tiles) > 4:
+    if process['metadata']['config'].get('integrated_environment'):
+        native_candidates=process['metadata'].get('native_environment',{}).get('candidates',[])
+        unique_tiles=sorted({tuple(int(np.floor(value/15360.)) for value in row['location_xz_m'])
+                             for row in native_candidates})
+        backend=(coast_preparation or {}).get('backend',process['metadata']['config'].get('native_environment',{}).get('coast_backend'))
+        if backend=='regional-existing-delta-v1':
+            from terrain_pipeline.world_coast_reuse import dependency_request
+            from terrain_pipeline.common_infra import array_sha256
+            source_binding=dict(source_identity=process['metadata']['source_identity'],
+                plate_identity=process['metadata']['plate_identity'],world_seed=process['metadata']['world_seed'],
+                parent_terrain_revision=array_sha256(process['arrays']['elevation_m']))
+            regional_config=dict(process['metadata']['config'].get('native_environment',{}))
+            if coast_preparation is not None:
+                regional_config['coast_regions']=coast_preparation.get('regions',{})
+            requests=[dependency_request(source_binding,row,regional_config)
+                      for row in native_candidates if row['kind']=='coast']
+            unique_tiles=sorted(set(unique_tiles)|{tuple(tile) for request in requests for tile in request['required_tiles']})
+    else:
+        unique_tiles = sorted({tuple(row['native_td_tile_xz']) for row in process['details']})
+    if len(unique_tiles) > 4 and not (process['metadata']['config'].get('integrated_environment') and backend=='regional-existing-delta-v1'):
         raise ValueError('first continuation exceeds four native TD tiles')
     raw_root = preview.parent/(preview.name+'-process-raw-td')
     # Prefer already frozen tiles so a short host budget never blocks reuse.
@@ -148,8 +207,9 @@ def continue_world(preview, out, *, use_gpu=False, memory_wait_s=300., memory_po
             while (out/('interrupted-processes-%d' % attempt)).exists():
                 attempt += 1
             process_out.rename(out/('interrupted-processes-%d' % attempt))
+        kwargs={} if coast_preparation is None else dict(coast_preparation=coast_preparation)
         result = world_processes.continue_details(process_file.parent, process_out, terrain_entries=entries,
-                                                   plate_identity=plate_identity)
+                                                   plate_identity=plate_identity,**kwargs)
     _publish_map_revision(preview, out, result)
     delivery = dict(schema='dream-world-process-continuation-v1', preview_identity=manifest['identity'],
                     process_identity=result['identity'], use_gpu=use_gpu, terrain=terrain_states,
@@ -168,6 +228,14 @@ def _publish_map_revision(preview, out, process_manifest):
     from terrain_pipeline import world_processes
     old = _read(preview/'manifest.json')
     result = world_processes.query(out/'world-processes')
+    if (out/'manifest.json').exists():
+        existing = _read(out/'manifest.json')
+        if (existing.get('parent_preview_identity') != old['identity'] or
+                existing.get('world_processes', {}).get('sha256') != file_sha(out/'world-processes/manifest.json')):
+            raise ValueError('published map revision belongs to another preview/process')
+        from app.map_source import load_source
+        load_source('world-map-product', out, expected_identity=existing['identity'])
+        return
     arrays = result['arrays']
     manifest = json.loads(json.dumps(old))
     bed = np.asarray(arrays['elevation_m'])
@@ -177,6 +245,12 @@ def _publish_map_revision(preview, out, process_manifest):
     published_arrays = dict(arrays, hydro_bed_m=bed, status=status,
                             water_surface_m=np.where(wet_lakes, arrays['water_surface_m'], np.nan),
                             lake_id=np.where(wet_lakes, arrays['lake_id'], 0).astype(np.int32))
+    from app.world_gen.world_process_adapter import ENVIRONMENT_LAYERS
+    for name,unit in ENVIRONMENT_LAYERS.items():
+        if name in arrays and np.asarray(arrays[name]).shape==bed.shape:
+            manifest['layers'][name]=dict(file=name+'.npy',dtype=str(np.asarray(arrays[name]).dtype),
+                unit=unit,meaning='Current published integrated environment: '+name,nodata=None,
+                source='world-processes/manifest.json',process_identity=result['identity'])
     for name, spec in manifest['layers'].items():
         destination = out/spec['file']
         destination.parent.mkdir(parents=True, exist_ok=True)
@@ -218,8 +292,27 @@ def _publish_map_revision(preview, out, process_manifest):
     manifest['lineage'].append(old['identity'])
     manifest['world_processes'] = dict(file='world-processes/manifest.json', sha256=file_sha(out/'world-processes/manifest.json'),
                                       metadata=result['metadata'])
+    from app.world_gen.world_process_adapter import environment_status
+    manifest['world_processes']['environment_status'] = environment_status(result['metadata'])
     manifest['algorithm_version'] += '+detail-revision-v1'
-    manifest['statistics'].update(final_ocean_fraction=float(ocean.mean()),
+    provenance = manifest.setdefault('reused_code', {})
+    provenance.setdefault('local_sha256', {})['world_process_details.py'] = file_sha(Path(__file__))
+    native_sources = ('world_processes.py', 'world_process_detail.py', 'world_process_hydrology.py',
+        'world_process_estuary.py', 'world_process_reporting.py', 'world_process_backwater.py',
+        'channel_geometry.py', 'surface_hydraulics.py', 'environment_delta_fv.py',
+        'new_world_sediment.py', 'surface_rivers/metric_sediment.py',
+        'surface_rivers/metric_fv_bedload_v4.py', 'surface_rivers/metric_fv_coastal_sediment.py',
+        'surface_rivers/metric_fv_suspended_supply.py')
+    tg_pipeline = gh.terragenesis_root()/'terrain_pipeline'
+    provenance.setdefault('terragenesis_sha256', {}).update({
+        'terrain_pipeline/' + name: file_sha(tg_pipeline/name)
+        for name in native_sources if (tg_pipeline/name).exists()})
+    manifest['statistics'].update(final_ocean_fraction=float(ocean.mean()), land_fraction=float((bed>=0).mean()),
+                                  connected_ocean_fraction=float(ocean.mean()),
+                                  closed_below_sea_fraction=float(((bed<0)&~ocean).mean()),
+                                  river_segments=len(rivers), kept_lakes=len(lakes), river_nodes=int(active.sum()),
+                                  max_drainage_area_m2=float(area.max()), elevation_min_m=float(bed.min()),
+                                  elevation_max_m=float(bed.max()),
                                   published_height_quantization_max_m=float(np.max(np.abs(bed.astype(np.float32).astype(float)-bed))),
                                   detailed_region_count=len(process_manifest.get('detailed_regions', [])),
                                   pending_region_count=len(process_manifest.get('pending_regions', [])))
