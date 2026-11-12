@@ -293,13 +293,29 @@ class Runtime:
                 try:
                     story = PackageFiles(path).read()
                     result.append({'folder':path.name,'title':story['title'],
+                                   'kind': 'playable', 'can_start': True,
                                    'active': bool(self.files) and path == self.files.directory})
                 except (ValueError, OSError, KeyError):
-                    result.append({'folder':path.name,'title':path.name,'error':'文档无效，请检查文件','active':False})
+                    result.append({'folder':path.name,'title':path.name,'error':'文档无效，请检查文件',
+                                   'kind': 'playable', 'can_start': False, 'active':False})
+            elif (path / 'background.json').exists():
+                try:
+                    from .background_package import read_background
+                    background = read_background(path)
+                    result.append({'folder': path.name, 'title': background['title'],
+                                   'version_id': background['version_id'], 'kind': 'background',
+                                   'can_start': False, 'active': False,
+                                   'reason': '世界背景已发布；尚未装配可游玩的地点和角色'})
+                except (ValueError, OSError, KeyError):
+                    result.append({'folder': path.name, 'title': path.name, 'kind': 'background',
+                                   'can_start': False, 'active': False, 'error': '背景文档无效，请检查文件'})
         return result
 
     def activate_package(self, folder):
-        files = PackageFiles(self.package_directory(folder))
+        directory = self.package_directory(folder)
+        if (directory / 'background.json').exists() and not (directory / 'story.json').exists():
+            raise ValueError('这个包只包含世界背景；请先通过下级系统装配地点和角色，才能开始旅程')
+        files = PackageFiles(directory)
         story = files.read()
         char_id = story['character_package_id']
         if not re.fullmatch(r'[A-Za-z0-9_-]+', char_id):

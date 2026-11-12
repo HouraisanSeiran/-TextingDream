@@ -1,6 +1,7 @@
 import asyncio
 import functools
 import secrets
+from typing import Literal
 from pathlib import Path
 from fastapi import Depends, FastAPI, Request
 from fastapi.responses import FileResponse, JSONResponse, Response
@@ -178,10 +179,17 @@ class SpatialDraftConvertRequest(_Strict):
 
 
 class WorldPackagePropose(_Strict):
+    target: Literal['legacy', 'background'] = 'legacy'
     import_id: str = Field(default='', max_length=64)
     region_id: str | None = Field(default=None, max_length=120)
     setting: dict | None = Field(default=None, max_length=64)
     note: str = Field(default='', max_length=400)
+    bundle_id: str = Field(default='', max_length=96)
+    title: str = Field(default='', max_length=80)
+    requirements: str = Field(default='', max_length=4000)
+    config: dict | None = Field(default=None, max_length=48)
+    year: int | None = Field(default=None, ge=0, le=1_000_000, strict=True)
+    polity_preferences: list[dict] | None = Field(default=None, max_length=64)
 
 
 class WorldPackageSelect(_Strict):
@@ -193,11 +201,24 @@ class WorldPackageSelect(_Strict):
 class WorldPackageEdit(_Strict):
     content: dict = Field(min_length=1, max_length=64)
     expected_revision: int = Field(ge=0, strict=True)
+    approved_history_ids: list[str] | None = Field(default=None, max_length=200)
 
 
 class WorldPackageConfirm(_Strict):
     expected_revision: int = Field(ge=0, strict=True)
     note: str = Field(default='', max_length=400)
+
+
+class BackgroundSelect(_Strict):
+    expected_revision: int = Field(ge=0, strict=True)
+    acknowledge_candidates: bool = False
+
+
+class BackgroundConfigure(_Strict):
+    expected_revision: int = Field(ge=0, strict=True)
+    config: dict | None = Field(default=None, max_length=48)
+    year: int | None = Field(default=None, ge=0, le=1_000_000, strict=True)
+    polity_preferences: list[dict] | None = Field(default=None, max_length=64)
 
 
 def create_app(db_path=None):
@@ -1066,6 +1087,39 @@ def create_app(db_path=None):
     # ---- 地理 + 百科 → 故事包（首轮单地区）-------------------------------
     # 草稿阶段不写故事包；只有 confirm 才编译并落盘。来源只接受已登记的 .civsnap，
     # 客户端不能传文件路径或任意 source 身份。
+    def _backgrounds():
+        return service.world_package.backgrounds
+
+    @app.get('/api/inner/world-package/sources')
+    def world_package_sources():
+        from .civ_sim.config import CivSimConfig
+        return {**_backgrounds().sources(), 'defaults': CivSimConfig(seed=20261112).to_dict(),
+                'setting_options': world_setting.options()}
+
+    @app.get('/api/inner/world-package/backgrounds')
+    def background_versions():
+        return _backgrounds().list_versions()
+
+    @app.get('/api/inner/world-package/backgrounds/{version_id}')
+    def background_version(version_id: str):
+        return _backgrounds().get_version(version_id)
+
+    @app.get('/api/inner/world-package/backgrounds/{version_id}/territories')
+    def background_territories(version_id: str):
+        version = _backgrounds().get_version(version_id)
+        simulation = version.get('simulation') or {}
+        return {'version_id': version_id, 'kingdoms': simulation.get('kingdoms', []),
+                'landmasses': simulation.get('landmasses', [])}
+
+    @app.get('/api/inner/world-package/backgrounds/{version_id}/town-context')
+    def background_town_context(version_id: str, polity_id: str):
+        return _backgrounds().town_context(version_id, polity_id)
+
+    @app.post('/api/inner/world-package/backgrounds/{version_id}/revise')
+    async def background_revise(version_id: str):
+        async with service.lock:
+            return _backgrounds().revise(version_id)
+
     def _world_package_source(import_id=''):
         _require_civ_atlas('世界包流水线')
         from .world_source_civ_atlas import CivAtlasSource
@@ -1086,6 +1140,10 @@ def create_app(db_path=None):
 
     @app.post('/api/inner/world-package/propose')
     def world_package_propose(req: WorldPackagePropose):
+        if req.target == 'background':
+            return _backgrounds().propose(req.bundle_id, setting=req.setting, title=req.title,
+                                         requirements=req.requirements, config=req.config,
+                                         year=req.year, polity_preferences=req.polity_preferences)
         source = _world_package_source(req.import_id)
         draft = service.world_package.propose(source, req.region_id, req.setting, req.note)
         return service.world_package.get(draft['id'])
@@ -1101,29 +1159,65 @@ def create_app(db_path=None):
     @app.put('/api/inner/world-package/drafts/{draft_id}/select')
     async def world_package_select(draft_id: str, req: WorldPackageSelect):
         async with service.lock:
+            if service.world_package.get(draft_id).get('target') == 'background':
+                return _backgrounds().select(draft_id, req.refs,
+                                             expected_revision=req.expected_revision,
+                                             acknowledge_candidates=req.acknowledge_candidates)
             return service.world_package.select(
                 draft_id, req.refs, acknowledge_candidates=req.acknowledge_candidates,
                 expected_revision=req.expected_revision)
 
     @app.post('/api/inner/world-package/drafts/{draft_id}/generate')
-    async def world_package_generate(draft_id: str):
+    async def world_package_generate(draft_id: str, req: WorldPackageConfirm | None = None):
+        if service.world_package.get(draft_id).get('target') == 'background':
+            if req is None:
+                raise ValueError('背景生成需要 expected_revision')
+            return await _backgrounds().generate(draft_id, req.expected_revision)
         return await service.world_package.generate(draft_id)
+
+    @app.post('/api/inner/world-package/drafts/{draft_id}/auto-select')
+    async def background_auto_select(draft_id: str, req: BackgroundSelect):
+        return await _backgrounds().auto_select(
+            draft_id, expected_revision=req.expected_revision,
+            acknowledge_candidates=req.acknowledge_candidates)
+
+    @app.put('/api/inner/world-package/drafts/{draft_id}/configure')
+    async def background_configure(draft_id: str, req: BackgroundConfigure):
+        async with service.lock:
+            return _backgrounds().configure(draft_id, config=req.config, year=req.year,
+                                            polity_preferences=req.polity_preferences,
+                                            expected_revision=req.expected_revision)
+
+    @app.post('/api/inner/world-package/drafts/{draft_id}/simulate')
+    async def background_simulate(draft_id: str, req: WorldPackageConfirm):
+        # Simulation is CPU work. Its draft revision is compared again at commit.
+        return await run_in_threadpool(_backgrounds().simulate, draft_id,
+                                       expected_revision=req.expected_revision)
 
     @app.put('/api/inner/world-package/drafts/{draft_id}')
     async def world_package_edit(draft_id: str, req: WorldPackageEdit):
         async with service.lock:
+            if service.world_package.get(draft_id).get('target') == 'background':
+                return _backgrounds().edit(draft_id, req.content,
+                                           expected_revision=req.expected_revision,
+                                           approved_history_ids=req.approved_history_ids)
             return service.world_package.edit(draft_id, req.content,
                                               expected_revision=req.expected_revision)
 
     @app.get('/api/inner/world-package/drafts/{draft_id}/freshness')
     def world_package_freshness(draft_id: str):
         draft = service.world_package.get(draft_id)
+        if draft.get('target') == 'background':
+            return _backgrounds().freshness(draft_id)
         import_id = ((draft.get('source') or {}).get('details') or {}).get('import_id') or ''
         return service.world_package.freshness(draft_id, _world_package_source(import_id))
 
     @app.post('/api/inner/world-package/drafts/{draft_id}/confirm')
     async def world_package_confirm(draft_id: str, req: WorldPackageConfirm):
         draft = service.world_package.get(draft_id)
+        if draft.get('target') == 'background':
+            async with service.lock:
+                return _backgrounds().confirm(draft_id, expected_revision=req.expected_revision)
         import_id = ((draft.get('source') or {}).get('details') or {}).get('import_id') or ''
         async with service.lock:
             return service.world_package.confirm(draft_id, _world_package_source(import_id),

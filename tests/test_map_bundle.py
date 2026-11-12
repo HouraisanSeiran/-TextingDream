@@ -187,11 +187,23 @@ def test_real_registration_is_read_only_and_no_numba_planner(monkeypatch):
     # Fixed current-product smoke, skipped on clean checkouts lacking local products.
     root=Path(__file__).resolve().parents[1]
     if not (root/'config/map-bundles.json').is_file():pytest.skip('local registered products absent')
+    registration=mb.read_json(root/'config/map-bundles.json')
+    record=next((item for item in registration.get('bundles',[])
+                 if item.get('id')=='terragenesis-world-20261111'),None)
+    if record is None:pytest.skip('local registered bundle absent; real product not verified')
+    missing=[key for key,entry in record.get('sources',{}).items()
+             if not (root/entry['path']/'manifest.json').is_file()]
+    if missing:pytest.skip('local frozen products absent (%s); real product not verified' % ', '.join(missing))
     from app.world_gen import climate_world_stage as stage
     monkeypatch.setattr(stage,'climate_source_from_map',lambda *a,**k: (_ for _ in ()).throw(AssertionError('planner dependency')))
-    reg=mb.BundleRegistry(root);b=reg.get('terragenesis-world-20261111')
+    reg=mb.BundleRegistry(root)
+    try:
+        b=reg.get('terragenesis-world-20261111')
+    except mb.BundleMissing as error:
+        pytest.skip('local frozen product files absent; real product not verified: %s' % error)
     d=b.detail();assert d['world_extent_m']==[-5e6,-4e6,5e6,4e6]
-    assert len(d['previews'])==8
+    assert {item['key'] for item in d['previews']} == {item['key'] for item in record['previews']}
+    assert {'atlas', 'ocean-overlay', 'ocean-theme'} <= {item['key'] for item in d['previews']}
     # Actual registered native cell [2,238] and macro [0,59] are both wet.
     # The north-west corner [0,0] is land and must never return SST.
     p=b.point(-2615000.,-3975000.,7)

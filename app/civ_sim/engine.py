@@ -9,7 +9,7 @@ from collections import deque
 
 from .catalog import LoreCatalog
 from .chronicle import finalize
-from .config import CivSimConfig
+from .config import CivSimConfig, normalize_profiles
 from .errors import CivSimError
 from .schema import ALGORITHM, CHRONICLE_SCHEMA, LICENSE_NOTE
 from .society import SocietyState
@@ -57,14 +57,15 @@ def _mix(*parts):
     return value
 
 
-def _suitability(region, config):
+def _suitability(region, config, weights=None):
+    weights = weights or dict(river=config.river_weight, coast=config.coast_weight, highland=config.highland_weight)
     climate = 0 if region.climate_millis is None else config.climate_weight * region.climate_millis
     return (
-        config.river_weight * region.river_millis
-        + config.coast_weight * region.coast_millis
+        weights['river'] * region.river_millis
+        + weights['coast'] * region.coast_millis
         + climate
         - config.slope_weight * region.slope_millis
-        - config.highland_weight * region.band
+        - weights['highland'] * region.band
     )
 
 
@@ -110,7 +111,7 @@ def _nearest(neighbors, capitals, count):
     return dist
 
 
-def simulate(habitat, config, catalog=None, lore=None):
+def simulate(habitat, config, catalog=None, lore=None, profiles=None):
     """Step ``config.start_year`` … ``config.end_year`` on one habitat.
 
     ``catalog`` is an optional :class:`NameCatalog` (polity display names).
@@ -119,6 +120,13 @@ def simulate(habitat, config, catalog=None, lore=None):
     """
     if not isinstance(config, CivSimConfig):
         raise CivSimError("config 必须是 CivSimConfig")
+    selected_profiles = normalize_profiles(profiles, config)
+
+    def weights_for(pid):
+        if selected_profiles:
+            return selected_profiles[pid % len(selected_profiles)]['weights']
+        return dict(river=config.river_weight, coast=config.coast_weight,
+                    highland=config.highland_weight, distance=config.distance_weight)
     regions = habitat.regions
     neighbors = habitat.neighbors
     count = len(regions)
@@ -189,6 +197,7 @@ def simulate(habitat, config, catalog=None, lore=None):
                 return
             capitals = [row["capital"] for row in polities if row["ended"] is None]
             dist = _nearest(neighbors, capitals, count)
+            preferences = weights_for(len(polities))
             best = None
             for region in regions:
                 if owner[region.id] != -1:
@@ -198,7 +207,8 @@ def simulate(habitat, config, catalog=None, lore=None):
                     if hops < config.min_capital_hops:
                         continue
                 jitter = _mix(config.seed, year, region.id, 3) % (config.found_jitter + 1)
-                score = suit[region.id] * 1000 + jitter
+                suitability = _suitability(region, config, preferences) if selected_profiles else suit[region.id]
+                score = suitability * 1000 + jitter
                 key = (score, -region.id)
                 if best is None or key > best[0]:
                     best = (key, region.id)
@@ -223,6 +233,7 @@ def simulate(habitat, config, catalog=None, lore=None):
             if polity["ended"] is not None:
                 continue
             pid = polity["id"]
+            preferences = weights_for(pid)
             held = owned(pid)
             if not held:
                 continue
@@ -242,10 +253,10 @@ def simulate(habitat, config, catalog=None, lore=None):
                 cost = (
                     config.base_expand_cost
                     + config.slope_weight * region.slope_millis
-                    + config.highland_weight * region.band
-                    + config.distance_weight * hops
-                    - config.river_weight * region.river_millis
-                    - config.coast_weight * region.coast_millis
+                    + preferences['highland'] * region.band
+                    + preferences['distance'] * hops
+                    - preferences['river'] * region.river_millis
+                    - preferences['coast'] * region.coast_millis
                     - climate
                 )
                 key = (cost, index)
@@ -299,7 +310,8 @@ def simulate(habitat, config, catalog=None, lore=None):
                 emit(year, "peace", left, right, None, "失去共同边界，休战")
                 wars.pop(pair, None)
                 continue
-            target = max(targets, key=lambda index: (suit[index], -index))
+            target = max(targets, key=lambda index: (
+                _suitability(regions[index], config, weights_for(attacker)) if selected_profiles else suit[index], -index))
             if stream.below(1000) < config.conquer_per_mille:
                 vias = [via for via in neighbors[target] if owner[via] == attacker]
                 owner[target] = attacker
@@ -417,4 +429,7 @@ def simulate(habitat, config, catalog=None, lore=None):
         document["dynasties"] = []
         document["people"] = []
         document["faiths"] = []
+    if selected_profiles:
+        document['provenance']['polity_profiles'] = selected_profiles
+        document['provenance']['profile_assignment'] = 'founding polity id modulo profile count'
     return finalize(document)

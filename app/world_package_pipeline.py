@@ -761,6 +761,8 @@ def _terrain_kind(terrains):
 class WorldPackagePipeline:
     def __init__(self, service):
         self.service = service
+        from .background_package import BackgroundPackages
+        self.backgrounds = BackgroundPackages(service)
 
     # ------------------------------------------------------------ 读
     def list(self):
@@ -846,6 +848,9 @@ class WorldPackagePipeline:
 
     # ------------------------------------------------------------ 作者勾选 → 元素装配
     def select(self, draft_id, refs, *, acknowledge_candidates=False, expected_revision=None):
+        if self.get(draft_id).get('target') == 'background':
+            return self.backgrounds.select(draft_id, refs, expected_revision,
+                                           acknowledge_candidates)
         draft = self.get(draft_id)
         self._editable(draft)
         if acknowledge_candidates is not True:
@@ -940,6 +945,8 @@ class WorldPackagePipeline:
             count = max(1, count - max(1, count // 8))
 
     async def generate(self, draft_id):
+        if self.get(draft_id).get('target') == 'background':
+            return await self.backgrounds.generate(draft_id)
         draft = self.get(draft_id)
         self._editable(draft)
         if draft['stage'] not in ('selected', 'generated') or not draft.get('selection'):
@@ -1026,6 +1033,8 @@ class WorldPackagePipeline:
             return self._put(current)
 
     def edit(self, draft_id, content, expected_revision=None):
+        if self.get(draft_id).get('target') == 'background':
+            return self.backgrounds.edit(draft_id, content, expected_revision)
         """作者改写生成结果：按与生成时相同的规则整体重新校验，不通过就不写。"""
         draft = self.get(draft_id)
         self._editable(draft)
@@ -1050,6 +1059,8 @@ class WorldPackagePipeline:
 
     # ------------------------------------------------------------ 过期判定
     def freshness(self, draft_id, source):
+        if self.get(draft_id).get('target') == 'background':
+            return self.backgrounds.freshness(draft_id)
         draft = self.get(draft_id)
         mismatch = ws.identity_matches(draft['source'], source.identity())
         digest = None
@@ -1153,6 +1164,8 @@ class WorldPackagePipeline:
         return story, characters
 
     def confirm(self, draft_id, source, expected_revision=None):
+        if self.get(draft_id).get('target') == 'background':
+            return self.backgrounds.confirm(draft_id, expected_revision)
         """作者确认：过期就拒绝；否则编译并写入故事包目录（不启用、不改当前世界）。"""
         draft = self.get(draft_id)
         if draft['status'] == 'confirmed':
@@ -1198,6 +1211,10 @@ class WorldPackagePipeline:
 
 def summary(draft):
     """草稿摘要（接口列表与汇报用）。"""
+    if draft.get('target') == 'background':
+        return {k: copy.deepcopy(draft.get(k)) for k in
+                ('id', 'kind', 'target', 'title', 'status', 'stage', 'revision', 'created',
+                 'bundle_id', 'year', 'offline', 'published')}
     content = draft.get('content') or {}
     validation = draft.get('validation') or {}
     return {'id': draft['id'], 'status': draft['status'], 'stage': draft['stage'],

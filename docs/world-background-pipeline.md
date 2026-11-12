@@ -1,0 +1,100 @@
+# 世界背景生成与发布
+
+日期：2026-11-12。本文说明新的作者背景流程；它与仍可读取的旧城市、事件生成流程分开。目标定义见 [故事包定义与层级](story-package-definition.md)。
+
+## 入口与操作
+
+从世界创作进入“世界背景”。选择已登记的地理来源，填写名称、创作要求、题材与科技/魔法档位，设置文明种子、模拟年段、政体上限及背景年。
+
+按顺序完成：创建草稿 → AI 组合数据库设定 → 模拟历史与疆域 → AI 补充背景 → 审核编辑 → 发布。也可连续执行前四步后集中审核。离线模式提供明确标记的模板，不声称理解了创作要求。
+
+草稿可重新打开。采用清单、模拟参数与年份改变后，重新生成受影响阶段；失败保留已保存草稿，由作者显式重试。重大新增史事逐条勾选确认；未确认项只保留为作者候选，不进入正式背景事实。
+
+“调整采用清单”列出真实候选及版本，可按每行一个引用修改采用范围。参数区展示 AI 适配的来源与设计依据，可以编辑四项权重；“恢复默认参数”清空适配偏好，点击应用后才更新草稿。审核区分别展示地理来源及缺项、模拟关键事件、可读背景、重大扩充和模型阶段用量；JSON 编辑用于调整完整结构。
+
+发布后可查看背景全文和某个王国的城镇生成输入，也可从发布版本创建新的修订草稿。发布版本不覆盖旧版本，不自动启用当前运行包。“背景包暂不可游玩”是本轮交付的正常状态。
+
+## 数据如何流动
+
+- **地理**：读取已登记的冻结地图包，关联地形、环境、气候、水文、洋流与地表水来源；各组按自身网格和时间口径形成摘要。来源缺项与工程限制保留，大型数组不直接送入 AI。
+- **数据库**：AI 从真实候选中组合最多 64 个采用元素，固定版本、原始内容和来源。后续背景生成按预算分批读取全部采用元素，不受旅程“最多六项摘要”的限制。
+- **模拟**：复用 `civ_sim` 的选址、扩张、政体、人物与编年史。背景年默认模拟终年；选择更早背景年时使用相同确定性过程的历史前缀，后来的事件与人物不进入背景。
+- **有限参数**：河流、海岸、高地和距离权重参与选址或扩张。适配配置记录来源，AI 数值属于设计估值，可编辑或恢复默认；种族寿命、法术战斗和人口迁移尚不在模拟范围。
+- **地图**：陆块按真实陆地四邻接连通关系生成；命名和人文解释交给背景编辑。王国用模拟州归属裁剪到真实陆地，显示为州尺度代理疆域。模拟连接边不代表已修建道路。
+- **AI**：先分批读取全部原生字段统计及采用设定，再整理历史叙述、各王国背景与世界总概。王国另外读取其 LAND 疆域内的原生环境统计；不同网格按原生格心归属选样，不插值或混合统计。洋流留在独立世界海洋摘要。结构化引用接受程序检查，文化与制度正文仍需作者审阅。
+
+## 文件与下一级输入
+
+发布目录位于 `StoryPackage/背景_<版本ID>/`，包含 `background.json`、`总概.md` 与知识文档。结构化背景是版本读取依据，并校验内容哈希；修改发布内容应通过“创建修订草稿”生成新版本。
+
+背景版本关联采用的元素快照、地图来源、模拟配置、背景年、史事与疆域、背景内容和审核结果。原始地理数组继续由已登记产品提供；目录本身不是将所有外部地理文件打入一个压缩包。
+
+下级输入接口：
+
+```text
+GET /api/inner/world-package/backgrounds/{version_id}/town-context?polity_id={王国ID}
+```
+
+返回固定背景版本、所属王国与疆域、制度及种族/魔法背景、历史约束、地理来源和环境查询定位。`environment_query` 提供既有地图点值/格窗查询路径、各组原生网格及应核对的来源身份；`province_locations` 提供州块位置，首都及历史州不冒充精确城镇坐标。本轮只提供输入，不自动生成聚落或具体道路。
+
+作者接口沿用本机访问和 `X-TextileDream-Token`。草稿编辑、选择、模拟、生成、配置和发布携带 `expected_revision`，冲突后刷新草稿再处理。
+
+| 接口（以下均在 `/api/inner/world-package` 下） | 用途 |
+|---|---|
+| `GET /sources` | 已登记 TG 包、模拟默认值和题材档位 |
+| `POST /propose`，`target=background` | 创建并保存背景草稿 |
+| `GET /drafts`、`GET /drafts/{id}` | 列表及重新打开；缺目标字段的旧草稿继续走旧流程 |
+| `POST /drafts/{id}/auto-select`、`PUT /drafts/{id}/select` | AI 组合或作者调整真实候选引用 |
+| `PUT /drafts/{id}/configure` | 调整模拟配置、背景年及政体偏好，清除下游结果 |
+| `POST /drafts/{id}/simulate`、`POST /drafts/{id}/generate` | 模拟骨架及分批补充背景 |
+| `PUT /drafts/{id}`、`GET /drafts/{id}/freshness` | 审核编辑、扩充确认及来源过期检查 |
+| `POST /drafts/{id}/confirm` | 独立发布背景版本 |
+| `GET /backgrounds`、`GET /backgrounds/{version_id}` | 发布版本列表及完整固定快照 |
+| `GET /backgrounds/{version_id}/territories` | 固定背景年的陆块与王国范围 |
+| `POST /backgrounds/{version_id}/revise` | 同世界的新修订草稿，保留原版本 |
+
+## 兼容与验证
+
+旧包继续使用 `story.json` 和原角色包、地点、事件规则；新背景包使用独立文件与校验，不伪造占位城市、主角或事件。列表区分 `kind` 与 `can_start`，背景包不能被旧激活入口当作可玩包。
+
+便携测试使用临时库、冻结小数组和离线或受控模型输入，不依赖同级 TG 工作区。真实地图验收另行执行；Git 忽略的本地数据缺失时，真实数据用例明确跳过。
+
+```powershell
+.venv\Scripts\python.exe -m pytest tests/test_background_package.py tests/test_background_http.py tests/test_background_geography.py -o addopts='' -q
+node tests/background_generator_ui.cjs
+```
+
+浏览器验收启动临时 SQLite 和临时百科的独立 HTTP 服务，不调用正在运行的正式服务。需另行准备 Playwright 和 Microsoft Edge；可使用独立测试目录安装，避免依赖第三方工程的运行目录：
+
+```powershell
+npm install --prefix "$env:TEMP\textiledream-browser-tests" playwright
+$env:TEXTILEDREAM_PLAYWRIGHT_MODULE="$env:TEMP\textiledream-browser-tests\node_modules\playwright"
+node tests/background_generator_ui.cjs --browser
+```
+
+默认浏览器 channel 为 `msedge`，可用 `TEXTILEDREAM_BROWSER_CHANNEL` 指定已安装的兼容 channel。测试也支持普通 `require('playwright')`；本机已有的 `external/civ-atlas` 依赖仅作兼容回退。浏览器流程检查创建、选择、模拟、生成、编辑失败保留、发布、修订、下级读取及页面/CSP 错误。线上模型的文学质量仍由作者另行验收。
+
+实现前的工程检查点已上传：`e5d5a147cd454c78c0c6f196b956014ba6d7cd68`（`main`）。背景链路改造位于 `codex/world-background-pipeline` 分支。实际测试结果以本轮交付记录为准。
+
+参考实现限定于 [civ-atlas](https://github.com/guaner-334/civ-atlas) 的本地固定版本 `0939c5f1622a5e45cfc16f645ea3845993ab3985`，借鉴历史分层、连通陆块、分批输入和过期判断；本轮复用织梦模拟及存储能力，未移植上游整套模拟，也未核对上游最新版。
+
+## 真实地图专项记录（2026-11-12）
+
+只读 `terragenesis-world-20261111`：来源校验 24.19 秒，六组 123 字段的世界摘要 23.70 秒；识别 196 陆块、323,909 个 LAND 格。复用该摘要执行 `seed=2 / end_year=2 / max_polities=3`，模拟及王国环境摘要 3.42 秒，得到一个存续王国、660 个陆地格。王国的地形/环境/月气候/水文/地表水包含 38 个原生字段，海洋独立保留；整个结果可 JSON 序列化，结束时来源未变化。
+
+该记录验证真实产品读取与小年段运行，不代表长历史性能、自然环境准确性或在线模型叙述质量；没有生成新地理产品，也没有写正式存档或切换玩家默认。
+
+另以同一真实地图、临时百科、临时 SQLite 和离线模型完成创建→组合→模拟→分批背景→发布→重读→城镇输入闭环，总耗时 70.80 秒。其中 22 个离线阶段，最大单次上下文 17,819 字符，发布 129 条知识、196 个陆块背景；`can_start=false`。临时目录在验收后清理，未把测试背景写入工程的正式 `StoryPackage`。
+
+## 本轮验证结果
+
+| 范围 | 最后专项结果 |
+|---|---|
+| 背景后端：64 元素、分批预算、错误事实与引用、并发修订、不可变发布及下级读取 | `tests/test_background_package.py`：17 passed |
+| 临时库作者 HTTP 闭环、重启重读及请求约束 | `tests/test_background_http.py`：2 passed |
+| 原生网格、缺值、海陆隔离、连通陆块及选年疆域 | `tests/test_background_geography.py`：8 passed |
+| 地图契约及本机真实登记来源 | `tests/test_map_bundle.py`：11 passed |
+| 作者 UI | Node DOM 流程和独立 HTTP/Edge 流程通过，零页面错误及 CSP 违规 |
+| 代码检查 | 本轮 Python 文件 Ruff、JavaScript 语法和 `git diff --check` 通过 |
+
+兼容回归覆盖旧地区流水线/HTTP、城市与事件生成、空工程启动、文明及历史存储、元素装配、运行时、存档路径、回滚、包事务/缓存和启动器；三个符号链接用例因本机不支持而跳过。主回归发现旧地图预览固定数量断言已经落后于登记清单，改为核对清单及必要预览后，地图专项完整通过。上述分项存在重叠，不相加为全库测试总数。

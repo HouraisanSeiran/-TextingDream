@@ -14,7 +14,7 @@
 
   const tabs = el('div', undefined, 'worldgen-tabs');
   const tabTerrain = el('button', '地形床面', 'worldgen-tab selected');
-  const tabLore = el('button', '设定与故事包', 'worldgen-tab');
+  const tabLore = el('button', '世界背景与故事包', 'worldgen-tab');
   tabTerrain.type = 'button'; tabLore.type = 'button';
   tabs.append(tabTerrain, tabLore);
 
@@ -84,7 +84,7 @@
     if (lore) adoptLore();
   }
   tabTerrain.onclick = () => showPanel('terrain');
-  tabLore.onclick = () => showPanel('lore');
+  tabLore.onclick = () => TDNav.show('background-page');
   window.__worldgenOpenLore = () => showPanel('lore');
   window.__worldgenOpenTerrain = () => showPanel('terrain');
 

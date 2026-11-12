@@ -92,3 +92,33 @@ class CivSimConfig:
 
     def to_dict(self):
         return asdict(self)
+
+
+def normalize_profiles(profiles, config):
+    """Explicit author-selected preferences; never infer weights from lore text.
+
+    Profiles cycle by founding polity ID. Omission retains legacy simulation.
+    """
+    if profiles is None:
+        return []
+    if not isinstance(profiles, list) or len(profiles) > 64:
+        raise CivSimError("profiles must be a list of at most 64 entries")
+    result = []
+    names = ('river', 'coast', 'highland', 'distance')
+    for index, profile in enumerate(profiles):
+        if not isinstance(profile, dict):
+            raise CivSimError("profile must be an object")
+        identity = profile.get('id', 'profile-%d' % index)
+        source = profile.get('source', 'author')
+        if not isinstance(identity, str) or not identity or len(identity) > 160:
+            raise CivSimError("profile id must be a nonempty string of at most 160 characters")
+        if not isinstance(source, (str, dict)):
+            raise CivSimError("profile source must be a string or provenance object")
+        weights = profile.get('weights', {})
+        if not isinstance(weights, dict) or set(weights) - set(names):
+            raise CivSimError("unsupported profile weights")
+        values = {name: _int(name, weights.get(name, getattr(config, name + '_weight')),
+                             -1_000_000_000, 1_000_000_000) for name in names}
+        result.append(dict(id=identity, source=source, weights=values,
+                           default_weights=[name for name in names if name not in weights]))
+    return result
