@@ -40,10 +40,10 @@
   区间 28–64%，默认 40。**不写服务端**（因此任何打开地图的动作都不会改 `state_version`）。
 - 历史页签里装的是 `#surface-journeys`（由 `app.js` 在运行时创建，包含 `#new-session`、
   「旅程存档」标签与 `#sessions`、`#conversations` 章节列表）；它与正文区、物品栏都在左列
-  内部滚动。输入框 `#chat-form` 是对话页签的尾部元素（`position:static`），
+  内部滚动。输入框 `#chat-form` 是对话页签的尾部资料条目（`position:static`），
   **不覆盖**正文（不是 `position:fixed/sticky` 压在内容上）。
 - 「其他」页签 `#panel-other` 收进**全部**旧功能入口：知识点记录簿、旅程地图 · 旧图册、
-  世界创作、世界地图工具、城镇创作、元素装配、里层创作、模型输入输出、API 配置、设置；
+  世界创作、世界地图工具、城镇创作、资料选择、里层创作、模型输入输出、API 配置、设置；
   另带一个「玩法与地图帮助」折叠块（雾的口径、缩放说明等长解释放这里，不占主画面）。
   点任一行走 `showPage(page)` → `TDNav.show`，`#play` 隐藏、`<main id="legacy">` 显示；
   旧页面的 DOM id 一律保留。从旧页返回用 `#back-to-play`。
@@ -193,7 +193,7 @@ d:\anaconda\python.exe tools\p1_ui_check.py     # 退出码 0 = 全过，非 0 =
 - 截图在 `docs/ui-shots/p1/`，报告是 `p1-ui-report.json`（126 条、0 失败）。
   **截图里的底图是 fixture 矩形色块，不是最终 civ-atlas 画风**，只用于验布局与锚点。
 
-### 已断言的验收项（都写在 `tools/p1_ui_probe.cjs` 里，按行为断言而非元素存在）
+### 已断言的验收项（都写在 `tools/p1_ui_probe.cjs` 里，按行为断言而非资料条目存在）
 
 1. 底部图真加载：`play-map` JSON 200 且 `basemap.png` 200 是 PNG 字节、`naturalWidth > 0`；
    **先**断 canvas 尺寸 > 0 与当前位置像素在图内，**再**断「当前位置不是雾」——
@@ -223,6 +223,6 @@ p1 的 UI 源码（`app/static/play-ui.js`、`index.html`、`map-tools.css`、`s
 
 - `GET /api/sessions/{id}/recap`：只读玩家回顾，不写库、不变更 `state_version`。返回 `ending:{title,summary}`、最多 30 条 `timeline`、最多 30 条 `remembered`、`holdings:{opening,now}` 与 `unseen_endings` 数量。无结局配置的旧包返回「进行中」与 0。结局区「回顾」按需加载。
 - 时间线从 `archives` 与活动事件的 `actions_done` 读取。现存归档没有逐动作精确时间，故 `time:null`、`time_range:{from,to}` 给事件区间；动态动作没有归档公开标签时不猜测标签。检定仅给属性与成功/失败，不回传随机种子、秘密条件或内部审计。
-- 谁记住了你只列 `heard` 中已披露的 NPC 反应，以及明确披露给玩家的 `npc_event`；不把 NPC 私密关系数值、信念或隐藏特质转换成玩家知识。钱包、奖励物品复用奖励模块公开投影；开局基线为首个事件的 `before`，即已应用起点与入场前初始化的状态。
+- 谁记住了你只列 `heard` 中已披露的 NPC 反应，以及明确披露给玩家的 `npc_event`；不把 NPC 私密关系数值、信念或隐藏特质转换成玩家知识。钱包、奖励物品复用奖励模块玩家可见信息；开局基线为首个事件的 `before`，即已应用起点与入场前初始化的状态。
 - `POST /api/sessions/{id}/intent` 在最终返回 `unjudged:true` 时追加作者诊断（不改变旅程状态）。存于现有 SQLite `documents` 的 `unmatched_intent`，全局保留最近 500 条；原文最多 200 字。记录含 `id,session_id,package_id,revision,location_id,event_id,text,created`。
 - `GET /api/inner/unmatched-intents?limit=100&package_id=...`：作者令牌保护、同源/本机检查；`limit` 为 1..500，按新到旧返回 `{items,total}`，可按包 ID 过滤。里层创作折叠列表每次打开刷新。日志可能包含玩家输入的敏感文字，只供本机作者读取。

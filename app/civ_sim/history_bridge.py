@@ -164,7 +164,14 @@ def to_history_candidate(
         })
 
     religion_items = []
-    for row in snap.get("faiths") or chronicle.get("faiths") or ():
+    # An explicitly empty old-year snapshot means no faith was adopted yet. It
+    # must not fall through to faiths introduced in the completed run's future.
+    faith_rows = snap.get("faiths")
+    if faith_rows is None:
+        faith_rows = chronicle.get("faiths") or ()
+    for row in faith_rows:
+        if row.get("adopted_year") is not None and row["adopted_year"] > year:
+            continue
         religion_items.append({
             "ref": "%s/faith/%s" % (prefix, row["id"]),
             "display_name": row["name"],

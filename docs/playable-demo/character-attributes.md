@@ -1,8 +1,8 @@
-# 角色属性元素库与原有检定
+# 角色属性资料库与原有检定
 
-六项能力沿用 `app/attributes.py`：天赋 talent、力量 strength、敏捷 agility、智慧 wisdom、社交 social、韧性 resilience，范围均为 0–100。资料命名空间为 `character-attributes`，元素 ID 与属性 ID 相同。
+六项能力沿用 `app/attributes.py`：天赋 talent、力量 strength、敏捷 agility、智慧 wisdom、社交 social、韧性 resilience，范围均为 0–100。资料命名空间为 `character-attributes`，资料条目 ID 与属性 ID 相同。
 
-这六条是已有规则的可检索说明，不是新增能力或性格模板。库里记录定义，角色包记录具体数值；收录或选择元素不会覆盖人物数值。既有 Runtime 已读取角色属性并调用 `drama.resolve_check`，无需再建一套判定。
+这六条是已有规则的可检索说明，不是新增能力或性格模板。库里记录定义，角色包记录具体数值；收录或选择资料条目不会覆盖人物数值。既有 Runtime 已读取角色属性并调用 `drama.resolve_check`，无需再建一套判定。
 
 ## 构库
 
@@ -11,7 +11,7 @@ python -m tools.encyclopedia_build --with-traits --with-cuisine --with-attribute
 python -m tools.encyclopedia_build --check --with-traits --with-cuisine --with-attributes
 ```
 
-使用既有百科数据库，增量导入且重复执行幂等。旧构库开关保持原有行为；属性分区由 `--with-attributes` 显式追加。界面在元素库里可按命名空间或“敏捷”等名称检索。资料源为同目录 `character-attributes.json`，来源引用本项目实现，不伪造外部研究。
+使用既有百科数据库，增量导入且重复执行幂等。旧构库开关保持原有行为；属性分区由 `--with-attributes` 显式追加。界面在设定资料库里可按命名空间或“敏捷”等名称检索。资料源为同目录 `character-attributes.json`，来源引用本项目实现，不伪造外部研究。
 
 ## 判定保持不变
 

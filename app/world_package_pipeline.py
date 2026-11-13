@@ -42,6 +42,7 @@ from .knowledge import PackageFiles, atomic_text
 from .prompts import stable_json
 from .runtime import now, uid
 from .terrain_rules import RULES as TERRAIN_RULES
+from .token_budget import output_tokens
 
 KIND = 'world_package_draft'
 SCHEMA = 'world_package_draft_v1'
@@ -59,7 +60,7 @@ MAX_SECTIONS = 16
 MAX_SECTION_CHARS = 3000
 MAX_KNOWLEDGE = 24
 MAX_OFFLINE_ELEMENT_POINTS = 12
-STEP_TOKENS = 6000
+STEP_TOKENS = output_tokens('world_package_history')
 NOTICE = 'AI 推演、未核实：历史只改写模拟事件；确认前不写任何故事包。'
 
 TERRAIN_NAMES = {

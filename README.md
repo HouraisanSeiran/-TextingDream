@@ -3,6 +3,9 @@
 > **2026-11-12 当前状态**：先读 [docs/工程进度.md](docs/工程进度.md) 与 [docs/模块.md](docs/模块.md)。详细结构见 [工程结构报告](docs/工程结构详细报告_2026-11-12.md)，规格索引见 [docs/文档地图.md](docs/文档地图.md)。旧交接与评估在 [docs/archive/](docs/archive/README.md)，一般情况下不调用。
 
 文字驱动的开放世界探索游戏。本地运行：Python/FastAPI + SQLite 后端，浏览器前端。
+
+项目概念统一见 [CONTEXT.md](CONTEXT.md)；新增或修改文案、命名及交接说明时遵循 [术语与用词规范](docs/术语与用词规范.md)。已有叫法与简化建议见 [工程术语清单](docs/工程术语清单_2026-11-12.md)。
+查找现有文档见[文档地图](docs/文档地图.md)与[逐文件总清单](docs/现有文档总清单_2026-11-13.md)；准备处理旧文档时见[过时文档核对清单](docs/过时文档核对清单_2026-11-13.md)。
 玩家旅程地图默认支持 Terragenesis 冻结产品 `world_map_product`；[civ-atlas](https://github.com/guaner-334/civ-atlas) 默认关闭，设置 `TEXTILE_CIV_ATLAS=1` 可开启。作者同源地图通过 `config/map-bundles.json` 单独登记，不自动切换玩家默认产品；见 [地图策略](docs/map-backends.md)。
 
 - 仓库：<https://github.com/HouraisanSeiran/-TextingDream.git>（仓库地址；本次是本地开发快照，**不承诺已经推送发布**）
@@ -84,6 +87,8 @@ Windows 上另有 [启动.cmd](启动.cmd) / [新安装并启动.cmd](新安装�
 ---
 
 ## 3. Demo 与百科
+
+世界背景作者链现已接通地图与资料、文明模拟、背景审核发布、国家内聚落与道路规划、单镇细化及王国版本发布。操作见[世界背景生成](docs/world-background-pipeline.md)和[城镇生成](docs/town-generation.md)；道路是规划，新背景与王国版本暂不直接启动旅程。
 
 ### 3.1 跑通当前 Demo
 

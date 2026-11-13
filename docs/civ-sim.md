@@ -2,6 +2,8 @@
 
 第一版骨架。读冻结的 `world-map-product`，在陆地上步进政体，写出编年史。不改地形床面，不跑 Terragenesis，也不把结果接进默认故事包。
 
+2026-11-13：固定世界背景的城镇输入新增 `civilization`，提供背景年该国快照、当前君主／王朝／国祀、当前及历史人物、本国史事。历史人物不充当当前镇民；未模拟的人口明确为未知，不从国家面积推算实测人口。空的旧年份信仰快照不再回退后期记录。文明独立运行仍可输出 `truncated`；背景链路发现史事已达容量上限时拒绝继续补写或发布，提示缩短区间或提高 `max_annals`，避免把缺失记录当完整历史。城镇连接见[城镇生成](town-generation.md)。
+
 ## 职责
 
 | 模块 | 做什么 |
@@ -15,7 +17,7 @@
 | `app/civ_sim/history_bridge.py` | 编年史 → 作者侧候选（含 people / dynasties / religion） |
 | `app/civ_sim/run.py`、`tools/run_civ_sim.py` | 读产品目录，把 `manifest.json` 与 `chronicle.json` 写到另一目录 |
 
-「州」是陆地上的粗网格（默认 16 格一边），不是汇水盆地，也不是球面 mesh。海洋与 `closed_below_sea` 不进任何州。道路是占邻州时加上的无向边，`road_version` 等于当前边数。首都定在立国那一州，这一版不迁都。
+「州」是陆地上的粗网格（默认16格一边），不是汇水盆地，也不是球面mesh。海洋与 `closed_below_sea` 不进任何州。编年史中沿用 `roads`／`road_version` 字段的无向边只是占领邻州时记录的连接，不能解释为已建道路；真实地形上的道路候选由下级城镇规划另行生成。首都定在立国那一州，这一版不迁都。
 
 ### 社会层（王朝 / 人物 / 宗教）
 
@@ -65,8 +67,8 @@
 2. 既有 `page` / `review` / `commit` → 快照 kind `zhimeng_civ_sim_history_snapshot`
 3. 既有 `adopt` → 写入故事包 `mechanics.history`
 
-服务入口：`WorldHistoryService.preview_civ_sim`。若故事包已关联 `world_map_product`，采纳时校验 `product_identity` 与编年史 `map_identity` 一致。
+服务入口：`WorldHistoryService.preview_civ_sim`。若故事包已关联 `world_map_product`，采用时校验 `product_identity` 与编年史 `map_identity` 一致。
 
 ## 这一版明确不做
 
-完整家谱树、教派分裂谱系、国旗、球面 UI、城镇四阶段完整接线、道路运力、汇水州界、默认故事包自动切换。
+完整家谱树、教派分裂谱系、国旗、球面UI、道路运力、汇水州界、默认故事包自动切换。下级单镇生成已通过固定背景与王国规划接线，不因此增加人口迁移、经济或法术战争模拟。

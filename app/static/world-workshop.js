@@ -6,7 +6,7 @@ workshop.innerHTML=`<div class="intro"><h2>世界创作</h2><p>世界观、地�
 <label>新世界名称<input id="creation-title" value="我的架空世界" maxlength="80" required></label><label>历史或风格参考<input id="creation-reference" maxlength="500" placeholder="750—850年前后欧亚非，历史仅作改造参考"></label>
 <label>主要城市数量<input id="creation-count" type="number" min="2" max="5" value="3"></label>
 <label>创作要求<textarea id="creation-requirements" rows="4" maxlength="4000" required placeholder="补充山脉水源、国家文化、聚落生计、资源贸易、信仰和商路瓶颈。哪些原设定必须保留？"></textarea></label>
-<label>最大输出 token<input id="creation-tokens" type="number" min="1500" max="8000" value="8000"></label><p id="creation-help" class="muted"></p><button id="creation-generate" class="primary">生成草稿</button><span id="creation-progress" role="status"></span></form>
+<label>输出上限（token）<input id="creation-tokens" type="number" min="1500" max="8192" value="8192"></label><small>输出上限不包含输入，不是总上下文。</small><p id="creation-help" class="muted"></p><button id="creation-generate" class="primary">生成草稿</button><span id="creation-progress" role="status"></span></form>
 <details id="author-map-panel" open><summary>世界图册 · 作者视角</summary><p class="muted">作者视角包含未公开资料；玩家地图按地点与解锁条件另行筛选。底图仅作位置参照。</p><div id="author-map"></div></details>
 <div class="two-col"><div><h3>整体创作记录</h3><div id="creation-list"></div></div><div><h3 id="creation-heading">选择草稿</h3><div id="creation-preview"></div><details><summary>编辑知识点与地图结构</summary><textarea id="creation-editor" rows="20" spellcheck="false"></textarea></details><div class="toolbar"><button id="creation-validate" disabled>校验并保存编辑</button><button id="creation-publish" disabled>保存到 StoryPackage</button></div><p id="creation-saved"></p></div></div>`;
 document.querySelector('main').append(workshop);

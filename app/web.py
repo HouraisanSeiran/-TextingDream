@@ -37,6 +37,7 @@ from .town_schema import (AdoptRequest, AdvanceRequest, PresetRequest, PublishRe
                           StageEditRequest, STAGE_NAMES,
                           DraftRequest as TownDraftRequest)
 from .town_plan import PlanOptions, generate_plan
+from .kingdom_settlements import GenerateSettlements
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -1114,6 +1115,44 @@ def create_app(db_path=None):
     @app.get('/api/inner/world-package/backgrounds/{version_id}/town-context')
     def background_town_context(version_id: str, polity_id: str):
         return _backgrounds().town_context(version_id, polity_id)
+
+    @app.get('/api/inner/world-package/backgrounds/{version_id}/settlements')
+    def kingdom_plans(version_id: str):
+        return service.kingdoms.list(version_id)
+
+    @app.post('/api/inner/world-package/backgrounds/{version_id}/settlements')
+    async def kingdom_plan(version_id: str, req: GenerateSettlements, polity_id: str):
+        async with service.lock:
+            return await run_in_threadpool(service.kingdoms.generate, version_id, polity_id, req)
+
+    @app.get('/api/inner/world-package/backgrounds/{version_id}/kingdom-versions')
+    def kingdom_versions(version_id: str):
+        return service.kingdoms.versions(version_id)
+
+    @app.get('/api/inner/settlement-plans/{plan_id}')
+    def kingdom_plan_detail(plan_id: str):
+        return service.kingdoms.get(plan_id)
+
+    @app.get('/api/inner/settlement-plans/{plan_id}/sites/{site_id}/town-input')
+    def kingdom_site_input(plan_id: str, site_id: str):
+        return service.kingdoms.site_input(plan_id, site_id)
+
+    @app.post('/api/inner/settlement-plans/{plan_id}/sites/{site_id}/town')
+    async def kingdom_town(plan_id: str, site_id: str, req: dict):
+        if set(req) != {'input', 'expected_revision'} or not isinstance(req['input'], dict):
+            raise ValueError('需要城镇 input 与 expected_revision')
+        async with service.lock:
+            return await run_in_threadpool(service.kingdoms.create_town, plan_id, site_id,
+                                           req['input'], req['expected_revision'])
+
+    @app.post('/api/inner/settlement-plans/{plan_id}/publish')
+    async def kingdom_publish(plan_id: str, req: PublishRequest):
+        async with service.lock:
+            return await run_in_threadpool(service.kingdoms.publish, plan_id, req.expected_revision)
+
+    @app.get('/api/inner/kingdom-versions/{version_id}')
+    def kingdom_version(version_id: str):
+        return service.kingdoms.get_version(version_id)
 
     @app.post('/api/inner/world-package/backgrounds/{version_id}/revise')
     async def background_revise(version_id: str):

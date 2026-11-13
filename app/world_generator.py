@@ -11,6 +11,7 @@ from .atlas import Atlas, TerrainKind, city_atlas, project_atlas
 from .geography import Environment, Calendar, environment_features
 from . import attributes
 from . import element_assembly
+from .token_budget import output_tokens
 
 
 class KnowledgePoint(Strict):
@@ -101,7 +102,7 @@ class GenerateWorldRequest(Strict):
     historical_reference: str = Field(default='', max_length=500)
     worldview_draft_id: str | None = None
     city_count: int = Field(default=3, ge=2, le=5)
-    output_tokens: int = Field(default=4000, ge=1500, le=8000)
+    output_tokens: int = Field(default=output_tokens('generator_world'), ge=1500, le=8192)
     # Locked element refs ("namespace/element_id" or ".../id@3"). Empty = pin the CURRENT
     # package manifest. Either way nothing is taken straight from the library: an explicit
     # list must be a subset of the manifest that already exists, and candidates are never

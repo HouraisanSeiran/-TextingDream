@@ -99,6 +99,8 @@ class TownService:
         every stage is generated and the cross-stage validator runs, all in memory.
         """
         entry = request.input.model_dump(mode='json')
+        if entry.get('background'):
+            self.service.kingdoms.validate_entry(entry)
         # A package carrying a locked element manifest restricts which elements this town
         # input may bind: exactly the pinned ID + version, never a library lookup.
         binding_warnings = self._check_bindings(entry)
@@ -347,6 +349,8 @@ class TownService:
         version = self.get_version(version_id)
         snapshot = version['snapshot']
         towns.validate_snapshot(snapshot)
+        if snapshot['input'].get('background'):
+            raise TownError('此城镇属于固定世界背景；请在王国城镇页发布所属版本，不能直接采纳到旧可玩包')
         base_revision = version['base_story_revision']
         runtime = self.service.runtime
         runtime.reload_documents()

@@ -25,7 +25,7 @@ external/civ-atlas/dist-dream/          ← dream-host.js + dream-host.css + ass
 
 地图**不是我们画的**：`bridge.ts` 只负责把字节还原成上游的 `World` / `Civ`，然后
 `host.tsx` 调 `render/export.ts` 的 `drawMapTerrain` / `drawMapCiv`——和上游「导出图片」
-走同一条管线（`src/finderThumbDraw.ts:41-49` 是小图版的同一路径）。
+走同一条流程（`src/finderThumbDraw.ts:41-49` 是小图版的同一路径）。
 
 ## 2. 数据来源：一律以服务端为准
 

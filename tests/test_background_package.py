@@ -307,6 +307,64 @@ def test_stale_source_refuses_publication(factory):
     assert pipe.list_versions() == []
 
 
+def test_town_context_has_country_scoped_current_and_historical_society(factory):
+    pipe, draft, _, _ = factory(count=1)
+    draft = generated(pipe, draft)
+    draft = pipe.confirm(draft['id'], draft['revision'])
+    document = pipe.get_version(draft['published']['version_id'])
+    polity = document['simulation']['kingdoms'][0]
+    snapshot = document['simulation']['chronicle']['snapshots'][-1]
+    context = pipe.town_context(document['version_id'], polity['polity_id'])
+    society = context['civilization']
+    assert society['year'] == document['background_year']
+    assert society['polity'] == next(row for row in snapshot['polities']
+                                    if row['id'] == polity['polity_id'])
+    assert society['current_people'] == [row for row in snapshot['people']
+                                         if row['polity_id'] == polity['polity_id']]
+    assert society['current_monarch']['id'] == society['polity']['monarch_id']
+    assert society['current_dynasty']['id'] == society['polity']['dynasty_id']
+    assert society['current_faith']['id'] == society['polity']['faith_id']
+    assert all(polity['polity_id'] in (row['polity_a'], row['polity_b']) for row in society['events'])
+    assert all(row['year'] <= society['year'] for row in society['events'])
+    assert society['population'] is None and society['population_status'] == 'not_simulated'
+    restarted = Service(Store(pipe.service.store.path), pipe.service.runtime.root)
+    assert restarted.world_package.backgrounds.town_context(
+        document['version_id'], polity['polity_id']) == context
+    # Historical deaths and other countries cannot be promoted to town residents.
+    simulation = deepcopy(document['simulation'])
+    simulation['chronicle']['people'].extend([
+        {'id': 9998, 'name': 'Past ruler', 'polity_id': polity['polity_id'], 'from_year': 0, 'died': 1},
+        {'id': 9999, 'name': 'Foreign ruler', 'polity_id': 999, 'from_year': 0, 'died': None}])
+    projection = pipe._civilization_context(simulation, polity['polity_id'])
+    assert any(row['id'] == 9998 for row in projection['historical_people'])
+    assert all(row['id'] != 9998 for row in projection['current_people'])
+    assert all(row['id'] != 9999 for row in projection['historical_people'])
+    assert pipe.get_version(document['version_id']) == document
+
+
+def test_incomplete_chronicle_cannot_become_background(factory):
+    pipe, draft, _, _ = factory(count=1)
+    selected = pipe.select(draft['id'], [draft['candidates']['recommended'][0]['ref']], draft['revision'])
+    configured = pipe.configure(draft['id'], config=dict(CONFIG, max_annals=1),
+                                expected_revision=selected['revision'])
+    with pytest.raises(ValueError, match='历史记录不完整'):
+        pipe.simulate(draft['id'], configured['revision'])
+    assert pipe.get(draft['id']) == configured
+
+
+def test_preexisting_truncated_draft_cannot_generate_or_publish(factory):
+    pipe, draft, _, _ = factory(count=1)
+    draft = generated(pipe, draft)
+    draft['simulation']['chronicle']['truncated'] = True
+    pipe.service.store.put('world_package_draft', draft['id'], draft)
+    with pytest.raises(ValueError, match='历史记录不完整'):
+        run(pipe.generate(draft['id'], draft['revision']))
+    with pytest.raises(DraftRejected, match='历史记录不完整'):
+        pipe.confirm(draft['id'], draft['revision'])
+    assert pipe.get(draft['id']) == draft
+    assert pipe.list_versions() == []
+
+
 def test_history_keeps_extinct_polity_and_checks_cited_date(factory):
     pipe, draft, _, _ = factory(count=1)
     draft = generated(pipe, draft)

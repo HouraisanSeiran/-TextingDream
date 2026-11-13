@@ -39,9 +39,9 @@
   `LATEST_GROUPS = GROUPS + TRAIT_GROUPS` 与 `groups_for(with_traits)`，CLI 多了 `--with-traits`
   （`--check --with-traits` 也生效）。
   - **默认口径不变**：`GROUPS` 仍是历史 14 组 / 528 条，旧测试与旧交付口径照旧（旧集作为回归基线保留）。
-  - **交付口径**：`--with-traits` → 15 组 / 551 元素 / 505 来源 / 0 未解析（本机实测；
+  - **交付口径**：`--with-traits` → 15 组 / 551 资料条目 / 505 来源 / 0 未解析（本机实测；
     历史 14 组实测为 528 / 502 / 0）。交付库**就用同一个库文件**，直接再跑一次
-    `--with-traits`（导入是幂等增量，历史元素与 source pin 不会被重写）；
+    `--with-traits`（导入是幂等增量，历史资料条目与 source pin 不会被重写）；
     不需要、也不要另建第二个库。
 - **故事包固定版本**：模板快照随故事包走，落在 `story.mechanics.traits`
    （`version` / `namespace` / `templates[]`（含 `payload` 与 `payload_hash`）/ `locked_note`）。
@@ -330,5 +330,5 @@ D:\anaconda\python.exe -X utf8 -m unittest tests.test_playable_demo tests.test_r
 - 未做经营/势力/经济 tick；钱与资源只在动作或压力改变时变化。
 - 未改动 `StoryPackage/玄陆`、`灰烬海` 与正式 `data/`；交付库
   `artifacts/human-encyclopedia/encyclopedia.sqlite3` 未动，需验收方跑 `--with-traits` 重建
-  （15 组 / 551 元素 / 505 来源）。
+  （15 组 / 551 资料条目 / 505 来源）。
 - 「30–60 分钟可玩」是设计目标，**没有**做时长实测。

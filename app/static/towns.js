@@ -32,6 +32,7 @@ townNav.onclick=()=>safe(()=>showPage('towns'));
 document.querySelector('nav button[data-page="world-workshop"]').closest('nav').append(townNav);
 
 TDNav.register('towns',{title:'城镇创作',enter:async()=>{await refreshTowns();await refreshTownVersions()}});
+window.TDTowns={openDraft:async function(id){TDNav.show('towns');await refreshTowns();await selectTown(id)}};
 
 let townDrafts=[],townVersions=[],activeTown=null;
 

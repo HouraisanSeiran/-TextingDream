@@ -9,6 +9,7 @@ from .contracts import ApiSettings
 from .cache_metrics import cache_usage, context_stats
 from datetime import datetime, timezone
 from .prompts import context_json
+from .token_budget import output_tokens
 from . import ai_protocols
 from urllib.parse import urlparse
 import httpx
@@ -120,7 +121,7 @@ class Provider:
             raise ValueError('请在 API 配置中填写密钥，或启用离线模式')
         model = self.model_for(scope, config)
         key = self.key  # A configuration change must not change an in-flight credential.
-        payload = {'model': model, 'messages': [{'role': 'system', 'content': system}, {'role': 'user', 'content': context_json(context, scope)}], 'max_tokens': max_tokens or config['max_tokens']}
+        payload = {'model': model, 'messages': [{'role': 'system', 'content': system}, {'role': 'user', 'content': context_json(context, scope)}], 'max_tokens': output_tokens(scope, max_tokens, config['max_tokens'])}
         # Vendor-specific option only for the documented official V4/flash endpoint.
         if urlparse(config['base_url']).hostname == 'api.deepseek.com' and model in ('deepseek-v4-pro', 'deepseek-flash', 'deepseek-v4-flash'):
             enabled = config['thinking_mode'] == 'enabled' if thinking is None else thinking

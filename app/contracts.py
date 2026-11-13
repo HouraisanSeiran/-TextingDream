@@ -1,5 +1,6 @@
 from typing import Literal
 from pydantic import BaseModel, ConfigDict, Field
+from .token_budget import DEFAULT_OUTPUT, MAX_OUTPUT
 
 
 class Strict(BaseModel):
@@ -57,7 +58,8 @@ class ApiSettings(Strict):
     api_key: str = Field(default='', max_length=600)
     clear_key: bool = False
     offline: bool = True
-    max_tokens: int = Field(default=8192, ge=200, le=65536)
+    max_tokens: int = Field(default=DEFAULT_OUTPUT, ge=200, le=MAX_OUTPUT,
+                            description='未登记任务的输出 token 上限；显式请求和任务默认值优先，不是总上下文')
 
 
 class ConnectionSettings(Strict):

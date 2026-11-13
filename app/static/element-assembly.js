@@ -1,9 +1,9 @@
 'use strict';
-// 元素装配页。所有值都用 textContent（el()）写入，作者文本不会变成标记。
+// 资料选择页。所有值都用 textContent（el()）写入，作者文本不会变成标记。
 // 页面只和 /api/inner/elements/* 通信：不传文件路径，也不相信浏览器提交的 payload——
 // 服务端按选中的 namespace/element_id/version 自己从只读库里读。
 const elementPanel=el('section',undefined,'page');elementPanel.id='elements';elementPanel.hidden=true;
-elementPanel.innerHTML=`<div class="ea-hero"><div class="ea-hero-text"><span class="ea-kicker">ELEMENT CODEX · 元素典籍</span><h2>元素数据库</h2><p>从本地候选库挑条目、固定版本，组成这个世界的元素清单。清单在开局前锁定，旅程只读故事包里的快照。库里都是待审候选，采纳不会把它们标成已核实。</p></div><div id="ea-library" class="ea-library muted">读取中…</div></div>
+elementPanel.innerHTML=`<div class="ea-hero"><div class="ea-hero-text"><span class="ea-kicker">世界设定参考</span><h2>设定资料库</h2><p>从设定资料库选择资料条目、固定版本，组成这个世界的采用清单。清单在开局前固定，旅程只读故事包里保存的副本。库里都是待审候选，采用不会把它们标成已核实。</p></div><div id="ea-library" class="ea-library muted">读取中…</div></div>
 <div class="ea-catbar"><div id="ea-world" class="ea-world" role="group" aria-label="世界观"></div><div id="ea-cats" class="ea-cats" role="navigation" aria-label="按分组浏览"></div></div>
 <div class="ea-layout"><div class="ea-main">
 <form id="ea-search" class="ea-searchbar" role="search">
@@ -18,11 +18,11 @@ elementPanel.innerHTML=`<div class="ea-hero"><div class="ea-hero-text"><span cla
 <div class="card ea-basket"><h3>选择清单 <small id="ea-count"></small></h3><div id="ea-selected"></div>
 <div class="toolbar"><button id="ea-save">保存草稿</button><button id="ea-preview">校验并试算</button><button id="ea-commit" class="primary">锁定到故事包</button></div>
 <p id="ea-status" class="muted" role="status"></p><div id="ea-warnings"></div></div>
-<details class="card ea-fold"><summary>显式 typed 规则</summary>
+<details class="card ea-fold"><summary>条目依赖与互斥规则</summary>
 <div class="toolbar"><select id="ea-rule-kind"><option value="requires">依赖 requires</option><option value="conflicts">互斥 conflicts</option></select><select id="ea-rule-from"></select><input id="ea-rule-to" maxlength="120" placeholder="namespace/element_id"><button id="ea-rule-add" type="button">添加</button></div>
 <div id="ea-rules"></div>
 <p class="muted">只有这里列出的规则会被机器校验（缺引用、环、互斥都会报错）。条目里的 requires / excludes 是自然语言条件，本版本不当依赖，只在警告里逐条标出。</p></details>
-<details class="card ea-fold"><summary>故事包清单与草稿</summary>
+<details class="card ea-fold"><summary>采用清单与草稿</summary>
 <div class="toolbar"><button id="ea-manifest">读取作者视图</button><button id="ea-drafts-refresh">刷新草稿列表</button><button id="ea-recover">恢复中断的提交</button></div>
 <div id="ea-drafts" class="ea-drafts"></div><div id="ea-manifest-box"></div></details>
 </aside></div>
@@ -31,15 +31,15 @@ elementPanel.innerHTML=`<div class="ea-hero"><div class="ea-hero-text"><span cla
 <p id="ea-target" class="ea-target">先在结果里点「加入清单」。</p>
 <label>固定版本<input id="ea-version" type="number" min="1" value="1"></label>
 <label>状态<select id="ea-state"></select></label>
-<label>公开说明（作者定稿，玩家可见）<textarea id="ea-public" rows="3" maxlength="600" placeholder="用一两句话写这个元素在本世界的样子"></textarea></label>
+<label>公开说明（作者定稿，玩家可见）<textarea id="ea-public" rows="3" maxlength="600" placeholder="用一两句话写这条资料所描述的事物在本世界的样子"></textarea></label>
 <div id="ea-fields"></div>
 <label>限定地点<select id="ea-location"><option value="">不限地点</option></select></label>
 <label>解锁标记 reveal_flag<input id="ea-flag" maxlength="60" placeholder="例如 met_guild"></label>
 <div id="ea-known"></div>
-<label class="inline"><input id="ea-reveal-potential" type="checkbox"> 潜在元素也允许透露其存在</label>
-<label class="inline ea-ack"><input id="ea-ack" type="checkbox"> 我已确认这是待审候选资料（采纳不改变审核状态）</label>
+<label class="inline"><input id="ea-reveal-potential" type="checkbox"> 潜在条目也允许透露其存在</label>
+<label class="inline ea-ack"><input id="ea-ack" type="checkbox"> 我已确认这是待审候选资料（采用不改变审核状态）</label>
 <div class="toolbar ea-sheet-actions"><button id="ea-cancel-edit" type="button">取消</button><button class="primary" type="submit">加入清单</button></div>
-<p class="muted ea-fine">服务端会用仓库里的原始 payload 重新组装，浏览器提交的内容不被当作事实来源。</p></form>`;
+<p class="muted ea-fine">服务端会用仓库里的原始条目内容 重新组装，浏览器提交的内容不被当作事实来源。</p></form>`;
 document.querySelector('main').append(elementPanel);
 
 // ---------- 典籍外观：分组徽记、中文标签（只影响显示，不改任何请求） ----------
@@ -142,11 +142,11 @@ function eaDrawCats(){
 
 const elementNav=el('button');
 elementNav.dataset.page='elements';
-elementNav.append(el('span','◆ 元素数据库'),el('small','作者'));
+elementNav.append(el('span','◆ 设定资料库'),el('small','作者'));
 elementNav.onclick=()=>safe(()=>showPage('elements'));
 document.querySelector('nav button[data-page="world-workshop"]').closest('nav').append(elementNav);
 
-TDNav.register('elements',{title:'元素数据库',enter:async()=>{await eaLoadLibrary();await eaLoadPackage();await eaListDrafts();if(!$('ea-results').childElementCount)await eaSearch(0)}});
+TDNav.register('elements',{title:'设定资料库',enter:async()=>{await eaLoadLibrary();await eaLoadPackage();await eaListDrafts();if(!$('ea-results').childElementCount)await eaSearch(0)}});
 
 let eaInfo=null,eaPackageInfo=null,eaElements=[],eaRules=[],eaDraft=null,eaTarget=null;
 let eaPageState={offset:0,limit:20,total:0};
@@ -160,7 +160,7 @@ async function eaLoadLibrary(){
   return;
  }
  const stats=el('div',undefined,'ea-stats');
- for(const [n,label] of [[eaInfo.totals.elements,'元素'],[eaInfo.totals.groups,'分组'],[eaInfo.totals.sources,'来源']]){const s=el('span',undefined,'ea-stat');s.append(el('b',String(n)),el('small',label));stats.append(s)}
+ for(const [n,label] of [[eaInfo.totals.elements,'资料条目'],[eaInfo.totals.groups,'分组'],[eaInfo.totals.sources,'来源']]){const s=el('span',undefined,'ea-stat');s.append(el('b',String(n)),el('small',label));stats.append(s)}
  stats.title=`${eaInfo.path} · schema ${eaInfo.schema_version}（只读）`;
  box.append(stats,el('p',eaInfo.candidate,'muted ea-fine'));
  const select=$('ea-namespace');
@@ -379,7 +379,7 @@ async function eaListDrafts(){
  if(!rows.length){box.append(el('p','还没有保存过的清单草稿。','muted'));return}
  for(const row of rows.slice().reverse()){
   const line=el('div');
-  line.append(el('p',`${row.count} 个元素 · r${row.revision} · ${row.status==='committed'?'已锁定 '+String(row.committed_revision).slice(0,8):'草稿'}`,undefined),
+  line.append(el('p',`${row.count} 条资料 · r${row.revision} · ${row.status==='committed'?'已锁定 '+String(row.committed_revision).slice(0,8):'草稿'}`,undefined),
    button('载入',async()=>{
     const draft=await api('/inner/elements/drafts/'+row.id);
     eaDraft=draft;eaElements=draft.elements;eaRules=(draft.rules&&draft.rules.items)||[];
@@ -403,7 +403,7 @@ $('ea-preview').onclick=()=>safe(async()=>{
  await eaSaveDraft();
  const result=await api('/inner/elements/drafts/'+eaDraft.id+'/preview','POST');
  const box=$('ea-warnings');box.replaceChildren();
- box.append(el('p',`试算通过：${result.count} 个元素，摘要 ${result.digest.slice(0,12)}（未写入故事包）`));
+ box.append(el('p',`试算通过：${result.count} 条资料，摘要 ${result.digest.slice(0,12)}（未写入故事包）`));
  for(const warning of result.warnings)box.append(el('p','提醒：'+warning,'muted'));
  for(const note of result.unsupported)box.append(el('p','未实现：'+note,'muted'));
  $('ea-status').textContent='校验完成；确认无误后再锁定。';
@@ -427,8 +427,8 @@ $('ea-commit').onclick=()=>safe(async()=>{
 $('ea-manifest').onclick=()=>safe(async()=>{
  const box=$('ea-manifest-box');box.replaceChildren(el('p','读取中…'));
  const view=await api('/inner/elements/manifest');
- if(!view){box.replaceChildren(el('p','当前故事包还没有元素清单（老包行为不变：提示词里不出现元素段）。','muted'));return}
- box.replaceChildren(el('p',`${view.count} 个元素 · 摘要 ${view.digest.slice(0,12)} · 锁定于 ${view.locked_at||'—'}`),
+ if(!view){box.replaceChildren(el('p','当前故事包还没有采用清单（老包行为不变：模型输入中不包含采用资料说明）。','muted'));return}
+ box.replaceChildren(el('p',`${view.count} 条资料 · 摘要 ${view.digest.slice(0,12)} · 锁定于 ${view.locked_at||'—'}`),
   el('p',view.candidate_notice,'muted'));
  for(const element of view.elements){
   const detail=el('details');

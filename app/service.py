@@ -101,6 +101,8 @@ class Service:
         self.ai_drafts = AIDrafts(self)
         # 启动时恢复被中断的提交预留（包事务日志已由 Runtime 初始化先处理）。
         self.elements.recover_on_startup()
+        from .kingdom_settlements import KingdomSettlements
+        self.kingdoms = KingdomSettlements(self)
 
     def preferences(self):
         return {**Preferences().model_dump(), **self.store.get('settings', 'preferences', {}),

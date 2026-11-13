@@ -2,13 +2,13 @@
 
 > **批次验收记录（2026-11-08 整理）**：开篇的 12 组 / 481 条和「341 项 exit 0」停在当时那一次构库。现行组数以 `tools/encyclopedia_build.py` 为准，工程边界见 [../现状.md](../现状.md)。
 
-当时记录的状态：候选素材数据库已生成并通过那一轮技术验收。 交付文件为 `artifacts/human-encyclopedia/encyclopedia.sqlite3`（schema 2 / export 2，12 组、481 条元素、438 条来源记录）。主代理独立完整回归341项：338通过、3项符号链接权限跳过，退出码0；数据库完整性、来源版本固定、幂等导入与导出恢复已验证。内容仍为待审候选，不代表全部事实已经核实；不自动接入故事或旅程。
+当时记录的状态：候选素材数据库已生成并通过那一轮技术验收。 交付文件为 `artifacts/human-encyclopedia/encyclopedia.sqlite3`（schema 2 / export 2，12 组、481 条资料条目、438 条来源记录）。主代理独立完整回归341项：338通过、3项符号链接权限跳过，退出码0；数据库完整性、来源版本固定、幂等导入与导出恢复已验证。内容仍为待审候选，不代表全部事实已经核实；不自动接入故事或旅程。
 
-> **本轮（增补两组）**：构库名单从 12 组扩到 **14 组**，新增 `food-supplement`（23 条 / 30 来源）与 `craft-supplement`（24 条 / 34 来源），共 **+47 条**；全名单预期为 **528 条元素、502 条来源记录**。两个增补组是新增 namespace，**不改动**旧 12 组的任何行（同库导入旧内容逐字段不变，见 §11）；交付库仍待主编验收后显式生成，本环节只用临时库。
+> **本轮（增补两组）**：构库名单从 12 组扩到 **14 组**，新增 `food-supplement`（23 条 / 30 来源）与 `craft-supplement`（24 条 / 34 来源），共 **+47 条**；全名单预期为 **528 条资料条目、502 条来源记录**。两个增补组是新增 namespace，**不改动**旧 12 组的任何行（同库导入旧内容逐字段不变，见 §11）；交付库仍待主编验收后显式生成，本环节只用临时库。
 
 - 代码：`app/encyclopedia.py`（库与导入/查询实现）、`tools/encyclopedia_cli.py`（CLI）、`tools/encyclopedia_build.py`（按显式 14 组名单构库，可选 `--with-traits` / `--with-cuisine` / `--with-attributes` / `--with-culture` / `--with-fantasy-biology`）
 - 测试：`tests/test_encyclopedia.py`（库与 CLI 本体）、`tests/test_encyclopedia_supplement.py`（14 组名单扩展与两个增补组集成）、`tests/test_encyclopedia_traits.py`（特质分区）、`tests/test_encyclopedia_cuisine.py`（饮食分区）、`tests/test_culture_catalog.py`（文化／姓名分区）、`tests/test_encyclopedia_attributes.py`（属性分区）、`tests/test_encyclopedia_fantasy_biology.py`（奇幻生物分区：种族／西幻动植物／东方玄幻动植物）
-- 数据来源：`docs/human-encyclopedia/*.json`（新七节 schema，含 food-supplement / craft-supplement 两个增补组）、`docs/element-catalog/*.json`（原六组 274 元素）。**本模块只读它们，从不改写。**
+- 数据来源：`docs/human-encyclopedia/*.json`（新七节 schema，含 food-supplement / craft-supplement 两个增补组）、`docs/element-catalog/*.json`（原六组 274 资料条目）。**本模块只读它们，从不改写。**
 
 > **后面的分区是显式开关，不默认入库**：特质在 `TRAIT_GROUPS`（`--with-traits`），
 > 饮食在 `CUISINE_GROUPS`（`--with-cuisine`，可与前者组合）。不带任何开关时仍是历史 14 组，
@@ -29,7 +29,7 @@
 | 独立的本地 SQLite 素材库，路径由 `--db` 显式指定 | 不是旅程数据库 `saves/textiledream.sqlite3`，两者零关联 |
 | 候选资料 + 来源 + 多标签 + 审查状态的存放处 | 不是故事正典：库里有 ≠ 世界里有，更 ≠ 人物知道 |
 | 只读查询工具（search / get / versions / tags / stats / export） | 不参与 app 启动、不自动填库、不进故事 prompt、不碰旧存档 |
-| 显式 CLI 导入 | 不提供运行时从全局库取元素的入口；开局绑定仍是后续独立设计 |
+| 显式 CLI 导入 | 不提供运行时从全局库取资料条目的入口；开局绑定仍是后续独立设计 |
 | 词法检索（SQL `LIKE` + 标签表） | 不做向量/embedding 检索，不调用远程模型，不新增依赖 |
 
 `app/main.py` 与 `launch.py` 都没有引用本模块（`tests/test_encyclopedia.py::IsolationTests` 会断言这一点）。
@@ -63,20 +63,20 @@
 ## 3. 版本与幂等策略
 
 1. **内容哈希**：`content_hash = sha256(canonical_json(原 element 对象))`（键排序、紧凑分隔、拒绝 NaN）。
-2. **元素级幂等**：同一 `(namespace, element_id)` 下同哈希已存在 → **不新增版本、不重写行**。内容只要变一个字节 → `version+1`，旧版本永久可读（`get --version N`）。
-3. **批次级幂等**：`batch_hash = sha256(namespace + adapter + 整份文档)`。重复导入同一文件直接返回 `idempotent=True`，零写入。只改文档级字段（如 `updated`）也算新批次，但元素同哈希仍不新增版本。
+2. **资料条目级幂等**：同一 `(namespace, element_id)` 下同哈希已存在 → **不新增版本、不重写行**。内容只要变一个字节 → `version+1`，旧版本永久可读（`get --version N`）。
+3. **批次级幂等**：`batch_hash = sha256(namespace + adapter + 整份文档)`。重复导入同一文件直接返回 `idempotent=True`，零写入。只改文档级字段（如 `updated`）也算新批次，但资料条目同哈希仍不新增版本。
 4. **不可变**：`element_versions` / `source_versions` 只插入。恢复导出时若同一版本号已存在且内容不同 → `Conflict`，拒绝覆盖历史。
-5. **来源版本**：来源同样带版本。同名来源内容变了 → 新版本，元素按 `source_namespace` 指回真实来源，不会串组。
+5. **来源版本**：来源同样带版本。同名来源内容变了 → 新版本，资料条目按 `source_namespace` 指回真实来源，不会串组。
 
 ### 3.5 证据版本固定（pin）
 
-元素版本写入时，把「当时看到的那一版来源」写进 `element_sources.source_version`：
+资料条目版本写入时，把「当时看到的那一版来源」写进 `element_sources.source_version`：
 
 | 场景 | 行为 |
 |---|---|
-| 元素 v1 引用来源 v1，之后来源升到 v2 | 元素 v1 **仍读 v1** 的 title/url/access/payload；`is_current_source_version=false` 只作提示 |
-| 只改来源、元素 payload 不变 | 不新增元素版本（`element_versions_written=0`），**不重写历史关联**，也不静默把证据换成 v2 |
-| 需要新证据 | 必须**显式写一个新元素版本**（内容变了 → 新 `content_hash` → 新 version），新版本 pin 当时的来源版本 |
+| 资料条目 v1 引用来源 v1，之后来源升到 v2 | 资料条目 v1 **仍读 v1** 的 title/url/access/payload；`is_current_source_version=false` 只作提示 |
+| 只改来源、资料条目 payload 不变 | 不新增资料条目版本（`element_versions_written=0`），**不重写历史关联**，也不静默把证据换成 v2 |
+| 需要新证据 | 必须**显式写一个新资料条目版本**（内容变了 → 新 `content_hash` → 新 version），新版本 pin 当时的来源版本 |
 | 同批导入 | 按来源内容哈希精确定位刚写入的版本号，不拿 `current_version` 猜 |
 | 导出/还原 | `source_refs` 必带 `source_version`；还原时校验 pin 指向导出文件里真实存在的来源版本，缺失或越界**整份拒绝** |
 
@@ -87,7 +87,7 @@
 ## 4. 来源、关联与状态
 
 ### 来源解析（否则整批拒绝）
-元素 `source_ids` 按顺序解析：**同批 → 本命名空间 → 全局唯一**。找不到 → 拒绝；多个命名空间都有同名来源 → 拒绝（歧义）。
+资料条目 `source_ids` 按顺序解析：**同批 → 本命名空间 → 全局唯一**。找不到 → 拒绝；多个命名空间都有同名来源 → 拒绝（歧义）。
 
 `access: read` 只表示采集侧声称读过正文，**不表示已事实核实**。库里只记录原值。
 
@@ -113,7 +113,7 @@
 
 | | 新 schema（`docs/human-encyclopedia`） | 旧 schema（`docs/element-catalog` 六组 274 条） |
 |---|---|---|
-| 识别 | 元素都带 `tags` | 元素都带 `category` |
+| 识别 | 资料条目都带 `tags` | 资料条目都带 `category` |
 | 七节 | `definition / mechanism / conditions / exceptions / story_uses / historical_scope / evidence_and_uncertainty` | `… / story_consequences / adaptation_limits / evidence_and_uncertainty` |
 | 映射 | 同名直通 | **显式 adapter**，映射记在 `details_map`：`story_uses ← story_consequences`、`historical_scope ← adaptation_limits` |
 | 标签 | 保留原 `tags`，另加 | `category:X`、`genre:Y` 命名空间化标签 |
@@ -123,7 +123,7 @@
 - `adaptation_limits → historical_scope` 只是**七节命名对齐的语义近似**：原字段讲的是「跨题材改编边界」，不是现实史实。原字段名和原文都留在 `payload.details` 里，`details_map` 会明确标出来（`get` 的文本输出也会打印「原字段 …」）。
 - 其他分节（如 `western` 的 `parameter_dimensions`，是对象而非字符串）原样进 `details_extra`，**不强制统一类型、不丢弃**。
 - `variants / story_roles / requires / excludes / background / entry_modes / introduction_limits / evidence_note / genre_relevance / related_catalog_ids` 等全部保留在 payload 中，`get` 可直接读回。
-- `shared-themes.json` 是聚类索引，**不是元素**；导入会被明确拒绝（`InvalidDocument`）。
+- `shared-themes.json` 是聚类索引，**不是资料条目**；导入会被明确拒绝（`InvalidDocument`）。
 
 ---
 
@@ -134,7 +134,7 @@
 | 上限 | 值 |
 |---|---|
 | 单份 JSON 文本 | 32 MiB |
-| 单批元素 / 来源 | 5000 / 5000 |
+| 单批资料条目 / 来源 | 5000 / 5000 |
 | 单个元素/来源 payload | 96 KiB |
 | 单个文本字段 | 20000 字符 |
 | 名称 / 别名 | 200 字符 / 64 项 |
@@ -187,7 +187,7 @@ D:\anaconda\python.exe -X utf8 -m tools.encyclopedia_cli init --db temp.sqlite3
 | `restore` | 是 | 把导出文件写回（保留原版本号） |
 | `search` / `get` / `versions` / `tags` / `stats` / `export` | **否** | 以 `mode=ro` 只读打开，且不执行建表；库不存在就报错，不会顺手建一个空库 |
 
-`get` 的文本输出会把每个来源写成 `source_id v版本 (命名空间, status) 标题 | access`；若该元素版本 pin 的不是来源当前版本，会在行末标注「来源已有更新版本，但此证据版本固定不变」。
+`get` 的文本输出会把每个来源写成 `source_id v版本 (命名空间, status) 标题 | access`；若该资料条目版本 pin 的不是来源当前版本，会在行末标注「来源已有更新版本，但此证据版本固定不变」。
 
 退出码：`0` 成功；`1` 领域错误（校验失败、找不到、冲突、超限）；`2` 参数用法错误（argparse）。
 
@@ -236,7 +236,7 @@ D:\anaconda\python.exe -X utf8 -m tools.encyclopedia_build --with-fantasy-biolog
 
 ### 7.2 重合归并（`tools.encyclopedia_merge`）
 
-新分区里与**已有元素重名或同别名**的条目（例：西方草药里的“鼠尾草”与已有香料条目、法餐菜品与已有食材），不要新建重复元素，而是并到原元素上：
+新分区里与**已有资料条目重名或同别名**的条目（例：西方草药里的“鼠尾草”与已有香料条目、法餐菜品与已有食材），不要新建重复资料条目，而是并到原资料条目上：
 
 ```powershell
 # 先干跑看计划（默认不写任何文件）
@@ -248,8 +248,8 @@ D:\anaconda\python.exe -X utf8 -m tools.encyclopedia_build --with-fantasy-biolog
 规则：
 
 - 名字比较忽略括号限定语与空白（「胡椒（黑胡椒）」≡「胡椒」），命中后追加到 `--section` 指定的详情分节（默认 `story_uses`），形成一次**新版本**，原分节不清空。
-- 只并 `part:` / `trait:` / `role:` / `trade:` / `effect:` / `habitat:` / `origin:` / `taxon:` / `source_text:` 这些检索前缀；`kind:` 与 `tradition:` **不并**（一个元素只取一个传统），`genre:` / `category:` 由导入器派生。
-- 旧 schema 的元素（没有 `tags` 键）**不会**被添上 `tags`，因为引擎会丢弃这类原生标签；内容仍会并进 `details`。
+- 只并 `part:` / `trait:` / `role:` / `trade:` / `effect:` / `habitat:` / `origin:` / `taxon:` / `source_text:` 这些检索前缀；`kind:` 与 `tradition:` **不并**（一个资料条目只取一个传统），`genre:` / `category:` 由导入器派生。
+- 旧 schema 的资料条目（没有 `tags` 键）**不会**被添上 `tags`，因为引擎会丢弃这类原生标签；内容仍会并进 `details`。
 - `merged_from` 记录「分区/元素 id」，便于追溯哪条补充来自哪个采集分区。
 - 未命中的条目不处理，它们该留在自己的新分区里。
 
@@ -279,7 +279,7 @@ D:\anaconda\python.exe -X utf8 -m tools.encyclopedia_build --with-fantasy-biolog
 
 - 导出**含全部历史版本**，按 `(namespace, id, version)` 稳定排序 → 同一库的两次导出可逐字节比较。
 - 还原时校验 `content_hash` 与 `payload` 是否一致：被手改过的导出文件会被拒绝（`Conflict`），不静默接受。
-- 单命名空间导出时，只含该组的来源；组内元素引用同一命名空间外的来源会被拒绝（导出本身是自洽的，不会造出悬空引用）。
+- 单命名空间导出时，只含该组的来源；组内资料条目引用同一命名空间外的来源会被拒绝（导出本身是自洽的，不会造出悬空引用）。
 - `relations` 在导出里带 `status`，但这个状态不算契约：还原后按目标是否已入库重新计算，`pending` 不会因为导出过就变成 `resolved`。
 - `source_refs` 每项必有 `source_id` / `source_namespace` / **`source_version`**：导出是证据快照，缺 pin 或 pin 指向文件外的来源版本都整份拒绝（`InvalidDocument`）。`relations` 里的 `status` 则不是契约。
 - 整个导出文件是一个重建单元：**所有命名空间共用一个事务**，任何一个组非法（引用了不存在的来源等）都整份拒绝，不会只还原前几组。
@@ -289,13 +289,13 @@ D:\anaconda\python.exe -X utf8 -m tools.encyclopedia_build --with-fantasy-biolog
 ## 9. 已知限制（如实）
 
 1. **仅词法检索**：中文名称与别名是 `LIKE '%子串%'` 匹配（NFKC + casefold 归一化后比较）。没有分词、没有近义、没有拼音。FTS5 在本机可用，但当前实现没用它——274 条规模下基础 SQL 足够，避免额外虚表与触发器带来的一致性风险。
-2. **不做兼容性判定**：标签只用于检索，不构成「这个元素能进那个世界」的证明；依赖/排除条件仍是自然语言，引擎不读。
+2. **不做兼容性判定**：标签只用于检索，不构成「这个资料条目能进那个世界」的证明；依赖/排除条件仍是自然语言，引擎不读。
 3. **不做事实核验**：库只记录 `access` / `review_status` / `detail_status` 原值，不评判内容真假。
 4. **不做版本分支**：`current_version` 单调前移，没有「回退到旧版本作为当前」的操作（历史永远可读）。
 5. **构库遇到半份文件会明确报错，不静默跳过**：`tools.encyclopedia_build` 在源 JSON 缺失、JSON 不可解析或校验失败时直接退 1，并在 stderr 点名缺哪份文件（`缺少采集 JSON，未建库` / `拒绝：…`），**不会**跳过后继续建一份“看起来成功”的库。
    - 已进入正式交付的三份奇幻生物分区文件（§12）还更进一步：缺文件 / 坏 JSON / 空 `elements`还会使测试**失败**（`ContentNotDeliverable`），不再是“准备中跳过”。
    - 其他仍在采集中的候选分区（例如还在增补的饮食）仍不把条数写死：条数从源文件现算，本说明不给固定数字。
-6. 元素归属改不了命名空间：同一 namespace 一旦按某个 adapter/group 建过，就不能改挂到别处（`Conflict`）。
+6. 资料条目归属改不了命名空间：同一 namespace 一旦按某个 adapter/group 建过，就不能改挂到别处（`Conflict`）。
 7. **不支持 schema 1 升级**：旧库没记录 pin，无法反推历史证据（见 §2）。只能重建库并重新导入采集 JSON。
 
 ---
@@ -304,20 +304,20 @@ D:\anaconda\python.exe -X utf8 -m tools.encyclopedia_build --with-fantasy-biolog
 
 `D:\anaconda\python.exe -X utf8 -m unittest tests.test_encyclopedia` —— 81 个测试，全部通过（exit 0）。
 
-覆盖：schema 版本与建库、原字段无损、版本不可变与历史可读、同 payload 幂等（元素级与批次级）、内容变更新增版本、中文名称/别名检索、多标签 AND/OR/组合、分页边界与 limit 上限、单项详情与指定版本、命名空间隔离与同 ID 共存、来源跨组解析、半批零写入（9 类拒绝）、NaN 拒绝、上限拒绝、未解析关联 pending → 后续批次 resolved、导出再导入逐字段往返、多命名空间恢复全有或全无、导出哈希篡改拒绝、只读连接不建库、外部库拒绝、CLI 全部子命令与退出码、原六组 274 条完整导入与逐条 payload 比对、274 条状态不升格、原 JSON 文件哈希不变、与游戏 runtime/data 隔离。
+覆盖：schema 版本与建库、原字段无损、版本不可变与历史可读、同 payload 幂等（资料条目级与批次级）、内容变更新增版本、中文名称/别名检索、多标签 AND/OR/组合、分页边界与 limit 上限、单项详情与指定版本、命名空间隔离与同 ID 共存、来源跨组解析、半批零写入（9 类拒绝）、NaN 拒绝、上限拒绝、未解析关联 pending → 后续批次 resolved、导出再导入逐字段往返、多命名空间恢复全有或全无、导出哈希篡改拒绝、只读连接不建库、外部库拒绝、CLI 全部子命令与退出码、原六组 274 条完整导入与逐条 payload 比对、274 条状态不升格、原 JSON 文件哈希不变、与游戏 runtime/data 隔离。
 
-其与证据固定相关的回归（`SourcePinTests`，10 个）：元素 v1 引来源 v1 → 来源升 v2 后 `get(version=1)` 仍 v1（url/access/title/payload 都不变）、`is_current_source_version=false`、元素不新增版本且不重写历史关联；只改来源时 `element_versions_written=0`；需要新证据必须新元素版本且新版本可 pin 新来源；pin 导出/还原不丢；同 `source_id` 跨命名空间不串；pin 指向不存在/文件外版本、缺 `source_refs`、`export_version=1` 均整份拒绝且零写入；schema 1 库明确拒绝不隐式升级；全库不变量「每条 `element_sources` 都能 join 到真实来源版本」。
+其与证据固定相关的回归（`SourcePinTests`，10 个）：资料条目 v1 引来源 v1 → 来源升 v2 后 `get(version=1)` 仍 v1（url/access/title/payload 都不变）、`is_current_source_version=false`、资料条目不新增版本且不重写历史关联；只改来源时 `element_versions_written=0`；需要新证据必须新资料条目版本且新版本可 pin 新来源；pin 导出/还原不丢；同 `source_id` 跨命名空间不串；pin 指向不存在/文件外版本、缺 `source_refs`、`export_version=1` 均整份拒绝且零写入；schema 1 库明确拒绝不隐式升级；全库不变量「每条 `element_sources` 都能 join 到真实来源版本」。
 
 临时库实测（本环节最后一次全量跑，位于系统临时目录，已删）：
 
-| 组 | adapter | 元素 | 来源 |
+| 组 | adapter | 资料条目 | 来源 |
 |---|---|---|---|
 | animal-foods / flavors / materials / produce / staples / tools | human-encyclopedia | 28 / 33 / 36 / 37 / 33 / 40（共 207） | 32 / 37 / 24 / 49 / 39 / 38 |
 | eastern / western / society / steam-horror / reality-physical / reality-human | element-catalog | 54 / 54 / 53 / 50 / 32 / 31（共 274） | 17 / 34 / 31 / 46 / 36 / 55 |
 | **合计** | | **481** | **438** |
 
 - 481 条全部 `needs_review` + `needs_detail`，`reviewed_detail` = 0。
-- **证据版本固定实测**：`staples_wheat` 的 v1 引用 4 个来源（均为 v1）；把 `staples_src_brit_durum` 的 URL 改成新地址升到 v2 后，元素仍 `element_versions_written=0`，`get(version=1)` 仍返回 v1 的 `https://www.britannica.com/plant/durum-wheat`，`is_current_source_version=false`；重新导出要带 `export_version=2`。
+- **证据版本固定实测**：`staples_wheat` 的 v1 引用 4 个来源（均为 v1）；把 `staples_src_brit_durum` 的 URL 改成新地址升到 v2 后，资料条目仍 `element_versions_written=0`，`get(version=1)` 仍返回 v1 的 `https://www.britannica.com/plant/durum-wheat`，`is_current_source_version=false`；重新导出要带 `export_version=2`。
 - `element_sources` 共 1280 行，孤岛 0、`source_version` 为 NULL 0（全库 pin 完整）。
 - 481 条导出→还原→再导出，`groups` / `sources` / `elements` 三部分逐字段相等。
 - 12 组合计库大小约 5.5 MiB，导入 + 导出 + 还原 + 比对约 2 秒。
@@ -336,7 +336,7 @@ D:\anaconda\python.exe -X utf8 -m tools.encyclopedia_build --with-fantasy-biolog
 | | 旧（已发布） | 本轮 |
 |---|---|---|
 | 构库名单 | 显式 12 组 | 显式 **14 组**（新增 food-supplement / craft-supplement） |
-| 元素 / 来源 | 481 / 438 | **528 / 502** |
+| 资料条目 / 来源 | 481 / 438 | **528 / 502** |
 | 库 schema / 导出格式 | schema 2 / export 2 | 不变（仍是 2 / 2） |
 | 旧 12 组的行 | — | **零改动**（同库追加新 namespace，旧组导出逐字段相等） |
 | `review_status` | 全部 `needs_review` | 不变，新条目也都是 `needs_review` |
@@ -345,7 +345,7 @@ D:\anaconda\python.exe -X utf8 -m tools.encyclopedia_build --with-fantasy-biolog
 
 ### 11.2 两个增补组（本轮冻结值）
 
-| 组 | 元素 | 来源 | 来源 access 构成 | 跨组关联 |
+| 组 | 资料条目 | 来源 | 来源 access 构成 | 跨组关联 |
 |---|---|---|---|---|
 | food-supplement | 23 | 30 | `read` 30 条（其中 1 条为策展摘要/索引页，已在组内说明） | 65 个目标指向 staples / produce / flavors / animal-foods / materials / tools |
 | craft-supplement | 24 | 34 | `read` 31 + `search_only` 3（awl / antler / bone-carving 只取到摘要与引文片段） | 19 个目标指向六组 |
@@ -382,7 +382,7 @@ D:\anaconda\python.exe -X utf8 -m tools.encyclopedia_build --with-fantasy-biolog
 
 ### 11.5 临时库实测（本轮，位于系统临时目录，已删）
 
-| 组 | adapter | 元素 | 来源 |
+| 组 | adapter | 资料条目 | 来源 |
 |---|---|---|---|
 | staples / produce / flavors / animal-foods / materials / tools | human-encyclopedia | 33 / 37 / 33 / 28 / 36 / 40（共 207） | 39 / 49 / 37 / 32 / 24 / 38（共 219） |
 | food-supplement / craft-supplement | human-encyclopedia | 23 / 24（共 47） | 30 / 34（共 64） |
@@ -395,7 +395,7 @@ D:\anaconda\python.exe -X utf8 -m tools.encyclopedia_build --with-fantasy-biolog
 
 **本环节没有做的**：没有生成或覆写 `artifacts/human-encyclopedia/encyclopedia.sqlite3`（留给主代理验收后显式导入）；没有改写两个增补源 JSON（它们由采集侧定稿）；没有动 `app/encyclopedia.py` 内部、`data/`、`StoryPackage/` 或游戏 runtime；没有做 git 提交。
 
-附：本环节末尾以**只读**方式核对当时已存在的 `artifacts/human-encyclopedia/encyclopedia.sqlite3`（由主代理生成，本环节未写入），得到 14 组 / 528 元素版本 / 502 来源版本 / 未解析关联 0，命名空间含 `food-supplement` 与 `craft-supplement`；`food_supp_water_chestnut` 的标签已为 `aquatic_food`（旧 `root_tuber` 已移除），增补条目仍均 `needs_review` + `needs_detail`，craft 条目来源 pin 为 v1 且关联全 `resolved`。库内容的验收与交付决定权在主编。
+附：本环节末尾以**只读**方式核对当时已存在的 `artifacts/human-encyclopedia/encyclopedia.sqlite3`（由主代理生成，本环节未写入），得到 14 组 / 528 资料条目版本 / 502 来源版本 / 未解析关联 0，命名空间含 `food-supplement` 与 `craft-supplement`；`food_supp_water_chestnut` 的标签已为 `aquatic_food`（旧 `root_tuber` 已移除），增补条目仍均 `needs_review` + `needs_detail`，craft 条目来源 pin 为 v1 且关联全 `resolved`。库内容的验收与交付决定权在主编。
 
 ---
 
@@ -418,7 +418,7 @@ D:\anaconda\python.exe -X utf8 -m tools.encyclopedia_build --with-fantasy-biolog
 - 不给开关 = 历史 14 组 / 528 / 502，一字节不变。
 - `groups_for(True, True, True)`、`groups_for(with_culture=True)` 等**旧的位置传参**含义不变（新参数在末尾且默认 `False`）。
 - 追加顺序固定：`14 组 → 特质 → 饮食 → 属性 → 文化 → 种族 → 西幻生物 → 东方生物`，同一文件不重复构入。
-- 三份文件既不在 `GROUPS`，也不在任何其他名单里，更不在 `EXCLUDED`（它们是元素文档，不是聚类索引）。
+- 三份文件既不在 `GROUPS`，也不在任何其他名单里，更不在 `EXCLUDED`（它们是资料条目文档，不是聚类索引）。
 - 名单逐文件写死、不使用通配。
 
 ### 12.3 检索入口：靠标签，不靠引擎分类
@@ -435,7 +435,7 @@ D:\anaconda\python.exe -X utf8 -m tools.encyclopedia_build --with-fantasy-biolog
 
 `search --all-tag kind:race`、`search --all-tag tradition:western` 均可直接使用；命名空间限定（`--namespace fantasy-races` 等）照旧。
 
-**`kind` 不是封闭枚举**：库只把它当检索标签，不参与“元素能不能进某个世界”的判定。
+**`kind` 不是封闭枚举**：库只把它当检索标签，不参与“资料条目能不能进某个世界”的判定。
 所以内容侧把某条从 `kind:fauna` 改成 `kind:spirit`（如东方山精）**不需要改代码或引擎**，
 只影响该条计入 fauna / flora 的计数；测试因此不写死 kind 的完整取值集，而是要求：
 每条恰有一个格式合法的 `kind:*`、种族组全为 `kind:race`、两份生物组的 `fauna` 与

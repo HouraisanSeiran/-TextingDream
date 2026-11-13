@@ -101,14 +101,14 @@
 
 | kind | 合法目标 | 效果来源 | 执行方式 |
 |---|---|---|---|
-| `observe` | 当前地点 | 绑定该地点、`action_kinds` 含 observe 的线索 | 既有 action 管线 |
-| `investigate` | 当前地点的物品 | 绑定该物品、`action_kinds` 含 investigate 的线索 | 既有 action 管线 |
-| `ask` | 同地点在场人物 | `topics[kind=ask]` 的**首个**条件成立分支 | 既有 action 管线 |
-| `negotiate` | 同地点在场人物 | `topics[kind=negotiate]` 的首个分支 | 既有 action 管线 |
+| `observe` | 当前地点 | 绑定该地点、`action_kinds` 含 observe 的线索 | 既有 action 流程 |
+| `investigate` | 当前地点的物品 | 绑定该物品、`action_kinds` 含 investigate 的线索 | 既有 action 流程 |
+| `ask` | 同地点在场人物 | `topics[kind=ask]` 的**首个**条件成立分支 | 既有 action 流程 |
+| `negotiate` | 同地点在场人物 | `topics[kind=negotiate]` 的首个分支 | 既有 action 流程 |
 | `travel` | 当前地点的邻接且玩家已知的地点 | 邻接表 + 可选 `routes` | **交给 `Runtime.move`**，不动 `action` |
-| `rest` | 自己 | 模板声明的 effects（不声明就只有时间推进） | 既有 `/wait` 或既有 action 管线 |
-| `take` | 当前地点的物品 | 既有 `take` op + 模板 effects | 既有 action 管线 |
-| `use` | 已持有的 legacy 物品 | 模板 effects（不声明就不产生方案） | 既有 action 管线 |
+| `rest` | 自己 | 模板声明的 effects（不声明就只有时间推进） | 既有 `/wait` 或既有 action 流程 |
+| `take` | 当前地点的物品 | 既有 `take` op + 模板 effects | 既有 action 流程 |
+| `use` | 已持有的 legacy 物品 | 模板 effects（不声明就不产生方案） | 既有 action 流程 |
 | `give` | 已持有物品 × 作者点名的在场人物 | 无 → `supported: false` | 无执行器（待 p5） |
 
 * 「已有 declared action 可复用模板填参数」：所有 kind 共用 `_action_dict` / `_plan`，
@@ -157,7 +157,7 @@
   不恢复疲劳」。**建议不会让人回血**。
 * 模板声明了 costs 时，钱粮不足 → 只有拒绝（`reason: resource`），不出现免费休息。
 * 模板声明了 effects 或 costs 时，眼下只有 `/wait`（无费用、无效果）可执行，
-  方案标 `supported: false`、`unsupported: ['rest_effects']`，等接线层走既有 action 管线。
+  方案标 `supported: false`、`unsupported: ['rest_effects']`，等接线层走既有 action 流程。
 
 ## 7. 公开摘要 vs 引擎内部定义
 
@@ -176,7 +176,7 @@
 * 复用 `free_actions` 的弱匹配（`tokens` / `score` / `alias_hits` / 否定处理 /
   `MAX_CANDIDATES`），只匹配**公开文本**：`label` + 作者声明的 `intent_aliases`。
 * 返回结构与 `free_actions.suggest` 同形：`{matched, ambiguous, unjudged, note, confirm_state}`。
-* 只推荐 `supported: true` 且能交给既有管线的方案（有 `action`，或 `travel` / `wait`）。
+* 只推荐 `supported: true` 且能交给既有流程的方案（有 `action`，或 `travel` / `wait`）。
   缺口方案（give / 实例 use / 带路费的 travel / 带效果的 rest）**不进建议**。
 * 没匹配上 → `matched: []`、`unjudged: true`，明确「引擎不裁定未声明的行动」。
 
@@ -209,7 +209,7 @@
 | rewards 物品实例的使用效果 | `unsupported: ['instance_effect']` | 物品效果执行器（p5） |
 | 物品转交（legacy 与实例） | `unsupported: ['inventory_handover']` | 物品转移执行器（p5） |
 | 声明了路费的旅行 | `unsupported: ['route_cost']` | 接线层在 `move` 前扣费 |
-| 声明了效果/费用的休息 | `unsupported: ['rest_effects']` | 接线层走既有 action 管线 |
+| 声明了效果/费用的休息 | `unsupported: ['rest_effects']` | 接线层走既有 action 流程 |
 
 确认凭据已接线（见 §9），不再列为缺口。
 

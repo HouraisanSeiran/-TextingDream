@@ -30,7 +30,7 @@ pipe.freshness(d['id'], source)            # 引擎数据是否已变
 d = pipe.confirm(d['id'], source)          # 过期检查 → 编译 → 写故事包目录
 ```
 
-1. **propose（挑元素）**：只读元素库。推荐条件为三项同时成立：类型命中设定的 `genre:*`；不越 `tech:` / `magic:` 档（判定复用 `world_setting.conflicts`）；元素 `terrain:*` 里的地理产地与地区产地有交集（没有产地标签的条目视为不受产地约束）。只越档、其余合格的放进 `hinted`，只提示、不推荐。只有作坊 / 远途输入产地的条目不推荐，因为本地产地无从核对。`kind:polity` 不进候选，在“定政治”一步单独处理。这一步还会做政体模板匹配，并按上下文预算挑历史输入事件。
+1. **propose（挑资料条目）**：只读设定资料库。推荐条件为三项同时成立：类型命中设定的 `genre:*`；不越 `tech:` / `magic:` 档（判定复用 `world_setting.conflicts`）；资料条目 `terrain:*` 里的地理产地与地区产地有交集（没有产地标签的条目视为不受产地约束）。只越档、其余合格的放进 `hinted`，只提示、不推荐。只有作坊 / 远途输入产地的条目不推荐，因为本地产地无从核对。`kind:polity` 不进候选，在“定政治”一步单独处理。这一步还会做政体模板匹配，并按上下文预算挑历史输入事件。
 2. **select（勾选）**：只能从候选里选（推荐或越档提示都行）。选完交给 `element_assembly.build_manifest` 锁定，库里的版本与内容在这里核对，须 `acknowledge_candidates=True`。
 3. **generate**：模型调用复用 `service.ai_drafts._run`，与 `app/ai_drafts.py` 同口径。离线时用快照确定性生成的示例；在线时至多两次，第二次带上错误；两次都失败抛 `DraftRejected`，草稿不变。
 4. **confirm**：比对来源身份（`engine/world_id/version/content_hash`）与地区快照摘要，不一致就拒绝（过期）。之后调 `world_generator.compile_package` 编译，经 `runtime.validate_package`（含 `world_setting.validate`）校验，最后写故事包目录。写法与 `WorldGenerator.save` 同口径，不另造编译。
@@ -38,8 +38,8 @@ d = pipe.confirm(d['id'], source)          # 过期检查 → 编译 → 写故�
 ## 3. 代码层面的校验（不靠提示词自觉）
 
 - **历史**：每段必须带 `event_ids`，且只能引用本次输入的事件。段落里出现的国家名必须是所引事件的参与方。出现的“N年”必须是所引事件的年份。形如“××王国 / 帝国 / 王朝”而引擎里没有的名字一律拒绝。
-- **政治**：每个地区内国家给一个 `polities.json` 模板作 `element_ref`，模板须在允许清单内。种族、文化只能取已选元素。
-- **设定与知识点**：`element_refs` 只能取已选元素；`event_ids` 只能取历史段落引用过的事件。正文出现候选清单里未选元素的名字也拒绝。
+- **政治**：每个地区内国家给一个 `polities.json` 模板作 `element_ref`，模板须在允许清单内。种族、文化只能取已选资料条目。
+- **设定与知识点**：`element_refs` 只能取已选资料条目；`event_ids` 只能取历史段落引用过的事件。正文出现候选清单里未选资料条目的名字也拒绝。
 - **政体匹配**：按引擎的 `form_hint` 找同名 `polity:*` 模板，越档的跳过；没有合适的就按 `FORM_FALLBACK` 试相近政体（状态 `fallback`）；都没有时为 `no_template`，由作者处理。
 
 ## 4. civ-atlas 适配器：地区选择规则
@@ -64,7 +64,7 @@ d = pipe.confirm(d['id'], source)          # 过期检查 → 编译 → 写故�
 | 政体 | 只有 lineage（republic/realm/khanate） | 映射为 republic/monarchy/tribal，原值留 `native_form` |
 | bbox | 经度直接取最值 | 跨日界线的地区会显得很宽（首轮地区 lon −174…4.9） |
 
-**元素库的产地过滤目前在真实库上不起作用**：正式百科库（1100 条）里，带 `genre:western_fantasy` / `genre:historical` 的 206 条与带 `terrain:*` 的 411 条**交集为 0**（食物、药材有产地但没有类型标签；奇幻条目有类型但没有产地）。所以按“西幻 + 历史”设定扫描时，推荐只受类型与档位约束，`excluded.terrain = 0`。产地交集逻辑本身由测试的临时库覆盖。要让它在真实库上生效，需要给有产地的条目补 `genre:*`，或给奇幻物产补 `game.terrains`，两条路都要改数据，需作者决定。
+**设定资料库的产地过滤目前在真实库上不起作用**：正式百科库（1100 条）里，带 `genre:western_fantasy` / `genre:historical` 的 206 条与带 `terrain:*` 的 411 条**交集为 0**（食物、药材有产地但没有类型标签；奇幻条目有类型但没有产地）。所以按“西幻 + 历史”设定扫描时，推荐只受类型与档位约束，`excluded.terrain = 0`。产地交集逻辑本身由测试的临时库覆盖。要让它在真实库上生效，需要给有产地的条目补 `genre:*`，或给奇幻物产补 `game.terrains`，两条路都要改数据，需作者决定。
 
 ## 6. 换成 Terragenesis 冻结产品时要补什么
 
@@ -83,10 +83,10 @@ d = pipe.confirm(d['id'], source)          # 过期检查 → 编译 → 写故�
 |---|---|---|
 | GET | `/api/inner/world-package/imports` | 列出已登记的 `.civsnap` |
 | GET | `/api/inner/world-package/regions?import_id=…` | 列出候选地区与来源身份 |
-| POST | `/api/inner/world-package/propose` | 挑元素，存草稿（不调模型） |
+| POST | `/api/inner/world-package/propose` | 挑资料条目，存草稿（不调模型） |
 | GET | `/api/inner/world-package/drafts` | 草稿摘要列表 |
 | GET | `/api/inner/world-package/drafts/{id}` | 草稿全文 |
-| PUT | `/api/inner/world-package/drafts/{id}/select` | 勾选元素并锁定清单 |
+| PUT | `/api/inner/world-package/drafts/{id}/select` | 勾选资料条目并锁定清单 |
 | POST | `/api/inner/world-package/drafts/{id}/generate` | 写历史、政治、设定与知识点 |
 | PUT | `/api/inner/world-package/drafts/{id}` | 作者改写并重新校验 |
 | GET | `/api/inner/world-package/drafts/{id}/freshness` | 来源是否过期 |

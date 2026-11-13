@@ -26,6 +26,7 @@ from . import encyclopedia as enc
 from . import npc_cards
 from .contracts import Strict
 from .runtime import now, uid
+from .token_budget import output_tokens
 from tools import catalog_overlay, game_fields
 
 NAMESPACE = 'player-created'
@@ -42,8 +43,8 @@ DOCUMENT_META = {
             '没有来源，不代表事实已核实。',
 }
 MAX_ATTEMPTS = 2
-ELEMENT_TOKENS = 3000
-NPC_TOKENS = 2500
+ELEMENT_TOKENS = output_tokens('ai_draft_element')
+NPC_TOKENS = output_tokens('ai_draft_npc')
 MAX_SUMMARY = 600
 MAX_SECTION = 3000
 MEDICINAL = ('medicinal_herb', 'medicinal_mineral', 'medicinal_animal', 'formula')
@@ -91,7 +92,7 @@ class StoryDraftRequest(Strict):
     kind: Literal['worldview', 'complete'] = 'worldview'
     historical_reference: str = Field(default='', max_length=500)
     city_count: int = Field(default=3, ge=2, le=5)
-    output_tokens: int = Field(default=4000, ge=1500, le=8000)
+    output_tokens: int = Field(default=output_tokens('generator_world'), ge=1500, le=8192)
 
 
 class DraftEdit(Strict):

@@ -2,7 +2,7 @@
 
 ## 目的与参考
 
-参考 [dreamulator 中文 README](https://github.com/fyabc/dreamulator/blob/main/README.zh-CN.md) 的结构化输入、确定性管线，以及其 [地理锚定设计 §4.4](https://github.com/fyabc/dreamulator/blob/main/docs/design/pipelines/geological-pipeline.md)：让作者表达大陆与海域的大致位置，再计算地形，而不是让模型编造已生成地图。
+参考 [dreamulator 中文 README](https://github.com/fyabc/dreamulator/blob/main/README.zh-CN.md) 的结构化输入、确定性流程，以及其 [地理锚定设计 §4.4](https://github.com/fyabc/dreamulator/blob/main/docs/design/pipelines/geological-pipeline.md)：让作者表达大陆与海域的大致位置，再计算地形，而不是让模型编造已生成地图。
 
 本次在线读取了 README；地形设计依据本地 2026-11-08 上游快照，不声称已核验上游最新实现。仅借鉴输入约束设计，不复制其源码、不引入球面 CVT、天文系统、投影或另一套气候引擎。
 

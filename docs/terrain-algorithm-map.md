@@ -52,7 +52,7 @@ skeleton → islands → island-mountains → fast(+world_processes)
 | 山体点缀 | 骨架 orogen 脊网 | `procedural_mountain_erosion` 冲沟点缀；TG `mountain_forms` 粗山带候选 |
 | 运行地图 | 默认 `world_map_product`（`app.map_policy`）；无 map 时回退到 TG speed 产品；`civ_atlas` 需 `TEXTILE_CIV_ATLAS=1` | 天气：可用 `mechanics.weather` + 产品 elevation；平面米制≠lon/lat。道路：作者 `adventure.routes` 可用；`civ_routes`/陆网寻路未接 TG |
 
-## 精度与流水线
+## 精度与流程
 
 作者 Web / API：
 
@@ -134,7 +134,7 @@ skeleton → islands → island-mountains → fast(+world_processes)
 
 ## 局部山链与谷盆重组原型（2026-11-10）
 
-`app/world_gen/mountain_sculpt.py` + `tools/prototype_mountain_sculpt.py` 是独立局部高程试验，不接默认世界流水线。读取已冻结世界及同源骨架脊网，选主脊及父子支脉，调整截面、谷底、盆地与山口，可选复用既有不规则图侵蚀；显式支持域/水域/窗口边界保护，另目录写arrays与结构JSON，不伪装正式world-map-product。belt4单窗口2000×1800km/10km成果在 `artifacts/mountain-structure-prototype-20261110/candidate/`，主测试14通过，正式局部6轮侵蚀约10.2秒；内部山脊谷地部分改善，但外围宽底座仍明显，形态尚未最终验收。未重建全域河湖，不绘旧河线，不接玩家。
+`app/world_gen/mountain_sculpt.py` + `tools/prototype_mountain_sculpt.py` 是独立局部高程试验，不接默认世界流程。读取已冻结世界及同源骨架脊网，选主脊及父子支脉，调整截面、谷底、盆地与山口，可选复用既有不规则图侵蚀；显式支持域/水域/窗口边界保护，另目录写arrays与结构JSON，不伪装正式world-map-product。belt4单窗口2000×1800km/10km成果在 `artifacts/mountain-structure-prototype-20261110/candidate/`，主测试14通过，正式局部6轮侵蚀约10.2秒；内部山脊谷地部分改善，但外围宽底座仍明显，形态尚未最终验收。未重建全域河湖，不绘旧河线，不接玩家。
 
 2026-11-10平台轮廓修订：原型新增默认 `platform-rebuild` 与旧 `corridor` 两策略；安全域与山形包络分离，原宽平台及山麓可被降低/切退，保留同源多个主段与父子支脉，低频轮廓场+脊状分形+局部粗侵蚀重塑实际高程。主修单位错误、单调峰顶限幅与float64落盘。最新单窗口在 `artifacts/mountain-structure-prototype-20261110/candidate-platform-final/`，27项定向测试通过；较初版已有可辨链谷/轮廓变化，但仍是10km有限局部试验，不是全域形态/水文认证。`tools/render_mountain_sculpt_comparison.py` 以相同色标光照生成对照，失败版本保留。未接默认作者链/玩家。
 

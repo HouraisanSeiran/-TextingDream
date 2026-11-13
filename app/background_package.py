@@ -15,10 +15,12 @@ from .knowledge import atomic_text, point_document
 from .map_bundle import BundleRegistry
 from .prompts import stable_json
 from .runtime import now, uid
+from .token_budget import output_tokens
 
 KIND = 'world_package_draft'
 SCHEMA = 'world_background_v1'
 NOTICE = '世界背景草稿：采用的库资料仍保留候选性质；发布不启用旅程。'
+INCOMPLETE_HISTORY = '模拟史事达到 max_annals 上限，历史记录不完整；请提高上限或缩短区间后重新模拟'
 CONTENT_KEYS = {'overview', 'continents', 'polities', 'history_sections', 'knowledge',
                 'major_history_proposals'}
 
@@ -232,7 +234,7 @@ class BackgroundPackages:
                 return []
             output, tried, used, _ = await self._run(
                 'background_select', system, context, {'refs': [r['ref'] for r in batch[:room]]},
-                normalize_object, validate, 2000)
+                normalize_object, validate, output_tokens('background_select'))
             chosen.extend(output['refs'])
             usages.append(used)
             attempts.append(tried)
@@ -283,7 +285,7 @@ class BackgroundPackages:
 
             output, tried, used, _ = await self._run(
                 'background_profiles', system, context, example, normalize_object,
-                validate_profiles, 3000)
+                validate_profiles, output_tokens('background_profiles'))
             for j, row in enumerate(output['profiles']):
                 profiles.append({'id': 'adopted-%d-%d' % (index, j), 'weights': row['weights'],
                                  'source': {'kind': 'ai_design_estimate', 'design_estimate': True,
@@ -321,6 +323,8 @@ class BackgroundPackages:
         result = simulate_background(self.registry.get(draft['bundle_id']), draft['config'],
                                      profiles=draft['polity_preferences'], background_year=draft['year'],
                                      geography=draft['geography'])
+        if result['chronicle'].get('truncated'):
+            raise ValueError(INCOMPLETE_HISTORY)
         result['selected_elements'] = [{key: row[key] for key in
             ('ref', 'version', 'payload_hash') if key in row}
             for row in draft['element_manifest']['elements']]
@@ -456,6 +460,8 @@ class BackgroundPackages:
         if not isinstance(content['overview'], str) or not content['overview'].strip():
             errors.append('世界总概不能为空')
         sim = draft['simulation']
+        if sim['chronicle'].get('truncated'):
+            errors.append(INCOMPLETE_HISTORY)
         pids = {str(p['id']) for p in sim['kingdoms']}
         historical_pids = pids | {p['id'] for p in self._historical_polities(sim)}
         lids = {str(p['id']) for p in sim['landmasses']}
@@ -533,6 +539,8 @@ class BackgroundPackages:
             raise ValueError('请先生成文明历史骨架')
         self._fresh(draft)
         sim = draft['simulation']
+        if sim['chronicle'].get('truncated'):
+            raise ValueError(INCOMPLETE_HISTORY)
         used, attempts, notes, physical_summaries = {}, {}, [], []
         physical_inputs = [dict(ref=group + '.' + field, group=group, field=field,
                            grid=data['grid'], evidence=descriptor)
@@ -577,7 +585,7 @@ class BackgroundPackages:
 
             output, tried, usage, _ = await self._run(
                 'background_environment', system, {'year': draft['year'], 'fields': batch},
-                example, normalize_object, check_environment, 5000)
+                example, normalize_object, check_environment, output_tokens('background_environment'))
             for j, row in enumerate(output['knowledge']):
                 row['id'] = 'environment_%02d_%02d' % (index, j)
             notes.extend(output['knowledge'])
@@ -609,7 +617,8 @@ class BackgroundPackages:
                 return [] if got == expected_refs else ['必须覆盖本批全部采用资料且不引用其他元素']
             context = {'requirements': draft['requirements'], 'elements': batch}
             output, tried, usage, _ = await self._run(
-                'background_elements', system, context, example, normalize_object, validate, 6000)
+                'background_elements', system, context, example, normalize_object, validate,
+                output_tokens('background_elements'))
             for j, row in enumerate(output['knowledge']):
                 row['id'] = 'element_%02d_%02d' % (index, j)
             notes.extend(output['knowledge'])
@@ -651,7 +660,7 @@ class BackgroundPackages:
 
             output, tried, usage, _ = await self._run(
                 'background_history', system, {'background_year': draft['year'], 'events': batch},
-                example, normalize_object, check_history, 7000)
+                example, normalize_object, check_history, output_tokens('background_history'))
             content['history_sections'].extend(output['history_sections'])
             used['history_%d' % index], attempts['history_%d' % index] = usage, tried
         # Generate each polity separately; every call sees its actual immutable background.
@@ -706,7 +715,8 @@ class BackgroundPackages:
                     return self._validate_content(draft, candidate)
 
                 output, tried, usage, _ = await self._run(
-                    'background_polity', system, context, example, normalize_object, check, 4000)
+                    'background_polity', system, context, example, normalize_object, check,
+                    output_tokens('background_polity'))
                 content['polities'][index] = output['polity']
                 content['major_history_proposals'].extend(output.get('major_history_proposals', []))
                 key = 'polity_%d_%d' % (index, batch_index)
@@ -735,7 +745,8 @@ class BackgroundPackages:
 
             output, tried, usage, _ = await self._run(
                 'background_continents', system, {**continent_base, 'continents': batch},
-                {'continents': batch}, normalize_object, check_continents, 4000)
+                {'continents': batch}, normalize_object, check_continents,
+                output_tokens('background_continents'))
             named.extend(output['continents'])
             used['continents_%d' % index], attempts['continents_%d' % index] = usage, tried
         content['continents'] = named
@@ -757,7 +768,7 @@ class BackgroundPackages:
         output, tried, usage, offline = await self._run(
             'background_overview', system, context,
             {'overview': content['overview']},
-            normalize_object, validate_summary, 4000)
+            normalize_object, validate_summary, output_tokens('background_overview'))
         content.update(output)
         errors = self._validate_content(draft, content)
         if errors:
@@ -897,6 +908,47 @@ class BackgroundPackages:
             raise ValueError('背景版本身份不符')
         return document
 
+    @classmethod
+    def _civilization_context(cls, simulation, polity_id):
+        """Project the selected country's society from its year-end snapshot.
+
+        Current offices come from the snapshot, not the final-table role of a person
+        whose office may have changed. Historical records stay separate and never
+        become living town residents merely because their name appears in history.
+        """
+        year = simulation['background_year']
+        chronicle = simulation['chronicle']
+        snapshot = next((row for row in chronicle['snapshots'] if row['year'] == year), None)
+        if snapshot is None:
+            raise ValueError('背景缺少所选年份的文明快照')
+        polity = next((row for row in snapshot['polities'] if row['id'] == polity_id), None)
+        if polity is None or not polity['alive']:
+            raise ValueError('王国在背景年份不存在')
+        people = [copy.deepcopy(row) for row in snapshot.get('people', [])
+                  if row['polity_id'] == polity_id]
+        dynasty = next((copy.deepcopy(row) for row in snapshot.get('dynasties', [])
+                        if row['id'] == polity.get('dynasty_id')), None)
+        faith = next((copy.deepcopy(row) for row in snapshot.get('faiths', [])
+                      if row['id'] == polity.get('faith_id')), None)
+        monarch = next((copy.deepcopy(row) for row in people
+                        if row['id'] == polity.get('monarch_id')), None)
+        historical_people = [copy.deepcopy(row) for row in chronicle.get('people', [])
+                             if row['polity_id'] == polity_id and row.get('from_year', year) <= year]
+        historical_dynasties = [copy.deepcopy(row) for row in chronicle.get('dynasties', [])
+                                if row['polity_id'] == polity_id and row['founded'] <= year]
+        events = [row for row in cls._events(simulation)
+                  if polity_id in (row.get('polity_a'), row.get('polity_b'))]
+        return {'schema': 'background_civilization_context_v1', 'year': year,
+                'source': 'fixed_simulation_snapshot', 'polity': copy.deepcopy(polity),
+                'society_enabled': bool(chronicle.get('provenance', {}).get('society')),
+                'current_people': people, 'current_monarch': monarch,
+                'current_dynasty': dynasty, 'current_faith': faith,
+                'historical_people': historical_people, 'historical_dynasties': historical_dynasties,
+                'events': events,
+                'population': None,
+                'population_status': 'not_simulated',
+                'road_semantics': 'province connectivity; not surveyed or constructed town roads'}
+
     def town_context(self, version_id, polity_id):
         doc = self.get_version(version_id)
         polity = next((r for r in doc['simulation']['kingdoms']
@@ -908,6 +960,7 @@ class BackgroundPackages:
                 'version_id': version_id, 'background_year': doc['background_year'],
                 'bundle_id': doc['bundle_id'], 'source': doc['source'],
                 'polity': copy.deepcopy(polity), 'background': copy.deepcopy(background),
+                'civilization': self._civilization_context(doc['simulation'], polity['polity_id']),
                 'setting': doc['setting'], 'element_manifest': doc['element_manifest'],
                 'geography': doc['geography'], 'approved_history': doc['approved_history'],
                 'environment_query': {'bundle_id': doc['bundle_id'], 'expected_source': doc['source'],

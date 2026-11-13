@@ -17,7 +17,7 @@
 
 当前补丁还包括 `src/main.tsx`、`src/ui/App.tsx`、`src/ui/appLocation.ts`、`src/ui/ErrorBoundary.tsx`、对应 CSS Module，以及拆分后的 `src/dream/` 和 `tests/dream-frontend.test.ts`。`files/` 中的文件内容和镜像测试为当前依据；下方早期文件清单、哈希及“src 不改”描述只记录历史版本。
 
-安装器现按相对路径递归复制全部补丁。不要只复制旧的三个导出文件。核对结果、已落实与剩余项见 [`../frontend-review-20261030.md`](../frontend-review-20261030.md)。
+安装器现按相对路径递归复制全部补丁。不要只复制旧的三个导出文件。核对结果、已落实与剩余项见 [`../frontend-review-20261030.md`](../archive/handoffs/frontend-review-20261030.md)。
 
 ## 1. 文件清单
 

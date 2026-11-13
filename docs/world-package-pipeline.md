@@ -1,10 +1,10 @@
 # 由地理 + 百科生成故事包的流程（引擎无关设计）
 
-**2026-11-12 定义更新**：故事包与城镇生成的目标职责以 [故事包定义与层级](story-package-definition.md) 为准。本文保留现有单地区流水线的设计与实现记录；其中城市计划和事件编译仍按旧地区流程保留。新主入口已改为独立世界背景目标。
+**2026-11-12 定义更新**：故事包与城镇生成的目标职责以 [故事包定义与层级](story-package-definition.md) 为准。本文保留现有单地区流程的设计与实现记录；其中城市计划和事件编译仍按旧地区流程保留。新主入口已改为独立世界背景目标。
 
 新的 `background` 目标走独立背景发布路径，操作和数据关系见 [世界背景生成与发布](world-background-pipeline.md)；以下保留为旧 `legacy` 目标的说明。
 
-状态：首轮单地区版本**已实现**（2026-11-05；作者 HTTP 于 2026-11-08 接入，前端面板未接，用法见 `docs/world-package-pipeline-使用说明.md`）。已实现：WorldSource 协议与 RegionSnapshot（`app/world_source.py`）、civ-atlas 适配器（`app/world_source_civ_atlas.py`）、引擎无关流程（挑元素 / 写历史 / 定政治 / 写设定与知识点 / 校验 / 草稿 / 过期判定 / 确认编译，`app/world_package_pipeline.py`）、作者 API（`app/web.py`）、测试 `tests/test_world_package_pipeline.py` 与 `tests/test_world_package_http.py`。未实现：前端面板、多地区、Terragenesis 适配器、河网到地块映射、聚落等级推断。用户决定：
+状态：首轮单地区版本**已实现**（2026-11-05；作者 HTTP 于 2026-11-08 接入，前端面板未接，用法见 `docs/world-package-pipeline-使用说明.md`）。已实现：WorldSource 协议与 RegionSnapshot（`app/world_source.py`）、civ-atlas 适配器（`app/world_source_civ_atlas.py`）、引擎无关流程（挑资料条目 / 写历史 / 定政治 / 写设定与知识点 / 校验 / 草稿 / 过期判定 / 确认编译，`app/world_package_pipeline.py`）、作者 API（`app/web.py`）、测试 `tests/test_world_package_pipeline.py` 与 `tests/test_world_package_http.py`。未实现：前端面板、多地区、Terragenesis 适配器、河网到地块映射、聚落等级推断。用户决定：
 - 先用 civ-atlas 世界做**单一地区**测试；地图引擎以后要换源（见 `docs/terrain-source-adapter.md`，Terragenesis 冻结产品将替代 civ-atlas），所以流程不能绑死 civ-atlas。
 - 历史**严格跟模拟走**：AI 只把模拟事件写成叙述，不新增事件、王朝或战争。
 - 生成结果一律先存草稿，作者确认后才编译成故事包（与 `app/ai_drafts.py` 同口径）。
@@ -48,15 +48,15 @@ WorldSource 适配器 ──► 统一的“地区快照” RegionSnapshot（纯
 
 ## 4. 与引擎无关的各步
 
-1. **挑元素**：按世界设定（类型、`tech:` / `magic:` 档位）和 `terrains` 与元素 `game.terrains` 的交集，给出候选元素清单草稿；越档元素只提示不推荐。作者勾选后用现有元素装配锁定。
+1. **挑资料条目**：按世界设定（类型、`tech:` / `magic:` 档位）和 `terrains` 与资料条目 `game.terrains` 的交集，给出候选采用清单草稿；越档资料条目只提示不推荐。作者勾选后用现有资料选择锁定。
 2. **写历史**：输入只有 `events`。AI 输出的每段叙述必须带 `event_ids`，校验：引用的 id 都存在；段落里提到的国家、年份能在所引事件里找到。不满足就拒绝。
-3. **定政治**：每个 `polity` 匹配一个 `polities.json` 政体模板（`element_ref`），AI 补政府形式、主要势力、相互关系；种族、文化只能取已锁定的元素。
-4. **写设定与知识点**：只能引用已锁定元素与已生成历史。
-5. **校验与草稿**：复用 `world_setting.validate`、元素装配与 `world_generator` 的编译；草稿记录 `source` 身份，引擎数据变了就提示过期。
+3. **定政治**：每个 `polity` 匹配一个 `polities.json` 政体模板（`element_ref`），AI 补政府形式、主要势力、相互关系；种族、文化只能取已锁定的资料条目。
+4. **写设定与知识点**：只能引用已锁定资料条目与已生成历史。
+5. **校验与草稿**：复用 `world_setting.validate`、资料选择与 `world_generator` 的编译；草稿记录 `source` 身份，引擎数据变了就提示过期。
 
 ## 5. 首轮测试范围
 
 - 引擎：当前登记的 civ-atlas 世界 `989970517e07cd9f27ab0947cd7ad767.civsnap`。
 - 范围：一个地区、2–4 个国家。
-- 验收：快照能重复生成且结果一致；历史段落全部能追溯到事件 id；推荐元素都满足档位与产地；生成器离线模式下也能走通整条流程。
+- 验收：快照能重复生成且结果一致；历史段落全部能追溯到事件 id；推荐资料条目都满足档位与产地；生成器离线模式下也能走通整条流程。
 - 前置：全库科技 / 魔法档位补齐（`python -X utf8 -m tools.catalog_overlay --check --require-tiers` 通过）。

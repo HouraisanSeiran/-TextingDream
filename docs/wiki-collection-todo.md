@@ -1,13 +1,13 @@
 # Wiki 待收集清单
 
-本机目前打不开 Wikipedia 和 Britannica。下面这些来源在元素文件里仍标为 `access: search_only`，等能访问时统一收集。
+本机目前打不开 Wikipedia 和 Britannica。下面这些来源在资料条目文件里仍标为 `access: search_only`，等能访问时统一收集。
 收集后按 `docs/human-encyclopedia/collection-spec.md` 的写法：把来源改成 `access: read`，在 `supports` 里写明支撑了条目哪几句话，并更新条目的 `evidence_and_uncertainty`。
 
 收集时每条要回答「要核对的点」一栏里的问题；核对不到的写进 `evidence_and_uncertainty`，不要删掉问题。
 
 ## 1. 国家与政体 `docs/element-catalog/polities.json`
 
-| 元素 | 待读来源 | 要核对的点 |
+| 资料条目 | 待读来源 | 要核对的点 |
 |---|---|---|
 | polity_feudal_kingdom 封建王国 | [Monarchy](https://en.wikipedia.org/wiki/Monarchy)；[Feudalism (Britannica)](https://www.britannica.com/topic/feudalism) | 封授与效忠的典型结构；百度百科「西欧封建制度」只读到摘要，需补正文 |
 | polity_parliamentary_monarchy 议会君主国 | [Constitutional monarchy](https://en.wikipedia.org/wiki/Constitutional_monarchy) | 议会制与二元制的区别；19 世纪的典型例子 |
@@ -21,7 +21,7 @@
 
 ## 2. 种族补充 `docs/element-catalog/races-supplement.json`
 
-| 元素 | 待读来源 | 要核对的点 |
+| 资料条目 | 待读来源 | 要核对的点 |
 |---|---|---|
 | race_deepseam_delvers 深井矿居族 | [Coal mining (Britannica)](https://www.britannica.com/technology/coal-mining)；[dwarf (Britannica)](https://www.britannica.com/topic/dwarf-mythology)；[Coalworkers' pneumoconiosis](https://en.wikipedia.org/wiki/Coalworkers%27_pneumoconiosis) | 公司镇、实物工资、童工；矮人在北欧与日耳曼民间传说里的形象（百度百科落到《魔戒》义项） |
 | race_cogwork_grafted 机体嫁接者 | [Prosthesis](https://en.wikipedia.org/wiki/Prosthesis) | 19 世纪义肢的材料与水平 |
@@ -34,7 +34,7 @@
 
 ## 3. 蒸汽与近现代技术 `docs/element-catalog/steam-tech.json`
 
-| 元素 | 待读来源 | 要核对的点 |
+| 资料条目 | 待读来源 | 要核对的点 |
 |---|---|---|
 | tech_steam_locomotive 蒸汽机车 | [Locomotive](https://en.wikipedia.org/wiki/Locomotive) | 1804 特里维西克、1814/1825 斯蒂芬森的先后（百度百科前后矛盾） |
 | tech_electric_telegraph 电报 | [Electrical telegraph](https://en.wikipedia.org/wiki/Electrical_telegraph) | 1837 专利、1839 线路、海底电缆年份复核 |
@@ -51,7 +51,7 @@
 
 ## 4. 大类 `docs/element-catalog/categories.json`
 
-大类本身是对已有元素的分组，不需要来源。新增元素进大类时，若该元素有 search_only 来源，请追加到本清单。
+大类本身是对已有资料条目的分组，不需要来源。新增资料条目进大类时，若该资料条目有 search_only 来源，请追加到本清单。
 
 ## 5. 已知抓取问题（换源时注意）
 

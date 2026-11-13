@@ -2,7 +2,7 @@
 (function () {
   'use strict';
   const base = '/inner/world-package';
-  const stages = {proposed:'已创建',selected:'已选择设定',simulated:'历史与疆域已模拟',generated:'背景待审阅',published:'已发布'};
+  const stages = {proposed:'已创建',selected:'已选择资料',simulated:'历史与疆域已模拟',generated:'背景待审阅',published:'已发布'};
   const defaults = {seed:20261112,start_year:0,end_year:120,max_polities:8};
   const genres = {western_fantasy:'西幻',dark_fantasy:'黑暗奇幻',eastern_fantasy:'东方玄幻',xianxia:'仙侠',steampunk:'蒸汽朋克',historical:'历史',real_world:'现实',modern:'近现代',folk_horror:'民俗恐怖'};
   const state = {draft:null,busy:false,bundles:[],drafts:[],versions:[],approved:new Set(),request:0,defaults:{...defaults},defaultsLoaded:false};
@@ -14,8 +14,9 @@
   function select(id,choices,value) { const n=identified('select',id);for(const [key,label]of Object.entries(choices)){const o=node('option',label);o.value=key;n.append(o)}n.value=value;return n; }
   function action(id,label,fn,primary=false) { const n=identified('button',id,label,primary?'primary':undefined);n.type='button';n.onclick=()=>run(fn);return n; }
   const page=identified('section','page',undefined,'page background-generator');page.hidden=true;
-  const intro=node('div',undefined,'intro');intro.append(node('h2','世界背景与故事包'),node('p','采用地理与数据库设定，模拟历史骨架，再由 AI 补充大陆、王国与社会背景。城镇与道路由下一级系统继续生成。'));
+  const intro=node('div',undefined,'intro');intro.append(node('h2','世界背景与故事包'),node('p','故事包包括地图和基于地图的世界历史；国家、种族、制度、文化及群体关系都属于这份历史背景。选择地图与资料条目，模拟史事和疆域，再由 AI 补充背景。城镇与道路由下一级系统继续生成。'));
   const legacy=button('打开旧版城市与事件生成（兼容）',()=>TDNav.show('generator-world-legacy'));legacy.type='button';intro.append(legacy);
+  const townsLink=button('王国城镇与道路',()=>TDNav.show('kingdom-page'));townsLink.type='button';intro.append(townsLink);
   const form=identified('form','form',undefined,'card');
   const bundle=identified('select','bundle');bundle.required=true;
   const title=input('title','我的架空世界');title.maxLength=80;title.required=true;
@@ -25,10 +26,10 @@
   const genreRow=node('div',undefined,'background-genres');
   for(const [key,label]of Object.entries(genres)){const weight=input('genre-'+key,key==='western_fantasy'?3:0,'number');weight.min='0';weight.max='3';weight.step='1';genreRow.append(field(label+'（0–3）',weight))}
   const simulation=node('div',undefined,'background-config');
-  for(const [key,label]of Object.entries({seed:'文明种子',start_year:'起始年',end_year:'结束年',max_polities:'最多政体数'})){const n=input(key,defaults[key],'number');n.step='1';if(key!=='seed')n.min=key==='max_polities'?'1':'0';if(key==='max_polities')n.max='64';simulation.append(field(label,n))}
+  for(const [key,label]of Object.entries({seed:'随机种子',start_year:'起始年',end_year:'结束年',max_polities:'最多国家数'})){const n=input(key,defaults[key],'number');n.step='1';if(key!=='seed')n.min=key==='max_polities'?'1':'0';if(key==='max_polities')n.max='64';simulation.append(field(label,n))}
   const year=input('year',120,'number');year.min='0';year.step='1';simulation.append(field('背景年份',year));
   const preference=identified('textarea','preferences');preference.rows=3;preference.value='[]';preference.spellcheck=false;
-  const extra=node('details');extra.append(node('summary','政体偏好（JSON）'),preference);
+  const extra=node('details');extra.append(node('summary','国家模拟偏好（JSON）'),preference);
   const toolbar=node('div',undefined,'toolbar');toolbar.append(action('create','创建草稿',create,true),action('all','创建并生成背景',generateAll),action('reset','恢复默认参数',reset));
   form.append(field('地理与环境来源',bundle),field('世界名称',title),field('创作要求',requirements),settingRow,node('p','题材配比：0 表示不采用；1–3 表示权重。','muted'),genreRow,simulation,extra,toolbar);
   form.onsubmit=e=>{e.preventDefault();run(create)};
@@ -38,17 +39,17 @@
   const detail=node('div');detail.append(identified('h3','heading','尚未选择草稿'),identified('p','revision',undefined,'muted'),identified('div','limits'),identified('div','selection'),identified('div','map'),identified('div','kingdoms'));
   const refsDetails=node('details'),refsEditor=identified('textarea','refs');refsEditor.rows=4;refsDetails.append(node('summary','调整采用清单'),node('p','每行一个候选引用。修改采用清单后需重新模拟和补充背景。','muted'),refsEditor,action('adopt','保存采用清单',adopt),identified('pre','candidates'));
   detail.append(refsDetails,identified('div','review'));
-  const controls=node('div',undefined,'toolbar');controls.append(action('configure','应用模拟参数',configure),action('select','AI 选择设定',autoSelect),action('simulate','模拟历史与疆域',simulate),action('generate','AI 补充背景',generate));
+  const controls=node('div',undefined,'toolbar');controls.append(action('configure','应用模拟参数',configure),action('select','AI 选择资料',autoSelect),action('simulate','模拟历史与疆域',simulate),action('generate','AI 补充背景',generate));
   const editorDetails=node('details');const editor=identified('textarea','editor');editor.rows=20;editor.spellcheck=false;editorDetails.append(node('summary','编辑背景内容（JSON）'),editor);
   detail.append(controls,editorDetails,identified('div','approvals'),action('save','校验并保存编辑',save),action('publish','发布世界背景',publish,true));body.append(left,detail);
-  const published=node('section',undefined,'card');published.append(node('h3','已发布背景'),node('p','背景包可供下级城镇生成使用；尚不作为城市事件运行包启动旅程。','muted'),identified('div','published'),identified('div','town-context'));
+  const published=node('section',undefined,'card');published.append(node('h3','已发布背景'),node('p','背景包可供下级城镇生成使用；暂不能直接开始旅程。','muted'),identified('div','published'),identified('div','town-context'));
   page.append(intro,form,status,body,published);document.querySelector('main').append(page);
   const nav=button('世界背景',()=>TDNav.show('background-page'),'workspace-link');nav.id='workspace-background';nav.dataset.nav='background-page';const anchor=$('workspace-elements');if(anchor)anchor.after(nav);
   TDNav.register('background-page',{title:'世界背景与故事包',enter:()=>run(refresh)});
   TDNav.alias('generator-world',()=>({page:'background-page'}));
   TDNav.alias('world-workshop',()=>({page:'background-page'}));
   function reset(){for(const key of Object.keys(defaults))nodes[key].value=String(state.defaults[key]);nodes.year.value=String(state.defaults.end_year);nodes.preferences.value='[]';status.textContent='已恢复模拟默认参数；应用后才会更新当前草稿。'}
-  function formData(){const picked=Object.keys(genres).map(tag=>({tag,weight:Number(nodes['genre-'+tag].value)})).filter(g=>g.weight>0);if(!picked.length)throw Error('至少选择一种题材');const preferences=JSON.parse(preference.value||'[]');if(!Array.isArray(preferences))throw Error('政体偏好必须是 JSON 列表');return {target:'background',bundle_id:bundle.value,title:title.value.trim(),requirements:requirements.value,setting:{genres:picked,tech:nodes.tech.value,magic:nodes.magic.value},config:{...state.defaults,...Object.fromEntries(Object.keys(defaults).map(k=>[k,Number(nodes[k].value)]))},year:Number(year.value),polity_preferences:preferences}}
+  function formData(){const picked=Object.keys(genres).map(tag=>({tag,weight:Number(nodes['genre-'+tag].value)})).filter(g=>g.weight>0);if(!picked.length)throw Error('至少选择一种题材');const preferences=JSON.parse(preference.value||'[]');if(!Array.isArray(preferences))throw Error('国家模拟偏好必须是 JSON 列表');return {target:'background',bundle_id:bundle.value,title:title.value.trim(),requirements:requirements.value,setting:{genres:picked,tech:nodes.tech.value,magic:nodes.magic.value},config:{...state.defaults,...Object.fromEntries(Object.keys(defaults).map(k=>[k,Number(nodes[k].value)]))},year:Number(year.value),polity_preferences:preferences}}
   function draftPath(suffix=''){if(!state.draft)throw Error('先创建或选择背景草稿');return base+'/drafts/'+encodeURIComponent(state.draft.id)+suffix}
   function versionPayload(extra={}){return {expected_revision:state.draft.revision,...extra}}
   async function run(fn){if(state.busy)return;state.busy=true;updateButtons();try{await fn()}catch(error){status.textContent='未完成：'+error.message+'。当前草稿与编辑内容保留。'}finally{state.busy=false;updateButtons()}}
@@ -58,29 +59,29 @@
   async function showTownContext(id,kingdoms){nodes['town-context'].replaceChildren();if(!kingdoms.length){nodes['town-context'].textContent='该背景年份没有可供城镇生成使用的王国。';return}const chooser=node('select');chooser.setAttribute('aria-label','城镇输入所属王国');for(const k of kingdoms){const o=node('option',k.name||k.id);o.value=String(k.id);chooser.append(o)}const output=node('pre');const read=async()=>{output.textContent=JSON.stringify(await api(base+'/backgrounds/'+encodeURIComponent(id)+'/town-context?polity_id='+encodeURIComponent(chooser.value)),null,2)};chooser.onchange=()=>run(read);nodes['town-context'].append(chooser,output);await read()}
   function show(d,restore=false){state.draft=d;state.approved=new Set(d.approved_history_ids||[]);nodes.heading.textContent=d.title||d.id;nodes.revision.textContent=(stages[d.stage]||d.stage||d.status)+' · 草稿 '+d.id+' · 修订 '+d.revision;editor.value=JSON.stringify(d.content||{},null,2);if(restore){bundle.value=d.bundle_id||bundle.value;title.value=d.title||title.value;requirements.value=d.requirements||d.instruction||'';nodes.tech.value=d.setting?.tech||'medieval';nodes.magic.value=d.setting?.magic||'rare';for(const key of Object.keys(genres))nodes['genre-'+key].value=String(d.setting?.genres?.find(g=>g.tag===key)?.weight||0);const config=d.config||d.simulation_config||{};for(const key of Object.keys(defaults))nodes[key].value=String(config[key]??state.defaults[key]);year.value=String(d.year??d.background_year??config.end_year??state.defaults.end_year);preference.value=JSON.stringify(d.polity_preferences||[],null,2)}preference.value=JSON.stringify(d.polity_preferences||[],null,2);renderLimits(d);renderSelection(d);renderMap(d.simulation);renderReview(d);renderApprovals(d);updateButtons()}
   function renderLimits(d){const limits=[...(d.geography?.limitations||[]),...(d.simulation?.geography?.limitations||[]),...(d.warnings||[])];nodes.limits.replaceChildren(node('p','疆域来自粗格文明模拟；陆块不自动判定为大陆。气候与水文保留来源尺度和工程情景限制。','muted'));for(const item of limits)nodes.limits.append(node('p',typeof item==='string'?item:JSON.stringify(item),'muted'))}
-  function renderSelection(d){const selection=d.selection?.refs||d.selection?.elements?.map(e=>e.ref)||[];nodes.selection.replaceChildren(node('p','已采用设定：'+(selection.length?selection.join('、'):'尚未选择')))}
+  function renderSelection(d){const selection=d.selection?.refs||d.selection?.elements?.map(e=>e.ref)||[];nodes.selection.replaceChildren(node('p','已采用资料条目：'+(selection.length?selection.join('、'):'尚未选择')))}
   function svgElement(tag,attrs){const n=document.createElementNS('http://www.w3.org/2000/svg',tag);for(const [k,v]of Object.entries(attrs))n.setAttribute(k,String(v));return n}
   function renderMap(sim){nodes.map.replaceChildren();nodes.kingdoms.replaceChildren();if(!sim)return;const kingdoms=sim.kingdoms||[],landmasses=sim.landmasses||sim.geography?.landmasses||[];const grid=kingdoms[0]?.geometry?.grid||landmasses[0]?.geometry?.grid;if(!grid)return;const shape=grid.shape_zx;if(!Array.isArray(shape))return;const canvas=svgElement('svg',{viewBox:'0 0 '+shape[1]+' '+shape[0],role:'img','aria-label':'背景年份陆块与王国疆域'});const colors=['#9c6244','#6d7850','#677a8e','#98718a','#bc9751','#597f78','#8a7c66','#706998'];function draw(items,background){for(const [i,k]of items.entries()){const group=svgElement('g',{class:background?'background-land':'background-kingdom'});const tooltip=svgElement('title',{});tooltip.textContent=k.name||k.id;group.append(tooltip);for(const span of k.geometry?.spans||[]){const [z,x0,x1]=span;group.append(svgElement('rect',{x:x0,y:z,width:x1-x0,height:1,fill:background?'#ddd3ba':colors[i%colors.length]}))}canvas.append(group)}}draw(landmasses,true);draw(kingdoms,false);nodes.map.append(canvas,node('p','背景年份：'+(sim.background_year??'未提供')+'；色块表示王国占有的陆地格。','muted'));for(const k of kingdoms)nodes.kingdoms.append(node('p',(k.name||k.id)+' · '+k.id+' · 陆地格 '+(k.land_cells??'未提供')))}
   function renderReview(d){
     const box=nodes.review;box.replaceChildren();
-    const status=node('p',d.offline?'??????????????????????':'AI ???????????????????????','muted');box.append(status);
-    const stages=node('p',d.content?'????????????????????????????????????':d.simulation?'??????????????':'??????????????????','muted');box.append(stages);
-    if(d.polity_preferences?.length){const details=node('details');details.append(node('summary','???????????'),node('p','??????????????????????????????????????','muted'),node('pre',JSON.stringify(d.polity_preferences,null,2)));box.append(details)}
-    const provenance=node('details');provenance.append(node('summary','????????????'),node('pre',JSON.stringify({source:d.source,groups:d.geography?.groups,element_warnings:d.element_warnings||[]},null,2)));box.append(provenance);
-    if(d.simulation){const events=node('details');events.append(node('summary','??????????????'),node('pre',JSON.stringify(d.simulation.chronicle?.annals||[],null,2)));box.append(events)}
-    if(d.content){const prose=node('details');prose.open=true;prose.append(node('summary','???????'),node('p',d.content.overview));for(const item of [...(d.content.continents||[]),...(d.content.polities||[])]){prose.append(node('h4',item.name||item.id),node('p',item.summary||''));for(const key of ['institution','culture'])if(item[key])prose.append(node('p',item[key]))}for(const item of d.content.history_sections||[])prose.append(node('h4',item.title),node('p',item.text));box.append(prose)}
-    if(d.usage){const usage=node('details');usage.append(node('summary','???????'),node('pre',JSON.stringify(d.usage,null,2)));box.append(usage)}
+    const status=node('p',d.offline?'离线编辑模板：尚未由在线模型补充制度与文化。':'AI 背景草稿：请核对制度、文化和历史解释。','muted');box.append(status);
+    const stages=node('p',d.content?'当前背景已生成。修改采用清单、参数或年份后，需要重新模拟并生成背景。':d.simulation?'历史已模拟，等待补充背景。':'采用资料后，先模拟历史，再补充背景。','muted');box.append(stages);
+    if(d.polity_preferences?.length){const details=node('details');details.append(node('summary','参数依据与设计估值'),node('p','仅河流、海岸、高地和距离权重参与模拟；寿命、法术战斗和人口迁移只作背景条件。','muted'),node('pre',JSON.stringify(d.polity_preferences,null,2)));box.append(details)}
+    const provenance=node('details');provenance.append(node('summary','地图来源、缺项与资料警告'),node('pre',JSON.stringify({source:d.source,groups:d.geography?.groups,element_warnings:d.element_warnings||[]},null,2)));box.append(provenance);
+    if(d.simulation){const events=node('details');events.append(node('summary','模拟关键史事（背景年份及以前）'),node('pre',JSON.stringify(d.simulation.chronicle?.annals||[],null,2)));box.append(events)}
+    if(d.content){const prose=node('details');prose.open=true;prose.append(node('summary','阅读与审核背景'),node('p',d.content.overview));for(const item of [...(d.content.continents||[]),...(d.content.polities||[])]){prose.append(node('h4',item.name||item.id),node('p',item.summary||''));for(const key of ['institution','culture'])if(item[key])prose.append(node('p',item[key]))}for(const item of d.content.history_sections||[])prose.append(node('h4',item.title),node('p',item.text));box.append(prose)}
+    if(d.usage){const usage=node('details');usage.append(node('summary','模型调用与用量'),node('pre',JSON.stringify(d.usage,null,2)));box.append(usage)}
   }
   function renderApprovals(d){nodes.approvals.replaceChildren();const proposals=d.content?.major_history_proposals||[];if(!proposals.length)return;nodes.approvals.append(node('h4','重大新增史事：逐条确认'));for(const p of proposals){const check=node('input');check.type='checkbox';check.checked=state.approved.has(p.id);check.onchange=()=>{if(check.checked)state.approved.add(p.id);else state.approved.delete(p.id)};check.disabled=d.stage==='published';const label=node('label',undefined,'background-approval');label.append(check,node('span',(p.title||p.id)+' · '+(p.description||p.text||p.summary||JSON.stringify(p))));nodes.approvals.append(label)}}
-  async function create(){status.textContent='正在创建背景草稿…';show(await api(base+'/propose','POST',formData()));await refresh();status.textContent='背景草稿已创建；可继续选择设定和模拟历史。'}
-  async function autoSelect(){status.textContent='正在选择数据库设定…';show(await api(draftPath('/auto-select'),'POST',versionPayload({acknowledge_candidates:true})));status.textContent='设定已选择。'}
-  async function adopt(){const refs=nodes.refs.value.split(/\r?\n/).map(s=>s.trim()).filter(Boolean);show(await api(draftPath('/select'),'PUT',versionPayload({refs,acknowledge_candidates:true})));status.textContent='?????????????????????'}
+  async function create(){status.textContent='正在创建背景草稿…';show(await api(base+'/propose','POST',formData()));await refresh();status.textContent='背景草稿已创建；可继续选择资料和模拟历史。'}
+  async function autoSelect(){status.textContent='正在选择资料条目…';show(await api(draftPath('/auto-select'),'POST',versionPayload({acknowledge_candidates:true})));status.textContent='资料已选择。'}
+  async function adopt(){const refs=nodes.refs.value.split(/\r?\n/).map(s=>s.trim()).filter(Boolean);show(await api(draftPath('/select'),'PUT',versionPayload({refs,acknowledge_candidates:true})));status.textContent='采用清单已保存；请重新模拟历史并生成背景。'}
   async function configure(){const data=formData();show(await api(draftPath('/configure'),'PUT',versionPayload({config:data.config,year:data.year,polity_preferences:data.polity_preferences})));status.textContent='模拟参数已应用；旧模拟和背景内容按依赖重新生成。'}
-  async function simulate(){status.textContent='正在模拟历史与疆域…';show(await api(draftPath('/simulate'),'POST',versionPayload()));status.textContent='历史骨架与王国范围已生成。'}
+  async function simulate(){status.textContent='正在模拟历史与疆域…';show(await api(draftPath('/simulate'),'POST',versionPayload()));status.textContent='模拟史事与王国范围已生成。'}
   async function generate(){status.textContent='正在补充世界背景…';show(await api(draftPath('/generate'),'POST',versionPayload()));status.textContent='背景草稿已生成，请审阅并确认重大新增史事。';await refresh()}
   async function generateAll(){await create();await autoSelect();await simulate();await generate()}
   async function save(){const content=JSON.parse(editor.value);const d=await api(draftPath(),'PUT',versionPayload({content,approved_history_ids:[...state.approved]}));show(d);status.textContent='编辑与重大史事确认已保存。'}
-  async function publish(){await save();const d=await api(draftPath('/confirm'),'POST',versionPayload());show(d);await refresh();status.textContent='世界背景已发布，可查看下级城镇生成输入；现有运行故事包保持原状。'}
+  async function publish(){await save();const d=await api(draftPath('/confirm'),'POST',versionPayload());show(d);await refresh();status.textContent='世界背景已发布，可查看下级城镇生成输入；当前可玩包保持原状。'}
   window.TDBackgroundGenerator={refresh,show,state,renderMap,formData,reset};
   updateButtons();
 })();

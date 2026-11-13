@@ -1,6 +1,6 @@
 # 主标签与证据等级规范 catalog_overlay_v1
 
-状态：设计口径。用户决定：**每个元素只能有一个主标签，其余都是次标签**。例：白菜的主标签是「蔬菜」，次标签有 crop、food、season:winter 等。
+状态：设计口径。用户决定：**每个资料条目只能有一个主标签，其余都是次标签**。例：白菜的主标签是「蔬菜」，次标签有 crop、food、season:winter 等。
 
 ## 1. 字段
 
@@ -8,7 +8,7 @@
 |---|---|---|
 | `primary` | `tools/catalog_overlay.py` 的 `PRIMARY` 词表，恰好一个 | 引擎派生为标签 `primary:<值>` |
 | `evidence_grade` | `sourced` / `mixed` / `inferred` | 引擎派生为 `evidence:<值>` |
-| `related_add` | 元素 id 数组（可省略） | 追加到 `related_catalog_ids`，不删已有关联 |
+| `related_add` | 资料条目 id 数组（可省略） | 追加到 `related_catalog_ids`，不删已有关联 |
 
 - `primary:` 与 `evidence:` **不许手写在 tags 里**，只能经字段给出（引擎会拒绝）。这样旧 schema 的 14 组（原生 tags 被丢弃）也能拿到主标签。
 - 其他所有标签（`kind:`、`part:`、`season:` 等）都是次标签。`kind:` 保留作细分，不再承担“主类”含义。
@@ -62,8 +62,8 @@
 
 | 字段 | 取值 | 含义 |
 |---|---|---|
-| `tech_tier` | `classical` / `medieval` / `steam` / `early_modern` / `null` | 该元素**最早**能在哪一档科技的世界里出现。`null` = 不受科技约束（自然物、多数食物药材、种族、古已有之的工具与制度） |
-| `magic_tier` | `rare` / `common` / `abundant` / `null` | 该元素要求世界**至少**达到的魔法档位。`null` = 不需要魔法（现实事物、传说只作民俗记述的条目） |
+| `tech_tier` | `classical` / `medieval` / `steam` / `early_modern` / `null` | 该资料条目**最早**能在哪一档科技的世界里出现。`null` = 不受科技约束（自然物、多数食物药材、种族、古已有之的工具与制度） |
+| `magic_tier` | `rare` / `common` / `abundant` / `null` | 该资料条目要求世界**至少**达到的魔法档位。`null` = 不需要魔法（现实事物、传说只作民俗记述的条目） |
 
 判定口径：
 
@@ -90,6 +90,6 @@
 }
 ```
 
-`entries` 必须覆盖该组全部元素、不多不少。新建分区可以直接在元素里写 `primary` / `evidence_grade`，不用旁挂。
+`entries` 必须覆盖该组全部资料条目、不多不少。新建分区可以直接在资料条目里写 `primary` / `evidence_grade`，不用旁挂。
 
 校验：`python -X utf8 -m tools.catalog_overlay --check`；测试：`tests/test_catalog_overlay.py`。

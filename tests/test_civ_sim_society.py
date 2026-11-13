@@ -74,3 +74,15 @@ def test_society_can_be_disabled():
     assert "dynasty" not in kinds
     assert chronicle["people"] == []
     assert chronicle["dynasties"] == []
+
+
+def test_empty_old_snapshot_does_not_import_future_faiths():
+    chronicle = simulate(_land(), CivSimConfig(seed=3, end_year=10, society=False))
+    chronicle['snapshots'][0]['faiths'] = []
+    chronicle['faiths'] = [{'id': 'future-faith', 'name': 'Future faith',
+                           'adopted_year': 5, 'element_ref': None}]
+    assert to_history_candidate(chronicle, base_year=0)['religion']['items'] == []
+    # Legacy snapshots without the optional table may use the final table, but
+    # still cannot expose records introduced after the chosen year.
+    del chronicle['snapshots'][0]['faiths']
+    assert to_history_candidate(chronicle, base_year=0)['religion']['items'] == []

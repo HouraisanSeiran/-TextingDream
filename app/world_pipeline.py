@@ -9,6 +9,7 @@ from .atlas import TerrainKind, Atlas
 from .world_generator import CompleteBlueprint, GenerateWorldRequest, world_example, worldview_example
 from .runtime import uid, now
 from . import element_assembly
+from .token_budget import output_tokens
 
 STAGES=('粗地形','细化地形','资源分布','地缘政治实体')
 
@@ -17,7 +18,7 @@ class PipelineRequest(Strict):
     title: str = Field(min_length=1,max_length=80)
     instruction: str = Field(min_length=1,max_length=4000)
     regions: int = Field(default=3,ge=2,le=5)
-    output_tokens: int = Field(default=8000,ge=1500,le=16000)
+    output_tokens: int = Field(default=output_tokens('world_stage_0'),ge=1500,le=16384)
     # 创建草稿时固定的元素清单：空 = 取当前故事包快照；非空 = 该清单的精确子集。
     elements: list[str] = Field(default_factory=list, max_length=16)
 

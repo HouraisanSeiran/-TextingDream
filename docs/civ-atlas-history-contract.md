@@ -110,7 +110,7 @@ casnap:<content_sha256 前16>:<world_id>/<branch>/<kind>/<id>
 - 缺 `branch` / `civ_seed` / `terrain_seed` 就 `null` + `*_known=false`；**不从 recipe 指纹反推**。
 - `civ.seed` 是真字段 → 直接采用；外来 `identity['civ_seed']` **不能覆盖**数据值，只记 `caller_supplied_civ_seed_ignored`。
 
-## 9. 公开投影（`public_view`）
+## 9. 玩家可见信息（`public_view`）
 
 > **范围说明**：本节是**作者内部**的白名单投影（给作者看“如果披露会是什么样”）。
 > **运行期**的玩家侧历史走 §14.1 的 `WorldHistoryService.public_view`，它是按**逐条选中的 ref**
@@ -154,7 +154,7 @@ $py = "D:\Vantaloom\tmp\scratch\venv312\Scripts\python.exe"
 & $py -X utf8 -m pytest tests/test_civ_atlas_history.py tests/test_civ_atlas_part_refs.py tests/test_civ_atlas_import.py tests/test_world_basis.py -q
 ```
 
-当前：**44（采纳服务）+ 19（world_basis）+ 69（回放）+ 9（解码器引用）= 141 passed**（合跑 exit 0）；导入套 47 项另跑也是全绗，合计 188。
+当前：**44（采用服务）+ 19（world_basis）+ 69（回放）+ 9（解码器引用）= 141 passed**（合跑 exit 0）；导入套 47 项另跑也是全绗，合计 188。
 
 真实解析 probe（`RealExportProbeTests`，11 项）读旧代理真实导出的 `.civsnap`（只读，不拷进 `data/`）：
 路径 `D:/Vantaloom/data/temp/project-proj-1792851796-712e540fb0/scratch/real-verify-data/map_imports/2f364872015835be5a905876c6bdf5ae.civsnap`；文件不在时 `skip` 并明写「**未验真**」，不会假装通过。
@@ -169,7 +169,7 @@ $py = "D:\Vantaloom\tmp\scratch\venv312\Scripts\python.exe"
 
 ---
 
-# 14. 采纳服务：预览 → 审阅 → 快照 → 采纳
+# 14. 采用服务：预览 → 审阅 → 快照 → 采用
 
 实现：`app/world_history_store.py`（`WorldHistoryService`）　测试：`tests/test_world_history_store.py`（44 项）
 
@@ -199,9 +199,9 @@ svc.adoption_for(snapshot_id, story_id, revision=None) -> adoption | None
 1. **预览不动故事、不动会话。**`preview` 只写一行 `history_preview`；同请求键返回原草稿不新建。
 2. **全史不进 prompt。**快照受 `max_events` / `max_entities` 约束；超了用 `page` 逐页走，`total` 与 `pages` 始终精确，`truncated_by_page` 明确标出——**不静默截断**。
 3. **披露是逐条，不是按类别。**`disclosure.public_refs` 是显式 ref 列表；授权一个类别不等于放出该类全部。未选中的不得写摘要（拒收）。
-4. **采纳不动地图。**`mechanics.map` 一字不改；不默改地图 source/world，不给玩家全员历史。
+4. **采用不动地图。**`mechanics.map` 一字不改；不默改地图 source/world，不给玩家全员历史。
 
-## 14.3 采纳所写入的机械字段
+## 14.3 采用所写入的机械字段
 
 ```json
 {"mechanics": {"history": {
@@ -215,7 +215,7 @@ svc.adoption_for(snapshot_id, story_id, revision=None) -> adoption | None
 }}}
 ```
 
-快照里带 `source.content_sha256` + `source.parts[]`（每块 sum 与 `sum_verified_by`）+ `world_basis`（含 `civ_seed` 与 `civ_seed_source='civ.seed'`）——**导出的包可以导进空库，删掉原 `.civsnap` 后采纳历史仍可读**（有专项测试）。
+快照里带 `source.content_sha256` + `source.parts[]`（每块 sum 与 `sum_verified_by`）+ `world_basis`（含 `civ_seed` 与 `civ_seed_source='civ.seed'`）——**导出的包可以导进空库，删掉原 `.civsnap` 后采用历史仍可读**（有专项测试）。
 
 ## 14.4 幂等与失败
 
@@ -226,7 +226,7 @@ svc.adoption_for(snapshot_id, story_id, revision=None) -> adoption | None
 | 同快照 `adopt` 两次 | 同一 revision，`reused=true`，条目不重复，索引不重复 |
 | 已包内但丢了索引 | 下次相同请求补齐索引，**不新建 revision** |
 | `expected_story_revision` 已落后 | 拒收（不把旧历史悄悄挂到新世界上） |
-| 快照 digest 被篡改 | 采纳时拒收 |
+| 快照 digest 被篡改 | 采用时拒收 |
 | 基准年越界 / 超 `endYear` | 预览时拒收（`HistoryError`） |
 | 源哈希不符 | 预览时拒收 |
 | 两个上游城镇关联到同一本地地点 | 拒收 |
@@ -252,7 +252,7 @@ svc.adoption_for(snapshot_id, story_id, revision=None) -> adoption | None
 
 # 15. 作者页组件与路由（已接线）
 
-独立组件：`app/static/world-history.js`（自定义元素 `<world-history-panel>`，classic script + `defer`）。
+独立组件：`app/static/world-history.js`（自定义资料条目 `<world-history-panel>`，classic script + `defer`）。
 已挂在 `index.html` 的 map-tools 页侧栏里（`map-import.js` 里一块 `#map-history-block` 容器）；
 **未改任何既有地图控件、未动 play-ui.js、未改 CSS**。
 
@@ -293,7 +293,7 @@ package_history_public(story, session, audience='player')  -> [ {ref, category, 
 validate_package_history(story)                           -> True / 拒收
 ```
 
-- 玩家侧历史**只从 `story.mechanics.history` 读**：快照在采纳时已拷进包里，删掉 store 里的
+- 玩家侧历史**只从 `story.mechanics.history` 读**：快照在采用时已拷进包里，删掉 store 里的
   `history_snapshot` 行、或库里有更新的同名快照，都改不了这段旅程读到的东西。
 - `session` 只用于“这个人/这趟旅程知道什么”：`known_by` 限定受众、`location_id` 需已到访、
   `reveal` 旗需已置位。未受限的条目就是公开常识。
@@ -318,9 +318,9 @@ rows = world_history_store.package_history_public(package['story'], session)
 
 - 包已链 `mechanics.map.import_id` 时，历史快照的 `import_id` 必须相同；否则拒收（两个世界）。
 - 快照里关联的 `location_id` 必须真在当前包里存在；不按名字匹配。
-- 采纳**不改** `mechanics.map`；未链地图的故事包可以只采纳历史（不暗中绑定地图）。
+- 采用**不改** `mechanics.map`；未链地图的故事包可以只采用历史（不暗中绑定地图）。
 
-独立组件：`app/static/world-history.js`（自定义元素 `<world-history-panel>`）。
+独立组件：`app/static/world-history.js`（自定义资料条目 `<world-history-panel>`）。
 **不挂 index 脚本、不改共享 static/CSS/service/web/runtime**；插上就是：
 
 ```html
@@ -328,7 +328,7 @@ rows = world_history_store.package_history_public(package['story'], session)
 <world-history-panel preview-id="hp_…"></world-history-panel>
 ```
 
-它只做一件事：把服务端算好的草稿逐页展示，让作者按 ref 选、标公开范围、确认采纳；
+它只做一件事：把服务端算好的草稿逐页展示，让作者按 ref 选、标公开范围、确认采用；
 不自己算历史、不猜年、不改地图，也不编默认值。
 
 ## 15.1 它调的五个接口（最小形态）
@@ -346,7 +346,7 @@ rows = world_history_store.package_history_public(package['story'], session)
 1. `WorldHistoryService(runtime)` —— 生产路径不要传 `load_civ`（它是测试注入用的）。
 2. 路由里只做 `try/except ValueError → 400`，**不要**吞掉中文拒收原因；组件直接把 `detail` 原样显示。
 3. `adopt` 的 `expected_story_revision` 必须取**当前** `runtime.package()['id']`；
-   它会自己拒绝跨世界与跨版本采纳（不隐式 rebase）。
+   它会自己拒绝跨世界与跨版本采用（不隐式 rebase）。
 4. `preview` 需要一个已登记的导入记录（`sn.compat`：`store.get('map_import', id)`）。
 5. 玩家侧历史**不能**用 `civ_atlas_history.public_view`（那是作者内部白名单）；
    运行期用 `svc.public_view(snapshot_id)`，它按逐条 `disclosure.public_refs` 再筛。

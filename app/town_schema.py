@@ -238,6 +238,19 @@ class ArtisticReference(Strict):
     counterexamples: str = Field(default='', max_length=400)
 
 
+class BackgroundTownSource(Strict):
+    """Fixed author background and metric location; never legacy longitude/latitude."""
+    version_id: str = Field(min_length=1, max_length=64)
+    content_hash: str = Field(min_length=1, max_length=64)
+    polity_id: str = Field(min_length=1, max_length=64)
+    plan_id: str = Field(min_length=1, max_length=64)
+    site_id: str = Field(min_length=1, max_length=60)
+    x_m: float = Field(allow_inf_nan=False)
+    z_m: float = Field(allow_inf_nan=False)
+    background_year: int = Field(ge=0, strict=True)
+    context: dict
+
+
 class TownInput(Strict):
     story_revision: str = Field(min_length=8, max_length=64)
     seed: str = Field(pattern=r'^[A-Za-z0-9_-]{4,64}$')
@@ -261,6 +274,7 @@ class TownInput(Strict):
     imports: list[ImportDependency] = Field(default_factory=list, max_length=6)
     bindings: list[ElementBinding] = Field(default_factory=list, max_length=12)
     notes: str = Field(default='', max_length=600)
+    background: BackgroundTownSource | None = None
 
     @model_validator(mode='after')
     def consistent(self):

@@ -1,4 +1,4 @@
-# 跨题材元素候选总目录（第一批）
+# 跨题材资料条目候选总目录（第一批）
 
 > **候选总目录（2026-11-08 整理）**：「交付」指文件在库里，不是已核事实，也不会自动进入旅程。工程口径见 [../现状.md](../现状.md)。
 
@@ -9,14 +9,14 @@
 > - **候选总数 274 条**：四个虚构题材组 54 / 54 / 53 / 50（合计 **211**，ID 集合未变，无新增无删除）＋ 现实基础库 `reality-physical` **32** ＋ `reality-human` **31**。
 > - **`details` 覆盖 274/274**，七节均非空；`western` 另加可选 `parameter_dimensions`（54/54）。
 > - **`detail_status` 274/274 = `needs_detail`，`reviewed_detail` 为 0**。七节齐备 **≠** 事实已核，本轮**未升格任何一条**。
-> - **来源引用链已修复**：`society` 21 条 + `steam-horror` 38 条把正文已引的 `read` 来源补进 `source_ids`（共 59 条元素 / 74 处）；**全库仍无一条引用 `search_only` / `unavailable` 来源**。
+> - **来源引用链已修复**：`society` 21 条 + `steam-horror` 38 条把正文已引的 `read` 来源补进 `source_ids`（共 59 条资料条目 / 74 处）；**全库仍无一条引用 `search_only` / `unavailable` 来源**。
 > - **现实库两分区均已交付、均未封版**；`reality-physical` 四条点名勘误的文案层要求已补齐（重力载荷、测量术语、食物保存、饮水 WHO 定义），但**未重抓来源正文复校**，见 §11.3。
 >
 > 仍然成立的一句话：**原 211 个条目固定不变**，「`details` 已补齐」与「证据已核实」是两件事；本目录的任何统计与报告**都不是全内容认证**。
 
 本目录是一片**候选资料的集成视图**，不是任何东西的正式实现。请先把以下三条读三遍：
 
-- **不是世界正典**：没有任何一条被任何 StoryPackage 采纳。目录里存在一个元素，不等于任何一个世界里有它。
+- **不是世界正典**：没有任何一条被任何 StoryPackage 采用。目录里存在一个资料条目，不等于任何一个世界里有它。
 - **不是数据库**：没有建表、没有 schema 约束、没有迁移。`shared-themes.json` 只是人写出来的聚类清单，不被代码读取。
 - **不是可执行规则**：`requires` / `excludes` / `introduction_limits` 都是自然语言条件，引擎不认它们，也不会因为写了就生效。
 
@@ -52,11 +52,11 @@
 
 ## 二、统计（本环节实测，六组逐项重算）
 
-> 本节数字**不是照抄各组自述**，而是本环节直接读取六个 JSON 逐项累加的实测值。统计口径：元素数= `elements` 数组长度；来源数= `sources` 数组长度；`details` 覆盖= `details` 对象内七个必需节均非空。
+> 本节数字**不是照抄各组自述**，而是本环节直接读取六个 JSON 逐项累加的实测值。统计口径：资料条目数= `elements` 数组长度；来源数= `sources` 数组长度；`details` 覆盖= `details` 对象内七个必需节均非空。
 
 ### 2.1 按组（含现实两分区）
 
-| 组 | 元素 | 来源 | 已读正文 `read` | 仅检索摘要 `search_only` | 抓取失败 `unavailable` | `details` 七节 | `needs_detail` | `reviewed_detail` |
+| 组 | 资料条目 | 来源 | 已读正文 `read` | 仅检索摘要 `search_only` | 抓取失败 `unavailable` | `details` 七节 | `needs_detail` | `reviewed_detail` |
 |---|---|---|---|---|---|---|---|---|
 | eastern | 54 | 17 | 16 | 0 | 1 | 54/54 | 54 | 0 |
 | western | 54 | 34 | 33 | 1 | 0 | 54/54（+ 可选 `parameter_dimensions`） | 54 | 0 |
@@ -71,9 +71,9 @@
 
 - **element id 全库唯一**：274 个 id，无重复、无跨组撞 id；`name` 也无重名。
 - **`source_ids` 无悬空引用**：274 条的 `source_ids` 全部能在本文件 `sources` 内找到。
-- **非 `read` 来源零引用**：全库没有任何一条元素把 `search_only` / `unavailable` 来源写进 `source_ids`（此结论比旧基线时更严）。
-- ⚠ **「未被引用」不等于「未出现」，且本轮已修复元素侧部分**：
-  - 第二轮收尾已将 `society`（21 条）与 `steam-horror`（38 条）正文里已明确引用的 **15 个 `read` 来源**补进对应元素的 `source_ids`（共 74 处，详见 §10.2）。
+- **非 `read` 来源零引用**：全库没有任何一条资料条目把 `search_only` / `unavailable` 来源写进 `source_ids`（此结论比旧基线时更严）。
+- ⚠ **「未被引用」不等于「未出现」，且本轮已修复资料条目侧部分**：
+  - 第二轮收尾已将 `society`（21 条）与 `steam-horror`（38 条）正文里已明确引用的 **15 个 `read` 来源**补进对应资料条目的 `source_ids`（共 74 处，详见 §10.2）。
   - **仍未被任何 `source_ids` 引用的来源为 28 个**：`unavailable` 21 个（本就不应被引）+ `search_only` 1 个（`western_src_britannica_inquisition`）+ **`read` 6 个**（`western_src_britannica_germanic_mythology_detail`、`society_src_31`、`sh_src_31`、`sh_src_41`、`sh_src_42`、`reality_human_src_50`）——这 6 个是真正的「登记了但从未使用」，**待主审定口径**（补引还是从 sources 删）。
 
 ### 2.2 `details` 体量（小节字数，不含 `summary` 与扫描字段）
@@ -109,7 +109,7 @@
 
 ### 2.4 按八题材标签覆盖
 
-**这些数字会交叉，不能相加。** 一条元素可同时标两个题材（甚至跨组概念重叠），八个数加起来是 329，比四组总量 211 大 118。现实两分区统一标 `real_world`，不参与本表。
+**这些数字会交叉，不能相加。** 一条资料条目可同时标两个题材（甚至跨组概念重叠），八个数加起来是 329，比四组总量 211 大 118。现实两分区统一标 `real_world`，不参与本表。
 
 | 题材标签 | 所属组 | 可适用条数 | 该组总数 | 其中跨标签共用 |
 |---|---|---|---|---|
@@ -253,10 +253,10 @@
 
 ## 四、跨组共享母题
 
-`shared-themes.json` 里有 **25 个**主题，共引用 **103 条**不同元素（**108 个成员位**）。每个主题都带 `relation: shared_motif_or_distinct_variants`、`shared_points`（共同点）与 `non_merge_reason`（为何不可合并）。
+`shared-themes.json` 里有 **25 个**主题，共引用 **103 条**不同资料条目（**108 个成员位**）。每个主题都带 `relation: shared_motif_or_distinct_variants`、`shared_points`（共同点）与 `non_merge_reason`（为何不可合并）。
 
 > **数据范围必须读清（避免误读）**：这 25 个主题**只聚类原四个虚构题材组的 211 条候选中的 103 条**；而**整个目录是 274 条**（含 `reality-physical` 32 与 `reality-human` 31）。所以：
-> - 108 个成员位 / 103 条不同元素是“主题成员数”，**不是目录存量**，也不是覆盖率。
+> - 108 个成员位 / 103 条不同资料条目是“主题成员数”，**不是目录存量**，也不是覆盖率。
 > - 主题**完全不覆盖** `reality` 两分区（共 63 条）；四组内还有 **108 条**（eastern 29 / western 28 / society 28 / steam-horror 23）未入任何主题。
 > - `shared-themes.json` 的 `purpose` / `counting_note` 字段仍只写“四组共 211 条”，**该文件本轮未修改**（引用验证全过）；本节的说明以本段为准。
 
@@ -265,7 +265,7 @@
 - 25 个主题 id 无重复；108 个成员位指向的 id **全部存在**，零悬空。
 - 每个主题声明的 `groups` 字段与实际成员所属组**逐主题一致**，零不符。
 - 同一主题内无重复成员；25 个主题 `relation` 统一，`shared_points` 与 `non_merge_reason` 无缺失。
-- 103 条被引元素中，**98 条只属 1 个主题、5 条属 2 个主题**（`society_craft_guild`、`society_noble_precedence`、`western_kingdom_monarchy`、`western_secret_cult`、`eastern_dao_lineage`）——与旧的“5 条重叠”记录完全一致。
+- 103 条被引资料条目中，**98 条只属 1 个主题、5 条属 2 个主题**（`society_craft_guild`、`society_noble_precedence`、`western_kingdom_monarchy`、`western_secret_cult`、`eastern_dao_lineage`）——与旧的“5 条重叠”记录完全一致。
 - 按组分布：society 25、western 26、eastern 25、steam-horror 27（合 103）。主题规模：3 人 **5 个**、4 人 **9 个**、5 人 **10 个**、7 人 **1 个**。
 
 按参与组数分布：2 组交集 **4 个**、3 组交集 **18 个**、四组全包 **3 个**（`theme_master_apprentice`、`theme_rite_festival_calendar`、`theme_money_credit_debt`）。真正的全题材母题很少，这本身就是个结论。
@@ -278,7 +278,7 @@
 |---|---|
 | 宗门／宗教 | `theme_monastic_order_rule`、`theme_school_sect_college`、`theme_heresy_orthodoxy`、`theme_divination_medium`、`theme_rite_festival_calendar` |
 | 社会制度 | `theme_guild_charter_craft`、`theme_kin_lineage_clan`、`theme_inheritance_succession`、`theme_status_stratification`、`theme_urban_autonomy`、`theme_register_census`、`theme_standardization_regulation` |
-| 普遍重要元素 | `theme_master_apprentice`、`theme_oath_contract_enforcement`、`theme_money_credit_debt`、`theme_labour_collective`、`theme_plague_collective_death`、`theme_burial_improper_dead`、`theme_restless_dead`、`theme_taboo_forbidden_lore`、`theme_secret_society`、`theme_monster_frontier`、`theme_kingship_court_patronage` |
+| 普遍重要资料条目 | `theme_master_apprentice`、`theme_oath_contract_enforcement`、`theme_money_credit_debt`、`theme_labour_collective`、`theme_plague_collective_death`、`theme_burial_improper_dead`、`theme_restless_dead`、`theme_taboo_forbidden_lore`、`theme_secret_society`、`theme_monster_frontier`、`theme_kingship_court_patronage` |
 | 科技背景 | `theme_mining_extraction`、`theme_energy_supply_chain`、`theme_standardization_regulation` |
 
 **两个刻意保留的「防误合并」主题**：
@@ -305,7 +305,7 @@
 
 **因此不能宣称「所有来源已由主审逐一核实」。** 两条 Britannica 抽核失败是复核侧的网络超时，它既不能证明采集代理读错，也不能证明它读对——只能记作**未复核**。
 
-⚠ **引用链完整性（本轮第二轮已修复）**：全库 `source_ids` 零悬空、且无一条元素引用非 `read` 来源（严格）。`society` 21 条与 `steam-horror` 38 条正文里已明确引用的 15 个 `read` 来源，已在第二轮补进对应 `source_ids`（共 74 处），**元素级引用链缺口现为 0**。仅剩 6 个 `read` 来源**两端都未使用**（`western_src_britannica_germanic_mythology_detail`、`society_src_31`、`sh_src_31`、`sh_src_41`、`sh_src_42`、`reality_human_src_50`），需主审定口径。
+⚠ **引用链完整性（本轮第二轮已修复）**：全库 `source_ids` 零悬空、且无一条资料条目引用非 `read` 来源（严格）。`society` 21 条与 `steam-horror` 38 条正文里已明确引用的 15 个 `read` 来源，已在第二轮补进对应 `source_ids`（共 74 处），**资料条目级引用链缺口现为 0**。仅剩 6 个 `read` 来源**两端都未使用**（`western_src_britannica_germanic_mythology_detail`、`society_src_31`、`sh_src_31`、`sh_src_41`、`sh_src_42`、`reality_human_src_50`），需主审定口径。
 
 ### 5.2 分组弱项
 
@@ -313,8 +313,8 @@
 |---|---|
 | eastern | **来源层级偏低**：17 条来源全部是百科／问答类汇编（无学术专著、无一手道经原文）。`eastern_src_alchemy` 词条极短，只够界定术语。`eastern_src_zhihu_realm_discuss` 为 `unavailable`，未被引用。**`eastern_thunder_ritual` 仍是证据链最弱的一条**：已补读神霄派词条（`eastern_src_shenxiao`）可支撑「历史存在＋内修—外用结构」，但**雷部神将谱系与具体仪轨仍无一手文献**，条目自述仍标待补。另有 3 条在 `evidence_note` 里仍自述缺口：雷法仪轨、丹药重金属中毒病理（`eastern_mortal_plague`）、香火会社组织形态（`eastern_pilgrimage_festival`）；`eastern_mortal_city` 已补明代里甲词条作制度参考（限明代，不可照搬）。 |
 | western | 34 条来源、33 `read`。**精灵已补专页**：`western_elf` 现有 Britannica elf 专条全读，`western_fey_folk` 也有 fairy 专条，两条的 `evidence_note` 已声明不再借矮人／哥布林旁证——**但证据内容本身未审**（见 `detail-gaps.md`）。`western_src_britannica_inquisition`（`search_only`）**已从所有 `source_ids` 里移出**（零引用）。`western_src_britannica_germanic_mythology_detail`（`read`）则**零引用且正文也未提**（登记了没用，属反向小缺口）。**`dark_fantasy` 仍 54/54 宽标签**，但新增的 `genre_relevance` 把它拆开了（core 22 / common 31 / compatible_only 1）。 |
-| society | 31 条来源、30 `read`、1 `unavailable`（`society_src_26`，零引用）。**城市自治来源局限仍在**（`society_src_08` 只讲英国 city status，`society_src_09` 只有书目介绍），细节属本项目归纳。**现代制度多中国当代法条**（劳动合同、社保、警察、义务教育、居委会），地域性极强，不能代表全世界。农奴制在西欧／俄国／旧西藏差别极大，不可混用。⚠ 另有 4 个 `read` 级来源（`_27` 汉萨同盟、`_28` 萨利克法典、`_29` 封建等级、`_30` 社会救助）此前只在正文被引、未进 `source_ids`；**第二轮已补进 21 条元素的 `source_ids`（23 处）**，仍未被使用的是 `_26`（`unavailable`）与 `_31`（临时约法，`read`，两端都未用）。 |
-| steam-horror | 46 条来源、41 `read`、**5 `unavailable`**（`_28`、`_43`—`_46`，均零引用）。**仍缺 folk horror 专门类型学**（BFI 专题页、英文维基、期刊页均失败），因此依旧不写「民俗恐怖必须包含 X」这类论断。⚠ 引用链方面，11 个 `read` 来源（`_29`—`_40` 中的钢铁/魔法/幽灵/仪式/恐怖影视等 Britannica 条目）**已在第二轮补进 38 条元素的 `source_ids`（51 处）**；仍未被使用的是 `_28`/`_43`—`_46`（均 `unavailable`）与 `_31`（Bessemer）、`_41`（Horror film）、`_42`（Fantasy）三条 `read`（两端都未出现）。 |
+| society | 31 条来源、30 `read`、1 `unavailable`（`society_src_26`，零引用）。**城市自治来源局限仍在**（`society_src_08` 只讲英国 city status，`society_src_09` 只有书目介绍），细节属本项目归纳。**现代制度多中国当代法条**（劳动合同、社保、警察、义务教育、居委会），地域性极强，不能代表全世界。农奴制在西欧／俄国／旧西藏差别极大，不可混用。⚠ 另有 4 个 `read` 级来源（`_27` 汉萨同盟、`_28` 萨利克法典、`_29` 封建等级、`_30` 社会救助）此前只在正文被引、未进 `source_ids`；**第二轮已补进 21 条资料条目的 `source_ids`（23 处）**，仍未被使用的是 `_26`（`unavailable`）与 `_31`（临时约法，`read`，两端都未用）。 |
+| steam-horror | 46 条来源、41 `read`、**5 `unavailable`**（`_28`、`_43`—`_46`，均零引用）。**仍缺 folk horror 专门类型学**（BFI 专题页、英文维基、期刊页均失败），因此依旧不写「民俗恐怖必须包含 X」这类论断。⚠ 引用链方面，11 个 `read` 来源（`_29`—`_40` 中的钢铁/魔法/幽灵/仪式/恐怖影视等 Britannica 条目）**已在第二轮补进 38 条资料条目的 `source_ids`（51 处）**；仍未被使用的是 `_28`/`_43`—`_46`（均 `unavailable`）与 `_31`（Bessemer）、`_41`（Horror film）、`_42`（Fantasy）三条 `read`（两端都未出现）。 |
 | reality-physical | 36 条来源、33 `read`、3 `unavailable`（`_33`/`_34`/`_37`，零引用）。已过一轮主审返修（见 `review-notes.md` §8 与本文 §11.3）。剩余弱项：强度类来源只支撑定性结论，**不提供可作工程使用的承载/摩擦/吸程数值**；`rp_src_09`、`rp_src_23` 仅得导言段；`rp_src_16`、`rp_src_22` 为短条目；`rp_src_36`（JCGM 目录页）确认未读正文。 |
 | reality-human | 55 条来源、44 `read`、**11 `unavailable`**（均零引用）。自述有 **5 条为导言/摘要级**（`_01`/`_21`/`_34`/`_35`/`_50`），不能支撑全文细节；`_50` 为 FAO 目录页且未被引用。 |
 
@@ -330,17 +330,17 @@
 
 按现行规范（`collection-spec.md` 「最新决策」节）：
 
-- 开局前由作者／玩家选择元素与**允许的发展方向**，展开依赖、做兼容检查，**固定版本**与必要详细内容，形成**世界元素清单**。
-- **开局后不得从全局元素库检索并新增未绑定类型。**
-- 预绑定**不要求开局公开全部内容**：已存在但未知的对象、尚未实现的技术、未掌握的能力都可列为**潜在元素**。
+- 开局前由作者／玩家选择资料条目与**允许的发展方向**，展开依赖、做兼容检查，**固定版本**与必要详细内容，形成**世界采用清单**。
+- **开局后不得从全局设定资料库检索并新增未绑定类型。**
+- 预绑定**不要求开局公开全部内容**：已存在但未知的对象、尚未实现的技术、未掌握的能力都可列为**潜在资料条目**。
 - 预绑定 ≠ 已发现 ≠ 已普及。
-- 禁止的是「运行中重新挑选外部元素」，**不禁止**读取开局固定的本地状态、完整资料与对话证据（这些是长篇一致性的必要上下文）。
+- 禁止的是「运行中重新挑选外部资料条目」，**不禁止**读取开局固定的本地状态、完整资料与对话证据（这些是长篇一致性的必要上下文）。
 
 ⚠ 这是**待实现设计**，当前引擎尚未实现锁定清单。本目录只记录口径。
 
 ### 6.2 三类状态必须分开
 
-现行规范重新定义了 `entry_modes` 的含义：它们**不是三个允许运行时跳库导入的入口**，而是描述**已预绑定元素在世界内的显现方式**：
+现行规范重新定义了 `entry_modes` 的含义：它们**不是三个允许运行时跳库导入的入口**，而是描述**已预绑定资料条目在世界内的显现方式**：
 
 | `entry_modes` 值 | 含义（新规范口径） |
 |---|---|
@@ -355,18 +355,18 @@
 | 状态 | 含义 | 是否触碰外部库 |
 |---|---|---|
 | 存在于绑定设定 | 世界设定里成立，可能无人知晓 | 否（已预绑定） |
-| 被发明／被发现／被解锁 | 世界内状态变化：有人造出来了、有人找到了 | 否（只改预绑定元素的世界内状态） |
-| 新增元素 | 往世界里加一个开局没绑的东西 | **不允许静默发生** |
+| 被发明／被发现／被解锁 | 世界内状态变化：有人造出来了、有人找到了 | 否（只改预绑定资料条目的世界内状态） |
+| 新增资料条目 | 往世界里加一个开局没绑的东西 | **不允许静默发生** |
 
 ### 6.3 玩家提案的边界
 
-- 玩家可以在**开局时**主动选择外题材候选元素（跨度大的审核更严）。
+- 玩家可以在**开局时**主动选择外题材候选资料条目（跨度大的审核更严）。
 - 中途提案只在**预绑定许可范围内**做本地判定：范围内按既有条件（材料、知识、工艺、能源、成本、制度）判定可行性。
 - **超范围**的处理是明确的：**不静默补库**；提示超出本局范围，由作者另建版本及新旅程／显式分支后采用。
 
 ## 七、默认适用 vs 可迁入：五级阶梯
 
-「设定了这个元素的世界能不能用它」和「能不能把它搬进来」是两个问题。本目录只给后者一个**建议阶梯**，不实现兼容性算法、不打分、不做自动判定。
+「设定了这个资料条目的世界能不能用它」和「能不能把它搬进来」是两个问题。本目录只给后者一个**建议阶梯**，不实现兼容性算法、不打分、不做自动判定。
 
 | 级别 | 名称 | 含义 | 例（蒸汽动力进入一个历史向世界） |
 |---|---|---|---|
@@ -399,7 +399,7 @@
 
 | 项 | reality-physical | reality-human |
 |---|---|---|
-| 元素 | 32 | 31 |
+| 资料条目 | 32 | 31 |
 | 来源 | 36（`read` 33 / `unavailable` 3 / `search_only` 0） | 55（`read` 44 / `unavailable` 11 / `search_only` 0） |
 | 题材标签 | 全部 `real_world`（无其他标签） | 全部 `real_world`（无其他标签） |
 | 类别分布 | place 9、power 8、item 6、economy 5、institution 3、conflict 1 | institution 15、organization 8、economy 6、place 1、power 1 |
@@ -486,7 +486,7 @@
 | `source_ids` 悬空 / 重复 / 非 read | ✅ 0 / 0 / 0（第二轮新增的 74 处加入项亦 100% 为 `read`） |
 | `related_catalog_ids` 悬空 / 自指 / 重复 | ✅ 0 / 0 / 0（210 个引用） |
 | `shared-themes.json` 引用真实性 | ✅ 25 主题 / 108 成员位 / 103 条，零悬空，groups 逐主题一致 |
-| 各组 `.md` 是否覆盖本组全部元素 id | ✅ 六组 100% 覆盖，零漏项 |
+| 各组 `.md` 是否覆盖本组全部资料条目 id | ✅ 六组 100% 覆盖，零漏项 |
 | 本文与 `detail-gaps` / `review-notes` 里的 id 引用 | ✅ 零悬空（除 `eastern_fantasy` / `western_fantasy` 两个题材标签属于合法 genre 值） |
 | 文件编码 | ✅ 六个 json + 五个文档均 **UTF-8 无 BOM**，LF 换行未被改动 |
 
@@ -494,10 +494,10 @@
 
 **本轮（第二轮收尾）已做的勘误（授权范围内，不改动无关内容）：**
 
-1. **引用链补齐**：`society` 与 `steam-horror` 两组正文/`evidence_note` 里明确点名引用的**有效 `read` 来源**，已逐条取并集、去重后同步进对应元素的 `source_ids`，既有来源全部保留。具体数量：
-   - `society`：**21 条元素**、共 **23 处** source_ids 新增、涉 **11 个**不同来源（`_27`/`_28`/`_29`/`_30`/`_01`/`_05`/`_13`/`_14`/`_18`/`_20`/`_24`）。
-   - `steam-horror`：**38 条元素**、共 **51 处**新增、涉 **20 个**不同来源（`sh_src_29/30/32/33/34/35/36/37/38/39/40/05/06/07/08/11/17/24/25/…`）。
-   - 合计 **59 条元素 / 74 处新增**；**无一条 `search_only` 或 `unavailable` 来源被加入**（逐条校验：加入项 100% 为 `read`，且均在本文 `sources` 登记）。
+1. **引用链补齐**：`society` 与 `steam-horror` 两组正文/`evidence_note` 里明确点名引用的**有效 `read` 来源**，已逐条取并集、去重后同步进对应资料条目的 `source_ids`，既有来源全部保留。具体数量：
+   - `society`：**21 条资料条目**、共 **23 处** source_ids 新增、涉 **11 个**不同来源（`_27`/`_28`/`_29`/`_30`/`_01`/`_05`/`_13`/`_14`/`_18`/`_20`/`_24`）。
+   - `steam-horror`：**38 条资料条目**、共 **51 处**新增、涉 **20 个**不同来源（`sh_src_29/30/32/33/34/35/36/37/38/39/40/05/06/07/08/11/17/24/25/…`）。
+   - 合计 **59 条资料条目 / 74 处新增**；**无一条 `search_only` 或 `unavailable` 来源被加入**（逐条校验：加入项 100% 为 `read`，且均在本文 `sources` 登记）。
 2. **`western_secret_cult.evidence_note` 改写**：明确区分「旧版 `search_only` 的 Britannica Inquisition 条目（`western_src_britannica_inquisition`，已移出本条 `source_ids`、不支撑任何细节）」与「新增的西班牙宗教裁判所条目（`western_src_britannica_spanish_inquisition`，本次已读取正文）」，不再笼统写成「裁判所条目仅读到导言」。
 3. **`reality_phys_drinking_water_sanitation.definition` 补全 WHO 定义**：写明 safely managed 需**同时**成立（经改善水源 / 位于处所内 / 需要时可得 / 且不受粪便及优先关注化学物质污染），不再把「无污染」省略。也同步改写其 `evidence_and_uncertainty`，明记“本轮未重抓来源正文复校，不得声称已全改正”。
 4. **`reality_phys_measurement_precision`**：`background` 与 `exceptions` 补明重复性条件 / 中间精密度条件 / 再现性条件三层的区别与“不可互相代替”，并注明依据是本条已有 `rp_src_35`（VIM3 2.15）`supports` 字段的已有记载，**未重新抓取来源正文，不标事实审核通过**。
@@ -517,26 +517,26 @@
 |---|---|
 | 自述证据缺口（A 类） | `eastern_thunder_ritual`、`eastern_mortal_plague`、`eastern_mortal_city`、`eastern_pilgrimage_festival`、`western_elf`、`western_fey_folk`、`western_inquisition_heresy`、`western_secret_cult` |
 | 强断言候选（§11.2 窄口径） | **11 句，涉 9 个 id**（`eastern_immortal_register` 与 `western_usury_finance` 各 2 句）：`eastern_dongtian_fudi`、`eastern_immortal_register`、`eastern_outer_realm`、`western_witchcraft`、`western_usury_finance`、`society_land_survey_tax`、`society_tax_farm`、`reality_human_weights_measures_local`、`reality_human_pilgrimage_route` |
-| 引用链缺口 | ~~已补齐~~：`society` 21 条 + `steam-horror` 38 条已在第二轮同步进 `source_ids`（详见 §10.2）；**剩余 0 条元素级缺口** |
+| 引用链缺口 | ~~已补齐~~：`society` 21 条 + `steam-horror` 38 条已在第二轮同步进 `source_ids`（详见 §10.2）；**剩余 0 条资料条目级缺口** |
 | 本地现实中已点名返修、待复验（§11.3） | `reality_phys_gravity_load`、`reality_phys_measurement_precision`、`reality_phys_food_preservation`、`reality_phys_drinking_water_sanitation` |
 | 纯设计归纳、需核“自选规则＋反例” | `western_magic_regulation`、`western_mage_college`、`western_underworld_guild`、`western_monster_hunter` |
 | 文字与字段不一致 | ~~已修~~：`western_secret_cult` 的 `evidence_note` 已在第二轮改写（见 §10.2） |
 
 ## 十一、过强绝对词扫描（只记候选，不等同于错）
 
-> 这是结构层要求里的一项（`跨字段矛盾与绝对断言扫描`）。方法：对每条元素的 `summary` / `background` / `introduction_limits` / `requires` / `excludes` / `variants` / `story_roles` / `evidence_note` 与 `details` 七节做词面扫描，再用句内否定词做一次去噪。
+> 这是结构层要求里的一项（`跨字段矛盾与绝对断言扫描`）。方法：对每条资料条目的 `summary` / `background` / `introduction_limits` / `requires` / `excludes` / `variants` / `story_roles` / `evidence_note` 与 `details` 七节做词面扫描，再用句内否定词做一次去噪。
 
 ### 11.1 扫描结果
 
 - 词面原始命中（含被否定、含“不等于 / 不得 / 不应”等正确用法）：`等于` 类 154、`完全` 143、`任何` 136、`所有` 111、`普遍` 63、`必然` 59、`唯一` 41、`等同于` 37、`一定` 26、`绝对` 20、`一律` 20、`毫无` 13、`均` 9、`总是` 8、`无条件` 7、`不可能` 5、`从不` 5、`永远` 4、`始终` 3、`全都` 1。
-- 去噪后（含强断言词的句子、且句内无否定/限定词）**命中元素 145 条**，分布：eastern 27、western 25、society 32、steam-horror 17、reality-physical 20、reality-human 24。
+- 去噪后（含强断言词的句子、且句内无否定/限定词）**命中资料条目 145 条**，分布：eastern 27、western 25、society 32、steam-horror 17、reality-physical 20、reality-human 24。
 - 再进行一次**窄口径**扫描（只看 `summary` / `background` / `definition` / `story_consequences` / `introduction_limits` 这五个“事实陈述位”，且句内无任何限定或否定词）→ **只剩 11 句**，列在 §11.2。
 
 ### 11.2 窄口径 11 句 / **9 个 id**（真正值得主审看一眼的）
 
 > 句数与 id 数不同，因为其中 2 个条目各有 2 句命中：`eastern_immortal_register`（#2、#3）、`western_usury_finance`（#6、#7）。分布：eastern 4 句 / 3 id、western 3 句 / 2 id、society 2 句 / 2 id、reality-human 2 句 / 2 id、steam-horror 0、reality-physical 0。
 
-| # | 元素 | 字段 | 原句要点 | 为何列在这 |
+| # | 资料条目 | 字段 | 原句要点 | 为何列在这 |
 |---|---|---|---|---|
 | 1 | `eastern_dongtian_fudi` | background | 「道门、地方官与民间香火会社**必然**围绕圣地收益发生摩擦」 | 三方摩擦是合理推测，但不是必然 |
 | 2 | `eastern_immortal_register` | background | 「名册**必然**被争夺、伪造与查封」 | 同上；可能有低冲突社会 |
