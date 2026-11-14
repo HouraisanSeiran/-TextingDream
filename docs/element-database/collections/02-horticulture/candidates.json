@@ -1,0 +1,233 @@
+{
+  "schema_version": 1,
+  "status": "candidate",
+  "topic": "02",
+  "batch": "01",
+  "title": "园艺与经济作物：葡萄园地、灌溉阶段与日本鲜食采收（补已有条目）",
+  "review_status": "needs_review",
+  "detail_status": "needs_detail",
+  "note": "候选材料。不入库、不改 produce.json。数字只来自本批读过的 FAO 正文。论文摘要未使用。除草剂用法不收录。",
+  "reused_ids": ["produce/produce_grape"],
+  "new_elements": [],
+  "sources": [
+    {
+      "id": "c02_fao_grape_japan",
+      "title": "6. Grape production in Japan",
+      "url": "https://www.fao.org/4/x6897e/x6897e07.htm",
+      "access": "read",
+      "accessed": "2026-11-13",
+      "supports": "坡度、地下水位、年均降水、定植季节、短梢留芽、黏土夏季灌水、露地采收历、巨峰糖酸比与若干品种产量",
+      "rights_note": "FAO 网页。只写自撰归纳，不复制段落。"
+    },
+    {
+      "id": "c02_fao_grape_rdi",
+      "title": "Regulated deficit irrigation as a water management strategy in Vitis vinifera production",
+      "url": "https://www.fao.org/4/y3655e/y3655e12.htm",
+      "access": "read",
+      "accessed": "2026-11-13",
+      "supports": "葡萄缺水在萌芽、花序形成、坐果后膨大、转色前后的不同后果；转色前调亏灌溉抑制新梢",
+      "rights_note": "FAO 网页。只写自撰归纳。文内引用的期刊论文未打开。"
+    }
+  ],
+  "parameters": [
+    {
+      "subject_id": "produce/produce_grape",
+      "name": "site_slope_japan",
+      "meaning": "日本章建议的果园坡度",
+      "unit": "degree",
+      "range": "小于 5",
+      "scale": "选址",
+      "time_basis": "建园",
+      "background": "日本鲜食葡萄产区选址，不是全球葡萄上限",
+      "nature": "fact",
+      "source_id": "c02_fao_grape_japan",
+      "confidence": "high",
+      "pending": "陡坡产区是否存在，本页未讨论"
+    },
+    {
+      "subject_id": "produce/produce_grape",
+      "name": "watertable_japan",
+      "meaning": "日本章建议的地下水位",
+      "unit": "m",
+      "range": "低于 1",
+      "scale": "选址",
+      "time_basis": "建园",
+      "background": "同上",
+      "nature": "fact",
+      "source_id": "c02_fao_grape_japan",
+      "confidence": "high",
+      "pending": null
+    },
+    {
+      "subject_id": "produce/produce_grape",
+      "name": "annual_rainfall_japan",
+      "meaning": "日本章给出的适宜年均降水",
+      "unit": "mm/year",
+      "range": "约 1000，且采收季降水宜少",
+      "scale": "年",
+      "time_basis": "全年，采收季单独要求偏少",
+      "background": "与旧条目「冬季约 −7°C 可冻死」不是同一条件，两条并存",
+      "nature": "fact",
+      "source_id": "c02_fao_grape_japan",
+      "confidence": "medium",
+      "pending": "不是地中海雨养酒葡萄的降水门槛"
+    },
+    {
+      "subject_id": "produce/produce_grape",
+      "name": "planting_season_japan",
+      "meaning": "定植季节",
+      "unit": "calendar",
+      "range": "春植 3 月初；秋植 10 月初至 11 月底。秋植长势更好",
+      "scale": "一次定植",
+      "time_basis": "当地历法",
+      "background": "日本",
+      "nature": "fact",
+      "source_id": "c02_fao_grape_japan",
+      "confidence": "high",
+      "pending": null
+    },
+    {
+      "subject_id": "produce/produce_grape",
+      "name": "spur_buds_japan_west",
+      "meaning": "短梢修剪留芽数",
+      "unit": "bud",
+      "range": "每条侧梢留 2–3 芽",
+      "scale": "冬季修剪",
+      "time_basis": "一年一次",
+      "background": "日本西部短梢；东部用长梢，留芽更多",
+      "nature": "fact",
+      "source_id": "c02_fao_grape_japan",
+      "confidence": "high",
+      "pending": "不能写成全球葡萄的修剪定额"
+    },
+    {
+      "subject_id": "produce/produce_grape",
+      "name": "summer_irrigation_clay_japan",
+      "meaning": "黏土果园夏季单次灌水量",
+      "unit": "mm",
+      "range": "约 30",
+      "scale": "一次灌水",
+      "time_basis": "夏季",
+      "background": "沙土间隔更短。全年次数未给",
+      "nature": "fact",
+      "source_id": "c02_fao_grape_japan",
+      "confidence": "medium",
+      "pending": "不是全生育期耗水"
+    },
+    {
+      "subject_id": "produce/produce_grape",
+      "name": "soil_pf_japan",
+      "meaning": "日本章建议维持的土壤 pF",
+      "unit": "pF",
+      "range": "2.3–2.5",
+      "scale": "根区监测",
+      "time_basis": "灌溉期间",
+      "background": "用 pF 计，不是降水量",
+      "nature": "fact",
+      "source_id": "c02_fao_grape_japan",
+      "confidence": "medium",
+      "pending": null
+    },
+    {
+      "subject_id": "produce/produce_grape",
+      "name": "open_field_harvest_calendar_japan",
+      "meaning": "日本露地鲜食葡萄的采收窗口",
+      "unit": "calendar",
+      "range": "早熟 7 月末或 8 月初；中熟 8 月末至 10 月；晚熟可到 12 月末。加温可提前到 4–8 月",
+      "scale": "品种熟期",
+      "time_basis": "一年一季露地；加温棚另计",
+      "background": "日本。不能当成地中海或华北历法",
+      "nature": "fact",
+      "source_id": "c02_fao_grape_japan",
+      "confidence": "high",
+      "pending": null
+    },
+    {
+      "subject_id": "produce/produce_grape",
+      "name": "kyoho_harvest_index",
+      "meaning": "巨峰鲜食采收的糖酸比示例",
+      "unit": "sugar_to_acid",
+      "range": "30–40，约在 8 月末",
+      "scale": "品种",
+      "time_basis": "采收当时",
+      "background": "日本露地巨峰的指标之一，另看外观和色泽",
+      "nature": "fact",
+      "source_id": "c02_fao_grape_japan",
+      "confidence": "medium",
+      "pending": "不是所有品种的采收标准"
+    },
+    {
+      "subject_id": "produce/produce_grape",
+      "name": "table_grape_yield_japan",
+      "meaning": "日本章给出的若干鲜食品种平均产量",
+      "unit": "t/ha",
+      "range": "巨峰露地 12–15，可溶性固形物 17–18，酒石酸 0.8–0.9。玫瑰露 15–18；康可早 24；马斯卡特贝利 A 23；新玫瑰 20–24",
+      "scale": "公顷、一季",
+      "time_basis": "采收季",
+      "background": "现代日本鲜食栽培。挂果过多会降低糖度和着色",
+      "nature": "fact",
+      "source_id": "c02_fao_grape_japan",
+      "confidence": "medium",
+      "pending": "不能回写成历史单产或酿酒葡萄单产"
+    },
+    {
+      "subject_id": "produce/produce_grape",
+      "name": "water_stress_by_stage",
+      "meaning": "缺水落在不同阶段的后果",
+      "unit": "stage_label",
+      "range": "萌芽到早期新梢：缺水可不均匀萌芽并削弱新梢，严重时影响花序和坐果。坐果后膨大早期：限制细胞分裂与膨大，果粒变小。滞后生长期相对不敏感，但新梢会停。转色前控水可抑制新梢；转色后大冠层再控水，胁迫更重。采收后干旱会伤根，影响下一年",
+      "scale": "植株阶段",
+      "time_basis": "当季及下一年花芽",
+      "background": "FAO 调亏灌溉章。华盛顿州六年试验的章节结论：转色前控水能抑制新梢，产量并非每次都显著下降。未给出百分比",
+      "nature": "fact",
+      "source_id": "c02_fao_grape_rdi",
+      "confidence": "medium",
+      "pending": "无减产百分比。文内期刊论文未打开"
+    }
+  ],
+  "relations": [
+    {
+      "from": "produce/produce_grape",
+      "relation": "variant_of",
+      "to": "produce/produce_grape",
+      "direction": "鲜食、酿酒、制干是同一元素下的用途变体",
+      "condition": "采收标准不同。本批只补了日本鲜食窗口",
+      "quantity": null,
+      "note": "不另建 ID"
+    },
+    {
+      "from": "produce/produce_grape",
+      "relation": "inputs",
+      "to": null,
+      "direction": "灌溉水是投入",
+      "condition": "日本章：萌芽前与浆果膨大需水多，成熟期限制供水。调亏灌溉章：坐果前不宜缺水",
+      "quantity": "黏土夏季约 30 mm/次；全年合计未知",
+      "note": "待补节点：灌溉水。不新建水元素"
+    },
+    {
+      "from": "produce/produce_grape",
+      "relation": "outputs",
+      "to": null,
+      "direction": "鲜食果或酿酒原料，由用途决定",
+      "condition": "酿酒葡萄的糖度与蜡粉标准在旧条目，本批未重核",
+      "quantity": null,
+      "note": "待补：酿酒或制干的加工节点"
+    },
+    {
+      "from": "produce/produce_grape",
+      "relation": "requires_facility",
+      "to": null,
+      "direction": "日本鲜食常用水平棚架",
+      "condition": "防台风、改善透光。现有 tools 无棚架 ID",
+      "quantity": null,
+      "note": "待补节点：棚架"
+    }
+  ],
+  "open_questions": [
+    "苹果及其他果树、香料、糖、茶、棉尚未做同级参数。",
+    "酿酒葡萄单产和出酒率未读。",
+    "疏果整穗的工时未知。",
+    "铜币价格未知。",
+    "结果年龄与砧木未在本批重核。"
+  ]
+}

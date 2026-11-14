@@ -6,7 +6,7 @@
 
 已有分区先查重并补全，不把下表当作“现有库完全没有这些内容”。事实数据、历史参考、原创设定和游戏平衡提案分别记录；本清单不是对任何数值的确认。
 
-采集从专题 01 开工，不改本表的范围。第一刀补已有小麦条目的发育与雨养水分，材料在 [collections/01-grain/01.md](collections/01-grain/01.md)。第二刀（2026-11-13）补水稻阶段与水分、以及小麦播量正文，材料在 [collections/01-grain/02.md](collections/01-grain/02.md)。其余专题仍未收集。D&D 任务卡仍待领取，本采集线不开工该卡。
+采集从专题 01 开工，不改本表的范围。对照现有库的缺口与下一刀见 [gap-matrix.md](gap-matrix.md)。第一刀补已有小麦条目的发育与雨养水分，材料在 [collections/01-grain/01.md](collections/01-grain/01.md)。第二刀（2026-11-13）补水稻阶段与水分、以及小麦播量正文，材料在 [collections/01-grain/02.md](collections/01-grain/02.md)。专题 02 第一刀补葡萄园地、灌溉阶段和日本鲜食采收，材料在 [collections/02-horticulture/01.md](collections/02-horticulture/01.md)。03–60 按够用量级补齐，材料在 [collections/fill-03-60.md](collections/fill-03-60.md)，不追论文精度。D&D 任务卡仍待领取，本采集线不开工该卡。
 
 另有一张最小切片任务卡：[collections/dnd-gap-task.md](collections/dnd-gap-task.md)（2026-11-12，待领取）。它不重开专题 32、35–38、40、42、43、46 的全量采集，只要求可施放仪式、四个可玩种族、一场最小冒险三块候选与规则样例。领取前读该卡第五节边界：不改库、不改引擎、不升格审核状态。
 
